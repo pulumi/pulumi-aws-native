@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? SmsAuthenticationMessage;
         public readonly Outputs.UserPoolSmsConfiguration? SmsConfiguration;
         public readonly string? SmsVerificationMessage;
+        public readonly Outputs.UserPoolUserAttributeUpdateSettings? UserAttributeUpdateSettings;
         public readonly Outputs.UserPoolAddOns? UserPoolAddOns;
         public readonly string? UserPoolName;
         public readonly object? UserPoolTags;
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Cognito
 
             string? smsVerificationMessage,
 
+            Outputs.UserPoolUserAttributeUpdateSettings? userAttributeUpdateSettings,
+
             Outputs.UserPoolAddOns? userPoolAddOns,
 
             string? userPoolName,
@@ -150,6 +153,7 @@ namespace Pulumi.AwsNative.Cognito
             SmsAuthenticationMessage = smsAuthenticationMessage;
             SmsConfiguration = smsConfiguration;
             SmsVerificationMessage = smsVerificationMessage;
+            UserAttributeUpdateSettings = userAttributeUpdateSettings;
             UserPoolAddOns = userPoolAddOns;
             UserPoolName = userPoolName;
             UserPoolTags = userPoolTags;

@@ -25,23 +25,25 @@ type LookupCampaignArgs struct {
 }
 
 type LookupCampaignResult struct {
-	AdditionalTreatments []CampaignWriteTreatmentResource `pulumi:"additionalTreatments"`
-	Arn                  *string                          `pulumi:"arn"`
-	CampaignHook         *CampaignHook                    `pulumi:"campaignHook"`
-	CampaignId           *string                          `pulumi:"campaignId"`
-	Description          *string                          `pulumi:"description"`
-	HoldoutPercent       *int                             `pulumi:"holdoutPercent"`
-	IsPaused             *bool                            `pulumi:"isPaused"`
-	Limits               *CampaignLimits                  `pulumi:"limits"`
-	MessageConfiguration *CampaignMessageConfiguration    `pulumi:"messageConfiguration"`
-	Name                 *string                          `pulumi:"name"`
-	Priority             *int                             `pulumi:"priority"`
-	Schedule             *CampaignSchedule                `pulumi:"schedule"`
-	SegmentId            *string                          `pulumi:"segmentId"`
-	SegmentVersion       *int                             `pulumi:"segmentVersion"`
-	Tags                 interface{}                      `pulumi:"tags"`
-	TreatmentDescription *string                          `pulumi:"treatmentDescription"`
-	TreatmentName        *string                          `pulumi:"treatmentName"`
+	AdditionalTreatments        []CampaignWriteTreatmentResource     `pulumi:"additionalTreatments"`
+	Arn                         *string                              `pulumi:"arn"`
+	CampaignHook                *CampaignHook                        `pulumi:"campaignHook"`
+	CampaignId                  *string                              `pulumi:"campaignId"`
+	CustomDeliveryConfiguration *CampaignCustomDeliveryConfiguration `pulumi:"customDeliveryConfiguration"`
+	Description                 *string                              `pulumi:"description"`
+	HoldoutPercent              *int                                 `pulumi:"holdoutPercent"`
+	IsPaused                    *bool                                `pulumi:"isPaused"`
+	Limits                      *CampaignLimits                      `pulumi:"limits"`
+	MessageConfiguration        *CampaignMessageConfiguration        `pulumi:"messageConfiguration"`
+	Name                        *string                              `pulumi:"name"`
+	Priority                    *int                                 `pulumi:"priority"`
+	Schedule                    *CampaignSchedule                    `pulumi:"schedule"`
+	SegmentId                   *string                              `pulumi:"segmentId"`
+	SegmentVersion              *int                                 `pulumi:"segmentVersion"`
+	Tags                        interface{}                          `pulumi:"tags"`
+	TemplateConfiguration       *CampaignTemplateConfiguration       `pulumi:"templateConfiguration"`
+	TreatmentDescription        *string                              `pulumi:"treatmentDescription"`
+	TreatmentName               *string                              `pulumi:"treatmentName"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -95,6 +97,12 @@ func (o LookupCampaignResultOutput) CampaignId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.CampaignId }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupCampaignResultOutput) CustomDeliveryConfiguration() CampaignCustomDeliveryConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupCampaignResult) *CampaignCustomDeliveryConfiguration {
+		return v.CustomDeliveryConfiguration
+	}).(CampaignCustomDeliveryConfigurationPtrOutput)
+}
+
 func (o LookupCampaignResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -137,6 +145,10 @@ func (o LookupCampaignResultOutput) SegmentVersion() pulumi.IntPtrOutput {
 
 func (o LookupCampaignResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCampaignResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o LookupCampaignResultOutput) TemplateConfiguration() CampaignTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupCampaignResult) *CampaignTemplateConfiguration { return v.TemplateConfiguration }).(CampaignTemplateConfigurationPtrOutput)
 }
 
 func (o LookupCampaignResultOutput) TreatmentDescription() pulumi.StringPtrOutput {

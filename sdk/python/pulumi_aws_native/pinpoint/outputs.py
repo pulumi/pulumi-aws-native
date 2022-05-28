@@ -14,6 +14,8 @@ __all__ = [
     'ApplicationSettingsCampaignHook',
     'ApplicationSettingsLimits',
     'ApplicationSettingsQuietTime',
+    'CampaignCustomDeliveryConfiguration',
+    'CampaignCustomMessage',
     'CampaignDefaultButtonConfiguration',
     'CampaignEmailMessage',
     'CampaignEventDimensions',
@@ -32,6 +34,8 @@ __all__ = [
     'CampaignSchedule',
     'CampaignSetDimension',
     'CampaignSmsMessage',
+    'CampaignTemplate',
+    'CampaignTemplateConfiguration',
     'CampaignWriteTreatmentResource',
     'InAppTemplateBodyConfig',
     'InAppTemplateButtonConfig',
@@ -174,6 +178,59 @@ class ApplicationSettingsQuietTime(dict):
     @pulumi.getter
     def start(self) -> str:
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class CampaignCustomDeliveryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryUri":
+            suggest = "delivery_uri"
+        elif key == "endpointTypes":
+            suggest = "endpoint_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignCustomDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignCustomDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignCustomDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_uri: Optional[str] = None,
+                 endpoint_types: Optional[Sequence[str]] = None):
+        if delivery_uri is not None:
+            pulumi.set(__self__, "delivery_uri", delivery_uri)
+        if endpoint_types is not None:
+            pulumi.set(__self__, "endpoint_types", endpoint_types)
+
+    @property
+    @pulumi.getter(name="deliveryUri")
+    def delivery_uri(self) -> Optional[str]:
+        return pulumi.get(self, "delivery_uri")
+
+    @property
+    @pulumi.getter(name="endpointTypes")
+    def endpoint_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "endpoint_types")
+
+
+@pulumi.output_type
+class CampaignCustomMessage(dict):
+    def __init__(__self__, *,
+                 data: Optional[str] = None):
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        return pulumi.get(self, "data")
 
 
 @pulumi.output_type
@@ -921,6 +978,8 @@ class CampaignMessageConfiguration(dict):
             suggest = "a_pns_message"
         elif key == "baiduMessage":
             suggest = "baidu_message"
+        elif key == "customMessage":
+            suggest = "custom_message"
         elif key == "defaultMessage":
             suggest = "default_message"
         elif key == "emailMessage":
@@ -947,6 +1006,7 @@ class CampaignMessageConfiguration(dict):
                  a_dm_message: Optional['outputs.CampaignMessage'] = None,
                  a_pns_message: Optional['outputs.CampaignMessage'] = None,
                  baidu_message: Optional['outputs.CampaignMessage'] = None,
+                 custom_message: Optional['outputs.CampaignCustomMessage'] = None,
                  default_message: Optional['outputs.CampaignMessage'] = None,
                  email_message: Optional['outputs.CampaignEmailMessage'] = None,
                  g_cm_message: Optional['outputs.CampaignMessage'] = None,
@@ -958,6 +1018,8 @@ class CampaignMessageConfiguration(dict):
             pulumi.set(__self__, "a_pns_message", a_pns_message)
         if baidu_message is not None:
             pulumi.set(__self__, "baidu_message", baidu_message)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
         if default_message is not None:
             pulumi.set(__self__, "default_message", default_message)
         if email_message is not None:
@@ -983,6 +1045,11 @@ class CampaignMessageConfiguration(dict):
     @pulumi.getter(name="baiduMessage")
     def baidu_message(self) -> Optional['outputs.CampaignMessage']:
         return pulumi.get(self, "baidu_message")
+
+    @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional['outputs.CampaignCustomMessage']:
+        return pulumi.get(self, "custom_message")
 
     @property
     @pulumi.getter(name="defaultMessage")
@@ -1272,14 +1339,99 @@ class CampaignSmsMessage(dict):
 
 
 @pulumi.output_type
+class CampaignTemplate(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class CampaignTemplateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailTemplate":
+            suggest = "email_template"
+        elif key == "pushTemplate":
+            suggest = "push_template"
+        elif key == "sMSTemplate":
+            suggest = "s_ms_template"
+        elif key == "voiceTemplate":
+            suggest = "voice_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignTemplateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignTemplateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignTemplateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_template: Optional['outputs.CampaignTemplate'] = None,
+                 push_template: Optional['outputs.CampaignTemplate'] = None,
+                 s_ms_template: Optional['outputs.CampaignTemplate'] = None,
+                 voice_template: Optional['outputs.CampaignTemplate'] = None):
+        if email_template is not None:
+            pulumi.set(__self__, "email_template", email_template)
+        if push_template is not None:
+            pulumi.set(__self__, "push_template", push_template)
+        if s_ms_template is not None:
+            pulumi.set(__self__, "s_ms_template", s_ms_template)
+        if voice_template is not None:
+            pulumi.set(__self__, "voice_template", voice_template)
+
+    @property
+    @pulumi.getter(name="emailTemplate")
+    def email_template(self) -> Optional['outputs.CampaignTemplate']:
+        return pulumi.get(self, "email_template")
+
+    @property
+    @pulumi.getter(name="pushTemplate")
+    def push_template(self) -> Optional['outputs.CampaignTemplate']:
+        return pulumi.get(self, "push_template")
+
+    @property
+    @pulumi.getter(name="sMSTemplate")
+    def s_ms_template(self) -> Optional['outputs.CampaignTemplate']:
+        return pulumi.get(self, "s_ms_template")
+
+    @property
+    @pulumi.getter(name="voiceTemplate")
+    def voice_template(self) -> Optional['outputs.CampaignTemplate']:
+        return pulumi.get(self, "voice_template")
+
+
+@pulumi.output_type
 class CampaignWriteTreatmentResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "messageConfiguration":
+        if key == "customDeliveryConfiguration":
+            suggest = "custom_delivery_configuration"
+        elif key == "messageConfiguration":
             suggest = "message_configuration"
         elif key == "sizePercent":
             suggest = "size_percent"
+        elif key == "templateConfiguration":
+            suggest = "template_configuration"
         elif key == "treatmentDescription":
             suggest = "treatment_description"
         elif key == "treatmentName":
@@ -1297,21 +1449,32 @@ class CampaignWriteTreatmentResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_delivery_configuration: Optional['outputs.CampaignCustomDeliveryConfiguration'] = None,
                  message_configuration: Optional['outputs.CampaignMessageConfiguration'] = None,
                  schedule: Optional['outputs.CampaignSchedule'] = None,
                  size_percent: Optional[int] = None,
+                 template_configuration: Optional['outputs.CampaignTemplateConfiguration'] = None,
                  treatment_description: Optional[str] = None,
                  treatment_name: Optional[str] = None):
+        if custom_delivery_configuration is not None:
+            pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
         if message_configuration is not None:
             pulumi.set(__self__, "message_configuration", message_configuration)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if size_percent is not None:
             pulumi.set(__self__, "size_percent", size_percent)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if treatment_description is not None:
             pulumi.set(__self__, "treatment_description", treatment_description)
         if treatment_name is not None:
             pulumi.set(__self__, "treatment_name", treatment_name)
+
+    @property
+    @pulumi.getter(name="customDeliveryConfiguration")
+    def custom_delivery_configuration(self) -> Optional['outputs.CampaignCustomDeliveryConfiguration']:
+        return pulumi.get(self, "custom_delivery_configuration")
 
     @property
     @pulumi.getter(name="messageConfiguration")
@@ -1327,6 +1490,11 @@ class CampaignWriteTreatmentResource(dict):
     @pulumi.getter(name="sizePercent")
     def size_percent(self) -> Optional[int]:
         return pulumi.get(self, "size_percent")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.CampaignTemplateConfiguration']:
+        return pulumi.get(self, "template_configuration")
 
     @property
     @pulumi.getter(name="treatmentDescription")

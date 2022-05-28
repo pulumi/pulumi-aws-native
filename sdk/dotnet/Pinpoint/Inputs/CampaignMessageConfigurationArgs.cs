@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("baiduMessage")]
         public Input<Inputs.CampaignMessageArgs>? BaiduMessage { get; set; }
 
+        [Input("customMessage")]
+        public Input<Inputs.CampaignCustomMessageArgs>? CustomMessage { get; set; }
+
         [Input("defaultMessage")]
         public Input<Inputs.CampaignMessageArgs>? DefaultMessage { get; set; }
 

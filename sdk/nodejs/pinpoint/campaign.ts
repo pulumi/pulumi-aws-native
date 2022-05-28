@@ -43,17 +43,19 @@ export class Campaign extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly campaignHook!: pulumi.Output<outputs.pinpoint.CampaignHook | undefined>;
     public /*out*/ readonly campaignId!: pulumi.Output<string>;
+    public readonly customDeliveryConfiguration!: pulumi.Output<outputs.pinpoint.CampaignCustomDeliveryConfiguration | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly holdoutPercent!: pulumi.Output<number | undefined>;
     public readonly isPaused!: pulumi.Output<boolean | undefined>;
     public readonly limits!: pulumi.Output<outputs.pinpoint.CampaignLimits | undefined>;
-    public readonly messageConfiguration!: pulumi.Output<outputs.pinpoint.CampaignMessageConfiguration>;
+    public readonly messageConfiguration!: pulumi.Output<outputs.pinpoint.CampaignMessageConfiguration | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly schedule!: pulumi.Output<outputs.pinpoint.CampaignSchedule>;
     public readonly segmentId!: pulumi.Output<string>;
     public readonly segmentVersion!: pulumi.Output<number | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly templateConfiguration!: pulumi.Output<outputs.pinpoint.CampaignTemplateConfiguration | undefined>;
     public readonly treatmentDescription!: pulumi.Output<string | undefined>;
     public readonly treatmentName!: pulumi.Output<string | undefined>;
 
@@ -73,9 +75,6 @@ export class Campaign extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.messageConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'messageConfiguration'");
-            }
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
@@ -85,6 +84,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["additionalTreatments"] = args ? args.additionalTreatments : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["campaignHook"] = args ? args.campaignHook : undefined;
+            resourceInputs["customDeliveryConfiguration"] = args ? args.customDeliveryConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["holdoutPercent"] = args ? args.holdoutPercent : undefined;
             resourceInputs["isPaused"] = args ? args.isPaused : undefined;
@@ -96,6 +96,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["segmentId"] = args ? args.segmentId : undefined;
             resourceInputs["segmentVersion"] = args ? args.segmentVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateConfiguration"] = args ? args.templateConfiguration : undefined;
             resourceInputs["treatmentDescription"] = args ? args.treatmentDescription : undefined;
             resourceInputs["treatmentName"] = args ? args.treatmentName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -106,6 +107,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["campaignHook"] = undefined /*out*/;
             resourceInputs["campaignId"] = undefined /*out*/;
+            resourceInputs["customDeliveryConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["holdoutPercent"] = undefined /*out*/;
             resourceInputs["isPaused"] = undefined /*out*/;
@@ -117,6 +119,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["segmentId"] = undefined /*out*/;
             resourceInputs["segmentVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateConfiguration"] = undefined /*out*/;
             resourceInputs["treatmentDescription"] = undefined /*out*/;
             resourceInputs["treatmentName"] = undefined /*out*/;
         }
@@ -132,17 +135,19 @@ export interface CampaignArgs {
     additionalTreatments?: pulumi.Input<pulumi.Input<inputs.pinpoint.CampaignWriteTreatmentResourceArgs>[]>;
     applicationId: pulumi.Input<string>;
     campaignHook?: pulumi.Input<inputs.pinpoint.CampaignHookArgs>;
+    customDeliveryConfiguration?: pulumi.Input<inputs.pinpoint.CampaignCustomDeliveryConfigurationArgs>;
     description?: pulumi.Input<string>;
     holdoutPercent?: pulumi.Input<number>;
     isPaused?: pulumi.Input<boolean>;
     limits?: pulumi.Input<inputs.pinpoint.CampaignLimitsArgs>;
-    messageConfiguration: pulumi.Input<inputs.pinpoint.CampaignMessageConfigurationArgs>;
+    messageConfiguration?: pulumi.Input<inputs.pinpoint.CampaignMessageConfigurationArgs>;
     name?: pulumi.Input<string>;
     priority?: pulumi.Input<number>;
     schedule: pulumi.Input<inputs.pinpoint.CampaignScheduleArgs>;
     segmentId: pulumi.Input<string>;
     segmentVersion?: pulumi.Input<number>;
     tags?: any;
+    templateConfiguration?: pulumi.Input<inputs.pinpoint.CampaignTemplateConfigurationArgs>;
     treatmentDescription?: pulumi.Input<string>;
     treatmentName?: pulumi.Input<string>;
 }

@@ -41,6 +41,7 @@ __all__ = [
     'UserPoolSmsConfigurationArgs',
     'UserPoolStringAttributeConstraintsArgs',
     'UserPoolUserAttributeTypeArgs',
+    'UserPoolUserAttributeUpdateSettingsArgs',
     'UserPoolUsernameConfigurationArgs',
     'UserPoolVerificationMessageTemplateArgs',
 ]
@@ -1358,6 +1359,22 @@ class UserPoolUserAttributeTypeArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class UserPoolUserAttributeUpdateSettingsArgs:
+    def __init__(__self__, *,
+                 attributes_require_verification_before_update: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "attributes_require_verification_before_update", attributes_require_verification_before_update)
+
+    @property
+    @pulumi.getter(name="attributesRequireVerificationBeforeUpdate")
+    def attributes_require_verification_before_update(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "attributes_require_verification_before_update")
+
+    @attributes_require_verification_before_update.setter
+    def attributes_require_verification_before_update(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "attributes_require_verification_before_update", value)
 
 
 @pulumi.input_type

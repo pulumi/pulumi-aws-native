@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("creditSpecification")]
         public Input<Inputs.LaunchTemplateCreditSpecificationArgs>? CreditSpecification { get; set; }
 
+        [Input("disableApiStop")]
+        public Input<bool>? DisableApiStop { get; set; }
+
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
 

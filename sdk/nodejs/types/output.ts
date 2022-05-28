@@ -6203,6 +6203,10 @@ export namespace cognito {
         value?: string;
     }
 
+    export interface UserPoolUserAttributeUpdateSettings {
+        attributesRequireVerificationBeforeUpdate: string[];
+    }
+
     export interface UserPoolUsernameConfiguration {
         caseSensitive: boolean;
     }
@@ -9616,6 +9620,7 @@ export namespace ec2 {
         capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
         cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
         creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
+        disableApiStop?: boolean;
         disableApiTermination?: boolean;
         ebsOptimized?: boolean;
         elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
@@ -14874,7 +14879,7 @@ export namespace imagebuilder {
          */
         snapshotId?: string;
         /**
-         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         * For GP3 volumes only - The throughput in MiB/s that the volume supports.
          */
         throughput?: number;
         /**
@@ -14989,6 +14994,10 @@ export namespace imagebuilder {
         amiDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationAmiDistributionConfiguration;
         containerDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationContainerDistributionConfiguration;
         /**
+         * The Windows faster-launching configurations to use for AMI distribution.
+         */
+        fastLaunchConfigurations?: outputs.imagebuilder.DistributionConfigurationFastLaunchConfiguration[];
+        /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
         launchTemplateConfigurations?: outputs.imagebuilder.DistributionConfigurationLaunchTemplateConfiguration[];
@@ -15000,6 +15009,60 @@ export namespace imagebuilder {
          * region
          */
         region: string;
+    }
+
+    /**
+     * The Windows faster-launching configuration to use for AMI distribution.
+     */
+    export interface DistributionConfigurationFastLaunchConfiguration {
+        /**
+         * The owner account ID for the fast-launch enabled Windows AMI.
+         */
+        accountId?: string;
+        /**
+         * A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
+         */
+        enabled?: boolean;
+        /**
+         * The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+         */
+        launchTemplate?: outputs.imagebuilder.DistributionConfigurationFastLaunchLaunchTemplateSpecification;
+        /**
+         * The maximum number of parallel instances that are launched for creating resources.
+         */
+        maxParallelLaunches?: number;
+        /**
+         * Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+         */
+        snapshotConfiguration?: outputs.imagebuilder.DistributionConfigurationFastLaunchSnapshotConfiguration;
+    }
+
+    /**
+     * The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+     */
+    export interface DistributionConfigurationFastLaunchLaunchTemplateSpecification {
+        /**
+         * The ID of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateId?: string;
+        /**
+         * The name of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateName?: string;
+        /**
+         * The version of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateVersion?: string;
+    }
+
+    /**
+     * Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+     */
+    export interface DistributionConfigurationFastLaunchSnapshotConfiguration {
+        /**
+         * The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+         */
+        targetResourceCount?: number;
     }
 
     /**
@@ -15151,7 +15214,7 @@ export namespace imagebuilder {
          */
         snapshotId?: string;
         /**
-         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         * For GP3 volumes only - The throughput in MiB/s that the volume supports.
          */
         throughput?: number;
         /**
@@ -24973,6 +25036,15 @@ export namespace pinpoint {
         start: string;
     }
 
+    export interface CampaignCustomDeliveryConfiguration {
+        deliveryUri?: string;
+        endpointTypes?: string[];
+    }
+
+    export interface CampaignCustomMessage {
+        data?: string;
+    }
+
     export interface CampaignDefaultButtonConfiguration {
         backgroundColor?: string;
         borderRadius?: number;
@@ -25067,6 +25139,7 @@ export namespace pinpoint {
         aDMMessage?: outputs.pinpoint.CampaignMessage;
         aPNSMessage?: outputs.pinpoint.CampaignMessage;
         baiduMessage?: outputs.pinpoint.CampaignMessage;
+        customMessage?: outputs.pinpoint.CampaignCustomMessage;
         defaultMessage?: outputs.pinpoint.CampaignMessage;
         emailMessage?: outputs.pinpoint.CampaignEmailMessage;
         gCMMessage?: outputs.pinpoint.CampaignMessage;
@@ -25108,10 +25181,24 @@ export namespace pinpoint {
         templateId?: string;
     }
 
+    export interface CampaignTemplate {
+        name?: string;
+        version?: string;
+    }
+
+    export interface CampaignTemplateConfiguration {
+        emailTemplate?: outputs.pinpoint.CampaignTemplate;
+        pushTemplate?: outputs.pinpoint.CampaignTemplate;
+        sMSTemplate?: outputs.pinpoint.CampaignTemplate;
+        voiceTemplate?: outputs.pinpoint.CampaignTemplate;
+    }
+
     export interface CampaignWriteTreatmentResource {
+        customDeliveryConfiguration?: outputs.pinpoint.CampaignCustomDeliveryConfiguration;
         messageConfiguration?: outputs.pinpoint.CampaignMessageConfiguration;
         schedule?: outputs.pinpoint.CampaignSchedule;
         sizePercent?: number;
+        templateConfiguration?: outputs.pinpoint.CampaignTemplateConfiguration;
         treatmentDescription?: string;
         treatmentName?: string;
     }

@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("campaignId")]
         public Output<string> CampaignId { get; private set; } = null!;
 
+        [Output("customDeliveryConfiguration")]
+        public Output<Outputs.CampaignCustomDeliveryConfiguration?> CustomDeliveryConfiguration { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -44,7 +47,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Output<Outputs.CampaignLimits?> Limits { get; private set; } = null!;
 
         [Output("messageConfiguration")]
-        public Output<Outputs.CampaignMessageConfiguration> MessageConfiguration { get; private set; } = null!;
+        public Output<Outputs.CampaignMessageConfiguration?> MessageConfiguration { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -63,6 +66,9 @@ namespace Pulumi.AwsNative.Pinpoint
 
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
+
+        [Output("templateConfiguration")]
+        public Output<Outputs.CampaignTemplateConfiguration?> TemplateConfiguration { get; private set; } = null!;
 
         [Output("treatmentDescription")]
         public Output<string?> TreatmentDescription { get; private set; } = null!;
@@ -129,6 +135,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("campaignHook")]
         public Input<Inputs.CampaignHookArgs>? CampaignHook { get; set; }
 
+        [Input("customDeliveryConfiguration")]
+        public Input<Inputs.CampaignCustomDeliveryConfigurationArgs>? CustomDeliveryConfiguration { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -141,8 +150,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("limits")]
         public Input<Inputs.CampaignLimitsArgs>? Limits { get; set; }
 
-        [Input("messageConfiguration", required: true)]
-        public Input<Inputs.CampaignMessageConfigurationArgs> MessageConfiguration { get; set; } = null!;
+        [Input("messageConfiguration")]
+        public Input<Inputs.CampaignMessageConfigurationArgs>? MessageConfiguration { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -161,6 +170,9 @@ namespace Pulumi.AwsNative.Pinpoint
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }
+
+        [Input("templateConfiguration")]
+        public Input<Inputs.CampaignTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
 
         [Input("treatmentDescription")]
         public Input<string>? TreatmentDescription { get; set; }

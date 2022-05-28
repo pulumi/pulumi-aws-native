@@ -6819,6 +6819,10 @@ export namespace cognito {
         value?: pulumi.Input<string>;
     }
 
+    export interface UserPoolUserAttributeUpdateSettingsArgs {
+        attributesRequireVerificationBeforeUpdate: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface UserPoolUsernameConfigurationArgs {
         caseSensitive: pulumi.Input<boolean>;
     }
@@ -9513,6 +9517,7 @@ export namespace ec2 {
         capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecificationArgs>;
         cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptionsArgs>;
         creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecificationArgs>;
+        disableApiStop?: pulumi.Input<boolean>;
         disableApiTermination?: pulumi.Input<boolean>;
         ebsOptimized?: pulumi.Input<boolean>;
         elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecificationArgs>[]>;
@@ -14574,7 +14579,7 @@ export namespace imagebuilder {
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         * For GP3 volumes only - The throughput in MiB/s that the volume supports.
          */
         throughput?: pulumi.Input<number>;
         /**
@@ -14689,6 +14694,10 @@ export namespace imagebuilder {
         amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationAmiDistributionConfigurationArgs>;
         containerDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationContainerDistributionConfigurationArgs>;
         /**
+         * The Windows faster-launching configurations to use for AMI distribution.
+         */
+        fastLaunchConfigurations?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationFastLaunchConfigurationArgs>[]>;
+        /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
         launchTemplateConfigurations?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationLaunchTemplateConfigurationArgs>[]>;
@@ -14700,6 +14709,60 @@ export namespace imagebuilder {
          * region
          */
         region: pulumi.Input<string>;
+    }
+
+    /**
+     * The Windows faster-launching configuration to use for AMI distribution.
+     */
+    export interface DistributionConfigurationFastLaunchConfigurationArgs {
+        /**
+         * The owner account ID for the fast-launch enabled Windows AMI.
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+         */
+        launchTemplate?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs>;
+        /**
+         * The maximum number of parallel instances that are launched for creating resources.
+         */
+        maxParallelLaunches?: pulumi.Input<number>;
+        /**
+         * Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+         */
+        snapshotConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationFastLaunchSnapshotConfigurationArgs>;
+    }
+
+    /**
+     * The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+     */
+    export interface DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs {
+        /**
+         * The ID of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateId?: pulumi.Input<string>;
+        /**
+         * The name of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateName?: pulumi.Input<string>;
+        /**
+         * The version of the launch template to use for faster launching for a Windows AMI.
+         */
+        launchTemplateVersion?: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+     */
+    export interface DistributionConfigurationFastLaunchSnapshotConfigurationArgs {
+        /**
+         * The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+         */
+        targetResourceCount?: pulumi.Input<number>;
     }
 
     /**
@@ -14851,7 +14914,7 @@ export namespace imagebuilder {
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         * For GP3 volumes only - The throughput in MiB/s that the volume supports.
          */
         throughput?: pulumi.Input<number>;
         /**
@@ -24412,6 +24475,15 @@ export namespace pinpoint {
         start: pulumi.Input<string>;
     }
 
+    export interface CampaignCustomDeliveryConfigurationArgs {
+        deliveryUri?: pulumi.Input<string>;
+        endpointTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CampaignCustomMessageArgs {
+        data?: pulumi.Input<string>;
+    }
+
     export interface CampaignDefaultButtonConfigurationArgs {
         backgroundColor?: pulumi.Input<string>;
         borderRadius?: pulumi.Input<number>;
@@ -24506,6 +24578,7 @@ export namespace pinpoint {
         aDMMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         aPNSMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         baiduMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
+        customMessage?: pulumi.Input<inputs.pinpoint.CampaignCustomMessageArgs>;
         defaultMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         emailMessage?: pulumi.Input<inputs.pinpoint.CampaignEmailMessageArgs>;
         gCMMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
@@ -24547,10 +24620,24 @@ export namespace pinpoint {
         templateId?: pulumi.Input<string>;
     }
 
+    export interface CampaignTemplateArgs {
+        name?: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
+    }
+
+    export interface CampaignTemplateConfigurationArgs {
+        emailTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
+        pushTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
+        sMSTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
+        voiceTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
+    }
+
     export interface CampaignWriteTreatmentResourceArgs {
+        customDeliveryConfiguration?: pulumi.Input<inputs.pinpoint.CampaignCustomDeliveryConfigurationArgs>;
         messageConfiguration?: pulumi.Input<inputs.pinpoint.CampaignMessageConfigurationArgs>;
         schedule?: pulumi.Input<inputs.pinpoint.CampaignScheduleArgs>;
         sizePercent?: pulumi.Input<number>;
+        templateConfiguration?: pulumi.Input<inputs.pinpoint.CampaignTemplateConfigurationArgs>;
         treatmentDescription?: pulumi.Input<string>;
         treatmentName?: pulumi.Input<string>;
     }

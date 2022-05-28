@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public readonly string? Arn;
         public readonly Outputs.CampaignHook? CampaignHook;
         public readonly string? CampaignId;
+        public readonly Outputs.CampaignCustomDeliveryConfiguration? CustomDeliveryConfiguration;
         public readonly string? Description;
         public readonly int? HoldoutPercent;
         public readonly bool? IsPaused;
@@ -64,6 +65,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public readonly string? SegmentId;
         public readonly int? SegmentVersion;
         public readonly object? Tags;
+        public readonly Outputs.CampaignTemplateConfiguration? TemplateConfiguration;
         public readonly string? TreatmentDescription;
         public readonly string? TreatmentName;
 
@@ -76,6 +78,8 @@ namespace Pulumi.AwsNative.Pinpoint
             Outputs.CampaignHook? campaignHook,
 
             string? campaignId,
+
+            Outputs.CampaignCustomDeliveryConfiguration? customDeliveryConfiguration,
 
             string? description,
 
@@ -99,6 +103,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
             object? tags,
 
+            Outputs.CampaignTemplateConfiguration? templateConfiguration,
+
             string? treatmentDescription,
 
             string? treatmentName)
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.Pinpoint
             Arn = arn;
             CampaignHook = campaignHook;
             CampaignId = campaignId;
+            CustomDeliveryConfiguration = customDeliveryConfiguration;
             Description = description;
             HoldoutPercent = holdoutPercent;
             IsPaused = isPaused;
@@ -118,6 +125,7 @@ namespace Pulumi.AwsNative.Pinpoint
             SegmentId = segmentId;
             SegmentVersion = segmentVersion;
             Tags = tags;
+            TemplateConfiguration = templateConfiguration;
             TreatmentDescription = treatmentDescription;
             TreatmentName = treatmentName;
         }

@@ -499,6 +499,287 @@ func (o ApplicationSettingsQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CampaignCustomDeliveryConfiguration struct {
+	DeliveryUri   *string  `pulumi:"deliveryUri"`
+	EndpointTypes []string `pulumi:"endpointTypes"`
+}
+
+// CampaignCustomDeliveryConfigurationInput is an input type that accepts CampaignCustomDeliveryConfigurationArgs and CampaignCustomDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `CampaignCustomDeliveryConfigurationInput` via:
+//
+//          CampaignCustomDeliveryConfigurationArgs{...}
+type CampaignCustomDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToCampaignCustomDeliveryConfigurationOutput() CampaignCustomDeliveryConfigurationOutput
+	ToCampaignCustomDeliveryConfigurationOutputWithContext(context.Context) CampaignCustomDeliveryConfigurationOutput
+}
+
+type CampaignCustomDeliveryConfigurationArgs struct {
+	DeliveryUri   pulumi.StringPtrInput   `pulumi:"deliveryUri"`
+	EndpointTypes pulumi.StringArrayInput `pulumi:"endpointTypes"`
+}
+
+func (CampaignCustomDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignCustomDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigurationOutput() CampaignCustomDeliveryConfigurationOutput {
+	return i.ToCampaignCustomDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigurationOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomDeliveryConfigurationOutput)
+}
+
+func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput {
+	return i.ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomDeliveryConfigurationOutput).ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx)
+}
+
+// CampaignCustomDeliveryConfigurationPtrInput is an input type that accepts CampaignCustomDeliveryConfigurationArgs, CampaignCustomDeliveryConfigurationPtr and CampaignCustomDeliveryConfigurationPtrOutput values.
+// You can construct a concrete instance of `CampaignCustomDeliveryConfigurationPtrInput` via:
+//
+//          CampaignCustomDeliveryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignCustomDeliveryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput
+	ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(context.Context) CampaignCustomDeliveryConfigurationPtrOutput
+}
+
+type campaignCustomDeliveryConfigurationPtrType CampaignCustomDeliveryConfigurationArgs
+
+func CampaignCustomDeliveryConfigurationPtr(v *CampaignCustomDeliveryConfigurationArgs) CampaignCustomDeliveryConfigurationPtrInput {
+	return (*campaignCustomDeliveryConfigurationPtrType)(v)
+}
+
+func (*campaignCustomDeliveryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignCustomDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i *campaignCustomDeliveryConfigurationPtrType) ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput {
+	return i.ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignCustomDeliveryConfigurationPtrType) ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomDeliveryConfigurationPtrOutput)
+}
+
+type CampaignCustomDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CampaignCustomDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignCustomDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) ToCampaignCustomDeliveryConfigurationOutput() CampaignCustomDeliveryConfigurationOutput {
+	return o
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) ToCampaignCustomDeliveryConfigurationOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationOutput {
+	return o
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput {
+	return o.ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCustomDeliveryConfiguration) *CampaignCustomDeliveryConfiguration {
+		return &v
+	}).(CampaignCustomDeliveryConfigurationPtrOutput)
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) DeliveryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignCustomDeliveryConfiguration) *string { return v.DeliveryUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignCustomDeliveryConfigurationOutput) EndpointTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CampaignCustomDeliveryConfiguration) []string { return v.EndpointTypes }).(pulumi.StringArrayOutput)
+}
+
+type CampaignCustomDeliveryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignCustomDeliveryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignCustomDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o CampaignCustomDeliveryConfigurationPtrOutput) ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o CampaignCustomDeliveryConfigurationPtrOutput) ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o CampaignCustomDeliveryConfigurationPtrOutput) Elem() CampaignCustomDeliveryConfigurationOutput {
+	return o.ApplyT(func(v *CampaignCustomDeliveryConfiguration) CampaignCustomDeliveryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignCustomDeliveryConfiguration
+		return ret
+	}).(CampaignCustomDeliveryConfigurationOutput)
+}
+
+func (o CampaignCustomDeliveryConfigurationPtrOutput) DeliveryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignCustomDeliveryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignCustomDeliveryConfigurationPtrOutput) EndpointTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CampaignCustomDeliveryConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type CampaignCustomMessage struct {
+	Data *string `pulumi:"data"`
+}
+
+// CampaignCustomMessageInput is an input type that accepts CampaignCustomMessageArgs and CampaignCustomMessageOutput values.
+// You can construct a concrete instance of `CampaignCustomMessageInput` via:
+//
+//          CampaignCustomMessageArgs{...}
+type CampaignCustomMessageInput interface {
+	pulumi.Input
+
+	ToCampaignCustomMessageOutput() CampaignCustomMessageOutput
+	ToCampaignCustomMessageOutputWithContext(context.Context) CampaignCustomMessageOutput
+}
+
+type CampaignCustomMessageArgs struct {
+	Data pulumi.StringPtrInput `pulumi:"data"`
+}
+
+func (CampaignCustomMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignCustomMessage)(nil)).Elem()
+}
+
+func (i CampaignCustomMessageArgs) ToCampaignCustomMessageOutput() CampaignCustomMessageOutput {
+	return i.ToCampaignCustomMessageOutputWithContext(context.Background())
+}
+
+func (i CampaignCustomMessageArgs) ToCampaignCustomMessageOutputWithContext(ctx context.Context) CampaignCustomMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomMessageOutput)
+}
+
+func (i CampaignCustomMessageArgs) ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput {
+	return i.ToCampaignCustomMessagePtrOutputWithContext(context.Background())
+}
+
+func (i CampaignCustomMessageArgs) ToCampaignCustomMessagePtrOutputWithContext(ctx context.Context) CampaignCustomMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomMessageOutput).ToCampaignCustomMessagePtrOutputWithContext(ctx)
+}
+
+// CampaignCustomMessagePtrInput is an input type that accepts CampaignCustomMessageArgs, CampaignCustomMessagePtr and CampaignCustomMessagePtrOutput values.
+// You can construct a concrete instance of `CampaignCustomMessagePtrInput` via:
+//
+//          CampaignCustomMessageArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignCustomMessagePtrInput interface {
+	pulumi.Input
+
+	ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput
+	ToCampaignCustomMessagePtrOutputWithContext(context.Context) CampaignCustomMessagePtrOutput
+}
+
+type campaignCustomMessagePtrType CampaignCustomMessageArgs
+
+func CampaignCustomMessagePtr(v *CampaignCustomMessageArgs) CampaignCustomMessagePtrInput {
+	return (*campaignCustomMessagePtrType)(v)
+}
+
+func (*campaignCustomMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignCustomMessage)(nil)).Elem()
+}
+
+func (i *campaignCustomMessagePtrType) ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput {
+	return i.ToCampaignCustomMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *campaignCustomMessagePtrType) ToCampaignCustomMessagePtrOutputWithContext(ctx context.Context) CampaignCustomMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomMessagePtrOutput)
+}
+
+type CampaignCustomMessageOutput struct{ *pulumi.OutputState }
+
+func (CampaignCustomMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignCustomMessage)(nil)).Elem()
+}
+
+func (o CampaignCustomMessageOutput) ToCampaignCustomMessageOutput() CampaignCustomMessageOutput {
+	return o
+}
+
+func (o CampaignCustomMessageOutput) ToCampaignCustomMessageOutputWithContext(ctx context.Context) CampaignCustomMessageOutput {
+	return o
+}
+
+func (o CampaignCustomMessageOutput) ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput {
+	return o.ToCampaignCustomMessagePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignCustomMessageOutput) ToCampaignCustomMessagePtrOutputWithContext(ctx context.Context) CampaignCustomMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCustomMessage) *CampaignCustomMessage {
+		return &v
+	}).(CampaignCustomMessagePtrOutput)
+}
+
+func (o CampaignCustomMessageOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignCustomMessage) *string { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+type CampaignCustomMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignCustomMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignCustomMessage)(nil)).Elem()
+}
+
+func (o CampaignCustomMessagePtrOutput) ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput {
+	return o
+}
+
+func (o CampaignCustomMessagePtrOutput) ToCampaignCustomMessagePtrOutputWithContext(ctx context.Context) CampaignCustomMessagePtrOutput {
+	return o
+}
+
+func (o CampaignCustomMessagePtrOutput) Elem() CampaignCustomMessageOutput {
+	return o.ApplyT(func(v *CampaignCustomMessage) CampaignCustomMessage {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignCustomMessage
+		return ret
+	}).(CampaignCustomMessageOutput)
+}
+
+func (o CampaignCustomMessagePtrOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignCustomMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
+}
+
 type CampaignDefaultButtonConfiguration struct {
 	BackgroundColor *string `pulumi:"backgroundColor"`
 	BorderRadius    *int    `pulumi:"borderRadius"`
@@ -2642,14 +2923,15 @@ func (o CampaignMessagePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type CampaignMessageConfiguration struct {
-	ADMMessage     *CampaignMessage      `pulumi:"aDMMessage"`
-	APNSMessage    *CampaignMessage      `pulumi:"aPNSMessage"`
-	BaiduMessage   *CampaignMessage      `pulumi:"baiduMessage"`
-	DefaultMessage *CampaignMessage      `pulumi:"defaultMessage"`
-	EmailMessage   *CampaignEmailMessage `pulumi:"emailMessage"`
-	GCMMessage     *CampaignMessage      `pulumi:"gCMMessage"`
-	InAppMessage   *CampaignInAppMessage `pulumi:"inAppMessage"`
-	SMSMessage     *CampaignSmsMessage   `pulumi:"sMSMessage"`
+	ADMMessage     *CampaignMessage       `pulumi:"aDMMessage"`
+	APNSMessage    *CampaignMessage       `pulumi:"aPNSMessage"`
+	BaiduMessage   *CampaignMessage       `pulumi:"baiduMessage"`
+	CustomMessage  *CampaignCustomMessage `pulumi:"customMessage"`
+	DefaultMessage *CampaignMessage       `pulumi:"defaultMessage"`
+	EmailMessage   *CampaignEmailMessage  `pulumi:"emailMessage"`
+	GCMMessage     *CampaignMessage       `pulumi:"gCMMessage"`
+	InAppMessage   *CampaignInAppMessage  `pulumi:"inAppMessage"`
+	SMSMessage     *CampaignSmsMessage    `pulumi:"sMSMessage"`
 }
 
 // CampaignMessageConfigurationInput is an input type that accepts CampaignMessageConfigurationArgs and CampaignMessageConfigurationOutput values.
@@ -2664,14 +2946,15 @@ type CampaignMessageConfigurationInput interface {
 }
 
 type CampaignMessageConfigurationArgs struct {
-	ADMMessage     CampaignMessagePtrInput      `pulumi:"aDMMessage"`
-	APNSMessage    CampaignMessagePtrInput      `pulumi:"aPNSMessage"`
-	BaiduMessage   CampaignMessagePtrInput      `pulumi:"baiduMessage"`
-	DefaultMessage CampaignMessagePtrInput      `pulumi:"defaultMessage"`
-	EmailMessage   CampaignEmailMessagePtrInput `pulumi:"emailMessage"`
-	GCMMessage     CampaignMessagePtrInput      `pulumi:"gCMMessage"`
-	InAppMessage   CampaignInAppMessagePtrInput `pulumi:"inAppMessage"`
-	SMSMessage     CampaignSmsMessagePtrInput   `pulumi:"sMSMessage"`
+	ADMMessage     CampaignMessagePtrInput       `pulumi:"aDMMessage"`
+	APNSMessage    CampaignMessagePtrInput       `pulumi:"aPNSMessage"`
+	BaiduMessage   CampaignMessagePtrInput       `pulumi:"baiduMessage"`
+	CustomMessage  CampaignCustomMessagePtrInput `pulumi:"customMessage"`
+	DefaultMessage CampaignMessagePtrInput       `pulumi:"defaultMessage"`
+	EmailMessage   CampaignEmailMessagePtrInput  `pulumi:"emailMessage"`
+	GCMMessage     CampaignMessagePtrInput       `pulumi:"gCMMessage"`
+	InAppMessage   CampaignInAppMessagePtrInput  `pulumi:"inAppMessage"`
+	SMSMessage     CampaignSmsMessagePtrInput    `pulumi:"sMSMessage"`
 }
 
 func (CampaignMessageConfigurationArgs) ElementType() reflect.Type {
@@ -2763,6 +3046,10 @@ func (o CampaignMessageConfigurationOutput) BaiduMessage() CampaignMessagePtrOut
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.BaiduMessage }).(CampaignMessagePtrOutput)
 }
 
+func (o CampaignMessageConfigurationOutput) CustomMessage() CampaignCustomMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignCustomMessage { return v.CustomMessage }).(CampaignCustomMessagePtrOutput)
+}
+
 func (o CampaignMessageConfigurationOutput) DefaultMessage() CampaignMessagePtrOutput {
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.DefaultMessage }).(CampaignMessagePtrOutput)
 }
@@ -2832,6 +3119,15 @@ func (o CampaignMessageConfigurationPtrOutput) BaiduMessage() CampaignMessagePtr
 		}
 		return v.BaiduMessage
 	}).(CampaignMessagePtrOutput)
+}
+
+func (o CampaignMessageConfigurationPtrOutput) CustomMessage() CampaignCustomMessagePtrOutput {
+	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignCustomMessage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMessage
+	}).(CampaignCustomMessagePtrOutput)
 }
 
 func (o CampaignMessageConfigurationPtrOutput) DefaultMessage() CampaignMessagePtrOutput {
@@ -3754,12 +4050,340 @@ func (o CampaignSmsMessagePtrOutput) TemplateId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CampaignTemplate struct {
+	Name    *string `pulumi:"name"`
+	Version *string `pulumi:"version"`
+}
+
+// CampaignTemplateInput is an input type that accepts CampaignTemplateArgs and CampaignTemplateOutput values.
+// You can construct a concrete instance of `CampaignTemplateInput` via:
+//
+//          CampaignTemplateArgs{...}
+type CampaignTemplateInput interface {
+	pulumi.Input
+
+	ToCampaignTemplateOutput() CampaignTemplateOutput
+	ToCampaignTemplateOutputWithContext(context.Context) CampaignTemplateOutput
+}
+
+type CampaignTemplateArgs struct {
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (CampaignTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTemplate)(nil)).Elem()
+}
+
+func (i CampaignTemplateArgs) ToCampaignTemplateOutput() CampaignTemplateOutput {
+	return i.ToCampaignTemplateOutputWithContext(context.Background())
+}
+
+func (i CampaignTemplateArgs) ToCampaignTemplateOutputWithContext(ctx context.Context) CampaignTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateOutput)
+}
+
+func (i CampaignTemplateArgs) ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput {
+	return i.ToCampaignTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i CampaignTemplateArgs) ToCampaignTemplatePtrOutputWithContext(ctx context.Context) CampaignTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateOutput).ToCampaignTemplatePtrOutputWithContext(ctx)
+}
+
+// CampaignTemplatePtrInput is an input type that accepts CampaignTemplateArgs, CampaignTemplatePtr and CampaignTemplatePtrOutput values.
+// You can construct a concrete instance of `CampaignTemplatePtrInput` via:
+//
+//          CampaignTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignTemplatePtrInput interface {
+	pulumi.Input
+
+	ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput
+	ToCampaignTemplatePtrOutputWithContext(context.Context) CampaignTemplatePtrOutput
+}
+
+type campaignTemplatePtrType CampaignTemplateArgs
+
+func CampaignTemplatePtr(v *CampaignTemplateArgs) CampaignTemplatePtrInput {
+	return (*campaignTemplatePtrType)(v)
+}
+
+func (*campaignTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTemplate)(nil)).Elem()
+}
+
+func (i *campaignTemplatePtrType) ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput {
+	return i.ToCampaignTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *campaignTemplatePtrType) ToCampaignTemplatePtrOutputWithContext(ctx context.Context) CampaignTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplatePtrOutput)
+}
+
+type CampaignTemplateOutput struct{ *pulumi.OutputState }
+
+func (CampaignTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTemplate)(nil)).Elem()
+}
+
+func (o CampaignTemplateOutput) ToCampaignTemplateOutput() CampaignTemplateOutput {
+	return o
+}
+
+func (o CampaignTemplateOutput) ToCampaignTemplateOutputWithContext(ctx context.Context) CampaignTemplateOutput {
+	return o
+}
+
+func (o CampaignTemplateOutput) ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput {
+	return o.ToCampaignTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTemplateOutput) ToCampaignTemplatePtrOutputWithContext(ctx context.Context) CampaignTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignTemplate) *CampaignTemplate {
+		return &v
+	}).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type CampaignTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTemplate)(nil)).Elem()
+}
+
+func (o CampaignTemplatePtrOutput) ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput {
+	return o
+}
+
+func (o CampaignTemplatePtrOutput) ToCampaignTemplatePtrOutputWithContext(ctx context.Context) CampaignTemplatePtrOutput {
+	return o
+}
+
+func (o CampaignTemplatePtrOutput) Elem() CampaignTemplateOutput {
+	return o.ApplyT(func(v *CampaignTemplate) CampaignTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignTemplate
+		return ret
+	}).(CampaignTemplateOutput)
+}
+
+func (o CampaignTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignTemplateConfiguration struct {
+	EmailTemplate *CampaignTemplate `pulumi:"emailTemplate"`
+	PushTemplate  *CampaignTemplate `pulumi:"pushTemplate"`
+	SMSTemplate   *CampaignTemplate `pulumi:"sMSTemplate"`
+	VoiceTemplate *CampaignTemplate `pulumi:"voiceTemplate"`
+}
+
+// CampaignTemplateConfigurationInput is an input type that accepts CampaignTemplateConfigurationArgs and CampaignTemplateConfigurationOutput values.
+// You can construct a concrete instance of `CampaignTemplateConfigurationInput` via:
+//
+//          CampaignTemplateConfigurationArgs{...}
+type CampaignTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToCampaignTemplateConfigurationOutput() CampaignTemplateConfigurationOutput
+	ToCampaignTemplateConfigurationOutputWithContext(context.Context) CampaignTemplateConfigurationOutput
+}
+
+type CampaignTemplateConfigurationArgs struct {
+	EmailTemplate CampaignTemplatePtrInput `pulumi:"emailTemplate"`
+	PushTemplate  CampaignTemplatePtrInput `pulumi:"pushTemplate"`
+	SMSTemplate   CampaignTemplatePtrInput `pulumi:"sMSTemplate"`
+	VoiceTemplate CampaignTemplatePtrInput `pulumi:"voiceTemplate"`
+}
+
+func (CampaignTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTemplateConfiguration)(nil)).Elem()
+}
+
+func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationOutput() CampaignTemplateConfigurationOutput {
+	return i.ToCampaignTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationOutputWithContext(ctx context.Context) CampaignTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateConfigurationOutput)
+}
+
+func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput {
+	return i.ToCampaignTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationPtrOutputWithContext(ctx context.Context) CampaignTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateConfigurationOutput).ToCampaignTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// CampaignTemplateConfigurationPtrInput is an input type that accepts CampaignTemplateConfigurationArgs, CampaignTemplateConfigurationPtr and CampaignTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `CampaignTemplateConfigurationPtrInput` via:
+//
+//          CampaignTemplateConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput
+	ToCampaignTemplateConfigurationPtrOutputWithContext(context.Context) CampaignTemplateConfigurationPtrOutput
+}
+
+type campaignTemplateConfigurationPtrType CampaignTemplateConfigurationArgs
+
+func CampaignTemplateConfigurationPtr(v *CampaignTemplateConfigurationArgs) CampaignTemplateConfigurationPtrInput {
+	return (*campaignTemplateConfigurationPtrType)(v)
+}
+
+func (*campaignTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *campaignTemplateConfigurationPtrType) ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput {
+	return i.ToCampaignTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignTemplateConfigurationPtrType) ToCampaignTemplateConfigurationPtrOutputWithContext(ctx context.Context) CampaignTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateConfigurationPtrOutput)
+}
+
+type CampaignTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CampaignTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTemplateConfiguration)(nil)).Elem()
+}
+
+func (o CampaignTemplateConfigurationOutput) ToCampaignTemplateConfigurationOutput() CampaignTemplateConfigurationOutput {
+	return o
+}
+
+func (o CampaignTemplateConfigurationOutput) ToCampaignTemplateConfigurationOutputWithContext(ctx context.Context) CampaignTemplateConfigurationOutput {
+	return o
+}
+
+func (o CampaignTemplateConfigurationOutput) ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput {
+	return o.ToCampaignTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTemplateConfigurationOutput) ToCampaignTemplateConfigurationPtrOutputWithContext(ctx context.Context) CampaignTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignTemplateConfiguration) *CampaignTemplateConfiguration {
+		return &v
+	}).(CampaignTemplateConfigurationPtrOutput)
+}
+
+func (o CampaignTemplateConfigurationOutput) EmailTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.EmailTemplate }).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationOutput) PushTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.PushTemplate }).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationOutput) SMSTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.SMSTemplate }).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationOutput) VoiceTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.VoiceTemplate }).(CampaignTemplatePtrOutput)
+}
+
+type CampaignTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTemplateConfiguration)(nil)).Elem()
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) ToCampaignTemplateConfigurationPtrOutputWithContext(ctx context.Context) CampaignTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) Elem() CampaignTemplateConfigurationOutput {
+	return o.ApplyT(func(v *CampaignTemplateConfiguration) CampaignTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignTemplateConfiguration
+		return ret
+	}).(CampaignTemplateConfigurationOutput)
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) EmailTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v *CampaignTemplateConfiguration) *CampaignTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.EmailTemplate
+	}).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) PushTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v *CampaignTemplateConfiguration) *CampaignTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.PushTemplate
+	}).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) SMSTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v *CampaignTemplateConfiguration) *CampaignTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.SMSTemplate
+	}).(CampaignTemplatePtrOutput)
+}
+
+func (o CampaignTemplateConfigurationPtrOutput) VoiceTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v *CampaignTemplateConfiguration) *CampaignTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.VoiceTemplate
+	}).(CampaignTemplatePtrOutput)
+}
+
 type CampaignWriteTreatmentResource struct {
-	MessageConfiguration *CampaignMessageConfiguration `pulumi:"messageConfiguration"`
-	Schedule             *CampaignSchedule             `pulumi:"schedule"`
-	SizePercent          *int                          `pulumi:"sizePercent"`
-	TreatmentDescription *string                       `pulumi:"treatmentDescription"`
-	TreatmentName        *string                       `pulumi:"treatmentName"`
+	CustomDeliveryConfiguration *CampaignCustomDeliveryConfiguration `pulumi:"customDeliveryConfiguration"`
+	MessageConfiguration        *CampaignMessageConfiguration        `pulumi:"messageConfiguration"`
+	Schedule                    *CampaignSchedule                    `pulumi:"schedule"`
+	SizePercent                 *int                                 `pulumi:"sizePercent"`
+	TemplateConfiguration       *CampaignTemplateConfiguration       `pulumi:"templateConfiguration"`
+	TreatmentDescription        *string                              `pulumi:"treatmentDescription"`
+	TreatmentName               *string                              `pulumi:"treatmentName"`
 }
 
 // CampaignWriteTreatmentResourceInput is an input type that accepts CampaignWriteTreatmentResourceArgs and CampaignWriteTreatmentResourceOutput values.
@@ -3774,11 +4398,13 @@ type CampaignWriteTreatmentResourceInput interface {
 }
 
 type CampaignWriteTreatmentResourceArgs struct {
-	MessageConfiguration CampaignMessageConfigurationPtrInput `pulumi:"messageConfiguration"`
-	Schedule             CampaignSchedulePtrInput             `pulumi:"schedule"`
-	SizePercent          pulumi.IntPtrInput                   `pulumi:"sizePercent"`
-	TreatmentDescription pulumi.StringPtrInput                `pulumi:"treatmentDescription"`
-	TreatmentName        pulumi.StringPtrInput                `pulumi:"treatmentName"`
+	CustomDeliveryConfiguration CampaignCustomDeliveryConfigurationPtrInput `pulumi:"customDeliveryConfiguration"`
+	MessageConfiguration        CampaignMessageConfigurationPtrInput        `pulumi:"messageConfiguration"`
+	Schedule                    CampaignSchedulePtrInput                    `pulumi:"schedule"`
+	SizePercent                 pulumi.IntPtrInput                          `pulumi:"sizePercent"`
+	TemplateConfiguration       CampaignTemplateConfigurationPtrInput       `pulumi:"templateConfiguration"`
+	TreatmentDescription        pulumi.StringPtrInput                       `pulumi:"treatmentDescription"`
+	TreatmentName               pulumi.StringPtrInput                       `pulumi:"treatmentName"`
 }
 
 func (CampaignWriteTreatmentResourceArgs) ElementType() reflect.Type {
@@ -3832,6 +4458,12 @@ func (o CampaignWriteTreatmentResourceOutput) ToCampaignWriteTreatmentResourceOu
 	return o
 }
 
+func (o CampaignWriteTreatmentResourceOutput) CustomDeliveryConfiguration() CampaignCustomDeliveryConfigurationPtrOutput {
+	return o.ApplyT(func(v CampaignWriteTreatmentResource) *CampaignCustomDeliveryConfiguration {
+		return v.CustomDeliveryConfiguration
+	}).(CampaignCustomDeliveryConfigurationPtrOutput)
+}
+
 func (o CampaignWriteTreatmentResourceOutput) MessageConfiguration() CampaignMessageConfigurationPtrOutput {
 	return o.ApplyT(func(v CampaignWriteTreatmentResource) *CampaignMessageConfiguration { return v.MessageConfiguration }).(CampaignMessageConfigurationPtrOutput)
 }
@@ -3842,6 +4474,10 @@ func (o CampaignWriteTreatmentResourceOutput) Schedule() CampaignSchedulePtrOutp
 
 func (o CampaignWriteTreatmentResourceOutput) SizePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CampaignWriteTreatmentResource) *int { return v.SizePercent }).(pulumi.IntPtrOutput)
+}
+
+func (o CampaignWriteTreatmentResourceOutput) TemplateConfiguration() CampaignTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v CampaignWriteTreatmentResource) *CampaignTemplateConfiguration { return v.TemplateConfiguration }).(CampaignTemplateConfigurationPtrOutput)
 }
 
 func (o CampaignWriteTreatmentResourceOutput) TreatmentDescription() pulumi.StringPtrOutput {
@@ -6984,6 +7620,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsLimitsPtrInput)(nil)).Elem(), ApplicationSettingsLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsQuietTimeInput)(nil)).Elem(), ApplicationSettingsQuietTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsQuietTimePtrInput)(nil)).Elem(), ApplicationSettingsQuietTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCustomDeliveryConfigurationInput)(nil)).Elem(), CampaignCustomDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCustomDeliveryConfigurationPtrInput)(nil)).Elem(), CampaignCustomDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCustomMessageInput)(nil)).Elem(), CampaignCustomMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCustomMessagePtrInput)(nil)).Elem(), CampaignCustomMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDefaultButtonConfigurationInput)(nil)).Elem(), CampaignDefaultButtonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDefaultButtonConfigurationPtrInput)(nil)).Elem(), CampaignDefaultButtonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailMessageInput)(nil)).Elem(), CampaignEmailMessageArgs{})
@@ -7020,6 +7660,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSetDimensionPtrInput)(nil)).Elem(), CampaignSetDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSmsMessageInput)(nil)).Elem(), CampaignSmsMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSmsMessagePtrInput)(nil)).Elem(), CampaignSmsMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTemplateInput)(nil)).Elem(), CampaignTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTemplatePtrInput)(nil)).Elem(), CampaignTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTemplateConfigurationInput)(nil)).Elem(), CampaignTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTemplateConfigurationPtrInput)(nil)).Elem(), CampaignTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceInput)(nil)).Elem(), CampaignWriteTreatmentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceArrayInput)(nil)).Elem(), CampaignWriteTreatmentResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateBodyConfigInput)(nil)).Elem(), InAppTemplateBodyConfigArgs{})
@@ -7065,6 +7709,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSettingsLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsQuietTimeOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsQuietTimePtrOutput{})
+	pulumi.RegisterOutputType(CampaignCustomDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(CampaignCustomDeliveryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CampaignCustomMessageOutput{})
+	pulumi.RegisterOutputType(CampaignCustomMessagePtrOutput{})
 	pulumi.RegisterOutputType(CampaignDefaultButtonConfigurationOutput{})
 	pulumi.RegisterOutputType(CampaignDefaultButtonConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CampaignEmailMessageOutput{})
@@ -7101,6 +7749,10 @@ func init() {
 	pulumi.RegisterOutputType(CampaignSetDimensionPtrOutput{})
 	pulumi.RegisterOutputType(CampaignSmsMessageOutput{})
 	pulumi.RegisterOutputType(CampaignSmsMessagePtrOutput{})
+	pulumi.RegisterOutputType(CampaignTemplateOutput{})
+	pulumi.RegisterOutputType(CampaignTemplatePtrOutput{})
+	pulumi.RegisterOutputType(CampaignTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(CampaignTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceArrayOutput{})
 	pulumi.RegisterOutputType(InAppTemplateBodyConfigOutput{})

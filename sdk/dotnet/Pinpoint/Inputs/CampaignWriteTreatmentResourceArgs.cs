@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
     public sealed class CampaignWriteTreatmentResourceArgs : Pulumi.ResourceArgs
     {
+        [Input("customDeliveryConfiguration")]
+        public Input<Inputs.CampaignCustomDeliveryConfigurationArgs>? CustomDeliveryConfiguration { get; set; }
+
         [Input("messageConfiguration")]
         public Input<Inputs.CampaignMessageConfigurationArgs>? MessageConfiguration { get; set; }
 
@@ -20,6 +23,9 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
         [Input("sizePercent")]
         public Input<int>? SizePercent { get; set; }
+
+        [Input("templateConfiguration")]
+        public Input<Inputs.CampaignTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
 
         [Input("treatmentDescription")]
         public Input<string>? TreatmentDescription { get; set; }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         public readonly Outputs.CampaignMessage? ADMMessage;
         public readonly Outputs.CampaignMessage? APNSMessage;
         public readonly Outputs.CampaignMessage? BaiduMessage;
+        public readonly Outputs.CampaignCustomMessage? CustomMessage;
         public readonly Outputs.CampaignMessage? DefaultMessage;
         public readonly Outputs.CampaignEmailMessage? EmailMessage;
         public readonly Outputs.CampaignMessage? GCMMessage;
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.CampaignMessage? baiduMessage,
 
+            Outputs.CampaignCustomMessage? customMessage,
+
             Outputs.CampaignMessage? defaultMessage,
 
             Outputs.CampaignEmailMessage? emailMessage,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
             ADMMessage = aDMMessage;
             APNSMessage = aPNSMessage;
             BaiduMessage = baiduMessage;
+            CustomMessage = customMessage;
             DefaultMessage = defaultMessage;
             EmailMessage = emailMessage;
             GCMMessage = gCMMessage;

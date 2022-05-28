@@ -13,27 +13,35 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class CampaignWriteTreatmentResource
     {
+        public readonly Outputs.CampaignCustomDeliveryConfiguration? CustomDeliveryConfiguration;
         public readonly Outputs.CampaignMessageConfiguration? MessageConfiguration;
         public readonly Outputs.CampaignSchedule? Schedule;
         public readonly int? SizePercent;
+        public readonly Outputs.CampaignTemplateConfiguration? TemplateConfiguration;
         public readonly string? TreatmentDescription;
         public readonly string? TreatmentName;
 
         [OutputConstructor]
         private CampaignWriteTreatmentResource(
+            Outputs.CampaignCustomDeliveryConfiguration? customDeliveryConfiguration,
+
             Outputs.CampaignMessageConfiguration? messageConfiguration,
 
             Outputs.CampaignSchedule? schedule,
 
             int? sizePercent,
 
+            Outputs.CampaignTemplateConfiguration? templateConfiguration,
+
             string? treatmentDescription,
 
             string? treatmentName)
         {
+            CustomDeliveryConfiguration = customDeliveryConfiguration;
             MessageConfiguration = messageConfiguration;
             Schedule = schedule;
             SizePercent = sizePercent;
+            TemplateConfiguration = templateConfiguration;
             TreatmentDescription = treatmentDescription;
             TreatmentName = treatmentName;
         }

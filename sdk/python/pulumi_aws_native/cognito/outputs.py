@@ -42,6 +42,7 @@ __all__ = [
     'UserPoolSmsConfiguration',
     'UserPoolStringAttributeConstraints',
     'UserPoolUserAttributeType',
+    'UserPoolUserAttributeUpdateSettings',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
 ]
@@ -1593,6 +1594,35 @@ class UserPoolUserAttributeType(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UserPoolUserAttributeUpdateSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributesRequireVerificationBeforeUpdate":
+            suggest = "attributes_require_verification_before_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolUserAttributeUpdateSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolUserAttributeUpdateSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolUserAttributeUpdateSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes_require_verification_before_update: Sequence[str]):
+        pulumi.set(__self__, "attributes_require_verification_before_update", attributes_require_verification_before_update)
+
+    @property
+    @pulumi.getter(name="attributesRequireVerificationBeforeUpdate")
+    def attributes_require_verification_before_update(self) -> Sequence[str]:
+        return pulumi.get(self, "attributes_require_verification_before_update")
 
 
 @pulumi.output_type

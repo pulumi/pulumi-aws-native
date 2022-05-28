@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCampaignResult:
-    def __init__(__self__, additional_treatments=None, arn=None, campaign_hook=None, campaign_id=None, description=None, holdout_percent=None, is_paused=None, limits=None, message_configuration=None, name=None, priority=None, schedule=None, segment_id=None, segment_version=None, tags=None, treatment_description=None, treatment_name=None):
+    def __init__(__self__, additional_treatments=None, arn=None, campaign_hook=None, campaign_id=None, custom_delivery_configuration=None, description=None, holdout_percent=None, is_paused=None, limits=None, message_configuration=None, name=None, priority=None, schedule=None, segment_id=None, segment_version=None, tags=None, template_configuration=None, treatment_description=None, treatment_name=None):
         if additional_treatments and not isinstance(additional_treatments, list):
             raise TypeError("Expected argument 'additional_treatments' to be a list")
         pulumi.set(__self__, "additional_treatments", additional_treatments)
@@ -31,6 +31,9 @@ class GetCampaignResult:
         if campaign_id and not isinstance(campaign_id, str):
             raise TypeError("Expected argument 'campaign_id' to be a str")
         pulumi.set(__self__, "campaign_id", campaign_id)
+        if custom_delivery_configuration and not isinstance(custom_delivery_configuration, dict):
+            raise TypeError("Expected argument 'custom_delivery_configuration' to be a dict")
+        pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,9 @@ class GetCampaignResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if template_configuration and not isinstance(template_configuration, dict):
+            raise TypeError("Expected argument 'template_configuration' to be a dict")
+        pulumi.set(__self__, "template_configuration", template_configuration)
         if treatment_description and not isinstance(treatment_description, str):
             raise TypeError("Expected argument 'treatment_description' to be a str")
         pulumi.set(__self__, "treatment_description", treatment_description)
@@ -90,6 +96,11 @@ class GetCampaignResult:
     @pulumi.getter(name="campaignId")
     def campaign_id(self) -> Optional[str]:
         return pulumi.get(self, "campaign_id")
+
+    @property
+    @pulumi.getter(name="customDeliveryConfiguration")
+    def custom_delivery_configuration(self) -> Optional['outputs.CampaignCustomDeliveryConfiguration']:
+        return pulumi.get(self, "custom_delivery_configuration")
 
     @property
     @pulumi.getter
@@ -147,6 +158,11 @@ class GetCampaignResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.CampaignTemplateConfiguration']:
+        return pulumi.get(self, "template_configuration")
+
+    @property
     @pulumi.getter(name="treatmentDescription")
     def treatment_description(self) -> Optional[str]:
         return pulumi.get(self, "treatment_description")
@@ -167,6 +183,7 @@ class AwaitableGetCampaignResult(GetCampaignResult):
             arn=self.arn,
             campaign_hook=self.campaign_hook,
             campaign_id=self.campaign_id,
+            custom_delivery_configuration=self.custom_delivery_configuration,
             description=self.description,
             holdout_percent=self.holdout_percent,
             is_paused=self.is_paused,
@@ -178,6 +195,7 @@ class AwaitableGetCampaignResult(GetCampaignResult):
             segment_id=self.segment_id,
             segment_version=self.segment_version,
             tags=self.tags,
+            template_configuration=self.template_configuration,
             treatment_description=self.treatment_description,
             treatment_name=self.treatment_name)
 
@@ -200,6 +218,7 @@ def get_campaign(campaign_id: Optional[str] = None,
         arn=__ret__.arn,
         campaign_hook=__ret__.campaign_hook,
         campaign_id=__ret__.campaign_id,
+        custom_delivery_configuration=__ret__.custom_delivery_configuration,
         description=__ret__.description,
         holdout_percent=__ret__.holdout_percent,
         is_paused=__ret__.is_paused,
@@ -211,6 +230,7 @@ def get_campaign(campaign_id: Optional[str] = None,
         segment_id=__ret__.segment_id,
         segment_version=__ret__.segment_version,
         tags=__ret__.tags,
+        template_configuration=__ret__.template_configuration,
         treatment_description=__ret__.treatment_description,
         treatment_name=__ret__.treatment_name)
 

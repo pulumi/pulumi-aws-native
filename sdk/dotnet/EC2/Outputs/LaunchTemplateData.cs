@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification;
         public readonly Outputs.LaunchTemplateCpuOptions? CpuOptions;
         public readonly Outputs.LaunchTemplateCreditSpecification? CreditSpecification;
+        public readonly bool? DisableApiStop;
         public readonly bool? DisableApiTermination;
         public readonly bool? EbsOptimized;
         public readonly ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification> ElasticGpuSpecifications;
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Outputs.LaunchTemplateCpuOptions? cpuOptions,
 
             Outputs.LaunchTemplateCreditSpecification? creditSpecification,
+
+            bool? disableApiStop,
 
             bool? disableApiTermination,
 
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             CapacityReservationSpecification = capacityReservationSpecification;
             CpuOptions = cpuOptions;
             CreditSpecification = creditSpecification;
+            DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;

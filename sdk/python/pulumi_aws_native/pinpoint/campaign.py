@@ -16,32 +16,35 @@ __all__ = ['CampaignArgs', 'Campaign']
 class CampaignArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
-                 message_configuration: pulumi.Input['CampaignMessageConfigurationArgs'],
                  schedule: pulumi.Input['CampaignScheduleArgs'],
                  segment_id: pulumi.Input[str],
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignWriteTreatmentResourceArgs']]]] = None,
                  campaign_hook: Optional[pulumi.Input['CampaignHookArgs']] = None,
+                 custom_delivery_configuration: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
                  limits: Optional[pulumi.Input['CampaignLimitsArgs']] = None,
+                 message_configuration: Optional[pulumi.Input['CampaignMessageConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
+                 template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
                  treatment_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Campaign resource.
         """
         pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "message_configuration", message_configuration)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "segment_id", segment_id)
         if additional_treatments is not None:
             pulumi.set(__self__, "additional_treatments", additional_treatments)
         if campaign_hook is not None:
             pulumi.set(__self__, "campaign_hook", campaign_hook)
+        if custom_delivery_configuration is not None:
+            pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if holdout_percent is not None:
@@ -50,6 +53,8 @@ class CampaignArgs:
             pulumi.set(__self__, "is_paused", is_paused)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
+        if message_configuration is not None:
+            pulumi.set(__self__, "message_configuration", message_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -58,6 +63,8 @@ class CampaignArgs:
             pulumi.set(__self__, "segment_version", segment_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if treatment_description is not None:
             pulumi.set(__self__, "treatment_description", treatment_description)
         if treatment_name is not None:
@@ -71,15 +78,6 @@ class CampaignArgs:
     @application_id.setter
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
-
-    @property
-    @pulumi.getter(name="messageConfiguration")
-    def message_configuration(self) -> pulumi.Input['CampaignMessageConfigurationArgs']:
-        return pulumi.get(self, "message_configuration")
-
-    @message_configuration.setter
-    def message_configuration(self, value: pulumi.Input['CampaignMessageConfigurationArgs']):
-        pulumi.set(self, "message_configuration", value)
 
     @property
     @pulumi.getter
@@ -118,6 +116,15 @@ class CampaignArgs:
         pulumi.set(self, "campaign_hook", value)
 
     @property
+    @pulumi.getter(name="customDeliveryConfiguration")
+    def custom_delivery_configuration(self) -> Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']]:
+        return pulumi.get(self, "custom_delivery_configuration")
+
+    @custom_delivery_configuration.setter
+    def custom_delivery_configuration(self, value: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']]):
+        pulumi.set(self, "custom_delivery_configuration", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -152,6 +159,15 @@ class CampaignArgs:
     @limits.setter
     def limits(self, value: Optional[pulumi.Input['CampaignLimitsArgs']]):
         pulumi.set(self, "limits", value)
+
+    @property
+    @pulumi.getter(name="messageConfiguration")
+    def message_configuration(self) -> Optional[pulumi.Input['CampaignMessageConfigurationArgs']]:
+        return pulumi.get(self, "message_configuration")
+
+    @message_configuration.setter
+    def message_configuration(self, value: Optional[pulumi.Input['CampaignMessageConfigurationArgs']]):
+        pulumi.set(self, "message_configuration", value)
 
     @property
     @pulumi.getter
@@ -190,6 +206,15 @@ class CampaignArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional[pulumi.Input['CampaignTemplateConfigurationArgs']]:
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']]):
+        pulumi.set(self, "template_configuration", value)
+
+    @property
     @pulumi.getter(name="treatmentDescription")
     def treatment_description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "treatment_description")
@@ -221,6 +246,7 @@ class Campaign(pulumi.CustomResource):
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignWriteTreatmentResourceArgs']]]]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignHookArgs']]] = None,
+                 custom_delivery_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignCustomDeliveryConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
@@ -232,6 +258,7 @@ class Campaign(pulumi.CustomResource):
                  segment_id: Optional[pulumi.Input[str]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
+                 template_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignTemplateConfigurationArgs']]] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
                  treatment_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -268,6 +295,7 @@ class Campaign(pulumi.CustomResource):
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignWriteTreatmentResourceArgs']]]]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignHookArgs']]] = None,
+                 custom_delivery_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignCustomDeliveryConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
@@ -279,6 +307,7 @@ class Campaign(pulumi.CustomResource):
                  segment_id: Optional[pulumi.Input[str]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
+                 template_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignTemplateConfigurationArgs']]] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
                  treatment_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -299,12 +328,11 @@ class Campaign(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["campaign_hook"] = campaign_hook
+            __props__.__dict__["custom_delivery_configuration"] = custom_delivery_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["holdout_percent"] = holdout_percent
             __props__.__dict__["is_paused"] = is_paused
             __props__.__dict__["limits"] = limits
-            if message_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'message_configuration'")
             __props__.__dict__["message_configuration"] = message_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
@@ -316,6 +344,7 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["segment_id"] = segment_id
             __props__.__dict__["segment_version"] = segment_version
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["template_configuration"] = template_configuration
             __props__.__dict__["treatment_description"] = treatment_description
             __props__.__dict__["treatment_name"] = treatment_name
             __props__.__dict__["arn"] = None
@@ -347,6 +376,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["campaign_hook"] = None
         __props__.__dict__["campaign_id"] = None
+        __props__.__dict__["custom_delivery_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["holdout_percent"] = None
         __props__.__dict__["is_paused"] = None
@@ -358,6 +388,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["segment_id"] = None
         __props__.__dict__["segment_version"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["template_configuration"] = None
         __props__.__dict__["treatment_description"] = None
         __props__.__dict__["treatment_name"] = None
         return Campaign(resource_name, opts=opts, __props__=__props__)
@@ -388,6 +419,11 @@ class Campaign(pulumi.CustomResource):
         return pulumi.get(self, "campaign_id")
 
     @property
+    @pulumi.getter(name="customDeliveryConfiguration")
+    def custom_delivery_configuration(self) -> pulumi.Output[Optional['outputs.CampaignCustomDeliveryConfiguration']]:
+        return pulumi.get(self, "custom_delivery_configuration")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
@@ -409,7 +445,7 @@ class Campaign(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageConfiguration")
-    def message_configuration(self) -> pulumi.Output['outputs.CampaignMessageConfiguration']:
+    def message_configuration(self) -> pulumi.Output[Optional['outputs.CampaignMessageConfiguration']]:
         return pulumi.get(self, "message_configuration")
 
     @property
@@ -441,6 +477,11 @@ class Campaign(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> pulumi.Output[Optional['outputs.CampaignTemplateConfiguration']]:
+        return pulumi.get(self, "template_configuration")
 
     @property
     @pulumi.getter(name="treatmentDescription")

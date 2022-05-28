@@ -57,6 +57,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
     public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
+    public readonly userAttributeUpdateSettings!: pulumi.Output<outputs.cognito.UserPoolUserAttributeUpdateSettings | undefined>;
     public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolAddOns | undefined>;
     public readonly userPoolName!: pulumi.Output<string | undefined>;
     public readonly userPoolTags!: pulumi.Output<any | undefined>;
@@ -93,6 +94,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
             resourceInputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
             resourceInputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
+            resourceInputs["userAttributeUpdateSettings"] = args ? args.userAttributeUpdateSettings : undefined;
             resourceInputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             resourceInputs["userPoolName"] = args ? args.userPoolName : undefined;
             resourceInputs["userPoolTags"] = args ? args.userPoolTags : undefined;
@@ -122,6 +124,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["smsAuthenticationMessage"] = undefined /*out*/;
             resourceInputs["smsConfiguration"] = undefined /*out*/;
             resourceInputs["smsVerificationMessage"] = undefined /*out*/;
+            resourceInputs["userAttributeUpdateSettings"] = undefined /*out*/;
             resourceInputs["userPoolAddOns"] = undefined /*out*/;
             resourceInputs["userPoolName"] = undefined /*out*/;
             resourceInputs["userPoolTags"] = undefined /*out*/;
@@ -154,6 +157,7 @@ export interface UserPoolArgs {
     smsAuthenticationMessage?: pulumi.Input<string>;
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfigurationArgs>;
     smsVerificationMessage?: pulumi.Input<string>;
+    userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettingsArgs>;
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolAddOnsArgs>;
     userPoolName?: pulumi.Input<string>;
     userPoolTags?: any;

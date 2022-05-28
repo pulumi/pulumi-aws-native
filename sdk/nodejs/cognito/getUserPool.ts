@@ -44,6 +44,7 @@ export interface GetUserPoolResult {
     readonly smsAuthenticationMessage?: string;
     readonly smsConfiguration?: outputs.cognito.UserPoolSmsConfiguration;
     readonly smsVerificationMessage?: string;
+    readonly userAttributeUpdateSettings?: outputs.cognito.UserPoolUserAttributeUpdateSettings;
     readonly userPoolAddOns?: outputs.cognito.UserPoolAddOns;
     readonly userPoolName?: string;
     readonly userPoolTags?: any;

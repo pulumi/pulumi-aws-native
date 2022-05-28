@@ -510,13 +510,15 @@
   "createOnlyProperties" : [ "/properties/ResourceGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:CreateLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration", "applicationinsights:ListComponents" ]
+      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:CreateLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration", "applicationinsights:ListComponents" ],
+      "timeoutInMinutes" : 600
     },
     "read" : {
       "permissions" : [ "applicationinsights:DescribeApplication", "applicationinsights:ListTagsForResource", "applicationinsights:DescribeComponent", "applicationinsights:ListComponents", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets" ]
     },
     "update" : {
-      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:UpdateApplication", "applicationinsights:TagResource", "applicationinsights:UntagResource", "applicationinsights:ListTagsForResource", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:DeleteComponent", "applicationinsights:ListComponents", "applicationinsights:CreateLogPattern", "applicationinsights:DeleteLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets", "applicationinsights:UpdateLogPattern", "applicationinsights:DescribeComponentConfiguration", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration" ]
+      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:UpdateApplication", "applicationinsights:TagResource", "applicationinsights:UntagResource", "applicationinsights:ListTagsForResource", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:DeleteComponent", "applicationinsights:ListComponents", "applicationinsights:CreateLogPattern", "applicationinsights:DeleteLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets", "applicationinsights:UpdateLogPattern", "applicationinsights:DescribeComponentConfiguration", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration" ],
+      "timeoutInMinutes" : 600
     },
     "delete" : {
       "permissions" : [ "applicationinsights:DeleteApplication", "applicationinsights:DescribeApplication" ]

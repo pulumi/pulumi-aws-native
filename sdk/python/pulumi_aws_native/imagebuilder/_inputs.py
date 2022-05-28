@@ -18,6 +18,9 @@ __all__ = [
     'DistributionConfigurationAmiDistributionConfigurationArgs',
     'DistributionConfigurationContainerDistributionConfigurationArgs',
     'DistributionConfigurationDistributionArgs',
+    'DistributionConfigurationFastLaunchConfigurationArgs',
+    'DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs',
+    'DistributionConfigurationFastLaunchSnapshotConfigurationArgs',
     'DistributionConfigurationLaunchPermissionConfigurationArgs',
     'DistributionConfigurationLaunchTemplateConfigurationArgs',
     'DistributionConfigurationTargetContainerRepositoryArgs',
@@ -77,7 +80,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
         :param pulumi.Input[int] iops: Use to configure device IOPS.
         :param pulumi.Input[str] kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param pulumi.Input[str] snapshot_id: The snapshot that defines the device contents.
-        :param pulumi.Input[int] throughput: For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        :param pulumi.Input[int] throughput: For GP3 volumes only - The throughput in MiB/s that the volume supports.
         :param pulumi.Input[int] volume_size: Use to override the device's volume size.
         :param pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] volume_type: Use to override the device's volume type.
         """
@@ -162,7 +165,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        For GP3 volumes only - The throughput in MiB/s that the volume supports.
         """
         return pulumi.get(self, "throughput")
 
@@ -509,11 +512,13 @@ class DistributionConfigurationDistributionArgs:
                  region: pulumi.Input[str],
                  ami_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationAmiDistributionConfigurationArgs']] = None,
                  container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']] = None,
+                 fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]] = None,
                  launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
                  license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The distributions of the distribution configuration.
         :param pulumi.Input[str] region: region
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
         """
@@ -522,6 +527,8 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
         if container_distribution_configuration is not None:
             pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if fast_launch_configurations is not None:
+            pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
         if launch_template_configurations is not None:
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
@@ -558,6 +565,18 @@ class DistributionConfigurationDistributionArgs:
         pulumi.set(self, "container_distribution_configuration", value)
 
     @property
+    @pulumi.getter(name="fastLaunchConfigurations")
+    def fast_launch_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]]:
+        """
+        The Windows faster-launching configurations to use for AMI distribution.
+        """
+        return pulumi.get(self, "fast_launch_configurations")
+
+    @fast_launch_configurations.setter
+    def fast_launch_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]]):
+        pulumi.set(self, "fast_launch_configurations", value)
+
+    @property
     @pulumi.getter(name="launchTemplateConfigurations")
     def launch_template_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]]:
         """
@@ -580,6 +599,174 @@ class DistributionConfigurationDistributionArgs:
     @license_configuration_arns.setter
     def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "license_configuration_arns", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationFastLaunchConfigurationArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 launch_template: Optional[pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs']] = None,
+                 max_parallel_launches: Optional[pulumi.Input[int]] = None,
+                 snapshot_configuration: Optional[pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs']] = None):
+        """
+        The Windows faster-launching configuration to use for AMI distribution.
+        :param pulumi.Input[str] account_id: The owner account ID for the fast-launch enabled Windows AMI.
+        :param pulumi.Input[bool] enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
+        :param pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs'] launch_template: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        :param pulumi.Input[int] max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
+        :param pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs'] snapshot_configuration: Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
+        if max_parallel_launches is not None:
+            pulumi.set(__self__, "max_parallel_launches", max_parallel_launches)
+        if snapshot_configuration is not None:
+            pulumi.set(__self__, "snapshot_configuration", snapshot_configuration)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner account ID for the fast-launch enabled Windows AMI.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs']]:
+        """
+        The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs']]):
+        pulumi.set(self, "launch_template", value)
+
+    @property
+    @pulumi.getter(name="maxParallelLaunches")
+    def max_parallel_launches(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of parallel instances that are launched for creating resources.
+        """
+        return pulumi.get(self, "max_parallel_launches")
+
+    @max_parallel_launches.setter
+    def max_parallel_launches(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_parallel_launches", value)
+
+    @property
+    @pulumi.getter(name="snapshotConfiguration")
+    def snapshot_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs']]:
+        """
+        Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
+        return pulumi.get(self, "snapshot_configuration")
+
+    @snapshot_configuration.setter
+    def snapshot_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs']]):
+        pulumi.set(self, "snapshot_configuration", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs:
+    def __init__(__self__, *,
+                 launch_template_id: Optional[pulumi.Input[str]] = None,
+                 launch_template_name: Optional[pulumi.Input[str]] = None,
+                 launch_template_version: Optional[pulumi.Input[str]] = None):
+        """
+        The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
+        :param pulumi.Input[str] launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
+        :param pulumi.Input[str] launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if launch_template_version is not None:
+            pulumi.set(__self__, "launch_template_version", launch_template_version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @launch_template_id.setter
+    def launch_template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_name")
+
+    @launch_template_name.setter
+    def launch_template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_name", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateVersion")
+    def launch_template_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_version")
+
+    @launch_template_version.setter
+    def launch_template_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_version", value)
+
+
+@pulumi.input_type
+class DistributionConfigurationFastLaunchSnapshotConfigurationArgs:
+    def __init__(__self__, *,
+                 target_resource_count: Optional[pulumi.Input[int]] = None):
+        """
+        Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        :param pulumi.Input[int] target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        if target_resource_count is not None:
+            pulumi.set(__self__, "target_resource_count", target_resource_count)
+
+    @property
+    @pulumi.getter(name="targetResourceCount")
+    def target_resource_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        return pulumi.get(self, "target_resource_count")
+
+    @target_resource_count.setter
+    def target_resource_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_resource_count", value)
 
 
 @pulumi.input_type
@@ -966,7 +1153,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
         :param pulumi.Input[int] iops: Use to configure device IOPS.
         :param pulumi.Input[str] kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param pulumi.Input[str] snapshot_id: The snapshot that defines the device contents.
-        :param pulumi.Input[int] throughput: For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        :param pulumi.Input[int] throughput: For GP3 volumes only - The throughput in MiB/s that the volume supports.
         :param pulumi.Input[int] volume_size: Use to override the device's volume size.
         :param pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] volume_type: Use to override the device's volume type.
         """
@@ -1051,7 +1238,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        For GP3 volumes only - The throughput in MiB/s that the volume supports.
         """
         return pulumi.get(self, "throughput")
 

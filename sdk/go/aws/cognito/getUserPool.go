@@ -45,6 +45,7 @@ type LookupUserPoolResult struct {
 	SmsAuthenticationMessage    *string                              `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            *UserPoolSmsConfiguration            `pulumi:"smsConfiguration"`
 	SmsVerificationMessage      *string                              `pulumi:"smsVerificationMessage"`
+	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
 	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
@@ -166,6 +167,12 @@ func (o LookupUserPoolResultOutput) SmsConfiguration() UserPoolSmsConfigurationP
 
 func (o LookupUserPoolResultOutput) SmsVerificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.SmsVerificationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) UserAttributeUpdateSettings() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolUserAttributeUpdateSettings {
+		return v.UserAttributeUpdateSettings
+	}).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
 func (o LookupUserPoolResultOutput) UserPoolAddOns() UserPoolAddOnsPtrOutput {

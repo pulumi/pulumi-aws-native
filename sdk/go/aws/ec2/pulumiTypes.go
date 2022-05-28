@@ -10094,6 +10094,7 @@ type LaunchTemplateData struct {
 	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	CpuOptions                        *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
 	CreditSpecification               *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
+	DisableApiStop                    *bool                                           `pulumi:"disableApiStop"`
 	DisableApiTermination             *bool                                           `pulumi:"disableApiTermination"`
 	EbsOptimized                      *bool                                           `pulumi:"ebsOptimized"`
 	ElasticGpuSpecifications          []LaunchTemplateElasticGpuSpecification         `pulumi:"elasticGpuSpecifications"`
@@ -10138,6 +10139,7 @@ type LaunchTemplateDataArgs struct {
 	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
 	CpuOptions                        LaunchTemplateCpuOptionsPtrInput                       `pulumi:"cpuOptions"`
 	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput              `pulumi:"creditSpecification"`
+	DisableApiStop                    pulumi.BoolPtrInput                                    `pulumi:"disableApiStop"`
 	DisableApiTermination             pulumi.BoolPtrInput                                    `pulumi:"disableApiTermination"`
 	EbsOptimized                      pulumi.BoolPtrInput                                    `pulumi:"ebsOptimized"`
 	ElasticGpuSpecifications          LaunchTemplateElasticGpuSpecificationArrayInput        `pulumi:"elasticGpuSpecifications"`
@@ -10259,6 +10261,10 @@ func (o LaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput
 
 func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
 func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
@@ -10425,6 +10431,15 @@ func (o LaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditS
 		}
 		return v.CreditSpecification
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableApiStop
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o LaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {

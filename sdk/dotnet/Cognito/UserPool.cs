@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("smsVerificationMessage")]
         public Output<string?> SmsVerificationMessage { get; private set; } = null!;
 
+        [Output("userAttributeUpdateSettings")]
+        public Output<Outputs.UserPoolUserAttributeUpdateSettings?> UserAttributeUpdateSettings { get; private set; } = null!;
+
         [Output("userPoolAddOns")]
         public Output<Outputs.UserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
 
@@ -203,6 +206,9 @@ namespace Pulumi.AwsNative.Cognito
 
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
+
+        [Input("userAttributeUpdateSettings")]
+        public Input<Inputs.UserPoolUserAttributeUpdateSettingsArgs>? UserAttributeUpdateSettings { get; set; }
 
         [Input("userPoolAddOns")]
         public Input<Inputs.UserPoolAddOnsArgs>? UserPoolAddOns { get; set; }

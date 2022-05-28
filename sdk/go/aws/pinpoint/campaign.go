@@ -17,24 +17,26 @@ import (
 type Campaign struct {
 	pulumi.CustomResourceState
 
-	AdditionalTreatments CampaignWriteTreatmentResourceArrayOutput `pulumi:"additionalTreatments"`
-	ApplicationId        pulumi.StringOutput                       `pulumi:"applicationId"`
-	Arn                  pulumi.StringOutput                       `pulumi:"arn"`
-	CampaignHook         CampaignHookPtrOutput                     `pulumi:"campaignHook"`
-	CampaignId           pulumi.StringOutput                       `pulumi:"campaignId"`
-	Description          pulumi.StringPtrOutput                    `pulumi:"description"`
-	HoldoutPercent       pulumi.IntPtrOutput                       `pulumi:"holdoutPercent"`
-	IsPaused             pulumi.BoolPtrOutput                      `pulumi:"isPaused"`
-	Limits               CampaignLimitsPtrOutput                   `pulumi:"limits"`
-	MessageConfiguration CampaignMessageConfigurationOutput        `pulumi:"messageConfiguration"`
-	Name                 pulumi.StringOutput                       `pulumi:"name"`
-	Priority             pulumi.IntPtrOutput                       `pulumi:"priority"`
-	Schedule             CampaignScheduleOutput                    `pulumi:"schedule"`
-	SegmentId            pulumi.StringOutput                       `pulumi:"segmentId"`
-	SegmentVersion       pulumi.IntPtrOutput                       `pulumi:"segmentVersion"`
-	Tags                 pulumi.AnyOutput                          `pulumi:"tags"`
-	TreatmentDescription pulumi.StringPtrOutput                    `pulumi:"treatmentDescription"`
-	TreatmentName        pulumi.StringPtrOutput                    `pulumi:"treatmentName"`
+	AdditionalTreatments        CampaignWriteTreatmentResourceArrayOutput    `pulumi:"additionalTreatments"`
+	ApplicationId               pulumi.StringOutput                          `pulumi:"applicationId"`
+	Arn                         pulumi.StringOutput                          `pulumi:"arn"`
+	CampaignHook                CampaignHookPtrOutput                        `pulumi:"campaignHook"`
+	CampaignId                  pulumi.StringOutput                          `pulumi:"campaignId"`
+	CustomDeliveryConfiguration CampaignCustomDeliveryConfigurationPtrOutput `pulumi:"customDeliveryConfiguration"`
+	Description                 pulumi.StringPtrOutput                       `pulumi:"description"`
+	HoldoutPercent              pulumi.IntPtrOutput                          `pulumi:"holdoutPercent"`
+	IsPaused                    pulumi.BoolPtrOutput                         `pulumi:"isPaused"`
+	Limits                      CampaignLimitsPtrOutput                      `pulumi:"limits"`
+	MessageConfiguration        CampaignMessageConfigurationPtrOutput        `pulumi:"messageConfiguration"`
+	Name                        pulumi.StringOutput                          `pulumi:"name"`
+	Priority                    pulumi.IntPtrOutput                          `pulumi:"priority"`
+	Schedule                    CampaignScheduleOutput                       `pulumi:"schedule"`
+	SegmentId                   pulumi.StringOutput                          `pulumi:"segmentId"`
+	SegmentVersion              pulumi.IntPtrOutput                          `pulumi:"segmentVersion"`
+	Tags                        pulumi.AnyOutput                             `pulumi:"tags"`
+	TemplateConfiguration       CampaignTemplateConfigurationPtrOutput       `pulumi:"templateConfiguration"`
+	TreatmentDescription        pulumi.StringPtrOutput                       `pulumi:"treatmentDescription"`
+	TreatmentName               pulumi.StringPtrOutput                       `pulumi:"treatmentName"`
 }
 
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
@@ -46,9 +48,6 @@ func NewCampaign(ctx *pulumi.Context,
 
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
-	}
-	if args.MessageConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'MessageConfiguration'")
 	}
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
@@ -88,42 +87,46 @@ func (CampaignState) ElementType() reflect.Type {
 }
 
 type campaignArgs struct {
-	AdditionalTreatments []CampaignWriteTreatmentResource `pulumi:"additionalTreatments"`
-	ApplicationId        string                           `pulumi:"applicationId"`
-	CampaignHook         *CampaignHook                    `pulumi:"campaignHook"`
-	Description          *string                          `pulumi:"description"`
-	HoldoutPercent       *int                             `pulumi:"holdoutPercent"`
-	IsPaused             *bool                            `pulumi:"isPaused"`
-	Limits               *CampaignLimits                  `pulumi:"limits"`
-	MessageConfiguration CampaignMessageConfiguration     `pulumi:"messageConfiguration"`
-	Name                 *string                          `pulumi:"name"`
-	Priority             *int                             `pulumi:"priority"`
-	Schedule             CampaignSchedule                 `pulumi:"schedule"`
-	SegmentId            string                           `pulumi:"segmentId"`
-	SegmentVersion       *int                             `pulumi:"segmentVersion"`
-	Tags                 interface{}                      `pulumi:"tags"`
-	TreatmentDescription *string                          `pulumi:"treatmentDescription"`
-	TreatmentName        *string                          `pulumi:"treatmentName"`
+	AdditionalTreatments        []CampaignWriteTreatmentResource     `pulumi:"additionalTreatments"`
+	ApplicationId               string                               `pulumi:"applicationId"`
+	CampaignHook                *CampaignHook                        `pulumi:"campaignHook"`
+	CustomDeliveryConfiguration *CampaignCustomDeliveryConfiguration `pulumi:"customDeliveryConfiguration"`
+	Description                 *string                              `pulumi:"description"`
+	HoldoutPercent              *int                                 `pulumi:"holdoutPercent"`
+	IsPaused                    *bool                                `pulumi:"isPaused"`
+	Limits                      *CampaignLimits                      `pulumi:"limits"`
+	MessageConfiguration        *CampaignMessageConfiguration        `pulumi:"messageConfiguration"`
+	Name                        *string                              `pulumi:"name"`
+	Priority                    *int                                 `pulumi:"priority"`
+	Schedule                    CampaignSchedule                     `pulumi:"schedule"`
+	SegmentId                   string                               `pulumi:"segmentId"`
+	SegmentVersion              *int                                 `pulumi:"segmentVersion"`
+	Tags                        interface{}                          `pulumi:"tags"`
+	TemplateConfiguration       *CampaignTemplateConfiguration       `pulumi:"templateConfiguration"`
+	TreatmentDescription        *string                              `pulumi:"treatmentDescription"`
+	TreatmentName               *string                              `pulumi:"treatmentName"`
 }
 
 // The set of arguments for constructing a Campaign resource.
 type CampaignArgs struct {
-	AdditionalTreatments CampaignWriteTreatmentResourceArrayInput
-	ApplicationId        pulumi.StringInput
-	CampaignHook         CampaignHookPtrInput
-	Description          pulumi.StringPtrInput
-	HoldoutPercent       pulumi.IntPtrInput
-	IsPaused             pulumi.BoolPtrInput
-	Limits               CampaignLimitsPtrInput
-	MessageConfiguration CampaignMessageConfigurationInput
-	Name                 pulumi.StringPtrInput
-	Priority             pulumi.IntPtrInput
-	Schedule             CampaignScheduleInput
-	SegmentId            pulumi.StringInput
-	SegmentVersion       pulumi.IntPtrInput
-	Tags                 pulumi.Input
-	TreatmentDescription pulumi.StringPtrInput
-	TreatmentName        pulumi.StringPtrInput
+	AdditionalTreatments        CampaignWriteTreatmentResourceArrayInput
+	ApplicationId               pulumi.StringInput
+	CampaignHook                CampaignHookPtrInput
+	CustomDeliveryConfiguration CampaignCustomDeliveryConfigurationPtrInput
+	Description                 pulumi.StringPtrInput
+	HoldoutPercent              pulumi.IntPtrInput
+	IsPaused                    pulumi.BoolPtrInput
+	Limits                      CampaignLimitsPtrInput
+	MessageConfiguration        CampaignMessageConfigurationPtrInput
+	Name                        pulumi.StringPtrInput
+	Priority                    pulumi.IntPtrInput
+	Schedule                    CampaignScheduleInput
+	SegmentId                   pulumi.StringInput
+	SegmentVersion              pulumi.IntPtrInput
+	Tags                        pulumi.Input
+	TemplateConfiguration       CampaignTemplateConfigurationPtrInput
+	TreatmentDescription        pulumi.StringPtrInput
+	TreatmentName               pulumi.StringPtrInput
 }
 
 func (CampaignArgs) ElementType() reflect.Type {
@@ -183,6 +186,10 @@ func (o CampaignOutput) CampaignId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.CampaignId }).(pulumi.StringOutput)
 }
 
+func (o CampaignOutput) CustomDeliveryConfiguration() CampaignCustomDeliveryConfigurationPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignCustomDeliveryConfigurationPtrOutput { return v.CustomDeliveryConfiguration }).(CampaignCustomDeliveryConfigurationPtrOutput)
+}
+
 func (o CampaignOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -199,8 +206,8 @@ func (o CampaignOutput) Limits() CampaignLimitsPtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignLimitsPtrOutput { return v.Limits }).(CampaignLimitsPtrOutput)
 }
 
-func (o CampaignOutput) MessageConfiguration() CampaignMessageConfigurationOutput {
-	return o.ApplyT(func(v *Campaign) CampaignMessageConfigurationOutput { return v.MessageConfiguration }).(CampaignMessageConfigurationOutput)
+func (o CampaignOutput) MessageConfiguration() CampaignMessageConfigurationPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignMessageConfigurationPtrOutput { return v.MessageConfiguration }).(CampaignMessageConfigurationPtrOutput)
 }
 
 func (o CampaignOutput) Name() pulumi.StringOutput {
@@ -225,6 +232,10 @@ func (o CampaignOutput) SegmentVersion() pulumi.IntPtrOutput {
 
 func (o CampaignOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o CampaignOutput) TemplateConfiguration() CampaignTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignTemplateConfigurationPtrOutput { return v.TemplateConfiguration }).(CampaignTemplateConfigurationPtrOutput)
 }
 
 func (o CampaignOutput) TreatmentDescription() pulumi.StringPtrOutput {

@@ -3091,6 +3091,7 @@ class LaunchTemplateDataArgs:
                  capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
                  cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
                  credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
+                 disable_api_stop: Optional[pulumi.Input[bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
@@ -3125,6 +3126,8 @@ class LaunchTemplateDataArgs:
             pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_stop is not None:
+            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
@@ -3213,6 +3216,15 @@ class LaunchTemplateDataArgs:
     @credit_specification.setter
     def credit_specification(self, value: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]):
         pulumi.set(self, "credit_specification", value)
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_api_stop")
+
+    @disable_api_stop.setter
+    def disable_api_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_api_stop", value)
 
     @property
     @pulumi.getter(name="disableApiTermination")

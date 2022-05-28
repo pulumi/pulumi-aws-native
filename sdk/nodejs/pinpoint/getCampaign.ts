@@ -28,6 +28,7 @@ export interface GetCampaignResult {
     readonly arn?: string;
     readonly campaignHook?: outputs.pinpoint.CampaignHook;
     readonly campaignId?: string;
+    readonly customDeliveryConfiguration?: outputs.pinpoint.CampaignCustomDeliveryConfiguration;
     readonly description?: string;
     readonly holdoutPercent?: number;
     readonly isPaused?: boolean;
@@ -39,6 +40,7 @@ export interface GetCampaignResult {
     readonly segmentId?: string;
     readonly segmentVersion?: number;
     readonly tags?: any;
+    readonly templateConfiguration?: outputs.pinpoint.CampaignTemplateConfiguration;
     readonly treatmentDescription?: string;
     readonly treatmentName?: string;
 }

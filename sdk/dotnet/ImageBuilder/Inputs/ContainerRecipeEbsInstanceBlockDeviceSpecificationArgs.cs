@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        /// For GP3 volumes only - The throughput in MiB/s that the volume supports.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

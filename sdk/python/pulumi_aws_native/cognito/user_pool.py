@@ -31,6 +31,7 @@ class UserPoolArgs:
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
+                 user_attribute_update_settings: Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']] = None,
                  user_pool_add_ons: Optional[pulumi.Input['UserPoolAddOnsArgs']] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
@@ -72,6 +73,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "sms_configuration", sms_configuration)
         if sms_verification_message is not None:
             pulumi.set(__self__, "sms_verification_message", sms_verification_message)
+        if user_attribute_update_settings is not None:
+            pulumi.set(__self__, "user_attribute_update_settings", user_attribute_update_settings)
         if user_pool_add_ons is not None:
             pulumi.set(__self__, "user_pool_add_ons", user_pool_add_ons)
         if user_pool_name is not None:
@@ -230,6 +233,15 @@ class UserPoolArgs:
         pulumi.set(self, "sms_verification_message", value)
 
     @property
+    @pulumi.getter(name="userAttributeUpdateSettings")
+    def user_attribute_update_settings(self) -> Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]:
+        return pulumi.get(self, "user_attribute_update_settings")
+
+    @user_attribute_update_settings.setter
+    def user_attribute_update_settings(self, value: Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]):
+        pulumi.set(self, "user_attribute_update_settings", value)
+
+    @property
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolAddOnsArgs']]:
         return pulumi.get(self, "user_pool_add_ons")
@@ -310,6 +322,7 @@ class UserPool(pulumi.CustomResource):
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']]] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
+                 user_attribute_update_settings: Optional[pulumi.Input[pulumi.InputType['UserPoolUserAttributeUpdateSettingsArgs']]] = None,
                  user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
@@ -363,6 +376,7 @@ class UserPool(pulumi.CustomResource):
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']]] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
+                 user_attribute_update_settings: Optional[pulumi.Input[pulumi.InputType['UserPoolUserAttributeUpdateSettingsArgs']]] = None,
                  user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
@@ -398,6 +412,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["sms_authentication_message"] = sms_authentication_message
             __props__.__dict__["sms_configuration"] = sms_configuration
             __props__.__dict__["sms_verification_message"] = sms_verification_message
+            __props__.__dict__["user_attribute_update_settings"] = user_attribute_update_settings
             __props__.__dict__["user_pool_add_ons"] = user_pool_add_ons
             __props__.__dict__["user_pool_name"] = user_pool_name
             __props__.__dict__["user_pool_tags"] = user_pool_tags
@@ -448,6 +463,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["sms_authentication_message"] = None
         __props__.__dict__["sms_configuration"] = None
         __props__.__dict__["sms_verification_message"] = None
+        __props__.__dict__["user_attribute_update_settings"] = None
         __props__.__dict__["user_pool_add_ons"] = None
         __props__.__dict__["user_pool_name"] = None
         __props__.__dict__["user_pool_tags"] = None
@@ -550,6 +566,11 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sms_verification_message")
+
+    @property
+    @pulumi.getter(name="userAttributeUpdateSettings")
+    def user_attribute_update_settings(self) -> pulumi.Output[Optional['outputs.UserPoolUserAttributeUpdateSettings']]:
+        return pulumi.get(self, "user_attribute_update_settings")
 
     @property
     @pulumi.getter(name="userPoolAddOns")

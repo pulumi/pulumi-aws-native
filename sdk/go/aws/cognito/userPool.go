@@ -35,6 +35,7 @@ type UserPool struct {
 	SmsAuthenticationMessage    pulumi.StringPtrOutput                       `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            UserPoolSmsConfigurationPtrOutput            `pulumi:"smsConfiguration"`
 	SmsVerificationMessage      pulumi.StringPtrOutput                       `pulumi:"smsVerificationMessage"`
+	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrOutput `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              UserPoolAddOnsPtrOutput                      `pulumi:"userPoolAddOns"`
 	UserPoolName                pulumi.StringPtrOutput                       `pulumi:"userPoolName"`
 	UserPoolTags                pulumi.AnyOutput                             `pulumi:"userPoolTags"`
@@ -98,6 +99,7 @@ type userPoolArgs struct {
 	SmsAuthenticationMessage    *string                              `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            *UserPoolSmsConfiguration            `pulumi:"smsConfiguration"`
 	SmsVerificationMessage      *string                              `pulumi:"smsVerificationMessage"`
+	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
 	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
@@ -124,6 +126,7 @@ type UserPoolArgs struct {
 	SmsAuthenticationMessage    pulumi.StringPtrInput
 	SmsConfiguration            UserPoolSmsConfigurationPtrInput
 	SmsVerificationMessage      pulumi.StringPtrInput
+	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	UserPoolAddOns              UserPoolAddOnsPtrInput
 	UserPoolName                pulumi.StringPtrInput
 	UserPoolTags                pulumi.Input
@@ -243,6 +246,10 @@ func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationPtrOutput {
 
 func (o UserPoolOutput) SmsVerificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsVerificationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) UserAttributeUpdateSettings() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolUserAttributeUpdateSettingsPtrOutput { return v.UserAttributeUpdateSettings }).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
 func (o UserPoolOutput) UserPoolAddOns() UserPoolAddOnsPtrOutput {

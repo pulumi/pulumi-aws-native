@@ -3171,6 +3171,8 @@ class LaunchTemplateData(dict):
             suggest = "cpu_options"
         elif key == "creditSpecification":
             suggest = "credit_specification"
+        elif key == "disableApiStop":
+            suggest = "disable_api_stop"
         elif key == "disableApiTermination":
             suggest = "disable_api_termination"
         elif key == "ebsOptimized":
@@ -3236,6 +3238,7 @@ class LaunchTemplateData(dict):
                  capacity_reservation_specification: Optional['outputs.LaunchTemplateCapacityReservationSpecification'] = None,
                  cpu_options: Optional['outputs.LaunchTemplateCpuOptions'] = None,
                  credit_specification: Optional['outputs.LaunchTemplateCreditSpecification'] = None,
+                 disable_api_stop: Optional[bool] = None,
                  disable_api_termination: Optional[bool] = None,
                  ebs_optimized: Optional[bool] = None,
                  elastic_gpu_specifications: Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']] = None,
@@ -3270,6 +3273,8 @@ class LaunchTemplateData(dict):
             pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_stop is not None:
+            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
@@ -3342,6 +3347,11 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> Optional['outputs.LaunchTemplateCreditSpecification']:
         return pulumi.get(self, "credit_specification")
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_api_stop")
 
     @property
     @pulumi.getter(name="disableApiTermination")

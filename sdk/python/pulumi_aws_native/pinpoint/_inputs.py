@@ -13,6 +13,8 @@ __all__ = [
     'ApplicationSettingsCampaignHookArgs',
     'ApplicationSettingsLimitsArgs',
     'ApplicationSettingsQuietTimeArgs',
+    'CampaignCustomDeliveryConfigurationArgs',
+    'CampaignCustomMessageArgs',
     'CampaignDefaultButtonConfigurationArgs',
     'CampaignEmailMessageArgs',
     'CampaignEventDimensionsArgs',
@@ -31,6 +33,8 @@ __all__ = [
     'CampaignScheduleArgs',
     'CampaignSetDimensionArgs',
     'CampaignSmsMessageArgs',
+    'CampaignTemplateConfigurationArgs',
+    'CampaignTemplateArgs',
     'CampaignWriteTreatmentResourceArgs',
     'InAppTemplateBodyConfigArgs',
     'InAppTemplateButtonConfigArgs',
@@ -171,6 +175,52 @@ class ApplicationSettingsQuietTimeArgs:
     @start.setter
     def start(self, value: pulumi.Input[str]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class CampaignCustomDeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 delivery_uri: Optional[pulumi.Input[str]] = None,
+                 endpoint_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if delivery_uri is not None:
+            pulumi.set(__self__, "delivery_uri", delivery_uri)
+        if endpoint_types is not None:
+            pulumi.set(__self__, "endpoint_types", endpoint_types)
+
+    @property
+    @pulumi.getter(name="deliveryUri")
+    def delivery_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delivery_uri")
+
+    @delivery_uri.setter
+    def delivery_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_uri", value)
+
+    @property
+    @pulumi.getter(name="endpointTypes")
+    def endpoint_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "endpoint_types")
+
+    @endpoint_types.setter
+    def endpoint_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoint_types", value)
+
+
+@pulumi.input_type
+class CampaignCustomMessageArgs:
+    def __init__(__self__, *,
+                 data: Optional[pulumi.Input[str]] = None):
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
 
 
 @pulumi.input_type
@@ -738,6 +788,7 @@ class CampaignMessageConfigurationArgs:
                  a_dm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  a_pns_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  baidu_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+                 custom_message: Optional[pulumi.Input['CampaignCustomMessageArgs']] = None,
                  default_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  email_message: Optional[pulumi.Input['CampaignEmailMessageArgs']] = None,
                  g_cm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
@@ -749,6 +800,8 @@ class CampaignMessageConfigurationArgs:
             pulumi.set(__self__, "a_pns_message", a_pns_message)
         if baidu_message is not None:
             pulumi.set(__self__, "baidu_message", baidu_message)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
         if default_message is not None:
             pulumi.set(__self__, "default_message", default_message)
         if email_message is not None:
@@ -786,6 +839,15 @@ class CampaignMessageConfigurationArgs:
     @baidu_message.setter
     def baidu_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
         pulumi.set(self, "baidu_message", value)
+
+    @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional[pulumi.Input['CampaignCustomMessageArgs']]:
+        return pulumi.get(self, "custom_message")
+
+    @custom_message.setter
+    def custom_message(self, value: Optional[pulumi.Input['CampaignCustomMessageArgs']]):
+        pulumi.set(self, "custom_message", value)
 
     @property
     @pulumi.getter(name="defaultMessage")
@@ -1234,23 +1296,120 @@ class CampaignSmsMessageArgs:
 
 
 @pulumi.input_type
+class CampaignTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 email_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+                 push_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+                 s_ms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+                 voice_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None):
+        if email_template is not None:
+            pulumi.set(__self__, "email_template", email_template)
+        if push_template is not None:
+            pulumi.set(__self__, "push_template", push_template)
+        if s_ms_template is not None:
+            pulumi.set(__self__, "s_ms_template", s_ms_template)
+        if voice_template is not None:
+            pulumi.set(__self__, "voice_template", voice_template)
+
+    @property
+    @pulumi.getter(name="emailTemplate")
+    def email_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
+        return pulumi.get(self, "email_template")
+
+    @email_template.setter
+    def email_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
+        pulumi.set(self, "email_template", value)
+
+    @property
+    @pulumi.getter(name="pushTemplate")
+    def push_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
+        return pulumi.get(self, "push_template")
+
+    @push_template.setter
+    def push_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
+        pulumi.set(self, "push_template", value)
+
+    @property
+    @pulumi.getter(name="sMSTemplate")
+    def s_ms_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
+        return pulumi.get(self, "s_ms_template")
+
+    @s_ms_template.setter
+    def s_ms_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
+        pulumi.set(self, "s_ms_template", value)
+
+    @property
+    @pulumi.getter(name="voiceTemplate")
+    def voice_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
+        return pulumi.get(self, "voice_template")
+
+    @voice_template.setter
+    def voice_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
+        pulumi.set(self, "voice_template", value)
+
+
+@pulumi.input_type
+class CampaignTemplateArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class CampaignWriteTreatmentResourceArgs:
     def __init__(__self__, *,
+                 custom_delivery_configuration: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']] = None,
                  message_configuration: Optional[pulumi.Input['CampaignMessageConfigurationArgs']] = None,
                  schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
                  size_percent: Optional[pulumi.Input[int]] = None,
+                 template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
                  treatment_name: Optional[pulumi.Input[str]] = None):
+        if custom_delivery_configuration is not None:
+            pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
         if message_configuration is not None:
             pulumi.set(__self__, "message_configuration", message_configuration)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if size_percent is not None:
             pulumi.set(__self__, "size_percent", size_percent)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if treatment_description is not None:
             pulumi.set(__self__, "treatment_description", treatment_description)
         if treatment_name is not None:
             pulumi.set(__self__, "treatment_name", treatment_name)
+
+    @property
+    @pulumi.getter(name="customDeliveryConfiguration")
+    def custom_delivery_configuration(self) -> Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']]:
+        return pulumi.get(self, "custom_delivery_configuration")
+
+    @custom_delivery_configuration.setter
+    def custom_delivery_configuration(self, value: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']]):
+        pulumi.set(self, "custom_delivery_configuration", value)
 
     @property
     @pulumi.getter(name="messageConfiguration")
@@ -1278,6 +1437,15 @@ class CampaignWriteTreatmentResourceArgs:
     @size_percent.setter
     def size_percent(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_percent", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional[pulumi.Input['CampaignTemplateConfigurationArgs']]:
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']]):
+        pulumi.set(self, "template_configuration", value)
 
     @property
     @pulumi.getter(name="treatmentDescription")

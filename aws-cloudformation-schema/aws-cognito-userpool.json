@@ -28,6 +28,9 @@
     "SmsVerificationMessage" : {
       "type" : "string"
     },
+    "UserAttributeUpdateSettings" : {
+      "$ref" : "#/definitions/UserAttributeUpdateSettings"
+    },
     "EmailConfiguration" : {
       "$ref" : "#/definitions/EmailConfiguration"
     },
@@ -220,6 +223,20 @@
           "type" : "string"
         }
       }
+    },
+    "UserAttributeUpdateSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AttributesRequireVerificationBeforeUpdate" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "AttributesRequireVerificationBeforeUpdate" ]
     },
     "CustomSMSSender" : {
       "type" : "object",
