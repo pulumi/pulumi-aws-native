@@ -22,6 +22,7 @@
     "Components" : {
       "description" : "Components for build and test that are included in the container recipe.",
       "type" : "array",
+      "insertionOrder" : true,
       "items" : {
         "$ref" : "#/definitions/ComponentConfiguration"
       }
@@ -104,6 +105,7 @@
         "BlockDeviceMappings" : {
           "description" : "Defines the block devices to attach for building an instance from this Image Builder AMI.",
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/InstanceBlockDeviceMapping"
           }
@@ -159,7 +161,7 @@
           "type" : "string"
         },
         "Throughput" : {
-          "description" : "For GP3 volumes only – The throughput in MiB/s that the volume supports.",
+          "description" : "For GP3 volumes only - The throughput in MiB/s that the volume supports.",
           "type" : "integer"
         },
         "VolumeSize" : {

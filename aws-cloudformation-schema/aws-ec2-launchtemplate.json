@@ -119,6 +119,9 @@
         "InstanceInitiatedShutdownBehavior" : {
           "type" : "string"
         },
+        "DisableApiStop" : {
+          "type" : "boolean"
+        },
         "CpuOptions" : {
           "$ref" : "#/definitions/CpuOptions"
         },

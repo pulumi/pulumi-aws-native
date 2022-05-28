@@ -64,6 +64,7 @@
     "SupportedOsVersions" : {
       "description" : "The operating system (OS) version supported by the component.",
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }

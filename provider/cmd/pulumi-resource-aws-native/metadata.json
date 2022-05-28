@@ -54794,7 +54794,7 @@
                 },
                 "throughput": {
                     "type": "integer",
-                    "description": "For GP3 volumes only – The throughput in MiB/s that the volume supports."
+                    "description": "For GP3 volumes only - The throughput in MiB/s that the volume supports."
                 },
                 "volumeSize": {
                     "type": "integer",
@@ -54925,6 +54925,13 @@
                 "containerDistributionConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationContainerDistributionConfiguration"
                 },
+                "fastLaunchConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationFastLaunchConfiguration"
+                    },
+                    "description": "The Windows faster-launching configurations to use for AMI distribution."
+                },
                 "launchTemplateConfigurations": {
                     "type": "array",
                     "items": {
@@ -54942,6 +54949,57 @@
                 "region": {
                     "type": "string",
                     "description": "region"
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationFastLaunchConfiguration": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The owner account ID for the fast-launch enabled Windows AMI."
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it."
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationFastLaunchLaunchTemplateSpecification",
+                    "description": "The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots."
+                },
+                "maxParallelLaunches": {
+                    "type": "integer",
+                    "description": "The maximum number of parallel instances that are launched for creating resources."
+                },
+                "snapshotConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationFastLaunchSnapshotConfiguration",
+                    "description": "Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationFastLaunchLaunchTemplateSpecification": {
+            "type": "object",
+            "properties": {
+                "launchTemplateId": {
+                    "type": "string",
+                    "description": "The ID of the launch template to use for faster launching for a Windows AMI."
+                },
+                "launchTemplateName": {
+                    "type": "string",
+                    "description": "The name of the launch template to use for faster launching for a Windows AMI."
+                },
+                "launchTemplateVersion": {
+                    "type": "string",
+                    "description": "The version of the launch template to use for faster launching for a Windows AMI."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationFastLaunchSnapshotConfiguration": {
+            "type": "object",
+            "properties": {
+                "targetResourceCount": {
+                    "type": "integer",
+                    "description": "The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI."
                 }
             }
         },
@@ -55113,7 +55171,7 @@
                 },
                 "throughput": {
                     "type": "integer",
-                    "description": "For GP3 volumes only – The throughput in MiB/s that the volume supports."
+                    "description": "For GP3 volumes only - The throughput in MiB/s that the volume supports."
                 },
                 "volumeSize": {
                     "type": "integer",

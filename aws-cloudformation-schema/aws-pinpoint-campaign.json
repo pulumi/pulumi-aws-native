@@ -12,6 +12,9 @@
     "Priority" : {
       "type" : "integer"
     },
+    "TemplateConfiguration" : {
+      "$ref" : "#/definitions/TemplateConfiguration"
+    },
     "IsPaused" : {
       "type" : "boolean"
     },
@@ -45,6 +48,9 @@
     },
     "Schedule" : {
       "$ref" : "#/definitions/Schedule"
+    },
+    "CustomDeliveryConfiguration" : {
+      "$ref" : "#/definitions/CustomDeliveryConfiguration"
     },
     "Arn" : {
       "type" : "string"
@@ -185,6 +191,33 @@
         }
       }
     },
+    "TemplateConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SMSTemplate" : {
+          "$ref" : "#/definitions/Template"
+        },
+        "EmailTemplate" : {
+          "$ref" : "#/definitions/Template"
+        },
+        "PushTemplate" : {
+          "$ref" : "#/definitions/Template"
+        },
+        "VoiceTemplate" : {
+          "$ref" : "#/definitions/Template"
+        }
+      }
+    },
+    "CampaignCustomMessage" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Data" : {
+          "type" : "string"
+        }
+      }
+    },
     "EventDimensions" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -197,6 +230,18 @@
         },
         "EventType" : {
           "$ref" : "#/definitions/SetDimension"
+        }
+      }
+    },
+    "Template" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Version" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
         }
       }
     },
@@ -224,6 +269,9 @@
         },
         "SMSMessage" : {
           "$ref" : "#/definitions/CampaignSmsMessage"
+        },
+        "CustomMessage" : {
+          "$ref" : "#/definitions/CampaignCustomMessage"
         },
         "ADMMessage" : {
           "$ref" : "#/definitions/Message"
@@ -261,11 +309,17 @@
         "MessageConfiguration" : {
           "$ref" : "#/definitions/MessageConfiguration"
         },
-        "SizePercent" : {
-          "type" : "integer"
-        },
         "Schedule" : {
           "$ref" : "#/definitions/Schedule"
+        },
+        "TemplateConfiguration" : {
+          "$ref" : "#/definitions/TemplateConfiguration"
+        },
+        "CustomDeliveryConfiguration" : {
+          "$ref" : "#/definitions/CustomDeliveryConfiguration"
+        },
+        "SizePercent" : {
+          "type" : "integer"
         },
         "TreatmentName" : {
           "type" : "string"
@@ -384,6 +438,22 @@
         }
       }
     },
+    "CustomDeliveryConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EndpointTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "DeliveryUri" : {
+          "type" : "string"
+        }
+      }
+    },
     "CampaignHook" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -445,7 +515,7 @@
       }
     }
   },
-  "required" : [ "MessageConfiguration", "SegmentId", "Schedule", "ApplicationId", "Name" ],
+  "required" : [ "SegmentId", "Schedule", "ApplicationId", "Name" ],
   "createOnlyProperties" : [ "/properties/ApplicationId" ],
   "primaryIdentifier" : [ "/properties/CampaignId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CampaignId" ]
