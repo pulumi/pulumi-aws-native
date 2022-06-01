@@ -50,11 +50,14 @@
         },
         "MappingType" : {
           "type" : "string",
-          "pattern" : "CfnStack|Resource"
+          "pattern" : "CfnStack|Resource|Terraform"
         },
         "ResourceName" : {
           "type" : "string",
           "pattern" : "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$"
+        },
+        "TerraformSourceName" : {
+          "type" : "string"
         },
         "PhysicalResourceId" : {
           "$ref" : "#/definitions/PhysicalResourceId"
@@ -103,6 +106,11 @@
       "items" : {
         "$ref" : "#/definitions/ResourceMapping"
       }
+    },
+    "AppAssessmentSchedule" : {
+      "description" : "Assessment execution schedule.",
+      "type" : "string",
+      "enum" : [ "Disabled", "Daily" ]
     }
   },
   "additionalProperties" : false,
@@ -112,13 +120,13 @@
   "primaryIdentifier" : [ "/properties/AppArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "resiliencehub:CreateApp", "resiliencehub:TagResource", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:PublishAppVersion" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "resiliencehub:CreateApp", "resiliencehub:TagResource", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:PublishAppVersion" ]
     },
     "read" : {
       "permissions" : [ "resiliencehub:DescribeApp", "resiliencehub:DescribeAppVersionTemplate", "resiliencehub:ListAppVersionResourceMappings", "resiliencehub:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "resiliencehub:UpdateApp", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:RemoveDraftAppVersionResourceMappings", "resiliencehub:PublishAppVersion", "resiliencehub:TagResource", "resiliencehub:UntagResource", "resiliencehub:ListTagsForResource" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "resiliencehub:UpdateApp", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:RemoveDraftAppVersionResourceMappings", "resiliencehub:PublishAppVersion", "resiliencehub:TagResource", "resiliencehub:UntagResource", "resiliencehub:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "resiliencehub:DeleteApp", "resiliencehub:UntagResource", "resiliencehub:ListApps" ]

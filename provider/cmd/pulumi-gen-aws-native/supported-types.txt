@@ -315,6 +315,7 @@ AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
 AWS::Kinesis::Stream
+AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
