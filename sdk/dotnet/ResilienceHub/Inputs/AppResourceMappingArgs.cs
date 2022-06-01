@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
+        [Input("terraformSourceName")]
+        public Input<string>? TerraformSourceName { get; set; }
+
         public AppResourceMappingArgs()
         {
         }

@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationInputLambdaProcessor
     {
+        /// <summary>
+        /// The ARN of the Amazon Lambda function that operates on records in the stream.
+        /// </summary>
         public readonly string ResourceARN;
 
         [OutputConstructor]

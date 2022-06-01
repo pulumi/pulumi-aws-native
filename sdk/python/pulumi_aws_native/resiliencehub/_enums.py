@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'AppAssessmentSchedule',
     'ResiliencyPolicyDataLocationConstraint',
     'ResiliencyPolicyTier',
 ]
+
+
+class AppAssessmentSchedule(str, Enum):
+    """
+    Assessment execution schedule.
+    """
+    DISABLED = "Disabled"
+    DAILY = "Daily"
 
 
 class ResiliencyPolicyDataLocationConstraint(str, Enum):

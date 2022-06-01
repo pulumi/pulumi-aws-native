@@ -32,6 +32,10 @@ export interface GetAppResult {
      */
     readonly appArn?: string;
     /**
+     * Assessment execution schedule.
+     */
+    readonly appAssessmentSchedule?: enums.resiliencehub.AppAssessmentSchedule;
+    /**
      * A string containing full ResilienceHub app template body.
      */
     readonly appTemplateBody?: string;

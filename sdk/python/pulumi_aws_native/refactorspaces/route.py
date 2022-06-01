@@ -19,6 +19,7 @@ class RouteArgs:
                  application_identifier: pulumi.Input[str],
                  environment_identifier: pulumi.Input[str],
                  service_identifier: pulumi.Input[str],
+                 default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
                  route_type: Optional[pulumi.Input['RouteType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
                  uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None):
@@ -29,6 +30,8 @@ class RouteArgs:
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "environment_identifier", environment_identifier)
         pulumi.set(__self__, "service_identifier", service_identifier)
+        if default_route is not None:
+            pulumi.set(__self__, "default_route", default_route)
         if route_type is not None:
             pulumi.set(__self__, "route_type", route_type)
         if tags is not None:
@@ -62,6 +65,15 @@ class RouteArgs:
     @service_identifier.setter
     def service_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_identifier", value)
+
+    @property
+    @pulumi.getter(name="defaultRoute")
+    def default_route(self) -> Optional[pulumi.Input['RouteDefaultRouteInputArgs']]:
+        return pulumi.get(self, "default_route")
+
+    @default_route.setter
+    def default_route(self, value: Optional[pulumi.Input['RouteDefaultRouteInputArgs']]):
+        pulumi.set(self, "default_route", value)
 
     @property
     @pulumi.getter(name="routeType")
@@ -100,6 +112,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_identifier: Optional[pulumi.Input[str]] = None,
+                 default_route: Optional[pulumi.Input[pulumi.InputType['RouteDefaultRouteInputArgs']]] = None,
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  route_type: Optional[pulumi.Input['RouteType']] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
@@ -138,6 +151,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_identifier: Optional[pulumi.Input[str]] = None,
+                 default_route: Optional[pulumi.Input[pulumi.InputType['RouteDefaultRouteInputArgs']]] = None,
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  route_type: Optional[pulumi.Input['RouteType']] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
@@ -158,6 +172,7 @@ class Route(pulumi.CustomResource):
             if application_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'application_identifier'")
             __props__.__dict__["application_identifier"] = application_identifier
+            __props__.__dict__["default_route"] = default_route
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
@@ -194,6 +209,7 @@ class Route(pulumi.CustomResource):
 
         __props__.__dict__["application_identifier"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["default_route"] = None
         __props__.__dict__["environment_identifier"] = None
         __props__.__dict__["path_resource_to_id"] = None
         __props__.__dict__["route_identifier"] = None
@@ -212,6 +228,11 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultRoute")
+    def default_route(self) -> pulumi.Output[Optional['outputs.RouteDefaultRouteInput']]:
+        return pulumi.get(self, "default_route")
 
     @property
     @pulumi.getter(name="environmentIdentifier")

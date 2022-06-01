@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AppAssessmentSchedule = {
+    Disabled: "Disabled",
+    Daily: "Daily",
+} as const;
+
+/**
+ * Assessment execution schedule.
+ */
+export type AppAssessmentSchedule = (typeof AppAssessmentSchedule)[keyof typeof AppAssessmentSchedule];
+
 export const ResiliencyPolicyDataLocationConstraint = {
     AnyLocation: "AnyLocation",
     SameContinent: "SameContinent",

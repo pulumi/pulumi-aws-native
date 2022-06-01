@@ -74,7 +74,8 @@ class AppResourceMappingArgs:
                  mapping_type: pulumi.Input[str],
                  physical_resource_id: pulumi.Input['AppPhysicalResourceIdArgs'],
                  logical_stack_name: Optional[pulumi.Input[str]] = None,
-                 resource_name: Optional[pulumi.Input[str]] = None):
+                 resource_name: Optional[pulumi.Input[str]] = None,
+                 terraform_source_name: Optional[pulumi.Input[str]] = None):
         """
         Resource mapping is used to map logical resources from template to physical resource
         """
@@ -84,6 +85,8 @@ class AppResourceMappingArgs:
             pulumi.set(__self__, "logical_stack_name", logical_stack_name)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if terraform_source_name is not None:
+            pulumi.set(__self__, "terraform_source_name", terraform_source_name)
 
     @property
     @pulumi.getter(name="mappingType")
@@ -120,6 +123,15 @@ class AppResourceMappingArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="terraformSourceName")
+    def terraform_source_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "terraform_source_name")
+
+    @terraform_source_name.setter
+    def terraform_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terraform_source_name", value)
 
 
 @pulumi.input_type

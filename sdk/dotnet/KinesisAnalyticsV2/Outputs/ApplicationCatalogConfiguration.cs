@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationCatalogConfiguration
     {
+        /// <summary>
+        /// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
+        /// </summary>
         public readonly Outputs.ApplicationGlueDataCatalogConfiguration? GlueDataCatalogConfiguration;
 
         [OutputConstructor]

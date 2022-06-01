@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("defaultRoute")]
+        public Output<Outputs.RouteDefaultRouteInput?> DefaultRoute { get; private set; } = null!;
+
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
+
+        [Input("defaultRoute")]
+        public Input<Inputs.RouteDefaultRouteInputArgs>? DefaultRoute { get; set; }
 
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;

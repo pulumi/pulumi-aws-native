@@ -79,10 +79,11 @@ func (o AppPhysicalResourceIdOutput) Type() pulumi.StringOutput {
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMapping struct {
-	LogicalStackName   *string               `pulumi:"logicalStackName"`
-	MappingType        string                `pulumi:"mappingType"`
-	PhysicalResourceId AppPhysicalResourceId `pulumi:"physicalResourceId"`
-	ResourceName       *string               `pulumi:"resourceName"`
+	LogicalStackName    *string               `pulumi:"logicalStackName"`
+	MappingType         string                `pulumi:"mappingType"`
+	PhysicalResourceId  AppPhysicalResourceId `pulumi:"physicalResourceId"`
+	ResourceName        *string               `pulumi:"resourceName"`
+	TerraformSourceName *string               `pulumi:"terraformSourceName"`
 }
 
 // AppResourceMappingInput is an input type that accepts AppResourceMappingArgs and AppResourceMappingOutput values.
@@ -98,10 +99,11 @@ type AppResourceMappingInput interface {
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMappingArgs struct {
-	LogicalStackName   pulumi.StringPtrInput      `pulumi:"logicalStackName"`
-	MappingType        pulumi.StringInput         `pulumi:"mappingType"`
-	PhysicalResourceId AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
-	ResourceName       pulumi.StringPtrInput      `pulumi:"resourceName"`
+	LogicalStackName    pulumi.StringPtrInput      `pulumi:"logicalStackName"`
+	MappingType         pulumi.StringInput         `pulumi:"mappingType"`
+	PhysicalResourceId  AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
+	ResourceName        pulumi.StringPtrInput      `pulumi:"resourceName"`
+	TerraformSourceName pulumi.StringPtrInput      `pulumi:"terraformSourceName"`
 }
 
 func (AppResourceMappingArgs) ElementType() reflect.Type {
@@ -170,6 +172,10 @@ func (o AppResourceMappingOutput) PhysicalResourceId() AppPhysicalResourceIdOutp
 
 func (o AppResourceMappingOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o AppResourceMappingOutput) TerraformSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceMapping) *string { return v.TerraformSourceName }).(pulumi.StringPtrOutput)
 }
 
 type AppResourceMappingArrayOutput struct{ *pulumi.OutputState }

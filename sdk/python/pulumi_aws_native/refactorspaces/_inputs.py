@@ -13,6 +13,7 @@ __all__ = [
     'ApplicationApiGatewayProxyInputArgs',
     'ApplicationTagArgs',
     'EnvironmentTagArgs',
+    'RouteDefaultRouteInputArgs',
     'RouteTagArgs',
     'RouteUriPathRouteInputArgs',
     'ServiceLambdaEndpointInputArgs',
@@ -123,6 +124,22 @@ class EnvironmentTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RouteDefaultRouteInputArgs:
+    def __init__(__self__, *,
+                 activation_state: pulumi.Input['RouteActivationState']):
+        pulumi.set(__self__, "activation_state", activation_state)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> pulumi.Input['RouteActivationState']:
+        return pulumi.get(self, "activation_state")
+
+    @activation_state.setter
+    def activation_state(self, value: pulumi.Input['RouteActivationState']):
+        pulumi.set(self, "activation_state", value)
 
 
 @pulumi.input_type

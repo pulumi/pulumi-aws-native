@@ -10,17 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Describes code configuration for an application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationCodeConfiguration
     {
+        /// <summary>
+        /// The location and type of the application code.
+        /// </summary>
         public readonly Outputs.ApplicationCodeContent CodeContent;
-        public readonly string CodeContentType;
+        /// <summary>
+        /// Specifies whether the code content is in text or zip format.
+        /// </summary>
+        public readonly Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationCodeConfigurationCodeContentType CodeContentType;
 
         [OutputConstructor]
         private ApplicationCodeConfiguration(
             Outputs.ApplicationCodeContent codeContent,
 
-            string codeContentType)
+            Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationCodeConfigurationCodeContentType codeContentType)
         {
             CodeContent = codeContent;
             CodeContentType = codeContentType;

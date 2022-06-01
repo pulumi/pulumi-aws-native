@@ -40,6 +40,10 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly appArn!: pulumi.Output<string>;
     /**
+     * Assessment execution schedule.
+     */
+    public readonly appAssessmentSchedule!: pulumi.Output<enums.resiliencehub.AppAssessmentSchedule | undefined>;
+    /**
      * A string containing full ResilienceHub app template body.
      */
     public readonly appTemplateBody!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.resourceMappings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceMappings'");
             }
+            resourceInputs["appAssessmentSchedule"] = args ? args.appAssessmentSchedule : undefined;
             resourceInputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -87,6 +92,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appArn"] = undefined /*out*/;
         } else {
             resourceInputs["appArn"] = undefined /*out*/;
+            resourceInputs["appAssessmentSchedule"] = undefined /*out*/;
             resourceInputs["appTemplateBody"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -103,6 +109,10 @@ export class App extends pulumi.CustomResource {
  * The set of arguments for constructing a App resource.
  */
 export interface AppArgs {
+    /**
+     * Assessment execution schedule.
+     */
+    appAssessmentSchedule?: pulumi.Input<enums.resiliencehub.AppAssessmentSchedule>;
     /**
      * A string containing full ResilienceHub app template body.
      */

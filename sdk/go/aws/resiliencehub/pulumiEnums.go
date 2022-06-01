@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Assessment execution schedule.
+type AppAssessmentSchedule string
+
+const (
+	AppAssessmentScheduleDisabled = AppAssessmentSchedule("Disabled")
+	AppAssessmentScheduleDaily    = AppAssessmentSchedule("Daily")
+)
+
+func (AppAssessmentSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAssessmentSchedule)(nil)).Elem()
+}
+
+func (e AppAssessmentSchedule) ToAppAssessmentScheduleOutput() AppAssessmentScheduleOutput {
+	return pulumi.ToOutput(e).(AppAssessmentScheduleOutput)
+}
+
+func (e AppAssessmentSchedule) ToAppAssessmentScheduleOutputWithContext(ctx context.Context) AppAssessmentScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppAssessmentScheduleOutput)
+}
+
+func (e AppAssessmentSchedule) ToAppAssessmentSchedulePtrOutput() AppAssessmentSchedulePtrOutput {
+	return e.ToAppAssessmentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (e AppAssessmentSchedule) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
+	return AppAssessmentSchedule(e).ToAppAssessmentScheduleOutputWithContext(ctx).ToAppAssessmentSchedulePtrOutputWithContext(ctx)
+}
+
+func (e AppAssessmentSchedule) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAssessmentSchedule) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAssessmentSchedule) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppAssessmentSchedule) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppAssessmentScheduleOutput struct{ *pulumi.OutputState }
+
+func (AppAssessmentScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAssessmentSchedule)(nil)).Elem()
+}
+
+func (o AppAssessmentScheduleOutput) ToAppAssessmentScheduleOutput() AppAssessmentScheduleOutput {
+	return o
+}
+
+func (o AppAssessmentScheduleOutput) ToAppAssessmentScheduleOutputWithContext(ctx context.Context) AppAssessmentScheduleOutput {
+	return o
+}
+
+func (o AppAssessmentScheduleOutput) ToAppAssessmentSchedulePtrOutput() AppAssessmentSchedulePtrOutput {
+	return o.ToAppAssessmentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AppAssessmentScheduleOutput) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAssessmentSchedule) *AppAssessmentSchedule {
+		return &v
+	}).(AppAssessmentSchedulePtrOutput)
+}
+
+func (o AppAssessmentScheduleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppAssessmentScheduleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAssessmentSchedule) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppAssessmentScheduleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAssessmentScheduleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAssessmentSchedule) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppAssessmentSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AppAssessmentSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppAssessmentSchedule)(nil)).Elem()
+}
+
+func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutput() AppAssessmentSchedulePtrOutput {
+	return o
+}
+
+func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
+	return o
+}
+
+func (o AppAssessmentSchedulePtrOutput) Elem() AppAssessmentScheduleOutput {
+	return o.ApplyT(func(v *AppAssessmentSchedule) AppAssessmentSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AppAssessmentSchedule
+		return ret
+	}).(AppAssessmentScheduleOutput)
+}
+
+func (o AppAssessmentSchedulePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAssessmentSchedulePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppAssessmentSchedule) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppAssessmentScheduleInput is an input type that accepts AppAssessmentScheduleArgs and AppAssessmentScheduleOutput values.
+// You can construct a concrete instance of `AppAssessmentScheduleInput` via:
+//
+//          AppAssessmentScheduleArgs{...}
+type AppAssessmentScheduleInput interface {
+	pulumi.Input
+
+	ToAppAssessmentScheduleOutput() AppAssessmentScheduleOutput
+	ToAppAssessmentScheduleOutputWithContext(context.Context) AppAssessmentScheduleOutput
+}
+
+var appAssessmentSchedulePtrType = reflect.TypeOf((**AppAssessmentSchedule)(nil)).Elem()
+
+type AppAssessmentSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAppAssessmentSchedulePtrOutput() AppAssessmentSchedulePtrOutput
+	ToAppAssessmentSchedulePtrOutputWithContext(context.Context) AppAssessmentSchedulePtrOutput
+}
+
+type appAssessmentSchedulePtr string
+
+func AppAssessmentSchedulePtr(v string) AppAssessmentSchedulePtrInput {
+	return (*appAssessmentSchedulePtr)(&v)
+}
+
+func (*appAssessmentSchedulePtr) ElementType() reflect.Type {
+	return appAssessmentSchedulePtrType
+}
+
+func (in *appAssessmentSchedulePtr) ToAppAssessmentSchedulePtrOutput() AppAssessmentSchedulePtrOutput {
+	return pulumi.ToOutput(in).(AppAssessmentSchedulePtrOutput)
+}
+
+func (in *appAssessmentSchedulePtr) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppAssessmentSchedulePtrOutput)
+}
+
 // Data Location Constraint of the Policy.
 type ResiliencyPolicyDataLocationConstraint string
 
@@ -345,10 +510,14 @@ func (in *resiliencyPolicyTierPtr) ToResiliencyPolicyTierPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAssessmentScheduleInput)(nil)).Elem(), AppAssessmentSchedule("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAssessmentSchedulePtrInput)(nil)).Elem(), AppAssessmentSchedule("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyDataLocationConstraintInput)(nil)).Elem(), ResiliencyPolicyDataLocationConstraint("AnyLocation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyDataLocationConstraintPtrInput)(nil)).Elem(), ResiliencyPolicyDataLocationConstraint("AnyLocation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTierInput)(nil)).Elem(), ResiliencyPolicyTier("MissionCritical"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTierPtrInput)(nil)).Elem(), ResiliencyPolicyTier("MissionCritical"))
+	pulumi.RegisterOutputType(AppAssessmentScheduleOutput{})
+	pulumi.RegisterOutputType(AppAssessmentSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyDataLocationConstraintOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyDataLocationConstraintPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTierOutput{})

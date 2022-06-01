@@ -376,6 +376,139 @@ func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput
 	}).(EnvironmentTagOutput)
 }
 
+type RouteDefaultRouteInput struct {
+	ActivationState RouteActivationState `pulumi:"activationState"`
+}
+
+// RouteDefaultRouteInputInput is an input type that accepts RouteDefaultRouteInputArgs and RouteDefaultRouteInputOutput values.
+// You can construct a concrete instance of `RouteDefaultRouteInputInput` via:
+//
+//          RouteDefaultRouteInputArgs{...}
+type RouteDefaultRouteInputInput interface {
+	pulumi.Input
+
+	ToRouteDefaultRouteInputOutput() RouteDefaultRouteInputOutput
+	ToRouteDefaultRouteInputOutputWithContext(context.Context) RouteDefaultRouteInputOutput
+}
+
+type RouteDefaultRouteInputArgs struct {
+	ActivationState RouteActivationStateInput `pulumi:"activationState"`
+}
+
+func (RouteDefaultRouteInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteDefaultRouteInput)(nil)).Elem()
+}
+
+func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputOutput() RouteDefaultRouteInputOutput {
+	return i.ToRouteDefaultRouteInputOutputWithContext(context.Background())
+}
+
+func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputOutputWithContext(ctx context.Context) RouteDefaultRouteInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteDefaultRouteInputOutput)
+}
+
+func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput {
+	return i.ToRouteDefaultRouteInputPtrOutputWithContext(context.Background())
+}
+
+func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputPtrOutputWithContext(ctx context.Context) RouteDefaultRouteInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteDefaultRouteInputOutput).ToRouteDefaultRouteInputPtrOutputWithContext(ctx)
+}
+
+// RouteDefaultRouteInputPtrInput is an input type that accepts RouteDefaultRouteInputArgs, RouteDefaultRouteInputPtr and RouteDefaultRouteInputPtrOutput values.
+// You can construct a concrete instance of `RouteDefaultRouteInputPtrInput` via:
+//
+//          RouteDefaultRouteInputArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteDefaultRouteInputPtrInput interface {
+	pulumi.Input
+
+	ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput
+	ToRouteDefaultRouteInputPtrOutputWithContext(context.Context) RouteDefaultRouteInputPtrOutput
+}
+
+type routeDefaultRouteInputPtrType RouteDefaultRouteInputArgs
+
+func RouteDefaultRouteInputPtr(v *RouteDefaultRouteInputArgs) RouteDefaultRouteInputPtrInput {
+	return (*routeDefaultRouteInputPtrType)(v)
+}
+
+func (*routeDefaultRouteInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteDefaultRouteInput)(nil)).Elem()
+}
+
+func (i *routeDefaultRouteInputPtrType) ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput {
+	return i.ToRouteDefaultRouteInputPtrOutputWithContext(context.Background())
+}
+
+func (i *routeDefaultRouteInputPtrType) ToRouteDefaultRouteInputPtrOutputWithContext(ctx context.Context) RouteDefaultRouteInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteDefaultRouteInputPtrOutput)
+}
+
+type RouteDefaultRouteInputOutput struct{ *pulumi.OutputState }
+
+func (RouteDefaultRouteInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteDefaultRouteInput)(nil)).Elem()
+}
+
+func (o RouteDefaultRouteInputOutput) ToRouteDefaultRouteInputOutput() RouteDefaultRouteInputOutput {
+	return o
+}
+
+func (o RouteDefaultRouteInputOutput) ToRouteDefaultRouteInputOutputWithContext(ctx context.Context) RouteDefaultRouteInputOutput {
+	return o
+}
+
+func (o RouteDefaultRouteInputOutput) ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput {
+	return o.ToRouteDefaultRouteInputPtrOutputWithContext(context.Background())
+}
+
+func (o RouteDefaultRouteInputOutput) ToRouteDefaultRouteInputPtrOutputWithContext(ctx context.Context) RouteDefaultRouteInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteDefaultRouteInput) *RouteDefaultRouteInput {
+		return &v
+	}).(RouteDefaultRouteInputPtrOutput)
+}
+
+func (o RouteDefaultRouteInputOutput) ActivationState() RouteActivationStateOutput {
+	return o.ApplyT(func(v RouteDefaultRouteInput) RouteActivationState { return v.ActivationState }).(RouteActivationStateOutput)
+}
+
+type RouteDefaultRouteInputPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteDefaultRouteInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteDefaultRouteInput)(nil)).Elem()
+}
+
+func (o RouteDefaultRouteInputPtrOutput) ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput {
+	return o
+}
+
+func (o RouteDefaultRouteInputPtrOutput) ToRouteDefaultRouteInputPtrOutputWithContext(ctx context.Context) RouteDefaultRouteInputPtrOutput {
+	return o
+}
+
+func (o RouteDefaultRouteInputPtrOutput) Elem() RouteDefaultRouteInputOutput {
+	return o.ApplyT(func(v *RouteDefaultRouteInput) RouteDefaultRouteInput {
+		if v != nil {
+			return *v
+		}
+		var ret RouteDefaultRouteInput
+		return ret
+	}).(RouteDefaultRouteInputOutput)
+}
+
+func (o RouteDefaultRouteInputPtrOutput) ActivationState() RouteActivationStatePtrOutput {
+	return o.ApplyT(func(v *RouteDefaultRouteInput) *RouteActivationState {
+		if v == nil {
+			return nil
+		}
+		return &v.ActivationState
+	}).(RouteActivationStatePtrOutput)
+}
+
 // A label for tagging Environment resource
 type RouteTag struct {
 	// A string used to identify this tag
@@ -1060,6 +1193,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteDefaultRouteInputInput)(nil)).Elem(), RouteDefaultRouteInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteDefaultRouteInputPtrInput)(nil)).Elem(), RouteDefaultRouteInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagInput)(nil)).Elem(), RouteTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagArrayInput)(nil)).Elem(), RouteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteUriPathRouteInputInput)(nil)).Elem(), RouteUriPathRouteInputArgs{})
@@ -1076,6 +1211,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
+	pulumi.RegisterOutputType(RouteDefaultRouteInputOutput{})
+	pulumi.RegisterOutputType(RouteDefaultRouteInputPtrOutput{})
 	pulumi.RegisterOutputType(RouteTagOutput{})
 	pulumi.RegisterOutputType(RouteTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteUriPathRouteInputOutput{})

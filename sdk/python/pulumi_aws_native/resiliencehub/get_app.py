@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetAppResult',
@@ -18,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_arn=None, app_template_body=None, description=None, resiliency_policy_arn=None, resource_mappings=None, tags=None):
+    def __init__(__self__, app_arn=None, app_assessment_schedule=None, app_template_body=None, description=None, resiliency_policy_arn=None, resource_mappings=None, tags=None):
         if app_arn and not isinstance(app_arn, str):
             raise TypeError("Expected argument 'app_arn' to be a str")
         pulumi.set(__self__, "app_arn", app_arn)
+        if app_assessment_schedule and not isinstance(app_assessment_schedule, str):
+            raise TypeError("Expected argument 'app_assessment_schedule' to be a str")
+        pulumi.set(__self__, "app_assessment_schedule", app_assessment_schedule)
         if app_template_body and not isinstance(app_template_body, str):
             raise TypeError("Expected argument 'app_template_body' to be a str")
         pulumi.set(__self__, "app_template_body", app_template_body)
@@ -45,6 +49,14 @@ class GetAppResult:
         Amazon Resource Name (ARN) of the App.
         """
         return pulumi.get(self, "app_arn")
+
+    @property
+    @pulumi.getter(name="appAssessmentSchedule")
+    def app_assessment_schedule(self) -> Optional['AppAssessmentSchedule']:
+        """
+        Assessment execution schedule.
+        """
+        return pulumi.get(self, "app_assessment_schedule")
 
     @property
     @pulumi.getter(name="appTemplateBody")
@@ -91,6 +103,7 @@ class AwaitableGetAppResult(GetAppResult):
             yield self
         return GetAppResult(
             app_arn=self.app_arn,
+            app_assessment_schedule=self.app_assessment_schedule,
             app_template_body=self.app_template_body,
             description=self.description,
             resiliency_policy_arn=self.resiliency_policy_arn,
@@ -116,6 +129,7 @@ def get_app(app_arn: Optional[str] = None,
 
     return AwaitableGetAppResult(
         app_arn=__ret__.app_arn,
+        app_assessment_schedule=__ret__.app_assessment_schedule,
         app_template_body=__ret__.app_template_body,
         description=__ret__.description,
         resiliency_policy_arn=__ret__.resiliency_policy_arn,

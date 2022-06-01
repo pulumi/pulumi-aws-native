@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<string> AppArn { get; private set; } = null!;
 
         /// <summary>
+        /// Assessment execution schedule.
+        /// </summary>
+        [Output("appAssessmentSchedule")]
+        public Output<Pulumi.AwsNative.ResilienceHub.AppAssessmentSchedule?> AppAssessmentSchedule { get; private set; } = null!;
+
+        /// <summary>
         /// A string containing full ResilienceHub app template body.
         /// </summary>
         [Output("appTemplateBody")]
@@ -99,6 +105,12 @@ namespace Pulumi.AwsNative.ResilienceHub
 
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Assessment execution schedule.
+        /// </summary>
+        [Input("appAssessmentSchedule")]
+        public Input<Pulumi.AwsNative.ResilienceHub.AppAssessmentSchedule>? AppAssessmentSchedule { get; set; }
+
         /// <summary>
         /// A string containing full ResilienceHub app template body.
         /// </summary>

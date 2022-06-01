@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
+    /// <summary>
+    /// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
+    /// </summary>
     public sealed class ApplicationKinesisFirehoseInputArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the delivery stream.
+        /// </summary>
         [Input("resourceARN", required: true)]
         public Input<string> ResourceARN { get; set; } = null!;
 

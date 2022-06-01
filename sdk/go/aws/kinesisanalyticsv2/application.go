@@ -11,19 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::KinesisAnalyticsV2::Application
-//
-// Deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 type Application struct {
 	pulumi.CustomResourceState
 
+	// Use this parameter to configure the application.
 	ApplicationConfiguration ApplicationConfigurationPtrOutput `pulumi:"applicationConfiguration"`
-	ApplicationDescription   pulumi.StringPtrOutput            `pulumi:"applicationDescription"`
-	ApplicationMode          pulumi.StringPtrOutput            `pulumi:"applicationMode"`
-	ApplicationName          pulumi.StringPtrOutput            `pulumi:"applicationName"`
-	RuntimeEnvironment       pulumi.StringOutput               `pulumi:"runtimeEnvironment"`
-	ServiceExecutionRole     pulumi.StringOutput               `pulumi:"serviceExecutionRole"`
-	Tags                     ApplicationTagArrayOutput         `pulumi:"tags"`
+	// The description of the application.
+	ApplicationDescription pulumi.StringPtrOutput `pulumi:"applicationDescription"`
+	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+	ApplicationMode ApplicationModePtrOutput `pulumi:"applicationMode"`
+	// The name of the application.
+	ApplicationName pulumi.StringPtrOutput `pulumi:"applicationName"`
+	// The runtime environment for the application.
+	RuntimeEnvironment pulumi.StringOutput `pulumi:"runtimeEnvironment"`
+	// Specifies the IAM role that the application uses to access external resources.
+	ServiceExecutionRole pulumi.StringOutput `pulumi:"serviceExecutionRole"`
+	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -71,24 +76,38 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// Use this parameter to configure the application.
 	ApplicationConfiguration *ApplicationConfiguration `pulumi:"applicationConfiguration"`
-	ApplicationDescription   *string                   `pulumi:"applicationDescription"`
-	ApplicationMode          *string                   `pulumi:"applicationMode"`
-	ApplicationName          *string                   `pulumi:"applicationName"`
-	RuntimeEnvironment       string                    `pulumi:"runtimeEnvironment"`
-	ServiceExecutionRole     string                    `pulumi:"serviceExecutionRole"`
-	Tags                     []ApplicationTag          `pulumi:"tags"`
+	// The description of the application.
+	ApplicationDescription *string `pulumi:"applicationDescription"`
+	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+	ApplicationMode *ApplicationMode `pulumi:"applicationMode"`
+	// The name of the application.
+	ApplicationName *string `pulumi:"applicationName"`
+	// The runtime environment for the application.
+	RuntimeEnvironment string `pulumi:"runtimeEnvironment"`
+	// Specifies the IAM role that the application uses to access external resources.
+	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
+	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+	Tags []ApplicationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// Use this parameter to configure the application.
 	ApplicationConfiguration ApplicationConfigurationPtrInput
-	ApplicationDescription   pulumi.StringPtrInput
-	ApplicationMode          pulumi.StringPtrInput
-	ApplicationName          pulumi.StringPtrInput
-	RuntimeEnvironment       pulumi.StringInput
-	ServiceExecutionRole     pulumi.StringInput
-	Tags                     ApplicationTagArrayInput
+	// The description of the application.
+	ApplicationDescription pulumi.StringPtrInput
+	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+	ApplicationMode ApplicationModePtrInput
+	// The name of the application.
+	ApplicationName pulumi.StringPtrInput
+	// The runtime environment for the application.
+	RuntimeEnvironment pulumi.StringInput
+	// Specifies the IAM role that the application uses to access external resources.
+	ServiceExecutionRole pulumi.StringInput
+	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+	Tags ApplicationTagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -128,30 +147,37 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Use this parameter to configure the application.
 func (o ApplicationOutput) ApplicationConfiguration() ApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationConfigurationPtrOutput { return v.ApplicationConfiguration }).(ApplicationConfigurationPtrOutput)
 }
 
+// The description of the application.
 func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutput) ApplicationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationMode }).(pulumi.StringPtrOutput)
+// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+func (o ApplicationOutput) ApplicationMode() ApplicationModePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationModePtrOutput { return v.ApplicationMode }).(ApplicationModePtrOutput)
 }
 
+// The name of the application.
 func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
+// The runtime environment for the application.
 func (o ApplicationOutput) RuntimeEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.RuntimeEnvironment }).(pulumi.StringOutput)
 }
 
+// Specifies the IAM role that the application uses to access external resources.
 func (o ApplicationOutput) ServiceExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ServiceExecutionRole }).(pulumi.StringOutput)
 }
 
+// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
 func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
 }

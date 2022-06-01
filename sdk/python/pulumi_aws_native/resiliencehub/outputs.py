@@ -88,6 +88,8 @@ class AppResourceMapping(dict):
             suggest = "logical_stack_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "terraformSourceName":
+            suggest = "terraform_source_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppResourceMapping. Access the value via the '{suggest}' property getter instead.")
@@ -104,7 +106,8 @@ class AppResourceMapping(dict):
                  mapping_type: str,
                  physical_resource_id: 'outputs.AppPhysicalResourceId',
                  logical_stack_name: Optional[str] = None,
-                 resource_name: Optional[str] = None):
+                 resource_name: Optional[str] = None,
+                 terraform_source_name: Optional[str] = None):
         """
         Resource mapping is used to map logical resources from template to physical resource
         """
@@ -114,6 +117,8 @@ class AppResourceMapping(dict):
             pulumi.set(__self__, "logical_stack_name", logical_stack_name)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if terraform_source_name is not None:
+            pulumi.set(__self__, "terraform_source_name", terraform_source_name)
 
     @property
     @pulumi.getter(name="mappingType")
@@ -134,6 +139,11 @@ class AppResourceMapping(dict):
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter(name="terraformSourceName")
+    def terraform_source_name(self) -> Optional[str]:
+        return pulumi.get(self, "terraform_source_name")
 
 
 @pulumi.output_type

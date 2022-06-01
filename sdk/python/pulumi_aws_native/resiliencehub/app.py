@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AppArgs', 'App']
@@ -17,6 +18,7 @@ class AppArgs:
     def __init__(__self__, *,
                  app_template_body: pulumi.Input[str],
                  resource_mappings: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]],
+                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
@@ -25,12 +27,15 @@ class AppArgs:
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] app_template_body: A string containing full ResilienceHub app template body.
         :param pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]] resource_mappings: An array of ResourceMapping objects.
+        :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
         :param pulumi.Input[str] description: App description.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         """
         pulumi.set(__self__, "app_template_body", app_template_body)
         pulumi.set(__self__, "resource_mappings", resource_mappings)
+        if app_assessment_schedule is not None:
+            pulumi.set(__self__, "app_assessment_schedule", app_assessment_schedule)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -63,6 +68,18 @@ class AppArgs:
     @resource_mappings.setter
     def resource_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]]):
         pulumi.set(self, "resource_mappings", value)
+
+    @property
+    @pulumi.getter(name="appAssessmentSchedule")
+    def app_assessment_schedule(self) -> Optional[pulumi.Input['AppAssessmentSchedule']]:
+        """
+        Assessment execution schedule.
+        """
+        return pulumi.get(self, "app_assessment_schedule")
+
+    @app_assessment_schedule.setter
+    def app_assessment_schedule(self, value: Optional[pulumi.Input['AppAssessmentSchedule']]):
+        pulumi.set(self, "app_assessment_schedule", value)
 
     @property
     @pulumi.getter
@@ -115,6 +132,7 @@ class App(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  app_template_body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,6 +145,7 @@ class App(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
         :param pulumi.Input[str] app_template_body: A string containing full ResilienceHub app template body.
         :param pulumi.Input[str] description: App description.
         :param pulumi.Input[str] name: Name of the app.
@@ -157,6 +176,7 @@ class App(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
                  app_template_body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -175,6 +195,7 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
+            __props__.__dict__["app_assessment_schedule"] = app_assessment_schedule
             if app_template_body is None and not opts.urn:
                 raise TypeError("Missing required property 'app_template_body'")
             __props__.__dict__["app_template_body"] = app_template_body
@@ -209,6 +230,7 @@ class App(pulumi.CustomResource):
         __props__ = AppArgs.__new__(AppArgs)
 
         __props__.__dict__["app_arn"] = None
+        __props__.__dict__["app_assessment_schedule"] = None
         __props__.__dict__["app_template_body"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -224,6 +246,14 @@ class App(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the App.
         """
         return pulumi.get(self, "app_arn")
+
+    @property
+    @pulumi.getter(name="appAssessmentSchedule")
+    def app_assessment_schedule(self) -> pulumi.Output[Optional['AppAssessmentSchedule']]:
+        """
+        Assessment execution schedule.
+        """
+        return pulumi.get(self, "app_assessment_schedule")
 
     @property
     @pulumi.getter(name="appTemplateBody")

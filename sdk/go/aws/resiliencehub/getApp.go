@@ -28,6 +28,8 @@ type LookupAppArgs struct {
 type LookupAppResult struct {
 	// Amazon Resource Name (ARN) of the App.
 	AppArn *string `pulumi:"appArn"`
+	// Assessment execution schedule.
+	AppAssessmentSchedule *AppAssessmentSchedule `pulumi:"appAssessmentSchedule"`
 	// A string containing full ResilienceHub app template body.
 	AppTemplateBody *string `pulumi:"appTemplateBody"`
 	// App description.
@@ -78,6 +80,11 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 // Amazon Resource Name (ARN) of the App.
 func (o LookupAppResultOutput) AppArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.AppArn }).(pulumi.StringPtrOutput)
+}
+
+// Assessment execution schedule.
+func (o LookupAppResultOutput) AppAssessmentSchedule() AppAssessmentSchedulePtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppAssessmentSchedule { return v.AppAssessmentSchedule }).(AppAssessmentSchedulePtrOutput)
 }
 
 // A string containing full ResilienceHub app template body.

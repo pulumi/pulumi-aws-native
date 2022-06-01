@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
+    /// <summary>
+    /// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+    /// </summary>
     public sealed class ApplicationJSONMappingParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path to the top-level parent that contains the records.
+        /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
 

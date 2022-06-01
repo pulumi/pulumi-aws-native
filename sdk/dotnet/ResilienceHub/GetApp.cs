@@ -60,6 +60,10 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public readonly string? AppArn;
         /// <summary>
+        /// Assessment execution schedule.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ResilienceHub.AppAssessmentSchedule? AppAssessmentSchedule;
+        /// <summary>
         /// A string containing full ResilienceHub app template body.
         /// </summary>
         public readonly string? AppTemplateBody;
@@ -81,6 +85,8 @@ namespace Pulumi.AwsNative.ResilienceHub
         private GetAppResult(
             string? appArn,
 
+            Pulumi.AwsNative.ResilienceHub.AppAssessmentSchedule? appAssessmentSchedule,
+
             string? appTemplateBody,
 
             string? description,
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.ResilienceHub
             Outputs.AppTagMap? tags)
         {
             AppArn = appArn;
+            AppAssessmentSchedule = appAssessmentSchedule;
             AppTemplateBody = appTemplateBody;
             Description = description;
             ResiliencyPolicyArn = resiliencyPolicyArn;

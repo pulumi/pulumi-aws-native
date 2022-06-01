@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
+    /// </summary>
     [OutputType]
     public sealed class ApplicationKinesisStreamsInput
     {
+        /// <summary>
+        /// The ARN of the input Kinesis data stream to read.
+        /// </summary>
         public readonly string ResourceARN;
 
         [OutputConstructor]

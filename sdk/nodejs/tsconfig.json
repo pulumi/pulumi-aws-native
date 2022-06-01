@@ -2038,6 +2038,7 @@
         "types/enums/kafkaconnect/index.ts",
         "types/enums/kendra/index.ts",
         "types/enums/kinesis/index.ts",
+        "types/enums/kinesisanalyticsv2/index.ts",
         "types/enums/kinesisfirehose/index.ts",
         "types/enums/kinesisvideo/index.ts",
         "types/enums/kms/index.ts",

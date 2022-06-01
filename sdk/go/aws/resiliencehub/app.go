@@ -17,6 +17,8 @@ type App struct {
 
 	// Amazon Resource Name (ARN) of the App.
 	AppArn pulumi.StringOutput `pulumi:"appArn"`
+	// Assessment execution schedule.
+	AppAssessmentSchedule AppAssessmentSchedulePtrOutput `pulumi:"appAssessmentSchedule"`
 	// A string containing full ResilienceHub app template body.
 	AppTemplateBody pulumi.StringOutput `pulumi:"appTemplateBody"`
 	// App description.
@@ -75,6 +77,8 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
+	// Assessment execution schedule.
+	AppAssessmentSchedule *AppAssessmentSchedule `pulumi:"appAssessmentSchedule"`
 	// A string containing full ResilienceHub app template body.
 	AppTemplateBody string `pulumi:"appTemplateBody"`
 	// App description.
@@ -90,6 +94,8 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
+	// Assessment execution schedule.
+	AppAssessmentSchedule AppAssessmentSchedulePtrInput
 	// A string containing full ResilienceHub app template body.
 	AppTemplateBody pulumi.StringInput
 	// App description.
@@ -143,6 +149,11 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 // Amazon Resource Name (ARN) of the App.
 func (o AppOutput) AppArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppArn }).(pulumi.StringOutput)
+}
+
+// Assessment execution schedule.
+func (o AppOutput) AppAssessmentSchedule() AppAssessmentSchedulePtrOutput {
+	return o.ApplyT(func(v *App) AppAssessmentSchedulePtrOutput { return v.AppAssessmentSchedule }).(AppAssessmentSchedulePtrOutput)
 }
 
 // A string containing full ResilienceHub app template body.

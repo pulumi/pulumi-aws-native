@@ -13,6 +13,7 @@ __all__ = [
     'ApplicationApiGatewayProxyInput',
     'ApplicationTag',
     'EnvironmentTag',
+    'RouteDefaultRouteInput',
     'RouteTag',
     'RouteUriPathRouteInput',
     'ServiceLambdaEndpointInput',
@@ -124,6 +125,35 @@ class EnvironmentTag(dict):
         A string containing the value for the tag
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RouteDefaultRouteInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activationState":
+            suggest = "activation_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteDefaultRouteInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteDefaultRouteInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteDefaultRouteInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activation_state: 'RouteActivationState'):
+        pulumi.set(__self__, "activation_state", activation_state)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> 'RouteActivationState':
+        return pulumi.get(self, "activation_state")
 
 
 @pulumi.output_type

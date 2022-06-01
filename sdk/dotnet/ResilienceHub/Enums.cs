@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.ResilienceHub
 {
     /// <summary>
+    /// Assessment execution schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppAssessmentSchedule : IEquatable<AppAssessmentSchedule>
+    {
+        private readonly string _value;
+
+        private AppAssessmentSchedule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppAssessmentSchedule Disabled { get; } = new AppAssessmentSchedule("Disabled");
+        public static AppAssessmentSchedule Daily { get; } = new AppAssessmentSchedule("Daily");
+
+        public static bool operator ==(AppAssessmentSchedule left, AppAssessmentSchedule right) => left.Equals(right);
+        public static bool operator !=(AppAssessmentSchedule left, AppAssessmentSchedule right) => !left.Equals(right);
+
+        public static explicit operator string(AppAssessmentSchedule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppAssessmentSchedule other && Equals(other);
+        public bool Equals(AppAssessmentSchedule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Data Location Constraint of the Policy.
     /// </summary>
     [EnumType]

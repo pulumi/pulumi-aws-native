@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Property key-value pairs passed into an application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationPropertyGroup
     {
+        /// <summary>
+        /// Describes the key of an application execution property key-value pair.
+        /// </summary>
         public readonly string? PropertyGroupId;
+        /// <summary>
+        /// Describes the value of an application execution property key-value pair.
+        /// </summary>
         public readonly object? PropertyMap;
 
         [OutputConstructor]
