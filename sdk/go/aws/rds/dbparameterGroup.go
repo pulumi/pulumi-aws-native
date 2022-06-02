@@ -11,16 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::DBParameterGroup
-//
-// Deprecated: DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 type DBParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput            `pulumi:"description"`
-	Family      pulumi.StringOutput            `pulumi:"family"`
-	Parameters  pulumi.AnyOutput               `pulumi:"parameters"`
-	Tags        DBParameterGroupTagArrayOutput `pulumi:"tags"`
+	// Specifies the name of the DB parameter group
+	DBParameterGroupName pulumi.StringOutput `pulumi:"dBParameterGroupName"`
+	// Provides the customer-specified description for this DB parameter group.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The DB parameter group family name.
+	Family pulumi.StringOutput `pulumi:"family"`
+	// An array of parameter names and values for the parameter update.
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags DBParameterGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDBParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,18 +72,26 @@ func (DBParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbparameterGroupArgs struct {
-	Description string                `pulumi:"description"`
-	Family      string                `pulumi:"family"`
-	Parameters  interface{}           `pulumi:"parameters"`
-	Tags        []DBParameterGroupTag `pulumi:"tags"`
+	// Provides the customer-specified description for this DB parameter group.
+	Description string `pulumi:"description"`
+	// The DB parameter group family name.
+	Family string `pulumi:"family"`
+	// An array of parameter names and values for the parameter update.
+	Parameters interface{} `pulumi:"parameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []DBParameterGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DBParameterGroup resource.
 type DBParameterGroupArgs struct {
+	// Provides the customer-specified description for this DB parameter group.
 	Description pulumi.StringInput
-	Family      pulumi.StringInput
-	Parameters  pulumi.Input
-	Tags        DBParameterGroupTagArrayInput
+	// The DB parameter group family name.
+	Family pulumi.StringInput
+	// An array of parameter names and values for the parameter update.
+	Parameters pulumi.Input
+	// An array of key-value pairs to apply to this resource.
+	Tags DBParameterGroupTagArrayInput
 }
 
 func (DBParameterGroupArgs) ElementType() reflect.Type {
@@ -119,18 +131,27 @@ func (o DBParameterGroupOutput) ToDBParameterGroupOutputWithContext(ctx context.
 	return o
 }
 
+// Specifies the name of the DB parameter group
+func (o DBParameterGroupOutput) DBParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringOutput { return v.DBParameterGroupName }).(pulumi.StringOutput)
+}
+
+// Provides the customer-specified description for this DB parameter group.
 func (o DBParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The DB parameter group family name.
 func (o DBParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
+// An array of parameter names and values for the parameter update.
 func (o DBParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DBParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o DBParameterGroupOutput) Tags() DBParameterGroupTagArrayOutput {
 	return o.ApplyT(func(v *DBParameterGroup) DBParameterGroupTagArrayOutput { return v.Tags }).(DBParameterGroupTagArrayOutput)
 }

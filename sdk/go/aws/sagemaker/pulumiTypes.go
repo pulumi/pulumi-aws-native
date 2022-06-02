@@ -3600,6 +3600,161 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 	}).(DomainResourceSpecPtrOutput)
 }
 
+// A collection of settings that apply to an RSessionGateway app.
+type DomainRSessionAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+	CustomImages        []DomainCustomImage `pulumi:"customImages"`
+	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainRSessionAppSettingsInput is an input type that accepts DomainRSessionAppSettingsArgs and DomainRSessionAppSettingsOutput values.
+// You can construct a concrete instance of `DomainRSessionAppSettingsInput` via:
+//
+//          DomainRSessionAppSettingsArgs{...}
+type DomainRSessionAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainRSessionAppSettingsOutput() DomainRSessionAppSettingsOutput
+	ToDomainRSessionAppSettingsOutputWithContext(context.Context) DomainRSessionAppSettingsOutput
+}
+
+// A collection of settings that apply to an RSessionGateway app.
+type DomainRSessionAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+	CustomImages        DomainCustomImageArrayInput `pulumi:"customImages"`
+	DefaultResourceSpec DomainResourceSpecPtrInput  `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainRSessionAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRSessionAppSettings)(nil)).Elem()
+}
+
+func (i DomainRSessionAppSettingsArgs) ToDomainRSessionAppSettingsOutput() DomainRSessionAppSettingsOutput {
+	return i.ToDomainRSessionAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainRSessionAppSettingsArgs) ToDomainRSessionAppSettingsOutputWithContext(ctx context.Context) DomainRSessionAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRSessionAppSettingsOutput)
+}
+
+func (i DomainRSessionAppSettingsArgs) ToDomainRSessionAppSettingsPtrOutput() DomainRSessionAppSettingsPtrOutput {
+	return i.ToDomainRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRSessionAppSettingsArgs) ToDomainRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRSessionAppSettingsOutput).ToDomainRSessionAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainRSessionAppSettingsPtrInput is an input type that accepts DomainRSessionAppSettingsArgs, DomainRSessionAppSettingsPtr and DomainRSessionAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainRSessionAppSettingsPtrInput` via:
+//
+//          DomainRSessionAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainRSessionAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainRSessionAppSettingsPtrOutput() DomainRSessionAppSettingsPtrOutput
+	ToDomainRSessionAppSettingsPtrOutputWithContext(context.Context) DomainRSessionAppSettingsPtrOutput
+}
+
+type domainRSessionAppSettingsPtrType DomainRSessionAppSettingsArgs
+
+func DomainRSessionAppSettingsPtr(v *DomainRSessionAppSettingsArgs) DomainRSessionAppSettingsPtrInput {
+	return (*domainRSessionAppSettingsPtrType)(v)
+}
+
+func (*domainRSessionAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRSessionAppSettings)(nil)).Elem()
+}
+
+func (i *domainRSessionAppSettingsPtrType) ToDomainRSessionAppSettingsPtrOutput() DomainRSessionAppSettingsPtrOutput {
+	return i.ToDomainRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRSessionAppSettingsPtrType) ToDomainRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRSessionAppSettingsPtrOutput)
+}
+
+// A collection of settings that apply to an RSessionGateway app.
+type DomainRSessionAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainRSessionAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRSessionAppSettings)(nil)).Elem()
+}
+
+func (o DomainRSessionAppSettingsOutput) ToDomainRSessionAppSettingsOutput() DomainRSessionAppSettingsOutput {
+	return o
+}
+
+func (o DomainRSessionAppSettingsOutput) ToDomainRSessionAppSettingsOutputWithContext(ctx context.Context) DomainRSessionAppSettingsOutput {
+	return o
+}
+
+func (o DomainRSessionAppSettingsOutput) ToDomainRSessionAppSettingsPtrOutput() DomainRSessionAppSettingsPtrOutput {
+	return o.ToDomainRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRSessionAppSettingsOutput) ToDomainRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainRSessionAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRSessionAppSettings) *DomainRSessionAppSettings {
+		return &v
+	}).(DomainRSessionAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+func (o DomainRSessionAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainRSessionAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
+}
+
+func (o DomainRSessionAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainRSessionAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
+}
+
+type DomainRSessionAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRSessionAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRSessionAppSettings)(nil)).Elem()
+}
+
+func (o DomainRSessionAppSettingsPtrOutput) ToDomainRSessionAppSettingsPtrOutput() DomainRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRSessionAppSettingsPtrOutput) ToDomainRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainRSessionAppSettingsPtrOutput) Elem() DomainRSessionAppSettingsOutput {
+	return o.ApplyT(func(v *DomainRSessionAppSettings) DomainRSessionAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRSessionAppSettings
+		return ret
+	}).(DomainRSessionAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+func (o DomainRSessionAppSettingsPtrOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainRSessionAppSettings) []DomainCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainCustomImageArrayOutput)
+}
+
+func (o DomainRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainRSessionAppSettings) *DomainResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainResourceSpecPtrOutput)
+}
+
 // A collection of settings that configure user interaction with the RStudioServerPro app.
 type DomainRStudioServerProAppSettings struct {
 	// Indicates whether the current user has access to the RStudioServerPro app.
@@ -3959,9 +4114,11 @@ func (o DomainRStudioServerProDomainSettingsPtrOutput) RStudioPackageManagerUrl(
 type DomainResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *DomainResourceSpecInstanceType `pulumi:"instanceType"`
-	// The ARN of the SageMaker image that the image version belongs to.
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
-	// The ARN of the image version created on the instance.
+	// The Amazon Resource Name (ARN) of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -3979,9 +4136,11 @@ type DomainResourceSpecInput interface {
 type DomainResourceSpecArgs struct {
 	// The instance type that the image version runs on.
 	InstanceType DomainResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
-	// The ARN of the SageMaker image that the image version belongs to.
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
-	// The ARN of the image version created on the instance.
+	// The Amazon Resource Name (ARN) of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -4067,12 +4226,17 @@ func (o DomainResourceSpecOutput) InstanceType() DomainResourceSpecInstanceTypeP
 	return o.ApplyT(func(v DomainResourceSpec) *DomainResourceSpecInstanceType { return v.InstanceType }).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
-// The ARN of the SageMaker image that the image version belongs to.
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o DomainResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
 func (o DomainResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the image version created on the instance.
+// The Amazon Resource Name (ARN) of the image version created on the instance.
 func (o DomainResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -4111,7 +4275,17 @@ func (o DomainResourceSpecPtrOutput) InstanceType() DomainResourceSpecInstanceTy
 	}).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
-// The ARN of the SageMaker image that the image version belongs to.
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+func (o DomainResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
 func (o DomainResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainResourceSpec) *string {
 		if v == nil {
@@ -4121,7 +4295,7 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the image version created on the instance.
+// The Amazon Resource Name (ARN) of the image version created on the instance.
 func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainResourceSpec) *string {
 		if v == nil {
@@ -4574,6 +4748,7 @@ type DomainUserSettings struct {
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings    *DomainKernelGatewayAppSettings    `pulumi:"kernelGatewayAppSettings"`
+	RSessionAppSettings         *DomainRSessionAppSettings         `pulumi:"rSessionAppSettings"`
 	RStudioServerProAppSettings *DomainRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -4600,6 +4775,7 @@ type DomainUserSettingsArgs struct {
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings    DomainKernelGatewayAppSettingsPtrInput    `pulumi:"kernelGatewayAppSettings"`
+	RSessionAppSettings         DomainRSessionAppSettingsPtrInput         `pulumi:"rSessionAppSettings"`
 	RStudioServerProAppSettings DomainRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -4647,6 +4823,10 @@ func (o DomainUserSettingsOutput) JupyterServerAppSettings() DomainJupyterServer
 // The kernel gateway app settings.
 func (o DomainUserSettingsOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o DomainUserSettingsOutput) RSessionAppSettings() DomainRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainRSessionAppSettings { return v.RSessionAppSettings }).(DomainRSessionAppSettingsPtrOutput)
 }
 
 func (o DomainUserSettingsOutput) RStudioServerProAppSettings() DomainRStudioServerProAppSettingsPtrOutput {
@@ -4715,6 +4895,15 @@ func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGate
 		}
 		return v.KernelGatewayAppSettings
 	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o DomainUserSettingsPtrOutput) RSessionAppSettings() DomainRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainRSessionAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RSessionAppSettings
+	}).(DomainRSessionAppSettingsPtrOutput)
 }
 
 func (o DomainUserSettingsPtrOutput) RStudioServerProAppSettings() DomainRStudioServerProAppSettingsPtrOutput {
@@ -24580,6 +24769,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainKernelGatewayAppSettingsInput)(nil)).Elem(), DomainKernelGatewayAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainKernelGatewayAppSettingsPtrInput)(nil)).Elem(), DomainKernelGatewayAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRSessionAppSettingsInput)(nil)).Elem(), DomainRSessionAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRSessionAppSettingsPtrInput)(nil)).Elem(), DomainRSessionAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsInput)(nil)).Elem(), DomainRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProDomainSettingsInput)(nil)).Elem(), DomainRStudioServerProDomainSettingsArgs{})
@@ -24916,6 +25107,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainRSessionAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainRSessionAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProDomainSettingsOutput{})

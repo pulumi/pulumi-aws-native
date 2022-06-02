@@ -19,13 +19,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Pulumi.AwsNative.SageMaker.DomainResourceSpecInstanceType>? InstanceType { get; set; }
 
         /// <summary>
-        /// The ARN of the SageMaker image that the image version belongs to.
+        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+        /// </summary>
+        [Input("lifecycleConfigArn")]
+        public Input<string>? LifecycleConfigArn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         /// </summary>
         [Input("sageMakerImageArn")]
         public Input<string>? SageMakerImageArn { get; set; }
 
         /// <summary>
-        /// The ARN of the image version created on the instance.
+        /// The Amazon Resource Name (ARN) of the image version created on the instance.
         /// </summary>
         [Input("sageMakerImageVersionArn")]
         public Input<string>? SageMakerImageVersionArn { get; set; }

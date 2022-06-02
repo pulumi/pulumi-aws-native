@@ -15,16 +15,16 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:ec2:getNatGateway", {
-        "id": args.id,
+        "natGatewayId": args.natGatewayId,
     }, opts);
 }
 
 export interface GetNatGatewayArgs {
-    id: string;
+    natGatewayId: string;
 }
 
 export interface GetNatGatewayResult {
-    readonly id?: string;
+    readonly natGatewayId?: string;
     readonly tags?: outputs.ec2.NatGatewayTag[];
 }
 
@@ -33,5 +33,5 @@ export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi
 }
 
 export interface GetNatGatewayOutputArgs {
-    id: pulumi.Input<string>;
+    natGatewayId: pulumi.Input<string>;
 }

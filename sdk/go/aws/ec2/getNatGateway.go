@@ -21,12 +21,12 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 }
 
 type LookupNatGatewayArgs struct {
-	Id string `pulumi:"id"`
+	NatGatewayId string `pulumi:"natGatewayId"`
 }
 
 type LookupNatGatewayResult struct {
-	Id   *string         `pulumi:"id"`
-	Tags []NatGatewayTag `pulumi:"tags"`
+	NatGatewayId *string         `pulumi:"natGatewayId"`
+	Tags         []NatGatewayTag `pulumi:"tags"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -43,7 +43,7 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 }
 
 type LookupNatGatewayOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 }
 
 func (LookupNatGatewayOutputArgs) ElementType() reflect.Type {
@@ -64,8 +64,8 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 	return o
 }
 
-func (o LookupNatGatewayResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNatGatewayResultOutput) Tags() NatGatewayTagArrayOutput {

@@ -18,18 +18,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetNatGatewayResult:
-    def __init__(__self__, id=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, nat_gateway_id=None, tags=None):
+        if nat_gateway_id and not isinstance(nat_gateway_id, str):
+            raise TypeError("Expected argument 'nat_gateway_id' to be a str")
+        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[str]:
+        return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter
@@ -43,17 +43,17 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
         if False:
             yield self
         return GetNatGatewayResult(
-            id=self.id,
+            nat_gateway_id=self.nat_gateway_id,
             tags=self.tags)
 
 
-def get_nat_gateway(id: Optional[str] = None,
+def get_nat_gateway(nat_gateway_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
     Resource Type definition for AWS::EC2::NatGateway
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['natGatewayId'] = nat_gateway_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -61,12 +61,12 @@ def get_nat_gateway(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
-        id=__ret__.id,
+        nat_gateway_id=__ret__.nat_gateway_id,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_nat_gateway)
-def get_nat_gateway_output(id: Optional[pulumi.Input[str]] = None,
+def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Resource Type definition for AWS::EC2::NatGateway

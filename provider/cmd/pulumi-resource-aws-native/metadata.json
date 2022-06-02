@@ -10888,6 +10888,54 @@
                 "vpcId"
             ]
         },
+        "aws-native:ec2:NatGateway": {
+            "cf": "AWS::EC2::NatGateway",
+            "inputs": {
+                "allocationId": {
+                    "type": "string"
+                },
+                "connectivityType": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NatGatewayTag"
+                    }
+                }
+            },
+            "outputs": {
+                "allocationId": {
+                    "type": "string"
+                },
+                "connectivityType": {
+                    "type": "string"
+                },
+                "natGatewayId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NatGatewayTag"
+                    }
+                }
+            },
+            "required": [
+                "subnetId"
+            ],
+            "createOnly": [
+                "allocationId",
+                "connectivityType",
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:NetworkAcl": {
             "cf": "AWS::EC2::NetworkAcl",
             "inputs": {
@@ -30853,6 +30901,63 @@
                 "themeId"
             ]
         },
+        "aws-native:rds:DBParameterGroup": {
+            "cf": "AWS::RDS::DBParameterGroup",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Provides the customer-specified description for this DB parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The DB parameter group family name."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An array of parameter names and values for the parameter update."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rds:DBParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "dBParameterGroupName": {
+                    "type": "string",
+                    "description": "Specifies the name of the DB parameter group"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides the customer-specified description for this DB parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The DB parameter group family name."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An array of parameter names and values for the parameter update."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rds:DBParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "description",
+                "family"
+            ],
+            "createOnly": [
+                "description",
+                "family"
+            ]
+        },
         "aws-native:rds:DBProxy": {
             "cf": "AWS::RDS::DBProxy",
             "inputs": {
@@ -49050,6 +49155,17 @@
             }
         },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NatGatewayTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -69291,6 +69407,19 @@
                 }
             }
         },
+        "aws-native:rds:DBParameterGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:rds:DBProxyAuthFormat": {
             "type": "object",
             "properties": {
@@ -72569,6 +72698,21 @@
                 }
             }
         },
+        "aws-native:sagemaker:DomainRSessionAppSettings": {
+            "type": "object",
+            "properties": {
+                "customImages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:DomainCustomImage"
+                    },
+                    "description": "A list of custom SageMaker images that are configured to run as a KernelGateway app."
+                },
+                "defaultResourceSpec": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainResourceSpec"
+                }
+            }
+        },
         "aws-native:sagemaker:DomainRStudioServerProAppSettings": {
             "type": "object",
             "properties": {
@@ -72615,13 +72759,17 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainResourceSpecInstanceType",
                     "description": "The instance type that the image version runs on."
                 },
+                "lifecycleConfigArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource."
+                },
                 "sageMakerImageArn": {
                     "type": "string",
-                    "description": "The ARN of the SageMaker image that the image version belongs to."
+                    "description": "The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to."
                 },
                 "sageMakerImageVersionArn": {
                     "type": "string",
-                    "description": "The ARN of the image version created on the instance."
+                    "description": "The Amazon Resource Name (ARN) of the image version created on the instance."
                 }
             }
         },
@@ -72688,6 +72836,9 @@
                 "kernelGatewayAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainKernelGatewayAppSettings",
                     "description": "The kernel gateway app settings."
+                },
+                "rSessionAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainRSessionAppSettings"
                 },
                 "rStudioServerProAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainRStudioServerProAppSettings"
@@ -78751,6 +78902,12 @@
                 "localGatewayRouteTableVpcAssociationId"
             ]
         },
+        "aws-native:ec2:getNatGateway": {
+            "cf": "AWS::EC2::NatGateway",
+            "ids": [
+                "natGatewayId"
+            ]
+        },
         "aws-native:ec2:getNetworkAcl": {
             "cf": "AWS::EC2::NetworkAcl",
             "ids": [
@@ -80279,6 +80436,12 @@
             "ids": [
                 "themeId",
                 "awsAccountId"
+            ]
+        },
+        "aws-native:rds:getDBParameterGroup": {
+            "cf": "AWS::RDS::DBParameterGroup",
+            "ids": [
+                "dBParameterGroupName"
             ]
         },
         "aws-native:rds:getDBProxy": {

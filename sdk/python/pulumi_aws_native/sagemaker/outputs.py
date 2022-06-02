@@ -41,6 +41,7 @@ __all__ = [
     'DomainCustomImage',
     'DomainJupyterServerAppSettings',
     'DomainKernelGatewayAppSettings',
+    'DomainRSessionAppSettings',
     'DomainRStudioServerProAppSettings',
     'DomainRStudioServerProDomainSettings',
     'DomainResourceSpec',
@@ -1678,6 +1679,56 @@ class DomainKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
+class DomainRSessionAppSettings(dict):
+    """
+    A collection of settings that apply to an RSessionGateway app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainRSessionAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainRSessionAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainRSessionAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
+                 default_resource_spec: Optional['outputs.DomainResourceSpec'] = None):
+        """
+        A collection of settings that apply to an RSessionGateway app.
+        :param Sequence['DomainCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.DomainCustomImage']]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.DomainResourceSpec']:
+        return pulumi.get(self, "default_resource_spec")
+
+
+@pulumi.output_type
 class DomainRStudioServerProAppSettings(dict):
     """
     A collection of settings that configure user interaction with the RStudioServerPro app.
@@ -1815,6 +1866,8 @@ class DomainResourceSpec(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
         elif key == "sageMakerImageArn":
             suggest = "sage_maker_image_arn"
         elif key == "sageMakerImageVersionArn":
@@ -1833,15 +1886,19 @@ class DomainResourceSpec(dict):
 
     def __init__(__self__, *,
                  instance_type: Optional['DomainResourceSpecInstanceType'] = None,
+                 lifecycle_config_arn: Optional[str] = None,
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
         :param 'DomainResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
-        :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+        :param str sage_maker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
+        :param str sage_maker_image_version_arn: The Amazon Resource Name (ARN) of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sage_maker_image_arn is not None:
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
@@ -1856,10 +1913,18 @@ class DomainResourceSpec(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="sageMakerImageArn")
     def sage_maker_image_arn(self) -> Optional[str]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sage_maker_image_arn")
 
@@ -1867,7 +1932,7 @@ class DomainResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageVersionArn")
     def sage_maker_image_version_arn(self) -> Optional[str]:
         """
-        The ARN of the image version created on the instance.
+        The Amazon Resource Name (ARN) of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
 
@@ -2023,6 +2088,8 @@ class DomainUserSettings(dict):
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "rSessionAppSettings":
+            suggest = "r_session_app_settings"
         elif key == "rStudioServerProAppSettings":
             suggest = "r_studio_server_pro_app_settings"
         elif key == "securityGroups":
@@ -2045,6 +2112,7 @@ class DomainUserSettings(dict):
                  execution_role: Optional[str] = None,
                  jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
+                 r_session_app_settings: Optional['outputs.DomainRSessionAppSettings'] = None,
                  r_studio_server_pro_app_settings: Optional['outputs.DomainRStudioServerProAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.DomainSharingSettings'] = None):
@@ -2062,6 +2130,8 @@ class DomainUserSettings(dict):
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if r_session_app_settings is not None:
+            pulumi.set(__self__, "r_session_app_settings", r_session_app_settings)
         if r_studio_server_pro_app_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
@@ -2092,6 +2162,11 @@ class DomainUserSettings(dict):
         The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="rSessionAppSettings")
+    def r_session_app_settings(self) -> Optional['outputs.DomainRSessionAppSettings']:
+        return pulumi.get(self, "r_session_app_settings")
 
     @property
     @pulumi.getter(name="rStudioServerProAppSettings")

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::NatGateway
     /// </summary>
-    [Obsolete(@"NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
@@ -21,6 +20,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
+
+        [Output("natGatewayId")]
+        public Output<string> NatGatewayId { get; private set; } = null!;
 
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;

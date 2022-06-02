@@ -18,11 +18,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainResourceSpecInstanceType? InstanceType;
         /// <summary>
-        /// The ARN of the SageMaker image that the image version belongs to.
+        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+        /// </summary>
+        public readonly string? LifecycleConfigArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         /// </summary>
         public readonly string? SageMakerImageArn;
         /// <summary>
-        /// The ARN of the image version created on the instance.
+        /// The Amazon Resource Name (ARN) of the image version created on the instance.
         /// </summary>
         public readonly string? SageMakerImageVersionArn;
 
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private DomainResourceSpec(
             Pulumi.AwsNative.SageMaker.DomainResourceSpecInstanceType? instanceType,
 
+            string? lifecycleConfigArn,
+
             string? sageMakerImageArn,
 
             string? sageMakerImageVersionArn)
         {
             InstanceType = instanceType;
+            LifecycleConfigArn = lifecycleConfigArn;
             SageMakerImageArn = sageMakerImageArn;
             SageMakerImageVersionArn = sageMakerImageVersionArn;
         }

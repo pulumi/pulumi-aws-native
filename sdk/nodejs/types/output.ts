@@ -27285,8 +27285,17 @@ export namespace rds {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBParameterGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -29864,6 +29873,17 @@ export namespace sagemaker {
     }
 
     /**
+     * A collection of settings that apply to an RSessionGateway app.
+     */
+    export interface DomainRSessionAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+         */
+        customImages?: outputs.sagemaker.DomainCustomImage[];
+        defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+    }
+
+    /**
      * A collection of settings that configure user interaction with the RStudioServerPro app.
      */
     export interface DomainRStudioServerProAppSettings {
@@ -29902,11 +29922,15 @@ export namespace sagemaker {
          */
         instanceType?: enums.sagemaker.DomainResourceSpecInstanceType;
         /**
-         * The ARN of the SageMaker image that the image version belongs to.
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
          */
         sageMakerImageArn?: string;
         /**
-         * The ARN of the image version created on the instance.
+         * The Amazon Resource Name (ARN) of the image version created on the instance.
          */
         sageMakerImageVersionArn?: string;
     }
@@ -29961,6 +29985,7 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.DomainKernelGatewayAppSettings;
+        rSessionAppSettings?: outputs.sagemaker.DomainRSessionAppSettings;
         rStudioServerProAppSettings?: outputs.sagemaker.DomainRStudioServerProAppSettings;
         /**
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.

@@ -12,13 +12,12 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::NatGateway
-//
-// Deprecated: NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type NatGateway struct {
 	pulumi.CustomResourceState
 
 	AllocationId     pulumi.StringPtrOutput   `pulumi:"allocationId"`
 	ConnectivityType pulumi.StringPtrOutput   `pulumi:"connectivityType"`
+	NatGatewayId     pulumi.StringOutput      `pulumi:"natGatewayId"`
 	SubnetId         pulumi.StringOutput      `pulumi:"subnetId"`
 	Tags             NatGatewayTagArrayOutput `pulumi:"tags"`
 }
@@ -122,6 +121,10 @@ func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
 
 func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
+}
+
+func (o NatGatewayOutput) NatGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
 }
 
 func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {

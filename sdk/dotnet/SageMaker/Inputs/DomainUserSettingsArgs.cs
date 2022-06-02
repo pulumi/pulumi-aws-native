@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        [Input("rSessionAppSettings")]
+        public Input<Inputs.DomainRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
+
         [Input("rStudioServerProAppSettings")]
         public Input<Inputs.DomainRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
 

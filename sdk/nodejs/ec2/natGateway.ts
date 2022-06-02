@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::NatGateway
- *
- * @deprecated NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class NatGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NatGateway {
-        pulumi.log.warn("NatGateway is deprecated: NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new NatGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,6 +37,7 @@ export class NatGateway extends pulumi.CustomResource {
 
     public readonly allocationId!: pulumi.Output<string | undefined>;
     public readonly connectivityType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
     public readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.NatGatewayTag[] | undefined>;
 
@@ -50,9 +48,7 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NatGateway is deprecated: NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -63,9 +59,11 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["natGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["connectivityType"] = undefined /*out*/;
+            resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
