@@ -6,7 +6,7 @@
     "SubnetId" : {
       "type" : "string"
     },
-    "Id" : {
+    "NatGatewayId" : {
       "type" : "string"
     },
     "ConnectivityType" : {
@@ -15,6 +15,7 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -40,6 +41,29 @@
   },
   "required" : [ "SubnetId" ],
   "createOnlyProperties" : [ "/properties/SubnetId", "/properties/ConnectivityType", "/properties/AllocationId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/NatGatewayId" ],
+  "readOnlyProperties" : [ "/properties/NatGatewayId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:CreateNatGateway", "ec2:DescribeNatGateways", "ec2:CreateTags" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DeleteNatGateway", "ec2:DescribeNatGateways" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeNatGateways" ]
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeNatGateways" ]
+    },
+    "update" : {
+      "permissions" : [ "ec2:DescribeNatGateways", "ec2:CreateTags", "ec2:DeleteTags" ]
+    }
+  }
 }

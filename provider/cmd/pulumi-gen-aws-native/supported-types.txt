@@ -151,6 +151,7 @@ AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
+AWS::EC2::NatGateway
 AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAccessScope
 AWS::EC2::NetworkInsightsAccessScopeAnalysis
@@ -406,6 +407,7 @@ AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
+AWS::RDS::DBParameterGroup
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
