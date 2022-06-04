@@ -101,6 +101,7 @@ AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
 AWS::Connect::PhoneNumber
 AWS::Connect::QuickConnect
+AWS::Connect::TaskTemplate
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
 AWS::CustomerProfiles::Domain
@@ -177,6 +178,7 @@ AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCPeeringConnection
+AWS::EC2::VPNGateway
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
@@ -407,6 +409,7 @@ AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
+AWS::RDS::DBClusterParameterGroup
 AWS::RDS::DBParameterGroup
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
