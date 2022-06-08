@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.DataSync
     [AwsNativeResourceType("aws-native:datasync:LocationEFS")]
     public partial class LocationEFS : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        /// </summary>
+        [Output("accessPointArn")]
+        public Output<string?> AccessPointArn { get; private set; } = null!;
+
         [Output("ec2Config")]
         public Output<Outputs.LocationEFSEc2Config> Ec2Config { get; private set; } = null!;
 
@@ -23,6 +29,18 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("efsFilesystemArn")]
         public Output<string> EfsFilesystemArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        /// </summary>
+        [Output("fileSystemAccessRoleArn")]
+        public Output<string?> FileSystemAccessRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+        /// </summary>
+        [Output("inTransitEncryption")]
+        public Output<Pulumi.AwsNative.DataSync.LocationEFSInTransitEncryption?> InTransitEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
@@ -93,6 +111,12 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationEFSArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        /// </summary>
+        [Input("accessPointArn")]
+        public Input<string>? AccessPointArn { get; set; }
+
         [Input("ec2Config", required: true)]
         public Input<Inputs.LocationEFSEc2ConfigArgs> Ec2Config { get; set; } = null!;
 
@@ -101,6 +125,18 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("efsFilesystemArn", required: true)]
         public Input<string> EfsFilesystemArn { get; set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        /// </summary>
+        [Input("fileSystemAccessRoleArn")]
+        public Input<string>? FileSystemAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+        /// </summary>
+        [Input("inTransitEncryption")]
+        public Input<Pulumi.AwsNative.DataSync.LocationEFSInTransitEncryption>? InTransitEncryption { get; set; }
 
         /// <summary>
         /// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.

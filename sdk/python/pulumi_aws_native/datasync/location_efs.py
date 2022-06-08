@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LocationEFSArgs', 'LocationEFS']
@@ -17,16 +18,28 @@ class LocationEFSArgs:
     def __init__(__self__, *,
                  ec2_config: pulumi.Input['LocationEFSEc2ConfigArgs'],
                  efs_filesystem_arn: pulumi.Input[str],
+                 access_point_arn: Optional[pulumi.Input[str]] = None,
+                 file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 in_transit_encryption: Optional[pulumi.Input['LocationEFSInTransitEncryption']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationEFSTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationEFS resource.
         :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
+        :param pulumi.Input[str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        :param pulumi.Input[str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        :param pulumi.Input['LocationEFSInTransitEncryption'] in_transit_encryption: Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationEFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ec2_config", ec2_config)
         pulumi.set(__self__, "efs_filesystem_arn", efs_filesystem_arn)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if file_system_access_role_arn is not None:
+            pulumi.set(__self__, "file_system_access_role_arn", file_system_access_role_arn)
+        if in_transit_encryption is not None:
+            pulumi.set(__self__, "in_transit_encryption", in_transit_encryption)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
@@ -52,6 +65,42 @@ class LocationEFSArgs:
     @efs_filesystem_arn.setter
     def efs_filesystem_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "efs_filesystem_arn", value)
+
+    @property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_point_arn", value)
+
+    @property
+    @pulumi.getter(name="fileSystemAccessRoleArn")
+    def file_system_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        """
+        return pulumi.get(self, "file_system_access_role_arn")
+
+    @file_system_access_role_arn.setter
+    def file_system_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="inTransitEncryption")
+    def in_transit_encryption(self) -> Optional[pulumi.Input['LocationEFSInTransitEncryption']]:
+        """
+        Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+        """
+        return pulumi.get(self, "in_transit_encryption")
+
+    @in_transit_encryption.setter
+    def in_transit_encryption(self, value: Optional[pulumi.Input['LocationEFSInTransitEncryption']]):
+        pulumi.set(self, "in_transit_encryption", value)
 
     @property
     @pulumi.getter
@@ -83,8 +132,11 @@ class LocationEFS(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_point_arn: Optional[pulumi.Input[str]] = None,
                  ec2_config: Optional[pulumi.Input[pulumi.InputType['LocationEFSEc2ConfigArgs']]] = None,
                  efs_filesystem_arn: Optional[pulumi.Input[str]] = None,
+                 file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 in_transit_encryption: Optional[pulumi.Input['LocationEFSInTransitEncryption']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationEFSTagArgs']]]]] = None,
                  __props__=None):
@@ -93,7 +145,10 @@ class LocationEFS(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
         :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
+        :param pulumi.Input[str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        :param pulumi.Input['LocationEFSInTransitEncryption'] in_transit_encryption: Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationEFSTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -121,8 +176,11 @@ class LocationEFS(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_point_arn: Optional[pulumi.Input[str]] = None,
                  ec2_config: Optional[pulumi.Input[pulumi.InputType['LocationEFSEc2ConfigArgs']]] = None,
                  efs_filesystem_arn: Optional[pulumi.Input[str]] = None,
+                 file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 in_transit_encryption: Optional[pulumi.Input['LocationEFSInTransitEncryption']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationEFSTagArgs']]]]] = None,
                  __props__=None):
@@ -137,12 +195,15 @@ class LocationEFS(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationEFSArgs.__new__(LocationEFSArgs)
 
+            __props__.__dict__["access_point_arn"] = access_point_arn
             if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__.__dict__["ec2_config"] = ec2_config
             if efs_filesystem_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'efs_filesystem_arn'")
             __props__.__dict__["efs_filesystem_arn"] = efs_filesystem_arn
+            __props__.__dict__["file_system_access_role_arn"] = file_system_access_role_arn
+            __props__.__dict__["in_transit_encryption"] = in_transit_encryption
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
@@ -169,13 +230,24 @@ class LocationEFS(pulumi.CustomResource):
 
         __props__ = LocationEFSArgs.__new__(LocationEFSArgs)
 
+        __props__.__dict__["access_point_arn"] = None
         __props__.__dict__["ec2_config"] = None
         __props__.__dict__["efs_filesystem_arn"] = None
+        __props__.__dict__["file_system_access_role_arn"] = None
+        __props__.__dict__["in_transit_encryption"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
         return LocationEFS(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        """
+        return pulumi.get(self, "access_point_arn")
 
     @property
     @pulumi.getter(name="ec2Config")
@@ -189,6 +261,22 @@ class LocationEFS(pulumi.CustomResource):
         The Amazon Resource Name (ARN) for the Amazon EFS file system.
         """
         return pulumi.get(self, "efs_filesystem_arn")
+
+    @property
+    @pulumi.getter(name="fileSystemAccessRoleArn")
+    def file_system_access_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        """
+        return pulumi.get(self, "file_system_access_role_arn")
+
+    @property
+    @pulumi.getter(name="inTransitEncryption")
+    def in_transit_encryption(self) -> pulumi.Output[Optional['LocationEFSInTransitEncryption']]:
+        """
+        Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+        """
+        return pulumi.get(self, "in_transit_encryption")
 
     @property
     @pulumi.getter(name="locationArn")

@@ -38,8 +38,8 @@ type LookupCoreNetworkResult struct {
 	Edges []CoreNetworkEdge `pulumi:"edges"`
 	// Owner of the core network
 	OwnerAccount *string `pulumi:"ownerAccount"`
-	// Live policy document for the core network
-	PolicyDocument *string `pulumi:"policyDocument"`
+	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The segments within a core network.
 	Segments []CoreNetworkSegment `pulumi:"segments"`
 	// The state of core network
@@ -114,9 +114,9 @@ func (o LookupCoreNetworkResultOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCoreNetworkResult) *string { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
-// Live policy document for the core network
-func (o LookupCoreNetworkResultOutput) PolicyDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupCoreNetworkResult) *string { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+// Live policy document for the core network, you must provide PolicyDocument in Json Format
+func (o LookupCoreNetworkResultOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupCoreNetworkResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // The segments within a core network.

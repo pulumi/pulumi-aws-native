@@ -15,9 +15,15 @@ import (
 type LocationEFS struct {
 	pulumi.CustomResourceState
 
-	Ec2Config LocationEFSEc2ConfigOutput `pulumi:"ec2Config"`
+	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+	AccessPointArn pulumi.StringPtrOutput     `pulumi:"accessPointArn"`
+	Ec2Config      LocationEFSEc2ConfigOutput `pulumi:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringOutput `pulumi:"efsFilesystemArn"`
+	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+	FileSystemAccessRoleArn pulumi.StringPtrOutput `pulumi:"fileSystemAccessRoleArn"`
+	// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+	InTransitEncryption LocationEFSInTransitEncryptionPtrOutput `pulumi:"inTransitEncryption"`
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the EFS location that was described.
@@ -73,9 +79,15 @@ func (LocationEFSState) ElementType() reflect.Type {
 }
 
 type locationEFSArgs struct {
-	Ec2Config LocationEFSEc2Config `pulumi:"ec2Config"`
+	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+	AccessPointArn *string              `pulumi:"accessPointArn"`
+	Ec2Config      LocationEFSEc2Config `pulumi:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn string `pulumi:"efsFilesystemArn"`
+	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
+	// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+	InTransitEncryption *LocationEFSInTransitEncryption `pulumi:"inTransitEncryption"`
 	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -84,9 +96,15 @@ type locationEFSArgs struct {
 
 // The set of arguments for constructing a LocationEFS resource.
 type LocationEFSArgs struct {
-	Ec2Config LocationEFSEc2ConfigInput
+	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+	AccessPointArn pulumi.StringPtrInput
+	Ec2Config      LocationEFSEc2ConfigInput
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+	FileSystemAccessRoleArn pulumi.StringPtrInput
+	// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+	InTransitEncryption LocationEFSInTransitEncryptionPtrInput
 	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -130,6 +148,11 @@ func (o LocationEFSOutput) ToLocationEFSOutputWithContext(ctx context.Context) L
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+func (o LocationEFSOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringPtrOutput { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
 func (o LocationEFSOutput) Ec2Config() LocationEFSEc2ConfigOutput {
 	return o.ApplyT(func(v *LocationEFS) LocationEFSEc2ConfigOutput { return v.Ec2Config }).(LocationEFSEc2ConfigOutput)
 }
@@ -137,6 +160,16 @@ func (o LocationEFSOutput) Ec2Config() LocationEFSEc2ConfigOutput {
 // The Amazon Resource Name (ARN) for the Amazon EFS file system.
 func (o LocationEFSOutput) EfsFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationEFS) pulumi.StringOutput { return v.EfsFilesystemArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+func (o LocationEFSOutput) FileSystemAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationEFS) pulumi.StringPtrOutput { return v.FileSystemAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+func (o LocationEFSOutput) InTransitEncryption() LocationEFSInTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v *LocationEFS) LocationEFSInTransitEncryptionPtrOutput { return v.InTransitEncryption }).(LocationEFSInTransitEncryptionPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.

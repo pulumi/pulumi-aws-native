@@ -786,11 +786,11 @@ class AlarmModelIotEventsArgs:
 @pulumi.input_type
 class AlarmModelIotSiteWiseArgs:
     def __init__(__self__, *,
-                 property_value: pulumi.Input['AlarmModelAssetPropertyValueArgs'],
                  asset_id: Optional[pulumi.Input[str]] = None,
                  entry_id: Optional[pulumi.Input[str]] = None,
                  property_alias: Optional[pulumi.Input[str]] = None,
-                 property_id: Optional[pulumi.Input[str]] = None):
+                 property_id: Optional[pulumi.Input[str]] = None,
+                 property_value: Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']] = None):
         """
         Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
         :param pulumi.Input[str] asset_id: The ID of the asset that has the specified property. You can specify an expression.
@@ -798,7 +798,6 @@ class AlarmModelIotSiteWiseArgs:
         :param pulumi.Input[str] property_alias: The alias of the asset property. You can also specify an expression.
         :param pulumi.Input[str] property_id: The ID of the asset property. You can specify an expression.
         """
-        pulumi.set(__self__, "property_value", property_value)
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
         if entry_id is not None:
@@ -807,15 +806,8 @@ class AlarmModelIotSiteWiseArgs:
             pulumi.set(__self__, "property_alias", property_alias)
         if property_id is not None:
             pulumi.set(__self__, "property_id", property_id)
-
-    @property
-    @pulumi.getter(name="propertyValue")
-    def property_value(self) -> pulumi.Input['AlarmModelAssetPropertyValueArgs']:
-        return pulumi.get(self, "property_value")
-
-    @property_value.setter
-    def property_value(self, value: pulumi.Input['AlarmModelAssetPropertyValueArgs']):
-        pulumi.set(self, "property_value", value)
+        if property_value is not None:
+            pulumi.set(__self__, "property_value", property_value)
 
     @property
     @pulumi.getter(name="assetId")
@@ -864,6 +856,15 @@ class AlarmModelIotSiteWiseArgs:
     @property_id.setter
     def property_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "property_id", value)
+
+    @property
+    @pulumi.getter(name="propertyValue")
+    def property_value(self) -> Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']]:
+        return pulumi.get(self, "property_value")
+
+    @property_value.setter
+    def property_value(self, value: Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']]):
+        pulumi.set(self, "property_value", value)
 
 
 @pulumi.input_type

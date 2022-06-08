@@ -102,6 +102,171 @@ func (o AgentEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+type LocationEFSInTransitEncryption string
+
+const (
+	LocationEFSInTransitEncryptionNone  = LocationEFSInTransitEncryption("NONE")
+	LocationEFSInTransitEncryptionTls12 = LocationEFSInTransitEncryption("TLS1_2")
+)
+
+func (LocationEFSInTransitEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEFSInTransitEncryption)(nil)).Elem()
+}
+
+func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput {
+	return pulumi.ToOutput(e).(LocationEFSInTransitEncryptionOutput)
+}
+
+func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationEFSInTransitEncryptionOutput)
+}
+
+func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
+	return e.ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (e LocationEFSInTransitEncryption) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
+	return LocationEFSInTransitEncryption(e).ToLocationEFSInTransitEncryptionOutputWithContext(ctx).ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx)
+}
+
+func (e LocationEFSInTransitEncryption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationEFSInTransitEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationEFSInTransitEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationEFSInTransitEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationEFSInTransitEncryptionOutput struct{ *pulumi.OutputState }
+
+func (LocationEFSInTransitEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEFSInTransitEncryption)(nil)).Elem()
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput {
+	return o
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionOutput {
+	return o
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
+	return o.ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationEFSInTransitEncryption) *LocationEFSInTransitEncryption {
+		return &v
+	}).(LocationEFSInTransitEncryptionPtrOutput)
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEFSInTransitEncryption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationEFSInTransitEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationEFSInTransitEncryption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationEFSInTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationEFSInTransitEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationEFSInTransitEncryption)(nil)).Elem()
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
+	return o
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
+	return o
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) Elem() LocationEFSInTransitEncryptionOutput {
+	return o.ApplyT(func(v *LocationEFSInTransitEncryption) LocationEFSInTransitEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret LocationEFSInTransitEncryption
+		return ret
+	}).(LocationEFSInTransitEncryptionOutput)
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationEFSInTransitEncryption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationEFSInTransitEncryptionInput is an input type that accepts LocationEFSInTransitEncryptionArgs and LocationEFSInTransitEncryptionOutput values.
+// You can construct a concrete instance of `LocationEFSInTransitEncryptionInput` via:
+//
+//          LocationEFSInTransitEncryptionArgs{...}
+type LocationEFSInTransitEncryptionInput interface {
+	pulumi.Input
+
+	ToLocationEFSInTransitEncryptionOutput() LocationEFSInTransitEncryptionOutput
+	ToLocationEFSInTransitEncryptionOutputWithContext(context.Context) LocationEFSInTransitEncryptionOutput
+}
+
+var locationEFSInTransitEncryptionPtrType = reflect.TypeOf((**LocationEFSInTransitEncryption)(nil)).Elem()
+
+type LocationEFSInTransitEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput
+	ToLocationEFSInTransitEncryptionPtrOutputWithContext(context.Context) LocationEFSInTransitEncryptionPtrOutput
+}
+
+type locationEFSInTransitEncryptionPtr string
+
+func LocationEFSInTransitEncryptionPtr(v string) LocationEFSInTransitEncryptionPtrInput {
+	return (*locationEFSInTransitEncryptionPtr)(&v)
+}
+
+func (*locationEFSInTransitEncryptionPtr) ElementType() reflect.Type {
+	return locationEFSInTransitEncryptionPtrType
+}
+
+func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtrOutput() LocationEFSInTransitEncryptionPtrOutput {
+	return pulumi.ToOutput(in).(LocationEFSInTransitEncryptionPtrOutput)
+}
+
+func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationEFSInTransitEncryptionPtrOutput)
+}
+
 // The specific NFS version that you want DataSync to use to mount your NFS share.
 type LocationFSxOpenZFSMountOptionsVersion string
 
@@ -4011,6 +4176,8 @@ func (o TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInTransitEncryptionInput)(nil)).Elem(), LocationEFSInTransitEncryption("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInTransitEncryptionPtrInput)(nil)).Elem(), LocationEFSInTransitEncryption("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsVersionPtrInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypeInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
@@ -4059,6 +4226,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationEFSInTransitEncryptionOutput{})
+	pulumi.RegisterOutputType(LocationEFSInTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypeOutput{})

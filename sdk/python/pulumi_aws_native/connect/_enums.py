@@ -11,6 +11,8 @@ __all__ = [
     'ContactFlowType',
     'HoursOfOperationConfigDay',
     'QuickConnectType',
+    'TaskTemplateFieldType',
+    'TaskTemplateStatus',
     'UserPhoneType',
 ]
 
@@ -74,6 +76,32 @@ class QuickConnectType(str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+
+
+class TaskTemplateFieldType(str, Enum):
+    """
+    The type of the task template's field
+    """
+    NAME = "NAME"
+    DESCRIPTION = "DESCRIPTION"
+    SCHEDULED_TIME = "SCHEDULED_TIME"
+    QUICK_CONNECT = "QUICK_CONNECT"
+    URL = "URL"
+    NUMBER = "NUMBER"
+    TEXT = "TEXT"
+    TEXT_AREA = "TEXT_AREA"
+    DATE_TIME = "DATE_TIME"
+    BOOLEAN = "BOOLEAN"
+    SINGLE_SELECT = "SINGLE_SELECT"
+    EMAIL = "EMAIL"
+
+
+class TaskTemplateStatus(str, Enum):
+    """
+    The status of the task template
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 class UserPhoneType(str, Enum):

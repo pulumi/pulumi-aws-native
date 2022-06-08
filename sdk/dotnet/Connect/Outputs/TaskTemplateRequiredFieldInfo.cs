@@ -7,18 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.RefactorSpaces.Outputs
+namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Required field info
+    /// </summary>
     [OutputType]
-    public sealed class RouteDefaultRouteInput
+    public sealed class TaskTemplateRequiredFieldInfo
     {
-        public readonly Pulumi.AwsNative.RefactorSpaces.RouteActivationState ActivationState;
+        public readonly Outputs.TaskTemplateFieldIdentifier Id;
 
         [OutputConstructor]
-        private RouteDefaultRouteInput(Pulumi.AwsNative.RefactorSpaces.RouteActivationState activationState)
+        private TaskTemplateRequiredFieldInfo(Outputs.TaskTemplateFieldIdentifier id)
         {
-            ActivationState = activationState;
+            Id = id;
         }
     }
 }

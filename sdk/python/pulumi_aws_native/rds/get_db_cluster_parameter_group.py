@@ -18,30 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterParameterGroupResult:
-    def __init__(__self__, id=None, parameters=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        pulumi.set(__self__, "parameters", parameters)
+    def __init__(__self__, d_b_cluster_parameter_group_name=None, tags=None):
+        if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
+            raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
+        pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "parameters")
+    @pulumi.getter(name="dBClusterParameterGroupName")
+    def d_b_cluster_parameter_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DBClusterParameterGroupTag']]:
+        """
+        The list of tags for the cluster parameter group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -51,18 +46,17 @@ class AwaitableGetDBClusterParameterGroupResult(GetDBClusterParameterGroupResult
         if False:
             yield self
         return GetDBClusterParameterGroupResult(
-            id=self.id,
-            parameters=self.parameters,
+            d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
             tags=self.tags)
 
 
-def get_db_cluster_parameter_group(id: Optional[str] = None,
+def get_db_cluster_parameter_group(d_b_cluster_parameter_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterParameterGroupResult:
     """
-    Resource Type definition for AWS::RDS::DBClusterParameterGroup
+    The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['dBClusterParameterGroupName'] = d_b_cluster_parameter_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -70,15 +64,14 @@ def get_db_cluster_parameter_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBClusterParameterGroup', __args__, opts=opts, typ=GetDBClusterParameterGroupResult).value
 
     return AwaitableGetDBClusterParameterGroupResult(
-        id=__ret__.id,
-        parameters=__ret__.parameters,
+        d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_db_cluster_parameter_group)
-def get_db_cluster_parameter_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_db_cluster_parameter_group_output(d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterParameterGroupResult]:
     """
-    Resource Type definition for AWS::RDS::DBClusterParameterGroup
+    The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
     """
     ...

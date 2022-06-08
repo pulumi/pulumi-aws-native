@@ -56,6 +56,18 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class GetLocationEFSResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        /// </summary>
+        public readonly string? AccessPointArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+        /// </summary>
+        public readonly string? FileSystemAccessRoleArn;
+        /// <summary>
+        /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataSync.LocationEFSInTransitEncryption? InTransitEncryption;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
         /// </summary>
         public readonly string? LocationArn;
@@ -70,12 +82,21 @@ namespace Pulumi.AwsNative.DataSync
 
         [OutputConstructor]
         private GetLocationEFSResult(
+            string? accessPointArn,
+
+            string? fileSystemAccessRoleArn,
+
+            Pulumi.AwsNative.DataSync.LocationEFSInTransitEncryption? inTransitEncryption,
+
             string? locationArn,
 
             string? locationUri,
 
             ImmutableArray<Outputs.LocationEFSTag> tags)
         {
+            AccessPointArn = accessPointArn;
+            FileSystemAccessRoleArn = fileSystemAccessRoleArn;
+            InTransitEncryption = inTransitEncryption;
             LocationArn = locationArn;
             LocationUri = locationUri;
             Tags = tags;

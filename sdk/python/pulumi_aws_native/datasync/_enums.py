@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AgentEndpointType',
+    'LocationEFSInTransitEncryption',
     'LocationFSxOpenZFSMountOptionsVersion',
     'LocationHDFSAuthenticationType',
     'LocationHDFSQopConfigurationDataTransferProtection',
@@ -40,6 +41,14 @@ class AgentEndpointType(str, Enum):
     FIPS = "FIPS"
     PUBLIC = "PUBLIC"
     PRIVATE_LINK = "PRIVATE_LINK"
+
+
+class LocationEFSInTransitEncryption(str, Enum):
+    """
+    Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+    """
+    NONE = "NONE"
+    TLS12 = "TLS1_2"
 
 
 class LocationFSxOpenZFSMountOptionsVersion(str, Enum):

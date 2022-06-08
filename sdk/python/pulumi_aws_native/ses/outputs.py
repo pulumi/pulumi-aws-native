@@ -14,6 +14,7 @@ __all__ = [
     'ConfigurationSetEventDestinationDimensionConfiguration',
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationKinesisFirehoseDestination',
+    'ConfigurationSetEventDestinationSnsDestination',
     'ContactListTag',
     'ContactListTopic',
     'ReceiptFilterFilter',
@@ -146,6 +147,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
             suggest = "cloud_watch_destination"
         elif key == "kinesisFirehoseDestination":
             suggest = "kinesis_firehose_destination"
+        elif key == "snsDestination":
+            suggest = "sns_destination"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestination. Access the value via the '{suggest}' property getter instead.")
@@ -163,13 +166,15 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  cloud_watch_destination: Optional['outputs.ConfigurationSetEventDestinationCloudWatchDestination'] = None,
                  enabled: Optional[bool] = None,
                  kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination'] = None,
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 sns_destination: Optional['outputs.ConfigurationSetEventDestinationSnsDestination'] = None):
         """
         :param Sequence[str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
         :param 'ConfigurationSetEventDestinationCloudWatchDestination' cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param str name: The name of the event destination set.
+        :param 'ConfigurationSetEventDestinationSnsDestination' sns_destination: An object that contains SNS topic ARN associated event destination.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
@@ -180,6 +185,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
             pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sns_destination is not None:
+            pulumi.set(__self__, "sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="matchingEventTypes")
@@ -220,6 +227,14 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         The name of the event destination set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="snsDestination")
+    def sns_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationSnsDestination']:
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+        return pulumi.get(self, "sns_destination")
 
 
 @pulumi.output_type
@@ -272,6 +287,41 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
         The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
         return pulumi.get(self, "i_am_role_arn")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationSnsDestination(dict):
+    """
+    An object that contains SNS topic ARN associated event destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicARN":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationSnsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationSnsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationSnsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: str):
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicARN")
+    def topic_arn(self) -> str:
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

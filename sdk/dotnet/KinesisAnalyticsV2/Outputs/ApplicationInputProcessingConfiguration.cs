@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationInputProcessingConfiguration
     {
-        /// <summary>
-        /// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-        /// </summary>
         public readonly Outputs.ApplicationInputLambdaProcessor? InputLambdaProcessor;
 
         [OutputConstructor]

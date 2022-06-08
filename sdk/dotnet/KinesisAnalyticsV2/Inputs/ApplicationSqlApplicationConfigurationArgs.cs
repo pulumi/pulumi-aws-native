@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-    /// </summary>
     public sealed class ApplicationSqlApplicationConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<Inputs.ApplicationInputArgs>? _inputs;
-
-        /// <summary>
-        /// The array of Input objects describing the input streams used by the application.
-        /// </summary>
         public InputList<Inputs.ApplicationInputArgs> Inputs
         {
             get => _inputs ?? (_inputs = new InputList<Inputs.ApplicationInputArgs>());

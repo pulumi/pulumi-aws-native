@@ -48,6 +48,12 @@ namespace Pulumi.AwsNative.SES.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An object that contains SNS topic ARN associated event destination.
+        /// </summary>
+        [Input("snsDestination")]
+        public Input<Inputs.ConfigurationSetEventDestinationSnsDestinationArgs>? SnsDestination { get; set; }
+
         public ConfigurationSetEventDestinationEventDestinationArgs()
         {
         }

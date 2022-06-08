@@ -14,9 +14,6 @@ export * from "./getApplicationCloudWatchLoggingOption";
 export * from "./getApplicationOutputResource";
 export * from "./getApplicationReferenceDataSource";
 
-// Export enums:
-export * from "../types/enums/kinesisanalyticsv2";
-
 // Import resources to register:
 import { Application } from "./application";
 import { ApplicationCloudWatchLoggingOption } from "./applicationCloudWatchLoggingOption";

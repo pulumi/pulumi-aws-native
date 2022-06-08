@@ -59,10 +59,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Live policy document for the core network
+        /// Live policy document for the core network, you must provide PolicyDocument in Json Format
         /// </summary>
         [Output("policyDocument")]
-        public Output<string?> PolicyDocument { get; private set; } = null!;
+        public Output<object?> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// The segments within a core network.
@@ -140,10 +140,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// Live policy document for the core network
+        /// Live policy document for the core network, you must provide PolicyDocument in Json Format
         /// </summary>
         [Input("policyDocument")]
-        public Input<string>? PolicyDocument { get; set; }
+        public Input<object>? PolicyDocument { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.CoreNetworkTagArgs>? _tags;

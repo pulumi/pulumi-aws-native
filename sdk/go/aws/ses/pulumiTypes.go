@@ -281,6 +281,8 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
 	// The name of the event destination set.
 	Name *string `pulumi:"name"`
+	// An object that contains SNS topic ARN associated event destination.
+	SnsDestination *ConfigurationSetEventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
 // ConfigurationSetEventDestinationEventDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs and ConfigurationSetEventDestinationEventDestinationOutput values.
@@ -305,6 +307,8 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
 	// The name of the event destination set.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// An object that contains SNS topic ARN associated event destination.
+	SnsDestination ConfigurationSetEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
 }
 
 func (ConfigurationSetEventDestinationEventDestinationArgs) ElementType() reflect.Type {
@@ -360,6 +364,13 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTyp
 // The name of the event destination set.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An object that contains SNS topic ARN associated event destination.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) SnsDestination() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationSnsDestination {
+		return v.SnsDestination
+	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
 type ConfigurationSetEventDestinationEventDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -434,6 +445,16 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// An object that contains SNS topic ARN associated event destination.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestination() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationSnsDestination {
+		if v == nil {
+			return nil
+		}
+		return v.SnsDestination
+	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
 // An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -592,6 +613,142 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) IAM
 			return nil
 		}
 		return &v.IAMRoleARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that contains SNS topic ARN associated event destination.
+type ConfigurationSetEventDestinationSnsDestination struct {
+	TopicARN string `pulumi:"topicARN"`
+}
+
+// ConfigurationSetEventDestinationSnsDestinationInput is an input type that accepts ConfigurationSetEventDestinationSnsDestinationArgs and ConfigurationSetEventDestinationSnsDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationSnsDestinationInput` via:
+//
+//          ConfigurationSetEventDestinationSnsDestinationArgs{...}
+type ConfigurationSetEventDestinationSnsDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationSnsDestinationOutput
+	ToConfigurationSetEventDestinationSnsDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationSnsDestinationOutput
+}
+
+// An object that contains SNS topic ARN associated event destination.
+type ConfigurationSetEventDestinationSnsDestinationArgs struct {
+	TopicARN pulumi.StringInput `pulumi:"topicARN"`
+}
+
+func (ConfigurationSetEventDestinationSnsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationSnsDestinationOutput {
+	return i.ToConfigurationSetEventDestinationSnsDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationSnsDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationSnsDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationSnsDestinationOutput).ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationSnsDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationSnsDestinationArgs, ConfigurationSetEventDestinationSnsDestinationPtr and ConfigurationSetEventDestinationSnsDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationSnsDestinationPtrInput` via:
+//
+//          ConfigurationSetEventDestinationSnsDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetEventDestinationSnsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput
+	ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput
+}
+
+type configurationSetEventDestinationSnsDestinationPtrType ConfigurationSetEventDestinationSnsDestinationArgs
+
+func ConfigurationSetEventDestinationSnsDestinationPtr(v *ConfigurationSetEventDestinationSnsDestinationArgs) ConfigurationSetEventDestinationSnsDestinationPtrInput {
+	return (*configurationSetEventDestinationSnsDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationSnsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationSnsDestinationPtrType) ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationSnsDestinationPtrType) ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
+}
+
+// An object that contains SNS topic ARN associated event destination.
+type ConfigurationSetEventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationSnsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationSnsDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationSnsDestination) *ConfigurationSetEventDestinationSnsDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) TopicARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationSnsDestination) string { return v.TopicARN }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationSnsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationSnsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) Elem() ConfigurationSetEventDestinationSnsDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationSnsDestination) ConfigurationSetEventDestinationSnsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationSnsDestination
+		return ret
+	}).(ConfigurationSetEventDestinationSnsDestinationOutput)
+}
+
+func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationSnsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicARN
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2544,6 +2701,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagInput)(nil)).Elem(), ContactListTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagArrayInput)(nil)).Elem(), ContactListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
@@ -2577,6 +2736,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTagOutput{})
 	pulumi.RegisterOutputType(ContactListTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})

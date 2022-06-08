@@ -11,16 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::DBClusterParameterGroup
-//
-// Deprecated: DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
 type DBClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput                   `pulumi:"description"`
-	Family      pulumi.StringOutput                   `pulumi:"family"`
-	Parameters  pulumi.AnyOutput                      `pulumi:"parameters"`
-	Tags        DBClusterParameterGroupTagArrayOutput `pulumi:"tags"`
+	DBClusterParameterGroupName pulumi.StringOutput `pulumi:"dBClusterParameterGroupName"`
+	// A friendly description for this DB cluster parameter group.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+	Family pulumi.StringOutput `pulumi:"family"`
+	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	// The list of tags for the cluster parameter group.
+	Tags DBClusterParameterGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDBClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -71,18 +74,26 @@ func (DBClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbclusterParameterGroupArgs struct {
-	Description string                       `pulumi:"description"`
-	Family      string                       `pulumi:"family"`
-	Parameters  interface{}                  `pulumi:"parameters"`
-	Tags        []DBClusterParameterGroupTag `pulumi:"tags"`
+	// A friendly description for this DB cluster parameter group.
+	Description string `pulumi:"description"`
+	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+	Family string `pulumi:"family"`
+	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	Parameters interface{} `pulumi:"parameters"`
+	// The list of tags for the cluster parameter group.
+	Tags []DBClusterParameterGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DBClusterParameterGroup resource.
 type DBClusterParameterGroupArgs struct {
+	// A friendly description for this DB cluster parameter group.
 	Description pulumi.StringInput
-	Family      pulumi.StringInput
-	Parameters  pulumi.Input
-	Tags        DBClusterParameterGroupTagArrayInput
+	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+	Family pulumi.StringInput
+	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	Parameters pulumi.Input
+	// The list of tags for the cluster parameter group.
+	Tags DBClusterParameterGroupTagArrayInput
 }
 
 func (DBClusterParameterGroupArgs) ElementType() reflect.Type {
@@ -122,18 +133,26 @@ func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContex
 	return o
 }
 
+func (o DBClusterParameterGroupOutput) DBClusterParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.DBClusterParameterGroupName }).(pulumi.StringOutput)
+}
+
+// A friendly description for this DB cluster parameter group.
 func (o DBClusterParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
 func (o DBClusterParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
+// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 func (o DBClusterParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }
 
+// The list of tags for the cluster parameter group.
 func (o DBClusterParameterGroupOutput) Tags() DBClusterParameterGroupTagArrayOutput {
 	return o.ApplyT(func(v *DBClusterParameterGroup) DBClusterParameterGroupTagArrayOutput { return v.Tags }).(DBClusterParameterGroupTagArrayOutput)
 }

@@ -67,9 +67,9 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
     /**
-     * Live policy document for the core network
+     * Live policy document for the core network, you must provide PolicyDocument in Json Format
      */
-    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    public readonly policyDocument!: pulumi.Output<any | undefined>;
     /**
      * The segments within a core network.
      */
@@ -141,9 +141,9 @@ export interface CoreNetworkArgs {
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * Live policy document for the core network
+     * Live policy document for the core network, you must provide PolicyDocument in Json Format
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: any;
     /**
      * The tags for the global network.
      */

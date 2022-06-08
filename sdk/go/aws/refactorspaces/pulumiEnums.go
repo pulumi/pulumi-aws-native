@@ -503,8 +503,7 @@ func (in *environmentNetworkFabricTypePtr) ToEnvironmentNetworkFabricTypePtrOutp
 type RouteActivationState string
 
 const (
-	RouteActivationStateInactive = RouteActivationState("INACTIVE")
-	RouteActivationStateActive   = RouteActivationState("ACTIVE")
+	RouteActivationStateActive = RouteActivationState("ACTIVE")
 )
 
 func (RouteActivationState) ElementType() reflect.Type {
@@ -1213,8 +1212,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationProxyTypePtrInput)(nil)).Elem(), ApplicationProxyType("API_GATEWAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkFabricTypeInput)(nil)).Elem(), EnvironmentNetworkFabricType("TRANSIT_GATEWAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkFabricTypePtrInput)(nil)).Elem(), EnvironmentNetworkFabricType("TRANSIT_GATEWAY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteActivationStateInput)(nil)).Elem(), RouteActivationState("INACTIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteActivationStatePtrInput)(nil)).Elem(), RouteActivationState("INACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteActivationStateInput)(nil)).Elem(), RouteActivationState("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteActivationStatePtrInput)(nil)).Elem(), RouteActivationState("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteMethodInput)(nil)).Elem(), RouteMethod("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteMethodPtrInput)(nil)).Elem(), RouteMethod("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteMethodArrayInput)(nil)).Elem(), RouteMethodArray{})

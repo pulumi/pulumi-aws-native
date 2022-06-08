@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-    /// </summary>
     public sealed class ApplicationInputParallelismArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of in-application streams to create.
-        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 

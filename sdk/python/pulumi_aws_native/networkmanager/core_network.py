@@ -17,13 +17,13 @@ class CoreNetworkArgs:
     def __init__(__self__, *,
                  global_network_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
         :param pulumi.Input[str] global_network_id: The ID of the global network that your core network is a part of.
         :param pulumi.Input[str] description: The description of core network
-        :param pulumi.Input[str] policy_document: Live policy document for the core network
+        :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
         :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]] tags: The tags for the global network.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -60,14 +60,14 @@ class CoreNetworkArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[str]]:
+    def policy_document(self) -> Optional[Any]:
         """
-        Live policy document for the core network
+        Live policy document for the core network, you must provide PolicyDocument in Json Format
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[str]]):
+    def policy_document(self, value: Optional[Any]):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -95,7 +95,7 @@ class CoreNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -105,7 +105,7 @@ class CoreNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of core network
         :param pulumi.Input[str] global_network_id: The ID of the global network that your core network is a part of.
-        :param pulumi.Input[str] policy_document: Live policy document for the core network
+        :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]] tags: The tags for the global network.
         """
         ...
@@ -134,7 +134,7 @@ class CoreNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""CoreNetwork is deprecated: CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -255,9 +255,9 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Output[Optional[str]]:
+    def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
-        Live policy document for the core network
+        Live policy document for the core network, you must provide PolicyDocument in Json Format
         """
         return pulumi.get(self, "policy_document")
 

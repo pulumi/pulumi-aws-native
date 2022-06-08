@@ -56,7 +56,6 @@ import * as ivs from "./ivs";
 import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
-import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kinesisfirehose from "./kinesisfirehose";
 import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
@@ -161,7 +160,6 @@ export {
     kafkaconnect,
     kendra,
     kinesis,
-    kinesisanalyticsv2,
     kinesisfirehose,
     kinesisvideo,
     kms,

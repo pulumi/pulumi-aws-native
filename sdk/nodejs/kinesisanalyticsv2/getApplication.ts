@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+ * Resource Type definition for AWS::KinesisAnalyticsV2::Application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -15,33 +15,19 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:kinesisanalyticsv2:getApplication", {
-        "applicationName": args.applicationName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetApplicationArgs {
-    /**
-     * The name of the application.
-     */
-    applicationName: string;
+    id: string;
 }
 
 export interface GetApplicationResult {
-    /**
-     * Use this parameter to configure the application.
-     */
     readonly applicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationConfiguration;
-    /**
-     * The description of the application.
-     */
     readonly applicationDescription?: string;
-    /**
-     * Specifies the IAM role that the application uses to access external resources.
-     */
+    readonly id?: string;
     readonly serviceExecutionRole?: string;
-    /**
-     * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-     */
     readonly tags?: outputs.kinesisanalyticsv2.ApplicationTag[];
 }
 
@@ -50,8 +36,5 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
-    /**
-     * The name of the application.
-     */
-    applicationName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

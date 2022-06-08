@@ -10,21 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
-    /// Resource Type definition for AWS::RDS::DBClusterParameterGroup
+    /// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
     /// </summary>
-    [Obsolete(@"DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DBClusterParameterGroup")]
     public partial class DBClusterParameterGroup : Pulumi.CustomResource
     {
+        [Output("dBClusterParameterGroupName")]
+        public Output<string> DBClusterParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A friendly description for this DB cluster parameter group.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+        /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
         [Output("parameters")]
         public Output<object> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DBClusterParameterGroupTag>> Tags { get; private set; } = null!;
 
@@ -73,17 +87,30 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBClusterParameterGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A friendly description for this DB cluster parameter group.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
+        /// <summary>
+        /// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
+        /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
         [Input("parameters", required: true)]
         public Input<object> Parameters { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.DBClusterParameterGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
         public InputList<Inputs.DBClusterParameterGroupTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DBClusterParameterGroupTagArgs>());

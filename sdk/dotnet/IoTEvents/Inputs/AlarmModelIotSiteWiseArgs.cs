@@ -39,8 +39,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("propertyId")]
         public Input<string>? PropertyId { get; set; }
 
-        [Input("propertyValue", required: true)]
-        public Input<Inputs.AlarmModelAssetPropertyValueArgs> PropertyValue { get; set; } = null!;
+        [Input("propertyValue")]
+        public Input<Inputs.AlarmModelAssetPropertyValueArgs>? PropertyValue { get; set; }
 
         public AlarmModelIotSiteWiseArgs()
         {

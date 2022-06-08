@@ -10,22 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// Describes code configuration for an application.
-    /// </summary>
     public sealed class ApplicationCodeConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location and type of the application code.
-        /// </summary>
         [Input("codeContent", required: true)]
         public Input<Inputs.ApplicationCodeContentArgs> CodeContent { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the code content is in text or zip format.
-        /// </summary>
         [Input("codeContentType", required: true)]
-        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationCodeConfigurationCodeContentType> CodeContentType { get; set; } = null!;
+        public Input<string> CodeContentType { get; set; } = null!;
 
         public ApplicationCodeConfigurationArgs()
         {

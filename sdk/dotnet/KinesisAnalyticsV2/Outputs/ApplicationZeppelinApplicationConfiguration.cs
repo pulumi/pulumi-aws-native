@@ -10,27 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// The configuration of a Kinesis Data Analytics Studio notebook.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationZeppelinApplicationConfiguration
     {
-        /// <summary>
-        /// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
-        /// </summary>
         public readonly Outputs.ApplicationCatalogConfiguration? CatalogConfiguration;
-        /// <summary>
-        /// A list of CustomArtifactConfiguration objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationCustomArtifactConfiguration> CustomArtifactsConfiguration;
-        /// <summary>
-        /// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
-        /// </summary>
         public readonly Outputs.ApplicationDeployAsApplicationConfiguration? DeployAsApplicationConfiguration;
-        /// <summary>
-        /// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
-        /// </summary>
         public readonly Outputs.ApplicationZeppelinMonitoringConfiguration? MonitoringConfiguration;
 
         [OutputConstructor]

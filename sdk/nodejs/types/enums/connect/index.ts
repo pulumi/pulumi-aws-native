@@ -75,6 +75,36 @@ export const QuickConnectType = {
  */
 export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
 
+export const TaskTemplateFieldType = {
+    Name: "NAME",
+    Description: "DESCRIPTION",
+    ScheduledTime: "SCHEDULED_TIME",
+    QuickConnect: "QUICK_CONNECT",
+    Url: "URL",
+    Number: "NUMBER",
+    Text: "TEXT",
+    TextArea: "TEXT_AREA",
+    DateTime: "DATE_TIME",
+    Boolean: "BOOLEAN",
+    SingleSelect: "SINGLE_SELECT",
+    Email: "EMAIL",
+} as const;
+
+/**
+ * The type of the task template's field
+ */
+export type TaskTemplateFieldType = (typeof TaskTemplateFieldType)[keyof typeof TaskTemplateFieldType];
+
+export const TaskTemplateStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of the task template
+ */
+export type TaskTemplateStatus = (typeof TaskTemplateStatus)[keyof typeof TaskTemplateStatus];
+
 export const UserPhoneType = {
     SoftPhone: "SOFT_PHONE",
     DeskPhone: "DESK_PHONE",

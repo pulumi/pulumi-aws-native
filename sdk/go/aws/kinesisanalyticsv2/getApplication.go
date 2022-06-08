@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+// Resource Type definition for AWS::KinesisAnalyticsV2::Application
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("aws-native:kinesisanalyticsv2:getApplication", args, &rv, opts...)
@@ -21,19 +21,15 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	// The name of the application.
-	ApplicationName string `pulumi:"applicationName"`
+	Id string `pulumi:"id"`
 }
 
 type LookupApplicationResult struct {
-	// Use this parameter to configure the application.
 	ApplicationConfiguration *ApplicationConfiguration `pulumi:"applicationConfiguration"`
-	// The description of the application.
-	ApplicationDescription *string `pulumi:"applicationDescription"`
-	// Specifies the IAM role that the application uses to access external resources.
-	ServiceExecutionRole *string `pulumi:"serviceExecutionRole"`
-	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-	Tags []ApplicationTag `pulumi:"tags"`
+	ApplicationDescription   *string                   `pulumi:"applicationDescription"`
+	Id                       *string                   `pulumi:"id"`
+	ServiceExecutionRole     *string                   `pulumi:"serviceExecutionRole"`
+	Tags                     []ApplicationTag          `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -50,8 +46,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	// The name of the application.
-	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -72,22 +67,22 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-// Use this parameter to configure the application.
 func (o LookupApplicationResultOutput) ApplicationConfiguration() ApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationConfiguration { return v.ApplicationConfiguration }).(ApplicationConfigurationPtrOutput)
 }
 
-// The description of the application.
 func (o LookupApplicationResultOutput) ApplicationDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IAM role that the application uses to access external resources.
+func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupApplicationResultOutput) ServiceExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ServiceExecutionRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
 func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
 }

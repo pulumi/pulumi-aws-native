@@ -99,7 +99,6 @@ namespace Pulumi.AwsNative.RefactorSpaces
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RouteActivationState Inactive { get; } = new RouteActivationState("INACTIVE");
         public static RouteActivationState Active { get; } = new RouteActivationState("ACTIVE");
 
         public static bool operator ==(RouteActivationState left, RouteActivationState right) => left.Equals(right);

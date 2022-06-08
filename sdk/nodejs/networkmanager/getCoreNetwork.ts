@@ -52,9 +52,9 @@ export interface GetCoreNetworkResult {
      */
     readonly ownerAccount?: string;
     /**
-     * Live policy document for the core network
+     * Live policy document for the core network, you must provide PolicyDocument in Json Format
      */
-    readonly policyDocument?: string;
+    readonly policyDocument?: any;
     /**
      * The segments within a core network.
      */

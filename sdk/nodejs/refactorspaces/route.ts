@@ -37,7 +37,6 @@ export class Route extends pulumi.CustomResource {
 
     public readonly applicationIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly defaultRoute!: pulumi.Output<outputs.refactorspaces.RouteDefaultRouteInput | undefined>;
     public readonly environmentIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly pathResourceToId!: pulumi.Output<string>;
     public /*out*/ readonly routeIdentifier!: pulumi.Output<string>;
@@ -70,7 +69,6 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceIdentifier'");
             }
             resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["defaultRoute"] = args ? args.defaultRoute : undefined;
             resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
             resourceInputs["routeType"] = args ? args.routeType : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
@@ -82,7 +80,6 @@ export class Route extends pulumi.CustomResource {
         } else {
             resourceInputs["applicationIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["defaultRoute"] = undefined /*out*/;
             resourceInputs["environmentIdentifier"] = undefined /*out*/;
             resourceInputs["pathResourceToId"] = undefined /*out*/;
             resourceInputs["routeIdentifier"] = undefined /*out*/;
@@ -101,7 +98,6 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteArgs {
     applicationIdentifier: pulumi.Input<string>;
-    defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs>;
     environmentIdentifier: pulumi.Input<string>;
     routeType?: pulumi.Input<enums.refactorspaces.RouteType>;
     serviceIdentifier: pulumi.Input<string>;

@@ -207,6 +207,78 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The type of the task template's field
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskTemplateFieldType : IEquatable<TaskTemplateFieldType>
+    {
+        private readonly string _value;
+
+        private TaskTemplateFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskTemplateFieldType Name { get; } = new TaskTemplateFieldType("NAME");
+        public static TaskTemplateFieldType Description { get; } = new TaskTemplateFieldType("DESCRIPTION");
+        public static TaskTemplateFieldType ScheduledTime { get; } = new TaskTemplateFieldType("SCHEDULED_TIME");
+        public static TaskTemplateFieldType QuickConnect { get; } = new TaskTemplateFieldType("QUICK_CONNECT");
+        public static TaskTemplateFieldType Url { get; } = new TaskTemplateFieldType("URL");
+        public static TaskTemplateFieldType Number { get; } = new TaskTemplateFieldType("NUMBER");
+        public static TaskTemplateFieldType Text { get; } = new TaskTemplateFieldType("TEXT");
+        public static TaskTemplateFieldType TextArea { get; } = new TaskTemplateFieldType("TEXT_AREA");
+        public static TaskTemplateFieldType DateTime { get; } = new TaskTemplateFieldType("DATE_TIME");
+        public static TaskTemplateFieldType Boolean { get; } = new TaskTemplateFieldType("BOOLEAN");
+        public static TaskTemplateFieldType SingleSelect { get; } = new TaskTemplateFieldType("SINGLE_SELECT");
+        public static TaskTemplateFieldType Email { get; } = new TaskTemplateFieldType("EMAIL");
+
+        public static bool operator ==(TaskTemplateFieldType left, TaskTemplateFieldType right) => left.Equals(right);
+        public static bool operator !=(TaskTemplateFieldType left, TaskTemplateFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(TaskTemplateFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskTemplateFieldType other && Equals(other);
+        public bool Equals(TaskTemplateFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the task template
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskTemplateStatus : IEquatable<TaskTemplateStatus>
+    {
+        private readonly string _value;
+
+        private TaskTemplateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskTemplateStatus Active { get; } = new TaskTemplateStatus("ACTIVE");
+        public static TaskTemplateStatus Inactive { get; } = new TaskTemplateStatus("INACTIVE");
+
+        public static bool operator ==(TaskTemplateStatus left, TaskTemplateStatus right) => left.Equals(right);
+        public static bool operator !=(TaskTemplateStatus left, TaskTemplateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TaskTemplateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskTemplateStatus other && Equals(other);
+        public bool Equals(TaskTemplateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The phone type.
     /// </summary>
     [EnumType]

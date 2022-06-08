@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.SES.Outputs
         /// The name of the event destination set.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An object that contains SNS topic ARN associated event destination.
+        /// </summary>
+        public readonly Outputs.ConfigurationSetEventDestinationSnsDestination? SnsDestination;
 
         [OutputConstructor]
         private ConfigurationSetEventDestinationEventDestination(
@@ -44,13 +48,16 @@ namespace Pulumi.AwsNative.SES.Outputs
 
             ImmutableArray<string> matchingEventTypes,
 
-            string? name)
+            string? name,
+
+            Outputs.ConfigurationSetEventDestinationSnsDestination? snsDestination)
         {
             CloudWatchDestination = cloudWatchDestination;
             Enabled = enabled;
             KinesisFirehoseDestination = kinesisFirehoseDestination;
             MatchingEventTypes = matchingEventTypes;
             Name = name;
+            SnsDestination = snsDestination;
         }
     }
 }

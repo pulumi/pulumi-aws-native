@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// Property key-value pairs passed into an application.
-    /// </summary>
     public sealed class ApplicationPropertyGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes the key of an application execution property key-value pair.
-        /// </summary>
         [Input("propertyGroupId")]
         public Input<string>? PropertyGroupId { get; set; }
 
-        /// <summary>
-        /// Describes the value of an application execution property key-value pair.
-        /// </summary>
         [Input("propertyMap")]
         public Input<object>? PropertyMap { get; set; }
 

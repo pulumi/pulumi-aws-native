@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// The location of an application or a custom artifact.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationS3ContentLocation
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-        /// </summary>
         public readonly string BucketARN;
-        /// <summary>
-        /// The file key for the object containing the application code.
-        /// </summary>
         public readonly string FileKey;
-        /// <summary>
-        /// The version of the object containing the application code.
-        /// </summary>
         public readonly string? ObjectVersion;
 
         [OutputConstructor]

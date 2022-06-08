@@ -10,50 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2
 {
     /// <summary>
-    /// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+    /// Resource Type definition for AWS::KinesisAnalyticsV2::Application
     /// </summary>
+    [Obsolete(@"Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalyticsv2:Application")]
     public partial class Application : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Use this parameter to configure the application.
-        /// </summary>
         [Output("applicationConfiguration")]
         public Output<Outputs.ApplicationConfiguration?> ApplicationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the application.
-        /// </summary>
         [Output("applicationDescription")]
         public Output<string?> ApplicationDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-        /// </summary>
         [Output("applicationMode")]
-        public Output<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationMode?> ApplicationMode { get; private set; } = null!;
+        public Output<string?> ApplicationMode { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Output("applicationName")]
         public Output<string?> ApplicationName { get; private set; } = null!;
 
-        /// <summary>
-        /// The runtime environment for the application.
-        /// </summary>
         [Output("runtimeEnvironment")]
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the IAM role that the application uses to access external resources.
-        /// </summary>
         [Output("serviceExecutionRole")]
         public Output<string> ServiceExecutionRole { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
 
@@ -102,48 +82,26 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Use this parameter to configure the application.
-        /// </summary>
         [Input("applicationConfiguration")]
         public Input<Inputs.ApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
 
-        /// <summary>
-        /// The description of the application.
-        /// </summary>
         [Input("applicationDescription")]
         public Input<string>? ApplicationDescription { get; set; }
 
-        /// <summary>
-        /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-        /// </summary>
         [Input("applicationMode")]
-        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationMode>? ApplicationMode { get; set; }
+        public Input<string>? ApplicationMode { get; set; }
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
 
-        /// <summary>
-        /// The runtime environment for the application.
-        /// </summary>
         [Input("runtimeEnvironment", required: true)]
         public Input<string> RuntimeEnvironment { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the IAM role that the application uses to access external resources.
-        /// </summary>
         [Input("serviceExecutionRole", required: true)]
         public Input<string> ServiceExecutionRole { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ApplicationTagArgs>? _tags;
-
-        /// <summary>
-        /// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-        /// </summary>
         public InputList<Inputs.ApplicationTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());

@@ -13,6 +13,16 @@ export const AgentEndpointType = {
  */
 export type AgentEndpointType = (typeof AgentEndpointType)[keyof typeof AgentEndpointType];
 
+export const LocationEFSInTransitEncryption = {
+    None: "NONE",
+    Tls12: "TLS1_2",
+} as const;
+
+/**
+ * Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+ */
+export type LocationEFSInTransitEncryption = (typeof LocationEFSInTransitEncryption)[keyof typeof LocationEFSInTransitEncryption];
+
 export const LocationFSxOpenZFSMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",

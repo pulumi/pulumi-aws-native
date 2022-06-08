@@ -80,9 +80,9 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? OwnerAccount;
         /// <summary>
-        /// Live policy document for the core network
+        /// Live policy document for the core network, you must provide PolicyDocument in Json Format
         /// </summary>
-        public readonly string? PolicyDocument;
+        public readonly object? PolicyDocument;
         /// <summary>
         /// The segments within a core network.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? ownerAccount,
 
-            string? policyDocument,
+            object? policyDocument,
 
             ImmutableArray<Outputs.CoreNetworkSegment> segments,
 

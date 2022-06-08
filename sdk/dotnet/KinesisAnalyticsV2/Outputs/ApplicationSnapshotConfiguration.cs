@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationSnapshotConfiguration
     {
-        /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly bool SnapshotsEnabled;
 
         [OutputConstructor]

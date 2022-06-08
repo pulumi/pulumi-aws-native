@@ -22,7 +22,6 @@ export const EnvironmentNetworkFabricType = {
 export type EnvironmentNetworkFabricType = (typeof EnvironmentNetworkFabricType)[keyof typeof EnvironmentNetworkFabricType];
 
 export const RouteActivationState = {
-    Inactive: "INACTIVE",
     Active: "ACTIVE",
 } as const;
 

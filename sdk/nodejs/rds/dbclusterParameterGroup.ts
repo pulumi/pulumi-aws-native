@@ -6,9 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RDS::DBClusterParameterGroup
- *
- * @deprecated DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
  */
 export class DBClusterParameterGroup extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DBClusterParameterGroup {
-        pulumi.log.warn("DBClusterParameterGroup is deprecated: DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DBClusterParameterGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,9 +35,22 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBClusterParameterGroup.__pulumiType;
     }
 
+    public /*out*/ readonly dBClusterParameterGroupName!: pulumi.Output<string>;
+    /**
+     * A friendly description for this DB cluster parameter group.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+     */
     public readonly family!: pulumi.Output<string>;
+    /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
     public readonly parameters!: pulumi.Output<any>;
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     public readonly tags!: pulumi.Output<outputs.rds.DBClusterParameterGroupTag[] | undefined>;
 
     /**
@@ -50,9 +60,7 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBClusterParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DBClusterParameterGroup is deprecated: DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -69,7 +77,9 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
         } else {
+            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
@@ -84,8 +94,20 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBClusterParameterGroup resource.
  */
 export interface DBClusterParameterGroupArgs {
+    /**
+     * A friendly description for this DB cluster parameter group.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+     */
     family: pulumi.Input<string>;
+    /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
     parameters: any;
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBClusterParameterGroupTagArgs>[]>;
 }

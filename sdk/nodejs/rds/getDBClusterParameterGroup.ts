@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RDS::DBClusterParameterGroup
+ * The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
  */
 export function getDBClusterParameterGroup(args: GetDBClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterParameterGroupResult> {
     if (!opts) {
@@ -15,17 +15,19 @@ export function getDBClusterParameterGroup(args: GetDBClusterParameterGroupArgs,
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:rds:getDBClusterParameterGroup", {
-        "id": args.id,
+        "dBClusterParameterGroupName": args.dBClusterParameterGroupName,
     }, opts);
 }
 
 export interface GetDBClusterParameterGroupArgs {
-    id: string;
+    dBClusterParameterGroupName: string;
 }
 
 export interface GetDBClusterParameterGroupResult {
-    readonly id?: string;
-    readonly parameters?: any;
+    readonly dBClusterParameterGroupName?: string;
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     readonly tags?: outputs.rds.DBClusterParameterGroupTag[];
 }
 
@@ -34,5 +36,5 @@ export function getDBClusterParameterGroupOutput(args: GetDBClusterParameterGrou
 }
 
 export interface GetDBClusterParameterGroupOutputArgs {
-    id: pulumi.Input<string>;
+    dBClusterParameterGroupName: pulumi.Input<string>;
 }

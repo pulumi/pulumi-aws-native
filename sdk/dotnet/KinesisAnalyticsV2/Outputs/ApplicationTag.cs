@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// A key-value pair that identifies an application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationTag
     {
-        /// <summary>
-        /// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value for the tag. You can specify a value that's 0 to 256 characters in length.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

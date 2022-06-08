@@ -31,8 +31,8 @@ type CoreNetwork struct {
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
 	// Owner of the core network
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
-	// Live policy document for the core network
-	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The segments within a core network.
 	Segments CoreNetworkSegmentArrayOutput `pulumi:"segments"`
 	// The state of core network
@@ -87,8 +87,8 @@ type coreNetworkArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// Live policy document for the core network
-	PolicyDocument *string `pulumi:"policyDocument"`
+	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The tags for the global network.
 	Tags []CoreNetworkTag `pulumi:"tags"`
 }
@@ -99,8 +99,8 @@ type CoreNetworkArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId pulumi.StringInput
-	// Live policy document for the core network
-	PolicyDocument pulumi.StringPtrInput
+	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	PolicyDocument pulumi.Input
 	// The tags for the global network.
 	Tags CoreNetworkTagArrayInput
 }
@@ -177,9 +177,9 @@ func (o CoreNetworkOutput) OwnerAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
 }
 
-// Live policy document for the core network
-func (o CoreNetworkOutput) PolicyDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+// Live policy document for the core network, you must provide PolicyDocument in Json Format
+func (o CoreNetworkOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CoreNetwork) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // The segments within a core network.

@@ -6,7 +6,9 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+ * Resource Type definition for AWS::KinesisAnalyticsV2::Application
+ *
+ * @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
+        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Application(name, undefined as any, { ...opts, id: id });
     }
 
@@ -35,33 +38,12 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * Use this parameter to configure the application.
-     */
     public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationConfiguration | undefined>;
-    /**
-     * The description of the application.
-     */
     public readonly applicationDescription!: pulumi.Output<string | undefined>;
-    /**
-     * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-     */
-    public readonly applicationMode!: pulumi.Output<enums.kinesisanalyticsv2.ApplicationMode | undefined>;
-    /**
-     * The name of the application.
-     */
+    public readonly applicationMode!: pulumi.Output<string | undefined>;
     public readonly applicationName!: pulumi.Output<string | undefined>;
-    /**
-     * The runtime environment for the application.
-     */
     public readonly runtimeEnvironment!: pulumi.Output<string>;
-    /**
-     * Specifies the IAM role that the application uses to access external resources.
-     */
     public readonly serviceExecutionRole!: pulumi.Output<string>;
-    /**
-     * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-     */
     public readonly tags!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationTag[] | undefined>;
 
     /**
@@ -71,7 +53,9 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -106,32 +90,11 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * Use this parameter to configure the application.
-     */
     applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationConfigurationArgs>;
-    /**
-     * The description of the application.
-     */
     applicationDescription?: pulumi.Input<string>;
-    /**
-     * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-     */
-    applicationMode?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationMode>;
-    /**
-     * The name of the application.
-     */
+    applicationMode?: pulumi.Input<string>;
     applicationName?: pulumi.Input<string>;
-    /**
-     * The runtime environment for the application.
-     */
     runtimeEnvironment: pulumi.Input<string>;
-    /**
-     * Specifies the IAM role that the application uses to access external resources.
-     */
     serviceExecutionRole: pulumi.Input<string>;
-    /**
-     * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationTagArgs>[]>;
 }

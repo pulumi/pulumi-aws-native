@@ -10,35 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// Specifies the creation parameters for a Kinesis Data Analytics application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationConfiguration
     {
-        /// <summary>
-        /// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationCodeConfiguration? ApplicationCodeConfiguration;
-        /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
-        /// <summary>
-        /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationEnvironmentProperties? EnvironmentProperties;
-        /// <summary>
-        /// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationFlinkApplicationConfiguration? FlinkApplicationConfiguration;
-        /// <summary>
-        /// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationSqlApplicationConfiguration? SqlApplicationConfiguration;
-        /// <summary>
-        /// The configuration parameters for a Kinesis Data Analytics Studio notebook.
-        /// </summary>
         public readonly Outputs.ApplicationZeppelinApplicationConfiguration? ZeppelinApplicationConfiguration;
 
         [OutputConstructor]

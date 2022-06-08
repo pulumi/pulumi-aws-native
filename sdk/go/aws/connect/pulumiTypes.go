@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The constraints for the task template
+type ConstraintsProperties struct {
+	InvisibleFields []TaskTemplateInvisibleFieldInfo `pulumi:"invisibleFields"`
+	ReadOnlyFields  []TaskTemplateReadOnlyFieldInfo  `pulumi:"readOnlyFields"`
+	RequiredFields  []TaskTemplateRequiredFieldInfo  `pulumi:"requiredFields"`
+}
+
+// ConstraintsPropertiesInput is an input type that accepts ConstraintsPropertiesArgs and ConstraintsPropertiesOutput values.
+// You can construct a concrete instance of `ConstraintsPropertiesInput` via:
+//
+//          ConstraintsPropertiesArgs{...}
+type ConstraintsPropertiesInput interface {
+	pulumi.Input
+
+	ToConstraintsPropertiesOutput() ConstraintsPropertiesOutput
+	ToConstraintsPropertiesOutputWithContext(context.Context) ConstraintsPropertiesOutput
+}
+
+// The constraints for the task template
+type ConstraintsPropertiesArgs struct {
+	InvisibleFields TaskTemplateInvisibleFieldInfoArrayInput `pulumi:"invisibleFields"`
+	ReadOnlyFields  TaskTemplateReadOnlyFieldInfoArrayInput  `pulumi:"readOnlyFields"`
+	RequiredFields  TaskTemplateRequiredFieldInfoArrayInput  `pulumi:"requiredFields"`
+}
+
+func (ConstraintsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConstraintsProperties)(nil)).Elem()
+}
+
+func (i ConstraintsPropertiesArgs) ToConstraintsPropertiesOutput() ConstraintsPropertiesOutput {
+	return i.ToConstraintsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConstraintsPropertiesArgs) ToConstraintsPropertiesOutputWithContext(ctx context.Context) ConstraintsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConstraintsPropertiesOutput)
+}
+
+func (i ConstraintsPropertiesArgs) ToConstraintsPropertiesPtrOutput() ConstraintsPropertiesPtrOutput {
+	return i.ToConstraintsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConstraintsPropertiesArgs) ToConstraintsPropertiesPtrOutputWithContext(ctx context.Context) ConstraintsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConstraintsPropertiesOutput).ToConstraintsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConstraintsPropertiesPtrInput is an input type that accepts ConstraintsPropertiesArgs, ConstraintsPropertiesPtr and ConstraintsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConstraintsPropertiesPtrInput` via:
+//
+//          ConstraintsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConstraintsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConstraintsPropertiesPtrOutput() ConstraintsPropertiesPtrOutput
+	ToConstraintsPropertiesPtrOutputWithContext(context.Context) ConstraintsPropertiesPtrOutput
+}
+
+type constraintsPropertiesPtrType ConstraintsPropertiesArgs
+
+func ConstraintsPropertiesPtr(v *ConstraintsPropertiesArgs) ConstraintsPropertiesPtrInput {
+	return (*constraintsPropertiesPtrType)(v)
+}
+
+func (*constraintsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConstraintsProperties)(nil)).Elem()
+}
+
+func (i *constraintsPropertiesPtrType) ToConstraintsPropertiesPtrOutput() ConstraintsPropertiesPtrOutput {
+	return i.ToConstraintsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *constraintsPropertiesPtrType) ToConstraintsPropertiesPtrOutputWithContext(ctx context.Context) ConstraintsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConstraintsPropertiesPtrOutput)
+}
+
+// The constraints for the task template
+type ConstraintsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConstraintsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConstraintsProperties)(nil)).Elem()
+}
+
+func (o ConstraintsPropertiesOutput) ToConstraintsPropertiesOutput() ConstraintsPropertiesOutput {
+	return o
+}
+
+func (o ConstraintsPropertiesOutput) ToConstraintsPropertiesOutputWithContext(ctx context.Context) ConstraintsPropertiesOutput {
+	return o
+}
+
+func (o ConstraintsPropertiesOutput) ToConstraintsPropertiesPtrOutput() ConstraintsPropertiesPtrOutput {
+	return o.ToConstraintsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConstraintsPropertiesOutput) ToConstraintsPropertiesPtrOutputWithContext(ctx context.Context) ConstraintsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConstraintsProperties) *ConstraintsProperties {
+		return &v
+	}).(ConstraintsPropertiesPtrOutput)
+}
+
+func (o ConstraintsPropertiesOutput) InvisibleFields() TaskTemplateInvisibleFieldInfoArrayOutput {
+	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateInvisibleFieldInfo { return v.InvisibleFields }).(TaskTemplateInvisibleFieldInfoArrayOutput)
+}
+
+func (o ConstraintsPropertiesOutput) ReadOnlyFields() TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateReadOnlyFieldInfo { return v.ReadOnlyFields }).(TaskTemplateReadOnlyFieldInfoArrayOutput)
+}
+
+func (o ConstraintsPropertiesOutput) RequiredFields() TaskTemplateRequiredFieldInfoArrayOutput {
+	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateRequiredFieldInfo { return v.RequiredFields }).(TaskTemplateRequiredFieldInfoArrayOutput)
+}
+
+type ConstraintsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConstraintsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConstraintsProperties)(nil)).Elem()
+}
+
+func (o ConstraintsPropertiesPtrOutput) ToConstraintsPropertiesPtrOutput() ConstraintsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConstraintsPropertiesPtrOutput) ToConstraintsPropertiesPtrOutputWithContext(ctx context.Context) ConstraintsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConstraintsPropertiesPtrOutput) Elem() ConstraintsPropertiesOutput {
+	return o.ApplyT(func(v *ConstraintsProperties) ConstraintsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConstraintsProperties
+		return ret
+	}).(ConstraintsPropertiesOutput)
+}
+
+func (o ConstraintsPropertiesPtrOutput) InvisibleFields() TaskTemplateInvisibleFieldInfoArrayOutput {
+	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateInvisibleFieldInfo {
+		if v == nil {
+			return nil
+		}
+		return v.InvisibleFields
+	}).(TaskTemplateInvisibleFieldInfoArrayOutput)
+}
+
+func (o ConstraintsPropertiesPtrOutput) ReadOnlyFields() TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateReadOnlyFieldInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyFields
+	}).(TaskTemplateReadOnlyFieldInfoArrayOutput)
+}
+
+func (o ConstraintsPropertiesPtrOutput) RequiredFields() TaskTemplateRequiredFieldInfoArrayOutput {
+	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateRequiredFieldInfo {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredFields
+	}).(TaskTemplateRequiredFieldInfoArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ContactFlowModuleTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1305,6 +1471,685 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// the default value for the task template's field
+type TaskTemplateDefaultFieldValue struct {
+	DefaultValue string                      `pulumi:"defaultValue"`
+	Id           TaskTemplateFieldIdentifier `pulumi:"id"`
+}
+
+// TaskTemplateDefaultFieldValueInput is an input type that accepts TaskTemplateDefaultFieldValueArgs and TaskTemplateDefaultFieldValueOutput values.
+// You can construct a concrete instance of `TaskTemplateDefaultFieldValueInput` via:
+//
+//          TaskTemplateDefaultFieldValueArgs{...}
+type TaskTemplateDefaultFieldValueInput interface {
+	pulumi.Input
+
+	ToTaskTemplateDefaultFieldValueOutput() TaskTemplateDefaultFieldValueOutput
+	ToTaskTemplateDefaultFieldValueOutputWithContext(context.Context) TaskTemplateDefaultFieldValueOutput
+}
+
+// the default value for the task template's field
+type TaskTemplateDefaultFieldValueArgs struct {
+	DefaultValue pulumi.StringInput               `pulumi:"defaultValue"`
+	Id           TaskTemplateFieldIdentifierInput `pulumi:"id"`
+}
+
+func (TaskTemplateDefaultFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateDefaultFieldValue)(nil)).Elem()
+}
+
+func (i TaskTemplateDefaultFieldValueArgs) ToTaskTemplateDefaultFieldValueOutput() TaskTemplateDefaultFieldValueOutput {
+	return i.ToTaskTemplateDefaultFieldValueOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateDefaultFieldValueArgs) ToTaskTemplateDefaultFieldValueOutputWithContext(ctx context.Context) TaskTemplateDefaultFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateDefaultFieldValueOutput)
+}
+
+// TaskTemplateDefaultFieldValueArrayInput is an input type that accepts TaskTemplateDefaultFieldValueArray and TaskTemplateDefaultFieldValueArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateDefaultFieldValueArrayInput` via:
+//
+//          TaskTemplateDefaultFieldValueArray{ TaskTemplateDefaultFieldValueArgs{...} }
+type TaskTemplateDefaultFieldValueArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateDefaultFieldValueArrayOutput() TaskTemplateDefaultFieldValueArrayOutput
+	ToTaskTemplateDefaultFieldValueArrayOutputWithContext(context.Context) TaskTemplateDefaultFieldValueArrayOutput
+}
+
+type TaskTemplateDefaultFieldValueArray []TaskTemplateDefaultFieldValueInput
+
+func (TaskTemplateDefaultFieldValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateDefaultFieldValue)(nil)).Elem()
+}
+
+func (i TaskTemplateDefaultFieldValueArray) ToTaskTemplateDefaultFieldValueArrayOutput() TaskTemplateDefaultFieldValueArrayOutput {
+	return i.ToTaskTemplateDefaultFieldValueArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateDefaultFieldValueArray) ToTaskTemplateDefaultFieldValueArrayOutputWithContext(ctx context.Context) TaskTemplateDefaultFieldValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateDefaultFieldValueArrayOutput)
+}
+
+// the default value for the task template's field
+type TaskTemplateDefaultFieldValueOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateDefaultFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateDefaultFieldValue)(nil)).Elem()
+}
+
+func (o TaskTemplateDefaultFieldValueOutput) ToTaskTemplateDefaultFieldValueOutput() TaskTemplateDefaultFieldValueOutput {
+	return o
+}
+
+func (o TaskTemplateDefaultFieldValueOutput) ToTaskTemplateDefaultFieldValueOutputWithContext(ctx context.Context) TaskTemplateDefaultFieldValueOutput {
+	return o
+}
+
+func (o TaskTemplateDefaultFieldValueOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+func (o TaskTemplateDefaultFieldValueOutput) Id() TaskTemplateFieldIdentifierOutput {
+	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
+}
+
+type TaskTemplateDefaultFieldValueArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateDefaultFieldValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateDefaultFieldValue)(nil)).Elem()
+}
+
+func (o TaskTemplateDefaultFieldValueArrayOutput) ToTaskTemplateDefaultFieldValueArrayOutput() TaskTemplateDefaultFieldValueArrayOutput {
+	return o
+}
+
+func (o TaskTemplateDefaultFieldValueArrayOutput) ToTaskTemplateDefaultFieldValueArrayOutputWithContext(ctx context.Context) TaskTemplateDefaultFieldValueArrayOutput {
+	return o
+}
+
+func (o TaskTemplateDefaultFieldValueArrayOutput) Index(i pulumi.IntInput) TaskTemplateDefaultFieldValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateDefaultFieldValue {
+		return vs[0].([]TaskTemplateDefaultFieldValue)[vs[1].(int)]
+	}).(TaskTemplateDefaultFieldValueOutput)
+}
+
+// A task template field object.
+type TaskTemplateField struct {
+	// The description of the task template's field
+	Description *string                     `pulumi:"description"`
+	Id          TaskTemplateFieldIdentifier `pulumi:"id"`
+	// list of field options to be used with single select
+	SingleSelectOptions []string              `pulumi:"singleSelectOptions"`
+	Type                TaskTemplateFieldType `pulumi:"type"`
+}
+
+// TaskTemplateFieldInput is an input type that accepts TaskTemplateFieldArgs and TaskTemplateFieldOutput values.
+// You can construct a concrete instance of `TaskTemplateFieldInput` via:
+//
+//          TaskTemplateFieldArgs{...}
+type TaskTemplateFieldInput interface {
+	pulumi.Input
+
+	ToTaskTemplateFieldOutput() TaskTemplateFieldOutput
+	ToTaskTemplateFieldOutputWithContext(context.Context) TaskTemplateFieldOutput
+}
+
+// A task template field object.
+type TaskTemplateFieldArgs struct {
+	// The description of the task template's field
+	Description pulumi.StringPtrInput            `pulumi:"description"`
+	Id          TaskTemplateFieldIdentifierInput `pulumi:"id"`
+	// list of field options to be used with single select
+	SingleSelectOptions pulumi.StringArrayInput    `pulumi:"singleSelectOptions"`
+	Type                TaskTemplateFieldTypeInput `pulumi:"type"`
+}
+
+func (TaskTemplateFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateField)(nil)).Elem()
+}
+
+func (i TaskTemplateFieldArgs) ToTaskTemplateFieldOutput() TaskTemplateFieldOutput {
+	return i.ToTaskTemplateFieldOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateFieldArgs) ToTaskTemplateFieldOutputWithContext(ctx context.Context) TaskTemplateFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateFieldOutput)
+}
+
+// TaskTemplateFieldArrayInput is an input type that accepts TaskTemplateFieldArray and TaskTemplateFieldArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateFieldArrayInput` via:
+//
+//          TaskTemplateFieldArray{ TaskTemplateFieldArgs{...} }
+type TaskTemplateFieldArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateFieldArrayOutput() TaskTemplateFieldArrayOutput
+	ToTaskTemplateFieldArrayOutputWithContext(context.Context) TaskTemplateFieldArrayOutput
+}
+
+type TaskTemplateFieldArray []TaskTemplateFieldInput
+
+func (TaskTemplateFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateField)(nil)).Elem()
+}
+
+func (i TaskTemplateFieldArray) ToTaskTemplateFieldArrayOutput() TaskTemplateFieldArrayOutput {
+	return i.ToTaskTemplateFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateFieldArray) ToTaskTemplateFieldArrayOutputWithContext(ctx context.Context) TaskTemplateFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateFieldArrayOutput)
+}
+
+// A task template field object.
+type TaskTemplateFieldOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateField)(nil)).Elem()
+}
+
+func (o TaskTemplateFieldOutput) ToTaskTemplateFieldOutput() TaskTemplateFieldOutput {
+	return o
+}
+
+func (o TaskTemplateFieldOutput) ToTaskTemplateFieldOutputWithContext(ctx context.Context) TaskTemplateFieldOutput {
+	return o
+}
+
+// The description of the task template's field
+func (o TaskTemplateFieldOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTemplateField) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskTemplateFieldOutput) Id() TaskTemplateFieldIdentifierOutput {
+	return o.ApplyT(func(v TaskTemplateField) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
+}
+
+// list of field options to be used with single select
+func (o TaskTemplateFieldOutput) SingleSelectOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskTemplateField) []string { return v.SingleSelectOptions }).(pulumi.StringArrayOutput)
+}
+
+func (o TaskTemplateFieldOutput) Type() TaskTemplateFieldTypeOutput {
+	return o.ApplyT(func(v TaskTemplateField) TaskTemplateFieldType { return v.Type }).(TaskTemplateFieldTypeOutput)
+}
+
+type TaskTemplateFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateField)(nil)).Elem()
+}
+
+func (o TaskTemplateFieldArrayOutput) ToTaskTemplateFieldArrayOutput() TaskTemplateFieldArrayOutput {
+	return o
+}
+
+func (o TaskTemplateFieldArrayOutput) ToTaskTemplateFieldArrayOutputWithContext(ctx context.Context) TaskTemplateFieldArrayOutput {
+	return o
+}
+
+func (o TaskTemplateFieldArrayOutput) Index(i pulumi.IntInput) TaskTemplateFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateField {
+		return vs[0].([]TaskTemplateField)[vs[1].(int)]
+	}).(TaskTemplateFieldOutput)
+}
+
+// the identifier (name) for the task template field
+type TaskTemplateFieldIdentifier struct {
+	// The name of the task template field
+	Name string `pulumi:"name"`
+}
+
+// TaskTemplateFieldIdentifierInput is an input type that accepts TaskTemplateFieldIdentifierArgs and TaskTemplateFieldIdentifierOutput values.
+// You can construct a concrete instance of `TaskTemplateFieldIdentifierInput` via:
+//
+//          TaskTemplateFieldIdentifierArgs{...}
+type TaskTemplateFieldIdentifierInput interface {
+	pulumi.Input
+
+	ToTaskTemplateFieldIdentifierOutput() TaskTemplateFieldIdentifierOutput
+	ToTaskTemplateFieldIdentifierOutputWithContext(context.Context) TaskTemplateFieldIdentifierOutput
+}
+
+// the identifier (name) for the task template field
+type TaskTemplateFieldIdentifierArgs struct {
+	// The name of the task template field
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (TaskTemplateFieldIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateFieldIdentifier)(nil)).Elem()
+}
+
+func (i TaskTemplateFieldIdentifierArgs) ToTaskTemplateFieldIdentifierOutput() TaskTemplateFieldIdentifierOutput {
+	return i.ToTaskTemplateFieldIdentifierOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateFieldIdentifierArgs) ToTaskTemplateFieldIdentifierOutputWithContext(ctx context.Context) TaskTemplateFieldIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateFieldIdentifierOutput)
+}
+
+// the identifier (name) for the task template field
+type TaskTemplateFieldIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateFieldIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateFieldIdentifier)(nil)).Elem()
+}
+
+func (o TaskTemplateFieldIdentifierOutput) ToTaskTemplateFieldIdentifierOutput() TaskTemplateFieldIdentifierOutput {
+	return o
+}
+
+func (o TaskTemplateFieldIdentifierOutput) ToTaskTemplateFieldIdentifierOutputWithContext(ctx context.Context) TaskTemplateFieldIdentifierOutput {
+	return o
+}
+
+// The name of the task template field
+func (o TaskTemplateFieldIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTemplateFieldIdentifier) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Invisible field info
+type TaskTemplateInvisibleFieldInfo struct {
+	Id TaskTemplateFieldIdentifier `pulumi:"id"`
+}
+
+// TaskTemplateInvisibleFieldInfoInput is an input type that accepts TaskTemplateInvisibleFieldInfoArgs and TaskTemplateInvisibleFieldInfoOutput values.
+// You can construct a concrete instance of `TaskTemplateInvisibleFieldInfoInput` via:
+//
+//          TaskTemplateInvisibleFieldInfoArgs{...}
+type TaskTemplateInvisibleFieldInfoInput interface {
+	pulumi.Input
+
+	ToTaskTemplateInvisibleFieldInfoOutput() TaskTemplateInvisibleFieldInfoOutput
+	ToTaskTemplateInvisibleFieldInfoOutputWithContext(context.Context) TaskTemplateInvisibleFieldInfoOutput
+}
+
+// Invisible field info
+type TaskTemplateInvisibleFieldInfoArgs struct {
+	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
+}
+
+func (TaskTemplateInvisibleFieldInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateInvisibleFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateInvisibleFieldInfoArgs) ToTaskTemplateInvisibleFieldInfoOutput() TaskTemplateInvisibleFieldInfoOutput {
+	return i.ToTaskTemplateInvisibleFieldInfoOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateInvisibleFieldInfoArgs) ToTaskTemplateInvisibleFieldInfoOutputWithContext(ctx context.Context) TaskTemplateInvisibleFieldInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateInvisibleFieldInfoOutput)
+}
+
+// TaskTemplateInvisibleFieldInfoArrayInput is an input type that accepts TaskTemplateInvisibleFieldInfoArray and TaskTemplateInvisibleFieldInfoArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateInvisibleFieldInfoArrayInput` via:
+//
+//          TaskTemplateInvisibleFieldInfoArray{ TaskTemplateInvisibleFieldInfoArgs{...} }
+type TaskTemplateInvisibleFieldInfoArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateInvisibleFieldInfoArrayOutput() TaskTemplateInvisibleFieldInfoArrayOutput
+	ToTaskTemplateInvisibleFieldInfoArrayOutputWithContext(context.Context) TaskTemplateInvisibleFieldInfoArrayOutput
+}
+
+type TaskTemplateInvisibleFieldInfoArray []TaskTemplateInvisibleFieldInfoInput
+
+func (TaskTemplateInvisibleFieldInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateInvisibleFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateInvisibleFieldInfoArray) ToTaskTemplateInvisibleFieldInfoArrayOutput() TaskTemplateInvisibleFieldInfoArrayOutput {
+	return i.ToTaskTemplateInvisibleFieldInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateInvisibleFieldInfoArray) ToTaskTemplateInvisibleFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateInvisibleFieldInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateInvisibleFieldInfoArrayOutput)
+}
+
+// Invisible field info
+type TaskTemplateInvisibleFieldInfoOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateInvisibleFieldInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateInvisibleFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateInvisibleFieldInfoOutput) ToTaskTemplateInvisibleFieldInfoOutput() TaskTemplateInvisibleFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateInvisibleFieldInfoOutput) ToTaskTemplateInvisibleFieldInfoOutputWithContext(ctx context.Context) TaskTemplateInvisibleFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateInvisibleFieldInfoOutput) Id() TaskTemplateFieldIdentifierOutput {
+	return o.ApplyT(func(v TaskTemplateInvisibleFieldInfo) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
+}
+
+type TaskTemplateInvisibleFieldInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateInvisibleFieldInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateInvisibleFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateInvisibleFieldInfoArrayOutput) ToTaskTemplateInvisibleFieldInfoArrayOutput() TaskTemplateInvisibleFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateInvisibleFieldInfoArrayOutput) ToTaskTemplateInvisibleFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateInvisibleFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateInvisibleFieldInfoArrayOutput) Index(i pulumi.IntInput) TaskTemplateInvisibleFieldInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateInvisibleFieldInfo {
+		return vs[0].([]TaskTemplateInvisibleFieldInfo)[vs[1].(int)]
+	}).(TaskTemplateInvisibleFieldInfoOutput)
+}
+
+// ReadOnly field info
+type TaskTemplateReadOnlyFieldInfo struct {
+	Id TaskTemplateFieldIdentifier `pulumi:"id"`
+}
+
+// TaskTemplateReadOnlyFieldInfoInput is an input type that accepts TaskTemplateReadOnlyFieldInfoArgs and TaskTemplateReadOnlyFieldInfoOutput values.
+// You can construct a concrete instance of `TaskTemplateReadOnlyFieldInfoInput` via:
+//
+//          TaskTemplateReadOnlyFieldInfoArgs{...}
+type TaskTemplateReadOnlyFieldInfoInput interface {
+	pulumi.Input
+
+	ToTaskTemplateReadOnlyFieldInfoOutput() TaskTemplateReadOnlyFieldInfoOutput
+	ToTaskTemplateReadOnlyFieldInfoOutputWithContext(context.Context) TaskTemplateReadOnlyFieldInfoOutput
+}
+
+// ReadOnly field info
+type TaskTemplateReadOnlyFieldInfoArgs struct {
+	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
+}
+
+func (TaskTemplateReadOnlyFieldInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateReadOnlyFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateReadOnlyFieldInfoArgs) ToTaskTemplateReadOnlyFieldInfoOutput() TaskTemplateReadOnlyFieldInfoOutput {
+	return i.ToTaskTemplateReadOnlyFieldInfoOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateReadOnlyFieldInfoArgs) ToTaskTemplateReadOnlyFieldInfoOutputWithContext(ctx context.Context) TaskTemplateReadOnlyFieldInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateReadOnlyFieldInfoOutput)
+}
+
+// TaskTemplateReadOnlyFieldInfoArrayInput is an input type that accepts TaskTemplateReadOnlyFieldInfoArray and TaskTemplateReadOnlyFieldInfoArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateReadOnlyFieldInfoArrayInput` via:
+//
+//          TaskTemplateReadOnlyFieldInfoArray{ TaskTemplateReadOnlyFieldInfoArgs{...} }
+type TaskTemplateReadOnlyFieldInfoArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateReadOnlyFieldInfoArrayOutput() TaskTemplateReadOnlyFieldInfoArrayOutput
+	ToTaskTemplateReadOnlyFieldInfoArrayOutputWithContext(context.Context) TaskTemplateReadOnlyFieldInfoArrayOutput
+}
+
+type TaskTemplateReadOnlyFieldInfoArray []TaskTemplateReadOnlyFieldInfoInput
+
+func (TaskTemplateReadOnlyFieldInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateReadOnlyFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateReadOnlyFieldInfoArray) ToTaskTemplateReadOnlyFieldInfoArrayOutput() TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return i.ToTaskTemplateReadOnlyFieldInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateReadOnlyFieldInfoArray) ToTaskTemplateReadOnlyFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateReadOnlyFieldInfoArrayOutput)
+}
+
+// ReadOnly field info
+type TaskTemplateReadOnlyFieldInfoOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateReadOnlyFieldInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateReadOnlyFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateReadOnlyFieldInfoOutput) ToTaskTemplateReadOnlyFieldInfoOutput() TaskTemplateReadOnlyFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateReadOnlyFieldInfoOutput) ToTaskTemplateReadOnlyFieldInfoOutputWithContext(ctx context.Context) TaskTemplateReadOnlyFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateReadOnlyFieldInfoOutput) Id() TaskTemplateFieldIdentifierOutput {
+	return o.ApplyT(func(v TaskTemplateReadOnlyFieldInfo) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
+}
+
+type TaskTemplateReadOnlyFieldInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateReadOnlyFieldInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateReadOnlyFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateReadOnlyFieldInfoArrayOutput) ToTaskTemplateReadOnlyFieldInfoArrayOutput() TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateReadOnlyFieldInfoArrayOutput) ToTaskTemplateReadOnlyFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateReadOnlyFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateReadOnlyFieldInfoArrayOutput) Index(i pulumi.IntInput) TaskTemplateReadOnlyFieldInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateReadOnlyFieldInfo {
+		return vs[0].([]TaskTemplateReadOnlyFieldInfo)[vs[1].(int)]
+	}).(TaskTemplateReadOnlyFieldInfoOutput)
+}
+
+// Required field info
+type TaskTemplateRequiredFieldInfo struct {
+	Id TaskTemplateFieldIdentifier `pulumi:"id"`
+}
+
+// TaskTemplateRequiredFieldInfoInput is an input type that accepts TaskTemplateRequiredFieldInfoArgs and TaskTemplateRequiredFieldInfoOutput values.
+// You can construct a concrete instance of `TaskTemplateRequiredFieldInfoInput` via:
+//
+//          TaskTemplateRequiredFieldInfoArgs{...}
+type TaskTemplateRequiredFieldInfoInput interface {
+	pulumi.Input
+
+	ToTaskTemplateRequiredFieldInfoOutput() TaskTemplateRequiredFieldInfoOutput
+	ToTaskTemplateRequiredFieldInfoOutputWithContext(context.Context) TaskTemplateRequiredFieldInfoOutput
+}
+
+// Required field info
+type TaskTemplateRequiredFieldInfoArgs struct {
+	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
+}
+
+func (TaskTemplateRequiredFieldInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateRequiredFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateRequiredFieldInfoArgs) ToTaskTemplateRequiredFieldInfoOutput() TaskTemplateRequiredFieldInfoOutput {
+	return i.ToTaskTemplateRequiredFieldInfoOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateRequiredFieldInfoArgs) ToTaskTemplateRequiredFieldInfoOutputWithContext(ctx context.Context) TaskTemplateRequiredFieldInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateRequiredFieldInfoOutput)
+}
+
+// TaskTemplateRequiredFieldInfoArrayInput is an input type that accepts TaskTemplateRequiredFieldInfoArray and TaskTemplateRequiredFieldInfoArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateRequiredFieldInfoArrayInput` via:
+//
+//          TaskTemplateRequiredFieldInfoArray{ TaskTemplateRequiredFieldInfoArgs{...} }
+type TaskTemplateRequiredFieldInfoArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateRequiredFieldInfoArrayOutput() TaskTemplateRequiredFieldInfoArrayOutput
+	ToTaskTemplateRequiredFieldInfoArrayOutputWithContext(context.Context) TaskTemplateRequiredFieldInfoArrayOutput
+}
+
+type TaskTemplateRequiredFieldInfoArray []TaskTemplateRequiredFieldInfoInput
+
+func (TaskTemplateRequiredFieldInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateRequiredFieldInfo)(nil)).Elem()
+}
+
+func (i TaskTemplateRequiredFieldInfoArray) ToTaskTemplateRequiredFieldInfoArrayOutput() TaskTemplateRequiredFieldInfoArrayOutput {
+	return i.ToTaskTemplateRequiredFieldInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateRequiredFieldInfoArray) ToTaskTemplateRequiredFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateRequiredFieldInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateRequiredFieldInfoArrayOutput)
+}
+
+// Required field info
+type TaskTemplateRequiredFieldInfoOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateRequiredFieldInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateRequiredFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateRequiredFieldInfoOutput) ToTaskTemplateRequiredFieldInfoOutput() TaskTemplateRequiredFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateRequiredFieldInfoOutput) ToTaskTemplateRequiredFieldInfoOutputWithContext(ctx context.Context) TaskTemplateRequiredFieldInfoOutput {
+	return o
+}
+
+func (o TaskTemplateRequiredFieldInfoOutput) Id() TaskTemplateFieldIdentifierOutput {
+	return o.ApplyT(func(v TaskTemplateRequiredFieldInfo) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
+}
+
+type TaskTemplateRequiredFieldInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateRequiredFieldInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateRequiredFieldInfo)(nil)).Elem()
+}
+
+func (o TaskTemplateRequiredFieldInfoArrayOutput) ToTaskTemplateRequiredFieldInfoArrayOutput() TaskTemplateRequiredFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateRequiredFieldInfoArrayOutput) ToTaskTemplateRequiredFieldInfoArrayOutputWithContext(ctx context.Context) TaskTemplateRequiredFieldInfoArrayOutput {
+	return o
+}
+
+func (o TaskTemplateRequiredFieldInfoArrayOutput) Index(i pulumi.IntInput) TaskTemplateRequiredFieldInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateRequiredFieldInfo {
+		return vs[0].([]TaskTemplateRequiredFieldInfo)[vs[1].(int)]
+	}).(TaskTemplateRequiredFieldInfoOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TaskTemplateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// TaskTemplateTagInput is an input type that accepts TaskTemplateTagArgs and TaskTemplateTagOutput values.
+// You can construct a concrete instance of `TaskTemplateTagInput` via:
+//
+//          TaskTemplateTagArgs{...}
+type TaskTemplateTagInput interface {
+	pulumi.Input
+
+	ToTaskTemplateTagOutput() TaskTemplateTagOutput
+	ToTaskTemplateTagOutputWithContext(context.Context) TaskTemplateTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type TaskTemplateTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TaskTemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateTag)(nil)).Elem()
+}
+
+func (i TaskTemplateTagArgs) ToTaskTemplateTagOutput() TaskTemplateTagOutput {
+	return i.ToTaskTemplateTagOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateTagArgs) ToTaskTemplateTagOutputWithContext(ctx context.Context) TaskTemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateTagOutput)
+}
+
+// TaskTemplateTagArrayInput is an input type that accepts TaskTemplateTagArray and TaskTemplateTagArrayOutput values.
+// You can construct a concrete instance of `TaskTemplateTagArrayInput` via:
+//
+//          TaskTemplateTagArray{ TaskTemplateTagArgs{...} }
+type TaskTemplateTagArrayInput interface {
+	pulumi.Input
+
+	ToTaskTemplateTagArrayOutput() TaskTemplateTagArrayOutput
+	ToTaskTemplateTagArrayOutputWithContext(context.Context) TaskTemplateTagArrayOutput
+}
+
+type TaskTemplateTagArray []TaskTemplateTagInput
+
+func (TaskTemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateTag)(nil)).Elem()
+}
+
+func (i TaskTemplateTagArray) ToTaskTemplateTagArrayOutput() TaskTemplateTagArrayOutput {
+	return i.ToTaskTemplateTagArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTemplateTagArray) ToTaskTemplateTagArrayOutputWithContext(ctx context.Context) TaskTemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TaskTemplateTagOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateTag)(nil)).Elem()
+}
+
+func (o TaskTemplateTagOutput) ToTaskTemplateTagOutput() TaskTemplateTagOutput {
+	return o
+}
+
+func (o TaskTemplateTagOutput) ToTaskTemplateTagOutputWithContext(ctx context.Context) TaskTemplateTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TaskTemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTemplateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TaskTemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTemplateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TaskTemplateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTemplateTag)(nil)).Elem()
+}
+
+func (o TaskTemplateTagArrayOutput) ToTaskTemplateTagArrayOutput() TaskTemplateTagArrayOutput {
+	return o
+}
+
+func (o TaskTemplateTagArrayOutput) ToTaskTemplateTagArrayOutputWithContext(ctx context.Context) TaskTemplateTagArrayOutput {
+	return o
+}
+
+func (o TaskTemplateTagArrayOutput) Index(i pulumi.IntInput) TaskTemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTemplateTag {
+		return vs[0].([]TaskTemplateTag)[vs[1].(int)]
+	}).(TaskTemplateTagOutput)
+}
+
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
 	Email     *string `pulumi:"email"`
@@ -1711,6 +2556,8 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleTagInput)(nil)).Elem(), ContactFlowModuleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleTagArrayInput)(nil)).Elem(), ContactFlowModuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTagInput)(nil)).Elem(), ContactFlowTagArgs{})
@@ -1731,11 +2578,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTagArrayInput)(nil)).Elem(), QuickConnectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueArrayInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldInput)(nil)).Elem(), TaskTemplateFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldArrayInput)(nil)).Elem(), TaskTemplateFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldIdentifierInput)(nil)).Elem(), TaskTemplateFieldIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateInvisibleFieldInfoInput)(nil)).Elem(), TaskTemplateInvisibleFieldInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateInvisibleFieldInfoArrayInput)(nil)).Elem(), TaskTemplateInvisibleFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateReadOnlyFieldInfoInput)(nil)).Elem(), TaskTemplateReadOnlyFieldInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateReadOnlyFieldInfoArrayInput)(nil)).Elem(), TaskTemplateReadOnlyFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoArrayInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateTagInput)(nil)).Elem(), TaskTemplateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateTagArrayInput)(nil)).Elem(), TaskTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
+	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowModuleTagOutput{})
 	pulumi.RegisterOutputType(ContactFlowModuleTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactFlowTagOutput{})
@@ -1757,6 +2619,19 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})
+	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueArrayOutput{})
+	pulumi.RegisterOutputType(TaskTemplateFieldOutput{})
+	pulumi.RegisterOutputType(TaskTemplateFieldArrayOutput{})
+	pulumi.RegisterOutputType(TaskTemplateFieldIdentifierOutput{})
+	pulumi.RegisterOutputType(TaskTemplateInvisibleFieldInfoOutput{})
+	pulumi.RegisterOutputType(TaskTemplateInvisibleFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(TaskTemplateReadOnlyFieldInfoOutput{})
+	pulumi.RegisterOutputType(TaskTemplateReadOnlyFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoOutput{})
+	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(TaskTemplateTagOutput{})
+	pulumi.RegisterOutputType(TaskTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})

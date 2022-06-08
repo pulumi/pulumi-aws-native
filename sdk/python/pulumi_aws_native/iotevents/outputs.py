@@ -890,9 +890,7 @@ class AlarmModelIotSiteWise(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "propertyValue":
-            suggest = "property_value"
-        elif key == "assetId":
+        if key == "assetId":
             suggest = "asset_id"
         elif key == "entryId":
             suggest = "entry_id"
@@ -900,6 +898,8 @@ class AlarmModelIotSiteWise(dict):
             suggest = "property_alias"
         elif key == "propertyId":
             suggest = "property_id"
+        elif key == "propertyValue":
+            suggest = "property_value"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AlarmModelIotSiteWise. Access the value via the '{suggest}' property getter instead.")
@@ -913,11 +913,11 @@ class AlarmModelIotSiteWise(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 property_value: 'outputs.AlarmModelAssetPropertyValue',
                  asset_id: Optional[str] = None,
                  entry_id: Optional[str] = None,
                  property_alias: Optional[str] = None,
-                 property_id: Optional[str] = None):
+                 property_id: Optional[str] = None,
+                 property_value: Optional['outputs.AlarmModelAssetPropertyValue'] = None):
         """
         Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
         :param str asset_id: The ID of the asset that has the specified property. You can specify an expression.
@@ -925,7 +925,6 @@ class AlarmModelIotSiteWise(dict):
         :param str property_alias: The alias of the asset property. You can also specify an expression.
         :param str property_id: The ID of the asset property. You can specify an expression.
         """
-        pulumi.set(__self__, "property_value", property_value)
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
         if entry_id is not None:
@@ -934,11 +933,8 @@ class AlarmModelIotSiteWise(dict):
             pulumi.set(__self__, "property_alias", property_alias)
         if property_id is not None:
             pulumi.set(__self__, "property_id", property_id)
-
-    @property
-    @pulumi.getter(name="propertyValue")
-    def property_value(self) -> 'outputs.AlarmModelAssetPropertyValue':
-        return pulumi.get(self, "property_value")
+        if property_value is not None:
+            pulumi.set(__self__, "property_value", property_value)
 
     @property
     @pulumi.getter(name="assetId")
@@ -971,6 +967,11 @@ class AlarmModelIotSiteWise(dict):
         The ID of the asset property. You can specify an expression.
         """
         return pulumi.get(self, "property_id")
+
+    @property
+    @pulumi.getter(name="propertyValue")
+    def property_value(self) -> Optional['outputs.AlarmModelAssetPropertyValue']:
+        return pulumi.get(self, "property_value")
 
 
 @pulumi.output_type

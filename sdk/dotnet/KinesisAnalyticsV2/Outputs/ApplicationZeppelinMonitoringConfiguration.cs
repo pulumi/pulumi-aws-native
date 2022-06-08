@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationZeppelinMonitoringConfiguration
     {
-        /// <summary>
-        /// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
-        /// </summary>
-        public readonly Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationZeppelinMonitoringConfigurationLogLevel? LogLevel;
+        public readonly string? LogLevel;
 
         [OutputConstructor]
-        private ApplicationZeppelinMonitoringConfiguration(Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationZeppelinMonitoringConfigurationLogLevel? logLevel)
+        private ApplicationZeppelinMonitoringConfiguration(string? logLevel)
         {
             LogLevel = logLevel;
         }

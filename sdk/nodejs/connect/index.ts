@@ -12,11 +12,13 @@ export * from "./getContactFlowModule";
 export * from "./getHoursOfOperation";
 export * from "./getPhoneNumber";
 export * from "./getQuickConnect";
+export * from "./getTaskTemplate";
 export * from "./getUser";
 export * from "./getUserHierarchyGroup";
 export * from "./hoursOfOperation";
 export * from "./phoneNumber";
 export * from "./quickConnect";
+export * from "./taskTemplate";
 export * from "./user";
 export * from "./userHierarchyGroup";
 
@@ -29,6 +31,7 @@ import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { PhoneNumber } from "./phoneNumber";
 import { QuickConnect } from "./quickConnect";
+import { TaskTemplate } from "./taskTemplate";
 import { User } from "./user";
 import { UserHierarchyGroup } from "./userHierarchyGroup";
 
@@ -46,6 +49,8 @@ const _module = {
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws-native:connect:TaskTemplate":
+                return new TaskTemplate(name, <any>undefined, { urn })
             case "aws-native:connect:User":
                 return new User(name, <any>undefined, { urn })
             case "aws-native:connect:UserHierarchyGroup":

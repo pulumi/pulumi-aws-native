@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConstraintsPropertiesArgs',
     'ContactFlowModuleTagArgs',
     'ContactFlowTagArgs',
     'HoursOfOperationConfigArgs',
@@ -21,10 +22,61 @@ __all__ = [
     'QuickConnectQueueQuickConnectConfigArgs',
     'QuickConnectTagArgs',
     'QuickConnectUserQuickConnectConfigArgs',
+    'TaskTemplateDefaultFieldValueArgs',
+    'TaskTemplateFieldIdentifierArgs',
+    'TaskTemplateFieldArgs',
+    'TaskTemplateInvisibleFieldInfoArgs',
+    'TaskTemplateReadOnlyFieldInfoArgs',
+    'TaskTemplateRequiredFieldInfoArgs',
+    'TaskTemplateTagArgs',
     'UserIdentityInfoArgs',
     'UserPhoneConfigArgs',
     'UserTagArgs',
 ]
+
+@pulumi.input_type
+class ConstraintsPropertiesArgs:
+    def __init__(__self__, *,
+                 invisible_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]] = None,
+                 read_only_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]] = None,
+                 required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]] = None):
+        """
+        The constraints for the task template
+        """
+        if invisible_fields is not None:
+            pulumi.set(__self__, "invisible_fields", invisible_fields)
+        if read_only_fields is not None:
+            pulumi.set(__self__, "read_only_fields", read_only_fields)
+        if required_fields is not None:
+            pulumi.set(__self__, "required_fields", required_fields)
+
+    @property
+    @pulumi.getter(name="invisibleFields")
+    def invisible_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]]:
+        return pulumi.get(self, "invisible_fields")
+
+    @invisible_fields.setter
+    def invisible_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]]):
+        pulumi.set(self, "invisible_fields", value)
+
+    @property
+    @pulumi.getter(name="readOnlyFields")
+    def read_only_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]]:
+        return pulumi.get(self, "read_only_fields")
+
+    @read_only_fields.setter
+    def read_only_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]]):
+        pulumi.set(self, "read_only_fields", value)
+
+    @property
+    @pulumi.getter(name="requiredFields")
+    def required_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]]:
+        return pulumi.get(self, "required_fields")
+
+    @required_fields.setter
+    def required_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]]):
+        pulumi.set(self, "required_fields", value)
+
 
 @pulumi.input_type
 class ContactFlowModuleTagArgs:
@@ -439,6 +491,216 @@ class QuickConnectUserQuickConnectConfigArgs:
     @user_arn.setter
     def user_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_arn", value)
+
+
+@pulumi.input_type
+class TaskTemplateDefaultFieldValueArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[str],
+                 id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        """
+        the default value for the task template's field
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TaskTemplateFieldIdentifierArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        the identifier (name) for the task template field
+        :param pulumi.Input[str] name: The name of the task template field
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the task template field
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TaskTemplateFieldArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
+                 type: pulumi.Input['TaskTemplateFieldType'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A task template field object.
+        :param pulumi.Input[str] description: The description of the task template's field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] single_select_options: list of field options to be used with single select
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if single_select_options is not None:
+            pulumi.set(__self__, "single_select_options", single_select_options)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['TaskTemplateFieldType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['TaskTemplateFieldType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the task template's field
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="singleSelectOptions")
+    def single_select_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        list of field options to be used with single select
+        """
+        return pulumi.get(self, "single_select_options")
+
+    @single_select_options.setter
+    def single_select_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "single_select_options", value)
+
+
+@pulumi.input_type
+class TaskTemplateInvisibleFieldInfoArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        """
+        Invisible field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TaskTemplateReadOnlyFieldInfoArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        """
+        ReadOnly field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TaskTemplateRequiredFieldInfoArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        """
+        Required field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TaskTemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

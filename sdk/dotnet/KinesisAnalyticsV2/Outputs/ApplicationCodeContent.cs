@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationCodeContent
     {
-        /// <summary>
-        /// Information about the Amazon S3 bucket that contains the application code.
-        /// </summary>
         public readonly Outputs.ApplicationS3ContentLocation? S3ContentLocation;
-        /// <summary>
-        /// The text-format code for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly string? TextContent;
-        /// <summary>
-        /// The zip-format code for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly string? ZipFileContent;
 
         [OutputConstructor]

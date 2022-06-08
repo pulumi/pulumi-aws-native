@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetApplicationResult',
@@ -19,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_configuration=None, application_description=None, service_execution_role=None, tags=None):
+    def __init__(__self__, application_configuration=None, application_description=None, id=None, service_execution_role=None, tags=None):
         if application_configuration and not isinstance(application_configuration, dict):
             raise TypeError("Expected argument 'application_configuration' to be a dict")
         pulumi.set(__self__, "application_configuration", application_configuration)
         if application_description and not isinstance(application_description, str):
             raise TypeError("Expected argument 'application_description' to be a str")
         pulumi.set(__self__, "application_description", application_description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if service_execution_role and not isinstance(service_execution_role, str):
             raise TypeError("Expected argument 'service_execution_role' to be a str")
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -36,33 +38,26 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> Optional['outputs.ApplicationConfiguration']:
-        """
-        Use this parameter to configure the application.
-        """
         return pulumi.get(self, "application_configuration")
 
     @property
     @pulumi.getter(name="applicationDescription")
     def application_description(self) -> Optional[str]:
-        """
-        The description of the application.
-        """
         return pulumi.get(self, "application_description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> Optional[str]:
-        """
-        Specifies the IAM role that the application uses to access external resources.
-        """
         return pulumi.get(self, "service_execution_role")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ApplicationTag']]:
-        """
-        A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -74,20 +69,18 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         return GetApplicationResult(
             application_configuration=self.application_configuration,
             application_description=self.application_description,
+            id=self.id,
             service_execution_role=self.service_execution_role,
             tags=self.tags)
 
 
-def get_application(application_name: Optional[str] = None,
+def get_application(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
-
-
-    :param str application_name: The name of the application.
+    Resource Type definition for AWS::KinesisAnalyticsV2::Application
     """
     __args__ = dict()
-    __args__['applicationName'] = application_name
+    __args__['id'] = id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -97,17 +90,15 @@ def get_application(application_name: Optional[str] = None,
     return AwaitableGetApplicationResult(
         application_configuration=__ret__.application_configuration,
         application_description=__ret__.application_description,
+        id=__ret__.id,
         service_execution_role=__ret__.service_execution_role,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_application)
-def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
+def get_application_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
-
-
-    :param str application_name: The name of the application.
+    Resource Type definition for AWS::KinesisAnalyticsV2::Application
     """
     ...

@@ -1141,6 +1141,7 @@ _utilities.register(
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:QuickConnect": "QuickConnect",
+   "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
   }

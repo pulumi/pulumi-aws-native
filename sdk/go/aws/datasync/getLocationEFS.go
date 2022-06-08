@@ -26,6 +26,12 @@ type LookupLocationEFSArgs struct {
 }
 
 type LookupLocationEFSResult struct {
+	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+	AccessPointArn *string `pulumi:"accessPointArn"`
+	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
+	// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+	InTransitEncryption *LocationEFSInTransitEncryption `pulumi:"inTransitEncryption"`
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the EFS location that was described.
@@ -68,6 +74,21 @@ func (o LookupLocationEFSResultOutput) ToLookupLocationEFSResultOutput() LookupL
 
 func (o LookupLocationEFSResultOutput) ToLookupLocationEFSResultOutputWithContext(ctx context.Context) LookupLocationEFSResultOutput {
 	return o
+}
+
+// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+func (o LookupLocationEFSResultOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationEFSResult) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
+func (o LookupLocationEFSResultOutput) FileSystemAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationEFSResult) *string { return v.FileSystemAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+func (o LookupLocationEFSResultOutput) InTransitEncryption() LocationEFSInTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v LookupLocationEFSResult) *LocationEFSInTransitEncryption { return v.InTransitEncryption }).(LocationEFSInTransitEncryptionPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.

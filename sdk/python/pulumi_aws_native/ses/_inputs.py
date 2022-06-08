@@ -13,6 +13,7 @@ __all__ = [
     'ConfigurationSetEventDestinationDimensionConfigurationArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs',
+    'ConfigurationSetEventDestinationSnsDestinationArgs',
     'ContactListTagArgs',
     'ContactListTopicArgs',
     'ReceiptFilterFilterArgs',
@@ -113,13 +114,15 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
                  cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
         :param pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param pulumi.Input[bool] enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         :param pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param pulumi.Input[str] name: The name of the event destination set.
+        :param pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs'] sns_destination: An object that contains SNS topic ARN associated event destination.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
@@ -130,6 +133,8 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
             pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sns_destination is not None:
+            pulumi.set(__self__, "sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="matchingEventTypes")
@@ -191,6 +196,18 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="snsDestination")
+    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']]:
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+        return pulumi.get(self, "sns_destination")
+
+    @sns_destination.setter
+    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']]):
+        pulumi.set(self, "sns_destination", value)
+
 
 @pulumi.input_type
 class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
@@ -228,6 +245,25 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
     @i_am_role_arn.setter
     def i_am_role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "i_am_role_arn", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationSnsDestinationArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[str]):
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicARN")
+    def topic_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_arn", value)
 
 
 @pulumi.input_type

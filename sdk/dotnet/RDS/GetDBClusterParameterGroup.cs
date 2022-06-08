@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RDS
     public static class GetDBClusterParameterGroup
     {
         /// <summary>
-        /// Resource Type definition for AWS::RDS::DBClusterParameterGroup
+        /// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
         /// </summary>
         public static Task<GetDBClusterParameterGroupResult> InvokeAsync(GetDBClusterParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterParameterGroupResult>("aws-native:rds:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::RDS::DBClusterParameterGroup
+        /// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
         /// </summary>
         public static Output<GetDBClusterParameterGroupResult> Invoke(GetDBClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBClusterParameterGroupResult>("aws-native:rds:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBClusterParameterGroupArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("dBClusterParameterGroupName", required: true)]
+        public string DBClusterParameterGroupName { get; set; } = null!;
 
         public GetDBClusterParameterGroupArgs()
         {
@@ -37,8 +37,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBClusterParameterGroupInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("dBClusterParameterGroupName", required: true)]
+        public Input<string> DBClusterParameterGroupName { get; set; } = null!;
 
         public GetDBClusterParameterGroupInvokeArgs()
         {
@@ -49,20 +49,19 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetDBClusterParameterGroupResult
     {
-        public readonly string? Id;
-        public readonly object? Parameters;
+        public readonly string? DBClusterParameterGroupName;
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
         private GetDBClusterParameterGroupResult(
-            string? id,
-
-            object? parameters,
+            string? dBClusterParameterGroupName,
 
             ImmutableArray<Outputs.DBClusterParameterGroupTag> tags)
         {
-            Id = id;
-            Parameters = parameters;
+            DBClusterParameterGroupName = dBClusterParameterGroupName;
             Tags = tags;
         }
     }

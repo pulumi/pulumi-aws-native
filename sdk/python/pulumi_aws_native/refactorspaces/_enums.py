@@ -29,7 +29,6 @@ class EnvironmentNetworkFabricType(str, Enum):
 
 
 class RouteActivationState(str, Enum):
-    INACTIVE = "INACTIVE"
     ACTIVE = "ACTIVE"
 
 

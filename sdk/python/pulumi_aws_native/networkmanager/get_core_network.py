@@ -37,8 +37,8 @@ class GetCoreNetworkResult:
         if owner_account and not isinstance(owner_account, str):
             raise TypeError("Expected argument 'owner_account' to be a str")
         pulumi.set(__self__, "owner_account", owner_account)
-        if policy_document and not isinstance(policy_document, str):
-            raise TypeError("Expected argument 'policy_document' to be a str")
+        if policy_document and not isinstance(policy_document, dict):
+            raise TypeError("Expected argument 'policy_document' to be a dict")
         pulumi.set(__self__, "policy_document", policy_document)
         if segments and not isinstance(segments, list):
             raise TypeError("Expected argument 'segments' to be a list")
@@ -100,9 +100,9 @@ class GetCoreNetworkResult:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[str]:
+    def policy_document(self) -> Optional[Any]:
         """
-        Live policy document for the core network
+        Live policy document for the core network, you must provide PolicyDocument in Json Format
         """
         return pulumi.get(self, "policy_document")
 

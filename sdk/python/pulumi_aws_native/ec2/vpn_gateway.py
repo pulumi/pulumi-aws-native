@@ -20,6 +20,9 @@ class VPNGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a VPNGateway resource.
+        :param pulumi.Input[str] type: The type of VPN connection the virtual private gateway supports.
+        :param pulumi.Input[int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+        :param pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]] tags: Any tags assigned to the virtual private gateway.
         """
         pulumi.set(__self__, "type", type)
         if amazon_side_asn is not None:
@@ -30,6 +33,9 @@ class VPNGatewayArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of VPN connection the virtual private gateway supports.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -39,6 +45,9 @@ class VPNGatewayArgs:
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
@@ -48,6 +57,9 @@ class VPNGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPNGatewayTagArgs']]]]:
+        """
+        Any tags assigned to the virtual private gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -55,12 +67,7 @@ class VPNGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""VPNGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPNGateway(pulumi.CustomResource):
-    warnings.warn("""VPNGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -70,10 +77,13 @@ class VPNGateway(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::VPNGateway
+        Schema for EC2 VPN Gateway
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNGatewayTagArgs']]]] tags: Any tags assigned to the virtual private gateway.
+        :param pulumi.Input[str] type: The type of VPN connection the virtual private gateway supports.
         """
         ...
     @overload
@@ -82,7 +92,7 @@ class VPNGateway(pulumi.CustomResource):
                  args: VPNGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::VPNGateway
+        Schema for EC2 VPN Gateway
 
         :param str resource_name: The name of the resource.
         :param VPNGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -103,7 +113,6 @@ class VPNGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNGatewayTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPNGateway is deprecated: VPNGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -120,6 +129,7 @@ class VPNGateway(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["v_pn_gateway_id"] = None
         super(VPNGateway, __self__).__init__(
             'aws-native:ec2:VPNGateway',
             resource_name,
@@ -145,20 +155,38 @@ class VPNGateway(pulumi.CustomResource):
         __props__.__dict__["amazon_side_asn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["v_pn_gateway_id"] = None
         return VPNGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[Optional[int]]:
+        """
+        The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPNGatewayTag']]]:
+        """
+        Any tags assigned to the virtual private gateway.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of VPN connection the virtual private gateway supports.
+        """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vPNGatewayId")
+    def v_pn_gateway_id(self) -> pulumi.Output[str]:
+        """
+        VPN Gateway ID generated by service
+        """
+        return pulumi.get(self, "v_pn_gateway_id")
 

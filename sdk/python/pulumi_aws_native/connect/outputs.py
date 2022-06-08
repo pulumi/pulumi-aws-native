@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConstraintsProperties',
     'ContactFlowModuleTag',
     'ContactFlowTag',
     'HoursOfOperationConfig',
@@ -22,10 +23,73 @@ __all__ = [
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
+    'TaskTemplateDefaultFieldValue',
+    'TaskTemplateField',
+    'TaskTemplateFieldIdentifier',
+    'TaskTemplateInvisibleFieldInfo',
+    'TaskTemplateReadOnlyFieldInfo',
+    'TaskTemplateRequiredFieldInfo',
+    'TaskTemplateTag',
     'UserIdentityInfo',
     'UserPhoneConfig',
     'UserTag',
 ]
+
+@pulumi.output_type
+class ConstraintsProperties(dict):
+    """
+    The constraints for the task template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invisibleFields":
+            suggest = "invisible_fields"
+        elif key == "readOnlyFields":
+            suggest = "read_only_fields"
+        elif key == "requiredFields":
+            suggest = "required_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConstraintsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConstraintsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConstraintsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invisible_fields: Optional[Sequence['outputs.TaskTemplateInvisibleFieldInfo']] = None,
+                 read_only_fields: Optional[Sequence['outputs.TaskTemplateReadOnlyFieldInfo']] = None,
+                 required_fields: Optional[Sequence['outputs.TaskTemplateRequiredFieldInfo']] = None):
+        """
+        The constraints for the task template
+        """
+        if invisible_fields is not None:
+            pulumi.set(__self__, "invisible_fields", invisible_fields)
+        if read_only_fields is not None:
+            pulumi.set(__self__, "read_only_fields", read_only_fields)
+        if required_fields is not None:
+            pulumi.set(__self__, "required_fields", required_fields)
+
+    @property
+    @pulumi.getter(name="invisibleFields")
+    def invisible_fields(self) -> Optional[Sequence['outputs.TaskTemplateInvisibleFieldInfo']]:
+        return pulumi.get(self, "invisible_fields")
+
+    @property
+    @pulumi.getter(name="readOnlyFields")
+    def read_only_fields(self) -> Optional[Sequence['outputs.TaskTemplateReadOnlyFieldInfo']]:
+        return pulumi.get(self, "read_only_fields")
+
+    @property
+    @pulumi.getter(name="requiredFields")
+    def required_fields(self) -> Optional[Sequence['outputs.TaskTemplateRequiredFieldInfo']]:
+        return pulumi.get(self, "required_fields")
+
 
 @pulumi.output_type
 class ContactFlowModuleTag(dict):
@@ -474,6 +538,223 @@ class QuickConnectUserQuickConnectConfig(dict):
     @pulumi.getter(name="userArn")
     def user_arn(self) -> str:
         return pulumi.get(self, "user_arn")
+
+
+@pulumi.output_type
+class TaskTemplateDefaultFieldValue(dict):
+    """
+    the default value for the task template's field
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskTemplateDefaultFieldValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskTemplateDefaultFieldValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskTemplateDefaultFieldValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: str,
+                 id: 'outputs.TaskTemplateFieldIdentifier'):
+        """
+        the default value for the task template's field
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> str:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TaskTemplateField(dict):
+    """
+    A task template field object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "singleSelectOptions":
+            suggest = "single_select_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskTemplateField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskTemplateField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskTemplateField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: 'outputs.TaskTemplateFieldIdentifier',
+                 type: 'TaskTemplateFieldType',
+                 description: Optional[str] = None,
+                 single_select_options: Optional[Sequence[str]] = None):
+        """
+        A task template field object.
+        :param str description: The description of the task template's field
+        :param Sequence[str] single_select_options: list of field options to be used with single select
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if single_select_options is not None:
+            pulumi.set(__self__, "single_select_options", single_select_options)
+
+    @property
+    @pulumi.getter
+    def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'TaskTemplateFieldType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the task template's field
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="singleSelectOptions")
+    def single_select_options(self) -> Optional[Sequence[str]]:
+        """
+        list of field options to be used with single select
+        """
+        return pulumi.get(self, "single_select_options")
+
+
+@pulumi.output_type
+class TaskTemplateFieldIdentifier(dict):
+    """
+    the identifier (name) for the task template field
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        the identifier (name) for the task template field
+        :param str name: The name of the task template field
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the task template field
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class TaskTemplateInvisibleFieldInfo(dict):
+    """
+    Invisible field info
+    """
+    def __init__(__self__, *,
+                 id: 'outputs.TaskTemplateFieldIdentifier'):
+        """
+        Invisible field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TaskTemplateReadOnlyFieldInfo(dict):
+    """
+    ReadOnly field info
+    """
+    def __init__(__self__, *,
+                 id: 'outputs.TaskTemplateFieldIdentifier'):
+        """
+        ReadOnly field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TaskTemplateRequiredFieldInfo(dict):
+    """
+    Required field info
+    """
+    def __init__(__self__, *,
+                 id: 'outputs.TaskTemplateFieldIdentifier'):
+        """
+        Required field info
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TaskTemplateTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -939,6 +939,346 @@ func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectTypePtrOutput)
 }
 
+// The type of the task template's field
+type TaskTemplateFieldType string
+
+const (
+	TaskTemplateFieldTypeName          = TaskTemplateFieldType("NAME")
+	TaskTemplateFieldTypeDescription   = TaskTemplateFieldType("DESCRIPTION")
+	TaskTemplateFieldTypeScheduledTime = TaskTemplateFieldType("SCHEDULED_TIME")
+	TaskTemplateFieldTypeQuickConnect  = TaskTemplateFieldType("QUICK_CONNECT")
+	TaskTemplateFieldTypeUrl           = TaskTemplateFieldType("URL")
+	TaskTemplateFieldTypeNumber        = TaskTemplateFieldType("NUMBER")
+	TaskTemplateFieldTypeText          = TaskTemplateFieldType("TEXT")
+	TaskTemplateFieldTypeTextArea      = TaskTemplateFieldType("TEXT_AREA")
+	TaskTemplateFieldTypeDateTime      = TaskTemplateFieldType("DATE_TIME")
+	TaskTemplateFieldTypeBoolean       = TaskTemplateFieldType("BOOLEAN")
+	TaskTemplateFieldTypeSingleSelect  = TaskTemplateFieldType("SINGLE_SELECT")
+	TaskTemplateFieldTypeEmail         = TaskTemplateFieldType("EMAIL")
+)
+
+func (TaskTemplateFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateFieldType)(nil)).Elem()
+}
+
+func (e TaskTemplateFieldType) ToTaskTemplateFieldTypeOutput() TaskTemplateFieldTypeOutput {
+	return pulumi.ToOutput(e).(TaskTemplateFieldTypeOutput)
+}
+
+func (e TaskTemplateFieldType) ToTaskTemplateFieldTypeOutputWithContext(ctx context.Context) TaskTemplateFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskTemplateFieldTypeOutput)
+}
+
+func (e TaskTemplateFieldType) ToTaskTemplateFieldTypePtrOutput() TaskTemplateFieldTypePtrOutput {
+	return e.ToTaskTemplateFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e TaskTemplateFieldType) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
+	return TaskTemplateFieldType(e).ToTaskTemplateFieldTypeOutputWithContext(ctx).ToTaskTemplateFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e TaskTemplateFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskTemplateFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskTemplateFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskTemplateFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskTemplateFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateFieldType)(nil)).Elem()
+}
+
+func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypeOutput() TaskTemplateFieldTypeOutput {
+	return o
+}
+
+func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypeOutputWithContext(ctx context.Context) TaskTemplateFieldTypeOutput {
+	return o
+}
+
+func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypePtrOutput() TaskTemplateFieldTypePtrOutput {
+	return o.ToTaskTemplateFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTemplateFieldType) *TaskTemplateFieldType {
+		return &v
+	}).(TaskTemplateFieldTypePtrOutput)
+}
+
+func (o TaskTemplateFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskTemplateFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskTemplateFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskTemplateFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTemplateFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTemplateFieldType)(nil)).Elem()
+}
+
+func (o TaskTemplateFieldTypePtrOutput) ToTaskTemplateFieldTypePtrOutput() TaskTemplateFieldTypePtrOutput {
+	return o
+}
+
+func (o TaskTemplateFieldTypePtrOutput) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
+	return o
+}
+
+func (o TaskTemplateFieldTypePtrOutput) Elem() TaskTemplateFieldTypeOutput {
+	return o.ApplyT(func(v *TaskTemplateFieldType) TaskTemplateFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTemplateFieldType
+		return ret
+	}).(TaskTemplateFieldTypeOutput)
+}
+
+func (o TaskTemplateFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskTemplateFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskTemplateFieldTypeInput is an input type that accepts TaskTemplateFieldTypeArgs and TaskTemplateFieldTypeOutput values.
+// You can construct a concrete instance of `TaskTemplateFieldTypeInput` via:
+//
+//          TaskTemplateFieldTypeArgs{...}
+type TaskTemplateFieldTypeInput interface {
+	pulumi.Input
+
+	ToTaskTemplateFieldTypeOutput() TaskTemplateFieldTypeOutput
+	ToTaskTemplateFieldTypeOutputWithContext(context.Context) TaskTemplateFieldTypeOutput
+}
+
+var taskTemplateFieldTypePtrType = reflect.TypeOf((**TaskTemplateFieldType)(nil)).Elem()
+
+type TaskTemplateFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToTaskTemplateFieldTypePtrOutput() TaskTemplateFieldTypePtrOutput
+	ToTaskTemplateFieldTypePtrOutputWithContext(context.Context) TaskTemplateFieldTypePtrOutput
+}
+
+type taskTemplateFieldTypePtr string
+
+func TaskTemplateFieldTypePtr(v string) TaskTemplateFieldTypePtrInput {
+	return (*taskTemplateFieldTypePtr)(&v)
+}
+
+func (*taskTemplateFieldTypePtr) ElementType() reflect.Type {
+	return taskTemplateFieldTypePtrType
+}
+
+func (in *taskTemplateFieldTypePtr) ToTaskTemplateFieldTypePtrOutput() TaskTemplateFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(TaskTemplateFieldTypePtrOutput)
+}
+
+func (in *taskTemplateFieldTypePtr) ToTaskTemplateFieldTypePtrOutputWithContext(ctx context.Context) TaskTemplateFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateFieldTypePtrOutput)
+}
+
+// The status of the task template
+type TaskTemplateStatus string
+
+const (
+	TaskTemplateStatusActive   = TaskTemplateStatus("ACTIVE")
+	TaskTemplateStatusInactive = TaskTemplateStatus("INACTIVE")
+)
+
+func (TaskTemplateStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateStatus)(nil)).Elem()
+}
+
+func (e TaskTemplateStatus) ToTaskTemplateStatusOutput() TaskTemplateStatusOutput {
+	return pulumi.ToOutput(e).(TaskTemplateStatusOutput)
+}
+
+func (e TaskTemplateStatus) ToTaskTemplateStatusOutputWithContext(ctx context.Context) TaskTemplateStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskTemplateStatusOutput)
+}
+
+func (e TaskTemplateStatus) ToTaskTemplateStatusPtrOutput() TaskTemplateStatusPtrOutput {
+	return e.ToTaskTemplateStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TaskTemplateStatus) ToTaskTemplateStatusPtrOutputWithContext(ctx context.Context) TaskTemplateStatusPtrOutput {
+	return TaskTemplateStatus(e).ToTaskTemplateStatusOutputWithContext(ctx).ToTaskTemplateStatusPtrOutputWithContext(ctx)
+}
+
+func (e TaskTemplateStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskTemplateStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskTemplateStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskTemplateStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskTemplateStatusOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTemplateStatus)(nil)).Elem()
+}
+
+func (o TaskTemplateStatusOutput) ToTaskTemplateStatusOutput() TaskTemplateStatusOutput {
+	return o
+}
+
+func (o TaskTemplateStatusOutput) ToTaskTemplateStatusOutputWithContext(ctx context.Context) TaskTemplateStatusOutput {
+	return o
+}
+
+func (o TaskTemplateStatusOutput) ToTaskTemplateStatusPtrOutput() TaskTemplateStatusPtrOutput {
+	return o.ToTaskTemplateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateStatusOutput) ToTaskTemplateStatusPtrOutputWithContext(ctx context.Context) TaskTemplateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTemplateStatus) *TaskTemplateStatus {
+		return &v
+	}).(TaskTemplateStatusPtrOutput)
+}
+
+func (o TaskTemplateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskTemplateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskTemplateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskTemplateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTemplateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTemplateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTemplateStatus)(nil)).Elem()
+}
+
+func (o TaskTemplateStatusPtrOutput) ToTaskTemplateStatusPtrOutput() TaskTemplateStatusPtrOutput {
+	return o
+}
+
+func (o TaskTemplateStatusPtrOutput) ToTaskTemplateStatusPtrOutputWithContext(ctx context.Context) TaskTemplateStatusPtrOutput {
+	return o
+}
+
+func (o TaskTemplateStatusPtrOutput) Elem() TaskTemplateStatusOutput {
+	return o.ApplyT(func(v *TaskTemplateStatus) TaskTemplateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTemplateStatus
+		return ret
+	}).(TaskTemplateStatusOutput)
+}
+
+func (o TaskTemplateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTemplateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskTemplateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskTemplateStatusInput is an input type that accepts TaskTemplateStatusArgs and TaskTemplateStatusOutput values.
+// You can construct a concrete instance of `TaskTemplateStatusInput` via:
+//
+//          TaskTemplateStatusArgs{...}
+type TaskTemplateStatusInput interface {
+	pulumi.Input
+
+	ToTaskTemplateStatusOutput() TaskTemplateStatusOutput
+	ToTaskTemplateStatusOutputWithContext(context.Context) TaskTemplateStatusOutput
+}
+
+var taskTemplateStatusPtrType = reflect.TypeOf((**TaskTemplateStatus)(nil)).Elem()
+
+type TaskTemplateStatusPtrInput interface {
+	pulumi.Input
+
+	ToTaskTemplateStatusPtrOutput() TaskTemplateStatusPtrOutput
+	ToTaskTemplateStatusPtrOutputWithContext(context.Context) TaskTemplateStatusPtrOutput
+}
+
+type taskTemplateStatusPtr string
+
+func TaskTemplateStatusPtr(v string) TaskTemplateStatusPtrInput {
+	return (*taskTemplateStatusPtr)(&v)
+}
+
+func (*taskTemplateStatusPtr) ElementType() reflect.Type {
+	return taskTemplateStatusPtrType
+}
+
+func (in *taskTemplateStatusPtr) ToTaskTemplateStatusPtrOutput() TaskTemplateStatusPtrOutput {
+	return pulumi.ToOutput(in).(TaskTemplateStatusPtrOutput)
+}
+
+func (in *taskTemplateStatusPtr) ToTaskTemplateStatusPtrOutputWithContext(ctx context.Context) TaskTemplateStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateStatusPtrOutput)
+}
+
 // The phone type.
 type UserPhoneType string
 
@@ -1115,6 +1455,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterOutputType(ContactFlowModuleStateEnumOutput{})
@@ -1129,6 +1473,10 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})
+	pulumi.RegisterOutputType(TaskTemplateFieldTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskTemplateStatusOutput{})
+	pulumi.RegisterOutputType(TaskTemplateStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
 }

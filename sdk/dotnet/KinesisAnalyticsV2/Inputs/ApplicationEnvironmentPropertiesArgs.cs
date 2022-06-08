@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
-    /// </summary>
     public sealed class ApplicationEnvironmentPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("propertyGroups")]
         private InputList<Inputs.ApplicationPropertyGroupArgs>? _propertyGroups;
-
-        /// <summary>
-        /// Describes the execution property groups.
-        /// </summary>
         public InputList<Inputs.ApplicationPropertyGroupArgs> PropertyGroups
         {
             get => _propertyGroups ?? (_propertyGroups = new InputList<Inputs.ApplicationPropertyGroupArgs>());

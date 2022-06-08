@@ -40,6 +40,37 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationEFSInTransitEncryption : IEquatable<LocationEFSInTransitEncryption>
+    {
+        private readonly string _value;
+
+        private LocationEFSInTransitEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationEFSInTransitEncryption None { get; } = new LocationEFSInTransitEncryption("NONE");
+        public static LocationEFSInTransitEncryption Tls12 { get; } = new LocationEFSInTransitEncryption("TLS1_2");
+
+        public static bool operator ==(LocationEFSInTransitEncryption left, LocationEFSInTransitEncryption right) => left.Equals(right);
+        public static bool operator !=(LocationEFSInTransitEncryption left, LocationEFSInTransitEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(LocationEFSInTransitEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationEFSInTransitEncryption other && Equals(other);
+        public bool Equals(LocationEFSInTransitEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]

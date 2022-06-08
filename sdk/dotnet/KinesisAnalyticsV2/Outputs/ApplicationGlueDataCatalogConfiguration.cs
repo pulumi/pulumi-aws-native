@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
-    /// <summary>
-    /// The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGlueDataCatalogConfiguration
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the database.
-        /// </summary>
         public readonly string? DatabaseARN;
 
         [OutputConstructor]

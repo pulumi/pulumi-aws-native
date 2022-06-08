@@ -10,28 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    /// <summary>
-    /// Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
-    /// </summary>
     public sealed class ApplicationMonitoringConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
-        /// </summary>
         [Input("configurationType", required: true)]
-        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationMonitoringConfigurationConfigurationType> ConfigurationType { get; set; } = null!;
+        public Input<string> ConfigurationType { get; set; } = null!;
 
-        /// <summary>
-        /// Describes the verbosity of the CloudWatch Logs for an application.
-        /// </summary>
         [Input("logLevel")]
-        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationMonitoringConfigurationLogLevel>? LogLevel { get; set; }
+        public Input<string>? LogLevel { get; set; }
 
-        /// <summary>
-        /// Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
-        /// </summary>
         [Input("metricsLevel")]
-        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationMonitoringConfigurationMetricsLevel>? MetricsLevel { get; set; }
+        public Input<string>? MetricsLevel { get; set; }
 
         public ApplicationMonitoringConfigurationArgs()
         {

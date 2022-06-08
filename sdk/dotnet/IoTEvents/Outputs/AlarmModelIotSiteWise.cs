@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The ID of the asset property. You can specify an expression.
         /// </summary>
         public readonly string? PropertyId;
-        public readonly Outputs.AlarmModelAssetPropertyValue PropertyValue;
+        public readonly Outputs.AlarmModelAssetPropertyValue? PropertyValue;
 
         [OutputConstructor]
         private AlarmModelIotSiteWise(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             string? propertyId,
 
-            Outputs.AlarmModelAssetPropertyValue propertyValue)
+            Outputs.AlarmModelAssetPropertyValue? propertyValue)
         {
             AssetId = assetId;
             EntryId = entryId;

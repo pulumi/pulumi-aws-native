@@ -2229,8 +2229,8 @@ type AlarmModelIotSiteWise struct {
 	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias *string `pulumi:"propertyAlias"`
 	// The ID of the asset property. You can specify an expression.
-	PropertyId    *string                      `pulumi:"propertyId"`
-	PropertyValue AlarmModelAssetPropertyValue `pulumi:"propertyValue"`
+	PropertyId    *string                       `pulumi:"propertyId"`
+	PropertyValue *AlarmModelAssetPropertyValue `pulumi:"propertyValue"`
 }
 
 // AlarmModelIotSiteWiseInput is an input type that accepts AlarmModelIotSiteWiseArgs and AlarmModelIotSiteWiseOutput values.
@@ -2253,8 +2253,8 @@ type AlarmModelIotSiteWiseArgs struct {
 	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
 	// The ID of the asset property. You can specify an expression.
-	PropertyId    pulumi.StringPtrInput             `pulumi:"propertyId"`
-	PropertyValue AlarmModelAssetPropertyValueInput `pulumi:"propertyValue"`
+	PropertyId    pulumi.StringPtrInput                `pulumi:"propertyId"`
+	PropertyValue AlarmModelAssetPropertyValuePtrInput `pulumi:"propertyValue"`
 }
 
 func (AlarmModelIotSiteWiseArgs) ElementType() reflect.Type {
@@ -2355,8 +2355,8 @@ func (o AlarmModelIotSiteWiseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-func (o AlarmModelIotSiteWiseOutput) PropertyValue() AlarmModelAssetPropertyValueOutput {
-	return o.ApplyT(func(v AlarmModelIotSiteWise) AlarmModelAssetPropertyValue { return v.PropertyValue }).(AlarmModelAssetPropertyValueOutput)
+func (o AlarmModelIotSiteWiseOutput) PropertyValue() AlarmModelAssetPropertyValuePtrOutput {
+	return o.ApplyT(func(v AlarmModelIotSiteWise) *AlarmModelAssetPropertyValue { return v.PropertyValue }).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
 type AlarmModelIotSiteWisePtrOutput struct{ *pulumi.OutputState }
@@ -2428,7 +2428,7 @@ func (o AlarmModelIotSiteWisePtrOutput) PropertyValue() AlarmModelAssetPropertyV
 		if v == nil {
 			return nil
 		}
-		return &v.PropertyValue
+		return v.PropertyValue
 	}).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
