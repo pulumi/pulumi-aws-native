@@ -1,6 +1,9 @@
 ## HEAD (Unreleased)
 (None)
 
+## 0.19.0 (June 8, 2022)
+- Update to include the latest resource definitions
+
 ## 0.18.0 (May 26, 2022)
 - Update to include the latest resource definitions
 - Add support to pass AWS IAM Role to Cloud Control API [#493](https://github.com/pulumi/pulumi-aws-native/pull/493)
