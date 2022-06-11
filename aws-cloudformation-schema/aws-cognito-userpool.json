@@ -188,8 +188,7 @@
         "CaseSensitive" : {
           "type" : "boolean"
         }
-      },
-      "required" : [ "CaseSensitive" ]
+      }
     },
     "UserPoolAddOns" : {
       "type" : "object",

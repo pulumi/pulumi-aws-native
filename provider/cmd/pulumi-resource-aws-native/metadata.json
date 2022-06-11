@@ -17113,6 +17113,13 @@
                     },
                     "description": "The IP addresses from BYOIP Prefix pool."
                 },
+                "ipv4Addresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IPv4 addresses assigned to the accelerator."
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of accelerator."
@@ -31556,7 +31563,8 @@
                 "snsTopicArn"
             ],
             "createOnly": [
-                "snsTopicArn"
+                "snsTopicArn",
+                "subscriptionName"
             ]
         },
         "aws-native:rds:GlobalCluster": {
@@ -37491,15 +37499,45 @@
         "aws-native:ses:ConfigurationSet": {
             "cf": "AWS::SES::ConfigurationSet",
             "inputs": {
+                "deliveryOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetDeliveryOptions"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the configuration set."
+                },
+                "reputationOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetReputationOptions"
+                },
+                "sendingOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetSendingOptions"
+                },
+                "suppressionOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetSuppressionOptions"
+                },
+                "trackingOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetTrackingOptions"
                 }
             },
             "outputs": {
+                "deliveryOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetDeliveryOptions"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the configuration set."
+                },
+                "reputationOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetReputationOptions"
+                },
+                "sendingOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetSendingOptions"
+                },
+                "suppressionOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetSuppressionOptions"
+                },
+                "trackingOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetTrackingOptions"
                 }
             },
             "autoNamingSpec": {
@@ -74644,6 +74682,19 @@
         "aws-native:servicecatalogappregistry:ResourceAssociationResourceType": {
             "type": "string"
         },
+        "aws-native:ses:ConfigurationSetDeliveryOptions": {
+            "type": "object",
+            "properties": {
+                "sendingPoolName": {
+                    "type": "string",
+                    "description": "The name of the dedicated IP pool to associate with the configuration set."
+                },
+                "tlsPolicy": {
+                    "type": "string",
+                    "description": "Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established."
+                }
+            }
+        },
         "aws-native:ses:ConfigurationSetEventDestinationCloudWatchDestination": {
             "type": "object",
             "properties": {
@@ -74723,6 +74774,44 @@
             "properties": {
                 "topicARN": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetReputationOptions": {
+            "type": "object",
+            "properties": {
+                "reputationMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetSendingOptions": {
+            "type": "object",
+            "properties": {
+                "sendingEnabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetSuppressionOptions": {
+            "type": "object",
+            "properties": {
+                "suppressedReasons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list that contains the reasons that email addresses are automatically added to the suppression list for your account."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetTrackingOptions": {
+            "type": "object",
+            "properties": {
+                "customRedirectDomain": {
+                    "type": "string",
+                    "description": "The domain to use for tracking open and click events."
                 }
             }
         },
@@ -80730,6 +80819,12 @@
             "cf": "AWS::ServiceCatalogAppRegistry::ResourceAssociation",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:ses:getConfigurationSet": {
+            "cf": "AWS::SES::ConfigurationSet",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:ses:getConfigurationSetEventDestination": {
