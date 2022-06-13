@@ -64,12 +64,7 @@
       "additionalProperties" : false,
       "properties" : {
         "PropertyMap" : {
-          "type" : "object",
-          "patternProperties" : {
-            "[a-zA-Z0-9]+" : {
-              "type" : "string"
-            }
-          }
+          "type" : "object"
         },
         "PropertyGroupId" : {
           "type" : "string"
@@ -87,7 +82,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "BucketARN" ]
+      "required" : [ "BucketARN", "BasePath" ]
     },
     "KinesisFirehoseInput" : {
       "type" : "object",
@@ -226,8 +221,7 @@
         "ObjectVersion" : {
           "type" : "string"
         }
-      },
-      "required" : [ "BucketARN", "FileKey" ]
+      }
     },
     "ParallelismConfiguration" : {
       "type" : "object",
