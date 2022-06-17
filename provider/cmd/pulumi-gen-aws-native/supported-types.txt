@@ -25,6 +25,7 @@ AWS::ApiGateway::Resource
 AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
+AWS::ApiGatewayV2::VpcLink
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
@@ -318,6 +319,7 @@ AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
 AWS::Kinesis::Stream
+AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
@@ -438,6 +440,7 @@ AWS::RoboMaker::RobotApplication
 AWS::RoboMaker::RobotApplicationVersion
 AWS::RoboMaker::SimulationApplication
 AWS::RoboMaker::SimulationApplicationVersion
+AWS::Route53::CidrCollection
 AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone

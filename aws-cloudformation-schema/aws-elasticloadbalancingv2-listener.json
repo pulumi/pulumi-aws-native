@@ -223,6 +223,9 @@
         "SessionCookieName" : {
           "type" : "string"
         },
+        "UseExistingClientSecret" : {
+          "type" : "boolean"
+        },
         "AuthenticationRequestExtraParams" : {
           "type" : "object",
           "patternProperties" : {
@@ -232,7 +235,7 @@
           }
         }
       },
-      "required" : [ "TokenEndpoint", "Issuer", "ClientSecret", "UserInfoEndpoint", "ClientId", "AuthorizationEndpoint" ]
+      "required" : [ "TokenEndpoint", "Issuer", "UserInfoEndpoint", "ClientId", "AuthorizationEndpoint" ]
     },
     "Certificate" : {
       "type" : "object",
