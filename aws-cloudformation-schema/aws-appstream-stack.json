@@ -40,6 +40,9 @@
     "RedirectURL" : {
       "type" : "string"
     },
+    "StreamingExperienceSettings" : {
+      "$ref" : "#/definitions/StreamingExperienceSettings"
+    },
     "Name" : {
       "type" : "string"
     },
@@ -103,6 +106,15 @@
         }
       },
       "required" : [ "Enabled" ]
+    },
+    "StreamingExperienceSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PreferredProtocol" : {
+          "type" : "string"
+        }
+      }
     },
     "Tag" : {
       "type" : "object",
