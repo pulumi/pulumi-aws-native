@@ -126,7 +126,12 @@
       "required" : [ "ConditionValue", "ConditionKey", "ConditionType" ]
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "delete" : {
       "permissions" : [ "backup:GetBackupSelection", "backup:DeleteBackupSelection" ]
