@@ -12,15 +12,19 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::CustomerGateway
-//
-// Deprecated: CustomerGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
-	BgpAsn    pulumi.IntOutput              `pulumi:"bgpAsn"`
-	IpAddress pulumi.StringOutput           `pulumi:"ipAddress"`
-	Tags      CustomerGatewayTagArrayOutput `pulumi:"tags"`
-	Type      pulumi.StringOutput           `pulumi:"type"`
+	// For devices that support BGP, the customer gateway's BGP ASN.
+	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
+	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// One or more tags for the customer gateway.
+	Tags CustomerGatewayTagArrayOutput `pulumi:"tags"`
+	// The type of VPN connection that this customer gateway supports.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCustomerGateway registers a new resource with the given unique name, arguments, and options.
@@ -71,18 +75,26 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 }
 
 type customerGatewayArgs struct {
-	BgpAsn    int                  `pulumi:"bgpAsn"`
-	IpAddress string               `pulumi:"ipAddress"`
-	Tags      []CustomerGatewayTag `pulumi:"tags"`
-	Type      string               `pulumi:"type"`
+	// For devices that support BGP, the customer gateway's BGP ASN.
+	BgpAsn int `pulumi:"bgpAsn"`
+	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+	IpAddress string `pulumi:"ipAddress"`
+	// One or more tags for the customer gateway.
+	Tags []CustomerGatewayTag `pulumi:"tags"`
+	// The type of VPN connection that this customer gateway supports.
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
-	BgpAsn    pulumi.IntInput
+	// For devices that support BGP, the customer gateway's BGP ASN.
+	BgpAsn pulumi.IntInput
+	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress pulumi.StringInput
-	Tags      CustomerGatewayTagArrayInput
-	Type      pulumi.StringInput
+	// One or more tags for the customer gateway.
+	Tags CustomerGatewayTagArrayInput
+	// The type of VPN connection that this customer gateway supports.
+	Type pulumi.StringInput
 }
 
 func (CustomerGatewayArgs) ElementType() reflect.Type {
@@ -122,18 +134,27 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+// For devices that support BGP, the customer gateway's BGP ASN.
 func (o CustomerGatewayOutput) BgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
 }
 
+// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+func (o CustomerGatewayOutput) CustomerGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
+}
+
+// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// One or more tags for the customer gateway.
 func (o CustomerGatewayOutput) Tags() CustomerGatewayTagArrayOutput {
 	return o.ApplyT(func(v *CustomerGateway) CustomerGatewayTagArrayOutput { return v.Tags }).(CustomerGatewayTagArrayOutput)
 }
 
+// The type of VPN connection that this customer gateway supports.
 func (o CustomerGatewayOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

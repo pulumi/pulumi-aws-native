@@ -48,6 +48,10 @@ export interface GetApplicationResult {
      */
     readonly customComponents?: outputs.applicationinsights.ApplicationCustomComponent[];
     /**
+     * The grouping type of the application
+     */
+    readonly groupingType?: enums.applicationinsights.ApplicationGroupingType;
+    /**
      * The log pattern sets.
      */
     readonly logPatternSets?: outputs.applicationinsights.ApplicationLogPatternSet[];

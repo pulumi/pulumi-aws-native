@@ -12,15 +12,15 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::VpcLink
-//
-// Deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VpcLink struct {
 	pulumi.CustomResourceState
 
 	Name             pulumi.StringOutput      `pulumi:"name"`
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	SubnetIds        pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags             pulumi.AnyOutput         `pulumi:"tags"`
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags      pulumi.AnyOutput    `pulumi:"tags"`
+	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -65,10 +65,11 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	Name             *string     `pulumi:"name"`
-	SecurityGroupIds []string    `pulumi:"securityGroupIds"`
-	SubnetIds        []string    `pulumi:"subnetIds"`
-	Tags             interface{} `pulumi:"tags"`
+	Name             *string  `pulumi:"name"`
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
@@ -76,7 +77,8 @@ type VpcLinkArgs struct {
 	Name             pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
-	Tags             pulumi.Input
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags pulumi.Input
 }
 
 func (VpcLinkArgs) ElementType() reflect.Type {
@@ -128,8 +130,13 @@ func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// This resource type use map for Tags, suggest to use List of Tag
 func (o VpcLinkOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+func (o VpcLinkOutput) VpcLinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.VpcLinkId }).(pulumi.StringOutput)
 }
 
 func init() {

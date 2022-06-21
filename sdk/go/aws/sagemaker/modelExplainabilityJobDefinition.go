@@ -16,7 +16,8 @@ type ModelExplainabilityJobDefinition struct {
 	pulumi.CustomResourceState
 
 	// The time at which the job definition was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
+	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn                    pulumi.StringOutput                                                        `pulumi:"jobDefinitionArn"`
 	JobDefinitionName                   pulumi.StringPtrOutput                                                     `pulumi:"jobDefinitionName"`
@@ -87,6 +88,7 @@ func (ModelExplainabilityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelExplainabilityJobDefinitionArgs struct {
+	EndpointName                        *string                                                             `pulumi:"endpointName"`
 	JobDefinitionName                   *string                                                             `pulumi:"jobDefinitionName"`
 	JobResources                        ModelExplainabilityJobDefinitionMonitoringResources                 `pulumi:"jobResources"`
 	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification `pulumi:"modelExplainabilityAppSpecification"`
@@ -103,6 +105,7 @@ type modelExplainabilityJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
 type ModelExplainabilityJobDefinitionArgs struct {
+	EndpointName                        pulumi.StringPtrInput
 	JobDefinitionName                   pulumi.StringPtrInput
 	JobResources                        ModelExplainabilityJobDefinitionMonitoringResourcesInput
 	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationInput
@@ -157,6 +160,10 @@ func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefiniti
 // The time at which the job definition was created.
 func (o ModelExplainabilityJobDefinitionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

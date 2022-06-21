@@ -106,6 +106,36 @@ namespace Pulumi.AwsNative.ApplicationInsights
     }
 
     /// <summary>
+    /// The grouping type of the application
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGroupingType : IEquatable<ApplicationGroupingType>
+    {
+        private readonly string _value;
+
+        private ApplicationGroupingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGroupingType AccountBased { get; } = new ApplicationGroupingType("ACCOUNT_BASED");
+
+        public static bool operator ==(ApplicationGroupingType left, ApplicationGroupingType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGroupingType left, ApplicationGroupingType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGroupingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGroupingType other && Equals(other);
+        public bool Equals(ApplicationGroupingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of encoding of the logs to be monitored.
     /// </summary>
     [EnumType]

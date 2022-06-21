@@ -16,19 +16,20 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	AccessEndpoints         StackAccessEndpointArrayOutput    `pulumi:"accessEndpoints"`
-	ApplicationSettings     StackApplicationSettingsPtrOutput `pulumi:"applicationSettings"`
-	AttributesToDelete      pulumi.StringArrayOutput          `pulumi:"attributesToDelete"`
-	DeleteStorageConnectors pulumi.BoolPtrOutput              `pulumi:"deleteStorageConnectors"`
-	Description             pulumi.StringPtrOutput            `pulumi:"description"`
-	DisplayName             pulumi.StringPtrOutput            `pulumi:"displayName"`
-	EmbedHostDomains        pulumi.StringArrayOutput          `pulumi:"embedHostDomains"`
-	FeedbackURL             pulumi.StringPtrOutput            `pulumi:"feedbackURL"`
-	Name                    pulumi.StringPtrOutput            `pulumi:"name"`
-	RedirectURL             pulumi.StringPtrOutput            `pulumi:"redirectURL"`
-	StorageConnectors       StackStorageConnectorArrayOutput  `pulumi:"storageConnectors"`
-	Tags                    StackTagArrayOutput               `pulumi:"tags"`
-	UserSettings            StackUserSettingArrayOutput       `pulumi:"userSettings"`
+	AccessEndpoints             StackAccessEndpointArrayOutput            `pulumi:"accessEndpoints"`
+	ApplicationSettings         StackApplicationSettingsPtrOutput         `pulumi:"applicationSettings"`
+	AttributesToDelete          pulumi.StringArrayOutput                  `pulumi:"attributesToDelete"`
+	DeleteStorageConnectors     pulumi.BoolPtrOutput                      `pulumi:"deleteStorageConnectors"`
+	Description                 pulumi.StringPtrOutput                    `pulumi:"description"`
+	DisplayName                 pulumi.StringPtrOutput                    `pulumi:"displayName"`
+	EmbedHostDomains            pulumi.StringArrayOutput                  `pulumi:"embedHostDomains"`
+	FeedbackURL                 pulumi.StringPtrOutput                    `pulumi:"feedbackURL"`
+	Name                        pulumi.StringPtrOutput                    `pulumi:"name"`
+	RedirectURL                 pulumi.StringPtrOutput                    `pulumi:"redirectURL"`
+	StorageConnectors           StackStorageConnectorArrayOutput          `pulumi:"storageConnectors"`
+	StreamingExperienceSettings StackStreamingExperienceSettingsPtrOutput `pulumi:"streamingExperienceSettings"`
+	Tags                        StackTagArrayOutput                       `pulumi:"tags"`
+	UserSettings                StackUserSettingArrayOutput               `pulumi:"userSettings"`
 }
 
 // NewStack registers a new resource with the given unique name, arguments, and options.
@@ -70,36 +71,38 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	AccessEndpoints         []StackAccessEndpoint     `pulumi:"accessEndpoints"`
-	ApplicationSettings     *StackApplicationSettings `pulumi:"applicationSettings"`
-	AttributesToDelete      []string                  `pulumi:"attributesToDelete"`
-	DeleteStorageConnectors *bool                     `pulumi:"deleteStorageConnectors"`
-	Description             *string                   `pulumi:"description"`
-	DisplayName             *string                   `pulumi:"displayName"`
-	EmbedHostDomains        []string                  `pulumi:"embedHostDomains"`
-	FeedbackURL             *string                   `pulumi:"feedbackURL"`
-	Name                    *string                   `pulumi:"name"`
-	RedirectURL             *string                   `pulumi:"redirectURL"`
-	StorageConnectors       []StackStorageConnector   `pulumi:"storageConnectors"`
-	Tags                    []StackTag                `pulumi:"tags"`
-	UserSettings            []StackUserSetting        `pulumi:"userSettings"`
+	AccessEndpoints             []StackAccessEndpoint             `pulumi:"accessEndpoints"`
+	ApplicationSettings         *StackApplicationSettings         `pulumi:"applicationSettings"`
+	AttributesToDelete          []string                          `pulumi:"attributesToDelete"`
+	DeleteStorageConnectors     *bool                             `pulumi:"deleteStorageConnectors"`
+	Description                 *string                           `pulumi:"description"`
+	DisplayName                 *string                           `pulumi:"displayName"`
+	EmbedHostDomains            []string                          `pulumi:"embedHostDomains"`
+	FeedbackURL                 *string                           `pulumi:"feedbackURL"`
+	Name                        *string                           `pulumi:"name"`
+	RedirectURL                 *string                           `pulumi:"redirectURL"`
+	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
+	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
+	Tags                        []StackTag                        `pulumi:"tags"`
+	UserSettings                []StackUserSetting                `pulumi:"userSettings"`
 }
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	AccessEndpoints         StackAccessEndpointArrayInput
-	ApplicationSettings     StackApplicationSettingsPtrInput
-	AttributesToDelete      pulumi.StringArrayInput
-	DeleteStorageConnectors pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
-	DisplayName             pulumi.StringPtrInput
-	EmbedHostDomains        pulumi.StringArrayInput
-	FeedbackURL             pulumi.StringPtrInput
-	Name                    pulumi.StringPtrInput
-	RedirectURL             pulumi.StringPtrInput
-	StorageConnectors       StackStorageConnectorArrayInput
-	Tags                    StackTagArrayInput
-	UserSettings            StackUserSettingArrayInput
+	AccessEndpoints             StackAccessEndpointArrayInput
+	ApplicationSettings         StackApplicationSettingsPtrInput
+	AttributesToDelete          pulumi.StringArrayInput
+	DeleteStorageConnectors     pulumi.BoolPtrInput
+	Description                 pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	EmbedHostDomains            pulumi.StringArrayInput
+	FeedbackURL                 pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	RedirectURL                 pulumi.StringPtrInput
+	StorageConnectors           StackStorageConnectorArrayInput
+	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
+	Tags                        StackTagArrayInput
+	UserSettings                StackUserSettingArrayInput
 }
 
 func (StackArgs) ElementType() reflect.Type {
@@ -181,6 +184,10 @@ func (o StackOutput) RedirectURL() pulumi.StringPtrOutput {
 
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
+}
+
+func (o StackOutput) StreamingExperienceSettings() StackStreamingExperienceSettingsPtrOutput {
+	return o.ApplyT(func(v *Stack) StackStreamingExperienceSettingsPtrOutput { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsPtrOutput)
 }
 
 func (o StackOutput) Tags() StackTagArrayOutput {

@@ -49,6 +49,10 @@ export class Url extends pulumi.CustomResource {
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
+     * The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+     */
+    public readonly invokeMode!: pulumi.Output<enums.lambda.UrlInvokeMode | undefined>;
+    /**
      * The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
@@ -76,6 +80,7 @@ export class Url extends pulumi.CustomResource {
             }
             resourceInputs["authType"] = args ? args.authType : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
             resourceInputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -85,6 +90,7 @@ export class Url extends pulumi.CustomResource {
             resourceInputs["cors"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
+            resourceInputs["invokeMode"] = undefined /*out*/;
             resourceInputs["qualifier"] = undefined /*out*/;
             resourceInputs["targetFunctionArn"] = undefined /*out*/;
         }
@@ -102,6 +108,10 @@ export interface UrlArgs {
      */
     authType: pulumi.Input<enums.lambda.UrlAuthType>;
     cors?: pulumi.Input<inputs.lambda.UrlCorsArgs>;
+    /**
+     * The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+     */
+    invokeMode?: pulumi.Input<enums.lambda.UrlInvokeMode>;
     /**
      * The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
      */

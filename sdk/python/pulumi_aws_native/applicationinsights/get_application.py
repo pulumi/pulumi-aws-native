@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, auto_configuration_enabled=None, c_we_monitor_enabled=None, component_monitoring_settings=None, custom_components=None, log_pattern_sets=None, ops_center_enabled=None, ops_item_sns_topic_arn=None, tags=None):
+    def __init__(__self__, application_arn=None, auto_configuration_enabled=None, c_we_monitor_enabled=None, component_monitoring_settings=None, custom_components=None, grouping_type=None, log_pattern_sets=None, ops_center_enabled=None, ops_item_sns_topic_arn=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -36,6 +36,9 @@ class GetApplicationResult:
         if custom_components and not isinstance(custom_components, list):
             raise TypeError("Expected argument 'custom_components' to be a list")
         pulumi.set(__self__, "custom_components", custom_components)
+        if grouping_type and not isinstance(grouping_type, str):
+            raise TypeError("Expected argument 'grouping_type' to be a str")
+        pulumi.set(__self__, "grouping_type", grouping_type)
         if log_pattern_sets and not isinstance(log_pattern_sets, list):
             raise TypeError("Expected argument 'log_pattern_sets' to be a list")
         pulumi.set(__self__, "log_pattern_sets", log_pattern_sets)
@@ -90,6 +93,14 @@ class GetApplicationResult:
         return pulumi.get(self, "custom_components")
 
     @property
+    @pulumi.getter(name="groupingType")
+    def grouping_type(self) -> Optional['ApplicationGroupingType']:
+        """
+        The grouping type of the application
+        """
+        return pulumi.get(self, "grouping_type")
+
+    @property
     @pulumi.getter(name="logPatternSets")
     def log_pattern_sets(self) -> Optional[Sequence['outputs.ApplicationLogPatternSet']]:
         """
@@ -133,6 +144,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             c_we_monitor_enabled=self.c_we_monitor_enabled,
             component_monitoring_settings=self.component_monitoring_settings,
             custom_components=self.custom_components,
+            grouping_type=self.grouping_type,
             log_pattern_sets=self.log_pattern_sets,
             ops_center_enabled=self.ops_center_enabled,
             ops_item_sns_topic_arn=self.ops_item_sns_topic_arn,
@@ -161,6 +173,7 @@ def get_application(application_arn: Optional[str] = None,
         c_we_monitor_enabled=__ret__.c_we_monitor_enabled,
         component_monitoring_settings=__ret__.component_monitoring_settings,
         custom_components=__ret__.custom_components,
+        grouping_type=__ret__.grouping_type,
         log_pattern_sets=__ret__.log_pattern_sets,
         ops_center_enabled=__ret__.ops_center_enabled,
         ops_item_sns_topic_arn=__ret__.ops_item_sns_topic_arn,

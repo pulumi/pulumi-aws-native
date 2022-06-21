@@ -25,6 +25,7 @@ AWS::ApiGateway::Resource
 AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
+AWS::ApiGatewayV2::VpcLink
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
@@ -104,6 +105,7 @@ AWS::Connect::QuickConnect
 AWS::Connect::TaskTemplate
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
+AWS::ConnectCampaigns::Campaign
 AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
@@ -137,6 +139,7 @@ AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
+AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
 AWS::EC2::EgressOnlyInternetGateway
@@ -318,6 +321,7 @@ AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
 AWS::Kinesis::Stream
+AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
@@ -422,6 +426,7 @@ AWS::Redshift::EndpointAccess
 AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::ScheduledAction
+AWS::RedshiftServerless::Namespace
 AWS::RefactorSpaces::Application
 AWS::RefactorSpaces::Environment
 AWS::RefactorSpaces::Route
@@ -438,6 +443,7 @@ AWS::RoboMaker::RobotApplication
 AWS::RoboMaker::RobotApplicationVersion
 AWS::RoboMaker::SimulationApplication
 AWS::RoboMaker::SimulationApplicationVersion
+AWS::Route53::CidrCollection
 AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone

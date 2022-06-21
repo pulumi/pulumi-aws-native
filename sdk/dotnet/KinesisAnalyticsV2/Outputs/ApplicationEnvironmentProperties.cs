@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationEnvironmentProperties
     {
+        /// <summary>
+        /// Describes the execution property groups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationPropertyGroup> PropertyGroups;
 
         [OutputConstructor]

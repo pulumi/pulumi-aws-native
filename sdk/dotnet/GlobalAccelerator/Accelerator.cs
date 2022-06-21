@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The IPv4 addresses assigned to the accelerator.
+        /// </summary>
+        [Output("ipv4Addresses")]
+        public Output<ImmutableArray<string>> Ipv4Addresses { get; private set; } = null!;
+
+        /// <summary>
         /// Name of accelerator.
         /// </summary>
         [Output("name")]

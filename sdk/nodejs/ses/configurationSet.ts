@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -34,10 +35,15 @@ export class ConfigurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSet.__pulumiType;
     }
 
+    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * The name of the configuration set.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly reputationOptions!: pulumi.Output<outputs.ses.ConfigurationSetReputationOptions | undefined>;
+    public readonly sendingOptions!: pulumi.Output<outputs.ses.ConfigurationSetSendingOptions | undefined>;
+    public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
+    public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -50,9 +56,19 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
+            resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
+            resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
+            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
         } else {
+            resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reputationOptions"] = undefined /*out*/;
+            resourceInputs["sendingOptions"] = undefined /*out*/;
+            resourceInputs["suppressionOptions"] = undefined /*out*/;
+            resourceInputs["trackingOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
@@ -63,8 +79,13 @@ export class ConfigurationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationSet resource.
  */
 export interface ConfigurationSetArgs {
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptionsArgs>;
     /**
      * The name of the configuration set.
      */
     name?: pulumi.Input<string>;
+    reputationOptions?: pulumi.Input<inputs.ses.ConfigurationSetReputationOptionsArgs>;
+    sendingOptions?: pulumi.Input<inputs.ses.ConfigurationSetSendingOptionsArgs>;
+    suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
+    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs>;
 }

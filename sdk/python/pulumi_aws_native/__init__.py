@@ -119,6 +119,8 @@ if typing.TYPE_CHECKING:
     configuration = __configuration
     import pulumi_aws_native.connect as __connect
     connect = __connect
+    import pulumi_aws_native.connectcampaigns as __connectcampaigns
+    connectcampaigns = __connectcampaigns
     import pulumi_aws_native.cur as __cur
     cur = __cur
     import pulumi_aws_native.customerprofiles as __customerprofiles
@@ -327,6 +329,8 @@ if typing.TYPE_CHECKING:
     rds = __rds
     import pulumi_aws_native.redshift as __redshift
     redshift = __redshift
+    import pulumi_aws_native.redshiftserverless as __redshiftserverless
+    redshiftserverless = __redshiftserverless
     import pulumi_aws_native.refactorspaces as __refactorspaces
     refactorspaces = __refactorspaces
     import pulumi_aws_native.rekognition as __rekognition
@@ -455,6 +459,7 @@ else:
     config = _utilities.lazy_import('pulumi_aws_native.config')
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
+    connectcampaigns = _utilities.lazy_import('pulumi_aws_native.connectcampaigns')
     cur = _utilities.lazy_import('pulumi_aws_native.cur')
     customerprofiles = _utilities.lazy_import('pulumi_aws_native.customerprofiles')
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
@@ -559,6 +564,7 @@ else:
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
+    redshiftserverless = _utilities.lazy_import('pulumi_aws_native.redshiftserverless')
     refactorspaces = _utilities.lazy_import('pulumi_aws_native.refactorspaces')
     rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
@@ -1144,6 +1150,14 @@ _utilities.register(
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "connectcampaigns",
+  "fqn": "pulumi_aws_native.connectcampaigns",
+  "classes": {
+   "aws-native:connectcampaigns:Campaign": "Campaign"
   }
  },
  {
@@ -2426,6 +2440,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "redshiftserverless",
+  "fqn": "pulumi_aws_native.redshiftserverless",
+  "classes": {
+   "aws-native:redshiftserverless:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "refactorspaces",
   "fqn": "pulumi_aws_native.refactorspaces",
   "classes": {
@@ -2480,6 +2502,7 @@ _utilities.register(
   "mod": "route53",
   "fqn": "pulumi_aws_native.route53",
   "classes": {
+   "aws-native:route53:CidrCollection": "CidrCollection",
    "aws-native:route53:DNSSEC": "DNSSEC",
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",

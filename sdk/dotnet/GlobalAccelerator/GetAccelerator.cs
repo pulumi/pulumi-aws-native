@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
+        /// The IPv4 addresses assigned to the accelerator.
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv4Addresses;
+        /// <summary>
         /// Name of accelerator.
         /// </summary>
         public readonly string? Name;
@@ -93,6 +97,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
             ImmutableArray<string> ipAddresses,
 
+            ImmutableArray<string> ipv4Addresses,
+
             string? name,
 
             ImmutableArray<Outputs.AcceleratorTag> tags)
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
             Enabled = enabled;
             IpAddressType = ipAddressType;
             IpAddresses = ipAddresses;
+            Ipv4Addresses = ipv4Addresses;
             Name = name;
             Tags = tags;
         }

@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CidrCollectionLocation',
     'HealthCheckAlarmIdentifier',
     'HealthCheckConfigProperties',
     'HealthCheckTag',
@@ -25,6 +26,54 @@ __all__ = [
     'RecordSetGroupGeoLocation',
     'RecordSetGroupRecordSet',
 ]
+
+@pulumi.output_type
+class CidrCollectionLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrList":
+            suggest = "cidr_list"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CidrCollectionLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CidrCollectionLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CidrCollectionLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_list: Sequence[str],
+                 location_name: str):
+        """
+        :param Sequence[str] cidr_list: A list of CIDR blocks.
+        :param str location_name: The name of the location that is associated with the CIDR collection.
+        """
+        pulumi.set(__self__, "cidr_list", cidr_list)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="cidrList")
+    def cidr_list(self) -> Sequence[str]:
+        """
+        A list of CIDR blocks.
+        """
+        return pulumi.get(self, "cidr_list")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        """
+        The name of the location that is associated with the CIDR collection.
+        """
+        return pulumi.get(self, "location_name")
+
 
 @pulumi.output_type
 class HealthCheckAlarmIdentifier(dict):

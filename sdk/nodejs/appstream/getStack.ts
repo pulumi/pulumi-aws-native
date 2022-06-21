@@ -35,6 +35,7 @@ export interface GetStackResult {
     readonly id?: string;
     readonly redirectURL?: string;
     readonly storageConnectors?: outputs.appstream.StackStorageConnector[];
+    readonly streamingExperienceSettings?: outputs.appstream.StackStreamingExperienceSettings;
     readonly tags?: outputs.appstream.StackTag[];
     readonly userSettings?: outputs.appstream.StackUserSetting[];
 }

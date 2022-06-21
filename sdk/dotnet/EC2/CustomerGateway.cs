@@ -12,19 +12,36 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::CustomerGateway
     /// </summary>
-    [Obsolete(@"CustomerGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:CustomerGateway")]
     public partial class CustomerGateway : Pulumi.CustomResource
     {
+        /// <summary>
+        /// For devices that support BGP, the customer gateway's BGP ASN.
+        /// </summary>
         [Output("bgpAsn")]
         public Output<int> BgpAsn { get; private set; } = null!;
 
+        /// <summary>
+        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+        /// </summary>
+        [Output("customerGatewayId")]
+        public Output<string> CustomerGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more tags for the customer gateway.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.CustomerGatewayTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of VPN connection that this customer gateway supports.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -73,20 +90,33 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class CustomerGatewayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// For devices that support BGP, the customer gateway's BGP ASN.
+        /// </summary>
         [Input("bgpAsn", required: true)]
         public Input<int> BgpAsn { get; set; } = null!;
 
+        /// <summary>
+        /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.CustomerGatewayTagArgs>? _tags;
+
+        /// <summary>
+        /// One or more tags for the customer gateway.
+        /// </summary>
         public InputList<Inputs.CustomerGatewayTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.CustomerGatewayTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of VPN connection that this customer gateway supports.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

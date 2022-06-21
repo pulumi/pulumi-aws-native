@@ -16,7 +16,8 @@ type ModelBiasJobDefinition struct {
 	pulumi.CustomResourceState
 
 	// The time at which the job definition was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
+	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn          pulumi.StringOutput                                    `pulumi:"jobDefinitionArn"`
 	JobDefinitionName         pulumi.StringPtrOutput                                 `pulumi:"jobDefinitionName"`
@@ -87,6 +88,7 @@ func (ModelBiasJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelBiasJobDefinitionArgs struct {
+	EndpointName              *string                                         `pulumi:"endpointName"`
 	JobDefinitionName         *string                                         `pulumi:"jobDefinitionName"`
 	JobResources              ModelBiasJobDefinitionMonitoringResources       `pulumi:"jobResources"`
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecification `pulumi:"modelBiasAppSpecification"`
@@ -103,6 +105,7 @@ type modelBiasJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelBiasJobDefinition resource.
 type ModelBiasJobDefinitionArgs struct {
+	EndpointName              pulumi.StringPtrInput
 	JobDefinitionName         pulumi.StringPtrInput
 	JobResources              ModelBiasJobDefinitionMonitoringResourcesInput
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationInput
@@ -157,6 +160,10 @@ func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutputWithContext(
 // The time at which the job definition was created.
 func (o ModelBiasJobDefinitionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationMavenReference
     {
+        /// <summary>
+        /// The artifact ID of the Maven reference.
+        /// </summary>
         public readonly string ArtifactId;
+        /// <summary>
+        /// The group ID of the Maven reference.
+        /// </summary>
         public readonly string GroupId;
+        /// <summary>
+        /// The version of the Maven reference.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

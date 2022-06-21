@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .application import *
 from .application_cloud_watch_logging_option import *
 from .application_output_resource import *

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("dataQualityJobOutputConfig")]
         public Output<Outputs.DataQualityJobDefinitionMonitoringOutputConfig> DataQualityJobOutputConfig { get; private set; } = null!;
 
+        [Output("endpointName")]
+        public Output<string?> EndpointName { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
@@ -119,6 +122,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("dataQualityJobOutputConfig", required: true)]
         public Input<Inputs.DataQualityJobDefinitionMonitoringOutputConfigArgs> DataQualityJobOutputConfig { get; set; } = null!;
+
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }

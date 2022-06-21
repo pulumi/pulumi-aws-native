@@ -56,6 +56,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly customComponents!: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
     /**
+     * The grouping type of the application
+     */
+    public readonly groupingType!: pulumi.Output<enums.applicationinsights.ApplicationGroupingType | undefined>;
+    /**
      * The log pattern sets.
      */
     public readonly logPatternSets!: pulumi.Output<outputs.applicationinsights.ApplicationLogPatternSet[] | undefined>;
@@ -94,6 +98,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["cWEMonitorEnabled"] = args ? args.cWEMonitorEnabled : undefined;
             resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
             resourceInputs["customComponents"] = args ? args.customComponents : undefined;
+            resourceInputs["groupingType"] = args ? args.groupingType : undefined;
             resourceInputs["logPatternSets"] = args ? args.logPatternSets : undefined;
             resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
             resourceInputs["opsItemSNSTopicArn"] = args ? args.opsItemSNSTopicArn : undefined;
@@ -106,6 +111,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["cWEMonitorEnabled"] = undefined /*out*/;
             resourceInputs["componentMonitoringSettings"] = undefined /*out*/;
             resourceInputs["customComponents"] = undefined /*out*/;
+            resourceInputs["groupingType"] = undefined /*out*/;
             resourceInputs["logPatternSets"] = undefined /*out*/;
             resourceInputs["opsCenterEnabled"] = undefined /*out*/;
             resourceInputs["opsItemSNSTopicArn"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface ApplicationArgs {
      * The custom grouped components.
      */
     customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[]>;
+    /**
+     * The grouping type of the application
+     */
+    groupingType?: pulumi.Input<enums.applicationinsights.ApplicationGroupingType>;
     /**
      * The log pattern sets.
      */

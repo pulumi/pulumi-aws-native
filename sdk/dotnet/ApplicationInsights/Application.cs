@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public Output<ImmutableArray<Outputs.ApplicationCustomComponent>> CustomComponents { get; private set; } = null!;
 
         /// <summary>
+        /// The grouping type of the application
+        /// </summary>
+        [Output("groupingType")]
+        public Output<Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType?> GroupingType { get; private set; } = null!;
+
+        /// <summary>
         /// The log pattern sets.
         /// </summary>
         [Output("logPatternSets")]
@@ -155,6 +161,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
             get => _customComponents ?? (_customComponents = new InputList<Inputs.ApplicationCustomComponentArgs>());
             set => _customComponents = value;
         }
+
+        /// <summary>
+        /// The grouping type of the application
+        /// </summary>
+        [Input("groupingType")]
+        public Input<Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType>? GroupingType { get; set; }
 
         [Input("logPatternSets")]
         private InputList<Inputs.ApplicationLogPatternSetArgs>? _logPatternSets;

@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("storageConnectors")]
         public Output<ImmutableArray<Outputs.StackStorageConnector>> StorageConnectors { get; private set; } = null!;
 
+        [Output("streamingExperienceSettings")]
+        public Output<Outputs.StackStreamingExperienceSettings?> StreamingExperienceSettings { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
 
@@ -152,6 +155,9 @@ namespace Pulumi.AwsNative.AppStream
             get => _storageConnectors ?? (_storageConnectors = new InputList<Inputs.StackStorageConnectorArgs>());
             set => _storageConnectors = value;
         }
+
+        [Input("streamingExperienceSettings")]
+        public Input<Inputs.StackStreamingExperienceSettingsArgs>? StreamingExperienceSettings { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StackTagArgs>? _tags;

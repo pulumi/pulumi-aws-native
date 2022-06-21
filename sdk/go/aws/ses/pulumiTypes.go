@@ -10,6 +10,165 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+type ConfigurationSetDeliveryOptions struct {
+	// The name of the dedicated IP pool to associate with the configuration set.
+	SendingPoolName *string `pulumi:"sendingPoolName"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+	TlsPolicy *string `pulumi:"tlsPolicy"`
+}
+
+// ConfigurationSetDeliveryOptionsInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs and ConfigurationSetDeliveryOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetDeliveryOptionsInput` via:
+//
+//          ConfigurationSetDeliveryOptionsArgs{...}
+type ConfigurationSetDeliveryOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput
+	ToConfigurationSetDeliveryOptionsOutputWithContext(context.Context) ConfigurationSetDeliveryOptionsOutput
+}
+
+// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+type ConfigurationSetDeliveryOptionsArgs struct {
+	// The name of the dedicated IP pool to associate with the configuration set.
+	SendingPoolName pulumi.StringPtrInput `pulumi:"sendingPoolName"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
+}
+
+func (ConfigurationSetDeliveryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput {
+	return i.ToConfigurationSetDeliveryOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput).ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetDeliveryOptionsPtrInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs, ConfigurationSetDeliveryOptionsPtr and ConfigurationSetDeliveryOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetDeliveryOptionsPtrInput` via:
+//
+//          ConfigurationSetDeliveryOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetDeliveryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput
+	ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Context) ConfigurationSetDeliveryOptionsPtrOutput
+}
+
+type configurationSetDeliveryOptionsPtrType ConfigurationSetDeliveryOptionsArgs
+
+func ConfigurationSetDeliveryOptionsPtr(v *ConfigurationSetDeliveryOptionsArgs) ConfigurationSetDeliveryOptionsPtrInput {
+	return (*configurationSetDeliveryOptionsPtrType)(v)
+}
+
+func (*configurationSetDeliveryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
+// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+type ConfigurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsOutput() ConfigurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetDeliveryOptions) *ConfigurationSetDeliveryOptions {
+		return &v
+	}).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
+// The name of the dedicated IP pool to associate with the configuration set.
+func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetDeliveryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDeliveryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDeliveryOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) ConfigurationSetDeliveryOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetDeliveryOptions
+		return ret
+	}).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+// The name of the dedicated IP pool to associate with the configuration set.
+func (o ConfigurationSetDeliveryOptionsPtrOutput) SendingPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SendingPoolName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 type ConfigurationSetEventDestinationCloudWatchDestination struct {
 	// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
@@ -749,6 +908,562 @@ func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicARN() pulu
 			return nil
 		}
 		return &v.TopicARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+type ConfigurationSetReputationOptions struct {
+	// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
+}
+
+// ConfigurationSetReputationOptionsInput is an input type that accepts ConfigurationSetReputationOptionsArgs and ConfigurationSetReputationOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetReputationOptionsInput` via:
+//
+//          ConfigurationSetReputationOptionsArgs{...}
+type ConfigurationSetReputationOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetReputationOptionsOutput() ConfigurationSetReputationOptionsOutput
+	ToConfigurationSetReputationOptionsOutputWithContext(context.Context) ConfigurationSetReputationOptionsOutput
+}
+
+// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+type ConfigurationSetReputationOptionsArgs struct {
+	// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+	ReputationMetricsEnabled pulumi.BoolPtrInput `pulumi:"reputationMetricsEnabled"`
+}
+
+func (ConfigurationSetReputationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetReputationOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsOutput() ConfigurationSetReputationOptionsOutput {
+	return i.ToConfigurationSetReputationOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsOutput)
+}
+
+func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
+	return i.ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsOutput).ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetReputationOptionsPtrInput is an input type that accepts ConfigurationSetReputationOptionsArgs, ConfigurationSetReputationOptionsPtr and ConfigurationSetReputationOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetReputationOptionsPtrInput` via:
+//
+//          ConfigurationSetReputationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetReputationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput
+	ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Context) ConfigurationSetReputationOptionsPtrOutput
+}
+
+type configurationSetReputationOptionsPtrType ConfigurationSetReputationOptionsArgs
+
+func ConfigurationSetReputationOptionsPtr(v *ConfigurationSetReputationOptionsArgs) ConfigurationSetReputationOptionsPtrInput {
+	return (*configurationSetReputationOptionsPtrType)(v)
+}
+
+func (*configurationSetReputationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetReputationOptions)(nil)).Elem()
+}
+
+func (i *configurationSetReputationOptionsPtrType) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
+	return i.ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetReputationOptionsPtrType) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsPtrOutput)
+}
+
+// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+type ConfigurationSetReputationOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetReputationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetReputationOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOptionsOutput() ConfigurationSetReputationOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOptionsOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
+	return o.ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetReputationOptions) *ConfigurationSetReputationOptions {
+		return &v
+	}).(ConfigurationSetReputationOptionsPtrOutput)
+}
+
+// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+func (o ConfigurationSetReputationOptionsOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetReputationOptions) *bool { return v.ReputationMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConfigurationSetReputationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetReputationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetReputationOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetReputationOptionsPtrOutput) Elem() ConfigurationSetReputationOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetReputationOptions) ConfigurationSetReputationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetReputationOptions
+		return ret
+	}).(ConfigurationSetReputationOptionsOutput)
+}
+
+// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+func (o ConfigurationSetReputationOptionsPtrOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetReputationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReputationMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+type ConfigurationSetSendingOptions struct {
+	SendingEnabled *bool `pulumi:"sendingEnabled"`
+}
+
+// ConfigurationSetSendingOptionsInput is an input type that accepts ConfigurationSetSendingOptionsArgs and ConfigurationSetSendingOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetSendingOptionsInput` via:
+//
+//          ConfigurationSetSendingOptionsArgs{...}
+type ConfigurationSetSendingOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSendingOptionsOutput() ConfigurationSetSendingOptionsOutput
+	ToConfigurationSetSendingOptionsOutputWithContext(context.Context) ConfigurationSetSendingOptionsOutput
+}
+
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+type ConfigurationSetSendingOptionsArgs struct {
+	SendingEnabled pulumi.BoolPtrInput `pulumi:"sendingEnabled"`
+}
+
+func (ConfigurationSetSendingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSendingOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsOutput() ConfigurationSetSendingOptionsOutput {
+	return i.ToConfigurationSetSendingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsOutput)
+}
+
+func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
+	return i.ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsOutput).ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetSendingOptionsPtrInput is an input type that accepts ConfigurationSetSendingOptionsArgs, ConfigurationSetSendingOptionsPtr and ConfigurationSetSendingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetSendingOptionsPtrInput` via:
+//
+//          ConfigurationSetSendingOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetSendingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput
+	ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Context) ConfigurationSetSendingOptionsPtrOutput
+}
+
+type configurationSetSendingOptionsPtrType ConfigurationSetSendingOptionsArgs
+
+func ConfigurationSetSendingOptionsPtr(v *ConfigurationSetSendingOptionsArgs) ConfigurationSetSendingOptionsPtrInput {
+	return (*configurationSetSendingOptionsPtrType)(v)
+}
+
+func (*configurationSetSendingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSendingOptions)(nil)).Elem()
+}
+
+func (i *configurationSetSendingOptionsPtrType) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
+	return i.ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetSendingOptionsPtrType) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsPtrOutput)
+}
+
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+type ConfigurationSetSendingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSendingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSendingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsOutput() ConfigurationSetSendingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
+	return o.ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetSendingOptions) *ConfigurationSetSendingOptions {
+		return &v
+	}).(ConfigurationSetSendingOptionsPtrOutput)
+}
+
+func (o ConfigurationSetSendingOptionsOutput) SendingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetSendingOptions) *bool { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConfigurationSetSendingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSendingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSendingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSendingOptionsPtrOutput) Elem() ConfigurationSetSendingOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetSendingOptions) ConfigurationSetSendingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetSendingOptions
+		return ret
+	}).(ConfigurationSetSendingOptionsOutput)
+}
+
+func (o ConfigurationSetSendingOptionsPtrOutput) SendingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSendingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that contains information about the suppression list preferences for your account.
+type ConfigurationSetSuppressionOptions struct {
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	SuppressedReasons []string `pulumi:"suppressedReasons"`
+}
+
+// ConfigurationSetSuppressionOptionsInput is an input type that accepts ConfigurationSetSuppressionOptionsArgs and ConfigurationSetSuppressionOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsInput` via:
+//
+//          ConfigurationSetSuppressionOptionsArgs{...}
+type ConfigurationSetSuppressionOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsOutput() ConfigurationSetSuppressionOptionsOutput
+	ToConfigurationSetSuppressionOptionsOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsOutput
+}
+
+// An object that contains information about the suppression list preferences for your account.
+type ConfigurationSetSuppressionOptionsArgs struct {
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
+}
+
+func (ConfigurationSetSuppressionOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOptionsOutput() ConfigurationSetSuppressionOptionsOutput {
+	return i.ToConfigurationSetSuppressionOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOptionsOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsOutput)
+}
+
+func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsOutput).ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetSuppressionOptionsPtrInput is an input type that accepts ConfigurationSetSuppressionOptionsArgs, ConfigurationSetSuppressionOptionsPtr and ConfigurationSetSuppressionOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsPtrInput` via:
+//
+//          ConfigurationSetSuppressionOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetSuppressionOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput
+	ToConfigurationSetSuppressionOptionsPtrOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsPtrOutput
+}
+
+type configurationSetSuppressionOptionsPtrType ConfigurationSetSuppressionOptionsArgs
+
+func ConfigurationSetSuppressionOptionsPtr(v *ConfigurationSetSuppressionOptionsArgs) ConfigurationSetSuppressionOptionsPtrInput {
+	return (*configurationSetSuppressionOptionsPtrType)(v)
+}
+
+func (*configurationSetSuppressionOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptions)(nil)).Elem()
+}
+
+func (i *configurationSetSuppressionOptionsPtrType) ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetSuppressionOptionsPtrType) ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsPtrOutput)
+}
+
+// An object that contains information about the suppression list preferences for your account.
+type ConfigurationSetSuppressionOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionOptionsOutput() ConfigurationSetSuppressionOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionOptionsOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput {
+	return o.ToConfigurationSetSuppressionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetSuppressionOptions) *ConfigurationSetSuppressionOptions {
+		return &v
+	}).(ConfigurationSetSuppressionOptionsPtrOutput)
+}
+
+// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+func (o ConfigurationSetSuppressionOptionsOutput) SuppressedReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationSetSuppressionOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsPtrOutput) ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsPtrOutput) ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsPtrOutput) Elem() ConfigurationSetSuppressionOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptions) ConfigurationSetSuppressionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetSuppressionOptions
+		return ret
+	}).(ConfigurationSetSuppressionOptionsOutput)
+}
+
+// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuppressedReasons
+	}).(pulumi.StringArrayOutput)
+}
+
+// An object that defines the open and click tracking options for emails that you send using the configuration set.
+type ConfigurationSetTrackingOptions struct {
+	// The domain to use for tracking open and click events.
+	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
+}
+
+// ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetTrackingOptionsInput` via:
+//
+//          ConfigurationSetTrackingOptionsArgs{...}
+type ConfigurationSetTrackingOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput
+	ToConfigurationSetTrackingOptionsOutputWithContext(context.Context) ConfigurationSetTrackingOptionsOutput
+}
+
+// An object that defines the open and click tracking options for emails that you send using the configuration set.
+type ConfigurationSetTrackingOptionsArgs struct {
+	// The domain to use for tracking open and click events.
+	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
+}
+
+func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput {
+	return i.ToConfigurationSetTrackingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput)
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput).ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetTrackingOptionsPtrInput is an input type that accepts ConfigurationSetTrackingOptionsArgs, ConfigurationSetTrackingOptionsPtr and ConfigurationSetTrackingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetTrackingOptionsPtrInput` via:
+//
+//          ConfigurationSetTrackingOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetTrackingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput
+	ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Context) ConfigurationSetTrackingOptionsPtrOutput
+}
+
+type configurationSetTrackingOptionsPtrType ConfigurationSetTrackingOptionsArgs
+
+func ConfigurationSetTrackingOptionsPtr(v *ConfigurationSetTrackingOptionsArgs) ConfigurationSetTrackingOptionsPtrInput {
+	return (*configurationSetTrackingOptionsPtrType)(v)
+}
+
+func (*configurationSetTrackingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+// An object that defines the open and click tracking options for emails that you send using the configuration set.
+type ConfigurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetTrackingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsOutput() ConfigurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetTrackingOptions) *ConfigurationSetTrackingOptions {
+		return &v
+	}).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+// The domain to use for tracking open and click events.
+func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetTrackingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackingOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) ConfigurationSetTrackingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetTrackingOptions
+		return ret
+	}).(ConfigurationSetTrackingOptionsOutput)
+}
+
+// The domain to use for tracking open and click events.
+func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRedirectDomain
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2694,6 +3409,8 @@ func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationCloudWatchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationCloudWatchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfigurationInput)(nil)).Elem(), ConfigurationSetEventDestinationDimensionConfigurationArgs{})
@@ -2703,6 +3420,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsPtrInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsPtrInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagInput)(nil)).Elem(), ContactListTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagArrayInput)(nil)).Elem(), ContactListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
@@ -2728,6 +3453,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionPtrInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
+	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationOutput{})
@@ -2738,6 +3465,14 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTagOutput{})
 	pulumi.RegisterOutputType(ContactListTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})

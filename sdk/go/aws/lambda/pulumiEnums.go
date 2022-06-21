@@ -1472,6 +1472,171 @@ func (in *urlAuthTypePtr) ToUrlAuthTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(UrlAuthTypePtrOutput)
 }
 
+// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+type UrlInvokeMode string
+
+const (
+	UrlInvokeModeBuffered       = UrlInvokeMode("BUFFERED")
+	UrlInvokeModeResponseStream = UrlInvokeMode("RESPONSE_STREAM")
+)
+
+func (UrlInvokeMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlInvokeMode)(nil)).Elem()
+}
+
+func (e UrlInvokeMode) ToUrlInvokeModeOutput() UrlInvokeModeOutput {
+	return pulumi.ToOutput(e).(UrlInvokeModeOutput)
+}
+
+func (e UrlInvokeMode) ToUrlInvokeModeOutputWithContext(ctx context.Context) UrlInvokeModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UrlInvokeModeOutput)
+}
+
+func (e UrlInvokeMode) ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput {
+	return e.ToUrlInvokeModePtrOutputWithContext(context.Background())
+}
+
+func (e UrlInvokeMode) ToUrlInvokeModePtrOutputWithContext(ctx context.Context) UrlInvokeModePtrOutput {
+	return UrlInvokeMode(e).ToUrlInvokeModeOutputWithContext(ctx).ToUrlInvokeModePtrOutputWithContext(ctx)
+}
+
+func (e UrlInvokeMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlInvokeMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlInvokeMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UrlInvokeMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UrlInvokeModeOutput struct{ *pulumi.OutputState }
+
+func (UrlInvokeModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlInvokeMode)(nil)).Elem()
+}
+
+func (o UrlInvokeModeOutput) ToUrlInvokeModeOutput() UrlInvokeModeOutput {
+	return o
+}
+
+func (o UrlInvokeModeOutput) ToUrlInvokeModeOutputWithContext(ctx context.Context) UrlInvokeModeOutput {
+	return o
+}
+
+func (o UrlInvokeModeOutput) ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput {
+	return o.ToUrlInvokeModePtrOutputWithContext(context.Background())
+}
+
+func (o UrlInvokeModeOutput) ToUrlInvokeModePtrOutputWithContext(ctx context.Context) UrlInvokeModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UrlInvokeMode) *UrlInvokeMode {
+		return &v
+	}).(UrlInvokeModePtrOutput)
+}
+
+func (o UrlInvokeModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UrlInvokeModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlInvokeMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UrlInvokeModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlInvokeModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlInvokeMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UrlInvokeModePtrOutput struct{ *pulumi.OutputState }
+
+func (UrlInvokeModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UrlInvokeMode)(nil)).Elem()
+}
+
+func (o UrlInvokeModePtrOutput) ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput {
+	return o
+}
+
+func (o UrlInvokeModePtrOutput) ToUrlInvokeModePtrOutputWithContext(ctx context.Context) UrlInvokeModePtrOutput {
+	return o
+}
+
+func (o UrlInvokeModePtrOutput) Elem() UrlInvokeModeOutput {
+	return o.ApplyT(func(v *UrlInvokeMode) UrlInvokeMode {
+		if v != nil {
+			return *v
+		}
+		var ret UrlInvokeMode
+		return ret
+	}).(UrlInvokeModeOutput)
+}
+
+func (o UrlInvokeModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlInvokeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UrlInvokeMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UrlInvokeModeInput is an input type that accepts UrlInvokeModeArgs and UrlInvokeModeOutput values.
+// You can construct a concrete instance of `UrlInvokeModeInput` via:
+//
+//          UrlInvokeModeArgs{...}
+type UrlInvokeModeInput interface {
+	pulumi.Input
+
+	ToUrlInvokeModeOutput() UrlInvokeModeOutput
+	ToUrlInvokeModeOutputWithContext(context.Context) UrlInvokeModeOutput
+}
+
+var urlInvokeModePtrType = reflect.TypeOf((**UrlInvokeMode)(nil)).Elem()
+
+type UrlInvokeModePtrInput interface {
+	pulumi.Input
+
+	ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput
+	ToUrlInvokeModePtrOutputWithContext(context.Context) UrlInvokeModePtrOutput
+}
+
+type urlInvokeModePtr string
+
+func UrlInvokeModePtr(v string) UrlInvokeModePtrInput {
+	return (*urlInvokeModePtr)(&v)
+}
+
+func (*urlInvokeModePtr) ElementType() reflect.Type {
+	return urlInvokeModePtrType
+}
+
+func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput {
+	return pulumi.ToOutput(in).(UrlInvokeModePtrOutput)
+}
+
+func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutputWithContext(ctx context.Context) UrlInvokeModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UrlInvokeModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
@@ -1492,6 +1657,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemArrayInput)(nil)).Elem(), UrlAllowMethodsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthTypeInput)(nil)).Elem(), UrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthTypePtrInput)(nil)).Elem(), UrlAuthType("AWS_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModeInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModePtrInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})
@@ -1511,4 +1678,6 @@ func init() {
 	pulumi.RegisterOutputType(UrlAllowMethodsItemArrayOutput{})
 	pulumi.RegisterOutputType(UrlAuthTypeOutput{})
 	pulumi.RegisterOutputType(UrlAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(UrlInvokeModeOutput{})
+	pulumi.RegisterOutputType(UrlInvokeModePtrOutput{})
 }

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -20,11 +21,18 @@ class ApplicationArgs:
                  service_execution_role: pulumi.Input[str],
                  application_configuration: Optional[pulumi.Input['ApplicationConfigurationArgs']] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
-                 application_mode: Optional[pulumi.Input[str]] = None,
+                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application.
+        :param pulumi.Input[str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
+        :param pulumi.Input['ApplicationConfigurationArgs'] application_configuration: Use this parameter to configure the application.
+        :param pulumi.Input[str] application_description: The description of the application.
+        :param pulumi.Input['ApplicationMode'] application_mode: To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+        :param pulumi.Input[str] application_name: The name of the application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
         pulumi.set(__self__, "runtime_environment", runtime_environment)
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -42,6 +50,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[str]:
+        """
+        The runtime environment for the application.
+        """
         return pulumi.get(self, "runtime_environment")
 
     @runtime_environment.setter
@@ -51,6 +62,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Input[str]:
+        """
+        Specifies the IAM role that the application uses to access external resources.
+        """
         return pulumi.get(self, "service_execution_role")
 
     @service_execution_role.setter
@@ -60,6 +74,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> Optional[pulumi.Input['ApplicationConfigurationArgs']]:
+        """
+        Use this parameter to configure the application.
+        """
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
@@ -69,6 +86,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="applicationDescription")
     def application_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "application_description")
 
     @application_description.setter
@@ -77,16 +97,22 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="applicationMode")
-    def application_mode(self) -> Optional[pulumi.Input[str]]:
+    def application_mode(self) -> Optional[pulumi.Input['ApplicationMode']]:
+        """
+        To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+        """
         return pulumi.get(self, "application_mode")
 
     @application_mode.setter
-    def application_mode(self, value: Optional[pulumi.Input[str]]):
+    def application_mode(self, value: Optional[pulumi.Input['ApplicationMode']]):
         pulumi.set(self, "application_mode", value)
 
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -96,6 +122,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
+        """
+        A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,29 +132,31 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Application(pulumi.CustomResource):
-    warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
-                 application_mode: Optional[pulumi.Input[str]] = None,
+                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::KinesisAnalyticsV2::Application
+        Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']] application_configuration: Use this parameter to configure the application.
+        :param pulumi.Input[str] application_description: The description of the application.
+        :param pulumi.Input['ApplicationMode'] application_mode: To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+        :param pulumi.Input[str] application_name: The name of the application.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application.
+        :param pulumi.Input[str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
         ...
     @overload
@@ -134,7 +165,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::KinesisAnalyticsV2::Application
+        Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -153,13 +184,12 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
-                 application_mode: Optional[pulumi.Input[str]] = None,
+                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         else:
@@ -218,35 +248,56 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationConfiguration']]:
+        """
+        Use this parameter to configure the application.
+        """
         return pulumi.get(self, "application_configuration")
 
     @property
     @pulumi.getter(name="applicationDescription")
     def application_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "application_description")
 
     @property
     @pulumi.getter(name="applicationMode")
-    def application_mode(self) -> pulumi.Output[Optional[str]]:
+    def application_mode(self) -> pulumi.Output[Optional['ApplicationMode']]:
+        """
+        To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+        """
         return pulumi.get(self, "application_mode")
 
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the application.
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[str]:
+        """
+        The runtime environment for the application.
+        """
         return pulumi.get(self, "runtime_environment")
 
     @property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Output[str]:
+        """
+        Specifies the IAM role that the application uses to access external resources.
+        """
         return pulumi.get(self, "service_execution_role")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
+        """
+        A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+        """
         return pulumi.get(self, "tags")
 

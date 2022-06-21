@@ -36,6 +36,8 @@ type LookupApplicationResult struct {
 	ComponentMonitoringSettings []ApplicationComponentMonitoringSetting `pulumi:"componentMonitoringSettings"`
 	// The custom grouped components.
 	CustomComponents []ApplicationCustomComponent `pulumi:"customComponents"`
+	// The grouping type of the application
+	GroupingType *ApplicationGroupingType `pulumi:"groupingType"`
 	// The log pattern sets.
 	LogPatternSets []ApplicationLogPatternSet `pulumi:"logPatternSets"`
 	// When set to true, creates opsItems for any problems detected on an application.
@@ -107,6 +109,11 @@ func (o LookupApplicationResultOutput) ComponentMonitoringSettings() Application
 // The custom grouped components.
 func (o LookupApplicationResultOutput) CustomComponents() ApplicationCustomComponentArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationCustomComponent { return v.CustomComponents }).(ApplicationCustomComponentArrayOutput)
+}
+
+// The grouping type of the application
+func (o LookupApplicationResultOutput) GroupingType() ApplicationGroupingTypePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationGroupingType { return v.GroupingType }).(ApplicationGroupingTypePtrOutput)
 }
 
 // The log pattern sets.

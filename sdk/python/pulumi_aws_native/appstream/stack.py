@@ -27,6 +27,7 @@ class StackArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
@@ -54,6 +55,8 @@ class StackArgs:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_settings is not None:
+            pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_settings is not None:
@@ -159,6 +162,15 @@ class StackArgs:
         pulumi.set(self, "storage_connectors", value)
 
     @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]:
+        return pulumi.get(self, "streaming_experience_settings")
+
+    @streaming_experience_settings.setter
+    def streaming_experience_settings(self, value: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]):
+        pulumi.set(self, "streaming_experience_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -198,6 +210,7 @@ class Stack(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackTagArgs']]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
                  __props__=None):
@@ -242,6 +255,7 @@ class Stack(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackTagArgs']]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
                  __props__=None):
@@ -270,6 +284,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["storage_connectors"] = storage_connectors
+            __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_settings"] = user_settings
         super(Stack, __self__).__init__(
@@ -305,6 +320,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["redirect_url"] = None
         __props__.__dict__["storage_connectors"] = None
+        __props__.__dict__["streaming_experience_settings"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_settings"] = None
         return Stack(resource_name, opts=opts, __props__=__props__)
@@ -363,6 +379,11 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Output[Optional[Sequence['outputs.StackStorageConnector']]]:
         return pulumi.get(self, "storage_connectors")
+
+    @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> pulumi.Output[Optional['outputs.StackStreamingExperienceSettings']]:
+        return pulumi.get(self, "streaming_experience_settings")
 
     @property
     @pulumi.getter

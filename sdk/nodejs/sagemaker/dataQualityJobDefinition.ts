@@ -43,6 +43,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     public readonly dataQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
     public readonly dataQualityJobInput!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
     public readonly dataQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionMonitoringOutputConfig>;
+    public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
@@ -90,6 +91,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["dataQualityBaselineConfig"] = args ? args.dataQualityBaselineConfig : undefined;
             resourceInputs["dataQualityJobInput"] = args ? args.dataQualityJobInput : undefined;
             resourceInputs["dataQualityJobOutputConfig"] = args ? args.dataQualityJobOutputConfig : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
             resourceInputs["jobResources"] = args ? args.jobResources : undefined;
             resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
@@ -104,6 +106,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["dataQualityBaselineConfig"] = undefined /*out*/;
             resourceInputs["dataQualityJobInput"] = undefined /*out*/;
             resourceInputs["dataQualityJobOutputConfig"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["jobResources"] = undefined /*out*/;
@@ -125,6 +128,7 @@ export interface DataQualityJobDefinitionArgs {
     dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfigArgs>;
     dataQualityJobInput: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs>;
     dataQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionMonitoringOutputConfigArgs>;
+    endpointName?: pulumi.Input<string>;
     jobDefinitionName?: pulumi.Input<string>;
     jobResources: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionMonitoringResourcesArgs>;
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfigArgs>;

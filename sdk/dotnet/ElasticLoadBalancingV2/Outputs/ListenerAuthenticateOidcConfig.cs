@@ -16,13 +16,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly object? AuthenticationRequestExtraParams;
         public readonly string AuthorizationEndpoint;
         public readonly string ClientId;
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
         public readonly string Issuer;
         public readonly string? OnUnauthenticatedRequest;
         public readonly string? Scope;
         public readonly string? SessionCookieName;
         public readonly string? SessionTimeout;
         public readonly string TokenEndpoint;
+        public readonly bool? UseExistingClientSecret;
         public readonly string UserInfoEndpoint;
 
         [OutputConstructor]
@@ -33,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string clientId,
 
-            string clientSecret,
+            string? clientSecret,
 
             string issuer,
 
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string tokenEndpoint,
 
+            bool? useExistingClientSecret,
+
             string userInfoEndpoint)
         {
             AuthenticationRequestExtraParams = authenticationRequestExtraParams;
@@ -59,6 +62,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
             SessionCookieName = sessionCookieName;
             SessionTimeout = sessionTimeout;
             TokenEndpoint = tokenEndpoint;
+            UseExistingClientSecret = useExistingClientSecret;
             UserInfoEndpoint = userInfoEndpoint;
         }
     }

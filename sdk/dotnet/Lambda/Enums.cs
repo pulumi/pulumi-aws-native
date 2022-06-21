@@ -255,4 +255,35 @@ namespace Pulumi.AwsNative.Lambda
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+    /// </summary>
+    [EnumType]
+    public readonly struct UrlInvokeMode : IEquatable<UrlInvokeMode>
+    {
+        private readonly string _value;
+
+        private UrlInvokeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UrlInvokeMode Buffered { get; } = new UrlInvokeMode("BUFFERED");
+        public static UrlInvokeMode ResponseStream { get; } = new UrlInvokeMode("RESPONSE_STREAM");
+
+        public static bool operator ==(UrlInvokeMode left, UrlInvokeMode right) => left.Equals(right);
+        public static bool operator !=(UrlInvokeMode left, UrlInvokeMode right) => !left.Equals(right);
+
+        public static explicit operator string(UrlInvokeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UrlInvokeMode other && Equals(other);
+        public bool Equals(UrlInvokeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

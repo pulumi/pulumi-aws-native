@@ -10,17 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationRecordFormat
     {
+        /// <summary>
+        /// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+        /// </summary>
         public readonly Outputs.ApplicationMappingParameters? MappingParameters;
-        public readonly string RecordFormatType;
+        /// <summary>
+        /// The type of record format.
+        /// </summary>
+        public readonly Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationRecordFormatRecordFormatType RecordFormatType;
 
         [OutputConstructor]
         private ApplicationRecordFormat(
             Outputs.ApplicationMappingParameters? mappingParameters,
 
-            string recordFormatType)
+            Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationRecordFormatRecordFormatType recordFormatType)
         {
             MappingParameters = mappingParameters;
             RecordFormatType = recordFormatType;

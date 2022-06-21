@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationCustomComponent> CustomComponents;
         /// <summary>
+        /// The grouping type of the application
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType? GroupingType;
+        /// <summary>
         /// The log pattern sets.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLogPatternSet> LogPatternSets;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
 
             ImmutableArray<Outputs.ApplicationCustomComponent> customComponents,
 
+            Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType? groupingType,
+
             ImmutableArray<Outputs.ApplicationLogPatternSet> logPatternSets,
 
             bool? opsCenterEnabled,
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
             CWEMonitorEnabled = cWEMonitorEnabled;
             ComponentMonitoringSettings = componentMonitoringSettings;
             CustomComponents = customComponents;
+            GroupingType = groupingType;
             LogPatternSets = logPatternSets;
             OpsCenterEnabled = opsCenterEnabled;
             OpsItemSNSTopicArn = opsItemSNSTopicArn;

@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CidrCollectionLocationArgs',
     'HealthCheckAlarmIdentifierArgs',
     'HealthCheckConfigPropertiesArgs',
     'HealthCheckTagArgs',
@@ -24,6 +25,43 @@ __all__ = [
     'RecordSetGroupGeoLocationArgs',
     'RecordSetGroupRecordSetArgs',
 ]
+
+@pulumi.input_type
+class CidrCollectionLocationArgs:
+    def __init__(__self__, *,
+                 cidr_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 location_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_list: A list of CIDR blocks.
+        :param pulumi.Input[str] location_name: The name of the location that is associated with the CIDR collection.
+        """
+        pulumi.set(__self__, "cidr_list", cidr_list)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="cidrList")
+    def cidr_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of CIDR blocks.
+        """
+        return pulumi.get(self, "cidr_list")
+
+    @cidr_list.setter
+    def cidr_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "cidr_list", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[str]:
+        """
+        The name of the location that is associated with the CIDR collection.
+        """
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location_name", value)
+
 
 @pulumi.input_type
 class HealthCheckAlarmIdentifierArgs:

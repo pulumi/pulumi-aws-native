@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolUsernameConfiguration
     {
-        public readonly bool CaseSensitive;
+        public readonly bool? CaseSensitive;
 
         [OutputConstructor]
-        private UserPoolUsernameConfiguration(bool caseSensitive)
+        private UserPoolUsernameConfiguration(bool? caseSensitive)
         {
             CaseSensitive = caseSensitive;
         }

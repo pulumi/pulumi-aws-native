@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelQualityJobDefinitionResult:
-    def __init__(__self__, creation_time=None, job_definition_arn=None):
+    def __init__(__self__, creation_time=None, endpoint_name=None, job_definition_arn=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if endpoint_name and not isinstance(endpoint_name, str):
+            raise TypeError("Expected argument 'endpoint_name' to be a str")
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         if job_definition_arn and not isinstance(job_definition_arn, str):
             raise TypeError("Expected argument 'job_definition_arn' to be a str")
         pulumi.set(__self__, "job_definition_arn", job_definition_arn)
@@ -33,6 +36,11 @@ class GetModelQualityJobDefinitionResult:
         The time at which the job definition was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")
@@ -50,6 +58,7 @@ class AwaitableGetModelQualityJobDefinitionResult(GetModelQualityJobDefinitionRe
             yield self
         return GetModelQualityJobDefinitionResult(
             creation_time=self.creation_time,
+            endpoint_name=self.endpoint_name,
             job_definition_arn=self.job_definition_arn)
 
 
@@ -71,6 +80,7 @@ def get_model_quality_job_definition(job_definition_arn: Optional[str] = None,
 
     return AwaitableGetModelQualityJobDefinitionResult(
         creation_time=__ret__.creation_time,
+        endpoint_name=__ret__.endpoint_name,
         job_definition_arn=__ret__.job_definition_arn)
 
 

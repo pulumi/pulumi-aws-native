@@ -20,17 +20,21 @@ class UrlArgs:
                  auth_type: pulumi.Input['UrlAuthType'],
                  target_function_arn: pulumi.Input[str],
                  cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
+                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
                  qualifier: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Url resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
+        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "target_function_arn", target_function_arn)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if invoke_mode is not None:
+            pulumi.set(__self__, "invoke_mode", invoke_mode)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
 
@@ -68,6 +72,18 @@ class UrlArgs:
         pulumi.set(self, "cors", value)
 
     @property
+    @pulumi.getter(name="invokeMode")
+    def invoke_mode(self) -> Optional[pulumi.Input['UrlInvokeMode']]:
+        """
+        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        """
+        return pulumi.get(self, "invoke_mode")
+
+    @invoke_mode.setter
+    def invoke_mode(self, value: Optional[pulumi.Input['UrlInvokeMode']]):
+        pulumi.set(self, "invoke_mode", value)
+
+    @property
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -87,6 +103,7 @@ class Url(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['UrlCorsArgs']]] = None,
+                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  target_function_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -96,6 +113,7 @@ class Url(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
         """
@@ -125,6 +143,7 @@ class Url(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['UrlCorsArgs']]] = None,
+                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  target_function_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -145,6 +164,7 @@ class Url(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["cors"] = cors
+            __props__.__dict__["invoke_mode"] = invoke_mode
             __props__.__dict__["qualifier"] = qualifier
             if target_function_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_function_arn'")
@@ -177,6 +197,7 @@ class Url(pulumi.CustomResource):
         __props__.__dict__["cors"] = None
         __props__.__dict__["function_arn"] = None
         __props__.__dict__["function_url"] = None
+        __props__.__dict__["invoke_mode"] = None
         __props__.__dict__["qualifier"] = None
         __props__.__dict__["target_function_arn"] = None
         return Url(resource_name, opts=opts, __props__=__props__)
@@ -209,6 +230,14 @@ class Url(pulumi.CustomResource):
         The generated url for this resource.
         """
         return pulumi.get(self, "function_url")
+
+    @property
+    @pulumi.getter(name="invokeMode")
+    def invoke_mode(self) -> pulumi.Output[Optional['UrlInvokeMode']]:
+        """
+        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        """
+        return pulumi.get(self, "invoke_mode")
 
     @property
     @pulumi.getter

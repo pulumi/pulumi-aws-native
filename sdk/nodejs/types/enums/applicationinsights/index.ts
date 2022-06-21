@@ -37,6 +37,15 @@ export const ApplicationEventLevel = {
  */
 export type ApplicationEventLevel = (typeof ApplicationEventLevel)[keyof typeof ApplicationEventLevel];
 
+export const ApplicationGroupingType = {
+    AccountBased: "ACCOUNT_BASED",
+} as const;
+
+/**
+ * The grouping type of the application
+ */
+export type ApplicationGroupingType = (typeof ApplicationGroupingType)[keyof typeof ApplicationGroupingType];
+
 export const ApplicationLogEncoding = {
     Utf8: "utf-8",
     Utf16: "utf-16",

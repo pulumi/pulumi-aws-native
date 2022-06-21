@@ -22,6 +22,7 @@ class ModelExplainabilityJobDefinitionArgs:
                  model_explainability_job_input: pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'],
                  model_explainability_job_output_config: pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'],
                  role_arn: pulumi.Input[str],
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  model_explainability_baseline_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] = None,
                  network_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
@@ -37,6 +38,8 @@ class ModelExplainabilityJobDefinitionArgs:
         pulumi.set(__self__, "model_explainability_job_input", model_explainability_job_input)
         pulumi.set(__self__, "model_explainability_job_output_config", model_explainability_job_output_config)
         pulumi.set(__self__, "role_arn", role_arn)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if job_definition_name is not None:
             pulumi.set(__self__, "job_definition_name", job_definition_name)
         if model_explainability_baseline_config is not None:
@@ -97,6 +100,15 @@ class ModelExplainabilityJobDefinitionArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "job_definition_name")
@@ -150,6 +162,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  job_resources: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']]] = None,
                  model_explainability_app_specification: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']]] = None,
@@ -193,6 +206,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  job_resources: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']]] = None,
                  model_explainability_app_specification: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']]] = None,
@@ -217,6 +231,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ModelExplainabilityJobDefinitionArgs.__new__(ModelExplainabilityJobDefinitionArgs)
 
+            __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["job_definition_name"] = job_definition_name
             if job_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'job_resources'")
@@ -262,6 +277,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
         __props__ = ModelExplainabilityJobDefinitionArgs.__new__(ModelExplainabilityJobDefinitionArgs)
 
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["job_definition_arn"] = None
         __props__.__dict__["job_definition_name"] = None
         __props__.__dict__["job_resources"] = None
@@ -282,6 +298,11 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
         The time at which the job definition was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")

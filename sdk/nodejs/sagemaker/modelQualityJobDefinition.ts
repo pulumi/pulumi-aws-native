@@ -39,6 +39,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
      * The time at which the job definition was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
@@ -86,6 +87,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
             resourceInputs["jobResources"] = args ? args.jobResources : undefined;
             resourceInputs["modelQualityAppSpecification"] = args ? args.modelQualityAppSpecification : undefined;
@@ -100,6 +102,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["jobResources"] = undefined /*out*/;
@@ -121,6 +124,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelQualityJobDefinition resource.
  */
 export interface ModelQualityJobDefinitionArgs {
+    endpointName?: pulumi.Input<string>;
     jobDefinitionName?: pulumi.Input<string>;
     jobResources: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringResourcesArgs>;
     modelQualityAppSpecification: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecificationArgs>;

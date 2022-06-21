@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSubscriptionResult:
-    def __init__(__self__, enabled=None, event_categories=None, source_ids=None, source_type=None, subscription_name=None, tags=None):
+    def __init__(__self__, enabled=None, event_categories=None, source_ids=None, source_type=None, tags=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -33,9 +33,6 @@ class GetEventSubscriptionResult:
         if source_type and not isinstance(source_type, str):
             raise TypeError("Expected argument 'source_type' to be a str")
         pulumi.set(__self__, "source_type", source_type)
-        if subscription_name and not isinstance(subscription_name, str):
-            raise TypeError("Expected argument 'subscription_name' to be a str")
-        pulumi.set(__self__, "subscription_name", subscription_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -73,14 +70,6 @@ class GetEventSubscriptionResult:
         return pulumi.get(self, "source_type")
 
     @property
-    @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[str]:
-        """
-        The name of the subscription.
-        """
-        return pulumi.get(self, "subscription_name")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.EventSubscriptionTag']]:
         """
@@ -99,7 +88,6 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             event_categories=self.event_categories,
             source_ids=self.source_ids,
             source_type=self.source_type,
-            subscription_name=self.subscription_name,
             tags=self.tags)
 
 
@@ -124,7 +112,6 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         event_categories=__ret__.event_categories,
         source_ids=__ret__.source_ids,
         source_type=__ret__.source_type,
-        subscription_name=__ret__.subscription_name,
         tags=__ret__.tags)
 
 

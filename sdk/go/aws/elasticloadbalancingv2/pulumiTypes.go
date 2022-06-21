@@ -388,13 +388,14 @@ type ListenerAuthenticateOidcConfig struct {
 	AuthenticationRequestExtraParams interface{} `pulumi:"authenticationRequestExtraParams"`
 	AuthorizationEndpoint            string      `pulumi:"authorizationEndpoint"`
 	ClientId                         string      `pulumi:"clientId"`
-	ClientSecret                     string      `pulumi:"clientSecret"`
+	ClientSecret                     *string     `pulumi:"clientSecret"`
 	Issuer                           string      `pulumi:"issuer"`
 	OnUnauthenticatedRequest         *string     `pulumi:"onUnauthenticatedRequest"`
 	Scope                            *string     `pulumi:"scope"`
 	SessionCookieName                *string     `pulumi:"sessionCookieName"`
 	SessionTimeout                   *string     `pulumi:"sessionTimeout"`
 	TokenEndpoint                    string      `pulumi:"tokenEndpoint"`
+	UseExistingClientSecret          *bool       `pulumi:"useExistingClientSecret"`
 	UserInfoEndpoint                 string      `pulumi:"userInfoEndpoint"`
 }
 
@@ -413,13 +414,14 @@ type ListenerAuthenticateOidcConfigArgs struct {
 	AuthenticationRequestExtraParams pulumi.Input          `pulumi:"authenticationRequestExtraParams"`
 	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
 	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringInput    `pulumi:"clientSecret"`
+	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
 	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
 	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
 	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
 	SessionTimeout                   pulumi.StringPtrInput `pulumi:"sessionTimeout"`
 	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
+	UseExistingClientSecret          pulumi.BoolPtrInput   `pulumi:"useExistingClientSecret"`
 	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
 }
 
@@ -512,8 +514,8 @@ func (o ListenerAuthenticateOidcConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o ListenerAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o ListenerAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 func (o ListenerAuthenticateOidcConfigOutput) Issuer() pulumi.StringOutput {
@@ -538,6 +540,10 @@ func (o ListenerAuthenticateOidcConfigOutput) SessionTimeout() pulumi.StringPtrO
 
 func (o ListenerAuthenticateOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ListenerAuthenticateOidcConfigOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *bool { return v.UseExistingClientSecret }).(pulumi.BoolPtrOutput)
 }
 
 func (o ListenerAuthenticateOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
@@ -600,7 +606,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -656,6 +662,15 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPt
 		}
 		return &v.TokenEndpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerAuthenticateOidcConfigPtrOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseExistingClientSecret
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o ListenerAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
@@ -1754,7 +1769,7 @@ type ListenerRuleAuthenticateOidcConfig struct {
 	AuthenticationRequestExtraParams interface{} `pulumi:"authenticationRequestExtraParams"`
 	AuthorizationEndpoint            string      `pulumi:"authorizationEndpoint"`
 	ClientId                         string      `pulumi:"clientId"`
-	ClientSecret                     string      `pulumi:"clientSecret"`
+	ClientSecret                     *string     `pulumi:"clientSecret"`
 	Issuer                           string      `pulumi:"issuer"`
 	OnUnauthenticatedRequest         *string     `pulumi:"onUnauthenticatedRequest"`
 	Scope                            *string     `pulumi:"scope"`
@@ -1780,7 +1795,7 @@ type ListenerRuleAuthenticateOidcConfigArgs struct {
 	AuthenticationRequestExtraParams pulumi.Input          `pulumi:"authenticationRequestExtraParams"`
 	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
 	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringInput    `pulumi:"clientSecret"`
+	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
 	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
 	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
@@ -1880,8 +1895,8 @@ func (o ListenerRuleAuthenticateOidcConfigOutput) ClientId() pulumi.StringOutput
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o ListenerRuleAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o ListenerRuleAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 func (o ListenerRuleAuthenticateOidcConfigOutput) Issuer() pulumi.StringOutput {
@@ -1972,7 +1987,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 

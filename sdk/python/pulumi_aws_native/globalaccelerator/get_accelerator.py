@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAcceleratorResult:
-    def __init__(__self__, accelerator_arn=None, dns_name=None, enabled=None, ip_address_type=None, ip_addresses=None, name=None, tags=None):
+    def __init__(__self__, accelerator_arn=None, dns_name=None, enabled=None, ip_address_type=None, ip_addresses=None, ipv4_addresses=None, name=None, tags=None):
         if accelerator_arn and not isinstance(accelerator_arn, str):
             raise TypeError("Expected argument 'accelerator_arn' to be a str")
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -36,6 +36,9 @@ class GetAcceleratorResult:
         if ip_addresses and not isinstance(ip_addresses, list):
             raise TypeError("Expected argument 'ip_addresses' to be a list")
         pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ipv4_addresses and not isinstance(ipv4_addresses, list):
+            raise TypeError("Expected argument 'ipv4_addresses' to be a list")
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -84,6 +87,14 @@ class GetAcceleratorResult:
         return pulumi.get(self, "ip_addresses")
 
     @property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The IPv4 addresses assigned to the accelerator.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -108,6 +119,7 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
             enabled=self.enabled,
             ip_address_type=self.ip_address_type,
             ip_addresses=self.ip_addresses,
+            ipv4_addresses=self.ipv4_addresses,
             name=self.name,
             tags=self.tags)
 
@@ -134,6 +146,7 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
         enabled=__ret__.enabled,
         ip_address_type=__ret__.ip_address_type,
         ip_addresses=__ret__.ip_addresses,
+        ipv4_addresses=__ret__.ipv4_addresses,
         name=__ret__.name,
         tags=__ret__.tags)
 

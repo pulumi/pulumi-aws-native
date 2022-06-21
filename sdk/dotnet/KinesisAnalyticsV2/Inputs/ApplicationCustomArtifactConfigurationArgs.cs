@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
+    /// <summary>
+    /// The configuration of connectors and user-defined functions.
+    /// </summary>
     public sealed class ApplicationCustomArtifactConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+        /// </summary>
         [Input("artifactType", required: true)]
-        public Input<string> ArtifactType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.KinesisAnalyticsV2.ApplicationCustomArtifactConfigurationArtifactType> ArtifactType { get; set; } = null!;
 
+        /// <summary>
+        /// The parameters required to fully specify a Maven reference.
+        /// </summary>
         [Input("mavenReference")]
         public Input<Inputs.ApplicationMavenReferenceArgs>? MavenReference { get; set; }
 
+        /// <summary>
+        /// The location of the custom artifacts.
+        /// </summary>
         [Input("s3ContentLocation")]
         public Input<Inputs.ApplicationS3ContentLocationArgs>? S3ContentLocation { get; set; }
 

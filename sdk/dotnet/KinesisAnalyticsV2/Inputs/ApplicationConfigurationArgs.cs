@@ -10,23 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
+    /// <summary>
+    /// Specifies the creation parameters for a Kinesis Data Analytics application.
+    /// </summary>
     public sealed class ApplicationConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
         [Input("applicationCodeConfiguration")]
         public Input<Inputs.ApplicationCodeConfigurationArgs>? ApplicationCodeConfiguration { get; set; }
 
+        /// <summary>
+        /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
         [Input("applicationSnapshotConfiguration")]
         public Input<Inputs.ApplicationSnapshotConfigurationArgs>? ApplicationSnapshotConfiguration { get; set; }
 
+        /// <summary>
+        /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
         [Input("environmentProperties")]
         public Input<Inputs.ApplicationEnvironmentPropertiesArgs>? EnvironmentProperties { get; set; }
 
+        /// <summary>
+        /// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+        /// </summary>
         [Input("flinkApplicationConfiguration")]
         public Input<Inputs.ApplicationFlinkApplicationConfigurationArgs>? FlinkApplicationConfiguration { get; set; }
 
+        /// <summary>
+        /// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+        /// </summary>
         [Input("sqlApplicationConfiguration")]
         public Input<Inputs.ApplicationSqlApplicationConfigurationArgs>? SqlApplicationConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration parameters for a Kinesis Data Analytics Studio notebook.
+        /// </summary>
         [Input("zeppelinApplicationConfiguration")]
         public Input<Inputs.ApplicationZeppelinApplicationConfigurationArgs>? ZeppelinApplicationConfiguration { get; set; }
 

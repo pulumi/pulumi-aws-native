@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStackResult:
-    def __init__(__self__, access_endpoints=None, application_settings=None, attributes_to_delete=None, delete_storage_connectors=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, id=None, redirect_url=None, storage_connectors=None, tags=None, user_settings=None):
+    def __init__(__self__, access_endpoints=None, application_settings=None, attributes_to_delete=None, delete_storage_connectors=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, id=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -53,6 +53,9 @@ class GetStackResult:
         if storage_connectors and not isinstance(storage_connectors, list):
             raise TypeError("Expected argument 'storage_connectors' to be a list")
         pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_settings and not isinstance(streaming_experience_settings, dict):
+            raise TypeError("Expected argument 'streaming_experience_settings' to be a dict")
+        pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -116,6 +119,11 @@ class GetStackResult:
         return pulumi.get(self, "storage_connectors")
 
     @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> Optional['outputs.StackStreamingExperienceSettings']:
+        return pulumi.get(self, "streaming_experience_settings")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.StackTag']]:
         return pulumi.get(self, "tags")
@@ -143,6 +151,7 @@ class AwaitableGetStackResult(GetStackResult):
             id=self.id,
             redirect_url=self.redirect_url,
             storage_connectors=self.storage_connectors,
+            streaming_experience_settings=self.streaming_experience_settings,
             tags=self.tags,
             user_settings=self.user_settings)
 
@@ -172,6 +181,7 @@ def get_stack(id: Optional[str] = None,
         id=__ret__.id,
         redirect_url=__ret__.redirect_url,
         storage_connectors=__ret__.storage_connectors,
+        streaming_experience_settings=__ret__.streaming_experience_settings,
         tags=__ret__.tags,
         user_settings=__ret__.user_settings)
 

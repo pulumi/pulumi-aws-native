@@ -248,23 +248,25 @@ class ListenerAuthenticateOidcConfigArgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[str],
                  client_id: pulumi.Input[str],
-                 client_secret: pulumi.Input[str],
                  issuer: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str],
                  user_info_endpoint: pulumi.Input[str],
                  authentication_request_extra_params: Optional[Any] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
-                 session_timeout: Optional[pulumi.Input[str]] = None):
+                 session_timeout: Optional[pulumi.Input[str]] = None,
+                 use_existing_client_secret: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
         pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
             pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if on_unauthenticated_request is not None:
             pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
@@ -273,6 +275,8 @@ class ListenerAuthenticateOidcConfigArgs:
             pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
             pulumi.set(__self__, "session_timeout", session_timeout)
+        if use_existing_client_secret is not None:
+            pulumi.set(__self__, "use_existing_client_secret", use_existing_client_secret)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -291,15 +295,6 @@ class ListenerAuthenticateOidcConfigArgs:
     @client_id.setter
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_secret", value)
 
     @property
     @pulumi.getter
@@ -338,6 +333,15 @@ class ListenerAuthenticateOidcConfigArgs:
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
     @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "on_unauthenticated_request")
@@ -372,6 +376,15 @@ class ListenerAuthenticateOidcConfigArgs:
     @session_timeout.setter
     def session_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_timeout", value)
+
+    @property
+    @pulumi.getter(name="useExistingClientSecret")
+    def use_existing_client_secret(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_existing_client_secret")
+
+    @use_existing_client_secret.setter
+    def use_existing_client_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_existing_client_secret", value)
 
 
 @pulumi.input_type
@@ -756,11 +769,11 @@ class ListenerRuleAuthenticateOidcConfigArgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[str],
                  client_id: pulumi.Input[str],
-                 client_secret: pulumi.Input[str],
                  issuer: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str],
                  user_info_endpoint: pulumi.Input[str],
                  authentication_request_extra_params: Optional[Any] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
@@ -768,12 +781,13 @@ class ListenerRuleAuthenticateOidcConfigArgs:
                  use_existing_client_secret: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
         pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
             pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if on_unauthenticated_request is not None:
             pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
@@ -802,15 +816,6 @@ class ListenerRuleAuthenticateOidcConfigArgs:
     @client_id.setter
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_secret", value)
 
     @property
     @pulumi.getter
@@ -847,6 +852,15 @@ class ListenerRuleAuthenticateOidcConfigArgs:
     @authentication_request_extra_params.setter
     def authentication_request_extra_params(self, value: Optional[Any]):
         pulumi.set(self, "authentication_request_extra_params", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
 
     @property
     @pulumi.getter(name="onUnauthenticatedRequest")

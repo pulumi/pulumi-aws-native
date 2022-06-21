@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly object? AuthenticationRequestExtraParams;
         public readonly string AuthorizationEndpoint;
         public readonly string ClientId;
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
         public readonly string Issuer;
         public readonly string? OnUnauthenticatedRequest;
         public readonly string? Scope;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string clientId,
 
-            string clientSecret,
+            string? clientSecret,
 
             string issuer,
 

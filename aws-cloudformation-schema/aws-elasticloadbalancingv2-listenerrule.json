@@ -341,7 +341,7 @@
           }
         }
       },
-      "required" : [ "TokenEndpoint", "Issuer", "ClientSecret", "UserInfoEndpoint", "ClientId", "AuthorizationEndpoint" ]
+      "required" : [ "TokenEndpoint", "Issuer", "UserInfoEndpoint", "ClientId", "AuthorizationEndpoint" ]
     },
     "SourceIpConfig" : {
       "type" : "object",

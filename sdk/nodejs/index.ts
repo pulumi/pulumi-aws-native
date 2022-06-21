@@ -70,6 +70,7 @@ import * as cognito from "./cognito";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
+import * as connectcampaigns from "./connectcampaigns";
 import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
@@ -174,6 +175,7 @@ import * as quicksight from "./quicksight";
 import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
 import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
@@ -265,6 +267,7 @@ export {
     config,
     configuration,
     connect,
+    connectcampaigns,
     cur,
     customerprofiles,
     databrew,
@@ -369,6 +372,7 @@ export {
     ram,
     rds,
     redshift,
+    redshiftserverless,
     refactorspaces,
     rekognition,
     resiliencehub,

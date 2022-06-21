@@ -56,6 +56,10 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
+     * The IPv4 addresses assigned to the accelerator.
+     */
+    public /*out*/ readonly ipv4Addresses!: pulumi.Output<string[]>;
+    /**
      * Name of accelerator.
      */
     public readonly name!: pulumi.Output<string>;
@@ -79,12 +83,14 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["acceleratorArn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["ipv4Addresses"] = undefined /*out*/;
         } else {
             resourceInputs["acceleratorArn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["ipv4Addresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

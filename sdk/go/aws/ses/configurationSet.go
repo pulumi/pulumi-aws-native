@@ -14,8 +14,13 @@ import (
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
+	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name               pulumi.StringPtrOutput                      `pulumi:"name"`
+	ReputationOptions  ConfigurationSetReputationOptionsPtrOutput  `pulumi:"reputationOptions"`
+	SendingOptions     ConfigurationSetSendingOptionsPtrOutput     `pulumi:"sendingOptions"`
+	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
+	TrackingOptions    ConfigurationSetTrackingOptionsPtrOutput    `pulumi:"trackingOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -57,14 +62,24 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
+	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
-	Name *string `pulumi:"name"`
+	Name               *string                             `pulumi:"name"`
+	ReputationOptions  *ConfigurationSetReputationOptions  `pulumi:"reputationOptions"`
+	SendingOptions     *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
+	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
+	TrackingOptions    *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
+	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// The name of the configuration set.
-	Name pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	ReputationOptions  ConfigurationSetReputationOptionsPtrInput
+	SendingOptions     ConfigurationSetSendingOptionsPtrInput
+	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
+	TrackingOptions    ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -104,9 +119,29 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
+}
+
 // The name of the configuration set.
 func (o ConfigurationSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsPtrOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsPtrOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSuppressionOptionsPtrOutput { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
 func init() {

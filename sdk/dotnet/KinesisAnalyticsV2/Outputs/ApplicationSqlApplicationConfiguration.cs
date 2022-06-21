@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationSqlApplicationConfiguration
     {
+        /// <summary>
+        /// The array of Input objects describing the input streams used by the application.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationInput> Inputs;
 
         [OutputConstructor]

@@ -48,6 +48,10 @@ export interface GetAcceleratorResult {
      */
     readonly ipAddresses?: string[];
     /**
+     * The IPv4 addresses assigned to the accelerator.
+     */
+    readonly ipv4Addresses?: string[];
+    /**
      * Name of accelerator.
      */
     readonly name?: string;

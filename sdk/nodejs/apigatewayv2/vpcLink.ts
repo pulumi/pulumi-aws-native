@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGatewayV2::VpcLink
- *
- * @deprecated VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VpcLink extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class VpcLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpcLink {
-        pulumi.log.warn("VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VpcLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,7 +37,11 @@ export class VpcLink extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
      * Create a VpcLink resource with the given unique name, arguments, and options.
@@ -49,9 +50,7 @@ export class VpcLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -62,11 +61,13 @@ export class VpcLink extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcLink.__pulumiType, name, resourceInputs, opts);
@@ -80,5 +81,8 @@ export interface VpcLinkArgs {
     name?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     tags?: any;
 }

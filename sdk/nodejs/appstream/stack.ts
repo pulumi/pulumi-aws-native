@@ -49,6 +49,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly redirectURL!: pulumi.Output<string | undefined>;
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[] | undefined>;
+    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings | undefined>;
     public readonly tags!: pulumi.Output<outputs.appstream.StackTag[] | undefined>;
     public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[] | undefined>;
 
@@ -76,6 +77,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redirectURL"] = args ? args.redirectURL : undefined;
             resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
+            resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userSettings"] = args ? args.userSettings : undefined;
         } else {
@@ -90,6 +92,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["redirectURL"] = undefined /*out*/;
             resourceInputs["storageConnectors"] = undefined /*out*/;
+            resourceInputs["streamingExperienceSettings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userSettings"] = undefined /*out*/;
         }
@@ -113,6 +116,7 @@ export interface StackArgs {
     name?: pulumi.Input<string>;
     redirectURL?: pulumi.Input<string>;
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnectorArgs>[]>;
+    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettingsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.StackTagArgs>[]>;
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSettingArgs>[]>;
 }

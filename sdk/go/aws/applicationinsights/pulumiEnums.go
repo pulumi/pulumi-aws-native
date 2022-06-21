@@ -555,6 +555,170 @@ func (o ApplicationEventLevelArrayOutput) Index(i pulumi.IntInput) ApplicationEv
 	}).(ApplicationEventLevelOutput)
 }
 
+// The grouping type of the application
+type ApplicationGroupingType string
+
+const (
+	ApplicationGroupingTypeAccountBased = ApplicationGroupingType("ACCOUNT_BASED")
+)
+
+func (ApplicationGroupingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroupingType)(nil)).Elem()
+}
+
+func (e ApplicationGroupingType) ToApplicationGroupingTypeOutput() ApplicationGroupingTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationGroupingTypeOutput)
+}
+
+func (e ApplicationGroupingType) ToApplicationGroupingTypeOutputWithContext(ctx context.Context) ApplicationGroupingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationGroupingTypeOutput)
+}
+
+func (e ApplicationGroupingType) ToApplicationGroupingTypePtrOutput() ApplicationGroupingTypePtrOutput {
+	return e.ToApplicationGroupingTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationGroupingType) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
+	return ApplicationGroupingType(e).ToApplicationGroupingTypeOutputWithContext(ctx).ToApplicationGroupingTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationGroupingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationGroupingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationGroupingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationGroupingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationGroupingTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGroupingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroupingType)(nil)).Elem()
+}
+
+func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypeOutput() ApplicationGroupingTypeOutput {
+	return o
+}
+
+func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypeOutputWithContext(ctx context.Context) ApplicationGroupingTypeOutput {
+	return o
+}
+
+func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypePtrOutput() ApplicationGroupingTypePtrOutput {
+	return o.ToApplicationGroupingTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGroupingType) *ApplicationGroupingType {
+		return &v
+	}).(ApplicationGroupingTypePtrOutput)
+}
+
+func (o ApplicationGroupingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationGroupingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationGroupingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGroupingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGroupingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationGroupingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationGroupingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGroupingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGroupingType)(nil)).Elem()
+}
+
+func (o ApplicationGroupingTypePtrOutput) ToApplicationGroupingTypePtrOutput() ApplicationGroupingTypePtrOutput {
+	return o
+}
+
+func (o ApplicationGroupingTypePtrOutput) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
+	return o
+}
+
+func (o ApplicationGroupingTypePtrOutput) Elem() ApplicationGroupingTypeOutput {
+	return o.ApplyT(func(v *ApplicationGroupingType) ApplicationGroupingType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGroupingType
+		return ret
+	}).(ApplicationGroupingTypeOutput)
+}
+
+func (o ApplicationGroupingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGroupingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationGroupingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationGroupingTypeInput is an input type that accepts ApplicationGroupingTypeArgs and ApplicationGroupingTypeOutput values.
+// You can construct a concrete instance of `ApplicationGroupingTypeInput` via:
+//
+//          ApplicationGroupingTypeArgs{...}
+type ApplicationGroupingTypeInput interface {
+	pulumi.Input
+
+	ToApplicationGroupingTypeOutput() ApplicationGroupingTypeOutput
+	ToApplicationGroupingTypeOutputWithContext(context.Context) ApplicationGroupingTypeOutput
+}
+
+var applicationGroupingTypePtrType = reflect.TypeOf((**ApplicationGroupingType)(nil)).Elem()
+
+type ApplicationGroupingTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationGroupingTypePtrOutput() ApplicationGroupingTypePtrOutput
+	ToApplicationGroupingTypePtrOutputWithContext(context.Context) ApplicationGroupingTypePtrOutput
+}
+
+type applicationGroupingTypePtr string
+
+func ApplicationGroupingTypePtr(v string) ApplicationGroupingTypePtrInput {
+	return (*applicationGroupingTypePtr)(&v)
+}
+
+func (*applicationGroupingTypePtr) ElementType() reflect.Type {
+	return applicationGroupingTypePtrType
+}
+
+func (in *applicationGroupingTypePtr) ToApplicationGroupingTypePtrOutput() ApplicationGroupingTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationGroupingTypePtrOutput)
+}
+
+func (in *applicationGroupingTypePtr) ToApplicationGroupingTypePtrOutputWithContext(ctx context.Context) ApplicationGroupingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGroupingTypePtrOutput)
+}
+
 // The type of encoding of the logs to be monitored.
 type ApplicationLogEncoding string
 
@@ -894,6 +1058,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelInput)(nil)).Elem(), ApplicationEventLevel("INFORMATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelPtrInput)(nil)).Elem(), ApplicationEventLevel("INFORMATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelArrayInput)(nil)).Elem(), ApplicationEventLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGroupingTypeInput)(nil)).Elem(), ApplicationGroupingType("ACCOUNT_BASED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGroupingTypePtrInput)(nil)).Elem(), ApplicationGroupingType("ACCOUNT_BASED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogEncodingInput)(nil)).Elem(), ApplicationLogEncoding("utf-8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogEncodingPtrInput)(nil)).Elem(), ApplicationLogEncoding("utf-8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentTypeConfigurationSubComponentTypeInput)(nil)).Elem(), ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance"))
@@ -905,6 +1071,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationEventLevelOutput{})
 	pulumi.RegisterOutputType(ApplicationEventLevelPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEventLevelArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGroupingTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationGroupingTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogEncodingOutput{})
 	pulumi.RegisterOutputType(ApplicationLogEncodingPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentTypeConfigurationSubComponentTypeOutput{})

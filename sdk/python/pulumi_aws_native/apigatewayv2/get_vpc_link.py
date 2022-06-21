@@ -18,21 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcLinkResult:
-    def __init__(__self__, id=None, name=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, name=None, tags=None, vpc_link_id=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+        if vpc_link_id and not isinstance(vpc_link_id, str):
+            raise TypeError("Expected argument 'vpc_link_id' to be a str")
+        pulumi.set(__self__, "vpc_link_id", vpc_link_id)
 
     @property
     @pulumi.getter
@@ -42,7 +37,15 @@ class GetVpcLinkResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        This resource type use map for Tags, suggest to use List of Tag
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcLinkId")
+    def vpc_link_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_link_id")
 
 
 class AwaitableGetVpcLinkResult(GetVpcLinkResult):
@@ -51,18 +54,18 @@ class AwaitableGetVpcLinkResult(GetVpcLinkResult):
         if False:
             yield self
         return GetVpcLinkResult(
-            id=self.id,
             name=self.name,
-            tags=self.tags)
+            tags=self.tags,
+            vpc_link_id=self.vpc_link_id)
 
 
-def get_vpc_link(id: Optional[str] = None,
+def get_vpc_link(vpc_link_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::VpcLink
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['vpcLinkId'] = vpc_link_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -70,13 +73,13 @@ def get_vpc_link(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult).value
 
     return AwaitableGetVpcLinkResult(
-        id=__ret__.id,
         name=__ret__.name,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        vpc_link_id=__ret__.vpc_link_id)
 
 
 @_utilities.lift_output_func(get_vpc_link)
-def get_vpc_link_output(id: Optional[pulumi.Input[str]] = None,
+def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::VpcLink

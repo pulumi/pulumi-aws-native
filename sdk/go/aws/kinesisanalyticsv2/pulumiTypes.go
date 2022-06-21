@@ -10,9 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+// `"name1", "address1"`
+// `"name2", "address2"`
 type ApplicationCSVMappingParameters struct {
+	// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
+	// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
 }
 
 // ApplicationCSVMappingParametersInput is an input type that accepts ApplicationCSVMappingParametersArgs and ApplicationCSVMappingParametersOutput values.
@@ -26,9 +31,14 @@ type ApplicationCSVMappingParametersInput interface {
 	ToApplicationCSVMappingParametersOutputWithContext(context.Context) ApplicationCSVMappingParametersOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+// `"name1", "address1"`
+// `"name2", "address2"`
 type ApplicationCSVMappingParametersArgs struct {
+	// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	RecordRowDelimiter    pulumi.StringInput `pulumi:"recordRowDelimiter"`
+	// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
 func (ApplicationCSVMappingParametersArgs) ElementType() reflect.Type {
@@ -84,6 +94,9 @@ func (i *applicationCSVMappingParametersPtrType) ToApplicationCSVMappingParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCSVMappingParametersPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+// `"name1", "address1"`
+// `"name2", "address2"`
 type ApplicationCSVMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCSVMappingParametersOutput) ElementType() reflect.Type {
@@ -108,10 +121,12 @@ func (o ApplicationCSVMappingParametersOutput) ToApplicationCSVMappingParameters
 	}).(ApplicationCSVMappingParametersPtrOutput)
 }
 
+// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 func (o ApplicationCSVMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCSVMappingParameters) string { return v.RecordColumnDelimiter }).(pulumi.StringOutput)
 }
 
+// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
 func (o ApplicationCSVMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCSVMappingParameters) string { return v.RecordRowDelimiter }).(pulumi.StringOutput)
 }
@@ -140,6 +155,7 @@ func (o ApplicationCSVMappingParametersPtrOutput) Elem() ApplicationCSVMappingPa
 	}).(ApplicationCSVMappingParametersOutput)
 }
 
+// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 func (o ApplicationCSVMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCSVMappingParameters) *string {
 		if v == nil {
@@ -149,6 +165,7 @@ func (o ApplicationCSVMappingParametersPtrOutput) RecordColumnDelimiter() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
 func (o ApplicationCSVMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCSVMappingParameters) *string {
 		if v == nil {
@@ -158,7 +175,9 @@ func (o ApplicationCSVMappingParametersPtrOutput) RecordRowDelimiter() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 type ApplicationCatalogConfiguration struct {
+	// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
 	GlueDataCatalogConfiguration *ApplicationGlueDataCatalogConfiguration `pulumi:"glueDataCatalogConfiguration"`
 }
 
@@ -173,7 +192,9 @@ type ApplicationCatalogConfigurationInput interface {
 	ToApplicationCatalogConfigurationOutputWithContext(context.Context) ApplicationCatalogConfigurationOutput
 }
 
+// The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 type ApplicationCatalogConfigurationArgs struct {
+	// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
 	GlueDataCatalogConfiguration ApplicationGlueDataCatalogConfigurationPtrInput `pulumi:"glueDataCatalogConfiguration"`
 }
 
@@ -230,6 +251,7 @@ func (i *applicationCatalogConfigurationPtrType) ToApplicationCatalogConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+// The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 type ApplicationCatalogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCatalogConfigurationOutput) ElementType() reflect.Type {
@@ -254,6 +276,7 @@ func (o ApplicationCatalogConfigurationOutput) ToApplicationCatalogConfiguration
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
 func (o ApplicationCatalogConfigurationOutput) GlueDataCatalogConfiguration() ApplicationGlueDataCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationCatalogConfiguration) *ApplicationGlueDataCatalogConfiguration {
 		return v.GlueDataCatalogConfiguration
@@ -284,6 +307,7 @@ func (o ApplicationCatalogConfigurationPtrOutput) Elem() ApplicationCatalogConfi
 	}).(ApplicationCatalogConfigurationOutput)
 }
 
+// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
 func (o ApplicationCatalogConfigurationPtrOutput) GlueDataCatalogConfiguration() ApplicationGlueDataCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationCatalogConfiguration) *ApplicationGlueDataCatalogConfiguration {
 		if v == nil {
@@ -293,11 +317,16 @@ func (o ApplicationCatalogConfigurationPtrOutput) GlueDataCatalogConfiguration()
 	}).(ApplicationGlueDataCatalogConfigurationPtrOutput)
 }
 
+// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 type ApplicationCheckpointConfiguration struct {
-	CheckpointInterval         *int   `pulumi:"checkpointInterval"`
-	CheckpointingEnabled       *bool  `pulumi:"checkpointingEnabled"`
-	ConfigurationType          string `pulumi:"configurationType"`
-	MinPauseBetweenCheckpoints *int   `pulumi:"minPauseBetweenCheckpoints"`
+	// Describes the interval in milliseconds between checkpoint operations.
+	CheckpointInterval *int `pulumi:"checkpointInterval"`
+	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+	CheckpointingEnabled *bool `pulumi:"checkpointingEnabled"`
+	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+	ConfigurationType ApplicationCheckpointConfigurationConfigurationType `pulumi:"configurationType"`
+	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
+	MinPauseBetweenCheckpoints *int `pulumi:"minPauseBetweenCheckpoints"`
 }
 
 // ApplicationCheckpointConfigurationInput is an input type that accepts ApplicationCheckpointConfigurationArgs and ApplicationCheckpointConfigurationOutput values.
@@ -311,11 +340,16 @@ type ApplicationCheckpointConfigurationInput interface {
 	ToApplicationCheckpointConfigurationOutputWithContext(context.Context) ApplicationCheckpointConfigurationOutput
 }
 
+// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 type ApplicationCheckpointConfigurationArgs struct {
-	CheckpointInterval         pulumi.IntPtrInput  `pulumi:"checkpointInterval"`
-	CheckpointingEnabled       pulumi.BoolPtrInput `pulumi:"checkpointingEnabled"`
-	ConfigurationType          pulumi.StringInput  `pulumi:"configurationType"`
-	MinPauseBetweenCheckpoints pulumi.IntPtrInput  `pulumi:"minPauseBetweenCheckpoints"`
+	// Describes the interval in milliseconds between checkpoint operations.
+	CheckpointInterval pulumi.IntPtrInput `pulumi:"checkpointInterval"`
+	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+	CheckpointingEnabled pulumi.BoolPtrInput `pulumi:"checkpointingEnabled"`
+	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+	ConfigurationType ApplicationCheckpointConfigurationConfigurationTypeInput `pulumi:"configurationType"`
+	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
+	MinPauseBetweenCheckpoints pulumi.IntPtrInput `pulumi:"minPauseBetweenCheckpoints"`
 }
 
 func (ApplicationCheckpointConfigurationArgs) ElementType() reflect.Type {
@@ -371,6 +405,7 @@ func (i *applicationCheckpointConfigurationPtrType) ToApplicationCheckpointConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCheckpointConfigurationPtrOutput)
 }
 
+// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 type ApplicationCheckpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCheckpointConfigurationOutput) ElementType() reflect.Type {
@@ -395,18 +430,24 @@ func (o ApplicationCheckpointConfigurationOutput) ToApplicationCheckpointConfigu
 	}).(ApplicationCheckpointConfigurationPtrOutput)
 }
 
+// Describes the interval in milliseconds between checkpoint operations.
 func (o ApplicationCheckpointConfigurationOutput) CheckpointInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationCheckpointConfiguration) *int { return v.CheckpointInterval }).(pulumi.IntPtrOutput)
 }
 
+// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCheckpointConfigurationOutput) CheckpointingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationCheckpointConfiguration) *bool { return v.CheckpointingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o ApplicationCheckpointConfigurationOutput) ConfigurationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCheckpointConfiguration) string { return v.ConfigurationType }).(pulumi.StringOutput)
+// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+func (o ApplicationCheckpointConfigurationOutput) ConfigurationType() ApplicationCheckpointConfigurationConfigurationTypeOutput {
+	return o.ApplyT(func(v ApplicationCheckpointConfiguration) ApplicationCheckpointConfigurationConfigurationType {
+		return v.ConfigurationType
+	}).(ApplicationCheckpointConfigurationConfigurationTypeOutput)
 }
 
+// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
 func (o ApplicationCheckpointConfigurationOutput) MinPauseBetweenCheckpoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationCheckpointConfiguration) *int { return v.MinPauseBetweenCheckpoints }).(pulumi.IntPtrOutput)
 }
@@ -435,6 +476,7 @@ func (o ApplicationCheckpointConfigurationPtrOutput) Elem() ApplicationCheckpoin
 	}).(ApplicationCheckpointConfigurationOutput)
 }
 
+// Describes the interval in milliseconds between checkpoint operations.
 func (o ApplicationCheckpointConfigurationPtrOutput) CheckpointInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationCheckpointConfiguration) *int {
 		if v == nil {
@@ -444,6 +486,7 @@ func (o ApplicationCheckpointConfigurationPtrOutput) CheckpointInterval() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCheckpointConfigurationPtrOutput) CheckpointingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationCheckpointConfiguration) *bool {
 		if v == nil {
@@ -453,15 +496,17 @@ func (o ApplicationCheckpointConfigurationPtrOutput) CheckpointingEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ApplicationCheckpointConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCheckpointConfiguration) *string {
+// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+func (o ApplicationCheckpointConfigurationPtrOutput) ConfigurationType() ApplicationCheckpointConfigurationConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationCheckpointConfiguration) *ApplicationCheckpointConfigurationConfigurationType {
 		if v == nil {
 			return nil
 		}
 		return &v.ConfigurationType
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
 }
 
+// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
 func (o ApplicationCheckpointConfigurationPtrOutput) MinPauseBetweenCheckpoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationCheckpointConfiguration) *int {
 		if v == nil {
@@ -553,9 +598,12 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) LogS
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes code configuration for an application.
 type ApplicationCodeConfiguration struct {
-	CodeContent     ApplicationCodeContent `pulumi:"codeContent"`
-	CodeContentType string                 `pulumi:"codeContentType"`
+	// The location and type of the application code.
+	CodeContent ApplicationCodeContent `pulumi:"codeContent"`
+	// Specifies whether the code content is in text or zip format.
+	CodeContentType ApplicationCodeConfigurationCodeContentType `pulumi:"codeContentType"`
 }
 
 // ApplicationCodeConfigurationInput is an input type that accepts ApplicationCodeConfigurationArgs and ApplicationCodeConfigurationOutput values.
@@ -569,9 +617,12 @@ type ApplicationCodeConfigurationInput interface {
 	ToApplicationCodeConfigurationOutputWithContext(context.Context) ApplicationCodeConfigurationOutput
 }
 
+// Describes code configuration for an application.
 type ApplicationCodeConfigurationArgs struct {
-	CodeContent     ApplicationCodeContentInput `pulumi:"codeContent"`
-	CodeContentType pulumi.StringInput          `pulumi:"codeContentType"`
+	// The location and type of the application code.
+	CodeContent ApplicationCodeContentInput `pulumi:"codeContent"`
+	// Specifies whether the code content is in text or zip format.
+	CodeContentType ApplicationCodeConfigurationCodeContentTypeInput `pulumi:"codeContentType"`
 }
 
 func (ApplicationCodeConfigurationArgs) ElementType() reflect.Type {
@@ -627,6 +678,7 @@ func (i *applicationCodeConfigurationPtrType) ToApplicationCodeConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationPtrOutput)
 }
 
+// Describes code configuration for an application.
 type ApplicationCodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCodeConfigurationOutput) ElementType() reflect.Type {
@@ -651,12 +703,16 @@ func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationPtrOut
 	}).(ApplicationCodeConfigurationPtrOutput)
 }
 
+// The location and type of the application code.
 func (o ApplicationCodeConfigurationOutput) CodeContent() ApplicationCodeContentOutput {
 	return o.ApplyT(func(v ApplicationCodeConfiguration) ApplicationCodeContent { return v.CodeContent }).(ApplicationCodeContentOutput)
 }
 
-func (o ApplicationCodeConfigurationOutput) CodeContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCodeConfiguration) string { return v.CodeContentType }).(pulumi.StringOutput)
+// Specifies whether the code content is in text or zip format.
+func (o ApplicationCodeConfigurationOutput) CodeContentType() ApplicationCodeConfigurationCodeContentTypeOutput {
+	return o.ApplyT(func(v ApplicationCodeConfiguration) ApplicationCodeConfigurationCodeContentType {
+		return v.CodeContentType
+	}).(ApplicationCodeConfigurationCodeContentTypeOutput)
 }
 
 type ApplicationCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -683,6 +739,7 @@ func (o ApplicationCodeConfigurationPtrOutput) Elem() ApplicationCodeConfigurati
 	}).(ApplicationCodeConfigurationOutput)
 }
 
+// The location and type of the application code.
 func (o ApplicationCodeConfigurationPtrOutput) CodeContent() ApplicationCodeContentPtrOutput {
 	return o.ApplyT(func(v *ApplicationCodeConfiguration) *ApplicationCodeContent {
 		if v == nil {
@@ -692,19 +749,24 @@ func (o ApplicationCodeConfigurationPtrOutput) CodeContent() ApplicationCodeCont
 	}).(ApplicationCodeContentPtrOutput)
 }
 
-func (o ApplicationCodeConfigurationPtrOutput) CodeContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCodeConfiguration) *string {
+// Specifies whether the code content is in text or zip format.
+func (o ApplicationCodeConfigurationPtrOutput) CodeContentType() ApplicationCodeConfigurationCodeContentTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationCodeConfiguration) *ApplicationCodeConfigurationCodeContentType {
 		if v == nil {
 			return nil
 		}
 		return &v.CodeContentType
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
 }
 
+// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 type ApplicationCodeContent struct {
+	// Information about the Amazon S3 bucket that contains the application code.
 	S3ContentLocation *ApplicationS3ContentLocation `pulumi:"s3ContentLocation"`
-	TextContent       *string                       `pulumi:"textContent"`
-	ZipFileContent    *string                       `pulumi:"zipFileContent"`
+	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	TextContent *string `pulumi:"textContent"`
+	// The zip-format code for a Flink-based Kinesis Data Analytics application.
+	ZipFileContent *string `pulumi:"zipFileContent"`
 }
 
 // ApplicationCodeContentInput is an input type that accepts ApplicationCodeContentArgs and ApplicationCodeContentOutput values.
@@ -718,10 +780,14 @@ type ApplicationCodeContentInput interface {
 	ToApplicationCodeContentOutputWithContext(context.Context) ApplicationCodeContentOutput
 }
 
+// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 type ApplicationCodeContentArgs struct {
+	// Information about the Amazon S3 bucket that contains the application code.
 	S3ContentLocation ApplicationS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
-	TextContent       pulumi.StringPtrInput                `pulumi:"textContent"`
-	ZipFileContent    pulumi.StringPtrInput                `pulumi:"zipFileContent"`
+	// The text-format code for a Flink-based Kinesis Data Analytics application.
+	TextContent pulumi.StringPtrInput `pulumi:"textContent"`
+	// The zip-format code for a Flink-based Kinesis Data Analytics application.
+	ZipFileContent pulumi.StringPtrInput `pulumi:"zipFileContent"`
 }
 
 func (ApplicationCodeContentArgs) ElementType() reflect.Type {
@@ -777,6 +843,7 @@ func (i *applicationCodeContentPtrType) ToApplicationCodeContentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeContentPtrOutput)
 }
 
+// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 type ApplicationCodeContentOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCodeContentOutput) ElementType() reflect.Type {
@@ -801,14 +868,17 @@ func (o ApplicationCodeContentOutput) ToApplicationCodeContentPtrOutputWithConte
 	}).(ApplicationCodeContentPtrOutput)
 }
 
+// Information about the Amazon S3 bucket that contains the application code.
 func (o ApplicationCodeContentOutput) S3ContentLocation() ApplicationS3ContentLocationPtrOutput {
 	return o.ApplyT(func(v ApplicationCodeContent) *ApplicationS3ContentLocation { return v.S3ContentLocation }).(ApplicationS3ContentLocationPtrOutput)
 }
 
+// The text-format code for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCodeContentOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCodeContent) *string { return v.TextContent }).(pulumi.StringPtrOutput)
 }
 
+// The zip-format code for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCodeContentOutput) ZipFileContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCodeContent) *string { return v.ZipFileContent }).(pulumi.StringPtrOutput)
 }
@@ -837,6 +907,7 @@ func (o ApplicationCodeContentPtrOutput) Elem() ApplicationCodeContentOutput {
 	}).(ApplicationCodeContentOutput)
 }
 
+// Information about the Amazon S3 bucket that contains the application code.
 func (o ApplicationCodeContentPtrOutput) S3ContentLocation() ApplicationS3ContentLocationPtrOutput {
 	return o.ApplyT(func(v *ApplicationCodeContent) *ApplicationS3ContentLocation {
 		if v == nil {
@@ -846,6 +917,7 @@ func (o ApplicationCodeContentPtrOutput) S3ContentLocation() ApplicationS3Conten
 	}).(ApplicationS3ContentLocationPtrOutput)
 }
 
+// The text-format code for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCodeContent) *string {
 		if v == nil {
@@ -855,6 +927,7 @@ func (o ApplicationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The zip-format code for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationCodeContentPtrOutput) ZipFileContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCodeContent) *string {
 		if v == nil {
@@ -864,12 +937,19 @@ func (o ApplicationCodeContentPtrOutput) ZipFileContent() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the creation parameters for a Kinesis Data Analytics application.
 type ApplicationConfiguration struct {
-	ApplicationCodeConfiguration     *ApplicationCodeConfiguration                `pulumi:"applicationCodeConfiguration"`
-	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration            `pulumi:"applicationSnapshotConfiguration"`
-	EnvironmentProperties            *ApplicationEnvironmentProperties            `pulumi:"environmentProperties"`
-	FlinkApplicationConfiguration    *ApplicationFlinkApplicationConfiguration    `pulumi:"flinkApplicationConfiguration"`
-	SqlApplicationConfiguration      *ApplicationSqlApplicationConfiguration      `pulumi:"sqlApplicationConfiguration"`
+	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+	ApplicationCodeConfiguration *ApplicationCodeConfiguration `pulumi:"applicationCodeConfiguration"`
+	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
+	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+	EnvironmentProperties *ApplicationEnvironmentProperties `pulumi:"environmentProperties"`
+	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+	FlinkApplicationConfiguration *ApplicationFlinkApplicationConfiguration `pulumi:"flinkApplicationConfiguration"`
+	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+	SqlApplicationConfiguration *ApplicationSqlApplicationConfiguration `pulumi:"sqlApplicationConfiguration"`
+	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration *ApplicationZeppelinApplicationConfiguration `pulumi:"zeppelinApplicationConfiguration"`
 }
 
@@ -884,12 +964,19 @@ type ApplicationConfigurationInput interface {
 	ToApplicationConfigurationOutputWithContext(context.Context) ApplicationConfigurationOutput
 }
 
+// Specifies the creation parameters for a Kinesis Data Analytics application.
 type ApplicationConfigurationArgs struct {
-	ApplicationCodeConfiguration     ApplicationCodeConfigurationPtrInput                `pulumi:"applicationCodeConfiguration"`
-	ApplicationSnapshotConfiguration ApplicationSnapshotConfigurationPtrInput            `pulumi:"applicationSnapshotConfiguration"`
-	EnvironmentProperties            ApplicationEnvironmentPropertiesPtrInput            `pulumi:"environmentProperties"`
-	FlinkApplicationConfiguration    ApplicationFlinkApplicationConfigurationPtrInput    `pulumi:"flinkApplicationConfiguration"`
-	SqlApplicationConfiguration      ApplicationSqlApplicationConfigurationPtrInput      `pulumi:"sqlApplicationConfiguration"`
+	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+	ApplicationCodeConfiguration ApplicationCodeConfigurationPtrInput `pulumi:"applicationCodeConfiguration"`
+	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	ApplicationSnapshotConfiguration ApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
+	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
+	EnvironmentProperties ApplicationEnvironmentPropertiesPtrInput `pulumi:"environmentProperties"`
+	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+	FlinkApplicationConfiguration ApplicationFlinkApplicationConfigurationPtrInput `pulumi:"flinkApplicationConfiguration"`
+	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+	SqlApplicationConfiguration ApplicationSqlApplicationConfigurationPtrInput `pulumi:"sqlApplicationConfiguration"`
+	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration ApplicationZeppelinApplicationConfigurationPtrInput `pulumi:"zeppelinApplicationConfiguration"`
 }
 
@@ -946,6 +1033,7 @@ func (i *applicationConfigurationPtrType) ToApplicationConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationPtrOutput)
 }
 
+// Specifies the creation parameters for a Kinesis Data Analytics application.
 type ApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -970,32 +1058,38 @@ func (o ApplicationConfigurationOutput) ToApplicationConfigurationPtrOutputWithC
 	}).(ApplicationConfigurationPtrOutput)
 }
 
+// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) ApplicationCodeConfiguration() ApplicationCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationCodeConfiguration { return v.ApplicationCodeConfiguration }).(ApplicationCodeConfigurationPtrOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSnapshotConfiguration {
 		return v.ApplicationSnapshotConfiguration
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationEnvironmentProperties { return v.EnvironmentProperties }).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
 		return v.FlinkApplicationConfiguration
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
+// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
 		return v.SqlApplicationConfiguration
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 func (o ApplicationConfigurationOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
 		return v.ZeppelinApplicationConfiguration
@@ -1026,6 +1120,7 @@ func (o ApplicationConfigurationPtrOutput) Elem() ApplicationConfigurationOutput
 	}).(ApplicationConfigurationOutput)
 }
 
+// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() ApplicationCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationCodeConfiguration {
 		if v == nil {
@@ -1035,6 +1130,7 @@ func (o ApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() Applic
 	}).(ApplicationCodeConfigurationPtrOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() ApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSnapshotConfiguration {
 		if v == nil {
@@ -1044,6 +1140,7 @@ func (o ApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() Ap
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationPtrOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationEnvironmentProperties {
 		if v == nil {
@@ -1053,6 +1150,7 @@ func (o ApplicationConfigurationPtrOutput) EnvironmentProperties() ApplicationEn
 	}).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
 		if v == nil {
@@ -1062,6 +1160,7 @@ func (o ApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() Appli
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
+// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationPtrOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
 		if v == nil {
@@ -1071,6 +1170,7 @@ func (o ApplicationConfigurationPtrOutput) SqlApplicationConfiguration() Applica
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 func (o ApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
 		if v == nil {
@@ -1080,9 +1180,13 @@ func (o ApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() Ap
 	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
+// The configuration of connectors and user-defined functions.
 type ApplicationCustomArtifactConfiguration struct {
-	ArtifactType      string                        `pulumi:"artifactType"`
-	MavenReference    *ApplicationMavenReference    `pulumi:"mavenReference"`
+	// Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+	ArtifactType ApplicationCustomArtifactConfigurationArtifactType `pulumi:"artifactType"`
+	// The parameters required to fully specify a Maven reference.
+	MavenReference *ApplicationMavenReference `pulumi:"mavenReference"`
+	// The location of the custom artifacts.
 	S3ContentLocation *ApplicationS3ContentLocation `pulumi:"s3ContentLocation"`
 }
 
@@ -1097,9 +1201,13 @@ type ApplicationCustomArtifactConfigurationInput interface {
 	ToApplicationCustomArtifactConfigurationOutputWithContext(context.Context) ApplicationCustomArtifactConfigurationOutput
 }
 
+// The configuration of connectors and user-defined functions.
 type ApplicationCustomArtifactConfigurationArgs struct {
-	ArtifactType      pulumi.StringInput                   `pulumi:"artifactType"`
-	MavenReference    ApplicationMavenReferencePtrInput    `pulumi:"mavenReference"`
+	// Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+	ArtifactType ApplicationCustomArtifactConfigurationArtifactTypeInput `pulumi:"artifactType"`
+	// The parameters required to fully specify a Maven reference.
+	MavenReference ApplicationMavenReferencePtrInput `pulumi:"mavenReference"`
+	// The location of the custom artifacts.
 	S3ContentLocation ApplicationS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
 }
 
@@ -1140,6 +1248,7 @@ func (i ApplicationCustomArtifactConfigurationArray) ToApplicationCustomArtifact
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
+// The configuration of connectors and user-defined functions.
 type ApplicationCustomArtifactConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCustomArtifactConfigurationOutput) ElementType() reflect.Type {
@@ -1154,14 +1263,19 @@ func (o ApplicationCustomArtifactConfigurationOutput) ToApplicationCustomArtifac
 	return o
 }
 
-func (o ApplicationCustomArtifactConfigurationOutput) ArtifactType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) string { return v.ArtifactType }).(pulumi.StringOutput)
+// Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+func (o ApplicationCustomArtifactConfigurationOutput) ArtifactType() ApplicationCustomArtifactConfigurationArtifactTypeOutput {
+	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) ApplicationCustomArtifactConfigurationArtifactType {
+		return v.ArtifactType
+	}).(ApplicationCustomArtifactConfigurationArtifactTypeOutput)
 }
 
+// The parameters required to fully specify a Maven reference.
 func (o ApplicationCustomArtifactConfigurationOutput) MavenReference() ApplicationMavenReferencePtrOutput {
 	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) *ApplicationMavenReference { return v.MavenReference }).(ApplicationMavenReferencePtrOutput)
 }
 
+// The location of the custom artifacts.
 func (o ApplicationCustomArtifactConfigurationOutput) S3ContentLocation() ApplicationS3ContentLocationPtrOutput {
 	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) *ApplicationS3ContentLocation {
 		return v.S3ContentLocation
@@ -1188,7 +1302,9 @@ func (o ApplicationCustomArtifactConfigurationArrayOutput) Index(i pulumi.IntInp
 	}).(ApplicationCustomArtifactConfigurationOutput)
 }
 
+// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 type ApplicationDeployAsApplicationConfiguration struct {
+	// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
 	S3ContentLocation ApplicationS3ContentBaseLocation `pulumi:"s3ContentLocation"`
 }
 
@@ -1203,7 +1319,9 @@ type ApplicationDeployAsApplicationConfigurationInput interface {
 	ToApplicationDeployAsApplicationConfigurationOutputWithContext(context.Context) ApplicationDeployAsApplicationConfigurationOutput
 }
 
+// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 type ApplicationDeployAsApplicationConfigurationArgs struct {
+	// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
 	S3ContentLocation ApplicationS3ContentBaseLocationInput `pulumi:"s3ContentLocation"`
 }
 
@@ -1260,6 +1378,7 @@ func (i *applicationDeployAsApplicationConfigurationPtrType) ToApplicationDeploy
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 type ApplicationDeployAsApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeployAsApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -1284,6 +1403,7 @@ func (o ApplicationDeployAsApplicationConfigurationOutput) ToApplicationDeployAs
 	}).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
 func (o ApplicationDeployAsApplicationConfigurationOutput) S3ContentLocation() ApplicationS3ContentBaseLocationOutput {
 	return o.ApplyT(func(v ApplicationDeployAsApplicationConfiguration) ApplicationS3ContentBaseLocation {
 		return v.S3ContentLocation
@@ -1314,6 +1434,7 @@ func (o ApplicationDeployAsApplicationConfigurationPtrOutput) Elem() Application
 	}).(ApplicationDeployAsApplicationConfigurationOutput)
 }
 
+// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
 func (o ApplicationDeployAsApplicationConfigurationPtrOutput) S3ContentLocation() ApplicationS3ContentBaseLocationPtrOutput {
 	return o.ApplyT(func(v *ApplicationDeployAsApplicationConfiguration) *ApplicationS3ContentBaseLocation {
 		if v == nil {
@@ -1323,7 +1444,9 @@ func (o ApplicationDeployAsApplicationConfigurationPtrOutput) S3ContentLocation(
 	}).(ApplicationS3ContentBaseLocationPtrOutput)
 }
 
+// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 type ApplicationEnvironmentProperties struct {
+	// Describes the execution property groups.
 	PropertyGroups []ApplicationPropertyGroup `pulumi:"propertyGroups"`
 }
 
@@ -1338,7 +1461,9 @@ type ApplicationEnvironmentPropertiesInput interface {
 	ToApplicationEnvironmentPropertiesOutputWithContext(context.Context) ApplicationEnvironmentPropertiesOutput
 }
 
+// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 type ApplicationEnvironmentPropertiesArgs struct {
+	// Describes the execution property groups.
 	PropertyGroups ApplicationPropertyGroupArrayInput `pulumi:"propertyGroups"`
 }
 
@@ -1395,6 +1520,7 @@ func (i *applicationEnvironmentPropertiesPtrType) ToApplicationEnvironmentProper
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+// Describes execution properties for a Flink-based Kinesis Data Analytics application.
 type ApplicationEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEnvironmentPropertiesOutput) ElementType() reflect.Type {
@@ -1419,6 +1545,7 @@ func (o ApplicationEnvironmentPropertiesOutput) ToApplicationEnvironmentProperti
 	}).(ApplicationEnvironmentPropertiesPtrOutput)
 }
 
+// Describes the execution property groups.
 func (o ApplicationEnvironmentPropertiesOutput) PropertyGroups() ApplicationPropertyGroupArrayOutput {
 	return o.ApplyT(func(v ApplicationEnvironmentProperties) []ApplicationPropertyGroup { return v.PropertyGroups }).(ApplicationPropertyGroupArrayOutput)
 }
@@ -1447,6 +1574,7 @@ func (o ApplicationEnvironmentPropertiesPtrOutput) Elem() ApplicationEnvironment
 	}).(ApplicationEnvironmentPropertiesOutput)
 }
 
+// Describes the execution property groups.
 func (o ApplicationEnvironmentPropertiesPtrOutput) PropertyGroups() ApplicationPropertyGroupArrayOutput {
 	return o.ApplyT(func(v *ApplicationEnvironmentProperties) []ApplicationPropertyGroup {
 		if v == nil {
@@ -1456,9 +1584,13 @@ func (o ApplicationEnvironmentPropertiesPtrOutput) PropertyGroups() ApplicationP
 	}).(ApplicationPropertyGroupArrayOutput)
 }
 
+// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 type ApplicationFlinkApplicationConfiguration struct {
-	CheckpointConfiguration  *ApplicationCheckpointConfiguration  `pulumi:"checkpointConfiguration"`
-	MonitoringConfiguration  *ApplicationMonitoringConfiguration  `pulumi:"monitoringConfiguration"`
+	// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+	CheckpointConfiguration *ApplicationCheckpointConfiguration `pulumi:"checkpointConfiguration"`
+	// Describes configuration parameters for Amazon CloudWatch logging for an application.
+	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
+	// Describes parameters for how an application executes multiple tasks simultaneously.
 	ParallelismConfiguration *ApplicationParallelismConfiguration `pulumi:"parallelismConfiguration"`
 }
 
@@ -1473,9 +1605,13 @@ type ApplicationFlinkApplicationConfigurationInput interface {
 	ToApplicationFlinkApplicationConfigurationOutputWithContext(context.Context) ApplicationFlinkApplicationConfigurationOutput
 }
 
+// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 type ApplicationFlinkApplicationConfigurationArgs struct {
-	CheckpointConfiguration  ApplicationCheckpointConfigurationPtrInput  `pulumi:"checkpointConfiguration"`
-	MonitoringConfiguration  ApplicationMonitoringConfigurationPtrInput  `pulumi:"monitoringConfiguration"`
+	// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+	CheckpointConfiguration ApplicationCheckpointConfigurationPtrInput `pulumi:"checkpointConfiguration"`
+	// Describes configuration parameters for Amazon CloudWatch logging for an application.
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
+	// Describes parameters for how an application executes multiple tasks simultaneously.
 	ParallelismConfiguration ApplicationParallelismConfigurationPtrInput `pulumi:"parallelismConfiguration"`
 }
 
@@ -1532,6 +1668,7 @@ func (i *applicationFlinkApplicationConfigurationPtrType) ToApplicationFlinkAppl
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 type ApplicationFlinkApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationFlinkApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -1556,18 +1693,21 @@ func (o ApplicationFlinkApplicationConfigurationOutput) ToApplicationFlinkApplic
 	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
 }
 
+// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 func (o ApplicationFlinkApplicationConfigurationOutput) CheckpointConfiguration() ApplicationCheckpointConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationFlinkApplicationConfiguration) *ApplicationCheckpointConfiguration {
 		return v.CheckpointConfiguration
 	}).(ApplicationCheckpointConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for an application.
 func (o ApplicationFlinkApplicationConfigurationOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationFlinkApplicationConfiguration) *ApplicationMonitoringConfiguration {
 		return v.MonitoringConfiguration
 	}).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
+// Describes parameters for how an application executes multiple tasks simultaneously.
 func (o ApplicationFlinkApplicationConfigurationOutput) ParallelismConfiguration() ApplicationParallelismConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationFlinkApplicationConfiguration) *ApplicationParallelismConfiguration {
 		return v.ParallelismConfiguration
@@ -1598,6 +1738,7 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) Elem() ApplicationFli
 	}).(ApplicationFlinkApplicationConfigurationOutput)
 }
 
+// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
 func (o ApplicationFlinkApplicationConfigurationPtrOutput) CheckpointConfiguration() ApplicationCheckpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationFlinkApplicationConfiguration) *ApplicationCheckpointConfiguration {
 		if v == nil {
@@ -1607,6 +1748,7 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) CheckpointConfigurati
 	}).(ApplicationCheckpointConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for an application.
 func (o ApplicationFlinkApplicationConfigurationPtrOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationFlinkApplicationConfiguration) *ApplicationMonitoringConfiguration {
 		if v == nil {
@@ -1616,6 +1758,7 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) MonitoringConfigurati
 	}).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
+// Describes parameters for how an application executes multiple tasks simultaneously.
 func (o ApplicationFlinkApplicationConfigurationPtrOutput) ParallelismConfiguration() ApplicationParallelismConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationFlinkApplicationConfiguration) *ApplicationParallelismConfiguration {
 		if v == nil {
@@ -1625,7 +1768,9 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) ParallelismConfigurat
 	}).(ApplicationParallelismConfigurationPtrOutput)
 }
 
+// The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfiguration struct {
+	// The Amazon Resource Name (ARN) of the database.
 	DatabaseARN *string `pulumi:"databaseARN"`
 }
 
@@ -1640,7 +1785,9 @@ type ApplicationGlueDataCatalogConfigurationInput interface {
 	ToApplicationGlueDataCatalogConfigurationOutputWithContext(context.Context) ApplicationGlueDataCatalogConfigurationOutput
 }
 
+// The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the database.
 	DatabaseARN pulumi.StringPtrInput `pulumi:"databaseARN"`
 }
 
@@ -1697,6 +1844,7 @@ func (i *applicationGlueDataCatalogConfigurationPtrType) ToApplicationGlueDataCa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGlueDataCatalogConfigurationPtrOutput)
 }
 
+// The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGlueDataCatalogConfigurationOutput) ElementType() reflect.Type {
@@ -1721,6 +1869,7 @@ func (o ApplicationGlueDataCatalogConfigurationOutput) ToApplicationGlueDataCata
 	}).(ApplicationGlueDataCatalogConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the database.
 func (o ApplicationGlueDataCatalogConfigurationOutput) DatabaseARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGlueDataCatalogConfiguration) *string { return v.DatabaseARN }).(pulumi.StringPtrOutput)
 }
@@ -1749,6 +1898,7 @@ func (o ApplicationGlueDataCatalogConfigurationPtrOutput) Elem() ApplicationGlue
 	}).(ApplicationGlueDataCatalogConfigurationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the database.
 func (o ApplicationGlueDataCatalogConfigurationPtrOutput) DatabaseARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGlueDataCatalogConfiguration) *string {
 		if v == nil {
@@ -1758,13 +1908,20 @@ func (o ApplicationGlueDataCatalogConfigurationPtrOutput) DatabaseARN() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 type ApplicationInputType struct {
-	InputParallelism             *ApplicationInputParallelism             `pulumi:"inputParallelism"`
+	// Describes the number of in-application streams to create.
+	InputParallelism *ApplicationInputParallelism `pulumi:"inputParallelism"`
+	// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
 	InputProcessingConfiguration *ApplicationInputProcessingConfiguration `pulumi:"inputProcessingConfiguration"`
-	InputSchema                  ApplicationInputSchema                   `pulumi:"inputSchema"`
-	KinesisFirehoseInput         *ApplicationKinesisFirehoseInput         `pulumi:"kinesisFirehoseInput"`
-	KinesisStreamsInput          *ApplicationKinesisStreamsInput          `pulumi:"kinesisStreamsInput"`
-	NamePrefix                   string                                   `pulumi:"namePrefix"`
+	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+	InputSchema ApplicationInputSchema `pulumi:"inputSchema"`
+	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+	KinesisFirehoseInput *ApplicationKinesisFirehoseInput `pulumi:"kinesisFirehoseInput"`
+	// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+	KinesisStreamsInput *ApplicationKinesisStreamsInput `pulumi:"kinesisStreamsInput"`
+	// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
+	NamePrefix string `pulumi:"namePrefix"`
 }
 
 // ApplicationInputTypeInput is an input type that accepts ApplicationInputTypeArgs and ApplicationInputTypeOutput values.
@@ -1778,13 +1935,20 @@ type ApplicationInputTypeInput interface {
 	ToApplicationInputTypeOutputWithContext(context.Context) ApplicationInputTypeOutput
 }
 
+// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 type ApplicationInputTypeArgs struct {
-	InputParallelism             ApplicationInputParallelismPtrInput             `pulumi:"inputParallelism"`
+	// Describes the number of in-application streams to create.
+	InputParallelism ApplicationInputParallelismPtrInput `pulumi:"inputParallelism"`
+	// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
 	InputProcessingConfiguration ApplicationInputProcessingConfigurationPtrInput `pulumi:"inputProcessingConfiguration"`
-	InputSchema                  ApplicationInputSchemaInput                     `pulumi:"inputSchema"`
-	KinesisFirehoseInput         ApplicationKinesisFirehoseInputPtrInput         `pulumi:"kinesisFirehoseInput"`
-	KinesisStreamsInput          ApplicationKinesisStreamsInputPtrInput          `pulumi:"kinesisStreamsInput"`
-	NamePrefix                   pulumi.StringInput                              `pulumi:"namePrefix"`
+	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+	InputSchema ApplicationInputSchemaInput `pulumi:"inputSchema"`
+	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+	KinesisFirehoseInput ApplicationKinesisFirehoseInputPtrInput `pulumi:"kinesisFirehoseInput"`
+	// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+	KinesisStreamsInput ApplicationKinesisStreamsInputPtrInput `pulumi:"kinesisStreamsInput"`
+	// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 }
 
 func (ApplicationInputTypeArgs) ElementType() reflect.Type {
@@ -1824,6 +1988,7 @@ func (i ApplicationInputTypeArray) ToApplicationInputTypeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputTypeArrayOutput)
 }
 
+// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 type ApplicationInputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputTypeOutput) ElementType() reflect.Type {
@@ -1838,28 +2003,34 @@ func (o ApplicationInputTypeOutput) ToApplicationInputTypeOutputWithContext(ctx 
 	return o
 }
 
+// Describes the number of in-application streams to create.
 func (o ApplicationInputTypeOutput) InputParallelism() ApplicationInputParallelismPtrOutput {
 	return o.ApplyT(func(v ApplicationInputType) *ApplicationInputParallelism { return v.InputParallelism }).(ApplicationInputParallelismPtrOutput)
 }
 
+// The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
 func (o ApplicationInputTypeOutput) InputProcessingConfiguration() ApplicationInputProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationInputType) *ApplicationInputProcessingConfiguration {
 		return v.InputProcessingConfiguration
 	}).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 func (o ApplicationInputTypeOutput) InputSchema() ApplicationInputSchemaOutput {
 	return o.ApplyT(func(v ApplicationInputType) ApplicationInputSchema { return v.InputSchema }).(ApplicationInputSchemaOutput)
 }
 
+// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 func (o ApplicationInputTypeOutput) KinesisFirehoseInput() ApplicationKinesisFirehoseInputPtrOutput {
 	return o.ApplyT(func(v ApplicationInputType) *ApplicationKinesisFirehoseInput { return v.KinesisFirehoseInput }).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
 func (o ApplicationInputTypeOutput) KinesisStreamsInput() ApplicationKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v ApplicationInputType) *ApplicationKinesisStreamsInput { return v.KinesisStreamsInput }).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+// The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
 func (o ApplicationInputTypeOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInputType) string { return v.NamePrefix }).(pulumi.StringOutput)
 }
@@ -1884,7 +2055,9 @@ func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInp
 	}).(ApplicationInputTypeOutput)
 }
 
+// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessor struct {
+	// The ARN of the Amazon Lambda function that operates on records in the stream.
 	ResourceARN string `pulumi:"resourceARN"`
 }
 
@@ -1899,7 +2072,9 @@ type ApplicationInputLambdaProcessorInput interface {
 	ToApplicationInputLambdaProcessorOutputWithContext(context.Context) ApplicationInputLambdaProcessorOutput
 }
 
+// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessorArgs struct {
+	// The ARN of the Amazon Lambda function that operates on records in the stream.
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 }
 
@@ -1956,6 +2131,7 @@ func (i *applicationInputLambdaProcessorPtrType) ToApplicationInputLambdaProcess
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+// An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessorOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputLambdaProcessorOutput) ElementType() reflect.Type {
@@ -1980,6 +2156,7 @@ func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessor
 	}).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+// The ARN of the Amazon Lambda function that operates on records in the stream.
 func (o ApplicationInputLambdaProcessorOutput) ResourceARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
@@ -2008,6 +2185,7 @@ func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaP
 	}).(ApplicationInputLambdaProcessorOutput)
 }
 
+// The ARN of the Amazon Lambda function that operates on records in the stream.
 func (o ApplicationInputLambdaProcessorPtrOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) *string {
 		if v == nil {
@@ -2017,7 +2195,9 @@ func (o ApplicationInputLambdaProcessorPtrOutput) ResourceARN() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 type ApplicationInputParallelism struct {
+	// The number of in-application streams to create.
 	Count *int `pulumi:"count"`
 }
 
@@ -2032,7 +2212,9 @@ type ApplicationInputParallelismInput interface {
 	ToApplicationInputParallelismOutputWithContext(context.Context) ApplicationInputParallelismOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 type ApplicationInputParallelismArgs struct {
+	// The number of in-application streams to create.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -2089,6 +2271,7 @@ func (i *applicationInputParallelismPtrType) ToApplicationInputParallelismPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputParallelismPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 type ApplicationInputParallelismOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputParallelismOutput) ElementType() reflect.Type {
@@ -2113,6 +2296,7 @@ func (o ApplicationInputParallelismOutput) ToApplicationInputParallelismPtrOutpu
 	}).(ApplicationInputParallelismPtrOutput)
 }
 
+// The number of in-application streams to create.
 func (o ApplicationInputParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInputParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -2141,6 +2325,7 @@ func (o ApplicationInputParallelismPtrOutput) Elem() ApplicationInputParallelism
 	}).(ApplicationInputParallelismOutput)
 }
 
+// The number of in-application streams to create.
 func (o ApplicationInputParallelismPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputParallelism) *int {
 		if v == nil {
@@ -2150,7 +2335,9 @@ func (o ApplicationInputParallelismPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
 type ApplicationInputProcessingConfiguration struct {
+	// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
 	InputLambdaProcessor *ApplicationInputLambdaProcessor `pulumi:"inputLambdaProcessor"`
 }
 
@@ -2165,7 +2352,9 @@ type ApplicationInputProcessingConfigurationInput interface {
 	ToApplicationInputProcessingConfigurationOutputWithContext(context.Context) ApplicationInputProcessingConfigurationOutput
 }
 
+// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
 type ApplicationInputProcessingConfigurationArgs struct {
+	// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
 	InputLambdaProcessor ApplicationInputLambdaProcessorPtrInput `pulumi:"inputLambdaProcessor"`
 }
 
@@ -2222,6 +2411,7 @@ func (i *applicationInputProcessingConfigurationPtrType) ToApplicationInputProce
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+// For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
 type ApplicationInputProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -2246,6 +2436,7 @@ func (o ApplicationInputProcessingConfigurationOutput) ToApplicationInputProcess
 	}).(ApplicationInputProcessingConfigurationPtrOutput)
 }
 
+// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
 		return v.InputLambdaProcessor
@@ -2276,6 +2467,7 @@ func (o ApplicationInputProcessingConfigurationPtrOutput) Elem() ApplicationInpu
 	}).(ApplicationInputProcessingConfigurationOutput)
 }
 
+// The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationInputProcessingConfigurationPtrOutput) InputLambdaProcessor() ApplicationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputProcessingConfiguration) *ApplicationInputLambdaProcessor {
 		if v == nil {
@@ -2285,10 +2477,14 @@ func (o ApplicationInputProcessingConfigurationPtrOutput) InputLambdaProcessor()
 	}).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 type ApplicationInputSchema struct {
-	RecordColumns  []ApplicationRecordColumn `pulumi:"recordColumns"`
-	RecordEncoding *string                   `pulumi:"recordEncoding"`
-	RecordFormat   ApplicationRecordFormat   `pulumi:"recordFormat"`
+	// A list of `RecordColumn` objects.
+	RecordColumns []ApplicationRecordColumn `pulumi:"recordColumns"`
+	// Specifies the encoding of the records in the streaming source. For example, UTF-8.
+	RecordEncoding *ApplicationInputSchemaRecordEncoding `pulumi:"recordEncoding"`
+	// Specifies the format of the records on the streaming source.
+	RecordFormat ApplicationRecordFormat `pulumi:"recordFormat"`
 }
 
 // ApplicationInputSchemaInput is an input type that accepts ApplicationInputSchemaArgs and ApplicationInputSchemaOutput values.
@@ -2302,10 +2498,14 @@ type ApplicationInputSchemaInput interface {
 	ToApplicationInputSchemaOutputWithContext(context.Context) ApplicationInputSchemaOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 type ApplicationInputSchemaArgs struct {
-	RecordColumns  ApplicationRecordColumnArrayInput `pulumi:"recordColumns"`
-	RecordEncoding pulumi.StringPtrInput             `pulumi:"recordEncoding"`
-	RecordFormat   ApplicationRecordFormatInput      `pulumi:"recordFormat"`
+	// A list of `RecordColumn` objects.
+	RecordColumns ApplicationRecordColumnArrayInput `pulumi:"recordColumns"`
+	// Specifies the encoding of the records in the streaming source. For example, UTF-8.
+	RecordEncoding ApplicationInputSchemaRecordEncodingPtrInput `pulumi:"recordEncoding"`
+	// Specifies the format of the records on the streaming source.
+	RecordFormat ApplicationRecordFormatInput `pulumi:"recordFormat"`
 }
 
 func (ApplicationInputSchemaArgs) ElementType() reflect.Type {
@@ -2320,6 +2520,7 @@ func (i ApplicationInputSchemaArgs) ToApplicationInputSchemaOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInputSchemaOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 type ApplicationInputSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInputSchemaOutput) ElementType() reflect.Type {
@@ -2334,19 +2535,24 @@ func (o ApplicationInputSchemaOutput) ToApplicationInputSchemaOutputWithContext(
 	return o
 }
 
+// A list of `RecordColumn` objects.
 func (o ApplicationInputSchemaOutput) RecordColumns() ApplicationRecordColumnArrayOutput {
 	return o.ApplyT(func(v ApplicationInputSchema) []ApplicationRecordColumn { return v.RecordColumns }).(ApplicationRecordColumnArrayOutput)
 }
 
-func (o ApplicationInputSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationInputSchema) *string { return v.RecordEncoding }).(pulumi.StringPtrOutput)
+// Specifies the encoding of the records in the streaming source. For example, UTF-8.
+func (o ApplicationInputSchemaOutput) RecordEncoding() ApplicationInputSchemaRecordEncodingPtrOutput {
+	return o.ApplyT(func(v ApplicationInputSchema) *ApplicationInputSchemaRecordEncoding { return v.RecordEncoding }).(ApplicationInputSchemaRecordEncodingPtrOutput)
 }
 
+// Specifies the format of the records on the streaming source.
 func (o ApplicationInputSchemaOutput) RecordFormat() ApplicationRecordFormatOutput {
 	return o.ApplyT(func(v ApplicationInputSchema) ApplicationRecordFormat { return v.RecordFormat }).(ApplicationRecordFormatOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 type ApplicationJSONMappingParameters struct {
+	// The path to the top-level parent that contains the records.
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
@@ -2361,7 +2567,9 @@ type ApplicationJSONMappingParametersInput interface {
 	ToApplicationJSONMappingParametersOutputWithContext(context.Context) ApplicationJSONMappingParametersOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 type ApplicationJSONMappingParametersArgs struct {
+	// The path to the top-level parent that contains the records.
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
@@ -2418,6 +2626,7 @@ func (i *applicationJSONMappingParametersPtrType) ToApplicationJSONMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJSONMappingParametersPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 type ApplicationJSONMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJSONMappingParametersOutput) ElementType() reflect.Type {
@@ -2442,6 +2651,7 @@ func (o ApplicationJSONMappingParametersOutput) ToApplicationJSONMappingParamete
 	}).(ApplicationJSONMappingParametersPtrOutput)
 }
 
+// The path to the top-level parent that contains the records.
 func (o ApplicationJSONMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationJSONMappingParameters) string { return v.RecordRowPath }).(pulumi.StringOutput)
 }
@@ -2470,6 +2680,7 @@ func (o ApplicationJSONMappingParametersPtrOutput) Elem() ApplicationJSONMapping
 	}).(ApplicationJSONMappingParametersOutput)
 }
 
+// The path to the top-level parent that contains the records.
 func (o ApplicationJSONMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJSONMappingParameters) *string {
 		if v == nil {
@@ -2479,7 +2690,9 @@ func (o ApplicationJSONMappingParametersPtrOutput) RecordRowPath() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInput struct {
+	// The Amazon Resource Name (ARN) of the delivery stream.
 	ResourceARN string `pulumi:"resourceARN"`
 }
 
@@ -2494,7 +2707,9 @@ type ApplicationKinesisFirehoseInputInput interface {
 	ToApplicationKinesisFirehoseInputOutputWithContext(context.Context) ApplicationKinesisFirehoseInputOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInputArgs struct {
+	// The Amazon Resource Name (ARN) of the delivery stream.
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 }
 
@@ -2551,6 +2766,7 @@ func (i *applicationKinesisFirehoseInputPtrType) ToApplicationKinesisFirehoseInp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKinesisFirehoseInputOutput) ElementType() reflect.Type {
@@ -2575,6 +2791,7 @@ func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInput
 	}).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the delivery stream.
 func (o ApplicationKinesisFirehoseInputOutput) ResourceARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
@@ -2603,6 +2820,7 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFireh
 	}).(ApplicationKinesisFirehoseInputOutput)
 }
 
+// The Amazon Resource Name (ARN) of the delivery stream.
 func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) *string {
 		if v == nil {
@@ -2612,7 +2830,9 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceARN() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInput struct {
+	// The ARN of the input Kinesis data stream to read.
 	ResourceARN string `pulumi:"resourceARN"`
 }
 
@@ -2627,7 +2847,9 @@ type ApplicationKinesisStreamsInputInput interface {
 	ToApplicationKinesisStreamsInputOutputWithContext(context.Context) ApplicationKinesisStreamsInputOutput
 }
 
+// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInputArgs struct {
+	// The ARN of the input Kinesis data stream to read.
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 }
 
@@ -2684,6 +2906,7 @@ func (i *applicationKinesisStreamsInputPtrType) ToApplicationKinesisStreamsInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKinesisStreamsInputOutput) ElementType() reflect.Type {
@@ -2708,6 +2931,7 @@ func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPt
 	}).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
+// The ARN of the input Kinesis data stream to read.
 func (o ApplicationKinesisStreamsInputOutput) ResourceARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
@@ -2736,6 +2960,7 @@ func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStream
 	}).(ApplicationKinesisStreamsInputOutput)
 }
 
+// The ARN of the input Kinesis data stream to read.
 func (o ApplicationKinesisStreamsInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) *string {
 		if v == nil {
@@ -2745,8 +2970,11 @@ func (o ApplicationKinesisStreamsInputPtrOutput) ResourceARN() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParameters struct {
-	CSVMappingParameters  *ApplicationCSVMappingParameters  `pulumi:"cSVMappingParameters"`
+	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	CSVMappingParameters *ApplicationCSVMappingParameters `pulumi:"cSVMappingParameters"`
+	// Provides additional mapping information when JSON is the record format on the streaming source.
 	JSONMappingParameters *ApplicationJSONMappingParameters `pulumi:"jSONMappingParameters"`
 }
 
@@ -2761,8 +2989,11 @@ type ApplicationMappingParametersInput interface {
 	ToApplicationMappingParametersOutputWithContext(context.Context) ApplicationMappingParametersOutput
 }
 
+// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParametersArgs struct {
-	CSVMappingParameters  ApplicationCSVMappingParametersPtrInput  `pulumi:"cSVMappingParameters"`
+	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	CSVMappingParameters ApplicationCSVMappingParametersPtrInput `pulumi:"cSVMappingParameters"`
+	// Provides additional mapping information when JSON is the record format on the streaming source.
 	JSONMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jSONMappingParameters"`
 }
 
@@ -2819,6 +3050,7 @@ func (i *applicationMappingParametersPtrType) ToApplicationMappingParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMappingParametersPtrOutput)
 }
 
+// When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMappingParametersOutput) ElementType() reflect.Type {
@@ -2843,10 +3075,12 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 	}).(ApplicationMappingParametersPtrOutput)
 }
 
+// Provides additional mapping information when the record format uses delimiters (for example, CSV).
 func (o ApplicationMappingParametersOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CSVMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
 }
 
+// Provides additional mapping information when JSON is the record format on the streaming source.
 func (o ApplicationMappingParametersOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JSONMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
 }
@@ -2875,6 +3109,7 @@ func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParamete
 	}).(ApplicationMappingParametersOutput)
 }
 
+// Provides additional mapping information when the record format uses delimiters (for example, CSV).
 func (o ApplicationMappingParametersPtrOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCSVMappingParameters {
 		if v == nil {
@@ -2884,6 +3119,7 @@ func (o ApplicationMappingParametersPtrOutput) CSVMappingParameters() Applicatio
 	}).(ApplicationCSVMappingParametersPtrOutput)
 }
 
+// Provides additional mapping information when JSON is the record format on the streaming source.
 func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJSONMappingParameters {
 		if v == nil {
@@ -2893,10 +3129,14 @@ func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() Applicati
 	}).(ApplicationJSONMappingParametersPtrOutput)
 }
 
+// The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
 type ApplicationMavenReference struct {
+	// The artifact ID of the Maven reference.
 	ArtifactId string `pulumi:"artifactId"`
-	GroupId    string `pulumi:"groupId"`
-	Version    string `pulumi:"version"`
+	// The group ID of the Maven reference.
+	GroupId string `pulumi:"groupId"`
+	// The version of the Maven reference.
+	Version string `pulumi:"version"`
 }
 
 // ApplicationMavenReferenceInput is an input type that accepts ApplicationMavenReferenceArgs and ApplicationMavenReferenceOutput values.
@@ -2910,10 +3150,14 @@ type ApplicationMavenReferenceInput interface {
 	ToApplicationMavenReferenceOutputWithContext(context.Context) ApplicationMavenReferenceOutput
 }
 
+// The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
 type ApplicationMavenReferenceArgs struct {
+	// The artifact ID of the Maven reference.
 	ArtifactId pulumi.StringInput `pulumi:"artifactId"`
-	GroupId    pulumi.StringInput `pulumi:"groupId"`
-	Version    pulumi.StringInput `pulumi:"version"`
+	// The group ID of the Maven reference.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The version of the Maven reference.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (ApplicationMavenReferenceArgs) ElementType() reflect.Type {
@@ -2969,6 +3213,7 @@ func (i *applicationMavenReferencePtrType) ToApplicationMavenReferencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferencePtrOutput)
 }
 
+// The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
 type ApplicationMavenReferenceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMavenReferenceOutput) ElementType() reflect.Type {
@@ -2993,14 +3238,17 @@ func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferencePtrOutputWit
 	}).(ApplicationMavenReferencePtrOutput)
 }
 
+// The artifact ID of the Maven reference.
 func (o ApplicationMavenReferenceOutput) ArtifactId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMavenReference) string { return v.ArtifactId }).(pulumi.StringOutput)
 }
 
+// The group ID of the Maven reference.
 func (o ApplicationMavenReferenceOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMavenReference) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// The version of the Maven reference.
 func (o ApplicationMavenReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMavenReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -3029,6 +3277,7 @@ func (o ApplicationMavenReferencePtrOutput) Elem() ApplicationMavenReferenceOutp
 	}).(ApplicationMavenReferenceOutput)
 }
 
+// The artifact ID of the Maven reference.
 func (o ApplicationMavenReferencePtrOutput) ArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMavenReference) *string {
 		if v == nil {
@@ -3038,6 +3287,7 @@ func (o ApplicationMavenReferencePtrOutput) ArtifactId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The group ID of the Maven reference.
 func (o ApplicationMavenReferencePtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMavenReference) *string {
 		if v == nil {
@@ -3047,6 +3297,7 @@ func (o ApplicationMavenReferencePtrOutput) GroupId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the Maven reference.
 func (o ApplicationMavenReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMavenReference) *string {
 		if v == nil {
@@ -3056,10 +3307,14 @@ func (o ApplicationMavenReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
 type ApplicationMonitoringConfiguration struct {
-	ConfigurationType string  `pulumi:"configurationType"`
-	LogLevel          *string `pulumi:"logLevel"`
-	MetricsLevel      *string `pulumi:"metricsLevel"`
+	// Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+	ConfigurationType ApplicationMonitoringConfigurationConfigurationType `pulumi:"configurationType"`
+	// Describes the verbosity of the CloudWatch Logs for an application.
+	LogLevel *ApplicationMonitoringConfigurationLogLevel `pulumi:"logLevel"`
+	// Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+	MetricsLevel *ApplicationMonitoringConfigurationMetricsLevel `pulumi:"metricsLevel"`
 }
 
 // ApplicationMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationArgs and ApplicationMonitoringConfigurationOutput values.
@@ -3073,10 +3328,14 @@ type ApplicationMonitoringConfigurationInput interface {
 	ToApplicationMonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationOutput
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
 type ApplicationMonitoringConfigurationArgs struct {
-	ConfigurationType pulumi.StringInput    `pulumi:"configurationType"`
-	LogLevel          pulumi.StringPtrInput `pulumi:"logLevel"`
-	MetricsLevel      pulumi.StringPtrInput `pulumi:"metricsLevel"`
+	// Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+	ConfigurationType ApplicationMonitoringConfigurationConfigurationTypeInput `pulumi:"configurationType"`
+	// Describes the verbosity of the CloudWatch Logs for an application.
+	LogLevel ApplicationMonitoringConfigurationLogLevelPtrInput `pulumi:"logLevel"`
+	// Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+	MetricsLevel ApplicationMonitoringConfigurationMetricsLevelPtrInput `pulumi:"metricsLevel"`
 }
 
 func (ApplicationMonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -3132,6 +3391,7 @@ func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
 type ApplicationMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -3156,16 +3416,25 @@ func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigu
 	}).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationOutput) ConfigurationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationMonitoringConfiguration) string { return v.ConfigurationType }).(pulumi.StringOutput)
+// Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+func (o ApplicationMonitoringConfigurationOutput) ConfigurationType() ApplicationMonitoringConfigurationConfigurationTypeOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) ApplicationMonitoringConfigurationConfigurationType {
+		return v.ConfigurationType
+	}).(ApplicationMonitoringConfigurationConfigurationTypeOutput)
 }
 
-func (o ApplicationMonitoringConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+// Describes the verbosity of the CloudWatch Logs for an application.
+func (o ApplicationMonitoringConfigurationOutput) LogLevel() ApplicationMonitoringConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationLogLevel {
+		return v.LogLevel
+	}).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationOutput) MetricsLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *string { return v.MetricsLevel }).(pulumi.StringPtrOutput)
+// Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+func (o ApplicationMonitoringConfigurationOutput) MetricsLevel() ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationMetricsLevel {
+		return v.MetricsLevel
+	}).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
 }
 
 type ApplicationMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3192,31 +3461,34 @@ func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitorin
 	}).(ApplicationMonitoringConfigurationOutput)
 }
 
-func (o ApplicationMonitoringConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *string {
+// Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+func (o ApplicationMonitoringConfigurationPtrOutput) ConfigurationType() ApplicationMonitoringConfigurationConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationConfigurationType {
 		if v == nil {
 			return nil
 		}
 		return &v.ConfigurationType
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationPtrOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *string {
+// Describes the verbosity of the CloudWatch Logs for an application.
+func (o ApplicationMonitoringConfigurationPtrOutput) LogLevel() ApplicationMonitoringConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationLogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.LogLevel
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationPtrOutput) MetricsLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *string {
+// Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+func (o ApplicationMonitoringConfigurationPtrOutput) MetricsLevel() ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationMetricsLevel {
 		if v == nil {
 			return nil
 		}
 		return v.MetricsLevel
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
 }
 
 type ApplicationOutputResourceDestinationSchema struct {
@@ -3850,11 +4122,16 @@ func (o ApplicationOutputResourceOutputTypePtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
 type ApplicationParallelismConfiguration struct {
-	AutoScalingEnabled *bool  `pulumi:"autoScalingEnabled"`
-	ConfigurationType  string `pulumi:"configurationType"`
-	Parallelism        *int   `pulumi:"parallelism"`
-	ParallelismPerKPU  *int   `pulumi:"parallelismPerKPU"`
+	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
+	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+	ConfigurationType ApplicationParallelismConfigurationConfigurationType `pulumi:"configurationType"`
+	// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
+	Parallelism *int `pulumi:"parallelism"`
+	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
+	ParallelismPerKPU *int `pulumi:"parallelismPerKPU"`
 }
 
 // ApplicationParallelismConfigurationInput is an input type that accepts ApplicationParallelismConfigurationArgs and ApplicationParallelismConfigurationOutput values.
@@ -3868,11 +4145,16 @@ type ApplicationParallelismConfigurationInput interface {
 	ToApplicationParallelismConfigurationOutputWithContext(context.Context) ApplicationParallelismConfigurationOutput
 }
 
+// Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
 type ApplicationParallelismConfigurationArgs struct {
+	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 	AutoScalingEnabled pulumi.BoolPtrInput `pulumi:"autoScalingEnabled"`
-	ConfigurationType  pulumi.StringInput  `pulumi:"configurationType"`
-	Parallelism        pulumi.IntPtrInput  `pulumi:"parallelism"`
-	ParallelismPerKPU  pulumi.IntPtrInput  `pulumi:"parallelismPerKPU"`
+	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+	ConfigurationType ApplicationParallelismConfigurationConfigurationTypeInput `pulumi:"configurationType"`
+	// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
+	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
+	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
+	ParallelismPerKPU pulumi.IntPtrInput `pulumi:"parallelismPerKPU"`
 }
 
 func (ApplicationParallelismConfigurationArgs) ElementType() reflect.Type {
@@ -3928,6 +4210,7 @@ func (i *applicationParallelismConfigurationPtrType) ToApplicationParallelismCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParallelismConfigurationPtrOutput)
 }
 
+// Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
 type ApplicationParallelismConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationParallelismConfigurationOutput) ElementType() reflect.Type {
@@ -3952,18 +4235,24 @@ func (o ApplicationParallelismConfigurationOutput) ToApplicationParallelismConfi
 	}).(ApplicationParallelismConfigurationPtrOutput)
 }
 
+// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 func (o ApplicationParallelismConfigurationOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationParallelismConfiguration) *bool { return v.AutoScalingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o ApplicationParallelismConfigurationOutput) ConfigurationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationParallelismConfiguration) string { return v.ConfigurationType }).(pulumi.StringOutput)
+// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+func (o ApplicationParallelismConfigurationOutput) ConfigurationType() ApplicationParallelismConfigurationConfigurationTypeOutput {
+	return o.ApplyT(func(v ApplicationParallelismConfiguration) ApplicationParallelismConfigurationConfigurationType {
+		return v.ConfigurationType
+	}).(ApplicationParallelismConfigurationConfigurationTypeOutput)
 }
 
+// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
 func (o ApplicationParallelismConfigurationOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationParallelismConfiguration) *int { return v.Parallelism }).(pulumi.IntPtrOutput)
 }
 
+// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
 func (o ApplicationParallelismConfigurationOutput) ParallelismPerKPU() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationParallelismConfiguration) *int { return v.ParallelismPerKPU }).(pulumi.IntPtrOutput)
 }
@@ -3992,6 +4281,7 @@ func (o ApplicationParallelismConfigurationPtrOutput) Elem() ApplicationParallel
 	}).(ApplicationParallelismConfigurationOutput)
 }
 
+// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 func (o ApplicationParallelismConfigurationPtrOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *bool {
 		if v == nil {
@@ -4001,15 +4291,17 @@ func (o ApplicationParallelismConfigurationPtrOutput) AutoScalingEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ApplicationParallelismConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *string {
+// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+func (o ApplicationParallelismConfigurationPtrOutput) ConfigurationType() ApplicationParallelismConfigurationConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *ApplicationParallelismConfigurationConfigurationType {
 		if v == nil {
 			return nil
 		}
 		return &v.ConfigurationType
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
 }
 
+// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
 func (o ApplicationParallelismConfigurationPtrOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *int {
 		if v == nil {
@@ -4019,6 +4311,7 @@ func (o ApplicationParallelismConfigurationPtrOutput) Parallelism() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
 func (o ApplicationParallelismConfigurationPtrOutput) ParallelismPerKPU() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *int {
 		if v == nil {
@@ -4028,9 +4321,12 @@ func (o ApplicationParallelismConfigurationPtrOutput) ParallelismPerKPU() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Property key-value pairs passed into an application.
 type ApplicationPropertyGroup struct {
-	PropertyGroupId *string     `pulumi:"propertyGroupId"`
-	PropertyMap     interface{} `pulumi:"propertyMap"`
+	// Describes the key of an application execution property key-value pair.
+	PropertyGroupId *string `pulumi:"propertyGroupId"`
+	// Describes the value of an application execution property key-value pair.
+	PropertyMap interface{} `pulumi:"propertyMap"`
 }
 
 // ApplicationPropertyGroupInput is an input type that accepts ApplicationPropertyGroupArgs and ApplicationPropertyGroupOutput values.
@@ -4044,9 +4340,12 @@ type ApplicationPropertyGroupInput interface {
 	ToApplicationPropertyGroupOutputWithContext(context.Context) ApplicationPropertyGroupOutput
 }
 
+// Property key-value pairs passed into an application.
 type ApplicationPropertyGroupArgs struct {
+	// Describes the key of an application execution property key-value pair.
 	PropertyGroupId pulumi.StringPtrInput `pulumi:"propertyGroupId"`
-	PropertyMap     pulumi.Input          `pulumi:"propertyMap"`
+	// Describes the value of an application execution property key-value pair.
+	PropertyMap pulumi.Input `pulumi:"propertyMap"`
 }
 
 func (ApplicationPropertyGroupArgs) ElementType() reflect.Type {
@@ -4086,6 +4385,7 @@ func (i ApplicationPropertyGroupArray) ToApplicationPropertyGroupArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPropertyGroupArrayOutput)
 }
 
+// Property key-value pairs passed into an application.
 type ApplicationPropertyGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPropertyGroupOutput) ElementType() reflect.Type {
@@ -4100,10 +4400,12 @@ func (o ApplicationPropertyGroupOutput) ToApplicationPropertyGroupOutputWithCont
 	return o
 }
 
+// Describes the key of an application execution property key-value pair.
 func (o ApplicationPropertyGroupOutput) PropertyGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPropertyGroup) *string { return v.PropertyGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Describes the value of an application execution property key-value pair.
 func (o ApplicationPropertyGroupOutput) PropertyMap() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApplicationPropertyGroup) interface{} { return v.PropertyMap }).(pulumi.AnyOutput)
 }
@@ -4128,10 +4430,15 @@ func (o ApplicationPropertyGroupArrayOutput) Index(i pulumi.IntInput) Applicatio
 	}).(ApplicationPropertyGroupOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Also used to describe the format of the reference data source.
 type ApplicationRecordColumn struct {
+	// A reference to the data element in the streaming input or the reference data source.
 	Mapping *string `pulumi:"mapping"`
-	Name    string  `pulumi:"name"`
-	SqlType string  `pulumi:"sqlType"`
+	// The name of the column that is created in the in-application input stream or reference table.
+	Name string `pulumi:"name"`
+	// The type of column created in the in-application input stream or reference table.
+	SqlType string `pulumi:"sqlType"`
 }
 
 // ApplicationRecordColumnInput is an input type that accepts ApplicationRecordColumnArgs and ApplicationRecordColumnOutput values.
@@ -4145,10 +4452,15 @@ type ApplicationRecordColumnInput interface {
 	ToApplicationRecordColumnOutputWithContext(context.Context) ApplicationRecordColumnOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Also used to describe the format of the reference data source.
 type ApplicationRecordColumnArgs struct {
+	// A reference to the data element in the streaming input or the reference data source.
 	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	Name    pulumi.StringInput    `pulumi:"name"`
-	SqlType pulumi.StringInput    `pulumi:"sqlType"`
+	// The name of the column that is created in the in-application input stream or reference table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of column created in the in-application input stream or reference table.
+	SqlType pulumi.StringInput `pulumi:"sqlType"`
 }
 
 func (ApplicationRecordColumnArgs) ElementType() reflect.Type {
@@ -4188,6 +4500,8 @@ func (i ApplicationRecordColumnArray) ToApplicationRecordColumnArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordColumnArrayOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Also used to describe the format of the reference data source.
 type ApplicationRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationRecordColumnOutput) ElementType() reflect.Type {
@@ -4202,14 +4516,17 @@ func (o ApplicationRecordColumnOutput) ToApplicationRecordColumnOutputWithContex
 	return o
 }
 
+// A reference to the data element in the streaming input or the reference data source.
 func (o ApplicationRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationRecordColumn) *string { return v.Mapping }).(pulumi.StringPtrOutput)
 }
 
+// The name of the column that is created in the in-application input stream or reference table.
 func (o ApplicationRecordColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRecordColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of column created in the in-application input stream or reference table.
 func (o ApplicationRecordColumnOutput) SqlType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRecordColumn) string { return v.SqlType }).(pulumi.StringOutput)
 }
@@ -4234,9 +4551,12 @@ func (o ApplicationRecordColumnArrayOutput) Index(i pulumi.IntInput) Application
 	}).(ApplicationRecordColumnOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 type ApplicationRecordFormat struct {
+	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 	MappingParameters *ApplicationMappingParameters `pulumi:"mappingParameters"`
-	RecordFormatType  string                        `pulumi:"recordFormatType"`
+	// The type of record format.
+	RecordFormatType ApplicationRecordFormatRecordFormatType `pulumi:"recordFormatType"`
 }
 
 // ApplicationRecordFormatInput is an input type that accepts ApplicationRecordFormatArgs and ApplicationRecordFormatOutput values.
@@ -4250,9 +4570,12 @@ type ApplicationRecordFormatInput interface {
 	ToApplicationRecordFormatOutputWithContext(context.Context) ApplicationRecordFormatOutput
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 type ApplicationRecordFormatArgs struct {
+	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 	MappingParameters ApplicationMappingParametersPtrInput `pulumi:"mappingParameters"`
-	RecordFormatType  pulumi.StringInput                   `pulumi:"recordFormatType"`
+	// The type of record format.
+	RecordFormatType ApplicationRecordFormatRecordFormatTypeInput `pulumi:"recordFormatType"`
 }
 
 func (ApplicationRecordFormatArgs) ElementType() reflect.Type {
@@ -4267,6 +4590,7 @@ func (i ApplicationRecordFormatArgs) ToApplicationRecordFormatOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRecordFormatOutput)
 }
 
+// For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 type ApplicationRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationRecordFormatOutput) ElementType() reflect.Type {
@@ -4281,12 +4605,14 @@ func (o ApplicationRecordFormatOutput) ToApplicationRecordFormatOutputWithContex
 	return o
 }
 
+// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 func (o ApplicationRecordFormatOutput) MappingParameters() ApplicationMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationRecordFormat) *ApplicationMappingParameters { return v.MappingParameters }).(ApplicationMappingParametersPtrOutput)
 }
 
-func (o ApplicationRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationRecordFormat) string { return v.RecordFormatType }).(pulumi.StringOutput)
+// The type of record format.
+func (o ApplicationRecordFormatOutput) RecordFormatType() ApplicationRecordFormatRecordFormatTypeOutput {
+	return o.ApplyT(func(v ApplicationRecordFormat) ApplicationRecordFormatRecordFormatType { return v.RecordFormatType }).(ApplicationRecordFormatRecordFormatTypeOutput)
 }
 
 type ApplicationReferenceDataSourceCSVMappingParameters struct {
@@ -5307,9 +5633,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) FileKey() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The base location of the Amazon Data Analytics application.
 type ApplicationS3ContentBaseLocation struct {
-	BasePath  *string `pulumi:"basePath"`
-	BucketARN string  `pulumi:"bucketARN"`
+	// The base path for the S3 bucket.
+	BasePath *string `pulumi:"basePath"`
+	// The Amazon Resource Name (ARN) of the S3 bucket.
+	BucketARN string `pulumi:"bucketARN"`
 }
 
 // ApplicationS3ContentBaseLocationInput is an input type that accepts ApplicationS3ContentBaseLocationArgs and ApplicationS3ContentBaseLocationOutput values.
@@ -5323,9 +5652,12 @@ type ApplicationS3ContentBaseLocationInput interface {
 	ToApplicationS3ContentBaseLocationOutputWithContext(context.Context) ApplicationS3ContentBaseLocationOutput
 }
 
+// The base location of the Amazon Data Analytics application.
 type ApplicationS3ContentBaseLocationArgs struct {
-	BasePath  pulumi.StringPtrInput `pulumi:"basePath"`
-	BucketARN pulumi.StringInput    `pulumi:"bucketARN"`
+	// The base path for the S3 bucket.
+	BasePath pulumi.StringPtrInput `pulumi:"basePath"`
+	// The Amazon Resource Name (ARN) of the S3 bucket.
+	BucketARN pulumi.StringInput `pulumi:"bucketARN"`
 }
 
 func (ApplicationS3ContentBaseLocationArgs) ElementType() reflect.Type {
@@ -5381,6 +5713,7 @@ func (i *applicationS3ContentBaseLocationPtrType) ToApplicationS3ContentBaseLoca
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentBaseLocationPtrOutput)
 }
 
+// The base location of the Amazon Data Analytics application.
 type ApplicationS3ContentBaseLocationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationS3ContentBaseLocationOutput) ElementType() reflect.Type {
@@ -5405,10 +5738,12 @@ func (o ApplicationS3ContentBaseLocationOutput) ToApplicationS3ContentBaseLocati
 	}).(ApplicationS3ContentBaseLocationPtrOutput)
 }
 
+// The base path for the S3 bucket.
 func (o ApplicationS3ContentBaseLocationOutput) BasePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationS3ContentBaseLocation) *string { return v.BasePath }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the S3 bucket.
 func (o ApplicationS3ContentBaseLocationOutput) BucketARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3ContentBaseLocation) string { return v.BucketARN }).(pulumi.StringOutput)
 }
@@ -5437,6 +5772,7 @@ func (o ApplicationS3ContentBaseLocationPtrOutput) Elem() ApplicationS3ContentBa
 	}).(ApplicationS3ContentBaseLocationOutput)
 }
 
+// The base path for the S3 bucket.
 func (o ApplicationS3ContentBaseLocationPtrOutput) BasePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentBaseLocation) *string {
 		if v == nil {
@@ -5446,6 +5782,7 @@ func (o ApplicationS3ContentBaseLocationPtrOutput) BasePath() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the S3 bucket.
 func (o ApplicationS3ContentBaseLocationPtrOutput) BucketARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentBaseLocation) *string {
 		if v == nil {
@@ -5455,9 +5792,13 @@ func (o ApplicationS3ContentBaseLocationPtrOutput) BucketARN() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The location of an application or a custom artifact.
 type ApplicationS3ContentLocation struct {
-	BucketARN     string  `pulumi:"bucketARN"`
-	FileKey       string  `pulumi:"fileKey"`
+	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
+	BucketARN string `pulumi:"bucketARN"`
+	// The file key for the object containing the application code.
+	FileKey string `pulumi:"fileKey"`
+	// The version of the object containing the application code.
 	ObjectVersion *string `pulumi:"objectVersion"`
 }
 
@@ -5472,9 +5813,13 @@ type ApplicationS3ContentLocationInput interface {
 	ToApplicationS3ContentLocationOutputWithContext(context.Context) ApplicationS3ContentLocationOutput
 }
 
+// The location of an application or a custom artifact.
 type ApplicationS3ContentLocationArgs struct {
-	BucketARN     pulumi.StringInput    `pulumi:"bucketARN"`
-	FileKey       pulumi.StringInput    `pulumi:"fileKey"`
+	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
+	BucketARN pulumi.StringInput `pulumi:"bucketARN"`
+	// The file key for the object containing the application code.
+	FileKey pulumi.StringInput `pulumi:"fileKey"`
+	// The version of the object containing the application code.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 }
 
@@ -5531,6 +5876,7 @@ func (i *applicationS3ContentLocationPtrType) ToApplicationS3ContentLocationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3ContentLocationPtrOutput)
 }
 
+// The location of an application or a custom artifact.
 type ApplicationS3ContentLocationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationS3ContentLocationOutput) ElementType() reflect.Type {
@@ -5555,14 +5901,17 @@ func (o ApplicationS3ContentLocationOutput) ToApplicationS3ContentLocationPtrOut
 	}).(ApplicationS3ContentLocationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
 func (o ApplicationS3ContentLocationOutput) BucketARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3ContentLocation) string { return v.BucketARN }).(pulumi.StringOutput)
 }
 
+// The file key for the object containing the application code.
 func (o ApplicationS3ContentLocationOutput) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3ContentLocation) string { return v.FileKey }).(pulumi.StringOutput)
 }
 
+// The version of the object containing the application code.
 func (o ApplicationS3ContentLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationS3ContentLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -5591,6 +5940,7 @@ func (o ApplicationS3ContentLocationPtrOutput) Elem() ApplicationS3ContentLocati
 	}).(ApplicationS3ContentLocationOutput)
 }
 
+// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
 func (o ApplicationS3ContentLocationPtrOutput) BucketARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentLocation) *string {
 		if v == nil {
@@ -5600,6 +5950,7 @@ func (o ApplicationS3ContentLocationPtrOutput) BucketARN() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The file key for the object containing the application code.
 func (o ApplicationS3ContentLocationPtrOutput) FileKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentLocation) *string {
 		if v == nil {
@@ -5609,6 +5960,7 @@ func (o ApplicationS3ContentLocationPtrOutput) FileKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the object containing the application code.
 func (o ApplicationS3ContentLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentLocation) *string {
 		if v == nil {
@@ -5618,7 +5970,9 @@ func (o ApplicationS3ContentLocationPtrOutput) ObjectVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfiguration struct {
+	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	SnapshotsEnabled bool `pulumi:"snapshotsEnabled"`
 }
 
@@ -5633,7 +5987,9 @@ type ApplicationSnapshotConfigurationInput interface {
 	ToApplicationSnapshotConfigurationOutputWithContext(context.Context) ApplicationSnapshotConfigurationOutput
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfigurationArgs struct {
+	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	SnapshotsEnabled pulumi.BoolInput `pulumi:"snapshotsEnabled"`
 }
 
@@ -5690,6 +6046,7 @@ func (i *applicationSnapshotConfigurationPtrType) ToApplicationSnapshotConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 type ApplicationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotConfigurationOutput) ElementType() reflect.Type {
@@ -5714,6 +6071,7 @@ func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurati
 	}).(ApplicationSnapshotConfigurationPtrOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationSnapshotConfiguration) bool { return v.SnapshotsEnabled }).(pulumi.BoolOutput)
 }
@@ -5742,6 +6100,7 @@ func (o ApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationSnapshotCon
 	}).(ApplicationSnapshotConfigurationOutput)
 }
 
+// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationSnapshotConfiguration) *bool {
 		if v == nil {
@@ -5751,7 +6110,9 @@ func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 type ApplicationSqlApplicationConfiguration struct {
+	// The array of Input objects describing the input streams used by the application.
 	Inputs []ApplicationInputType `pulumi:"inputs"`
 }
 
@@ -5766,7 +6127,9 @@ type ApplicationSqlApplicationConfigurationInput interface {
 	ToApplicationSqlApplicationConfigurationOutputWithContext(context.Context) ApplicationSqlApplicationConfigurationOutput
 }
 
+// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 type ApplicationSqlApplicationConfigurationArgs struct {
+	// The array of Input objects describing the input streams used by the application.
 	Inputs ApplicationInputTypeArrayInput `pulumi:"inputs"`
 }
 
@@ -5823,6 +6186,7 @@ func (i *applicationSqlApplicationConfigurationPtrType) ToApplicationSqlApplicat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 type ApplicationSqlApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSqlApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -5847,6 +6211,7 @@ func (o ApplicationSqlApplicationConfigurationOutput) ToApplicationSqlApplicatio
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+// The array of Input objects describing the input streams used by the application.
 func (o ApplicationSqlApplicationConfigurationOutput) Inputs() ApplicationInputTypeArrayOutput {
 	return o.ApplyT(func(v ApplicationSqlApplicationConfiguration) []ApplicationInputType { return v.Inputs }).(ApplicationInputTypeArrayOutput)
 }
@@ -5875,6 +6240,7 @@ func (o ApplicationSqlApplicationConfigurationPtrOutput) Elem() ApplicationSqlAp
 	}).(ApplicationSqlApplicationConfigurationOutput)
 }
 
+// The array of Input objects describing the input streams used by the application.
 func (o ApplicationSqlApplicationConfigurationPtrOutput) Inputs() ApplicationInputTypeArrayOutput {
 	return o.ApplyT(func(v *ApplicationSqlApplicationConfiguration) []ApplicationInputType {
 		if v == nil {
@@ -5884,8 +6250,11 @@ func (o ApplicationSqlApplicationConfigurationPtrOutput) Inputs() ApplicationInp
 	}).(ApplicationInputTypeArrayOutput)
 }
 
+// A key-value pair that identifies an application.
 type ApplicationTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 0 to 256 characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -5900,8 +6269,11 @@ type ApplicationTagInput interface {
 	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
 }
 
+// A key-value pair that identifies an application.
 type ApplicationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 0 to 256 characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5942,6 +6314,7 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
+// A key-value pair that identifies an application.
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagOutput) ElementType() reflect.Type {
@@ -5956,10 +6329,12 @@ func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ApplicationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that's 0 to 256 characters in length.
 func (o ApplicationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5984,11 +6359,16 @@ func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput
 	}).(ApplicationTagOutput)
 }
 
+// The configuration of a Kinesis Data Analytics Studio notebook.
 type ApplicationZeppelinApplicationConfiguration struct {
-	CatalogConfiguration             *ApplicationCatalogConfiguration             `pulumi:"catalogConfiguration"`
-	CustomArtifactsConfiguration     []ApplicationCustomArtifactConfiguration     `pulumi:"customArtifactsConfiguration"`
+	// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
+	CatalogConfiguration *ApplicationCatalogConfiguration `pulumi:"catalogConfiguration"`
+	// A list of CustomArtifactConfiguration objects.
+	CustomArtifactsConfiguration []ApplicationCustomArtifactConfiguration `pulumi:"customArtifactsConfiguration"`
+	// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 	DeployAsApplicationConfiguration *ApplicationDeployAsApplicationConfiguration `pulumi:"deployAsApplicationConfiguration"`
-	MonitoringConfiguration          *ApplicationZeppelinMonitoringConfiguration  `pulumi:"monitoringConfiguration"`
+	// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
+	MonitoringConfiguration *ApplicationZeppelinMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 }
 
 // ApplicationZeppelinApplicationConfigurationInput is an input type that accepts ApplicationZeppelinApplicationConfigurationArgs and ApplicationZeppelinApplicationConfigurationOutput values.
@@ -6002,11 +6382,16 @@ type ApplicationZeppelinApplicationConfigurationInput interface {
 	ToApplicationZeppelinApplicationConfigurationOutputWithContext(context.Context) ApplicationZeppelinApplicationConfigurationOutput
 }
 
+// The configuration of a Kinesis Data Analytics Studio notebook.
 type ApplicationZeppelinApplicationConfigurationArgs struct {
-	CatalogConfiguration             ApplicationCatalogConfigurationPtrInput             `pulumi:"catalogConfiguration"`
-	CustomArtifactsConfiguration     ApplicationCustomArtifactConfigurationArrayInput    `pulumi:"customArtifactsConfiguration"`
+	// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
+	CatalogConfiguration ApplicationCatalogConfigurationPtrInput `pulumi:"catalogConfiguration"`
+	// A list of CustomArtifactConfiguration objects.
+	CustomArtifactsConfiguration ApplicationCustomArtifactConfigurationArrayInput `pulumi:"customArtifactsConfiguration"`
+	// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 	DeployAsApplicationConfiguration ApplicationDeployAsApplicationConfigurationPtrInput `pulumi:"deployAsApplicationConfiguration"`
-	MonitoringConfiguration          ApplicationZeppelinMonitoringConfigurationPtrInput  `pulumi:"monitoringConfiguration"`
+	// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
+	MonitoringConfiguration ApplicationZeppelinMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
 }
 
 func (ApplicationZeppelinApplicationConfigurationArgs) ElementType() reflect.Type {
@@ -6062,6 +6447,7 @@ func (i *applicationZeppelinApplicationConfigurationPtrType) ToApplicationZeppel
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
+// The configuration of a Kinesis Data Analytics Studio notebook.
 type ApplicationZeppelinApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationZeppelinApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -6086,24 +6472,28 @@ func (o ApplicationZeppelinApplicationConfigurationOutput) ToApplicationZeppelin
 	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
+// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
 func (o ApplicationZeppelinApplicationConfigurationOutput) CatalogConfiguration() ApplicationCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) *ApplicationCatalogConfiguration {
 		return v.CatalogConfiguration
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+// A list of CustomArtifactConfiguration objects.
 func (o ApplicationZeppelinApplicationConfigurationOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) []ApplicationCustomArtifactConfiguration {
 		return v.CustomArtifactsConfiguration
 	}).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
+// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 func (o ApplicationZeppelinApplicationConfigurationOutput) DeployAsApplicationConfiguration() ApplicationDeployAsApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) *ApplicationDeployAsApplicationConfiguration {
 		return v.DeployAsApplicationConfiguration
 	}).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
 func (o ApplicationZeppelinApplicationConfigurationOutput) MonitoringConfiguration() ApplicationZeppelinMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) *ApplicationZeppelinMonitoringConfiguration {
 		return v.MonitoringConfiguration
@@ -6134,6 +6524,7 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) Elem() Application
 	}).(ApplicationZeppelinApplicationConfigurationOutput)
 }
 
+// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CatalogConfiguration() ApplicationCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) *ApplicationCatalogConfiguration {
 		if v == nil {
@@ -6143,6 +6534,7 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CatalogConfigurati
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
+// A list of CustomArtifactConfiguration objects.
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactConfigurationArrayOutput {
 	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) []ApplicationCustomArtifactConfiguration {
 		if v == nil {
@@ -6152,6 +6544,7 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CustomArtifactsCon
 	}).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
+// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) DeployAsApplicationConfiguration() ApplicationDeployAsApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) *ApplicationDeployAsApplicationConfiguration {
 		if v == nil {
@@ -6161,6 +6554,7 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) DeployAsApplicatio
 	}).(ApplicationDeployAsApplicationConfigurationPtrOutput)
 }
 
+// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) MonitoringConfiguration() ApplicationZeppelinMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) *ApplicationZeppelinMonitoringConfiguration {
 		if v == nil {
@@ -6170,8 +6564,10 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) MonitoringConfigur
 	}).(ApplicationZeppelinMonitoringConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
 type ApplicationZeppelinMonitoringConfiguration struct {
-	LogLevel *string `pulumi:"logLevel"`
+	// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+	LogLevel *ApplicationZeppelinMonitoringConfigurationLogLevel `pulumi:"logLevel"`
 }
 
 // ApplicationZeppelinMonitoringConfigurationInput is an input type that accepts ApplicationZeppelinMonitoringConfigurationArgs and ApplicationZeppelinMonitoringConfigurationOutput values.
@@ -6185,8 +6581,10 @@ type ApplicationZeppelinMonitoringConfigurationInput interface {
 	ToApplicationZeppelinMonitoringConfigurationOutputWithContext(context.Context) ApplicationZeppelinMonitoringConfigurationOutput
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
 type ApplicationZeppelinMonitoringConfigurationArgs struct {
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+	LogLevel ApplicationZeppelinMonitoringConfigurationLogLevelPtrInput `pulumi:"logLevel"`
 }
 
 func (ApplicationZeppelinMonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -6242,6 +6640,7 @@ func (i *applicationZeppelinMonitoringConfigurationPtrType) ToApplicationZeppeli
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationZeppelinMonitoringConfigurationPtrOutput)
 }
 
+// Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
 type ApplicationZeppelinMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationZeppelinMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -6266,8 +6665,11 @@ func (o ApplicationZeppelinMonitoringConfigurationOutput) ToApplicationZeppelinM
 	}).(ApplicationZeppelinMonitoringConfigurationPtrOutput)
 }
 
-func (o ApplicationZeppelinMonitoringConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationZeppelinMonitoringConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+func (o ApplicationZeppelinMonitoringConfigurationOutput) LogLevel() ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v ApplicationZeppelinMonitoringConfiguration) *ApplicationZeppelinMonitoringConfigurationLogLevel {
+		return v.LogLevel
+	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
 type ApplicationZeppelinMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6294,13 +6696,14 @@ func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) Elem() ApplicationZ
 	}).(ApplicationZeppelinMonitoringConfigurationOutput)
 }
 
-func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationZeppelinMonitoringConfiguration) *string {
+// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) LogLevel() ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v *ApplicationZeppelinMonitoringConfiguration) *ApplicationZeppelinMonitoringConfigurationLogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.LogLevel
-	}).(pulumi.StringPtrOutput)
+	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
 func init() {

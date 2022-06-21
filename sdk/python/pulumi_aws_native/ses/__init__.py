@@ -8,6 +8,7 @@ import typing
 from .configuration_set import *
 from .configuration_set_event_destination import *
 from .contact_list import *
+from .get_configuration_set import *
 from .get_configuration_set_event_destination import *
 from .get_contact_list import *
 from .get_receipt_filter import *

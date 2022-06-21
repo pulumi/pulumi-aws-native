@@ -36,6 +36,8 @@ type LookupAcceleratorResult struct {
 	IpAddressType *AcceleratorIpAddressType `pulumi:"ipAddressType"`
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
+	// The IPv4 addresses assigned to the accelerator.
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
 	// Name of accelerator.
 	Name *string          `pulumi:"name"`
 	Tags []AcceleratorTag `pulumi:"tags"`
@@ -100,6 +102,11 @@ func (o LookupAcceleratorResultOutput) IpAddressType() AcceleratorIpAddressTypeP
 // The IP addresses from BYOIP Prefix pool.
 func (o LookupAcceleratorResultOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The IPv4 addresses assigned to the accelerator.
+func (o LookupAcceleratorResultOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Name of accelerator.

@@ -23,6 +23,7 @@ class DataQualityJobDefinitionArgs:
                  job_resources: pulumi.Input['DataQualityJobDefinitionMonitoringResourcesArgs'],
                  role_arn: pulumi.Input[str],
                  data_quality_baseline_config: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs']] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  network_config: Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs']] = None,
                  stopping_condition: Optional[pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs']] = None,
@@ -39,6 +40,8 @@ class DataQualityJobDefinitionArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if data_quality_baseline_config is not None:
             pulumi.set(__self__, "data_quality_baseline_config", data_quality_baseline_config)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if job_definition_name is not None:
             pulumi.set(__self__, "job_definition_name", job_definition_name)
         if network_config is not None:
@@ -106,6 +109,15 @@ class DataQualityJobDefinitionArgs:
         pulumi.set(self, "data_quality_baseline_config", value)
 
     @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "job_definition_name")
@@ -154,6 +166,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                  data_quality_baseline_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']]] = None,
                  data_quality_job_input: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']]] = None,
                  data_quality_job_output_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  job_resources: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']]] = None,
                  network_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']]] = None,
@@ -197,6 +210,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                  data_quality_baseline_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']]] = None,
                  data_quality_job_input: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']]] = None,
                  data_quality_job_output_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  job_resources: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']]] = None,
                  network_config: Optional[pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']]] = None,
@@ -227,6 +241,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             if data_quality_job_output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'data_quality_job_output_config'")
             __props__.__dict__["data_quality_job_output_config"] = data_quality_job_output_config
+            __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["job_definition_name"] = job_definition_name
             if job_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'job_resources'")
@@ -266,6 +281,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         __props__.__dict__["data_quality_baseline_config"] = None
         __props__.__dict__["data_quality_job_input"] = None
         __props__.__dict__["data_quality_job_output_config"] = None
+        __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["job_definition_arn"] = None
         __props__.__dict__["job_definition_name"] = None
         __props__.__dict__["job_resources"] = None
@@ -302,6 +318,11 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="dataQualityJobOutputConfig")
     def data_quality_job_output_config(self) -> pulumi.Output['outputs.DataQualityJobDefinitionMonitoringOutputConfig']:
         return pulumi.get(self, "data_quality_job_output_config")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")

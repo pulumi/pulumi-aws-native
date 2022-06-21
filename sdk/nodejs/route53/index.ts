@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cidrCollection";
 export * from "./dnssec";
+export * from "./getCidrCollection";
 export * from "./getHealthCheck";
 export * from "./getHostedZone";
 export * from "./getKeySigningKey";
@@ -21,6 +23,7 @@ export * from "./recordSetGroup";
 export * from "../types/enums/route53";
 
 // Import resources to register:
+import { CidrCollection } from "./cidrCollection";
 import { DNSSEC } from "./dnssec";
 import { HealthCheck } from "./healthCheck";
 import { HostedZone } from "./hostedZone";
@@ -32,6 +35,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:route53:CidrCollection":
+                return new CidrCollection(name, <any>undefined, { urn })
             case "aws-native:route53:DNSSEC":
                 return new DNSSEC(name, <any>undefined, { urn })
             case "aws-native:route53:HealthCheck":

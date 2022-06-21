@@ -28,6 +28,7 @@ type LookupModelExplainabilityJobDefinitionArgs struct {
 type LookupModelExplainabilityJobDefinitionResult struct {
 	// The time at which the job definition was created.
 	CreationTime *string `pulumi:"creationTime"`
+	EndpointName *string `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
 }
@@ -71,6 +72,10 @@ func (o LookupModelExplainabilityJobDefinitionResultOutput) ToLookupModelExplain
 // The time at which the job definition was created.
 func (o LookupModelExplainabilityJobDefinitionResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelExplainabilityJobDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupModelExplainabilityJobDefinitionResultOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupModelExplainabilityJobDefinitionResult) *string { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

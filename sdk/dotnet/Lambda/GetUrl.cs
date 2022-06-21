@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Lambda
         /// The generated url for this resource.
         /// </summary>
         public readonly string? FunctionUrl;
+        /// <summary>
+        /// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Lambda.UrlInvokeMode? InvokeMode;
 
         [OutputConstructor]
         private GetUrlResult(
@@ -77,12 +81,15 @@ namespace Pulumi.AwsNative.Lambda
 
             string? functionArn,
 
-            string? functionUrl)
+            string? functionUrl,
+
+            Pulumi.AwsNative.Lambda.UrlInvokeMode? invokeMode)
         {
             AuthType = authType;
             Cors = cors;
             FunctionArn = functionArn;
             FunctionUrl = functionUrl;
+            InvokeMode = invokeMode;
         }
     }
 }

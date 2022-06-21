@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        [Output("endpointName")]
+        public Output<string?> EndpointName { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelBiasJobDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
+
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 

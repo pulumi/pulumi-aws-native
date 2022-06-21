@@ -82,3 +82,13 @@ export const UrlAuthType = {
  * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
  */
 export type UrlAuthType = (typeof UrlAuthType)[keyof typeof UrlAuthType];
+
+export const UrlInvokeMode = {
+    Buffered: "BUFFERED",
+    ResponseStream: "RESPONSE_STREAM",
+} as const;
+
+/**
+ * The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+ */
+export type UrlInvokeMode = (typeof UrlInvokeMode)[keyof typeof UrlInvokeMode];

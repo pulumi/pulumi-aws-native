@@ -169,6 +169,7 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["accelerator_arn"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["ipv4_addresses"] = None
         super(Accelerator, __self__).__init__(
             'aws-native:globalaccelerator:Accelerator',
             resource_name,
@@ -196,6 +197,7 @@ class Accelerator(pulumi.CustomResource):
         __props__.__dict__["enabled"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["ip_addresses"] = None
+        __props__.__dict__["ipv4_addresses"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Accelerator(resource_name, opts=opts, __props__=__props__)
@@ -239,6 +241,14 @@ class Accelerator(pulumi.CustomResource):
         The IP addresses from BYOIP Prefix pool.
         """
         return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IPv4 addresses assigned to the accelerator.
+        """
+        return pulumi.get(self, "ipv4_addresses")
 
     @property
     @pulumi.getter

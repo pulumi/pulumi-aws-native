@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CidrCollectionLocation struct {
+	// A list of CIDR blocks.
+	CidrList []string `pulumi:"cidrList"`
+	// The name of the location that is associated with the CIDR collection.
+	LocationName string `pulumi:"locationName"`
+}
+
+// CidrCollectionLocationInput is an input type that accepts CidrCollectionLocationArgs and CidrCollectionLocationOutput values.
+// You can construct a concrete instance of `CidrCollectionLocationInput` via:
+//
+//          CidrCollectionLocationArgs{...}
+type CidrCollectionLocationInput interface {
+	pulumi.Input
+
+	ToCidrCollectionLocationOutput() CidrCollectionLocationOutput
+	ToCidrCollectionLocationOutputWithContext(context.Context) CidrCollectionLocationOutput
+}
+
+type CidrCollectionLocationArgs struct {
+	// A list of CIDR blocks.
+	CidrList pulumi.StringArrayInput `pulumi:"cidrList"`
+	// The name of the location that is associated with the CIDR collection.
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (CidrCollectionLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CidrCollectionLocation)(nil)).Elem()
+}
+
+func (i CidrCollectionLocationArgs) ToCidrCollectionLocationOutput() CidrCollectionLocationOutput {
+	return i.ToCidrCollectionLocationOutputWithContext(context.Background())
+}
+
+func (i CidrCollectionLocationArgs) ToCidrCollectionLocationOutputWithContext(ctx context.Context) CidrCollectionLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionLocationOutput)
+}
+
+// CidrCollectionLocationArrayInput is an input type that accepts CidrCollectionLocationArray and CidrCollectionLocationArrayOutput values.
+// You can construct a concrete instance of `CidrCollectionLocationArrayInput` via:
+//
+//          CidrCollectionLocationArray{ CidrCollectionLocationArgs{...} }
+type CidrCollectionLocationArrayInput interface {
+	pulumi.Input
+
+	ToCidrCollectionLocationArrayOutput() CidrCollectionLocationArrayOutput
+	ToCidrCollectionLocationArrayOutputWithContext(context.Context) CidrCollectionLocationArrayOutput
+}
+
+type CidrCollectionLocationArray []CidrCollectionLocationInput
+
+func (CidrCollectionLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CidrCollectionLocation)(nil)).Elem()
+}
+
+func (i CidrCollectionLocationArray) ToCidrCollectionLocationArrayOutput() CidrCollectionLocationArrayOutput {
+	return i.ToCidrCollectionLocationArrayOutputWithContext(context.Background())
+}
+
+func (i CidrCollectionLocationArray) ToCidrCollectionLocationArrayOutputWithContext(ctx context.Context) CidrCollectionLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionLocationArrayOutput)
+}
+
+type CidrCollectionLocationOutput struct{ *pulumi.OutputState }
+
+func (CidrCollectionLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CidrCollectionLocation)(nil)).Elem()
+}
+
+func (o CidrCollectionLocationOutput) ToCidrCollectionLocationOutput() CidrCollectionLocationOutput {
+	return o
+}
+
+func (o CidrCollectionLocationOutput) ToCidrCollectionLocationOutputWithContext(ctx context.Context) CidrCollectionLocationOutput {
+	return o
+}
+
+// A list of CIDR blocks.
+func (o CidrCollectionLocationOutput) CidrList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CidrCollectionLocation) []string { return v.CidrList }).(pulumi.StringArrayOutput)
+}
+
+// The name of the location that is associated with the CIDR collection.
+func (o CidrCollectionLocationOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v CidrCollectionLocation) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type CidrCollectionLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (CidrCollectionLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CidrCollectionLocation)(nil)).Elem()
+}
+
+func (o CidrCollectionLocationArrayOutput) ToCidrCollectionLocationArrayOutput() CidrCollectionLocationArrayOutput {
+	return o
+}
+
+func (o CidrCollectionLocationArrayOutput) ToCidrCollectionLocationArrayOutputWithContext(ctx context.Context) CidrCollectionLocationArrayOutput {
+	return o
+}
+
+func (o CidrCollectionLocationArrayOutput) Index(i pulumi.IntInput) CidrCollectionLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CidrCollectionLocation {
+		return vs[0].([]CidrCollectionLocation)[vs[1].(int)]
+	}).(CidrCollectionLocationOutput)
+}
+
 // A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
 type HealthCheckAlarmIdentifier struct {
 	// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
@@ -1934,6 +2040,8 @@ func (o RecordSetGroupRecordSetArrayOutput) Index(i pulumi.IntInput) RecordSetGr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CidrCollectionLocationInput)(nil)).Elem(), CidrCollectionLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CidrCollectionLocationArrayInput)(nil)).Elem(), CidrCollectionLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierPtrInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
@@ -1957,6 +2065,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoLocationPtrInput)(nil)).Elem(), RecordSetGroupGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupRecordSetInput)(nil)).Elem(), RecordSetGroupRecordSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupRecordSetArrayInput)(nil)).Elem(), RecordSetGroupRecordSetArray{})
+	pulumi.RegisterOutputType(CidrCollectionLocationOutput{})
+	pulumi.RegisterOutputType(CidrCollectionLocationArrayOutput{})
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})

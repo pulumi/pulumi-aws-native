@@ -11,11 +11,16 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationCloudWatchDestination',
     'ConfigurationSetEventDestinationDimensionConfiguration',
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationKinesisFirehoseDestination',
     'ConfigurationSetEventDestinationSnsDestination',
+    'ConfigurationSetReputationOptions',
+    'ConfigurationSetSendingOptions',
+    'ConfigurationSetSuppressionOptions',
+    'ConfigurationSetTrackingOptions',
     'ContactListTag',
     'ContactListTopic',
     'ReceiptFilterFilter',
@@ -31,6 +36,60 @@ __all__ = [
     'ReceiptRuleWorkmailAction',
     'Template',
 ]
+
+@pulumi.output_type
+class ConfigurationSetDeliveryOptions(dict):
+    """
+    An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendingPoolName":
+            suggest = "sending_pool_name"
+        elif key == "tlsPolicy":
+            suggest = "tls_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetDeliveryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetDeliveryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetDeliveryOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sending_pool_name: Optional[str] = None,
+                 tls_policy: Optional[str] = None):
+        """
+        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        :param str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
+        :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+        """
+        if sending_pool_name is not None:
+            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+        if tls_policy is not None:
+            pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="sendingPoolName")
+    def sending_pool_name(self) -> Optional[str]:
+        """
+        The name of the dedicated IP pool to associate with the configuration set.
+        """
+        return pulumi.get(self, "sending_pool_name")
+
+    @property
+    @pulumi.getter(name="tlsPolicy")
+    def tls_policy(self) -> Optional[str]:
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+        """
+        return pulumi.get(self, "tls_policy")
+
 
 @pulumi.output_type
 class ConfigurationSetEventDestinationCloudWatchDestination(dict):
@@ -323,6 +382,162 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
     @pulumi.getter(name="topicARN")
     def topic_arn(self) -> str:
         return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ConfigurationSetReputationOptions(dict):
+    """
+    An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reputationMetricsEnabled":
+            suggest = "reputation_metrics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetReputationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetReputationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetReputationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reputation_metrics_enabled: Optional[bool] = None):
+        """
+        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        :param bool reputation_metrics_enabled: If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+        """
+        if reputation_metrics_enabled is not None:
+            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> Optional[bool]:
+        """
+        If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+
+@pulumi.output_type
+class ConfigurationSetSendingOptions(dict):
+    """
+    An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendingEnabled":
+            suggest = "sending_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSendingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetSendingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetSendingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sending_enabled: Optional[bool] = None):
+        """
+        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        """
+        if sending_enabled is not None:
+            pulumi.set(__self__, "sending_enabled", sending_enabled)
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "sending_enabled")
+
+
+@pulumi.output_type
+class ConfigurationSetSuppressionOptions(dict):
+    """
+    An object that contains information about the suppression list preferences for your account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "suppressedReasons":
+            suggest = "suppressed_reasons"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSuppressionOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetSuppressionOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetSuppressionOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 suppressed_reasons: Optional[Sequence[str]] = None):
+        """
+        An object that contains information about the suppression list preferences for your account.
+        :param Sequence[str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        if suppressed_reasons is not None:
+            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+
+    @property
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> Optional[Sequence[str]]:
+        """
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        return pulumi.get(self, "suppressed_reasons")
+
+
+@pulumi.output_type
+class ConfigurationSetTrackingOptions(dict):
+    """
+    An object that defines the open and click tracking options for emails that you send using the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRedirectDomain":
+            suggest = "custom_redirect_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetTrackingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetTrackingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetTrackingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_redirect_domain: Optional[str] = None):
+        """
+        An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param str custom_redirect_domain: The domain to use for tracking open and click events.
+        """
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+
+    @property
+    @pulumi.getter(name="customRedirectDomain")
+    def custom_redirect_domain(self) -> Optional[str]:
+        """
+        The domain to use for tracking open and click events.
+        """
+        return pulumi.get(self, "custom_redirect_domain")
 
 
 @pulumi.output_type

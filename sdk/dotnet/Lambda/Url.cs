@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> FunctionUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        /// </summary>
+        [Output("invokeMode")]
+        public Output<Pulumi.AwsNative.Lambda.UrlInvokeMode?> InvokeMode { get; private set; } = null!;
+
+        /// <summary>
         /// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         /// </summary>
         [Output("qualifier")]
@@ -101,6 +107,12 @@ namespace Pulumi.AwsNative.Lambda
 
         [Input("cors")]
         public Input<Inputs.UrlCorsArgs>? Cors { get; set; }
+
+        /// <summary>
+        /// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        /// </summary>
+        [Input("invokeMode")]
+        public Input<Pulumi.AwsNative.Lambda.UrlInvokeMode>? InvokeMode { get; set; }
 
         /// <summary>
         /// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolUsernameConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("caseSensitive", required: true)]
-        public Input<bool> CaseSensitive { get; set; } = null!;
+        [Input("caseSensitive")]
+        public Input<bool>? CaseSensitive { get; set; }
 
         public UserPoolUsernameConfigurationArgs()
         {

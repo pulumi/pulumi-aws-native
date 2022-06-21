@@ -72,10 +72,6 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly Pulumi.AwsNative.RDS.EventSubscriptionSourceType? SourceType;
         /// <summary>
-        /// The name of the subscription.
-        /// </summary>
-        public readonly string? SubscriptionName;
-        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSubscriptionTag> Tags;
@@ -90,15 +86,12 @@ namespace Pulumi.AwsNative.RDS
 
             Pulumi.AwsNative.RDS.EventSubscriptionSourceType? sourceType,
 
-            string? subscriptionName,
-
             ImmutableArray<Outputs.EventSubscriptionTag> tags)
         {
             Enabled = enabled;
             EventCategories = eventCategories;
             SourceIds = sourceIds;
             SourceType = sourceType;
-            SubscriptionName = subscriptionName;
             Tags = tags;
         }
     }

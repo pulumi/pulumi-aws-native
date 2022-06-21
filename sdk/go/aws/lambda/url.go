@@ -22,6 +22,8 @@ type Url struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl pulumi.StringOutput `pulumi:"functionUrl"`
+	// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+	InvokeMode UrlInvokeModePtrOutput `pulumi:"invokeMode"`
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -76,6 +78,8 @@ type urlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthType `pulumi:"authType"`
 	Cors     *UrlCors    `pulumi:"cors"`
+	// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+	InvokeMode *UrlInvokeMode `pulumi:"invokeMode"`
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
 	Qualifier *string `pulumi:"qualifier"`
 	// The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -87,6 +91,8 @@ type UrlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthTypeInput
 	Cors     UrlCorsPtrInput
+	// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+	InvokeMode UrlInvokeModePtrInput
 	// The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
 	Qualifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -147,6 +153,11 @@ func (o UrlOutput) FunctionArn() pulumi.StringOutput {
 // The generated url for this resource.
 func (o UrlOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Url) pulumi.StringOutput { return v.FunctionUrl }).(pulumi.StringOutput)
+}
+
+// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+func (o UrlOutput) InvokeMode() UrlInvokeModePtrOutput {
+	return o.ApplyT(func(v *Url) UrlInvokeModePtrOutput { return v.InvokeMode }).(UrlInvokeModePtrOutput)
 }
 
 // The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.

@@ -21,6 +21,7 @@ type DataQualityJobDefinition struct {
 	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput `pulumi:"dataQualityBaselineConfig"`
 	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputOutput          `pulumi:"dataQualityJobInput"`
 	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfigOutput       `pulumi:"dataQualityJobOutputConfig"`
+	EndpointName                pulumi.StringPtrOutput                                     `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn  pulumi.StringOutput                               `pulumi:"jobDefinitionArn"`
 	JobDefinitionName pulumi.StringPtrOutput                            `pulumi:"jobDefinitionName"`
@@ -91,6 +92,7 @@ type dataQualityJobDefinitionArgs struct {
 	DataQualityBaselineConfig   *DataQualityJobDefinitionDataQualityBaselineConfig  `pulumi:"dataQualityBaselineConfig"`
 	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInput         `pulumi:"dataQualityJobInput"`
 	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfig      `pulumi:"dataQualityJobOutputConfig"`
+	EndpointName                *string                                             `pulumi:"endpointName"`
 	JobDefinitionName           *string                                             `pulumi:"jobDefinitionName"`
 	JobResources                DataQualityJobDefinitionMonitoringResources         `pulumi:"jobResources"`
 	NetworkConfig               *DataQualityJobDefinitionNetworkConfig              `pulumi:"networkConfig"`
@@ -107,6 +109,7 @@ type DataQualityJobDefinitionArgs struct {
 	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
 	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputInput
 	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfigInput
+	EndpointName                pulumi.StringPtrInput
 	JobDefinitionName           pulumi.StringPtrInput
 	JobResources                DataQualityJobDefinitionMonitoringResourcesInput
 	NetworkConfig               DataQualityJobDefinitionNetworkConfigPtrInput
@@ -181,6 +184,10 @@ func (o DataQualityJobDefinitionOutput) DataQualityJobOutputConfig() DataQuality
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionMonitoringOutputConfigOutput {
 		return v.DataQualityJobOutputConfig
 	}).(DataQualityJobDefinitionMonitoringOutputConfigOutput)
+}
+
+func (o DataQualityJobDefinitionOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

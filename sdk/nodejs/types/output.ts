@@ -3377,6 +3377,10 @@ export namespace appstream {
         resourceIdentifier?: string;
     }
 
+    export interface StackStreamingExperienceSettings {
+        preferredProtocol?: string;
+    }
+
     export interface StackTag {
         key: string;
         value: string;
@@ -6208,7 +6212,7 @@ export namespace cognito {
     }
 
     export interface UserPoolUsernameConfiguration {
-        caseSensitive: boolean;
+        caseSensitive?: boolean;
     }
 
     export interface UserPoolVerificationMessageTemplate {
@@ -7306,6 +7310,47 @@ export namespace connect {
         key: string;
         /**
          * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+}
+
+export namespace connectcampaigns {
+    /**
+     * The possible types of dialer config parameters
+     */
+    export interface CampaignDialerConfig {
+    }
+
+    /**
+     * The configuration used for outbound calls.
+     */
+    export interface CampaignOutboundCallConfig {
+        /**
+         * The identifier of the contact flow for the outbound call.
+         */
+        connectContactFlowArn: string;
+        /**
+         * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
+         */
+        connectQueueArn: string;
+        /**
+         * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
+         */
+        connectSourcePhoneNumber?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CampaignTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
          */
         value: string;
     }
@@ -11727,13 +11772,14 @@ export namespace elasticloadbalancingv2 {
         authenticationRequestExtraParams?: any;
         authorizationEndpoint: string;
         clientId: string;
-        clientSecret: string;
+        clientSecret?: string;
         issuer: string;
         onUnauthenticatedRequest?: string;
         scope?: string;
         sessionCookieName?: string;
         sessionTimeout?: string;
         tokenEndpoint: string;
+        useExistingClientSecret?: boolean;
         userInfoEndpoint: string;
     }
 
@@ -11791,7 +11837,7 @@ export namespace elasticloadbalancingv2 {
         authenticationRequestExtraParams?: any;
         authorizationEndpoint: string;
         clientId: string;
-        clientSecret: string;
+        clientSecret?: string;
         issuer: string;
         onUnauthenticatedRequest?: string;
         scope?: string;
@@ -18836,19 +18882,51 @@ export namespace kinesisanalytics {
 }
 
 export namespace kinesisanalyticsv2 {
+    /**
+     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+     * `"name1", "address1"`
+     * `"name2", "address2"`
+     */
     export interface ApplicationCSVMappingParameters {
+        /**
+         * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+         */
         recordColumnDelimiter: string;
+        /**
+         * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+         */
         recordRowDelimiter: string;
     }
 
+    /**
+     * The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
+     */
     export interface ApplicationCatalogConfiguration {
+        /**
+         * The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
+         */
         glueDataCatalogConfiguration?: outputs.kinesisanalyticsv2.ApplicationGlueDataCatalogConfiguration;
     }
 
+    /**
+     * Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+     */
     export interface ApplicationCheckpointConfiguration {
+        /**
+         * Describes the interval in milliseconds between checkpoint operations.
+         */
         checkpointInterval?: number;
+        /**
+         * Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+         */
         checkpointingEnabled?: boolean;
-        configurationType: string;
+        /**
+         * Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+         */
+        configurationType: enums.kinesisanalyticsv2.ApplicationCheckpointConfigurationConfigurationType;
+        /**
+         * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
+         */
         minPauseBetweenCheckpoints?: number;
     }
 
@@ -18856,104 +18934,290 @@ export namespace kinesisanalyticsv2 {
         logStreamARN: string;
     }
 
+    /**
+     * Describes code configuration for an application.
+     */
     export interface ApplicationCodeConfiguration {
+        /**
+         * The location and type of the application code.
+         */
         codeContent: outputs.kinesisanalyticsv2.ApplicationCodeContent;
-        codeContentType: string;
+        /**
+         * Specifies whether the code content is in text or zip format.
+         */
+        codeContentType: enums.kinesisanalyticsv2.ApplicationCodeConfigurationCodeContentType;
     }
 
+    /**
+     * Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+     */
     export interface ApplicationCodeContent {
+        /**
+         * Information about the Amazon S3 bucket that contains the application code.
+         */
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
+        /**
+         * The text-format code for a Flink-based Kinesis Data Analytics application.
+         */
         textContent?: string;
+        /**
+         * The zip-format code for a Flink-based Kinesis Data Analytics application.
+         */
         zipFileContent?: string;
     }
 
+    /**
+     * Specifies the creation parameters for a Kinesis Data Analytics application.
+     */
     export interface ApplicationConfiguration {
+        /**
+         * The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+         */
         applicationCodeConfiguration?: outputs.kinesisanalyticsv2.ApplicationCodeConfiguration;
+        /**
+         * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         */
         applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationSnapshotConfiguration;
+        /**
+         * Describes execution properties for a Flink-based Kinesis Data Analytics application.
+         */
         environmentProperties?: outputs.kinesisanalyticsv2.ApplicationEnvironmentProperties;
+        /**
+         * The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+         */
         flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfiguration;
+        /**
+         * The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+         */
         sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationSqlApplicationConfiguration;
+        /**
+         * The configuration parameters for a Kinesis Data Analytics Studio notebook.
+         */
         zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
     }
 
+    /**
+     * The configuration of connectors and user-defined functions.
+     */
     export interface ApplicationCustomArtifactConfiguration {
-        artifactType: string;
+        /**
+         * Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+         */
+        artifactType: enums.kinesisanalyticsv2.ApplicationCustomArtifactConfigurationArtifactType;
+        /**
+         * The parameters required to fully specify a Maven reference.
+         */
         mavenReference?: outputs.kinesisanalyticsv2.ApplicationMavenReference;
+        /**
+         * The location of the custom artifacts.
+         */
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
     }
 
+    /**
+     * The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
+     */
     export interface ApplicationDeployAsApplicationConfiguration {
+        /**
+         * The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
+         */
         s3ContentLocation: outputs.kinesisanalyticsv2.ApplicationS3ContentBaseLocation;
     }
 
+    /**
+     * Describes execution properties for a Flink-based Kinesis Data Analytics application.
+     */
     export interface ApplicationEnvironmentProperties {
+        /**
+         * Describes the execution property groups.
+         */
         propertyGroups?: outputs.kinesisanalyticsv2.ApplicationPropertyGroup[];
     }
 
+    /**
+     * Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
+     */
     export interface ApplicationFlinkApplicationConfiguration {
+        /**
+         * Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+         */
         checkpointConfiguration?: outputs.kinesisanalyticsv2.ApplicationCheckpointConfiguration;
+        /**
+         * Describes configuration parameters for Amazon CloudWatch logging for an application.
+         */
         monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationMonitoringConfiguration;
+        /**
+         * Describes parameters for how an application executes multiple tasks simultaneously.
+         */
         parallelismConfiguration?: outputs.kinesisanalyticsv2.ApplicationParallelismConfiguration;
     }
 
+    /**
+     * The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
+     */
     export interface ApplicationGlueDataCatalogConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the database.
+         */
         databaseARN?: string;
     }
 
+    /**
+     * When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
+     */
     export interface ApplicationInput {
+        /**
+         * Describes the number of in-application streams to create.
+         */
         inputParallelism?: outputs.kinesisanalyticsv2.ApplicationInputParallelism;
+        /**
+         * The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
+         */
         inputProcessingConfiguration?: outputs.kinesisanalyticsv2.ApplicationInputProcessingConfiguration;
+        /**
+         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+         */
         inputSchema: outputs.kinesisanalyticsv2.ApplicationInputSchema;
+        /**
+         * If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+         */
         kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationKinesisFirehoseInput;
+        /**
+         * If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+         */
         kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationKinesisStreamsInput;
+        /**
+         * The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
+         */
         namePrefix: string;
     }
 
+    /**
+     * An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
+     */
     export interface ApplicationInputLambdaProcessor {
+        /**
+         * The ARN of the Amazon Lambda function that operates on records in the stream.
+         */
         resourceARN: string;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
+     */
     export interface ApplicationInputParallelism {
+        /**
+         * The number of in-application streams to create.
+         */
         count?: number;
     }
 
+    /**
+     * For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
+     */
     export interface ApplicationInputProcessingConfiguration {
+        /**
+         * The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
+         */
         inputLambdaProcessor?: outputs.kinesisanalyticsv2.ApplicationInputLambdaProcessor;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+     */
     export interface ApplicationInputSchema {
+        /**
+         * A list of `RecordColumn` objects.
+         */
         recordColumns: outputs.kinesisanalyticsv2.ApplicationRecordColumn[];
-        recordEncoding?: string;
+        /**
+         * Specifies the encoding of the records in the streaming source. For example, UTF-8.
+         */
+        recordEncoding?: enums.kinesisanalyticsv2.ApplicationInputSchemaRecordEncoding;
+        /**
+         * Specifies the format of the records on the streaming source.
+         */
         recordFormat: outputs.kinesisanalyticsv2.ApplicationRecordFormat;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+     */
     export interface ApplicationJSONMappingParameters {
+        /**
+         * The path to the top-level parent that contains the records.
+         */
         recordRowPath: string;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
+     */
     export interface ApplicationKinesisFirehoseInput {
+        /**
+         * The Amazon Resource Name (ARN) of the delivery stream.
+         */
         resourceARN: string;
     }
 
+    /**
+     * Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
+     */
     export interface ApplicationKinesisStreamsInput {
+        /**
+         * The ARN of the input Kinesis data stream to read.
+         */
         resourceARN: string;
     }
 
+    /**
+     * When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+     */
     export interface ApplicationMappingParameters {
+        /**
+         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         */
         cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
+        /**
+         * Provides additional mapping information when JSON is the record format on the streaming source.
+         */
         jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
     }
 
+    /**
+     * The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+     */
     export interface ApplicationMavenReference {
+        /**
+         * The artifact ID of the Maven reference.
+         */
         artifactId: string;
+        /**
+         * The group ID of the Maven reference.
+         */
         groupId: string;
+        /**
+         * The version of the Maven reference.
+         */
         version: string;
     }
 
+    /**
+     * Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
+     */
     export interface ApplicationMonitoringConfiguration {
-        configurationType: string;
-        logLevel?: string;
-        metricsLevel?: string;
+        /**
+         * Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+         */
+        configurationType: enums.kinesisanalyticsv2.ApplicationMonitoringConfigurationConfigurationType;
+        /**
+         * Describes the verbosity of the CloudWatch Logs for an application.
+         */
+        logLevel?: enums.kinesisanalyticsv2.ApplicationMonitoringConfigurationLogLevel;
+        /**
+         * Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+         */
+        metricsLevel?: enums.kinesisanalyticsv2.ApplicationMonitoringConfigurationMetricsLevel;
     }
 
     export interface ApplicationOutputResourceDestinationSchema {
@@ -18980,27 +19244,73 @@ export namespace kinesisanalyticsv2 {
         name?: string;
     }
 
+    /**
+     * Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
+     */
     export interface ApplicationParallelismConfiguration {
+        /**
+         * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+         */
         autoScalingEnabled?: boolean;
-        configurationType: string;
+        /**
+         * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+         */
+        configurationType: enums.kinesisanalyticsv2.ApplicationParallelismConfigurationConfigurationType;
+        /**
+         * Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
+         */
         parallelism?: number;
+        /**
+         * Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
+         */
         parallelismPerKPU?: number;
     }
 
+    /**
+     * Property key-value pairs passed into an application.
+     */
     export interface ApplicationPropertyGroup {
+        /**
+         * Describes the key of an application execution property key-value pair.
+         */
         propertyGroupId?: string;
+        /**
+         * Describes the value of an application execution property key-value pair.
+         */
         propertyMap?: any;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+     * Also used to describe the format of the reference data source.
+     */
     export interface ApplicationRecordColumn {
+        /**
+         * A reference to the data element in the streaming input or the reference data source.
+         */
         mapping?: string;
+        /**
+         * The name of the column that is created in the in-application input stream or reference table.
+         */
         name: string;
+        /**
+         * The type of column created in the in-application input stream or reference table.
+         */
         sqlType: string;
     }
 
+    /**
+     * For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+     */
     export interface ApplicationRecordFormat {
+        /**
+         * When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         */
         mappingParameters?: outputs.kinesisanalyticsv2.ApplicationMappingParameters;
-        recordFormatType: string;
+        /**
+         * The type of record format.
+         */
+        recordFormatType: enums.kinesisanalyticsv2.ApplicationRecordFormatRecordFormatType;
     }
 
     export interface ApplicationReferenceDataSourceCSVMappingParameters {
@@ -19045,39 +19355,102 @@ export namespace kinesisanalyticsv2 {
         fileKey: string;
     }
 
+    /**
+     * The base location of the Amazon Data Analytics application.
+     */
     export interface ApplicationS3ContentBaseLocation {
+        /**
+         * The base path for the S3 bucket.
+         */
         basePath?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the S3 bucket.
+         */
         bucketARN: string;
     }
 
+    /**
+     * The location of an application or a custom artifact.
+     */
     export interface ApplicationS3ContentLocation {
+        /**
+         * The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
+         */
         bucketARN: string;
+        /**
+         * The file key for the object containing the application code.
+         */
         fileKey: string;
+        /**
+         * The version of the object containing the application code.
+         */
         objectVersion?: string;
     }
 
+    /**
+     * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+     */
     export interface ApplicationSnapshotConfiguration {
+        /**
+         * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         */
         snapshotsEnabled: boolean;
     }
 
+    /**
+     * Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+     */
     export interface ApplicationSqlApplicationConfiguration {
+        /**
+         * The array of Input objects describing the input streams used by the application.
+         */
         inputs?: outputs.kinesisanalyticsv2.ApplicationInput[];
     }
 
+    /**
+     * A key-value pair that identifies an application.
+     */
     export interface ApplicationTag {
+        /**
+         * The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that's 0 to 256 characters in length.
+         */
         value: string;
     }
 
+    /**
+     * The configuration of a Kinesis Data Analytics Studio notebook.
+     */
     export interface ApplicationZeppelinApplicationConfiguration {
+        /**
+         * The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
+         */
         catalogConfiguration?: outputs.kinesisanalyticsv2.ApplicationCatalogConfiguration;
+        /**
+         * A list of CustomArtifactConfiguration objects.
+         */
         customArtifactsConfiguration?: outputs.kinesisanalyticsv2.ApplicationCustomArtifactConfiguration[];
+        /**
+         * The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
+         */
         deployAsApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationDeployAsApplicationConfiguration;
+        /**
+         * The monitoring configuration of a Kinesis Data Analytics Studio notebook.
+         */
         monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfiguration;
     }
 
+    /**
+     * Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
+     */
     export interface ApplicationZeppelinMonitoringConfiguration {
-        logLevel?: string;
+        /**
+         * The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+         */
+        logLevel?: enums.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfigurationLogLevel;
     }
 
 }
@@ -27322,6 +27695,28 @@ export namespace redshift {
 
 }
 
+export namespace redshiftserverless {
+    export interface Namespace {
+        adminUsername?: string;
+        creationDate?: string;
+        dbName?: string;
+        defaultIamRoleArn?: string;
+        iamRoles?: string[];
+        kmsKeyId?: string;
+        logExports?: enums.redshiftserverless.NamespaceLogExport[];
+        namespaceArn?: string;
+        namespaceId?: string;
+        namespaceName?: string;
+        status?: enums.redshiftserverless.NamespaceStatus;
+    }
+
+    export interface NamespaceTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace refactorspaces {
     export interface ApplicationApiGatewayProxyInput {
         endpointType?: enums.refactorspaces.ApplicationApiGatewayEndpointType;
@@ -27717,6 +28112,17 @@ export namespace robomaker {
 }
 
 export namespace route53 {
+    export interface CidrCollectionLocation {
+        /**
+         * A list of CIDR blocks.
+         */
+        cidrList: string[];
+        /**
+         * The name of the location that is associated with the CIDR collection.
+         */
+        locationName: string;
+    }
+
     /**
      * A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
      */
@@ -28935,6 +29341,7 @@ export namespace s3 {
     }
 
     export interface MultiRegionAccessPointRegion {
+        accountId?: string;
         bucket: string;
     }
 
@@ -31702,6 +32109,20 @@ export namespace servicediscovery {
 
 export namespace ses {
     /**
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     */
+    export interface ConfigurationSetDeliveryOptions {
+        /**
+         * The name of the dedicated IP pool to associate with the configuration set.
+         */
+        sendingPoolName?: string;
+        /**
+         * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+         */
+        tlsPolicy?: string;
+    }
+
+    /**
      * An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
      */
     export interface ConfigurationSetEventDestinationCloudWatchDestination {
@@ -31775,6 +32196,43 @@ export namespace ses {
      */
     export interface ConfigurationSetEventDestinationSnsDestination {
         topicARN: string;
+    }
+
+    /**
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     */
+    export interface ConfigurationSetReputationOptions {
+        /**
+         * If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+         */
+        reputationMetricsEnabled?: boolean;
+    }
+
+    /**
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     */
+    export interface ConfigurationSetSendingOptions {
+        sendingEnabled?: boolean;
+    }
+
+    /**
+     * An object that contains information about the suppression list preferences for your account.
+     */
+    export interface ConfigurationSetSuppressionOptions {
+        /**
+         * A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+         */
+        suppressedReasons?: string[];
+    }
+
+    /**
+     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     */
+    export interface ConfigurationSetTrackingOptions {
+        /**
+         * The domain to use for tracking open and click events.
+         */
+        customRedirectDomain?: string;
     }
 
     export interface ContactListTag {

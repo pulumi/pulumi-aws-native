@@ -15,11 +15,26 @@ namespace Pulumi.AwsNative.SES
     [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
+        [Output("deliveryOptions")]
+        public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
+
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
+
+        [Output("reputationOptions")]
+        public Output<Outputs.ConfigurationSetReputationOptions?> ReputationOptions { get; private set; } = null!;
+
+        [Output("sendingOptions")]
+        public Output<Outputs.ConfigurationSetSendingOptions?> SendingOptions { get; private set; } = null!;
+
+        [Output("suppressionOptions")]
+        public Output<Outputs.ConfigurationSetSuppressionOptions?> SuppressionOptions { get; private set; } = null!;
+
+        [Output("trackingOptions")]
+        public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -66,11 +81,26 @@ namespace Pulumi.AwsNative.SES
 
     public sealed class ConfigurationSetArgs : Pulumi.ResourceArgs
     {
+        [Input("deliveryOptions")]
+        public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
+
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("reputationOptions")]
+        public Input<Inputs.ConfigurationSetReputationOptionsArgs>? ReputationOptions { get; set; }
+
+        [Input("sendingOptions")]
+        public Input<Inputs.ConfigurationSetSendingOptionsArgs>? SendingOptions { get; set; }
+
+        [Input("suppressionOptions")]
+        public Input<Inputs.ConfigurationSetSuppressionOptionsArgs>? SuppressionOptions { get; set; }
+
+        [Input("trackingOptions")]
+        public Input<Inputs.ConfigurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
 
         public ConfigurationSetArgs()
         {

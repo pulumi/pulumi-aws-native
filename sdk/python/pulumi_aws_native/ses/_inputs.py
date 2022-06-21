@@ -10,11 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationSetDeliveryOptionsArgs',
     'ConfigurationSetEventDestinationCloudWatchDestinationArgs',
     'ConfigurationSetEventDestinationDimensionConfigurationArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs',
     'ConfigurationSetEventDestinationSnsDestinationArgs',
+    'ConfigurationSetReputationOptionsArgs',
+    'ConfigurationSetSendingOptionsArgs',
+    'ConfigurationSetSuppressionOptionsArgs',
+    'ConfigurationSetTrackingOptionsArgs',
     'ContactListTagArgs',
     'ContactListTopicArgs',
     'ReceiptFilterFilterArgs',
@@ -30,6 +35,46 @@ __all__ = [
     'ReceiptRuleWorkmailActionArgs',
     'TemplateArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationSetDeliveryOptionsArgs:
+    def __init__(__self__, *,
+                 sending_pool_name: Optional[pulumi.Input[str]] = None,
+                 tls_policy: Optional[pulumi.Input[str]] = None):
+        """
+        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        :param pulumi.Input[str] sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
+        :param pulumi.Input[str] tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+        """
+        if sending_pool_name is not None:
+            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+        if tls_policy is not None:
+            pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="sendingPoolName")
+    def sending_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dedicated IP pool to associate with the configuration set.
+        """
+        return pulumi.get(self, "sending_pool_name")
+
+    @sending_pool_name.setter
+    def sending_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sending_pool_name", value)
+
+    @property
+    @pulumi.getter(name="tlsPolicy")
+    def tls_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+        """
+        return pulumi.get(self, "tls_policy")
+
+    @tls_policy.setter
+    def tls_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_policy", value)
+
 
 @pulumi.input_type
 class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
@@ -265,6 +310,98 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
     @topic_arn.setter
     def topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_arn", value)
+
+
+@pulumi.input_type
+class ConfigurationSetReputationOptionsArgs:
+    def __init__(__self__, *,
+                 reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        :param pulumi.Input[bool] reputation_metrics_enabled: If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+        """
+        if reputation_metrics_enabled is not None:
+            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+    @reputation_metrics_enabled.setter
+    def reputation_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reputation_metrics_enabled", value)
+
+
+@pulumi.input_type
+class ConfigurationSetSendingOptionsArgs:
+    def __init__(__self__, *,
+                 sending_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        """
+        if sending_enabled is not None:
+            pulumi.set(__self__, "sending_enabled", sending_enabled)
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sending_enabled")
+
+    @sending_enabled.setter
+    def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sending_enabled", value)
+
+
+@pulumi.input_type
+class ConfigurationSetSuppressionOptionsArgs:
+    def __init__(__self__, *,
+                 suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        if suppressed_reasons is not None:
+            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+
+    @property
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        return pulumi.get(self, "suppressed_reasons")
+
+    @suppressed_reasons.setter
+    def suppressed_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "suppressed_reasons", value)
+
+
+@pulumi.input_type
+class ConfigurationSetTrackingOptionsArgs:
+    def __init__(__self__, *,
+                 custom_redirect_domain: Optional[pulumi.Input[str]] = None):
+        """
+        An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
+        """
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+
+    @property
+    @pulumi.getter(name="customRedirectDomain")
+    def custom_redirect_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain to use for tracking open and click events.
+        """
+        return pulumi.get(self, "custom_redirect_domain")
+
+    @custom_redirect_domain.setter
+    def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_redirect_domain", value)
 
 
 @pulumi.input_type

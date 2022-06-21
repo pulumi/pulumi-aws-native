@@ -20,6 +20,7 @@ class VpcLinkArgs:
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a VpcLink resource.
+        :param Any tags: This resource type use map for Tags, suggest to use List of Tag
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if name is not None:
@@ -59,6 +60,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        This resource type use map for Tags, suggest to use List of Tag
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -66,12 +70,7 @@ class VpcLinkArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VpcLink(pulumi.CustomResource):
-    warnings.warn("""VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -86,6 +85,7 @@ class VpcLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: This resource type use map for Tags, suggest to use List of Tag
         """
         ...
     @overload
@@ -116,7 +116,6 @@ class VpcLink(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         else:
@@ -136,6 +135,7 @@ class VpcLink(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_link_id"] = None
         super(VpcLink, __self__).__init__(
             'aws-native:apigatewayv2:VpcLink',
             resource_name,
@@ -162,6 +162,7 @@ class VpcLink(pulumi.CustomResource):
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_link_id"] = None
         return VpcLink(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -182,5 +183,13 @@ class VpcLink(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        This resource type use map for Tags, suggest to use List of Tag
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcLinkId")
+    def vpc_link_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "vpc_link_id")
 

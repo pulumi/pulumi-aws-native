@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
 
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;

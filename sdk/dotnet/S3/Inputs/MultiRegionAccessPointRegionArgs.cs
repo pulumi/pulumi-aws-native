@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class MultiRegionAccessPointRegionArgs : Pulumi.ResourceArgs
     {
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 

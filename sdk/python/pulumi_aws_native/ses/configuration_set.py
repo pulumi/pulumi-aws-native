@@ -8,19 +8,45 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 
 @pulumi.input_type
 class ConfigurationSetArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
+                 sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
+                 suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
+                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input[str] name: The name of the configuration set.
         """
+        if delivery_options is not None:
+            pulumi.set(__self__, "delivery_options", delivery_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if reputation_options is not None:
+            pulumi.set(__self__, "reputation_options", reputation_options)
+        if sending_options is not None:
+            pulumi.set(__self__, "sending_options", sending_options)
+        if suppression_options is not None:
+            pulumi.set(__self__, "suppression_options", suppression_options)
+        if tracking_options is not None:
+            pulumi.set(__self__, "tracking_options", tracking_options)
+
+    @property
+    @pulumi.getter(name="deliveryOptions")
+    def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
+        return pulumi.get(self, "delivery_options")
+
+    @delivery_options.setter
+    def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
+        pulumi.set(self, "delivery_options", value)
 
     @property
     @pulumi.getter
@@ -34,13 +60,54 @@ class ConfigurationSetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="reputationOptions")
+    def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
+        return pulumi.get(self, "reputation_options")
+
+    @reputation_options.setter
+    def reputation_options(self, value: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]):
+        pulumi.set(self, "reputation_options", value)
+
+    @property
+    @pulumi.getter(name="sendingOptions")
+    def sending_options(self) -> Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]:
+        return pulumi.get(self, "sending_options")
+
+    @sending_options.setter
+    def sending_options(self, value: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]):
+        pulumi.set(self, "sending_options", value)
+
+    @property
+    @pulumi.getter(name="suppressionOptions")
+    def suppression_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]:
+        return pulumi.get(self, "suppression_options")
+
+    @suppression_options.setter
+    def suppression_options(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]):
+        pulumi.set(self, "suppression_options", value)
+
+    @property
+    @pulumi.getter(name="trackingOptions")
+    def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
+        return pulumi.get(self, "tracking_options")
+
+    @tracking_options.setter
+    def tracking_options(self, value: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]):
+        pulumi.set(self, "tracking_options", value)
+
 
 class ConfigurationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
+                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
+                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
+                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ConfigurationSet.
@@ -73,7 +140,12 @@ class ConfigurationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
+                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
+                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
+                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -88,7 +160,12 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+            __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
+            __props__.__dict__["reputation_options"] = reputation_options
+            __props__.__dict__["sending_options"] = sending_options
+            __props__.__dict__["suppression_options"] = suppression_options
+            __props__.__dict__["tracking_options"] = tracking_options
         super(ConfigurationSet, __self__).__init__(
             'aws-native:ses:ConfigurationSet',
             resource_name,
@@ -111,8 +188,18 @@ class ConfigurationSet(pulumi.CustomResource):
 
         __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+        __props__.__dict__["delivery_options"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["reputation_options"] = None
+        __props__.__dict__["sending_options"] = None
+        __props__.__dict__["suppression_options"] = None
+        __props__.__dict__["tracking_options"] = None
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deliveryOptions")
+    def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetDeliveryOptions']]:
+        return pulumi.get(self, "delivery_options")
 
     @property
     @pulumi.getter
@@ -121,4 +208,24 @@ class ConfigurationSet(pulumi.CustomResource):
         The name of the configuration set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="reputationOptions")
+    def reputation_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetReputationOptions']]:
+        return pulumi.get(self, "reputation_options")
+
+    @property
+    @pulumi.getter(name="sendingOptions")
+    def sending_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSendingOptions']]:
+        return pulumi.get(self, "sending_options")
+
+    @property
+    @pulumi.getter(name="suppressionOptions")
+    def suppression_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSuppressionOptions']]:
+        return pulumi.get(self, "suppression_options")
+
+    @property
+    @pulumi.getter(name="trackingOptions")
+    def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetTrackingOptions']]:
+        return pulumi.get(self, "tracking_options")
 

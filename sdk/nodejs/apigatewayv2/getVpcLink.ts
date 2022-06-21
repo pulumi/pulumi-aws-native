@@ -14,18 +14,21 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getVpcLink", {
-        "id": args.id,
+        "vpcLinkId": args.vpcLinkId,
     }, opts);
 }
 
 export interface GetVpcLinkArgs {
-    id: string;
+    vpcLinkId: string;
 }
 
 export interface GetVpcLinkResult {
-    readonly id?: string;
     readonly name?: string;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     readonly tags?: any;
+    readonly vpcLinkId?: string;
 }
 
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
@@ -33,5 +36,5 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetVpcLinkOutputArgs {
-    id: pulumi.Input<string>;
+    vpcLinkId: pulumi.Input<string>;
 }

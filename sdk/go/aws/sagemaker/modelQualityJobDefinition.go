@@ -16,7 +16,8 @@ type ModelQualityJobDefinition struct {
 	pulumi.CustomResourceState
 
 	// The time at which the job definition was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
+	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn             pulumi.StringOutput                                          `pulumi:"jobDefinitionArn"`
 	JobDefinitionName            pulumi.StringPtrOutput                                       `pulumi:"jobDefinitionName"`
@@ -87,6 +88,7 @@ func (ModelQualityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelQualityJobDefinitionArgs struct {
+	EndpointName                 *string                                               `pulumi:"endpointName"`
 	JobDefinitionName            *string                                               `pulumi:"jobDefinitionName"`
 	JobResources                 ModelQualityJobDefinitionMonitoringResources          `pulumi:"jobResources"`
 	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecification `pulumi:"modelQualityAppSpecification"`
@@ -103,6 +105,7 @@ type modelQualityJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelQualityJobDefinition resource.
 type ModelQualityJobDefinitionArgs struct {
+	EndpointName                 pulumi.StringPtrInput
 	JobDefinitionName            pulumi.StringPtrInput
 	JobResources                 ModelQualityJobDefinitionMonitoringResourcesInput
 	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecificationInput
@@ -157,6 +160,10 @@ func (o ModelQualityJobDefinitionOutput) ToModelQualityJobDefinitionOutputWithCo
 // The time at which the job definition was created.
 func (o ModelQualityJobDefinitionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

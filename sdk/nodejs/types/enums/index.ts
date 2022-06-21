@@ -56,6 +56,7 @@ import * as ivs from "./ivs";
 import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
+import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kinesisfirehose from "./kinesisfirehose";
 import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
@@ -80,6 +81,7 @@ import * as pinpoint from "./pinpoint";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
@@ -160,6 +162,7 @@ export {
     kafkaconnect,
     kendra,
     kinesis,
+    kinesisanalyticsv2,
     kinesisfirehose,
     kinesisvideo,
     kms,
@@ -184,6 +187,7 @@ export {
     quicksight,
     rds,
     redshift,
+    redshiftserverless,
     refactorspaces,
     resiliencehub,
     resourcegroups,

@@ -8,6 +8,7 @@ __all__ = [
     'ApplicationAlarmSeverity',
     'ApplicationComponentMonitoringSettingComponentConfigurationMode',
     'ApplicationEventLevel',
+    'ApplicationGroupingType',
     'ApplicationLogEncoding',
     'ApplicationSubComponentTypeConfigurationSubComponentType',
 ]
@@ -40,6 +41,13 @@ class ApplicationEventLevel(str, Enum):
     ERROR = "ERROR"
     CRITICAL = "CRITICAL"
     VERBOSE = "VERBOSE"
+
+
+class ApplicationGroupingType(str, Enum):
+    """
+    The grouping type of the application
+    """
+    ACCOUNT_BASED = "ACCOUNT_BASED"
 
 
 class ApplicationLogEncoding(str, Enum):

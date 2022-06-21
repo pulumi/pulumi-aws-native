@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationFlinkApplicationConfiguration
     {
+        /// <summary>
+        /// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+        /// </summary>
         public readonly Outputs.ApplicationCheckpointConfiguration? CheckpointConfiguration;
+        /// <summary>
+        /// Describes configuration parameters for Amazon CloudWatch logging for an application.
+        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfiguration? MonitoringConfiguration;
+        /// <summary>
+        /// Describes parameters for how an application executes multiple tasks simultaneously.
+        /// </summary>
         public readonly Outputs.ApplicationParallelismConfiguration? ParallelismConfiguration;
 
         [OutputConstructor]

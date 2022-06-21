@@ -25,19 +25,20 @@ type LookupStackArgs struct {
 }
 
 type LookupStackResult struct {
-	AccessEndpoints         []StackAccessEndpoint     `pulumi:"accessEndpoints"`
-	ApplicationSettings     *StackApplicationSettings `pulumi:"applicationSettings"`
-	AttributesToDelete      []string                  `pulumi:"attributesToDelete"`
-	DeleteStorageConnectors *bool                     `pulumi:"deleteStorageConnectors"`
-	Description             *string                   `pulumi:"description"`
-	DisplayName             *string                   `pulumi:"displayName"`
-	EmbedHostDomains        []string                  `pulumi:"embedHostDomains"`
-	FeedbackURL             *string                   `pulumi:"feedbackURL"`
-	Id                      *string                   `pulumi:"id"`
-	RedirectURL             *string                   `pulumi:"redirectURL"`
-	StorageConnectors       []StackStorageConnector   `pulumi:"storageConnectors"`
-	Tags                    []StackTag                `pulumi:"tags"`
-	UserSettings            []StackUserSetting        `pulumi:"userSettings"`
+	AccessEndpoints             []StackAccessEndpoint             `pulumi:"accessEndpoints"`
+	ApplicationSettings         *StackApplicationSettings         `pulumi:"applicationSettings"`
+	AttributesToDelete          []string                          `pulumi:"attributesToDelete"`
+	DeleteStorageConnectors     *bool                             `pulumi:"deleteStorageConnectors"`
+	Description                 *string                           `pulumi:"description"`
+	DisplayName                 *string                           `pulumi:"displayName"`
+	EmbedHostDomains            []string                          `pulumi:"embedHostDomains"`
+	FeedbackURL                 *string                           `pulumi:"feedbackURL"`
+	Id                          *string                           `pulumi:"id"`
+	RedirectURL                 *string                           `pulumi:"redirectURL"`
+	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
+	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
+	Tags                        []StackTag                        `pulumi:"tags"`
+	UserSettings                []StackUserSetting                `pulumi:"userSettings"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -117,6 +118,10 @@ func (o LookupStackResultOutput) RedirectURL() pulumi.StringPtrOutput {
 
 func (o LookupStackResultOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackStorageConnector { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
+}
+
+func (o LookupStackResultOutput) StreamingExperienceSettings() StackStreamingExperienceSettingsPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *StackStreamingExperienceSettings { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsPtrOutput)
 }
 
 func (o LookupStackResultOutput) Tags() StackTagArrayOutput {

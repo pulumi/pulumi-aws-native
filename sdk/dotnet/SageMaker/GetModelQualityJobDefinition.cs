@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The time at which the job definition was created.
         /// </summary>
         public readonly string? CreationTime;
+        public readonly string? EndpointName;
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
         /// </summary>
@@ -68,9 +69,12 @@ namespace Pulumi.AwsNative.SageMaker
         private GetModelQualityJobDefinitionResult(
             string? creationTime,
 
+            string? endpointName,
+
             string? jobDefinitionArn)
         {
             CreationTime = creationTime;
+            EndpointName = endpointName;
             JobDefinitionArn = jobDefinitionArn;
         }
     }

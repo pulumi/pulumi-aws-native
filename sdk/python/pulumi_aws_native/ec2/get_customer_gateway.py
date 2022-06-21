@@ -19,22 +19,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetCustomerGatewayResult:
-    def __init__(__self__, id=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, customer_gateway_id=None, tags=None):
+        if customer_gateway_id and not isinstance(customer_gateway_id, str):
+            raise TypeError("Expected argument 'customer_gateway_id' to be a str")
+        pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="customerGatewayId")
+    def customer_gateway_id(self) -> Optional[str]:
+        """
+        CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+        """
+        return pulumi.get(self, "customer_gateway_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.CustomerGatewayTag']]:
+        """
+        One or more tags for the customer gateway.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -44,17 +50,20 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
         if False:
             yield self
         return GetCustomerGatewayResult(
-            id=self.id,
+            customer_gateway_id=self.customer_gateway_id,
             tags=self.tags)
 
 
-def get_customer_gateway(id: Optional[str] = None,
+def get_customer_gateway(customer_gateway_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
     Resource Type definition for AWS::EC2::CustomerGateway
+
+
+    :param str customer_gateway_id: CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['customerGatewayId'] = customer_gateway_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -62,14 +71,17 @@ def get_customer_gateway(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult).value
 
     return AwaitableGetCustomerGatewayResult(
-        id=__ret__.id,
+        customer_gateway_id=__ret__.customer_gateway_id,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_customer_gateway)
-def get_customer_gateway_output(id: Optional[pulumi.Input[str]] = None,
+def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
     Resource Type definition for AWS::EC2::CustomerGateway
+
+
+    :param str customer_gateway_id: CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
     """
     ...

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 {
 
+    /// <summary>
+    /// The base location of the Amazon Data Analytics application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationS3ContentBaseLocation
     {
+        /// <summary>
+        /// The base path for the S3 bucket.
+        /// </summary>
         public readonly string? BasePath;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 bucket.
+        /// </summary>
         public readonly string BucketARN;
 
         [OutputConstructor]

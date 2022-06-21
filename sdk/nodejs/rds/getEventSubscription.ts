@@ -44,10 +44,6 @@ export interface GetEventSubscriptionResult {
      */
     readonly sourceType?: enums.rds.EventSubscriptionSourceType;
     /**
-     * The name of the subscription.
-     */
-    readonly subscriptionName?: string;
-    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.rds.EventSubscriptionTag[];

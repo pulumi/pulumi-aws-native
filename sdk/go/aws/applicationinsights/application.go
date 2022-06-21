@@ -25,6 +25,8 @@ type Application struct {
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayOutput `pulumi:"componentMonitoringSettings"`
 	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayOutput `pulumi:"customComponents"`
+	// The grouping type of the application
+	GroupingType ApplicationGroupingTypePtrOutput `pulumi:"groupingType"`
 	// The log pattern sets.
 	LogPatternSets ApplicationLogPatternSetArrayOutput `pulumi:"logPatternSets"`
 	// When set to true, creates opsItems for any problems detected on an application.
@@ -87,6 +89,8 @@ type applicationArgs struct {
 	ComponentMonitoringSettings []ApplicationComponentMonitoringSetting `pulumi:"componentMonitoringSettings"`
 	// The custom grouped components.
 	CustomComponents []ApplicationCustomComponent `pulumi:"customComponents"`
+	// The grouping type of the application
+	GroupingType *ApplicationGroupingType `pulumi:"groupingType"`
 	// The log pattern sets.
 	LogPatternSets []ApplicationLogPatternSet `pulumi:"logPatternSets"`
 	// When set to true, creates opsItems for any problems detected on an application.
@@ -109,6 +113,8 @@ type ApplicationArgs struct {
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayInput
 	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayInput
+	// The grouping type of the application
+	GroupingType ApplicationGroupingTypePtrInput
 	// The log pattern sets.
 	LogPatternSets ApplicationLogPatternSetArrayInput
 	// When set to true, creates opsItems for any problems detected on an application.
@@ -183,6 +189,11 @@ func (o ApplicationOutput) ComponentMonitoringSettings() ApplicationComponentMon
 // The custom grouped components.
 func (o ApplicationOutput) CustomComponents() ApplicationCustomComponentArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCustomComponentArrayOutput { return v.CustomComponents }).(ApplicationCustomComponentArrayOutput)
+}
+
+// The grouping type of the application
+func (o ApplicationOutput) GroupingType() ApplicationGroupingTypePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationGroupingTypePtrOutput { return v.GroupingType }).(ApplicationGroupingTypePtrOutput)
 }
 
 // The log pattern sets.

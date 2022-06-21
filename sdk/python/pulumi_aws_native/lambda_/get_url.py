@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUrlResult:
-    def __init__(__self__, auth_type=None, cors=None, function_arn=None, function_url=None):
+    def __init__(__self__, auth_type=None, cors=None, function_arn=None, function_url=None, invoke_mode=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
@@ -33,6 +33,9 @@ class GetUrlResult:
         if function_url and not isinstance(function_url, str):
             raise TypeError("Expected argument 'function_url' to be a str")
         pulumi.set(__self__, "function_url", function_url)
+        if invoke_mode and not isinstance(invoke_mode, str):
+            raise TypeError("Expected argument 'invoke_mode' to be a str")
+        pulumi.set(__self__, "invoke_mode", invoke_mode)
 
     @property
     @pulumi.getter(name="authType")
@@ -63,6 +66,14 @@ class GetUrlResult:
         """
         return pulumi.get(self, "function_url")
 
+    @property
+    @pulumi.getter(name="invokeMode")
+    def invoke_mode(self) -> Optional['UrlInvokeMode']:
+        """
+        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        """
+        return pulumi.get(self, "invoke_mode")
+
 
 class AwaitableGetUrlResult(GetUrlResult):
     # pylint: disable=using-constant-test
@@ -73,7 +84,8 @@ class AwaitableGetUrlResult(GetUrlResult):
             auth_type=self.auth_type,
             cors=self.cors,
             function_arn=self.function_arn,
-            function_url=self.function_url)
+            function_url=self.function_url,
+            invoke_mode=self.invoke_mode)
 
 
 def get_url(function_arn: Optional[str] = None,
@@ -96,7 +108,8 @@ def get_url(function_arn: Optional[str] = None,
         auth_type=__ret__.auth_type,
         cors=__ret__.cors,
         function_arn=__ret__.function_arn,
-        function_url=__ret__.function_url)
+        function_url=__ret__.function_url,
+        invoke_mode=__ret__.invoke_mode)
 
 
 @_utilities.lift_output_func(get_url)

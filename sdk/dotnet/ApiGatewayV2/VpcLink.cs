@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::VpcLink
     /// </summary>
-    [Obsolete(@"VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:VpcLink")]
     public partial class VpcLink : Pulumi.CustomResource
     {
@@ -25,8 +24,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// This resource type use map for Tags, suggest to use List of Tag
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
+
+        [Output("vpcLinkId")]
+        public Output<string> VpcLinkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,6 +97,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// This resource type use map for Tags, suggest to use List of Tag
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 
