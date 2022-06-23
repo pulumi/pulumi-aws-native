@@ -55,10 +55,7 @@ def get_key_signing_key(hosted_zone_id: Optional[str] = None,
     __args__ = dict()
     __args__['hostedZoneId'] = hosted_zone_id
     __args__['name'] = name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getKeySigningKey', __args__, opts=opts, typ=GetKeySigningKeyResult).value
 
     return AwaitableGetKeySigningKeyResult(

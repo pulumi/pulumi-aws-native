@@ -78,10 +78,7 @@ def get_enclave_certificate_iam_role_association(certificate_arn: Optional[str] 
     __args__ = dict()
     __args__['certificateArn'] = certificate_arn
     __args__['roleArn'] = role_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEnclaveCertificateIamRoleAssociation', __args__, opts=opts, typ=GetEnclaveCertificateIamRoleAssociationResult).value
 
     return AwaitableGetEnclaveCertificateIamRoleAssociationResult(

@@ -75,10 +75,7 @@ def get_public_type_version(public_type_arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['publicTypeArn'] = public_type_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getPublicTypeVersion', __args__, opts=opts, typ=GetPublicTypeVersionResult).value
 
     return AwaitableGetPublicTypeVersionResult(

@@ -132,10 +132,7 @@ def get_theme(aws_account_id: Optional[str] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['themeId'] = theme_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getTheme', __args__, opts=opts, typ=GetThemeResult).value
 
     return AwaitableGetThemeResult(

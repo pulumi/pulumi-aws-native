@@ -89,10 +89,7 @@ def get_global_replication_group(global_replication_group_id: Optional[str] = No
     """
     __args__ = dict()
     __args__['globalReplicationGroupId'] = global_replication_group_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult).value
 
     return AwaitableGetGlobalReplicationGroupResult(

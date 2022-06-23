@@ -63,10 +63,7 @@ def get_gateway_route_table_association(gateway_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getGatewayRouteTableAssociation', __args__, opts=opts, typ=GetGatewayRouteTableAssociationResult).value
 
     return AwaitableGetGatewayRouteTableAssociationResult(
