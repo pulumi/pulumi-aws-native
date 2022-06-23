@@ -19478,6 +19478,69 @@
                 "signingDisabled"
             ]
         },
+        "aws-native:iot:CACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "inputs": {
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "createOnly": [
+                "cACertificatePem",
+                "verificationCertificatePem"
+            ]
+        },
         "aws-native:iot:Certificate": {
             "cf": "AWS::IoT::Certificate",
             "inputs": {
@@ -36272,7 +36335,7 @@
                 "deviceFleetName"
             ],
             "createOnly": [
-                "deviceFleetName"
+                "device/DeviceName"
             ]
         },
         "aws-native:sagemaker:DeviceFleet": {
@@ -56726,6 +56789,25 @@
                 }
             }
         },
+        "aws-native:iot:CACertificateAutoRegistrationStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:iot:CertificateMode": {
             "type": "string"
         },
@@ -57089,6 +57171,17 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:RegistrationConfigProperties": {
+            "type": "object",
+            "properties": {
+                "roleArn": {
+                    "type": "string"
+                },
+                "templateBody": {
                     "type": "string"
                 }
             }
@@ -80580,6 +80673,12 @@
                 "authorizerName"
             ]
         },
+        "aws-native:iot:getCACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:iot:getCertificate": {
             "cf": "AWS::IoT::Certificate",
             "ids": [
@@ -81854,12 +81953,6 @@
             "cf": "AWS::SageMaker::DataQualityJobDefinition",
             "ids": [
                 "jobDefinitionArn"
-            ]
-        },
-        "aws-native:sagemaker:getDevice": {
-            "cf": "AWS::SageMaker::Device",
-            "ids": [
-                "deviceFleetName"
             ]
         },
         "aws-native:sagemaker:getDeviceFleet": {

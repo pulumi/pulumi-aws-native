@@ -269,6 +269,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
