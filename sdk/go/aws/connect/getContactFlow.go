@@ -37,7 +37,7 @@ type LookupContactFlowResult struct {
 	// The name of the contact flow.
 	Name *string `pulumi:"name"`
 	// The state of the contact flow.
-	State *ContactFlowStateEnum `pulumi:"state"`
+	State *ContactFlowState `pulumi:"state"`
 	// One or more tags.
 	Tags []ContactFlowTag `pulumi:"tags"`
 }
@@ -104,8 +104,8 @@ func (o LookupContactFlowResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The state of the contact flow.
-func (o LookupContactFlowResultOutput) State() ContactFlowStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) *ContactFlowStateEnum { return v.State }).(ContactFlowStateEnumPtrOutput)
+func (o LookupContactFlowResultOutput) State() ContactFlowStatePtrOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) *ContactFlowState { return v.State }).(ContactFlowStatePtrOutput)
 }
 
 // One or more tags.

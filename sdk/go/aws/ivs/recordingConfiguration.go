@@ -21,7 +21,7 @@ type RecordingConfiguration struct {
 	// Recording Configuration Name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Recording Configuration State.
-	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
+	State RecordingConfigurationStateOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags                   RecordingConfigurationTagArrayOutput                  `pulumi:"tags"`
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrOutput `pulumi:"thumbnailConfiguration"`
@@ -141,8 +141,8 @@ func (o RecordingConfigurationOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Recording Configuration State.
-func (o RecordingConfigurationOutput) State() RecordingConfigurationStateEnumOutput {
-	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationStateEnumOutput { return v.State }).(RecordingConfigurationStateEnumOutput)
+func (o RecordingConfigurationOutput) State() RecordingConfigurationStateOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationStateOutput { return v.State }).(RecordingConfigurationStateOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

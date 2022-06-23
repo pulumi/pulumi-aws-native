@@ -41,7 +41,7 @@ type LookupScheduledActionResult struct {
 	// The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
 	StartTime *string `pulumi:"startTime"`
 	// The state of the scheduled action.
-	State *ScheduledActionStateEnum `pulumi:"state"`
+	State *ScheduledActionState `pulumi:"state"`
 	// A JSON format string of the Amazon Redshift API operation with input parameters.
 	TargetAction *ScheduledActionType `pulumi:"targetAction"`
 }
@@ -118,8 +118,8 @@ func (o LookupScheduledActionResultOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // The state of the scheduled action.
-func (o LookupScheduledActionResultOutput) State() ScheduledActionStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupScheduledActionResult) *ScheduledActionStateEnum { return v.State }).(ScheduledActionStateEnumPtrOutput)
+func (o LookupScheduledActionResultOutput) State() ScheduledActionStatePtrOutput {
+	return o.ApplyT(func(v LookupScheduledActionResult) *ScheduledActionState { return v.State }).(ScheduledActionStatePtrOutput)
 }
 
 // A JSON format string of the Amazon Redshift API operation with input parameters.

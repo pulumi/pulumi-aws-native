@@ -24,7 +24,7 @@ type Endpoint struct {
 	ReplicationConfig EndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
 	RoleArn           pulumi.StringPtrOutput             `pulumi:"roleArn"`
 	RoutingConfig     EndpointRoutingConfigOutput        `pulumi:"routingConfig"`
-	State             EndpointStateEnumOutput            `pulumi:"state"`
+	State             EndpointStateOutput                `pulumi:"state"`
 	StateReason       pulumi.StringOutput                `pulumi:"stateReason"`
 }
 
@@ -164,8 +164,8 @@ func (o EndpointOutput) RoutingConfig() EndpointRoutingConfigOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRoutingConfigOutput { return v.RoutingConfig }).(EndpointRoutingConfigOutput)
 }
 
-func (o EndpointOutput) State() EndpointStateEnumOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointStateEnumOutput { return v.State }).(EndpointStateEnumOutput)
+func (o EndpointOutput) State() EndpointStateOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointStateOutput { return v.State }).(EndpointStateOutput)
 }
 
 func (o EndpointOutput) StateReason() pulumi.StringOutput {

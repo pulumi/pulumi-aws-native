@@ -33,7 +33,7 @@ type LookupEndpointResult struct {
 	ReplicationConfig *EndpointReplicationConfig `pulumi:"replicationConfig"`
 	RoleArn           *string                    `pulumi:"roleArn"`
 	RoutingConfig     *EndpointRoutingConfig     `pulumi:"routingConfig"`
-	State             *EndpointStateEnum         `pulumi:"state"`
+	State             *EndpointState             `pulumi:"state"`
 	StateReason       *string                    `pulumi:"stateReason"`
 }
 
@@ -104,8 +104,8 @@ func (o LookupEndpointResultOutput) RoutingConfig() EndpointRoutingConfigPtrOutp
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointRoutingConfig { return v.RoutingConfig }).(EndpointRoutingConfigPtrOutput)
 }
 
-func (o LookupEndpointResultOutput) State() EndpointStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupEndpointResult) *EndpointStateEnum { return v.State }).(EndpointStateEnumPtrOutput)
+func (o LookupEndpointResultOutput) State() EndpointStatePtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *EndpointState { return v.State }).(EndpointStatePtrOutput)
 }
 
 func (o LookupEndpointResultOutput) StateReason() pulumi.StringPtrOutput {

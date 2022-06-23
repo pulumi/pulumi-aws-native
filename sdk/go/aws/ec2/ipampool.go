@@ -51,7 +51,7 @@ type IPAMPool struct {
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
 	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
 	// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
-	State IPAMPoolStateEnumOutput `pulumi:"state"`
+	State IPAMPoolStateOutput `pulumi:"state"`
 	// An explanation of how the pool arrived at it current state.
 	StateMessage pulumi.StringOutput `pulumi:"stateMessage"`
 	// An array of key-value pairs to apply to this resource.
@@ -286,8 +286,8 @@ func (o IPAMPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 }
 
 // The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
-func (o IPAMPoolOutput) State() IPAMPoolStateEnumOutput {
-	return o.ApplyT(func(v *IPAMPool) IPAMPoolStateEnumOutput { return v.State }).(IPAMPoolStateEnumOutput)
+func (o IPAMPoolOutput) State() IPAMPoolStateOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolStateOutput { return v.State }).(IPAMPoolStateOutput)
 }
 
 // An explanation of how the pool arrived at it current state.

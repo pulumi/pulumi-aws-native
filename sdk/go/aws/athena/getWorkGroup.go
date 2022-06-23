@@ -33,7 +33,7 @@ type LookupWorkGroupResult struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption *bool `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *WorkGroupStateEnum `pulumi:"state"`
+	State *WorkGroupState `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags []WorkGroupTag `pulumi:"tags"`
 	// The workgroup configuration
@@ -92,8 +92,8 @@ func (o LookupWorkGroupResultOutput) RecursiveDeleteOption() pulumi.BoolPtrOutpu
 }
 
 // The state of the workgroup: ENABLED or DISABLED.
-func (o LookupWorkGroupResultOutput) State() WorkGroupStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupWorkGroupResult) *WorkGroupStateEnum { return v.State }).(WorkGroupStateEnumPtrOutput)
+func (o LookupWorkGroupResultOutput) State() WorkGroupStatePtrOutput {
+	return o.ApplyT(func(v LookupWorkGroupResult) *WorkGroupState { return v.State }).(WorkGroupStatePtrOutput)
 }
 
 // One or more tags, separated by commas, that you want to attach to the workgroup as you create it

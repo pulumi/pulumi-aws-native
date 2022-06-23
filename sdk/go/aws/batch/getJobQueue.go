@@ -29,7 +29,7 @@ type LookupJobQueueResult struct {
 	JobQueueArn             *string                           `pulumi:"jobQueueArn"`
 	Priority                *int                              `pulumi:"priority"`
 	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *JobQueueStateEnum                `pulumi:"state"`
+	State                   *JobQueueState                    `pulumi:"state"`
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
@@ -83,8 +83,8 @@ func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupJobQueueResultOutput) State() JobQueueStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupJobQueueResult) *JobQueueStateEnum { return v.State }).(JobQueueStateEnumPtrOutput)
+func (o LookupJobQueueResultOutput) State() JobQueueStatePtrOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) *JobQueueState { return v.State }).(JobQueueStatePtrOutput)
 }
 
 func init() {

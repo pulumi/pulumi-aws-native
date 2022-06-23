@@ -29,7 +29,7 @@ type LookupRecordingConfigurationResult struct {
 	// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn *string `pulumi:"arn"`
 	// Recording Configuration State.
-	State *RecordingConfigurationStateEnum `pulumi:"state"`
+	State *RecordingConfigurationState `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []RecordingConfigurationTag `pulumi:"tags"`
 }
@@ -76,8 +76,8 @@ func (o LookupRecordingConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // Recording Configuration State.
-func (o LookupRecordingConfigurationResultOutput) State() RecordingConfigurationStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupRecordingConfigurationResult) *RecordingConfigurationStateEnum { return v.State }).(RecordingConfigurationStateEnumPtrOutput)
+func (o LookupRecordingConfigurationResultOutput) State() RecordingConfigurationStatePtrOutput {
+	return o.ApplyT(func(v LookupRecordingConfigurationResult) *RecordingConfigurationState { return v.State }).(RecordingConfigurationStatePtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

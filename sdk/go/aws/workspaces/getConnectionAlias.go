@@ -27,7 +27,7 @@ type LookupConnectionAliasArgs struct {
 type LookupConnectionAliasResult struct {
 	AliasId              *string                      `pulumi:"aliasId"`
 	Associations         []ConnectionAliasAssociation `pulumi:"associations"`
-	ConnectionAliasState *ConnectionAliasStateEnum    `pulumi:"connectionAliasState"`
+	ConnectionAliasState *ConnectionAliasState        `pulumi:"connectionAliasState"`
 }
 
 func LookupConnectionAliasOutput(ctx *pulumi.Context, args LookupConnectionAliasOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionAliasResultOutput {
@@ -73,8 +73,8 @@ func (o LookupConnectionAliasResultOutput) Associations() ConnectionAliasAssocia
 	return o.ApplyT(func(v LookupConnectionAliasResult) []ConnectionAliasAssociation { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
 }
 
-func (o LookupConnectionAliasResultOutput) ConnectionAliasState() ConnectionAliasStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupConnectionAliasResult) *ConnectionAliasStateEnum { return v.ConnectionAliasState }).(ConnectionAliasStateEnumPtrOutput)
+func (o LookupConnectionAliasResultOutput) ConnectionAliasState() ConnectionAliasStatePtrOutput {
+	return o.ApplyT(func(v LookupConnectionAliasResult) *ConnectionAliasState { return v.ConnectionAliasState }).(ConnectionAliasStatePtrOutput)
 }
 
 func init() {

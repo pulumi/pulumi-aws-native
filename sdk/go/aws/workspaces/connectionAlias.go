@@ -17,7 +17,7 @@ type ConnectionAlias struct {
 
 	AliasId              pulumi.StringOutput                   `pulumi:"aliasId"`
 	Associations         ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
-	ConnectionAliasState ConnectionAliasStateEnumOutput        `pulumi:"connectionAliasState"`
+	ConnectionAliasState ConnectionAliasStateOutput            `pulumi:"connectionAliasState"`
 	ConnectionString     pulumi.StringOutput                   `pulumi:"connectionString"`
 	Tags                 ConnectionAliasTagArrayOutput         `pulumi:"tags"`
 }
@@ -119,8 +119,8 @@ func (o ConnectionAliasOutput) Associations() ConnectionAliasAssociationArrayOut
 	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasAssociationArrayOutput { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
 }
 
-func (o ConnectionAliasOutput) ConnectionAliasState() ConnectionAliasStateEnumOutput {
-	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasStateEnumOutput { return v.ConnectionAliasState }).(ConnectionAliasStateEnumOutput)
+func (o ConnectionAliasOutput) ConnectionAliasState() ConnectionAliasStateOutput {
+	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasStateOutput { return v.ConnectionAliasState }).(ConnectionAliasStateOutput)
 }
 
 func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {

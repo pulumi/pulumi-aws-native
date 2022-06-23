@@ -20,7 +20,7 @@ type JobQueue struct {
 	JobQueueName            pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
 	Priority                pulumi.IntOutput                           `pulumi:"priority"`
 	SchedulingPolicyArn     pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
-	State                   JobQueueStateEnumPtrOutput                 `pulumi:"state"`
+	State                   JobQueueStatePtrOutput                     `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
@@ -74,7 +74,7 @@ type jobQueueArgs struct {
 	JobQueueName            *string                           `pulumi:"jobQueueName"`
 	Priority                int                               `pulumi:"priority"`
 	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *JobQueueStateEnum                `pulumi:"state"`
+	State                   *JobQueueState                    `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags interface{} `pulumi:"tags"`
 }
@@ -85,7 +85,7 @@ type JobQueueArgs struct {
 	JobQueueName            pulumi.StringPtrInput
 	Priority                pulumi.IntInput
 	SchedulingPolicyArn     pulumi.StringPtrInput
-	State                   JobQueueStateEnumPtrInput
+	State                   JobQueueStatePtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.Input
 }
@@ -147,8 +147,8 @@ func (o JobQueueOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o JobQueueOutput) State() JobQueueStateEnumPtrOutput {
-	return o.ApplyT(func(v *JobQueue) JobQueueStateEnumPtrOutput { return v.State }).(JobQueueStateEnumPtrOutput)
+func (o JobQueueOutput) State() JobQueueStatePtrOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueStatePtrOutput { return v.State }).(JobQueueStatePtrOutput)
 }
 
 // A key-value pair to associate with a resource.

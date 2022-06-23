@@ -37,7 +37,7 @@ type LookupContactFlowModuleResult struct {
 	// The name of the contact flow module.
 	Name *string `pulumi:"name"`
 	// The state of the contact flow module.
-	State *ContactFlowModuleStateEnum `pulumi:"state"`
+	State *ContactFlowModuleState `pulumi:"state"`
 	// The status of the contact flow module.
 	Status *ContactFlowModuleStatus `pulumi:"status"`
 	// One or more tags.
@@ -106,8 +106,8 @@ func (o LookupContactFlowModuleResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The state of the contact flow module.
-func (o LookupContactFlowModuleResultOutput) State() ContactFlowModuleStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupContactFlowModuleResult) *ContactFlowModuleStateEnum { return v.State }).(ContactFlowModuleStateEnumPtrOutput)
+func (o LookupContactFlowModuleResultOutput) State() ContactFlowModuleStatePtrOutput {
+	return o.ApplyT(func(v LookupContactFlowModuleResult) *ContactFlowModuleState { return v.State }).(ContactFlowModuleStatePtrOutput)
 }
 
 // The status of the contact flow module.

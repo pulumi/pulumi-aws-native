@@ -26,7 +26,7 @@ type ContactFlow struct {
 	// The name of the contact flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The state of the contact flow.
-	State ContactFlowStateEnumPtrOutput `pulumi:"state"`
+	State ContactFlowStatePtrOutput `pulumi:"state"`
 	// One or more tags.
 	Tags ContactFlowTagArrayOutput `pulumi:"tags"`
 	// The type of the contact flow.
@@ -87,7 +87,7 @@ type contactFlowArgs struct {
 	// The name of the contact flow.
 	Name *string `pulumi:"name"`
 	// The state of the contact flow.
-	State *ContactFlowStateEnum `pulumi:"state"`
+	State *ContactFlowState `pulumi:"state"`
 	// One or more tags.
 	Tags []ContactFlowTag `pulumi:"tags"`
 	// The type of the contact flow.
@@ -105,7 +105,7 @@ type ContactFlowArgs struct {
 	// The name of the contact flow.
 	Name pulumi.StringPtrInput
 	// The state of the contact flow.
-	State ContactFlowStateEnumPtrInput
+	State ContactFlowStatePtrInput
 	// One or more tags.
 	Tags ContactFlowTagArrayInput
 	// The type of the contact flow.
@@ -175,8 +175,8 @@ func (o ContactFlowOutput) Name() pulumi.StringOutput {
 }
 
 // The state of the contact flow.
-func (o ContactFlowOutput) State() ContactFlowStateEnumPtrOutput {
-	return o.ApplyT(func(v *ContactFlow) ContactFlowStateEnumPtrOutput { return v.State }).(ContactFlowStateEnumPtrOutput)
+func (o ContactFlowOutput) State() ContactFlowStatePtrOutput {
+	return o.ApplyT(func(v *ContactFlow) ContactFlowStatePtrOutput { return v.State }).(ContactFlowStatePtrOutput)
 }
 
 // One or more tags.

@@ -23,7 +23,7 @@ type WorkGroup struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrOutput `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State WorkGroupStateEnumPtrOutput `pulumi:"state"`
+	State WorkGroupStatePtrOutput `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayOutput `pulumi:"tags"`
 	// The workgroup configuration
@@ -78,7 +78,7 @@ type workGroupArgs struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption *bool `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *WorkGroupStateEnum `pulumi:"state"`
+	State *WorkGroupState `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags []WorkGroupTag `pulumi:"tags"`
 	// The workgroup configuration
@@ -96,7 +96,7 @@ type WorkGroupArgs struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrInput
 	// The state of the workgroup: ENABLED or DISABLED.
-	State WorkGroupStateEnumPtrInput
+	State WorkGroupStatePtrInput
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayInput
 	// The workgroup configuration
@@ -163,8 +163,8 @@ func (o WorkGroupOutput) RecursiveDeleteOption() pulumi.BoolPtrOutput {
 }
 
 // The state of the workgroup: ENABLED or DISABLED.
-func (o WorkGroupOutput) State() WorkGroupStateEnumPtrOutput {
-	return o.ApplyT(func(v *WorkGroup) WorkGroupStateEnumPtrOutput { return v.State }).(WorkGroupStateEnumPtrOutput)
+func (o WorkGroupOutput) State() WorkGroupStatePtrOutput {
+	return o.ApplyT(func(v *WorkGroup) WorkGroupStatePtrOutput { return v.State }).(WorkGroupStatePtrOutput)
 }
 
 // One or more tags, separated by commas, that you want to attach to the workgroup as you create it

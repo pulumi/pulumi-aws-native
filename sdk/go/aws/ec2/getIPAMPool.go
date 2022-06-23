@@ -52,7 +52,7 @@ type LookupIPAMPoolResult struct {
 	// A list of cidrs representing the address space available for allocation in this pool.
 	ProvisionedCidrs []IPAMPoolProvisionedCidr `pulumi:"provisionedCidrs"`
 	// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
-	State *IPAMPoolStateEnum `pulumi:"state"`
+	State *IPAMPoolState `pulumi:"state"`
 	// An explanation of how the pool arrived at it current state.
 	StateMessage *string `pulumi:"stateMessage"`
 	// An array of key-value pairs to apply to this resource.
@@ -160,8 +160,8 @@ func (o LookupIPAMPoolResultOutput) ProvisionedCidrs() IPAMPoolProvisionedCidrAr
 }
 
 // The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
-func (o LookupIPAMPoolResultOutput) State() IPAMPoolStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupIPAMPoolResult) *IPAMPoolStateEnum { return v.State }).(IPAMPoolStateEnumPtrOutput)
+func (o LookupIPAMPoolResultOutput) State() IPAMPoolStatePtrOutput {
+	return o.ApplyT(func(v LookupIPAMPoolResult) *IPAMPoolState { return v.State }).(IPAMPoolStatePtrOutput)
 }
 
 // An explanation of how the pool arrived at it current state.
