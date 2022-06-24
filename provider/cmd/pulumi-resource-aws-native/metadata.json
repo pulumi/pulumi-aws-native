@@ -10026,6 +10026,121 @@
                 "tableName"
             ]
         },
+        "aws-native:ec2:CapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "inputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "availableInstanceCount": {
+                    "type": "integer"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                },
+                "totalInstanceCount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "availabilityZone",
+                "instanceCount",
+                "instancePlatform",
+                "instanceType"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "ebsOptimized",
+                "ephemeralStorage",
+                "instanceMatchCriteria",
+                "instancePlatform",
+                "instanceType",
+                "outPostArn",
+                "placementGroupArn",
+                "tagSpecifications",
+                "tenancy"
+            ]
+        },
         "aws-native:ec2:CapacityReservationFleet": {
             "cf": "AWS::EC2::CapacityReservationFleet",
             "inputs": {
@@ -19476,6 +19591,69 @@
             "createOnly": [
                 "authorizerName",
                 "signingDisabled"
+            ]
+        },
+        "aws-native:iot:CACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "inputs": {
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "createOnly": [
+                "cACertificatePem",
+                "verificationCertificatePem"
             ]
         },
         "aws-native:iot:Certificate": {
@@ -36272,7 +36450,7 @@
                 "deviceFleetName"
             ],
             "createOnly": [
-                "deviceFleetName"
+                "device/DeviceName"
             ]
         },
         "aws-native:sagemaker:DeviceFleet": {
@@ -49374,6 +49552,31 @@
         "aws-native:ec2:CapacityReservationFleetTenancy": {
             "type": "string"
         },
+        "aws-native:ec2:CapacityReservationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationTagSpecification": {
+            "type": "object",
+            "properties": {
+                "resourceType": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTag"
+                    }
+                }
+            }
+        },
         "aws-native:ec2:CarrierGatewayTag": {
             "type": "object",
             "properties": {
@@ -56726,6 +56929,25 @@
                 }
             }
         },
+        "aws-native:iot:CACertificateAutoRegistrationStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:iot:CertificateMode": {
             "type": "string"
         },
@@ -57089,6 +57311,17 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:RegistrationConfigProperties": {
+            "type": "object",
+            "properties": {
+                "roleArn": {
+                    "type": "string"
+                },
+                "templateBody": {
                     "type": "string"
                 }
             }
@@ -79802,6 +80035,12 @@
                 "tableName"
             ]
         },
+        "aws-native:ec2:getCapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:ec2:getCapacityReservationFleet": {
             "cf": "AWS::EC2::CapacityReservationFleet",
             "ids": [
@@ -80578,6 +80817,12 @@
             "cf": "AWS::IoT::Authorizer",
             "ids": [
                 "authorizerName"
+            ]
+        },
+        "aws-native:iot:getCACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:iot:getCertificate": {
@@ -81854,12 +82099,6 @@
             "cf": "AWS::SageMaker::DataQualityJobDefinition",
             "ids": [
                 "jobDefinitionArn"
-            ]
-        },
-        "aws-native:sagemaker:getDevice": {
-            "cf": "AWS::SageMaker::Device",
-            "ids": [
-                "deviceFleetName"
             ]
         },
         "aws-native:sagemaker:getDeviceFleet": {

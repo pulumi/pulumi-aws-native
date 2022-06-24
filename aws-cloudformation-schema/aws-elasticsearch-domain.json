@@ -290,13 +290,16 @@
         "MasterUserOptions" : {
           "$ref" : "#/definitions/MasterUserOptions"
         },
+        "AnonymousAuthEnabled" : {
+          "type" : "boolean"
+        },
         "InternalUserDatabaseEnabled" : {
           "type" : "boolean"
         }
       }
     }
   },
-  "createOnlyProperties" : [ "/properties/AdvancedSecurityOptions", "/properties/DomainName" ],
+  "createOnlyProperties" : [ "/properties/DomainName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/Arn" ]
 }
