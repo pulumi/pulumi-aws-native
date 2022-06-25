@@ -83,6 +83,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -137,6 +138,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
+AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::CustomerGateway
@@ -269,6 +271,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
