@@ -1942,6 +1942,10 @@
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectionMode",
                     "description": "Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular"
                 },
+                "connectorLabel": {
+                    "type": "string",
+                    "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/."
+                },
                 "connectorProfileConfig": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConfig",
                     "description": "Connector specific configurations needed to create connector profile"
@@ -1963,6 +1967,10 @@
                 "connectionMode": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectionMode",
                     "description": "Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular"
+                },
+                "connectorLabel": {
+                    "type": "string",
+                    "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/."
                 },
                 "connectorProfileArn": {
                     "type": "string",
@@ -2881,6 +2889,45 @@
             "createOnly": [
                 "applicationArn",
                 "fleetName"
+            ]
+        },
+        "aws-native:appstream:DirectoryConfig": {
+            "cf": "AWS::AppStream::DirectoryConfig",
+            "inputs": {
+                "directoryName": {
+                    "type": "string"
+                },
+                "organizationalUnitDistinguishedNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceAccountCredentials": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigServiceAccountCredentials"
+                }
+            },
+            "outputs": {
+                "directoryName": {
+                    "type": "string"
+                },
+                "organizationalUnitDistinguishedNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceAccountCredentials": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigServiceAccountCredentials"
+                }
+            },
+            "required": [
+                "directoryName",
+                "organizationalUnitDistinguishedNames",
+                "serviceAccountCredentials"
+            ],
+            "createOnly": [
+                "directoryName"
             ]
         },
         "aws-native:appstream:Entitlement": {
@@ -5677,6 +5724,98 @@
             "required": [
                 "responseHeadersPolicyConfig"
             ]
+        },
+        "aws-native:cloudtrail:EventDataStore": {
+            "cf": "AWS::CloudTrail::EventDataStore",
+            "inputs": {
+                "advancedEventSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedEventSelector"
+                    },
+                    "description": "The advanced event selectors that were used to select events for the data store."
+                },
+                "multiRegionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store includes events from all regions, or only from the region in which it was created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event data store."
+                },
+                "organizationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates that an event data store is collecting logged events for an organization."
+                },
+                "retentionPeriod": {
+                    "type": "integer",
+                    "description": "The retention period, in days."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreTag"
+                    }
+                },
+                "terminationProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store is protected from termination."
+                }
+            },
+            "outputs": {
+                "advancedEventSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedEventSelector"
+                    },
+                    "description": "The advanced event selectors that were used to select events for the data store."
+                },
+                "createdTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp of the event data store's creation."
+                },
+                "eventDataStoreArn": {
+                    "type": "string",
+                    "description": "The ARN of the event data store."
+                },
+                "multiRegionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store includes events from all regions, or only from the region in which it was created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event data store."
+                },
+                "organizationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates that an event data store is collecting logged events for an organization."
+                },
+                "retentionPeriod": {
+                    "type": "integer",
+                    "description": "The retention period, in days."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of an event data store. Values are ENABLED and PENDING_DELETION."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreTag"
+                    }
+                },
+                "terminationProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store is protected from termination."
+                },
+                "updatedTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            }
         },
         "aws-native:cloudtrail:Trail": {
             "cf": "AWS::CloudTrail::Trail",
@@ -10024,6 +10163,121 @@
                 "keySchema",
                 "localSecondaryIndexes",
                 "tableName"
+            ]
+        },
+        "aws-native:ec2:CapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "inputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "availableInstanceCount": {
+                    "type": "integer"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                },
+                "totalInstanceCount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "availabilityZone",
+                "instanceCount",
+                "instancePlatform",
+                "instanceType"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "ebsOptimized",
+                "ephemeralStorage",
+                "instanceMatchCriteria",
+                "instancePlatform",
+                "instanceType",
+                "outPostArn",
+                "placementGroupArn",
+                "tagSpecifications",
+                "tenancy"
             ]
         },
         "aws-native:ec2:CapacityReservationFleet": {
@@ -19476,6 +19730,69 @@
             "createOnly": [
                 "authorizerName",
                 "signingDisabled"
+            ]
+        },
+        "aws-native:iot:CACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "inputs": {
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "createOnly": [
+                "cACertificatePem",
+                "verificationCertificatePem"
             ]
         },
         "aws-native:iot:Certificate": {
@@ -36272,7 +36589,7 @@
                 "deviceFleetName"
             ],
             "createOnly": [
-                "deviceFleetName"
+                "device/DeviceName"
             ]
         },
         "aws-native:sagemaker:DeviceFleet": {
@@ -41949,6 +42266,31 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileApiKeyCredentials": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "apiSecretKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileAuthenticationType": {
+            "type": "string"
+        },
+        "aws-native:appflow:ConnectorProfileBasicAuthCredentials": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileConfig": {
             "type": "object",
             "properties": {
@@ -41984,6 +42326,9 @@
             "properties": {
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials"
+                },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomConnectorProfileCredentials"
                 },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileDatadogConnectorProfileCredentials"
@@ -42029,6 +42374,51 @@
                 },
                 "zendesk": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileZendeskConnectorProfileCredentials"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCredentialsMap": {
+            "type": "object"
+        },
+        "aws-native:appflow:ConnectorProfileCustomAuthCredentials": {
+            "type": "object",
+            "properties": {
+                "credentialsMap": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCredentialsMap"
+                },
+                "customAuthenticationType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCustomConnectorProfileCredentials": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileApiKeyCredentials"
+                },
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileAuthenticationType"
+                },
+                "basic": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileBasicAuthCredentials"
+                },
+                "custom": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomAuthCredentials"
+                },
+                "oauth2": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2Credentials"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCustomConnectorProfileProperties": {
+            "type": "object",
+            "properties": {
+                "oAuth2Properties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2Properties"
+                },
+                "profileProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileProfileProperties"
                 }
             }
         },
@@ -42157,6 +42547,43 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileOAuth2Credentials": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "oAuthRequest": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectorOAuthRequest"
+                },
+                "refreshToken": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileOAuth2GrantType": {
+            "type": "string"
+        },
+        "aws-native:appflow:ConnectorProfileOAuth2Properties": {
+            "type": "object",
+            "properties": {
+                "oAuth2GrantType": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2GrantType"
+                },
+                "tokenUrl": {
+                    "type": "string"
+                },
+                "tokenUrlCustomProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileTokenUrlCustomProperties"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileOAuthProperties": {
             "type": "object",
             "properties": {
@@ -42174,9 +42601,15 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileProfileProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:ConnectorProfileProperties": {
             "type": "object",
             "properties": {
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomConnectorProfileProperties"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileDatadogConnectorProfileProperties"
                 },
@@ -42253,23 +42686,10 @@
             "type": "object",
             "properties": {
                 "basicAuthCredentials": {
-                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties"
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileBasicAuthCredentials"
                 },
                 "oAuthCredentials": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties"
-                }
-            }
-        },
-        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties": {
-            "type": "object",
-            "properties": {
-                "password": {
-                    "type": "string",
-                    "description": "The password that corresponds to the username."
-                },
-                "username": {
-                    "type": "string",
-                    "description": "The name of the user."
                 }
             }
         },
@@ -42459,6 +42879,9 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileTokenUrlCustomProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:ConnectorProfileTrendmicroConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -42548,6 +42971,9 @@
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:FlowAmplitudeConnectorOperator"
                 },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowOperator"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:FlowDatadogConnectorOperator"
                 },
@@ -42595,6 +43021,44 @@
         "aws-native:appflow:FlowConnectorType": {
             "type": "string"
         },
+        "aws-native:appflow:FlowCustomConnectorDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "customProperties": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomProperties"
+                },
+                "entityName": {
+                    "type": "string"
+                },
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
+        "aws-native:appflow:FlowCustomConnectorSourceProperties": {
+            "type": "object",
+            "properties": {
+                "customProperties": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomProperties"
+                },
+                "entityName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:FlowCustomProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:FlowDatadogConnectorOperator": {
             "type": "string"
         },
@@ -42609,6 +43073,9 @@
         "aws-native:appflow:FlowDestinationConnectorProperties": {
             "type": "object",
             "properties": {
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomConnectorDestinationProperties"
+                },
                 "eventBridge": {
                     "$ref": "#/types/aws-native:appflow:FlowEventBridgeDestinationProperties"
                 },
@@ -42644,6 +43111,10 @@
         "aws-native:appflow:FlowDestinationFlowConfig": {
             "type": "object",
             "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "The API version that the destination connector uses."
+                },
                 "connectorProfileName": {
                     "type": "string",
                     "description": "Name of destination connector profile"
@@ -42757,6 +43228,9 @@
                 }
             }
         },
+        "aws-native:appflow:FlowOperator": {
+            "type": "string"
+        },
         "aws-native:appflow:FlowOperatorPropertiesKeys": {
             "type": "string"
         },
@@ -42833,6 +43307,9 @@
                 },
                 "prefixConfig": {
                     "$ref": "#/types/aws-native:appflow:FlowPrefixConfig"
+                },
+                "preserveSourceDataTyping": {
+                    "type": "boolean"
                 }
             }
         },
@@ -42929,6 +43406,9 @@
                 "dataPullMode": {
                     "$ref": "#/types/aws-native:appflow:FlowScheduledTriggerPropertiesDataPullMode"
                 },
+                "flowErrorDeactivationThreshold": {
+                    "type": "integer"
+                },
                 "scheduleEndTime": {
                     "type": "number"
                 },
@@ -43005,6 +43485,9 @@
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:FlowAmplitudeSourceProperties"
                 },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomConnectorSourceProperties"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:FlowDatadogSourceProperties"
                 },
@@ -43052,6 +43535,10 @@
         "aws-native:appflow:FlowSourceFlowConfig": {
             "type": "object",
             "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "The API version that the destination connector uses."
+                },
                 "connectorProfileName": {
                     "type": "string",
                     "description": "Name of source connector profile"
@@ -44029,6 +44516,17 @@
                     "type": "string"
                 },
                 "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:DirectoryConfigServiceAccountCredentials": {
+            "type": "object",
+            "properties": {
+                "accountName": {
+                    "type": "string"
+                },
+                "accountPassword": {
                     "type": "string"
                 }
             }
@@ -46303,6 +46801,86 @@
                 },
                 "reportUri": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:cloudtrail:EventDataStoreAdvancedEventSelector": {
+            "type": "object",
+            "properties": {
+                "fieldSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedFieldSelector"
+                    },
+                    "description": "Contains all selector statements in an advanced event selector."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "An optional, descriptive name for an advanced event selector, such as \"Log data events for only two S3 buckets\"."
+                }
+            }
+        },
+        "aws-native:cloudtrail:EventDataStoreAdvancedFieldSelector": {
+            "type": "object",
+            "properties": {
+                "endsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the last few characters of the event record field specified as the value of Field."
+                },
+                "equals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields."
+                },
+                "field": {
+                    "type": "string",
+                    "description": "A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN."
+                },
+                "notEndsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the last few characters of the event record field specified as the value of Field."
+                },
+                "notEquals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the exact value of the event record field specified as the value of Field."
+                },
+                "notStartsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the first few characters of the event record field specified as the value of Field."
+                },
+                "startsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the first few characters of the event record field specified as the value of Field."
+                }
+            }
+        },
+        "aws-native:cloudtrail:EventDataStoreTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -49373,6 +49951,31 @@
         },
         "aws-native:ec2:CapacityReservationFleetTenancy": {
             "type": "string"
+        },
+        "aws-native:ec2:CapacityReservationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationTagSpecification": {
+            "type": "object",
+            "properties": {
+                "resourceType": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTag"
+                    }
+                }
+            }
         },
         "aws-native:ec2:CarrierGatewayTag": {
             "type": "object",
@@ -56726,6 +57329,25 @@
                 }
             }
         },
+        "aws-native:iot:CACertificateAutoRegistrationStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:iot:CertificateMode": {
             "type": "string"
         },
@@ -57089,6 +57711,17 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:RegistrationConfigProperties": {
+            "type": "object",
+            "properties": {
+                "roleArn": {
+                    "type": "string"
+                },
+                "templateBody": {
                     "type": "string"
                 }
             }
@@ -79200,6 +79833,12 @@
                 "arn"
             ]
         },
+        "aws-native:appstream:getDirectoryConfig": {
+            "cf": "AWS::AppStream::DirectoryConfig",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:appstream:getEntitlement": {
             "cf": "AWS::AppStream::Entitlement",
             "ids": [
@@ -79473,6 +80112,12 @@
             "cf": "AWS::CloudFront::ResponseHeadersPolicy",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:cloudtrail:getEventDataStore": {
+            "cf": "AWS::CloudTrail::EventDataStore",
+            "ids": [
+                "eventDataStoreArn"
             ]
         },
         "aws-native:cloudtrail:getTrail": {
@@ -79800,6 +80445,12 @@
             "cf": "AWS::DynamoDB::GlobalTable",
             "ids": [
                 "tableName"
+            ]
+        },
+        "aws-native:ec2:getCapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:ec2:getCapacityReservationFleet": {
@@ -80578,6 +81229,12 @@
             "cf": "AWS::IoT::Authorizer",
             "ids": [
                 "authorizerName"
+            ]
+        },
+        "aws-native:iot:getCACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:iot:getCertificate": {
@@ -81854,12 +82511,6 @@
             "cf": "AWS::SageMaker::DataQualityJobDefinition",
             "ids": [
                 "jobDefinitionArn"
-            ]
-        },
-        "aws-native:sagemaker:getDevice": {
-            "cf": "AWS::SageMaker::Device",
-            "ids": [
-                "deviceFleetName"
             ]
         },
         "aws-native:sagemaker:getDeviceFleet": {
