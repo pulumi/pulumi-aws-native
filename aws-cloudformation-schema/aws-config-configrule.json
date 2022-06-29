@@ -88,7 +88,7 @@
           }
         }
       },
-      "required" : [ "Owner", "SourceIdentifier" ]
+      "required" : [ "Owner" ]
     }
   },
   "required" : [ "Source" ],
