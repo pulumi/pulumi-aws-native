@@ -37,6 +37,7 @@ AWS::AppStream::AppBlock
 AWS::AppStream::Application
 AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
@@ -83,6 +84,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -137,6 +139,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
+AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::CustomerGateway
@@ -269,6 +272,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
@@ -325,6 +329,10 @@ AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
+AWS::LakeFormation::DataCellsFilter
+AWS::LakeFormation::PrincipalPermissions
+AWS::LakeFormation::Tag
+AWS::LakeFormation::TagAssociation
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
@@ -479,6 +487,8 @@ AWS::S3Outposts::Endpoint
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
+AWS::SES::DedicatedIpPool
+AWS::SES::EmailIdentity
 AWS::SES::Template
 AWS::SQS::Queue
 AWS::SSM::Association
