@@ -11,6 +11,7 @@
     },
     "TagSpecifications" : {
       "type" : "array",
+      "insertionOrder" : false,
       "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/TagSpecification"
@@ -79,6 +80,7 @@
         },
         "Tags" : {
           "type" : "array",
+          "insertionOrder" : false,
           "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/Tag"
@@ -90,5 +92,22 @@
   "required" : [ "InstanceCount", "AvailabilityZone", "InstancePlatform", "InstanceType" ],
   "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstanceMatchCriteria", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount" ]
+  "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:CreateCapacityReservation", "ec2:DescribeCapacityReservations" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DescribeCapacityReservations", "ec2:CancelCapacityReservation" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeCapacityReservations" ]
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeCapacityReservations" ]
+    },
+    "update" : {
+      "permissions" : [ "ec2:ModifyCapacityReservation", "ec2:DescribeCapacityReservations" ]
+    }
+  }
 }
