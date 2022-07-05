@@ -1942,6 +1942,10 @@
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectionMode",
                     "description": "Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular"
                 },
+                "connectorLabel": {
+                    "type": "string",
+                    "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/."
+                },
                 "connectorProfileConfig": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConfig",
                     "description": "Connector specific configurations needed to create connector profile"
@@ -1963,6 +1967,10 @@
                 "connectionMode": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectionMode",
                     "description": "Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular"
+                },
+                "connectorLabel": {
+                    "type": "string",
+                    "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/."
                 },
                 "connectorProfileArn": {
                     "type": "string",
@@ -2881,6 +2889,45 @@
             "createOnly": [
                 "applicationArn",
                 "fleetName"
+            ]
+        },
+        "aws-native:appstream:DirectoryConfig": {
+            "cf": "AWS::AppStream::DirectoryConfig",
+            "inputs": {
+                "directoryName": {
+                    "type": "string"
+                },
+                "organizationalUnitDistinguishedNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceAccountCredentials": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigServiceAccountCredentials"
+                }
+            },
+            "outputs": {
+                "directoryName": {
+                    "type": "string"
+                },
+                "organizationalUnitDistinguishedNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceAccountCredentials": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigServiceAccountCredentials"
+                }
+            },
+            "required": [
+                "directoryName",
+                "organizationalUnitDistinguishedNames",
+                "serviceAccountCredentials"
+            ],
+            "createOnly": [
+                "directoryName"
             ]
         },
         "aws-native:appstream:Entitlement": {
@@ -5677,6 +5724,98 @@
             "required": [
                 "responseHeadersPolicyConfig"
             ]
+        },
+        "aws-native:cloudtrail:EventDataStore": {
+            "cf": "AWS::CloudTrail::EventDataStore",
+            "inputs": {
+                "advancedEventSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedEventSelector"
+                    },
+                    "description": "The advanced event selectors that were used to select events for the data store."
+                },
+                "multiRegionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store includes events from all regions, or only from the region in which it was created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event data store."
+                },
+                "organizationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates that an event data store is collecting logged events for an organization."
+                },
+                "retentionPeriod": {
+                    "type": "integer",
+                    "description": "The retention period, in days."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreTag"
+                    }
+                },
+                "terminationProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store is protected from termination."
+                }
+            },
+            "outputs": {
+                "advancedEventSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedEventSelector"
+                    },
+                    "description": "The advanced event selectors that were used to select events for the data store."
+                },
+                "createdTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp of the event data store's creation."
+                },
+                "eventDataStoreArn": {
+                    "type": "string",
+                    "description": "The ARN of the event data store."
+                },
+                "multiRegionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store includes events from all regions, or only from the region in which it was created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event data store."
+                },
+                "organizationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates that an event data store is collecting logged events for an organization."
+                },
+                "retentionPeriod": {
+                    "type": "integer",
+                    "description": "The retention period, in days."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of an event data store. Values are ENABLED and PENDING_DELETION."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreTag"
+                    }
+                },
+                "terminationProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the event data store is protected from termination."
+                },
+                "updatedTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            }
         },
         "aws-native:cloudtrail:Trail": {
             "cf": "AWS::CloudTrail::Trail",
@@ -8562,8 +8701,11 @@
                 "efsFilesystemArn"
             ],
             "createOnly": [
+                "accessPointArn",
                 "ec2Config",
                 "efsFilesystemArn",
+                "fileSystemAccessRoleArn",
+                "inTransitEncryption",
                 "subdirectory"
             ]
         },
@@ -8632,6 +8774,86 @@
             "createOnly": [
                 "fsxFilesystemArn",
                 "securityGroupArns",
+                "subdirectory"
+            ]
+        },
+        "aws-native:datasync:LocationFSxONTAP": {
+            "cf": "AWS::DataSync::LocationFSxONTAP",
+            "inputs": {
+                "protocol": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPProtocol"
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARNs of the security groups that are to use to configure the FSx ONTAP file system."
+                },
+                "storageVirtualMachineArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx ONTAP SVM."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "A subdirectory in the location's path."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationFSxONTAPTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx ONAP file system."
+                },
+                "locationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created."
+                },
+                "locationUri": {
+                    "type": "string",
+                    "description": "The URL of the FSx ONTAP file system that was described."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPProtocol"
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARNs of the security groups that are to use to configure the FSx ONTAP file system."
+                },
+                "storageVirtualMachineArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx ONTAP SVM."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "A subdirectory in the location's path."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationFSxONTAPTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "protocol",
+                "securityGroupArns",
+                "storageVirtualMachineArn"
+            ],
+            "createOnly": [
+                "protocol",
+                "securityGroupArns",
+                "storageVirtualMachineArn",
                 "subdirectory"
             ]
         },
@@ -10024,6 +10246,121 @@
                 "keySchema",
                 "localSecondaryIndexes",
                 "tableName"
+            ]
+        },
+        "aws-native:ec2:CapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "inputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "availableInstanceCount": {
+                    "type": "integer"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "endDateType": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "type": "boolean"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceMatchCriteria": {
+                    "type": "string"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "outPostArn": {
+                    "type": "string"
+                },
+                "placementGroupArn": {
+                    "type": "string"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "type": "string"
+                },
+                "totalInstanceCount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "availabilityZone",
+                "instanceCount",
+                "instancePlatform",
+                "instanceType"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "ebsOptimized",
+                "ephemeralStorage",
+                "instanceMatchCriteria",
+                "instancePlatform",
+                "instanceType",
+                "outPostArn",
+                "placementGroupArn",
+                "tagSpecifications",
+                "tenancy"
             ]
         },
         "aws-native:ec2:CapacityReservationFleet": {
@@ -19478,6 +19815,69 @@
                 "signingDisabled"
             ]
         },
+        "aws-native:iot:CACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "inputs": {
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "autoRegistrationStatus": {
+                    "$ref": "#/types/aws-native:iot:CACertificateAutoRegistrationStatus"
+                },
+                "cACertificatePem": {
+                    "type": "string"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws-native:iot:RegistrationConfigProperties"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:iot:CACertificateStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:CACertificateTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "The private key verification certificate."
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "createOnly": [
+                "cACertificatePem",
+                "verificationCertificatePem"
+            ]
+        },
         "aws-native:iot:Certificate": {
             "cf": "AWS::IoT::Certificate",
             "inputs": {
@@ -23390,6 +23790,10 @@
                     "type": "string",
                     "description": "The description of the application."
                 },
+                "applicationMaintenanceConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationMaintenanceConfiguration",
+                    "description": "Used to configure start of maintenance window."
+                },
                 "applicationMode": {
                     "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationMode",
                     "description": "To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional."
@@ -23397,6 +23801,10 @@
                 "applicationName": {
                     "type": "string",
                     "description": "The name of the application."
+                },
+                "runConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationRunConfiguration",
+                    "description": "Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only."
                 },
                 "runtimeEnvironment": {
                     "type": "string",
@@ -23423,6 +23831,10 @@
                     "type": "string",
                     "description": "The description of the application."
                 },
+                "applicationMaintenanceConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationMaintenanceConfiguration",
+                    "description": "Used to configure start of maintenance window."
+                },
                 "applicationMode": {
                     "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationMode",
                     "description": "To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional."
@@ -23430,6 +23842,10 @@
                 "applicationName": {
                     "type": "string",
                     "description": "The name of the application."
+                },
+                "runConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationRunConfiguration",
+                    "description": "Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only."
                 },
                 "runtimeEnvironment": {
                     "type": "string",
@@ -23892,6 +24308,250 @@
             ],
             "createOnly": [
                 "primaryKeyArn"
+            ]
+        },
+        "aws-native:lakeformation:DataCellsFilter": {
+            "cf": "AWS::LakeFormation::DataCellsFilter",
+            "inputs": {
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of columns to be included in this Data Cells Filter."
+                },
+                "columnWildcard": {
+                    "$ref": "#/types/aws-native:lakeformation:DataCellsFilterColumnWildcard",
+                    "description": "An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required"
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the Database that the Table resides in."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The desired name of the Data Cells Filter."
+                },
+                "rowFilter": {
+                    "$ref": "#/types/aws-native:lakeformation:DataCellsFilterRowFilter",
+                    "description": "An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required"
+                },
+                "tableCatalogId": {
+                    "type": "string",
+                    "description": "The Catalog Id of the Table on which to create a Data Cells Filter."
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the Table to create a Data Cells Filter for."
+                }
+            },
+            "outputs": {
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of columns to be included in this Data Cells Filter."
+                },
+                "columnWildcard": {
+                    "$ref": "#/types/aws-native:lakeformation:DataCellsFilterColumnWildcard",
+                    "description": "An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required"
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the Database that the Table resides in."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The desired name of the Data Cells Filter."
+                },
+                "rowFilter": {
+                    "$ref": "#/types/aws-native:lakeformation:DataCellsFilterRowFilter",
+                    "description": "An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required"
+                },
+                "tableCatalogId": {
+                    "type": "string",
+                    "description": "The Catalog Id of the Table on which to create a Data Cells Filter."
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the Table to create a Data Cells Filter for."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "databaseName",
+                "tableCatalogId",
+                "tableName"
+            ],
+            "createOnly": [
+                "columnNames",
+                "columnWildcard",
+                "databaseName",
+                "name",
+                "rowFilter",
+                "tableCatalogId",
+                "tableName"
+            ]
+        },
+        "aws-native:lakeformation:PrincipalPermissions": {
+            "cf": "AWS::LakeFormation::PrincipalPermissions",
+            "inputs": {
+                "catalog": {
+                    "type": "string"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsPermission"
+                    }
+                },
+                "permissionsWithGrantOption": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsPermission"
+                    }
+                },
+                "principal": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsDataLakePrincipal"
+                },
+                "resource": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsResource"
+                }
+            },
+            "outputs": {
+                "catalog": {
+                    "type": "string"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsPermission"
+                    }
+                },
+                "permissionsWithGrantOption": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsPermission"
+                    }
+                },
+                "principal": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsDataLakePrincipal"
+                },
+                "principalIdentifier": {
+                    "type": "string"
+                },
+                "resource": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsResource"
+                },
+                "resourceIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "permissions",
+                "permissionsWithGrantOption",
+                "principal",
+                "resource"
+            ],
+            "createOnly": [
+                "catalog",
+                "permissions",
+                "permissionsWithGrantOption",
+                "principal",
+                "resource"
+            ]
+        },
+        "aws-native:lakeformation:Tag": {
+            "cf": "AWS::LakeFormation::Tag",
+            "inputs": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment."
+                },
+                "tagKey": {
+                    "type": "string",
+                    "description": "The key-name for the LF-tag."
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of possible values an attribute can take."
+                }
+            },
+            "outputs": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment."
+                },
+                "tagKey": {
+                    "type": "string",
+                    "description": "The key-name for the LF-tag."
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of possible values an attribute can take."
+                }
+            },
+            "required": [
+                "tagKey",
+                "tagValues"
+            ],
+            "createOnly": [
+                "catalogId",
+                "tagKey"
+            ]
+        },
+        "aws-native:lakeformation:TagAssociation": {
+            "cf": "AWS::LakeFormation::TagAssociation",
+            "inputs": {
+                "lFTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:TagAssociationLFTagPair"
+                    },
+                    "description": "List of Lake Formation Tags to associate with the Lake Formation Resource"
+                },
+                "resource": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationResource",
+                    "description": "Resource to tag with the Lake Formation Tags"
+                }
+            },
+            "outputs": {
+                "lFTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:TagAssociationLFTagPair"
+                    },
+                    "description": "List of Lake Formation Tags to associate with the Lake Formation Resource"
+                },
+                "resource": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationResource",
+                    "description": "Resource to tag with the Lake Formation Tags"
+                },
+                "resourceIdentifier": {
+                    "type": "string",
+                    "description": "Unique string identifying the resource. Used as primary identifier, which ideally should be a string"
+                },
+                "tagsIdentifier": {
+                    "type": "string",
+                    "description": "Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string"
+                }
+            },
+            "required": [
+                "lFTags",
+                "resource"
+            ],
+            "createOnly": [
+                "lFTags",
+                "resource"
             ]
         },
         "aws-native:lambda:CodeSigningConfig": {
@@ -30827,6 +31487,9 @@
                 "dataSetId": {
                     "type": "string"
                 },
+                "dataSetUsageConfiguration": {
+                    "$ref": "#/types/aws-native:quicksight:DataSetUsageConfiguration"
+                },
                 "fieldFolders": {
                     "$ref": "#/types/aws-native:quicksight:DataSetFieldFolderMap"
                 },
@@ -30895,6 +31558,9 @@
                 },
                 "dataSetId": {
                     "type": "string"
+                },
+                "dataSetUsageConfiguration": {
+                    "$ref": "#/types/aws-native:quicksight:DataSetUsageConfiguration"
                 },
                 "fieldFolders": {
                     "$ref": "#/types/aws-native:quicksight:DataSetFieldFolderMap"
@@ -33012,6 +33678,9 @@
                 "applicationIdentifier": {
                     "type": "string"
                 },
+                "defaultRoute": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteDefaultRouteInput"
+                },
                 "environmentIdentifier": {
                     "type": "string"
                 },
@@ -33038,6 +33707,9 @@
                 },
                 "arn": {
                     "type": "string"
+                },
+                "defaultRoute": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteDefaultRouteInput"
                 },
                 "environmentIdentifier": {
                     "type": "string"
@@ -33075,7 +33747,9 @@
                 "environmentIdentifier",
                 "routeType",
                 "serviceIdentifier",
-                "uriPathRoute"
+                "uriPathRoute/IncludeChildPaths",
+                "uriPathRoute/Methods",
+                "uriPathRoute/SourcePath"
             ]
         },
         "aws-native:refactorspaces:Service": {
@@ -36272,7 +36946,7 @@
                 "deviceFleetName"
             ],
             "createOnly": [
-                "deviceFleetName"
+                "device/DeviceName"
             ]
         },
         "aws-native:sagemaker:DeviceFleet": {
@@ -38109,6 +38783,103 @@
             },
             "createOnly": [
                 "contactListName"
+            ]
+        },
+        "aws-native:ses:DedicatedIpPool": {
+            "cf": "AWS::SES::DedicatedIpPool",
+            "inputs": {
+                "poolName": {
+                    "type": "string",
+                    "description": "The name of the dedicated IP pool."
+                }
+            },
+            "outputs": {
+                "poolName": {
+                    "type": "string",
+                    "description": "The name of the dedicated IP pool."
+                }
+            },
+            "createOnly": [
+                "poolName"
+            ]
+        },
+        "aws-native:ses:EmailIdentity": {
+            "cf": "AWS::SES::EmailIdentity",
+            "inputs": {
+                "configurationSetAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityConfigurationSetAttributes"
+                },
+                "dkimAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityDkimAttributes"
+                },
+                "dkimSigningAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityDkimSigningAttributes"
+                },
+                "emailIdentity": {
+                    "type": "string",
+                    "description": "The email address or domain to verify.",
+                    "language": {
+                        "csharp": {
+                            "name": "EmailIdentityValue"
+                        }
+                    }
+                },
+                "feedbackAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityFeedbackAttributes"
+                },
+                "mailFromAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityMailFromAttributes"
+                }
+            },
+            "outputs": {
+                "configurationSetAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityConfigurationSetAttributes"
+                },
+                "dkimAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityDkimAttributes"
+                },
+                "dkimDNSTokenName1": {
+                    "type": "string"
+                },
+                "dkimDNSTokenName2": {
+                    "type": "string"
+                },
+                "dkimDNSTokenName3": {
+                    "type": "string"
+                },
+                "dkimDNSTokenValue1": {
+                    "type": "string"
+                },
+                "dkimDNSTokenValue2": {
+                    "type": "string"
+                },
+                "dkimDNSTokenValue3": {
+                    "type": "string"
+                },
+                "dkimSigningAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityDkimSigningAttributes"
+                },
+                "emailIdentity": {
+                    "type": "string",
+                    "description": "The email address or domain to verify.",
+                    "language": {
+                        "csharp": {
+                            "name": "EmailIdentityValue"
+                        }
+                    }
+                },
+                "feedbackAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityFeedbackAttributes"
+                },
+                "mailFromAttributes": {
+                    "$ref": "#/types/aws-native:ses:EmailIdentityMailFromAttributes"
+                }
+            },
+            "required": [
+                "emailIdentity"
+            ],
+            "createOnly": [
+                "emailIdentity"
             ]
         },
         "aws-native:ses:Template": {
@@ -41949,6 +42720,31 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileApiKeyCredentials": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "apiSecretKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileAuthenticationType": {
+            "type": "string"
+        },
+        "aws-native:appflow:ConnectorProfileBasicAuthCredentials": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileConfig": {
             "type": "object",
             "properties": {
@@ -41984,6 +42780,9 @@
             "properties": {
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials"
+                },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomConnectorProfileCredentials"
                 },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileDatadogConnectorProfileCredentials"
@@ -42029,6 +42828,51 @@
                 },
                 "zendesk": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileZendeskConnectorProfileCredentials"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCredentialsMap": {
+            "type": "object"
+        },
+        "aws-native:appflow:ConnectorProfileCustomAuthCredentials": {
+            "type": "object",
+            "properties": {
+                "credentialsMap": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCredentialsMap"
+                },
+                "customAuthenticationType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCustomConnectorProfileCredentials": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileApiKeyCredentials"
+                },
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileAuthenticationType"
+                },
+                "basic": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileBasicAuthCredentials"
+                },
+                "custom": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomAuthCredentials"
+                },
+                "oauth2": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2Credentials"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileCustomConnectorProfileProperties": {
+            "type": "object",
+            "properties": {
+                "oAuth2Properties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2Properties"
+                },
+                "profileProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileProfileProperties"
                 }
             }
         },
@@ -42157,6 +43001,43 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileOAuth2Credentials": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "oAuthRequest": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectorOAuthRequest"
+                },
+                "refreshToken": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileOAuth2GrantType": {
+            "type": "string"
+        },
+        "aws-native:appflow:ConnectorProfileOAuth2Properties": {
+            "type": "object",
+            "properties": {
+                "oAuth2GrantType": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuth2GrantType"
+                },
+                "tokenUrl": {
+                    "type": "string"
+                },
+                "tokenUrlCustomProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileTokenUrlCustomProperties"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileOAuthProperties": {
             "type": "object",
             "properties": {
@@ -42174,9 +43055,15 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileProfileProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:ConnectorProfileProperties": {
             "type": "object",
             "properties": {
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileCustomConnectorProfileProperties"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileDatadogConnectorProfileProperties"
                 },
@@ -42253,23 +43140,10 @@
             "type": "object",
             "properties": {
                 "basicAuthCredentials": {
-                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties"
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileBasicAuthCredentials"
                 },
                 "oAuthCredentials": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties"
-                }
-            }
-        },
-        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties": {
-            "type": "object",
-            "properties": {
-                "password": {
-                    "type": "string",
-                    "description": "The password that corresponds to the username."
-                },
-                "username": {
-                    "type": "string",
-                    "description": "The name of the user."
                 }
             }
         },
@@ -42459,6 +43333,9 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileTokenUrlCustomProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:ConnectorProfileTrendmicroConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -42548,6 +43425,9 @@
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:FlowAmplitudeConnectorOperator"
                 },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowOperator"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:FlowDatadogConnectorOperator"
                 },
@@ -42595,6 +43475,44 @@
         "aws-native:appflow:FlowConnectorType": {
             "type": "string"
         },
+        "aws-native:appflow:FlowCustomConnectorDestinationProperties": {
+            "type": "object",
+            "properties": {
+                "customProperties": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomProperties"
+                },
+                "entityName": {
+                    "type": "string"
+                },
+                "errorHandlingConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowErrorHandlingConfig"
+                },
+                "idFieldNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of fields used as ID when performing a write operation."
+                },
+                "writeOperationType": {
+                    "$ref": "#/types/aws-native:appflow:FlowWriteOperationType"
+                }
+            }
+        },
+        "aws-native:appflow:FlowCustomConnectorSourceProperties": {
+            "type": "object",
+            "properties": {
+                "customProperties": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomProperties"
+                },
+                "entityName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:FlowCustomProperties": {
+            "type": "object"
+        },
         "aws-native:appflow:FlowDatadogConnectorOperator": {
             "type": "string"
         },
@@ -42609,6 +43527,9 @@
         "aws-native:appflow:FlowDestinationConnectorProperties": {
             "type": "object",
             "properties": {
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomConnectorDestinationProperties"
+                },
                 "eventBridge": {
                     "$ref": "#/types/aws-native:appflow:FlowEventBridgeDestinationProperties"
                 },
@@ -42644,6 +43565,10 @@
         "aws-native:appflow:FlowDestinationFlowConfig": {
             "type": "object",
             "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "The API version that the destination connector uses."
+                },
                 "connectorProfileName": {
                     "type": "string",
                     "description": "Name of destination connector profile"
@@ -42757,6 +43682,9 @@
                 }
             }
         },
+        "aws-native:appflow:FlowOperator": {
+            "type": "string"
+        },
         "aws-native:appflow:FlowOperatorPropertiesKeys": {
             "type": "string"
         },
@@ -42833,6 +43761,9 @@
                 },
                 "prefixConfig": {
                     "$ref": "#/types/aws-native:appflow:FlowPrefixConfig"
+                },
+                "preserveSourceDataTyping": {
+                    "type": "boolean"
                 }
             }
         },
@@ -42929,6 +43860,9 @@
                 "dataPullMode": {
                     "$ref": "#/types/aws-native:appflow:FlowScheduledTriggerPropertiesDataPullMode"
                 },
+                "flowErrorDeactivationThreshold": {
+                    "type": "integer"
+                },
                 "scheduleEndTime": {
                     "type": "number"
                 },
@@ -43005,6 +43939,9 @@
                 "amplitude": {
                     "$ref": "#/types/aws-native:appflow:FlowAmplitudeSourceProperties"
                 },
+                "customConnector": {
+                    "$ref": "#/types/aws-native:appflow:FlowCustomConnectorSourceProperties"
+                },
                 "datadog": {
                     "$ref": "#/types/aws-native:appflow:FlowDatadogSourceProperties"
                 },
@@ -43052,6 +43989,10 @@
         "aws-native:appflow:FlowSourceFlowConfig": {
             "type": "object",
             "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "The API version that the destination connector uses."
+                },
                 "connectorProfileName": {
                     "type": "string",
                     "description": "Name of source connector profile"
@@ -44029,6 +44970,17 @@
                     "type": "string"
                 },
                 "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:DirectoryConfigServiceAccountCredentials": {
+            "type": "object",
+            "properties": {
+                "accountName": {
+                    "type": "string"
+                },
+                "accountPassword": {
                     "type": "string"
                 }
             }
@@ -46306,6 +47258,86 @@
                 }
             }
         },
+        "aws-native:cloudtrail:EventDataStoreAdvancedEventSelector": {
+            "type": "object",
+            "properties": {
+                "fieldSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudtrail:EventDataStoreAdvancedFieldSelector"
+                    },
+                    "description": "Contains all selector statements in an advanced event selector."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "An optional, descriptive name for an advanced event selector, such as \"Log data events for only two S3 buckets\"."
+                }
+            }
+        },
+        "aws-native:cloudtrail:EventDataStoreAdvancedFieldSelector": {
+            "type": "object",
+            "properties": {
+                "endsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the last few characters of the event record field specified as the value of Field."
+                },
+                "equals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields."
+                },
+                "field": {
+                    "type": "string",
+                    "description": "A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN."
+                },
+                "notEndsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the last few characters of the event record field specified as the value of Field."
+                },
+                "notEquals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the exact value of the event record field specified as the value of Field."
+                },
+                "notStartsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that excludes events that match the first few characters of the event record field specified as the value of Field."
+                },
+                "startsWith": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An operator that includes events that match the first few characters of the event record field specified as the value of Field."
+                }
+            }
+        },
+        "aws-native:cloudtrail:EventDataStoreTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:cloudtrail:TrailDataResource": {
             "type": "object",
             "properties": {
@@ -48539,6 +49571,82 @@
                 }
             }
         },
+        "aws-native:datasync:LocationFSxONTAPNFS": {
+            "type": "object",
+            "properties": {
+                "mountOptions": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPNfsMountOptions"
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxONTAPNfsMountOptions": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPNfsMountOptionsVersion",
+                    "description": "The specific NFS version that you want DataSync to use to mount your NFS share."
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxONTAPNfsMountOptionsVersion": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationFSxONTAPProtocol": {
+            "type": "object",
+            "properties": {
+                "nFS": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPNFS"
+                },
+                "sMB": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPSMB"
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxONTAPSMB": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "The name of the Windows domain that the SMB server belongs to."
+                },
+                "mountOptions": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPSmbMountOptions"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password of the user who can mount the share and has the permissions to access files and folders in the SMB share."
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The user who can mount the share, has the permissions to access files and folders in the SMB share."
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxONTAPSmbMountOptions": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "$ref": "#/types/aws-native:datasync:LocationFSxONTAPSmbMountOptionsVersion",
+                    "description": "The specific SMB version that you want DataSync to use to mount your SMB share."
+                }
+            }
+        },
+        "aws-native:datasync:LocationFSxONTAPSmbMountOptionsVersion": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationFSxONTAPTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for an AWS resource tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for an AWS resource tag."
+                }
+            }
+        },
         "aws-native:datasync:LocationFSxOpenZFSMountOptions": {
             "type": "object",
             "properties": {
@@ -49373,6 +50481,31 @@
         },
         "aws-native:ec2:CapacityReservationFleetTenancy": {
             "type": "string"
+        },
+        "aws-native:ec2:CapacityReservationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationTagSpecification": {
+            "type": "object",
+            "properties": {
+                "resourceType": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationTag"
+                    }
+                }
+            }
         },
         "aws-native:ec2:CarrierGatewayTag": {
             "type": "object",
@@ -56726,6 +57859,25 @@
                 }
             }
         },
+        "aws-native:iot:CACertificateAutoRegistrationStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateStatus": {
+            "type": "string"
+        },
+        "aws-native:iot:CACertificateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:iot:CertificateMode": {
             "type": "string"
         },
@@ -57089,6 +58241,17 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:RegistrationConfigProperties": {
+            "type": "object",
+            "properties": {
+                "roleArn": {
+                    "type": "string"
+                },
+                "templateBody": {
                     "type": "string"
                 }
             }
@@ -62084,6 +63247,13 @@
                     "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationSqlApplicationConfiguration",
                     "description": "The creation and update parameters for a SQL-based Kinesis Data Analytics application."
                 },
+                "vpcConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationVpcConfiguration"
+                    },
+                    "description": "The array of descriptions of VPC configurations available to the application."
+                },
                 "zeppelinApplicationConfiguration": {
                     "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationZeppelinApplicationConfiguration",
                     "description": "The configuration parameters for a Kinesis Data Analytics Studio notebook."
@@ -62145,6 +63315,15 @@
                 "parallelismConfiguration": {
                     "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationParallelismConfiguration",
                     "description": "Describes parameters for how an application executes multiple tasks simultaneously."
+                }
+            }
+        },
+        "aws-native:kinesisanalyticsv2:ApplicationFlinkRunConfiguration": {
+            "type": "object",
+            "properties": {
+                "allowNonRestoredState": {
+                    "type": "boolean",
+                    "description": "When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true."
                 }
             }
         },
@@ -62260,6 +63439,15 @@
                 "resourceARN": {
                     "type": "string",
                     "description": "The ARN of the input Kinesis data stream to read."
+                }
+            }
+        },
+        "aws-native:kinesisanalyticsv2:ApplicationMaintenanceConfiguration": {
+            "type": "object",
+            "properties": {
+                "applicationMaintenanceWindowStartTime": {
+                    "type": "string",
+                    "description": "The start time for the maintenance window."
                 }
             }
         },
@@ -62392,6 +63580,35 @@
         "aws-native:kinesisanalyticsv2:ApplicationRecordFormatRecordFormatType": {
             "type": "string"
         },
+        "aws-native:kinesisanalyticsv2:ApplicationRestoreConfiguration": {
+            "type": "object",
+            "properties": {
+                "applicationRestoreType": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationRestoreConfigurationApplicationRestoreType",
+                    "description": "Specifies how the application should be restored."
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType."
+                }
+            }
+        },
+        "aws-native:kinesisanalyticsv2:ApplicationRestoreConfigurationApplicationRestoreType": {
+            "type": "string"
+        },
+        "aws-native:kinesisanalyticsv2:ApplicationRunConfiguration": {
+            "type": "object",
+            "properties": {
+                "applicationRestoreConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationRestoreConfiguration",
+                    "description": "Describes the restore behavior of a restarting application."
+                },
+                "flinkRunConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisanalyticsv2:ApplicationFlinkRunConfiguration",
+                    "description": "Describes the starting parameters for a Flink-based Kinesis Data Analytics application."
+                }
+            }
+        },
         "aws-native:kinesisanalyticsv2:ApplicationS3ContentBaseLocation": {
             "type": "object",
             "properties": {
@@ -62453,6 +63670,25 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that's 0 to 256 characters in length."
+                }
+            }
+        },
+        "aws-native:kinesisanalyticsv2:ApplicationVpcConfiguration": {
+            "type": "object",
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The array of SecurityGroup IDs used by the VPC configuration."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The array of Subnet IDs used by the VPC configuration."
                 }
             }
         },
@@ -63281,6 +64517,306 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:lakeformation:DataCellsFilterColumnWildcard": {
+            "type": "object",
+            "properties": {
+                "excludedColumnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of column names to be excluded from the Data Cells Filter."
+                }
+            }
+        },
+        "aws-native:lakeformation:DataCellsFilterRowFilter": {
+            "type": "object",
+            "properties": {
+                "allRowsWildcard": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An empty object representing a row wildcard."
+                },
+                "filterExpression": {
+                    "type": "string",
+                    "description": "A PartiQL predicate."
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsCatalogResource": {
+            "type": "object"
+        },
+        "aws-native:lakeformation:PrincipalPermissionsColumnWildcard": {
+            "type": "object",
+            "properties": {
+                "excludedColumnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsDataCellsFilterResource": {
+            "type": "object",
+            "properties": {
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tableCatalogId": {
+                    "type": "string"
+                },
+                "tableName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsDataLakePrincipal": {
+            "type": "object",
+            "properties": {
+                "dataLakePrincipalIdentifier": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsDataLocationResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "resourceArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsDatabaseResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsLFTag": {
+            "type": "object",
+            "properties": {
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsLFTagKeyResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsLFTagPolicyResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "expression": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsLFTag"
+                    }
+                },
+                "resourceType": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsResourceType"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsPermission": {
+            "type": "string"
+        },
+        "aws-native:lakeformation:PrincipalPermissionsResource": {
+            "type": "object",
+            "properties": {
+                "catalog": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsCatalogResource"
+                },
+                "dataCellsFilter": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsDataCellsFilterResource"
+                },
+                "dataLocation": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsDataLocationResource"
+                },
+                "database": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsDatabaseResource"
+                },
+                "lFTag": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsLFTagKeyResource"
+                },
+                "lFTagPolicy": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsLFTagPolicyResource"
+                },
+                "table": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsTableResource"
+                },
+                "tableWithColumns": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsTableWithColumnsResource"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsResourceType": {
+            "type": "string"
+        },
+        "aws-native:lakeformation:PrincipalPermissionsTableResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tableWildcard": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsTableWildcard"
+                }
+            }
+        },
+        "aws-native:lakeformation:PrincipalPermissionsTableWildcard": {
+            "type": "object"
+        },
+        "aws-native:lakeformation:PrincipalPermissionsTableWithColumnsResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "columnWildcard": {
+                    "$ref": "#/types/aws-native:lakeformation:PrincipalPermissionsColumnWildcard"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:TagAssociationCatalogResource": {
+            "type": "object"
+        },
+        "aws-native:lakeformation:TagAssociationDatabaseResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:lakeformation:TagAssociationLFTagPair": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:lakeformation:TagAssociationResource": {
+            "type": "object",
+            "properties": {
+                "catalog": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationCatalogResource"
+                },
+                "database": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationDatabaseResource"
+                },
+                "table": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationTableResource"
+                },
+                "tableWithColumns": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationTableWithColumnsResource"
+                }
+            }
+        },
+        "aws-native:lakeformation:TagAssociationTableResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tableWildcard": {
+                    "$ref": "#/types/aws-native:lakeformation:TagAssociationTableWildcard"
+                }
+            }
+        },
+        "aws-native:lakeformation:TagAssociationTableWildcard": {
+            "type": "object"
+        },
+        "aws-native:lakeformation:TagAssociationTableWithColumnsResource": {
+            "type": "object",
+            "properties": {
+                "catalogId": {
+                    "type": "string"
+                },
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
                 }
             }
         },
@@ -69325,6 +70861,17 @@
                 }
             }
         },
+        "aws-native:quicksight:DataSetUsageConfiguration": {
+            "type": "object",
+            "properties": {
+                "disableUseAsDirectQuerySource": {
+                    "type": "boolean"
+                },
+                "disableUseAsImportedSource": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:quicksight:DataSourceAmazonElasticsearchParameters": {
             "type": "object",
             "properties": {
@@ -70671,6 +72218,14 @@
         },
         "aws-native:refactorspaces:RouteActivationState": {
             "type": "string"
+        },
+        "aws-native:refactorspaces:RouteDefaultRouteInput": {
+            "type": "object",
+            "properties": {
+                "activationState": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteActivationState"
+                }
+            }
         },
         "aws-native:refactorspaces:RouteMethod": {
             "type": "string"
@@ -75966,6 +77521,63 @@
                 }
             }
         },
+        "aws-native:ses:EmailIdentityConfigurationSetAttributes": {
+            "type": "object",
+            "properties": {
+                "configurationSetName": {
+                    "type": "string",
+                    "description": "The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence."
+                }
+            }
+        },
+        "aws-native:ses:EmailIdentityDkimAttributes": {
+            "type": "object",
+            "properties": {
+                "signingEnabled": {
+                    "type": "boolean",
+                    "description": "Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing."
+                }
+            }
+        },
+        "aws-native:ses:EmailIdentityDkimSigningAttributes": {
+            "type": "object",
+            "properties": {
+                "domainSigningPrivateKey": {
+                    "type": "string",
+                    "description": "[Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding."
+                },
+                "domainSigningSelector": {
+                    "type": "string",
+                    "description": "[Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain."
+                },
+                "nextSigningKeyLength": {
+                    "type": "string",
+                    "description": "[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day."
+                }
+            }
+        },
+        "aws-native:ses:EmailIdentityFeedbackAttributes": {
+            "type": "object",
+            "properties": {
+                "emailForwardingEnabled": {
+                    "type": "boolean",
+                    "description": "If the value is true, you receive email notifications when bounce or complaint events occur"
+                }
+            }
+        },
+        "aws-native:ses:EmailIdentityMailFromAttributes": {
+            "type": "object",
+            "properties": {
+                "behaviorOnMxFailure": {
+                    "type": "string",
+                    "description": "The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email."
+                },
+                "mailFromDomain": {
+                    "type": "string",
+                    "description": "The custom MAIL FROM domain that you want the verified identity to use"
+                }
+            }
+        },
         "aws-native:ses:Template": {
             "type": "object",
             "properties": {
@@ -76308,6 +77920,13 @@
                 "impact": {
                     "type": "integer",
                     "description": "The impact value."
+                },
+                "incidentTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ResponsePlanTag"
+                    },
+                    "description": "Tags that get applied to incidents created by the StartIncident API action."
                 },
                 "notificationTargets": {
                     "type": "array",
@@ -79200,6 +80819,12 @@
                 "arn"
             ]
         },
+        "aws-native:appstream:getDirectoryConfig": {
+            "cf": "AWS::AppStream::DirectoryConfig",
+            "ids": [
+                "directoryName"
+            ]
+        },
         "aws-native:appstream:getEntitlement": {
             "cf": "AWS::AppStream::Entitlement",
             "ids": [
@@ -79475,6 +81100,12 @@
                 "id"
             ]
         },
+        "aws-native:cloudtrail:getEventDataStore": {
+            "cf": "AWS::CloudTrail::EventDataStore",
+            "ids": [
+                "eventDataStoreArn"
+            ]
+        },
         "aws-native:cloudtrail:getTrail": {
             "cf": "AWS::CloudTrail::Trail",
             "ids": [
@@ -79687,6 +81318,12 @@
                 "locationArn"
             ]
         },
+        "aws-native:datasync:getLocationFSxONTAP": {
+            "cf": "AWS::DataSync::LocationFSxONTAP",
+            "ids": [
+                "locationArn"
+            ]
+        },
         "aws-native:datasync:getLocationFSxOpenZFS": {
             "cf": "AWS::DataSync::LocationFSxOpenZFS",
             "ids": [
@@ -79800,6 +81437,12 @@
             "cf": "AWS::DynamoDB::GlobalTable",
             "ids": [
                 "tableName"
+            ]
+        },
+        "aws-native:ec2:getCapacityReservation": {
+            "cf": "AWS::EC2::CapacityReservation",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:ec2:getCapacityReservationFleet": {
@@ -80580,6 +82223,12 @@
                 "authorizerName"
             ]
         },
+        "aws-native:iot:getCACertificate": {
+            "cf": "AWS::IoT::CACertificate",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:iot:getCertificate": {
             "cf": "AWS::IoT::Certificate",
             "ids": [
@@ -80943,6 +82592,26 @@
             "cf": "AWS::KMS::ReplicaKey",
             "ids": [
                 "keyId"
+            ]
+        },
+        "aws-native:lakeformation:getPrincipalPermissions": {
+            "cf": "AWS::LakeFormation::PrincipalPermissions",
+            "ids": [
+                "principalIdentifier",
+                "resourceIdentifier"
+            ]
+        },
+        "aws-native:lakeformation:getTag": {
+            "cf": "AWS::LakeFormation::Tag",
+            "ids": [
+                "tagKey"
+            ]
+        },
+        "aws-native:lakeformation:getTagAssociation": {
+            "cf": "AWS::LakeFormation::TagAssociation",
+            "ids": [
+                "resourceIdentifier",
+                "tagsIdentifier"
             ]
         },
         "aws-native:lambda:getCodeSigningConfig": {
@@ -81856,12 +83525,6 @@
                 "jobDefinitionArn"
             ]
         },
-        "aws-native:sagemaker:getDevice": {
-            "cf": "AWS::SageMaker::Device",
-            "ids": [
-                "deviceFleetName"
-            ]
-        },
         "aws-native:sagemaker:getDeviceFleet": {
             "cf": "AWS::SageMaker::DeviceFleet",
             "ids": [
@@ -81993,6 +83656,12 @@
             "cf": "AWS::SES::ContactList",
             "ids": [
                 "contactListName"
+            ]
+        },
+        "aws-native:ses:getEmailIdentity": {
+            "cf": "AWS::SES::EmailIdentity",
+            "ids": [
+                "emailIdentity"
             ]
         },
         "aws-native:ses:getTemplate": {
