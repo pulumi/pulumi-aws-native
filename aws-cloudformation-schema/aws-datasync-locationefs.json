@@ -119,7 +119,7 @@
   "required" : [ "Ec2Config", "EfsFilesystemArn" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
-  "createOnlyProperties" : [ "/properties/Ec2Config", "/properties/EfsFilesystemArn", "/properties/Subdirectory" ],
+  "createOnlyProperties" : [ "/properties/Ec2Config", "/properties/EfsFilesystemArn", "/properties/Subdirectory", "/properties/FileSystemAccessRoleArn", "/properties/InTransitEncryption", "/properties/AccessPointArn" ],
   "writeOnlyProperties" : [ "/properties/EfsFilesystemArn", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {

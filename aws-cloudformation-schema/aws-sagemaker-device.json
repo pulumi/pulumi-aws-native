@@ -75,8 +75,8 @@
   },
   "required" : [ "DeviceFleetName" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/DeviceFleetName" ],
-  "createOnlyProperties" : [ "/properties/DeviceFleetName" ],
+  "primaryIdentifier" : [ "/properties/Device/DeviceName" ],
+  "createOnlyProperties" : [ "/properties/Device/DeviceName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "sagemaker:RegisterDevices" ]

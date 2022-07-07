@@ -1,27 +1,12 @@
 {
   "typeName" : "AWS::DynamoDB::Table",
-  "description" : "Resource Type definition for AWS::DynamoDB::Table",
+  "description" : "Version: NON_PROVISIONABLE. Resource Type definition for AWS::DynamoDB::Table",
   "additionalProperties" : false,
   "properties" : {
-    "SSESpecification" : {
-      "$ref" : "#/definitions/SSESpecification"
+    "Arn" : {
+      "type" : "string"
     },
-    "KinesisStreamSpecification" : {
-      "$ref" : "#/definitions/KinesisStreamSpecification"
-    },
-    "ContributorInsightsSpecification" : {
-      "$ref" : "#/definitions/ContributorInsightsSpecification"
-    },
-    "StreamSpecification" : {
-      "$ref" : "#/definitions/StreamSpecification"
-    },
-    "PointInTimeRecoverySpecification" : {
-      "$ref" : "#/definitions/PointInTimeRecoverySpecification"
-    },
-    "ProvisionedThroughput" : {
-      "$ref" : "#/definitions/ProvisionedThroughput"
-    },
-    "TableName" : {
+    "StreamArn" : {
       "type" : "string"
     },
     "AttributeDefinitions" : {
@@ -55,16 +40,22 @@
         "$ref" : "#/definitions/LocalSecondaryIndex"
       }
     },
-    "Id" : {
+    "PointInTimeRecoverySpecification" : {
+      "$ref" : "#/definitions/PointInTimeRecoverySpecification"
+    },
+    "ProvisionedThroughput" : {
+      "$ref" : "#/definitions/ProvisionedThroughput"
+    },
+    "SSESpecification" : {
+      "$ref" : "#/definitions/SSESpecification"
+    },
+    "StreamSpecification" : {
+      "$ref" : "#/definitions/StreamSpecification"
+    },
+    "TableName" : {
       "type" : "string"
     },
-    "Arn" : {
-      "type" : "string"
-    },
-    "StreamArn" : {
-      "type" : "string"
-    },
-    "TableClass" : {
+    "TableId" : {
       "type" : "string"
     },
     "Tags" : {
@@ -76,9 +67,57 @@
     },
     "TimeToLiveSpecification" : {
       "$ref" : "#/definitions/TimeToLiveSpecification"
+    },
+    "ContributorInsightsSpecification" : {
+      "$ref" : "#/definitions/ContributorInsightsSpecification"
     }
   },
   "definitions" : {
+    "StreamSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StreamViewType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "StreamViewType" ]
+    },
+    "KeySchema" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AttributeName" : {
+          "type" : "string"
+        },
+        "KeyType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "KeyType", "AttributeName" ]
+    },
+    "PointInTimeRecoverySpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PointInTimeRecoveryEnabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "TimeToLiveSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AttributeName" : {
+          "type" : "string"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled", "AttributeName" ]
+    },
     "LocalSecondaryIndex" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -86,8 +125,25 @@
         "IndexName" : {
           "type" : "string"
         },
+        "KeySchema" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/KeySchema"
+          }
+        },
         "Projection" : {
           "$ref" : "#/definitions/Projection"
+        }
+      },
+      "required" : [ "IndexName", "Projection", "KeySchema" ]
+    },
+    "GlobalSecondaryIndex" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IndexName" : {
+          "type" : "string"
         },
         "KeySchema" : {
           "type" : "array",
@@ -95,6 +151,15 @@
           "items" : {
             "$ref" : "#/definitions/KeySchema"
           }
+        },
+        "Projection" : {
+          "$ref" : "#/definitions/Projection"
+        },
+        "ProvisionedThroughput" : {
+          "$ref" : "#/definitions/ProvisionedThroughput"
+        },
+        "ContributorInsightsSpecification" : {
+          "$ref" : "#/definitions/ContributorInsightsSpecification"
         }
       },
       "required" : [ "IndexName", "Projection", "KeySchema" ]
@@ -115,25 +180,60 @@
       },
       "required" : [ "SSEEnabled" ]
     },
-    "KinesisStreamSpecification" : {
+    "AttributeDefinition" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "StreamArn" : {
+        "AttributeName" : {
+          "type" : "string"
+        },
+        "AttributeType" : {
           "type" : "string"
         }
       },
-      "required" : [ "StreamArn" ]
+      "required" : [ "AttributeName", "AttributeType" ]
     },
-    "StreamSpecification" : {
+    "ProvisionedThroughput" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "StreamViewType" : {
+        "ReadCapacityUnits" : {
+          "type" : "integer"
+        },
+        "WriteCapacityUnits" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "WriteCapacityUnits", "ReadCapacityUnits" ]
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Key" : {
+          "type" : "string"
+        },
+        "Value" : {
           "type" : "string"
         }
       },
-      "required" : [ "StreamViewType" ]
+      "required" : [ "Value", "Key" ]
+    },
+    "Projection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NonKeyAttributes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ProjectionType" : {
+          "type" : "string"
+        }
+      }
     },
     "ContributorInsightsSpecification" : {
       "type" : "object",
@@ -144,126 +244,11 @@
         }
       },
       "required" : [ "Enabled" ]
-    },
-    "AttributeDefinition" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AttributeType" : {
-          "type" : "string"
-        },
-        "AttributeName" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "AttributeType", "AttributeName" ]
-    },
-    "Projection" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ProjectionType" : {
-          "type" : "string"
-        },
-        "NonKeyAttributes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
-    "PointInTimeRecoverySpecification" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "PointInTimeRecoveryEnabled" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "ProvisionedThroughput" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "WriteCapacityUnits" : {
-          "type" : "integer"
-        },
-        "ReadCapacityUnits" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "WriteCapacityUnits", "ReadCapacityUnits" ]
-    },
-    "GlobalSecondaryIndex" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "IndexName" : {
-          "type" : "string"
-        },
-        "Projection" : {
-          "$ref" : "#/definitions/Projection"
-        },
-        "ProvisionedThroughput" : {
-          "$ref" : "#/definitions/ProvisionedThroughput"
-        },
-        "KeySchema" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "$ref" : "#/definitions/KeySchema"
-          }
-        },
-        "ContributorInsightsSpecification" : {
-          "$ref" : "#/definitions/ContributorInsightsSpecification"
-        }
-      },
-      "required" : [ "IndexName", "Projection", "KeySchema" ]
-    },
-    "KeySchema" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "KeyType" : {
-          "type" : "string"
-        },
-        "AttributeName" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "KeyType", "AttributeName" ]
-    },
-    "Tag" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
-        "Key" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Value", "Key" ]
-    },
-    "TimeToLiveSpecification" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "AttributeName" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Enabled", "AttributeName" ]
     }
   },
   "required" : [ "KeySchema" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/StreamArn", "/properties/TableId" ],
   "createOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/TableName", "/properties/KeySchema" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/StreamArn", "/properties/Id", "/properties/Arn" ]
+  "primaryIdentifier" : [ "/properties/TableName" ],
+  "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/StreamArn" ] ]
 }
