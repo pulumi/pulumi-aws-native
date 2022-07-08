@@ -37,7 +37,9 @@ AWS::AppStream::AppBlock
 AWS::AppStream::Application
 AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
+AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::ApplicationInsights::Application
@@ -83,6 +85,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -118,6 +121,7 @@ AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
+AWS::DataSync::LocationFSxONTAP
 AWS::DataSync::LocationFSxOpenZFS
 AWS::DataSync::LocationFSxWindows
 AWS::DataSync::LocationHDFS
@@ -137,6 +141,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
+AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::CustomerGateway
@@ -269,6 +274,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
@@ -325,6 +331,10 @@ AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
+AWS::LakeFormation::DataCellsFilter
+AWS::LakeFormation::PrincipalPermissions
+AWS::LakeFormation::Tag
+AWS::LakeFormation::TagAssociation
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
@@ -352,6 +362,7 @@ AWS::Location::RouteCalculator
 AWS::Location::Tracker
 AWS::Location::TrackerConsumer
 AWS::Logs::LogGroup
+AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy
 AWS::LookoutMetrics::Alert
@@ -427,6 +438,7 @@ AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::ScheduledAction
 AWS::RedshiftServerless::Namespace
+AWS::RedshiftServerless::Workgroup
 AWS::RefactorSpaces::Application
 AWS::RefactorSpaces::Environment
 AWS::RefactorSpaces::Route
@@ -443,6 +455,8 @@ AWS::RoboMaker::RobotApplication
 AWS::RoboMaker::RobotApplicationVersion
 AWS::RoboMaker::SimulationApplication
 AWS::RoboMaker::SimulationApplicationVersion
+AWS::RolesAnywhere::Profile
+AWS::RolesAnywhere::TrustAnchor
 AWS::Route53::CidrCollection
 AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
@@ -479,6 +493,8 @@ AWS::S3Outposts::Endpoint
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
+AWS::SES::DedicatedIpPool
+AWS::SES::EmailIdentity
 AWS::SES::Template
 AWS::SQS::Queue
 AWS::SSM::Association
