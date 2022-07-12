@@ -82,13 +82,16 @@ type cfnProvider struct {
 	name     string
 	canceler *cancellationContext
 
-	configured   bool
-	version      string
-	accountID    string
-	region       string
-	partition    partition
-	resourceMap  *schema.CloudAPIMetadata
-	roleArn      *string
+	configured          bool
+	version             string
+	accountID           string
+	region              string
+	partition           partition
+	resourceMap         *schema.CloudAPIMetadata
+	roleArn             *string
+	allowedAccountIds   []string
+	forbiddenAccountIds []string
+
 	pulumiSchema []byte
 
 	cfn  *cloudformation.Client
@@ -180,18 +183,12 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 	var failures []*pulumirpc.CheckFailure
 	for k := range news {
 		switch k {
-		case "allowedAccountIds":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/105")})
 		case "defaultTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
 		case "endpoints":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/108")})
-		case "forbiddenAccountIds":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/109")})
 		case "ignoreTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
@@ -392,6 +389,24 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		cfg.Retryer = func() aws.Retryer { return retry.AddWithMaxAttempts(retry.NewStandard(), num) }
 	}
 
+	if allowedAccountIdsJson, ok := vars["aws-native:config:allowedAccountIds"]; ok {
+		var allowedAccountIds []string
+		err := json.Unmarshal([]byte(allowedAccountIdsJson), &allowedAccountIds)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'allowedAccountIds' config: %w", err)
+		}
+		p.allowedAccountIds = allowedAccountIds
+	}
+
+	if forbiddenAccountIdsJson, ok := vars["aws-native:config:forbiddenAccountIds"]; ok {
+		var forbiddenAccountIds []string
+		err := json.Unmarshal([]byte(forbiddenAccountIdsJson), &forbiddenAccountIds)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'forbiddenAccountIds' config: %w", err)
+		}
+		p.forbiddenAccountIds = forbiddenAccountIds
+	}
+
 	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
 
 	callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
@@ -402,6 +417,11 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		return nil, errors.New("could not get AWS account ID: nil account")
 	}
 	p.accountID = *callerIdentityResp.Account
+
+	err = p.validateAccountId()
+	if err != nil {
+		return nil, err
+	}
 
 	p.configured = true
 
@@ -420,6 +440,30 @@ func varsOrEnv(vars map[string]string, key string, env ...string) (string, bool)
 		}
 	}
 	return "", false
+}
+
+// ValidateAccountId returns a context-specific error if the configured account
+// id is explicitly forbidden or not authorised; and nil if it is authorised.
+func (p *cfnProvider) validateAccountId() error {
+	if len(p.allowedAccountIds) == 0 && len(p.forbiddenAccountIds) == 0 {
+		return nil
+	}
+	if p.forbiddenAccountIds != nil {
+		for _, id := range p.forbiddenAccountIds {
+			if id == p.accountID {
+				return fmt.Errorf("forbidden account ID (%s)", id)
+			}
+		}
+	}
+	if p.allowedAccountIds != nil {
+		for _, id := range p.allowedAccountIds {
+			if id == p.accountID {
+				return nil
+			}
+		}
+		return fmt.Errorf("account ID not allowed (%s)", p.accountID)
+	}
+	return nil
 }
 
 var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
