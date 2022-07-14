@@ -150,10 +150,7 @@ def get_rule_group(id: Optional[str] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['scope'] = scope
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult).value
 
     return AwaitableGetRuleGroupResult(

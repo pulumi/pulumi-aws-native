@@ -72,10 +72,7 @@ def get_baidu_channel(id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getBaiduChannel', __args__, opts=opts, typ=GetBaiduChannelResult).value
 
     return AwaitableGetBaiduChannelResult(

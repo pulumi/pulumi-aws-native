@@ -92,10 +92,7 @@ def get_in_app_template(template_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['templateName'] = template_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getInAppTemplate', __args__, opts=opts, typ=GetInAppTemplateResult).value
 
     return AwaitableGetInAppTemplateResult(

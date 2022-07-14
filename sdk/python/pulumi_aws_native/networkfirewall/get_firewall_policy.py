@@ -83,10 +83,7 @@ def get_firewall_policy(firewall_policy_arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['firewallPolicyArn'] = firewall_policy_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:networkfirewall:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(

@@ -141,10 +141,7 @@ def get_transit_gateway_multicast_group_source(group_ip_address: Optional[str] =
     __args__['groupIpAddress'] = group_ip_address
     __args__['networkInterfaceId'] = network_interface_id
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayMulticastGroupSource', __args__, opts=opts, typ=GetTransitGatewayMulticastGroupSourceResult).value
 
     return AwaitableGetTransitGatewayMulticastGroupSourceResult(

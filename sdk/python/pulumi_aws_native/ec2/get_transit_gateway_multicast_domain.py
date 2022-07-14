@@ -112,10 +112,7 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
     """
     __args__ = dict()
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayMulticastDomain', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainResult).value
 
     return AwaitableGetTransitGatewayMulticastDomainResult(

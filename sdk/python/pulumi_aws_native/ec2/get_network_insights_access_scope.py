@@ -82,10 +82,7 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
     """
     __args__ = dict()
     __args__['networkInsightsAccessScopeId'] = network_insights_access_scope_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsAccessScope', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeResult).value
 
     return AwaitableGetNetworkInsightsAccessScopeResult(

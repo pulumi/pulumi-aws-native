@@ -173,10 +173,7 @@ def get_stack_set(stack_set_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['stackSetId'] = stack_set_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getStackSet', __args__, opts=opts, typ=GetStackSetResult).value
 
     return AwaitableGetStackSetResult(

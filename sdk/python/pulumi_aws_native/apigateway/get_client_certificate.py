@@ -76,10 +76,7 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['clientCertificateId'] = client_certificate_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getClientCertificate', __args__, opts=opts, typ=GetClientCertificateResult).value
 
     return AwaitableGetClientCertificateResult(

@@ -73,10 +73,7 @@ def get_role_alias(role_alias: Optional[str] = None,
     """
     __args__ = dict()
     __args__['roleAlias'] = role_alias
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getRoleAlias', __args__, opts=opts, typ=GetRoleAliasResult).value
 
     return AwaitableGetRoleAliasResult(
