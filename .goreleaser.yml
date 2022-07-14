@@ -34,4 +34,4 @@ blobs:
   bucket: get.pulumi.com
   folder: releases/plugins/
   ids:
-    - archive
+  - archive
