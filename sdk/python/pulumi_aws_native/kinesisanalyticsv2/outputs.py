@@ -64,7 +64,7 @@ __all__ = [
 @pulumi.output_type
 class ApplicationCSVMappingParameters(dict):
     """
-    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
     `"name1", "address1"`
     `"name2", "address2"`
     """
@@ -91,11 +91,11 @@ class ApplicationCSVMappingParameters(dict):
                  record_column_delimiter: str,
                  record_row_delimiter: str):
         """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
         `"name1", "address1"`
         `"name2", "address2"`
         :param str record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        :param str record_row_delimiter: The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+        :param str record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
         """
         pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
         pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
@@ -112,7 +112,7 @@ class ApplicationCSVMappingParameters(dict):
     @pulumi.getter(name="recordRowDelimiter")
     def record_row_delimiter(self) -> str:
         """
-        The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+        The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
         """
         return pulumi.get(self, "record_row_delimiter")
 

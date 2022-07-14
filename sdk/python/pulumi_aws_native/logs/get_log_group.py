@@ -88,10 +88,7 @@ def get_log_group(log_group_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['logGroupName'] = log_group_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult).value
 
     return AwaitableGetLogGroupResult(

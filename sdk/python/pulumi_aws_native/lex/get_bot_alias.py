@@ -124,10 +124,7 @@ def get_bot_alias(bot_alias_id: Optional[str] = None,
     __args__ = dict()
     __args__['botAliasId'] = bot_alias_id
     __args__['botId'] = bot_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:lex:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult).value
 
     return AwaitableGetBotAliasResult(

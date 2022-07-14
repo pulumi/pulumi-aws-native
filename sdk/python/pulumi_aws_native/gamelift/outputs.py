@@ -536,7 +536,7 @@ class FleetServerProcess(dict):
         :param int concurrent_executions: The number of server processes that use this configuration to run concurrently on an instance.
         :param str launch_path: The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
                
-               Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+               Windows (for custom game builds only): C:\\game. Example: "C:\\game\\MyGame\\server.exe"
                
                Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
         :param str parameters: An optional list of parameters to pass to the server executable or Realtime script on launch.
@@ -560,7 +560,7 @@ class FleetServerProcess(dict):
         """
         The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
 
-        Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+        Windows (for custom game builds only): C:\\game. Example: "C:\\game\\MyGame\\server.exe"
 
         Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
         """

@@ -78,10 +78,7 @@ def get_member_invitation(graph_arn: Optional[str] = None,
     __args__ = dict()
     __args__['graphArn'] = graph_arn
     __args__['memberId'] = member_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:detective:getMemberInvitation', __args__, opts=opts, typ=GetMemberInvitationResult).value
 
     return AwaitableGetMemberInvitationResult(

@@ -82,10 +82,7 @@ def get_configuration_aggregator(configuration_aggregator_name: Optional[str] = 
     """
     __args__ = dict()
     __args__['configurationAggregatorName'] = configuration_aggregator_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConfigurationAggregator', __args__, opts=opts, typ=GetConfigurationAggregatorResult).value
 
     return AwaitableGetConfigurationAggregatorResult(

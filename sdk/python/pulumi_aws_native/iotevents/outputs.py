@@ -767,7 +767,7 @@ class AlarmModelFirehose(dict):
         """
         Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
-        :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if payload is not None:
@@ -792,7 +792,7 @@ class AlarmModelFirehose(dict):
     @pulumi.getter
     def separator(self) -> Optional[str]:
         """
-        A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
 
@@ -2069,7 +2069,7 @@ class DetectorModelFirehose(dict):
         """
         Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
-        :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if payload is not None:
@@ -2094,7 +2094,7 @@ class DetectorModelFirehose(dict):
     @pulumi.getter
     def separator(self) -> Optional[str]:
         """
-        A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+        A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
 

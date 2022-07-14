@@ -82,10 +82,7 @@ def get_discoverer(discoverer_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['discovererId'] = discoverer_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getDiscoverer', __args__, opts=opts, typ=GetDiscovererResult).value
 
     return AwaitableGetDiscovererResult(

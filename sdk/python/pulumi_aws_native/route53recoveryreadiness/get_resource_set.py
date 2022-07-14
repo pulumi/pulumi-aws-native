@@ -76,10 +76,7 @@ def get_resource_set(resource_set_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['resourceSetName'] = resource_set_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoveryreadiness:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult).value
 
     return AwaitableGetResourceSetResult(

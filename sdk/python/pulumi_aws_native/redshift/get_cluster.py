@@ -549,10 +549,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
