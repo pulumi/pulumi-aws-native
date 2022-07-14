@@ -49,10 +49,7 @@ def cidr(cidr_bits: Optional[int] = None,
     __args__['cidrBits'] = cidr_bits
     __args__['count'] = count
     __args__['ipBlock'] = ip_block
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:index:cidr', __args__, opts=opts, typ=CidrResult).value
 
     return AwaitableCidrResult(

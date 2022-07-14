@@ -81,10 +81,7 @@ def get_api_key(api_key_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['apiKeyId'] = api_key_id
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getApiKey', __args__, opts=opts, typ=GetApiKeyResult).value
 
     return AwaitableGetApiKeyResult(

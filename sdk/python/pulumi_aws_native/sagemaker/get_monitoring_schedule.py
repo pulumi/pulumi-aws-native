@@ -143,10 +143,7 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['monitoringScheduleArn'] = monitoring_schedule_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getMonitoringSchedule', __args__, opts=opts, typ=GetMonitoringScheduleResult).value
 
     return AwaitableGetMonitoringScheduleResult(

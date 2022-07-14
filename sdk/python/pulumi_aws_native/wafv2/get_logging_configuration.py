@@ -89,10 +89,7 @@ def get_logging_configuration(resource_arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult).value
 
     return AwaitableGetLoggingConfigurationResult(

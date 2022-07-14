@@ -71,10 +71,7 @@ def get_service(application_identifier: Optional[str] = None,
     __args__['applicationIdentifier'] = application_identifier
     __args__['environmentIdentifier'] = environment_identifier
     __args__['serviceIdentifier'] = service_identifier
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:refactorspaces:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(

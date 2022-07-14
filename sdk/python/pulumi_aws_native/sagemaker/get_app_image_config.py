@@ -64,10 +64,7 @@ def get_app_image_config(app_image_config_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['appImageConfigName'] = app_image_config_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getAppImageConfig', __args__, opts=opts, typ=GetAppImageConfigResult).value
 
     return AwaitableGetAppImageConfigResult(

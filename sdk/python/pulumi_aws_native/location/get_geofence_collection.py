@@ -81,10 +81,7 @@ def get_geofence_collection(collection_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['collectionName'] = collection_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:location:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult).value
 
     return AwaitableGetGeofenceCollectionResult(

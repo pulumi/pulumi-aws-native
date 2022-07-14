@@ -88,10 +88,7 @@ def get_subnet_group(subnet_group_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['subnetGroupName'] = subnet_group_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(

@@ -62,10 +62,7 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
     """
     __args__ = dict()
     __args__['resourceCollectionType'] = resource_collection_type
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:devopsguru:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult).value
 
     return AwaitableGetResourceCollectionResult(

@@ -187,10 +187,7 @@ def get_stage(rest_api_id: Optional[str] = None,
     __args__ = dict()
     __args__['restApiId'] = rest_api_id
     __args__['stageName'] = stage_name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getStage', __args__, opts=opts, typ=GetStageResult).value
 
     return AwaitableGetStageResult(

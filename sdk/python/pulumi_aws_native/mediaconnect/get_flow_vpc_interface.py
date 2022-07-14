@@ -90,10 +90,7 @@ def get_flow_vpc_interface(flow_arn: Optional[str] = None,
     __args__ = dict()
     __args__['flowArn'] = flow_arn
     __args__['name'] = name
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getFlowVpcInterface', __args__, opts=opts, typ=GetFlowVpcInterfaceResult).value
 
     return AwaitableGetFlowVpcInterfaceResult(

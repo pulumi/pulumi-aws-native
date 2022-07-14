@@ -121,10 +121,7 @@ def get_permission_set(instance_arn: Optional[str] = None,
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
     __args__['permissionSetArn'] = permission_set_arn
-    if opts is None:
-        opts = pulumi.InvokeOptions()
-    if opts.version is None:
-        opts.version = _utilities.get_version()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:sso:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult).value
 
     return AwaitableGetPermissionSetResult(
