@@ -4,7 +4,7 @@ on:
   - cron: 35 12 * * 4
   workflow_dispatch: {}
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: aws-native
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
@@ -18,9 +18,24 @@ env:
   AWS_REGION: us-west-2
   PULUMI_API: https://api.pulumi-staging.io
 jobs:
-  update_pulumi:
+  weekly-pulumi-update:
     runs-on: ubuntu-latest
-    name: update-pulumi
+    strategy:
+      fail-fast: true
+      matrix:
+        goversion:
+        - 1.18.x
+        dotnetversion:
+        - 3.1.301
+        pythonversion:
+        - "3.7"
+        nodeversion:
+        - 14.x
+        language:
+        - nodejs
+        - python
+        - dotnet
+        - go
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
@@ -85,11 +100,11 @@ jobs:
         if ! git diff-files --quiet; then 
         	echo ::set-output name=changes::1 
         fi
-    - name: Generate Provider with Pulumi Upgrade
+    - name: Initialize submodules
+      run: make init_submodules
+    - name: Provider with Pulumi Upgrade
       if: steps.gomod.outputs.changes != 0
       run: >-
-        make init_submodules
-
         make codegen && make local_generate
 
         git add sdk/nodejs
@@ -120,8 +135,10 @@ jobs:
       with:
         source_branch: update-pulumi/${{ github.run_id }}-${{ github.run_number }}
         destination_branch: master
-        pr_title: Automated pulumi/pulumi upgrade
+        pr_title: Automated Pulumi/Pulumi upgrade
         github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
     - name: Set AutoMerge
       if: steps.create-pr.outputs.has_changed_files
       uses: peter-evans/enable-pull-request-automerge@v1
@@ -130,14 +147,4 @@ jobs:
         pull-request-number: ${{ steps.create-pr.outputs.pr_number }}
         repository: ${{ github.repository }}
         merge-method: squash
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.18.x
-        dotnetversion:
-        - 3.1.301
-        pythonversion:
-        - "3.7"
-        nodeversion:
-        - 14.x
+    name: weekly-pulumi-update
