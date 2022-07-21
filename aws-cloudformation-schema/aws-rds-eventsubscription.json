@@ -20,7 +20,7 @@
           "maxLength" : 256
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Key" ]
     }
   },
   "properties" : {
