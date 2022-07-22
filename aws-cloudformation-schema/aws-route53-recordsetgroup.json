@@ -40,6 +40,19 @@
       },
       "required" : [ "HostedZoneId", "DNSName" ]
     },
+    "CidrRoutingConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CollectionId" : {
+          "type" : "string"
+        },
+        "LocationName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "CollectionId", "LocationName" ]
+    },
     "RecordSet" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -77,6 +90,9 @@
         },
         "Type" : {
           "type" : "string"
+        },
+        "CidrRoutingConfig" : {
+          "$ref" : "#/definitions/CidrRoutingConfig"
         },
         "Failover" : {
           "type" : "string"

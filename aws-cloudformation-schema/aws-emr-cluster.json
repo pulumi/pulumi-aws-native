@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::EMR::Cluster",
   "additionalProperties" : false,
   "properties" : {
-    "LogEncryptionKmsKeyId" : {
-      "type" : "string"
-    },
     "Steps" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -13,38 +10,13 @@
         "$ref" : "#/definitions/StepConfig"
       }
     },
-    "AdditionalInfo" : {
-      "type" : "object"
-    },
-    "KerberosAttributes" : {
-      "$ref" : "#/definitions/KerberosAttributes"
-    },
-    "Applications" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "$ref" : "#/definitions/Application"
-      }
-    },
-    "AutoScalingRole" : {
-      "type" : "string"
-    },
     "StepConcurrencyLevel" : {
       "type" : "integer"
     },
     "EbsRootVolumeSize" : {
       "type" : "integer"
     },
-    "CustomAmiId" : {
-      "type" : "string"
-    },
     "Name" : {
-      "type" : "string"
-    },
-    "Instances" : {
-      "$ref" : "#/definitions/JobFlowInstancesConfig"
-    },
-    "ScaleDownBehavior" : {
       "type" : "string"
     },
     "ServiceRole" : {
@@ -53,24 +25,12 @@
     "LogUri" : {
       "type" : "string"
     },
-    "JobFlowRole" : {
-      "type" : "string"
-    },
-    "VisibleToAllUsers" : {
-      "type" : "boolean"
-    },
     "BootstrapActions" : {
       "type" : "array",
       "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/BootstrapActionConfig"
       }
-    },
-    "SecurityConfiguration" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
     },
     "MasterPublicDNS" : {
       "type" : "string"
@@ -94,6 +54,49 @@
     },
     "ManagedScalingPolicy" : {
       "$ref" : "#/definitions/ManagedScalingPolicy"
+    },
+    "LogEncryptionKmsKeyId" : {
+      "type" : "string"
+    },
+    "AdditionalInfo" : {
+      "type" : "object"
+    },
+    "AutoTerminationPolicy" : {
+      "$ref" : "#/definitions/AutoTerminationPolicy"
+    },
+    "KerberosAttributes" : {
+      "$ref" : "#/definitions/KerberosAttributes"
+    },
+    "Applications" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/Application"
+      }
+    },
+    "AutoScalingRole" : {
+      "type" : "string"
+    },
+    "CustomAmiId" : {
+      "type" : "string"
+    },
+    "Instances" : {
+      "$ref" : "#/definitions/JobFlowInstancesConfig"
+    },
+    "ScaleDownBehavior" : {
+      "type" : "string"
+    },
+    "JobFlowRole" : {
+      "type" : "string"
+    },
+    "VisibleToAllUsers" : {
+      "type" : "boolean"
+    },
+    "SecurityConfiguration" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
     }
   },
   "definitions" : {
@@ -434,6 +437,15 @@
       },
       "required" : [ "MetricName", "ComparisonOperator", "Period", "Threshold" ]
     },
+    "AutoTerminationPolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IdleTimeout" : {
+          "type" : "integer"
+        }
+      }
+    },
     "KerberosAttributes" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -501,8 +513,22 @@
         "Placement" : {
           "$ref" : "#/definitions/PlacementType"
         },
+        "TaskInstanceFleets" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/InstanceFleetConfig"
+          }
+        },
         "Ec2SubnetId" : {
           "type" : "string"
+        },
+        "TaskInstanceGroups" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/InstanceGroupConfig"
+          }
         },
         "ServiceAccessSecurityGroup" : {
           "type" : "string"

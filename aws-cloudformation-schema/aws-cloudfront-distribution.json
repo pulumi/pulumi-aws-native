@@ -663,7 +663,7 @@
           }
         }
       },
-      "required" : [ "Enabled" ]
+      "required" : [ "Enabled", "DefaultCacheBehavior" ]
     },
     "ForwardedValues" : {
       "additionalProperties" : false,
