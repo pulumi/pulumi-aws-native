@@ -18,6 +18,23 @@
   },
   "required" : [ "PolicyDocument" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/PolicyName", "/properties/PolicyDocument" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/PolicyName" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "iot:CreatePolicy", "iot:GetPolicy" ]
+    },
+    "read" : {
+      "permissions" : [ "iot:GetPolicy" ]
+    },
+    "delete" : {
+      "permissions" : [ "iot:DeletePolicy", "iot:GetPolicy", "iot:ListPolicyVersions", "iot:DeletePolicyVersion" ]
+    },
+    "update" : {
+      "permissions" : [ "iot:ListPolicyVersions", "iot:CreatePolicyVersion", "iot:DeletePolicyVersion", "iot:SetDefaultPolicyVersion" ]
+    },
+    "list" : {
+      "permissions" : [ "iot:ListPolicies" ]
+    }
+  }
 }

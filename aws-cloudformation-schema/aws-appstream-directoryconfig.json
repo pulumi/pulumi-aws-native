@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::AppStream::DirectoryConfig",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "OrganizationalUnitDistinguishedNames" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -36,7 +33,25 @@
     }
   },
   "required" : [ "DirectoryName", "OrganizationalUnitDistinguishedNames", "ServiceAccountCredentials" ],
+  "writeOnlyProperties" : [ "/properties/ServiceAccountCredentials/AccountPassword" ],
   "createOnlyProperties" : [ "/properties/DirectoryName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/DirectoryName" ],
+  "taggable" : false,
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "appstream:*" ]
+    },
+    "update" : {
+      "permissions" : [ "appstream:*" ]
+    },
+    "read" : {
+      "permissions" : [ "appstream:*" ]
+    },
+    "delete" : {
+      "permissions" : [ "appstream:*" ]
+    },
+    "list" : {
+      "permissions" : [ "appstream:*" ]
+    }
+  }
 }
