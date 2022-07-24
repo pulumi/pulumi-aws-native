@@ -45,6 +45,9 @@
     "RoleArn" : {
       "type" : "string"
     },
+    "InstanceMetadataServiceConfiguration" : {
+      "$ref" : "#/definitions/InstanceMetadataServiceConfiguration"
+    },
     "RootAccess" : {
       "type" : "string"
     },
@@ -69,6 +72,16 @@
     }
   },
   "definitions" : {
+    "InstanceMetadataServiceConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinimumInstanceMetadataServiceVersion" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "MinimumInstanceMetadataServiceVersion" ]
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,

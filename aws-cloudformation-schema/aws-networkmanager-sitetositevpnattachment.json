@@ -124,7 +124,8 @@
   "additionalIdentifiers" : [ [ "/properties/ResourceArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:CreateSiteToSiteVpnAttachment", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:CreateSiteToSiteVpnAttachment", "ec2:DescribeRegions" ],
+      "timeoutInMinutes" : 40
     },
     "read" : {
       "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment" ]
@@ -133,7 +134,8 @@
       "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "ec2:DescribeRegions" ]
     },
     "delete" : {
-      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:DeleteAttachment", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:DeleteAttachment", "ec2:DescribeRegions" ],
+      "timeoutInMinutes" : 720
     },
     "list" : {
       "permissions" : [ "networkmanager:ListAttachments" ]
