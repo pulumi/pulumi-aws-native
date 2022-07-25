@@ -53,7 +53,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/CollectionArn", "/properties/Arn", "/properties/CreateTime", "/properties/UpdateTime" ],
-  "createOnlyProperties" : [ "/properties/PricingPlanDataSource", "/properties/PricingPlan", "/properties/Description", "/properties/CollectionName" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/PricingPlan", "/properties/Description", "/properties/CollectionName" ],
   "required" : [ "CollectionName" ],
   "primaryIdentifier" : [ "/properties/CollectionName" ],
   "additionalProperties" : false,

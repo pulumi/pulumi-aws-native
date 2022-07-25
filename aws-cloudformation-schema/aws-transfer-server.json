@@ -83,6 +83,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "As2Transports" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/As2Transport"
+          }
+        },
         "PassiveIp" : {
           "type" : "string"
         },
@@ -170,6 +177,10 @@
           }
         }
       }
+    },
+    "As2Transport" : {
+      "type" : "object",
+      "additionalProperties" : false
     }
   },
   "createOnlyProperties" : [ "/properties/IdentityProviderType", "/properties/Domain" ],

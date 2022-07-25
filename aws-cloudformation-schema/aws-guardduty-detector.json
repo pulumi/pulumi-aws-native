@@ -14,6 +14,13 @@
     },
     "Id" : {
       "type" : "string"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "definitions" : {
@@ -34,6 +41,19 @@
           "type" : "boolean"
         }
       }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "CFNKubernetesConfiguration" : {
       "type" : "object",

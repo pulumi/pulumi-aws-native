@@ -72,17 +72,11 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "BackupVaultName" ],
   "createOnlyProperties" : [ "/properties/BackupVaultName", "/properties/EncryptionKeyArn" ],
   "readOnlyProperties" : [ "/properties/BackupVaultArn" ],
   "primaryIdentifier" : [ "/properties/BackupVaultName" ],
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/BackupVaultTags"
-  },
   "handlers" : {
     "create" : {
       "permissions" : [ "backup:CreateBackupVault", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup:PutBackupVaultLockConfiguration", "backup-storage:Mount", "backup-storage:MountCapsule", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "kms:RetireGrant", "kms:DescribeKey" ]
@@ -95,6 +89,9 @@
     },
     "delete" : {
       "permissions" : [ "backup:DeleteBackupVault" ]
+    },
+    "list" : {
+      "permissions" : [ "backup:ListBackupVaults" ]
     }
   }
 }
