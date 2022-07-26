@@ -16,3 +16,9 @@ provider/cmd/cf2pulumi/metadata.go
 **/.DS_Store
 ci-scripts
 .vscode
+
+sdk/java/build
+sdk/java/.gradle
+sdk/java/gradle
+sdk/java/gradlew
+sdk/java/gradlew.bat
