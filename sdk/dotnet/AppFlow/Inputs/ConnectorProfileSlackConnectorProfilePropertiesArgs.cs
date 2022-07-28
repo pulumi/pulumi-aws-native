@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileSlackConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileSlackConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Slack resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileSlackConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileSlackConnectorProfilePropertiesArgs Empty => new ConnectorProfileSlackConnectorProfilePropertiesArgs();
     }
 }

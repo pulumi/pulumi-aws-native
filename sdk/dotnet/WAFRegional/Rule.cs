@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"Rule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:Rule")]
-    public partial class Rule : Pulumi.CustomResource
+    public partial class Rule : global::Pulumi.CustomResource
     {
         [Output("metricName")]
         public Output<string> MetricName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class RuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public RuleArgs()
         {
         }
+        public static new RuleArgs Empty => new RuleArgs();
     }
 }

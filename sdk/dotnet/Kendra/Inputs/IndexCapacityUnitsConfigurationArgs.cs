@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexCapacityUnitsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexCapacityUnitsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("queryCapacityUnits", required: true)]
         public Input<int> QueryCapacityUnits { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexCapacityUnitsConfigurationArgs()
         {
         }
+        public static new IndexCapacityUnitsConfigurationArgs Empty => new IndexCapacityUnitsConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class PatchBaselinePatchSourceArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselinePatchSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public PatchBaselinePatchSourceArgs()
         {
         }
+        public static new PatchBaselinePatchSourceArgs Empty => new PatchBaselinePatchSourceArgs();
     }
 }

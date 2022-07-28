@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetSpotCapacityRebalanceArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetSpotCapacityRebalanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("replacementStrategy")]
         public Input<Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy>? ReplacementStrategy { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetSpotCapacityRebalanceArgs()
         {
         }
+        public static new SpotFleetSpotCapacityRebalanceArgs Empty => new SpotFleetSpotCapacityRebalanceArgs();
     }
 }

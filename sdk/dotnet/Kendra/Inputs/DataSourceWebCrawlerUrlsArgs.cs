@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceWebCrawlerUrlsArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWebCrawlerUrlsArgs : global::Pulumi.ResourceArgs
     {
         [Input("seedUrlConfiguration")]
         public Input<Inputs.DataSourceWebCrawlerSeedUrlConfigurationArgs>? SeedUrlConfiguration { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceWebCrawlerUrlsArgs()
         {
         }
+        public static new DataSourceWebCrawlerUrlsArgs Empty => new DataSourceWebCrawlerUrlsArgs();
     }
 }

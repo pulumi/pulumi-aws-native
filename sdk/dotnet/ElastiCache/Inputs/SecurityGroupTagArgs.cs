@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class SecurityGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public SecurityGroupTagArgs()
         {
         }
+        public static new SecurityGroupTagArgs Empty => new SecurityGroupTagArgs();
     }
 }

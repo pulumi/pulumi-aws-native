@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class CloudFrontOriginAccessIdentityConfigArgs : Pulumi.ResourceArgs
+    public sealed class CloudFrontOriginAccessIdentityConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public CloudFrontOriginAccessIdentityConfigArgs()
         {
         }
+        public static new CloudFrontOriginAccessIdentityConfigArgs Empty => new CloudFrontOriginAccessIdentityConfigArgs();
     }
 }

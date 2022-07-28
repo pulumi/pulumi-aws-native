@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
     /// </summary>
-    public sealed class BucketNoncurrentVersionExpirationArgs : Pulumi.ResourceArgs
+    public sealed class BucketNoncurrentVersionExpirationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specified the number of newer noncurrent and current versions that must exists before performing the associated action
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketNoncurrentVersionExpirationArgs()
         {
         }
+        public static new BucketNoncurrentVersionExpirationArgs Empty => new BucketNoncurrentVersionExpirationArgs();
     }
 }

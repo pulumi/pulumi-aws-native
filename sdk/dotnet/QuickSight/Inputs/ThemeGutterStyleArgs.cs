@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The display options for gutter spacing between tiles on a sheet.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeGutterStyleArgs : Pulumi.ResourceArgs
+    public sealed class ThemeGutterStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;This Boolean value controls whether to display a gutter space between sheet tiles.
@@ -25,5 +25,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeGutterStyleArgs()
         {
         }
+        public static new ThemeGutterStyleArgs Empty => new ThemeGutterStyleArgs();
     }
 }

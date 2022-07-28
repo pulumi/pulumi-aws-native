@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class AppEnvironmentVariableArgs : Pulumi.ResourceArgs
+    public sealed class AppEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public AppEnvironmentVariableArgs()
         {
         }
+        public static new AppEnvironmentVariableArgs Empty => new AppEnvironmentVariableArgs();
     }
 }

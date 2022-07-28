@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolRecoveryOptionArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRecoveryOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolRecoveryOptionArgs()
         {
         }
+        public static new UserPoolRecoveryOptionArgs Empty => new UserPoolRecoveryOptionArgs();
     }
 }

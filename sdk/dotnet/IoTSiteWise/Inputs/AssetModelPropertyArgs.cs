@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains information about an asset model property.
     /// </summary>
-    public sealed class AssetModelPropertyArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data type of the asset model property.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelPropertyArgs()
         {
         }
+        public static new AssetModelPropertyArgs Empty => new AssetModelPropertyArgs();
     }
 }

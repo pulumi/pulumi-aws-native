@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class WebACLActivatedRuleArgs : Pulumi.ResourceArgs
+    public sealed class WebACLActivatedRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<Inputs.WebACLWafActionArgs>? Action { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public WebACLActivatedRuleArgs()
         {
         }
+        public static new WebACLActivatedRuleArgs Empty => new WebACLActivatedRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::ContainerRecipe
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:ContainerRecipe")]
-    public partial class ContainerRecipe : Pulumi.CustomResource
+    public partial class ContainerRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe.
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class ContainerRecipeArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeArgs : global::Pulumi.ResourceArgs
     {
         [Input("components")]
         private InputList<Inputs.ContainerRecipeComponentConfigurationArgs>? _components;
@@ -255,5 +255,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public ContainerRecipeArgs()
         {
         }
+        public static new ContainerRecipeArgs Empty => new ContainerRecipeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cloud9.Inputs
 {
 
-    public sealed class EnvironmentEC2RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentEC2RepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("pathComponent", required: true)]
         public Input<string> PathComponent { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cloud9.Inputs
         public EnvironmentEC2RepositoryArgs()
         {
         }
+        public static new EnvironmentEC2RepositoryArgs Empty => new EnvironmentEC2RepositoryArgs();
     }
 }

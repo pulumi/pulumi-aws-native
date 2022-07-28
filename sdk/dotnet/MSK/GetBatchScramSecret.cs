@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MSK
     }
 
 
-    public sealed class GetBatchScramSecretArgs : Pulumi.InvokeArgs
+    public sealed class GetBatchScramSecretArgs : global::Pulumi.InvokeArgs
     {
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MSK
         public GetBatchScramSecretArgs()
         {
         }
+        public static new GetBatchScramSecretArgs Empty => new GetBatchScramSecretArgs();
     }
 
-    public sealed class GetBatchScramSecretInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBatchScramSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MSK
         public GetBatchScramSecretInvokeArgs()
         {
         }
+        public static new GetBatchScramSecretInvokeArgs Empty => new GetBatchScramSecretInvokeArgs();
     }
 
 

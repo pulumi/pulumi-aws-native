@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ParallelismConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ParallelismConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum parallel execution steps
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ParallelismConfigurationPropertiesArgs()
         {
         }
+        public static new ParallelismConfigurationPropertiesArgs Empty => new ParallelismConfigurationPropertiesArgs();
     }
 }

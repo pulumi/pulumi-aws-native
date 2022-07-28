@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     /// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
     /// </summary>
     [AwsNativeResourceType("aws-native:devopsguru:NotificationChannel")]
-    public partial class NotificationChannel : Pulumi.CustomResource
+    public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         [Output("config")]
         public Output<Outputs.NotificationChannelConfig> Config { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         }
     }
 
-    public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
+    public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("config", required: true)]
         public Input<Inputs.NotificationChannelConfigArgs> Config { get; set; } = null!;
@@ -69,5 +69,6 @@ namespace Pulumi.AwsNative.DevOpsGuru
         public NotificationChannelArgs()
         {
         }
+        public static new NotificationChannelArgs Empty => new NotificationChannelArgs();
     }
 }

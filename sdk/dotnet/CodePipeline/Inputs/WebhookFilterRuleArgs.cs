@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class WebhookFilterRuleArgs : Pulumi.ResourceArgs
+    public sealed class WebhookFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("jsonPath", required: true)]
         public Input<string> JsonPath { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public WebhookFilterRuleArgs()
         {
         }
+        public static new WebhookFilterRuleArgs Empty => new WebhookFilterRuleArgs();
     }
 }

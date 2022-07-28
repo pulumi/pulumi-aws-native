@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
     }
 
 
-    public sealed class GetFrameworkArgs : Pulumi.InvokeArgs
+    public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Backup
         public GetFrameworkArgs()
         {
         }
+        public static new GetFrameworkArgs Empty => new GetFrameworkArgs();
     }
 
-    public sealed class GetFrameworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Backup
         public GetFrameworkInvokeArgs()
         {
         }
+        public static new GetFrameworkInvokeArgs Empty => new GetFrameworkInvokeArgs();
     }
 
 

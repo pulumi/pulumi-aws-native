@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RegexPatternSetTagArgs : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RegexPatternSetTagArgs()
         {
         }
+        public static new RegexPatternSetTagArgs Empty => new RegexPatternSetTagArgs();
     }
 }

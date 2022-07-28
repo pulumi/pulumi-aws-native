@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFecOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFecOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnDepth")]
         public Input<int>? ColumnDepth { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFecOutputSettingsArgs()
         {
         }
+        public static new ChannelFecOutputSettingsArgs Empty => new ChannelFecOutputSettingsArgs();
     }
 }

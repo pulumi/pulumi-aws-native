@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class StorageVirtualMachineTagArgs : Pulumi.ResourceArgs
+    public sealed class StorageVirtualMachineTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public StorageVirtualMachineTagArgs()
         {
         }
+        public static new StorageVirtualMachineTagArgs Empty => new StorageVirtualMachineTagArgs();
     }
 }

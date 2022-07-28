@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kinesis
     }
 
 
-    public sealed class GetStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis stream.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Kinesis
         public GetStreamArgs()
         {
         }
+        public static new GetStreamArgs Empty => new GetStreamArgs();
     }
 
-    public sealed class GetStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis stream.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Kinesis
         public GetStreamInvokeArgs()
         {
         }
+        public static new GetStreamInvokeArgs Empty => new GetStreamInvokeArgs();
     }
 
 

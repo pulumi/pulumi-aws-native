@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class StateMachineCloudWatchLogsLogGroupArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineCloudWatchLogsLogGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public StateMachineCloudWatchLogsLogGroupArgs()
         {
         }
+        public static new StateMachineCloudWatchLogsLogGroupArgs Empty => new StateMachineCloudWatchLogsLogGroupArgs();
     }
 }

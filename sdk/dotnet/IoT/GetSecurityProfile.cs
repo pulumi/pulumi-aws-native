@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetSecurityProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the security profile.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetSecurityProfileArgs()
         {
         }
+        public static new GetSecurityProfileArgs Empty => new GetSecurityProfileArgs();
     }
 
-    public sealed class GetSecurityProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the security profile.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetSecurityProfileInvokeArgs()
         {
         }
+        public static new GetSecurityProfileInvokeArgs Empty => new GetSecurityProfileInvokeArgs();
     }
 
 

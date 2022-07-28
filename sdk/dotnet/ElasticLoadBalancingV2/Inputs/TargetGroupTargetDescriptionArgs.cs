@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class TargetGroupTargetDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupTargetDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public TargetGroupTargetDescriptionArgs()
         {
         }
+        public static new TargetGroupTargetDescriptionArgs Empty => new TargetGroupTargetDescriptionArgs();
     }
 }

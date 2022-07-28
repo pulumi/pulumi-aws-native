@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
     }
 
 
-    public sealed class GetAlertArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN assigned to the alert.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public GetAlertArgs()
         {
         }
+        public static new GetAlertArgs Empty => new GetAlertArgs();
     }
 
-    public sealed class GetAlertInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN assigned to the alert.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public GetAlertInvokeArgs()
         {
         }
+        public static new GetAlertInvokeArgs Empty => new GetAlertInvokeArgs();
     }
 
 

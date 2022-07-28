@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CE.Inputs
 {
 
-    public sealed class AnomalySubscriptionSubscriberArgs : Pulumi.ResourceArgs
+    public sealed class AnomalySubscriptionSubscriberArgs : global::Pulumi.ResourceArgs
     {
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CE.Inputs
         public AnomalySubscriptionSubscriberArgs()
         {
         }
+        public static new AnomalySubscriptionSubscriberArgs Empty => new AnomalySubscriptionSubscriberArgs();
     }
 }

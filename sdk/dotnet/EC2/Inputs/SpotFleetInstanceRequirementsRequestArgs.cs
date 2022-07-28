@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetInstanceRequirementsRequestArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetInstanceRequirementsRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorCount")]
         public Input<Inputs.SpotFleetAcceleratorCountRequestArgs>? AcceleratorCount { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetInstanceRequirementsRequestArgs()
         {
         }
+        public static new SpotFleetInstanceRequirementsRequestArgs Empty => new SpotFleetInstanceRequirementsRequestArgs();
     }
 }

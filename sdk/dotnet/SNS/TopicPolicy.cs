@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SNS
     /// </summary>
     [Obsolete(@"TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:TopicPolicy")]
-    public partial class TopicPolicy : Pulumi.CustomResource
+    public partial class TopicPolicy : global::Pulumi.CustomResource
     {
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.SNS
         }
     }
 
-    public sealed class TopicPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TopicPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.SNS
         public TopicPolicyArgs()
         {
         }
+        public static new TopicPolicyArgs Empty => new TopicPolicyArgs();
     }
 }

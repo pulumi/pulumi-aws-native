@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Athena.Inputs
 {
 
-    public sealed class WorkGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public WorkGroupTagArgs()
         {
         }
+        public static new WorkGroupTagArgs Empty => new WorkGroupTagArgs();
     }
 }

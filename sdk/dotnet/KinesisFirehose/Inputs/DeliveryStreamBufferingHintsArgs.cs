@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamBufferingHintsArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamBufferingHintsArgs : global::Pulumi.ResourceArgs
     {
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamBufferingHintsArgs()
         {
         }
+        public static new DeliveryStreamBufferingHintsArgs Empty => new DeliveryStreamBufferingHintsArgs();
     }
 }

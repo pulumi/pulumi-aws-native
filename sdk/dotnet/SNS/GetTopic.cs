@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SNS
     }
 
 
-    public sealed class GetTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SNS
         public GetTopicArgs()
         {
         }
+        public static new GetTopicArgs Empty => new GetTopicArgs();
     }
 
-    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SNS
         public GetTopicInvokeArgs()
         {
         }
+        public static new GetTopicInvokeArgs Empty => new GetTopicInvokeArgs();
     }
 
 

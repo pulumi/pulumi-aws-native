@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class ConnectionPhysicalConnectionRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionPhysicalConnectionRequirementsArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public ConnectionPhysicalConnectionRequirementsArgs()
         {
         }
+        public static new ConnectionPhysicalConnectionRequirementsArgs Empty => new ConnectionPhysicalConnectionRequirementsArgs();
     }
 }

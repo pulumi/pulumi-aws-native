@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lambda
     /// </summary>
     [Obsolete(@"LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:LayerVersionPermission")]
-    public partial class LayerVersionPermission : Pulumi.CustomResource
+    public partial class LayerVersionPermission : global::Pulumi.CustomResource
     {
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class LayerVersionPermissionArgs : Pulumi.ResourceArgs
+    public sealed class LayerVersionPermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Lambda
         public LayerVersionPermissionArgs()
         {
         }
+        public static new LayerVersionPermissionArgs Empty => new LayerVersionPermissionArgs();
     }
 }

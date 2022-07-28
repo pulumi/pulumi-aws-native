@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaTailor
     }
 
 
-    public sealed class GetPlaybackConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaybackConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the playback configuration.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaTailor
         public GetPlaybackConfigurationArgs()
         {
         }
+        public static new GetPlaybackConfigurationArgs Empty => new GetPlaybackConfigurationArgs();
     }
 
-    public sealed class GetPlaybackConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaybackConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the playback configuration.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaTailor
         public GetPlaybackConfigurationInvokeArgs()
         {
         }
+        public static new GetPlaybackConfigurationInvokeArgs Empty => new GetPlaybackConfigurationInvokeArgs();
     }
 
 

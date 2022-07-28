@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSO
     }
 
 
-    public sealed class GetPermissionSetArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The sso instance arn that the permission set is owned.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.SSO
         public GetPermissionSetArgs()
         {
         }
+        public static new GetPermissionSetArgs Empty => new GetPermissionSetArgs();
     }
 
-    public sealed class GetPermissionSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The sso instance arn that the permission set is owned.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.SSO
         public GetPermissionSetInvokeArgs()
         {
         }
+        public static new GetPermissionSetInvokeArgs Empty => new GetPermissionSetInvokeArgs();
     }
 
 

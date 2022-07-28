@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRulePayloadArgs : Pulumi.ResourceArgs
+    public sealed class TopicRulePayloadArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.TopicRuleActionArgs>? _actions;
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRulePayloadArgs()
         {
         }
+        public static new TopicRulePayloadArgs Empty => new TopicRulePayloadArgs();
     }
 }

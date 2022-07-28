@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreServiceManagedS3Args : Pulumi.ResourceArgs
+    public sealed class DatastoreServiceManagedS3Args : global::Pulumi.ResourceArgs
     {
         public DatastoreServiceManagedS3Args()
         {
         }
+        public static new DatastoreServiceManagedS3Args Empty => new DatastoreServiceManagedS3Args();
     }
 }

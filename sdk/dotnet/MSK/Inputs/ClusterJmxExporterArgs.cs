@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterJmxExporterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterJmxExporterArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterJmxExporterArgs()
         {
         }
+        public static new ClusterJmxExporterArgs Empty => new ClusterJmxExporterArgs();
     }
 }

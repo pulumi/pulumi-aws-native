@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     }
 
 
-    public sealed class GetBrokerArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AmazonMQ
         public GetBrokerArgs()
         {
         }
+        public static new GetBrokerArgs Empty => new GetBrokerArgs();
     }
 
-    public sealed class GetBrokerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AmazonMQ
         public GetBrokerInvokeArgs()
         {
         }
+        public static new GetBrokerInvokeArgs Empty => new GetBrokerInvokeArgs();
     }
 
 

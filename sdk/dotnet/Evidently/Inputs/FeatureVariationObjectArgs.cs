@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class FeatureVariationObjectArgs : Pulumi.ResourceArgs
+    public sealed class FeatureVariationObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("booleanValue")]
         public Input<bool>? BooleanValue { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public FeatureVariationObjectArgs()
         {
         }
+        public static new FeatureVariationObjectArgs Empty => new FeatureVariationObjectArgs();
     }
 }

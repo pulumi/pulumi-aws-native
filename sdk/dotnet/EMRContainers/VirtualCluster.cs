@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMRContainers
     /// Resource Schema of AWS::EMRContainers::VirtualCluster Type
     /// </summary>
     [AwsNativeResourceType("aws-native:emrcontainers:VirtualCluster")]
-    public partial class VirtualCluster : Pulumi.CustomResource
+    public partial class VirtualCluster : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.EMRContainers
         }
     }
 
-    public sealed class VirtualClusterArgs : Pulumi.ResourceArgs
+    public sealed class VirtualClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container provider of the virtual cluster.
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.EMRContainers
         public VirtualClusterArgs()
         {
         }
+        public static new VirtualClusterArgs Empty => new VirtualClusterArgs();
     }
 }

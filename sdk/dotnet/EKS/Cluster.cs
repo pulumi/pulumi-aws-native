@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS
     /// An object representing an Amazon EKS cluster.
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.EKS
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;
@@ -182,5 +182,6 @@ namespace Pulumi.AwsNative.EKS
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class ParameterGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for the tag. May not be null.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public ParameterGroupTagArgs()
         {
         }
+        public static new ParameterGroupTagArgs Empty => new ParameterGroupTagArgs();
     }
 }

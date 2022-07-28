@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Master")]
-    public partial class Master : Pulumi.CustomResource
+    public partial class Master : global::Pulumi.CustomResource
     {
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class MasterArgs : Pulumi.ResourceArgs
+    public sealed class MasterArgs : global::Pulumi.ResourceArgs
     {
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public MasterArgs()
         {
         }
+        public static new MasterArgs Empty => new MasterArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains a summary of a gateway capability configuration.
     /// </summary>
-    public sealed class GatewayCapabilitySummaryArgs : Pulumi.ResourceArgs
+    public sealed class GatewayCapabilitySummaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("capabilityConfiguration")]
         public Input<string>? CapabilityConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public GatewayCapabilitySummaryArgs()
         {
         }
+        public static new GatewayCapabilitySummaryArgs Empty => new GatewayCapabilitySummaryArgs();
     }
 }

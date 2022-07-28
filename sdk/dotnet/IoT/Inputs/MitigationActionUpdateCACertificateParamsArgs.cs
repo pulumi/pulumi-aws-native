@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
     /// </summary>
-    public sealed class MitigationActionUpdateCACertificateParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionUpdateCACertificateParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.IoT.MitigationActionUpdateCACertificateParamsAction> Action { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionUpdateCACertificateParamsArgs()
         {
         }
+        public static new MitigationActionUpdateCACertificateParamsArgs Empty => new MitigationActionUpdateCACertificateParamsArgs();
     }
 }

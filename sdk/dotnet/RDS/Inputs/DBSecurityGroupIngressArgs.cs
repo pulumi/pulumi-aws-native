@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBSecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class DBSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cIDRIP")]
         public Input<string>? CIDRIP { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBSecurityGroupIngressArgs()
         {
         }
+        public static new DBSecurityGroupIngressArgs Empty => new DBSecurityGroupIngressArgs();
     }
 }

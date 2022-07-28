@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies which Amazon S3 objects to replicate and where to store the replicas.
     /// </summary>
-    public sealed class BucketReplicationRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteMarkerReplication")]
         public Input<Inputs.BucketDeleteMarkerReplicationArgs>? DeleteMarkerReplication { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationRuleArgs()
         {
         }
+        public static new BucketReplicationRuleArgs Empty => new BucketReplicationRuleArgs();
     }
 }

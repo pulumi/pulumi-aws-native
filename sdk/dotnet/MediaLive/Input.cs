@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaLive
     /// </summary>
     [Obsolete(@"Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:medialive:Input")]
-    public partial class Input : Pulumi.CustomResource
+    public partial class Input : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.MediaLive
         }
     }
 
-    public sealed class InputArgs : Pulumi.ResourceArgs
+    public sealed class InputArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations")]
         private InputList<Inputs.InputDestinationRequestArgs>? _destinations;
@@ -152,5 +152,6 @@ namespace Pulumi.AwsNative.MediaLive
         public InputArgs()
         {
         }
+        public static new InputArgs Empty => new InputArgs();
     }
 }

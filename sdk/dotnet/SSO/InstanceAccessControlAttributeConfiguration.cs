@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSO
     /// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:sso:InstanceAccessControlAttributeConfiguration")]
-    public partial class InstanceAccessControlAttributeConfiguration : Pulumi.CustomResource
+    public partial class InstanceAccessControlAttributeConfiguration : global::Pulumi.CustomResource
     {
         [Output("accessControlAttributes")]
         public Output<ImmutableArray<Outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute>> AccessControlAttributes { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SSO
         }
     }
 
-    public sealed class InstanceAccessControlAttributeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAccessControlAttributeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlAttributes")]
         private InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>? _accessControlAttributes;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.SSO
         public InstanceAccessControlAttributeConfigurationArgs()
         {
         }
+        public static new InstanceAccessControlAttributeConfigurationArgs Empty => new InstanceAccessControlAttributeConfigurationArgs();
     }
 }

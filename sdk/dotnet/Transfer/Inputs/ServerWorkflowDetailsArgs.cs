@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class ServerWorkflowDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ServerWorkflowDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("onUpload", required: true)]
         private InputList<Inputs.ServerWorkflowDetailArgs>? _onUpload;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public ServerWorkflowDetailsArgs()
         {
         }
+        public static new ServerWorkflowDetailsArgs Empty => new ServerWorkflowDetailsArgs();
     }
 }

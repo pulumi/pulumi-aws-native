@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamHiveJsonSerDeArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamHiveJsonSerDeArgs : global::Pulumi.ResourceArgs
     {
         [Input("timestampFormats")]
         private InputList<string>? _timestampFormats;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamHiveJsonSerDeArgs()
         {
         }
+        public static new DeliveryStreamHiveJsonSerDeArgs Empty => new DeliveryStreamHiveJsonSerDeArgs();
     }
 }

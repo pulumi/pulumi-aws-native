@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelRepositoryAuthConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelRepositoryAuthConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("repositoryCredentialsProviderArn", required: true)]
         public Input<string> RepositoryCredentialsProviderArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelRepositoryAuthConfigArgs()
         {
         }
+        public static new ModelRepositoryAuthConfigArgs Empty => new ModelRepositoryAuthConfigArgs();
     }
 }

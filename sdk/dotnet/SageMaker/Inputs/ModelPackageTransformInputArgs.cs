@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the input source of a transform job and the way the transform job consumes it.
     /// </summary>
-    public sealed class ModelPackageTransformInputArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageTransformInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageTransformInputArgs()
         {
         }
+        public static new ModelPackageTransformInputArgs Empty => new ModelPackageTransformInputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::User
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the user account in the directory used for identity management.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the user account in the directory used for identity management.
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.Connect
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

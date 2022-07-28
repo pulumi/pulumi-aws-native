@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
-    public sealed class SecretTagArgs : Pulumi.ResourceArgs
+    public sealed class SecretTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         public SecretTagArgs()
         {
         }
+        public static new SecretTagArgs Empty => new SecretTagArgs();
     }
 }

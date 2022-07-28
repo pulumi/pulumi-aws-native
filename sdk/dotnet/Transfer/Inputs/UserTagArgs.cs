@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class UserTagArgs : Pulumi.ResourceArgs
+    public sealed class UserTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public UserTagArgs()
         {
         }
+        public static new UserTagArgs Empty => new UserTagArgs();
     }
 }

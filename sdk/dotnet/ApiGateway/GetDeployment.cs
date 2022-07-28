@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetDeploymentArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary Id for this resource
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDeploymentArgs()
         {
         }
+        public static new GetDeploymentArgs Empty => new GetDeploymentArgs();
     }
 
-    public sealed class GetDeploymentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary Id for this resource
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDeploymentInvokeArgs()
         {
         }
+        public static new GetDeploymentInvokeArgs Empty => new GetDeploymentInvokeArgs();
     }
 
 

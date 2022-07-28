@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetFleetMetricArgs : Pulumi.InvokeArgs
+    public sealed class GetFleetMetricArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the fleet metric
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetFleetMetricArgs()
         {
         }
+        public static new GetFleetMetricArgs Empty => new GetFleetMetricArgs();
     }
 
-    public sealed class GetFleetMetricInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFleetMetricInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the fleet metric
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetFleetMetricInvokeArgs()
         {
         }
+        public static new GetFleetMetricInvokeArgs Empty => new GetFleetMetricInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::StaticIp
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:StaticIp")]
-    public partial class StaticIp : Pulumi.CustomResource
+    public partial class StaticIp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The instance where the static IP is attached.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class StaticIpArgs : Pulumi.ResourceArgs
+    public sealed class StaticIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance where the static IP is attached.
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.Lightsail
         public StaticIpArgs()
         {
         }
+        public static new StaticIpArgs Empty => new StaticIpArgs();
     }
 }

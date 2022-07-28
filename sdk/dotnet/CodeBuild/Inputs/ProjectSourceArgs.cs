@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSourceArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         public Input<Inputs.ProjectSourceAuthArgs>? Auth { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectSourceArgs()
         {
         }
+        public static new ProjectSourceArgs Empty => new ProjectSourceArgs();
     }
 }

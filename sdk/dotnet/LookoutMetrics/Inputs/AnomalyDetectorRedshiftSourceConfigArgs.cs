@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorRedshiftSourceConfigArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorRedshiftSourceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorRedshiftSourceConfigArgs()
         {
         }
+        public static new AnomalyDetectorRedshiftSourceConfigArgs Empty => new AnomalyDetectorRedshiftSourceConfigArgs();
     }
 }

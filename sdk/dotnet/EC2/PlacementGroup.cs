@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::PlacementGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:PlacementGroup")]
-    public partial class PlacementGroup : Pulumi.CustomResource
+    public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Group Name of Placement Group.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class PlacementGroupArgs : Pulumi.ResourceArgs
+    public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The placement strategy.
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.EC2
         public PlacementGroupArgs()
         {
         }
+        public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }
 }

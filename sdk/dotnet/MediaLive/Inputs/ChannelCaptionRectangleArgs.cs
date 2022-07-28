@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelCaptionRectangleArgs : Pulumi.ResourceArgs
+    public sealed class ChannelCaptionRectangleArgs : global::Pulumi.ResourceArgs
     {
         [Input("height")]
         public Input<double>? Height { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelCaptionRectangleArgs()
         {
         }
+        public static new ChannelCaptionRectangleArgs Empty => new ChannelCaptionRectangleArgs();
     }
 }

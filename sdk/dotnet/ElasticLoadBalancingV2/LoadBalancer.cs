@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// </summary>
     [Obsolete(@"LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         [Output("canonicalHostedZoneID")]
         public Output<string> CanonicalHostedZoneID { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -155,5 +155,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 }

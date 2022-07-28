@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointMongoDbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointMongoDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("authMechanism")]
         public Input<string>? AuthMechanism { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointMongoDbSettingsArgs()
         {
         }
+        public static new EndpointMongoDbSettingsArgs Empty => new EndpointMongoDbSettingsArgs();
     }
 }

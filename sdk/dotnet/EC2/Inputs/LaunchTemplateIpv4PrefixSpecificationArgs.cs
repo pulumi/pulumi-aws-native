@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateIpv4PrefixSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateIpv4PrefixSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipv4Prefix")]
         public Input<string>? Ipv4Prefix { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateIpv4PrefixSpecificationArgs()
         {
         }
+        public static new LaunchTemplateIpv4PrefixSpecificationArgs Empty => new LaunchTemplateIpv4PrefixSpecificationArgs();
     }
 }

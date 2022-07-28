@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the IAM role, up to 64 characters in length.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IAM
         public GetRoleArgs()
         {
         }
+        public static new GetRoleArgs Empty => new GetRoleArgs();
     }
 
-    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the IAM role, up to 64 characters in length.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IAM
         public GetRoleInvokeArgs()
         {
         }
+        public static new GetRoleInvokeArgs Empty => new GetRoleInvokeArgs();
     }
 
 

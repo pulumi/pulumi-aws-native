@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHlsBasicPutSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsBasicPutSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionRetryInterval")]
         public Input<int>? ConnectionRetryInterval { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHlsBasicPutSettingsArgs()
         {
         }
+        public static new ChannelHlsBasicPutSettingsArgs Empty => new ChannelHlsBasicPutSettingsArgs();
     }
 }

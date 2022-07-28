@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetAggregationAuthorizationArgs : Pulumi.InvokeArgs
+    public sealed class GetAggregationAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the AggregationAuthorization.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetAggregationAuthorizationArgs()
         {
         }
+        public static new GetAggregationAuthorizationArgs Empty => new GetAggregationAuthorizationArgs();
     }
 
-    public sealed class GetAggregationAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAggregationAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the AggregationAuthorization.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetAggregationAuthorizationInvokeArgs()
         {
         }
+        public static new GetAggregationAuthorizationInvokeArgs Empty => new GetAggregationAuthorizationInvokeArgs();
     }
 
 

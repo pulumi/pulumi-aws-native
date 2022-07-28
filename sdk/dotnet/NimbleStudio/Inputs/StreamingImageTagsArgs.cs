@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    public sealed class StreamingImageTagsArgs : Pulumi.ResourceArgs
+    public sealed class StreamingImageTagsArgs : global::Pulumi.ResourceArgs
     {
         public StreamingImageTagsArgs()
         {
         }
+        public static new StreamingImageTagsArgs Empty => new StreamingImageTagsArgs();
     }
 }

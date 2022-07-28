@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceOneDriveUsersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceOneDriveUsersArgs : global::Pulumi.ResourceArgs
     {
         [Input("oneDriveUserList")]
         private InputList<string>? _oneDriveUserList;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceOneDriveUsersArgs()
         {
         }
+        public static new DataSourceOneDriveUsersArgs Empty => new DataSourceOneDriveUsersArgs();
     }
 }

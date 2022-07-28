@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetPlacementGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Group Name of Placement Group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetPlacementGroupArgs()
         {
         }
+        public static new GetPlacementGroupArgs Empty => new GetPlacementGroupArgs();
     }
 
-    public sealed class GetPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlacementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Group Name of Placement Group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetPlacementGroupInvokeArgs()
         {
         }
+        public static new GetPlacementGroupInvokeArgs Empty => new GetPlacementGroupInvokeArgs();
     }
 
 

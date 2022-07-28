@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetSpendArgs : Pulumi.ResourceArgs
+    public sealed class BudgetSpendArgs : global::Pulumi.ResourceArgs
     {
         [Input("amount", required: true)]
         public Input<double> Amount { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetSpendArgs()
         {
         }
+        public static new BudgetSpendArgs Empty => new BudgetSpendArgs();
     }
 }

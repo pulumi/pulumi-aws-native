@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The pattern to look for in the JSON body.
     /// </summary>
-    public sealed class RuleGroupJsonMatchPatternArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupJsonMatchPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect all parts of the web request's JSON body.
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupJsonMatchPatternArgs()
         {
         }
+        public static new RuleGroupJsonMatchPatternArgs Empty => new RuleGroupJsonMatchPatternArgs();
     }
 }

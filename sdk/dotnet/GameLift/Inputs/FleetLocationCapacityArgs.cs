@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
     /// </summary>
-    public sealed class FleetLocationCapacityArgs : Pulumi.ResourceArgs
+    public sealed class FleetLocationCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public FleetLocationCapacityArgs()
         {
         }
+        public static new FleetLocationCapacityArgs Empty => new FleetLocationCapacityArgs();
     }
 }

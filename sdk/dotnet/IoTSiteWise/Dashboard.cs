@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::Dashboard
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the dashboard.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dashboard definition specified in a JSON literal.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 }

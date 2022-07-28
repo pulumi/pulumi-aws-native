@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
-    public sealed class KnowledgeBaseAppIntegrationsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class KnowledgeBaseAppIntegrationsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("appIntegrationArn", required: true)]
         public Input<string> AppIntegrationArn { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         public KnowledgeBaseAppIntegrationsConfigurationArgs()
         {
         }
+        public static new KnowledgeBaseAppIntegrationsConfigurationArgs Empty => new KnowledgeBaseAppIntegrationsConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VoiceID.Inputs
 {
 
-    public sealed class DomainServerSideEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DomainServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.VoiceID.Inputs
         public DomainServerSideEncryptionConfigurationArgs()
         {
         }
+        public static new DomainServerSideEncryptionConfigurationArgs Empty => new DomainServerSideEncryptionConfigurationArgs();
     }
 }

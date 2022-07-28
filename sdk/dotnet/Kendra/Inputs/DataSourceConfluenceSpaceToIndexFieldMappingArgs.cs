@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConfluenceSpaceToIndexFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfluenceSpaceToIndexFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSourceFieldName", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceConfluenceSpaceFieldName> DataSourceFieldName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConfluenceSpaceToIndexFieldMappingArgs()
         {
         }
+        public static new DataSourceConfluenceSpaceToIndexFieldMappingArgs Empty => new DataSourceConfluenceSpaceToIndexFieldMappingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// Value of the dynamic parameter to set when starting the SSM automation document.
     /// </summary>
-    public sealed class ResponsePlanDynamicSsmParameterValueArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanDynamicSsmParameterValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("variable")]
         public Input<Pulumi.AwsNative.SSMIncidents.ResponsePlanVariableType>? Variable { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanDynamicSsmParameterValueArgs()
         {
         }
+        public static new ResponsePlanDynamicSsmParameterValueArgs Empty => new ResponsePlanDynamicSsmParameterValueArgs();
     }
 }

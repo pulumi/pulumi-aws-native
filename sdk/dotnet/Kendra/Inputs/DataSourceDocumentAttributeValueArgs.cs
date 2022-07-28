@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceDocumentAttributeValueArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDocumentAttributeValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("dateValue")]
         public Input<string>? DateValue { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceDocumentAttributeValueArgs()
         {
         }
+        public static new DataSourceDocumentAttributeValueArgs Empty => new DataSourceDocumentAttributeValueArgs();
     }
 }

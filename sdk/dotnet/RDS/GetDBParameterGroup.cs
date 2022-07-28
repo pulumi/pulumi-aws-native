@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the DB parameter group
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBParameterGroupArgs()
         {
         }
+        public static new GetDBParameterGroupArgs Empty => new GetDBParameterGroupArgs();
     }
 
-    public sealed class GetDBParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the DB parameter group
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBParameterGroupInvokeArgs()
         {
         }
+        public static new GetDBParameterGroupInvokeArgs Empty => new GetDBParameterGroupInvokeArgs();
     }
 
 

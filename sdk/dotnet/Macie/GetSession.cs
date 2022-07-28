@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Macie
     }
 
 
-    public sealed class GetSessionArgs : Pulumi.InvokeArgs
+    public sealed class GetSessionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// AWS account ID of customer
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Macie
         public GetSessionArgs()
         {
         }
+        public static new GetSessionArgs Empty => new GetSessionArgs();
     }
 
-    public sealed class GetSessionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSessionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// AWS account ID of customer
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Macie
         public GetSessionInvokeArgs()
         {
         }
+        public static new GetSessionInvokeArgs Empty => new GetSessionInvokeArgs();
     }
 
 

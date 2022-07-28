@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Configuration that defines how Amazon S3 handles public access.
     /// </summary>
-    public sealed class BucketPublicAccessBlockConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketPublicAccessBlockConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketPublicAccessBlockConfigurationArgs()
         {
         }
+        public static new BucketPublicAccessBlockConfigurationArgs Empty => new BucketPublicAccessBlockConfigurationArgs();
     }
 }

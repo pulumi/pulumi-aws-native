@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Current State of the Instance.
     /// </summary>
-    public sealed class InstanceStateArgs : Pulumi.ResourceArgs
+    public sealed class InstanceStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Status code of the Instance.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceStateArgs()
         {
         }
+        public static new InstanceStateArgs Empty => new InstanceStateArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNetworkInsightsAccessScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsAccessScopeArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsAccessScopeId", required: true)]
         public string NetworkInsightsAccessScopeId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsAccessScopeArgs()
         {
         }
+        public static new GetNetworkInsightsAccessScopeArgs Empty => new GetNetworkInsightsAccessScopeArgs();
     }
 
-    public sealed class GetNetworkInsightsAccessScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsAccessScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsAccessScopeId", required: true)]
         public Input<string> NetworkInsightsAccessScopeId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsAccessScopeInvokeArgs()
         {
         }
+        public static new GetNetworkInsightsAccessScopeInvokeArgs Empty => new GetNetworkInsightsAccessScopeInvokeArgs();
     }
 
 

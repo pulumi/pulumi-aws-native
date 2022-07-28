@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationZendeskSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationZendeskSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationZendeskSourcePropertiesArgs()
         {
         }
+        public static new IntegrationZendeskSourcePropertiesArgs Empty => new IntegrationZendeskSourcePropertiesArgs();
     }
 }

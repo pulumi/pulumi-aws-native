@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMR
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:emr:StudioSessionMapping")]
-    public partial class StudioSessionMapping : Pulumi.CustomResource
+    public partial class StudioSessionMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class StudioSessionMappingArgs : Pulumi.ResourceArgs
+    public sealed class StudioSessionMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EMR
         public StudioSessionMappingArgs()
         {
         }
+        public static new StudioSessionMappingArgs Empty => new StudioSessionMappingArgs();
     }
 }

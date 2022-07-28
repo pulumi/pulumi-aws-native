@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupLabelMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupLabelMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupLabelMatchStatementArgs()
         {
         }
+        public static new RuleGroupLabelMatchStatementArgs Empty => new RuleGroupLabelMatchStatementArgs();
     }
 }

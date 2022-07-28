@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A key-value pair for tagging Lex resources
     /// </summary>
-    public sealed class BotTagArgs : Pulumi.ResourceArgs
+    public sealed class BotTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotTagArgs()
         {
         }
+        public static new BotTagArgs Empty => new BotTagArgs();
     }
 }

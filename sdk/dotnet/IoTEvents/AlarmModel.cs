@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.IoTEvents
     /// Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotevents:AlarmModel")]
-    public partial class AlarmModel : Pulumi.CustomResource
+    public partial class AlarmModel : global::Pulumi.CustomResource
     {
         [Output("alarmCapabilities")]
         public Output<Outputs.AlarmModelAlarmCapabilities?> AlarmCapabilities { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.IoTEvents
         }
     }
 
-    public sealed class AlarmModelArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmCapabilities")]
         public Input<Inputs.AlarmModelAlarmCapabilitiesArgs>? AlarmCapabilities { get; set; }
@@ -169,5 +169,6 @@ namespace Pulumi.AwsNative.IoTEvents
         public AlarmModelArgs()
         {
         }
+        public static new AlarmModelArgs Empty => new AlarmModelArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// An object that sets the public accessibility of objects in the specified bucket.
     /// </summary>
-    public sealed class BucketAccessRulesArgs : Pulumi.ResourceArgs
+    public sealed class BucketAccessRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public BucketAccessRulesArgs()
         {
         }
+        public static new BucketAccessRulesArgs Empty => new BucketAccessRulesArgs();
     }
 }

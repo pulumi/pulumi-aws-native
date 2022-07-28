@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetCostTypesArgs : Pulumi.ResourceArgs
+    public sealed class BudgetCostTypesArgs : global::Pulumi.ResourceArgs
     {
         [Input("includeCredit")]
         public Input<bool>? IncludeCredit { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetCostTypesArgs()
         {
         }
+        public static new BudgetCostTypesArgs Empty => new BudgetCostTypesArgs();
     }
 }

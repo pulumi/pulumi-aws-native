@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
 
-    public sealed class GetWebACLArgs : Pulumi.InvokeArgs
+    public sealed class GetWebACLArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.WAFv2
         public GetWebACLArgs()
         {
         }
+        public static new GetWebACLArgs Empty => new GetWebACLArgs();
     }
 
-    public sealed class GetWebACLInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebACLInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.WAFv2
         public GetWebACLInvokeArgs()
         {
         }
+        public static new GetWebACLInvokeArgs Empty => new GetWebACLInvokeArgs();
     }
 
 

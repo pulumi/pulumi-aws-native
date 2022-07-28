@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRulePutAssetPropertyValueEntryArgs : Pulumi.ResourceArgs
+    public sealed class TopicRulePutAssetPropertyValueEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("assetId")]
         public Input<string>? AssetId { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRulePutAssetPropertyValueEntryArgs()
         {
         }
+        public static new TopicRulePutAssetPropertyValueEntryArgs Empty => new TopicRulePutAssetPropertyValueEntryArgs();
     }
 }

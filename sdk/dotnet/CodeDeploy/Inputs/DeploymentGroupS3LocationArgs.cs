@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupS3LocationArgs()
         {
         }
+        public static new DeploymentGroupS3LocationArgs Empty => new DeploymentGroupS3LocationArgs();
     }
 }

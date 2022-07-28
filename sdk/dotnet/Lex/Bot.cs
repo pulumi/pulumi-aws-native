@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex
     /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:Bot")]
-    public partial class Bot : Pulumi.CustomResource
+    public partial class Bot : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Lex
         }
     }
 
-    public sealed class BotArgs : Pulumi.ResourceArgs
+    public sealed class BotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to build the bot locales after bot creation completes.
@@ -186,5 +186,6 @@ namespace Pulumi.AwsNative.Lex
         public BotArgs()
         {
         }
+        public static new BotArgs Empty => new BotArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift
     /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
@@ -213,5 +213,6 @@ namespace Pulumi.AwsNative.Redshift
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 }

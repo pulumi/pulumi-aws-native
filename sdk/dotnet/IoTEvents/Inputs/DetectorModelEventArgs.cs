@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
     /// </summary>
-    public sealed class DetectorModelEventArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelEventArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.DetectorModelActionArgs>? _actions;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelEventArgs()
         {
         }
+        public static new DetectorModelEventArgs Empty => new DetectorModelEventArgs();
     }
 }

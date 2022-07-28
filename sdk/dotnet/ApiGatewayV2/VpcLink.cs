@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// Resource Type definition for AWS::ApiGatewayV2::VpcLink
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:VpcLink")]
-    public partial class VpcLink : Pulumi.CustomResource
+    public partial class VpcLink : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class VpcLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -106,5 +106,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public VpcLinkArgs()
         {
         }
+        public static new VpcLinkArgs Empty => new VpcLinkArgs();
     }
 }

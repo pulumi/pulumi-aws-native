@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiGatewayManagedOverridesIntegrationOverridesArgs : Pulumi.ResourceArgs
+    public sealed class ApiGatewayManagedOverridesIntegrationOverridesArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public ApiGatewayManagedOverridesIntegrationOverridesArgs()
         {
         }
+        public static new ApiGatewayManagedOverridesIntegrationOverridesArgs Empty => new ApiGatewayManagedOverridesIntegrationOverridesArgs();
     }
 }

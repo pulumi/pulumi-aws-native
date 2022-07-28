@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew
     }
 
 
-    public sealed class GetRulesetArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Ruleset
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataBrew
         public GetRulesetArgs()
         {
         }
+        public static new GetRulesetArgs Empty => new GetRulesetArgs();
     }
 
-    public sealed class GetRulesetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Ruleset
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataBrew
         public GetRulesetInvokeArgs()
         {
         }
+        public static new GetRulesetInvokeArgs Empty => new GetRulesetInvokeArgs();
     }
 
 

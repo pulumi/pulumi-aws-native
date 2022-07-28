@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplatePlacementArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplatePlacementArgs : global::Pulumi.ResourceArgs
     {
         [Input("affinity")]
         public Input<string>? Affinity { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplatePlacementArgs()
         {
         }
+        public static new LaunchTemplatePlacementArgs Empty => new LaunchTemplatePlacementArgs();
     }
 }

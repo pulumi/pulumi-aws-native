@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition
     /// The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
     /// </summary>
     [AwsNativeResourceType("aws-native:rekognition:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Rekognition
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.Rekognition
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

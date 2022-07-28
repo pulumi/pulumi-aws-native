@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetSpotFleetArgs : Pulumi.InvokeArgs
+    public sealed class GetSpotFleetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetSpotFleetArgs()
         {
         }
+        public static new GetSpotFleetArgs Empty => new GetSpotFleetArgs();
     }
 
-    public sealed class GetSpotFleetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpotFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetSpotFleetInvokeArgs()
         {
         }
+        public static new GetSpotFleetInvokeArgs Empty => new GetSpotFleetInvokeArgs();
     }
 
 

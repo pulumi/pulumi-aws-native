@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorTimestampColumnArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorTimestampColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A timestamp format for the timestamps in the dataset
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorTimestampColumnArgs()
         {
         }
+        public static new AnomalyDetectorTimestampColumnArgs Empty => new AnomalyDetectorTimestampColumnArgs();
     }
 }

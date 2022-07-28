@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs()
         {
         }
+        public static new DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs Empty => new DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs();
     }
 }

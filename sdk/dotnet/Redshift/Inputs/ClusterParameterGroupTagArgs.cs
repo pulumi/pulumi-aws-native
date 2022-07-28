@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    public sealed class ClusterParameterGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ClusterParameterGroupTagArgs()
         {
         }
+        public static new ClusterParameterGroupTagArgs Empty => new ClusterParameterGroupTagArgs();
     }
 }

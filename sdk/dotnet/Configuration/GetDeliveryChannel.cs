@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetDeliveryChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetDeliveryChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetDeliveryChannelArgs()
         {
         }
+        public static new GetDeliveryChannelArgs Empty => new GetDeliveryChannelArgs();
     }
 
-    public sealed class GetDeliveryChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeliveryChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetDeliveryChannelInvokeArgs()
         {
         }
+        public static new GetDeliveryChannelInvokeArgs Empty => new GetDeliveryChannelInvokeArgs();
     }
 
 

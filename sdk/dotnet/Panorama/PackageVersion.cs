@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Panorama
     /// Schema for PackageVersion Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:PackageVersion")]
-    public partial class PackageVersion : Pulumi.CustomResource
+    public partial class PackageVersion : global::Pulumi.CustomResource
     {
         [Output("isLatestPatch")]
         public Output<bool> IsLatestPatch { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Panorama
         }
     }
 
-    public sealed class PackageVersionArgs : Pulumi.ResourceArgs
+    public sealed class PackageVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("markLatest")]
         public Input<bool>? MarkLatest { get; set; }
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.Panorama
         public PackageVersionArgs()
         {
         }
+        public static new PackageVersionArgs Empty => new PackageVersionArgs();
     }
 }

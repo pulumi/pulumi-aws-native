@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Ad hoc (one-time) filtering option.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardAdHocFilteringOptionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardAdHocFilteringOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardAdHocFilteringOptionArgs()
         {
         }
+        public static new DashboardAdHocFilteringOptionArgs Empty => new DashboardAdHocFilteringOptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterDateFilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterDateFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("endInclusive")]
         public Input<int>? EndInclusive { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterDateFilterArgs()
         {
         }
+        public static new FilterDateFilterArgs Empty => new FilterDateFilterArgs();
     }
 }

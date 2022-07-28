@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Container
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Container")]
-    public partial class Container : Pulumi.CustomResource
+    public partial class Container : global::Pulumi.CustomResource
     {
         [Output("containerArn")]
         public Output<string> ContainerArn { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class ContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes a container deployment configuration of an Amazon Lightsail container service.
@@ -168,5 +168,6 @@ namespace Pulumi.AwsNative.Lightsail
         public ContainerArgs()
         {
         }
+        public static new ContainerArgs Empty => new ContainerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:globalaccelerator:EndpointGroup")]
-    public partial class EndpointGroup : Pulumi.CustomResource
+    public partial class EndpointGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of endpoint objects.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
     }
 
-    public sealed class EndpointGroupArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointConfigurations")]
         private InputList<Inputs.EndpointGroupEndpointConfigurationArgs>? _endpointConfigurations;
@@ -188,5 +188,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public EndpointGroupArgs()
         {
         }
+        public static new EndpointGroupArgs Empty => new EndpointGroupArgs();
     }
 }

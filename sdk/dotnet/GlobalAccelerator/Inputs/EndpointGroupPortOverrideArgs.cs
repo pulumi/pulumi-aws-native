@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// <summary>
     /// listener to endpoint port mapping.
     /// </summary>
-    public sealed class EndpointGroupPortOverrideArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupPortOverrideArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointPort", required: true)]
         public Input<int> EndpointPort { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         public EndpointGroupPortOverrideArgs()
         {
         }
+        public static new EndpointGroupPortOverrideArgs Empty => new EndpointGroupPortOverrideArgs();
     }
 }

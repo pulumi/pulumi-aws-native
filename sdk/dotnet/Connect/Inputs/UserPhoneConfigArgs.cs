@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Contains information about the phone configuration settings for a user.
     /// </summary>
-    public sealed class UserPhoneConfigArgs : Pulumi.ResourceArgs
+    public sealed class UserPhoneConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("afterContactWorkTimeLimit")]
         public Input<int>? AfterContactWorkTimeLimit { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public UserPhoneConfigArgs()
         {
         }
+        public static new UserPhoneConfigArgs Empty => new UserPhoneConfigArgs();
     }
 }

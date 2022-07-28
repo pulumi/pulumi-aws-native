@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceDocumentAttributeTargetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDocumentAttributeTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetDocumentAttributeKey", required: true)]
         public Input<string> TargetDocumentAttributeKey { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceDocumentAttributeTargetArgs()
         {
         }
+        public static new DataSourceDocumentAttributeTargetArgs Empty => new DataSourceDocumentAttributeTargetArgs();
     }
 }

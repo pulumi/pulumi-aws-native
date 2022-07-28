@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor.Inputs
 {
 
-    public sealed class SuiteDefinitionConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SuiteDefinitionConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("devicePermissionRoleArn", required: true)]
         public Input<string> DevicePermissionRoleArn { get; set; } = null!;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor.Inputs
         public SuiteDefinitionConfigurationPropertiesArgs()
         {
         }
+        public static new SuiteDefinitionConfigurationPropertiesArgs Empty => new SuiteDefinitionConfigurationPropertiesArgs();
     }
 }

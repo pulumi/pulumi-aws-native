@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Timestream
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Timestream
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

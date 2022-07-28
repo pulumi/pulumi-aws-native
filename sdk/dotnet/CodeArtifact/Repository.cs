@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     /// The resource schema to create a CodeArtifact repository.
     /// </summary>
     [AwsNativeResourceType("aws-native:codeartifact:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the repository.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A text description of the repository.
@@ -189,5 +189,6 @@ namespace Pulumi.AwsNative.CodeArtifact
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 }

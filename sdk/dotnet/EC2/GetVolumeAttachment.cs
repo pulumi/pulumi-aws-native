@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVolumeAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVolumeAttachmentArgs()
         {
         }
+        public static new GetVolumeAttachmentArgs Empty => new GetVolumeAttachmentArgs();
     }
 
-    public sealed class GetVolumeAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVolumeAttachmentInvokeArgs()
         {
         }
+        public static new GetVolumeAttachmentInvokeArgs Empty => new GetVolumeAttachmentInvokeArgs();
     }
 
 

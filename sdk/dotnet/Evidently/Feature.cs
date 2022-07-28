@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Evidently
     /// Resource Type definition for AWS::Evidently::Feature.
     /// </summary>
     [AwsNativeResourceType("aws-native:evidently:Feature")]
-    public partial class Feature : Pulumi.CustomResource
+    public partial class Feature : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Evidently
         }
     }
 
-    public sealed class FeatureArgs : Pulumi.ResourceArgs
+    public sealed class FeatureArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultVariation")]
         public Input<string>? DefaultVariation { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.Evidently
         public FeatureArgs()
         {
         }
+        public static new FeatureArgs Empty => new FeatureArgs();
     }
 }

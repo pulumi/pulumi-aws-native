@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigS3RecordingConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigS3RecordingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketArn")]
         public Input<string>? BucketArn { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigS3RecordingConfigArgs()
         {
         }
+        public static new ConfigS3RecordingConfigArgs Empty => new ConfigS3RecordingConfigArgs();
     }
 }

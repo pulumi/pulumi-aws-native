@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketRedirectAllRequestsToArgs : Pulumi.ResourceArgs
+    public sealed class BucketRedirectAllRequestsToArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the host where requests are redirected.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketRedirectAllRequestsToArgs()
         {
         }
+        public static new BucketRedirectAllRequestsToArgs Empty => new BucketRedirectAllRequestsToArgs();
     }
 }

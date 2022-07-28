@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"Workteam is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:Workteam")]
-    public partial class Workteam : Pulumi.CustomResource
+    public partial class Workteam : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class WorkteamArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.SageMaker
         public WorkteamArgs()
         {
         }
+        public static new WorkteamArgs Empty => new WorkteamArgs();
     }
 }

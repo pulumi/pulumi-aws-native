@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterFirehoseArgs : Pulumi.ResourceArgs
+    public sealed class ClusterFirehoseArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterFirehoseArgs()
         {
         }
+        public static new ClusterFirehoseArgs Empty => new ClusterFirehoseArgs();
     }
 }

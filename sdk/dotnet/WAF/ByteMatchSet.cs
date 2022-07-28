@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAF
     /// </summary>
     [Obsolete(@"ByteMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:ByteMatchSet")]
-    public partial class ByteMatchSet : Pulumi.CustomResource
+    public partial class ByteMatchSet : global::Pulumi.CustomResource
     {
         [Output("byteMatchTuples")]
         public Output<ImmutableArray<Outputs.ByteMatchSetByteMatchTuple>> ByteMatchTuples { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAF
         }
     }
 
-    public sealed class ByteMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("byteMatchTuples")]
         private InputList<Inputs.ByteMatchSetByteMatchTupleArgs>? _byteMatchTuples;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAF
         public ByteMatchSetArgs()
         {
         }
+        public static new ByteMatchSetArgs Empty => new ByteMatchSetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
-    public sealed class StackSetParameterArgs : Pulumi.ResourceArgs
+    public sealed class StackSetParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public StackSetParameterArgs()
         {
         }
+        public static new StackSetParameterArgs Empty => new StackSetParameterArgs();
     }
 }

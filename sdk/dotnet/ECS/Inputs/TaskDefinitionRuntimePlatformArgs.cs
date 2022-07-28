@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionRuntimePlatformArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionRuntimePlatformArgs : global::Pulumi.ResourceArgs
     {
         [Input("cpuArchitecture")]
         public Input<string>? CpuArchitecture { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionRuntimePlatformArgs()
         {
         }
+        public static new TaskDefinitionRuntimePlatformArgs Empty => new TaskDefinitionRuntimePlatformArgs();
     }
 }

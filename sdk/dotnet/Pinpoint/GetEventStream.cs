@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetEventStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetEventStreamArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetEventStreamArgs()
         {
         }
+        public static new GetEventStreamArgs Empty => new GetEventStreamArgs();
     }
 
-    public sealed class GetEventStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetEventStreamInvokeArgs()
         {
         }
+        public static new GetEventStreamInvokeArgs Empty => new GetEventStreamInvokeArgs();
     }
 
 

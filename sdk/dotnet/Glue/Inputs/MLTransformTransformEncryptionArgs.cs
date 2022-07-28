@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class MLTransformTransformEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformTransformEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("mLUserDataEncryption")]
         public Input<Inputs.MLTransformMLUserDataEncryptionArgs>? MLUserDataEncryption { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public MLTransformTransformEncryptionArgs()
         {
         }
+        public static new MLTransformTransformEncryptionArgs Empty => new MLTransformTransformEncryptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class CodeRepositoryGitConfigArgs : Pulumi.ResourceArgs
+    public sealed class CodeRepositoryGitConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public CodeRepositoryGitConfigArgs()
         {
         }
+        public static new CodeRepositoryGitConfigArgs Empty => new CodeRepositoryGitConfigArgs();
     }
 }

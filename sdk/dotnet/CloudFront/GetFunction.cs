@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetFunctionArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
         [Input("functionARN", required: true)]
         public string FunctionARN { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetFunctionArgs()
         {
         }
+        public static new GetFunctionArgs Empty => new GetFunctionArgs();
     }
 
-    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("functionARN", required: true)]
         public Input<string> FunctionARN { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetFunctionInvokeArgs()
         {
         }
+        public static new GetFunctionInvokeArgs Empty => new GetFunctionInvokeArgs();
     }
 
 

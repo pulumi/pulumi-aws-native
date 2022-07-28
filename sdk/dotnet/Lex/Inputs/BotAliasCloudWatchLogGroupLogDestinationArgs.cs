@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    public sealed class BotAliasCloudWatchLogGroupLogDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasCloudWatchLogGroupLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify the groupArn for the Cloudwatch Log Group
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasCloudWatchLogGroupLogDestinationArgs()
         {
         }
+        public static new BotAliasCloudWatchLogGroupLogDestinationArgs Empty => new BotAliasCloudWatchLogGroupLogDestinationArgs();
     }
 }

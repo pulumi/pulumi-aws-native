@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:NetworkInterfaceAttachment")]
-    public partial class NetworkInterfaceAttachment : Pulumi.CustomResource
+    public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource
     {
         [Output("deleteOnTermination")]
         public Output<bool?> DeleteOnTermination { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInterfaceAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInterfaceAttachmentArgs()
         {
         }
+        public static new NetworkInterfaceAttachmentArgs Empty => new NetworkInterfaceAttachmentArgs();
     }
 }

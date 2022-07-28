@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetClusterSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterSubnetGroupArgs()
         {
         }
+        public static new GetClusterSubnetGroupArgs Empty => new GetClusterSubnetGroupArgs();
     }
 
-    public sealed class GetClusterSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterSubnetGroupInvokeArgs()
         {
         }
+        public static new GetClusterSubnetGroupInvokeArgs Empty => new GetClusterSubnetGroupInvokeArgs();
     }
 
 

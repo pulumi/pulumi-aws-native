@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EndpointReplicationConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Events.EndpointReplicationState> State { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EndpointReplicationConfigArgs()
         {
         }
+        public static new EndpointReplicationConfigArgs Empty => new EndpointReplicationConfigArgs();
     }
 }

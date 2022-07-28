@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Contains information about code hooks that Amazon Lex calls during a conversation.
     /// </summary>
-    public sealed class BotConversationLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BotConversationLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioLogSettings")]
         private InputList<Inputs.BotAudioLogSettingArgs>? _audioLogSettings;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotConversationLogSettingsArgs()
         {
         }
+        public static new BotConversationLogSettingsArgs Empty => new BotConversationLogSettingsArgs();
     }
 }

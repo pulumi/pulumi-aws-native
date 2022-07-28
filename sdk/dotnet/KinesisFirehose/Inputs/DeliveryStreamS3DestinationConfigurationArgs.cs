@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamS3DestinationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamS3DestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketARN", required: true)]
         public Input<string> BucketARN { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamS3DestinationConfigurationArgs()
         {
         }
+        public static new DeliveryStreamS3DestinationConfigurationArgs Empty => new DeliveryStreamS3DestinationConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.HealthLake
     /// HealthLake FHIR Datastore
     /// </summary>
     [AwsNativeResourceType("aws-native:healthlake:FHIRDatastore")]
-    public partial class FHIRDatastore : Pulumi.CustomResource
+    public partial class FHIRDatastore : global::Pulumi.CustomResource
     {
         [Output("createdAt")]
         public Output<Outputs.FHIRDatastoreCreatedAt> CreatedAt { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.HealthLake
         }
     }
 
-    public sealed class FHIRDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class FHIRDatastoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.HealthLake
         public FHIRDatastoreArgs()
         {
         }
+        public static new FHIRDatastoreArgs Empty => new FHIRDatastoreArgs();
     }
 }

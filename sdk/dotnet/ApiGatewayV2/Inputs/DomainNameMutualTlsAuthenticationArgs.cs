@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class DomainNameMutualTlsAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameMutualTlsAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("truststoreUri")]
         public Input<string>? TruststoreUri { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public DomainNameMutualTlsAuthenticationArgs()
         {
         }
+        public static new DomainNameMutualTlsAuthenticationArgs Empty => new DomainNameMutualTlsAuthenticationArgs();
     }
 }

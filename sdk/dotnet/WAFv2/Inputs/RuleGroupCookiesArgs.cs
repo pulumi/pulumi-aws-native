@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Includes headers of a web request.
     /// </summary>
-    public sealed class RuleGroupCookiesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupCookiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchPattern", required: true)]
         public Input<Inputs.RuleGroupCookieMatchPatternArgs> MatchPattern { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupCookiesArgs()
         {
         }
+        public static new RuleGroupCookiesArgs Empty => new RuleGroupCookiesArgs();
     }
 }

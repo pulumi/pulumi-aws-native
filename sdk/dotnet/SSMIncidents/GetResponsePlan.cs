@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     }
 
 
-    public sealed class GetResponsePlanArgs : Pulumi.InvokeArgs
+    public sealed class GetResponsePlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the response plan.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSMIncidents
         public GetResponsePlanArgs()
         {
         }
+        public static new GetResponsePlanArgs Empty => new GetResponsePlanArgs();
     }
 
-    public sealed class GetResponsePlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResponsePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the response plan.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         public GetResponsePlanInvokeArgs()
         {
         }
+        public static new GetResponsePlanInvokeArgs Empty => new GetResponsePlanInvokeArgs();
     }
 
 

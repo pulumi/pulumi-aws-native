@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleRunCommandParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleRunCommandParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("runCommandTargets", required: true)]
         private InputList<Inputs.RuleRunCommandTargetArgs>? _runCommandTargets;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleRunCommandParametersArgs()
         {
         }
+        public static new RuleRunCommandParametersArgs Empty => new RuleRunCommandParametersArgs();
     }
 }

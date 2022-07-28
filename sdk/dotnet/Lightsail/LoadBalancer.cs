@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::LoadBalancer
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The names of the instances attached to the load balancer.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachedInstances")]
         private InputList<string>? _attachedInstances;
@@ -186,5 +186,6 @@ namespace Pulumi.AwsNative.Lightsail
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 }

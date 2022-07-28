@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
     /// <summary>
     /// Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
     /// </summary>
-    public sealed class DataInputConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataInputConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("inferenceInputNameConfiguration")]
         public Input<Inputs.InferenceSchedulerInputNameConfigurationArgs>? InferenceInputNameConfiguration { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
         public DataInputConfigurationPropertiesArgs()
         {
         }
+        public static new DataInputConfigurationPropertiesArgs Empty => new DataInputConfigurationPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// A notification target.
     /// </summary>
-    public sealed class ResponsePlanNotificationTargetItemArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanNotificationTargetItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanNotificationTargetItemArgs()
         {
         }
+        public static new ResponsePlanNotificationTargetItemArgs Empty => new ResponsePlanNotificationTargetItemArgs();
     }
 }

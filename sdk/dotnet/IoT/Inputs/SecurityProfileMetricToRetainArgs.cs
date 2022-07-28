@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The metric you want to retain. Dimensions are optional.
     /// </summary>
-    public sealed class SecurityProfileMetricToRetainArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileMetricToRetainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// What is measured by the behavior.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileMetricToRetainArgs()
         {
         }
+        public static new SecurityProfileMetricToRetainArgs Empty => new SecurityProfileMetricToRetainArgs();
     }
 }

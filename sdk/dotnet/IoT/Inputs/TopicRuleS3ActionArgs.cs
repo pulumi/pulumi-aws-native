@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleS3ActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleS3ActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleS3ActionArgs()
         {
         }
+        public static new TopicRuleS3ActionArgs Empty => new TopicRuleS3ActionArgs();
     }
 }

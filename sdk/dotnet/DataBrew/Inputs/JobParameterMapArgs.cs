@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobParameterMapArgs : Pulumi.ResourceArgs
+    public sealed class JobParameterMapArgs : global::Pulumi.ResourceArgs
     {
         public JobParameterMapArgs()
         {
         }
+        public static new JobParameterMapArgs Empty => new JobParameterMapArgs();
     }
 }

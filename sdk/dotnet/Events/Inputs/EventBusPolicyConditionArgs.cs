@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EventBusPolicyConditionArgs : Pulumi.ResourceArgs
+    public sealed class EventBusPolicyConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EventBusPolicyConditionArgs()
         {
         }
+        public static new EventBusPolicyConditionArgs Empty => new EventBusPolicyConditionArgs();
     }
 }

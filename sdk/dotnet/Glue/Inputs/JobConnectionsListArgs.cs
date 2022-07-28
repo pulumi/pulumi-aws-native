@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class JobConnectionsListArgs : Pulumi.ResourceArgs
+    public sealed class JobConnectionsListArgs : global::Pulumi.ResourceArgs
     {
         [Input("connections")]
         private InputList<string>? _connections;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public JobConnectionsListArgs()
         {
         }
+        public static new JobConnectionsListArgs Empty => new JobConnectionsListArgs();
     }
 }

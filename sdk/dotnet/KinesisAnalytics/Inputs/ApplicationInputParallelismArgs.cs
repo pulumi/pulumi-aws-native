@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationInputParallelismArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInputParallelismArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationInputParallelismArgs()
         {
         }
+        public static new ApplicationInputParallelismArgs Empty => new ApplicationInputParallelismArgs();
     }
 }

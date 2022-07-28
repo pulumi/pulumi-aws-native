@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
     /// <summary>
     /// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
     /// </summary>
-    public sealed class PlaybackConfigurationBumperArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationBumperArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for the end bumper asset.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         public PlaybackConfigurationBumperArgs()
         {
         }
+        public static new PlaybackConfigurationBumperArgs Empty => new PlaybackConfigurationBumperArgs();
     }
 }

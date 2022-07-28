@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SQS
     /// Resource Type definition for AWS::SQS::Queue
     /// </summary>
     [AwsNativeResourceType("aws-native:sqs:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the queue.
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.SQS
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message.
@@ -273,5 +273,6 @@ namespace Pulumi.AwsNative.SQS
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 }

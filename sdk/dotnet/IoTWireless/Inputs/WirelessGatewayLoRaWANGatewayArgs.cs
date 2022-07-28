@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class WirelessGatewayLoRaWANGatewayArgs : Pulumi.ResourceArgs
+    public sealed class WirelessGatewayLoRaWANGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("gatewayEui", required: true)]
         public Input<string> GatewayEui { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public WirelessGatewayLoRaWANGatewayArgs()
         {
         }
+        public static new WirelessGatewayLoRaWANGatewayArgs Empty => new WirelessGatewayLoRaWANGatewayArgs();
     }
 }

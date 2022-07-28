@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectVpcConfigArgs()
         {
         }
+        public static new ProjectVpcConfigArgs Empty => new ProjectVpcConfigArgs();
     }
 }

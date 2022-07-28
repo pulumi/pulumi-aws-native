@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigUplinkSpectrumConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigUplinkSpectrumConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("centerFrequency")]
         public Input<Inputs.ConfigFrequencyArgs>? CenterFrequency { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigUplinkSpectrumConfigArgs()
         {
         }
+        public static new ConfigUplinkSpectrumConfigArgs Empty => new ConfigUplinkSpectrumConfigArgs();
     }
 }

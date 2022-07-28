@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetTopicRuleDestinationArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicRuleDestinationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetTopicRuleDestinationArgs()
         {
         }
+        public static new GetTopicRuleDestinationArgs Empty => new GetTopicRuleDestinationArgs();
     }
 
-    public sealed class GetTopicRuleDestinationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicRuleDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetTopicRuleDestinationInvokeArgs()
         {
         }
+        public static new GetTopicRuleDestinationInvokeArgs Empty => new GetTopicRuleDestinationInvokeArgs();
     }
 
 

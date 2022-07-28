@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The inputs for a monitoring job.
     /// </summary>
-    public sealed class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs : Pulumi.ResourceArgs
+    public sealed class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointInput", required: true)]
         public Input<Inputs.ModelExplainabilityJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs()
         {
         }
+        public static new ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs Empty => new ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty.Inputs
 {
 
-    public sealed class DetectorCFNDataSourceConfigurationsArgs : Pulumi.ResourceArgs
+    public sealed class DetectorCFNDataSourceConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("kubernetes")]
         public Input<Inputs.DetectorCFNKubernetesConfigurationArgs>? Kubernetes { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         public DetectorCFNDataSourceConfigurationsArgs()
         {
         }
+        public static new DetectorCFNDataSourceConfigurationsArgs Empty => new DetectorCFNDataSourceConfigurationsArgs();
     }
 }

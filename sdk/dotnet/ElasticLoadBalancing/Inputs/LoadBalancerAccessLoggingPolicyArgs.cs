@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerAccessLoggingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerAccessLoggingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("emitInterval")]
         public Input<int>? EmitInterval { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerAccessLoggingPolicyArgs()
         {
         }
+        public static new LoadBalancerAccessLoggingPolicyArgs Empty => new LoadBalancerAccessLoggingPolicyArgs();
     }
 }

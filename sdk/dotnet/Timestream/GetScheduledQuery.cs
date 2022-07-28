@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
 
-    public sealed class GetScheduledQueryArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Timestream
         public GetScheduledQueryArgs()
         {
         }
+        public static new GetScheduledQueryArgs Empty => new GetScheduledQueryArgs();
     }
 
-    public sealed class GetScheduledQueryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Timestream
         public GetScheduledQueryInvokeArgs()
         {
         }
+        public static new GetScheduledQueryInvokeArgs Empty => new GetScheduledQueryInvokeArgs();
     }
 
 

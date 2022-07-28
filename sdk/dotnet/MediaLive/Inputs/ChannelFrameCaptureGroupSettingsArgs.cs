@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFrameCaptureGroupSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFrameCaptureGroupSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination")]
         public Input<Inputs.ChannelOutputLocationRefArgs>? Destination { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFrameCaptureGroupSettingsArgs()
         {
         }
+        public static new ChannelFrameCaptureGroupSettingsArgs Empty => new ChannelFrameCaptureGroupSettingsArgs();
     }
 }

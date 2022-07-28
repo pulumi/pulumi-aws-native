@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Amazon Athena parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceAthenaParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAthenaParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The workgroup that Amazon Athena uses.&lt;/p&gt;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceAthenaParametersArgs()
         {
         }
+        public static new DataSourceAthenaParametersArgs Empty => new DataSourceAthenaParametersArgs();
     }
 }

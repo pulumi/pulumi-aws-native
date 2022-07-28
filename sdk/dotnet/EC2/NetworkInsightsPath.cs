@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource schema for AWS::EC2::NetworkInsightsPath
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsPath")]
-    public partial class NetworkInsightsPath : Pulumi.CustomResource
+    public partial class NetworkInsightsPath : global::Pulumi.CustomResource
     {
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInsightsPathArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInsightsPathArgs()
         {
         }
+        public static new NetworkInsightsPathArgs Empty => new NetworkInsightsPathArgs();
     }
 }

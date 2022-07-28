@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppRunner
     }
 
 
-    public sealed class GetVpcConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of this VPC connector.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppRunner
         public GetVpcConnectorArgs()
         {
         }
+        public static new GetVpcConnectorArgs Empty => new GetVpcConnectorArgs();
     }
 
-    public sealed class GetVpcConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of this VPC connector.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppRunner
         public GetVpcConnectorInvokeArgs()
         {
         }
+        public static new GetVpcConnectorInvokeArgs Empty => new GetVpcConnectorInvokeArgs();
     }
 
 

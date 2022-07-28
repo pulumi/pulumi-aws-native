@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupAutoRollbackConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupAutoRollbackConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupAutoRollbackConfigurationArgs()
         {
         }
+        public static new DeploymentGroupAutoRollbackConfigurationArgs Empty => new DeploymentGroupAutoRollbackConfigurationArgs();
     }
 }

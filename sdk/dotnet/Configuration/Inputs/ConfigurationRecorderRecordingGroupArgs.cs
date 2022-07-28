@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class ConfigurationRecorderRecordingGroupArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationRecorderRecordingGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("allSupported")]
         public Input<bool>? AllSupported { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public ConfigurationRecorderRecordingGroupArgs()
         {
         }
+        public static new ConfigurationRecorderRecordingGroupArgs Empty => new ConfigurationRecorderRecordingGroupArgs();
     }
 }

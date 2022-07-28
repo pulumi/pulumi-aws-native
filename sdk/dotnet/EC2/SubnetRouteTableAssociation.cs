@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:SubnetRouteTableAssociation")]
-    public partial class SubnetRouteTableAssociation : Pulumi.CustomResource
+    public partial class SubnetRouteTableAssociation : global::Pulumi.CustomResource
     {
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SubnetRouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.EC2
         public SubnetRouteTableAssociationArgs()
         {
         }
+        public static new SubnetRouteTableAssociationArgs Empty => new SubnetRouteTableAssociationArgs();
     }
 }

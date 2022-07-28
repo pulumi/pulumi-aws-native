@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionCustomErrorResponseArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCustomErrorResponseArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorCachingMinTTL")]
         public Input<double>? ErrorCachingMinTTL { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionCustomErrorResponseArgs()
         {
         }
+        public static new DistributionCustomErrorResponseArgs Empty => new DistributionCustomErrorResponseArgs();
     }
 }

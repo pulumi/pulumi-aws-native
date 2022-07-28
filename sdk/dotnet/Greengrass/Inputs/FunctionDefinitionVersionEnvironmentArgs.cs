@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionVersionEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionVersionEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessSysfs")]
         public Input<bool>? AccessSysfs { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionVersionEnvironmentArgs()
         {
         }
+        public static new FunctionDefinitionVersionEnvironmentArgs Empty => new FunctionDefinitionVersionEnvironmentArgs();
     }
 }

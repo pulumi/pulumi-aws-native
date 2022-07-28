@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigAsyncInferenceClientConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigAsyncInferenceClientConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxConcurrentInvocationsPerInstance")]
         public Input<int>? MaxConcurrentInvocationsPerInstance { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigAsyncInferenceClientConfigArgs()
         {
         }
+        public static new EndpointConfigAsyncInferenceClientConfigArgs Empty => new EndpointConfigAsyncInferenceClientConfigArgs();
     }
 }

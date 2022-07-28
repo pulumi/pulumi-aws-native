@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// An object used to store task related info
     /// </summary>
-    public sealed class FlowTaskPropertiesObjectArgs : Pulumi.ResourceArgs
+    public sealed class FlowTaskPropertiesObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<Pulumi.AwsNative.AppFlow.FlowOperatorPropertiesKeys> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowTaskPropertiesObjectArgs()
         {
         }
+        public static new FlowTaskPropertiesObjectArgs Empty => new FlowTaskPropertiesObjectArgs();
     }
 }

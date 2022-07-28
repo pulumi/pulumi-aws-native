@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetApiKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetApiKeyArgs : global::Pulumi.InvokeArgs
     {
         [Input("apiKeyId", required: true)]
         public string ApiKeyId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetApiKeyArgs()
         {
         }
+        public static new GetApiKeyArgs Empty => new GetApiKeyArgs();
     }
 
-    public sealed class GetApiKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("apiKeyId", required: true)]
         public Input<string> ApiKeyId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetApiKeyInvokeArgs()
         {
         }
+        public static new GetApiKeyInvokeArgs Empty => new GetApiKeyInvokeArgs();
     }
 
 

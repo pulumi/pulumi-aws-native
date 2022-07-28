@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew
     }
 
 
-    public sealed class GetJobArgs : Pulumi.InvokeArgs
+    public sealed class GetJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Job name
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataBrew
         public GetJobArgs()
         {
         }
+        public static new GetJobArgs Empty => new GetJobArgs();
     }
 
-    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Job name
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataBrew
         public GetJobInvokeArgs()
         {
         }
+        public static new GetJobInvokeArgs Empty => new GetJobInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetResourceUpdateConstraintArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceUpdateConstraintArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetResourceUpdateConstraintArgs()
         {
         }
+        public static new GetResourceUpdateConstraintArgs Empty => new GetResourceUpdateConstraintArgs();
     }
 
-    public sealed class GetResourceUpdateConstraintInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceUpdateConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetResourceUpdateConstraintInvokeArgs()
         {
         }
+        public static new GetResourceUpdateConstraintInvokeArgs Empty => new GetResourceUpdateConstraintInvokeArgs();
     }
 
 

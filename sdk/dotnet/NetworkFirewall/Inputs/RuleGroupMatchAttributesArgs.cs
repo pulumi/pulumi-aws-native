@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupMatchAttributesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupMatchAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationPorts")]
         private InputList<Inputs.RuleGroupPortRangeArgs>? _destinationPorts;
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupMatchAttributesArgs()
         {
         }
+        public static new RuleGroupMatchAttributesArgs Empty => new RuleGroupMatchAttributesArgs();
     }
 }

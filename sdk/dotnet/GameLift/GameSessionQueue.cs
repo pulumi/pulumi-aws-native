@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GameLift
     /// </summary>
     [Obsolete(@"GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:GameSessionQueue")]
-    public partial class GameSessionQueue : Pulumi.CustomResource
+    public partial class GameSessionQueue : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class GameSessionQueueArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueueArgs : global::Pulumi.ResourceArgs
     {
         [Input("customEventData")]
         public Input<string>? CustomEventData { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.GameLift
         public GameSessionQueueArgs()
         {
         }
+        public static new GameSessionQueueArgs Empty => new GameSessionQueueArgs();
     }
 }

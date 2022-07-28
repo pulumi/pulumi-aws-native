@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class SubnetGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for the tag. May not be null.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public SubnetGroupTagArgs()
         {
         }
+        public static new SubnetGroupTagArgs Empty => new SubnetGroupTagArgs();
     }
 }

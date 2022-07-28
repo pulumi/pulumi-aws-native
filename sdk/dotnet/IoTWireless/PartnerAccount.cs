@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// </summary>
     [Obsolete(@"PartnerAccount is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotwireless:PartnerAccount")]
-    public partial class PartnerAccount : Pulumi.CustomResource
+    public partial class PartnerAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the partner account is linked to the AWS account.
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class PartnerAccountArgs : Pulumi.ResourceArgs
+    public sealed class PartnerAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the partner account is linked to the AWS account.
@@ -166,5 +166,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public PartnerAccountArgs()
         {
         }
+        public static new PartnerAccountArgs Empty => new PartnerAccountArgs();
     }
 }

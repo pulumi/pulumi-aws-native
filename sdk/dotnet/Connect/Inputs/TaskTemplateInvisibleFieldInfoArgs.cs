@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Invisible field info
     /// </summary>
-    public sealed class TaskTemplateInvisibleFieldInfoArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateInvisibleFieldInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateInvisibleFieldInfoArgs()
         {
         }
+        public static new TaskTemplateInvisibleFieldInfoArgs Empty => new TaskTemplateInvisibleFieldInfoArgs();
     }
 }

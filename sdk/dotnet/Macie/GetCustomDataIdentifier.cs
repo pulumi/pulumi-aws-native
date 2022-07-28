@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Macie
     }
 
 
-    public sealed class GetCustomDataIdentifierArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomDataIdentifierArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom data identifier ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Macie
         public GetCustomDataIdentifierArgs()
         {
         }
+        public static new GetCustomDataIdentifierArgs Empty => new GetCustomDataIdentifierArgs();
     }
 
-    public sealed class GetCustomDataIdentifierInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomDataIdentifierInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Custom data identifier ID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Macie
         public GetCustomDataIdentifierInvokeArgs()
         {
         }
+        public static new GetCustomDataIdentifierInvokeArgs Empty => new GetCustomDataIdentifierInvokeArgs();
     }
 
 

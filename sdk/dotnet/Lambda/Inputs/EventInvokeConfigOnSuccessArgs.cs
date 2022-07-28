@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class EventInvokeConfigOnSuccessArgs : Pulumi.ResourceArgs
+    public sealed class EventInvokeConfigOnSuccessArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventInvokeConfigOnSuccessArgs()
         {
         }
+        public static new EventInvokeConfigOnSuccessArgs Empty => new EventInvokeConfigOnSuccessArgs();
     }
 }

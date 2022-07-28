@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// A key-value pair to label the scheduled query.
     /// </summary>
-    public sealed class ScheduledQueryTagArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryTagArgs()
         {
         }
+        public static new ScheduledQueryTagArgs Empty => new ScheduledQueryTagArgs();
     }
 }

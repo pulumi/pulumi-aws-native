@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// A resource that has been registered in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ResourceVersion")]
-    public partial class ResourceVersion : Pulumi.CustomResource
+    public partial class ResourceVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class ResourceVersionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
@@ -161,5 +161,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public ResourceVersionArgs()
         {
         }
+        public static new ResourceVersionArgs Empty => new ResourceVersionArgs();
     }
 }

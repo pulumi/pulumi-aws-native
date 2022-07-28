@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetLoadBalancerTlsCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerTlsCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The SSL/TLS certificate name.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetLoadBalancerTlsCertificateArgs()
         {
         }
+        public static new GetLoadBalancerTlsCertificateArgs Empty => new GetLoadBalancerTlsCertificateArgs();
     }
 
-    public sealed class GetLoadBalancerTlsCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerTlsCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The SSL/TLS certificate name.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetLoadBalancerTlsCertificateInvokeArgs()
         {
         }
+        public static new GetLoadBalancerTlsCertificateInvokeArgs Empty => new GetLoadBalancerTlsCertificateInvokeArgs();
     }
 
 

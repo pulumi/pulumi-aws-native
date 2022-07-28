@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 KeyUsage information.
     /// </summary>
-    public sealed class CertificateAuthorityKeyUsageArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityKeyUsageArgs : global::Pulumi.ResourceArgs
     {
         [Input("cRLSign")]
         public Input<bool>? CRLSign { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityKeyUsageArgs()
         {
         }
+        public static new CertificateAuthorityKeyUsageArgs Empty => new CertificateAuthorityKeyUsageArgs();
     }
 }

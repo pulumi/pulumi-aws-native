@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetsActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetsActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("iamActionDefinition")]
         public Input<Inputs.BudgetsActionIamActionDefinitionArgs>? IamActionDefinition { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetsActionDefinitionArgs()
         {
         }
+        public static new BudgetsActionDefinitionArgs Empty => new BudgetsActionDefinitionArgs();
     }
 }

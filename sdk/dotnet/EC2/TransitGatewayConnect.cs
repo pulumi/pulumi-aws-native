@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::TransitGatewayConnect type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayConnect")]
-    public partial class TransitGatewayConnect : Pulumi.CustomResource
+    public partial class TransitGatewayConnect : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The creation time.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayConnectArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Connect attachment options.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayConnectArgs()
         {
         }
+        public static new TransitGatewayConnectArgs Empty => new TransitGatewayConnectArgs();
     }
 }

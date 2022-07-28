@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceElasticGpuSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceElasticGpuSpecificationArgs()
         {
         }
+        public static new InstanceElasticGpuSpecificationArgs Empty => new InstanceElasticGpuSpecificationArgs();
     }
 }

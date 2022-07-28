@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KMS
     }
 
 
-    public sealed class GetReplicaKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicaKeyArgs : global::Pulumi.InvokeArgs
     {
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.KMS
         public GetReplicaKeyArgs()
         {
         }
+        public static new GetReplicaKeyArgs Empty => new GetReplicaKeyArgs();
     }
 
-    public sealed class GetReplicaKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicaKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.KMS
         public GetReplicaKeyInvokeArgs()
         {
         }
+        public static new GetReplicaKeyInvokeArgs Empty => new GetReplicaKeyInvokeArgs();
     }
 
 

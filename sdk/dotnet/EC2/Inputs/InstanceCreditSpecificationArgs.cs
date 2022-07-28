@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceCreditSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cPUCredits")]
         public Input<string>? CPUCredits { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceCreditSpecificationArgs()
         {
         }
+        public static new InstanceCreditSpecificationArgs Empty => new InstanceCreditSpecificationArgs();
     }
 }

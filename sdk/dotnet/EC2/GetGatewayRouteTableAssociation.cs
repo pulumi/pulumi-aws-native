@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetGatewayRouteTableAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayRouteTableAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the gateway.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetGatewayRouteTableAssociationArgs()
         {
         }
+        public static new GetGatewayRouteTableAssociationArgs Empty => new GetGatewayRouteTableAssociationArgs();
     }
 
-    public sealed class GetGatewayRouteTableAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayRouteTableAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the gateway.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetGatewayRouteTableAssociationInvokeArgs()
         {
         }
+        public static new GetGatewayRouteTableAssociationInvokeArgs Empty => new GetGatewayRouteTableAssociationInvokeArgs();
     }
 
 

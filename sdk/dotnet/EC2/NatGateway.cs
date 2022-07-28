@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::NatGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NatGateway")]
-    public partial class NatGateway : Pulumi.CustomResource
+    public partial class NatGateway : global::Pulumi.CustomResource
     {
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NatGatewayArgs : Pulumi.ResourceArgs
+    public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
@@ -95,5 +95,6 @@ namespace Pulumi.AwsNative.EC2
         public NatGatewayArgs()
         {
         }
+        public static new NatGatewayArgs Empty => new NatGatewayArgs();
     }
 }

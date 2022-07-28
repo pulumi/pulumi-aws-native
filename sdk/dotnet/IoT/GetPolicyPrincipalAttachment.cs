@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetPolicyPrincipalAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyPrincipalAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetPolicyPrincipalAttachmentArgs()
         {
         }
+        public static new GetPolicyPrincipalAttachmentArgs Empty => new GetPolicyPrincipalAttachmentArgs();
     }
 
-    public sealed class GetPolicyPrincipalAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyPrincipalAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetPolicyPrincipalAttachmentInvokeArgs()
         {
         }
+        public static new GetPolicyPrincipalAttachmentInvokeArgs Empty => new GetPolicyPrincipalAttachmentInvokeArgs();
     }
 
 

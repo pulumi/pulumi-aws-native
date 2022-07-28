@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class DHCPOptionsTagArgs : Pulumi.ResourceArgs
+    public sealed class DHCPOptionsTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public DHCPOptionsTagArgs()
         {
         }
+        public static new DHCPOptionsTagArgs Empty => new DHCPOptionsTagArgs();
     }
 }

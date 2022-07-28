@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:TestGridProject")]
-    public partial class TestGridProject : Pulumi.CustomResource
+    public partial class TestGridProject : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class TestGridProjectArgs : Pulumi.ResourceArgs
+    public sealed class TestGridProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -95,5 +95,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public TestGridProjectArgs()
         {
         }
+        public static new TestGridProjectArgs Empty => new TestGridProjectArgs();
     }
 }

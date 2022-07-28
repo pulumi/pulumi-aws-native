@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelBiasJobDefinition")]
-    public partial class ModelBiasJobDefinition : Pulumi.CustomResource
+    public partial class ModelBiasJobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the job definition was created.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelBiasJobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelBiasJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelBiasJobDefinitionArgs()
         {
         }
+        public static new ModelBiasJobDefinitionArgs Empty => new ModelBiasJobDefinitionArgs();
     }
 }

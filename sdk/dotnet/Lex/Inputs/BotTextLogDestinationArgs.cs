@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
     /// </summary>
-    public sealed class BotTextLogDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BotTextLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatch", required: true)]
         public Input<Inputs.BotCloudWatchLogGroupLogDestinationArgs> CloudWatch { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotTextLogDestinationArgs()
         {
         }
+        public static new BotTextLogDestinationArgs Empty => new BotTextLogDestinationArgs();
     }
 }

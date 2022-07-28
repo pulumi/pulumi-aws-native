@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
     /// Resource Type definition for AWS::CodeStarNotifications::NotificationRule
     /// </summary>
     [AwsNativeResourceType("aws-native:codestarnotifications:NotificationRule")]
-    public partial class NotificationRule : Pulumi.CustomResource
+    public partial class NotificationRule : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         }
     }
 
-    public sealed class NotificationRuleArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public NotificationRuleArgs()
         {
         }
+        public static new NotificationRuleArgs Empty => new NotificationRuleArgs();
     }
 }

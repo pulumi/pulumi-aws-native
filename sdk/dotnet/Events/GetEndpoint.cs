@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
     }
 
 
-    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Events
         public GetEndpointArgs()
         {
         }
+        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Events
         public GetEndpointInvokeArgs()
         {
         }
+        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

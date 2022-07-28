@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeCommit
     }
 
 
-    public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeCommit
         public GetRepositoryArgs()
         {
         }
+        public static new GetRepositoryArgs Empty => new GetRepositoryArgs();
     }
 
-    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeCommit
         public GetRepositoryInvokeArgs()
         {
         }
+        public static new GetRepositoryInvokeArgs Empty => new GetRepositoryInvokeArgs();
     }
 
 

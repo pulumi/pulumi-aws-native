@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetDestinationArgs : Pulumi.InvokeArgs
+    public sealed class GetDestinationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of destination
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetDestinationArgs()
         {
         }
+        public static new GetDestinationArgs Empty => new GetDestinationArgs();
     }
 
-    public sealed class GetDestinationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique name of destination
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetDestinationInvokeArgs()
         {
         }
+        public static new GetDestinationInvokeArgs Empty => new GetDestinationInvokeArgs();
     }
 
 

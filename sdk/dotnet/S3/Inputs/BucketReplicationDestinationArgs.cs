@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
     /// </summary>
-    public sealed class BucketReplicationDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlTranslation")]
         public Input<Inputs.BucketAccessControlTranslationArgs>? AccessControlTranslation { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationDestinationArgs()
         {
         }
+        public static new BucketReplicationDestinationArgs Empty => new BucketReplicationDestinationArgs();
     }
 }

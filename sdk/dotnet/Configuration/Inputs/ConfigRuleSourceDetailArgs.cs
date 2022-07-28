@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class ConfigRuleSourceDetailArgs : Pulumi.ResourceArgs
+    public sealed class ConfigRuleSourceDetailArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventSource", required: true)]
         public Input<string> EventSource { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public ConfigRuleSourceDetailArgs()
         {
         }
+        public static new ConfigRuleSourceDetailArgs Empty => new ConfigRuleSourceDetailArgs();
     }
 }

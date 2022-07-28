@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyQueryStringsConfigArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyQueryStringsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("queryStringBehavior", required: true)]
         public Input<string> QueryStringBehavior { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public CachePolicyQueryStringsConfigArgs()
         {
         }
+        public static new CachePolicyQueryStringsConfigArgs Empty => new CachePolicyQueryStringsConfigArgs();
     }
 }

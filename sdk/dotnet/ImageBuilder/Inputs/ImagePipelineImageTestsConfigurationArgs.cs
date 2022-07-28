@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Image tests configuration.
     /// </summary>
-    public sealed class ImagePipelineImageTestsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ImagePipelineImageTestsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines if tests should be executed when building this image.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ImagePipelineImageTestsConfigurationArgs()
         {
         }
+        public static new ImagePipelineImageTestsConfigurationArgs Empty => new ImagePipelineImageTestsConfigurationArgs();
     }
 }

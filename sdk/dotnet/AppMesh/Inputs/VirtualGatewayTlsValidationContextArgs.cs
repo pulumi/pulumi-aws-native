@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayTlsValidationContextArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayTlsValidationContextArgs : global::Pulumi.ResourceArgs
     {
         [Input("subjectAlternativeNames")]
         public Input<Inputs.VirtualGatewaySubjectAlternativeNamesArgs>? SubjectAlternativeNames { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayTlsValidationContextArgs()
         {
         }
+        public static new VirtualGatewayTlsValidationContextArgs Empty => new VirtualGatewayTlsValidationContextArgs();
     }
 }

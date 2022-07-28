@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
 
-    public sealed class GetDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the domain.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public GetDomainArgs()
         {
         }
+        public static new GetDomainArgs Empty => new GetDomainArgs();
     }
 
-    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the domain.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public GetDomainInvokeArgs()
         {
         }
+        public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
     }
 
 

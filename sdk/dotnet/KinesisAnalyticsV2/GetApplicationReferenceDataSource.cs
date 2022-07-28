@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
 
-    public sealed class GetApplicationReferenceDataSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationReferenceDataSourceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public GetApplicationReferenceDataSourceArgs()
         {
         }
+        public static new GetApplicationReferenceDataSourceArgs Empty => new GetApplicationReferenceDataSourceArgs();
     }
 
-    public sealed class GetApplicationReferenceDataSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationReferenceDataSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public GetApplicationReferenceDataSourceInvokeArgs()
         {
         }
+        public static new GetApplicationReferenceDataSourceInvokeArgs Empty => new GetApplicationReferenceDataSourceInvokeArgs();
     }
 
 

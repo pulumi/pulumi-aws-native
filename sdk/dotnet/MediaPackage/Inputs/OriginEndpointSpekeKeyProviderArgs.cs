@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
     /// </summary>
-    public sealed class OriginEndpointSpekeKeyProviderArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointSpekeKeyProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointSpekeKeyProviderArgs()
         {
         }
+        public static new OriginEndpointSpekeKeyProviderArgs Empty => new OriginEndpointSpekeKeyProviderArgs();
     }
 }

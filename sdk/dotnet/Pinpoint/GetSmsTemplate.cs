@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetSmsTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetSmsTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSmsTemplateArgs()
         {
         }
+        public static new GetSmsTemplateArgs Empty => new GetSmsTemplateArgs();
     }
 
-    public sealed class GetSmsTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSmsTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSmsTemplateInvokeArgs()
         {
         }
+        public static new GetSmsTemplateInvokeArgs Empty => new GetSmsTemplateInvokeArgs();
     }
 
 

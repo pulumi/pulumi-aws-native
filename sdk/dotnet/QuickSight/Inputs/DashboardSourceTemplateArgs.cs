@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Dashboard source template.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardSourceTemplateArgs : Pulumi.ResourceArgs
+    public sealed class DashboardSourceTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardSourceTemplateArgs()
         {
         }
+        public static new DashboardSourceTemplateArgs Empty => new DashboardSourceTemplateArgs();
     }
 }

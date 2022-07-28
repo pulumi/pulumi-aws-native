@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the results of a transform job.
     /// </summary>
-    public sealed class ModelPackageTransformOutputArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageTransformOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageTransformOutputArgs()
         {
         }
+        public static new ModelPackageTransformOutputArgs Empty => new ModelPackageTransformOutputArgs();
     }
 }

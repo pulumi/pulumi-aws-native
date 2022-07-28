@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class LoggerDefinitionVersionLoggerArgs : Pulumi.ResourceArgs
+    public sealed class LoggerDefinitionVersionLoggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("component", required: true)]
         public Input<string> Component { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public LoggerDefinitionVersionLoggerArgs()
         {
         }
+        public static new LoggerDefinitionVersionLoggerArgs Empty => new LoggerDefinitionVersionLoggerArgs();
     }
 }

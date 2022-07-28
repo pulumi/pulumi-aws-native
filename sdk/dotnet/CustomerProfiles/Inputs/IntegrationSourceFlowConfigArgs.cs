@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationSourceFlowConfigArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationSourceFlowConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationSourceFlowConfigArgs()
         {
         }
+        public static new IntegrationSourceFlowConfigArgs Empty => new IntegrationSourceFlowConfigArgs();
     }
 }

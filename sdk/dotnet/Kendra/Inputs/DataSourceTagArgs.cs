@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// <summary>
     /// A label for tagging Kendra resources
     /// </summary>
-    public sealed class DataSourceTagArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceTagArgs()
         {
         }
+        public static new DataSourceTagArgs Empty => new DataSourceTagArgs();
     }
 }

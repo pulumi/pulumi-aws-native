@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class TransitGatewayConnectOptionsArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayConnectOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tunnel protocol.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public TransitGatewayConnectOptionsArgs()
         {
         }
+        public static new TransitGatewayConnectOptionsArgs Empty => new TransitGatewayConnectOptionsArgs();
     }
 }

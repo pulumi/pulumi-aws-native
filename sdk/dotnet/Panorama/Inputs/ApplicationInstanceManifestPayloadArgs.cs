@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Inputs
 {
 
-    public sealed class ApplicationInstanceManifestPayloadArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInstanceManifestPayloadArgs : global::Pulumi.ResourceArgs
     {
         [Input("payloadData")]
         public Input<string>? PayloadData { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Panorama.Inputs
         public ApplicationInstanceManifestPayloadArgs()
         {
         }
+        public static new ApplicationInstanceManifestPayloadArgs Empty => new ApplicationInstanceManifestPayloadArgs();
     }
 }

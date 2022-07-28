@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS
     /// Resource Type definition for AWS::IVS::RecordingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:RecordingConfiguration")]
-    public partial class RecordingConfiguration : Pulumi.CustomResource
+    public partial class RecordingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IVS
         }
     }
 
-    public sealed class RecordingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RecordingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.RecordingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.IVS
         public RecordingConfigurationArgs()
         {
         }
+        public static new RecordingConfigurationArgs Empty => new RecordingConfigurationArgs();
     }
 }

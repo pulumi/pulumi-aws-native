@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolClientTokenValidityUnitsArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolClientTokenValidityUnitsArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolClientTokenValidityUnitsArgs()
         {
         }
+        public static new UserPoolClientTokenValidityUnitsArgs Empty => new UserPoolClientTokenValidityUnitsArgs();
     }
 }

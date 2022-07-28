@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("input")]
         public Input<string>? Input { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs()
         {
         }
+        public static new MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs Empty => new MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs();
     }
 }

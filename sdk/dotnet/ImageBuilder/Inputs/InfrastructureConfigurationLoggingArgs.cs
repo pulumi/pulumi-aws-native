@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The logging configuration of the infrastructure configuration.
     /// </summary>
-    public sealed class InfrastructureConfigurationLoggingArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationLoggingArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Logs")]
         public Input<Inputs.InfrastructureConfigurationS3LogsArgs>? S3Logs { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public InfrastructureConfigurationLoggingArgs()
         {
         }
+        public static new InfrastructureConfigurationLoggingArgs Empty => new InfrastructureConfigurationLoggingArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetContainerRecipeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetContainerRecipeArgs()
         {
         }
+        public static new GetContainerRecipeArgs Empty => new GetContainerRecipeArgs();
     }
 
-    public sealed class GetContainerRecipeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetContainerRecipeInvokeArgs()
         {
         }
+        public static new GetContainerRecipeInvokeArgs Empty => new GetContainerRecipeInvokeArgs();
     }
 
 

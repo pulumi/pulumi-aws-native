@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::PublicKey
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:PublicKey")]
-    public partial class PublicKey : Pulumi.CustomResource
+    public partial class PublicKey : global::Pulumi.CustomResource
     {
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class PublicKeyArgs : Pulumi.ResourceArgs
+    public sealed class PublicKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicKeyConfig", required: true)]
         public Input<Inputs.PublicKeyConfigArgs> PublicKeyConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public PublicKeyArgs()
         {
         }
+        public static new PublicKeyArgs Empty => new PublicKeyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetsActionSsmActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetsActionSsmActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("instanceIds", required: true)]
         private InputList<string>? _instanceIds;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetsActionSsmActionDefinitionArgs()
         {
         }
+        public static new BudgetsActionSsmActionDefinitionArgs Empty => new BudgetsActionSsmActionDefinitionArgs();
     }
 }

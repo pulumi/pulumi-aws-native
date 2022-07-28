@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue
     /// This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:Registry")]
-    public partial class Registry : Pulumi.CustomResource
+    public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name for the created Registry.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class RegistryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the registry. If description is not provided, there will not be any default value for this.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Glue
         public RegistryArgs()
         {
         }
+        public static new RegistryArgs Empty => new RegistryArgs();
     }
 }

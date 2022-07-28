@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The session logging configuration for ExecuteCommand.
     /// </summary>
-    public sealed class ClusterExecuteCommandLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterExecuteCommandLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchEncryptionEnabled")]
         public Input<bool>? CloudWatchEncryptionEnabled { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterExecuteCommandLogConfigurationArgs()
         {
         }
+        public static new ClusterExecuteCommandLogConfigurationArgs Empty => new ClusterExecuteCommandLogConfigurationArgs();
     }
 }

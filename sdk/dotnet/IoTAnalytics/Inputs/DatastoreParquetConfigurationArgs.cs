@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreParquetConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreParquetConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("schemaDefinition")]
         public Input<Inputs.DatastoreSchemaDefinitionArgs>? SchemaDefinition { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatastoreParquetConfigurationArgs()
         {
         }
+        public static new DatastoreParquetConfigurationArgs Empty => new DatastoreParquetConfigurationArgs();
     }
 }

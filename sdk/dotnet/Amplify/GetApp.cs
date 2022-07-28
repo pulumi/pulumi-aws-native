@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Amplify
     }
 
 
-    public sealed class GetAppArgs : Pulumi.InvokeArgs
+    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Amplify
         public GetAppArgs()
         {
         }
+        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Amplify
         public GetAppInvokeArgs()
         {
         }
+        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 

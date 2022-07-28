@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
     /// </summary>
-    public sealed class GatewayTagArgs : Pulumi.ResourceArgs
+    public sealed class GatewayTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public GatewayTagArgs()
         {
         }
+        public static new GatewayTagArgs Empty => new GatewayTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
     /// </summary>
-    public sealed class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs()
         {
         }
+        public static new LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs Empty => new LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs();
     }
 }

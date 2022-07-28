@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The log pattern set.
     /// </summary>
-    public sealed class ApplicationLogPatternSetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationLogPatternSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("logPatterns", required: true)]
         private InputList<Inputs.ApplicationLogPatternArgs>? _logPatterns;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationLogPatternSetArgs()
         {
         }
+        public static new ApplicationLogPatternSetArgs Empty => new ApplicationLogPatternSetArgs();
     }
 }

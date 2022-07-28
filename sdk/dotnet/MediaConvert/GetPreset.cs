@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConvert
     }
 
 
-    public sealed class GetPresetArgs : Pulumi.InvokeArgs
+    public sealed class GetPresetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetPresetArgs()
         {
         }
+        public static new GetPresetArgs Empty => new GetPresetArgs();
     }
 
-    public sealed class GetPresetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPresetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetPresetInvokeArgs()
         {
         }
+        public static new GetPresetInvokeArgs Empty => new GetPresetInvokeArgs();
     }
 
 

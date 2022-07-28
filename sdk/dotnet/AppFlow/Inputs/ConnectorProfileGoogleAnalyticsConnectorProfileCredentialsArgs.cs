@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials used to access protected resources.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs Empty => new ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs();
     }
 }

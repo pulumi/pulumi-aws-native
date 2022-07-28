@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// </summary>
     [Obsolete(@"ListenerCertificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerCertificate")]
-    public partial class ListenerCertificate : Pulumi.CustomResource
+    public partial class ListenerCertificate : global::Pulumi.CustomResource
     {
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ListenerCertificateCertificate>> Certificates { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class ListenerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ListenerCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.ListenerCertificateCertificateArgs>? _certificates;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public ListenerCertificateArgs()
         {
         }
+        public static new ListenerCertificateArgs Empty => new ListenerCertificateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the resources, including ML instance types and ML instance count, to use for transform job.
     /// </summary>
-    public sealed class ModelPackageTransformResourcesArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageTransformResourcesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageTransformResourcesArgs()
         {
         }
+        public static new ModelPackageTransformResourcesArgs Empty => new ModelPackageTransformResourcesArgs();
     }
 }

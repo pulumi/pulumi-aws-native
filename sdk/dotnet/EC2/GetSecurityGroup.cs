@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetSecurityGroupArgs()
         {
         }
+        public static new GetSecurityGroupArgs Empty => new GetSecurityGroupArgs();
     }
 
-    public sealed class GetSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetSecurityGroupInvokeArgs()
         {
         }
+        public static new GetSecurityGroupInvokeArgs Empty => new GetSecurityGroupInvokeArgs();
     }
 
 

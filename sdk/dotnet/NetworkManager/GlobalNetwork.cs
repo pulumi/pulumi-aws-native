@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:GlobalNetwork")]
-    public partial class GlobalNetwork : Pulumi.CustomResource
+    public partial class GlobalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the global network.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class GlobalNetworkArgs : Pulumi.ResourceArgs
+    public sealed class GlobalNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the global network.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public GlobalNetworkArgs()
         {
         }
+        public static new GlobalNetworkArgs Empty => new GlobalNetworkArgs();
     }
 }

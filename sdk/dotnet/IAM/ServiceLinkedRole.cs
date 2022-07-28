@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"ServiceLinkedRole is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:ServiceLinkedRole")]
-    public partial class ServiceLinkedRole : Pulumi.CustomResource
+    public partial class ServiceLinkedRole : global::Pulumi.CustomResource
     {
         [Output("aWSServiceName")]
         public Output<string> AWSServiceName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class ServiceLinkedRoleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLinkedRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("aWSServiceName", required: true)]
         public Input<string> AWSServiceName { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.IAM
         public ServiceLinkedRoleArgs()
         {
         }
+        public static new ServiceLinkedRoleArgs Empty => new ServiceLinkedRoleArgs();
     }
 }

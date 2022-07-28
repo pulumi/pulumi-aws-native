@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class JobExecutionPropertyArgs : Pulumi.ResourceArgs
+    public sealed class JobExecutionPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxConcurrentRuns")]
         public Input<double>? MaxConcurrentRuns { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public JobExecutionPropertyArgs()
         {
         }
+        public static new JobExecutionPropertyArgs Empty => new JobExecutionPropertyArgs();
     }
 }

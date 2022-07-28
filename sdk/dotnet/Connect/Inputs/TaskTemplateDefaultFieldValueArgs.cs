@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// the default value for the task template's field
     /// </summary>
-    public sealed class TaskTemplateDefaultFieldValueArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateDefaultFieldValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValue", required: true)]
         public Input<string> DefaultValue { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateDefaultFieldValueArgs()
         {
         }
+        public static new TaskTemplateDefaultFieldValueArgs Empty => new TaskTemplateDefaultFieldValueArgs();
     }
 }

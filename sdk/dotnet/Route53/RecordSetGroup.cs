@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Route53
     /// </summary>
     [Obsolete(@"RecordSetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53:RecordSetGroup")]
-    public partial class RecordSetGroup : Pulumi.CustomResource
+    public partial class RecordSetGroup : global::Pulumi.CustomResource
     {
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class RecordSetGroupArgs : Pulumi.ResourceArgs
+    public sealed class RecordSetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.Route53
         public RecordSetGroupArgs()
         {
         }
+        public static new RecordSetGroupArgs Empty => new RecordSetGroupArgs();
     }
 }

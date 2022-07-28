@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
 {
 
-    public sealed class ClusterTagArgs : Pulumi.ResourceArgs
+    public sealed class ClusterTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public ClusterTagArgs()
         {
         }
+        public static new ClusterTagArgs Empty => new ClusterTagArgs();
     }
 }

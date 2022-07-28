@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetSqlInjectionMatchSetArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlInjectionMatchSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetSqlInjectionMatchSetArgs()
         {
         }
+        public static new GetSqlInjectionMatchSetArgs Empty => new GetSqlInjectionMatchSetArgs();
     }
 
-    public sealed class GetSqlInjectionMatchSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSqlInjectionMatchSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetSqlInjectionMatchSetInvokeArgs()
         {
         }
+        public static new GetSqlInjectionMatchSetInvokeArgs Empty => new GetSqlInjectionMatchSetInvokeArgs();
     }
 
 

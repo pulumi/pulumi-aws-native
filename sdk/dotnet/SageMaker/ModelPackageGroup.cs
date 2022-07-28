@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelPackageGroup")]
-    public partial class ModelPackageGroup : Pulumi.CustomResource
+    public partial class ModelPackageGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the model package group was created.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelPackageGroupArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("modelPackageGroupDescription")]
         public Input<string>? ModelPackageGroupDescription { get; set; }
@@ -114,5 +114,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelPackageGroupArgs()
         {
         }
+        public static new ModelPackageGroupArgs Empty => new ModelPackageGroupArgs();
     }
 }

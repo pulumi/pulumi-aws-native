@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetStaticIpArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticIpArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the static IP address.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetStaticIpArgs()
         {
         }
+        public static new GetStaticIpArgs Empty => new GetStaticIpArgs();
     }
 
-    public sealed class GetStaticIpInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStaticIpInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the static IP address.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetStaticIpInvokeArgs()
         {
         }
+        public static new GetStaticIpInvokeArgs Empty => new GetStaticIpInvokeArgs();
     }
 
 

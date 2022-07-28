@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
     /// </summary>
-    public sealed class ModelPackageDriftCheckModelQualityArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageDriftCheckModelQualityArgs : global::Pulumi.ResourceArgs
     {
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageDriftCheckModelQualityArgs()
         {
         }
+        public static new ModelPackageDriftCheckModelQualityArgs Empty => new ModelPackageDriftCheckModelQualityArgs();
     }
 }

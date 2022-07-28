@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FIS
     /// Resource schema for AWS::FIS::ExperimentTemplate
     /// </summary>
     [AwsNativeResourceType("aws-native:fis:ExperimentTemplate")]
-    public partial class ExperimentTemplate : Pulumi.CustomResource
+    public partial class ExperimentTemplate : global::Pulumi.CustomResource
     {
         [Output("actions")]
         public Output<Outputs.ExperimentTemplateActionMap?> Actions { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.FIS
         }
     }
 
-    public sealed class ExperimentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         public Input<Inputs.ExperimentTemplateActionMapArgs>? Actions { get; set; }
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.FIS
         public ExperimentTemplateArgs()
         {
         }
+        public static new ExperimentTemplateArgs Empty => new ExperimentTemplateArgs();
     }
 }

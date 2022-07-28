@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConfluenceSpaceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfluenceSpaceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("crawlArchivedSpaces")]
         public Input<bool>? CrawlArchivedSpaces { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConfluenceSpaceConfigurationArgs()
         {
         }
+        public static new DataSourceConfluenceSpaceConfigurationArgs Empty => new DataSourceConfluenceSpaceConfigurationArgs();
     }
 }

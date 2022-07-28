@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The instance metadata option settings for the infrastructure configuration.
     /// </summary>
-    public sealed class InfrastructureConfigurationInstanceMetadataOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationInstanceMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Limit the number of hops that an instance metadata request can traverse to reach its destination.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public InfrastructureConfigurationInstanceMetadataOptionsArgs()
         {
         }
+        public static new InfrastructureConfigurationInstanceMetadataOptionsArgs Empty => new InfrastructureConfigurationInstanceMetadataOptionsArgs();
     }
 }

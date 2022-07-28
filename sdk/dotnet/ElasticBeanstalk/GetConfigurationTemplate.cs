@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     }
 
 
-    public sealed class GetConfigurationTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public GetConfigurationTemplateArgs()
         {
         }
+        public static new GetConfigurationTemplateArgs Empty => new GetConfigurationTemplateArgs();
     }
 
-    public sealed class GetConfigurationTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public GetConfigurationTemplateInvokeArgs()
         {
         }
+        public static new GetConfigurationTemplateInvokeArgs Empty => new GetConfigurationTemplateInvokeArgs();
     }
 
 

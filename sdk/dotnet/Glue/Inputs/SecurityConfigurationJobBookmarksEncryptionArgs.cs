@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationJobBookmarksEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationJobBookmarksEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("jobBookmarksEncryptionMode")]
         public Input<string>? JobBookmarksEncryptionMode { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public SecurityConfigurationJobBookmarksEncryptionArgs()
         {
         }
+        public static new SecurityConfigurationJobBookmarksEncryptionArgs Empty => new SecurityConfigurationJobBookmarksEncryptionArgs();
     }
 }

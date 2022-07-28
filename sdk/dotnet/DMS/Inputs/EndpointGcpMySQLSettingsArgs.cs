@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointGcpMySQLSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGcpMySQLSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("afterConnectScript")]
         public Input<string>? AfterConnectScript { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointGcpMySQLSettingsArgs()
         {
         }
+        public static new EndpointGcpMySQLSettingsArgs Empty => new EndpointGcpMySQLSettingsArgs();
     }
 }

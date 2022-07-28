@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Forecast.Inputs
 {
 
-    public sealed class SchemaPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SchemaPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.AttributesItemPropertiesArgs>? _attributes;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Forecast.Inputs
         public SchemaPropertiesArgs()
         {
         }
+        public static new SchemaPropertiesArgs Empty => new SchemaPropertiesArgs();
     }
 }

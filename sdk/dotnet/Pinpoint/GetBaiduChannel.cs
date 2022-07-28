@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetBaiduChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetBaiduChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetBaiduChannelArgs()
         {
         }
+        public static new GetBaiduChannelArgs Empty => new GetBaiduChannelArgs();
     }
 
-    public sealed class GetBaiduChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBaiduChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetBaiduChannelInvokeArgs()
         {
         }
+        public static new GetBaiduChannelInvokeArgs Empty => new GetBaiduChannelInvokeArgs();
     }
 
 

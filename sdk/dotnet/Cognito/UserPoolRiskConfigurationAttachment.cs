@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolRiskConfigurationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolRiskConfigurationAttachment")]
-    public partial class UserPoolRiskConfigurationAttachment : Pulumi.CustomResource
+    public partial class UserPoolRiskConfigurationAttachment : global::Pulumi.CustomResource
     {
         [Output("accountTakeoverRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType?> AccountTakeoverRiskConfiguration { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolRiskConfigurationAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRiskConfigurationAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>? AccountTakeoverRiskConfiguration { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolRiskConfigurationAttachmentArgs()
         {
         }
+        public static new UserPoolRiskConfigurationAttachmentArgs Empty => new UserPoolRiskConfigurationAttachmentArgs();
     }
 }

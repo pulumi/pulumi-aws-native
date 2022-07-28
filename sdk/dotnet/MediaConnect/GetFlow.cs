@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
 
-    public sealed class GetFlowArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowArgs()
         {
         }
+        public static new GetFlowArgs Empty => new GetFlowArgs();
     }
 
-    public sealed class GetFlowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowInvokeArgs()
         {
         }
+        public static new GetFlowInvokeArgs Empty => new GetFlowInvokeArgs();
     }
 
 

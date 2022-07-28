@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VPCDHCPOptionsAssociation")]
-    public partial class VPCDHCPOptionsAssociation : Pulumi.CustomResource
+    public partial class VPCDHCPOptionsAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCDHCPOptionsAssociationArgs : Pulumi.ResourceArgs
+    public sealed class VPCDHCPOptionsAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCDHCPOptionsAssociationArgs()
         {
         }
+        public static new VPCDHCPOptionsAssociationArgs Empty => new VPCDHCPOptionsAssociationArgs();
     }
 }

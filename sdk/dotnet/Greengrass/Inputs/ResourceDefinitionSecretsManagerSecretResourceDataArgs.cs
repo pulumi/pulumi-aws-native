@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionSecretsManagerSecretResourceDataArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionSecretsManagerSecretResourceDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("aRN", required: true)]
         public Input<string> ARN { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionSecretsManagerSecretResourceDataArgs()
         {
         }
+        public static new ResourceDefinitionSecretsManagerSecretResourceDataArgs Empty => new ResourceDefinitionSecretsManagerSecretResourceDataArgs();
     }
 }

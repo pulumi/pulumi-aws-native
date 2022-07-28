@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Configuration for when the scheduled query is executed.
     /// </summary>
-    public sealed class ScheduledQueryScheduleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryScheduleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryScheduleConfigurationArgs()
         {
         }
+        public static new ScheduledQueryScheduleConfigurationArgs Empty => new ScheduledQueryScheduleConfigurationArgs();
     }
 }

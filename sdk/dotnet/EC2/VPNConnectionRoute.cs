@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPNConnectionRoute")]
-    public partial class VPNConnectionRoute : Pulumi.CustomResource
+    public partial class VPNConnectionRoute : global::Pulumi.CustomResource
     {
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPNConnectionRouteArgs : Pulumi.ResourceArgs
+    public sealed class VPNConnectionRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.EC2
         public VPNConnectionRouteArgs()
         {
         }
+        public static new VPNConnectionRouteArgs Empty => new VPNConnectionRouteArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// </summary>
     [Obsolete(@"CustomLineItem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:CustomLineItem")]
-    public partial class CustomLineItem : Pulumi.CustomResource
+    public partial class CustomLineItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.BillingConductor
         }
     }
 
-    public sealed class CustomLineItemArgs : Pulumi.ResourceArgs
+    public sealed class CustomLineItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Billing Group ARN
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.BillingConductor
         public CustomLineItemArgs()
         {
         }
+        public static new CustomLineItemArgs Empty => new CustomLineItemArgs();
     }
 }

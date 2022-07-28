@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     }
 
 
-    public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the repository.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CodeArtifact
         public GetRepositoryArgs()
         {
         }
+        public static new GetRepositoryArgs Empty => new GetRepositoryArgs();
     }
 
-    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the repository.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         public GetRepositoryInvokeArgs()
         {
         }
+        public static new GetRepositoryInvokeArgs Empty => new GetRepositoryInvokeArgs();
     }
 
 

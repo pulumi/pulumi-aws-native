@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
     /// <summary>
     /// The predefined aliases for dynamic variables.
     /// </summary>
-    public sealed class PlaybackConfigurationConfigurationAliasesArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationConfigurationAliasesArgs : global::Pulumi.ResourceArgs
     {
         public PlaybackConfigurationConfigurationAliasesArgs()
         {
         }
+        public static new PlaybackConfigurationConfigurationAliasesArgs Empty => new PlaybackConfigurationConfigurationAliasesArgs();
     }
 }

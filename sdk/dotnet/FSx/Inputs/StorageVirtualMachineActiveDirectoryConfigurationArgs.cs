@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class StorageVirtualMachineActiveDirectoryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StorageVirtualMachineActiveDirectoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("netBiosName")]
         public Input<string>? NetBiosName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public StorageVirtualMachineActiveDirectoryConfigurationArgs()
         {
         }
+        public static new StorageVirtualMachineActiveDirectoryConfigurationArgs Empty => new StorageVirtualMachineActiveDirectoryConfigurationArgs();
     }
 }

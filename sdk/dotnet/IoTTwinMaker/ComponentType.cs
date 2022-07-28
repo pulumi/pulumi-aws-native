@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     /// Resource schema for AWS::IoTTwinMaker::ComponentType
     /// </summary>
     [AwsNativeResourceType("aws-native:iottwinmaker:ComponentType")]
-    public partial class ComponentType : Pulumi.CustomResource
+    public partial class ComponentType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the component type.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         }
     }
 
-    public sealed class ComponentTypeArgs : Pulumi.ResourceArgs
+    public sealed class ComponentTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the component type.
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public ComponentTypeArgs()
         {
         }
+        public static new ComponentTypeArgs Empty => new ComponentTypeArgs();
     }
 }

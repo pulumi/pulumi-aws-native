@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Settings for using an Amazon Polly voice to communicate with a user.
     /// </summary>
-    public sealed class BotVoiceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BotVoiceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotVoiceSettingsArgs()
         {
         }
+        public static new BotVoiceSettingsArgs Empty => new BotVoiceSettingsArgs();
     }
 }

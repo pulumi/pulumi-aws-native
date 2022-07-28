@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::Component
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:Component")]
-    public partial class Component : Pulumi.CustomResource
+    public partial class Component : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class ComponentArgs : Pulumi.ResourceArgs
+    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The change description of the component.
@@ -207,5 +207,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public ComponentArgs()
         {
         }
+        public static new ComponentArgs Empty => new ComponentArgs();
     }
 }

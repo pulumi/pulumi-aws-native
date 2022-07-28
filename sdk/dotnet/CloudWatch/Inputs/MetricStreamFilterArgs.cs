@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     /// <summary>
     /// This structure defines the metrics that will be streamed.
     /// </summary>
-    public sealed class MetricStreamFilterArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Only metrics with Namespace matching this value will be streamed.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public MetricStreamFilterArgs()
         {
         }
+        public static new MetricStreamFilterArgs Empty => new MetricStreamFilterArgs();
     }
 }

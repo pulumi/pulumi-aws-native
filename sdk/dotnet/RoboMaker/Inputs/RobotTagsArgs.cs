@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class RobotTagsArgs : Pulumi.ResourceArgs
+    public sealed class RobotTagsArgs : global::Pulumi.ResourceArgs
     {
         public RobotTagsArgs()
         {
         }
+        public static new RobotTagsArgs Empty => new RobotTagsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Details for a step that deletes the file.
     /// </summary>
-    public sealed class WorkflowStepDeleteStepDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepDeleteStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the step, used as an identifier.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowStepDeleteStepDetailsPropertiesArgs()
         {
         }
+        public static new WorkflowStepDeleteStepDetailsPropertiesArgs Empty => new WorkflowStepDeleteStepDetailsPropertiesArgs();
     }
 }

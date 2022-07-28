@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The priority that Amazon Lex should use when eliciting slot values from a user.
     /// </summary>
-    public sealed class BotSlotPriorityArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotPriorityArgs : global::Pulumi.ResourceArgs
     {
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotPriorityArgs()
         {
         }
+        public static new BotSlotPriorityArgs Empty => new BotSlotPriorityArgs();
     }
 }

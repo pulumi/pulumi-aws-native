@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetVirtualMFADeviceArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMFADeviceArgs : global::Pulumi.InvokeArgs
     {
         [Input("serialNumber", required: true)]
         public string SerialNumber { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IAM
         public GetVirtualMFADeviceArgs()
         {
         }
+        public static new GetVirtualMFADeviceArgs Empty => new GetVirtualMFADeviceArgs();
     }
 
-    public sealed class GetVirtualMFADeviceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMFADeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("serialNumber", required: true)]
         public Input<string> SerialNumber { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IAM
         public GetVirtualMFADeviceInvokeArgs()
         {
         }
+        public static new GetVirtualMFADeviceInvokeArgs Empty => new GetVirtualMFADeviceInvokeArgs();
     }
 
 

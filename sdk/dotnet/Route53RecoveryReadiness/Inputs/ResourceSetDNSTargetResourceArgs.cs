@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// <summary>
     /// A component for DNS/routing control readiness checks.
     /// </summary>
-    public sealed class ResourceSetDNSTargetResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetDNSTargetResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain name that acts as an ingress point to a portion of the customer application.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetDNSTargetResourceArgs()
         {
         }
+        public static new ResourceSetDNSTargetResourceArgs Empty => new ResourceSetDNSTargetResourceArgs();
     }
 }

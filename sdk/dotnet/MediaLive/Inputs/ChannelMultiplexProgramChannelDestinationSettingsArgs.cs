@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMultiplexProgramChannelDestinationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMultiplexProgramChannelDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("multiplexId")]
         public Input<string>? MultiplexId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMultiplexProgramChannelDestinationSettingsArgs()
         {
         }
+        public static new ChannelMultiplexProgramChannelDestinationSettingsArgs Empty => new ChannelMultiplexProgramChannelDestinationSettingsArgs();
     }
 }

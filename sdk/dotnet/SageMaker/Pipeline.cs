@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::Pipeline
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         [Output("parallelismConfiguration")]
         public Output<Outputs.ParallelismConfigurationProperties?> ParallelismConfiguration { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         [Input("parallelismConfiguration")]
         public Input<Inputs.ParallelismConfigurationPropertiesArgs>? ParallelismConfiguration { get; set; }
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.SageMaker
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

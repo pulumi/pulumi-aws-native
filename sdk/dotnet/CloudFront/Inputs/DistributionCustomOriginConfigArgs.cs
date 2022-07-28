@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionCustomOriginConfigArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCustomOriginConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("hTTPPort")]
         public Input<int>? HTTPPort { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionCustomOriginConfigArgs()
         {
         }
+        public static new DistributionCustomOriginConfigArgs Empty => new DistributionCustomOriginConfigArgs();
     }
 }

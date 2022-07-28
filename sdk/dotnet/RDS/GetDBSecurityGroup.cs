@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBSecurityGroupArgs()
         {
         }
+        public static new GetDBSecurityGroupArgs Empty => new GetDBSecurityGroupArgs();
     }
 
-    public sealed class GetDBSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBSecurityGroupInvokeArgs()
         {
         }
+        public static new GetDBSecurityGroupInvokeArgs Empty => new GetDBSecurityGroupInvokeArgs();
     }
 
 

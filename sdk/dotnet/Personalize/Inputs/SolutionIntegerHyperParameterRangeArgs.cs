@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Provides the name and range of an integer-valued hyperparameter.
     /// </summary>
-    public sealed class SolutionIntegerHyperParameterRangeArgs : Pulumi.ResourceArgs
+    public sealed class SolutionIntegerHyperParameterRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum allowable value for the hyperparameter.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionIntegerHyperParameterRangeArgs()
         {
         }
+        public static new SolutionIntegerHyperParameterRangeArgs Empty => new SolutionIntegerHyperParameterRangeArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
     }
 
 
-    public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public GetNamespaceArgs()
         {
         }
+        public static new GetNamespaceArgs Empty => new GetNamespaceArgs();
     }
 
-    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public GetNamespaceInvokeArgs()
         {
         }
+        public static new GetNamespaceInvokeArgs Empty => new GetNamespaceInvokeArgs();
     }
 
 

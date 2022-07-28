@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelImageConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("repositoryAccessMode", required: true)]
         public Input<string> RepositoryAccessMode { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelImageConfigArgs()
         {
         }
+        public static new ModelImageConfigArgs Empty => new ModelImageConfigArgs();
     }
 }

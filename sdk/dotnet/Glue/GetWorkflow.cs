@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetWorkflowArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkflowArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetWorkflowArgs()
         {
         }
+        public static new GetWorkflowArgs Empty => new GetWorkflowArgs();
     }
 
-    public sealed class GetWorkflowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkflowInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetWorkflowInvokeArgs()
         {
         }
+        public static new GetWorkflowInvokeArgs Empty => new GetWorkflowInvokeArgs();
     }
 
 

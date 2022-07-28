@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"ReplicationGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:ReplicationGroup")]
-    public partial class ReplicationGroup : Pulumi.CustomResource
+    public partial class ReplicationGroup : global::Pulumi.CustomResource
     {
         [Output("atRestEncryptionEnabled")]
         public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class ReplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("atRestEncryptionEnabled")]
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
@@ -384,5 +384,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public ReplicationGroupArgs()
         {
         }
+        public static new ReplicationGroupArgs Empty => new ReplicationGroupArgs();
     }
 }

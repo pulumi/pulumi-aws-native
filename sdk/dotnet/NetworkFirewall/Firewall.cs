@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// Resource type definition for AWS::NetworkFirewall::Firewall
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:Firewall")]
-    public partial class Firewall : Pulumi.CustomResource
+    public partial class Firewall : global::Pulumi.CustomResource
     {
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
     }
 
-    public sealed class FirewallArgs : Pulumi.ResourceArgs
+    public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public FirewallArgs()
         {
         }
+        public static new FirewallArgs Empty => new FirewallArgs();
     }
 }

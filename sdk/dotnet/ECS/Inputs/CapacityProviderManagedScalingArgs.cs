@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The managed scaling settings for the Auto Scaling group capacity provider.
     /// </summary>
-    public sealed class CapacityProviderManagedScalingArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderManagedScalingArgs : global::Pulumi.ResourceArgs
     {
         [Input("instanceWarmupPeriod")]
         public Input<int>? InstanceWarmupPeriod { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public CapacityProviderManagedScalingArgs()
         {
         }
+        public static new CapacityProviderManagedScalingArgs Empty => new CapacityProviderManagedScalingArgs();
     }
 }

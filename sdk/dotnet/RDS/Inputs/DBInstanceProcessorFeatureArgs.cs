@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBInstanceProcessorFeatureArgs : Pulumi.ResourceArgs
+    public sealed class DBInstanceProcessorFeatureArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBInstanceProcessorFeatureArgs()
         {
         }
+        public static new DBInstanceProcessorFeatureArgs Empty => new DBInstanceProcessorFeatureArgs();
     }
 }

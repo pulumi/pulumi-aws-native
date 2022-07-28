@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("brokerAZDistribution")]
         public Input<string>? BrokerAZDistribution { get; set; }
@@ -43,5 +43,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterBrokerNodeGroupInfoArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoArgs Empty => new ClusterBrokerNodeGroupInfoArgs();
     }
 }

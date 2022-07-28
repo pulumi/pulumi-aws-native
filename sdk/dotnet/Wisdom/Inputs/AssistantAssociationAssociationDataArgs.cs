@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
-    public sealed class AssistantAssociationAssociationDataArgs : Pulumi.ResourceArgs
+    public sealed class AssistantAssociationAssociationDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         public AssistantAssociationAssociationDataArgs()
         {
         }
+        public static new AssistantAssociationAssociationDataArgs Empty => new AssistantAssociationAssociationDataArgs();
     }
 }

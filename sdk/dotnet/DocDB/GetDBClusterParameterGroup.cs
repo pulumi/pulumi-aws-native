@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DocDB
     }
 
 
-    public sealed class GetDBClusterParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBClusterParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DocDB
         public GetDBClusterParameterGroupArgs()
         {
         }
+        public static new GetDBClusterParameterGroupArgs Empty => new GetDBClusterParameterGroupArgs();
     }
 
-    public sealed class GetDBClusterParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBClusterParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DocDB
         public GetDBClusterParameterGroupInvokeArgs()
         {
         }
+        public static new GetDBClusterParameterGroupInvokeArgs Empty => new GetDBClusterParameterGroupInvokeArgs();
     }
 
 

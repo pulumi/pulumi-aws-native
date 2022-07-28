@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RedshiftServerless.Inputs
 {
 
-    public sealed class NamespaceTagArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RedshiftServerless.Inputs
         public NamespaceTagArgs()
         {
         }
+        public static new NamespaceTagArgs Empty => new NamespaceTagArgs();
     }
 }

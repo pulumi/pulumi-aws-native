@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// A key-value pair to associate with a device resource.
     /// </summary>
-    public sealed class DeviceTagArgs : Pulumi.ResourceArgs
+    public sealed class DeviceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public DeviceTagArgs()
         {
         }
+        public static new DeviceTagArgs Empty => new DeviceTagArgs();
     }
 }

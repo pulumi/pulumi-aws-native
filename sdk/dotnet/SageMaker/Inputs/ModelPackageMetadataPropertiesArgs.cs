@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Metadata properties of the tracking entity, trial, or trial component.
     /// </summary>
-    public sealed class ModelPackageMetadataPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageMetadataPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The commit ID.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageMetadataPropertiesArgs()
         {
         }
+        public static new ModelPackageMetadataPropertiesArgs Empty => new ModelPackageMetadataPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetApplicationSettingsArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSettingsArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetApplicationSettingsArgs()
         {
         }
+        public static new GetApplicationSettingsArgs Empty => new GetApplicationSettingsArgs();
     }
 
-    public sealed class GetApplicationSettingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetApplicationSettingsInvokeArgs()
         {
         }
+        public static new GetApplicationSettingsInvokeArgs Empty => new GetApplicationSettingsInvokeArgs();
     }
 
 

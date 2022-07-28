@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class IdentityMailFromAttributesArgs : Pulumi.ResourceArgs
+    public sealed class IdentityMailFromAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public IdentityMailFromAttributesArgs()
         {
         }
+        public static new IdentityMailFromAttributesArgs Empty => new IdentityMailFromAttributesArgs();
     }
 }

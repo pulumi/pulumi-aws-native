@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Configuration
     /// Resource Type definition for AWS::Config::AggregationAuthorization
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:AggregationAuthorization")]
-    public partial class AggregationAuthorization : Pulumi.CustomResource
+    public partial class AggregationAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the AggregationAuthorization.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class AggregationAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class AggregationAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The 12-digit account ID of the account authorized to aggregate data.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Configuration
         public AggregationAuthorizationArgs()
         {
         }
+        public static new AggregationAuthorizationArgs Empty => new AggregationAuthorizationArgs();
     }
 }

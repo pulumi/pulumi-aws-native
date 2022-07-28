@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Describes a route for a local gateway route table.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:LocalGatewayRoute")]
-    public partial class LocalGatewayRoute : Pulumi.CustomResource
+    public partial class LocalGatewayRoute : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CIDR block used for destination matches.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class LocalGatewayRouteArgs : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block used for destination matches.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EC2
         public LocalGatewayRouteArgs()
         {
         }
+        public static new LocalGatewayRouteArgs Empty => new LocalGatewayRouteArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerLoadBasedAutoScalingArgs : Pulumi.ResourceArgs
+    public sealed class LayerLoadBasedAutoScalingArgs : global::Pulumi.ResourceArgs
     {
         [Input("downScaling")]
         public Input<Inputs.LayerAutoScalingThresholdsArgs>? DownScaling { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerLoadBasedAutoScalingArgs()
         {
         }
+        public static new LayerLoadBasedAutoScalingArgs Empty => new LayerLoadBasedAutoScalingArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 {
 
-    public sealed class ServiceUrlEndpointInputArgs : Pulumi.ResourceArgs
+    public sealed class ServiceUrlEndpointInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("healthUrl")]
         public Input<string>? HealthUrl { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         public ServiceUrlEndpointInputArgs()
         {
         }
+        public static new ServiceUrlEndpointInputArgs Empty => new ServiceUrlEndpointInputArgs();
     }
 }

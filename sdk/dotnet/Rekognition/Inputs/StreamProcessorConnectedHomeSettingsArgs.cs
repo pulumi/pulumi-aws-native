@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
     /// </summary>
-    public sealed class StreamProcessorConnectedHomeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorConnectedHomeSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels", required: true)]
         private InputList<string>? _labels;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorConnectedHomeSettingsArgs()
         {
         }
+        public static new StreamProcessorConnectedHomeSettingsArgs Empty => new StreamProcessorConnectedHomeSettingsArgs();
     }
 }

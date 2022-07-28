@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelInferenceExecutionConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelInferenceExecutionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelInferenceExecutionConfigArgs()
         {
         }
+        public static new ModelInferenceExecutionConfigArgs Empty => new ModelInferenceExecutionConfigArgs();
     }
 }

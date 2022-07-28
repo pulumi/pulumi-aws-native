@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A message in Speech Synthesis Markup Language (SSML).
     /// </summary>
-    public sealed class BotSSMLMessageArgs : Pulumi.ResourceArgs
+    public sealed class BotSSMLMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SSML text that defines the prompt.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSSMLMessageArgs()
         {
         }
+        public static new BotSSMLMessageArgs Empty => new BotSSMLMessageArgs();
     }
 }

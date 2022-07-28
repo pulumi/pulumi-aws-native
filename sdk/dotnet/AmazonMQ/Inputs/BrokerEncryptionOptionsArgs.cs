@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerEncryptionOptionsArgs : Pulumi.ResourceArgs
+    public sealed class BrokerEncryptionOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerEncryptionOptionsArgs()
         {
         }
+        public static new BrokerEncryptionOptionsArgs Empty => new BrokerEncryptionOptionsArgs();
     }
 }

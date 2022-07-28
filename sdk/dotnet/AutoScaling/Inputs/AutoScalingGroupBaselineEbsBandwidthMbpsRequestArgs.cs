@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs()
         {
         }
+        public static new AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs Empty => new AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs();
     }
 }

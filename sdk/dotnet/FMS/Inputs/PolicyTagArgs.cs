@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FMS.Inputs
     /// <summary>
     /// A policy tag.
     /// </summary>
-    public sealed class PolicyTagArgs : Pulumi.ResourceArgs
+    public sealed class PolicyTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.FMS.Inputs
         public PolicyTagArgs()
         {
         }
+        public static new PolicyTagArgs Empty => new PolicyTagArgs();
     }
 }

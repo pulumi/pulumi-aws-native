@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AutoScaling
     }
 
 
-    public sealed class GetScalingPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetScalingPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetScalingPolicyArgs()
         {
         }
+        public static new GetScalingPolicyArgs Empty => new GetScalingPolicyArgs();
     }
 
-    public sealed class GetScalingPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScalingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetScalingPolicyInvokeArgs()
         {
         }
+        public static new GetScalingPolicyInvokeArgs Empty => new GetScalingPolicyInvokeArgs();
     }
 
 

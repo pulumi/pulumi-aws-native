@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB
     /// The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
     /// </summary>
     [AwsNativeResourceType("aws-native:memorydb:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
@@ -224,7 +224,7 @@ namespace Pulumi.AwsNative.MemoryDB
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
@@ -395,5 +395,6 @@ namespace Pulumi.AwsNative.MemoryDB
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

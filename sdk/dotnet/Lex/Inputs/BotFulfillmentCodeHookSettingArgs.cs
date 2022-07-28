@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
     /// </summary>
-    public sealed class BotFulfillmentCodeHookSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotFulfillmentCodeHookSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotFulfillmentCodeHookSettingArgs()
         {
         }
+        public static new BotFulfillmentCodeHookSettingArgs Empty => new BotFulfillmentCodeHookSettingArgs();
     }
 }

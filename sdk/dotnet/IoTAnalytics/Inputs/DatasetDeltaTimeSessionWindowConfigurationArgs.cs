@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetDeltaTimeSessionWindowConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDeltaTimeSessionWindowConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("timeoutInMinutes", required: true)]
         public Input<int> TimeoutInMinutes { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetDeltaTimeSessionWindowConfigurationArgs()
         {
         }
+        public static new DatasetDeltaTimeSessionWindowConfigurationArgs Empty => new DatasetDeltaTimeSessionWindowConfigurationArgs();
     }
 }

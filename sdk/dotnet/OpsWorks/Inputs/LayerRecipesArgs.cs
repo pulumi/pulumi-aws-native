@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerRecipesArgs : Pulumi.ResourceArgs
+    public sealed class LayerRecipesArgs : global::Pulumi.ResourceArgs
     {
         [Input("configure")]
         private InputList<string>? _configure;
@@ -55,5 +55,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerRecipesArgs()
         {
         }
+        public static new LayerRecipesArgs Empty => new LayerRecipesArgs();
     }
 }

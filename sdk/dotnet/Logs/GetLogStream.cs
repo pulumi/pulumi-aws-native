@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetLogStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetLogStreamArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Logs
         public GetLogStreamArgs()
         {
         }
+        public static new GetLogStreamArgs Empty => new GetLogStreamArgs();
     }
 
-    public sealed class GetLogStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Logs
         public GetLogStreamInvokeArgs()
         {
         }
+        public static new GetLogStreamInvokeArgs Empty => new GetLogStreamInvokeArgs();
     }
 
 

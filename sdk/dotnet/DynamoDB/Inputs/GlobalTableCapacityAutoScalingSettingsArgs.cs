@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableCapacityAutoScalingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableCapacityAutoScalingSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableCapacityAutoScalingSettingsArgs()
         {
         }
+        public static new GlobalTableCapacityAutoScalingSettingsArgs Empty => new GlobalTableCapacityAutoScalingSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class ChannelRetentionPeriodArgs : Pulumi.ResourceArgs
+    public sealed class ChannelRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
         [Input("numberOfDays")]
         public Input<int>? NumberOfDays { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public ChannelRetentionPeriodArgs()
         {
         }
+        public static new ChannelRetentionPeriodArgs Empty => new ChannelRetentionPeriodArgs();
     }
 }

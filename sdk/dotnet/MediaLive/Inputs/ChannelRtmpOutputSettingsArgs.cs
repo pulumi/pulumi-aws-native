@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelRtmpOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelRtmpOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateMode")]
         public Input<string>? CertificateMode { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelRtmpOutputSettingsArgs()
         {
         }
+        public static new ChannelRtmpOutputSettingsArgs Empty => new ChannelRtmpOutputSettingsArgs();
     }
 }

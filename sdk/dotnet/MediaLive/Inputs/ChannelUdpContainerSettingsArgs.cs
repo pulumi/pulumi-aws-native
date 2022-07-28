@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelUdpContainerSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelUdpContainerSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("m2tsSettings")]
         public Input<Inputs.ChannelM2tsSettingsArgs>? M2tsSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelUdpContainerSettingsArgs()
         {
         }
+        public static new ChannelUdpContainerSettingsArgs Empty => new ChannelUdpContainerSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class SubscriptionDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("subscriptions", required: true)]
         private InputList<Inputs.SubscriptionDefinitionSubscriptionArgs>? _subscriptions;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public SubscriptionDefinitionVersionArgs()
         {
         }
+        public static new SubscriptionDefinitionVersionArgs Empty => new SubscriptionDefinitionVersionArgs();
     }
 }

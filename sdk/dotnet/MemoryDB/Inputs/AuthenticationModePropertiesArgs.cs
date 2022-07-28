@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MemoryDB.Inputs
 {
 
-    public sealed class AuthenticationModePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AuthenticationModePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwords")]
         private InputList<string>? _passwords;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public AuthenticationModePropertiesArgs()
         {
         }
+        public static new AuthenticationModePropertiesArgs Empty => new AuthenticationModePropertiesArgs();
     }
 }

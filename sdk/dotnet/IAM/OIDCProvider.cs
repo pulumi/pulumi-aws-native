@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::OIDCProvider
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:OIDCProvider")]
-    public partial class OIDCProvider : Pulumi.CustomResource
+    public partial class OIDCProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the OIDC provider
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class OIDCProviderArgs : Pulumi.ResourceArgs
+    public sealed class OIDCProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientIdList")]
         private InputList<string>? _clientIdList;
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.IAM
         public OIDCProviderArgs()
         {
         }
+        public static new OIDCProviderArgs Empty => new OIDCProviderArgs();
     }
 }

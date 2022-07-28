@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"RateBasedRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:RateBasedRule")]
-    public partial class RateBasedRule : Pulumi.CustomResource
+    public partial class RateBasedRule : global::Pulumi.CustomResource
     {
         [Output("matchPredicates")]
         public Output<ImmutableArray<Outputs.RateBasedRulePredicate>> MatchPredicates { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class RateBasedRuleArgs : Pulumi.ResourceArgs
+    public sealed class RateBasedRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchPredicates")]
         private InputList<Inputs.RateBasedRulePredicateArgs>? _matchPredicates;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public RateBasedRuleArgs()
         {
         }
+        public static new RateBasedRuleArgs Empty => new RateBasedRuleArgs();
     }
 }

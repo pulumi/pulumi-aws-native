@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetMetadataArgs : Pulumi.ResourceArgs
+    public sealed class DatasetMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetMetadataArgs()
         {
         }
+        public static new DatasetMetadataArgs Empty => new DatasetMetadataArgs();
     }
 }

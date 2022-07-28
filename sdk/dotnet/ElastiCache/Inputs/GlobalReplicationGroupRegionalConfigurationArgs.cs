@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class GlobalReplicationGroupRegionalConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalReplicationGroupRegionalConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The replication group id of the Global Datastore member.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public GlobalReplicationGroupRegionalConfigurationArgs()
         {
         }
+        public static new GlobalReplicationGroupRegionalConfigurationArgs Empty => new GlobalReplicationGroupRegionalConfigurationArgs();
     }
 }

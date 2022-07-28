@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A label for tagging Lex resources
     /// </summary>
-    public sealed class BotAliasTagArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasTagArgs()
         {
         }
+        public static new BotAliasTagArgs Empty => new BotAliasTagArgs();
     }
 }

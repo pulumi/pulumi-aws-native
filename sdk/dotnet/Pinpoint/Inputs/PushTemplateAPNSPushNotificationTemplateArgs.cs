@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class PushTemplateAPNSPushNotificationTemplateArgs : Pulumi.ResourceArgs
+    public sealed class PushTemplateAPNSPushNotificationTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public PushTemplateAPNSPushNotificationTemplateArgs()
         {
         }
+        public static new PushTemplateAPNSPushNotificationTemplateArgs Empty => new PushTemplateAPNSPushNotificationTemplateArgs();
     }
 }

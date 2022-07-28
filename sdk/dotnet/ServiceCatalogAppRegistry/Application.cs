@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// Resource Schema for AWS::ServiceCatalogAppRegistry::Application
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the application. 
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

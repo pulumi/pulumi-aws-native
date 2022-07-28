@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class UserHomeDirectoryMapEntryArgs : Pulumi.ResourceArgs
+    public sealed class UserHomeDirectoryMapEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("entry", required: true)]
         public Input<string> Entry { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public UserHomeDirectoryMapEntryArgs()
         {
         }
+        public static new UserHomeDirectoryMapEntryArgs Empty => new UserHomeDirectoryMapEntryArgs();
     }
 }

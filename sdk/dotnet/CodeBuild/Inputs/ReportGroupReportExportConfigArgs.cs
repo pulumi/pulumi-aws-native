@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ReportGroupReportExportConfigArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupReportExportConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("exportConfigType", required: true)]
         public Input<string> ExportConfigType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ReportGroupReportExportConfigArgs()
         {
         }
+        public static new ReportGroupReportExportConfigArgs Empty => new ReportGroupReportExportConfigArgs();
     }
 }

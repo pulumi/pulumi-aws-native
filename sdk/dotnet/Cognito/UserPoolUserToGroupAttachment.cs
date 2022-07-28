@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolUserToGroupAttachment")]
-    public partial class UserPoolUserToGroupAttachment : Pulumi.CustomResource
+    public partial class UserPoolUserToGroupAttachment : global::Pulumi.CustomResource
     {
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolUserToGroupAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolUserToGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolUserToGroupAttachmentArgs()
         {
         }
+        public static new UserPoolUserToGroupAttachmentArgs Empty => new UserPoolUserToGroupAttachmentArgs();
     }
 }

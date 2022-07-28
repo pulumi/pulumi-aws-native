@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamProcessorArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamProcessorArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputList<Inputs.DeliveryStreamProcessorParameterArgs>? _parameters;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamProcessorArgs()
         {
         }
+        public static new DeliveryStreamProcessorArgs Empty => new DeliveryStreamProcessorArgs();
     }
 }

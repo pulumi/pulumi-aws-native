@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
     /// </summary>
-    public sealed class ApplicationCheckpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCheckpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the interval in milliseconds between checkpoint operations.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCheckpointConfigurationArgs()
         {
         }
+        public static new ApplicationCheckpointConfigurationArgs Empty => new ApplicationCheckpointConfigurationArgs();
     }
 }

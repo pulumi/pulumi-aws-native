@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelNielsenWatermarksSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelNielsenWatermarksSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nielsenCbetSettings")]
         public Input<Inputs.ChannelNielsenCBETArgs>? NielsenCbetSettings { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelNielsenWatermarksSettingsArgs()
         {
         }
+        public static new ChannelNielsenWatermarksSettingsArgs Empty => new ChannelNielsenWatermarksSettingsArgs();
     }
 }

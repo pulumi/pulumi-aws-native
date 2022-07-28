@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLCaptchaConfigArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCaptchaConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("immunityTimeProperty")]
         public Input<Inputs.WebACLImmunityTimePropertyArgs>? ImmunityTimeProperty { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLCaptchaConfigArgs()
         {
         }
+        public static new WebACLCaptchaConfigArgs Empty => new WebACLCaptchaConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Creates a gateway task definition.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:TaskDefinition")]
-    public partial class TaskDefinition : Pulumi.CustomResource
+    public partial class TaskDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// TaskDefinition arn. Returned after successful create.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class TaskDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public TaskDefinitionArgs()
         {
         }
+        public static new TaskDefinitionArgs Empty => new TaskDefinitionArgs();
     }
 }

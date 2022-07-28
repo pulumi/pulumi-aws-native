@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Detective.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class GraphTagArgs : Pulumi.ResourceArgs
+    public sealed class GraphTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Detective.Inputs
         public GraphTagArgs()
         {
         }
+        public static new GraphTagArgs Empty => new GraphTagArgs();
     }
 }

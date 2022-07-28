@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class StackUserSettingArgs : Pulumi.ResourceArgs
+    public sealed class StackUserSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public StackUserSettingArgs()
         {
         }
+        public static new StackUserSettingArgs Empty => new StackUserSettingArgs();
     }
 }

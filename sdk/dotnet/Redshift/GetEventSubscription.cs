@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetEventSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetEventSubscriptionArgs()
         {
         }
+        public static new GetEventSubscriptionArgs Empty => new GetEventSubscriptionArgs();
     }
 
-    public sealed class GetEventSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetEventSubscriptionInvokeArgs()
         {
         }
+        public static new GetEventSubscriptionInvokeArgs Empty => new GetEventSubscriptionInvokeArgs();
     }
 
 

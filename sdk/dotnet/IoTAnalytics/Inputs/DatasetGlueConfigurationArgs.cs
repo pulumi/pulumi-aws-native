@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetGlueConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetGlueConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetGlueConfigurationArgs()
         {
         }
+        public static new DatasetGlueConfigurationArgs Empty => new DatasetGlueConfigurationArgs();
     }
 }

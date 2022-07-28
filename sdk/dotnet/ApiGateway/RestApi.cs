@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// </summary>
     [Obsolete(@"RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:RestApi")]
-    public partial class RestApi : Pulumi.CustomResource
+    public partial class RestApi : global::Pulumi.CustomResource
     {
         [Output("apiKeySourceType")]
         public Output<string?> ApiKeySourceType { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class RestApiArgs : Pulumi.ResourceArgs
+    public sealed class RestApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiKeySourceType")]
         public Input<string>? ApiKeySourceType { get; set; }
@@ -167,5 +167,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public RestApiArgs()
         {
         }
+        public static new RestApiArgs Empty => new RestApiArgs();
     }
 }

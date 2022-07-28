@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Database
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
@@ -258,5 +258,6 @@ namespace Pulumi.AwsNative.Lightsail
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

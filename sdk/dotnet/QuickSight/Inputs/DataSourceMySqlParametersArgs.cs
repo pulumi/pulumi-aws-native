@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;MySQL parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceMySqlParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceMySqlParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceMySqlParametersArgs()
         {
         }
+        public static new DataSourceMySqlParametersArgs Empty => new DataSourceMySqlParametersArgs();
     }
 }

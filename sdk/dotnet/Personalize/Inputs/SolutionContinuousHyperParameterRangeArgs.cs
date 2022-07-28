@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Provides the name and range of a continuous hyperparameter.
     /// </summary>
-    public sealed class SolutionContinuousHyperParameterRangeArgs : Pulumi.ResourceArgs
+    public sealed class SolutionContinuousHyperParameterRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum allowable value for the hyperparameter.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionContinuousHyperParameterRangeArgs()
         {
         }
+        public static new SolutionContinuousHyperParameterRangeArgs Empty => new SolutionContinuousHyperParameterRangeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Block traffic towards application.
     /// </summary>
-    public sealed class WebACLBlockActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLBlockActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customResponse")]
         public Input<Inputs.WebACLCustomResponseArgs>? CustomResponse { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLBlockActionArgs()
         {
         }
+        public static new WebACLBlockActionArgs Empty => new WebACLBlockActionArgs();
     }
 }

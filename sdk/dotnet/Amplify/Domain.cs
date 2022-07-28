@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Amplify
     /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
     /// </summary>
     [AwsNativeResourceType("aws-native:amplify:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Amplify
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.Amplify
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

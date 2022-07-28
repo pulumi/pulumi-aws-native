@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.XRay
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the group that was generated on creation.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.XRay
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the group that was generated on creation.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.XRay
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

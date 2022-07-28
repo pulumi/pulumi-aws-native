@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelM2tsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelM2tsSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("absentInputAudioBehavior")]
         public Input<string>? AbsentInputAudioBehavior { get; set; }
@@ -156,5 +156,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelM2tsSettingsArgs()
         {
         }
+        public static new ChannelM2tsSettingsArgs Empty => new ChannelM2tsSettingsArgs();
     }
 }

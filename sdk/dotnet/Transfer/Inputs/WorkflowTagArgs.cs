@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Creates a key-value pair for a specific resource.
     /// </summary>
-    public sealed class WorkflowTagArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name assigned to the tag that you create.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowTagArgs()
         {
         }
+        public static new WorkflowTagArgs Empty => new WorkflowTagArgs();
     }
 }

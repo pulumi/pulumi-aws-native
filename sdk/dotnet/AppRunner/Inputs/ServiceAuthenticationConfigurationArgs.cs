@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Authentication Configuration
     /// </summary>
-    public sealed class ServiceAuthenticationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access Role Arn
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceAuthenticationConfigurationArgs()
         {
         }
+        public static new ServiceAuthenticationConfigurationArgs Empty => new ServiceAuthenticationConfigurationArgs();
     }
 }

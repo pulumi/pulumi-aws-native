@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The criteria by which the behavior is determined to be normal.
     /// </summary>
-    public sealed class SecurityProfileBehaviorCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileBehaviorCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileBehaviorCriteriaArgs()
         {
         }
+        public static new SecurityProfileBehaviorCriteriaArgs Empty => new SecurityProfileBehaviorCriteriaArgs();
     }
 }

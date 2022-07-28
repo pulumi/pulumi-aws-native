@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketReplicationTimeArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationTimeArgs : global::Pulumi.ResourceArgs
     {
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketReplicationTimeStatus> Status { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationTimeArgs()
         {
         }
+        public static new BucketReplicationTimeArgs Empty => new BucketReplicationTimeArgs();
     }
 }

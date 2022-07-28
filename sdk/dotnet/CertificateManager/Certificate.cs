@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CertificateManager
     /// </summary>
     [Obsolete(@"Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:certificatemanager:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         [Output("certificateAuthorityArn")]
         public Output<string?> CertificateAuthorityArn { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.CertificateManager
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.CertificateManager
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

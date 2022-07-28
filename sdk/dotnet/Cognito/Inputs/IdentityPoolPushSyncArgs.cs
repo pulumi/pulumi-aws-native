@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolPushSyncArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolPushSyncArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationArns")]
         private InputList<string>? _applicationArns;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public IdentityPoolPushSyncArgs()
         {
         }
+        public static new IdentityPoolPushSyncArgs Empty => new IdentityPoolPushSyncArgs();
     }
 }

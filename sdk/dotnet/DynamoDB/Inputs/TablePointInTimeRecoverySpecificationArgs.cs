@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class TablePointInTimeRecoverySpecificationArgs : Pulumi.ResourceArgs
+    public sealed class TablePointInTimeRecoverySpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("pointInTimeRecoveryEnabled")]
         public Input<bool>? PointInTimeRecoveryEnabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public TablePointInTimeRecoverySpecificationArgs()
         {
         }
+        public static new TablePointInTimeRecoverySpecificationArgs Empty => new TablePointInTimeRecoverySpecificationArgs();
     }
 }

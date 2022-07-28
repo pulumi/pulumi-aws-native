@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
 
-    public sealed class GetPackagingGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetPackagingGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the PackagingGroup.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetPackagingGroupArgs()
         {
         }
+        public static new GetPackagingGroupArgs Empty => new GetPackagingGroupArgs();
     }
 
-    public sealed class GetPackagingGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPackagingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the PackagingGroup.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetPackagingGroupInvokeArgs()
         {
         }
+        public static new GetPackagingGroupInvokeArgs Empty => new GetPackagingGroupInvokeArgs();
     }
 
 

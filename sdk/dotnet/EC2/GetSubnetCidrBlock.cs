@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetSubnetCidrBlockArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetCidrBlockArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetCidrBlockArgs()
         {
         }
+        public static new GetSubnetCidrBlockArgs Empty => new GetSubnetCidrBlockArgs();
     }
 
-    public sealed class GetSubnetCidrBlockInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetCidrBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetCidrBlockInvokeArgs()
         {
         }
+        public static new GetSubnetCidrBlockInvokeArgs Empty => new GetSubnetCidrBlockInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class PublicKeyConfigArgs : Pulumi.ResourceArgs
+    public sealed class PublicKeyConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("callerReference", required: true)]
         public Input<string> CallerReference { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public PublicKeyConfigArgs()
         {
         }
+        public static new PublicKeyConfigArgs Empty => new PublicKeyConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
-    public sealed class KeyspaceTagArgs : Pulumi.ResourceArgs
+    public sealed class KeyspaceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public KeyspaceTagArgs()
         {
         }
+        public static new KeyspaceTagArgs Empty => new KeyspaceTagArgs();
     }
 }

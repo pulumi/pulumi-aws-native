@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
 
-    public sealed class GetResolverRuleAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary Identifier for Resolver Rule Association
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverRuleAssociationArgs()
         {
         }
+        public static new GetResolverRuleAssociationArgs Empty => new GetResolverRuleAssociationArgs();
     }
 
-    public sealed class GetResolverRuleAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Primary Identifier for Resolver Rule Association
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverRuleAssociationInvokeArgs()
         {
         }
+        public static new GetResolverRuleAssociationInvokeArgs Empty => new GetResolverRuleAssociationInvokeArgs();
     }
 
 

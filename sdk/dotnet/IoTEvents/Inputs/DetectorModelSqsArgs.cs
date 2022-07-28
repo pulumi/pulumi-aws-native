@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
-    public sealed class DetectorModelSqsArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelSqsArgs : global::Pulumi.ResourceArgs
     {
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelSqsArgs()
         {
         }
+        public static new DetectorModelSqsArgs Empty => new DetectorModelSqsArgs();
     }
 }

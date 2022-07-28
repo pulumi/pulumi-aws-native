@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information needed to clear the timer.
     /// </summary>
-    public sealed class DetectorModelClearTimerArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelClearTimerArgs : global::Pulumi.ResourceArgs
     {
         [Input("timerName", required: true)]
         public Input<string> TimerName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelClearTimerArgs()
         {
         }
+        public static new DetectorModelClearTimerArgs Empty => new DetectorModelClearTimerArgs();
     }
 }

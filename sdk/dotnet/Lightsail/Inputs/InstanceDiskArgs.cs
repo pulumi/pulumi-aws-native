@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Disk associated with the Instance.
     /// </summary>
-    public sealed class InstanceDiskArgs : Pulumi.ResourceArgs
+    public sealed class InstanceDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Instance attached to the disk.
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceDiskArgs()
         {
         }
+        public static new InstanceDiskArgs Empty => new InstanceDiskArgs();
     }
 }

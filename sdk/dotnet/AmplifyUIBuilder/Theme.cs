@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     /// Definition of AWS::AmplifyUIBuilder::Theme Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:amplifyuibuilder:Theme")]
-    public partial class Theme : Pulumi.CustomResource
+    public partial class Theme : global::Pulumi.CustomResource
     {
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         }
     }
 
-    public sealed class ThemeArgs : Pulumi.ResourceArgs
+    public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public ThemeArgs()
         {
         }
+        public static new ThemeArgs Empty => new ThemeArgs();
     }
 }

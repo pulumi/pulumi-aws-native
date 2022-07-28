@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB
     /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
     /// </summary>
     [AwsNativeResourceType("aws-native:memorydb:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the subnet group.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.MemoryDB
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional description of the subnet group.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.MemoryDB
         public SubnetGroupArgs()
         {
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 }

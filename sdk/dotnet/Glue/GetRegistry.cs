@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name for the created Registry.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Glue
         public GetRegistryArgs()
         {
         }
+        public static new GetRegistryArgs Empty => new GetRegistryArgs();
     }
 
-    public sealed class GetRegistryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name for the created Registry.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Glue
         public GetRegistryInvokeArgs()
         {
         }
+        public static new GetRegistryInvokeArgs Empty => new GetRegistryInvokeArgs();
     }
 
 

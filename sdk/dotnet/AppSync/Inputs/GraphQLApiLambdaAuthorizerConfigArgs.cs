@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiLambdaAuthorizerConfigArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiLambdaAuthorizerConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizerResultTtlInSeconds")]
         public Input<double>? AuthorizerResultTtlInSeconds { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public GraphQLApiLambdaAuthorizerConfigArgs()
         {
         }
+        public static new GraphQLApiLambdaAuthorizerConfigArgs Empty => new GraphQLApiLambdaAuthorizerConfigArgs();
     }
 }

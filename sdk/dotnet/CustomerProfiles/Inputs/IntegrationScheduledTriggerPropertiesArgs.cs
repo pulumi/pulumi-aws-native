@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationScheduledTriggerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationScheduledTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataPullMode")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationScheduledTriggerPropertiesArgs()
         {
         }
+        public static new IntegrationScheduledTriggerPropertiesArgs Empty => new IntegrationScheduledTriggerPropertiesArgs();
     }
 }

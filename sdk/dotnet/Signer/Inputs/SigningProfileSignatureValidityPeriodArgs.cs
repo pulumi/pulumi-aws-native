@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Signer.Inputs
 {
 
-    public sealed class SigningProfileSignatureValidityPeriodArgs : Pulumi.ResourceArgs
+    public sealed class SigningProfileSignatureValidityPeriodArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public Input<Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType>? Type { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Signer.Inputs
         public SigningProfileSignatureValidityPeriodArgs()
         {
         }
+        public static new SigningProfileSignatureValidityPeriodArgs Empty => new SigningProfileSignatureValidityPeriodArgs();
     }
 }

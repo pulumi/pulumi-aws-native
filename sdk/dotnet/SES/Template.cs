@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES
     /// Resource Type definition for AWS::SES::Template
     /// </summary>
     [AwsNativeResourceType("aws-native:ses:Template")]
-    public partial class Template : Pulumi.CustomResource
+    public partial class Template : global::Pulumi.CustomResource
     {
         [Output("template")]
         public Output<Outputs.Template?> TemplateValue { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class TemplateArgs : Pulumi.ResourceArgs
+    public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("template")]
         public Input<Inputs.TemplateArgs>? TemplateValue { get; set; }
@@ -69,5 +69,6 @@ namespace Pulumi.AwsNative.SES
         public TemplateArgs()
         {
         }
+        public static new TemplateArgs Empty => new TemplateArgs();
     }
 }

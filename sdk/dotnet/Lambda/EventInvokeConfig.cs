@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lambda
     /// </summary>
     [Obsolete(@"EventInvokeConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:EventInvokeConfig")]
-    public partial class EventInvokeConfig : Pulumi.CustomResource
+    public partial class EventInvokeConfig : global::Pulumi.CustomResource
     {
         [Output("destinationConfig")]
         public Output<Outputs.EventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class EventInvokeConfigArgs : Pulumi.ResourceArgs
+    public sealed class EventInvokeConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationConfig")]
         public Input<Inputs.EventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.Lambda
         public EventInvokeConfigArgs()
         {
         }
+        public static new EventInvokeConfigArgs Empty => new EventInvokeConfigArgs();
     }
 }

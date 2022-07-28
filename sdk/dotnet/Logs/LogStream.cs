@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Logs
     /// </summary>
     [Obsolete(@"LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:LogStream")]
-    public partial class LogStream : Pulumi.CustomResource
+    public partial class LogStream : global::Pulumi.CustomResource
     {
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class LogStreamArgs : Pulumi.ResourceArgs
+    public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.Logs
         public LogStreamArgs()
         {
         }
+        public static new LogStreamArgs Empty => new LogStreamArgs();
     }
 }

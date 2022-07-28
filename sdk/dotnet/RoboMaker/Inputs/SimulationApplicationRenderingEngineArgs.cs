@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
     /// <summary>
     /// Information about a rendering engine.
     /// </summary>
-    public sealed class SimulationApplicationRenderingEngineArgs : Pulumi.ResourceArgs
+    public sealed class SimulationApplicationRenderingEngineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the rendering engine.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         public SimulationApplicationRenderingEngineArgs()
         {
         }
+        public static new SimulationApplicationRenderingEngineArgs Empty => new SimulationApplicationRenderingEngineArgs();
     }
 }

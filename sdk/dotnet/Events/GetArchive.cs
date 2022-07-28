@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
     }
 
 
-    public sealed class GetArchiveArgs : Pulumi.InvokeArgs
+    public sealed class GetArchiveArgs : global::Pulumi.InvokeArgs
     {
         [Input("archiveName", required: true)]
         public string ArchiveName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Events
         public GetArchiveArgs()
         {
         }
+        public static new GetArchiveArgs Empty => new GetArchiveArgs();
     }
 
-    public sealed class GetArchiveInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetArchiveInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("archiveName", required: true)]
         public Input<string> ArchiveName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Events
         public GetArchiveInvokeArgs()
         {
         }
+        public static new GetArchiveInvokeArgs Empty => new GetArchiveInvokeArgs();
     }
 
 

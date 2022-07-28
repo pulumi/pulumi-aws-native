@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetInfrastructureConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetInfrastructureConfigurationArgs()
         {
         }
+        public static new GetInfrastructureConfigurationArgs Empty => new GetInfrastructureConfigurationArgs();
     }
 
-    public sealed class GetInfrastructureConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetInfrastructureConfigurationInvokeArgs()
         {
         }
+        public static new GetInfrastructureConfigurationInvokeArgs Empty => new GetInfrastructureConfigurationInvokeArgs();
     }
 
 

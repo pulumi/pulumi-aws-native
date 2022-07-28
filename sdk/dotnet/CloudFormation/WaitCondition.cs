@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// </summary>
     [Obsolete(@"WaitCondition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudformation:WaitCondition")]
-    public partial class WaitCondition : Pulumi.CustomResource
+    public partial class WaitCondition : global::Pulumi.CustomResource
     {
         [Output("count")]
         public Output<int?> Count { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class WaitConditionArgs : Pulumi.ResourceArgs
+    public sealed class WaitConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -85,5 +85,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public WaitConditionArgs()
         {
         }
+        public static new WaitConditionArgs Empty => new WaitConditionArgs();
     }
 }

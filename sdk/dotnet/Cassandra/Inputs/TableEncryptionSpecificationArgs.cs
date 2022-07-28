@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// <summary>
     /// Represents the settings used to enable server-side encryption
     /// </summary>
-    public sealed class TableEncryptionSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class TableEncryptionSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.Cassandra.TableEncryptionType> EncryptionType { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableEncryptionSpecificationArgs()
         {
         }
+        public static new TableEncryptionSpecificationArgs Empty => new TableEncryptionSpecificationArgs();
     }
 }

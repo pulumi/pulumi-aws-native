@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionVolumeArgs()
         {
         }
+        public static new TaskDefinitionVolumeArgs Empty => new TaskDefinitionVolumeArgs();
     }
 }

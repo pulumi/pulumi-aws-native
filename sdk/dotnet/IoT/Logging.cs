@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Logging")]
-    public partial class Logging : Pulumi.CustomResource
+    public partial class Logging : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class LoggingArgs : Pulumi.ResourceArgs
+    public sealed class LoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.IoT
         public LoggingArgs()
         {
         }
+        public static new LoggingArgs Empty => new LoggingArgs();
     }
 }

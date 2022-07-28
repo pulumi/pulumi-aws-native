@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class PermissionsTableWildcardArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsTableWildcardArgs : global::Pulumi.ResourceArgs
     {
         public PermissionsTableWildcardArgs()
         {
         }
+        public static new PermissionsTableWildcardArgs Empty => new PermissionsTableWildcardArgs();
     }
 }

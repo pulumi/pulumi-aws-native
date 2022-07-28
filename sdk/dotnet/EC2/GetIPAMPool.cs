@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetIPAMPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetIPAMPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the IPAM Pool.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetIPAMPoolArgs()
         {
         }
+        public static new GetIPAMPoolArgs Empty => new GetIPAMPoolArgs();
     }
 
-    public sealed class GetIPAMPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIPAMPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the IPAM Pool.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetIPAMPoolInvokeArgs()
         {
         }
+        public static new GetIPAMPoolInvokeArgs Empty => new GetIPAMPoolInvokeArgs();
     }
 
 

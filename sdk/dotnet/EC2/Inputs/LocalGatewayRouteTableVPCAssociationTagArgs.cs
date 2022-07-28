@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LocalGatewayRouteTableVPCAssociationTagArgs : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteTableVPCAssociationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LocalGatewayRouteTableVPCAssociationTagArgs()
         {
         }
+        public static new LocalGatewayRouteTableVPCAssociationTagArgs Empty => new LocalGatewayRouteTableVPCAssociationTagArgs();
     }
 }

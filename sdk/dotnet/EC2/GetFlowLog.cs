@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetFlowLogArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowLogArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Flow Log ID
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetFlowLogArgs()
         {
         }
+        public static new GetFlowLogArgs Empty => new GetFlowLogArgs();
     }
 
-    public sealed class GetFlowLogInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowLogInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Flow Log ID
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetFlowLogInvokeArgs()
         {
         }
+        public static new GetFlowLogInvokeArgs Empty => new GetFlowLogInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KMS
     }
 
 
-    public sealed class GetAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.KMS
         public GetAliasArgs()
         {
         }
+        public static new GetAliasArgs Empty => new GetAliasArgs();
     }
 
-    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.KMS
         public GetAliasInvokeArgs()
         {
         }
+        public static new GetAliasInvokeArgs Empty => new GetAliasInvokeArgs();
     }
 
 

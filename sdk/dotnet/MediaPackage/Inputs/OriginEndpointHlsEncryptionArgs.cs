@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// An HTTP Live Streaming (HLS) encryption configuration.
     /// </summary>
-    public sealed class OriginEndpointHlsEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointHlsEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointHlsEncryptionArgs()
         {
         }
+        public static new OriginEndpointHlsEncryptionArgs Empty => new OriginEndpointHlsEncryptionArgs();
     }
 }

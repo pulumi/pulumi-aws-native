@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Defines block device mappings for the instance used to configure your image. 
     /// </summary>
-    public sealed class ContainerRecipeInstanceBlockDeviceMappingArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeInstanceBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device to which these mappings apply.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ContainerRecipeInstanceBlockDeviceMappingArgs()
         {
         }
+        public static new ContainerRecipeInstanceBlockDeviceMappingArgs Empty => new ContainerRecipeInstanceBlockDeviceMappingArgs();
     }
 }

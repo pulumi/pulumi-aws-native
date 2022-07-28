@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupPlanLifecycleResourceTypeArgs : Pulumi.ResourceArgs
+    public sealed class BackupPlanLifecycleResourceTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteAfterDays")]
         public Input<double>? DeleteAfterDays { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupPlanLifecycleResourceTypeArgs()
         {
         }
+        public static new BackupPlanLifecycleResourceTypeArgs Empty => new BackupPlanLifecycleResourceTypeArgs();
     }
 }

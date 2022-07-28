@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
     /// </summary>
-    public sealed class BotFulfillmentStartResponseSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotFulfillmentStartResponseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether the user can interrupt the start message while it is playing.
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotFulfillmentStartResponseSpecificationArgs()
         {
         }
+        public static new BotFulfillmentStartResponseSpecificationArgs Empty => new BotFulfillmentStartResponseSpecificationArgs();
     }
 }

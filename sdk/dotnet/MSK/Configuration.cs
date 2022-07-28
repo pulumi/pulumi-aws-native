@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MSK
     /// Resource Type definition for AWS::MSK::Configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:msk:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.MSK
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -95,5 +95,6 @@ namespace Pulumi.AwsNative.MSK
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

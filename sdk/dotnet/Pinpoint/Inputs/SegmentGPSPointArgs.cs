@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class SegmentGPSPointArgs : Pulumi.ResourceArgs
+    public sealed class SegmentGPSPointArgs : global::Pulumi.ResourceArgs
     {
         [Input("coordinates", required: true)]
         public Input<Inputs.SegmentCoordinatesArgs> Coordinates { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public SegmentGPSPointArgs()
         {
         }
+        public static new SegmentGPSPointArgs Empty => new SegmentGPSPointArgs();
     }
 }

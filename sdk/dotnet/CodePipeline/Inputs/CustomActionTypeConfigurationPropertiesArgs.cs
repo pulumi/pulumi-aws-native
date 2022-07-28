@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class CustomActionTypeConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CustomActionTypeConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public CustomActionTypeConfigurationPropertiesArgs()
         {
         }
+        public static new CustomActionTypeConfigurationPropertiesArgs Empty => new CustomActionTypeConfigurationPropertiesArgs();
     }
 }

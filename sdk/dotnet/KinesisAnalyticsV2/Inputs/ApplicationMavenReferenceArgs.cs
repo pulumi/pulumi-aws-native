@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
     /// </summary>
-    public sealed class ApplicationMavenReferenceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMavenReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The artifact ID of the Maven reference.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationMavenReferenceArgs()
         {
         }
+        public static new ApplicationMavenReferenceArgs Empty => new ApplicationMavenReferenceArgs();
     }
 }

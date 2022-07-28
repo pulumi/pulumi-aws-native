@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyCorsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyCorsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlAllowCredentials", required: true)]
         public Input<bool> AccessControlAllowCredentials { get; set; } = null!;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyCorsConfigArgs()
         {
         }
+        public static new ResponseHeadersPolicyCorsConfigArgs Empty => new ResponseHeadersPolicyCorsConfigArgs();
     }
 }

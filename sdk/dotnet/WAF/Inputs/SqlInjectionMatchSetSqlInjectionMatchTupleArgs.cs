@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleArgs : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.SqlInjectionMatchSetFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public SqlInjectionMatchSetSqlInjectionMatchTupleArgs()
         {
         }
+        public static new SqlInjectionMatchSetSqlInjectionMatchTupleArgs Empty => new SqlInjectionMatchSetSqlInjectionMatchTupleArgs();
     }
 }

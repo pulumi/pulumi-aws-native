@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// <summary>
     /// Configures settings for all methods in a stage.
     /// </summary>
-    public sealed class StageMethodSettingArgs : Pulumi.ResourceArgs
+    public sealed class StageMethodSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the cached responses are encrypted.
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public StageMethodSettingArgs()
         {
         }
+        public static new StageMethodSettingArgs Empty => new StageMethodSettingArgs();
     }
 }

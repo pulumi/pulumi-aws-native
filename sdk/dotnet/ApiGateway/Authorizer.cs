@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
@@ -192,5 +192,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 }

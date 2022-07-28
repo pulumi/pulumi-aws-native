@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the certificate.
@@ -132,5 +132,6 @@ namespace Pulumi.AwsNative.Lightsail
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

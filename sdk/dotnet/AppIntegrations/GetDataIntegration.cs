@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppIntegrations
     }
 
 
-    public sealed class GetDataIntegrationArgs : Pulumi.InvokeArgs
+    public sealed class GetDataIntegrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifer of the data integration.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         public GetDataIntegrationArgs()
         {
         }
+        public static new GetDataIntegrationArgs Empty => new GetDataIntegrationArgs();
     }
 
-    public sealed class GetDataIntegrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifer of the data integration.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         public GetDataIntegrationInvokeArgs()
         {
         }
+        public static new GetDataIntegrationInvokeArgs Empty => new GetDataIntegrationInvokeArgs();
     }
 
 

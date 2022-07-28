@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Amazon Elasticsearch Service parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceAmazonElasticsearchParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAmazonElasticsearchParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Elasticsearch Service domain.&lt;/p&gt;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceAmazonElasticsearchParametersArgs()
         {
         }
+        public static new DataSourceAmazonElasticsearchParametersArgs Empty => new DataSourceAmazonElasticsearchParametersArgs();
     }
 }

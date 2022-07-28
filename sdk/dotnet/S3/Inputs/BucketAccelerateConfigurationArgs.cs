@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketAccelerateConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketAccelerateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures the transfer acceleration state for an Amazon S3 bucket.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketAccelerateConfigurationArgs()
         {
         }
+        public static new BucketAccelerateConfigurationArgs Empty => new BucketAccelerateConfigurationArgs();
     }
 }

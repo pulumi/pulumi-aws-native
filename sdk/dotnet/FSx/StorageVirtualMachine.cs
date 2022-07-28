@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.FSx
     /// </summary>
     [Obsolete(@"StorageVirtualMachine is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:fsx:StorageVirtualMachine")]
-    public partial class StorageVirtualMachine : Pulumi.CustomResource
+    public partial class StorageVirtualMachine : global::Pulumi.CustomResource
     {
         [Output("activeDirectoryConfiguration")]
         public Output<Outputs.StorageVirtualMachineActiveDirectoryConfiguration?> ActiveDirectoryConfiguration { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.FSx
         }
     }
 
-    public sealed class StorageVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class StorageVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeDirectoryConfiguration")]
         public Input<Inputs.StorageVirtualMachineActiveDirectoryConfigurationArgs>? ActiveDirectoryConfiguration { get; set; }
@@ -114,5 +114,6 @@ namespace Pulumi.AwsNative.FSx
         public StorageVirtualMachineArgs()
         {
         }
+        public static new StorageVirtualMachineArgs Empty => new StorageVirtualMachineArgs();
     }
 }

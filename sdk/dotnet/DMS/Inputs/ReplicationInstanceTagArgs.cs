@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class ReplicationInstanceTagArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationInstanceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public ReplicationInstanceTagArgs()
         {
         }
+        public static new ReplicationInstanceTagArgs Empty => new ReplicationInstanceTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// <summary>
     /// Tagged resource for DevOps Guru to monitor
     /// </summary>
-    public sealed class ResourceCollectionTagCollectionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceCollectionTagCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Tag key for DevOps Guru app boundary.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         public ResourceCollectionTagCollectionArgs()
         {
         }
+        public static new ResourceCollectionTagCollectionArgs Empty => new ResourceCollectionTagCollectionArgs();
     }
 }

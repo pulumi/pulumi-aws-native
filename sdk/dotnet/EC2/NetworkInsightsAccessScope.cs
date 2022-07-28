@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource schema for AWS::EC2::NetworkInsightsAccessScope
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAccessScope")]
-    public partial class NetworkInsightsAccessScope : Pulumi.CustomResource
+    public partial class NetworkInsightsAccessScope : global::Pulumi.CustomResource
     {
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInsightsAccessScopeArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsAccessScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludePaths")]
         private InputList<Inputs.NetworkInsightsAccessScopeAccessScopePathRequestArgs>? _excludePaths;
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInsightsAccessScopeArgs()
         {
         }
+        public static new NetworkInsightsAccessScopeArgs Empty => new NetworkInsightsAccessScopeArgs();
     }
 }

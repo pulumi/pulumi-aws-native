@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Project.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Dataset name
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dataset name
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.DataBrew
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

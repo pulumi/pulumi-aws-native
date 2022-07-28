@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DomainNameEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("types")]
         private InputList<string>? _types;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DomainNameEndpointConfigurationArgs()
         {
         }
+        public static new DomainNameEndpointConfigurationArgs Empty => new DomainNameEndpointConfigurationArgs();
     }
 }

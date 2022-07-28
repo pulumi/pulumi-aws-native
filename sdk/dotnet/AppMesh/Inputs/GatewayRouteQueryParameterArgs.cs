@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteQueryParameterArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteQueryParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("match")]
         public Input<Inputs.GatewayRouteHttpQueryParameterMatchArgs>? Match { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public GatewayRouteQueryParameterArgs()
         {
         }
+        public static new GatewayRouteQueryParameterArgs Empty => new GatewayRouteQueryParameterArgs();
     }
 }

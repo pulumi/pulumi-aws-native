@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetInstanceRequirementsRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetInstanceRequirementsRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorCount")]
         public Input<Inputs.EC2FleetAcceleratorCountRequestArgs>? AcceleratorCount { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetInstanceRequirementsRequestArgs()
         {
         }
+        public static new EC2FleetInstanceRequirementsRequestArgs Empty => new EC2FleetInstanceRequirementsRequestArgs();
     }
 }

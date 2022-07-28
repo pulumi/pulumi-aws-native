@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
     /// </summary>
-    public sealed class CertificateApiPassthroughArgs : Pulumi.ResourceArgs
+    public sealed class CertificateApiPassthroughArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensions")]
         public Input<Inputs.CertificateExtensionsArgs>? Extensions { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateApiPassthroughArgs()
         {
         }
+        public static new CertificateApiPassthroughArgs Empty => new CertificateApiPassthroughArgs();
     }
 }

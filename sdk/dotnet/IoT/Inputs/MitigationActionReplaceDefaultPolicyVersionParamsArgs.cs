@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
     /// </summary>
-    public sealed class MitigationActionReplaceDefaultPolicyVersionParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionReplaceDefaultPolicyVersionParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("templateName", required: true)]
         public Input<Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName> TemplateName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionReplaceDefaultPolicyVersionParamsArgs()
         {
         }
+        public static new MitigationActionReplaceDefaultPolicyVersionParamsArgs Empty => new MitigationActionReplaceDefaultPolicyVersionParamsArgs();
     }
 }

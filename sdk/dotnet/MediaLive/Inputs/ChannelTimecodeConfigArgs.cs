@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelTimecodeConfigArgs : Pulumi.ResourceArgs
+    public sealed class ChannelTimecodeConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelTimecodeConfigArgs()
         {
         }
+        public static new ChannelTimecodeConfigArgs Empty => new ChannelTimecodeConfigArgs();
     }
 }

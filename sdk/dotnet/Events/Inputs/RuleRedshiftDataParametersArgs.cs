@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleRedshiftDataParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleRedshiftDataParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleRedshiftDataParametersArgs()
         {
         }
+        public static new RuleRedshiftDataParametersArgs Empty => new RuleRedshiftDataParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;A configuration for a streaming session.&lt;/p&gt;
     /// </summary>
-    public sealed class LaunchProfileStreamConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchProfileStreamConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("clipboardMode", required: true)]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode> ClipboardMode { get; set; } = null!;
@@ -74,5 +74,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public LaunchProfileStreamConfigurationArgs()
         {
         }
+        public static new LaunchProfileStreamConfigurationArgs Empty => new LaunchProfileStreamConfigurationArgs();
     }
 }

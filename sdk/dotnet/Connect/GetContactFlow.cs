@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetContactFlowArgs : Pulumi.InvokeArgs
+    public sealed class GetContactFlowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the contact flow (ARN).
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetContactFlowArgs()
         {
         }
+        public static new GetContactFlowArgs Empty => new GetContactFlowArgs();
     }
 
-    public sealed class GetContactFlowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContactFlowInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the contact flow (ARN).
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetContactFlowInvokeArgs()
         {
         }
+        public static new GetContactFlowInvokeArgs Empty => new GetContactFlowInvokeArgs();
     }
 
 

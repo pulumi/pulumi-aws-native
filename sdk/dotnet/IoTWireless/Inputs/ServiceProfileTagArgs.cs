@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class ServiceProfileTagArgs : Pulumi.ResourceArgs
+    public sealed class ServiceProfileTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public ServiceProfileTagArgs()
         {
         }
+        public static new ServiceProfileTagArgs Empty => new ServiceProfileTagArgs();
     }
 }

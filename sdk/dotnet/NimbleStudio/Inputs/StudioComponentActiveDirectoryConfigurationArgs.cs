@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.&lt;/p&gt;
     /// </summary>
-    public sealed class StudioComponentActiveDirectoryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentActiveDirectoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("computerAttributes")]
         private InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs>? _computerAttributes;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public StudioComponentActiveDirectoryConfigurationArgs()
         {
         }
+        public static new StudioComponentActiveDirectoryConfigurationArgs Empty => new StudioComponentActiveDirectoryConfigurationArgs();
     }
 }

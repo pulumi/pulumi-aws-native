@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra
     /// A Kendra FAQ resource
     /// </summary>
     [AwsNativeResourceType("aws-native:kendra:Faq")]
-    public partial class Faq : Pulumi.CustomResource
+    public partial class Faq : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Kendra
         }
     }
 
-    public sealed class FaqArgs : Pulumi.ResourceArgs
+    public sealed class FaqArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// FAQ description
@@ -156,5 +156,6 @@ namespace Pulumi.AwsNative.Kendra
         public FaqArgs()
         {
         }
+        public static new FaqArgs Empty => new FaqArgs();
     }
 }

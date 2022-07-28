@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:SubscriptionDefinitionVersion")]
-    public partial class SubscriptionDefinitionVersion : Pulumi.CustomResource
+    public partial class SubscriptionDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("subscriptionDefinitionId")]
         public Output<string> SubscriptionDefinitionId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class SubscriptionDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("subscriptionDefinitionId", required: true)]
         public Input<string> SubscriptionDefinitionId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Greengrass
         public SubscriptionDefinitionVersionArgs()
         {
         }
+        public static new SubscriptionDefinitionVersionArgs Empty => new SubscriptionDefinitionVersionArgs();
     }
 }

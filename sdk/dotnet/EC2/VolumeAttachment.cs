@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VolumeAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VolumeAttachment")]
-    public partial class VolumeAttachment : Pulumi.CustomResource
+    public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
         [Output("device")]
         public Output<string> Device { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VolumeAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("device", required: true)]
         public Input<string> Device { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.EC2
         public VolumeAttachmentArgs()
         {
         }
+        public static new VolumeAttachmentArgs Empty => new VolumeAttachmentArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceGroupConfigEbsBlockDeviceConfigArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupConfigEbsBlockDeviceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("volumeSpecification", required: true)]
         public Input<Inputs.InstanceGroupConfigVolumeSpecificationArgs> VolumeSpecification { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceGroupConfigEbsBlockDeviceConfigArgs()
         {
         }
+        public static new InstanceGroupConfigEbsBlockDeviceConfigArgs Empty => new InstanceGroupConfigEbsBlockDeviceConfigArgs();
     }
 }

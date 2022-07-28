@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionEphemeralStorageArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("sizeInGiB")]
         public Input<int>? SizeInGiB { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionEphemeralStorageArgs()
         {
         }
+        public static new TaskDefinitionEphemeralStorageArgs Empty => new TaskDefinitionEphemeralStorageArgs();
     }
 }

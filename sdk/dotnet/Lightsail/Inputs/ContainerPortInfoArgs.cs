@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lightsail.Inputs
 {
 
-    public sealed class ContainerPortInfoArgs : Pulumi.ResourceArgs
+    public sealed class ContainerPortInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerPortInfoArgs()
         {
         }
+        public static new ContainerPortInfoArgs Empty => new ContainerPortInfoArgs();
     }
 }

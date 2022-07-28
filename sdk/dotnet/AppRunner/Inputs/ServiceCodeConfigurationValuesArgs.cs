@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Code Configuration Values
     /// </summary>
-    public sealed class ServiceCodeConfigurationValuesArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCodeConfigurationValuesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Build Command
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceCodeConfigurationValuesArgs()
         {
         }
+        public static new ServiceCodeConfigurationValuesArgs Empty => new ServiceCodeConfigurationValuesArgs();
     }
 }

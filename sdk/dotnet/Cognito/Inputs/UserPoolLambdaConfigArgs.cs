@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolLambdaConfigArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolLambdaConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("createAuthChallenge")]
         public Input<string>? CreateAuthChallenge { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolLambdaConfigArgs()
         {
         }
+        public static new UserPoolLambdaConfigArgs Empty => new UserPoolLambdaConfigArgs();
     }
 }

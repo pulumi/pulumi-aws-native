@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupStatelessRuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupStatelessRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupStatelessRuleArgs()
         {
         }
+        public static new RuleGroupStatelessRuleArgs Empty => new RuleGroupStatelessRuleArgs();
     }
 }

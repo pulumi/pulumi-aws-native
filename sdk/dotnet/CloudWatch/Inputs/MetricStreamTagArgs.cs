@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     /// <summary>
     /// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
     /// </summary>
-    public sealed class MetricStreamTagArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public MetricStreamTagArgs()
         {
         }
+        public static new MetricStreamTagArgs Empty => new MetricStreamTagArgs();
     }
 }

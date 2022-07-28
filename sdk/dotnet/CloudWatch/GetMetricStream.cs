@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetMetricStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the metric stream.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetMetricStreamArgs()
         {
         }
+        public static new GetMetricStreamArgs Empty => new GetMetricStreamArgs();
     }
 
-    public sealed class GetMetricStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the metric stream.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetMetricStreamInvokeArgs()
         {
         }
+        public static new GetMetricStreamInvokeArgs Empty => new GetMetricStreamInvokeArgs();
     }
 
 

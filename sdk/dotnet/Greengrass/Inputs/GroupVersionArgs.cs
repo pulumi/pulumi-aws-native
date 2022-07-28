@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class GroupVersionArgs : Pulumi.ResourceArgs
+    public sealed class GroupVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorDefinitionVersionArn")]
         public Input<string>? ConnectorDefinitionVersionArn { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public GroupVersionArgs()
         {
         }
+        public static new GroupVersionArgs Empty => new GroupVersionArgs();
     }
 }

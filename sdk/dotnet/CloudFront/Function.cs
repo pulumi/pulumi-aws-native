@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::Function
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         [Output("autoPublish")]
         public Output<bool?> AutoPublish { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoPublish")]
         public Input<bool>? AutoPublish { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.CloudFront
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 }

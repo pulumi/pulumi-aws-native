@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileMarketoConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileMarketoConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Marketo resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileMarketoConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileMarketoConnectorProfilePropertiesArgs Empty => new ConnectorProfileMarketoConnectorProfilePropertiesArgs();
     }
 }

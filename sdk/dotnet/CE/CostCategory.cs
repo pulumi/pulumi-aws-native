@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CE
     /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
     /// </summary>
     [AwsNativeResourceType("aws-native:ce:CostCategory")]
-    public partial class CostCategory : Pulumi.CustomResource
+    public partial class CostCategory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cost category ARN
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.CE
         }
     }
 
-    public sealed class CostCategoryArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for the cost category
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.CE
         public CostCategoryArgs()
         {
         }
+        public static new CostCategoryArgs Empty => new CostCategoryArgs();
     }
 }

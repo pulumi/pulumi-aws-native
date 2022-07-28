@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetAliasArgs()
         {
         }
+        public static new GetAliasArgs Empty => new GetAliasArgs();
     }
 
-    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetAliasInvokeArgs()
         {
         }
+        public static new GetAliasInvokeArgs Empty => new GetAliasInvokeArgs();
     }
 
 

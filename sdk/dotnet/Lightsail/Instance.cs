@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Instance
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of objects representing the add-ons to enable for the new instance.
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("addOns")]
         private InputList<Inputs.InstanceAddOnArgs>? _addOns;
@@ -240,5 +240,6 @@ namespace Pulumi.AwsNative.Lightsail
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 }

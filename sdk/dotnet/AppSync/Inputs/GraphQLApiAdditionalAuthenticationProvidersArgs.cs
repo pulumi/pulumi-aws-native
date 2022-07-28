@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiAdditionalAuthenticationProvidersArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiAdditionalAuthenticationProvidersArgs : global::Pulumi.ResourceArgs
     {
         public GraphQLApiAdditionalAuthenticationProvidersArgs()
         {
         }
+        public static new GraphQLApiAdditionalAuthenticationProvidersArgs Empty => new GraphQLApiAdditionalAuthenticationProvidersArgs();
     }
 }

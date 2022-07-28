@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3
     }
 
 
-    public sealed class GetBucketArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3
         public GetBucketArgs()
         {
         }
+        public static new GetBucketArgs Empty => new GetBucketArgs();
     }
 
-    public sealed class GetBucketInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3
         public GetBucketInvokeArgs()
         {
         }
+        public static new GetBucketInvokeArgs Empty => new GetBucketInvokeArgs();
     }
 
 

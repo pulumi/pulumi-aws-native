@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
-    public sealed class PackagingGroupLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PackagingGroupLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingGroupLogConfigurationArgs()
         {
         }
+        public static new PackagingGroupLogConfigurationArgs Empty => new PackagingGroupLogConfigurationArgs();
     }
 }

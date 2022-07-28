@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains a gateway's platform information.
     /// </summary>
-    public sealed class GatewayPlatformArgs : Pulumi.ResourceArgs
+    public sealed class GatewayPlatformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A gateway that runs on AWS IoT Greengrass V1.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public GatewayPlatformArgs()
         {
         }
+        public static new GatewayPlatformArgs Empty => new GatewayPlatformArgs();
     }
 }

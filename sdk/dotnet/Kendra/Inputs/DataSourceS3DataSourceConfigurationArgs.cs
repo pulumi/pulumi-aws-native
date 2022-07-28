@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// <summary>
     /// S3 data source configuration
     /// </summary>
-    public sealed class DataSourceS3DataSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceS3DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlListConfiguration")]
         public Input<Inputs.DataSourceAccessControlListConfigurationArgs>? AccessControlListConfiguration { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceS3DataSourceConfigurationArgs()
         {
         }
+        public static new DataSourceS3DataSourceConfigurationArgs Empty => new DataSourceS3DataSourceConfigurationArgs();
     }
 }

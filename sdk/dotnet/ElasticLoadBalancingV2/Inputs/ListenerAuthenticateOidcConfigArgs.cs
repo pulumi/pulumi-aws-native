@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerAuthenticateOidcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerAuthenticateOidcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationRequestExtraParams")]
         public Input<object>? AuthenticationRequestExtraParams { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerAuthenticateOidcConfigArgs()
         {
         }
+        public static new ListenerAuthenticateOidcConfigArgs Empty => new ListenerAuthenticateOidcConfigArgs();
     }
 }

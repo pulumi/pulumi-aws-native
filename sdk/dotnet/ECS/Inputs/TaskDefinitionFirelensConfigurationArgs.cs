@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionFirelensConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionFirelensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("options")]
         public Input<object>? Options { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionFirelensConfigurationArgs()
         {
         }
+        public static new TaskDefinitionFirelensConfigurationArgs Empty => new TaskDefinitionFirelensConfigurationArgs();
     }
 }

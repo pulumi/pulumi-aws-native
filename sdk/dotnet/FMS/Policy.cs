@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FMS
     /// Creates an AWS Firewall Manager policy.
     /// </summary>
     [AwsNativeResourceType("aws-native:fms:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.FMS
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteAllPolicyResources")]
         public Input<bool>? DeleteAllPolicyResources { get; set; }
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.FMS
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

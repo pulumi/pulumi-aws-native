@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class ApplicationSettingsQuietTimeArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSettingsQuietTimeArgs : global::Pulumi.ResourceArgs
     {
         [Input("end", required: true)]
         public Input<string> End { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public ApplicationSettingsQuietTimeArgs()
         {
         }
+        public static new ApplicationSettingsQuietTimeArgs Empty => new ApplicationSettingsQuietTimeArgs();
     }
 }

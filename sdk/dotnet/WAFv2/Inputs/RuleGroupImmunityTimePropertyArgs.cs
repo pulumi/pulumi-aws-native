@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupImmunityTimePropertyArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupImmunityTimePropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("immunityTime", required: true)]
         public Input<int> ImmunityTime { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupImmunityTimePropertyArgs()
         {
         }
+        public static new RuleGroupImmunityTimePropertyArgs Empty => new RuleGroupImmunityTimePropertyArgs();
     }
 }

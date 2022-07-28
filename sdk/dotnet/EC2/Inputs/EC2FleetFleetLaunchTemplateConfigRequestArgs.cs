@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetFleetLaunchTemplateConfigRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetFleetLaunchTemplateConfigRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("launchTemplateSpecification")]
         public Input<Inputs.EC2FleetFleetLaunchTemplateSpecificationRequestArgs>? LaunchTemplateSpecification { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetFleetLaunchTemplateConfigRequestArgs()
         {
         }
+        public static new EC2FleetFleetLaunchTemplateConfigRequestArgs Empty => new EC2FleetFleetLaunchTemplateConfigRequestArgs();
     }
 }

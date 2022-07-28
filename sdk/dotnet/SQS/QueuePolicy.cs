@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SQS
     /// </summary>
     [Obsolete(@"QueuePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sqs:QueuePolicy")]
-    public partial class QueuePolicy : Pulumi.CustomResource
+    public partial class QueuePolicy : global::Pulumi.CustomResource
     {
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.SQS
         }
     }
 
-    public sealed class QueuePolicyArgs : Pulumi.ResourceArgs
+    public sealed class QueuePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.SQS
         public QueuePolicyArgs()
         {
         }
+        public static new QueuePolicyArgs Empty => new QueuePolicyArgs();
     }
 }

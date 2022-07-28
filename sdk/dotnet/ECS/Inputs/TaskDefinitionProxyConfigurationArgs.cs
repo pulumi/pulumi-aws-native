@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionProxyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionProxyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionProxyConfigurationArgs()
         {
         }
+        public static new TaskDefinitionProxyConfigurationArgs Empty => new TaskDefinitionProxyConfigurationArgs();
     }
 }

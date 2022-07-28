@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointCapacitySizeArgs : Pulumi.ResourceArgs
+    public sealed class EndpointCapacitySizeArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointCapacitySizeArgs()
         {
         }
+        public static new EndpointCapacitySizeArgs Empty => new EndpointCapacitySizeArgs();
     }
 }

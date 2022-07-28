@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolUsernameConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolUsernameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolUsernameConfigurationArgs()
         {
         }
+        public static new UserPoolUsernameConfigurationArgs Empty => new UserPoolUsernameConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The configuration for ExecuteCommand.
     /// </summary>
-    public sealed class ClusterExecuteCommandConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterExecuteCommandConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterExecuteCommandConfigurationArgs()
         {
         }
+        public static new ClusterExecuteCommandConfigurationArgs Empty => new ClusterExecuteCommandConfigurationArgs();
     }
 }

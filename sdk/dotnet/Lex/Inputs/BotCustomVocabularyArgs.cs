@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
     /// </summary>
-    public sealed class BotCustomVocabularyArgs : Pulumi.ResourceArgs
+    public sealed class BotCustomVocabularyArgs : global::Pulumi.ResourceArgs
     {
         [Input("customVocabularyItems", required: true)]
         private InputList<Inputs.BotCustomVocabularyItemArgs>? _customVocabularyItems;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotCustomVocabularyArgs()
         {
         }
+        public static new BotCustomVocabularyArgs Empty => new BotCustomVocabularyArgs();
     }
 }

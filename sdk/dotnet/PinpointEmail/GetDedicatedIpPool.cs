@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     }
 
 
-    public sealed class GetDedicatedIpPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedIpPoolArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.PinpointEmail
         public GetDedicatedIpPoolArgs()
         {
         }
+        public static new GetDedicatedIpPoolArgs Empty => new GetDedicatedIpPoolArgs();
     }
 
-    public sealed class GetDedicatedIpPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedIpPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         public GetDedicatedIpPoolInvokeArgs()
         {
         }
+        public static new GetDedicatedIpPoolInvokeArgs Empty => new GetDedicatedIpPoolInvokeArgs();
     }
 
 

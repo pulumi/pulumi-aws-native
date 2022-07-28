@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    public sealed class PublicDnsNamespaceSOAArgs : Pulumi.ResourceArgs
+    public sealed class PublicDnsNamespaceSOAArgs : global::Pulumi.ResourceArgs
     {
         [Input("tTL")]
         public Input<double>? TTL { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
         public PublicDnsNamespaceSOAArgs()
         {
         }
+        public static new PublicDnsNamespaceSOAArgs Empty => new PublicDnsNamespaceSOAArgs();
     }
 }

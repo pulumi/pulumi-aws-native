@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative
     }
 
 
-    public sealed class GetAzsArgs : Pulumi.InvokeArgs
+    public sealed class GetAzsArgs : global::Pulumi.InvokeArgs
     {
         [Input("region")]
         public string? Region { get; set; }
@@ -27,9 +27,10 @@ namespace Pulumi.AwsNative
         public GetAzsArgs()
         {
         }
+        public static new GetAzsArgs Empty => new GetAzsArgs();
     }
 
-    public sealed class GetAzsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAzsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -37,6 +38,7 @@ namespace Pulumi.AwsNative
         public GetAzsInvokeArgs()
         {
         }
+        public static new GetAzsInvokeArgs Empty => new GetAzsInvokeArgs();
     }
 
 

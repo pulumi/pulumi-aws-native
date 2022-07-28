@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the parameters of the database.
     /// </summary>
-    public sealed class DatabaseRelationalDatabaseParameterArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseRelationalDatabaseParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the valid range of values for the parameter.
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DatabaseRelationalDatabaseParameterArgs()
         {
         }
+        public static new DatabaseRelationalDatabaseParameterArgs Empty => new DatabaseRelationalDatabaseParameterArgs();
     }
 }

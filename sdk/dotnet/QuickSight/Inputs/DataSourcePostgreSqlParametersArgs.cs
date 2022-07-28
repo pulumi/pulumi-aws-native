@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;PostgreSQL parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourcePostgreSqlParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourcePostgreSqlParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourcePostgreSqlParametersArgs()
         {
         }
+        public static new DataSourcePostgreSqlParametersArgs Empty => new DataSourcePostgreSqlParametersArgs();
     }
 }

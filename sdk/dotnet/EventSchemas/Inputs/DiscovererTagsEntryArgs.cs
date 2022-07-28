@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EventSchemas.Inputs
 {
 
-    public sealed class DiscovererTagsEntryArgs : Pulumi.ResourceArgs
+    public sealed class DiscovererTagsEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EventSchemas.Inputs
         public DiscovererTagsEntryArgs()
         {
         }
+        public static new DiscovererTagsEntryArgs Empty => new DiscovererTagsEntryArgs();
     }
 }

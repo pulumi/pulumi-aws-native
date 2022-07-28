@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetAPNSVoipSandboxChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetAPNSVoipSandboxChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetAPNSVoipSandboxChannelArgs()
         {
         }
+        public static new GetAPNSVoipSandboxChannelArgs Empty => new GetAPNSVoipSandboxChannelArgs();
     }
 
-    public sealed class GetAPNSVoipSandboxChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAPNSVoipSandboxChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetAPNSVoipSandboxChannelInvokeArgs()
         {
         }
+        public static new GetAPNSVoipSandboxChannelInvokeArgs Empty => new GetAPNSVoipSandboxChannelInvokeArgs();
     }
 
 

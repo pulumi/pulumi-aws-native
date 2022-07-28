@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppConfig
     }
 
 
-    public sealed class GetHostedConfigurationVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedConfigurationVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppConfig
         public GetHostedConfigurationVersionArgs()
         {
         }
+        public static new GetHostedConfigurationVersionArgs Empty => new GetHostedConfigurationVersionArgs();
     }
 
-    public sealed class GetHostedConfigurationVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedConfigurationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppConfig
         public GetHostedConfigurationVersionInvokeArgs()
         {
         }
+        public static new GetHostedConfigurationVersionInvokeArgs Empty => new GetHostedConfigurationVersionInvokeArgs();
     }
 
 

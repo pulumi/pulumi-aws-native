@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs()
         {
         }
+        public static new ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs Empty => new ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LicenseManager
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:licensemanager:Grant")]
-    public partial class Grant : Pulumi.CustomResource
+    public partial class Grant : global::Pulumi.CustomResource
     {
         [Output("allowedOperations")]
         public Output<ImmutableArray<string>> AllowedOperations { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.LicenseManager
         }
     }
 
-    public sealed class GrantArgs : Pulumi.ResourceArgs
+    public sealed class GrantArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedOperations")]
         private InputList<string>? _allowedOperations;
@@ -139,5 +139,6 @@ namespace Pulumi.AwsNative.LicenseManager
         public GrantArgs()
         {
         }
+        public static new GrantArgs Empty => new GrantArgs();
     }
 }

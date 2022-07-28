@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// The Kinesis Video Stream that streams the source video.
     /// </summary>
-    public sealed class StreamProcessorKinesisVideoStreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorKinesisVideoStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Kinesis Video Stream that streams the source video.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorKinesisVideoStreamArgs()
         {
         }
+        public static new StreamProcessorKinesisVideoStreamArgs Empty => new StreamProcessorKinesisVideoStreamArgs();
     }
 }

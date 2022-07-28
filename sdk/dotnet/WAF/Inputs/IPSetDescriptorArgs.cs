@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class IPSetDescriptorArgs : Pulumi.ResourceArgs
+    public sealed class IPSetDescriptorArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public IPSetDescriptorArgs()
         {
         }
+        public static new IPSetDescriptorArgs Empty => new IPSetDescriptorArgs();
     }
 }

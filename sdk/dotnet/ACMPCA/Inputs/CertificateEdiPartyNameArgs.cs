@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 EdiPartyName information.
     /// </summary>
-    public sealed class CertificateEdiPartyNameArgs : Pulumi.ResourceArgs
+    public sealed class CertificateEdiPartyNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("nameAssigner", required: true)]
         public Input<string> NameAssigner { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateEdiPartyNameArgs()
         {
         }
+        public static new CertificateEdiPartyNameArgs Empty => new CertificateEdiPartyNameArgs();
     }
 }

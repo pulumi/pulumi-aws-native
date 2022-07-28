@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetProjectArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
         [Input("projectArn", required: true)]
         public string ProjectArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetProjectArgs()
         {
         }
+        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetProjectInvokeArgs()
         {
         }
+        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

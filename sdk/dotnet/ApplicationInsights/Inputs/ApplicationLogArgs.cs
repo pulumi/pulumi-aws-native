@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// A log to be monitored for the component.
     /// </summary>
-    public sealed class ApplicationLogArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of encoding of the logs to be monitored.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationLogArgs()
         {
         }
+        public static new ApplicationLogArgs Empty => new ApplicationLogArgs();
     }
 }

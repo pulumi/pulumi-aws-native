@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeTlsValidationContextFileTrustArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeTlsValidationContextFileTrustArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateChain", required: true)]
         public Input<string> CertificateChain { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeTlsValidationContextFileTrustArgs()
         {
         }
+        public static new VirtualNodeTlsValidationContextFileTrustArgs Empty => new VirtualNodeTlsValidationContextFileTrustArgs();
     }
 }

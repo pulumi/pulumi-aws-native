@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// <summary>
     /// The settings for source failover
     /// </summary>
-    public sealed class FlowFailoverConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowFailoverConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Search window time to look for dash-7 packets
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public FlowFailoverConfigArgs()
         {
         }
+        public static new FlowFailoverConfigArgs Empty => new FlowFailoverConfigArgs();
     }
 }

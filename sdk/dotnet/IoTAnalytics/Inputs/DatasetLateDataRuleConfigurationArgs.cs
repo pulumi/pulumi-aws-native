@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetLateDataRuleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetLateDataRuleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deltaTimeSessionWindowConfiguration")]
         public Input<Inputs.DatasetDeltaTimeSessionWindowConfigurationArgs>? DeltaTimeSessionWindowConfiguration { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetLateDataRuleConfigurationArgs()
         {
         }
+        public static new DatasetLateDataRuleConfigurationArgs Empty => new DatasetLateDataRuleConfigurationArgs();
     }
 }

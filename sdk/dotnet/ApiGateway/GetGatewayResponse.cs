@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetGatewayResponseArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayResponseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A Cloudformation auto generated ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetGatewayResponseArgs()
         {
         }
+        public static new GetGatewayResponseArgs Empty => new GetGatewayResponseArgs();
     }
 
-    public sealed class GetGatewayResponseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayResponseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A Cloudformation auto generated ID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetGatewayResponseInvokeArgs()
         {
         }
+        public static new GetGatewayResponseInvokeArgs Empty => new GetGatewayResponseInvokeArgs();
     }
 
 

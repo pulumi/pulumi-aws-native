@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelGlobalConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelGlobalConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("initialAudioGain")]
         public Input<int>? InitialAudioGain { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelGlobalConfigurationArgs()
         {
         }
+        public static new ChannelGlobalConfigurationArgs Empty => new ChannelGlobalConfigurationArgs();
     }
 }

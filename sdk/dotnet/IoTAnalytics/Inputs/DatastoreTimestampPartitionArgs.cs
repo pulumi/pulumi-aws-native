@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreTimestampPartitionArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreTimestampPartitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatastoreTimestampPartitionArgs()
         {
         }
+        public static new DatastoreTimestampPartitionArgs Empty => new DatastoreTimestampPartitionArgs();
     }
 }

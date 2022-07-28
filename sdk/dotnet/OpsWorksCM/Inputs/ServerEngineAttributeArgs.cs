@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorksCM.Inputs
 {
 
-    public sealed class ServerEngineAttributeArgs : Pulumi.ResourceArgs
+    public sealed class ServerEngineAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.OpsWorksCM.Inputs
         public ServerEngineAttributeArgs()
         {
         }
+        public static new ServerEngineAttributeArgs Empty => new ServerEngineAttributeArgs();
     }
 }

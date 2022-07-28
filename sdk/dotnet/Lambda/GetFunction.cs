@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetFunctionArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetFunctionArgs()
         {
         }
+        public static new GetFunctionArgs Empty => new GetFunctionArgs();
     }
 
-    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetFunctionInvokeArgs()
         {
         }
+        public static new GetFunctionInvokeArgs Empty => new GetFunctionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Create and manage a Domain Configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:DomainConfiguration")]
-    public partial class DomainConfiguration : Pulumi.CustomResource
+    public partial class DomainConfiguration : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class DomainConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
@@ -130,5 +130,6 @@ namespace Pulumi.AwsNative.IoT
         public DomainConfigurationArgs()
         {
         }
+        public static new DomainConfigurationArgs Empty => new DomainConfigurationArgs();
     }
 }

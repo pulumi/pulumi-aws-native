@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize
     /// Resource schema for AWS::Personalize::Solution.
     /// </summary>
     [AwsNativeResourceType("aws-native:personalize:Solution")]
-    public partial class Solution : Pulumi.CustomResource
+    public partial class Solution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the dataset group that provides the training data.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Personalize
         }
     }
 
-    public sealed class SolutionArgs : Pulumi.ResourceArgs
+    public sealed class SolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the dataset group that provides the training data.
@@ -144,5 +144,6 @@ namespace Pulumi.AwsNative.Personalize
         public SolutionArgs()
         {
         }
+        public static new SolutionArgs Empty => new SolutionArgs();
     }
 }

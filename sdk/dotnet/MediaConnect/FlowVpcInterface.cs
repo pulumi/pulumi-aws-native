@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// Resource schema for AWS::MediaConnect::FlowVpcInterface
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowVpcInterface")]
-    public partial class FlowVpcInterface : Pulumi.CustomResource
+    public partial class FlowVpcInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
     }
 
-    public sealed class FlowVpcInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class FlowVpcInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public FlowVpcInterfaceArgs()
         {
         }
+        public static new FlowVpcInterfaceArgs Empty => new FlowVpcInterfaceArgs();
     }
 }

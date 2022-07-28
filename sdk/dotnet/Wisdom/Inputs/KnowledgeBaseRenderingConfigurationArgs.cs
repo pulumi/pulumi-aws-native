@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
-    public sealed class KnowledgeBaseRenderingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class KnowledgeBaseRenderingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("templateUri")]
         public Input<string>? TemplateUri { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         public KnowledgeBaseRenderingConfigurationArgs()
         {
         }
+        public static new KnowledgeBaseRenderingConfigurationArgs Empty => new KnowledgeBaseRenderingConfigurationArgs();
     }
 }

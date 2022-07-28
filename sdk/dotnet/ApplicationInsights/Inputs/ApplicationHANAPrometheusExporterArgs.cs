@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The HANA DB Prometheus Exporter settings.
     /// </summary>
-    public sealed class ApplicationHANAPrometheusExporterArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationHANAPrometheusExporterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag which indicates agreeing to install SAP HANA DB client.
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationHANAPrometheusExporterArgs()
         {
         }
+        public static new ApplicationHANAPrometheusExporterArgs Empty => new ApplicationHANAPrometheusExporterArgs();
     }
 }

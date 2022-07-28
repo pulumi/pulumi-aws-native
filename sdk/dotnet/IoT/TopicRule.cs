@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Resource Type definition for AWS::IoT::TopicRule
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:TopicRule")]
-    public partial class TopicRule : Pulumi.CustomResource
+    public partial class TopicRule : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class TopicRuleArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -89,5 +89,6 @@ namespace Pulumi.AwsNative.IoT
         public TopicRuleArgs()
         {
         }
+        public static new TopicRuleArgs Empty => new TopicRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class InputSourceRequestArgs : Pulumi.ResourceArgs
+    public sealed class InputSourceRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwordParam")]
         public Input<string>? PasswordParam { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public InputSourceRequestArgs()
         {
         }
+        public static new InputSourceRequestArgs Empty => new InputSourceRequestArgs();
     }
 }

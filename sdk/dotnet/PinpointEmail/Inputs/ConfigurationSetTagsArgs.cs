@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetTagsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetTagsArgs()
         {
         }
+        public static new ConfigurationSetTagsArgs Empty => new ConfigurationSetTagsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemAuditLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemAuditLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("auditLogDestination")]
         public Input<string>? AuditLogDestination { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemAuditLogConfigurationArgs()
         {
         }
+        public static new FileSystemAuditLogConfigurationArgs Empty => new FileSystemAuditLogConfigurationArgs();
     }
 }

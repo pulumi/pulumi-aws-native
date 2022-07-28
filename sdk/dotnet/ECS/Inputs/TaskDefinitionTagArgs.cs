@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionTagArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionTagArgs()
         {
         }
+        public static new TaskDefinitionTagArgs Empty => new TaskDefinitionTagArgs();
     }
 }

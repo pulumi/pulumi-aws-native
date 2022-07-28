@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigAsyncInferenceNotificationConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigAsyncInferenceNotificationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorTopic")]
         public Input<string>? ErrorTopic { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigAsyncInferenceNotificationConfigArgs()
         {
         }
+        public static new EndpointConfigAsyncInferenceNotificationConfigArgs Empty => new EndpointConfigAsyncInferenceNotificationConfigArgs();
     }
 }

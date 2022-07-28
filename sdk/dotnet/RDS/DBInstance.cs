@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RDS
     /// </summary>
     [Obsolete(@"DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DBInstance")]
-    public partial class DBInstance : Pulumi.CustomResource
+    public partial class DBInstance : global::Pulumi.CustomResource
     {
         [Output("allocatedStorage")]
         public Output<string?> AllocatedStorage { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBInstanceArgs : Pulumi.ResourceArgs
+    public sealed class DBInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocatedStorage")]
         public Input<string>? AllocatedStorage { get; set; }
@@ -418,5 +418,6 @@ namespace Pulumi.AwsNative.RDS
         public DBInstanceArgs()
         {
         }
+        public static new DBInstanceArgs Empty => new DBInstanceArgs();
     }
 }

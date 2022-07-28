@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class ConnectionClientParametersArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionClientParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientID", required: true)]
         public Input<string> ClientID { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public ConnectionClientParametersArgs()
         {
         }
+        public static new ConnectionClientParametersArgs Empty => new ConnectionClientParametersArgs();
     }
 }

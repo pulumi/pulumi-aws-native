@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeConnectionPoolArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeConnectionPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("gRPC")]
         public Input<Inputs.VirtualNodeGrpcConnectionPoolArgs>? GRPC { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeConnectionPoolArgs()
         {
         }
+        public static new VirtualNodeConnectionPoolArgs Empty => new VirtualNodeConnectionPoolArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex
     /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         [Output("policy")]
         public Output<Outputs.ResourcePolicyPolicy> Policy { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Lex
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
         public Input<Inputs.ResourcePolicyPolicyArgs> Policy { get; set; } = null!;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.Lex
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 }

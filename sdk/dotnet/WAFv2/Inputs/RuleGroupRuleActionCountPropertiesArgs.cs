@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Count traffic towards application.
     /// </summary>
-    public sealed class RuleGroupRuleActionCountPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionCountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRequestHandling")]
         public Input<Inputs.RuleGroupCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleActionCountPropertiesArgs()
         {
         }
+        public static new RuleGroupRuleActionCountPropertiesArgs Empty => new RuleGroupRuleActionCountPropertiesArgs();
     }
 }

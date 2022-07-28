@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeStar.Inputs
 {
 
-    public sealed class GitHubRepositoryS3Args : Pulumi.ResourceArgs
+    public sealed class GitHubRepositoryS3Args : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeStar.Inputs
         public GitHubRepositoryS3Args()
         {
         }
+        public static new GitHubRepositoryS3Args Empty => new GitHubRepositoryS3Args();
     }
 }

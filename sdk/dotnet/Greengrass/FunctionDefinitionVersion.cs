@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:FunctionDefinitionVersion")]
-    public partial class FunctionDefinitionVersion : Pulumi.CustomResource
+    public partial class FunctionDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("defaultConfig")]
         public Output<Outputs.FunctionDefinitionVersionDefaultConfig?> DefaultConfig { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class FunctionDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultConfig")]
         public Input<Inputs.FunctionDefinitionVersionDefaultConfigArgs>? DefaultConfig { get; set; }
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.Greengrass
         public FunctionDefinitionVersionArgs()
         {
         }
+        public static new FunctionDefinitionVersionArgs Empty => new FunctionDefinitionVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
     /// </summary>
-    public sealed class ModelPackageTransformJobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageTransformJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string that determines the number of records included in a single mini-batch.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageTransformJobDefinitionArgs()
         {
         }
+        public static new ModelPackageTransformJobDefinitionArgs Empty => new ModelPackageTransformJobDefinitionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
     }
 
 
-    public sealed class GetInferenceSchedulerArgs : Pulumi.InvokeArgs
+    public sealed class GetInferenceSchedulerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the inference scheduler being created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.LookoutEquipment
         public GetInferenceSchedulerArgs()
         {
         }
+        public static new GetInferenceSchedulerArgs Empty => new GetInferenceSchedulerArgs();
     }
 
-    public sealed class GetInferenceSchedulerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInferenceSchedulerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the inference scheduler being created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
         public GetInferenceSchedulerInvokeArgs()
         {
         }
+        public static new GetInferenceSchedulerInvokeArgs Empty => new GetInferenceSchedulerInvokeArgs();
     }
 
 

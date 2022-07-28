@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// Resource Type definition for Metric Stream
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:MetricStream")]
-    public partial class MetricStream : Pulumi.CustomResource
+    public partial class MetricStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the metric stream.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class MetricStreamArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeFilters")]
         private InputList<Inputs.MetricStreamFilterArgs>? _excludeFilters;
@@ -207,5 +207,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public MetricStreamArgs()
         {
         }
+        public static new MetricStreamArgs Empty => new MetricStreamArgs();
     }
 }

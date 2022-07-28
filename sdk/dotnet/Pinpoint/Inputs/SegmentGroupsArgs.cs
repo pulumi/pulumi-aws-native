@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class SegmentGroupsArgs : Pulumi.ResourceArgs
+    public sealed class SegmentGroupsArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<Inputs.SegmentGroupsArgs>? _groups;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public SegmentGroupsArgs()
         {
         }
+        public static new SegmentGroupsArgs Empty => new SegmentGroupsArgs();
     }
 }

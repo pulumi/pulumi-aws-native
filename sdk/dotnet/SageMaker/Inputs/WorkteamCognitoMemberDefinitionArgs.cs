@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class WorkteamCognitoMemberDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamCognitoMemberDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("cognitoClientId", required: true)]
         public Input<string> CognitoClientId { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public WorkteamCognitoMemberDefinitionArgs()
         {
         }
+        public static new WorkteamCognitoMemberDefinitionArgs Empty => new WorkteamCognitoMemberDefinitionArgs();
     }
 }

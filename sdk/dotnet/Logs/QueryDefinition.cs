@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Logs
     /// The resource schema for AWSLogs QueryDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:QueryDefinition")]
-    public partial class QueryDefinition : Pulumi.CustomResource
+    public partial class QueryDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optionally define specific log groups as part of your query definition
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class QueryDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class QueryDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Logs
         public QueryDefinitionArgs()
         {
         }
+        public static new QueryDefinitionArgs Empty => new QueryDefinitionArgs();
     }
 }

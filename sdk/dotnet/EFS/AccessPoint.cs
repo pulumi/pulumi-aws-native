@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EFS
     /// Resource Type definition for AWS::EFS::AccessPoint
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         [Output("accessPointId")]
         public Output<string> AccessPointId { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.EFS
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPointTags")]
         private InputList<Inputs.AccessPointTagArgs>? _accessPointTags;
@@ -128,5 +128,6 @@ namespace Pulumi.AwsNative.EFS
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 }

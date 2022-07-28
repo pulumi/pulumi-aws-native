@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudTrail
     }
 
 
-    public sealed class GetTrailArgs : Pulumi.InvokeArgs
+    public sealed class GetTrailArgs : global::Pulumi.InvokeArgs
     {
         [Input("trailName", required: true)]
         public string TrailName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudTrail
         public GetTrailArgs()
         {
         }
+        public static new GetTrailArgs Empty => new GetTrailArgs();
     }
 
-    public sealed class GetTrailInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrailInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("trailName", required: true)]
         public Input<string> TrailName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public GetTrailInvokeArgs()
         {
         }
+        public static new GetTrailInvokeArgs Empty => new GetTrailInvokeArgs();
     }
 
 

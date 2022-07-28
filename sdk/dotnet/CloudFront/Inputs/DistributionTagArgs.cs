@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionTagArgs : Pulumi.ResourceArgs
+    public sealed class DistributionTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionTagArgs()
         {
         }
+        public static new DistributionTagArgs Empty => new DistributionTagArgs();
     }
 }

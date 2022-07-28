@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// launchTemplateConfiguration settings that apply to image distribution.
     /// </summary>
-    public sealed class DistributionConfigurationLaunchTemplateConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationLaunchTemplateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID that this configuration applies to.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationLaunchTemplateConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationLaunchTemplateConfigurationArgs Empty => new DistributionConfigurationLaunchTemplateConfigurationArgs();
     }
 }

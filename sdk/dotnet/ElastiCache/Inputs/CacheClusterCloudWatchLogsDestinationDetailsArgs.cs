@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class CacheClusterCloudWatchLogsDestinationDetailsArgs : Pulumi.ResourceArgs
+    public sealed class CacheClusterCloudWatchLogsDestinationDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroup", required: true)]
         public Input<string> LogGroup { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public CacheClusterCloudWatchLogsDestinationDetailsArgs()
         {
         }
+        public static new CacheClusterCloudWatchLogsDestinationDetailsArgs Empty => new CacheClusterCloudWatchLogsDestinationDetailsArgs();
     }
 }

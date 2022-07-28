@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
     }
 
 
-    public sealed class GetReportPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetReportPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Backup
         public GetReportPlanArgs()
         {
         }
+        public static new GetReportPlanArgs Empty => new GetReportPlanArgs();
     }
 
-    public sealed class GetReportPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Backup
         public GetReportPlanInvokeArgs()
         {
         }
+        public static new GetReportPlanInvokeArgs Empty => new GetReportPlanInvokeArgs();
     }
 
 

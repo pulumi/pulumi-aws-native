@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
     /// </summary>
-    public sealed class DistributionCacheBehaviorPerPathArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCacheBehaviorPerPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cache behavior for the specified path.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionCacheBehaviorPerPathArgs()
         {
         }
+        public static new DistributionCacheBehaviorPerPathArgs Empty => new DistributionCacheBehaviorPerPathArgs();
     }
 }

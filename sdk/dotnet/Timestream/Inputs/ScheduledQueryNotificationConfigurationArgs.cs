@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
     /// </summary>
-    public sealed class ScheduledQueryNotificationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("snsConfiguration", required: true)]
         public Input<Inputs.ScheduledQuerySnsConfigurationArgs> SnsConfiguration { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryNotificationConfigurationArgs()
         {
         }
+        public static new ScheduledQueryNotificationConfigurationArgs Empty => new ScheduledQueryNotificationConfigurationArgs();
     }
 }

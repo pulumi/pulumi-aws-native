@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketIntelligentTieringConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketIntelligentTieringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID used to identify the S3 Intelligent-Tiering configuration.
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketIntelligentTieringConfigurationArgs()
         {
         }
+        public static new BucketIntelligentTieringConfigurationArgs Empty => new BucketIntelligentTieringConfigurationArgs();
     }
 }

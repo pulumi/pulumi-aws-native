@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Details for a step that creates one or more tags.
     /// </summary>
-    public sealed class WorkflowStepTagStepDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepTagStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the step, used as an identifier.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowStepTagStepDetailsPropertiesArgs()
         {
         }
+        public static new WorkflowStepTagStepDetailsPropertiesArgs Empty => new WorkflowStepTagStepDetailsPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetXssMatchSetArgs : Pulumi.InvokeArgs
+    public sealed class GetXssMatchSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetXssMatchSetArgs()
         {
         }
+        public static new GetXssMatchSetArgs Empty => new GetXssMatchSetArgs();
     }
 
-    public sealed class GetXssMatchSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetXssMatchSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetXssMatchSetInvokeArgs()
         {
         }
+        public static new GetXssMatchSetInvokeArgs Empty => new GetXssMatchSetInvokeArgs();
     }
 
 

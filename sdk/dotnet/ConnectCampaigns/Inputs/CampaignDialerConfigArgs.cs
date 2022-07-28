@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     /// <summary>
     /// The possible types of dialer config parameters
     /// </summary>
-    public sealed class CampaignDialerConfigArgs : Pulumi.ResourceArgs
+    public sealed class CampaignDialerConfigArgs : global::Pulumi.ResourceArgs
     {
         public CampaignDialerConfigArgs()
         {
         }
+        public static new CampaignDialerConfigArgs Empty => new CampaignDialerConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileAmplitudeConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileAmplitudeConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileAmplitudeConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileAmplitudeConnectorProfileCredentialsArgs Empty => new ConnectorProfileAmplitudeConnectorProfileCredentialsArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EventSchemas
     /// </summary>
     [Obsolete(@"Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.EventSchemas
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EventSchemas
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 }

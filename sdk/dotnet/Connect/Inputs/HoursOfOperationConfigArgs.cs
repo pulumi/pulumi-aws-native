@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Contains information about the hours of operation.
     /// </summary>
-    public sealed class HoursOfOperationConfigArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day that the hours of operation applies to.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public HoursOfOperationConfigArgs()
         {
         }
+        public static new HoursOfOperationConfigArgs Empty => new HoursOfOperationConfigArgs();
     }
 }

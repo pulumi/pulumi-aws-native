@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class ClassifierCsvClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierCsvClassifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowSingleColumn")]
         public Input<bool>? AllowSingleColumn { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public ClassifierCsvClassifierArgs()
         {
         }
+        public static new ClassifierCsvClassifierArgs Empty => new ClassifierCsvClassifierArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// InputContext specified for the intent.
     /// </summary>
-    public sealed class BotInputContextArgs : Pulumi.ResourceArgs
+    public sealed class BotInputContextArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the context.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotInputContextArgs()
         {
         }
+        public static new BotInputContextArgs Empty => new BotInputContextArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteHttpRetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RouteHttpRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("httpRetryEvents")]
         private InputList<string>? _httpRetryEvents;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteHttpRetryPolicyArgs()
         {
         }
+        public static new RouteHttpRetryPolicyArgs Empty => new RouteHttpRetryPolicyArgs();
     }
 }

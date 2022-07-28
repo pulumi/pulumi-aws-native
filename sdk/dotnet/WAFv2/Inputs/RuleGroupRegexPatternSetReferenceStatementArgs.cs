@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupRegexPatternSetReferenceStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRegexPatternSetReferenceStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRegexPatternSetReferenceStatementArgs()
         {
         }
+        public static new RuleGroupRegexPatternSetReferenceStatementArgs Empty => new RuleGroupRegexPatternSetReferenceStatementArgs();
     }
 }

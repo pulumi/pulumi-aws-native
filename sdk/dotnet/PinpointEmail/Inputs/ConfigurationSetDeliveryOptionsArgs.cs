@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetDeliveryOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetDeliveryOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("sendingPoolName")]
         public Input<string>? SendingPoolName { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetDeliveryOptionsArgs()
         {
         }
+        public static new ConfigurationSetDeliveryOptionsArgs Empty => new ConfigurationSetDeliveryOptionsArgs();
     }
 }

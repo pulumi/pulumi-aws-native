@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class SegmentDemographicArgs : Pulumi.ResourceArgs
+    public sealed class SegmentDemographicArgs : global::Pulumi.ResourceArgs
     {
         [Input("appVersion")]
         public Input<Inputs.SegmentSetDimensionArgs>? AppVersion { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public SegmentDemographicArgs()
         {
         }
+        public static new SegmentDemographicArgs Empty => new SegmentDemographicArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseEntitlementArgs : Pulumi.ResourceArgs
+    public sealed class LicenseEntitlementArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowCheckIn")]
         public Input<bool>? AllowCheckIn { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseEntitlementArgs()
         {
         }
+        public static new LicenseEntitlementArgs Empty => new LicenseEntitlementArgs();
     }
 }

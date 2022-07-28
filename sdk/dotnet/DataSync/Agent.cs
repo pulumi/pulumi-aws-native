@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::Agent.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:Agent")]
-    public partial class Agent : Pulumi.CustomResource
+    public partial class Agent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Activation key of the Agent.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class AgentArgs : Pulumi.ResourceArgs
+    public sealed class AgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Activation key of the Agent.
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.DataSync
         public AgentArgs()
         {
         }
+        public static new AgentArgs Empty => new AgentArgs();
     }
 }

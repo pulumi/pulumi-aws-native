@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::AccessPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:AccessPolicy")]
-    public partial class AccessPolicy : Pulumi.CustomResource
+    public partial class AccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the access policy.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity for this access policy. Choose either a user or a group but not both.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public AccessPolicyArgs()
         {
         }
+        public static new AccessPolicyArgs Empty => new AccessPolicyArgs();
     }
 }

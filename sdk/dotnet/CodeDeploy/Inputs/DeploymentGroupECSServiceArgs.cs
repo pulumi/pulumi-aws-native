@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupECSServiceArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupECSServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupECSServiceArgs()
         {
         }
+        public static new DeploymentGroupECSServiceArgs Empty => new DeploymentGroupECSServiceArgs();
     }
 }

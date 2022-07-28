@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class ServerWorkflowDetailArgs : Pulumi.ResourceArgs
+    public sealed class ServerWorkflowDetailArgs : global::Pulumi.ResourceArgs
     {
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public ServerWorkflowDetailArgs()
         {
         }
+        public static new ServerWorkflowDetailArgs Empty => new ServerWorkflowDetailArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
     /// <summary>
     /// A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
     /// </summary>
-    public sealed class FHIRDatastoreTagArgs : Pulumi.ResourceArgs
+    public sealed class FHIRDatastoreTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key of the tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
         public FHIRDatastoreTagArgs()
         {
         }
+        public static new FHIRDatastoreTagArgs Empty => new FHIRDatastoreTagArgs();
     }
 }

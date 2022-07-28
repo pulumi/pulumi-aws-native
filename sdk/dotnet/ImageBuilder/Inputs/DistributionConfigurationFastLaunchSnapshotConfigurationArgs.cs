@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
     /// </summary>
-    public sealed class DistributionConfigurationFastLaunchSnapshotConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationFastLaunchSnapshotConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationFastLaunchSnapshotConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationFastLaunchSnapshotConfigurationArgs Empty => new DistributionConfigurationFastLaunchSnapshotConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class TableStreamSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class TableStreamSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("streamViewType", required: true)]
         public Input<string> StreamViewType { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public TableStreamSpecificationArgs()
         {
         }
+        public static new TableStreamSpecificationArgs Empty => new TableStreamSpecificationArgs();
     }
 }

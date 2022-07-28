@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionFunctionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionFunctionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encodingType")]
         public Input<string>? EncodingType { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionFunctionConfigurationArgs()
         {
         }
+        public static new FunctionDefinitionFunctionConfigurationArgs Empty => new FunctionDefinitionFunctionConfigurationArgs();
     }
 }

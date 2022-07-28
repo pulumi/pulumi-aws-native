@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerConnectionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerConnectionSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("idleTimeout", required: true)]
         public Input<int> IdleTimeout { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerConnectionSettingsArgs()
         {
         }
+        public static new LoadBalancerConnectionSettingsArgs Empty => new LoadBalancerConnectionSettingsArgs();
     }
 }

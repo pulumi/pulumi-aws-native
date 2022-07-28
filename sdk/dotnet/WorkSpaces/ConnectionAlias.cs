@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WorkSpaces
     /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
     /// </summary>
     [AwsNativeResourceType("aws-native:workspaces:ConnectionAlias")]
-    public partial class ConnectionAlias : Pulumi.CustomResource
+    public partial class ConnectionAlias : global::Pulumi.CustomResource
     {
         [Output("aliasId")]
         public Output<string> AliasId { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         }
     }
 
-    public sealed class ConnectionAliasArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionAliasArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
@@ -89,5 +89,6 @@ namespace Pulumi.AwsNative.WorkSpaces
         public ConnectionAliasArgs()
         {
         }
+        public static new ConnectionAliasArgs Empty => new ConnectionAliasArgs();
     }
 }

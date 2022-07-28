@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolCognitoIdentityProviderArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolCognitoIdentityProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public IdentityPoolCognitoIdentityProviderArgs()
         {
         }
+        public static new IdentityPoolCognitoIdentityProviderArgs Empty => new IdentityPoolCognitoIdentityProviderArgs();
     }
 }

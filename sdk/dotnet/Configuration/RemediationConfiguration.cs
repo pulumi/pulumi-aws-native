@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration
     /// </summary>
     [Obsolete(@"RemediationConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:RemediationConfiguration")]
-    public partial class RemediationConfiguration : Pulumi.CustomResource
+    public partial class RemediationConfiguration : global::Pulumi.CustomResource
     {
         [Output("automatic")]
         public Output<bool?> Automatic { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class RemediationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
@@ -124,5 +124,6 @@ namespace Pulumi.AwsNative.Configuration
         public RemediationConfigurationArgs()
         {
         }
+        public static new RemediationConfigurationArgs Empty => new RemediationConfigurationArgs();
     }
 }

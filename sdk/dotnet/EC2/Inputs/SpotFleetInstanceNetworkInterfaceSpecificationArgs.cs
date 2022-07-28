@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetInstanceNetworkInterfaceSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetInstanceNetworkInterfaceSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetInstanceNetworkInterfaceSpecificationArgs()
         {
         }
+        public static new SpotFleetInstanceNetworkInterfaceSpecificationArgs Empty => new SpotFleetInstanceNetworkInterfaceSpecificationArgs();
     }
 }

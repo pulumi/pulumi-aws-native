@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Athena.Inputs
 {
 
-    public sealed class WorkGroupConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public WorkGroupConfigurationArgs()
         {
         }
+        public static new WorkGroupConfigurationArgs Empty => new WorkGroupConfigurationArgs();
     }
 }

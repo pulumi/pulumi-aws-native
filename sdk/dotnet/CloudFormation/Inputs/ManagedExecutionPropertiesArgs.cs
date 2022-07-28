@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// <summary>
     /// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
     /// </summary>
-    public sealed class ManagedExecutionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ManagedExecutionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public ManagedExecutionPropertiesArgs()
         {
         }
+        public static new ManagedExecutionPropertiesArgs Empty => new ManagedExecutionPropertiesArgs();
     }
 }

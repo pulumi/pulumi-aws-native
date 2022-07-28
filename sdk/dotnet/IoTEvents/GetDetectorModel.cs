@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTEvents
     }
 
 
-    public sealed class GetDetectorModelArgs : Pulumi.InvokeArgs
+    public sealed class GetDetectorModelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the detector model.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTEvents
         public GetDetectorModelArgs()
         {
         }
+        public static new GetDetectorModelArgs Empty => new GetDetectorModelArgs();
     }
 
-    public sealed class GetDetectorModelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDetectorModelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the detector model.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTEvents
         public GetDetectorModelInvokeArgs()
         {
         }
+        public static new GetDetectorModelInvokeArgs Empty => new GetDetectorModelInvokeArgs();
     }
 
 

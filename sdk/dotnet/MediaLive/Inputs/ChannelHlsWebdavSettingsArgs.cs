@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHlsWebdavSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsWebdavSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionRetryInterval")]
         public Input<int>? ConnectionRetryInterval { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHlsWebdavSettingsArgs()
         {
         }
+        public static new ChannelHlsWebdavSettingsArgs Empty => new ChannelHlsWebdavSettingsArgs();
     }
 }

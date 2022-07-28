@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaFunctionRecipeSourceArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaFunctionRecipeSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("componentDependencies")]
         public Input<object>? ComponentDependencies { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaFunctionRecipeSourceArgs()
         {
         }
+        public static new ComponentVersionLambdaFunctionRecipeSourceArgs Empty => new ComponentVersionLambdaFunctionRecipeSourceArgs();
     }
 }

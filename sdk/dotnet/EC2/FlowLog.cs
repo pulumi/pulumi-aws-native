@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:FlowLog")]
-    public partial class FlowLog : Pulumi.CustomResource
+    public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class FlowLogArgs : Pulumi.ResourceArgs
+    public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.EC2
         public FlowLogArgs()
         {
         }
+        public static new FlowLogArgs Empty => new FlowLogArgs();
     }
 }

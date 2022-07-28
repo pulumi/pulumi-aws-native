@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DomainNameTagArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DomainNameTagArgs()
         {
         }
+        public static new DomainNameTagArgs Empty => new DomainNameTagArgs();
     }
 }

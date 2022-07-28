@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTThingsGraph.Inputs
 {
 
-    public sealed class FlowTemplateDefinitionDocumentArgs : Pulumi.ResourceArgs
+    public sealed class FlowTemplateDefinitionDocumentArgs : global::Pulumi.ResourceArgs
     {
         [Input("language", required: true)]
         public Input<string> Language { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTThingsGraph.Inputs
         public FlowTemplateDefinitionDocumentArgs()
         {
         }
+        public static new FlowTemplateDefinitionDocumentArgs Empty => new FlowTemplateDefinitionDocumentArgs();
     }
 }

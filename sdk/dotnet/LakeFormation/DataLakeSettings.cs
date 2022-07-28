@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.LakeFormation
     /// </summary>
     [Obsolete(@"DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lakeformation:DataLakeSettings")]
-    public partial class DataLakeSettings : Pulumi.CustomResource
+    public partial class DataLakeSettings : global::Pulumi.CustomResource
     {
         [Output("admins")]
         public Output<Outputs.DataLakeSettingsAdmins?> Admins { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.LakeFormation
         }
     }
 
-    public sealed class DataLakeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("admins")]
         public Input<Inputs.DataLakeSettingsAdminsArgs>? Admins { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.LakeFormation
         public DataLakeSettingsArgs()
         {
         }
+        public static new DataLakeSettingsArgs Empty => new DataLakeSettingsArgs();
     }
 }

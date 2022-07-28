@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::AppImageConfig
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:AppImageConfig")]
-    public partial class AppImageConfig : Pulumi.CustomResource
+    public partial class AppImageConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppImageConfig.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class AppImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the AppImageConfig.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.SageMaker
         public AppImageConfigArgs()
         {
         }
+        public static new AppImageConfigArgs Empty => new AppImageConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// <summary>
     /// MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
     /// </summary>
-    public sealed class LaunchConfigurationMetadataOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This parameter enables or disables the HTTP metadata endpoint on your instances.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public LaunchConfigurationMetadataOptionsArgs()
         {
         }
+        public static new LaunchConfigurationMetadataOptionsArgs Empty => new LaunchConfigurationMetadataOptionsArgs();
     }
 }

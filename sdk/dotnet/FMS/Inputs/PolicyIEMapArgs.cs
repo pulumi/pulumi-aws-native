@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FMS.Inputs
     /// <summary>
     /// An FMS includeMap or excludeMap.
     /// </summary>
-    public sealed class PolicyIEMapArgs : Pulumi.ResourceArgs
+    public sealed class PolicyIEMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("aCCOUNT")]
         private InputList<string>? _aCCOUNT;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.FMS.Inputs
         public PolicyIEMapArgs()
         {
         }
+        public static new PolicyIEMapArgs Empty => new PolicyIEMapArgs();
     }
 }

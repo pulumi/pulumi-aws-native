@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateMaintenanceOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMaintenanceOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoRecovery")]
         public Input<string>? AutoRecovery { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateMaintenanceOptionsArgs()
         {
         }
+        public static new LaunchTemplateMaintenanceOptionsArgs Empty => new LaunchTemplateMaintenanceOptionsArgs();
     }
 }

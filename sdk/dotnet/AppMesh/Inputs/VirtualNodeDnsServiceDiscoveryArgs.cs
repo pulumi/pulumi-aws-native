@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeDnsServiceDiscoveryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeDnsServiceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         [Input("hostname", required: true)]
         public Input<string> Hostname { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeDnsServiceDiscoveryArgs()
         {
         }
+        public static new VirtualNodeDnsServiceDiscoveryArgs Empty => new VirtualNodeDnsServiceDiscoveryArgs();
     }
 }

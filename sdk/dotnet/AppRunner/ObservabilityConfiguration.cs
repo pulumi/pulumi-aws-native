@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner
     /// The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:apprunner:ObservabilityConfiguration")]
-    public partial class ObservabilityConfiguration : Pulumi.CustomResource
+    public partial class ObservabilityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.AppRunner
         }
     }
 
-    public sealed class ObservabilityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObservabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.AppRunner
         public ObservabilityConfigurationArgs()
         {
         }
+        public static new ObservabilityConfigurationArgs Empty => new ObservabilityConfigurationArgs();
     }
 }

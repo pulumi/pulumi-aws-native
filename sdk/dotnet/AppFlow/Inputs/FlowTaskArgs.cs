@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowTaskArgs : Pulumi.ResourceArgs
+    public sealed class FlowTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operation to be performed on provided source fields
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowTaskArgs()
         {
         }
+        public static new FlowTaskArgs Empty => new FlowTaskArgs();
     }
 }

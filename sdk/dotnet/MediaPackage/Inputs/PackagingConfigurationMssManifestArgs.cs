@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Microsoft Smooth Streaming (MSS) manifest configuration.
     /// </summary>
-    public sealed class PackagingConfigurationMssManifestArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationMssManifestArgs : global::Pulumi.ResourceArgs
     {
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationMssManifestArgs()
         {
         }
+        public static new PackagingConfigurationMssManifestArgs Empty => new PackagingConfigurationMssManifestArgs();
     }
 }

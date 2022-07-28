@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Account
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

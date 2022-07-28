@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerRule")]
-    public partial class ListenerRule : Pulumi.CustomResource
+    public partial class ListenerRule : global::Pulumi.CustomResource
     {
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class ListenerRuleArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ListenerRuleActionArgs>? _actions;
@@ -103,5 +103,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public ListenerRuleArgs()
         {
         }
+        public static new ListenerRuleArgs Empty => new ListenerRuleArgs();
     }
 }

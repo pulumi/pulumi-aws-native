@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceTagArgs : Pulumi.ResourceArgs
+    public sealed class ServiceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceTagArgs()
         {
         }
+        public static new ServiceTagArgs Empty => new ServiceTagArgs();
     }
 }

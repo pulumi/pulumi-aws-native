@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleLambdaActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleLambdaActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleLambdaActionArgs()
         {
         }
+        public static new TopicRuleLambdaActionArgs Empty => new TopicRuleLambdaActionArgs();
     }
 }

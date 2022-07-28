@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class FleetDomainJoinInfoArgs : Pulumi.ResourceArgs
+    public sealed class FleetDomainJoinInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("directoryName")]
         public Input<string>? DirectoryName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public FleetDomainJoinInfoArgs()
         {
         }
+        public static new FleetDomainJoinInfoArgs Empty => new FleetDomainJoinInfoArgs();
     }
 }

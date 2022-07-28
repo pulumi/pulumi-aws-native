@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LayerVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerVolumeConfigurationArgs()
         {
         }
+        public static new LayerVolumeConfigurationArgs Empty => new LayerVolumeConfigurationArgs();
     }
 }

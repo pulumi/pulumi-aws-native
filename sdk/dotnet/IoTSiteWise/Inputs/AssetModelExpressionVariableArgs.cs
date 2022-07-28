@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelExpressionVariableArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelExpressionVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The friendly name of the variable to be used in the expression.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelExpressionVariableArgs()
         {
         }
+        public static new AssetModelExpressionVariableArgs Empty => new AssetModelExpressionVariableArgs();
     }
 }

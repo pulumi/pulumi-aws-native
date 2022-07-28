@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionTimeoutArgs : global::Pulumi.ResourceArgs
     {
         [Input("attemptDurationSeconds")]
         public Input<int>? AttemptDurationSeconds { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionTimeoutArgs()
         {
         }
+        public static new JobDefinitionTimeoutArgs Empty => new JobDefinitionTimeoutArgs();
     }
 }

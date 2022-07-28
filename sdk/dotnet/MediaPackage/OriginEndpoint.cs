@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// Resource schema for AWS::MediaPackage::OriginEndpoint
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:OriginEndpoint")]
-    public partial class OriginEndpoint : Pulumi.CustomResource
+    public partial class OriginEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.MediaPackage
         }
     }
 
-    public sealed class OriginEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         public Input<Inputs.OriginEndpointAuthorizationArgs>? Authorization { get; set; }
@@ -213,5 +213,6 @@ namespace Pulumi.AwsNative.MediaPackage
         public OriginEndpointArgs()
         {
         }
+        public static new OriginEndpointArgs Empty => new OriginEndpointArgs();
     }
 }

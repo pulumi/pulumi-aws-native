@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class RealtimeLogConfigEndPointArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigEndPointArgs : global::Pulumi.ResourceArgs
     {
         [Input("kinesisStreamConfig", required: true)]
         public Input<Inputs.RealtimeLogConfigKinesisStreamConfigArgs> KinesisStreamConfig { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public RealtimeLogConfigEndPointArgs()
         {
         }
+        public static new RealtimeLogConfigEndPointArgs Empty => new RealtimeLogConfigEndPointArgs();
     }
 }

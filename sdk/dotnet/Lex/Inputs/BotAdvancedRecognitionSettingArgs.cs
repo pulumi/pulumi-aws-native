@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Provides settings that enable advanced recognition settings for slot values.
     /// </summary>
-    public sealed class BotAdvancedRecognitionSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotAdvancedRecognitionSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioRecognitionStrategy")]
         public Input<Pulumi.AwsNative.Lex.BotAudioRecognitionStrategy>? AudioRecognitionStrategy { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAdvancedRecognitionSettingArgs()
         {
         }
+        public static new BotAdvancedRecognitionSettingArgs Empty => new BotAdvancedRecognitionSettingArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceGoogleDriveConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceGoogleDriveConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeMimeTypes")]
         private InputList<string>? _excludeMimeTypes;
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceGoogleDriveConfigurationArgs()
         {
         }
+        public static new DataSourceGoogleDriveConfigurationArgs Empty => new DataSourceGoogleDriveConfigurationArgs();
     }
 }

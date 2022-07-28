@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerConnectionDrainingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerConnectionDrainingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerConnectionDrainingPolicyArgs()
         {
         }
+        public static new LoadBalancerConnectionDrainingPolicyArgs Empty => new LoadBalancerConnectionDrainingPolicyArgs();
     }
 }

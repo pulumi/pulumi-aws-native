@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Events
     /// </summary>
     [Obsolete(@"EventBusPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:events:EventBusPolicy")]
-    public partial class EventBusPolicy : Pulumi.CustomResource
+    public partial class EventBusPolicy : global::Pulumi.CustomResource
     {
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Events
         }
     }
 
-    public sealed class EventBusPolicyArgs : Pulumi.ResourceArgs
+    public sealed class EventBusPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.Events
         public EventBusPolicyArgs()
         {
         }
+        public static new EventBusPolicyArgs Empty => new EventBusPolicyArgs();
     }
 }

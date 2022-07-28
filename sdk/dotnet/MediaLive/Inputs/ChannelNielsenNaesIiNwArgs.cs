@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelNielsenNaesIiNwArgs : Pulumi.ResourceArgs
+    public sealed class ChannelNielsenNaesIiNwArgs : global::Pulumi.ResourceArgs
     {
         [Input("checkDigitString")]
         public Input<string>? CheckDigitString { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelNielsenNaesIiNwArgs()
         {
         }
+        public static new ChannelNielsenNaesIiNwArgs Empty => new ChannelNielsenNaesIiNwArgs();
     }
 }

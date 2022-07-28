@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains information for an IAM user identity in an access policy.
     /// </summary>
-    public sealed class AccessPolicyIamUserArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyIamUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the IAM user.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AccessPolicyIamUserArgs()
         {
         }
+        public static new AccessPolicyIamUserArgs Empty => new AccessPolicyIamUserArgs();
     }
 }

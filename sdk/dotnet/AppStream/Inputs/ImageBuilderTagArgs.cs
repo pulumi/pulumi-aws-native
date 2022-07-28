@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class ImageBuilderTagArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public ImageBuilderTagArgs()
         {
         }
+        public static new ImageBuilderTagArgs Empty => new ImageBuilderTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryRunConfigArgs : Pulumi.ResourceArgs
+    public sealed class CanaryRunConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable active tracing if set to true
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryRunConfigArgs()
         {
         }
+        public static new CanaryRunConfigArgs Empty => new CanaryRunConfigArgs();
     }
 }

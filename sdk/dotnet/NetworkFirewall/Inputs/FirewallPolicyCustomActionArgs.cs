@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyCustomActionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyCustomActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionDefinition", required: true)]
         public Input<Inputs.FirewallPolicyActionDefinitionArgs> ActionDefinition { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallPolicyCustomActionArgs()
         {
         }
+        public static new FirewallPolicyCustomActionArgs Empty => new FirewallPolicyCustomActionArgs();
     }
 }

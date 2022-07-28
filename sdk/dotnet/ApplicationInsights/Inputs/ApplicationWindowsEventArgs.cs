@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// A Windows Event to be monitored for the component.
     /// </summary>
-    public sealed class ApplicationWindowsEventArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationWindowsEventArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventLevels", required: true)]
         private InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel>? _eventLevels;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationWindowsEventArgs()
         {
         }
+        public static new ApplicationWindowsEventArgs Empty => new ApplicationWindowsEventArgs();
     }
 }

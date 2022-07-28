@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"TagOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:TagOption")]
-    public partial class TagOption : Pulumi.CustomResource
+    public partial class TagOption : global::Pulumi.CustomResource
     {
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class TagOptionArgs : Pulumi.ResourceArgs
+    public sealed class TagOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public TagOptionArgs()
         {
         }
+        public static new TagOptionArgs Empty => new TagOptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterSpotProvisioningSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSpotProvisioningSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterSpotProvisioningSpecificationArgs()
         {
         }
+        public static new ClusterSpotProvisioningSpecificationArgs Empty => new ClusterSpotProvisioningSpecificationArgs();
     }
 }

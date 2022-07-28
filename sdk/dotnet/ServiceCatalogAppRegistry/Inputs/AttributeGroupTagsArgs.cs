@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalogAppRegistry.Inputs
 {
 
-    public sealed class AttributeGroupTagsArgs : Pulumi.ResourceArgs
+    public sealed class AttributeGroupTagsArgs : global::Pulumi.ResourceArgs
     {
         public AttributeGroupTagsArgs()
         {
         }
+        public static new AttributeGroupTagsArgs Empty => new AttributeGroupTagsArgs();
     }
 }

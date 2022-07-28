@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Resource Schema describing various properties for ECS TaskDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:TaskDefinition")]
-    public partial class TaskDefinition : Pulumi.CustomResource
+    public partial class TaskDefinition : global::Pulumi.CustomResource
     {
         [Output("containerDefinitions")]
         public Output<ImmutableArray<Outputs.TaskDefinitionContainerDefinition>> ContainerDefinitions { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class TaskDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerDefinitions")]
         private InputList<Inputs.TaskDefinitionContainerDefinitionArgs>? _containerDefinitions;
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.ECS
         public TaskDefinitionArgs()
         {
         }
+        public static new TaskDefinitionArgs Empty => new TaskDefinitionArgs();
     }
 }

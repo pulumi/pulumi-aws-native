@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DAX
     /// </summary>
     [Obsolete(@"SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dax:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.DAX
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.DAX
         public SubnetGroupArgs()
         {
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 }

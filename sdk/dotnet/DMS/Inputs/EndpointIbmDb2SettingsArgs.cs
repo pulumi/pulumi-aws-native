@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointIbmDb2SettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointIbmDb2SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("currentLsn")]
         public Input<string>? CurrentLsn { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointIbmDb2SettingsArgs()
         {
         }
+        public static new EndpointIbmDb2SettingsArgs Empty => new EndpointIbmDb2SettingsArgs();
     }
 }

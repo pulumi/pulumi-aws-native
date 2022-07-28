@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetLocalGatewayRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The CIDR block used for destination matches.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.EC2
         public GetLocalGatewayRouteArgs()
         {
         }
+        public static new GetLocalGatewayRouteArgs Empty => new GetLocalGatewayRouteArgs();
     }
 
-    public sealed class GetLocalGatewayRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The CIDR block used for destination matches.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.EC2
         public GetLocalGatewayRouteInvokeArgs()
         {
         }
+        public static new GetLocalGatewayRouteInvokeArgs Empty => new GetLocalGatewayRouteInvokeArgs();
     }
 
 

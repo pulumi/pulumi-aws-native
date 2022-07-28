@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     }
 
 
-    public sealed class GetSafetyRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetSafetyRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the safety rule.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public GetSafetyRuleArgs()
         {
         }
+        public static new GetSafetyRuleArgs Empty => new GetSafetyRuleArgs();
     }
 
-    public sealed class GetSafetyRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSafetyRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the safety rule.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public GetSafetyRuleInvokeArgs()
         {
         }
+        public static new GetSafetyRuleInvokeArgs Empty => new GetSafetyRuleInvokeArgs();
     }
 
 

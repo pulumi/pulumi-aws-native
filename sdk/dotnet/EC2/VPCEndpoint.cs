@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpoint")]
-    public partial class VPCEndpoint : Pulumi.CustomResource
+    public partial class VPCEndpoint : global::Pulumi.CustomResource
     {
         [Output("creationTimestamp")]
         public Output<string> CreationTimestamp { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCEndpointArgs : Pulumi.ResourceArgs
+    public sealed class VPCEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyDocument")]
         public Input<object>? PolicyDocument { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCEndpointArgs()
         {
         }
+        public static new VPCEndpointArgs Empty => new VPCEndpointArgs();
     }
 }

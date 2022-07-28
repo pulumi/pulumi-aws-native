@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Allow traffic towards application.
     /// </summary>
-    public sealed class RuleGroupRuleActionAllowPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionAllowPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRequestHandling")]
         public Input<Inputs.RuleGroupCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleActionAllowPropertiesArgs()
         {
         }
+        public static new RuleGroupRuleActionAllowPropertiesArgs Empty => new RuleGroupRuleActionAllowPropertiesArgs();
     }
 }

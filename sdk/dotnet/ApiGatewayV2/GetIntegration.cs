@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     }
 
 
-    public sealed class GetIntegrationArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetIntegrationArgs()
         {
         }
+        public static new GetIntegrationArgs Empty => new GetIntegrationArgs();
     }
 
-    public sealed class GetIntegrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetIntegrationInvokeArgs()
         {
         }
+        public static new GetIntegrationInvokeArgs Empty => new GetIntegrationInvokeArgs();
     }
 
 

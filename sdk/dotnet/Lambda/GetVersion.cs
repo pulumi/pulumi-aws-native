@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetVersionArgs()
         {
         }
+        public static new GetVersionArgs Empty => new GetVersionArgs();
     }
 
-    public sealed class GetVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetVersionInvokeArgs()
         {
         }
+        public static new GetVersionInvokeArgs Empty => new GetVersionInvokeArgs();
     }
 
 

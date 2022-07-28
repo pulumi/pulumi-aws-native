@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignHookArgs : Pulumi.ResourceArgs
+    public sealed class CampaignHookArgs : global::Pulumi.ResourceArgs
     {
         [Input("lambdaFunctionName")]
         public Input<string>? LambdaFunctionName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignHookArgs()
         {
         }
+        public static new CampaignHookArgs Empty => new CampaignHookArgs();
     }
 }

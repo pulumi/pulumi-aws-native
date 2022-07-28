@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;Initialization scripts for studio components.&lt;/p&gt;
     /// </summary>
-    public sealed class StudioComponentInitializationScriptArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentInitializationScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public StudioComponentInitializationScriptArgs()
         {
         }
+        public static new StudioComponentInitializationScriptArgs Empty => new StudioComponentInitializationScriptArgs();
     }
 }

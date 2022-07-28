@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    public sealed class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs : Pulumi.ResourceArgs
+    public sealed class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs : global::Pulumi.ResourceArgs
     {
         [Input("sOA")]
         public Input<Inputs.PrivateDnsNamespaceSOAArgs>? SOA { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
         public PrivateDnsNamespacePrivateDnsPropertiesMutableArgs()
         {
         }
+        public static new PrivateDnsNamespacePrivateDnsPropertiesMutableArgs Empty => new PrivateDnsNamespacePrivateDnsPropertiesMutableArgs();
     }
 }

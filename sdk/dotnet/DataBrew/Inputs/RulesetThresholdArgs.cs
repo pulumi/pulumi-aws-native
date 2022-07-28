@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class RulesetThresholdArgs : Pulumi.ResourceArgs
+    public sealed class RulesetThresholdArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public Input<Pulumi.AwsNative.DataBrew.RulesetThresholdType>? Type { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RulesetThresholdArgs()
         {
         }
+        public static new RulesetThresholdArgs Empty => new RulesetThresholdArgs();
     }
 }

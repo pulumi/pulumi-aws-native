@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionResourceRequirementArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionResourceRequirementArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionResourceRequirementArgs()
         {
         }
+        public static new JobDefinitionResourceRequirementArgs Empty => new JobDefinitionResourceRequirementArgs();
     }
 }

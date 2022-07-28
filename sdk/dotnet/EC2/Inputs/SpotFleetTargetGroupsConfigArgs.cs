@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetTargetGroupsConfigArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetTargetGroupsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetGroups", required: true)]
         private InputList<Inputs.SpotFleetTargetGroupArgs>? _targetGroups;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetTargetGroupsConfigArgs()
         {
         }
+        public static new SpotFleetTargetGroupsConfigArgs Empty => new SpotFleetTargetGroupsConfigArgs();
     }
 }

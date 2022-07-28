@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about delivering logs to Amazon S3.
     /// </summary>
-    public sealed class ConnectorS3LogDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorS3LogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that is the destination for log delivery.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorS3LogDeliveryArgs()
         {
         }
+        public static new ConnectorS3LogDeliveryArgs Empty => new ConnectorS3LogDeliveryArgs();
     }
 }

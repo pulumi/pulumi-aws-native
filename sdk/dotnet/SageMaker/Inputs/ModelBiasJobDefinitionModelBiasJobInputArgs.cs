@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The inputs for a monitoring job.
     /// </summary>
-    public sealed class ModelBiasJobDefinitionModelBiasJobInputArgs : Pulumi.ResourceArgs
+    public sealed class ModelBiasJobDefinitionModelBiasJobInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointInput", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelBiasJobDefinitionModelBiasJobInputArgs()
         {
         }
+        public static new ModelBiasJobDefinitionModelBiasJobInputArgs Empty => new ModelBiasJobDefinitionModelBiasJobInputArgs();
     }
 }

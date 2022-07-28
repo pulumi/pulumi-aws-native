@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Data privacy setting of the Bot.
     /// </summary>
-    public sealed class DataPrivacyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataPrivacyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("childDirected", required: true)]
         public Input<bool> ChildDirected { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public DataPrivacyPropertiesArgs()
         {
         }
+        public static new DataPrivacyPropertiesArgs Empty => new DataPrivacyPropertiesArgs();
     }
 }

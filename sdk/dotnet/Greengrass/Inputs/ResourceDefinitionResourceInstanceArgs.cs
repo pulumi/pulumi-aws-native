@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionResourceInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionResourceInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionResourceInstanceArgs()
         {
         }
+        public static new ResourceDefinitionResourceInstanceArgs Empty => new ResourceDefinitionResourceInstanceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// A function's environment variable settings.
     /// </summary>
-    public sealed class FunctionEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class FunctionEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Environment variable key-value pairs.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionEnvironmentArgs()
         {
         }
+        public static new FunctionEnvironmentArgs Empty => new FunctionEnvironmentArgs();
     }
 }

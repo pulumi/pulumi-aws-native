@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Amazon S3 manifest file location.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceManifestFileLocationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceManifestFileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Amazon S3 bucket.&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceManifestFileLocationArgs()
         {
         }
+        public static new DataSourceManifestFileLocationArgs Empty => new DataSourceManifestFileLocationArgs();
     }
 }

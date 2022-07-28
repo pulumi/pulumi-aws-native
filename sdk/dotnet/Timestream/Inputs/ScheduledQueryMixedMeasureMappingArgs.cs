@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
     /// </summary>
-    public sealed class ScheduledQueryMixedMeasureMappingArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryMixedMeasureMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("measureName")]
         public Input<string>? MeasureName { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryMixedMeasureMappingArgs()
         {
         }
+        public static new ScheduledQueryMixedMeasureMappingArgs Empty => new ScheduledQueryMixedMeasureMappingArgs();
     }
 }

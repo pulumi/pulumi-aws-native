@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// Bgp options
     /// </summary>
-    public sealed class ConnectPeerBgpOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectPeerBgpOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("peerAsn")]
         public Input<double>? PeerAsn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public ConnectPeerBgpOptionsArgs()
         {
         }
+        public static new ConnectPeerBgpOptionsArgs Empty => new ConnectPeerBgpOptionsArgs();
     }
 }

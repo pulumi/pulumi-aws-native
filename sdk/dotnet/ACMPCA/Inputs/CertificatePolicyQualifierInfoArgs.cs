@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 Policy qualifier information.
     /// </summary>
-    public sealed class CertificatePolicyQualifierInfoArgs : Pulumi.ResourceArgs
+    public sealed class CertificatePolicyQualifierInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyQualifierId", required: true)]
         public Input<string> PolicyQualifierId { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificatePolicyQualifierInfoArgs()
         {
         }
+        public static new CertificatePolicyQualifierInfoArgs Empty => new CertificatePolicyQualifierInfoArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
     /// <summary>
     /// A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
     /// </summary>
-    public sealed class HealthCheckAlarmIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckAlarmIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public HealthCheckAlarmIdentifierArgs()
         {
         }
+        public static new HealthCheckAlarmIdentifierArgs Empty => new HealthCheckAlarmIdentifierArgs();
     }
 }

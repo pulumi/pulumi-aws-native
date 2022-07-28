@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
     /// </summary>
-    public sealed class SolutionConfigAutoMLConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigAutoMLConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The metric to optimize.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigAutoMLConfigPropertiesArgs()
         {
         }
+        public static new SolutionConfigAutoMLConfigPropertiesArgs Empty => new SolutionConfigAutoMLConfigPropertiesArgs();
     }
 }

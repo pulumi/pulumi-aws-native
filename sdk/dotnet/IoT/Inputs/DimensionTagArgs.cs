@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class DimensionTagArgs : Pulumi.ResourceArgs
+    public sealed class DimensionTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag's key.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public DimensionTagArgs()
         {
         }
+        public static new DimensionTagArgs Empty => new DimensionTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// Resource type definition for AWS::NetworkFirewall::RuleGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:RuleGroup")]
-    public partial class RuleGroup : Pulumi.CustomResource
+    public partial class RuleGroup : global::Pulumi.CustomResource
     {
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
     }
 
-    public sealed class RuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public RuleGroupArgs()
         {
         }
+        public static new RuleGroupArgs Empty => new RuleGroupArgs();
     }
 }

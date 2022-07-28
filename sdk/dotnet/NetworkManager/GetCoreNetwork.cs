@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetCoreNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of core network
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetCoreNetworkArgs()
         {
         }
+        public static new GetCoreNetworkArgs Empty => new GetCoreNetworkArgs();
     }
 
-    public sealed class GetCoreNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id of core network
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetCoreNetworkInvokeArgs()
         {
         }
+        public static new GetCoreNetworkInvokeArgs Empty => new GetCoreNetworkInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Forecast
     /// Resource Type Definition for AWS::Forecast::Dataset
     /// </summary>
     [AwsNativeResourceType("aws-native:forecast:Dataset")]
-    public partial class Dataset : Pulumi.CustomResource
+    public partial class Dataset : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Forecast
         }
     }
 
-    public sealed class DatasetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -137,5 +137,6 @@ namespace Pulumi.AwsNative.Forecast
         public DatasetArgs()
         {
         }
+        public static new DatasetArgs Empty => new DatasetArgs();
     }
 }

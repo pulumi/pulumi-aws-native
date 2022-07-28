@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
     /// </summary>
-    public sealed class AlarmModelAssetPropertyVariantArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAssetPropertyVariantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAssetPropertyVariantArgs()
         {
         }
+        public static new AlarmModelAssetPropertyVariantArgs Empty => new AlarmModelAssetPropertyVariantArgs();
     }
 }

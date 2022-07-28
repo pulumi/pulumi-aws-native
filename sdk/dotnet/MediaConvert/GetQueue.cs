@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConvert
     }
 
 
-    public sealed class GetQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetQueueArgs()
         {
         }
+        public static new GetQueueArgs Empty => new GetQueueArgs();
     }
 
-    public sealed class GetQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetQueueInvokeArgs()
         {
         }
+        public static new GetQueueInvokeArgs Empty => new GetQueueInvokeArgs();
     }
 
 

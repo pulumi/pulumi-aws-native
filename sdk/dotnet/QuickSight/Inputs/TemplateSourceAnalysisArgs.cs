@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The source analysis of the template.&lt;/p&gt;
     /// </summary>
-    public sealed class TemplateSourceAnalysisArgs : Pulumi.ResourceArgs
+    public sealed class TemplateSourceAnalysisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public TemplateSourceAnalysisArgs()
         {
         }
+        public static new TemplateSourceAnalysisArgs Empty => new TemplateSourceAnalysisArgs();
     }
 }

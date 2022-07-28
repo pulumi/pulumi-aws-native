@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// <summary>
     /// The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
     /// </summary>
-    public sealed class AssessmentScopeArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccounts")]
         private InputList<Inputs.AssessmentAWSAccountArgs>? _awsAccounts;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public AssessmentScopeArgs()
         {
         }
+        public static new AssessmentScopeArgs Empty => new AssessmentScopeArgs();
     }
 }

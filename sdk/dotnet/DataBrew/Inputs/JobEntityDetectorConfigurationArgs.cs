@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobEntityDetectorConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobEntityDetectorConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedStatistics")]
         public Input<Inputs.JobAllowedStatisticsArgs>? AllowedStatistics { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobEntityDetectorConfigurationArgs()
         {
         }
+        public static new JobEntityDetectorConfigurationArgs Empty => new JobEntityDetectorConfigurationArgs();
     }
 }

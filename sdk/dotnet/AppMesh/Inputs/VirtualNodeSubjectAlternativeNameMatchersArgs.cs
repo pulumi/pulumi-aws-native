@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSubjectAlternativeNameMatchersArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSubjectAlternativeNameMatchersArgs : global::Pulumi.ResourceArgs
     {
         [Input("exact")]
         private InputList<string>? _exact;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeSubjectAlternativeNameMatchersArgs()
         {
         }
+        public static new VirtualNodeSubjectAlternativeNameMatchersArgs Empty => new VirtualNodeSubjectAlternativeNameMatchersArgs();
     }
 }

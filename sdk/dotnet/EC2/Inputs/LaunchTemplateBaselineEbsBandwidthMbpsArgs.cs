@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateBaselineEbsBandwidthMbpsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateBaselineEbsBandwidthMbpsArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateBaselineEbsBandwidthMbpsArgs()
         {
         }
+        public static new LaunchTemplateBaselineEbsBandwidthMbpsArgs Empty => new LaunchTemplateBaselineEbsBandwidthMbpsArgs();
     }
 }

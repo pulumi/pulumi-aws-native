@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:CompositeAlarm")]
-    public partial class CompositeAlarm : Pulumi.CustomResource
+    public partial class CompositeAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class CompositeAlarmArgs : Pulumi.ResourceArgs
+    public sealed class CompositeAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public CompositeAlarmArgs()
         {
         }
+        public static new CompositeAlarmArgs Empty => new CompositeAlarmArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
     /// <summary>
     /// Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
     /// </summary>
-    public sealed class BucketFilterTagArgs : Pulumi.ResourceArgs
+    public sealed class BucketFilterTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public BucketFilterTagArgs()
         {
         }
+        public static new BucketFilterTagArgs Empty => new BucketFilterTagArgs();
     }
 }

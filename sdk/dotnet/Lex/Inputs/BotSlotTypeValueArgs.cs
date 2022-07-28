@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Value that the slot type can take.
     /// </summary>
-    public sealed class BotSlotTypeValueArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotTypeValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("sampleValue", required: true)]
         public Input<Inputs.BotSampleValueArgs> SampleValue { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotTypeValueArgs()
         {
         }
+        public static new BotSlotTypeValueArgs Empty => new BotSlotTypeValueArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class DomainNameConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public DomainNameConfigurationArgs()
         {
         }
+        public static new DomainNameConfigurationArgs Empty => new DomainNameConfigurationArgs();
     }
 }

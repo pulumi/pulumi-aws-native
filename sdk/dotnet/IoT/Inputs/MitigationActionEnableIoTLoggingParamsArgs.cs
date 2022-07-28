@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
     /// </summary>
-    public sealed class MitigationActionEnableIoTLoggingParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionEnableIoTLoggingParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         ///  Specifies which types of information are logged.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionEnableIoTLoggingParamsArgs()
         {
         }
+        public static new MitigationActionEnableIoTLoggingParamsArgs Empty => new MitigationActionEnableIoTLoggingParamsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MWAA
     /// Resource schema for AWS::MWAA::Environment
     /// </summary>
     [AwsNativeResourceType("aws-native:mwaa:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Key/value pairs representing Airflow configuration variables.
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.MWAA
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key/value pairs representing Airflow configuration variables.
@@ -217,5 +217,6 @@ namespace Pulumi.AwsNative.MWAA
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

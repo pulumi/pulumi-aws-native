@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ClusterEndpointArgs()
         {
         }
+        public static new ClusterEndpointArgs Empty => new ClusterEndpointArgs();
     }
 }

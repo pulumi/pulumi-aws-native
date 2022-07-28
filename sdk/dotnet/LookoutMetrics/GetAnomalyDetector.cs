@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
     }
 
 
-    public sealed class GetAnomalyDetectorArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyDetectorArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public GetAnomalyDetectorArgs()
         {
         }
+        public static new GetAnomalyDetectorArgs Empty => new GetAnomalyDetectorArgs();
     }
 
-    public sealed class GetAnomalyDetectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public GetAnomalyDetectorInvokeArgs()
         {
         }
+        public static new GetAnomalyDetectorInvokeArgs Empty => new GetAnomalyDetectorInvokeArgs();
     }
 
 

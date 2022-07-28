@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectS3LogsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectS3LogsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectS3LogsConfigArgs()
         {
         }
+        public static new ProjectS3LogsConfigArgs Empty => new ProjectS3LogsConfigArgs();
     }
 }

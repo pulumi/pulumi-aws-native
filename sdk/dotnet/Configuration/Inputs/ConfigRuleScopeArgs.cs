@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class ConfigRuleScopeArgs : Pulumi.ResourceArgs
+    public sealed class ConfigRuleScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("complianceResourceId")]
         public Input<string>? ComplianceResourceId { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public ConfigRuleScopeArgs()
         {
         }
+        public static new ConfigRuleScopeArgs Empty => new ConfigRuleScopeArgs();
     }
 }

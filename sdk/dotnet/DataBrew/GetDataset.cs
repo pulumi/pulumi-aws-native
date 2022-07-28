@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew
     }
 
 
-    public sealed class GetDatasetArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Dataset name
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataBrew
         public GetDatasetArgs()
         {
         }
+        public static new GetDatasetArgs Empty => new GetDatasetArgs();
     }
 
-    public sealed class GetDatasetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Dataset name
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataBrew
         public GetDatasetInvokeArgs()
         {
         }
+        public static new GetDatasetInvokeArgs Empty => new GetDatasetInvokeArgs();
     }
 
 

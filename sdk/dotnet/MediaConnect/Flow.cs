@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// Resource schema for AWS::MediaConnect::Flow
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:Flow")]
-    public partial class Flow : Pulumi.CustomResource
+    public partial class Flow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
     }
 
-    public sealed class FlowArgs : Pulumi.ResourceArgs
+    public sealed class FlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public FlowArgs()
         {
         }
+        public static new FlowArgs Empty => new FlowArgs();
     }
 }

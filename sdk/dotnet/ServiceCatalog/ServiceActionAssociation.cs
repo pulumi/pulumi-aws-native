@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:ServiceActionAssociation")]
-    public partial class ServiceActionAssociation : Pulumi.CustomResource
+    public partial class ServiceActionAssociation : global::Pulumi.CustomResource
     {
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class ServiceActionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceActionAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public ServiceActionAssociationArgs()
         {
         }
+        public static new ServiceActionAssociationArgs Empty => new ServiceActionAssociationArgs();
     }
 }

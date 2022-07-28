@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ASK.Inputs
 {
 
-    public sealed class SkillPackageArgs : Pulumi.ResourceArgs
+    public sealed class SkillPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("overrides")]
         public Input<Inputs.SkillOverridesArgs>? Overrides { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ASK.Inputs
         public SkillPackageArgs()
         {
         }
+        public static new SkillPackageArgs Empty => new SkillPackageArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignPublicIp")]
         public Input<string>? AssignPublicIp { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionNetworkConfigurationArgs()
         {
         }
+        public static new JobDefinitionNetworkConfigurationArgs Empty => new JobDefinitionNetworkConfigurationArgs();
     }
 }

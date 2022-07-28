@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionVersionRunAsArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionVersionRunAsArgs : global::Pulumi.ResourceArgs
     {
         [Input("gid")]
         public Input<int>? Gid { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionVersionRunAsArgs()
         {
         }
+        public static new FunctionDefinitionVersionRunAsArgs Empty => new FunctionDefinitionVersionRunAsArgs();
     }
 }

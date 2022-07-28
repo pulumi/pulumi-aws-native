@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamHttpEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamHttpEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamHttpEndpointConfigurationArgs()
         {
         }
+        public static new DeliveryStreamHttpEndpointConfigurationArgs Empty => new DeliveryStreamHttpEndpointConfigurationArgs();
     }
 }

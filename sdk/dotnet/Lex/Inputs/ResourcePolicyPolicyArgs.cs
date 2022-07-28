@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
     /// </summary>
-    public sealed class ResourcePolicyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyPolicyArgs : global::Pulumi.ResourceArgs
     {
         public ResourcePolicyPolicyArgs()
         {
         }
+        public static new ResourcePolicyPolicyArgs Empty => new ResourcePolicyPolicyArgs();
     }
 }

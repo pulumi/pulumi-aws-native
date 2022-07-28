@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetGroupVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetGroupVersionArgs()
         {
         }
+        public static new GetGroupVersionArgs Empty => new GetGroupVersionArgs();
     }
 
-    public sealed class GetGroupVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetGroupVersionInvokeArgs()
         {
         }
+        public static new GetGroupVersionInvokeArgs Empty => new GetGroupVersionInvokeArgs();
     }
 
 

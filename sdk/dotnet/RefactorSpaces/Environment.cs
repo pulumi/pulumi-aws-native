@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     /// Definition of AWS::RefactorSpaces::Environment Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:refactorspaces:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Configuration
     /// Resource Type definition for AWS::Config::StoredQuery
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:StoredQuery")]
-    public partial class StoredQuery : Pulumi.CustomResource
+    public partial class StoredQuery : global::Pulumi.CustomResource
     {
         [Output("queryArn")]
         public Output<string> QueryArn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class StoredQueryArgs : Pulumi.ResourceArgs
+    public sealed class StoredQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("queryDescription")]
         public Input<string>? QueryDescription { get; set; }
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Configuration
         public StoredQueryArgs()
         {
         }
+        public static new StoredQueryArgs Empty => new StoredQueryArgs();
     }
 }

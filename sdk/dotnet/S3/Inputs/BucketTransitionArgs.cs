@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// You must specify at least one of "TransitionDate" and "TransitionInDays"
     /// </summary>
-    public sealed class BucketTransitionArgs : Pulumi.ResourceArgs
+    public sealed class BucketTransitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageClass", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketTransitionStorageClass> StorageClass { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketTransitionArgs()
         {
         }
+        public static new BucketTransitionArgs Empty => new BucketTransitionArgs();
     }
 }

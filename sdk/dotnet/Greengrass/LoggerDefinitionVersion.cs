@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"LoggerDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:LoggerDefinitionVersion")]
-    public partial class LoggerDefinitionVersion : Pulumi.CustomResource
+    public partial class LoggerDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("loggerDefinitionId")]
         public Output<string> LoggerDefinitionId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class LoggerDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class LoggerDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("loggerDefinitionId", required: true)]
         public Input<string> LoggerDefinitionId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Greengrass
         public LoggerDefinitionVersionArgs()
         {
         }
+        public static new LoggerDefinitionVersionArgs Empty => new LoggerDefinitionVersionArgs();
     }
 }

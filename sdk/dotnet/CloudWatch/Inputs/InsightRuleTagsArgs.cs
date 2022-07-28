@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class InsightRuleTagsArgs : Pulumi.ResourceArgs
+    public sealed class InsightRuleTagsArgs : global::Pulumi.ResourceArgs
     {
         public InsightRuleTagsArgs()
         {
         }
+        public static new InsightRuleTagsArgs Empty => new InsightRuleTagsArgs();
     }
 }

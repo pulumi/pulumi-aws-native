@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Container image configuration object for the monitoring job.
     /// </summary>
-    public sealed class MonitoringScheduleMonitoringAppSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleMonitoringAppSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerArguments")]
         private InputList<string>? _containerArguments;
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleMonitoringAppSpecificationArgs()
         {
         }
+        public static new MonitoringScheduleMonitoringAppSpecificationArgs Empty => new MonitoringScheduleMonitoringAppSpecificationArgs();
     }
 }

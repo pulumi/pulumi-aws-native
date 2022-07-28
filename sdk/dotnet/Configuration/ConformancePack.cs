@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Configuration
     /// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConformancePack")]
-    public partial class ConformancePack : Pulumi.CustomResource
+    public partial class ConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of ConformancePackInputParameter objects.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class ConformancePackArgs : Pulumi.ResourceArgs
+    public sealed class ConformancePackArgs : global::Pulumi.ResourceArgs
     {
         [Input("conformancePackInputParameters")]
         private InputList<Inputs.ConformancePackInputParameterArgs>? _conformancePackInputParameters;
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.Configuration
         public ConformancePackArgs()
         {
         }
+        public static new ConformancePackArgs Empty => new ConformancePackArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetAccountAuditConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountAuditConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetAccountAuditConfigurationArgs()
         {
         }
+        public static new GetAccountAuditConfigurationArgs Empty => new GetAccountAuditConfigurationArgs();
     }
 
-    public sealed class GetAccountAuditConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountAuditConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetAccountAuditConfigurationInvokeArgs()
         {
         }
+        public static new GetAccountAuditConfigurationInvokeArgs Empty => new GetAccountAuditConfigurationInvokeArgs();
     }
 
 

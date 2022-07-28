@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetHoursOfOperationArgs : Pulumi.InvokeArgs
+    public sealed class GetHoursOfOperationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the hours of operation.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetHoursOfOperationArgs()
         {
         }
+        public static new GetHoursOfOperationArgs Empty => new GetHoursOfOperationArgs();
     }
 
-    public sealed class GetHoursOfOperationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHoursOfOperationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the hours of operation.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetHoursOfOperationInvokeArgs()
         {
         }
+        public static new GetHoursOfOperationInvokeArgs Empty => new GetHoursOfOperationInvokeArgs();
     }
 
 

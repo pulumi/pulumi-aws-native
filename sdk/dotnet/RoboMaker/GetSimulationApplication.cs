@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RoboMaker
     }
 
 
-    public sealed class GetSimulationApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetSimulationApplicationArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RoboMaker
         public GetSimulationApplicationArgs()
         {
         }
+        public static new GetSimulationApplicationArgs Empty => new GetSimulationApplicationArgs();
     }
 
-    public sealed class GetSimulationApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSimulationApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public GetSimulationApplicationInvokeArgs()
         {
         }
+        public static new GetSimulationApplicationInvokeArgs Empty => new GetSimulationApplicationInvokeArgs();
     }
 
 

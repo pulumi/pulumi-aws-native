@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleKinesisParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleKinesisParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("partitionKeyPath", required: true)]
         public Input<string> PartitionKeyPath { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleKinesisParametersArgs()
         {
         }
+        public static new RuleKinesisParametersArgs Empty => new RuleKinesisParametersArgs();
     }
 }

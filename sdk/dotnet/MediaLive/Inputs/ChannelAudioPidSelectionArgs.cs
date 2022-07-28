@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioPidSelectionArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioPidSelectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("pid")]
         public Input<int>? Pid { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioPidSelectionArgs()
         {
         }
+        public static new ChannelAudioPidSelectionArgs Empty => new ChannelAudioPidSelectionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetStoredQueryArgs : Pulumi.InvokeArgs
+    public sealed class GetStoredQueryArgs : global::Pulumi.InvokeArgs
     {
         [Input("queryName", required: true)]
         public string QueryName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetStoredQueryArgs()
         {
         }
+        public static new GetStoredQueryArgs Empty => new GetStoredQueryArgs();
     }
 
-    public sealed class GetStoredQueryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStoredQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("queryName", required: true)]
         public Input<string> QueryName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetStoredQueryInvokeArgs()
         {
         }
+        public static new GetStoredQueryInvokeArgs Empty => new GetStoredQueryInvokeArgs();
     }
 
 

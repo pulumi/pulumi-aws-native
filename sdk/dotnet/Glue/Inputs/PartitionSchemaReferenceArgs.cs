@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class PartitionSchemaReferenceArgs : Pulumi.ResourceArgs
+    public sealed class PartitionSchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("schemaId")]
         public Input<Inputs.PartitionSchemaIdArgs>? SchemaId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public PartitionSchemaReferenceArgs()
         {
         }
+        public static new PartitionSchemaReferenceArgs Empty => new PartitionSchemaReferenceArgs();
     }
 }

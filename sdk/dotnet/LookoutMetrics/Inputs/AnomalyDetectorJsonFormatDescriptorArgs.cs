@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorJsonFormatDescriptorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorJsonFormatDescriptorArgs : global::Pulumi.ResourceArgs
     {
         [Input("charset")]
         public Input<string>? Charset { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorJsonFormatDescriptorArgs()
         {
         }
+        public static new AnomalyDetectorJsonFormatDescriptorArgs Empty => new AnomalyDetectorJsonFormatDescriptorArgs();
     }
 }

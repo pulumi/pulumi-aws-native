@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Inspect the request body as JSON. The request body immediately follows the request headers.
     /// </summary>
-    public sealed class RuleGroupJsonBodyArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupJsonBodyArgs : global::Pulumi.ResourceArgs
     {
         [Input("invalidFallbackBehavior")]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupBodyParsingFallbackBehavior>? InvalidFallbackBehavior { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupJsonBodyArgs()
         {
         }
+        public static new RuleGroupJsonBodyArgs Empty => new RuleGroupJsonBodyArgs();
     }
 }

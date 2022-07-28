@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::CustomerGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:CustomerGateway")]
-    public partial class CustomerGateway : Pulumi.CustomResource
+    public partial class CustomerGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// For devices that support BGP, the customer gateway's BGP ASN.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class CustomerGatewayArgs : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// For devices that support BGP, the customer gateway's BGP ASN.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.EC2
         public CustomerGatewayArgs()
         {
         }
+        public static new CustomerGatewayArgs Empty => new CustomerGatewayArgs();
     }
 }

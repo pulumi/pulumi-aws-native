@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetKeyPairArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyPairArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SSH key pair
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetKeyPairArgs()
         {
         }
+        public static new GetKeyPairArgs Empty => new GetKeyPairArgs();
     }
 
-    public sealed class GetKeyPairInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyPairInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SSH key pair
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetKeyPairInvokeArgs()
         {
         }
+        public static new GetKeyPairInvokeArgs Empty => new GetKeyPairInvokeArgs();
     }
 
 

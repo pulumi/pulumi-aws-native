@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay.Inputs
 {
 
-    public sealed class SamplingRuleUpdateArgs : Pulumi.ResourceArgs
+    public sealed class SamplingRuleUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Matches attributes derived from the request.
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.XRay.Inputs
         public SamplingRuleUpdateArgs()
         {
         }
+        public static new SamplingRuleUpdateArgs Empty => new SamplingRuleUpdateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
     /// </summary>
-    public sealed class LocationHDFSQopConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LocationHDFSQopConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for Data Transfer Protection.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationHDFSQopConfigurationArgs()
         {
         }
+        public static new LocationHDFSQopConfigurationArgs Empty => new LocationHDFSQopConfigurationArgs();
     }
 }

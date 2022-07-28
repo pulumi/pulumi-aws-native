@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Resource Type definition for AWS::IoT::TopicRuleDestination
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:TopicRuleDestination")]
-    public partial class TopicRuleDestination : Pulumi.CustomResource
+    public partial class TopicRuleDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class TopicRuleDestinationArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// HTTP URL destination properties.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IoT
         public TopicRuleDestinationArgs()
         {
         }
+        public static new TopicRuleDestinationArgs Empty => new TopicRuleDestinationArgs();
     }
 }

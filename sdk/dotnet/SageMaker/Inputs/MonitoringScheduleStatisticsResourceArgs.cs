@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The baseline statistics resource for a monitoring job.
     /// </summary>
-    public sealed class MonitoringScheduleStatisticsResourceArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleStatisticsResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleStatisticsResourceArgs()
         {
         }
+        public static new MonitoringScheduleStatisticsResourceArgs Empty => new MonitoringScheduleStatisticsResourceArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// </summary>
     [Obsolete(@"VirtualService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:VirtualService")]
-    public partial class VirtualService : Pulumi.CustomResource
+    public partial class VirtualService : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AppMesh
         }
     }
 
-    public sealed class VirtualServiceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.AppMesh
         public VirtualServiceArgs()
         {
         }
+        public static new VirtualServiceArgs Empty => new VirtualServiceArgs();
     }
 }

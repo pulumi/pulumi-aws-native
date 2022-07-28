@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyCrossRegionCopyActionArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyCrossRegionCopyActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.LifecyclePolicyEncryptionConfigurationArgs> EncryptionConfiguration { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyCrossRegionCopyActionArgs()
         {
         }
+        public static new LifecyclePolicyCrossRegionCopyActionArgs Empty => new LifecyclePolicyCrossRegionCopyActionArgs();
     }
 }

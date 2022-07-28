@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     }
 
 
-    public sealed class GetRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetRouteArgs()
         {
         }
+        public static new GetRouteArgs Empty => new GetRouteArgs();
     }
 
-    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetRouteInvokeArgs()
         {
         }
+        public static new GetRouteInvokeArgs Empty => new GetRouteInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Inspector
     }
 
 
-    public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Inspector
         public GetResourceGroupArgs()
         {
         }
+        public static new GetResourceGroupArgs Empty => new GetResourceGroupArgs();
     }
 
-    public sealed class GetResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Inspector
         public GetResourceGroupInvokeArgs()
         {
         }
+        public static new GetResourceGroupInvokeArgs Empty => new GetResourceGroupInvokeArgs();
     }
 
 

@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.Macie.Inputs
     /// <summary>
     /// Map of filter criteria.
     /// </summary>
-    public sealed class FindingsFilterCriterionArgs : Pulumi.ResourceArgs
+    public sealed class FindingsFilterCriterionArgs : global::Pulumi.ResourceArgs
     {
         public FindingsFilterCriterionArgs()
         {
         }
+        public static new FindingsFilterCriterionArgs Empty => new FindingsFilterCriterionArgs();
     }
 }

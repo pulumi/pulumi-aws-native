@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Crawler")]
-    public partial class Crawler : Pulumi.CustomResource
+    public partial class Crawler : global::Pulumi.CustomResource
     {
         [Output("classifiers")]
         public Output<ImmutableArray<string>> Classifiers { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class CrawlerArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerArgs : global::Pulumi.ResourceArgs
     {
         [Input("classifiers")]
         private InputList<string>? _classifiers;
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.Glue
         public CrawlerArgs()
         {
         }
+        public static new CrawlerArgs Empty => new CrawlerArgs();
     }
 }

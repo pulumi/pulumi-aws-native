@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetModelPackageGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetModelPackageGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("modelPackageGroupArn", required: true)]
         public string ModelPackageGroupArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelPackageGroupArgs()
         {
         }
+        public static new GetModelPackageGroupArgs Empty => new GetModelPackageGroupArgs();
     }
 
-    public sealed class GetModelPackageGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetModelPackageGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("modelPackageGroupArn", required: true)]
         public Input<string> ModelPackageGroupArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelPackageGroupInvokeArgs()
         {
         }
+        public static new GetModelPackageGroupInvokeArgs Empty => new GetModelPackageGroupInvokeArgs();
     }
 
 

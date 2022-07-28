@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppStream
     /// Resource Type definition for AWS::AppStream::AppBlock
     /// </summary>
     [AwsNativeResourceType("aws-native:appstream:AppBlock")]
-    public partial class AppBlock : Pulumi.CustomResource
+    public partial class AppBlock : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class AppBlockArgs : Pulumi.ResourceArgs
+    public sealed class AppBlockArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.AppStream
         public AppBlockArgs()
         {
         }
+        public static new AppBlockArgs Empty => new AppBlockArgs();
     }
 }

@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts.Inputs
 {
 
-    public sealed class BucketFilterAndOperatorArgs : Pulumi.ResourceArgs
+    public sealed class BucketFilterAndOperatorArgs : global::Pulumi.ResourceArgs
     {
         public BucketFilterAndOperatorArgs()
         {
         }
+        public static new BucketFilterAndOperatorArgs Empty => new BucketFilterAndOperatorArgs();
     }
 }

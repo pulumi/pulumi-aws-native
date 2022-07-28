@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     /// <summary>
     /// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
     /// </summary>
-    public sealed class IPAMIpamOperatingRegionArgs : Pulumi.ResourceArgs
+    public sealed class IPAMIpamOperatingRegionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the region.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public IPAMIpamOperatingRegionArgs()
         {
         }
+        public static new IPAMIpamOperatingRegionArgs Empty => new IPAMIpamOperatingRegionArgs();
     }
 }

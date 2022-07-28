@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// The endpoints used by AWS Lambda to access a self-managed event source.
     /// </summary>
-    public sealed class EventSourceMappingEndpointsArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingEndpointsArgs : global::Pulumi.ResourceArgs
     {
         [Input("kafkaBootstrapServers")]
         private InputList<string>? _kafkaBootstrapServers;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventSourceMappingEndpointsArgs()
         {
         }
+        public static new EventSourceMappingEndpointsArgs Empty => new EventSourceMappingEndpointsArgs();
     }
 }

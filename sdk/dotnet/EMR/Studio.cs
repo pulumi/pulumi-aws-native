@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMR
     /// Resource schema for AWS::EMR::Studio
     /// </summary>
     [AwsNativeResourceType("aws-native:emr:Studio")]
-    public partial class Studio : Pulumi.CustomResource
+    public partial class Studio : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EMR Studio.
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class StudioArgs : Pulumi.ResourceArgs
+    public sealed class StudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
@@ -249,5 +249,6 @@ namespace Pulumi.AwsNative.EMR
         public StudioArgs()
         {
         }
+        public static new StudioArgs Empty => new StudioArgs();
     }
 }

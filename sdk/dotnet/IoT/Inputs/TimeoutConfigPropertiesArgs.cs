@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Specifies the amount of time each device has to finish its execution of the job.
     /// </summary>
-    public sealed class TimeoutConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TimeoutConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("inProgressTimeoutInMinutes", required: true)]
         public Input<int> InProgressTimeoutInMinutes { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TimeoutConfigPropertiesArgs()
         {
         }
+        public static new TimeoutConfigPropertiesArgs Empty => new TimeoutConfigPropertiesArgs();
     }
 }

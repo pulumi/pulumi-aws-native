@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreCustomerManagedS3Args : Pulumi.ResourceArgs
+    public sealed class DatastoreCustomerManagedS3Args : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatastoreCustomerManagedS3Args()
         {
         }
+        public static new DatastoreCustomerManagedS3Args Empty => new DatastoreCustomerManagedS3Args();
     }
 }

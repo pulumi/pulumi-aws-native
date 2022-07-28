@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterJobFlowInstancesConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterJobFlowInstancesConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalMasterSecurityGroups")]
         private InputList<string>? _additionalMasterSecurityGroups;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterJobFlowInstancesConfigArgs()
         {
         }
+        public static new ClusterJobFlowInstancesConfigArgs Empty => new ClusterJobFlowInstancesConfigArgs();
     }
 }

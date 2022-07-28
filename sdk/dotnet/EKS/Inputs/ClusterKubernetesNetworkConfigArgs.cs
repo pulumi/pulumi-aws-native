@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// The Kubernetes network configuration for the cluster.
     /// </summary>
-    public sealed class ClusterKubernetesNetworkConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKubernetesNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public ClusterKubernetesNetworkConfigArgs()
         {
         }
+        public static new ClusterKubernetesNetworkConfigArgs Empty => new ClusterKubernetesNetworkConfigArgs();
     }
 }

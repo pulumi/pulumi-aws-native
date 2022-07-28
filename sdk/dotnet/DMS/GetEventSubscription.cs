@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DMS
     }
 
 
-    public sealed class GetEventSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DMS
         public GetEventSubscriptionArgs()
         {
         }
+        public static new GetEventSubscriptionArgs Empty => new GetEventSubscriptionArgs();
     }
 
-    public sealed class GetEventSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DMS
         public GetEventSubscriptionInvokeArgs()
         {
         }
+        public static new GetEventSubscriptionInvokeArgs Empty => new GetEventSubscriptionInvokeArgs();
     }
 
 

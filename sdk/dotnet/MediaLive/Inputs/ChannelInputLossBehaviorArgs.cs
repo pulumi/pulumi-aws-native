@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputLossBehaviorArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputLossBehaviorArgs : global::Pulumi.ResourceArgs
     {
         [Input("blackFrameMsec")]
         public Input<int>? BlackFrameMsec { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputLossBehaviorArgs()
         {
         }
+        public static new ChannelInputLossBehaviorArgs Empty => new ChannelInputLossBehaviorArgs();
     }
 }

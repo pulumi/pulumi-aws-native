@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// A WAFv2 Logging Configuration Resource Provider
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:LoggingConfiguration")]
-    public partial class LoggingConfiguration : Pulumi.CustomResource
+    public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
     }
 
-    public sealed class LoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("logDestinationConfigs", required: true)]
         private InputList<string>? _logDestinationConfigs;
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.WAFv2
         public LoggingConfigurationArgs()
         {
         }
+        public static new LoggingConfigurationArgs Empty => new LoggingConfigurationArgs();
     }
 }

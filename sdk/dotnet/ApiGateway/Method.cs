@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Method
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Method")]
-    public partial class Method : Pulumi.CustomResource
+    public partial class Method : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the method requires clients to submit a valid API key.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class MethodArgs : Pulumi.ResourceArgs
+    public sealed class MethodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the method requires clients to submit a valid API key.
@@ -231,5 +231,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public MethodArgs()
         {
         }
+        public static new MethodArgs Empty => new MethodArgs();
     }
 }

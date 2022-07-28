@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolPoliciesArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolPoliciesArgs()
         {
         }
+        public static new UserPoolPoliciesArgs Empty => new UserPoolPoliciesArgs();
     }
 }

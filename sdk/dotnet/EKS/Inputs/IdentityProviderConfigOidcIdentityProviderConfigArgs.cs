@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing an OpenID Connect (OIDC) configuration.
     /// </summary>
-    public sealed class IdentityProviderConfigOidcIdentityProviderConfigArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigOidcIdentityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
@@ -62,5 +62,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public IdentityProviderConfigOidcIdentityProviderConfigArgs()
         {
         }
+        public static new IdentityProviderConfigOidcIdentityProviderConfigArgs Empty => new IdentityProviderConfigOidcIdentityProviderConfigArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetBasePathMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetBasePathMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetBasePathMappingArgs()
         {
         }
+        public static new GetBasePathMappingArgs Empty => new GetBasePathMappingArgs();
     }
 
-    public sealed class GetBasePathMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBasePathMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetBasePathMappingInvokeArgs()
         {
         }
+        public static new GetBasePathMappingInvokeArgs Empty => new GetBasePathMappingInvokeArgs();
     }
 
 

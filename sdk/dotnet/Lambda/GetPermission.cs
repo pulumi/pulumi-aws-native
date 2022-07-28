@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetPermissionArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetPermissionArgs()
         {
         }
+        public static new GetPermissionArgs Empty => new GetPermissionArgs();
     }
 
-    public sealed class GetPermissionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetPermissionInvokeArgs()
         {
         }
+        public static new GetPermissionInvokeArgs Empty => new GetPermissionInvokeArgs();
     }
 
 

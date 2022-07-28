@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Bucket
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Bucket")]
-    public partial class Bucket : Pulumi.CustomResource
+    public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class BucketArgs : Pulumi.ResourceArgs
+    public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessRules")]
         public Input<Inputs.BucketAccessRulesArgs>? AccessRules { get; set; }
@@ -174,5 +174,6 @@ namespace Pulumi.AwsNative.Lightsail
         public BucketArgs()
         {
         }
+        public static new BucketArgs Empty => new BucketArgs();
     }
 }

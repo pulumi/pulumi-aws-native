@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceDocumentsMetadataConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDocumentsMetadataConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceDocumentsMetadataConfigurationArgs()
         {
         }
+        public static new DataSourceDocumentsMetadataConfigurationArgs Empty => new DataSourceDocumentsMetadataConfigurationArgs();
     }
 }

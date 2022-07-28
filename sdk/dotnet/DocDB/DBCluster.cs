@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DocDB
     /// </summary>
     [Obsolete(@"DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:docdb:DBCluster")]
-    public partial class DBCluster : Pulumi.CustomResource
+    public partial class DBCluster : global::Pulumi.CustomResource
     {
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.DocDB
         }
     }
 
-    public sealed class DBClusterArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -207,5 +207,6 @@ namespace Pulumi.AwsNative.DocDB
         public DBClusterArgs()
         {
         }
+        public static new DBClusterArgs Empty => new DBClusterArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Neptune.Inputs
 {
 
-    public sealed class DBSubnetGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class DBSubnetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Neptune.Inputs
         public DBSubnetGroupTagArgs()
         {
         }
+        public static new DBSubnetGroupTagArgs Empty => new DBSubnetGroupTagArgs();
     }
 }

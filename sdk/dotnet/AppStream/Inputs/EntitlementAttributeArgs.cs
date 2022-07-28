@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class EntitlementAttributeArgs : Pulumi.ResourceArgs
+    public sealed class EntitlementAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public EntitlementAttributeArgs()
         {
         }
+        public static new EntitlementAttributeArgs Empty => new EntitlementAttributeArgs();
     }
 }

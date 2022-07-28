@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioNormalizationSettings")]
         public Input<Inputs.ChannelAudioNormalizationSettingsArgs>? AudioNormalizationSettings { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioDescriptionArgs()
         {
         }
+        public static new ChannelAudioDescriptionArgs Empty => new ChannelAudioDescriptionArgs();
     }
 }

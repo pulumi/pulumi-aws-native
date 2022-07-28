@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration
     /// </summary>
     [Obsolete(@"ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:ConfigRule")]
-    public partial class ConfigRule : Pulumi.CustomResource
+    public partial class ConfigRule : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class ConfigRuleArgs : Pulumi.ResourceArgs
+    public sealed class ConfigRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("complianceType")]
         public Input<string>? ComplianceType { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.Configuration
         public ConfigRuleArgs()
         {
         }
+        public static new ConfigRuleArgs Empty => new ConfigRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DMS
     }
 
 
-    public sealed class GetReplicationTaskArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationTaskArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DMS
         public GetReplicationTaskArgs()
         {
         }
+        public static new GetReplicationTaskArgs Empty => new GetReplicationTaskArgs();
     }
 
-    public sealed class GetReplicationTaskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationTaskInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DMS
         public GetReplicationTaskInvokeArgs()
         {
         }
+        public static new GetReplicationTaskInvokeArgs Empty => new GetReplicationTaskInvokeArgs();
     }
 
 

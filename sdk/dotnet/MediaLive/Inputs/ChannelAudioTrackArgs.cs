@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioTrackArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioTrackArgs : global::Pulumi.ResourceArgs
     {
         [Input("track")]
         public Input<int>? Track { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioTrackArgs()
         {
         }
+        public static new ChannelAudioTrackArgs Empty => new ChannelAudioTrackArgs();
     }
 }

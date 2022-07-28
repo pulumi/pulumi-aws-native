@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker
     /// AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RoboMaker
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the fleet.
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.RoboMaker
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Port of the Instance.
     /// </summary>
-    public sealed class InstancePortArgs : Pulumi.ResourceArgs
+    public sealed class InstancePortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access Direction for Protocol of the Instance(inbound/outbound).
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstancePortArgs()
         {
         }
+        public static new InstancePortArgs Empty => new InstancePortArgs();
     }
 }

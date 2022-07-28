@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Identifies the resources to deploy for a monitoring job.
     /// </summary>
-    public sealed class ModelQualityJobDefinitionMonitoringResourcesArgs : Pulumi.ResourceArgs
+    public sealed class ModelQualityJobDefinitionMonitoringResourcesArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterConfig", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionClusterConfigArgs> ClusterConfig { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelQualityJobDefinitionMonitoringResourcesArgs()
         {
         }
+        public static new ModelQualityJobDefinitionMonitoringResourcesArgs Empty => new ModelQualityJobDefinitionMonitoringResourcesArgs();
     }
 }

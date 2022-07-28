@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodePipeline
     }
 
 
-    public sealed class GetCustomActionTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomActionTypeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodePipeline
         public GetCustomActionTypeArgs()
         {
         }
+        public static new GetCustomActionTypeArgs Empty => new GetCustomActionTypeArgs();
     }
 
-    public sealed class GetCustomActionTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomActionTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodePipeline
         public GetCustomActionTypeInvokeArgs()
         {
         }
+        public static new GetCustomActionTypeInvokeArgs Empty => new GetCustomActionTypeInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cloud9
     /// </summary>
     [Obsolete(@"EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloud9:EnvironmentEC2")]
-    public partial class EnvironmentEC2 : Pulumi.CustomResource
+    public partial class EnvironmentEC2 : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Cloud9
         }
     }
 
-    public sealed class EnvironmentEC2Args : Pulumi.ResourceArgs
+    public sealed class EnvironmentEC2Args : global::Pulumi.ResourceArgs
     {
         [Input("automaticStopTimeMinutes")]
         public Input<int>? AutomaticStopTimeMinutes { get; set; }
@@ -137,5 +137,6 @@ namespace Pulumi.AwsNative.Cloud9
         public EnvironmentEC2Args()
         {
         }
+        public static new EnvironmentEC2Args Empty => new EnvironmentEC2Args();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaStore.Inputs
 {
 
-    public sealed class ContainerCorsRuleArgs : Pulumi.ResourceArgs
+    public sealed class ContainerCorsRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.MediaStore.Inputs
         public ContainerCorsRuleArgs()
         {
         }
+        public static new ContainerCorsRuleArgs Empty => new ContainerCorsRuleArgs();
     }
 }

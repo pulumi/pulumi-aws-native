@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMRServerless.Inputs
 {
 
-    public sealed class ApplicationMaximumAllowedResourcesArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMaximumAllowedResourcesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationMaximumAllowedResourcesArgs()
         {
         }
+        public static new ApplicationMaximumAllowedResourcesArgs Empty => new ApplicationMaximumAllowedResourcesArgs();
     }
 }

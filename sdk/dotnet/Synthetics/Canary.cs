@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Synthetics
     /// Resource Type definition for AWS::Synthetics::Canary
     /// </summary>
     [AwsNativeResourceType("aws-native:synthetics:Canary")]
-    public partial class Canary : Pulumi.CustomResource
+    public partial class Canary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Provide artifact configuration
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.Synthetics
         }
     }
 
-    public sealed class CanaryArgs : Pulumi.ResourceArgs
+    public sealed class CanaryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provide artifact configuration
@@ -248,5 +248,6 @@ namespace Pulumi.AwsNative.Synthetics
         public CanaryArgs()
         {
         }
+        public static new CanaryArgs Empty => new CanaryArgs();
     }
 }

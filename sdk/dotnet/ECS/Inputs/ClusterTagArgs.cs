@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
     /// </summary>
-    public sealed class ClusterTagArgs : Pulumi.ResourceArgs
+    public sealed class ClusterTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterTagArgs()
         {
         }
+        public static new ClusterTagArgs Empty => new ClusterTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
-    public sealed class MemberNetworkFrameworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MemberNetworkFrameworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkFabricConfiguration")]
         public Input<Inputs.MemberNetworkFabricConfigurationArgs>? NetworkFabricConfiguration { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
         public MemberNetworkFrameworkConfigurationArgs()
         {
         }
+        public static new MemberNetworkFrameworkConfigurationArgs Empty => new MemberNetworkFrameworkConfigurationArgs();
     }
 }

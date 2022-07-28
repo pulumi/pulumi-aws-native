@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::QuickConnect
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:QuickConnect")]
-    public partial class QuickConnect : Pulumi.CustomResource
+    public partial class QuickConnect : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the quick connect.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class QuickConnectArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the quick connect.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.Connect
         public QuickConnectArgs()
         {
         }
+        public static new QuickConnectArgs Empty => new QuickConnectArgs();
     }
 }

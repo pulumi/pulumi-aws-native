@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The primary message that Amazon Lex should send to the user.
     /// </summary>
-    public sealed class BotMessageArgs : Pulumi.ResourceArgs
+    public sealed class BotMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("customPayload")]
         public Input<Inputs.BotCustomPayloadArgs>? CustomPayload { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotMessageArgs()
         {
         }
+        public static new BotMessageArgs Empty => new BotMessageArgs();
     }
 }

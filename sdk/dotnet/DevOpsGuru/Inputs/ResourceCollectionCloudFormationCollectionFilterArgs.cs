@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// <summary>
     /// CloudFormation resource for DevOps Guru to monitor
     /// </summary>
-    public sealed class ResourceCollectionCloudFormationCollectionFilterArgs : Pulumi.ResourceArgs
+    public sealed class ResourceCollectionCloudFormationCollectionFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("stackNames")]
         private InputList<string>? _stackNames;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         public ResourceCollectionCloudFormationCollectionFilterArgs()
         {
         }
+        public static new ResourceCollectionCloudFormationCollectionFilterArgs Empty => new ResourceCollectionCloudFormationCollectionFilterArgs();
     }
 }

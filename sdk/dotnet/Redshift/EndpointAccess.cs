@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift
     /// Resource schema for a Redshift-managed VPC endpoint.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:EndpointAccess")]
-    public partial class EndpointAccess : Pulumi.CustomResource
+    public partial class EndpointAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The DNS address of the endpoint.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class EndpointAccessArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.Redshift
         public EndpointAccessArgs()
         {
         }
+        public static new EndpointAccessArgs Empty => new EndpointAccessArgs();
     }
 }

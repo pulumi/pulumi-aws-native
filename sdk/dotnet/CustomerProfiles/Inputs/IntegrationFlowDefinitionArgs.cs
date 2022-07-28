@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationFlowDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationFlowDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationFlowDefinitionArgs()
         {
         }
+        public static new IntegrationFlowDefinitionArgs Empty => new IntegrationFlowDefinitionArgs();
     }
 }

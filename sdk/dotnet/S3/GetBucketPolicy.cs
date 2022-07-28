@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3
     }
 
 
-    public sealed class GetBucketPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.S3
         public GetBucketPolicyArgs()
         {
         }
+        public static new GetBucketPolicyArgs Empty => new GetBucketPolicyArgs();
     }
 
-    public sealed class GetBucketPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.S3
         public GetBucketPolicyInvokeArgs()
         {
         }
+        public static new GetBucketPolicyInvokeArgs Empty => new GetBucketPolicyInvokeArgs();
     }
 
 

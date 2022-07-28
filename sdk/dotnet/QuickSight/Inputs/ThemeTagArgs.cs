@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// &lt;p&gt;The key or keys of the key-value pairs for the resource tag or tags assigned to the
     ///             resource.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeTagArgs : Pulumi.ResourceArgs
+    public sealed class ThemeTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Tag key.&lt;/p&gt;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeTagArgs()
         {
         }
+        public static new ThemeTagArgs Empty => new ThemeTagArgs();
     }
 }

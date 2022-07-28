@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::DomainName.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:DomainName")]
-    public partial class DomainName : Pulumi.CustomResource
+    public partial class DomainName : global::Pulumi.CustomResource
     {
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class DomainNameArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -128,5 +128,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public DomainNameArgs()
         {
         }
+        public static new DomainNameArgs Empty => new DomainNameArgs();
     }
 }

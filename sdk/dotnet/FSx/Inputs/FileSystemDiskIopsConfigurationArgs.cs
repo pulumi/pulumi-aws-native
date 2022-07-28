@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemDiskIopsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemDiskIopsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemDiskIopsConfigurationArgs()
         {
         }
+        public static new FileSystemDiskIopsConfigurationArgs Empty => new FileSystemDiskIopsConfigurationArgs();
     }
 }

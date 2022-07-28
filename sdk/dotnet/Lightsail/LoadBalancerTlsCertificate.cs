@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:LoadBalancerTlsCertificate")]
-    public partial class LoadBalancerTlsCertificate : Pulumi.CustomResource
+    public partial class LoadBalancerTlsCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class LoadBalancerTlsCertificateArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateAlternativeNames")]
         private InputList<string>? _certificateAlternativeNames;
@@ -150,5 +150,6 @@ namespace Pulumi.AwsNative.Lightsail
         public LoadBalancerTlsCertificateArgs()
         {
         }
+        public static new LoadBalancerTlsCertificateArgs Empty => new LoadBalancerTlsCertificateArgs();
     }
 }

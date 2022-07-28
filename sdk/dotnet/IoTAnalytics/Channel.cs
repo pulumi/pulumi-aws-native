@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// Resource Type definition for AWS::IoTAnalytics::Channel
     /// </summary>
     [AwsNativeResourceType("aws-native:iotanalytics:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         [Output("channelName")]
         public Output<string?> ChannelName { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

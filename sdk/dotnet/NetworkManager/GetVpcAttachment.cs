@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetVpcAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the attachment.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetVpcAttachmentArgs()
         {
         }
+        public static new GetVpcAttachmentArgs Empty => new GetVpcAttachmentArgs();
     }
 
-    public sealed class GetVpcAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the attachment.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetVpcAttachmentInvokeArgs()
         {
         }
+        public static new GetVpcAttachmentInvokeArgs Empty => new GetVpcAttachmentInvokeArgs();
     }
 
 

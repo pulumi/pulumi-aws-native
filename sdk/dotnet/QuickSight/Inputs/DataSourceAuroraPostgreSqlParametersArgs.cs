@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Amazon Aurora with PostgreSQL compatibility parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceAuroraPostgreSqlParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAuroraPostgreSqlParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceAuroraPostgreSqlParametersArgs()
         {
         }
+        public static new DataSourceAuroraPostgreSqlParametersArgs Empty => new DataSourceAuroraPostgreSqlParametersArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MemoryDB
     }
 
 
-    public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetSubnetGroupArgs()
         {
         }
+        public static new GetSubnetGroupArgs Empty => new GetSubnetGroupArgs();
     }
 
-    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetSubnetGroupInvokeArgs()
         {
         }
+        public static new GetSubnetGroupInvokeArgs Empty => new GetSubnetGroupInvokeArgs();
     }
 
 

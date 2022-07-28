@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Device Profile's resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:DeviceProfile")]
-    public partial class DeviceProfile : Pulumi.CustomResource
+    public partial class DeviceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service profile Arn. Returned after successful create.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class DeviceProfileArgs : Pulumi.ResourceArgs
+    public sealed class DeviceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public DeviceProfileArgs()
         {
         }
+        public static new DeviceProfileArgs Empty => new DeviceProfileArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// </summary>
     [Obsolete(@"Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Stage")]
-    public partial class Stage : Pulumi.CustomResource
+    public partial class Stage : global::Pulumi.CustomResource
     {
         [Output("accessLogSettings")]
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class StageArgs : Pulumi.ResourceArgs
+    public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsArgs>? AccessLogSettings { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public StageArgs()
         {
         }
+        public static new StageArgs Empty => new StageArgs();
     }
 }

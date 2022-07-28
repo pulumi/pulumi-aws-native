@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamDeserializerArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamDeserializerArgs : global::Pulumi.ResourceArgs
     {
         [Input("hiveJsonSerDe")]
         public Input<Inputs.DeliveryStreamHiveJsonSerDeArgs>? HiveJsonSerDe { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamDeserializerArgs()
         {
         }
+        public static new DeliveryStreamDeserializerArgs Empty => new DeliveryStreamDeserializerArgs();
     }
 }

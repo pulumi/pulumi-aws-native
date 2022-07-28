@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
     /// </summary>
-    public sealed class OriginEndpointDashEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointDashEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time (in seconds) between each encryption key rotation.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointDashEncryptionArgs()
         {
         }
+        public static new OriginEndpointDashEncryptionArgs Empty => new OriginEndpointDashEncryptionArgs();
     }
 }

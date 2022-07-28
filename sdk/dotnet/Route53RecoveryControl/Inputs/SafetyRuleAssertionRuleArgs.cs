@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
     /// <summary>
     /// An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
     /// </summary>
-    public sealed class SafetyRuleAssertionRuleArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleAssertionRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("assertedControls", required: true)]
         private InputList<string>? _assertedControls;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public SafetyRuleAssertionRuleArgs()
         {
         }
+        public static new SafetyRuleAssertionRuleArgs Empty => new SafetyRuleAssertionRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     /// Resource schema for AWS::IoTTwinMaker::Scene
     /// </summary>
     [AwsNativeResourceType("aws-native:iottwinmaker:Scene")]
-    public partial class Scene : Pulumi.CustomResource
+    public partial class Scene : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the scene.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         }
     }
 
-    public sealed class SceneArgs : Pulumi.ResourceArgs
+    public sealed class SceneArgs : global::Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public SceneArgs()
         {
         }
+        public static new SceneArgs Empty => new SceneArgs();
     }
 }

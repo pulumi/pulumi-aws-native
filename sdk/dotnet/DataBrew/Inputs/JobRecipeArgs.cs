@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobRecipeArgs : Pulumi.ResourceArgs
+    public sealed class JobRecipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Recipe name
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobRecipeArgs()
         {
         }
+        public static new JobRecipeArgs Empty => new JobRecipeArgs();
     }
 }

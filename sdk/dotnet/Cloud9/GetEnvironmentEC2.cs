@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cloud9
     }
 
 
-    public sealed class GetEnvironmentEC2Args : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentEC2Args : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Cloud9
         public GetEnvironmentEC2Args()
         {
         }
+        public static new GetEnvironmentEC2Args Empty => new GetEnvironmentEC2Args();
     }
 
-    public sealed class GetEnvironmentEC2InvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentEC2InvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Cloud9
         public GetEnvironmentEC2InvokeArgs()
         {
         }
+        public static new GetEnvironmentEC2InvokeArgs Empty => new GetEnvironmentEC2InvokeArgs();
     }
 
 

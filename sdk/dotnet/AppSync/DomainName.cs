@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppSync
     /// Resource Type definition for AWS::AppSync::DomainName
     /// </summary>
     [AwsNativeResourceType("aws-native:appsync:DomainName")]
-    public partial class DomainName : Pulumi.CustomResource
+    public partial class DomainName : global::Pulumi.CustomResource
     {
         [Output("appSyncDomainName")]
         public Output<string> AppSyncDomainName { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class DomainNameArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.AppSync
         public DomainNameArgs()
         {
         }
+        public static new DomainNameArgs Empty => new DomainNameArgs();
     }
 }

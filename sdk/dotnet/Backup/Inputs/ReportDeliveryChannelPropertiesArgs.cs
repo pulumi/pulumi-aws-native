@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// <summary>
     /// A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
     /// </summary>
-    public sealed class ReportDeliveryChannelPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ReportDeliveryChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("formats")]
         private InputList<string>? _formats;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public ReportDeliveryChannelPropertiesArgs()
         {
         }
+        public static new ReportDeliveryChannelPropertiesArgs Empty => new ReportDeliveryChannelPropertiesArgs();
     }
 }

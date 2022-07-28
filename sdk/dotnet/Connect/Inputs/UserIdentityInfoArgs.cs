@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Contains information about the identity of a user.
     /// </summary>
-    public sealed class UserIdentityInfoArgs : Pulumi.ResourceArgs
+    public sealed class UserIdentityInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("email")]
         public Input<string>? Email { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public UserIdentityInfoArgs()
         {
         }
+        public static new UserIdentityInfoArgs Empty => new UserIdentityInfoArgs();
     }
 }

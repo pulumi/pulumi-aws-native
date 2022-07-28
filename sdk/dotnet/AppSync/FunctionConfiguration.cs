@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:FunctionConfiguration")]
-    public partial class FunctionConfiguration : Pulumi.CustomResource
+    public partial class FunctionConfiguration : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class FunctionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FunctionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.AppSync
         public FunctionConfigurationArgs()
         {
         }
+        public static new FunctionConfigurationArgs Empty => new FunctionConfigurationArgs();
     }
 }

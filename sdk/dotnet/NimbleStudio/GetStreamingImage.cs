@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     }
 
 
-    public sealed class GetStreamingImageArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingImageArgs : global::Pulumi.InvokeArgs
     {
         [Input("streamingImageId", required: true)]
         public string StreamingImageId { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetStreamingImageArgs()
         {
         }
+        public static new GetStreamingImageArgs Empty => new GetStreamingImageArgs();
     }
 
-    public sealed class GetStreamingImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("streamingImageId", required: true)]
         public Input<string> StreamingImageId { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetStreamingImageInvokeArgs()
         {
         }
+        public static new GetStreamingImageInvokeArgs Empty => new GetStreamingImageInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh
     }
 
 
-    public sealed class GetGatewayRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayRouteArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppMesh
         public GetGatewayRouteArgs()
         {
         }
+        public static new GetGatewayRouteArgs Empty => new GetGatewayRouteArgs();
     }
 
-    public sealed class GetGatewayRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppMesh
         public GetGatewayRouteInvokeArgs()
         {
         }
+        public static new GetGatewayRouteInvokeArgs Empty => new GetGatewayRouteInvokeArgs();
     }
 
 

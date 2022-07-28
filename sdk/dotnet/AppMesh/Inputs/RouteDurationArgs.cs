@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteDurationArgs : Pulumi.ResourceArgs
+    public sealed class RouteDurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteDurationArgs()
         {
         }
+        public static new RouteDurationArgs Empty => new RouteDurationArgs();
     }
 }

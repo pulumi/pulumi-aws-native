@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the input source of a transform job and the way the transform job consumes it.
     /// </summary>
-    public sealed class ModelPackageDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3DataSource", required: true)]
         public Input<Inputs.ModelPackageS3DataSourceArgs> S3DataSource { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageDataSourceArgs()
         {
         }
+        public static new ModelPackageDataSourceArgs Empty => new ModelPackageDataSourceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetScheduledActionArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledActionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the scheduled action. The name must be unique within an account.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetScheduledActionArgs()
         {
         }
+        public static new GetScheduledActionArgs Empty => new GetScheduledActionArgs();
     }
 
-    public sealed class GetScheduledActionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledActionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the scheduled action. The name must be unique within an account.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetScheduledActionInvokeArgs()
         {
         }
+        public static new GetScheduledActionInvokeArgs Empty => new GetScheduledActionInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// The default version of a resource that has been registered in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ResourceDefaultVersion")]
-    public partial class ResourceDefaultVersion : Pulumi.CustomResource
+    public partial class ResourceDefaultVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class ResourceDefaultVersionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefaultVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the type being registered.
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public ResourceDefaultVersionArgs()
         {
         }
+        public static new ResourceDefaultVersionArgs Empty => new ResourceDefaultVersionArgs();
     }
 }

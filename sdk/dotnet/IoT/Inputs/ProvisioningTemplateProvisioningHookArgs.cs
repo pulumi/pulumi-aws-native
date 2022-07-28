@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class ProvisioningTemplateProvisioningHookArgs : Pulumi.ResourceArgs
+    public sealed class ProvisioningTemplateProvisioningHookArgs : global::Pulumi.ResourceArgs
     {
         [Input("payloadVersion")]
         public Input<string>? PayloadVersion { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public ProvisioningTemplateProvisioningHookArgs()
         {
         }
+        public static new ProvisioningTemplateProvisioningHookArgs Empty => new ProvisioningTemplateProvisioningHookArgs();
     }
 }

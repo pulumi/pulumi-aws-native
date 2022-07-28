@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MemoryDB
     }
 
 
-    public sealed class GetACLArgs : Pulumi.InvokeArgs
+    public sealed class GetACLArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the acl.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetACLArgs()
         {
         }
+        public static new GetACLArgs Empty => new GetACLArgs();
     }
 
-    public sealed class GetACLInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetACLInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the acl.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetACLInvokeArgs()
         {
         }
+        public static new GetACLInvokeArgs Empty => new GetACLInvokeArgs();
     }
 
 

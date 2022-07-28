@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBSubnetGroup")]
-    public partial class DBSubnetGroup : Pulumi.CustomResource
+    public partial class DBSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("dBSubnetGroupDescription")]
         public Output<string> DBSubnetGroupDescription { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBSubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("dBSubnetGroupDescription", required: true)]
         public Input<string> DBSubnetGroupDescription { get; set; } = null!;
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.RDS
         public DBSubnetGroupArgs()
         {
         }
+        public static new DBSubnetGroupArgs Empty => new DBSubnetGroupArgs();
     }
 }

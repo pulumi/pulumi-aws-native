@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Represents a Metric Source Object.
     /// </summary>
-    public sealed class ModelPackageMetricsSourceArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageMetricsSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The digest of the metric source.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageMetricsSourceArgs()
         {
         }
+        public static new ModelPackageMetricsSourceArgs Empty => new ModelPackageMetricsSourceArgs();
     }
 }

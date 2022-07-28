@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanPredefinedScalingMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanPredefinedScalingMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("predefinedScalingMetricType", required: true)]
         public Input<string> PredefinedScalingMetricType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
         public ScalingPlanPredefinedScalingMetricSpecificationArgs()
         {
         }
+        public static new ScalingPlanPredefinedScalingMetricSpecificationArgs Empty => new ScalingPlanPredefinedScalingMetricSpecificationArgs();
     }
 }

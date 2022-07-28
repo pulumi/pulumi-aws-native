@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
 
-    public sealed class GetCustomLineItemArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomLineItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetCustomLineItemArgs()
         {
         }
+        public static new GetCustomLineItemArgs Empty => new GetCustomLineItemArgs();
     }
 
-    public sealed class GetCustomLineItemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomLineItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetCustomLineItemInvokeArgs()
         {
         }
+        public static new GetCustomLineItemInvokeArgs Empty => new GetCustomLineItemInvokeArgs();
     }
 
 

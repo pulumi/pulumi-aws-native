@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSM
     /// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:Association")]
-    public partial class Association : Pulumi.CustomResource
+    public partial class Association : global::Pulumi.CustomResource
     {
         [Output("applyOnlyAtCronInterval")]
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class AssociationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
@@ -224,5 +224,6 @@ namespace Pulumi.AwsNative.SSM
         public AssociationArgs()
         {
         }
+        public static new AssociationArgs Empty => new AssociationArgs();
     }
 }

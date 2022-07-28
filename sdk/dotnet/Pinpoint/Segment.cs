@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"Segment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:Segment")]
-    public partial class Segment : Pulumi.CustomResource
+    public partial class Segment : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class SegmentArgs : Pulumi.ResourceArgs
+    public sealed class SegmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public SegmentArgs()
         {
         }
+        public static new SegmentArgs Empty => new SegmentArgs();
     }
 }

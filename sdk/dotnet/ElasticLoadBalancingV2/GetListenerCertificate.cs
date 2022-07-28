@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     }
 
 
-    public sealed class GetListenerCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerCertificateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetListenerCertificateArgs()
         {
         }
+        public static new GetListenerCertificateArgs Empty => new GetListenerCertificateArgs();
     }
 
-    public sealed class GetListenerCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetListenerCertificateInvokeArgs()
         {
         }
+        public static new GetListenerCertificateInvokeArgs Empty => new GetListenerCertificateInvokeArgs();
     }
 
 

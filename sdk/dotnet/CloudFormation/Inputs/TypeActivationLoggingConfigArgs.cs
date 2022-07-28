@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
-    public sealed class TypeActivationLoggingConfigArgs : Pulumi.ResourceArgs
+    public sealed class TypeActivationLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public TypeActivationLoggingConfigArgs()
         {
         }
+        public static new TypeActivationLoggingConfigArgs Empty => new TypeActivationLoggingConfigArgs();
     }
 }

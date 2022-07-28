@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// Resource schema for AWS::MediaPackage::Asset
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:Asset")]
-    public partial class Asset : Pulumi.CustomResource
+    public partial class Asset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Asset.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.MediaPackage
         }
     }
 
-    public sealed class AssetArgs : Pulumi.ResourceArgs
+    public sealed class AssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the PackagingGroup for the Asset.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.MediaPackage
         public AssetArgs()
         {
         }
+        public static new AssetArgs Empty => new AssetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Panorama
     /// Schema for ApplicationInstance CloudFormation Resource
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:ApplicationInstance")]
-    public partial class ApplicationInstance : Pulumi.CustomResource
+    public partial class ApplicationInstance : global::Pulumi.CustomResource
     {
         [Output("applicationInstanceId")]
         public Output<string> ApplicationInstanceId { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Panorama
         }
     }
 
-    public sealed class ApplicationInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationInstanceIdToReplace")]
         public Input<string>? ApplicationInstanceIdToReplace { get; set; }
@@ -152,5 +152,6 @@ namespace Pulumi.AwsNative.Panorama
         public ApplicationInstanceArgs()
         {
         }
+        public static new ApplicationInstanceArgs Empty => new ApplicationInstanceArgs();
     }
 }

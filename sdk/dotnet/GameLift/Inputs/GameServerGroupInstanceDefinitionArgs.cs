@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// An allowed instance type for your game server group.
     /// </summary>
-    public sealed class GameServerGroupInstanceDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupInstanceDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameServerGroupInstanceDefinitionArgs()
         {
         }
+        public static new GameServerGroupInstanceDefinitionArgs Empty => new GameServerGroupInstanceDefinitionArgs();
     }
 }

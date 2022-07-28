@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetSegmentArgs : Pulumi.InvokeArgs
+    public sealed class GetSegmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("segmentId", required: true)]
         public string SegmentId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSegmentArgs()
         {
         }
+        public static new GetSegmentArgs Empty => new GetSegmentArgs();
     }
 
-    public sealed class GetSegmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSegmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("segmentId", required: true)]
         public Input<string> SegmentId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSegmentInvokeArgs()
         {
         }
+        public static new GetSegmentInvokeArgs Empty => new GetSegmentInvokeArgs();
     }
 
 

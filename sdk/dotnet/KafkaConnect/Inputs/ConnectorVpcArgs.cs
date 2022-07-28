@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Information about a VPC used with the connector.
     /// </summary>
-    public sealed class ConnectorVpcArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorVpcArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorVpcArgs()
         {
         }
+        public static new ConnectorVpcArgs Empty => new ConnectorVpcArgs();
     }
 }

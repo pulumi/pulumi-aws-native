@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains information for a user identity in an access policy.
     /// </summary>
-    public sealed class AccessPolicyUserArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS SSO ID of the user.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AccessPolicyUserArgs()
         {
         }
+        public static new AccessPolicyUserArgs Empty => new AccessPolicyUserArgs();
     }
 }

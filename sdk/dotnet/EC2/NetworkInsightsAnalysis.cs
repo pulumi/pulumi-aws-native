@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAnalysis")]
-    public partial class NetworkInsightsAnalysis : Pulumi.CustomResource
+    public partial class NetworkInsightsAnalysis : global::Pulumi.CustomResource
     {
         [Output("alternatePathHints")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint>> AlternatePathHints { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInsightsAnalysisArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsAnalysisArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterInArns")]
         private InputList<string>? _filterInArns;
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInsightsAnalysisArgs()
         {
         }
+        public static new NetworkInsightsAnalysisArgs Empty => new NetworkInsightsAnalysisArgs();
     }
 }

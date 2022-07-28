@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolDomainCustomDomainConfigTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolDomainCustomDomainConfigTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolDomainCustomDomainConfigTypeArgs()
         {
         }
+        public static new UserPoolDomainCustomDomainConfigTypeArgs Empty => new UserPoolDomainCustomDomainConfigTypeArgs();
     }
 }

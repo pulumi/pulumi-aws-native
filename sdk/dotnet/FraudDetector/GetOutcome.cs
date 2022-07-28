@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FraudDetector
     }
 
 
-    public sealed class GetOutcomeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutcomeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The outcome ARN.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetOutcomeArgs()
         {
         }
+        public static new GetOutcomeArgs Empty => new GetOutcomeArgs();
     }
 
-    public sealed class GetOutcomeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutcomeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The outcome ARN.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetOutcomeInvokeArgs()
         {
         }
+        public static new GetOutcomeInvokeArgs Empty => new GetOutcomeInvokeArgs();
     }
 
 

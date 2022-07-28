@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// A resource schema for a Variable in Amazon Fraud Detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:Variable")]
-    public partial class Variable : Pulumi.CustomResource
+    public partial class Variable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the variable.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class VariableArgs : Pulumi.ResourceArgs
+    public sealed class VariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source of the data.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public VariableArgs()
         {
         }
+        public static new VariableArgs Empty => new VariableArgs();
     }
 }

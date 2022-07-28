@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationS3SourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationS3SourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationS3SourcePropertiesArgs()
         {
         }
+        public static new IntegrationS3SourcePropertiesArgs Empty => new IntegrationS3SourcePropertiesArgs();
     }
 }

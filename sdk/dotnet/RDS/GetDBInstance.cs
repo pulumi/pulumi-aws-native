@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetDBInstanceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBInstanceArgs()
         {
         }
+        public static new GetDBInstanceArgs Empty => new GetDBInstanceArgs();
     }
 
-    public sealed class GetDBInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBInstanceInvokeArgs()
         {
         }
+        public static new GetDBInstanceInvokeArgs Empty => new GetDBInstanceInvokeArgs();
     }
 
 

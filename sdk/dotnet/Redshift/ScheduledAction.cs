@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift
     /// The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:ScheduledAction")]
-    public partial class ScheduledAction : Pulumi.CustomResource
+    public partial class ScheduledAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// If true, the schedule is enabled. If false, the scheduled action does not trigger.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class ScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, the schedule is enabled. If false, the scheduled action does not trigger.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.Redshift
         public ScheduledActionArgs()
         {
         }
+        public static new ScheduledActionArgs Empty => new ScheduledActionArgs();
     }
 }

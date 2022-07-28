@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetConformancePackArgs : Pulumi.InvokeArgs
+    public sealed class GetConformancePackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetConformancePackArgs()
         {
         }
+        public static new GetConformancePackArgs Empty => new GetConformancePackArgs();
     }
 
-    public sealed class GetConformancePackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConformancePackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetConformancePackInvokeArgs()
         {
         }
+        public static new GetConformancePackInvokeArgs Empty => new GetConformancePackInvokeArgs();
     }
 
 

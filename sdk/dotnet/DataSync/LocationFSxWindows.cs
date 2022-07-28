@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationFSxWindows.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxWindows")]
-    public partial class LocationFSxWindows : Pulumi.CustomResource
+    public partial class LocationFSxWindows : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationFSxWindowsArgs : Pulumi.ResourceArgs
+    public sealed class LocationFSxWindowsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationFSxWindowsArgs()
         {
         }
+        public static new LocationFSxWindowsArgs Empty => new LocationFSxWindowsArgs();
     }
 }

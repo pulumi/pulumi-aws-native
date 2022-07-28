@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class RestApiS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class RestApiS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public RestApiS3LocationArgs()
         {
         }
+        public static new RestApiS3LocationArgs Empty => new RestApiS3LocationArgs();
     }
 }

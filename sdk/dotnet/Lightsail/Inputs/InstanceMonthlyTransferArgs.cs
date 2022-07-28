@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Monthly Transfer of the Instance.
     /// </summary>
-    public sealed class InstanceMonthlyTransferArgs : Pulumi.ResourceArgs
+    public sealed class InstanceMonthlyTransferArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// GbPerMonthAllocated of the Instance.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceMonthlyTransferArgs()
         {
         }
+        public static new InstanceMonthlyTransferArgs Empty => new InstanceMonthlyTransferArgs();
     }
 }

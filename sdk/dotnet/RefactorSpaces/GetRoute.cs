@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     }
 
 
-    public sealed class GetRouteArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationIdentifier", required: true)]
         public string ApplicationIdentifier { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetRouteArgs()
         {
         }
+        public static new GetRouteArgs Empty => new GetRouteArgs();
     }
 
-    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetRouteInvokeArgs()
         {
         }
+        public static new GetRouteInvokeArgs Empty => new GetRouteInvokeArgs();
     }
 
 

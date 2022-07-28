@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::NetworkAcl
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkAcl")]
-    public partial class NetworkAcl : Pulumi.CustomResource
+    public partial class NetworkAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The tags to assign to the network ACL.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkAclArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputList<Inputs.NetworkAclTagArgs>? _tags;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkAclArgs()
         {
         }
+        public static new NetworkAclArgs Empty => new NetworkAclArgs();
     }
 }

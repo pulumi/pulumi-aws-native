@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:DirectoryConfig")]
-    public partial class DirectoryConfig : Pulumi.CustomResource
+    public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
         [Output("directoryName")]
         public Output<string> DirectoryName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class DirectoryConfigArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("directoryName", required: true)]
         public Input<string> DirectoryName { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.AppStream
         public DirectoryConfigArgs()
         {
         }
+        public static new DirectoryConfigArgs Empty => new DirectoryConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class MethodResponseArgs : Pulumi.ResourceArgs
+    public sealed class MethodResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public MethodResponseArgs()
         {
         }
+        public static new MethodResponseArgs Empty => new MethodResponseArgs();
     }
 }

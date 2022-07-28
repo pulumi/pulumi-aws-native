@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Indicates whether a slot can return multiple values.
     /// </summary>
-    public sealed class BotMultipleValuesSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotMultipleValuesSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowMultipleValues")]
         public Input<bool>? AllowMultipleValues { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotMultipleValuesSettingArgs()
         {
         }
+        public static new BotMultipleValuesSettingArgs Empty => new BotMultipleValuesSettingArgs();
     }
 }

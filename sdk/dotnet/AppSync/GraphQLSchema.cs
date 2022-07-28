@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:GraphQLSchema")]
-    public partial class GraphQLSchema : Pulumi.CustomResource
+    public partial class GraphQLSchema : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class GraphQLSchemaArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.AppSync
         public GraphQLSchemaArgs()
         {
         }
+        public static new GraphQLSchemaArgs Empty => new GraphQLSchemaArgs();
     }
 }

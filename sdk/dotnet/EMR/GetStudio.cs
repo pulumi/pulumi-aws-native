@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
     }
 
 
-    public sealed class GetStudioArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the EMR Studio.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EMR
         public GetStudioArgs()
         {
         }
+        public static new GetStudioArgs Empty => new GetStudioArgs();
     }
 
-    public sealed class GetStudioInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the EMR Studio.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EMR
         public GetStudioInvokeArgs()
         {
         }
+        public static new GetStudioInvokeArgs Empty => new GetStudioInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationMaxCountRuleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMaxCountRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteSourceFromS3")]
         public Input<bool>? DeleteSourceFromS3 { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ApplicationMaxCountRuleArgs()
         {
         }
+        public static new ApplicationMaxCountRuleArgs Empty => new ApplicationMaxCountRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup
     /// Resource Type definition for AWS::Backup::BackupSelection
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupSelection")]
-    public partial class BackupSelection : Pulumi.CustomResource
+    public partial class BackupSelection : global::Pulumi.CustomResource
     {
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Backup
         }
     }
 
-    public sealed class BackupSelectionArgs : Pulumi.ResourceArgs
+    public sealed class BackupSelectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupPlanId", required: true)]
         public Input<string> BackupPlanId { get; set; } = null!;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.Backup
         public BackupSelectionArgs()
         {
         }
+        public static new BackupSelectionArgs Empty => new BackupSelectionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("htmlBody")]
         public Input<string>? HtmlBody { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs()
         {
         }
+        public static new UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs Empty => new UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Defines when your alarm is invoked.
     /// </summary>
-    public sealed class AlarmModelAlarmRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAlarmRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("simpleRule")]
         public Input<Inputs.AlarmModelSimpleRuleArgs>? SimpleRule { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAlarmRuleArgs()
         {
         }
+        public static new AlarmModelAlarmRuleArgs Empty => new AlarmModelAlarmRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
 
-    public sealed class GetApplicationCloudWatchLoggingOptionArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationCloudWatchLoggingOptionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public GetApplicationCloudWatchLoggingOptionArgs()
         {
         }
+        public static new GetApplicationCloudWatchLoggingOptionArgs Empty => new GetApplicationCloudWatchLoggingOptionArgs();
     }
 
-    public sealed class GetApplicationCloudWatchLoggingOptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationCloudWatchLoggingOptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public GetApplicationCloudWatchLoggingOptionInvokeArgs()
         {
         }
+        public static new GetApplicationCloudWatchLoggingOptionInvokeArgs Empty => new GetApplicationCloudWatchLoggingOptionInvokeArgs();
     }
 
 

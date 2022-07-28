@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoSelectorArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoSelectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("colorSpace")]
         public Input<string>? ColorSpace { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoSelectorArgs()
         {
         }
+        public static new ChannelVideoSelectorArgs Empty => new ChannelVideoSelectorArgs();
     }
 }

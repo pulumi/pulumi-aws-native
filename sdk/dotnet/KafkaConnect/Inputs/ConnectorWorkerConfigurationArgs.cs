@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Specifies the worker configuration to use with the connector.
     /// </summary>
-    public sealed class ConnectorWorkerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorWorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The revision of the worker configuration to use.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorWorkerConfigurationArgs()
         {
         }
+        public static new ConnectorWorkerConfigurationArgs Empty => new ConnectorWorkerConfigurationArgs();
     }
 }

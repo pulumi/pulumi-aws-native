@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition
     /// The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
     /// </summary>
     [AwsNativeResourceType("aws-native:rekognition:StreamProcessor")]
-    public partial class StreamProcessor : Pulumi.CustomResource
+    public partial class StreamProcessor : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Rekognition
         }
     }
 
-    public sealed class StreamProcessorArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorArgs : global::Pulumi.ResourceArgs
     {
         [Input("boundingBoxRegionsOfInterest")]
         private InputList<Inputs.StreamProcessorBoundingBoxArgs>? _boundingBoxRegionsOfInterest;
@@ -210,5 +210,6 @@ namespace Pulumi.AwsNative.Rekognition
         public StreamProcessorArgs()
         {
         }
+        public static new StreamProcessorArgs Empty => new StreamProcessorArgs();
     }
 }

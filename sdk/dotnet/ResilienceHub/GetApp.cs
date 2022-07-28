@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ResilienceHub
     }
 
 
-    public sealed class GetAppArgs : Pulumi.InvokeArgs
+    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the App.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ResilienceHub
         public GetAppArgs()
         {
         }
+        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the App.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public GetAppInvokeArgs()
         {
         }
+        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     }
 
 
-    public sealed class GetDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpenSearchService
         public GetDomainArgs()
         {
         }
+        public static new GetDomainArgs Empty => new GetDomainArgs();
     }
 
-    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public GetDomainInvokeArgs()
         {
         }
+        public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class DatabasePrincipalPrivilegesArgs : Pulumi.ResourceArgs
+    public sealed class DatabasePrincipalPrivilegesArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputList<string>? _permissions;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public DatabasePrincipalPrivilegesArgs()
         {
         }
+        public static new DatabasePrincipalPrivilegesArgs Empty => new DatabasePrincipalPrivilegesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DynamoDB
     }
 
 
-    public sealed class GetGlobalTableArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalTableArgs : global::Pulumi.InvokeArgs
     {
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DynamoDB
         public GetGlobalTableArgs()
         {
         }
+        public static new GetGlobalTableArgs Empty => new GetGlobalTableArgs();
     }
 
-    public sealed class GetGlobalTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DynamoDB
         public GetGlobalTableInvokeArgs()
         {
         }
+        public static new GetGlobalTableInvokeArgs Empty => new GetGlobalTableInvokeArgs();
     }
 
 

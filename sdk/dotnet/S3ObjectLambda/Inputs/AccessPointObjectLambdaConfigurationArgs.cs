@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
     /// <summary>
     /// Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
     /// </summary>
-    public sealed class AccessPointObjectLambdaConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointObjectLambdaConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedFeatures")]
         private InputList<string>? _allowedFeatures;
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
         public AccessPointObjectLambdaConfigurationArgs()
         {
         }
+        public static new AccessPointObjectLambdaConfigurationArgs Empty => new AccessPointObjectLambdaConfigurationArgs();
     }
 }

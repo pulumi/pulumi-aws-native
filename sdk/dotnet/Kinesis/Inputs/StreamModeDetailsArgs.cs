@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
     /// <summary>
     /// When specified, enables or updates the mode of stream. Default is PROVISIONED.
     /// </summary>
-    public sealed class StreamModeDetailsArgs : Pulumi.ResourceArgs
+    public sealed class StreamModeDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mode of the stream
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
         public StreamModeDetailsArgs()
         {
         }
+        public static new StreamModeDetailsArgs Empty => new StreamModeDetailsArgs();
     }
 }

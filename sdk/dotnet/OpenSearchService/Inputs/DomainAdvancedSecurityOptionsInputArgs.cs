@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainAdvancedSecurityOptionsInputArgs : Pulumi.ResourceArgs
+    public sealed class DomainAdvancedSecurityOptionsInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainAdvancedSecurityOptionsInputArgs()
         {
         }
+        public static new DomainAdvancedSecurityOptionsInputArgs Empty => new DomainAdvancedSecurityOptionsInputArgs();
     }
 }

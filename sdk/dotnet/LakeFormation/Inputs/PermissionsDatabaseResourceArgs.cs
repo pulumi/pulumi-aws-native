@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class PermissionsDatabaseResourceArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsDatabaseResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
         public PermissionsDatabaseResourceArgs()
         {
         }
+        public static new PermissionsDatabaseResourceArgs Empty => new PermissionsDatabaseResourceArgs();
     }
 }

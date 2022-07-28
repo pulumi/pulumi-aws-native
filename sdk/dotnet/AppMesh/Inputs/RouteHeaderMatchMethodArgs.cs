@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteHeaderMatchMethodArgs : Pulumi.ResourceArgs
+    public sealed class RouteHeaderMatchMethodArgs : global::Pulumi.ResourceArgs
     {
         [Input("exact")]
         public Input<string>? Exact { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteHeaderMatchMethodArgs()
         {
         }
+        public static new RouteHeaderMatchMethodArgs Empty => new RouteHeaderMatchMethodArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableReplicaSSESpecificationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableReplicaSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kMSMasterKeyId", required: true)]
         public Input<string> KMSMasterKeyId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableReplicaSSESpecificationArgs()
         {
         }
+        public static new GlobalTableReplicaSSESpecificationArgs Empty => new GlobalTableReplicaSSESpecificationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
 
-    public sealed class GetLoggingConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggingConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("firewallArn", required: true)]
         public string FirewallArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public GetLoggingConfigurationArgs()
         {
         }
+        public static new GetLoggingConfigurationArgs Empty => new GetLoggingConfigurationArgs();
     }
 
-    public sealed class GetLoggingConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggingConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public GetLoggingConfigurationInvokeArgs()
         {
         }
+        public static new GetLoggingConfigurationInvokeArgs Empty => new GetLoggingConfigurationInvokeArgs();
     }
 
 

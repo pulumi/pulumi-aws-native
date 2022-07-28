@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// <summary>
     /// An object representing the replication configuration for a registry.
     /// </summary>
-    public sealed class ReplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.ReplicationConfigurationReplicationRuleArgs>? _rules;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public ReplicationConfigurationArgs()
         {
         }
+        public static new ReplicationConfigurationArgs Empty => new ReplicationConfigurationArgs();
     }
 }

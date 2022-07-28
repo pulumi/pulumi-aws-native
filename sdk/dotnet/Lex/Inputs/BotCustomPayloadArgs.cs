@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A message in a custom format defined by the client application.
     /// </summary>
-    public sealed class BotCustomPayloadArgs : Pulumi.ResourceArgs
+    public sealed class BotCustomPayloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The string that is sent to your application.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotCustomPayloadArgs()
         {
         }
+        public static new BotCustomPayloadArgs Empty => new BotCustomPayloadArgs();
     }
 }

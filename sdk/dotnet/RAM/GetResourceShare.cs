@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RAM
     }
 
 
-    public sealed class GetResourceShareArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceShareArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RAM
         public GetResourceShareArgs()
         {
         }
+        public static new GetResourceShareArgs Empty => new GetResourceShareArgs();
     }
 
-    public sealed class GetResourceShareInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceShareInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RAM
         public GetResourceShareInvokeArgs()
         {
         }
+        public static new GetResourceShareInvokeArgs Empty => new GetResourceShareInvokeArgs();
     }
 
 

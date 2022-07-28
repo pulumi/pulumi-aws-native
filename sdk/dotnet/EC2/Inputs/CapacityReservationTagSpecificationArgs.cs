@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class CapacityReservationTagSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public CapacityReservationTagSpecificationArgs()
         {
         }
+        public static new CapacityReservationTagSpecificationArgs Empty => new CapacityReservationTagSpecificationArgs();
     }
 }

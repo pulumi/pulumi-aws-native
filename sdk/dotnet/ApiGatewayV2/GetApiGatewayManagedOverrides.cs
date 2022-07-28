@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     }
 
 
-    public sealed class GetApiGatewayManagedOverridesArgs : Pulumi.InvokeArgs
+    public sealed class GetApiGatewayManagedOverridesArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetApiGatewayManagedOverridesArgs()
         {
         }
+        public static new GetApiGatewayManagedOverridesArgs Empty => new GetApiGatewayManagedOverridesArgs();
     }
 
-    public sealed class GetApiGatewayManagedOverridesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiGatewayManagedOverridesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetApiGatewayManagedOverridesInvokeArgs()
         {
         }
+        public static new GetApiGatewayManagedOverridesInvokeArgs Empty => new GetApiGatewayManagedOverridesInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Describes the properties for hyperparameter optimization (HPO)
     /// </summary>
-    public sealed class SolutionConfigHpoConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigHpoConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hyperparameters and their allowable ranges
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigHpoConfigPropertiesArgs()
         {
         }
+        public static new SolutionConfigHpoConfigPropertiesArgs Empty => new SolutionConfigHpoConfigPropertiesArgs();
     }
 }

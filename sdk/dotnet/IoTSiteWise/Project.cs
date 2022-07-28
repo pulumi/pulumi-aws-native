@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::Project
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IDs of the assets to be associated to the project.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("assetIds")]
         private InputList<string>? _assetIds;
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

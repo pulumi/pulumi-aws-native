@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lambda
     /// </summary>
     [Obsolete(@"Permission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:Permission")]
-    public partial class Permission : Pulumi.CustomResource
+    public partial class Permission : global::Pulumi.CustomResource
     {
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class PermissionArgs : Pulumi.ResourceArgs
+    public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.Lambda
         public PermissionArgs()
         {
         }
+        public static new PermissionArgs Empty => new PermissionArgs();
     }
 }

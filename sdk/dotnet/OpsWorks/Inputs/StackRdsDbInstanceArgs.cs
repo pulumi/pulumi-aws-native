@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class StackRdsDbInstanceArgs : Pulumi.ResourceArgs
+    public sealed class StackRdsDbInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("dbPassword", required: true)]
         public Input<string> DbPassword { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public StackRdsDbInstanceArgs()
         {
         }
+        public static new StackRdsDbInstanceArgs Empty => new StackRdsDbInstanceArgs();
     }
 }

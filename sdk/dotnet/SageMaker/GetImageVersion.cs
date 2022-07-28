@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetImageVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetImageVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("imageVersionArn", required: true)]
         public string ImageVersionArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetImageVersionArgs()
         {
         }
+        public static new GetImageVersionArgs Empty => new GetImageVersionArgs();
     }
 
-    public sealed class GetImageVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("imageVersionArn", required: true)]
         public Input<string> ImageVersionArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetImageVersionInvokeArgs()
         {
         }
+        public static new GetImageVersionInvokeArgs Empty => new GetImageVersionInvokeArgs();
     }
 
 

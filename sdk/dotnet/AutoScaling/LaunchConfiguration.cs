@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
     /// </summary>
     [AwsNativeResourceType("aws-native:autoscaling:LaunchConfiguration")]
-    public partial class LaunchConfiguration : Pulumi.CustomResource
+    public partial class LaunchConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class LaunchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
@@ -309,5 +309,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public LaunchConfigurationArgs()
         {
         }
+        public static new LaunchConfigurationArgs Empty => new LaunchConfigurationArgs();
     }
 }

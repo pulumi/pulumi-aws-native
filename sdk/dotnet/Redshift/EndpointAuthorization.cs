@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift
     /// Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:EndpointAuthorization")]
-    public partial class EndpointAuthorization : Pulumi.CustomResource
+    public partial class EndpointAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class EndpointAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.Redshift
         public EndpointAuthorizationArgs()
         {
         }
+        public static new EndpointAuthorizationArgs Empty => new EndpointAuthorizationArgs();
     }
 }

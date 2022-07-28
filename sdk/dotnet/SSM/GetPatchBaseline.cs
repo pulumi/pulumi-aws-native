@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSM
     }
 
 
-    public sealed class GetPatchBaselineArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchBaselineArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SSM
         public GetPatchBaselineArgs()
         {
         }
+        public static new GetPatchBaselineArgs Empty => new GetPatchBaselineArgs();
     }
 
-    public sealed class GetPatchBaselineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchBaselineInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SSM
         public GetPatchBaselineInvokeArgs()
         {
         }
+        public static new GetPatchBaselineInvokeArgs Empty => new GetPatchBaselineInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// The node group update configuration.
     /// </summary>
-    public sealed class NodegroupUpdateConfigArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupUpdateConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public NodegroupUpdateConfigArgs()
         {
         }
+        public static new NodegroupUpdateConfigArgs Empty => new NodegroupUpdateConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
     /// Resource schema for AWS::ApplicationInsights::Application
     /// </summary>
     [AwsNativeResourceType("aws-native:applicationinsights:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the ApplicationInsights application.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to true, application will be configured with recommended monitoring configuration.
@@ -213,5 +213,6 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

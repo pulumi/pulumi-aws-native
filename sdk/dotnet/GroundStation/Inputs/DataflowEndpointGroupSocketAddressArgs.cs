@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class DataflowEndpointGroupSocketAddressArgs : Pulumi.ResourceArgs
+    public sealed class DataflowEndpointGroupSocketAddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public DataflowEndpointGroupSocketAddressArgs()
         {
         }
+        public static new DataflowEndpointGroupSocketAddressArgs Empty => new DataflowEndpointGroupSocketAddressArgs();
     }
 }

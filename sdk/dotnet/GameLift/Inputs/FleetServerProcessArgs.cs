@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
     /// </summary>
-    public sealed class FleetServerProcessArgs : Pulumi.ResourceArgs
+    public sealed class FleetServerProcessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of server processes that use this configuration to run concurrently on an instance.
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public FleetServerProcessArgs()
         {
         }
+        public static new FleetServerProcessArgs Empty => new FleetServerProcessArgs();
     }
 }

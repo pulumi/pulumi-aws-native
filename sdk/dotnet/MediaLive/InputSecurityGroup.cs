@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaLive
     /// </summary>
     [Obsolete(@"InputSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:medialive:InputSecurityGroup")]
-    public partial class InputSecurityGroup : Pulumi.CustomResource
+    public partial class InputSecurityGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.MediaLive
         }
     }
 
-    public sealed class InputSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class InputSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         public Input<object>? Tags { get; set; }
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.MediaLive
         public InputSecurityGroupArgs()
         {
         }
+        public static new InputSecurityGroupArgs Empty => new InputSecurityGroupArgs();
     }
 }

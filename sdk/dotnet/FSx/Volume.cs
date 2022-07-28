@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.FSx
     /// </summary>
     [Obsolete(@"Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:fsx:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.FSx
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
@@ -114,5 +114,6 @@ namespace Pulumi.AwsNative.FSx
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

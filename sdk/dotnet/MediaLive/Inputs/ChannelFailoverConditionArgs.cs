@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFailoverConditionArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFailoverConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("failoverConditionSettings")]
         public Input<Inputs.ChannelFailoverConditionSettingsArgs>? FailoverConditionSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFailoverConditionArgs()
         {
         }
+        public static new ChannelFailoverConditionArgs Empty => new ChannelFailoverConditionArgs();
     }
 }

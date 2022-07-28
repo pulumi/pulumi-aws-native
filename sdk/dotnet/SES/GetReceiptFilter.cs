@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SES
     }
 
 
-    public sealed class GetReceiptFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetReceiptFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SES
         public GetReceiptFilterArgs()
         {
         }
+        public static new GetReceiptFilterArgs Empty => new GetReceiptFilterArgs();
     }
 
-    public sealed class GetReceiptFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReceiptFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SES
         public GetReceiptFilterInvokeArgs()
         {
         }
+        public static new GetReceiptFilterInvokeArgs Empty => new GetReceiptFilterInvokeArgs();
     }
 
 

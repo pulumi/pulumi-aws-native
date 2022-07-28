@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ASK.Inputs
 {
 
-    public sealed class SkillAuthenticationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SkillAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ASK.Inputs
         public SkillAuthenticationConfigurationArgs()
         {
         }
+        public static new SkillAuthenticationConfigurationArgs Empty => new SkillAuthenticationConfigurationArgs();
     }
 }

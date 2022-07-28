@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:LoggingConfiguration")]
-    public partial class LoggingConfiguration : Pulumi.CustomResource
+    public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
     }
 
-    public sealed class LoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public LoggingConfigurationArgs()
         {
         }
+        public static new LoggingConfigurationArgs Empty => new LoggingConfigurationArgs();
     }
 }

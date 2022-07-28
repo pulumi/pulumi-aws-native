@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardParametersArgs : Pulumi.ResourceArgs
+    public sealed class DashboardParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("dateTimeParameters")]
         private InputList<Inputs.DashboardDateTimeParameterArgs>? _dateTimeParameters;
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardParametersArgs()
         {
         }
+        public static new DashboardParametersArgs Empty => new DashboardParametersArgs();
     }
 }

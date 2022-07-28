@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:InfrastructureConfiguration")]
-    public partial class InfrastructureConfiguration : Pulumi.CustomResource
+    public partial class InfrastructureConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class InfrastructureConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the infrastructure configuration.
@@ -237,5 +237,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public InfrastructureConfigurationArgs()
         {
         }
+        public static new InfrastructureConfigurationArgs Empty => new InfrastructureConfigurationArgs();
     }
 }

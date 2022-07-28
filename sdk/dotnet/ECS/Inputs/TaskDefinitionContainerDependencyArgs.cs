@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionContainerDependencyArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionContainerDependencyArgs : global::Pulumi.ResourceArgs
     {
         [Input("condition")]
         public Input<string>? Condition { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionContainerDependencyArgs()
         {
         }
+        public static new TaskDefinitionContainerDependencyArgs Empty => new TaskDefinitionContainerDependencyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
     /// <summary>
     /// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
     /// </summary>
-    public sealed class BucketRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public BucketRuleArgs()
         {
         }
+        public static new BucketRuleArgs Empty => new BucketRuleArgs();
     }
 }

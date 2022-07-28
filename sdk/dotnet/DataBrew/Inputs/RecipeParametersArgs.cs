@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class RecipeParametersArgs : Pulumi.ResourceArgs
+    public sealed class RecipeParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregateFunction")]
         public Input<string>? AggregateFunction { get; set; }
@@ -336,5 +336,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeParametersArgs()
         {
         }
+        public static new RecipeParametersArgs Empty => new RecipeParametersArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("confluenceConfiguration")]
         public Input<Inputs.DataSourceConfluenceConfigurationArgs>? ConfluenceConfiguration { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConfigurationArgs()
         {
         }
+        public static new DataSourceConfigurationArgs Empty => new DataSourceConfigurationArgs();
     }
 }

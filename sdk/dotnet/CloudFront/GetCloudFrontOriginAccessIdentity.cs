@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetCloudFrontOriginAccessIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFrontOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetCloudFrontOriginAccessIdentityArgs()
         {
         }
+        public static new GetCloudFrontOriginAccessIdentityArgs Empty => new GetCloudFrontOriginAccessIdentityArgs();
     }
 
-    public sealed class GetCloudFrontOriginAccessIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFrontOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetCloudFrontOriginAccessIdentityInvokeArgs()
         {
         }
+        public static new GetCloudFrontOriginAccessIdentityInvokeArgs Empty => new GetCloudFrontOriginAccessIdentityInvokeArgs();
     }
 
 

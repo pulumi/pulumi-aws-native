@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Contains information about one or more alarm actions.
     /// </summary>
-    public sealed class AlarmModelAlarmEventActionsArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAlarmEventActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmActions")]
         private InputList<Inputs.AlarmModelAlarmActionArgs>? _alarmActions;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAlarmEventActionsArgs()
         {
         }
+        public static new AlarmModelAlarmEventActionsArgs Empty => new AlarmModelAlarmEventActionsArgs();
     }
 }

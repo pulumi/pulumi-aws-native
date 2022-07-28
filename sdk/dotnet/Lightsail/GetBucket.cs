@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetBucketArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the bucket.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetBucketArgs()
         {
         }
+        public static new GetBucketArgs Empty => new GetBucketArgs();
     }
 
-    public sealed class GetBucketInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the bucket.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetBucketInvokeArgs()
         {
         }
+        public static new GetBucketInvokeArgs Empty => new GetBucketInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// <summary>
     /// SharePoint configuration
     /// </summary>
-    public sealed class DataSourceSharePointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSharePointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
@@ -74,5 +74,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceSharePointConfigurationArgs()
         {
         }
+        public static new DataSourceSharePointConfigurationArgs Empty => new DataSourceSharePointConfigurationArgs();
     }
 }

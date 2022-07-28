@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowSalesforceDestinationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowSalesforceDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowSalesforceDestinationPropertiesArgs()
         {
         }
+        public static new FlowSalesforceDestinationPropertiesArgs Empty => new FlowSalesforceDestinationPropertiesArgs();
     }
 }

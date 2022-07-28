@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class PrefixListEntryArgs : Pulumi.ResourceArgs
+    public sealed class PrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public PrefixListEntryArgs()
         {
         }
+        public static new PrefixListEntryArgs Empty => new PrefixListEntryArgs();
     }
 }

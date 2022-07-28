@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES
     /// Resource schema for AWS::SES::ContactList.
     /// </summary>
     [AwsNativeResourceType("aws-native:ses:ContactList")]
-    public partial class ContactList : Pulumi.CustomResource
+    public partial class ContactList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the contact list.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class ContactListArgs : Pulumi.ResourceArgs
+    public sealed class ContactListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the contact list.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.SES
         public ContactListArgs()
         {
         }
+        public static new ContactListArgs Empty => new ContactListArgs();
     }
 }

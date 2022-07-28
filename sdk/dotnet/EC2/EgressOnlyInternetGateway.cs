@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:EgressOnlyInternetGateway")]
-    public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
+    public partial class EgressOnlyInternetGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the VPC for which to create the egress-only internet gateway.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class EgressOnlyInternetGatewayArgs : Pulumi.ResourceArgs
+    public sealed class EgressOnlyInternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the VPC for which to create the egress-only internet gateway.
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.EC2
         public EgressOnlyInternetGatewayArgs()
         {
         }
+        public static new EgressOnlyInternetGatewayArgs Empty => new EgressOnlyInternetGatewayArgs();
     }
 }

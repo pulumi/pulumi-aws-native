@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class LaunchExecutionStatusObjectArgs : Pulumi.ResourceArgs
+    public sealed class LaunchExecutionStatusObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public LaunchExecutionStatusObjectArgs()
         {
         }
+        public static new LaunchExecutionStatusObjectArgs Empty => new LaunchExecutionStatusObjectArgs();
     }
 }

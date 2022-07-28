@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class PartnerAccountSidewalkUpdateAccountArgs : Pulumi.ResourceArgs
+    public sealed class PartnerAccountSidewalkUpdateAccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("appServerPrivateKey")]
         public Input<string>? AppServerPrivateKey { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public PartnerAccountSidewalkUpdateAccountArgs()
         {
         }
+        public static new PartnerAccountSidewalkUpdateAccountArgs Empty => new PartnerAccountSidewalkUpdateAccountArgs();
     }
 }

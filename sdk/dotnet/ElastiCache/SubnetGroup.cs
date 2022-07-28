@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         [Output("cacheSubnetGroupName")]
         public Output<string?> CacheSubnetGroupName { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("cacheSubnetGroupName")]
         public Input<string>? CacheSubnetGroupName { get; set; }
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public SubnetGroupArgs()
         {
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 }

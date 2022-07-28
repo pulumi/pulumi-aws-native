@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the workspace.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the workspace.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

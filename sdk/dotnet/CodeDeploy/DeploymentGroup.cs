@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeDeploy
     /// </summary>
     [Obsolete(@"DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codedeploy:DeploymentGroup")]
-    public partial class DeploymentGroup : Pulumi.CustomResource
+    public partial class DeploymentGroup : global::Pulumi.CustomResource
     {
         [Output("alarmConfiguration")]
         public Output<Outputs.DeploymentGroupAlarmConfiguration?> AlarmConfiguration { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         }
     }
 
-    public sealed class DeploymentGroupArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmConfiguration")]
         public Input<Inputs.DeploymentGroupAlarmConfigurationArgs>? AlarmConfiguration { get; set; }
@@ -208,5 +208,6 @@ namespace Pulumi.AwsNative.CodeDeploy
         public DeploymentGroupArgs()
         {
         }
+        public static new DeploymentGroupArgs Empty => new DeploymentGroupArgs();
     }
 }

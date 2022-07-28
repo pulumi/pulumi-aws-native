@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about a fixed capacity allocated to a connector.
     /// </summary>
-    public sealed class ConnectorProvisionedCapacityArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProvisionedCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how many MSK Connect Units (MCU) are allocated to the connector.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorProvisionedCapacityArgs()
         {
         }
+        public static new ConnectorProvisionedCapacityArgs Empty => new ConnectorProvisionedCapacityArgs();
     }
 }

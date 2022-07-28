@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS.Inputs
 {
 
-    public sealed class FileSystemLifecyclePolicyArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("transitionToIA")]
         public Input<string>? TransitionToIA { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EFS.Inputs
         public FileSystemLifecyclePolicyArgs()
         {
         }
+        public static new FileSystemLifecyclePolicyArgs Empty => new FileSystemLifecyclePolicyArgs();
     }
 }

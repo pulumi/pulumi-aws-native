@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
     /// </summary>
-    public sealed class BucketEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketEncryptionConfigurationArgs()
         {
         }
+        public static new BucketEncryptionConfigurationArgs Empty => new BucketEncryptionConfigurationArgs();
     }
 }

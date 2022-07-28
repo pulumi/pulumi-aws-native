@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     /// </summary>
-    public sealed class ModelExplainabilityJobDefinitionVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelExplainabilityJobDefinitionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelExplainabilityJobDefinitionVpcConfigArgs()
         {
         }
+        public static new ModelExplainabilityJobDefinitionVpcConfigArgs Empty => new ModelExplainabilityJobDefinitionVpcConfigArgs();
     }
 }

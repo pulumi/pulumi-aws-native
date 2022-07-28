@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
 {
 
-    public sealed class ComponentOverridesArgs : Pulumi.ResourceArgs
+    public sealed class ComponentOverridesArgs : global::Pulumi.ResourceArgs
     {
         public ComponentOverridesArgs()
         {
         }
+        public static new ComponentOverridesArgs Empty => new ComponentOverridesArgs();
     }
 }

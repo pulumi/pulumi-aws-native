@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetConfigurationRecorderArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationRecorderArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigurationRecorderArgs()
         {
         }
+        public static new GetConfigurationRecorderArgs Empty => new GetConfigurationRecorderArgs();
     }
 
-    public sealed class GetConfigurationRecorderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationRecorderInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigurationRecorderInvokeArgs()
         {
         }
+        public static new GetConfigurationRecorderInvokeArgs Empty => new GetConfigurationRecorderInvokeArgs();
     }
 
 

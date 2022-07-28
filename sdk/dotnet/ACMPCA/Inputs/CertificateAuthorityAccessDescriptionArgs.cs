@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 AccessDescription information.
     /// </summary>
-    public sealed class CertificateAuthorityAccessDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityAccessDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLocation", required: true)]
         public Input<Inputs.CertificateAuthorityGeneralNameArgs> AccessLocation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityAccessDescriptionArgs()
         {
         }
+        public static new CertificateAuthorityAccessDescriptionArgs Empty => new CertificateAuthorityAccessDescriptionArgs();
     }
 }

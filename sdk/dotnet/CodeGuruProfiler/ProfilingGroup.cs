@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
     /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
     /// </summary>
     [AwsNativeResourceType("aws-native:codeguruprofiler:ProfilingGroup")]
-    public partial class ProfilingGroup : Pulumi.CustomResource
+    public partial class ProfilingGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The agent permissions attached to this profiling group.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         }
     }
 
-    public sealed class ProfilingGroupArgs : Pulumi.ResourceArgs
+    public sealed class ProfilingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The agent permissions attached to this profiling group.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         public ProfilingGroupArgs()
         {
         }
+        public static new ProfilingGroupArgs Empty => new ProfilingGroupArgs();
     }
 }

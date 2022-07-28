@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
     /// <summary>
     /// Trace content for your wireless gateway and wireless device resources
     /// </summary>
-    public sealed class TraceContentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TraceContentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("logLevel")]
         public Input<Pulumi.AwsNative.IoTWireless.NetworkAnalyzerConfigurationLogLevel>? LogLevel { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public TraceContentPropertiesArgs()
         {
         }
+        public static new TraceContentPropertiesArgs Empty => new TraceContentPropertiesArgs();
     }
 }

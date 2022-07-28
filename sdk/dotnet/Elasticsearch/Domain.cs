@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Elasticsearch
     /// </summary>
     [Obsolete(@"Domain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticsearch:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         [Output("accessPolicies")]
         public Output<object?> AccessPolicies { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         public Input<object>? AccessPolicies { get; set; }
@@ -168,5 +168,6 @@ namespace Pulumi.AwsNative.Elasticsearch
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

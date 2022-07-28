@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Macie
     }
 
 
-    public sealed class GetFindingsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetFindingsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Findings filter ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Macie
         public GetFindingsFilterArgs()
         {
         }
+        public static new GetFindingsFilterArgs Empty => new GetFindingsFilterArgs();
     }
 
-    public sealed class GetFindingsFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFindingsFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Findings filter ID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Macie
         public GetFindingsFilterInvokeArgs()
         {
         }
+        public static new GetFindingsFilterInvokeArgs Empty => new GetFindingsFilterInvokeArgs();
     }
 
 

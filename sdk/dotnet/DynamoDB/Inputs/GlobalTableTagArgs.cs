@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableTagArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableTagArgs()
         {
         }
+        public static new GlobalTableTagArgs Empty => new GlobalTableTagArgs();
     }
 }

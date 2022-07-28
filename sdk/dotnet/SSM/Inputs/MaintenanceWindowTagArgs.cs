@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTagArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTagArgs()
         {
         }
+        public static new MaintenanceWindowTagArgs Empty => new MaintenanceWindowTagArgs();
     }
 }

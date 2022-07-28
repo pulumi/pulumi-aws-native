@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
     /// </summary>
-    public sealed class OriginEndpointDashPackageArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointDashPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("adTriggers")]
         private InputList<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageAdTriggersItem>? _adTriggers;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointDashPackageArgs()
         {
         }
+        public static new OriginEndpointDashPackageArgs Empty => new OriginEndpointDashPackageArgs();
     }
 }

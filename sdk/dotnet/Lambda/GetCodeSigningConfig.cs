@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetCodeSigningConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeSigningConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique Arn for CodeSigningConfig resource
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetCodeSigningConfigArgs()
         {
         }
+        public static new GetCodeSigningConfigArgs Empty => new GetCodeSigningConfigArgs();
     }
 
-    public sealed class GetCodeSigningConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeSigningConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique Arn for CodeSigningConfig resource
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetCodeSigningConfigInvokeArgs()
         {
         }
+        public static new GetCodeSigningConfigInvokeArgs Empty => new GetCodeSigningConfigInvokeArgs();
     }
 
 

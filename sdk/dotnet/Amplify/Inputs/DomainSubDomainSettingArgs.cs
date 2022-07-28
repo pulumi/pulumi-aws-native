@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    public sealed class DomainSubDomainSettingArgs : Pulumi.ResourceArgs
+    public sealed class DomainSubDomainSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public DomainSubDomainSettingArgs()
         {
         }
+        public static new DomainSubDomainSettingArgs Empty => new DomainSubDomainSettingArgs();
     }
 }

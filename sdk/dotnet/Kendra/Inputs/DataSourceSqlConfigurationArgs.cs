@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceSqlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSqlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("queryIdentifiersEnclosingOption")]
         public Input<Pulumi.AwsNative.Kendra.DataSourceQueryIdentifiersEnclosingOption>? QueryIdentifiersEnclosingOption { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceSqlConfigurationArgs()
         {
         }
+        public static new DataSourceSqlConfigurationArgs Empty => new DataSourceSqlConfigurationArgs();
     }
 }

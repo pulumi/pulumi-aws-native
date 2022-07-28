@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Resource Type definition for AWS::ECS::CapacityProvider.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:CapacityProvider")]
-    public partial class CapacityProvider : Pulumi.CustomResource
+    public partial class CapacityProvider : global::Pulumi.CustomResource
     {
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class CapacityProviderArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingGroupProvider", required: true)]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
@@ -86,5 +86,6 @@ namespace Pulumi.AwsNative.ECS
         public CapacityProviderArgs()
         {
         }
+        public static new CapacityProviderArgs Empty => new CapacityProviderArgs();
     }
 }

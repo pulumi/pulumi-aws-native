@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GreengrassV2
     /// Resource for Greengrass component version.
     /// </summary>
     [AwsNativeResourceType("aws-native:greengrassv2:ComponentVersion")]
-    public partial class ComponentVersion : Pulumi.CustomResource
+    public partial class ComponentVersion : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.GreengrassV2
         }
     }
 
-    public sealed class ComponentVersionArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("inlineRecipe")]
         public Input<string>? InlineRecipe { get; set; }
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.GreengrassV2
         public ComponentVersionArgs()
         {
         }
+        public static new ComponentVersionArgs Empty => new ComponentVersionArgs();
     }
 }

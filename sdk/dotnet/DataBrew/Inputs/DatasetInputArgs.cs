@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Input
     /// </summary>
-    public sealed class DatasetInputArgs : Pulumi.ResourceArgs
+    public sealed class DatasetInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataCatalogInputDefinition")]
         public Input<Inputs.DatasetDataCatalogInputDefinitionArgs>? DataCatalogInputDefinition { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetInputArgs()
         {
         }
+        public static new DatasetInputArgs Empty => new DatasetInputArgs();
     }
 }

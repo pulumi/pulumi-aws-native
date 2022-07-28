@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Detective
     }
 
 
-    public sealed class GetGraphArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Detective graph ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Detective
         public GetGraphArgs()
         {
         }
+        public static new GetGraphArgs Empty => new GetGraphArgs();
     }
 
-    public sealed class GetGraphInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Detective graph ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Detective
         public GetGraphInvokeArgs()
         {
         }
+        public static new GetGraphInvokeArgs Empty => new GetGraphInvokeArgs();
     }
 
 

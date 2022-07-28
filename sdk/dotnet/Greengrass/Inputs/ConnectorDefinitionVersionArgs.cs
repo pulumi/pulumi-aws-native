@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ConnectorDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectors", required: true)]
         private InputList<Inputs.ConnectorDefinitionConnectorArgs>? _connectors;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ConnectorDefinitionVersionArgs()
         {
         }
+        public static new ConnectorDefinitionVersionArgs Empty => new ConnectorDefinitionVersionArgs();
     }
 }

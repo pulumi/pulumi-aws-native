@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
 
-    public sealed class GetAssetModelArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetModelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the asset model.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetAssetModelArgs()
         {
         }
+        public static new GetAssetModelArgs Empty => new GetAssetModelArgs();
     }
 
-    public sealed class GetAssetModelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetModelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the asset model.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetAssetModelInvokeArgs()
         {
         }
+        public static new GetAssetModelInvokeArgs Empty => new GetAssetModelInvokeArgs();
     }
 
 

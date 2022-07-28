@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterStepConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterStepConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionOnFailure")]
         public Input<string>? ActionOnFailure { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterStepConfigArgs()
         {
         }
+        public static new ClusterStepConfigArgs Empty => new ClusterStepConfigArgs();
     }
 }

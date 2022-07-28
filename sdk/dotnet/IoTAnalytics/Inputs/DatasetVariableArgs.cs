@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetVariableArgs : Pulumi.ResourceArgs
+    public sealed class DatasetVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("datasetContentVersionValue")]
         public Input<Inputs.DatasetContentVersionValueArgs>? DatasetContentVersionValue { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetVariableArgs()
         {
         }
+        public static new DatasetVariableArgs Empty => new DatasetVariableArgs();
     }
 }

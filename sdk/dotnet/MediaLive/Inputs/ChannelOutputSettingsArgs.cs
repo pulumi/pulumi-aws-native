@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("archiveOutputSettings")]
         public Input<Inputs.ChannelArchiveOutputSettingsArgs>? ArchiveOutputSettings { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelOutputSettingsArgs()
         {
         }
+        public static new ChannelOutputSettingsArgs Empty => new ChannelOutputSettingsArgs();
     }
 }

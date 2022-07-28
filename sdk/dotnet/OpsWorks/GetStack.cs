@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorks
     }
 
 
-    public sealed class GetStackArgs : Pulumi.InvokeArgs
+    public sealed class GetStackArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetStackArgs()
         {
         }
+        public static new GetStackArgs Empty => new GetStackArgs();
     }
 
-    public sealed class GetStackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStackInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetStackInvokeArgs()
         {
         }
+        public static new GetStackInvokeArgs Empty => new GetStackInvokeArgs();
     }
 
 

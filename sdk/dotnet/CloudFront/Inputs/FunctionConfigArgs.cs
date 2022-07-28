@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class FunctionConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public FunctionConfigArgs()
         {
         }
+        public static new FunctionConfigArgs Empty => new FunctionConfigArgs();
     }
 }

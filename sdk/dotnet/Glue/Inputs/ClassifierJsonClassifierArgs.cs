@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class ClassifierJsonClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierJsonClassifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("jsonPath", required: true)]
         public Input<string> JsonPath { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public ClassifierJsonClassifierArgs()
         {
         }
+        public static new ClassifierJsonClassifierArgs Empty => new ClassifierJsonClassifierArgs();
     }
 }

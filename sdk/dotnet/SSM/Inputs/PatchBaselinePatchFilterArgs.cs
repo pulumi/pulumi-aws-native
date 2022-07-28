@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class PatchBaselinePatchFilterArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselinePatchFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public PatchBaselinePatchFilterArgs()
         {
         }
+        public static new PatchBaselinePatchFilterArgs Empty => new PatchBaselinePatchFilterArgs();
     }
 }

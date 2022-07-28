@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConfluenceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfluenceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachmentConfiguration")]
         public Input<Inputs.DataSourceConfluenceAttachmentConfigurationArgs>? AttachmentConfiguration { get; set; }
@@ -55,5 +55,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConfluenceConfigurationArgs()
         {
         }
+        public static new DataSourceConfluenceConfigurationArgs Empty => new DataSourceConfluenceConfigurationArgs();
     }
 }

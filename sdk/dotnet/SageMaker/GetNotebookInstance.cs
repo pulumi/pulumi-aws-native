@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetNotebookInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookInstanceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetNotebookInstanceArgs()
         {
         }
+        public static new GetNotebookInstanceArgs Empty => new GetNotebookInstanceArgs();
     }
 
-    public sealed class GetNotebookInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetNotebookInstanceInvokeArgs()
         {
         }
+        public static new GetNotebookInstanceInvokeArgs Empty => new GetNotebookInstanceInvokeArgs();
     }
 
 

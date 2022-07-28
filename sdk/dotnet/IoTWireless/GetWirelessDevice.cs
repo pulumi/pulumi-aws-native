@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetWirelessDeviceArgs : Pulumi.InvokeArgs
+    public sealed class GetWirelessDeviceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Wireless device Id. Returned after successful create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetWirelessDeviceArgs()
         {
         }
+        public static new GetWirelessDeviceArgs Empty => new GetWirelessDeviceArgs();
     }
 
-    public sealed class GetWirelessDeviceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWirelessDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Wireless device Id. Returned after successful create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetWirelessDeviceInvokeArgs()
         {
         }
+        public static new GetWirelessDeviceInvokeArgs Empty => new GetWirelessDeviceInvokeArgs();
     }
 
 

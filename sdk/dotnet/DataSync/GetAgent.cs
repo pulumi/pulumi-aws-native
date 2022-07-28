@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetAgentArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The DataSync Agent ARN.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetAgentArgs()
         {
         }
+        public static new GetAgentArgs Empty => new GetAgentArgs();
     }
 
-    public sealed class GetAgentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The DataSync Agent ARN.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetAgentInvokeArgs()
         {
         }
+        public static new GetAgentInvokeArgs Empty => new GetAgentInvokeArgs();
     }
 
 

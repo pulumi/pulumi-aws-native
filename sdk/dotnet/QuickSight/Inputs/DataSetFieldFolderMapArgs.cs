@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class DataSetFieldFolderMapArgs : Pulumi.ResourceArgs
+    public sealed class DataSetFieldFolderMapArgs : global::Pulumi.ResourceArgs
     {
         public DataSetFieldFolderMapArgs()
         {
         }
+        public static new DataSetFieldFolderMapArgs Empty => new DataSetFieldFolderMapArgs();
     }
 }

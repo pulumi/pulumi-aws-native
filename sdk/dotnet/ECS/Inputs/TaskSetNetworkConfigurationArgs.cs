@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// An object representing the network configuration for a task or service.
     /// </summary>
-    public sealed class TaskSetNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsVpcConfiguration")]
         public Input<Inputs.TaskSetAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskSetNetworkConfigurationArgs()
         {
         }
+        public static new TaskSetNetworkConfigurationArgs Empty => new TaskSetNetworkConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// <summary>
     /// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
     /// </summary>
-    public sealed class FrameworkControlControlScopePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkControlControlScopePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("complianceResourceIds")]
         private InputList<string>? _complianceResourceIds;
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public FrameworkControlControlScopePropertiesArgs()
         {
         }
+        public static new FrameworkControlControlScopePropertiesArgs Empty => new FrameworkControlControlScopePropertiesArgs();
     }
 }

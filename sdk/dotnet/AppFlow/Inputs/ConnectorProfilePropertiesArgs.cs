@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
     /// </summary>
-    public sealed class ConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfilePropertiesArgs>? Datadog { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfilePropertiesArgs Empty => new ConnectorProfilePropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationResourceLifecycleConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationResourceLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ApplicationResourceLifecycleConfigArgs()
         {
         }
+        public static new ApplicationResourceLifecycleConfigArgs Empty => new ApplicationResourceLifecycleConfigArgs();
     }
 }

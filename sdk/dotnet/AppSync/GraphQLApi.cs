@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:GraphQLApi")]
-    public partial class GraphQLApi : Pulumi.CustomResource
+    public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         [Output("additionalAuthenticationProviders")]
         public Output<Outputs.GraphQLApiAdditionalAuthenticationProviders?> AdditionalAuthenticationProviders { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class GraphQLApiArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalAuthenticationProviders")]
         public Input<Inputs.GraphQLApiAdditionalAuthenticationProvidersArgs>? AdditionalAuthenticationProviders { get; set; }
@@ -127,5 +127,6 @@ namespace Pulumi.AwsNative.AppSync
         public GraphQLApiArgs()
         {
         }
+        public static new GraphQLApiArgs Empty => new GraphQLApiArgs();
     }
 }

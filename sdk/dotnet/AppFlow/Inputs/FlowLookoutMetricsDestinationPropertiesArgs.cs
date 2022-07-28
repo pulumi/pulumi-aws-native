@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowLookoutMetricsDestinationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowLookoutMetricsDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("object")]
         public Input<string>? Object { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowLookoutMetricsDestinationPropertiesArgs()
         {
         }
+        public static new FlowLookoutMetricsDestinationPropertiesArgs Empty => new FlowLookoutMetricsDestinationPropertiesArgs();
     }
 }

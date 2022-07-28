@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::EC2Fleet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:EC2Fleet")]
-    public partial class EC2Fleet : Pulumi.CustomResource
+    public partial class EC2Fleet : global::Pulumi.CustomResource
     {
         [Output("context")]
         public Output<string?> Context { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class EC2FleetArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetArgs : global::Pulumi.ResourceArgs
     {
         [Input("context")]
         public Input<string>? Context { get; set; }
@@ -148,5 +148,6 @@ namespace Pulumi.AwsNative.EC2
         public EC2FleetArgs()
         {
         }
+        public static new EC2FleetArgs Empty => new EC2FleetArgs();
     }
 }

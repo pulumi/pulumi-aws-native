@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IVS.Inputs
 {
 
-    public sealed class PlaybackKeyPairTagArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackKeyPairTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IVS.Inputs
         public PlaybackKeyPairTagArgs()
         {
         }
+        public static new PlaybackKeyPairTagArgs Empty => new PlaybackKeyPairTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
-    public sealed class ScalableTargetSuspendedStateArgs : Pulumi.ResourceArgs
+    public sealed class ScalableTargetSuspendedStateArgs : global::Pulumi.ResourceArgs
     {
         [Input("dynamicScalingInSuspended")]
         public Input<bool>? DynamicScalingInSuspended { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public ScalableTargetSuspendedStateArgs()
         {
         }
+        public static new ScalableTargetSuspendedStateArgs Empty => new ScalableTargetSuspendedStateArgs();
     }
 }

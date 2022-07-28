@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceDatabaseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("aclConfiguration")]
         public Input<Inputs.DataSourceAclConfigurationArgs>? AclConfiguration { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceDatabaseConfigurationArgs()
         {
         }
+        public static new DataSourceDatabaseConfigurationArgs Empty => new DataSourceDatabaseConfigurationArgs();
     }
 }

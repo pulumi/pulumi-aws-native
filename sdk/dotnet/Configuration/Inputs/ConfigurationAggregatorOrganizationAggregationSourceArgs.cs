@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class ConfigurationAggregatorOrganizationAggregationSourceArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorOrganizationAggregationSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("allAwsRegions")]
         public Input<bool>? AllAwsRegions { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public ConfigurationAggregatorOrganizationAggregationSourceArgs()
         {
         }
+        public static new ConfigurationAggregatorOrganizationAggregationSourceArgs Empty => new ConfigurationAggregatorOrganizationAggregationSourceArgs();
     }
 }

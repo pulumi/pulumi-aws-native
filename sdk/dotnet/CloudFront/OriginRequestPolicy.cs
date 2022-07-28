@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:OriginRequestPolicy")]
-    public partial class OriginRequestPolicy : Pulumi.CustomResource
+    public partial class OriginRequestPolicy : global::Pulumi.CustomResource
     {
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class OriginRequestPolicyArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("originRequestPolicyConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public OriginRequestPolicyArgs()
         {
         }
+        public static new OriginRequestPolicyArgs Empty => new OriginRequestPolicyArgs();
     }
 }

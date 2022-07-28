@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Describes the resource configuration for hyperparameter optimization (HPO).
     /// </summary>
-    public sealed class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs()
         {
         }
+        public static new SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs Empty => new SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs();
     }
 }

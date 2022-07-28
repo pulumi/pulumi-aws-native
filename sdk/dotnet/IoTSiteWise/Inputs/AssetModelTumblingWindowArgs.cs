@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
     /// </summary>
-    public sealed class AssetModelTumblingWindowArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelTumblingWindowArgs : global::Pulumi.ResourceArgs
     {
         [Input("interval", required: true)]
         public Input<string> Interval { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelTumblingWindowArgs()
         {
         }
+        public static new AssetModelTumblingWindowArgs Empty => new AssetModelTumblingWindowArgs();
     }
 }

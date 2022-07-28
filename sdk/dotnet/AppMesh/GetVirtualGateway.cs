@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh
     }
 
 
-    public sealed class GetVirtualGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualGatewayArgs()
         {
         }
+        public static new GetVirtualGatewayArgs Empty => new GetVirtualGatewayArgs();
     }
 
-    public sealed class GetVirtualGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualGatewayInvokeArgs()
         {
         }
+        public static new GetVirtualGatewayInvokeArgs Empty => new GetVirtualGatewayInvokeArgs();
     }
 
 

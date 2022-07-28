@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class PermissionsDataLakePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsDataLakePrincipalArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataLakePrincipalIdentifier")]
         public Input<string>? DataLakePrincipalIdentifier { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
         public PermissionsDataLakePrincipalArgs()
         {
         }
+        public static new PermissionsDataLakePrincipalArgs Empty => new PermissionsDataLakePrincipalArgs();
     }
 }

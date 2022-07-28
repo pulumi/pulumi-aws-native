@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     /// </summary>
     [Obsolete(@"PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicediscovery:PublicDnsNamespace")]
-    public partial class PublicDnsNamespace : Pulumi.CustomResource
+    public partial class PublicDnsNamespace : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         }
     }
 
-    public sealed class PublicDnsNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class PublicDnsNamespaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public PublicDnsNamespaceArgs()
         {
         }
+        public static new PublicDnsNamespaceArgs Empty => new PublicDnsNamespaceArgs();
     }
 }

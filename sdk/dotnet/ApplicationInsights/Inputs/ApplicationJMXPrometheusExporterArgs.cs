@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The JMX Prometheus Exporter settings.
     /// </summary>
-    public sealed class ApplicationJMXPrometheusExporterArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationJMXPrometheusExporterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Java agent host port
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationJMXPrometheusExporterArgs()
         {
         }
+        public static new ApplicationJMXPrometheusExporterArgs Empty => new ApplicationJMXPrometheusExporterArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QLDB
     }
 
 
-    public sealed class GetLedgerArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.QLDB
         public GetLedgerArgs()
         {
         }
+        public static new GetLedgerArgs Empty => new GetLedgerArgs();
     }
 
-    public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.QLDB
         public GetLedgerInvokeArgs()
         {
         }
+        public static new GetLedgerInvokeArgs Empty => new GetLedgerInvokeArgs();
     }
 
 

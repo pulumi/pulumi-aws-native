@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetCarrierGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetCarrierGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the carrier gateway.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetCarrierGatewayArgs()
         {
         }
+        public static new GetCarrierGatewayArgs Empty => new GetCarrierGatewayArgs();
     }
 
-    public sealed class GetCarrierGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCarrierGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the carrier gateway.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetCarrierGatewayInvokeArgs()
         {
         }
+        public static new GetCarrierGatewayInvokeArgs Empty => new GetCarrierGatewayInvokeArgs();
     }
 
 

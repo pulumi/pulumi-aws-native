@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetResourceSpecificLoggingArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSpecificLoggingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetResourceSpecificLoggingArgs()
         {
         }
+        public static new GetResourceSpecificLoggingArgs Empty => new GetResourceSpecificLoggingArgs();
     }
 
-    public sealed class GetResourceSpecificLoggingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSpecificLoggingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetResourceSpecificLoggingInvokeArgs()
         {
         }
+        public static new GetResourceSpecificLoggingInvokeArgs Empty => new GetResourceSpecificLoggingInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Common Media Application Format (CMAF) packaging configuration.
     /// </summary>
-    public sealed class OriginEndpointCmafPackageArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointCmafPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryption")]
         public Input<Inputs.OriginEndpointCmafEncryptionArgs>? Encryption { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointCmafPackageArgs()
         {
         }
+        public static new OriginEndpointCmafPackageArgs Empty => new OriginEndpointCmafPackageArgs();
     }
 }

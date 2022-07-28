@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Provides information about the external source of the slot type's definition.
     /// </summary>
-    public sealed class BotExternalSourceSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotExternalSourceSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("grammarSlotTypeSetting")]
         public Input<Inputs.BotGrammarSlotTypeSettingArgs>? GrammarSlotTypeSetting { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotExternalSourceSettingArgs()
         {
         }
+        public static new BotExternalSourceSettingArgs Empty => new BotExternalSourceSettingArgs();
     }
 }

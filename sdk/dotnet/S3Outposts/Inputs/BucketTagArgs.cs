@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts.Inputs
 {
 
-    public sealed class BucketTagArgs : Pulumi.ResourceArgs
+    public sealed class BucketTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public BucketTagArgs()
         {
         }
+        public static new BucketTagArgs Empty => new BucketTagArgs();
     }
 }

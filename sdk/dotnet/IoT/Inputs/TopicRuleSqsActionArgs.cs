@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleSqsActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleSqsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleSqsActionArgs()
         {
         }
+        public static new TopicRuleSqsActionArgs Empty => new TopicRuleSqsActionArgs();
     }
 }

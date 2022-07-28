@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TableOrderArgs : Pulumi.ResourceArgs
+    public sealed class TableOrderArgs : global::Pulumi.ResourceArgs
     {
         [Input("column", required: true)]
         public Input<string> Column { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TableOrderArgs()
         {
         }
+        public static new TableOrderArgs Empty => new TableOrderArgs();
     }
 }

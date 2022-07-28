@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     /// The resource schema to create a CodeArtifact domain.
     /// </summary>
     [AwsNativeResourceType("aws-native:codeartifact:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the domain.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.CodeArtifact
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

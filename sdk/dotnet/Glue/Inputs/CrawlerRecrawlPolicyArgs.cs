@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerRecrawlPolicyArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerRecrawlPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("recrawlBehavior")]
         public Input<string>? RecrawlBehavior { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerRecrawlPolicyArgs()
         {
         }
+        public static new CrawlerRecrawlPolicyArgs Empty => new CrawlerRecrawlPolicyArgs();
     }
 }

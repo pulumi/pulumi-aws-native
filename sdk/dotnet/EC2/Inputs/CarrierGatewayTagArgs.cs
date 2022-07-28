@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class CarrierGatewayTagArgs : Pulumi.ResourceArgs
+    public sealed class CarrierGatewayTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public CarrierGatewayTagArgs()
         {
         }
+        public static new CarrierGatewayTagArgs Empty => new CarrierGatewayTagArgs();
     }
 }

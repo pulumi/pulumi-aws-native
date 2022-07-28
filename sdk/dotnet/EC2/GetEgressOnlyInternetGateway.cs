@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetEgressOnlyInternetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetEgressOnlyInternetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service Generated ID of the EgressOnlyInternetGateway
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetEgressOnlyInternetGatewayArgs()
         {
         }
+        public static new GetEgressOnlyInternetGatewayArgs Empty => new GetEgressOnlyInternetGatewayArgs();
     }
 
-    public sealed class GetEgressOnlyInternetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEgressOnlyInternetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service Generated ID of the EgressOnlyInternetGateway
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetEgressOnlyInternetGatewayInvokeArgs()
         {
         }
+        public static new GetEgressOnlyInternetGatewayInvokeArgs Empty => new GetEgressOnlyInternetGatewayInvokeArgs();
     }
 
 

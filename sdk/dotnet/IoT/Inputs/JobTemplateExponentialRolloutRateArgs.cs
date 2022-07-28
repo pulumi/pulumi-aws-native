@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Allows you to create an exponential rate of rollout for a job.
     /// </summary>
-    public sealed class JobTemplateExponentialRolloutRateArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateExponentialRolloutRateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public JobTemplateExponentialRolloutRateArgs()
         {
         }
+        public static new JobTemplateExponentialRolloutRateArgs Empty => new JobTemplateExponentialRolloutRateArgs();
     }
 }

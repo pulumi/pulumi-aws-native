@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class ConnectionInputArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionProperties")]
         public Input<object>? ConnectionProperties { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public ConnectionInputArgs()
         {
         }
+        public static new ConnectionInputArgs Empty => new ConnectionInputArgs();
     }
 }

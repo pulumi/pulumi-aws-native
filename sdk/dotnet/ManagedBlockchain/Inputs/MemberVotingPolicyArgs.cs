@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
-    public sealed class MemberVotingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class MemberVotingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("approvalThresholdPolicy")]
         public Input<Inputs.MemberApprovalThresholdPolicyArgs>? ApprovalThresholdPolicy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
         public MemberVotingPolicyArgs()
         {
         }
+        public static new MemberVotingPolicyArgs Empty => new MemberVotingPolicyArgs();
     }
 }

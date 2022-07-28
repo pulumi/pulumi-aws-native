@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// 
     /// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
     /// </summary>
-    public sealed class AlarmModelPayloadArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelPayloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the payload. You can use a string expression that includes quoted strings (`'&lt;string&gt;'`), variables (`$variable.&lt;variable-name&gt;`), input values (`$input.&lt;input-name&gt;.&lt;path-to-datum&gt;`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelPayloadArgs()
         {
         }
+        public static new AlarmModelPayloadArgs Empty => new AlarmModelPayloadArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location
     /// Definition of AWS::Location::Tracker Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:Tracker")]
-    public partial class Tracker : Pulumi.CustomResource
+    public partial class Tracker : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Location
         }
     }
 
-    public sealed class TrackerArgs : Pulumi.ResourceArgs
+    public sealed class TrackerArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Location
         public TrackerArgs()
         {
         }
+        public static new TrackerArgs Empty => new TrackerArgs();
     }
 }

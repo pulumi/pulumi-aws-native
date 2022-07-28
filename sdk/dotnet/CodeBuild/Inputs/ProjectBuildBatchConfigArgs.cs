@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectBuildBatchConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectBuildBatchConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchReportMode")]
         public Input<string>? BatchReportMode { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectBuildBatchConfigArgs()
         {
         }
+        public static new ProjectBuildBatchConfigArgs Empty => new ProjectBuildBatchConfigArgs();
     }
 }

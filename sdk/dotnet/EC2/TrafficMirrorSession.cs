@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TrafficMirrorSession")]
-    public partial class TrafficMirrorSession : Pulumi.CustomResource
+    public partial class TrafficMirrorSession : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TrafficMirrorSessionArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorSessionArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.EC2
         public TrafficMirrorSessionArgs()
         {
         }
+        public static new TrafficMirrorSessionArgs Empty => new TrafficMirrorSessionArgs();
     }
 }

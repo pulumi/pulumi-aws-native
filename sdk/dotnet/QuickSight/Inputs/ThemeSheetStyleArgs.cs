@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The theme display options for sheets. &lt;/p&gt;
     /// </summary>
-    public sealed class ThemeSheetStyleArgs : Pulumi.ResourceArgs
+    public sealed class ThemeSheetStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("tile")]
         public Input<Inputs.ThemeTileStyleArgs>? Tile { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeSheetStyleArgs()
         {
         }
+        public static new ThemeSheetStyleArgs Empty => new ThemeSheetStyleArgs();
     }
 }

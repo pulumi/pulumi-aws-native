@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// A container for object key name prefix and suffix filtering rules.
     /// </summary>
-    public sealed class BucketS3KeyFilterArgs : Pulumi.ResourceArgs
+    public sealed class BucketS3KeyFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.BucketFilterRuleArgs>? _rules;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketS3KeyFilterArgs()
         {
         }
+        public static new BucketS3KeyFilterArgs Empty => new BucketS3KeyFilterArgs();
     }
 }

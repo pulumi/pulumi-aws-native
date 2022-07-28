@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolVerificationMessageTemplateArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolVerificationMessageTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultEmailOption")]
         public Input<string>? DefaultEmailOption { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolVerificationMessageTemplateArgs()
         {
         }
+        public static new UserPoolVerificationMessageTemplateArgs Empty => new UserPoolVerificationMessageTemplateArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDeploymentControllerArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public Input<Pulumi.AwsNative.ECS.ServiceDeploymentControllerType>? Type { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceDeploymentControllerArgs()
         {
         }
+        public static new ServiceDeploymentControllerArgs Empty => new ServiceDeploymentControllerArgs();
     }
 }

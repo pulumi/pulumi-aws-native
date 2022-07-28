@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location
     /// Definition of AWS::Location::GeofenceCollection Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:GeofenceCollection")]
-    public partial class GeofenceCollection : Pulumi.CustomResource
+    public partial class GeofenceCollection : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Location
         }
     }
 
-    public sealed class GeofenceCollectionArgs : Pulumi.ResourceArgs
+    public sealed class GeofenceCollectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Location
         public GeofenceCollectionArgs()
         {
         }
+        public static new GeofenceCollectionArgs Empty => new GeofenceCollectionArgs();
     }
 }

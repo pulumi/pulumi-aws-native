@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
     /// </summary>
-    public sealed class BucketRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("abortIncompleteMultipartUpload")]
         public Input<Inputs.BucketAbortIncompleteMultipartUploadArgs>? AbortIncompleteMultipartUpload { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketRuleArgs()
         {
         }
+        public static new BucketRuleArgs Empty => new BucketRuleArgs();
     }
 }

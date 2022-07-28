@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Visibility Metric of the WebACL.
     /// </summary>
-    public sealed class WebACLVisibilityConfigArgs : Pulumi.ResourceArgs
+    public sealed class WebACLVisibilityConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchMetricsEnabled", required: true)]
         public Input<bool> CloudWatchMetricsEnabled { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLVisibilityConfigArgs()
         {
         }
+        public static new WebACLVisibilityConfigArgs Empty => new WebACLVisibilityConfigArgs();
     }
 }

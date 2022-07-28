@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"Resolver is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:Resolver")]
-    public partial class Resolver : Pulumi.CustomResource
+    public partial class Resolver : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class ResolverArgs : Pulumi.ResourceArgs
+    public sealed class ResolverArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -145,5 +145,6 @@ namespace Pulumi.AwsNative.AppSync
         public ResolverArgs()
         {
         }
+        public static new ResolverArgs Empty => new ResolverArgs();
     }
 }

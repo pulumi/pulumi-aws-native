@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainColdStorageOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainColdStorageOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainColdStorageOptionsArgs()
         {
         }
+        public static new DomainColdStorageOptionsArgs Empty => new DomainColdStorageOptionsArgs();
     }
 }

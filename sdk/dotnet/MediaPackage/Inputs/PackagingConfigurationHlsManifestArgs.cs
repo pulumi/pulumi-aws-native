@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// An HTTP Live Streaming (HLS) manifest configuration.
     /// </summary>
-    public sealed class PackagingConfigurationHlsManifestArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationHlsManifestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationHlsManifestArgs()
         {
         }
+        public static new PackagingConfigurationHlsManifestArgs Empty => new PackagingConfigurationHlsManifestArgs();
     }
 }

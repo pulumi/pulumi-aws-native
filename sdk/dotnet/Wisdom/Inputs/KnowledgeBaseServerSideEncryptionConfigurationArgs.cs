@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
-    public sealed class KnowledgeBaseServerSideEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class KnowledgeBaseServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         public KnowledgeBaseServerSideEncryptionConfigurationArgs()
         {
         }
+        public static new KnowledgeBaseServerSideEncryptionConfigurationArgs Empty => new KnowledgeBaseServerSideEncryptionConfigurationArgs();
     }
 }

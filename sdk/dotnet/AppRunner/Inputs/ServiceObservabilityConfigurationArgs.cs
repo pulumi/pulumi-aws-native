@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Service observability configuration
     /// </summary>
-    public sealed class ServiceObservabilityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceObservabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceObservabilityConfigurationArgs()
         {
         }
+        public static new ServiceObservabilityConfigurationArgs Empty => new ServiceObservabilityConfigurationArgs();
     }
 }

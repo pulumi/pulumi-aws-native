@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EndpointPrimaryArgs : Pulumi.ResourceArgs
+    public sealed class EndpointPrimaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("healthCheck", required: true)]
         public Input<string> HealthCheck { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EndpointPrimaryArgs()
         {
         }
+        public static new EndpointPrimaryArgs Empty => new EndpointPrimaryArgs();
     }
 }

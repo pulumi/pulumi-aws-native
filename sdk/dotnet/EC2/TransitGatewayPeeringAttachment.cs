@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::TransitGatewayPeeringAttachment type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayPeeringAttachment")]
-    public partial class TransitGatewayPeeringAttachment : Pulumi.CustomResource
+    public partial class TransitGatewayPeeringAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the transit gateway peering attachment was created.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayPeeringAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayPeeringAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the peer account
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayPeeringAttachmentArgs()
         {
         }
+        public static new TransitGatewayPeeringAttachmentArgs Empty => new TransitGatewayPeeringAttachmentArgs();
     }
 }

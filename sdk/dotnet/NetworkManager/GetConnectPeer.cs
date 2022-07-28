@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetConnectPeerArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectPeerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Connect peer.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetConnectPeerArgs()
         {
         }
+        public static new GetConnectPeerArgs Empty => new GetConnectPeerArgs();
     }
 
-    public sealed class GetConnectPeerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectPeerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Connect peer.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetConnectPeerInvokeArgs()
         {
         }
+        public static new GetConnectPeerInvokeArgs Empty => new GetConnectPeerInvokeArgs();
     }
 
 

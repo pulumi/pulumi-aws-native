@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetUsagePlanArgs : Pulumi.InvokeArgs
+    public sealed class GetUsagePlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetUsagePlanArgs()
         {
         }
+        public static new GetUsagePlanArgs Empty => new GetUsagePlanArgs();
     }
 
-    public sealed class GetUsagePlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUsagePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetUsagePlanInvokeArgs()
         {
         }
+        public static new GetUsagePlanInvokeArgs Empty => new GetUsagePlanInvokeArgs();
     }
 
 

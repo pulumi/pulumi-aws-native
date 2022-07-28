@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisAnalytics
     /// </summary>
     [Obsolete(@"ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalytics:ApplicationOutputResource")]
-    public partial class ApplicationOutputResource : Pulumi.CustomResource
+    public partial class ApplicationOutputResource : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         }
     }
 
-    public sealed class ApplicationOutputResourceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationOutputResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         public ApplicationOutputResourceArgs()
         {
         }
+        public static new ApplicationOutputResourceArgs Empty => new ApplicationOutputResourceArgs();
     }
 }

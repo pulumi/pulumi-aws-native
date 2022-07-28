@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECR
     }
 
 
-    public sealed class GetReplicationConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The RegistryId associated with the aws account.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ECR
         public GetReplicationConfigurationArgs()
         {
         }
+        public static new GetReplicationConfigurationArgs Empty => new GetReplicationConfigurationArgs();
     }
 
-    public sealed class GetReplicationConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The RegistryId associated with the aws account.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ECR
         public GetReplicationConfigurationInvokeArgs()
         {
         }
+        public static new GetReplicationConfigurationInvokeArgs Empty => new GetReplicationConfigurationInvokeArgs();
     }
 
 

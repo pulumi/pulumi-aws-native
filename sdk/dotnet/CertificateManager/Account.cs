@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CertificateManager
     /// Resource schema for AWS::CertificateManager::Account.
     /// </summary>
     [AwsNativeResourceType("aws-native:certificatemanager:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CertificateManager
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("expiryEventsConfiguration", required: true)]
         public Input<Inputs.AccountExpiryEventsConfigurationArgs> ExpiryEventsConfiguration { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CertificateManager
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 }

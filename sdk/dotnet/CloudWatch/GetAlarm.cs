@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetAlarmArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetAlarmArgs()
         {
         }
+        public static new GetAlarmArgs Empty => new GetAlarmArgs();
     }
 
-    public sealed class GetAlarmInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetAlarmInvokeArgs()
         {
         }
+        public static new GetAlarmInvokeArgs Empty => new GetAlarmInvokeArgs();
     }
 
 

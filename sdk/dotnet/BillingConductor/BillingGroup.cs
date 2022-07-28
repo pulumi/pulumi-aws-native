@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// </summary>
     [Obsolete(@"BillingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:BillingGroup")]
-    public partial class BillingGroup : Pulumi.CustomResource
+    public partial class BillingGroup : global::Pulumi.CustomResource
     {
         [Output("accountGrouping")]
         public Output<Outputs.BillingGroupAccountGrouping> AccountGrouping { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.BillingConductor
         }
     }
 
-    public sealed class BillingGroupArgs : Pulumi.ResourceArgs
+    public sealed class BillingGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountGrouping", required: true)]
         public Input<Inputs.BillingGroupAccountGroupingArgs> AccountGrouping { get; set; } = null!;
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.BillingConductor
         public BillingGroupArgs()
         {
         }
+        public static new BillingGroupArgs Empty => new BillingGroupArgs();
     }
 }

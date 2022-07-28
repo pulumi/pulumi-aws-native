@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The prompts that Amazon Lex uses while a bot is waiting for customer input.
     /// </summary>
-    public sealed class BotWaitAndContinueSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotWaitAndContinueSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotWaitAndContinueSpecificationArgs()
         {
         }
+        public static new BotWaitAndContinueSpecificationArgs Empty => new BotWaitAndContinueSpecificationArgs();
     }
 }

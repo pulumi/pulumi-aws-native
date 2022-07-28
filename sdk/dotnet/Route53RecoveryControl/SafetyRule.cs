@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:SafetyRule")]
-    public partial class SafetyRule : Pulumi.CustomResource
+    public partial class SafetyRule : global::Pulumi.CustomResource
     {
         [Output("assertionRule")]
         public Output<Outputs.SafetyRuleAssertionRule?> AssertionRule { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         }
     }
 
-    public sealed class SafetyRuleArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("assertionRule")]
         public Input<Inputs.SafetyRuleAssertionRuleArgs>? AssertionRule { get; set; }
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public SafetyRuleArgs()
         {
         }
+        public static new SafetyRuleArgs Empty => new SafetyRuleArgs();
     }
 }

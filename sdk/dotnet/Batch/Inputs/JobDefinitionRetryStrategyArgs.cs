@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionRetryStrategyArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionRetryStrategyArgs : global::Pulumi.ResourceArgs
     {
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionRetryStrategyArgs()
         {
         }
+        public static new JobDefinitionRetryStrategyArgs Empty => new JobDefinitionRetryStrategyArgs();
     }
 }

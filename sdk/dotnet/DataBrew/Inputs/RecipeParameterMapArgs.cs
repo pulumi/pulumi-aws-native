@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class RecipeParameterMapArgs : Pulumi.ResourceArgs
+    public sealed class RecipeParameterMapArgs : global::Pulumi.ResourceArgs
     {
         public RecipeParameterMapArgs()
         {
         }
+        public static new RecipeParameterMapArgs Empty => new RecipeParameterMapArgs();
     }
 }

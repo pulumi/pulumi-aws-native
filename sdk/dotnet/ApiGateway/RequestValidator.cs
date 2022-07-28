@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::RequestValidator
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:RequestValidator")]
-    public partial class RequestValidator : Pulumi.CustomResource
+    public partial class RequestValidator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the request validator.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class RequestValidatorArgs : Pulumi.ResourceArgs
+    public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the request validator.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public RequestValidatorArgs()
         {
         }
+        public static new RequestValidatorArgs Empty => new RequestValidatorArgs();
     }
 }

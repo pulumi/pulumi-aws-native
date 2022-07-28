@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FMS
     /// Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
     /// </summary>
     [AwsNativeResourceType("aws-native:fms:NotificationChannel")]
-    public partial class NotificationChannel : Pulumi.CustomResource
+    public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         [Output("snsRoleName")]
         public Output<string> SnsRoleName { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.FMS
         }
     }
 
-    public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
+    public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("snsRoleName", required: true)]
         public Input<string> SnsRoleName { get; set; } = null!;
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.FMS
         public NotificationChannelArgs()
         {
         }
+        public static new NotificationChannelArgs Empty => new NotificationChannelArgs();
     }
 }

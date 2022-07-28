@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
-    public sealed class VpcConnectorTagArgs : Pulumi.ResourceArgs
+    public sealed class VpcConnectorTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public VpcConnectorTagArgs()
         {
         }
+        public static new VpcConnectorTagArgs Empty => new VpcConnectorTagArgs();
     }
 }

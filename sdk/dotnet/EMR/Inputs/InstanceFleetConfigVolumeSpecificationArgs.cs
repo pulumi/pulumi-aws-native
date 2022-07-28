@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceFleetConfigVolumeSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetConfigVolumeSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceFleetConfigVolumeSpecificationArgs()
         {
         }
+        public static new InstanceFleetConfigVolumeSpecificationArgs Empty => new InstanceFleetConfigVolumeSpecificationArgs();
     }
 }

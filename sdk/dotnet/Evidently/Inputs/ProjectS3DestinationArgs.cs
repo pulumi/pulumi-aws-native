@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ProjectS3DestinationArgs : Pulumi.ResourceArgs
+    public sealed class ProjectS3DestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ProjectS3DestinationArgs()
         {
         }
+        public static new ProjectS3DestinationArgs Empty => new ProjectS3DestinationArgs();
     }
 }

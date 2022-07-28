@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class DatabaseDataLakePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseDataLakePrincipalArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataLakePrincipalIdentifier")]
         public Input<string>? DataLakePrincipalIdentifier { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public DatabaseDataLakePrincipalArgs()
         {
         }
+        public static new DatabaseDataLakePrincipalArgs Empty => new DatabaseDataLakePrincipalArgs();
     }
 }

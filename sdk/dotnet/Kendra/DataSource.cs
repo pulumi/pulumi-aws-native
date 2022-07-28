@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra
     /// Kendra DataSource
     /// </summary>
     [AwsNativeResourceType("aws-native:kendra:DataSource")]
-    public partial class DataSource : Pulumi.CustomResource
+    public partial class DataSource : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Kendra
         }
     }
 
-    public sealed class DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("customDocumentEnrichmentConfiguration")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs>? CustomDocumentEnrichmentConfiguration { get; set; }
@@ -132,5 +132,6 @@ namespace Pulumi.AwsNative.Kendra
         public DataSourceArgs()
         {
         }
+        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 }

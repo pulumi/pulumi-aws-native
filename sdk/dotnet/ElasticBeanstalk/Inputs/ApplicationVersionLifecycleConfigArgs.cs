@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationVersionLifecycleConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationVersionLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxAgeRule")]
         public Input<Inputs.ApplicationMaxAgeRuleArgs>? MaxAgeRule { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ApplicationVersionLifecycleConfigArgs()
         {
         }
+        public static new ApplicationVersionLifecycleConfigArgs Empty => new ApplicationVersionLifecycleConfigArgs();
     }
 }

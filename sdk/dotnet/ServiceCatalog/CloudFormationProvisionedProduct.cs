@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:CloudFormationProvisionedProduct")]
-    public partial class CloudFormationProvisionedProduct : Pulumi.CustomResource
+    public partial class CloudFormationProvisionedProduct : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class CloudFormationProvisionedProductArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationProvisionedProductArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductAcceptLanguage>? AcceptLanguage { get; set; }
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public CloudFormationProvisionedProductArgs()
         {
         }
+        public static new CloudFormationProvisionedProductArgs Empty => new CloudFormationProvisionedProductArgs();
     }
 }

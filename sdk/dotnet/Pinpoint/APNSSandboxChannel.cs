@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"APNSSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:APNSSandboxChannel")]
-    public partial class APNSSandboxChannel : Pulumi.CustomResource
+    public partial class APNSSandboxChannel : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class APNSSandboxChannelArgs : Pulumi.ResourceArgs
+    public sealed class APNSSandboxChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public APNSSandboxChannelArgs()
         {
         }
+        public static new APNSSandboxChannelArgs Empty => new APNSSandboxChannelArgs();
     }
 }

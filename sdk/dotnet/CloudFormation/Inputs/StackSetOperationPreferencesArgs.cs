@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// <summary>
     /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
     /// </summary>
-    public sealed class StackSetOperationPreferencesArgs : Pulumi.ResourceArgs
+    public sealed class StackSetOperationPreferencesArgs : global::Pulumi.ResourceArgs
     {
         [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public StackSetOperationPreferencesArgs()
         {
         }
+        public static new StackSetOperationPreferencesArgs Empty => new StackSetOperationPreferencesArgs();
     }
 }

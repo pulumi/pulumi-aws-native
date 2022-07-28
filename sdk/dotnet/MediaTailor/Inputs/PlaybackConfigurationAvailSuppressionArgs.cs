@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
     /// <summary>
     /// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
     /// </summary>
-    public sealed class PlaybackConfigurationAvailSuppressionArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationAvailSuppressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         public PlaybackConfigurationAvailSuppressionArgs()
         {
         }
+        public static new PlaybackConfigurationAvailSuppressionArgs Empty => new PlaybackConfigurationAvailSuppressionArgs();
     }
 }

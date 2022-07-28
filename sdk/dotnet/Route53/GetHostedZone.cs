@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53
     }
 
 
-    public sealed class GetHostedZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Route53
         public GetHostedZoneArgs()
         {
         }
+        public static new GetHostedZoneArgs Empty => new GetHostedZoneArgs();
     }
 
-    public sealed class GetHostedZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Route53
         public GetHostedZoneInvokeArgs()
         {
         }
+        public static new GetHostedZoneInvokeArgs Empty => new GetHostedZoneInvokeArgs();
     }
 
 

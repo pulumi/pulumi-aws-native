@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterNumberFilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterNumberFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("lowerInclusive")]
         public Input<double>? LowerInclusive { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterNumberFilterArgs()
         {
         }
+        public static new FilterNumberFilterArgs Empty => new FilterNumberFilterArgs();
     }
 }

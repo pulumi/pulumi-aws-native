@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SQS
     }
 
 
-    public sealed class GetQueuePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetQueuePolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SQS
         public GetQueuePolicyArgs()
         {
         }
+        public static new GetQueuePolicyArgs Empty => new GetQueuePolicyArgs();
     }
 
-    public sealed class GetQueuePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueuePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SQS
         public GetQueuePolicyInvokeArgs()
         {
         }
+        public static new GetQueuePolicyInvokeArgs Empty => new GetQueuePolicyInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationReferenceDataSourceMappingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceMappingParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("cSVMappingParameters")]
         public Input<Inputs.ApplicationReferenceDataSourceCSVMappingParametersArgs>? CSVMappingParameters { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationReferenceDataSourceMappingParametersArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceMappingParametersArgs Empty => new ApplicationReferenceDataSourceMappingParametersArgs();
     }
 }

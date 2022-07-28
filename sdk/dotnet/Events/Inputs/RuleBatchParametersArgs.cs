@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleBatchParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleBatchParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("arrayProperties")]
         public Input<Inputs.RuleBatchArrayPropertiesArgs>? ArrayProperties { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleBatchParametersArgs()
         {
         }
+        public static new RuleBatchParametersArgs Empty => new RuleBatchParametersArgs();
     }
 }

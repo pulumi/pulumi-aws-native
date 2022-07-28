@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupLaunchTemplateSpecificationArgs()
         {
         }
+        public static new AutoScalingGroupLaunchTemplateSpecificationArgs Empty => new AutoScalingGroupLaunchTemplateSpecificationArgs();
     }
 }

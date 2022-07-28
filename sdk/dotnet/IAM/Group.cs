@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -101,5 +101,6 @@ namespace Pulumi.AwsNative.IAM
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 }

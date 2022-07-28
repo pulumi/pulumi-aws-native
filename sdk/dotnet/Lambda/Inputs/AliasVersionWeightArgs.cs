@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class AliasVersionWeightArgs : Pulumi.ResourceArgs
+    public sealed class AliasVersionWeightArgs : global::Pulumi.ResourceArgs
     {
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public AliasVersionWeightArgs()
         {
         }
+        public static new AliasVersionWeightArgs Empty => new AliasVersionWeightArgs();
     }
 }

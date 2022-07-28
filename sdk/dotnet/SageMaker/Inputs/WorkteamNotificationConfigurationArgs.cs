@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class WorkteamNotificationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("notificationTopicArn", required: true)]
         public Input<string> NotificationTopicArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public WorkteamNotificationConfigurationArgs()
         {
         }
+        public static new WorkteamNotificationConfigurationArgs Empty => new WorkteamNotificationConfigurationArgs();
     }
 }

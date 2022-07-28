@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::InternetGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:InternetGateway")]
-    public partial class InternetGateway : Pulumi.CustomResource
+    public partial class InternetGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of internet gateway.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class InternetGatewayArgs : Pulumi.ResourceArgs
+    public sealed class InternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputList<Inputs.InternetGatewayTagArgs>? _tags;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.EC2
         public InternetGatewayArgs()
         {
         }
+        public static new InternetGatewayArgs Empty => new InternetGatewayArgs();
     }
 }

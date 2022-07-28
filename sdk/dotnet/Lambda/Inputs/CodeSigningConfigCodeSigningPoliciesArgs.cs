@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// Policies to control how to act if a signature is invalid
     /// </summary>
-    public sealed class CodeSigningConfigCodeSigningPoliciesArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigCodeSigningPoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public CodeSigningConfigCodeSigningPoliciesArgs()
         {
         }
+        public static new CodeSigningConfigCodeSigningPoliciesArgs Empty => new CodeSigningConfigCodeSigningPoliciesArgs();
     }
 }

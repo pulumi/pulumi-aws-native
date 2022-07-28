@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
     /// <summary>
     /// Information about a source configuration.
     /// </summary>
-    public sealed class SimulationApplicationSourceConfigArgs : Pulumi.ResourceArgs
+    public sealed class SimulationApplicationSourceConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target processor architecture for the application.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         public SimulationApplicationSourceConfigArgs()
         {
         }
+        public static new SimulationApplicationSourceConfigArgs Empty => new SimulationApplicationSourceConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataPipeline.Inputs
 {
 
-    public sealed class PipelineParameterValueArgs : Pulumi.ResourceArgs
+    public sealed class PipelineParameterValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataPipeline.Inputs
         public PipelineParameterValueArgs()
         {
         }
+        public static new PipelineParameterValueArgs Empty => new PipelineParameterValueArgs();
     }
 }

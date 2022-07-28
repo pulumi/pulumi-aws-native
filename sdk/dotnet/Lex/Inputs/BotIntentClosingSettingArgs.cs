@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Response that Amazon Lex sends to the user when the intent is closed.
     /// </summary>
-    public sealed class BotIntentClosingSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotIntentClosingSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("closingResponse", required: true)]
         public Input<Inputs.BotResponseSpecificationArgs> ClosingResponse { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotIntentClosingSettingArgs()
         {
         }
+        public static new BotIntentClosingSettingArgs Empty => new BotIntentClosingSettingArgs();
     }
 }

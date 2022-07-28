@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Byte Match statement.
     /// </summary>
-    public sealed class WebACLByteMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLByteMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLByteMatchStatementArgs()
         {
         }
+        public static new WebACLByteMatchStatementArgs Empty => new WebACLByteMatchStatementArgs();
     }
 }

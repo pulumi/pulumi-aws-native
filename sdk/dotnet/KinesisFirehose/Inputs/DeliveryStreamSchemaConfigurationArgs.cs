@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamSchemaConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamSchemaConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamSchemaConfigurationArgs()
         {
         }
+        public static new DeliveryStreamSchemaConfigurationArgs Empty => new DeliveryStreamSchemaConfigurationArgs();
     }
 }

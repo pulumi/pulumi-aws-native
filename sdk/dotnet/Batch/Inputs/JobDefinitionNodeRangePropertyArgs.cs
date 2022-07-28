@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionNodeRangePropertyArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionNodeRangePropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("container")]
         public Input<Inputs.JobDefinitionContainerPropertiesArgs>? Container { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionNodeRangePropertyArgs()
         {
         }
+        public static new JobDefinitionNodeRangePropertyArgs Empty => new JobDefinitionNodeRangePropertyArgs();
     }
 }

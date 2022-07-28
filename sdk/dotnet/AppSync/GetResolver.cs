@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetResolverArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetResolverArgs()
         {
         }
+        public static new GetResolverArgs Empty => new GetResolverArgs();
     }
 
-    public sealed class GetResolverInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetResolverInvokeArgs()
         {
         }
+        public static new GetResolverInvokeArgs Empty => new GetResolverInvokeArgs();
     }
 
 

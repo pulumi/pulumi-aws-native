@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra
     /// Resource schema for AWS::Cassandra::Table
     /// </summary>
     [AwsNativeResourceType("aws-native:cassandra:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Cassandra
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.Cassandra
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 }

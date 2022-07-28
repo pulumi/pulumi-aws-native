@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataPipeline
     }
 
 
-    public sealed class GetPipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DataPipeline
         public GetPipelineArgs()
         {
         }
+        public static new GetPipelineArgs Empty => new GetPipelineArgs();
     }
 
-    public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DataPipeline
         public GetPipelineInvokeArgs()
         {
         }
+        public static new GetPipelineInvokeArgs Empty => new GetPipelineInvokeArgs();
     }
 
 

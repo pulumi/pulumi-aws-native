@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
     /// </summary>
-    public sealed class CertificateAuthorityOcspConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityOcspConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityOcspConfigurationArgs()
         {
         }
+        public static new CertificateAuthorityOcspConfigurationArgs Empty => new CertificateAuthorityOcspConfigurationArgs();
     }
 }

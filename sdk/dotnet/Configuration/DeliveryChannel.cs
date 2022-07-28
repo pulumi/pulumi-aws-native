@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration
     /// </summary>
     [Obsolete(@"DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:DeliveryChannel")]
-    public partial class DeliveryChannel : Pulumi.CustomResource
+    public partial class DeliveryChannel : global::Pulumi.CustomResource
     {
         [Output("configSnapshotDeliveryProperties")]
         public Output<Outputs.DeliveryChannelConfigSnapshotDeliveryProperties?> ConfigSnapshotDeliveryProperties { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class DeliveryChannelArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("configSnapshotDeliveryProperties")]
         public Input<Inputs.DeliveryChannelConfigSnapshotDeliveryPropertiesArgs>? ConfigSnapshotDeliveryProperties { get; set; }
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.Configuration
         public DeliveryChannelArgs()
         {
         }
+        public static new DeliveryChannelArgs Empty => new DeliveryChannelArgs();
     }
 }

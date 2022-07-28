@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryVPCConfigArgs : Pulumi.ResourceArgs
+    public sealed class CanaryVPCConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryVPCConfigArgs()
         {
         }
+        public static new CanaryVPCConfigArgs Empty => new CanaryVPCConfigArgs();
     }
 }

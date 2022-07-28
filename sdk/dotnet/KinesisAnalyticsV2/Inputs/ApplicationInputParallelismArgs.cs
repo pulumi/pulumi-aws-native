@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
     /// </summary>
-    public sealed class ApplicationInputParallelismArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInputParallelismArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of in-application streams to create.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationInputParallelismArgs()
         {
         }
+        public static new ApplicationInputParallelismArgs Empty => new ApplicationInputParallelismArgs();
     }
 }

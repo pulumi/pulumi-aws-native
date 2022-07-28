@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
     /// An Amazon Lookout for Metrics Detector
     /// </summary>
     [AwsNativeResourceType("aws-native:lookoutmetrics:AnomalyDetector")]
-    public partial class AnomalyDetector : Pulumi.CustomResource
+    public partial class AnomalyDetector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration options for the AnomalyDetector
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         }
     }
 
-    public sealed class AnomalyDetectorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration options for the AnomalyDetector
@@ -132,5 +132,6 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public AnomalyDetectorArgs()
         {
         }
+        public static new AnomalyDetectorArgs Empty => new AnomalyDetectorArgs();
     }
 }

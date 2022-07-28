@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationFSxLustre.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxLustre")]
-    public partial class LocationFSxLustre : Pulumi.CustomResource
+    public partial class LocationFSxLustre : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationFSxLustreArgs : Pulumi.ResourceArgs
+    public sealed class LocationFSxLustreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationFSxLustreArgs()
         {
         }
+        public static new LocationFSxLustreArgs Empty => new LocationFSxLustreArgs();
     }
 }

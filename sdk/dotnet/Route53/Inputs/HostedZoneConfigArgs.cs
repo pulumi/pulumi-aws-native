@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
     /// 
     /// If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
     /// </summary>
-    public sealed class HostedZoneConfigArgs : Pulumi.ResourceArgs
+    public sealed class HostedZoneConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Any comments that you want to include about the hosted zone.
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public HostedZoneConfigArgs()
         {
         }
+        public static new HostedZoneConfigArgs Empty => new HostedZoneConfigArgs();
     }
 }

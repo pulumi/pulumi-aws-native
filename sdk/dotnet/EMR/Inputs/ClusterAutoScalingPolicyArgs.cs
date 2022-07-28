@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterAutoScalingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterAutoScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("constraints", required: true)]
         public Input<Inputs.ClusterScalingConstraintsArgs> Constraints { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterAutoScalingPolicyArgs()
         {
         }
+        public static new ClusterAutoScalingPolicyArgs Empty => new ClusterAutoScalingPolicyArgs();
     }
 }

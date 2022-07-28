@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EMR
     /// </summary>
     [Obsolete(@"InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:InstanceGroupConfig")]
-    public partial class InstanceGroupConfig : Pulumi.CustomResource
+    public partial class InstanceGroupConfig : global::Pulumi.CustomResource
     {
         [Output("autoScalingPolicy")]
         public Output<Outputs.InstanceGroupConfigAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class InstanceGroupConfigArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingPolicy")]
         public Input<Inputs.InstanceGroupConfigAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.EMR
         public InstanceGroupConfigArgs()
         {
         }
+        public static new InstanceGroupConfigArgs Empty => new InstanceGroupConfigArgs();
     }
 }

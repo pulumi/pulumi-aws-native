@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS
     /// An object representing an Amazon EKS IdentityProviderConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:IdentityProviderConfig")]
-    public partial class IdentityProviderConfig : Pulumi.CustomResource
+    public partial class IdentityProviderConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the identity provider configuration.
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.EKS
         }
     }
 
-    public sealed class IdentityProviderConfigArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the identity provider configuration.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.EKS
         public IdentityProviderConfigArgs()
         {
         }
+        public static new IdentityProviderConfigArgs Empty => new IdentityProviderConfigArgs();
     }
 }

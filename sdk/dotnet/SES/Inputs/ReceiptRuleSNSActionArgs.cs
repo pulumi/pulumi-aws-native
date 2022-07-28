@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleSNSActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleSNSActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleSNSActionArgs()
         {
         }
+        public static new ReceiptRuleSNSActionArgs Empty => new ReceiptRuleSNSActionArgs();
     }
 }

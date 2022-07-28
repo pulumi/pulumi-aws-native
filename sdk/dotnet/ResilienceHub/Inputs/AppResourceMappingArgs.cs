@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
     /// <summary>
     /// Resource mapping is used to map logical resources from template to physical resource
     /// </summary>
-    public sealed class AppResourceMappingArgs : Pulumi.ResourceArgs
+    public sealed class AppResourceMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("logicalStackName")]
         public Input<string>? LogicalStackName { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
         public AppResourceMappingArgs()
         {
         }
+        public static new AppResourceMappingArgs Empty => new AppResourceMappingArgs();
     }
 }

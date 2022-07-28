@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The default retention period that you want to apply to new objects placed in the specified bucket.
     /// </summary>
-    public sealed class BucketDefaultRetentionArgs : Pulumi.ResourceArgs
+    public sealed class BucketDefaultRetentionArgs : global::Pulumi.ResourceArgs
     {
         [Input("days")]
         public Input<int>? Days { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketDefaultRetentionArgs()
         {
         }
+        public static new BucketDefaultRetentionArgs Empty => new BucketDefaultRetentionArgs();
     }
 }

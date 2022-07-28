@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleRetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RuleRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleRetryPolicyArgs()
         {
         }
+        public static new RuleRetryPolicyArgs Empty => new RuleRetryPolicyArgs();
     }
 }

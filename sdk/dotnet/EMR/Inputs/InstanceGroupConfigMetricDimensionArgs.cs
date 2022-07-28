@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceGroupConfigMetricDimensionArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupConfigMetricDimensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceGroupConfigMetricDimensionArgs()
         {
         }
+        public static new InstanceGroupConfigMetricDimensionArgs Empty => new InstanceGroupConfigMetricDimensionArgs();
     }
 }

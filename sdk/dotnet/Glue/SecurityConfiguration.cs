@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:SecurityConfiguration")]
-    public partial class SecurityConfiguration : Pulumi.CustomResource
+    public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
         [Output("encryptionConfiguration")]
         public Output<Outputs.SecurityConfigurationEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class SecurityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationArgs> EncryptionConfiguration { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.Glue
         public SecurityConfigurationArgs()
         {
         }
+        public static new SecurityConfigurationArgs Empty => new SecurityConfigurationArgs();
     }
 }

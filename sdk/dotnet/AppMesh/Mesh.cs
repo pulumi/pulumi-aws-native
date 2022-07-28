@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// </summary>
     [Obsolete(@"Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:Mesh")]
-    public partial class Mesh : Pulumi.CustomResource
+    public partial class Mesh : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.AppMesh
         }
     }
 
-    public sealed class MeshArgs : Pulumi.ResourceArgs
+    public sealed class MeshArgs : global::Pulumi.ResourceArgs
     {
         [Input("meshName")]
         public Input<string>? MeshName { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.AppMesh
         public MeshArgs()
         {
         }
+        public static new MeshArgs Empty => new MeshArgs();
     }
 }

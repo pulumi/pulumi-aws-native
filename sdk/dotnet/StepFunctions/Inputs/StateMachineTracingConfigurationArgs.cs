@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class StateMachineTracingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineTracingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public StateMachineTracingConfigurationArgs()
         {
         }
+        public static new StateMachineTracingConfigurationArgs Empty => new StateMachineTracingConfigurationArgs();
     }
 }

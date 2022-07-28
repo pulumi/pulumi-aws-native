@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
     /// </summary>
-    public sealed class ConfigurationSetEventDestinationDimensionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationDimensionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetEventDestinationDimensionConfigurationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationDimensionConfigurationArgs Empty => new ConfigurationSetEventDestinationDimensionConfigurationArgs();
     }
 }

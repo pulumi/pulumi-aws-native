@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupIPSetForwardedIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupIPSetForwardedIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("fallbackBehavior", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupIPSetForwardedIPConfigurationFallbackBehavior> FallbackBehavior { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupIPSetForwardedIPConfigurationArgs()
         {
         }
+        public static new RuleGroupIPSetForwardedIPConfigurationArgs Empty => new RuleGroupIPSetForwardedIPConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskLoggingInfoArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskLoggingInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskLoggingInfoArgs()
         {
         }
+        public static new MaintenanceWindowTaskLoggingInfoArgs Empty => new MaintenanceWindowTaskLoggingInfoArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs.Inputs
 {
 
-    public sealed class MetricFilterMetricTransformationArgs : Pulumi.ResourceArgs
+    public sealed class MetricFilterMetricTransformationArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValue")]
         public Input<double>? DefaultValue { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Logs.Inputs
         public MetricFilterMetricTransformationArgs()
         {
         }
+        public static new MetricFilterMetricTransformationArgs Empty => new MetricFilterMetricTransformationArgs();
     }
 }

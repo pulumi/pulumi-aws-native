@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.RDS
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 }

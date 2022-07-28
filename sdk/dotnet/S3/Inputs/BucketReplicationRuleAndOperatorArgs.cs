@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketReplicationRuleAndOperatorArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationRuleAndOperatorArgs : global::Pulumi.ResourceArgs
     {
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationRuleAndOperatorArgs()
         {
         }
+        public static new BucketReplicationRuleAndOperatorArgs Empty => new BucketReplicationRuleAndOperatorArgs();
     }
 }

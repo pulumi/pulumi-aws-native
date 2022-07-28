@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LicenseManager
     }
 
 
-    public sealed class GetGrantArgs : Pulumi.InvokeArgs
+    public sealed class GetGrantArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Arn of the grant.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.LicenseManager
         public GetGrantArgs()
         {
         }
+        public static new GetGrantArgs Empty => new GetGrantArgs();
     }
 
-    public sealed class GetGrantInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGrantInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Arn of the grant.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public GetGrantInvokeArgs()
         {
         }
+        public static new GetGrantInvokeArgs Empty => new GetGrantInvokeArgs();
     }
 
 

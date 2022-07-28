@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileInforNexusConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileInforNexusConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the InforNexus resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileInforNexusConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileInforNexusConnectorProfilePropertiesArgs Empty => new ConnectorProfileInforNexusConnectorProfilePropertiesArgs();
     }
 }

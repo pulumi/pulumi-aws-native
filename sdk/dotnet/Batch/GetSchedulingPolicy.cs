@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
 
-    public sealed class GetSchedulingPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSchedulingPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Batch
         public GetSchedulingPolicyArgs()
         {
         }
+        public static new GetSchedulingPolicyArgs Empty => new GetSchedulingPolicyArgs();
     }
 
-    public sealed class GetSchedulingPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchedulingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Batch
         public GetSchedulingPolicyInvokeArgs()
         {
         }
+        public static new GetSchedulingPolicyInvokeArgs Empty => new GetSchedulingPolicyInvokeArgs();
     }
 
 

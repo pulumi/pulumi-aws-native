@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// A single label name condition.
     /// </summary>
-    public sealed class LoggingConfigurationConditionLabelNameConditionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationConditionLabelNameConditionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationConditionLabelNameConditionPropertiesArgs()
         {
         }
+        public static new LoggingConfigurationConditionLabelNameConditionPropertiesArgs Empty => new LoggingConfigurationConditionLabelNameConditionPropertiesArgs();
     }
 }

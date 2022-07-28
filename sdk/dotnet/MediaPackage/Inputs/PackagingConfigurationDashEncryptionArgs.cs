@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
     /// </summary>
-    public sealed class PackagingConfigurationDashEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationDashEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationDashEncryptionArgs()
         {
         }
+        public static new PackagingConfigurationDashEncryptionArgs Empty => new PackagingConfigurationDashEncryptionArgs();
     }
 }

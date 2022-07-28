@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolSmsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolSmsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolSmsConfigurationArgs()
         {
         }
+        public static new UserPoolSmsConfigurationArgs Empty => new UserPoolSmsConfigurationArgs();
     }
 }

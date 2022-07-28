@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Events
     /// Resource Type definition for AWS::Events::Connection.
     /// </summary>
     [AwsNativeResourceType("aws-native:events:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The arn of the connection resource.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Events
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("authParameters", required: true)]
         public Input<Inputs.ConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Events
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 }

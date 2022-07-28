@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A message in plain text format.
     /// </summary>
-    public sealed class BotPlainTextMessageArgs : Pulumi.ResourceArgs
+    public sealed class BotPlainTextMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message to send to the user.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotPlainTextMessageArgs()
         {
         }
+        public static new BotPlainTextMessageArgs Empty => new BotPlainTextMessageArgs();
     }
 }

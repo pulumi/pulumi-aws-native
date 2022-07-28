@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.XRay
     /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
     /// </summary>
     [AwsNativeResourceType("aws-native:xray:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The filter expression defining criteria by which to group traces.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.XRay
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filter expression defining criteria by which to group traces.
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.XRay
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 }

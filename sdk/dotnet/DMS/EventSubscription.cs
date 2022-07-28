@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DMS
     /// </summary>
     [Obsolete(@"EventSubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.DMS
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.DMS
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 }

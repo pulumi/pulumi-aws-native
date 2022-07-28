@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("field")]
         public Input<string>? Field { get; set; }
@@ -44,5 +44,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleRuleConditionArgs()
         {
         }
+        public static new ListenerRuleRuleConditionArgs Empty => new ListenerRuleRuleConditionArgs();
     }
 }

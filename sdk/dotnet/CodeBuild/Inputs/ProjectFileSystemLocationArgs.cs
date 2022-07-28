@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectFileSystemLocationArgs : Pulumi.ResourceArgs
+    public sealed class ProjectFileSystemLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectFileSystemLocationArgs()
         {
         }
+        public static new ProjectFileSystemLocationArgs Empty => new ProjectFileSystemLocationArgs();
     }
 }

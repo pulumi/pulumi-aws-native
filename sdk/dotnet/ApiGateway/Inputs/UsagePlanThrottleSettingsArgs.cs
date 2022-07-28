@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class UsagePlanThrottleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanThrottleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public UsagePlanThrottleSettingsArgs()
         {
         }
+        public static new UsagePlanThrottleSettingsArgs Empty => new UsagePlanThrottleSettingsArgs();
     }
 }

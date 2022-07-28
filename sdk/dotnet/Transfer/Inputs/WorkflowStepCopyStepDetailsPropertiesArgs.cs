@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Details for a step that performs a file copy.
     /// </summary>
-    public sealed class WorkflowStepCopyStepDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepCopyStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationFileLocation")]
         public Input<Inputs.WorkflowInputFileLocationArgs>? DestinationFileLocation { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowStepCopyStepDetailsPropertiesArgs()
         {
         }
+        public static new WorkflowStepCopyStepDetailsPropertiesArgs Empty => new WorkflowStepCopyStepDetailsPropertiesArgs();
     }
 }

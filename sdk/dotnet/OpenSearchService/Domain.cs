@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:opensearchservice:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         [Output("accessPolicies")]
         public Output<object?> AccessPolicies { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         public Input<object>? AccessPolicies { get; set; }
@@ -180,5 +180,6 @@ namespace Pulumi.AwsNative.OpenSearchService
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

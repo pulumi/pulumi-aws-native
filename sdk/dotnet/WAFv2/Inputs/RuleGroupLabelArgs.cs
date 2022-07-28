@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupLabelArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupLabelArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupLabelArgs()
         {
         }
+        public static new RuleGroupLabelArgs Empty => new RuleGroupLabelArgs();
     }
 }

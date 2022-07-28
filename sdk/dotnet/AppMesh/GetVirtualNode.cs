@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh
     }
 
 
-    public sealed class GetVirtualNodeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNodeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualNodeArgs()
         {
         }
+        public static new GetVirtualNodeArgs Empty => new GetVirtualNodeArgs();
     }
 
-    public sealed class GetVirtualNodeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNodeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualNodeInvokeArgs()
         {
         }
+        public static new GetVirtualNodeInvokeArgs Empty => new GetVirtualNodeInvokeArgs();
     }
 
 

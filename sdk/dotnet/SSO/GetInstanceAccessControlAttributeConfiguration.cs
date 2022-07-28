@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSO
     }
 
 
-    public sealed class GetInstanceAccessControlAttributeConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceAccessControlAttributeConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSO
         public GetInstanceAccessControlAttributeConfigurationArgs()
         {
         }
+        public static new GetInstanceAccessControlAttributeConfigurationArgs Empty => new GetInstanceAccessControlAttributeConfigurationArgs();
     }
 
-    public sealed class GetInstanceAccessControlAttributeConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceAccessControlAttributeConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSO
         public GetInstanceAccessControlAttributeConfigurationInvokeArgs()
         {
         }
+        public static new GetInstanceAccessControlAttributeConfigurationInvokeArgs Empty => new GetInstanceAccessControlAttributeConfigurationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
     /// </summary>
-    public sealed class BotSlotArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotArgs()
         {
         }
+        public static new BotSlotArgs Empty => new BotSlotArgs();
     }
 }

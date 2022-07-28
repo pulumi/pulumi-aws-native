@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskNotificationConfigArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskNotificationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("notificationArn", required: true)]
         public Input<string> NotificationArn { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskNotificationConfigArgs()
         {
         }
+        public static new MaintenanceWindowTaskNotificationConfigArgs Empty => new MaintenanceWindowTaskNotificationConfigArgs();
     }
 }

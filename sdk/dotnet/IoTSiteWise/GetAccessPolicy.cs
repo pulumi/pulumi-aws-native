@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
 
-    public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the access policy.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetAccessPolicyArgs()
         {
         }
+        public static new GetAccessPolicyArgs Empty => new GetAccessPolicyArgs();
     }
 
-    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the access policy.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetAccessPolicyInvokeArgs()
         {
         }
+        public static new GetAccessPolicyInvokeArgs Empty => new GetAccessPolicyInvokeArgs();
     }
 
 

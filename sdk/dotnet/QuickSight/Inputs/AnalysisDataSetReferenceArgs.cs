@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Dataset reference.&lt;/p&gt;
     /// </summary>
-    public sealed class AnalysisDataSetReferenceArgs : Pulumi.ResourceArgs
+    public sealed class AnalysisDataSetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Dataset Amazon Resource Name (ARN).&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public AnalysisDataSetReferenceArgs()
         {
         }
+        public static new AnalysisDataSetReferenceArgs Empty => new AnalysisDataSetReferenceArgs();
     }
 }

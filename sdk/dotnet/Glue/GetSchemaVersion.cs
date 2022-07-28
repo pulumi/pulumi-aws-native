@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetSchemaVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Represents the version ID associated with the schema version.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Glue
         public GetSchemaVersionArgs()
         {
         }
+        public static new GetSchemaVersionArgs Empty => new GetSchemaVersionArgs();
     }
 
-    public sealed class GetSchemaVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Represents the version ID associated with the schema version.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Glue
         public GetSchemaVersionInvokeArgs()
         {
         }
+        public static new GetSchemaVersionInvokeArgs Empty => new GetSchemaVersionInvokeArgs();
     }
 
 

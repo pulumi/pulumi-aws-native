@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallTagArgs : Pulumi.ResourceArgs
+    public sealed class FirewallTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallTagArgs()
         {
         }
+        public static new FirewallTagArgs Empty => new FirewallTagArgs();
     }
 }

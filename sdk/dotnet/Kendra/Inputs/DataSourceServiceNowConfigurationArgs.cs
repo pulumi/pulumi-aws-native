@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceServiceNowConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceServiceNowConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationType")]
         public Input<Pulumi.AwsNative.Kendra.DataSourceServiceNowAuthenticationType>? AuthenticationType { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceServiceNowConfigurationArgs()
         {
         }
+        public static new DataSourceServiceNowConfigurationArgs Empty => new DataSourceServiceNowConfigurationArgs();
     }
 }

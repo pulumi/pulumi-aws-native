@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodePipeline
     /// </summary>
     [Obsolete(@"Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codepipeline:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         [Output("authentication")]
         public Output<string> Authentication { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.CodePipeline
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("authentication", required: true)]
         public Input<string> Authentication { get; set; } = null!;
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.CodePipeline
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 }

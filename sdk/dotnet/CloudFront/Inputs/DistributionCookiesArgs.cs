@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionCookiesArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCookiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("forward", required: true)]
         public Input<string> Forward { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionCookiesArgs()
         {
         }
+        public static new DistributionCookiesArgs Empty => new DistributionCookiesArgs();
     }
 }

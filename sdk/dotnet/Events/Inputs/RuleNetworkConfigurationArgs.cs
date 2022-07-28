@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RuleNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsVpcConfiguration")]
         public Input<Inputs.RuleAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleNetworkConfigurationArgs()
         {
         }
+        public static new RuleNetworkConfigurationArgs Empty => new RuleNetworkConfigurationArgs();
     }
 }

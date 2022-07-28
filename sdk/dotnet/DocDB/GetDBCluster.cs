@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DocDB
     }
 
 
-    public sealed class GetDBClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetDBClusterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DocDB
         public GetDBClusterArgs()
         {
         }
+        public static new GetDBClusterArgs Empty => new GetDBClusterArgs();
     }
 
-    public sealed class GetDBClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DocDB
         public GetDBClusterInvokeArgs()
         {
         }
+        public static new GetDBClusterInvokeArgs Empty => new GetDBClusterInvokeArgs();
     }
 
 

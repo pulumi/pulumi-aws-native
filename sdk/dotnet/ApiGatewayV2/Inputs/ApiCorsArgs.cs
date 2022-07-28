@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiCorsArgs : Pulumi.ResourceArgs
+    public sealed class ApiCorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
@@ -53,5 +53,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public ApiCorsArgs()
         {
         }
+        public static new ApiCorsArgs Empty => new ApiCorsArgs();
     }
 }

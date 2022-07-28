@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeCommit.Inputs
 {
 
-    public sealed class RepositoryCodeArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryCodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeCommit.Inputs
         public RepositoryCodeArgs()
         {
         }
+        public static new RepositoryCodeArgs Empty => new RepositoryCodeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowS3SourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowS3SourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowS3SourcePropertiesArgs()
         {
         }
+        public static new FlowS3SourcePropertiesArgs Empty => new FlowS3SourcePropertiesArgs();
     }
 }

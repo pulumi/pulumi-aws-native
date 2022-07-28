@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// <summary>
     ///  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
     /// </summary>
-    public sealed class StackSetDeploymentTargetsArgs : Pulumi.ResourceArgs
+    public sealed class StackSetDeploymentTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public StackSetDeploymentTargetsArgs()
         {
         }
+        public static new StackSetDeploymentTargetsArgs Empty => new StackSetDeploymentTargetsArgs();
     }
 }

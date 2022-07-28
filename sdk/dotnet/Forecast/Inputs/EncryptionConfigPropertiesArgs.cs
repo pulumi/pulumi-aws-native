@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Forecast.Inputs
 {
 
-    public sealed class EncryptionConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Forecast.Inputs
         public EncryptionConfigPropertiesArgs()
         {
         }
+        public static new EncryptionConfigPropertiesArgs Empty => new EncryptionConfigPropertiesArgs();
     }
 }

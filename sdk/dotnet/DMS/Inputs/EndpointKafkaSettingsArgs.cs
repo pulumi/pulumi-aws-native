@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointKafkaSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointKafkaSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("broker")]
         public Input<string>? Broker { get; set; }
@@ -69,5 +69,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointKafkaSettingsArgs()
         {
         }
+        public static new EndpointKafkaSettingsArgs Empty => new EndpointKafkaSettingsArgs();
     }
 }

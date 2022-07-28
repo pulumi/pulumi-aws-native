@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class ObjectTypeKeyMapArgs : Pulumi.ResourceArgs
+    public sealed class ObjectTypeKeyMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public ObjectTypeKeyMapArgs()
         {
         }
+        public static new ObjectTypeKeyMapArgs Empty => new ObjectTypeKeyMapArgs();
     }
 }

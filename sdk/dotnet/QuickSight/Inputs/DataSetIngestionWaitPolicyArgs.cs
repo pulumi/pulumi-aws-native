@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSetIngestionWaitPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DataSetIngestionWaitPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSetIngestionWaitPolicyArgs()
         {
         }
+        public static new DataSetIngestionWaitPolicyArgs Empty => new DataSetIngestionWaitPolicyArgs();
     }
 }

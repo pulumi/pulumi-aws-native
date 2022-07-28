@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class PatchBaselinePatchStringDateArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselinePatchStringDateArgs : global::Pulumi.ResourceArgs
     {
         public PatchBaselinePatchStringDateArgs()
         {
         }
+        public static new PatchBaselinePatchStringDateArgs Empty => new PatchBaselinePatchStringDateArgs();
     }
 }

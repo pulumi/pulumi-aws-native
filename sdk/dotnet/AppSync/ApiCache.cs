@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"ApiCache is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:ApiCache")]
-    public partial class ApiCache : Pulumi.CustomResource
+    public partial class ApiCache : global::Pulumi.CustomResource
     {
         [Output("apiCachingBehavior")]
         public Output<string> ApiCachingBehavior { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class ApiCacheArgs : Pulumi.ResourceArgs
+    public sealed class ApiCacheArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiCachingBehavior", required: true)]
         public Input<string> ApiCachingBehavior { get; set; } = null!;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.AppSync
         public ApiCacheArgs()
         {
         }
+        public static new ApiCacheArgs Empty => new ApiCacheArgs();
     }
 }

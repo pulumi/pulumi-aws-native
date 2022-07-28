@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     }
 
 
-    public sealed class GetTestGridProjectArgs : Pulumi.InvokeArgs
+    public sealed class GetTestGridProjectArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetTestGridProjectArgs()
         {
         }
+        public static new GetTestGridProjectArgs Empty => new GetTestGridProjectArgs();
     }
 
-    public sealed class GetTestGridProjectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTestGridProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetTestGridProjectInvokeArgs()
         {
         }
+        public static new GetTestGridProjectInvokeArgs Empty => new GetTestGridProjectInvokeArgs();
     }
 
 

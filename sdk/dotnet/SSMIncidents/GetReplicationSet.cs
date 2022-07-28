@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     }
 
 
-    public sealed class GetReplicationSetArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the ReplicationSet.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSMIncidents
         public GetReplicationSetArgs()
         {
         }
+        public static new GetReplicationSetArgs Empty => new GetReplicationSetArgs();
     }
 
-    public sealed class GetReplicationSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the ReplicationSet.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         public GetReplicationSetInvokeArgs()
         {
         }
+        public static new GetReplicationSetInvokeArgs Empty => new GetReplicationSetInvokeArgs();
     }
 
 

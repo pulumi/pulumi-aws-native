@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorks
     }
 
 
-    public sealed class GetUserProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetUserProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetUserProfileArgs()
         {
         }
+        public static new GetUserProfileArgs Empty => new GetUserProfileArgs();
     }
 
-    public sealed class GetUserProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetUserProfileInvokeArgs()
         {
         }
+        public static new GetUserProfileInvokeArgs Empty => new GetUserProfileInvokeArgs();
     }
 
 

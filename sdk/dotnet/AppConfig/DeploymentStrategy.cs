@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppConfig
     /// </summary>
     [Obsolete(@"DeploymentStrategy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:DeploymentStrategy")]
-    public partial class DeploymentStrategy : Pulumi.CustomResource
+    public partial class DeploymentStrategy : global::Pulumi.CustomResource
     {
         [Output("deploymentDurationInMinutes")]
         public Output<double> DeploymentDurationInMinutes { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AppConfig
         }
     }
 
-    public sealed class DeploymentStrategyArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentStrategyArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentDurationInMinutes", required: true)]
         public Input<double> DeploymentDurationInMinutes { get; set; } = null!;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.AppConfig
         public DeploymentStrategyArgs()
         {
         }
+        public static new DeploymentStrategyArgs Empty => new DeploymentStrategyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The location of audio log files collected when conversation logging is enabled for a bot.
     /// </summary>
-    public sealed class BotAudioLogDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BotAudioLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Bucket", required: true)]
         public Input<Inputs.BotS3BucketLogDestinationArgs> S3Bucket { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAudioLogDestinationArgs()
         {
         }
+        public static new BotAudioLogDestinationArgs Empty => new BotAudioLogDestinationArgs();
     }
 }

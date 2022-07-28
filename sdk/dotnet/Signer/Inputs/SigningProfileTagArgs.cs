@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Signer.Inputs
 {
 
-    public sealed class SigningProfileTagArgs : Pulumi.ResourceArgs
+    public sealed class SigningProfileTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Signer.Inputs
         public SigningProfileTagArgs()
         {
         }
+        public static new SigningProfileTagArgs Empty => new SigningProfileTagArgs();
     }
 }

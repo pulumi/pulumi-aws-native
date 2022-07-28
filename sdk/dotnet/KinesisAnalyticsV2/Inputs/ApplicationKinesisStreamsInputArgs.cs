@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
     /// </summary>
-    public sealed class ApplicationKinesisStreamsInputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationKinesisStreamsInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the input Kinesis data stream to read.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationKinesisStreamsInputArgs()
         {
         }
+        public static new ApplicationKinesisStreamsInputArgs Empty => new ApplicationKinesisStreamsInputArgs();
     }
 }

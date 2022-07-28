@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         [Output("autoEnableIO")]
         public Output<bool?> AutoEnableIO { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoEnableIO")]
         public Input<bool>? AutoEnableIO { get; set; }
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.EC2
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SSM
     /// </summary>
     [Obsolete(@"MaintenanceWindowTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:MaintenanceWindowTask")]
-    public partial class MaintenanceWindowTask : Pulumi.CustomResource
+    public partial class MaintenanceWindowTask : global::Pulumi.CustomResource
     {
         [Output("cutoffBehavior")]
         public Output<string?> CutoffBehavior { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class MaintenanceWindowTaskArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskArgs : global::Pulumi.ResourceArgs
     {
         [Input("cutoffBehavior")]
         public Input<string>? CutoffBehavior { get; set; }
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.SSM
         public MaintenanceWindowTaskArgs()
         {
         }
+        public static new MaintenanceWindowTaskArgs Empty => new MaintenanceWindowTaskArgs();
     }
 }

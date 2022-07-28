@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Resource Type definition for AWS::ECS::Service
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         [Output("capacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem>> CapacityProviderStrategy { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
@@ -225,5 +225,6 @@ namespace Pulumi.AwsNative.ECS
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileVeevaConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileVeevaConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Veeva resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileVeevaConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileVeevaConnectorProfilePropertiesArgs Empty => new ConnectorProfileVeevaConnectorProfilePropertiesArgs();
     }
 }

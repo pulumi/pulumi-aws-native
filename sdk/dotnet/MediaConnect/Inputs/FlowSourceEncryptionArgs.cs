@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// <summary>
     /// Information about the encryption of the flow.
     /// </summary>
-    public sealed class FlowSourceEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public FlowSourceEncryptionArgs()
         {
         }
+        public static new FlowSourceEncryptionArgs Empty => new FlowSourceEncryptionArgs();
     }
 }

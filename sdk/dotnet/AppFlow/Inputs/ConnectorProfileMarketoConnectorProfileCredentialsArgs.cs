@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileMarketoConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileMarketoConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials used to access protected resources.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileMarketoConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileMarketoConnectorProfileCredentialsArgs Empty => new ConnectorProfileMarketoConnectorProfileCredentialsArgs();
     }
 }

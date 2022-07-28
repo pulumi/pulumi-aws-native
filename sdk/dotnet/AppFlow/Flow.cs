@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow
     /// Resource schema for AWS::AppFlow::Flow.
     /// </summary>
     [AwsNativeResourceType("aws-native:appflow:Flow")]
-    public partial class Flow : Pulumi.CustomResource
+    public partial class Flow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the flow.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.AppFlow
         }
     }
 
-    public sealed class FlowArgs : Pulumi.ResourceArgs
+    public sealed class FlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the flow.
@@ -183,5 +183,6 @@ namespace Pulumi.AwsNative.AppFlow
         public FlowArgs()
         {
         }
+        public static new FlowArgs Empty => new FlowArgs();
     }
 }

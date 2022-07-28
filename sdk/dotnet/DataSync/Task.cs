@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::Task.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:Task")]
-    public partial class Task : Pulumi.CustomResource
+    public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class TaskArgs : Pulumi.ResourceArgs
+    public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
@@ -193,5 +193,6 @@ namespace Pulumi.AwsNative.DataSync
         public TaskArgs()
         {
         }
+        public static new TaskArgs Empty => new TaskArgs();
     }
 }

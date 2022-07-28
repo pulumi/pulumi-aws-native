@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTrafficRoutingConfigArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTrafficRoutingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("timeBasedCanary")]
         public Input<Inputs.DeploymentConfigTimeBasedCanaryArgs>? TimeBasedCanary { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentConfigTrafficRoutingConfigArgs()
         {
         }
+        public static new DeploymentConfigTrafficRoutingConfigArgs Empty => new DeploymentConfigTrafficRoutingConfigArgs();
     }
 }

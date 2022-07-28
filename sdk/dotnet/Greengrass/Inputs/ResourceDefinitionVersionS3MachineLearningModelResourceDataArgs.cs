@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationPath", required: true)]
         public Input<string> DestinationPath { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs()
         {
         }
+        public static new ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs Empty => new ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetSiteToSiteVpnAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteToSiteVpnAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the attachment.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetSiteToSiteVpnAttachmentArgs()
         {
         }
+        public static new GetSiteToSiteVpnAttachmentArgs Empty => new GetSiteToSiteVpnAttachmentArgs();
     }
 
-    public sealed class GetSiteToSiteVpnAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteToSiteVpnAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the attachment.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetSiteToSiteVpnAttachmentInvokeArgs()
         {
         }
+        public static new GetSiteToSiteVpnAttachmentInvokeArgs Empty => new GetSiteToSiteVpnAttachmentInvokeArgs();
     }
 
 

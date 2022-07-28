@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// <summary>
     /// Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
     /// </summary>
-    public sealed class TableProvisionedThroughputArgs : Pulumi.ResourceArgs
+    public sealed class TableProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
         [Input("readCapacityUnits", required: true)]
         public Input<int> ReadCapacityUnits { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableProvisionedThroughputArgs()
         {
         }
+        public static new TableProvisionedThroughputArgs Empty => new TableProvisionedThroughputArgs();
     }
 }

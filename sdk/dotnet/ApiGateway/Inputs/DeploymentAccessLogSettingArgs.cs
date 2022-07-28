@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DeploymentAccessLogSettingArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentAccessLogSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DeploymentAccessLogSettingArgs()
         {
         }
+        public static new DeploymentAccessLogSettingArgs Empty => new DeploymentAccessLogSettingArgs();
     }
 }

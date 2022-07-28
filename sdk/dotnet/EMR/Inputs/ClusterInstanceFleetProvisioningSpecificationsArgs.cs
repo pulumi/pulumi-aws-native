@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterInstanceFleetProvisioningSpecificationsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceFleetProvisioningSpecificationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("onDemandSpecification")]
         public Input<Inputs.ClusterOnDemandProvisioningSpecificationArgs>? OnDemandSpecification { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterInstanceFleetProvisioningSpecificationsArgs()
         {
         }
+        public static new ClusterInstanceFleetProvisioningSpecificationsArgs Empty => new ClusterInstanceFleetProvisioningSpecificationsArgs();
     }
 }

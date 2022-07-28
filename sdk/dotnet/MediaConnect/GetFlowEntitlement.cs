@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
 
-    public sealed class GetFlowEntitlementArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowEntitlementArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the entitlement.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowEntitlementArgs()
         {
         }
+        public static new GetFlowEntitlementArgs Empty => new GetFlowEntitlementArgs();
     }
 
-    public sealed class GetFlowEntitlementInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowEntitlementInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the entitlement.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowEntitlementInvokeArgs()
         {
         }
+        public static new GetFlowEntitlementInvokeArgs Empty => new GetFlowEntitlementInvokeArgs();
     }
 
 

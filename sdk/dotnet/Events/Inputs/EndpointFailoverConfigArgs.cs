@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EndpointFailoverConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointFailoverConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("primary", required: true)]
         public Input<Inputs.EndpointPrimaryArgs> Primary { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EndpointFailoverConfigArgs()
         {
         }
+        public static new EndpointFailoverConfigArgs Empty => new EndpointFailoverConfigArgs();
     }
 }

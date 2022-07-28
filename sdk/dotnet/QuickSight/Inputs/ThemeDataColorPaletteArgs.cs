@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     ///             hexadecimal color code that consists of six alphanumerical characters, prefixed with
     ///                 &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. &lt;/p&gt;
     /// </summary>
-    public sealed class ThemeDataColorPaletteArgs : Pulumi.ResourceArgs
+    public sealed class ThemeDataColorPaletteArgs : global::Pulumi.ResourceArgs
     {
         [Input("colors")]
         private InputList<string>? _colors;
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeDataColorPaletteArgs()
         {
         }
+        public static new ThemeDataColorPaletteArgs Empty => new ThemeDataColorPaletteArgs();
     }
 }

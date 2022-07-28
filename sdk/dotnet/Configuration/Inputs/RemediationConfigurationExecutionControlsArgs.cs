@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class RemediationConfigurationExecutionControlsArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationExecutionControlsArgs : global::Pulumi.ResourceArgs
     {
         [Input("ssmControls")]
         public Input<Inputs.RemediationConfigurationSsmControlsArgs>? SsmControls { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public RemediationConfigurationExecutionControlsArgs()
         {
         }
+        public static new RemediationConfigurationExecutionControlsArgs Empty => new RemediationConfigurationExecutionControlsArgs();
     }
 }

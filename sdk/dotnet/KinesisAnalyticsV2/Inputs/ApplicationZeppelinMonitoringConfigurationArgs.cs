@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
     /// </summary>
-    public sealed class ApplicationZeppelinMonitoringConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationZeppelinMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationZeppelinMonitoringConfigurationArgs()
         {
         }
+        public static new ApplicationZeppelinMonitoringConfigurationArgs Empty => new ApplicationZeppelinMonitoringConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// A pseudo-resource that manages which of your ECS task sets is primary.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:PrimaryTaskSet")]
-    public partial class PrimaryTaskSet : Pulumi.CustomResource
+    public partial class PrimaryTaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class PrimaryTaskSetArgs : Pulumi.ResourceArgs
+    public sealed class PrimaryTaskSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.ECS
         public PrimaryTaskSetArgs()
         {
         }
+        public static new PrimaryTaskSetArgs Empty => new PrimaryTaskSetArgs();
     }
 }

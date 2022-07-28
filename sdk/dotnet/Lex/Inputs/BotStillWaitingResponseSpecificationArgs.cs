@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// StillWaitingResponseSpecification.
     /// </summary>
-    public sealed class BotStillWaitingResponseSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotStillWaitingResponseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotStillWaitingResponseSpecificationArgs()
         {
         }
+        public static new BotStillWaitingResponseSpecificationArgs Empty => new BotStillWaitingResponseSpecificationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class DeviceFleetEdgeOutputConfigArgs : Pulumi.ResourceArgs
+    public sealed class DeviceFleetEdgeOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The KMS key id used for encryption on the S3 bucket
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DeviceFleetEdgeOutputConfigArgs()
         {
         }
+        public static new DeviceFleetEdgeOutputConfigArgs Empty => new DeviceFleetEdgeOutputConfigArgs();
     }
 }

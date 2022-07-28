@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileSAPODataConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileSAPODataConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("basicAuthCredentials")]
         public Input<Inputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs>? BasicAuthCredentials { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileSAPODataConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileSAPODataConnectorProfileCredentialsArgs Empty => new ConnectorProfileSAPODataConnectorProfileCredentialsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// the identifier (name) for the task template field
     /// </summary>
-    public sealed class TaskTemplateFieldIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateFieldIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the task template field
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateFieldIdentifierArgs()
         {
         }
+        public static new TaskTemplateFieldIdentifierArgs Empty => new TaskTemplateFieldIdentifierArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceStatement")]
         public Input<Inputs.NetworkInsightsAccessScopeResourceStatementRequestArgs>? ResourceStatement { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs()
         {
         }
+        public static new NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs Empty => new NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs();
     }
 }

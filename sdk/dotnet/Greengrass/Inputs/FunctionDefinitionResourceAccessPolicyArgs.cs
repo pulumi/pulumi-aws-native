@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionResourceAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionResourceAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("permission")]
         public Input<string>? Permission { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionResourceAccessPolicyArgs()
         {
         }
+        public static new FunctionDefinitionResourceAccessPolicyArgs Empty => new FunctionDefinitionResourceAccessPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetReputationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetReputationOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetReputationOptionsArgs()
         {
         }
+        public static new ConfigurationSetReputationOptionsArgs Empty => new ConfigurationSetReputationOptionsArgs();
     }
 }

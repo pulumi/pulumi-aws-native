@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketInventoryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketInventoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination", required: true)]
         public Input<Inputs.BucketDestinationArgs> Destination { get; set; } = null!;
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketInventoryConfigurationArgs()
         {
         }
+        public static new BucketInventoryConfigurationArgs Empty => new BucketInventoryConfigurationArgs();
     }
 }

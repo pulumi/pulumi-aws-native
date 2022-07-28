@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT
     /// </summary>
     [Obsolete(@"Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
@@ -79,5 +79,6 @@ namespace Pulumi.AwsNative.IoT
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

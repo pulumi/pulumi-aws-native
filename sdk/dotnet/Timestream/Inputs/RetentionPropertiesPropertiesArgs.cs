@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// The retention duration of the memory store and the magnetic store.
     /// </summary>
-    public sealed class RetentionPropertiesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RetentionPropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration for which data must be stored in the magnetic store.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public RetentionPropertiesPropertiesArgs()
         {
         }
+        public static new RetentionPropertiesPropertiesArgs Empty => new RetentionPropertiesPropertiesArgs();
     }
 }

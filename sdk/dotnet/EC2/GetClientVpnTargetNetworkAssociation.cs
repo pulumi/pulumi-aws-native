@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetClientVpnTargetNetworkAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnTargetNetworkAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnTargetNetworkAssociationArgs()
         {
         }
+        public static new GetClientVpnTargetNetworkAssociationArgs Empty => new GetClientVpnTargetNetworkAssociationArgs();
     }
 
-    public sealed class GetClientVpnTargetNetworkAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnTargetNetworkAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnTargetNetworkAssociationInvokeArgs()
         {
         }
+        public static new GetClientVpnTargetNetworkAssociationInvokeArgs Empty => new GetClientVpnTargetNetworkAssociationInvokeArgs();
     }
 
 

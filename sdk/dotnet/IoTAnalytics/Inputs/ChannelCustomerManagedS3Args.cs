@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class ChannelCustomerManagedS3Args : Pulumi.ResourceArgs
+    public sealed class ChannelCustomerManagedS3Args : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public ChannelCustomerManagedS3Args()
         {
         }
+        public static new ChannelCustomerManagedS3Args Empty => new ChannelCustomerManagedS3Args();
     }
 }

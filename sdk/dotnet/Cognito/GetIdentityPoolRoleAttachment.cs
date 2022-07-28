@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cognito
     }
 
 
-    public sealed class GetIdentityPoolRoleAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityPoolRoleAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Cognito
         public GetIdentityPoolRoleAttachmentArgs()
         {
         }
+        public static new GetIdentityPoolRoleAttachmentArgs Empty => new GetIdentityPoolRoleAttachmentArgs();
     }
 
-    public sealed class GetIdentityPoolRoleAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityPoolRoleAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Cognito
         public GetIdentityPoolRoleAttachmentInvokeArgs()
         {
         }
+        public static new GetIdentityPoolRoleAttachmentInvokeArgs Empty => new GetIdentityPoolRoleAttachmentInvokeArgs();
     }
 
 

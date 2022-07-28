@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetDevEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetDevEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetDevEndpointArgs()
         {
         }
+        public static new GetDevEndpointArgs Empty => new GetDevEndpointArgs();
     }
 
-    public sealed class GetDevEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDevEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetDevEndpointInvokeArgs()
         {
         }
+        public static new GetDevEndpointInvokeArgs Empty => new GetDevEndpointInvokeArgs();
     }
 
 

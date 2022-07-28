@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamHttpEndpointDestinationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamHttpEndpointDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamHttpEndpointDestinationConfigurationArgs()
         {
         }
+        public static new DeliveryStreamHttpEndpointDestinationConfigurationArgs Empty => new DeliveryStreamHttpEndpointDestinationConfigurationArgs();
     }
 }

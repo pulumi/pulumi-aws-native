@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies the redirect behavior and when a redirect is applied.
     /// </summary>
-    public sealed class BucketRoutingRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketRoutingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketRoutingRuleArgs()
         {
         }
+        public static new BucketRoutingRuleArgs Empty => new BucketRoutingRuleArgs();
     }
 }

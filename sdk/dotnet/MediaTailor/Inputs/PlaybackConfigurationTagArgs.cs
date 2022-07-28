@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaTailor.Inputs
 {
 
-    public sealed class PlaybackConfigurationTagArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         public PlaybackConfigurationTagArgs()
         {
         }
+        public static new PlaybackConfigurationTagArgs Empty => new PlaybackConfigurationTagArgs();
     }
 }

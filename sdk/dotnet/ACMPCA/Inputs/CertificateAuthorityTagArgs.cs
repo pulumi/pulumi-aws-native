@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
-    public sealed class CertificateAuthorityTagArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityTagArgs()
         {
         }
+        public static new CertificateAuthorityTagArgs Empty => new CertificateAuthorityTagArgs();
     }
 }

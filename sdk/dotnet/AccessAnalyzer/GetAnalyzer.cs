@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     }
 
 
-    public sealed class GetAnalyzerArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalyzerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the analyzer
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         public GetAnalyzerArgs()
         {
         }
+        public static new GetAnalyzerArgs Empty => new GetAnalyzerArgs();
     }
 
-    public sealed class GetAnalyzerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalyzerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the analyzer
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         public GetAnalyzerInvokeArgs()
         {
         }
+        public static new GetAnalyzerInvokeArgs Empty => new GetAnalyzerInvokeArgs();
     }
 
 

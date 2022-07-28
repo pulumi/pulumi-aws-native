@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelContainerDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelContainerDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelContainerDefinitionArgs()
         {
         }
+        public static new ModelContainerDefinitionArgs Empty => new ModelContainerDefinitionArgs();
     }
 }

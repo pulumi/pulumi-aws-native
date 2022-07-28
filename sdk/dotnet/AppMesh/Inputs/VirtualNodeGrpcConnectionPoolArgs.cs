@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeGrpcConnectionPoolArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeGrpcConnectionPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxRequests", required: true)]
         public Input<int> MaxRequests { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeGrpcConnectionPoolArgs()
         {
         }
+        public static new VirtualNodeGrpcConnectionPoolArgs Empty => new VirtualNodeGrpcConnectionPoolArgs();
     }
 }

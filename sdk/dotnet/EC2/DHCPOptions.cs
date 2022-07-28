@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::DHCPOptions
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:DHCPOptions")]
-    public partial class DHCPOptions : Pulumi.CustomResource
+    public partial class DHCPOptions : global::Pulumi.CustomResource
     {
         [Output("dhcpOptionsId")]
         public Output<string> DhcpOptionsId { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class DHCPOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DHCPOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This value is used to complete unqualified DNS hostnames.
@@ -162,5 +162,6 @@ namespace Pulumi.AwsNative.EC2
         public DHCPOptionsArgs()
         {
         }
+        public static new DHCPOptionsArgs Empty => new DHCPOptionsArgs();
     }
 }

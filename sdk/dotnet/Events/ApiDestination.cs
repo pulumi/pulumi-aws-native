@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Events
     /// Resource Type definition for AWS::Events::ApiDestination.
     /// </summary>
     [AwsNativeResourceType("aws-native:events:ApiDestination")]
-    public partial class ApiDestination : Pulumi.CustomResource
+    public partial class ApiDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The arn of the api destination.
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Events
         }
     }
 
-    public sealed class ApiDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ApiDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The arn of the connection.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Events
         public ApiDestinationArgs()
         {
         }
+        public static new ApiDestinationArgs Empty => new ApiDestinationArgs();
     }
 }

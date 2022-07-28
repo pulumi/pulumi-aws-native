@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance profile to create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IAM
         public GetInstanceProfileArgs()
         {
         }
+        public static new GetInstanceProfileArgs Empty => new GetInstanceProfileArgs();
     }
 
-    public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the instance profile to create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IAM
         public GetInstanceProfileInvokeArgs()
         {
         }
+        public static new GetInstanceProfileInvokeArgs Empty => new GetInstanceProfileInvokeArgs();
     }
 
 

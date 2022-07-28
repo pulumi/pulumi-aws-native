@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:MitigationAction")]
-    public partial class MitigationAction : Pulumi.CustomResource
+    public partial class MitigationAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A unique identifier for the mitigation action.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class MitigationActionArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the mitigation action.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IoT
         public MitigationActionArgs()
         {
         }
+        public static new MitigationActionArgs Empty => new MitigationActionArgs();
     }
 }

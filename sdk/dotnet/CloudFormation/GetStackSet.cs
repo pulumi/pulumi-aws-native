@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetStackSetArgs : Pulumi.InvokeArgs
+    public sealed class GetStackSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the stack set that you're creating.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetStackSetArgs()
         {
         }
+        public static new GetStackSetArgs Empty => new GetStackSetArgs();
     }
 
-    public sealed class GetStackSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStackSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the stack set that you're creating.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetStackSetInvokeArgs()
         {
         }
+        public static new GetStackSetInvokeArgs Empty => new GetStackSetInvokeArgs();
     }
 
 

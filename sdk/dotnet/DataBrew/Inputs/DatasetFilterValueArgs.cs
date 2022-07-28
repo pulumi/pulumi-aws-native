@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// A key-value pair to associate expression variable names with their values
     /// </summary>
-    public sealed class DatasetFilterValueArgs : Pulumi.ResourceArgs
+    public sealed class DatasetFilterValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetFilterValueArgs()
         {
         }
+        public static new DatasetFilterValueArgs Empty => new DatasetFilterValueArgs();
     }
 }

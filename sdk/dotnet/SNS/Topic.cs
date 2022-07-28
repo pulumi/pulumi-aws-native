@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SNS
     /// </summary>
     [Obsolete(@"Topic is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:Topic")]
-    public partial class Topic : Pulumi.CustomResource
+    public partial class Topic : global::Pulumi.CustomResource
     {
         [Output("contentBasedDeduplication")]
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.SNS
         }
     }
 
-    public sealed class TopicArgs : Pulumi.ResourceArgs
+    public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentBasedDeduplication")]
         public Input<bool>? ContentBasedDeduplication { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.SNS
         public TopicArgs()
         {
         }
+        public static new TopicArgs Empty => new TopicArgs();
     }
 }

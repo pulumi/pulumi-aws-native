@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Includes headers of a web request.
     /// </summary>
-    public sealed class WebACLHeadersArgs : Pulumi.ResourceArgs
+    public sealed class WebACLHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchPattern", required: true)]
         public Input<Inputs.WebACLHeaderMatchPatternArgs> MatchPattern { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLHeadersArgs()
         {
         }
+        public static new WebACLHeadersArgs Empty => new WebACLHeadersArgs();
     }
 }

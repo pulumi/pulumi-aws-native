@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeCommit.Inputs
 {
 
-    public sealed class RepositoryS3Args : Pulumi.ResourceArgs
+    public sealed class RepositoryS3Args : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeCommit.Inputs
         public RepositoryS3Args()
         {
         }
+        public static new RepositoryS3Args Empty => new RepositoryS3Args();
     }
 }

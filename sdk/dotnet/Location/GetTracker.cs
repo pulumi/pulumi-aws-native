@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Location
     }
 
 
-    public sealed class GetTrackerArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackerArgs : global::Pulumi.InvokeArgs
     {
         [Input("trackerName", required: true)]
         public string TrackerName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Location
         public GetTrackerArgs()
         {
         }
+        public static new GetTrackerArgs Empty => new GetTrackerArgs();
     }
 
-    public sealed class GetTrackerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrackerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Location
         public GetTrackerInvokeArgs()
         {
         }
+        public static new GetTrackerInvokeArgs Empty => new GetTrackerInvokeArgs();
     }
 
 

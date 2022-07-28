@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     /// </summary>
     [Obsolete(@"ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption")]
-    public partial class ApplicationCloudWatchLoggingOption : Pulumi.CustomResource
+    public partial class ApplicationCloudWatchLoggingOption : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         }
     }
 
-    public sealed class ApplicationCloudWatchLoggingOptionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCloudWatchLoggingOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public ApplicationCloudWatchLoggingOptionArgs()
         {
         }
+        public static new ApplicationCloudWatchLoggingOptionArgs Empty => new ApplicationCloudWatchLoggingOptionArgs();
     }
 }

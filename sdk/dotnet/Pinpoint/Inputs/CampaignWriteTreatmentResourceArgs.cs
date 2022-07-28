@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignWriteTreatmentResourceArgs : Pulumi.ResourceArgs
+    public sealed class CampaignWriteTreatmentResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("customDeliveryConfiguration")]
         public Input<Inputs.CampaignCustomDeliveryConfigurationArgs>? CustomDeliveryConfiguration { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignWriteTreatmentResourceArgs()
         {
         }
+        public static new CampaignWriteTreatmentResourceArgs Empty => new CampaignWriteTreatmentResourceArgs();
     }
 }

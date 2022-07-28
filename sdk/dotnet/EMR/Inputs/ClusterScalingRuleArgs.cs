@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterScalingRuleArgs : Pulumi.ResourceArgs
+    public sealed class ClusterScalingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Inputs.ClusterScalingActionArgs> Action { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterScalingRuleArgs()
         {
         }
+        public static new ClusterScalingRuleArgs Empty => new ClusterScalingRuleArgs();
     }
 }

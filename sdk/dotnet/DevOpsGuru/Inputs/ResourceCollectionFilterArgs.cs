@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// <summary>
     /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
     /// </summary>
-    public sealed class ResourceCollectionFilterArgs : Pulumi.ResourceArgs
+    public sealed class ResourceCollectionFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudFormation")]
         public Input<Inputs.ResourceCollectionCloudFormationCollectionFilterArgs>? CloudFormation { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         public ResourceCollectionFilterArgs()
         {
         }
+        public static new ResourceCollectionFilterArgs Empty => new ResourceCollectionFilterArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetVoiceChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetVoiceChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetVoiceChannelArgs()
         {
         }
+        public static new GetVoiceChannelArgs Empty => new GetVoiceChannelArgs();
     }
 
-    public sealed class GetVoiceChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVoiceChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetVoiceChannelInvokeArgs()
         {
         }
+        public static new GetVoiceChannelInvokeArgs Empty => new GetVoiceChannelInvokeArgs();
     }
 
 

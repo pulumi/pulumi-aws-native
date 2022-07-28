@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"ConnectorDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:ConnectorDefinitionVersion")]
-    public partial class ConnectorDefinitionVersion : Pulumi.CustomResource
+    public partial class ConnectorDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("connectorDefinitionId")]
         public Output<string> ConnectorDefinitionId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class ConnectorDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorDefinitionId", required: true)]
         public Input<string> ConnectorDefinitionId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Greengrass
         public ConnectorDefinitionVersionArgs()
         {
         }
+        public static new ConnectorDefinitionVersionArgs Empty => new ConnectorDefinitionVersionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetResourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetResourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeType", required: true)]
         public Input<Pulumi.AwsNative.IoTAnalytics.DatasetResourceConfigurationComputeType> ComputeType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetResourceConfigurationArgs()
         {
         }
+        public static new DatasetResourceConfigurationArgs Empty => new DatasetResourceConfigurationArgs();
     }
 }

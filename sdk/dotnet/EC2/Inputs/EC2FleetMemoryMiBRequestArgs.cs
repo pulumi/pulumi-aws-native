@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetMemoryMiBRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetMemoryMiBRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetMemoryMiBRequestArgs()
         {
         }
+        public static new EC2FleetMemoryMiBRequestArgs Empty => new EC2FleetMemoryMiBRequestArgs();
     }
 }

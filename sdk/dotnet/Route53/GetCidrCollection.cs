@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53
     }
 
 
-    public sealed class GetCidrCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetCidrCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// UUID of the CIDR collection.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53
         public GetCidrCollectionArgs()
         {
         }
+        public static new GetCidrCollectionArgs Empty => new GetCidrCollectionArgs();
     }
 
-    public sealed class GetCidrCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCidrCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// UUID of the CIDR collection.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53
         public GetCidrCollectionInvokeArgs()
         {
         }
+        public static new GetCidrCollectionInvokeArgs Empty => new GetCidrCollectionInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     }
 
 
-    public sealed class GetReadinessCheckArgs : Pulumi.InvokeArgs
+    public sealed class GetReadinessCheckArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ReadinessCheck to create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetReadinessCheckArgs()
         {
         }
+        public static new GetReadinessCheckArgs Empty => new GetReadinessCheckArgs();
     }
 
-    public sealed class GetReadinessCheckInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReadinessCheckInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ReadinessCheck to create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetReadinessCheckInvokeArgs()
         {
         }
+        public static new GetReadinessCheckInvokeArgs Empty => new GetReadinessCheckInvokeArgs();
     }
 
 

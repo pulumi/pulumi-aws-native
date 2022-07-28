@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodePipeline
     /// </summary>
     [Obsolete(@"Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codepipeline:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         [Output("artifactStore")]
         public Output<Outputs.PipelineArtifactStore?> ArtifactStore { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.CodePipeline
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifactStore")]
         public Input<Inputs.PipelineArtifactStoreArgs>? ArtifactStore { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.CodePipeline
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

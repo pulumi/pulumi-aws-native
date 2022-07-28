@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineOutputArtifactArgs : Pulumi.ResourceArgs
+    public sealed class PipelineOutputArtifactArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineOutputArtifactArgs()
         {
         }
+        public static new PipelineOutputArtifactArgs Empty => new PipelineOutputArtifactArgs();
     }
 }

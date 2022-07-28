@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs> Actions { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs()
         {
         }
+        public static new UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs Empty => new UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class TableProvisionedThroughputArgs : Pulumi.ResourceArgs
+    public sealed class TableProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
         [Input("readCapacityUnits", required: true)]
         public Input<int> ReadCapacityUnits { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public TableProvisionedThroughputArgs()
         {
         }
+        public static new TableProvisionedThroughputArgs Empty => new TableProvisionedThroughputArgs();
     }
 }

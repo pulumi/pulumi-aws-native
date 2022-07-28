@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Configuration for searching a Amazon Kendra index specified for the intent.
     /// </summary>
-    public sealed class BotKendraConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BotKendraConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kendraIndex", required: true)]
         public Input<string> KendraIndex { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotKendraConfigurationArgs()
         {
         }
+        public static new BotKendraConfigurationArgs Empty => new BotKendraConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigFrequencyArgs : Pulumi.ResourceArgs
+    public sealed class ConfigFrequencyArgs : global::Pulumi.ResourceArgs
     {
         [Input("units")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigFrequencyUnits>? Units { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigFrequencyArgs()
         {
         }
+        public static new ConfigFrequencyArgs Empty => new ConfigFrequencyArgs();
     }
 }

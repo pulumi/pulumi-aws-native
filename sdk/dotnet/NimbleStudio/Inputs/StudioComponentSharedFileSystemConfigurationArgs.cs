@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;The configuration for a shared file storage system that is associated with a studio resource.&lt;/p&gt;
     /// </summary>
-    public sealed class StudioComponentSharedFileSystemConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentSharedFileSystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The endpoint of the shared file system that is accessed by the studio component resource.&lt;/p&gt;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public StudioComponentSharedFileSystemConfigurationArgs()
         {
         }
+        public static new StudioComponentSharedFileSystemConfigurationArgs Empty => new StudioComponentSharedFileSystemConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerAutoScalingThresholdsArgs : Pulumi.ResourceArgs
+    public sealed class LayerAutoScalingThresholdsArgs : global::Pulumi.ResourceArgs
     {
         [Input("cpuThreshold")]
         public Input<double>? CpuThreshold { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerAutoScalingThresholdsArgs()
         {
         }
+        public static new LayerAutoScalingThresholdsArgs Empty => new LayerAutoScalingThresholdsArgs();
     }
 }

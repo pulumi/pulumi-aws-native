@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
     /// <summary>
     /// The contact that SSM Incident Manager is engaging during an incident.
     /// </summary>
-    public sealed class ContactTargetInfoArgs : Pulumi.ResourceArgs
+    public sealed class ContactTargetInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         public ContactTargetInfoArgs()
         {
         }
+        public static new ContactTargetInfoArgs Empty => new ContactTargetInfoArgs();
     }
 }

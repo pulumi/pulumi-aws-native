@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Inputs
 {
 
-    public sealed class ApplicationInstanceTagArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInstanceTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Panorama.Inputs
         public ApplicationInstanceTagArgs()
         {
         }
+        public static new ApplicationInstanceTagArgs Empty => new ApplicationInstanceTagArgs();
     }
 }

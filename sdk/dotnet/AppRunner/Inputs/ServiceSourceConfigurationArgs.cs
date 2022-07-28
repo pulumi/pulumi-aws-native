@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Source Code configuration
     /// </summary>
-    public sealed class ServiceSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationConfiguration")]
         public Input<Inputs.ServiceAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceSourceConfigurationArgs()
         {
         }
+        public static new ServiceSourceConfigurationArgs Empty => new ServiceSourceConfigurationArgs();
     }
 }

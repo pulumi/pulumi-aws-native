@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class MLTransformGlueTablesArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformGlueTablesArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public MLTransformGlueTablesArgs()
         {
         }
+        public static new MLTransformGlueTablesArgs Empty => new MLTransformGlueTablesArgs();
     }
 }

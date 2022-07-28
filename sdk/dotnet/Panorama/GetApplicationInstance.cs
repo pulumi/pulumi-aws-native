@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Panorama
     }
 
 
-    public sealed class GetApplicationInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInstanceArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationInstanceId", required: true)]
         public string ApplicationInstanceId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Panorama
         public GetApplicationInstanceArgs()
         {
         }
+        public static new GetApplicationInstanceArgs Empty => new GetApplicationInstanceArgs();
     }
 
-    public sealed class GetApplicationInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationInstanceId", required: true)]
         public Input<string> ApplicationInstanceId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Panorama
         public GetApplicationInstanceInvokeArgs()
         {
         }
+        public static new GetApplicationInstanceInvokeArgs Empty => new GetApplicationInstanceInvokeArgs();
     }
 
 

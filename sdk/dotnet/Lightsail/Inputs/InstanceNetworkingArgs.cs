@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Networking of the Instance.
     /// </summary>
-    public sealed class InstanceNetworkingArgs : Pulumi.ResourceArgs
+    public sealed class InstanceNetworkingArgs : global::Pulumi.ResourceArgs
     {
         [Input("monthlyTransfer")]
         public Input<Inputs.InstanceMonthlyTransferArgs>? MonthlyTransfer { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceNetworkingArgs()
         {
         }
+        public static new InstanceNetworkingArgs Empty => new InstanceNetworkingArgs();
     }
 }

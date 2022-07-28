@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ECR
     /// </summary>
     [Obsolete(@"PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ecr:PublicRepository")]
-    public partial class PublicRepository : Pulumi.CustomResource
+    public partial class PublicRepository : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.ECR
         }
     }
 
-    public sealed class PublicRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class PublicRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see &lt;link&gt;
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.ECR
         public PublicRepositoryArgs()
         {
         }
+        public static new PublicRepositoryArgs Empty => new PublicRepositoryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:Listener")]
-    public partial class Listener : Pulumi.CustomResource
+    public partial class Listener : global::Pulumi.CustomResource
     {
         [Output("alpnPolicy")]
         public Output<ImmutableArray<string>> AlpnPolicy { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class ListenerArgs : Pulumi.ResourceArgs
+    public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
         [Input("alpnPolicy")]
         private InputList<string>? _alpnPolicy;
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public ListenerArgs()
         {
         }
+        public static new ListenerArgs Empty => new ListenerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
     /// </summary>
-    public sealed class BucketCorsRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketCorsRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketCorsRuleArgs()
         {
         }
+        public static new BucketCorsRuleArgs Empty => new BucketCorsRuleArgs();
     }
 }

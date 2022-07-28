@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpointService")]
-    public partial class VPCEndpointService : Pulumi.CustomResource
+    public partial class VPCEndpointService : global::Pulumi.CustomResource
     {
         [Output("acceptanceRequired")]
         public Output<bool?> AcceptanceRequired { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCEndpointServiceArgs : Pulumi.ResourceArgs
+    public sealed class VPCEndpointServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCEndpointServiceArgs()
         {
         }
+        public static new VPCEndpointServiceArgs Empty => new VPCEndpointServiceArgs();
     }
 }

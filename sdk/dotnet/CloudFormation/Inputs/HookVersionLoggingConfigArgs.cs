@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
-    public sealed class HookVersionLoggingConfigArgs : Pulumi.ResourceArgs
+    public sealed class HookVersionLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public HookVersionLoggingConfigArgs()
         {
         }
+        public static new HookVersionLoggingConfigArgs Empty => new HookVersionLoggingConfigArgs();
     }
 }

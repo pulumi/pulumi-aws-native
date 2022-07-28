@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class TrafficMirrorTargetTagArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorTargetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public TrafficMirrorTargetTagArgs()
         {
         }
+        public static new TrafficMirrorTargetTagArgs Empty => new TrafficMirrorTargetTagArgs();
     }
 }

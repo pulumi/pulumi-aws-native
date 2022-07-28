@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
-    public sealed class RotationScheduleRotationRulesArgs : Pulumi.ResourceArgs
+    public sealed class RotationScheduleRotationRulesArgs : global::Pulumi.ResourceArgs
     {
         [Input("automaticallyAfterDays")]
         public Input<int>? AutomaticallyAfterDays { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         public RotationScheduleRotationRulesArgs()
         {
         }
+        public static new RotationScheduleRotationRulesArgs Empty => new RotationScheduleRotationRulesArgs();
     }
 }

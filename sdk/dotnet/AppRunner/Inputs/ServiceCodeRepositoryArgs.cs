@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Source Code Repository
     /// </summary>
-    public sealed class ServiceCodeRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("codeConfiguration")]
         public Input<Inputs.ServiceCodeConfigurationArgs>? CodeConfiguration { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceCodeRepositoryArgs()
         {
         }
+        public static new ServiceCodeRepositoryArgs Empty => new ServiceCodeRepositoryArgs();
     }
 }

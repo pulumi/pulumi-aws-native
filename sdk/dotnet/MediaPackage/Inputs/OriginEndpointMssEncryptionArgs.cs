@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Microsoft Smooth Streaming (MSS) encryption configuration.
     /// </summary>
-    public sealed class OriginEndpointMssEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointMssEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointMssEncryptionArgs()
         {
         }
+        public static new OriginEndpointMssEncryptionArgs Empty => new OriginEndpointMssEncryptionArgs();
     }
 }

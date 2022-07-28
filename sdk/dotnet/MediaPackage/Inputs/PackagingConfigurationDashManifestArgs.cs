@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A DASH manifest configuration.
     /// </summary>
-    public sealed class PackagingConfigurationDashManifestArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationDashManifestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationDashManifestArgs()
         {
         }
+        public static new PackagingConfigurationDashManifestArgs Empty => new PackagingConfigurationDashManifestArgs();
     }
 }

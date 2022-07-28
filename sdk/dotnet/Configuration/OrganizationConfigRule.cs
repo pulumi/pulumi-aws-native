@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration
     /// </summary>
     [Obsolete(@"OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:OrganizationConfigRule")]
-    public partial class OrganizationConfigRule : Pulumi.CustomResource
+    public partial class OrganizationConfigRule : global::Pulumi.CustomResource
     {
         [Output("excludedAccounts")]
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class OrganizationConfigRuleArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedAccounts")]
         private InputList<string>? _excludedAccounts;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.Configuration
         public OrganizationConfigRuleArgs()
         {
         }
+        public static new OrganizationConfigRuleArgs Empty => new OrganizationConfigRuleArgs();
     }
 }

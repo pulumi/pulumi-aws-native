@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// A key-value pair to associate dataset parameter name with its definition.
     /// </summary>
-    public sealed class DatasetPathParameterArgs : Pulumi.ResourceArgs
+    public sealed class DatasetPathParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("datasetParameter", required: true)]
         public Input<Inputs.DatasetParameterArgs> DatasetParameter { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetPathParameterArgs()
         {
         }
+        public static new DatasetPathParameterArgs Empty => new DatasetPathParameterArgs();
     }
 }

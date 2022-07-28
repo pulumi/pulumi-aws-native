@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketReplicaModificationsArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicaModificationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates modifications on replicas.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicaModificationsArgs()
         {
         }
+        public static new BucketReplicaModificationsArgs Empty => new BucketReplicaModificationsArgs();
     }
 }

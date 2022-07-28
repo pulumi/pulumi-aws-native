@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Destination connector details
     /// </summary>
-    public sealed class FlowDestinationConnectorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventBridge")]
         public Input<Inputs.FlowEventBridgeDestinationPropertiesArgs>? EventBridge { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowDestinationConnectorPropertiesArgs()
         {
         }
+        public static new FlowDestinationConnectorPropertiesArgs Empty => new FlowDestinationConnectorPropertiesArgs();
     }
 }

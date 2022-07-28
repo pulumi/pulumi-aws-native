@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CertificateManager.Inputs
 {
 
-    public sealed class CertificateTagArgs : Pulumi.ResourceArgs
+    public sealed class CertificateTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CertificateManager.Inputs
         public CertificateTagArgs()
         {
         }
+        public static new CertificateTagArgs Empty => new CertificateTagArgs();
     }
 }

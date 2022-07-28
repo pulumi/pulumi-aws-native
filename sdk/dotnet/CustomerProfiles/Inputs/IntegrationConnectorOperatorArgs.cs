@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationConnectorOperatorArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationConnectorOperatorArgs : global::Pulumi.ResourceArgs
     {
         [Input("marketo")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator>? Marketo { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationConnectorOperatorArgs()
         {
         }
+        public static new IntegrationConnectorOperatorArgs Empty => new IntegrationConnectorOperatorArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM.Inputs
 {
 
-    public sealed class UserPolicyArgs : Pulumi.ResourceArgs
+    public sealed class UserPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IAM.Inputs
         public UserPolicyArgs()
         {
         }
+        public static new UserPolicyArgs Empty => new UserPolicyArgs();
     }
 }

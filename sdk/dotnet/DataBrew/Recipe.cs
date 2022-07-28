@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Recipe.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Recipe")]
-    public partial class Recipe : Pulumi.CustomResource
+    public partial class Recipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the recipe
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class RecipeArgs : Pulumi.ResourceArgs
+    public sealed class RecipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the recipe
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.DataBrew
         public RecipeArgs()
         {
         }
+        public static new RecipeArgs Empty => new RecipeArgs();
     }
 }

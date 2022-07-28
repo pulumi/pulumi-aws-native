@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyCrossRegionCopyRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyCrossRegionCopyRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cmkArn")]
         public Input<string>? CmkArn { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyCrossRegionCopyRuleArgs()
         {
         }
+        public static new LifecyclePolicyCrossRegionCopyRuleArgs Empty => new LifecyclePolicyCrossRegionCopyRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolInviteMessageTemplateArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolInviteMessageTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("emailMessage")]
         public Input<string>? EmailMessage { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolInviteMessageTemplateArgs()
         {
         }
+        public static new UserPoolInviteMessageTemplateArgs Empty => new UserPoolInviteMessageTemplateArgs();
     }
 }

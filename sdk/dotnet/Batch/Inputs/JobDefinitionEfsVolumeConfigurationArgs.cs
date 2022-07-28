@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionEfsVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionEfsVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationConfig")]
         public Input<Inputs.JobDefinitionAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionEfsVolumeConfigurationArgs()
         {
         }
+        public static new JobDefinitionEfsVolumeConfigurationArgs Empty => new JobDefinitionEfsVolumeConfigurationArgs();
     }
 }

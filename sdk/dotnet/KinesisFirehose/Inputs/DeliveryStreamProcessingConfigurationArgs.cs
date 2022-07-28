@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamProcessingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamProcessingConfigurationArgs()
         {
         }
+        public static new DeliveryStreamProcessingConfigurationArgs Empty => new DeliveryStreamProcessingConfigurationArgs();
     }
 }

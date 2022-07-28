@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GreengrassV2
     }
 
 
-    public sealed class GetComponentVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GreengrassV2
         public GetComponentVersionArgs()
         {
         }
+        public static new GetComponentVersionArgs Empty => new GetComponentVersionArgs();
     }
 
-    public sealed class GetComponentVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GreengrassV2
         public GetComponentVersionInvokeArgs()
         {
         }
+        public static new GetComponentVersionInvokeArgs Empty => new GetComponentVersionInvokeArgs();
     }
 
 

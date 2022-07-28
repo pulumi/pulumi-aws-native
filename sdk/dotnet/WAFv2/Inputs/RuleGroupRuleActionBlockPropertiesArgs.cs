@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Block traffic towards application.
     /// </summary>
-    public sealed class RuleGroupRuleActionBlockPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionBlockPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customResponse")]
         public Input<Inputs.RuleGroupCustomResponseArgs>? CustomResponse { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleActionBlockPropertiesArgs()
         {
         }
+        public static new RuleGroupRuleActionBlockPropertiesArgs Empty => new RuleGroupRuleActionBlockPropertiesArgs();
     }
 }

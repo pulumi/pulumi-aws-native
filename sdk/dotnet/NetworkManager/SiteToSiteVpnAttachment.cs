@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// </summary>
     [Obsolete(@"SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:SiteToSiteVpnAttachment")]
-    public partial class SiteToSiteVpnAttachment : Pulumi.CustomResource
+    public partial class SiteToSiteVpnAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the attachment.
@@ -149,7 +149,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class SiteToSiteVpnAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class SiteToSiteVpnAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a core network where you're creating a site-to-site VPN attachment.
@@ -178,5 +178,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public SiteToSiteVpnAttachmentArgs()
         {
         }
+        public static new SiteToSiteVpnAttachmentArgs Empty => new SiteToSiteVpnAttachmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::TransitGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGateway")]
-    public partial class TransitGateway : Pulumi.CustomResource
+    public partial class TransitGateway : global::Pulumi.CustomResource
     {
         [Output("amazonSideAsn")]
         public Output<int?> AmazonSideAsn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("amazonSideAsn")]
         public Input<int>? AmazonSideAsn { get; set; }
@@ -145,5 +145,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayArgs()
         {
         }
+        public static new TransitGatewayArgs Empty => new TransitGatewayArgs();
     }
 }

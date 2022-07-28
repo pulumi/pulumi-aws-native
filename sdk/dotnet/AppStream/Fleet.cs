@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"Fleet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         [Output("computeCapacity")]
         public Output<Outputs.FleetComputeCapacity?> ComputeCapacity { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeCapacity")]
         public Input<Inputs.FleetComputeCapacityArgs>? ComputeCapacity { get; set; }
@@ -200,5 +200,6 @@ namespace Pulumi.AwsNative.AppStream
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 }

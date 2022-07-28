@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
     /// </summary>
-    public sealed class MitigationActionAddThingsToThingGroupParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionAddThingsToThingGroupParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionAddThingsToThingGroupParamsArgs()
         {
         }
+        public static new MitigationActionAddThingsToThingGroupParamsArgs Empty => new MitigationActionAddThingsToThingGroupParamsArgs();
     }
 }

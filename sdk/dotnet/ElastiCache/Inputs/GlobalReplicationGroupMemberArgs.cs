@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class GlobalReplicationGroupMemberArgs : Pulumi.ResourceArgs
+    public sealed class GlobalReplicationGroupMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Regionally unique identifier for the member i.e. ReplicationGroupId.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public GlobalReplicationGroupMemberArgs()
         {
         }
+        public static new GlobalReplicationGroupMemberArgs Empty => new GlobalReplicationGroupMemberArgs();
     }
 }

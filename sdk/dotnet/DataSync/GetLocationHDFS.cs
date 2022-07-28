@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationHDFSArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationHDFSArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HDFS location.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationHDFSArgs()
         {
         }
+        public static new GetLocationHDFSArgs Empty => new GetLocationHDFSArgs();
     }
 
-    public sealed class GetLocationHDFSInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationHDFSInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HDFS location.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationHDFSInvokeArgs()
         {
         }
+        public static new GetLocationHDFSInvokeArgs Empty => new GetLocationHDFSInvokeArgs();
     }
 
 

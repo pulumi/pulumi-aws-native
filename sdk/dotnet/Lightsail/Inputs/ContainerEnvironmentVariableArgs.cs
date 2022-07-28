@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lightsail.Inputs
 {
 
-    public sealed class ContainerEnvironmentVariableArgs : Pulumi.ResourceArgs
+    public sealed class ContainerEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerEnvironmentVariableArgs()
         {
         }
+        public static new ContainerEnvironmentVariableArgs Empty => new ContainerEnvironmentVariableArgs();
     }
 }

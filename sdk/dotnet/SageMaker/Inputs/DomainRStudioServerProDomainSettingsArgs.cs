@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
     /// </summary>
-    public sealed class DomainRStudioServerProDomainSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainRStudioServerProDomainSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainRStudioServerProDomainSettingsArgs()
         {
         }
+        public static new DomainRStudioServerProDomainSettingsArgs Empty => new DomainRStudioServerProDomainSettingsArgs();
     }
 }

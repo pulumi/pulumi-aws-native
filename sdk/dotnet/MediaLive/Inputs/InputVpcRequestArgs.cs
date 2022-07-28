@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class InputVpcRequestArgs : Pulumi.ResourceArgs
+    public sealed class InputVpcRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public InputVpcRequestArgs()
         {
         }
+        public static new InputVpcRequestArgs Empty => new InputVpcRequestArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
     /// <summary>
     /// The agent permissions attached to this profiling group.
     /// </summary>
-    public sealed class AgentPermissionsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AgentPermissionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("principals", required: true)]
         private InputList<string>? _principals;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
         public AgentPermissionsPropertiesArgs()
         {
         }
+        public static new AgentPermissionsPropertiesArgs Empty => new AgentPermissionsPropertiesArgs();
     }
 }

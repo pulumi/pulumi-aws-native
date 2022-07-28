@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
     /// <summary>
     /// A label for tagging DataIntegration resources
     /// </summary>
-    public sealed class DataIntegrationTagArgs : Pulumi.ResourceArgs
+    public sealed class DataIntegrationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A key to identify the tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         public DataIntegrationTagArgs()
         {
         }
+        public static new DataIntegrationTagArgs Empty => new DataIntegrationTagArgs();
     }
 }

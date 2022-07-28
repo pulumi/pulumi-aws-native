@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelDvbTdtSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDvbTdtSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("repInterval")]
         public Input<int>? RepInterval { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelDvbTdtSettingsArgs()
         {
         }
+        public static new ChannelDvbTdtSettingsArgs Empty => new ChannelDvbTdtSettingsArgs();
     }
 }

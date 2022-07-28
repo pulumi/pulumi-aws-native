@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerLBCookieStickinessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerLBCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("cookieExpirationPeriod")]
         public Input<string>? CookieExpirationPeriod { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerLBCookieStickinessPolicyArgs()
         {
         }
+        public static new LoadBalancerLBCookieStickinessPolicyArgs Empty => new LoadBalancerLBCookieStickinessPolicyArgs();
     }
 }

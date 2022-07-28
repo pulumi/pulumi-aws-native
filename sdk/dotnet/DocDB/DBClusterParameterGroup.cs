@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DocDB
     /// </summary>
     [Obsolete(@"DBClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:docdb:DBClusterParameterGroup")]
-    public partial class DBClusterParameterGroup : Pulumi.CustomResource
+    public partial class DBClusterParameterGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.DocDB
         }
     }
 
-    public sealed class DBClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.DocDB
         public DBClusterParameterGroupArgs()
         {
         }
+        public static new DBClusterParameterGroupArgs Empty => new DBClusterParameterGroupArgs();
     }
 }

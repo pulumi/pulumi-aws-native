@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetLogGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetLogGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Logs
         public GetLogGroupArgs()
         {
         }
+        public static new GetLogGroupArgs Empty => new GetLogGroupArgs();
     }
 
-    public sealed class GetLogGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Logs
         public GetLogGroupInvokeArgs()
         {
         }
+        public static new GetLogGroupInvokeArgs Empty => new GetLogGroupInvokeArgs();
     }
 
 

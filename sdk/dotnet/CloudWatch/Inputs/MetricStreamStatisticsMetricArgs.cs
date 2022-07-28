@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     /// <summary>
     /// A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
     /// </summary>
-    public sealed class MetricStreamStatisticsMetricArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamStatisticsMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the metric.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public MetricStreamStatisticsMetricArgs()
         {
         }
+        public static new MetricStreamStatisticsMetricArgs Empty => new MetricStreamStatisticsMetricArgs();
     }
 }

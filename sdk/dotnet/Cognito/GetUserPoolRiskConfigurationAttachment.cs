@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cognito
     }
 
 
-    public sealed class GetUserPoolRiskConfigurationAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolRiskConfigurationAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolRiskConfigurationAttachmentArgs()
         {
         }
+        public static new GetUserPoolRiskConfigurationAttachmentArgs Empty => new GetUserPoolRiskConfigurationAttachmentArgs();
     }
 
-    public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolRiskConfigurationAttachmentInvokeArgs()
         {
         }
+        public static new GetUserPoolRiskConfigurationAttachmentInvokeArgs Empty => new GetUserPoolRiskConfigurationAttachmentInvokeArgs();
     }
 
 

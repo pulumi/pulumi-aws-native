@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerFixedResponseConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerFixedResponseConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerFixedResponseConfigArgs()
         {
         }
+        public static new ListenerFixedResponseConfigArgs Empty => new ListenerFixedResponseConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
     /// <summary>
     /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
     /// </summary>
-    public sealed class ContactTargetsArgs : Pulumi.ResourceArgs
+    public sealed class ContactTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelTargetInfo")]
         public Input<Inputs.ContactChannelTargetInfoArgs>? ChannelTargetInfo { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         public ContactTargetsArgs()
         {
         }
+        public static new ContactTargetsArgs Empty => new ContactTargetsArgs();
     }
 }

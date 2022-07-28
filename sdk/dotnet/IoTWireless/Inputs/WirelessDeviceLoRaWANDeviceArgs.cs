@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class WirelessDeviceLoRaWANDeviceArgs : Pulumi.ResourceArgs
+    public sealed class WirelessDeviceLoRaWANDeviceArgs : global::Pulumi.ResourceArgs
     {
         [Input("abpV10x")]
         public Input<Inputs.WirelessDeviceAbpV10xArgs>? AbpV10x { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public WirelessDeviceLoRaWANDeviceArgs()
         {
         }
+        public static new WirelessDeviceLoRaWANDeviceArgs Empty => new WirelessDeviceLoRaWANDeviceArgs();
     }
 }

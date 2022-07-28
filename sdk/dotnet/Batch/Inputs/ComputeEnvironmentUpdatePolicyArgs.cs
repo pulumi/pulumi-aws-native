@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentUpdatePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentUpdatePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("jobExecutionTimeoutMinutes")]
         public Input<int>? JobExecutionTimeoutMinutes { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public ComputeEnvironmentUpdatePolicyArgs()
         {
         }
+        public static new ComputeEnvironmentUpdatePolicyArgs Empty => new ComputeEnvironmentUpdatePolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow
     /// Resource Type definition for AWS::AppFlow::ConnectorProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:appflow:ConnectorProfile")]
-    public partial class ConnectorProfile : Pulumi.CustomResource
+    public partial class ConnectorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AppFlow
         }
     }
 
-    public sealed class ConnectorProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.AppFlow
         public ConnectorProfileArgs()
         {
         }
+        public static new ConnectorProfileArgs Empty => new ConnectorProfileArgs();
     }
 }

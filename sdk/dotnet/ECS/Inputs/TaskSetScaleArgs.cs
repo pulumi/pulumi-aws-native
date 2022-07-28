@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskSetScaleArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unit of measure for the scale value.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskSetScaleArgs()
         {
         }
+        public static new TaskSetScaleArgs Empty => new TaskSetScaleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Input
     /// </summary>
-    public sealed class RecipeParametersInputPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RecipeParametersInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataCatalogInputDefinition")]
         public Input<Inputs.RecipeDataCatalogInputDefinitionArgs>? DataCatalogInputDefinition { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeParametersInputPropertiesArgs()
         {
         }
+        public static new RecipeParametersInputPropertiesArgs Empty => new RecipeParametersInputPropertiesArgs();
     }
 }

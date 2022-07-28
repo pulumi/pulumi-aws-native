@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationFSxLustreArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxLustreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxLustreArgs()
         {
         }
+        public static new GetLocationFSxLustreArgs Empty => new GetLocationFSxLustreArgs();
     }
 
-    public sealed class GetLocationFSxLustreInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxLustreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxLustreInvokeArgs()
         {
         }
+        public static new GetLocationFSxLustreInvokeArgs Empty => new GetLocationFSxLustreInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// Resource type definition for AWS::NetworkFirewall::FirewallPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:FirewallPolicy")]
-    public partial class FirewallPolicy : Pulumi.CustomResource
+    public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
     }
 
-    public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public FirewallPolicyArgs()
         {
         }
+        public static new FirewallPolicyArgs Empty => new FirewallPolicyArgs();
     }
 }

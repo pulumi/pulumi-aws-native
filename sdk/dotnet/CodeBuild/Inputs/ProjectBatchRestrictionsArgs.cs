@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectBatchRestrictionsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectBatchRestrictionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeTypesAllowed")]
         private InputList<string>? _computeTypesAllowed;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectBatchRestrictionsArgs()
         {
         }
+        public static new ProjectBatchRestrictionsArgs Empty => new ProjectBatchRestrictionsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
     /// <summary>
     /// The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
     /// </summary>
-    public sealed class FHIRDatastorePreloadDataConfigArgs : Pulumi.ResourceArgs
+    public sealed class FHIRDatastorePreloadDataConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of preloaded data. Only Synthea preloaded data is supported.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
         public FHIRDatastorePreloadDataConfigArgs()
         {
         }
+        public static new FHIRDatastorePreloadDataConfigArgs Empty => new FHIRDatastorePreloadDataConfigArgs();
     }
 }

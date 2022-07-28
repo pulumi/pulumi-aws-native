@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cmkArn")]
         public Input<string>? CmkArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyEncryptionConfigurationArgs()
         {
         }
+        public static new LifecyclePolicyEncryptionConfigurationArgs Empty => new LifecyclePolicyEncryptionConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker
     /// AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:RobotApplicationVersion")]
-    public partial class RobotApplicationVersion : Pulumi.CustomResource
+    public partial class RobotApplicationVersion : global::Pulumi.CustomResource
     {
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.RoboMaker
         }
     }
 
-    public sealed class RobotApplicationVersionArgs : Pulumi.ResourceArgs
+    public sealed class RobotApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.RoboMaker
         public RobotApplicationVersionArgs()
         {
         }
+        public static new RobotApplicationVersionArgs Empty => new RobotApplicationVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// Resource schema for AWS::RDS::DBProxyTargetGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBProxyTargetGroup")]
-    public partial class DBProxyTargetGroup : Pulumi.CustomResource
+    public partial class DBProxyTargetGroup : global::Pulumi.CustomResource
     {
         [Output("connectionPoolConfigurationInfo")]
         public Output<Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBProxyTargetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionPoolConfigurationInfo")]
         public Input<Inputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.RDS
         public DBProxyTargetGroupArgs()
         {
         }
+        public static new DBProxyTargetGroupArgs Empty => new DBProxyTargetGroupArgs();
     }
 }

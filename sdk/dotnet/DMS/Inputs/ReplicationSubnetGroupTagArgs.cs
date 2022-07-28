@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class ReplicationSubnetGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSubnetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public ReplicationSubnetGroupTagArgs()
         {
         }
+        public static new ReplicationSubnetGroupTagArgs Empty => new ReplicationSubnetGroupTagArgs();
     }
 }

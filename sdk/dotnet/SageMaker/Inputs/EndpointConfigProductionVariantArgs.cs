@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigProductionVariantArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigProductionVariantArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorType")]
         public Input<string>? AcceleratorType { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigProductionVariantArgs()
         {
         }
+        public static new EndpointConfigProductionVariantArgs Empty => new EndpointConfigProductionVariantArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class DataSetColumnLevelPermissionRuleArgs : Pulumi.ResourceArgs
+    public sealed class DataSetColumnLevelPermissionRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnNames")]
         private InputList<string>? _columnNames;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSetColumnLevelPermissionRuleArgs()
         {
         }
+        public static new DataSetColumnLevelPermissionRuleArgs Empty => new DataSetColumnLevelPermissionRuleArgs();
     }
 }

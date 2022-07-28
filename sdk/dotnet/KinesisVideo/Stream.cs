@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisVideo
     /// Resource Type Definition for AWS::KinesisVideo::Stream
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesisvideo:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Kinesis Video stream.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of hours till which Kinesis Video will retain the data in the stream
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.KinesisVideo
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 }

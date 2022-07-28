@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineActionDeclarationArgs : Pulumi.ResourceArgs
+    public sealed class PipelineActionDeclarationArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionTypeId", required: true)]
         public Input<Inputs.PipelineActionTypeIdArgs> ActionTypeId { get; set; } = null!;
@@ -52,5 +52,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineActionDeclarationArgs()
         {
         }
+        public static new PipelineActionDeclarationArgs Empty => new PipelineActionDeclarationArgs();
     }
 }

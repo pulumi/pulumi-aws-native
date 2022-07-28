@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// Vpc options of the attachment.
     /// </summary>
-    public sealed class VpcAttachmentVpcOptionsArgs : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentVpcOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public VpcAttachmentVpcOptionsArgs()
         {
         }
+        public static new VpcAttachmentVpcOptionsArgs Empty => new VpcAttachmentVpcOptionsArgs();
     }
 }

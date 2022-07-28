@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class FeatureGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public FeatureGroupTagArgs()
         {
         }
+        public static new FeatureGroupTagArgs Empty => new FeatureGroupTagArgs();
     }
 }

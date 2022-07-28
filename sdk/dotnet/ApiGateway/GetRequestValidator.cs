@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetRequestValidatorArgs : Pulumi.InvokeArgs
+    public sealed class GetRequestValidatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the request validator.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetRequestValidatorArgs()
         {
         }
+        public static new GetRequestValidatorArgs Empty => new GetRequestValidatorArgs();
     }
 
-    public sealed class GetRequestValidatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRequestValidatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the request validator.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetRequestValidatorInvokeArgs()
         {
         }
+        public static new GetRequestValidatorInvokeArgs Empty => new GetRequestValidatorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTFleetHub
     /// Resource schema for AWS::IoTFleetHub::Application
     /// </summary>
     [AwsNativeResourceType("aws-native:iotfleethub:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the application.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTFleetHub
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Application Description, should be between 1 and 2048 characters.
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.IoTFleetHub
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class TargetGroupMatcherArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupMatcherArgs : global::Pulumi.ResourceArgs
     {
         [Input("grpcCode")]
         public Input<string>? GrpcCode { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public TargetGroupMatcherArgs()
         {
         }
+        public static new TargetGroupMatcherArgs Empty => new TargetGroupMatcherArgs();
     }
 }

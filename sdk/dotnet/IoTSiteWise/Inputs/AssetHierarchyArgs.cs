@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// A hierarchy specifies allowed parent/child asset relationships.
     /// </summary>
-    public sealed class AssetHierarchyArgs : Pulumi.ResourceArgs
+    public sealed class AssetHierarchyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the child asset to be associated.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetHierarchyArgs()
         {
         }
+        public static new AssetHierarchyArgs Empty => new AssetHierarchyArgs();
     }
 }

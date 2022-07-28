@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLAndStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLAndStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebACLStatementArgs>? _statements;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLAndStatementArgs()
         {
         }
+        public static new WebACLAndStatementArgs Empty => new WebACLAndStatementArgs();
     }
 }

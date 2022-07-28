@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra
     /// Resource schema for AWS::Cassandra::Keyspace
     /// </summary>
     [AwsNativeResourceType("aws-native:cassandra:Keyspace")]
-    public partial class Keyspace : Pulumi.CustomResource
+    public partial class Keyspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name for Cassandra keyspace
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Cassandra
         }
     }
 
-    public sealed class KeyspaceArgs : Pulumi.ResourceArgs
+    public sealed class KeyspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for Cassandra keyspace
@@ -86,5 +86,6 @@ namespace Pulumi.AwsNative.Cassandra
         public KeyspaceArgs()
         {
         }
+        public static new KeyspaceArgs Empty => new KeyspaceArgs();
     }
 }

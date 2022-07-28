@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:ElasticLoadBalancerAttachment")]
-    public partial class ElasticLoadBalancerAttachment : Pulumi.CustomResource
+    public partial class ElasticLoadBalancerAttachment : global::Pulumi.CustomResource
     {
         [Output("elasticLoadBalancerName")]
         public Output<string> ElasticLoadBalancerName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class ElasticLoadBalancerAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ElasticLoadBalancerAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("elasticLoadBalancerName", required: true)]
         public Input<string> ElasticLoadBalancerName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public ElasticLoadBalancerAttachmentArgs()
         {
         }
+        public static new ElasticLoadBalancerAttachmentArgs Empty => new ElasticLoadBalancerAttachmentArgs();
     }
 }

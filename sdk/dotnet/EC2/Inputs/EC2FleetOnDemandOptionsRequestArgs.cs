@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetOnDemandOptionsRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetOnDemandOptionsRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetOnDemandOptionsRequestArgs()
         {
         }
+        public static new EC2FleetOnDemandOptionsRequestArgs Empty => new EC2FleetOnDemandOptionsRequestArgs();
     }
 }

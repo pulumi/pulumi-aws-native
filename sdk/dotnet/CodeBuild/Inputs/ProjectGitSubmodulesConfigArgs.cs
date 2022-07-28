@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectGitSubmodulesConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectGitSubmodulesConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("fetchSubmodules", required: true)]
         public Input<bool> FetchSubmodules { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectGitSubmodulesConfigArgs()
         {
         }
+        public static new ProjectGitSubmodulesConfigArgs Empty => new ProjectGitSubmodulesConfigArgs();
     }
 }

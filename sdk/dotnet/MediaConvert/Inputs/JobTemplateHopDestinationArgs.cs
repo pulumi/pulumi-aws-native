@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConvert.Inputs
 {
 
-    public sealed class JobTemplateHopDestinationArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateHopDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaConvert.Inputs
         public JobTemplateHopDestinationArgs()
         {
         }
+        public static new JobTemplateHopDestinationArgs Empty => new JobTemplateHopDestinationArgs();
     }
 }

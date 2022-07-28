@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignInAppMessageButtonArgs : Pulumi.ResourceArgs
+    public sealed class CampaignInAppMessageButtonArgs : global::Pulumi.ResourceArgs
     {
         [Input("android")]
         public Input<Inputs.CampaignOverrideButtonConfigurationArgs>? Android { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignInAppMessageButtonArgs()
         {
         }
+        public static new CampaignInAppMessageButtonArgs Empty => new CampaignInAppMessageButtonArgs();
     }
 }

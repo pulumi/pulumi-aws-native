@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomainAssociation")]
-    public partial class TransitGatewayMulticastDomainAssociation : Pulumi.CustomResource
+    public partial class TransitGatewayMulticastDomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the resource.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayMulticastDomainAssociationArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayMulticastDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IDs of the subnets to associate with the transit gateway multicast domain.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayMulticastDomainAssociationArgs()
         {
         }
+        public static new TransitGatewayMulticastDomainAssociationArgs Empty => new TransitGatewayMulticastDomainAssociationArgs();
     }
 }

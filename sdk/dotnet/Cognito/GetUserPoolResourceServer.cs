@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cognito
     }
 
 
-    public sealed class GetUserPoolResourceServerArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolResourceServerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolResourceServerArgs()
         {
         }
+        public static new GetUserPoolResourceServerArgs Empty => new GetUserPoolResourceServerArgs();
     }
 
-    public sealed class GetUserPoolResourceServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolResourceServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolResourceServerInvokeArgs()
         {
         }
+        public static new GetUserPoolResourceServerInvokeArgs Empty => new GetUserPoolResourceServerInvokeArgs();
     }
 
 

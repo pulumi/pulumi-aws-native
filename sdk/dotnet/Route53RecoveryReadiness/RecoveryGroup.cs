@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:RecoveryGroup")]
-    public partial class RecoveryGroup : Pulumi.CustomResource
+    public partial class RecoveryGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
     }
 
-    public sealed class RecoveryGroupArgs : Pulumi.ResourceArgs
+    public sealed class RecoveryGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("cells")]
         private InputList<string>? _cells;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public RecoveryGroupArgs()
         {
         }
+        public static new RecoveryGroupArgs Empty => new RecoveryGroupArgs();
     }
 }

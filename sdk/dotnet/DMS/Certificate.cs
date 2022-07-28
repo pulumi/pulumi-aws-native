@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DMS
     /// </summary>
     [Obsolete(@"Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         [Output("certificateIdentifier")]
         public Output<string?> CertificateIdentifier { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.DMS
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateIdentifier")]
         public Input<string>? CertificateIdentifier { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.DMS
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

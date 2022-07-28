@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes execution properties for a Flink-based Kinesis Data Analytics application.
     /// </summary>
-    public sealed class ApplicationEnvironmentPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationEnvironmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("propertyGroups")]
         private InputList<Inputs.ApplicationPropertyGroupArgs>? _propertyGroups;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationEnvironmentPropertiesArgs()
         {
         }
+        public static new ApplicationEnvironmentPropertiesArgs Empty => new ApplicationEnvironmentPropertiesArgs();
     }
 }

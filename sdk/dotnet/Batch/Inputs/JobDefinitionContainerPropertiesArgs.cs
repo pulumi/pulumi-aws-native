@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionContainerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionContainerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionContainerPropertiesArgs()
         {
         }
+        public static new JobDefinitionContainerPropertiesArgs Empty => new JobDefinitionContainerPropertiesArgs();
     }
 }

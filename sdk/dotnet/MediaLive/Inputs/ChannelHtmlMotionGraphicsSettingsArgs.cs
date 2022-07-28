@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHtmlMotionGraphicsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHtmlMotionGraphicsSettingsArgs : global::Pulumi.ResourceArgs
     {
         public ChannelHtmlMotionGraphicsSettingsArgs()
         {
         }
+        public static new ChannelHtmlMotionGraphicsSettingsArgs Empty => new ChannelHtmlMotionGraphicsSettingsArgs();
     }
 }

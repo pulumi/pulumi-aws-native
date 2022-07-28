@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetWirelessGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetWirelessGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id for Wireless Gateway. Returned upon successful create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetWirelessGatewayArgs()
         {
         }
+        public static new GetWirelessGatewayArgs Empty => new GetWirelessGatewayArgs();
     }
 
-    public sealed class GetWirelessGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWirelessGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id for Wireless Gateway. Returned upon successful create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetWirelessGatewayInvokeArgs()
         {
         }
+        public static new GetWirelessGatewayInvokeArgs Empty => new GetWirelessGatewayInvokeArgs();
     }
 
 

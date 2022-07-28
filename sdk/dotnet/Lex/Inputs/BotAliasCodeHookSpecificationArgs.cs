@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Contains information about code hooks that Amazon Lex calls during a conversation.
     /// </summary>
-    public sealed class BotAliasCodeHookSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasCodeHookSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("lambdaCodeHook", required: true)]
         public Input<Inputs.BotAliasLambdaCodeHookArgs> LambdaCodeHook { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasCodeHookSpecificationArgs()
         {
         }
+        public static new BotAliasCodeHookSpecificationArgs Empty => new BotAliasCodeHookSpecificationArgs();
     }
 }

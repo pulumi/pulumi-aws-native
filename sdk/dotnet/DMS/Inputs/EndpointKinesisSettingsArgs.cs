@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointKinesisSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointKinesisSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("includeControlDetails")]
         public Input<bool>? IncludeControlDetails { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointKinesisSettingsArgs()
         {
         }
+        public static new EndpointKinesisSettingsArgs Empty => new EndpointKinesisSettingsArgs();
     }
 }

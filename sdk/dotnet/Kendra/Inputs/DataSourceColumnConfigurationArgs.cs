@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceColumnConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceColumnConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("changeDetectingColumns", required: true)]
         private InputList<string>? _changeDetectingColumns;
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceColumnConfigurationArgs()
         {
         }
+        public static new DataSourceColumnConfigurationArgs Empty => new DataSourceColumnConfigurationArgs();
     }
 }

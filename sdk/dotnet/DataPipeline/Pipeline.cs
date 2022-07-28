@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DataPipeline
     /// </summary>
     [Obsolete(@"Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:datapipeline:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.DataPipeline
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
@@ -126,5 +126,6 @@ namespace Pulumi.AwsNative.DataPipeline
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
     /// </summary>
-    public sealed class DetectorModelIotSiteWiseArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelIotSiteWiseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the asset that has the specified property. You can specify an expression.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelIotSiteWiseArgs()
         {
         }
+        public static new DetectorModelIotSiteWiseArgs Empty => new DetectorModelIotSiteWiseArgs();
     }
 }

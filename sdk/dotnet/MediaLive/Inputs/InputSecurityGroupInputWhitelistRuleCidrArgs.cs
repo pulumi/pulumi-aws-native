@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class InputSecurityGroupInputWhitelistRuleCidrArgs : Pulumi.ResourceArgs
+    public sealed class InputSecurityGroupInputWhitelistRuleCidrArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public InputSecurityGroupInputWhitelistRuleCidrArgs()
         {
         }
+        public static new InputSecurityGroupInputWhitelistRuleCidrArgs Empty => new InputSecurityGroupInputWhitelistRuleCidrArgs();
     }
 }

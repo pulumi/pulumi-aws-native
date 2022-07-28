@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MemoryDB
     }
 
 
-    public sealed class GetParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parameter group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetParameterGroupArgs()
         {
         }
+        public static new GetParameterGroupArgs Empty => new GetParameterGroupArgs();
     }
 
-    public sealed class GetParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the parameter group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetParameterGroupInvokeArgs()
         {
         }
+        public static new GetParameterGroupInvokeArgs Empty => new GetParameterGroupInvokeArgs();
     }
 
 

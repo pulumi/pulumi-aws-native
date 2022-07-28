@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceAssociationParameterArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAssociationParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceAssociationParameterArgs()
         {
         }
+        public static new InstanceAssociationParameterArgs Empty => new InstanceAssociationParameterArgs();
     }
 }

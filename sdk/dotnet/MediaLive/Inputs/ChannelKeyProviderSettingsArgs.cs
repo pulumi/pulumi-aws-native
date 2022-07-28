@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelKeyProviderSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelKeyProviderSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("staticKeySettings")]
         public Input<Inputs.ChannelStaticKeySettingsArgs>? StaticKeySettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelKeyProviderSettingsArgs()
         {
         }
+        public static new ChannelKeyProviderSettingsArgs Empty => new ChannelKeyProviderSettingsArgs();
     }
 }

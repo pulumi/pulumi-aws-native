@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHdr10SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHdr10SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCll")]
         public Input<int>? MaxCll { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHdr10SettingsArgs()
         {
         }
+        public static new ChannelHdr10SettingsArgs Empty => new ChannelHdr10SettingsArgs();
     }
 }

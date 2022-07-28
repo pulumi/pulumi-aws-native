@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53Resolver.Inputs
 {
 
-    public sealed class ResolverEndpointIpAddressRequestArgs : Pulumi.ResourceArgs
+    public sealed class ResolverEndpointIpAddressRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("ip")]
         public Input<string>? Ip { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         public ResolverEndpointIpAddressRequestArgs()
         {
         }
+        public static new ResolverEndpointIpAddressRequestArgs Empty => new ResolverEndpointIpAddressRequestArgs();
     }
 }

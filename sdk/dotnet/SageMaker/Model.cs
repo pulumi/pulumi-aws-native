@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:Model")]
-    public partial class Model : Pulumi.CustomResource
+    public partial class Model : global::Pulumi.CustomResource
     {
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ModelContainerDefinition>> Containers { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.ModelContainerDefinitionArgs>? _containers;
@@ -122,5 +122,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionConfigArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
@@ -97,5 +97,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionConfigArgs()
         {
         }
+        public static new DistributionConfigArgs Empty => new DistributionConfigArgs();
     }
 }

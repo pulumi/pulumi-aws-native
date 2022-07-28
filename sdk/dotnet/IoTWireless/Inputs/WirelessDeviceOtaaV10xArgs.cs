@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class WirelessDeviceOtaaV10xArgs : Pulumi.ResourceArgs
+    public sealed class WirelessDeviceOtaaV10xArgs : global::Pulumi.ResourceArgs
     {
         [Input("appEui", required: true)]
         public Input<string> AppEui { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public WirelessDeviceOtaaV10xArgs()
         {
         }
+        public static new WirelessDeviceOtaaV10xArgs Empty => new WirelessDeviceOtaaV10xArgs();
     }
 }

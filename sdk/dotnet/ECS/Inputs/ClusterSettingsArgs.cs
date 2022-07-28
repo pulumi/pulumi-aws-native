@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
     /// </summary>
-    public sealed class ClusterSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterSettingsArgs()
         {
         }
+        public static new ClusterSettingsArgs Empty => new ClusterSettingsArgs();
     }
 }

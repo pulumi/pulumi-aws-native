@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class ResourceSetTagArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetTagArgs()
         {
         }
+        public static new ResourceSetTagArgs Empty => new ResourceSetTagArgs();
     }
 }

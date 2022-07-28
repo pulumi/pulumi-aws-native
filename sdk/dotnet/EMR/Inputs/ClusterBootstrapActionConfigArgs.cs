@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterBootstrapActionConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBootstrapActionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterBootstrapActionConfigArgs()
         {
         }
+        public static new ClusterBootstrapActionConfigArgs Empty => new ClusterBootstrapActionConfigArgs();
     }
 }

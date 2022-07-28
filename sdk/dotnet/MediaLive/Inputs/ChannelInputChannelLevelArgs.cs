@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputChannelLevelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputChannelLevelArgs : global::Pulumi.ResourceArgs
     {
         [Input("gain")]
         public Input<int>? Gain { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputChannelLevelArgs()
         {
         }
+        public static new ChannelInputChannelLevelArgs Empty => new ChannelInputChannelLevelArgs();
     }
 }

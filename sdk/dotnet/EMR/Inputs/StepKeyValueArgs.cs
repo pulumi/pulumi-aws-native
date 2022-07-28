@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class StepKeyValueArgs : Pulumi.ResourceArgs
+    public sealed class StepKeyValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public StepKeyValueArgs()
         {
         }
+        public static new StepKeyValueArgs Empty => new StepKeyValueArgs();
     }
 }

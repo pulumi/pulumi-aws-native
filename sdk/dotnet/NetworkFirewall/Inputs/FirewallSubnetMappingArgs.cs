@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallSubnetMappingArgs : Pulumi.ResourceArgs
+    public sealed class FirewallSubnetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A SubnetId.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallSubnetMappingArgs()
         {
         }
+        public static new FirewallSubnetMappingArgs Empty => new FirewallSubnetMappingArgs();
     }
 }

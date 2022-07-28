@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    public sealed class ServiceActionDefinitionParameterArgs : Pulumi.ResourceArgs
+    public sealed class ServiceActionDefinitionParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         public ServiceActionDefinitionParameterArgs()
         {
         }
+        public static new ServiceActionDefinitionParameterArgs Empty => new ServiceActionDefinitionParameterArgs();
     }
 }

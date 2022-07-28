@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceAwsVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignPublicIp")]
         public Input<Pulumi.AwsNative.ECS.ServiceAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceAwsVpcConfigurationArgs()
         {
         }
+        public static new ServiceAwsVpcConfigurationArgs Empty => new ServiceAwsVpcConfigurationArgs();
     }
 }

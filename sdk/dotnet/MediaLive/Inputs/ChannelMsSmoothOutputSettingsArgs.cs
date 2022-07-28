@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMsSmoothOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMsSmoothOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("h265PackagingType")]
         public Input<string>? H265PackagingType { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMsSmoothOutputSettingsArgs()
         {
         }
+        public static new ChannelMsSmoothOutputSettingsArgs Empty => new ChannelMsSmoothOutputSettingsArgs();
     }
 }

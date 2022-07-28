@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Resource
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Resource")]
-    public partial class Resource : Pulumi.CustomResource
+    public partial class Resource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The parent resource's identifier.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class ResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parent resource's identifier.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public ResourceArgs()
         {
         }
+        public static new ResourceArgs Empty => new ResourceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationFSxWindowsArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxWindowsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxWindowsArgs()
         {
         }
+        public static new GetLocationFSxWindowsArgs Empty => new GetLocationFSxWindowsArgs();
     }
 
-    public sealed class GetLocationFSxWindowsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxWindowsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxWindowsInvokeArgs()
         {
         }
+        public static new GetLocationFSxWindowsInvokeArgs Empty => new GetLocationFSxWindowsInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Initial DatasetImportJob for the created dataset
     /// </summary>
-    public sealed class DatasetImportJobArgs : Pulumi.ResourceArgs
+    public sealed class DatasetImportJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket that contains the training data to import.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public DatasetImportJobArgs()
         {
         }
+        public static new DatasetImportJobArgs Empty => new DatasetImportJobArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GuardDuty
     }
 
 
-    public sealed class GetIPSetArgs : Pulumi.InvokeArgs
+    public sealed class GetIPSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetIPSetArgs()
         {
         }
+        public static new GetIPSetArgs Empty => new GetIPSetArgs();
     }
 
-    public sealed class GetIPSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIPSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetIPSetInvokeArgs()
         {
         }
+        public static new GetIPSetInvokeArgs Empty => new GetIPSetInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FraudDetector
     }
 
 
-    public sealed class GetEventTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the event type.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetEventTypeArgs()
         {
         }
+        public static new GetEventTypeArgs Empty => new GetEventTypeArgs();
     }
 
-    public sealed class GetEventTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the event type.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetEventTypeInvokeArgs()
         {
         }
+        public static new GetEventTypeInvokeArgs Empty => new GetEventTypeInvokeArgs();
     }
 
 

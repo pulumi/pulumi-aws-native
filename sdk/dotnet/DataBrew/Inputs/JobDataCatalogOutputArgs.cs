@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobDataCatalogOutputArgs : Pulumi.ResourceArgs
+    public sealed class JobDataCatalogOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobDataCatalogOutputArgs()
         {
         }
+        public static new JobDataCatalogOutputArgs Empty => new JobDataCatalogOutputArgs();
     }
 }

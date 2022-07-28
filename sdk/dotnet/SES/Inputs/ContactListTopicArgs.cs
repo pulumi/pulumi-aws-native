@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ContactListTopicArgs : Pulumi.ResourceArgs
+    public sealed class ContactListTopicArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultSubscriptionStatus", required: true)]
         public Input<string> DefaultSubscriptionStatus { get; set; } = null!;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ContactListTopicArgs()
         {
         }
+        public static new ContactListTopicArgs Empty => new ContactListTopicArgs();
     }
 }

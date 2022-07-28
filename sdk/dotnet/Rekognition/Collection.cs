@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition
     /// The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
     /// </summary>
     [AwsNativeResourceType("aws-native:rekognition:Collection")]
-    public partial class Collection : Pulumi.CustomResource
+    public partial class Collection : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Rekognition
         }
     }
 
-    public sealed class CollectionArgs : Pulumi.ResourceArgs
+    public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.Rekognition
         public CollectionArgs()
         {
         }
+        public static new CollectionArgs Empty => new CollectionArgs();
     }
 }

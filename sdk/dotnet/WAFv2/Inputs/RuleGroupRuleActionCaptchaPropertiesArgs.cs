@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Checks valid token exists with request.
     /// </summary>
-    public sealed class RuleGroupRuleActionCaptchaPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionCaptchaPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRequestHandling")]
         public Input<Inputs.RuleGroupCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleActionCaptchaPropertiesArgs()
         {
         }
+        public static new RuleGroupRuleActionCaptchaPropertiesArgs Empty => new RuleGroupRuleActionCaptchaPropertiesArgs();
     }
 }

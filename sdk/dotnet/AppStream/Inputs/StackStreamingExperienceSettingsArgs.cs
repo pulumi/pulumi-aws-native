@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class StackStreamingExperienceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StackStreamingExperienceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("preferredProtocol")]
         public Input<string>? PreferredProtocol { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public StackStreamingExperienceSettingsArgs()
         {
         }
+        public static new StackStreamingExperienceSettingsArgs Empty => new StackStreamingExperienceSettingsArgs();
     }
 }

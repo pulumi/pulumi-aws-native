@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelDvbNitSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDvbNitSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkId")]
         public Input<int>? NetworkId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelDvbNitSettingsArgs()
         {
         }
+        public static new ChannelDvbNitSettingsArgs Empty => new ChannelDvbNitSettingsArgs();
     }
 }

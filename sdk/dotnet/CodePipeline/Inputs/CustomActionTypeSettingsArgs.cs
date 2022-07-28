@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class CustomActionTypeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CustomActionTypeSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("entityUrlTemplate")]
         public Input<string>? EntityUrlTemplate { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public CustomActionTypeSettingsArgs()
         {
         }
+        public static new CustomActionTypeSettingsArgs Empty => new CustomActionTypeSettingsArgs();
     }
 }

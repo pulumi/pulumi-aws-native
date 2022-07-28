@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class BuildS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class BuildS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public BuildS3LocationArgs()
         {
         }
+        public static new BuildS3LocationArgs Empty => new BuildS3LocationArgs();
     }
 }

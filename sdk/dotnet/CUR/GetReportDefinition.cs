@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CUR
     }
 
 
-    public sealed class GetReportDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetReportDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CUR
         public GetReportDefinitionArgs()
         {
         }
+        public static new GetReportDefinitionArgs Empty => new GetReportDefinitionArgs();
     }
 
-    public sealed class GetReportDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CUR
         public GetReportDefinitionInvokeArgs()
         {
         }
+        public static new GetReportDefinitionInvokeArgs Empty => new GetReportDefinitionInvokeArgs();
     }
 
 

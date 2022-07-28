@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConvert
     }
 
 
-    public sealed class GetJobTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetJobTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetJobTemplateArgs()
         {
         }
+        public static new GetJobTemplateArgs Empty => new GetJobTemplateArgs();
     }
 
-    public sealed class GetJobTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MediaConvert
         public GetJobTemplateInvokeArgs()
         {
         }
+        public static new GetJobTemplateInvokeArgs Empty => new GetJobTemplateInvokeArgs();
     }
 
 

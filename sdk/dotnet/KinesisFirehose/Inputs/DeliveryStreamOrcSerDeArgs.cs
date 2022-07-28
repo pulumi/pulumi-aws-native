@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamOrcSerDeArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamOrcSerDeArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockSizeBytes")]
         public Input<int>? BlockSizeBytes { get; set; }
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamOrcSerDeArgs()
         {
         }
+        public static new DeliveryStreamOrcSerDeArgs Empty => new DeliveryStreamOrcSerDeArgs();
     }
 }

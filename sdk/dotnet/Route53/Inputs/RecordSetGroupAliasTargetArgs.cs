@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53.Inputs
 {
 
-    public sealed class RecordSetGroupAliasTargetArgs : Pulumi.ResourceArgs
+    public sealed class RecordSetGroupAliasTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dNSName", required: true)]
         public Input<string> DNSName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public RecordSetGroupAliasTargetArgs()
         {
         }
+        public static new RecordSetGroupAliasTargetArgs Empty => new RecordSetGroupAliasTargetArgs();
     }
 }

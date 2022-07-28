@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppIntegrations.Inputs
 {
 
-    public sealed class EventIntegrationEventFilterArgs : Pulumi.ResourceArgs
+    public sealed class EventIntegrationEventFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source of the events.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         public EventIntegrationEventFilterArgs()
         {
         }
+        public static new EventIntegrationEventFilterArgs Empty => new EventIntegrationEventFilterArgs();
     }
 }

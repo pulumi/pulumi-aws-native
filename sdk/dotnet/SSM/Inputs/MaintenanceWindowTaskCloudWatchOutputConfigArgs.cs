@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskCloudWatchOutputConfigArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskCloudWatchOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogGroupName")]
         public Input<string>? CloudWatchLogGroupName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskCloudWatchOutputConfigArgs()
         {
         }
+        public static new MaintenanceWindowTaskCloudWatchOutputConfigArgs Empty => new MaintenanceWindowTaskCloudWatchOutputConfigArgs();
     }
 }

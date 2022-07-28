@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Information about a parameter used to provision a product.
     /// </summary>
-    public sealed class ProjectProvisioningParameterArgs : Pulumi.ResourceArgs
+    public sealed class ProjectProvisioningParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameter key.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ProjectProvisioningParameterArgs()
         {
         }
+        public static new ProjectProvisioningParameterArgs Empty => new ProjectProvisioningParameterArgs();
     }
 }

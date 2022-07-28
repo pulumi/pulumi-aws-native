@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointOracleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointOracleSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessAlternateDirectly")]
         public Input<bool>? AccessAlternateDirectly { get; set; }
@@ -125,5 +125,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointOracleSettingsArgs()
         {
         }
+        public static new EndpointOracleSettingsArgs Empty => new EndpointOracleSettingsArgs();
     }
 }

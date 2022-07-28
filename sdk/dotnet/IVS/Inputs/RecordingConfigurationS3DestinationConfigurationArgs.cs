@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS.Inputs
     /// <summary>
     /// Recording S3 Destination Configuration.
     /// </summary>
-    public sealed class RecordingConfigurationS3DestinationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RecordingConfigurationS3DestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IVS.Inputs
         public RecordingConfigurationS3DestinationConfigurationArgs()
         {
         }
+        public static new RecordingConfigurationS3DestinationConfigurationArgs Empty => new RecordingConfigurationS3DestinationConfigurationArgs();
     }
 }

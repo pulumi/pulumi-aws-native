@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"PushTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:PushTemplate")]
-    public partial class PushTemplate : Pulumi.CustomResource
+    public partial class PushTemplate : global::Pulumi.CustomResource
     {
         [Output("aDM")]
         public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> ADM { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class PushTemplateArgs : Pulumi.ResourceArgs
+    public sealed class PushTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("aDM")]
         public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? ADM { get; set; }
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public PushTemplateArgs()
         {
         }
+        public static new PushTemplateArgs Empty => new PushTemplateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:NetworkProfile")]
-    public partial class NetworkProfile : Pulumi.CustomResource
+    public partial class NetworkProfile : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -143,5 +143,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public NetworkProfileArgs()
         {
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 }

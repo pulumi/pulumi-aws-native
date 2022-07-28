@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"SecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:SecurityGroup")]
-    public partial class SecurityGroup : Pulumi.CustomResource
+    public partial class SecurityGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class SecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public SecurityGroupArgs()
         {
         }
+        public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleKafkaActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleKafkaActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientProperties", required: true)]
         public Input<object> ClientProperties { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleKafkaActionArgs()
         {
         }
+        public static new TopicRuleKafkaActionArgs Empty => new TopicRuleKafkaActionArgs();
     }
 }

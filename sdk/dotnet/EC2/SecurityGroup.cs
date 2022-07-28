@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"SecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SecurityGroup")]
-    public partial class SecurityGroup : Pulumi.CustomResource
+    public partial class SecurityGroup : global::Pulumi.CustomResource
     {
         [Output("groupDescription")]
         public Output<string> GroupDescription { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupDescription", required: true)]
         public Input<string> GroupDescription { get; set; } = null!;
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.EC2
         public SecurityGroupArgs()
         {
         }
+        public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }
 }

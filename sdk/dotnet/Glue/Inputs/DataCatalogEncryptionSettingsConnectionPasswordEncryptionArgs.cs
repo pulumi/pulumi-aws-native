@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs()
         {
         }
+        public static new DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs Empty => new DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs();
     }
 }

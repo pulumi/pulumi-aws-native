@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutVision
     /// The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
     /// </summary>
     [AwsNativeResourceType("aws-native:lookoutvision:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.LookoutVision
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.LookoutVision
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

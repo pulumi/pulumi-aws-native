@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
     }
 
 
-    public sealed class GetApiDestinationArgs : Pulumi.InvokeArgs
+    public sealed class GetApiDestinationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the apiDestination.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Events
         public GetApiDestinationArgs()
         {
         }
+        public static new GetApiDestinationArgs Empty => new GetApiDestinationArgs();
     }
 
-    public sealed class GetApiDestinationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the apiDestination.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Events
         public GetApiDestinationInvokeArgs()
         {
         }
+        public static new GetApiDestinationInvokeArgs Empty => new GetApiDestinationInvokeArgs();
     }
 
 

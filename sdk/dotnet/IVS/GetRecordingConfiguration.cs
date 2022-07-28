@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IVS
     }
 
 
-    public sealed class GetRecordingConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordingConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IVS
         public GetRecordingConfigurationArgs()
         {
         }
+        public static new GetRecordingConfigurationArgs Empty => new GetRecordingConfigurationArgs();
     }
 
-    public sealed class GetRecordingConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordingConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IVS
         public GetRecordingConfigurationInvokeArgs()
         {
         }
+        public static new GetRecordingConfigurationInvokeArgs Empty => new GetRecordingConfigurationInvokeArgs();
     }
 
 

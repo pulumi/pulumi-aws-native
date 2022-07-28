@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Test and Publish a resource that has been registered in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:PublicTypeVersion")]
-    public partial class PublicTypeVersion : Pulumi.CustomResource
+    public partial class PublicTypeVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) of the extension.
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class PublicTypeVersionArgs : Pulumi.ResourceArgs
+    public sealed class PublicTypeVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) of the extension.
@@ -145,5 +145,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public PublicTypeVersionArgs()
         {
         }
+        public static new PublicTypeVersionArgs Empty => new PublicTypeVersionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
     }
 
 
-    public sealed class GetProfilingGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetProfilingGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the profiling group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         public GetProfilingGroupArgs()
         {
         }
+        public static new GetProfilingGroupArgs Empty => new GetProfilingGroupArgs();
     }
 
-    public sealed class GetProfilingGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProfilingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the profiling group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         public GetProfilingGroupInvokeArgs()
         {
         }
+        public static new GetProfilingGroupInvokeArgs Empty => new GetProfilingGroupInvokeArgs();
     }
 
 

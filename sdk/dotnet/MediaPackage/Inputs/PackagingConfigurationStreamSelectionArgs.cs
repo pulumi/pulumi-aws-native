@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A StreamSelection configuration.
     /// </summary>
-    public sealed class PackagingConfigurationStreamSelectionArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationStreamSelectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum video bitrate (bps) to include in output.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationStreamSelectionArgs()
         {
         }
+        public static new PackagingConfigurationStreamSelectionArgs Empty => new PackagingConfigurationStreamSelectionArgs();
     }
 }

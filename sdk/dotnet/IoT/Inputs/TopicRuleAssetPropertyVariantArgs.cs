@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleAssetPropertyVariantArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleAssetPropertyVariantArgs : global::Pulumi.ResourceArgs
     {
         [Input("booleanValue")]
         public Input<string>? BooleanValue { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleAssetPropertyVariantArgs()
         {
         }
+        public static new TopicRuleAssetPropertyVariantArgs Empty => new TopicRuleAssetPropertyVariantArgs();
     }
 }

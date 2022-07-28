@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("dBSubnetGroupName", required: true)]
         public string DBSubnetGroupName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBSubnetGroupArgs()
         {
         }
+        public static new GetDBSubnetGroupArgs Empty => new GetDBSubnetGroupArgs();
     }
 
-    public sealed class GetDBSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("dBSubnetGroupName", required: true)]
         public Input<string> DBSubnetGroupName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBSubnetGroupInvokeArgs()
         {
         }
+        public static new GetDBSubnetGroupInvokeArgs Empty => new GetDBSubnetGroupInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorMetricArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operator used to aggregate metric values
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorMetricArgs()
         {
         }
+        public static new AnomalyDetectorMetricArgs Empty => new AnomalyDetectorMetricArgs();
     }
 }

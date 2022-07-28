@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetCapacityReservationOptionsRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetCapacityReservationOptionsRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("usageStrategy")]
         public Input<Pulumi.AwsNative.EC2.EC2FleetCapacityReservationOptionsRequestUsageStrategy>? UsageStrategy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetCapacityReservationOptionsRequestArgs()
         {
         }
+        public static new EC2FleetCapacityReservationOptionsRequestArgs Empty => new EC2FleetCapacityReservationOptionsRequestArgs();
     }
 }

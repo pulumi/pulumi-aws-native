@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaStore
     /// </summary>
     [Obsolete(@"Container is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:mediastore:Container")]
-    public partial class Container : Pulumi.CustomResource
+    public partial class Container : global::Pulumi.CustomResource
     {
         [Output("accessLoggingEnabled")]
         public Output<bool?> AccessLoggingEnabled { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.MediaStore
         }
     }
 
-    public sealed class ContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLoggingEnabled")]
         public Input<bool>? AccessLoggingEnabled { get; set; }
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.MediaStore
         public ContainerArgs()
         {
         }
+        public static new ContainerArgs Empty => new ContainerArgs();
     }
 }

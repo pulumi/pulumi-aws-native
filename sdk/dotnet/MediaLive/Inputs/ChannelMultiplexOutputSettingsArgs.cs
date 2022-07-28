@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMultiplexOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMultiplexOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination")]
         public Input<Inputs.ChannelOutputLocationRefArgs>? Destination { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMultiplexOutputSettingsArgs()
         {
         }
+        public static new ChannelMultiplexOutputSettingsArgs Empty => new ChannelMultiplexOutputSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about delivering logs to Amazon CloudWatch Logs.
     /// </summary>
-    public sealed class ConnectorCloudWatchLogsLogDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCloudWatchLogsLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the logs get sent to the specified CloudWatch Logs destination.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorCloudWatchLogsLogDeliveryArgs()
         {
         }
+        public static new ConnectorCloudWatchLogsLogDeliveryArgs Empty => new ConnectorCloudWatchLogsLogDeliveryArgs();
     }
 }

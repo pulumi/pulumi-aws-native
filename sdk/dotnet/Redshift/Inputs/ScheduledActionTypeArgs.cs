@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    public sealed class ScheduledActionTypeArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("pauseCluster")]
         public Input<Inputs.ScheduledActionPauseClusterMessageArgs>? PauseCluster { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ScheduledActionTypeArgs()
         {
         }
+        public static new ScheduledActionTypeArgs Empty => new ScheduledActionTypeArgs();
     }
 }

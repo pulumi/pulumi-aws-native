@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfig")]
-    public partial class ResolverQueryLoggingConfig : Pulumi.CustomResource
+    public partial class ResolverQueryLoggingConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverQueryLoggingConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// destination arn
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverQueryLoggingConfigArgs()
         {
         }
+        public static new ResolverQueryLoggingConfigArgs Empty => new ResolverQueryLoggingConfigArgs();
     }
 }

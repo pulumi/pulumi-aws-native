@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The topic to which notifications are sent and the events for which notifications are generated.
     /// </summary>
-    public sealed class BucketTopicConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketTopicConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket event about which to send notifications.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketTopicConfigurationArgs()
         {
         }
+        public static new BucketTopicConfigurationArgs Empty => new BucketTopicConfigurationArgs();
     }
 }

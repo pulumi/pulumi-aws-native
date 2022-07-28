@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class CapacityReservationFleetInstanceTypeSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationFleetInstanceTypeSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public CapacityReservationFleetInstanceTypeSpecificationArgs()
         {
         }
+        public static new CapacityReservationFleetInstanceTypeSpecificationArgs Empty => new CapacityReservationFleetInstanceTypeSpecificationArgs();
     }
 }

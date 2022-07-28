@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
-    public sealed class TableColumnArgs : Pulumi.ResourceArgs
+    public sealed class TableColumnArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableColumnArgs()
         {
         }
+        public static new TableColumnArgs Empty => new TableColumnArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A HTTP Live Streaming (HLS) manifest configuration.
     /// </summary>
-    public sealed class OriginEndpointHlsManifestArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointHlsManifestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointHlsManifestArgs()
         {
         }
+        public static new OriginEndpointHlsManifestArgs Empty => new OriginEndpointHlsManifestArgs();
     }
 }

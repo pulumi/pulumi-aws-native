@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// Resource Type definition for AWS::IoTAnalytics::Dataset
     /// </summary>
     [AwsNativeResourceType("aws-native:iotanalytics:Dataset")]
-    public partial class Dataset : Pulumi.CustomResource
+    public partial class Dataset : global::Pulumi.CustomResource
     {
         [Output("actions")]
         public Output<ImmutableArray<Outputs.DatasetAction>> Actions { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
     }
 
-    public sealed class DatasetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.DatasetActionArgs>? _actions;
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public DatasetArgs()
         {
         }
+        public static new DatasetArgs Empty => new DatasetArgs();
     }
 }

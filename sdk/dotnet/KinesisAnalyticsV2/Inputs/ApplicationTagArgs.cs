@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// A key-value pair that identifies an application.
     /// </summary>
-    public sealed class ApplicationTagArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationTagArgs()
         {
         }
+        public static new ApplicationTagArgs Empty => new ApplicationTagArgs();
     }
 }

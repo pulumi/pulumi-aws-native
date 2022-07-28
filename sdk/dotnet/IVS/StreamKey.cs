@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS
     /// Resource Type definition for AWS::IVS::StreamKey
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:StreamKey")]
-    public partial class StreamKey : Pulumi.CustomResource
+    public partial class StreamKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IVS
         }
     }
 
-    public sealed class StreamKeyArgs : Pulumi.ResourceArgs
+    public sealed class StreamKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Channel ARN for the stream.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.IVS
         public StreamKeyArgs()
         {
         }
+        public static new StreamKeyArgs Empty => new StreamKeyArgs();
     }
 }

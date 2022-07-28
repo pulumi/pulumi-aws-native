@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// The API Schema for AWS Route53 Recovery Readiness Cells.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:Cell")]
-    public partial class Cell : Pulumi.CustomResource
+    public partial class Cell : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cell.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
     }
 
-    public sealed class CellArgs : Pulumi.ResourceArgs
+    public sealed class CellArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cell to create.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public CellArgs()
         {
         }
+        public static new CellArgs Empty => new CellArgs();
     }
 }

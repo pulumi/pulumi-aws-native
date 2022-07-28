@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:VPCEConfiguration")]
-    public partial class VPCEConfiguration : Pulumi.CustomResource
+    public partial class VPCEConfiguration : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class VPCEConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VPCEConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("serviceDnsName", required: true)]
         public Input<string> ServiceDnsName { get; set; } = null!;
@@ -101,5 +101,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public VPCEConfigurationArgs()
         {
         }
+        public static new VPCEConfigurationArgs Empty => new VPCEConfigurationArgs();
     }
 }

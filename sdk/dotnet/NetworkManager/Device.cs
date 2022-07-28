@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::Device type describes a device.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the device.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the device.
@@ -189,5 +189,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 }

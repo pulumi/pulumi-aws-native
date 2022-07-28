@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetSMSChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetSMSChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSMSChannelArgs()
         {
         }
+        public static new GetSMSChannelArgs Empty => new GetSMSChannelArgs();
     }
 
-    public sealed class GetSMSChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSMSChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetSMSChannelInvokeArgs()
         {
         }
+        public static new GetSMSChannelInvokeArgs Empty => new GetSMSChannelInvokeArgs();
     }
 
 

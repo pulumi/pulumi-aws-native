@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
 
-    public sealed class GetTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.QuickSight
         public GetTemplateArgs()
         {
         }
+        public static new GetTemplateArgs Empty => new GetTemplateArgs();
     }
 
-    public sealed class GetTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.QuickSight
         public GetTemplateInvokeArgs()
         {
         }
+        public static new GetTemplateInvokeArgs Empty => new GetTemplateInvokeArgs();
     }
 
 

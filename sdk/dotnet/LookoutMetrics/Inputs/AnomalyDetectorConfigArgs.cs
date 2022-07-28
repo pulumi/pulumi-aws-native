@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorConfigArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Frequency of anomaly detection
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorConfigArgs()
         {
         }
+        public static new AnomalyDetectorConfigArgs Empty => new AnomalyDetectorConfigArgs();
     }
 }

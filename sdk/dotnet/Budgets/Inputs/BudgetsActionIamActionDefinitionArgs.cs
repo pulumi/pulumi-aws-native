@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetsActionIamActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetsActionIamActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetsActionIamActionDefinitionArgs()
         {
         }
+        public static new BudgetsActionIamActionDefinitionArgs Empty => new BudgetsActionIamActionDefinitionArgs();
     }
 }

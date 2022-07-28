@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::TransitGatewayMulticastDomain type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomain")]
-    public partial class TransitGatewayMulticastDomain : Pulumi.CustomResource
+    public partial class TransitGatewayMulticastDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the transit gateway multicast domain was created.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayMulticastDomainArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayMulticastDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The options for the transit gateway multicast domain.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayMulticastDomainArgs()
         {
         }
+        public static new TransitGatewayMulticastDomainArgs Empty => new TransitGatewayMulticastDomainArgs();
     }
 }

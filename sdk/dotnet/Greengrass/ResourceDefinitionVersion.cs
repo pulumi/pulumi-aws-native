@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:ResourceDefinitionVersion")]
-    public partial class ResourceDefinitionVersion : Pulumi.CustomResource
+    public partial class ResourceDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("resourceDefinitionId")]
         public Output<string> ResourceDefinitionId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class ResourceDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceDefinitionId", required: true)]
         public Input<string> ResourceDefinitionId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Greengrass
         public ResourceDefinitionVersionArgs()
         {
         }
+        public static new ResourceDefinitionVersionArgs Empty => new ResourceDefinitionVersionArgs();
     }
 }

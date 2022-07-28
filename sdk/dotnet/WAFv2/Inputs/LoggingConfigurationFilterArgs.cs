@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class LoggingConfigurationFilterArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How to handle logs that satisfy the filter's conditions and requirement. 
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationFilterArgs()
         {
         }
+        public static new LoggingConfigurationFilterArgs Empty => new LoggingConfigurationFilterArgs();
     }
 }

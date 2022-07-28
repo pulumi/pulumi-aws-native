@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::TransitGatewayAttachment
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayAttachment")]
-    public partial class TransitGatewayAttachment : Pulumi.CustomResource
+    public partial class TransitGatewayAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The options for the transit gateway vpc attachment.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The options for the transit gateway vpc attachment.
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayAttachmentArgs()
         {
         }
+        public static new TransitGatewayAttachmentArgs Empty => new TransitGatewayAttachmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inputs
     /// <summary>
     /// The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
     /// </summary>
-    public sealed class ProviderIgnoreTagsArgs : Pulumi.ResourceArgs
+    public sealed class ProviderIgnoreTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyPrefixes")]
         private InputList<string>? _keyPrefixes;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Inputs
         public ProviderIgnoreTagsArgs()
         {
         }
+        public static new ProviderIgnoreTagsArgs Empty => new ProviderIgnoreTagsArgs();
     }
 }

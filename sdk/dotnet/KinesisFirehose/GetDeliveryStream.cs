@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
 
-    public sealed class GetDeliveryStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetDeliveryStreamArgs : global::Pulumi.InvokeArgs
     {
         [Input("deliveryStreamName", required: true)]
         public string DeliveryStreamName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public GetDeliveryStreamArgs()
         {
         }
+        public static new GetDeliveryStreamArgs Empty => new GetDeliveryStreamArgs();
     }
 
-    public sealed class GetDeliveryStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeliveryStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("deliveryStreamName", required: true)]
         public Input<string> DeliveryStreamName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public GetDeliveryStreamInvokeArgs()
         {
         }
+        public static new GetDeliveryStreamInvokeArgs Empty => new GetDeliveryStreamInvokeArgs();
     }
 
 

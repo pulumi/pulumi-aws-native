@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionPortMappingArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionPortMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionPortMappingArgs()
         {
         }
+        public static new TaskDefinitionPortMappingArgs Empty => new TaskDefinitionPortMappingArgs();
     }
 }

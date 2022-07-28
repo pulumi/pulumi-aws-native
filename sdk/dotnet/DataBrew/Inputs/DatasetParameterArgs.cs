@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetParameterArgs : Pulumi.ResourceArgs
+    public sealed class DatasetParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Add the value of this parameter as a column in a dataset.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetParameterArgs()
         {
         }
+        public static new DatasetParameterArgs Empty => new DatasetParameterArgs();
     }
 }

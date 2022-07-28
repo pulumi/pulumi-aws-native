@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The default value to use when a user doesn't provide a value for a slot.
     /// </summary>
-    public sealed class BotSlotDefaultValueArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotDefaultValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value to use when a user doesn't provide a value for a slot.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotDefaultValueArgs()
         {
         }
+        public static new BotSlotDefaultValueArgs Empty => new BotSlotDefaultValueArgs();
     }
 }

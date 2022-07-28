@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// A addon associate with a resource.
     /// </summary>
-    public sealed class DiskAddOnArgs : Pulumi.ResourceArgs
+    public sealed class DiskAddOnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The add-on type
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DiskAddOnArgs()
         {
         }
+        public static new DiskAddOnArgs Empty => new DiskAddOnArgs();
     }
 }

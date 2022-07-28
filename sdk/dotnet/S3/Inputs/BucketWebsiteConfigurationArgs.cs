@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies website configuration parameters for an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketWebsiteConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the error document for the website.
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketWebsiteConfigurationArgs()
         {
         }
+        public static new BucketWebsiteConfigurationArgs Empty => new BucketWebsiteConfigurationArgs();
     }
 }

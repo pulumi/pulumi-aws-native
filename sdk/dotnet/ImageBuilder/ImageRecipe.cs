@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::ImageRecipe
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:ImageRecipe")]
-    public partial class ImageRecipe : Pulumi.CustomResource
+    public partial class ImageRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specify additional settings and launch scripts for your build instances.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify additional settings and launch scripts for your build instances.
@@ -189,5 +189,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public ImageRecipeArgs()
         {
         }
+        public static new ImageRecipeArgs Empty => new ImageRecipeArgs();
     }
 }

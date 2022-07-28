@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:ClientVpnAuthorizationRule")]
-    public partial class ClientVpnAuthorizationRule : Pulumi.CustomResource
+    public partial class ClientVpnAuthorizationRule : global::Pulumi.CustomResource
     {
         [Output("accessGroupId")]
         public Output<string?> AccessGroupId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class ClientVpnAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessGroupId")]
         public Input<string>? AccessGroupId { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.EC2
         public ClientVpnAuthorizationRuleArgs()
         {
         }
+        public static new ClientVpnAuthorizationRuleArgs Empty => new ClientVpnAuthorizationRuleArgs();
     }
 }

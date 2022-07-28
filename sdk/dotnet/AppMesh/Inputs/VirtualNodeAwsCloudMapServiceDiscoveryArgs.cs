@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeAwsCloudMapServiceDiscoveryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeAwsCloudMapServiceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.VirtualNodeAwsCloudMapInstanceAttributeArgs>? _attributes;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeAwsCloudMapServiceDiscoveryArgs()
         {
         }
+        public static new VirtualNodeAwsCloudMapServiceDiscoveryArgs Empty => new VirtualNodeAwsCloudMapServiceDiscoveryArgs();
     }
 }

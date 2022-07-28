@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains CSR pass though extensions information.
     /// </summary>
-    public sealed class CertificateAuthorityCsrExtensionsArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityCsrExtensionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyUsage")]
         public Input<Inputs.CertificateAuthorityKeyUsageArgs>? KeyUsage { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityCsrExtensionsArgs()
         {
         }
+        public static new CertificateAuthorityCsrExtensionsArgs Empty => new CertificateAuthorityCsrExtensionsArgs();
     }
 }

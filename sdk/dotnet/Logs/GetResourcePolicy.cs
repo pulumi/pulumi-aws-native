@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetResourcePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for resource policy
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Logs
         public GetResourcePolicyArgs()
         {
         }
+        public static new GetResourcePolicyArgs Empty => new GetResourcePolicyArgs();
     }
 
-    public sealed class GetResourcePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for resource policy
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Logs
         public GetResourcePolicyInvokeArgs()
         {
         }
+        public static new GetResourcePolicyInvokeArgs Empty => new GetResourcePolicyInvokeArgs();
     }
 
 

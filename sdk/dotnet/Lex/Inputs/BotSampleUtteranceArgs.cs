@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
     /// </summary>
-    public sealed class BotSampleUtteranceArgs : Pulumi.ResourceArgs
+    public sealed class BotSampleUtteranceArgs : global::Pulumi.ResourceArgs
     {
         [Input("utterance", required: true)]
         public Input<string> Utterance { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSampleUtteranceArgs()
         {
         }
+        public static new BotSampleUtteranceArgs Empty => new BotSampleUtteranceArgs();
     }
 }

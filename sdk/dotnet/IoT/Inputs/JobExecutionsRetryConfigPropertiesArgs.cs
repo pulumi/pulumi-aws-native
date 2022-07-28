@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class JobExecutionsRetryConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class JobExecutionsRetryConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("retryCriteriaList")]
         private InputList<Inputs.JobTemplateRetryCriteriaArgs>? _retryCriteriaList;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public JobExecutionsRetryConfigPropertiesArgs()
         {
         }
+        public static new JobExecutionsRetryConfigPropertiesArgs Empty => new JobExecutionsRetryConfigPropertiesArgs();
     }
 }

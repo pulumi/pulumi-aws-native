@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginGroupMembersArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginGroupMembersArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<Inputs.DistributionOriginGroupMemberArgs>? _items;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionOriginGroupMembersArgs()
         {
         }
+        public static new DistributionOriginGroupMembersArgs Empty => new DistributionOriginGroupMembersArgs();
     }
 }

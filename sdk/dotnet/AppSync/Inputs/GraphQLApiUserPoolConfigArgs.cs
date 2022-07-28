@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiUserPoolConfigArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiUserPoolConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("appIdClientRegex")]
         public Input<string>? AppIdClientRegex { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public GraphQLApiUserPoolConfigArgs()
         {
         }
+        public static new GraphQLApiUserPoolConfigArgs Empty => new GraphQLApiUserPoolConfigArgs();
     }
 }

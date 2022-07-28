@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetIamInstanceProfileSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetIamInstanceProfileSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetIamInstanceProfileSpecificationArgs()
         {
         }
+        public static new SpotFleetIamInstanceProfileSpecificationArgs Empty => new SpotFleetIamInstanceProfileSpecificationArgs();
     }
 }

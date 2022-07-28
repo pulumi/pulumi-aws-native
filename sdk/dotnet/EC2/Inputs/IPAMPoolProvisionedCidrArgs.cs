@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     /// <summary>
     /// An address space to be inserted into this pool. All allocations must be made from this address space.
     /// </summary>
-    public sealed class IPAMPoolProvisionedCidrArgs : Pulumi.ResourceArgs
+    public sealed class IPAMPoolProvisionedCidrArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public IPAMPoolProvisionedCidrArgs()
         {
         }
+        public static new IPAMPoolProvisionedCidrArgs Empty => new IPAMPoolProvisionedCidrArgs();
     }
 }

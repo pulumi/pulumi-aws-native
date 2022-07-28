@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetDataQualityJobDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetDataQualityJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetDataQualityJobDefinitionArgs()
         {
         }
+        public static new GetDataQualityJobDefinitionArgs Empty => new GetDataQualityJobDefinitionArgs();
     }
 
-    public sealed class GetDataQualityJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataQualityJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetDataQualityJobDefinitionInvokeArgs()
         {
         }
+        public static new GetDataQualityJobDefinitionInvokeArgs Empty => new GetDataQualityJobDefinitionInvokeArgs();
     }
 
 

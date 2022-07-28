@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Redshift
     /// </summary>
     [Obsolete(@"ClusterSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:redshift:ClusterSecurityGroup")]
-    public partial class ClusterSecurityGroup : Pulumi.CustomResource
+    public partial class ClusterSecurityGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class ClusterSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Redshift
         public ClusterSecurityGroupArgs()
         {
         }
+        public static new ClusterSecurityGroupArgs Empty => new ClusterSecurityGroupArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SES
     }
 
 
-    public sealed class GetTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SES
         public GetTemplateArgs()
         {
         }
+        public static new GetTemplateArgs Empty => new GetTemplateArgs();
     }
 
-    public sealed class GetTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SES
         public GetTemplateInvokeArgs()
         {
         }
+        public static new GetTemplateInvokeArgs Empty => new GetTemplateInvokeArgs();
     }
 
 

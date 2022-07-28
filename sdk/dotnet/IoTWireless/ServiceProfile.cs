@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:ServiceProfile")]
-    public partial class ServiceProfile : Pulumi.CustomResource
+    public partial class ServiceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Service profile Arn. Returned after successful create.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class ServiceProfileArgs : Pulumi.ResourceArgs
+    public sealed class ServiceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public ServiceProfileArgs()
         {
         }
+        public static new ServiceProfileArgs Empty => new ServiceProfileArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm.Inputs
 {
 
-    public sealed class VPCEConfigurationTagArgs : Pulumi.ResourceArgs
+    public sealed class VPCEConfigurationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
         public VPCEConfigurationTagArgs()
         {
         }
+        public static new VPCEConfigurationTagArgs Empty => new VPCEConfigurationTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class ThemeFontArgs : Pulumi.ResourceArgs
+    public sealed class ThemeFontArgs : global::Pulumi.ResourceArgs
     {
         [Input("fontFamily")]
         public Input<string>? FontFamily { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeFontArgs()
         {
         }
+        public static new ThemeFontArgs Empty => new ThemeFontArgs();
     }
 }

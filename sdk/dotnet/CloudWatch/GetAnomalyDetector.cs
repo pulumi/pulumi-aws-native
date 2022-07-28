@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetAnomalyDetectorArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyDetectorArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetAnomalyDetectorArgs()
         {
         }
+        public static new GetAnomalyDetectorArgs Empty => new GetAnomalyDetectorArgs();
     }
 
-    public sealed class GetAnomalyDetectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetAnomalyDetectorInvokeArgs()
         {
         }
+        public static new GetAnomalyDetectorInvokeArgs Empty => new GetAnomalyDetectorInvokeArgs();
     }
 
 

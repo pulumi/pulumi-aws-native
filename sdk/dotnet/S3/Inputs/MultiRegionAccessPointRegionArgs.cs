@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class MultiRegionAccessPointRegionArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointRegionArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public MultiRegionAccessPointRegionArgs()
         {
         }
+        public static new MultiRegionAccessPointRegionArgs Empty => new MultiRegionAccessPointRegionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaConvert
     /// </summary>
     [Obsolete(@"JobTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:mediaconvert:JobTemplate")]
-    public partial class JobTemplate : Pulumi.CustomResource
+    public partial class JobTemplate : global::Pulumi.CustomResource
     {
         [Output("accelerationSettings")]
         public Output<Outputs.JobTemplateAccelerationSettings?> AccelerationSettings { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.MediaConvert
         }
     }
 
-    public sealed class JobTemplateArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("accelerationSettings")]
         public Input<Inputs.JobTemplateAccelerationSettingsArgs>? AccelerationSettings { get; set; }
@@ -132,5 +132,6 @@ namespace Pulumi.AwsNative.MediaConvert
         public JobTemplateArgs()
         {
         }
+        public static new JobTemplateArgs Empty => new JobTemplateArgs();
     }
 }

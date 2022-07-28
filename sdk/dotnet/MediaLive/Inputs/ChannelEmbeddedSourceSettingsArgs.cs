@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelEmbeddedSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelEmbeddedSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("convert608To708")]
         public Input<string>? Convert608To708 { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelEmbeddedSourceSettingsArgs()
         {
         }
+        public static new ChannelEmbeddedSourceSettingsArgs Empty => new ChannelEmbeddedSourceSettingsArgs();
     }
 }

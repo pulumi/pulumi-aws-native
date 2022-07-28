@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class DocumentRequiresArgs : Pulumi.ResourceArgs
+    public sealed class DocumentRequiresArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public DocumentRequiresArgs()
         {
         }
+        public static new DocumentRequiresArgs Empty => new DocumentRequiresArgs();
     }
 }

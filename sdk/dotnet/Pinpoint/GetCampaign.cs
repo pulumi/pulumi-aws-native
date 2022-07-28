@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetCampaignArgs : Pulumi.InvokeArgs
+    public sealed class GetCampaignArgs : global::Pulumi.InvokeArgs
     {
         [Input("campaignId", required: true)]
         public string CampaignId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetCampaignArgs()
         {
         }
+        public static new GetCampaignArgs Empty => new GetCampaignArgs();
     }
 
-    public sealed class GetCampaignInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCampaignInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("campaignId", required: true)]
         public Input<string> CampaignId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetCampaignInvokeArgs()
         {
         }
+        public static new GetCampaignInvokeArgs Empty => new GetCampaignInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// <summary>
     /// BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
     /// </summary>
-    public sealed class LaunchConfigurationBlockDeviceArgs : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the volume is deleted on instance termination. 
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public LaunchConfigurationBlockDeviceArgs()
         {
         }
+        public static new LaunchConfigurationBlockDeviceArgs Empty => new LaunchConfigurationBlockDeviceArgs();
     }
 }

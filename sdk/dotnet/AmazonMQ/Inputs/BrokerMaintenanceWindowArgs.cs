@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerMaintenanceWindowArgs : Pulumi.ResourceArgs
+    public sealed class BrokerMaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerMaintenanceWindowArgs()
         {
         }
+        public static new BrokerMaintenanceWindowArgs Empty => new BrokerMaintenanceWindowArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// <summary>
     /// Specifies settings for the canary deployment in this stage.
     /// </summary>
-    public sealed class StageCanarySettingArgs : Pulumi.ResourceArgs
+    public sealed class StageCanarySettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the deployment that the stage points to.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public StageCanarySettingArgs()
         {
         }
+        public static new StageCanarySettingArgs Empty => new StageCanarySettingArgs();
     }
 }

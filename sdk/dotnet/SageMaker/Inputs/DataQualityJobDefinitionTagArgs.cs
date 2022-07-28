@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class DataQualityJobDefinitionTagArgs : Pulumi.ResourceArgs
+    public sealed class DataQualityJobDefinitionTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DataQualityJobDefinitionTagArgs()
         {
         }
+        public static new DataQualityJobDefinitionTagArgs Empty => new DataQualityJobDefinitionTagArgs();
     }
 }

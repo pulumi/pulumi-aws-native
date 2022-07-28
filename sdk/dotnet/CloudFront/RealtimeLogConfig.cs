@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:RealtimeLogConfig")]
-    public partial class RealtimeLogConfig : Pulumi.CustomResource
+    public partial class RealtimeLogConfig : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class RealtimeLogConfigArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("endPoints", required: true)]
         private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _endPoints;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.CloudFront
         public RealtimeLogConfigArgs()
         {
         }
+        public static new RealtimeLogConfigArgs Empty => new RealtimeLogConfigArgs();
     }
 }

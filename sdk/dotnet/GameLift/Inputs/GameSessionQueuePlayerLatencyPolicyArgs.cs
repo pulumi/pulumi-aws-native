@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class GameSessionQueuePlayerLatencyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueuePlayerLatencyPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("maximumIndividualPlayerLatencyMilliseconds")]
         public Input<int>? MaximumIndividualPlayerLatencyMilliseconds { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameSessionQueuePlayerLatencyPolicyArgs()
         {
         }
+        public static new GameSessionQueuePlayerLatencyPolicyArgs Empty => new GameSessionQueuePlayerLatencyPolicyArgs();
     }
 }

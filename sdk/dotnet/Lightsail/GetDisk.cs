@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetDiskArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The names to use for your new Lightsail disk.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetDiskArgs()
         {
         }
+        public static new GetDiskArgs Empty => new GetDiskArgs();
     }
 
-    public sealed class GetDiskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The names to use for your new Lightsail disk.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetDiskInvokeArgs()
         {
         }
+        public static new GetDiskInvokeArgs Empty => new GetDiskInvokeArgs();
     }
 
 

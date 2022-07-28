@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class FeatureGroupS3StorageConfigArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupS3StorageConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public FeatureGroupS3StorageConfigArgs()
         {
         }
+        public static new FeatureGroupS3StorageConfigArgs Empty => new FeatureGroupS3StorageConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelNielsenCBETArgs : Pulumi.ResourceArgs
+    public sealed class ChannelNielsenCBETArgs : global::Pulumi.ResourceArgs
     {
         [Input("cbetCheckDigitString")]
         public Input<string>? CbetCheckDigitString { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelNielsenCBETArgs()
         {
         }
+        public static new ChannelNielsenCBETArgs Empty => new ChannelNielsenCBETArgs();
     }
 }

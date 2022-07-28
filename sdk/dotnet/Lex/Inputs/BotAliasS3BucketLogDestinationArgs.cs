@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Specifies an Amazon S3 bucket for logging audio conversations
     /// </summary>
-    public sealed class BotAliasS3BucketLogDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasS3BucketLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasS3BucketLogDestinationArgs()
         {
         }
+        public static new BotAliasS3BucketLogDestinationArgs Empty => new BotAliasS3BucketLogDestinationArgs();
     }
 }

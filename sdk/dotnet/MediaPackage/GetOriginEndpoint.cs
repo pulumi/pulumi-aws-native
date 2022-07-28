@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
 
-    public sealed class GetOriginEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the OriginEndpoint.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetOriginEndpointArgs()
         {
         }
+        public static new GetOriginEndpointArgs Empty => new GetOriginEndpointArgs();
     }
 
-    public sealed class GetOriginEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the OriginEndpoint.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetOriginEndpointInvokeArgs()
         {
         }
+        public static new GetOriginEndpointInvokeArgs Empty => new GetOriginEndpointInvokeArgs();
     }
 
 

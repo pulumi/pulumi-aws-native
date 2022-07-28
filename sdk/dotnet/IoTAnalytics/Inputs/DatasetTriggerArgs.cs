@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetTriggerArgs : Pulumi.ResourceArgs
+    public sealed class DatasetTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("schedule")]
         public Input<Inputs.DatasetScheduleArgs>? Schedule { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetTriggerArgs()
         {
         }
+        public static new DatasetTriggerArgs Empty => new DatasetTriggerArgs();
     }
 }

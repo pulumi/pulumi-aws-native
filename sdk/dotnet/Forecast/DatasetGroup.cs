@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Forecast
     /// Represents a dataset group that holds a collection of related datasets
     /// </summary>
     [AwsNativeResourceType("aws-native:forecast:DatasetGroup")]
-    public partial class DatasetGroup : Pulumi.CustomResource
+    public partial class DatasetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Forecast
         }
     }
 
-    public sealed class DatasetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DatasetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("datasetArns")]
         private InputList<string>? _datasetArns;
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Forecast
         public DatasetGroupArgs()
         {
         }
+        public static new DatasetGroupArgs Empty => new DatasetGroupArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
     /// </summary>
-    public sealed class AlarmModelAssetPropertyTimestampArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAssetPropertyTimestampArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAssetPropertyTimestampArgs()
         {
         }
+        public static new AlarmModelAssetPropertyTimestampArgs Empty => new AlarmModelAssetPropertyTimestampArgs();
     }
 }

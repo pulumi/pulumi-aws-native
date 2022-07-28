@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class AnomalyDetectorRangeArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorRangeArgs : global::Pulumi.ResourceArgs
     {
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public AnomalyDetectorRangeArgs()
         {
         }
+        public static new AnomalyDetectorRangeArgs Empty => new AnomalyDetectorRangeArgs();
     }
 }

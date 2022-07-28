@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// </summary>
     [Obsolete(@"ApiGatewayManagedOverrides is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:ApiGatewayManagedOverrides")]
-    public partial class ApiGatewayManagedOverrides : Pulumi.CustomResource
+    public partial class ApiGatewayManagedOverrides : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class ApiGatewayManagedOverridesArgs : Pulumi.ResourceArgs
+    public sealed class ApiGatewayManagedOverridesArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public ApiGatewayManagedOverridesArgs()
         {
         }
+        public static new ApiGatewayManagedOverridesArgs Empty => new ApiGatewayManagedOverridesArgs();
     }
 }

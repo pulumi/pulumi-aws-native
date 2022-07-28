@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:EIPAssociation")]
-    public partial class EIPAssociation : Pulumi.CustomResource
+    public partial class EIPAssociation : global::Pulumi.CustomResource
     {
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class EIPAssociationArgs : Pulumi.ResourceArgs
+    public sealed class EIPAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.EC2
         public EIPAssociationArgs()
         {
         }
+        public static new EIPAssociationArgs Empty => new EIPAssociationArgs();
     }
 }

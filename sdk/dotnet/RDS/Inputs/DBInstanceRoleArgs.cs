@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBInstanceRoleArgs : Pulumi.ResourceArgs
+    public sealed class DBInstanceRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("featureName", required: true)]
         public Input<string> FeatureName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBInstanceRoleArgs()
         {
         }
+        public static new DBInstanceRoleArgs Empty => new DBInstanceRoleArgs();
     }
 }

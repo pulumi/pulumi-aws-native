@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
 {
 
-    public sealed class ComponentVariantArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVariantArgs : global::Pulumi.ResourceArgs
     {
         [Input("overrides")]
         public Input<Inputs.ComponentOverridesArgs>? Overrides { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
         public ComponentVariantArgs()
         {
         }
+        public static new ComponentVariantArgs Empty => new ComponentVariantArgs();
     }
 }

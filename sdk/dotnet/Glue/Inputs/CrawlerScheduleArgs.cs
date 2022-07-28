@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerScheduleArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerScheduleArgs()
         {
         }
+        public static new CrawlerScheduleArgs Empty => new CrawlerScheduleArgs();
     }
 }

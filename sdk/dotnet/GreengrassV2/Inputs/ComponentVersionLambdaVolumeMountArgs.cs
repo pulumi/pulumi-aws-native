@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaVolumeMountArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaVolumeMountArgs : global::Pulumi.ResourceArgs
     {
         [Input("addGroupOwner")]
         public Input<bool>? AddGroupOwner { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaVolumeMountArgs()
         {
         }
+        public static new ComponentVersionLambdaVolumeMountArgs Empty => new ComponentVersionLambdaVolumeMountArgs();
     }
 }

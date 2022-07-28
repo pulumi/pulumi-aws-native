@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
     /// </summary>
-    public sealed class LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// What AWS WAF should do if it fails to completely parse the JSON body.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs()
         {
         }
+        public static new LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs Empty => new LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs();
     }
 }

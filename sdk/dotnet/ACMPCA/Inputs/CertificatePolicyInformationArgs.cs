@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 Policy information.
     /// </summary>
-    public sealed class CertificatePolicyInformationArgs : Pulumi.ResourceArgs
+    public sealed class CertificatePolicyInformationArgs : global::Pulumi.ResourceArgs
     {
         [Input("certPolicyId", required: true)]
         public Input<string> CertPolicyId { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificatePolicyInformationArgs()
         {
         }
+        public static new CertificatePolicyInformationArgs Empty => new CertificatePolicyInformationArgs();
     }
 }

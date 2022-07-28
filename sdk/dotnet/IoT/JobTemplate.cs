@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:JobTemplate")]
-    public partial class JobTemplate : Pulumi.CustomResource
+    public partial class JobTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The criteria that determine when and how a job abort takes place.
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class JobTemplateArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The criteria that determine when and how a job abort takes place.
@@ -192,5 +192,6 @@ namespace Pulumi.AwsNative.IoT
         public JobTemplateArgs()
         {
         }
+        public static new JobTemplateArgs Empty => new JobTemplateArgs();
     }
 }

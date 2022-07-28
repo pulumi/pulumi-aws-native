@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceLoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceLoadBalancerArgs()
         {
         }
+        public static new ServiceLoadBalancerArgs Empty => new ServiceLoadBalancerArgs();
     }
 }

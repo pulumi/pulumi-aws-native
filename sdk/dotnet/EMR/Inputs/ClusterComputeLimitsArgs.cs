@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterComputeLimitsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterComputeLimitsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maximumCapacityUnits", required: true)]
         public Input<int> MaximumCapacityUnits { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterComputeLimitsArgs()
         {
         }
+        public static new ClusterComputeLimitsArgs Empty => new ClusterComputeLimitsArgs();
     }
 }

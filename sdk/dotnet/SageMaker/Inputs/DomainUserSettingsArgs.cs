@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
     /// </summary>
-    public sealed class DomainUserSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainUserSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainUserSettingsArgs()
         {
         }
+        public static new DomainUserSettingsArgs Empty => new DomainUserSettingsArgs();
     }
 }

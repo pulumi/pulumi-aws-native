@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class RecipeDataCatalogInputDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class RecipeDataCatalogInputDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Catalog id
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeDataCatalogInputDefinitionArgs()
         {
         }
+        public static new RecipeDataCatalogInputDefinitionArgs Empty => new RecipeDataCatalogInputDefinitionArgs();
     }
 }

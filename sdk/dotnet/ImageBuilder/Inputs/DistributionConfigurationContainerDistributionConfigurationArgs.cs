@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
     /// </summary>
-    public sealed class DistributionConfigurationContainerDistributionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationContainerDistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerTags")]
         private InputList<string>? _containerTags;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationContainerDistributionConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationContainerDistributionConfigurationArgs Empty => new DistributionConfigurationContainerDistributionConfigurationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
 
-    public sealed class GetTableArgs : Pulumi.InvokeArgs
+    public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the database which the table to be created belongs to.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Timestream
         public GetTableArgs()
         {
         }
+        public static new GetTableArgs Empty => new GetTableArgs();
     }
 
-    public sealed class GetTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the database which the table to be created belongs to.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Timestream
         public GetTableInvokeArgs()
         {
         }
+        public static new GetTableInvokeArgs Empty => new GetTableInvokeArgs();
     }
 
 

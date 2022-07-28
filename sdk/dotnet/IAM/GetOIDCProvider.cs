@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetOIDCProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetOIDCProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the OIDC provider
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IAM
         public GetOIDCProviderArgs()
         {
         }
+        public static new GetOIDCProviderArgs Empty => new GetOIDCProviderArgs();
     }
 
-    public sealed class GetOIDCProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOIDCProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the OIDC provider
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IAM
         public GetOIDCProviderInvokeArgs()
         {
         }
+        public static new GetOIDCProviderInvokeArgs Empty => new GetOIDCProviderInvokeArgs();
     }
 
 

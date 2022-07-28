@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetTagOptionAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetTagOptionAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetTagOptionAssociationArgs()
         {
         }
+        public static new GetTagOptionAssociationArgs Empty => new GetTagOptionAssociationArgs();
     }
 
-    public sealed class GetTagOptionAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTagOptionAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetTagOptionAssociationInvokeArgs()
         {
         }
+        public static new GetTagOptionAssociationInvokeArgs Empty => new GetTagOptionAssociationInvokeArgs();
     }
 
 

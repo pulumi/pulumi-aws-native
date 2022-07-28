@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// A CloudWatch alarm to be monitored for the component.
     /// </summary>
-    public sealed class ApplicationAlarmArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CloudWatch alarm to be monitored for the component.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationAlarmArgs()
         {
         }
+        public static new ApplicationAlarmArgs Empty => new ApplicationAlarmArgs();
     }
 }

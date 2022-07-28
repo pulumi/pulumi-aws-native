@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// The bandwidth for the link.
     /// </summary>
-    public sealed class LinkBandwidthArgs : Pulumi.ResourceArgs
+    public sealed class LinkBandwidthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Download speed in Mbps.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public LinkBandwidthArgs()
         {
         }
+        public static new LinkBandwidthArgs Empty => new LinkBandwidthArgs();
     }
 }

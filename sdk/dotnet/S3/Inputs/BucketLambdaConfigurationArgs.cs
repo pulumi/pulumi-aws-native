@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Describes the AWS Lambda functions to invoke and the events for which to invoke them.
     /// </summary>
-    public sealed class BucketLambdaConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketLambdaConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket event for which to invoke the AWS Lambda function.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketLambdaConfigurationArgs()
         {
         }
+        public static new BucketLambdaConfigurationArgs Empty => new BucketLambdaConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
     /// </summary>
-    public sealed class ConfigurationSetDeliveryOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetDeliveryOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dedicated IP pool to associate with the configuration set.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetDeliveryOptionsArgs()
         {
         }
+        public static new ConfigurationSetDeliveryOptionsArgs Empty => new ConfigurationSetDeliveryOptionsArgs();
     }
 }

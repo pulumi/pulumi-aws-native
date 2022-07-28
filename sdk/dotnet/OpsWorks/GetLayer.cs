@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorks
     }
 
 
-    public sealed class GetLayerArgs : Pulumi.InvokeArgs
+    public sealed class GetLayerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetLayerArgs()
         {
         }
+        public static new GetLayerArgs Empty => new GetLayerArgs();
     }
 
-    public sealed class GetLayerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLayerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetLayerInvokeArgs()
         {
         }
+        public static new GetLayerInvokeArgs Empty => new GetLayerInvokeArgs();
     }
 
 

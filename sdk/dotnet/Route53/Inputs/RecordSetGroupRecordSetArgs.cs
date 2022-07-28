@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53.Inputs
 {
 
-    public sealed class RecordSetGroupRecordSetArgs : Pulumi.ResourceArgs
+    public sealed class RecordSetGroupRecordSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliasTarget")]
         public Input<Inputs.RecordSetGroupAliasTargetArgs>? AliasTarget { get; set; }
@@ -62,5 +62,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public RecordSetGroupRecordSetArgs()
         {
         }
+        public static new RecordSetGroupRecordSetArgs Empty => new RecordSetGroupRecordSetArgs();
     }
 }

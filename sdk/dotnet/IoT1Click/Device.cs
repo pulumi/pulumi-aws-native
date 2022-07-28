@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT1Click
     /// </summary>
     [Obsolete(@"Device is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot1click:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT1Click
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
@@ -79,5 +79,6 @@ namespace Pulumi.AwsNative.IoT1Click
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreIotSiteWiseMultiLayerStorageArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreIotSiteWiseMultiLayerStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerManagedS3Storage")]
         public Input<Inputs.DatastoreCustomerManagedS3StorageArgs>? CustomerManagedS3Storage { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatastoreIotSiteWiseMultiLayerStorageArgs()
         {
         }
+        public static new DatastoreIotSiteWiseMultiLayerStorageArgs Empty => new DatastoreIotSiteWiseMultiLayerStorageArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTThingsGraph
     }
 
 
-    public sealed class GetFlowTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         public GetFlowTemplateArgs()
         {
         }
+        public static new GetFlowTemplateArgs Empty => new GetFlowTemplateArgs();
     }
 
-    public sealed class GetFlowTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         public GetFlowTemplateInvokeArgs()
         {
         }
+        public static new GetFlowTemplateInvokeArgs Empty => new GetFlowTemplateInvokeArgs();
     }
 
 

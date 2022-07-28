@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class StackStorageConnectorArgs : Pulumi.ResourceArgs
+    public sealed class StackStorageConnectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public StackStorageConnectorArgs()
         {
         }
+        public static new StackStorageConnectorArgs Empty => new StackStorageConnectorArgs();
     }
 }

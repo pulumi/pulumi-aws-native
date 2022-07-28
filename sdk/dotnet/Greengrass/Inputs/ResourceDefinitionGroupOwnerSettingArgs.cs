@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionGroupOwnerSettingArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionGroupOwnerSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoAddGroupOwner", required: true)]
         public Input<bool> AutoAddGroupOwner { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionGroupOwnerSettingArgs()
         {
         }
+        public static new ResourceDefinitionGroupOwnerSettingArgs Empty => new ResourceDefinitionGroupOwnerSettingArgs();
     }
 }

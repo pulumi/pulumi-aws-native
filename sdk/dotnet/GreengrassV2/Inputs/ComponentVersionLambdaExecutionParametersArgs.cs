@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaExecutionParametersArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaExecutionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("environmentVariables")]
         public Input<object>? EnvironmentVariables { get; set; }
@@ -58,5 +58,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaExecutionParametersArgs()
         {
         }
+        public static new ComponentVersionLambdaExecutionParametersArgs Empty => new ComponentVersionLambdaExecutionParametersArgs();
     }
 }

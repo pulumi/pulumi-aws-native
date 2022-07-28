@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Logs
     /// </summary>
     [Obsolete(@"SubscriptionFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:SubscriptionFilter")]
-    public partial class SubscriptionFilter : Pulumi.CustomResource
+    public partial class SubscriptionFilter : global::Pulumi.CustomResource
     {
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class SubscriptionFilterArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Logs
         public SubscriptionFilterArgs()
         {
         }
+        public static new SubscriptionFilterArgs Empty => new SubscriptionFilterArgs();
     }
 }

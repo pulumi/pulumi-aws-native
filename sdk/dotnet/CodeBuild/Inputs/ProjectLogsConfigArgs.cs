@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectLogsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectLogsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogs")]
         public Input<Inputs.ProjectCloudWatchLogsConfigArgs>? CloudWatchLogs { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectLogsConfigArgs()
         {
         }
+        public static new ProjectLogsConfigArgs Empty => new ProjectLogsConfigArgs();
     }
 }

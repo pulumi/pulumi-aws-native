@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// Resource Type definition for AWS::GlobalAccelerator::Listener
     /// </summary>
     [AwsNativeResourceType("aws-native:globalaccelerator:Listener")]
-    public partial class Listener : Pulumi.CustomResource
+    public partial class Listener : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
     }
 
-    public sealed class ListenerArgs : Pulumi.ResourceArgs
+    public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public ListenerArgs()
         {
         }
+        public static new ListenerArgs Empty => new ListenerArgs();
     }
 }

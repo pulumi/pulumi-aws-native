@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Details about inference jobs that can be run with models based on this model package.
     /// </summary>
-    public sealed class ModelPackageInferenceSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageInferenceSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers", required: true)]
         private InputList<Inputs.ModelPackageContainerDefinitionArgs>? _containers;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageInferenceSpecificationArgs()
         {
         }
+        public static new ModelPackageInferenceSpecificationArgs Empty => new ModelPackageInferenceSpecificationArgs();
     }
 }

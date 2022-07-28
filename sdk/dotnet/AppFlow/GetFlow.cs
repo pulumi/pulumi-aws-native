@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow
     }
 
 
-    public sealed class GetFlowArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the flow.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppFlow
         public GetFlowArgs()
         {
         }
+        public static new GetFlowArgs Empty => new GetFlowArgs();
     }
 
-    public sealed class GetFlowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the flow.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppFlow
         public GetFlowInvokeArgs()
         {
         }
+        public static new GetFlowInvokeArgs Empty => new GetFlowInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class ScalingPolicyPredictiveScalingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPolicyPredictiveScalingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacityBreachBehavior")]
         public Input<string>? MaxCapacityBreachBehavior { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public ScalingPolicyPredictiveScalingConfigurationArgs()
         {
         }
+        public static new ScalingPolicyPredictiveScalingConfigurationArgs Empty => new ScalingPolicyPredictiveScalingConfigurationArgs();
     }
 }

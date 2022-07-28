@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResilienceHub.Inputs
 {
 
-    public sealed class AppTagMapArgs : Pulumi.ResourceArgs
+    public sealed class AppTagMapArgs : global::Pulumi.ResourceArgs
     {
         public AppTagMapArgs()
         {
         }
+        public static new AppTagMapArgs Empty => new AppTagMapArgs();
     }
 }

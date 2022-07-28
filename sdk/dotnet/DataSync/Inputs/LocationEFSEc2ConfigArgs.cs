@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// The subnet and security group that DataSync uses to access target EFS file system.
     /// </summary>
-    public sealed class LocationEFSEc2ConfigArgs : Pulumi.ResourceArgs
+    public sealed class LocationEFSEc2ConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationEFSEc2ConfigArgs()
         {
         }
+        public static new LocationEFSEc2ConfigArgs Empty => new LocationEFSEc2ConfigArgs();
     }
 }

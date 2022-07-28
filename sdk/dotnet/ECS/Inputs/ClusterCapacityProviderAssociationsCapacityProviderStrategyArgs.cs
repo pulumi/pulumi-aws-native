@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs : global::Pulumi.ResourceArgs
     {
         [Input("base")]
         public Input<int>? Base { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs()
         {
         }
+        public static new ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs Empty => new ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs();
     }
 }

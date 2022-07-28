@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A decimal parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class AnalysisDecimalParameterArgs : Pulumi.ResourceArgs
+    public sealed class AnalysisDecimalParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A display name for the decimal parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public AnalysisDecimalParameterArgs()
         {
         }
+        public static new AnalysisDecimalParameterArgs Empty => new AnalysisDecimalParameterArgs();
     }
 }

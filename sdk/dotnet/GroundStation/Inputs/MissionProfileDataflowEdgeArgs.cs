@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class MissionProfileDataflowEdgeArgs : Pulumi.ResourceArgs
+    public sealed class MissionProfileDataflowEdgeArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public MissionProfileDataflowEdgeArgs()
         {
         }
+        public static new MissionProfileDataflowEdgeArgs Empty => new MissionProfileDataflowEdgeArgs();
     }
 }

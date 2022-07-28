@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     /// </summary>
     [Obsolete(@"Configuration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:amazonmq:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AmazonMQ
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.AmazonMQ
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 }

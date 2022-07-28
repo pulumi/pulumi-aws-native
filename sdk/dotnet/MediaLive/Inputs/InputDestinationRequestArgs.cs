@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class InputDestinationRequestArgs : Pulumi.ResourceArgs
+    public sealed class InputDestinationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public InputDestinationRequestArgs()
         {
         }
+        public static new InputDestinationRequestArgs Empty => new InputDestinationRequestArgs();
     }
 }

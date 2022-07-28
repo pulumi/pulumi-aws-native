@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class LoggingConfigurationConditionArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A single action condition.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationConditionArgs()
         {
         }
+        public static new LoggingConfigurationConditionArgs Empty => new LoggingConfigurationConditionArgs();
     }
 }

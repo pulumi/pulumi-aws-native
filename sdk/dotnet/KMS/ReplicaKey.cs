@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KMS
     /// The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
     /// </summary>
     [AwsNativeResourceType("aws-native:kms:ReplicaKey")]
-    public partial class ReplicaKey : Pulumi.CustomResource
+    public partial class ReplicaKey : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.KMS
         }
     }
 
-    public sealed class ReplicaKeyArgs : Pulumi.ResourceArgs
+    public sealed class ReplicaKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.KMS
         public ReplicaKeyArgs()
         {
         }
+        public static new ReplicaKeyArgs Empty => new ReplicaKeyArgs();
     }
 }

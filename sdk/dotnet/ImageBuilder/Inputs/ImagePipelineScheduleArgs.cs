@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The schedule of the image pipeline.
     /// </summary>
-    public sealed class ImagePipelineScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ImagePipelineScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition configures when the pipeline should trigger a new image build.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ImagePipelineScheduleArgs()
         {
         }
+        public static new ImagePipelineScheduleArgs Empty => new ImagePipelineScheduleArgs();
     }
 }

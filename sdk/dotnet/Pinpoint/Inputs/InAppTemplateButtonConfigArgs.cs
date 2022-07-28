@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class InAppTemplateButtonConfigArgs : Pulumi.ResourceArgs
+    public sealed class InAppTemplateButtonConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("android")]
         public Input<Inputs.InAppTemplateOverrideButtonConfigurationArgs>? Android { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public InAppTemplateButtonConfigArgs()
         {
         }
+        public static new InAppTemplateButtonConfigArgs Empty => new InAppTemplateButtonConfigArgs();
     }
 }

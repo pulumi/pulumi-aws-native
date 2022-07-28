@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class MethodIntegrationResponseArgs : Pulumi.ResourceArgs
+    public sealed class MethodIntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how to handle request payload content type conversions.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public MethodIntegrationResponseArgs()
         {
         }
+        public static new MethodIntegrationResponseArgs Empty => new MethodIntegrationResponseArgs();
     }
 }

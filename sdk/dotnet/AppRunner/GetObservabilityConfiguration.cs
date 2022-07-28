@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppRunner
     }
 
 
-    public sealed class GetObservabilityConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetObservabilityConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of this ObservabilityConfiguration
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppRunner
         public GetObservabilityConfigurationArgs()
         {
         }
+        public static new GetObservabilityConfigurationArgs Empty => new GetObservabilityConfigurationArgs();
     }
 
-    public sealed class GetObservabilityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetObservabilityConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of this ObservabilityConfiguration
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppRunner
         public GetObservabilityConfigurationInvokeArgs()
         {
         }
+        public static new GetObservabilityConfigurationInvokeArgs Empty => new GetObservabilityConfigurationInvokeArgs();
     }
 
 

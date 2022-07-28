@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts.Inputs
 {
 
-    public sealed class AccessPointVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public AccessPointVpcConfigurationArgs()
         {
         }
+        public static new AccessPointVpcConfigurationArgs Empty => new AccessPointVpcConfigurationArgs();
     }
 }

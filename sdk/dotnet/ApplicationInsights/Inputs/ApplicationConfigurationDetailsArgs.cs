@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The configuration settings.
     /// </summary>
-    public sealed class ApplicationConfigurationDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationConfigurationDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmMetrics")]
         private InputList<Inputs.ApplicationAlarmMetricArgs>? _alarmMetrics;
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationConfigurationDetailsArgs()
         {
         }
+        public static new ApplicationConfigurationDetailsArgs Empty => new ApplicationConfigurationDetailsArgs();
     }
 }

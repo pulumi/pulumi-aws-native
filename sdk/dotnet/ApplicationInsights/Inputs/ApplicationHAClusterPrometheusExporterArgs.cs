@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The HA cluster Prometheus Exporter settings.
     /// </summary>
-    public sealed class ApplicationHAClusterPrometheusExporterArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationHAClusterPrometheusExporterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Prometheus exporter port.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationHAClusterPrometheusExporterArgs()
         {
         }
+        public static new ApplicationHAClusterPrometheusExporterArgs Empty => new ApplicationHAClusterPrometheusExporterArgs();
     }
 }

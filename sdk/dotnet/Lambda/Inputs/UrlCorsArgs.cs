@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class UrlCorsArgs : Pulumi.ResourceArgs
+    public sealed class UrlCorsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether credentials are included in the CORS request.
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public UrlCorsArgs()
         {
         }
+        public static new UrlCorsArgs Empty => new UrlCorsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     }
 
 
-    public sealed class GetCellArgs : Pulumi.InvokeArgs
+    public sealed class GetCellArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cell to create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetCellArgs()
         {
         }
+        public static new GetCellArgs Empty => new GetCellArgs();
     }
 
-    public sealed class GetCellInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCellInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cell to create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetCellInvokeArgs()
         {
         }
+        public static new GetCellInvokeArgs Empty => new GetCellInvokeArgs();
     }
 
 

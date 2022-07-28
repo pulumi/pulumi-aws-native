@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyCookiesConfigArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyCookiesConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cookieBehavior", required: true)]
         public Input<string> CookieBehavior { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public CachePolicyCookiesConfigArgs()
         {
         }
+        public static new CachePolicyCookiesConfigArgs Empty => new CachePolicyCookiesConfigArgs();
     }
 }

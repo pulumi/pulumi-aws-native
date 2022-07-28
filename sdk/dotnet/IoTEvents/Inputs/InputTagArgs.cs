@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Tags to be applied to Input.
     /// </summary>
-    public sealed class InputTagArgs : Pulumi.ResourceArgs
+    public sealed class InputTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key of the Tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public InputTagArgs()
         {
         }
+        public static new InputTagArgs Empty => new InputTagArgs();
     }
 }

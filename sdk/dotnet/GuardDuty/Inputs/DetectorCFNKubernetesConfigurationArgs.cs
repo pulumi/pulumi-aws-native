@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty.Inputs
 {
 
-    public sealed class DetectorCFNKubernetesConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DetectorCFNKubernetesConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("auditLogs")]
         public Input<Inputs.DetectorCFNKubernetesAuditLogsConfigurationArgs>? AuditLogs { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         public DetectorCFNKubernetesConfigurationArgs()
         {
         }
+        public static new DetectorCFNKubernetesConfigurationArgs Empty => new DetectorCFNKubernetesConfigurationArgs();
     }
 }

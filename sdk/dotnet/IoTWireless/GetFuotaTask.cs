@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetFuotaTaskArgs : Pulumi.InvokeArgs
+    public sealed class GetFuotaTaskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// FUOTA task id. Returned after successful create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetFuotaTaskArgs()
         {
         }
+        public static new GetFuotaTaskArgs Empty => new GetFuotaTaskArgs();
     }
 
-    public sealed class GetFuotaTaskInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFuotaTaskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// FUOTA task id. Returned after successful create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetFuotaTaskInvokeArgs()
         {
         }
+        public static new GetFuotaTaskInvokeArgs Empty => new GetFuotaTaskInvokeArgs();
     }
 
 

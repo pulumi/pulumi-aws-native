@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMotionGraphicsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMotionGraphicsSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("htmlMotionGraphicsSettings")]
         public Input<Inputs.ChannelHtmlMotionGraphicsSettingsArgs>? HtmlMotionGraphicsSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMotionGraphicsSettingsArgs()
         {
         }
+        public static new ChannelMotionGraphicsSettingsArgs Empty => new ChannelMotionGraphicsSettingsArgs();
     }
 }

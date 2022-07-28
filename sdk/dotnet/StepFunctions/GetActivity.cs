@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.StepFunctions
     }
 
 
-    public sealed class GetActivityArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.StepFunctions
         public GetActivityArgs()
         {
         }
+        public static new GetActivityArgs Empty => new GetActivityArgs();
     }
 
-    public sealed class GetActivityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetActivityInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public GetActivityInvokeArgs()
         {
         }
+        public static new GetActivityInvokeArgs Empty => new GetActivityInvokeArgs();
     }
 
 

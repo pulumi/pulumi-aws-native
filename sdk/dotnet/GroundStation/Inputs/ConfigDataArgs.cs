@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigDataArgs : Pulumi.ResourceArgs
+    public sealed class ConfigDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("antennaDownlinkConfig")]
         public Input<Inputs.ConfigAntennaDownlinkConfigArgs>? AntennaDownlinkConfig { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigDataArgs()
         {
         }
+        public static new ConfigDataArgs Empty => new ConfigDataArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterMetricDimensionArgs : Pulumi.ResourceArgs
+    public sealed class ClusterMetricDimensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterMetricDimensionArgs()
         {
         }
+        public static new ClusterMetricDimensionArgs Empty => new ClusterMetricDimensionArgs();
     }
 }

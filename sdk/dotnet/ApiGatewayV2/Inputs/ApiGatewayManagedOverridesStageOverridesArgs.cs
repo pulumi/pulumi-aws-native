@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiGatewayManagedOverridesStageOverridesArgs : Pulumi.ResourceArgs
+    public sealed class ApiGatewayManagedOverridesStageOverridesArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLogSettings")]
         public Input<Inputs.ApiGatewayManagedOverridesAccessLogSettingsArgs>? AccessLogSettings { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public ApiGatewayManagedOverridesStageOverridesArgs()
         {
         }
+        public static new ApiGatewayManagedOverridesStageOverridesArgs Empty => new ApiGatewayManagedOverridesStageOverridesArgs();
     }
 }

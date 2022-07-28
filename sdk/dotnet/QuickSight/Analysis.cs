@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::Analysis Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Analysis")]
-    public partial class Analysis : Pulumi.CustomResource
+    public partial class Analysis : global::Pulumi.CustomResource
     {
         [Output("analysisId")]
         public Output<string> AnalysisId { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class AnalysisArgs : Pulumi.ResourceArgs
+    public sealed class AnalysisArgs : global::Pulumi.ResourceArgs
     {
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
@@ -210,5 +210,6 @@ namespace Pulumi.AwsNative.QuickSight
         public AnalysisArgs()
         {
         }
+        public static new AnalysisArgs Empty => new AnalysisArgs();
     }
 }

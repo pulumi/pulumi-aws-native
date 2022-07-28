@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketAnalyticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketAnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID that identifies the analytics configuration.
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketAnalyticsConfigurationArgs()
         {
         }
+        public static new BucketAnalyticsConfigurationArgs Empty => new BucketAnalyticsConfigurationArgs();
     }
 }

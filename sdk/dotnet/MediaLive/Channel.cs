@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaLive
     /// </summary>
     [Obsolete(@"Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:medialive:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.MediaLive
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("cdiInputSpecification")]
         public Input<Inputs.ChannelCdiInputSpecificationArgs>? CdiInputSpecification { get; set; }
@@ -146,5 +146,6 @@ namespace Pulumi.AwsNative.MediaLive
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

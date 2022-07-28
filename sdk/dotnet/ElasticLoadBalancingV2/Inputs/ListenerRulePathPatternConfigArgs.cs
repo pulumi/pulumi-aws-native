@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRulePathPatternConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRulePathPatternConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("values")]
         private InputList<string>? _values;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRulePathPatternConfigArgs()
         {
         }
+        public static new ListenerRulePathPatternConfigArgs Empty => new ListenerRulePathPatternConfigArgs();
     }
 }

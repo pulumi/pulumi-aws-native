@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     /// <summary>
     /// This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
     /// </summary>
-    public sealed class MetricStreamStatisticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamStatisticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalStatistics", required: true)]
         private InputList<string>? _additionalStatistics;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public MetricStreamStatisticsConfigurationArgs()
         {
         }
+        public static new MetricStreamStatisticsConfigurationArgs Empty => new MetricStreamStatisticsConfigurationArgs();
     }
 }

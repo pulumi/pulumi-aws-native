@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class RegistryTagArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A key to identify the tag.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public RegistryTagArgs()
         {
         }
+        public static new RegistryTagArgs Empty => new RegistryTagArgs();
     }
 }

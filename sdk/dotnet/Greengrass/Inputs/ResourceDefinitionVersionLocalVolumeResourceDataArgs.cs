@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionVersionLocalVolumeResourceDataArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionVersionLocalVolumeResourceDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationPath", required: true)]
         public Input<string> DestinationPath { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionVersionLocalVolumeResourceDataArgs()
         {
         }
+        public static new ResourceDefinitionVersionLocalVolumeResourceDataArgs Empty => new ResourceDefinitionVersionLocalVolumeResourceDataArgs();
     }
 }

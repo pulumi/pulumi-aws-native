@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetDocumentationVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentationVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The version identifier of the API documentation snapshot.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDocumentationVersionArgs()
         {
         }
+        public static new GetDocumentationVersionArgs Empty => new GetDocumentationVersionArgs();
     }
 
-    public sealed class GetDocumentationVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The version identifier of the API documentation snapshot.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDocumentationVersionInvokeArgs()
         {
         }
+        public static new GetDocumentationVersionInvokeArgs Empty => new GetDocumentationVersionInvokeArgs();
     }
 
 

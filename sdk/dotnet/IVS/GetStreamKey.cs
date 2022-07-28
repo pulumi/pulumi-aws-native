@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IVS
     }
 
 
-    public sealed class GetStreamKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IVS
         public GetStreamKeyArgs()
         {
         }
+        public static new GetStreamKeyArgs Empty => new GetStreamKeyArgs();
     }
 
-    public sealed class GetStreamKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IVS
         public GetStreamKeyInvokeArgs()
         {
         }
+        public static new GetStreamKeyInvokeArgs Empty => new GetStreamKeyInvokeArgs();
     }
 
 

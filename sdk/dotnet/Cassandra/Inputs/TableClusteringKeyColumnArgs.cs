@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
-    public sealed class TableClusteringKeyColumnArgs : Pulumi.ResourceArgs
+    public sealed class TableClusteringKeyColumnArgs : global::Pulumi.ResourceArgs
     {
         [Input("column", required: true)]
         public Input<Inputs.TableColumnArgs> Column { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableClusteringKeyColumnArgs()
         {
         }
+        public static new TableClusteringKeyColumnArgs Empty => new TableClusteringKeyColumnArgs();
     }
 }

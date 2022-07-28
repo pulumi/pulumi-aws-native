@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignScheduleArgs : Pulumi.ResourceArgs
+    public sealed class CampaignScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignScheduleArgs()
         {
         }
+        public static new CampaignScheduleArgs Empty => new CampaignScheduleArgs();
     }
 }

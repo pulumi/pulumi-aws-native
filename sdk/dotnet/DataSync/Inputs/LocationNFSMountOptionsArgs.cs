@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// The NFS mount options that DataSync can use to mount your NFS share.
     /// </summary>
-    public sealed class LocationNFSMountOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LocationNFSMountOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationNFSMountOptionsArgs()
         {
         }
+        public static new LocationNFSMountOptionsArgs Empty => new LocationNFSMountOptionsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeStarNotifications.Inputs
 {
 
-    public sealed class NotificationRuleTargetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetAddress", required: true)]
         public Input<string> TargetAddress { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeStarNotifications.Inputs
         public NotificationRuleTargetArgs()
         {
         }
+        public static new NotificationRuleTargetArgs Empty => new NotificationRuleTargetArgs();
     }
 }

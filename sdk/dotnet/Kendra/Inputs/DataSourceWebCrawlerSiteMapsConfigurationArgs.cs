@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceWebCrawlerSiteMapsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWebCrawlerSiteMapsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("siteMaps", required: true)]
         private InputList<string>? _siteMaps;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceWebCrawlerSiteMapsConfigurationArgs()
         {
         }
+        public static new DataSourceWebCrawlerSiteMapsConfigurationArgs Empty => new DataSourceWebCrawlerSiteMapsConfigurationArgs();
     }
 }

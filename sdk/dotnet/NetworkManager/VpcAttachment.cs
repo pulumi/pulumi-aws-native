@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// </summary>
     [Obsolete(@"VpcAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:VpcAttachment")]
-    public partial class VpcAttachment : Pulumi.CustomResource
+    public partial class VpcAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Id of the attachment.
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class VpcAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a core network for the VPC attachment.
@@ -208,5 +208,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public VpcAttachmentArgs()
         {
         }
+        public static new VpcAttachmentArgs Empty => new VpcAttachmentArgs();
     }
 }

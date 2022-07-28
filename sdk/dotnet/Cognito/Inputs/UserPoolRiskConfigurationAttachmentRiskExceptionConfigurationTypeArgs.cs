@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockedIPRangeList")]
         private InputList<string>? _blockedIPRangeList;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs()
         {
         }
+        public static new UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs Empty => new UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs();
     }
 }

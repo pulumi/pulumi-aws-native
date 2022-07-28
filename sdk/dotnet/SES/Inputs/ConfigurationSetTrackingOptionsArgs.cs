@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that defines the open and click tracking options for emails that you send using the configuration set.
     /// </summary>
-    public sealed class ConfigurationSetTrackingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetTrackingOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain to use for tracking open and click events.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetTrackingOptionsArgs()
         {
         }
+        public static new ConfigurationSetTrackingOptionsArgs Empty => new ConfigurationSetTrackingOptionsArgs();
     }
 }

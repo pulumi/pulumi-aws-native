@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KafkaConnect
     }
 
 
-    public sealed class GetConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name for the created Connector.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.KafkaConnect
         public GetConnectorArgs()
         {
         }
+        public static new GetConnectorArgs Empty => new GetConnectorArgs();
     }
 
-    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name for the created Connector.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public GetConnectorInvokeArgs()
         {
         }
+        public static new GetConnectorInvokeArgs Empty => new GetConnectorInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream
     /// The AWS::Timestream::Database resource creates a Timestream database.
     /// </summary>
     [AwsNativeResourceType("aws-native:timestream:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Timestream
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.Timestream
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 }

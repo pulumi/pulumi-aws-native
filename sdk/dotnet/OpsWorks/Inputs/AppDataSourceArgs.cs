@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class AppDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class AppDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public AppDataSourceArgs()
         {
         }
+        public static new AppDataSourceArgs Empty => new AppDataSourceArgs();
     }
 }

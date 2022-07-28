@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// HDFS Name Node IP and port information.
     /// </summary>
-    public sealed class LocationHDFSNameNodeArgs : Pulumi.ResourceArgs
+    public sealed class LocationHDFSNameNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationHDFSNameNodeArgs()
         {
         }
+        public static new LocationHDFSNameNodeArgs Empty => new LocationHDFSNameNodeArgs();
     }
 }

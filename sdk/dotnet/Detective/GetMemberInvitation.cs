@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Detective
     }
 
 
-    public sealed class GetMemberInvitationArgs : Pulumi.InvokeArgs
+    public sealed class GetMemberInvitationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the graph to which the member account will be invited
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Detective
         public GetMemberInvitationArgs()
         {
         }
+        public static new GetMemberInvitationArgs Empty => new GetMemberInvitationArgs();
     }
 
-    public sealed class GetMemberInvitationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMemberInvitationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the graph to which the member account will be invited
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Detective
         public GetMemberInvitationInvokeArgs()
         {
         }
+        public static new GetMemberInvitationInvokeArgs Empty => new GetMemberInvitationInvokeArgs();
     }
 
 

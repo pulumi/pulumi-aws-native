@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMRServerless.Inputs
 {
 
-    public sealed class ApplicationWorkerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationWorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationWorkerConfigurationArgs()
         {
         }
+        public static new ApplicationWorkerConfigurationArgs Empty => new ApplicationWorkerConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Specifies whether to get notified for alarm state changes.
     /// </summary>
-    public sealed class AlarmModelAcknowledgeFlowArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAcknowledgeFlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAcknowledgeFlowArgs()
         {
         }
+        public static new AlarmModelAcknowledgeFlowArgs Empty => new AlarmModelAcknowledgeFlowArgs();
     }
 }

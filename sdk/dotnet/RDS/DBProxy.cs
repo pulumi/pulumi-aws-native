@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// Resource schema for AWS::RDS::DBProxy
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBProxy")]
-    public partial class DBProxy : Pulumi.CustomResource
+    public partial class DBProxy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The authorization mechanism that the proxy uses.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBProxyArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth", required: true)]
         private InputList<Inputs.DBProxyAuthFormatArgs>? _auth;
@@ -219,5 +219,6 @@ namespace Pulumi.AwsNative.RDS
         public DBProxyArgs()
         {
         }
+        public static new DBProxyArgs Empty => new DBProxyArgs();
     }
 }

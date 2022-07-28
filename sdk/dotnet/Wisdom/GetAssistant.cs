@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Wisdom
     }
 
 
-    public sealed class GetAssistantArgs : Pulumi.InvokeArgs
+    public sealed class GetAssistantArgs : global::Pulumi.InvokeArgs
     {
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Wisdom
         public GetAssistantArgs()
         {
         }
+        public static new GetAssistantArgs Empty => new GetAssistantArgs();
     }
 
-    public sealed class GetAssistantInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssistantInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Wisdom
         public GetAssistantInvokeArgs()
         {
         }
+        public static new GetAssistantInvokeArgs Empty => new GetAssistantInvokeArgs();
     }
 
 

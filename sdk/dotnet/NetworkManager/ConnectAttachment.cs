@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// </summary>
     [Obsolete(@"ConnectAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:ConnectAttachment")]
-    public partial class ConnectAttachment : Pulumi.CustomResource
+    public partial class ConnectAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the attachment.
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class ConnectAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ConnectAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the CoreNetwork that the attachment will be attached to.
@@ -196,5 +196,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public ConnectAttachmentArgs()
         {
         }
+        public static new ConnectAttachmentArgs Empty => new ConnectAttachmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Creates a fleet provisioning template.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:ProvisioningTemplate")]
-    public partial class ProvisioningTemplate : Pulumi.CustomResource
+    public partial class ProvisioningTemplate : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class ProvisioningTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ProvisioningTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.IoT
         public ProvisioningTemplateArgs()
         {
         }
+        public static new ProvisioningTemplateArgs Empty => new ProvisioningTemplateArgs();
     }
 }

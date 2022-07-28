@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetPartitionArgs : Pulumi.InvokeArgs
+    public sealed class GetPartitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetPartitionArgs()
         {
         }
+        public static new GetPartitionArgs Empty => new GetPartitionArgs();
     }
 
-    public sealed class GetPartitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPartitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetPartitionInvokeArgs()
         {
         }
+        public static new GetPartitionInvokeArgs Empty => new GetPartitionInvokeArgs();
     }
 
 

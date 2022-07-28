@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// <summary>
     /// The destination in which evidence reports are stored for the specified assessment.
     /// </summary>
-    public sealed class AssessmentReportsDestinationArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentReportsDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public AssessmentReportsDestinationArgs()
         {
         }
+        public static new AssessmentReportsDestinationArgs Empty => new AssessmentReportsDestinationArgs();
     }
 }

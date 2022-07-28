@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EMR
     /// </summary>
     [Obsolete(@"Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:Step")]
-    public partial class Step : Pulumi.CustomResource
+    public partial class Step : global::Pulumi.CustomResource
     {
         [Output("actionOnFailure")]
         public Output<string> ActionOnFailure { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class StepArgs : Pulumi.ResourceArgs
+    public sealed class StepArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionOnFailure", required: true)]
         public Input<string> ActionOnFailure { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.EMR
         public StepArgs()
         {
         }
+        public static new StepArgs Empty => new StepArgs();
     }
 }

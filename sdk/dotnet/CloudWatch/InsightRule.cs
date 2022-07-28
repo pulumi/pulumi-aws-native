@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// </summary>
     [Obsolete(@"InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudwatch:InsightRule")]
-    public partial class InsightRule : Pulumi.CustomResource
+    public partial class InsightRule : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class InsightRuleArgs : Pulumi.ResourceArgs
+    public sealed class InsightRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleBody", required: true)]
         public Input<string> RuleBody { get; set; } = null!;
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public InsightRuleArgs()
         {
         }
+        public static new InsightRuleArgs Empty => new InsightRuleArgs();
     }
 }

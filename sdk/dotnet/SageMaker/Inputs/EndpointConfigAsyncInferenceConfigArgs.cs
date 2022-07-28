@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigAsyncInferenceConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigAsyncInferenceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientConfig")]
         public Input<Inputs.EndpointConfigAsyncInferenceClientConfigArgs>? ClientConfig { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigAsyncInferenceConfigArgs()
         {
         }
+        public static new EndpointConfigAsyncInferenceConfigArgs Empty => new EndpointConfigAsyncInferenceConfigArgs();
     }
 }

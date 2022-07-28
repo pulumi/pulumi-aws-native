@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolAddOnsArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolAddOnsArgs : global::Pulumi.ResourceArgs
     {
         [Input("advancedSecurityMode")]
         public Input<string>? AdvancedSecurityMode { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolAddOnsArgs()
         {
         }
+        public static new UserPoolAddOnsArgs Empty => new UserPoolAddOnsArgs();
     }
 }

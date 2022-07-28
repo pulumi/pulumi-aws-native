@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayPortMappingArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayPortMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayPortMappingArgs()
         {
         }
+        public static new VirtualGatewayPortMappingArgs Empty => new VirtualGatewayPortMappingArgs();
     }
 }

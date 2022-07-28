@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleBatchRetryStrategyArgs : Pulumi.ResourceArgs
+    public sealed class RuleBatchRetryStrategyArgs : global::Pulumi.ResourceArgs
     {
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleBatchRetryStrategyArgs()
         {
         }
+        public static new RuleBatchRetryStrategyArgs Empty => new RuleBatchRetryStrategyArgs();
     }
 }

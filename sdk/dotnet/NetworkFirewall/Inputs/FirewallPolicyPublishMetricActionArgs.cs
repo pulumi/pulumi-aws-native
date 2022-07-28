@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyPublishMetricActionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyPublishMetricActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions", required: true)]
         private InputList<Inputs.FirewallPolicyDimensionArgs>? _dimensions;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallPolicyPublishMetricActionArgs()
         {
         }
+        public static new FirewallPolicyPublishMetricActionArgs Empty => new FirewallPolicyPublishMetricActionArgs();
     }
 }

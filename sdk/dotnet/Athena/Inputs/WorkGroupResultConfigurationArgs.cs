@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// <summary>
     /// The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
     /// </summary>
-    public sealed class WorkGroupResultConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupResultConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public WorkGroupResultConfigurationArgs()
         {
         }
+        public static new WorkGroupResultConfigurationArgs Empty => new WorkGroupResultConfigurationArgs();
     }
 }

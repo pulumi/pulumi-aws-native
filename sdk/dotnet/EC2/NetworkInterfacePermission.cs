@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"NetworkInterfacePermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:NetworkInterfacePermission")]
-    public partial class NetworkInterfacePermission : Pulumi.CustomResource
+    public partial class NetworkInterfacePermission : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInterfacePermissionArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfacePermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInterfacePermissionArgs()
         {
         }
+        public static new NetworkInterfacePermissionArgs Empty => new NetworkInterfacePermissionArgs();
     }
 }

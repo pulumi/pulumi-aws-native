@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:IPSet")]
-    public partial class IPSet : Pulumi.CustomResource
+    public partial class IPSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of IPAddresses.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
     }
 
-    public sealed class IPSetArgs : Pulumi.ResourceArgs
+    public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addresses", required: true)]
         private InputList<string>? _addresses;
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.WAFv2
         public IPSetArgs()
         {
         }
+        public static new IPSetArgs Empty => new IPSetArgs();
     }
 }

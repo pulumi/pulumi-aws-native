@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetDistributionArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the distribution.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetDistributionArgs()
         {
         }
+        public static new GetDistributionArgs Empty => new GetDistributionArgs();
     }
 
-    public sealed class GetDistributionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the distribution.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetDistributionInvokeArgs()
         {
         }
+        public static new GetDistributionInvokeArgs Empty => new GetDistributionInvokeArgs();
     }
 
 

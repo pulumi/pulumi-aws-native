@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Details about the algorithm that was used to create the model package.
     /// </summary>
-    public sealed class ModelPackageSourceAlgorithmSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageSourceAlgorithmSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceAlgorithms", required: true)]
         private InputList<Inputs.ModelPackageSourceAlgorithmArgs>? _sourceAlgorithms;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageSourceAlgorithmSpecificationArgs()
         {
         }
+        public static new ModelPackageSourceAlgorithmSpecificationArgs Empty => new ModelPackageSourceAlgorithmSpecificationArgs();
     }
 }

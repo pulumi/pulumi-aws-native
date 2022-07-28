@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class ServiceProfileLoRaWANServiceProfileArgs : Pulumi.ResourceArgs
+    public sealed class ServiceProfileLoRaWANServiceProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("addGwMetadata")]
         public Input<bool>? AddGwMetadata { get; set; }
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public ServiceProfileLoRaWANServiceProfileArgs()
         {
         }
+        public static new ServiceProfileLoRaWANServiceProfileArgs Empty => new ServiceProfileLoRaWANServiceProfileArgs();
     }
 }

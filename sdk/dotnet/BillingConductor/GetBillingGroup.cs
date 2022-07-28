@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
 
-    public sealed class GetBillingGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing Group ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetBillingGroupArgs()
         {
         }
+        public static new GetBillingGroupArgs Empty => new GetBillingGroupArgs();
     }
 
-    public sealed class GetBillingGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBillingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing Group ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetBillingGroupInvokeArgs()
         {
         }
+        public static new GetBillingGroupInvokeArgs Empty => new GetBillingGroupInvokeArgs();
     }
 
 

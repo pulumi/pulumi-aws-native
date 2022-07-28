@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorS3SourceConfigArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorS3SourceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("fileFormatDescriptor", required: true)]
         public Input<Inputs.AnomalyDetectorFileFormatDescriptorArgs> FileFormatDescriptor { get; set; } = null!;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorS3SourceConfigArgs()
         {
         }
+        public static new AnomalyDetectorS3SourceConfigArgs Empty => new AnomalyDetectorS3SourceConfigArgs();
     }
 }

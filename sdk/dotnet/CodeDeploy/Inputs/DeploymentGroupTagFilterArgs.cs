@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupTagFilterArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupTagFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupTagFilterArgs()
         {
         }
+        public static new DeploymentGroupTagFilterArgs Empty => new DeploymentGroupTagFilterArgs();
     }
 }

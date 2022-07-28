@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Destination's resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:Destination")]
-    public partial class Destination : Pulumi.CustomResource
+    public partial class Destination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Destination arn. Returned after successful create.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class DestinationArgs : Pulumi.ResourceArgs
+    public sealed class DestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Destination description
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public DestinationArgs()
         {
         }
+        public static new DestinationArgs Empty => new DestinationArgs();
     }
 }

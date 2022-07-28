@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainEBSOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainEBSOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("eBSEnabled")]
         public Input<bool>? EBSEnabled { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainEBSOptionsArgs()
         {
         }
+        public static new DomainEBSOptionsArgs Empty => new DomainEBSOptionsArgs();
     }
 }

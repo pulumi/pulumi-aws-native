@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
     /// <summary>
     /// A complex type that contains information about the health check.
     /// </summary>
-    public sealed class HealthCheckConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmIdentifier")]
         public Input<Inputs.HealthCheckAlarmIdentifierArgs>? AlarmIdentifier { get; set; }
@@ -79,5 +79,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public HealthCheckConfigPropertiesArgs()
         {
         }
+        public static new HealthCheckConfigPropertiesArgs Empty => new HealthCheckConfigPropertiesArgs();
     }
 }

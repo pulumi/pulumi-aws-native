@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS.Inputs
     /// <summary>
     /// Recording Thumbnail Configuration.
     /// </summary>
-    public sealed class RecordingConfigurationThumbnailConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RecordingConfigurationThumbnailConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IVS.Inputs
         public RecordingConfigurationThumbnailConfigurationArgs()
         {
         }
+        public static new RecordingConfigurationThumbnailConfigurationArgs Empty => new RecordingConfigurationThumbnailConfigurationArgs();
     }
 }

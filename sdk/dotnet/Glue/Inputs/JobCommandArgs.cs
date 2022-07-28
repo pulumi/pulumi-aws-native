@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class JobCommandArgs : Pulumi.ResourceArgs
+    public sealed class JobCommandArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public JobCommandArgs()
         {
         }
+        public static new JobCommandArgs Empty => new JobCommandArgs();
     }
 }

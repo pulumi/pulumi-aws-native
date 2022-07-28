@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     /// Resource type definition for AWS::SSMIncidents::ResponsePlan
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmincidents:ResponsePlan")]
-    public partial class ResponsePlan : Pulumi.CustomResource
+    public partial class ResponsePlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of actions.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         }
     }
 
-    public sealed class ResponsePlanArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.ResponsePlanActionArgs>? _actions;
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.SSMIncidents
         public ResponsePlanArgs()
         {
         }
+        public static new ResponsePlanArgs Empty => new ResponsePlanArgs();
     }
 }

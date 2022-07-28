@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:AccountAuditConfiguration")]
-    public partial class AccountAuditConfiguration : Pulumi.CustomResource
+    public partial class AccountAuditConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class AccountAuditConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccountAuditConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.IoT
         public AccountAuditConfigurationArgs()
         {
         }
+        public static new AccountAuditConfigurationArgs Empty => new AccountAuditConfigurationArgs();
     }
 }

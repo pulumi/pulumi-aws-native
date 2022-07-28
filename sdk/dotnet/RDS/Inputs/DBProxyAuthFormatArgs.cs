@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBProxyAuthFormatArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyAuthFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBProxyAuthFormatArgs()
         {
         }
+        public static new DBProxyAuthFormatArgs Empty => new DBProxyAuthFormatArgs();
     }
 }

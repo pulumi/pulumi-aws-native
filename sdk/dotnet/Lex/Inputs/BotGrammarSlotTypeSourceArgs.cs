@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
     /// </summary>
-    public sealed class BotGrammarSlotTypeSourceArgs : Pulumi.ResourceArgs
+    public sealed class BotGrammarSlotTypeSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon KMS key required to decrypt the contents of the grammar, if any.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotGrammarSlotTypeSourceArgs()
         {
         }
+        public static new BotGrammarSlotTypeSourceArgs Empty => new BotGrammarSlotTypeSourceArgs();
     }
 }

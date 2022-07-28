@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The Virtual Private Cloud (VPC) configuration for a bucket access point.
     /// </summary>
-    public sealed class AccessPointVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If this field is specified, this access point will only allow connections from the specified VPC ID.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public AccessPointVpcConfigurationArgs()
         {
         }
+        public static new AccessPointVpcConfigurationArgs Empty => new AccessPointVpcConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceGroupConfigScalingRuleArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupConfigScalingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Inputs.InstanceGroupConfigScalingActionArgs> Action { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceGroupConfigScalingRuleArgs()
         {
         }
+        public static new InstanceGroupConfigScalingRuleArgs Empty => new InstanceGroupConfigScalingRuleArgs();
     }
 }

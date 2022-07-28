@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// ReadOnly field info
     /// </summary>
-    public sealed class TaskTemplateReadOnlyFieldInfoArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateReadOnlyFieldInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateReadOnlyFieldInfoArgs()
         {
         }
+        public static new TaskTemplateReadOnlyFieldInfoArgs Empty => new TaskTemplateReadOnlyFieldInfoArgs();
     }
 }

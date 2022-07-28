@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// A snapshot of the documentation of an API.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:DocumentationVersion")]
-    public partial class DocumentationVersion : Pulumi.CustomResource
+    public partial class DocumentationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the API documentation snapshot.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class DocumentationVersionArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the API documentation snapshot.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public DocumentationVersionArgs()
         {
         }
+        public static new DocumentationVersionArgs Empty => new DocumentationVersionArgs();
     }
 }

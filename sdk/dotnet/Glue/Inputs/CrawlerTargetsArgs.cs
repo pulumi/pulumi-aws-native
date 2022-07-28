@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerTargetsArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogTargets")]
         private InputList<Inputs.CrawlerCatalogTargetArgs>? _catalogTargets;
@@ -55,5 +55,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerTargetsArgs()
         {
         }
+        public static new CrawlerTargetsArgs Empty => new CrawlerTargetsArgs();
     }
 }

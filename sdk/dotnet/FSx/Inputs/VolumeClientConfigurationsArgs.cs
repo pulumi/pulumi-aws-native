@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class VolumeClientConfigurationsArgs : Pulumi.ResourceArgs
+    public sealed class VolumeClientConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("clients", required: true)]
         public Input<string> Clients { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public VolumeClientConfigurationsArgs()
         {
         }
+        public static new VolumeClientConfigurationsArgs Empty => new VolumeClientConfigurationsArgs();
     }
 }

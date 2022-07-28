@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:TagOptionAssociation")]
-    public partial class TagOptionAssociation : Pulumi.CustomResource
+    public partial class TagOptionAssociation : global::Pulumi.CustomResource
     {
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class TagOptionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class TagOptionAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public TagOptionAssociationArgs()
         {
         }
+        public static new TagOptionAssociationArgs Empty => new TagOptionAssociationArgs();
     }
 }

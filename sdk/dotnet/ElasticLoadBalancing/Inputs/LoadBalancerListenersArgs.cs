@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerListenersArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerListenersArgs : global::Pulumi.ResourceArgs
     {
         [Input("instancePort", required: true)]
         public Input<string> InstancePort { get; set; } = null!;
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerListenersArgs()
         {
         }
+        public static new LoadBalancerListenersArgs Empty => new LoadBalancerListenersArgs();
     }
 }

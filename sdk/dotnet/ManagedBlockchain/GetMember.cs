@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
     }
 
 
-    public sealed class GetMemberArgs : Pulumi.InvokeArgs
+    public sealed class GetMemberArgs : global::Pulumi.InvokeArgs
     {
         [Input("memberId", required: true)]
         public string MemberId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public GetMemberArgs()
         {
         }
+        public static new GetMemberArgs Empty => new GetMemberArgs();
     }
 
-    public sealed class GetMemberInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMemberInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public GetMemberInvokeArgs()
         {
         }
+        public static new GetMemberInvokeArgs Empty => new GetMemberInvokeArgs();
     }
 
 

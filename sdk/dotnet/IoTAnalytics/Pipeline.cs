@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// Resource Type definition for AWS::IoTAnalytics::Pipeline
     /// </summary>
     [AwsNativeResourceType("aws-native:iotanalytics:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         [Output("pipelineActivities")]
         public Output<ImmutableArray<Outputs.PipelineActivity>> PipelineActivities { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         [Input("pipelineActivities", required: true)]
         private InputList<Inputs.PipelineActivityArgs>? _pipelineActivities;
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 }

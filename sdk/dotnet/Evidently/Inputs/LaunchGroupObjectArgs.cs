@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class LaunchGroupObjectArgs : Pulumi.ResourceArgs
+    public sealed class LaunchGroupObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public LaunchGroupObjectArgs()
         {
         }
+        public static new LaunchGroupObjectArgs Empty => new LaunchGroupObjectArgs();
     }
 }

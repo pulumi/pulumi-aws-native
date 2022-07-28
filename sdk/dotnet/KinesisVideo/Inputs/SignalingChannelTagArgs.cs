@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisVideo.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class SignalingChannelTagArgs : Pulumi.ResourceArgs
+    public sealed class SignalingChannelTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisVideo.Inputs
         public SignalingChannelTagArgs()
         {
         }
+        public static new SignalingChannelTagArgs Empty => new SignalingChannelTagArgs();
     }
 }

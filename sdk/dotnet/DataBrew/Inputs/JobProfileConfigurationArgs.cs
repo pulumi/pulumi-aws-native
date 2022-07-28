@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobProfileConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobProfileConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnStatisticsConfigurations")]
         private InputList<Inputs.JobColumnStatisticsConfigurationArgs>? _columnStatisticsConfigurations;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobProfileConfigurationArgs()
         {
         }
+        public static new JobProfileConfigurationArgs Empty => new JobProfileConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SecurityHub
     /// </summary>
     [Obsolete(@"Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:securityhub:Hub")]
-    public partial class Hub : Pulumi.CustomResource
+    public partial class Hub : global::Pulumi.CustomResource
     {
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.SecurityHub
         }
     }
 
-    public sealed class HubArgs : Pulumi.ResourceArgs
+    public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         public Input<object>? Tags { get; set; }
@@ -70,5 +70,6 @@ namespace Pulumi.AwsNative.SecurityHub
         public HubArgs()
         {
         }
+        public static new HubArgs Empty => new HubArgs();
     }
 }

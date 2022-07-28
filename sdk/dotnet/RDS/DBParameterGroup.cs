@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBParameterGroup")]
-    public partial class DBParameterGroup : Pulumi.CustomResource
+    public partial class DBParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the DB parameter group
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provides the customer-specified description for this DB parameter group.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.RDS
         public DBParameterGroupArgs()
         {
         }
+        public static new DBParameterGroupArgs Empty => new DBParameterGroupArgs();
     }
 }

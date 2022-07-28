@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileOAuthPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileOAuthPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("authCodeUrl")]
         public Input<string>? AuthCodeUrl { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileOAuthPropertiesArgs()
         {
         }
+        public static new ConnectorProfileOAuthPropertiesArgs Empty => new ConnectorProfileOAuthPropertiesArgs();
     }
 }

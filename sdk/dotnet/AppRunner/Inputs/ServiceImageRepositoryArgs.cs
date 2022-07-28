@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Image Repository
     /// </summary>
-    public sealed class ServiceImageRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceImageRepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("imageConfiguration")]
         public Input<Inputs.ServiceImageConfigurationArgs>? ImageConfiguration { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceImageRepositoryArgs()
         {
         }
+        public static new ServiceImageRepositoryArgs Empty => new ServiceImageRepositoryArgs();
     }
 }

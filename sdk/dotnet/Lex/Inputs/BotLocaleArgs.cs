@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
     /// </summary>
-    public sealed class BotLocaleArgs : Pulumi.ResourceArgs
+    public sealed class BotLocaleArgs : global::Pulumi.ResourceArgs
     {
         [Input("customVocabulary")]
         public Input<Inputs.BotCustomVocabularyArgs>? CustomVocabulary { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotLocaleArgs()
         {
         }
+        public static new BotLocaleArgs Empty => new BotLocaleArgs();
     }
 }

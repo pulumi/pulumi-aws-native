@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::CapacityReservationFleet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:CapacityReservationFleet")]
-    public partial class CapacityReservationFleet : Pulumi.CustomResource
+    public partial class CapacityReservationFleet : global::Pulumi.CustomResource
     {
         [Output("allocationStrategy")]
         public Output<string?> AllocationStrategy { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class CapacityReservationFleetArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationFleetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
@@ -130,5 +130,6 @@ namespace Pulumi.AwsNative.EC2
         public CapacityReservationFleetArgs()
         {
         }
+        public static new CapacityReservationFleetArgs Empty => new CapacityReservationFleetArgs();
     }
 }

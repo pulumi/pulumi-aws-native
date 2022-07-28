@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLRateBasedStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregateKeyType", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.WebACLRateBasedStatementAggregateKeyType> AggregateKeyType { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLRateBasedStatementArgs()
         {
         }
+        public static new WebACLRateBasedStatementArgs Empty => new WebACLRateBasedStatementArgs();
     }
 }

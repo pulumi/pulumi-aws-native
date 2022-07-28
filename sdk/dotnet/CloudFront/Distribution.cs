@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::Distribution
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:Distribution")]
-    public partial class Distribution : Pulumi.CustomResource
+    public partial class Distribution : global::Pulumi.CustomResource
     {
         [Output("distributionConfig")]
         public Output<Outputs.DistributionConfig> DistributionConfig { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class DistributionArgs : Pulumi.ResourceArgs
+    public sealed class DistributionArgs : global::Pulumi.ResourceArgs
     {
         [Input("distributionConfig", required: true)]
         public Input<Inputs.DistributionConfigArgs> DistributionConfig { get; set; } = null!;
@@ -83,5 +83,6 @@ namespace Pulumi.AwsNative.CloudFront
         public DistributionArgs()
         {
         }
+        public static new DistributionArgs Empty => new DistributionArgs();
     }
 }

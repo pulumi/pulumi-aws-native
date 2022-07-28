@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS
     /// Resource Schema for AWS::EKS::FargateProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:FargateProfile")]
-    public partial class FargateProfile : Pulumi.CustomResource
+    public partial class FargateProfile : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.EKS
         }
     }
 
-    public sealed class FargateProfileArgs : Pulumi.ResourceArgs
+    public sealed class FargateProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Cluster
@@ -142,5 +142,6 @@ namespace Pulumi.AwsNative.EKS
         public FargateProfileArgs()
         {
         }
+        public static new FargateProfileArgs Empty => new FargateProfileArgs();
     }
 }

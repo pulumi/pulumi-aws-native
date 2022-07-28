@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetLoggerDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggerDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetLoggerDefinitionArgs()
         {
         }
+        public static new GetLoggerDefinitionArgs Empty => new GetLoggerDefinitionArgs();
     }
 
-    public sealed class GetLoggerDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggerDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetLoggerDefinitionInvokeArgs()
         {
         }
+        public static new GetLoggerDefinitionInvokeArgs Empty => new GetLoggerDefinitionInvokeArgs();
     }
 
 

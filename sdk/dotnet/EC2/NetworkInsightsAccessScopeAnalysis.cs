@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAccessScopeAnalysis")]
-    public partial class NetworkInsightsAccessScopeAnalysis : Pulumi.CustomResource
+    public partial class NetworkInsightsAccessScopeAnalysis : global::Pulumi.CustomResource
     {
         [Output("analyzedEniCount")]
         public Output<int> AnalyzedEniCount { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInsightsAccessScopeAnalysisArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsAccessScopeAnalysisArgs : global::Pulumi.ResourceArgs
     {
         [Input("networkInsightsAccessScopeId", required: true)]
         public Input<string> NetworkInsightsAccessScopeId { get; set; } = null!;
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInsightsAccessScopeAnalysisArgs()
         {
         }
+        public static new NetworkInsightsAccessScopeAnalysisArgs Empty => new NetworkInsightsAccessScopeAnalysisArgs();
     }
 }

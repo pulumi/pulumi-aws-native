@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
     /// </summary>
-    public sealed class DetectorModelResetTimerArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelResetTimerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the timer to reset.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelResetTimerArgs()
         {
         }
+        public static new DetectorModelResetTimerArgs Empty => new DetectorModelResetTimerArgs();
     }
 }

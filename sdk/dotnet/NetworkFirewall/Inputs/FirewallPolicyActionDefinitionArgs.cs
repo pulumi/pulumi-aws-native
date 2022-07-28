@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("publishMetricAction")]
         public Input<Inputs.FirewallPolicyPublishMetricActionArgs>? PublishMetricAction { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallPolicyActionDefinitionArgs()
         {
         }
+        public static new FirewallPolicyActionDefinitionArgs Empty => new FirewallPolicyActionDefinitionArgs();
     }
 }

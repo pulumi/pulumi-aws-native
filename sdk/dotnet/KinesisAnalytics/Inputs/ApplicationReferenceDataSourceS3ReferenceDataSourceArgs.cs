@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketARN", required: true)]
         public Input<string> BucketARN { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationReferenceDataSourceS3ReferenceDataSourceArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceS3ReferenceDataSourceArgs Empty => new ApplicationReferenceDataSourceS3ReferenceDataSourceArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::FeatureGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:FeatureGroup")]
-    public partial class FeatureGroup : Pulumi.CustomResource
+    public partial class FeatureGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description about the FeatureGroup.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class FeatureGroupArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description about the FeatureGroup.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.SageMaker
         public FeatureGroupArgs()
         {
         }
+        public static new FeatureGroupArgs Empty => new FeatureGroupArgs();
     }
 }

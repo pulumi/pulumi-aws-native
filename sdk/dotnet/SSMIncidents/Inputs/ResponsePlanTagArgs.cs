@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// A key-value pair to tag a resource.
     /// </summary>
-    public sealed class ResponsePlanTagArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanTagArgs()
         {
         }
+        public static new ResponsePlanTagArgs Empty => new ResponsePlanTagArgs();
     }
 }

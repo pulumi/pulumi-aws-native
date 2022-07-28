@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamTagArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamTagArgs()
         {
         }
+        public static new DeliveryStreamTagArgs Empty => new DeliveryStreamTagArgs();
     }
 }

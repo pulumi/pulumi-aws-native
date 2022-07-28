@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// Resource schema for AWS::MediaPackage::PackagingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:PackagingConfiguration")]
-    public partial class PackagingConfiguration : Pulumi.CustomResource
+    public partial class PackagingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the PackagingConfiguration.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.MediaPackage
         }
     }
 
-    public sealed class PackagingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A CMAF packaging configuration.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.MediaPackage
         public PackagingConfigurationArgs()
         {
         }
+        public static new PackagingConfigurationArgs Empty => new PackagingConfigurationArgs();
     }
 }

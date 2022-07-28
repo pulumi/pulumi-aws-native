@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
     /// </summary>
-    public sealed class ApplicationFlinkApplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationFlinkApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationFlinkApplicationConfigurationArgs()
         {
         }
+        public static new ApplicationFlinkApplicationConfigurationArgs Empty => new ApplicationFlinkApplicationConfigurationArgs();
     }
 }

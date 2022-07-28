@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// The Amazon S3 bucket that contains the training data to import.
     /// </summary>
-    public sealed class DatasetImportJobDataSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DatasetImportJobDataSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public DatasetImportJobDataSourcePropertiesArgs()
         {
         }
+        public static new DatasetImportJobDataSourcePropertiesArgs Empty => new DatasetImportJobDataSourcePropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FSx
     }
 
 
-    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         [Input("volumeId", required: true)]
         public string VolumeId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.FSx
         public GetVolumeArgs()
         {
         }
+        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.FSx
         public GetVolumeInvokeArgs()
         {
         }
+        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 

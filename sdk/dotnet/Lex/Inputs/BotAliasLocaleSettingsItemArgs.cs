@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A locale setting in alias
     /// </summary>
-    public sealed class BotAliasLocaleSettingsItemArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasLocaleSettingsItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("botAliasLocaleSetting", required: true)]
         public Input<Inputs.BotAliasLocaleSettingsArgs> BotAliasLocaleSetting { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasLocaleSettingsItemArgs()
         {
         }
+        public static new BotAliasLocaleSettingsItemArgs Empty => new BotAliasLocaleSettingsItemArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the Docker container for the model package.
     /// </summary>
-    public sealed class ModelPackageContainerDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageContainerDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS host name for the Docker container.
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageContainerDefinitionArgs()
         {
         }
+        public static new ModelPackageContainerDefinitionArgs Empty => new ModelPackageContainerDefinitionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
     /// </summary>
-    public sealed class MitigationActionPublishFindingToSnsParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionPublishFindingToSnsParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the topic to which you want to publish the findings.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionPublishFindingToSnsParamsArgs()
         {
         }
+        public static new MitigationActionPublishFindingToSnsParamsArgs Empty => new MitigationActionPublishFindingToSnsParamsArgs();
     }
 }

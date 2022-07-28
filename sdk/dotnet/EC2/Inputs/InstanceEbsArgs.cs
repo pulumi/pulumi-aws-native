@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceEbsArgs : Pulumi.ResourceArgs
+    public sealed class InstanceEbsArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceEbsArgs()
         {
         }
+        public static new InstanceEbsArgs Empty => new InstanceEbsArgs();
     }
 }

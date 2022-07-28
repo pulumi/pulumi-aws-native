@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleIotEventsActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleIotEventsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchMode")]
         public Input<bool>? BatchMode { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleIotEventsActionArgs()
         {
         }
+        public static new TopicRuleIotEventsActionArgs Empty => new TopicRuleIotEventsActionArgs();
     }
 }

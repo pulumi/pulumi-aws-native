@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainZoneAwarenessConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainZoneAwarenessConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZoneCount")]
         public Input<int>? AvailabilityZoneCount { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainZoneAwarenessConfigArgs()
         {
         }
+        public static new DomainZoneAwarenessConfigArgs Empty => new DomainZoneAwarenessConfigArgs();
     }
 }

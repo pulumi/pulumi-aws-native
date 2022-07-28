@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppIntegrations
     /// Resource Type definition for AWS::AppIntegrations::EventIntegration
     /// </summary>
     [AwsNativeResourceType("aws-native:appintegrations:EventIntegration")]
-    public partial class EventIntegration : Pulumi.CustomResource
+    public partial class EventIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The associations with the event integration.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         }
     }
 
-    public sealed class EventIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class EventIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event integration description.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.AppIntegrations
         public EventIntegrationArgs()
         {
         }
+        public static new EventIntegrationArgs Empty => new EventIntegrationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetWorkteamArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkteamArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetWorkteamArgs()
         {
         }
+        public static new GetWorkteamArgs Empty => new GetWorkteamArgs();
     }
 
-    public sealed class GetWorkteamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkteamInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetWorkteamInvokeArgs()
         {
         }
+        public static new GetWorkteamInvokeArgs Empty => new GetWorkteamInvokeArgs();
     }
 
 

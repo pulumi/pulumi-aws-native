@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Enable a resource that has been published in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:TypeActivation")]
-    public partial class TypeActivation : Pulumi.CustomResource
+    public partial class TypeActivation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the extension.
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class TypeActivationArgs : Pulumi.ResourceArgs
+    public sealed class TypeActivationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
@@ -193,5 +193,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public TypeActivationArgs()
         {
         }
+        public static new TypeActivationArgs Empty => new TypeActivationArgs();
     }
 }

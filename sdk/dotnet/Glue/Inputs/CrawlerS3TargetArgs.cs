@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerS3TargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerS3TargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerS3TargetArgs()
         {
         }
+        public static new CrawlerS3TargetArgs Empty => new CrawlerS3TargetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointTrafficRoutingConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointTrafficRoutingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("canarySize")]
         public Input<Inputs.EndpointCapacitySizeArgs>? CanarySize { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointTrafficRoutingConfigArgs()
         {
         }
+        public static new EndpointTrafficRoutingConfigArgs Empty => new EndpointTrafficRoutingConfigArgs();
     }
 }

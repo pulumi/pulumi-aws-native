@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppConfig
     /// </summary>
     [Obsolete(@"HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:HostedConfigurationVersion")]
-    public partial class HostedConfigurationVersion : Pulumi.CustomResource
+    public partial class HostedConfigurationVersion : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.AppConfig
         }
     }
 
-    public sealed class HostedConfigurationVersionArgs : Pulumi.ResourceArgs
+    public sealed class HostedConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.AppConfig
         public HostedConfigurationVersionArgs()
         {
         }
+        public static new HostedConfigurationVersionArgs Empty => new HostedConfigurationVersionArgs();
     }
 }

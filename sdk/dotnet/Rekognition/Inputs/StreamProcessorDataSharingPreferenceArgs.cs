@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// Indicates whether Rekognition is allowed to store the video stream data for model-training.
     /// </summary>
-    public sealed class StreamProcessorDataSharingPreferenceArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorDataSharingPreferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to enable data-sharing
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorDataSharingPreferenceArgs()
         {
         }
+        public static new StreamProcessorDataSharingPreferenceArgs Empty => new StreamProcessorDataSharingPreferenceArgs();
     }
 }

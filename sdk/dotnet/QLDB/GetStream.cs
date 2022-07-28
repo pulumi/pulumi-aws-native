@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QLDB
     }
 
 
-    public sealed class GetStreamArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.QLDB
         public GetStreamArgs()
         {
         }
+        public static new GetStreamArgs Empty => new GetStreamArgs();
     }
 
-    public sealed class GetStreamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.QLDB
         public GetStreamInvokeArgs()
         {
         }
+        public static new GetStreamInvokeArgs Empty => new GetStreamInvokeArgs();
     }
 
 

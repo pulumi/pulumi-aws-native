@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class EnvironmentTagArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public EnvironmentTagArgs()
         {
         }
+        public static new EnvironmentTagArgs Empty => new EnvironmentTagArgs();
     }
 }

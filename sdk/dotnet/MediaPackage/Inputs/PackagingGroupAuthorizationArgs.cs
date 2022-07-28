@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
-    public sealed class PackagingGroupAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class PackagingGroupAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingGroupAuthorizationArgs()
         {
         }
+        public static new PackagingGroupAuthorizationArgs Empty => new PackagingGroupAuthorizationArgs();
     }
 }

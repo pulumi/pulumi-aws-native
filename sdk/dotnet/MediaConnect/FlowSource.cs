@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// Resource schema for AWS::MediaConnect::FlowSource
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowSource")]
-    public partial class FlowSource : Pulumi.CustomResource
+    public partial class FlowSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of encryption that is used on the content ingested from this source.
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
     }
 
-    public sealed class FlowSourceArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of encryption that is used on the content ingested from this source.
@@ -225,5 +225,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public FlowSourceArgs()
         {
         }
+        public static new FlowSourceArgs Empty => new FlowSourceArgs();
     }
 }

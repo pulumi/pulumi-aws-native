@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// Resource schema for AWS::MediaConnect::FlowOutput
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowOutput")]
-    public partial class FlowOutput : Pulumi.CustomResource
+    public partial class FlowOutput : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
     }
 
-    public sealed class FlowOutputArgs : Pulumi.ResourceArgs
+    public sealed class FlowOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrAllowList")]
         private InputList<string>? _cidrAllowList;
@@ -243,5 +243,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public FlowOutputArgs()
         {
         }
+        public static new FlowOutputArgs Empty => new FlowOutputArgs();
     }
 }

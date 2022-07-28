@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// An outcome for rule evaluation.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:Outcome")]
-    public partial class Outcome : Pulumi.CustomResource
+    public partial class Outcome : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The outcome ARN.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class OutcomeArgs : Pulumi.ResourceArgs
+    public sealed class OutcomeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The outcome description.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public OutcomeArgs()
         {
         }
+        public static new OutcomeArgs Empty => new OutcomeArgs();
     }
 }

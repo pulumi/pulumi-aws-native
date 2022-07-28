@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSO
     /// Resource Type definition for SSO assignmet
     /// </summary>
     [AwsNativeResourceType("aws-native:sso:Assignment")]
-    public partial class Assignment : Pulumi.CustomResource
+    public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The sso instance that the permission set is owned.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.SSO
         }
     }
 
-    public sealed class AssignmentArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sso instance that the permission set is owned.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.SSO
         public AssignmentArgs()
         {
         }
+        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 }

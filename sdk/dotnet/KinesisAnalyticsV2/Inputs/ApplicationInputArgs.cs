@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
     /// </summary>
-    public sealed class ApplicationInputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the number of in-application streams to create.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationInputArgs()
         {
         }
+        public static new ApplicationInputArgs Empty => new ApplicationInputArgs();
     }
 }

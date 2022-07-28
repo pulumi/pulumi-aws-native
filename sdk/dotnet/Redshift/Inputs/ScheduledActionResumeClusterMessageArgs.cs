@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift.Inputs
     /// <summary>
     /// Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
     /// </summary>
-    public sealed class ScheduledActionResumeClusterMessageArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionResumeClusterMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ScheduledActionResumeClusterMessageArgs()
         {
         }
+        public static new ScheduledActionResumeClusterMessageArgs Empty => new ScheduledActionResumeClusterMessageArgs();
     }
 }

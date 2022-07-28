@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetPublisherArgs : Pulumi.InvokeArgs
+    public sealed class GetPublisherArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The publisher id assigned by CloudFormation for publishing in this region.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetPublisherArgs()
         {
         }
+        public static new GetPublisherArgs Empty => new GetPublisherArgs();
     }
 
-    public sealed class GetPublisherInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublisherInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The publisher id assigned by CloudFormation for publishing in this region.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetPublisherInvokeArgs()
         {
         }
+        public static new GetPublisherInvokeArgs Empty => new GetPublisherInvokeArgs();
     }
 
 

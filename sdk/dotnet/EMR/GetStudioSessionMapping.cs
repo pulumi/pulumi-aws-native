@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
     }
 
 
-    public sealed class GetStudioSessionMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioSessionMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
@@ -48,9 +48,10 @@ namespace Pulumi.AwsNative.EMR
         public GetStudioSessionMappingArgs()
         {
         }
+        public static new GetStudioSessionMappingArgs Empty => new GetStudioSessionMappingArgs();
     }
 
-    public sealed class GetStudioSessionMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioSessionMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
@@ -73,6 +74,7 @@ namespace Pulumi.AwsNative.EMR
         public GetStudioSessionMappingInvokeArgs()
         {
         }
+        public static new GetStudioSessionMappingInvokeArgs Empty => new GetStudioSessionMappingInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Panorama
     }
 
 
-    public sealed class GetPackageArgs : Pulumi.InvokeArgs
+    public sealed class GetPackageArgs : global::Pulumi.InvokeArgs
     {
         [Input("packageId", required: true)]
         public string PackageId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Panorama
         public GetPackageArgs()
         {
         }
+        public static new GetPackageArgs Empty => new GetPackageArgs();
     }
 
-    public sealed class GetPackageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("packageId", required: true)]
         public Input<string> PackageId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Panorama
         public GetPackageInvokeArgs()
         {
         }
+        public static new GetPackageInvokeArgs Empty => new GetPackageInvokeArgs();
     }
 
 

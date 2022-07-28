@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileSalesforceConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileSalesforceConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Salesforce resource
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileSalesforceConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileSalesforceConnectorProfilePropertiesArgs Empty => new ConnectorProfileSalesforceConnectorProfilePropertiesArgs();
     }
 }

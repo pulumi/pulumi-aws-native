@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetDomainConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("domainConfigurationName", required: true)]
         public string DomainConfigurationName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetDomainConfigurationArgs()
         {
         }
+        public static new GetDomainConfigurationArgs Empty => new GetDomainConfigurationArgs();
     }
 
-    public sealed class GetDomainConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("domainConfigurationName", required: true)]
         public Input<string> DomainConfigurationName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetDomainConfigurationInvokeArgs()
         {
         }
+        public static new GetDomainConfigurationInvokeArgs Empty => new GetDomainConfigurationInvokeArgs();
     }
 
 

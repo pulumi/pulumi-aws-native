@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
     /// </summary>
-    public sealed class BucketRoutingRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class BucketRoutingRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP error code when the redirect is applied. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketRoutingRuleConditionArgs()
         {
         }
+        public static new BucketRoutingRuleConditionArgs Empty => new BucketRoutingRuleConditionArgs();
     }
 }

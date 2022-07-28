@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
     /// </summary>
-    public sealed class MitigationActionActionParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionActionParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("addThingsToThingGroupParams")]
         public Input<Inputs.MitigationActionAddThingsToThingGroupParamsArgs>? AddThingsToThingGroupParams { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionActionParamsArgs()
         {
         }
+        public static new MitigationActionActionParamsArgs Empty => new MitigationActionActionParamsArgs();
     }
 }

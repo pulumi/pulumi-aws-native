@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Filter")]
-    public partial class Filter : Pulumi.CustomResource
+    public partial class Filter : global::Pulumi.CustomResource
     {
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class FilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public FilterArgs()
         {
         }
+        public static new FilterArgs Empty => new FilterArgs();
     }
 }

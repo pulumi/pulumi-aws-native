@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3
     }
 
 
-    public sealed class GetMultiRegionAccessPointArgs : Pulumi.InvokeArgs
+    public sealed class GetMultiRegionAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to assign to this Multi Region Access Point.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3
         public GetMultiRegionAccessPointArgs()
         {
         }
+        public static new GetMultiRegionAccessPointArgs Empty => new GetMultiRegionAccessPointArgs();
     }
 
-    public sealed class GetMultiRegionAccessPointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMultiRegionAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to assign to this Multi Region Access Point.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3
         public GetMultiRegionAccessPointInvokeArgs()
         {
         }
+        public static new GetMultiRegionAccessPointInvokeArgs Empty => new GetMultiRegionAccessPointInvokeArgs();
     }
 
 

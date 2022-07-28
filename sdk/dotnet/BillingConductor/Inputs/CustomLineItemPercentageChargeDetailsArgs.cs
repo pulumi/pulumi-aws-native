@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class CustomLineItemPercentageChargeDetailsArgs : Pulumi.ResourceArgs
+    public sealed class CustomLineItemPercentageChargeDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("childAssociatedResources")]
         private InputList<string>? _childAssociatedResources;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public CustomLineItemPercentageChargeDetailsArgs()
         {
         }
+        public static new CustomLineItemPercentageChargeDetailsArgs Empty => new CustomLineItemPercentageChargeDetailsArgs();
     }
 }

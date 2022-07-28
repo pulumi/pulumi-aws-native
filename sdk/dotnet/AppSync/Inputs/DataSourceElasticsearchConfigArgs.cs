@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceElasticsearchConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceElasticsearchConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceElasticsearchConfigArgs()
         {
         }
+        public static new DataSourceElasticsearchConfigArgs Empty => new DataSourceElasticsearchConfigArgs();
     }
 }

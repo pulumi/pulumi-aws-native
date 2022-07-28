@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionViewerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class DistributionViewerCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("acmCertificateArn")]
         public Input<string>? AcmCertificateArn { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionViewerCertificateArgs()
         {
         }
+        public static new DistributionViewerCertificateArgs Empty => new DistributionViewerCertificateArgs();
     }
 }

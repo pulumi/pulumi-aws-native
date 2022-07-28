@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
     /// </summary>
-    public sealed class CertificateGeneralNameArgs : Pulumi.ResourceArgs
+    public sealed class CertificateGeneralNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("directoryName")]
         public Input<Inputs.CertificateSubjectArgs>? DirectoryName { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateGeneralNameArgs()
         {
         }
+        public static new CertificateGeneralNameArgs Empty => new CertificateGeneralNameArgs();
     }
 }

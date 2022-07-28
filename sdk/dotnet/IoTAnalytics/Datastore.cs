@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// Resource Type definition for AWS::IoTAnalytics::Datastore
     /// </summary>
     [AwsNativeResourceType("aws-native:iotanalytics:Datastore")]
-    public partial class Datastore : Pulumi.CustomResource
+    public partial class Datastore : global::Pulumi.CustomResource
     {
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
     }
 
-    public sealed class DatastoreArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public DatastoreArgs()
         {
         }
+        public static new DatastoreArgs Empty => new DatastoreArgs();
     }
 }

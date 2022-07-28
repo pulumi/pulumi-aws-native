@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
     /// <summary>
     /// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
     /// </summary>
-    public sealed class ProfilingGroupChannelArgs : Pulumi.ResourceArgs
+    public sealed class ProfilingGroupChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
         public ProfilingGroupChannelArgs()
         {
         }
+        public static new ProfilingGroupChannelArgs Empty => new ProfilingGroupChannelArgs();
     }
 }

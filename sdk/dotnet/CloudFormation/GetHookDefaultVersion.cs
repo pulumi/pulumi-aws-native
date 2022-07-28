@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetHookDefaultVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetHookDefaultVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookDefaultVersionArgs()
         {
         }
+        public static new GetHookDefaultVersionArgs Empty => new GetHookDefaultVersionArgs();
     }
 
-    public sealed class GetHookDefaultVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHookDefaultVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookDefaultVersionInvokeArgs()
         {
         }
+        public static new GetHookDefaultVersionInvokeArgs Empty => new GetHookDefaultVersionInvokeArgs();
     }
 
 

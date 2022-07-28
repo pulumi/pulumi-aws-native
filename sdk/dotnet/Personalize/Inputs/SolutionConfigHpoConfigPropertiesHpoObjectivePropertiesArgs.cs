@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// The metric to optimize during HPO.
     /// </summary>
-    public sealed class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the metric
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs()
         {
         }
+        public static new SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs Empty => new SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs();
     }
 }

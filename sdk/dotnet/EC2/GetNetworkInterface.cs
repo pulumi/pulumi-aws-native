@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Network interface id.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInterfaceArgs()
         {
         }
+        public static new GetNetworkInterfaceArgs Empty => new GetNetworkInterfaceArgs();
     }
 
-    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Network interface id.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInterfaceInvokeArgs()
         {
         }
+        public static new GetNetworkInterfaceInvokeArgs Empty => new GetNetworkInterfaceInvokeArgs();
     }
 
 

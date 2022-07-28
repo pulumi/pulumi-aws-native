@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSourceVersionArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSourceVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceIdentifier", required: true)]
         public Input<string> SourceIdentifier { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectSourceVersionArgs()
         {
         }
+        public static new ProjectSourceVersionArgs Empty => new ProjectSourceVersionArgs();
     }
 }

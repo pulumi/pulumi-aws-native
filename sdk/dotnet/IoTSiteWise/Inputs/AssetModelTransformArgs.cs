@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelTransformArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelTransformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelTransformArgs()
         {
         }
+        public static new AssetModelTransformArgs Empty => new AssetModelTransformArgs();
     }
 }

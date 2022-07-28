@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleS3ActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleS3ActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleS3ActionArgs()
         {
         }
+        public static new ReceiptRuleS3ActionArgs Empty => new ReceiptRuleS3ActionArgs();
     }
 }

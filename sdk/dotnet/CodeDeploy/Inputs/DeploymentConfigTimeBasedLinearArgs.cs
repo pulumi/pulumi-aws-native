@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTimeBasedLinearArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTimeBasedLinearArgs : global::Pulumi.ResourceArgs
     {
         [Input("linearInterval", required: true)]
         public Input<int> LinearInterval { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentConfigTimeBasedLinearArgs()
         {
         }
+        public static new DeploymentConfigTimeBasedLinearArgs Empty => new DeploymentConfigTimeBasedLinearArgs();
     }
 }

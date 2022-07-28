@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaEventSourceArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaEventSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("topic")]
         public Input<string>? Topic { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaEventSourceArgs()
         {
         }
+        public static new ComponentVersionLambdaEventSourceArgs Empty => new ComponentVersionLambdaEventSourceArgs();
     }
 }

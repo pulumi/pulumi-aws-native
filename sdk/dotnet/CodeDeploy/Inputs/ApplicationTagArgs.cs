@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class ApplicationTagArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public ApplicationTagArgs()
         {
         }
+        public static new ApplicationTagArgs Empty => new ApplicationTagArgs();
     }
 }

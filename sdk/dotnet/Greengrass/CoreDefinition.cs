@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"CoreDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:CoreDefinition")]
-    public partial class CoreDefinition : Pulumi.CustomResource
+    public partial class CoreDefinition : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class CoreDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class CoreDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("initialVersion")]
         public Input<Inputs.CoreDefinitionVersionArgs>? InitialVersion { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Greengrass
         public CoreDefinitionArgs()
         {
         }
+        public static new CoreDefinitionArgs Empty => new CoreDefinitionArgs();
     }
 }

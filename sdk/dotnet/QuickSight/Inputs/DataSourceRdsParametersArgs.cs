@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Amazon RDS parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceRdsParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceRdsParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceRdsParametersArgs()
         {
         }
+        public static new DataSourceRdsParametersArgs Empty => new DataSourceRdsParametersArgs();
     }
 }

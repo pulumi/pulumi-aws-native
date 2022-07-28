@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:ClusterCapacityProviderAssociations")]
-    public partial class ClusterCapacityProviderAssociations : Pulumi.CustomResource
+    public partial class ClusterCapacityProviderAssociations : global::Pulumi.CustomResource
     {
         [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class ClusterCapacityProviderAssociationsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProviderAssociationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders", required: true)]
         private InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider, string>>? _capacityProviders;
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.ECS
         public ClusterCapacityProviderAssociationsArgs()
         {
         }
+        public static new ClusterCapacityProviderAssociationsArgs Empty => new ClusterCapacityProviderAssociationsArgs();
     }
 }

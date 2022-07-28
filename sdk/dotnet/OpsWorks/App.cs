@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"App is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         [Output("appSource")]
         public Output<Outputs.AppSource?> AppSource { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSource")]
         public Input<Inputs.AppSourceArgs>? AppSource { get; set; }
@@ -151,5 +151,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 }

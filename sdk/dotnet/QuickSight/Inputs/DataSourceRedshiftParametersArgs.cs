@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     ///             &lt;code&gt;Host&lt;/code&gt; and &lt;code&gt;Port&lt;/code&gt; are both set. The &lt;code&gt;Host&lt;/code&gt; and
     ///             &lt;code&gt;Port&lt;/code&gt; fields can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; field is set.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceRedshiftParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceRedshiftParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Cluster ID. This field can be blank if the &lt;code&gt;Host&lt;/code&gt; and &lt;code&gt;Port&lt;/code&gt; are
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceRedshiftParametersArgs()
         {
         }
+        public static new DataSourceRedshiftParametersArgs Empty => new DataSourceRedshiftParametersArgs();
     }
 }

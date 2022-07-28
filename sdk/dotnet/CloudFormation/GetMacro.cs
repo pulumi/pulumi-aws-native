@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetMacroArgs : Pulumi.InvokeArgs
+    public sealed class GetMacroArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetMacroArgs()
         {
         }
+        public static new GetMacroArgs Empty => new GetMacroArgs();
     }
 
-    public sealed class GetMacroInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMacroInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetMacroInvokeArgs()
         {
         }
+        public static new GetMacroInvokeArgs Empty => new GetMacroInvokeArgs();
     }
 
 

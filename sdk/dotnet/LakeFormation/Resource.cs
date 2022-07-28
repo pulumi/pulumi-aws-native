@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.LakeFormation
     /// </summary>
     [Obsolete(@"Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lakeformation:Resource")]
-    public partial class Resource : Pulumi.CustomResource
+    public partial class Resource : global::Pulumi.CustomResource
     {
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.LakeFormation
         }
     }
 
-    public sealed class ResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.LakeFormation
         public ResourceArgs()
         {
         }
+        public static new ResourceArgs Empty => new ResourceArgs();
     }
 }

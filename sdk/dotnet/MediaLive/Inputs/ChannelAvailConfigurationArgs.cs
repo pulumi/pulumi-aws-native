@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAvailConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAvailConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("availSettings")]
         public Input<Inputs.ChannelAvailSettingsArgs>? AvailSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAvailConfigurationArgs()
         {
         }
+        public static new ChannelAvailConfigurationArgs Empty => new ChannelAvailConfigurationArgs();
     }
 }

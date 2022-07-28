@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class JobTemplateTagArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag's key.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public JobTemplateTagArgs()
         {
         }
+        public static new JobTemplateTagArgs Empty => new JobTemplateTagArgs();
     }
 }

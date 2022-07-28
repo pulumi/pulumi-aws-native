@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cognito
     }
 
 
-    public sealed class GetUserPoolUserToGroupAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolUserToGroupAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolUserToGroupAttachmentArgs()
         {
         }
+        public static new GetUserPoolUserToGroupAttachmentArgs Empty => new GetUserPoolUserToGroupAttachmentArgs();
     }
 
-    public sealed class GetUserPoolUserToGroupAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolUserToGroupAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Cognito
         public GetUserPoolUserToGroupAttachmentInvokeArgs()
         {
         }
+        public static new GetUserPoolUserToGroupAttachmentInvokeArgs Empty => new GetUserPoolUserToGroupAttachmentInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation")]
-    public partial class ResolverQueryLoggingConfigAssociation : Pulumi.CustomResource
+    public partial class ResolverQueryLoggingConfigAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Rfc3339TimeString
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverQueryLoggingConfigAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResolverQueryLoggingConfigAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ResolverQueryLogConfigId
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverQueryLoggingConfigAssociationArgs()
         {
         }
+        public static new ResolverQueryLoggingConfigAssociationArgs Empty => new ResolverQueryLoggingConfigAssociationArgs();
     }
 }

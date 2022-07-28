@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53
     }
 
 
-    public sealed class GetHealthCheckArgs : Pulumi.InvokeArgs
+    public sealed class GetHealthCheckArgs : global::Pulumi.InvokeArgs
     {
         [Input("healthCheckId", required: true)]
         public string HealthCheckId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Route53
         public GetHealthCheckArgs()
         {
         }
+        public static new GetHealthCheckArgs Empty => new GetHealthCheckArgs();
     }
 
-    public sealed class GetHealthCheckInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHealthCheckInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("healthCheckId", required: true)]
         public Input<string> HealthCheckId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Route53
         public GetHealthCheckInvokeArgs()
         {
         }
+        public static new GetHealthCheckInvokeArgs Empty => new GetHealthCheckInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayRoute")]
-    public partial class TransitGatewayRoute : Pulumi.CustomResource
+    public partial class TransitGatewayRoute : global::Pulumi.CustomResource
     {
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayRouteArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayRouteArgs()
         {
         }
+        public static new TransitGatewayRouteArgs Empty => new TransitGatewayRouteArgs();
     }
 }

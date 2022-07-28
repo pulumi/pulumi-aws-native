@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetLaunchTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetLaunchTemplateArgs()
         {
         }
+        public static new GetLaunchTemplateArgs Empty => new GetLaunchTemplateArgs();
     }
 
-    public sealed class GetLaunchTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetLaunchTemplateInvokeArgs()
         {
         }
+        public static new GetLaunchTemplateInvokeArgs Empty => new GetLaunchTemplateInvokeArgs();
     }
 
 

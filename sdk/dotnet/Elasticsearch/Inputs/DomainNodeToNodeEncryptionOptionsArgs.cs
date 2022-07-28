@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainNodeToNodeEncryptionOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainNodeToNodeEncryptionOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainNodeToNodeEncryptionOptionsArgs()
         {
         }
+        public static new DomainNodeToNodeEncryptionOptionsArgs Empty => new DomainNodeToNodeEncryptionOptionsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class ScheduleTagArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public ScheduleTagArgs()
         {
         }
+        public static new ScheduleTagArgs Empty => new ScheduleTagArgs();
     }
 }

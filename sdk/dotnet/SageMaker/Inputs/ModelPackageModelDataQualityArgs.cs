@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Metrics that measure the quality of the input data for a model.
     /// </summary>
-    public sealed class ModelPackageModelDataQualityArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageModelDataQualityArgs : global::Pulumi.ResourceArgs
     {
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageModelDataQualityArgs()
         {
         }
+        public static new ModelPackageModelDataQualityArgs Empty => new ModelPackageModelDataQualityArgs();
     }
 }

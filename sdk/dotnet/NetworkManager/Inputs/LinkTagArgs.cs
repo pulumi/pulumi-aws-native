@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// A key-value pair to associate with a link resource.
     /// </summary>
-    public sealed class LinkTagArgs : Pulumi.ResourceArgs
+    public sealed class LinkTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public LinkTagArgs()
         {
         }
+        public static new LinkTagArgs Empty => new LinkTagArgs();
     }
 }

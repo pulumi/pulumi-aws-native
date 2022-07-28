@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::Role
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:Role")]
-    public partial class Role : Pulumi.CustomResource
+    public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the role.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The trust policy that is associated with this role.
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.IAM
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 }

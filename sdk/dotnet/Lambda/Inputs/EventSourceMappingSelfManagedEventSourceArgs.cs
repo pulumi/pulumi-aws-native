@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// The configuration used by AWS Lambda to access a self-managed event source.
     /// </summary>
-    public sealed class EventSourceMappingSelfManagedEventSourceArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingSelfManagedEventSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoints for a self-managed event source.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventSourceMappingSelfManagedEventSourceArgs()
         {
         }
+        public static new EventSourceMappingSelfManagedEventSourceArgs Empty => new EventSourceMappingSelfManagedEventSourceArgs();
     }
 }

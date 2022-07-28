@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
     /// Also used to describe the format of the reference data source.
     /// </summary>
-    public sealed class ApplicationRecordColumnArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationRecordColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to the data element in the streaming input or the reference data source.
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationRecordColumnArgs()
         {
         }
+        public static new ApplicationRecordColumnArgs Empty => new ApplicationRecordColumnArgs();
     }
 }

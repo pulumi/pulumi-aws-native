@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:SecurityGroupIngress")]
-    public partial class SecurityGroupIngress : Pulumi.CustomResource
+    public partial class SecurityGroupIngress : global::Pulumi.CustomResource
     {
         [Output("cacheSecurityGroupName")]
         public Output<string> CacheSecurityGroupName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cacheSecurityGroupName", required: true)]
         public Input<string> CacheSecurityGroupName { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public SecurityGroupIngressArgs()
         {
         }
+        public static new SecurityGroupIngressArgs Empty => new SecurityGroupIngressArgs();
     }
 }

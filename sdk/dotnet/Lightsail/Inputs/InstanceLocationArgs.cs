@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Location of a resource.
     /// </summary>
-    public sealed class InstanceLocationArgs : Pulumi.ResourceArgs
+    public sealed class InstanceLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceLocationArgs()
         {
         }
+        public static new InstanceLocationArgs Empty => new InstanceLocationArgs();
     }
 }

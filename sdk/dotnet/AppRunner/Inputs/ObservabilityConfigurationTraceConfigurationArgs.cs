@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
     /// </summary>
-    public sealed class ObservabilityConfigurationTraceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObservabilityConfigurationTraceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The implementation provider chosen for tracing App Runner services.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ObservabilityConfigurationTraceConfigurationArgs()
         {
         }
+        public static new ObservabilityConfigurationTraceConfigurationArgs Empty => new ObservabilityConfigurationTraceConfigurationArgs();
     }
 }

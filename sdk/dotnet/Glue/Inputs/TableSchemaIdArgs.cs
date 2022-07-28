@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TableSchemaIdArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TableSchemaIdArgs()
         {
         }
+        public static new TableSchemaIdArgs Empty => new TableSchemaIdArgs();
     }
 }

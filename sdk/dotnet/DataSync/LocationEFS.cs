@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationEFS.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationEFS")]
-    public partial class LocationEFS : Pulumi.CustomResource
+    public partial class LocationEFS : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationEFSArgs : Pulumi.ResourceArgs
+    public sealed class LocationEFSArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationEFSArgs()
         {
         }
+        public static new LocationEFSArgs Empty => new LocationEFSArgs();
     }
 }

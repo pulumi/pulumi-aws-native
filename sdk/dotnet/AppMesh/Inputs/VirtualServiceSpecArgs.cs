@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualServiceSpecArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceSpecArgs : global::Pulumi.ResourceArgs
     {
         [Input("provider")]
         public Input<Inputs.VirtualServiceProviderArgs>? Provider { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualServiceSpecArgs()
         {
         }
+        public static new VirtualServiceSpecArgs Empty => new VirtualServiceSpecArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateIamInstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateIamInstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateIamInstanceProfileArgs()
         {
         }
+        public static new LaunchTemplateIamInstanceProfileArgs Empty => new LaunchTemplateIamInstanceProfileArgs();
     }
 }

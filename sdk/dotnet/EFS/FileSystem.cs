@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EFS
     /// Resource Type definition for AWS::EFS::FileSystem
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:FileSystem")]
-    public partial class FileSystem : Pulumi.CustomResource
+    public partial class FileSystem : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EFS
         }
     }
 
-    public sealed class FileSystemArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
@@ -151,5 +151,6 @@ namespace Pulumi.AwsNative.EFS
         public FileSystemArgs()
         {
         }
+        public static new FileSystemArgs Empty => new FileSystemArgs();
     }
 }

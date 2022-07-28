@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetTimePeriodArgs : Pulumi.ResourceArgs
+    public sealed class BudgetTimePeriodArgs : global::Pulumi.ResourceArgs
     {
         [Input("end")]
         public Input<string>? End { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetTimePeriodArgs()
         {
         }
+        public static new BudgetTimePeriodArgs Empty => new BudgetTimePeriodArgs();
     }
 }

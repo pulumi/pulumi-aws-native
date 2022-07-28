@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelEac3SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelEac3SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("attenuationControl")]
         public Input<string>? AttenuationControl { get; set; }
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelEac3SettingsArgs()
         {
         }
+        public static new ChannelEac3SettingsArgs Empty => new ChannelEac3SettingsArgs();
     }
 }

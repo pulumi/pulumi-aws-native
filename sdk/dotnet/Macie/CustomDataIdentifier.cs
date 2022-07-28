@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Macie
     /// Macie CustomDataIdentifier resource schema
     /// </summary>
     [AwsNativeResourceType("aws-native:macie:CustomDataIdentifier")]
-    public partial class CustomDataIdentifier : Pulumi.CustomResource
+    public partial class CustomDataIdentifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom data identifier ARN.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Macie
         }
     }
 
-    public sealed class CustomDataIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class CustomDataIdentifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of custom data identifier.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.Macie
         public CustomDataIdentifierArgs()
         {
         }
+        public static new CustomDataIdentifierArgs Empty => new CustomDataIdentifierArgs();
     }
 }

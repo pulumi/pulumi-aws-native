@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     /// <summary>
     /// The configuration used for outbound calls.
     /// </summary>
-    public sealed class CampaignOutboundCallConfigArgs : Pulumi.ResourceArgs
+    public sealed class CampaignOutboundCallConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the contact flow for the outbound call.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
         public CampaignOutboundCallConfigArgs()
         {
         }
+        public static new CampaignOutboundCallConfigArgs Empty => new CampaignOutboundCallConfigArgs();
     }
 }

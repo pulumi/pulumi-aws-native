@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// When entering this state, perform these `actions` if the `condition` is `TRUE`.
     /// </summary>
-    public sealed class DetectorModelOnEnterArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelOnEnterArgs : global::Pulumi.ResourceArgs
     {
         [Input("events")]
         private InputList<Inputs.DetectorModelEventArgs>? _events;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelOnEnterArgs()
         {
         }
+        public static new DetectorModelOnEnterArgs Empty => new DetectorModelOnEnterArgs();
     }
 }

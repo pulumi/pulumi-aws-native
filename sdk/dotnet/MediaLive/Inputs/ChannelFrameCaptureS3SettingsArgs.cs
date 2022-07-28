@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFrameCaptureS3SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFrameCaptureS3SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("cannedAcl")]
         public Input<string>? CannedAcl { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFrameCaptureS3SettingsArgs()
         {
         }
+        public static new ChannelFrameCaptureS3SettingsArgs Empty => new ChannelFrameCaptureS3SettingsArgs();
     }
 }

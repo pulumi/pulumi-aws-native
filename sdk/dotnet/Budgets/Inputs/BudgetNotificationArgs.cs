@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetNotificationArgs : Pulumi.ResourceArgs
+    public sealed class BudgetNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetNotificationArgs()
         {
         }
+        public static new BudgetNotificationArgs Empty => new BudgetNotificationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeDurationArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeDurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeDurationArgs()
         {
         }
+        public static new VirtualNodeDurationArgs Empty => new VirtualNodeDurationArgs();
     }
 }

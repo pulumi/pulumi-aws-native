@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RDS
     /// </summary>
     [Obsolete(@"DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DBSecurityGroupIngress")]
-    public partial class DBSecurityGroupIngress : Pulumi.CustomResource
+    public partial class DBSecurityGroupIngress : global::Pulumi.CustomResource
     {
         [Output("cIDRIP")]
         public Output<string?> CIDRIP { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBSecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class DBSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cIDRIP")]
         public Input<string>? CIDRIP { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.RDS
         public DBSecurityGroupIngressArgs()
         {
         }
+        public static new DBSecurityGroupIngressArgs Empty => new DBSecurityGroupIngressArgs();
     }
 }

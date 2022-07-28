@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetDomainNameApiAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameApiAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("apiAssociationIdentifier", required: true)]
         public string ApiAssociationIdentifier { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetDomainNameApiAssociationArgs()
         {
         }
+        public static new GetDomainNameApiAssociationArgs Empty => new GetDomainNameApiAssociationArgs();
     }
 
-    public sealed class GetDomainNameApiAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameApiAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("apiAssociationIdentifier", required: true)]
         public Input<string> ApiAssociationIdentifier { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetDomainNameApiAssociationInvokeArgs()
         {
         }
+        public static new GetDomainNameApiAssociationInvokeArgs Empty => new GetDomainNameApiAssociationInvokeArgs();
     }
 
 

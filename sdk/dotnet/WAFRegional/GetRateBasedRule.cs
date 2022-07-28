@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetRateBasedRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetRateBasedRuleArgs()
         {
         }
+        public static new GetRateBasedRuleArgs Empty => new GetRateBasedRuleArgs();
     }
 
-    public sealed class GetRateBasedRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetRateBasedRuleInvokeArgs()
         {
         }
+        public static new GetRateBasedRuleInvokeArgs Empty => new GetRateBasedRuleInvokeArgs();
     }
 
 

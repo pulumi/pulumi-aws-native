@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A regular expression used to validate the value of a slot.
     /// </summary>
-    public sealed class BotSlotValueRegexFilterArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotValueRegexFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Regex pattern
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotValueRegexFilterArgs()
         {
         }
+        public static new BotSlotValueRegexFilterArgs Empty => new BotSlotValueRegexFilterArgs();
     }
 }

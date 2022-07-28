@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeCommit.Inputs
 {
 
-    public sealed class RepositoryTagArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeCommit.Inputs
         public RepositoryTagArgs()
         {
         }
+        public static new RepositoryTagArgs Empty => new RepositoryTagArgs();
     }
 }

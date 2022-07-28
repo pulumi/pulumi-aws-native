@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class ServerProtocolDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ServerProtocolDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("passiveIp")]
         public Input<string>? PassiveIp { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public ServerProtocolDetailsArgs()
         {
         }
+        public static new ServerProtocolDetailsArgs Empty => new ServerProtocolDetailsArgs();
     }
 }

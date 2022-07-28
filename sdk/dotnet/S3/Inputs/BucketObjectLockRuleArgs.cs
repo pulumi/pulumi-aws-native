@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The Object Lock rule in place for the specified object.
     /// </summary>
-    public sealed class BucketObjectLockRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRetention")]
         public Input<Inputs.BucketDefaultRetentionArgs>? DefaultRetention { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketObjectLockRuleArgs()
         {
         }
+        public static new BucketObjectLockRuleArgs Empty => new BucketObjectLockRuleArgs();
     }
 }

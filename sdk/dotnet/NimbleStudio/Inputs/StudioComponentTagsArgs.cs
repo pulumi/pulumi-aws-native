@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    public sealed class StudioComponentTagsArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentTagsArgs : global::Pulumi.ResourceArgs
     {
         public StudioComponentTagsArgs()
         {
         }
+        public static new StudioComponentTagsArgs Empty => new StudioComponentTagsArgs();
     }
 }

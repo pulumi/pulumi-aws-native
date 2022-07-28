@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupAlarmArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupAlarmArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupAlarmArgs()
         {
         }
+        public static new DeploymentGroupAlarmArgs Empty => new DeploymentGroupAlarmArgs();
     }
 }

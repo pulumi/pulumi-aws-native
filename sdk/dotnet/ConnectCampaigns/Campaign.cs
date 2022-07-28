@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
     /// Definition of AWS::ConnectCampaigns::Campaign Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:connectcampaigns:Campaign")]
-    public partial class Campaign : Pulumi.CustomResource
+    public partial class Campaign : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Connect Campaign Arn
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         }
     }
 
-    public sealed class CampaignArgs : Pulumi.ResourceArgs
+    public sealed class CampaignArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Connect Instance Arn
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public CampaignArgs()
         {
         }
+        public static new CampaignArgs Empty => new CampaignArgs();
     }
 }

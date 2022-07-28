@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetOrganizationConfigRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationConfigRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetOrganizationConfigRuleArgs()
         {
         }
+        public static new GetOrganizationConfigRuleArgs Empty => new GetOrganizationConfigRuleArgs();
     }
 
-    public sealed class GetOrganizationConfigRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationConfigRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetOrganizationConfigRuleInvokeArgs()
         {
         }
+        public static new GetOrganizationConfigRuleInvokeArgs Empty => new GetOrganizationConfigRuleInvokeArgs();
     }
 
 

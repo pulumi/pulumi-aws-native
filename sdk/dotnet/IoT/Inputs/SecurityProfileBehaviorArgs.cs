@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// A security profile behavior.
     /// </summary>
-    public sealed class SecurityProfileBehaviorArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileBehaviorArgs : global::Pulumi.ResourceArgs
     {
         [Input("criteria")]
         public Input<Inputs.SecurityProfileBehaviorCriteriaArgs>? Criteria { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileBehaviorArgs()
         {
         }
+        public static new SecurityProfileBehaviorArgs Empty => new SecurityProfileBehaviorArgs();
     }
 }

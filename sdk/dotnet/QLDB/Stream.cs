@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QLDB
     /// Resource schema for AWS::QLDB::Stream.
     /// </summary>
     [AwsNativeResourceType("aws-native:qldb:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.QLDB
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusiveEndTime")]
         public Input<string>? ExclusiveEndTime { get; set; }
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.QLDB
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 }

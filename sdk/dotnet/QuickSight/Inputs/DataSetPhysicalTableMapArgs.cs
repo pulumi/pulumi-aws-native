@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class DataSetPhysicalTableMapArgs : Pulumi.ResourceArgs
+    public sealed class DataSetPhysicalTableMapArgs : global::Pulumi.ResourceArgs
     {
         public DataSetPhysicalTableMapArgs()
         {
         }
+        public static new DataSetPhysicalTableMapArgs Empty => new DataSetPhysicalTableMapArgs();
     }
 }

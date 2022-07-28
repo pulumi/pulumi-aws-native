@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetMethodArgs : Pulumi.InvokeArgs
+    public sealed class GetMethodArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backend system that the method calls when it receives a request.
@@ -48,9 +48,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetMethodArgs()
         {
         }
+        public static new GetMethodArgs Empty => new GetMethodArgs();
     }
 
-    public sealed class GetMethodInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMethodInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backend system that the method calls when it receives a request.
@@ -73,6 +74,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetMethodInvokeArgs()
         {
         }
+        public static new GetMethodInvokeArgs Empty => new GetMethodInvokeArgs();
     }
 
 

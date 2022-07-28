@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointRedshiftSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointRedshiftSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptAnyDate")]
         public Input<bool>? AcceptAnyDate { get; set; }
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointRedshiftSettingsArgs()
         {
         }
+        public static new EndpointRedshiftSettingsArgs Empty => new EndpointRedshiftSettingsArgs();
     }
 }

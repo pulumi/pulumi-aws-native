@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner
     /// The AWS::AppRunner::Service resource specifies an AppRunner Service.
     /// </summary>
     [AwsNativeResourceType("aws-native:apprunner:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Autoscaling configuration ARN
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.AppRunner
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Autoscaling configuration ARN
@@ -158,5 +158,6 @@ namespace Pulumi.AwsNative.AppRunner
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

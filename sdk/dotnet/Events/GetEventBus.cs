@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
     }
 
 
-    public sealed class GetEventBusArgs : Pulumi.InvokeArgs
+    public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Events
         public GetEventBusArgs()
         {
         }
+        public static new GetEventBusArgs Empty => new GetEventBusArgs();
     }
 
-    public sealed class GetEventBusInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Events
         public GetEventBusInvokeArgs()
         {
         }
+        public static new GetEventBusInvokeArgs Empty => new GetEventBusInvokeArgs();
     }
 
 

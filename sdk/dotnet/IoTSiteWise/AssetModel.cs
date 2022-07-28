@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::AssetModel
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:AssetModel")]
-    public partial class AssetModel : Pulumi.CustomResource
+    public partial class AssetModel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the asset model, which has the following format.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class AssetModelArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("assetModelCompositeModels")]
         private InputList<Inputs.AssetModelCompositeModelArgs>? _assetModelCompositeModels;
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public AssetModelArgs()
         {
         }
+        public static new AssetModelArgs Empty => new AssetModelArgs();
     }
 }

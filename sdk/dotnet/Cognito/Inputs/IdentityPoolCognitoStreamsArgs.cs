@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolCognitoStreamsArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolCognitoStreamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public IdentityPoolCognitoStreamsArgs()
         {
         }
+        public static new IdentityPoolCognitoStreamsArgs Empty => new IdentityPoolCognitoStreamsArgs();
     }
 }

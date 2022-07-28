@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetSizeConstraintSetArgs : Pulumi.InvokeArgs
+    public sealed class GetSizeConstraintSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetSizeConstraintSetArgs()
         {
         }
+        public static new GetSizeConstraintSetArgs Empty => new GetSizeConstraintSetArgs();
     }
 
-    public sealed class GetSizeConstraintSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSizeConstraintSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetSizeConstraintSetInvokeArgs()
         {
         }
+        public static new GetSizeConstraintSetInvokeArgs Empty => new GetSizeConstraintSetInvokeArgs();
     }
 
 

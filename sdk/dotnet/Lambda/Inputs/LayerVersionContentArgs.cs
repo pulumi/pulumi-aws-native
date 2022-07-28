@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class LayerVersionContentArgs : Pulumi.ResourceArgs
+    public sealed class LayerVersionContentArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public LayerVersionContentArgs()
         {
         }
+        public static new LayerVersionContentArgs Empty => new LayerVersionContentArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceDeploymentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDeploymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceDeploymentConfigurationArgs()
         {
         }
+        public static new ServiceDeploymentConfigurationArgs Empty => new ServiceDeploymentConfigurationArgs();
     }
 }

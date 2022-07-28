@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Job.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         [Output("dataCatalogOutputs")]
         public Output<ImmutableArray<Outputs.JobDataCatalogOutput>> DataCatalogOutputs { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataCatalogOutputs")]
         private InputList<Inputs.JobDataCatalogOutputArgs>? _dataCatalogOutputs;
@@ -299,5 +299,6 @@ namespace Pulumi.AwsNative.DataBrew
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

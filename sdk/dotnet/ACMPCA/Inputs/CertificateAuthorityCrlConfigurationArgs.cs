@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
     /// </summary>
-    public sealed class CertificateAuthorityCrlConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityCrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityCrlConfigurationArgs()
         {
         }
+        public static new CertificateAuthorityCrlConfigurationArgs Empty => new CertificateAuthorityCrlConfigurationArgs();
     }
 }

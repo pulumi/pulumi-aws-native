@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAacSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAacSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bitrate")]
         public Input<double>? Bitrate { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAacSettingsArgs()
         {
         }
+        public static new ChannelAacSettingsArgs Empty => new ChannelAacSettingsArgs();
     }
 }

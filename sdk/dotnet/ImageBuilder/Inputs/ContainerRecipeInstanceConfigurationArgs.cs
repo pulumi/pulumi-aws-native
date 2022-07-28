@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// A group of options that can be used to configure an instance for building and testing container images.
     /// </summary>
-    public sealed class ContainerRecipeInstanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeInstanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ContainerRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ContainerRecipeInstanceConfigurationArgs()
         {
         }
+        public static new ContainerRecipeInstanceConfigurationArgs Empty => new ContainerRecipeInstanceConfigurationArgs();
     }
 }

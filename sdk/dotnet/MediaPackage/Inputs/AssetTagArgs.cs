@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
-    public sealed class AssetTagArgs : Pulumi.ResourceArgs
+    public sealed class AssetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public AssetTagArgs()
         {
         }
+        public static new AssetTagArgs Empty => new AssetTagArgs();
     }
 }

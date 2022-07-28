@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative
     /// The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [AwsNativeResourceType("pulumi:providers:aws-native")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessKey")]
         private Input<string>? _accessKey;
@@ -251,5 +251,6 @@ namespace Pulumi.AwsNative
             SkipMetadataApiCheck = true;
             SkipRegionValidation = true;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

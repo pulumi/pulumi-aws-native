@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetServiceLinkedRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLinkedRoleArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IAM
         public GetServiceLinkedRoleArgs()
         {
         }
+        public static new GetServiceLinkedRoleArgs Empty => new GetServiceLinkedRoleArgs();
     }
 
-    public sealed class GetServiceLinkedRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLinkedRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IAM
         public GetServiceLinkedRoleInvokeArgs()
         {
         }
+        public static new GetServiceLinkedRoleInvokeArgs Empty => new GetServiceLinkedRoleInvokeArgs();
     }
 
 

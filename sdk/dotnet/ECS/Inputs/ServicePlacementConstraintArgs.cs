@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServicePlacementConstraintArgs : Pulumi.ResourceArgs
+    public sealed class ServicePlacementConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("expression")]
         public Input<string>? Expression { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServicePlacementConstraintArgs()
         {
         }
+        public static new ServicePlacementConstraintArgs Empty => new ServicePlacementConstraintArgs();
     }
 }

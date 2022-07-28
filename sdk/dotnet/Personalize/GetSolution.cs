@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Personalize
     }
 
 
-    public sealed class GetSolutionArgs : Pulumi.InvokeArgs
+    public sealed class GetSolutionArgs : global::Pulumi.InvokeArgs
     {
         [Input("solutionArn", required: true)]
         public string SolutionArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Personalize
         public GetSolutionArgs()
         {
         }
+        public static new GetSolutionArgs Empty => new GetSolutionArgs();
     }
 
-    public sealed class GetSolutionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSolutionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("solutionArn", required: true)]
         public Input<string> SolutionArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Personalize
         public GetSolutionInvokeArgs()
         {
         }
+        public static new GetSolutionInvokeArgs Empty => new GetSolutionInvokeArgs();
     }
 
 

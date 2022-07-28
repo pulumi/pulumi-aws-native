@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// The ReplicationSet regional configuration.
     /// </summary>
-    public sealed class ReplicationSetReplicationRegionArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSetReplicationRegionArgs : global::Pulumi.ResourceArgs
     {
         [Input("regionConfiguration")]
         public Input<Inputs.ReplicationSetRegionConfigurationArgs>? RegionConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ReplicationSetReplicationRegionArgs()
         {
         }
+        public static new ReplicationSetReplicationRegionArgs Empty => new ReplicationSetReplicationRegionArgs();
     }
 }

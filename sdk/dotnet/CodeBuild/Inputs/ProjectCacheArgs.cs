@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectCacheArgs : Pulumi.ResourceArgs
+    public sealed class ProjectCacheArgs : global::Pulumi.ResourceArgs
     {
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectCacheArgs()
         {
         }
+        public static new ProjectCacheArgs Empty => new ProjectCacheArgs();
     }
 }

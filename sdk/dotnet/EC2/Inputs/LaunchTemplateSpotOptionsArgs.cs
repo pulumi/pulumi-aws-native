@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateSpotOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateSpotOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateSpotOptionsArgs()
         {
         }
+        public static new LaunchTemplateSpotOptionsArgs Empty => new LaunchTemplateSpotOptionsArgs();
     }
 }

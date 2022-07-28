@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleTargetGroupStickinessConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleTargetGroupStickinessConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleTargetGroupStickinessConfigArgs()
         {
         }
+        public static new ListenerRuleTargetGroupStickinessConfigArgs Empty => new ListenerRuleTargetGroupStickinessConfigArgs();
     }
 }

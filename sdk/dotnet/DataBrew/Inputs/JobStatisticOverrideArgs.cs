@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobStatisticOverrideArgs : Pulumi.ResourceArgs
+    public sealed class JobStatisticOverrideArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters", required: true)]
         public Input<Inputs.JobParameterMapArgs> Parameters { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobStatisticOverrideArgs()
         {
         }
+        public static new JobStatisticOverrideArgs Empty => new JobStatisticOverrideArgs();
     }
 }

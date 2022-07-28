@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeStar
     }
 
 
-    public sealed class GetGitHubRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetGitHubRepositoryArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeStar
         public GetGitHubRepositoryArgs()
         {
         }
+        public static new GetGitHubRepositoryArgs Empty => new GetGitHubRepositoryArgs();
     }
 
-    public sealed class GetGitHubRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGitHubRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeStar
         public GetGitHubRepositoryInvokeArgs()
         {
         }
+        public static new GetGitHubRepositoryInvokeArgs Empty => new GetGitHubRepositoryInvokeArgs();
     }
 
 

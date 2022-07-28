@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolCustomEmailSenderArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolCustomEmailSenderArgs : global::Pulumi.ResourceArgs
     {
         [Input("lambdaArn")]
         public Input<string>? LambdaArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolCustomEmailSenderArgs()
         {
         }
+        public static new UserPoolCustomEmailSenderArgs Empty => new UserPoolCustomEmailSenderArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetImageRecipeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageRecipeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetImageRecipeArgs()
         {
         }
+        public static new GetImageRecipeArgs Empty => new GetImageRecipeArgs();
     }
 
-    public sealed class GetImageRecipeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetImageRecipeInvokeArgs()
         {
         }
+        public static new GetImageRecipeInvokeArgs Empty => new GetImageRecipeInvokeArgs();
     }
 
 

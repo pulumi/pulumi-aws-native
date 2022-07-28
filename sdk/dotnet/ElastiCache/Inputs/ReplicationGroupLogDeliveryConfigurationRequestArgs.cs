@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class ReplicationGroupLogDeliveryConfigurationRequestArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupLogDeliveryConfigurationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationDetails", required: true)]
         public Input<Inputs.ReplicationGroupDestinationDetailsArgs> DestinationDetails { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public ReplicationGroupLogDeliveryConfigurationRequestArgs()
         {
         }
+        public static new ReplicationGroupLogDeliveryConfigurationRequestArgs Empty => new ReplicationGroupLogDeliveryConfigurationRequestArgs();
     }
 }

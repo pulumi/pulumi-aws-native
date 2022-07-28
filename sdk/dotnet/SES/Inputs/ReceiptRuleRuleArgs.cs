@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleRuleArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.ReceiptRuleActionArgs>? _actions;
@@ -43,5 +43,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleRuleArgs()
         {
         }
+        public static new ReceiptRuleRuleArgs Empty => new ReceiptRuleRuleArgs();
     }
 }

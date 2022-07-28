@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// The start time or end time for an hours of operation.
     /// </summary>
-    public sealed class HoursOfOperationTimeSliceArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationTimeSliceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hours.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public HoursOfOperationTimeSliceArgs()
         {
         }
+        public static new HoursOfOperationTimeSliceArgs Empty => new HoursOfOperationTimeSliceArgs();
     }
 }

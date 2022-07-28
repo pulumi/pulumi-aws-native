@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetQuickConnectArgs : Pulumi.InvokeArgs
+    public sealed class GetQuickConnectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the quick connect.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetQuickConnectArgs()
         {
         }
+        public static new GetQuickConnectArgs Empty => new GetQuickConnectArgs();
     }
 
-    public sealed class GetQuickConnectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQuickConnectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the quick connect.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetQuickConnectInvokeArgs()
         {
         }
+        public static new GetQuickConnectInvokeArgs Empty => new GetQuickConnectInvokeArgs();
     }
 
 

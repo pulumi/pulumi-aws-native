@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     }
 
 
-    public sealed class GetPublicDnsNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicDnsNamespaceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public GetPublicDnsNamespaceArgs()
         {
         }
+        public static new GetPublicDnsNamespaceArgs Empty => new GetPublicDnsNamespaceArgs();
     }
 
-    public sealed class GetPublicDnsNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicDnsNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public GetPublicDnsNamespaceInvokeArgs()
         {
         }
+        public static new GetPublicDnsNamespaceInvokeArgs Empty => new GetPublicDnsNamespaceInvokeArgs();
     }
 
 

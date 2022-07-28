@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppStream
     /// Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:appstream:ApplicationFleetAssociation")]
-    public partial class ApplicationFleetAssociation : Pulumi.CustomResource
+    public partial class ApplicationFleetAssociation : global::Pulumi.CustomResource
     {
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class ApplicationFleetAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationFleetAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.AppStream
         public ApplicationFleetAssociationArgs()
         {
         }
+        public static new ApplicationFleetAssociationArgs Empty => new ApplicationFleetAssociationArgs();
     }
 }

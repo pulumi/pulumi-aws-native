@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class InputDeviceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class InputDeviceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public InputDeviceSettingsArgs()
         {
         }
+        public static new InputDeviceSettingsArgs Empty => new InputDeviceSettingsArgs();
     }
 }

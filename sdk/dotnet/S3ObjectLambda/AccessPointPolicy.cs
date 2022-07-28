@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     /// AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
     /// </summary>
     [AwsNativeResourceType("aws-native:s3objectlambda:AccessPointPolicy")]
-    public partial class AccessPointPolicy : Pulumi.CustomResource
+    public partial class AccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         }
     }
 
-    public sealed class AccessPointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         public AccessPointPolicyArgs()
         {
         }
+        public static new AccessPointPolicyArgs Empty => new AccessPointPolicyArgs();
     }
 }

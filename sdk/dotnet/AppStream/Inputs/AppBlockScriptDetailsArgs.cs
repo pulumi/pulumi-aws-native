@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class AppBlockScriptDetailsArgs : Pulumi.ResourceArgs
+    public sealed class AppBlockScriptDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("executableParameters")]
         public Input<string>? ExecutableParameters { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public AppBlockScriptDetailsArgs()
         {
         }
+        public static new AppBlockScriptDetailsArgs Empty => new AppBlockScriptDetailsArgs();
     }
 }

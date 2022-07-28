@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetFunctionDefinitionVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionDefinitionVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetFunctionDefinitionVersionArgs()
         {
         }
+        public static new GetFunctionDefinitionVersionArgs Empty => new GetFunctionDefinitionVersionArgs();
     }
 
-    public sealed class GetFunctionDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionDefinitionVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetFunctionDefinitionVersionInvokeArgs()
         {
         }
+        public static new GetFunctionDefinitionVersionInvokeArgs Empty => new GetFunctionDefinitionVersionInvokeArgs();
     }
 
 

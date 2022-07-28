@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppIntegrations
     }
 
 
-    public sealed class GetEventIntegrationArgs : Pulumi.InvokeArgs
+    public sealed class GetEventIntegrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the event integration.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         public GetEventIntegrationArgs()
         {
         }
+        public static new GetEventIntegrationArgs Empty => new GetEventIntegrationArgs();
     }
 
-    public sealed class GetEventIntegrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the event integration.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         public GetEventIntegrationInvokeArgs()
         {
         }
+        public static new GetEventIntegrationInvokeArgs Empty => new GetEventIntegrationInvokeArgs();
     }
 
 

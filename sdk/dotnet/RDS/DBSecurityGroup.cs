@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RDS
     /// </summary>
     [Obsolete(@"DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DBSecurityGroup")]
-    public partial class DBSecurityGroup : Pulumi.CustomResource
+    public partial class DBSecurityGroup : global::Pulumi.CustomResource
     {
         [Output("dBSecurityGroupIngress")]
         public Output<ImmutableArray<Outputs.DBSecurityGroupIngress>> DBSecurityGroupIngress { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("dBSecurityGroupIngress", required: true)]
         private InputList<Inputs.DBSecurityGroupIngressArgs>? _dBSecurityGroupIngress;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.RDS
         public DBSecurityGroupArgs()
         {
         }
+        public static new DBSecurityGroupArgs Empty => new DBSecurityGroupArgs();
     }
 }

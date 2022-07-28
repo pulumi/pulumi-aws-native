@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLTagArgs : Pulumi.ResourceArgs
+    public sealed class WebACLTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLTagArgs()
         {
         }
+        public static new WebACLTagArgs Empty => new WebACLTagArgs();
     }
 }

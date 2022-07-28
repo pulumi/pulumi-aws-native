@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupRateBasedStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregateKeyType", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType> AggregateKeyType { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRateBasedStatementArgs()
         {
         }
+        public static new RuleGroupRateBasedStatementArgs Empty => new RuleGroupRateBasedStatementArgs();
     }
 }

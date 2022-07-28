@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class DestinationOptionsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DestinationOptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("fileFormat", required: true)]
         public Input<Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat> FileFormat { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public DestinationOptionsPropertiesArgs()
         {
         }
+        public static new DestinationOptionsPropertiesArgs Empty => new DestinationOptionsPropertiesArgs();
     }
 }

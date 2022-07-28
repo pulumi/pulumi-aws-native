@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class PipelineChannelArgs : Pulumi.ResourceArgs
+    public sealed class PipelineChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public PipelineChannelArgs()
         {
         }
+        public static new PipelineChannelArgs Empty => new PipelineChannelArgs();
     }
 }

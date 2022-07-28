@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Location
     }
 
 
-    public sealed class GetPlaceIndexArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaceIndexArgs : global::Pulumi.InvokeArgs
     {
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Location
         public GetPlaceIndexArgs()
         {
         }
+        public static new GetPlaceIndexArgs Empty => new GetPlaceIndexArgs();
     }
 
-    public sealed class GetPlaceIndexInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaceIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Location
         public GetPlaceIndexInvokeArgs()
         {
         }
+        public static new GetPlaceIndexInvokeArgs Empty => new GetPlaceIndexInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FIS.Inputs
 {
 
-    public sealed class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupArn", required: true)]
         public Input<string> LogGroupArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.FIS.Inputs
         public ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs()
         {
         }
+        public static new ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs Empty => new ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs();
     }
 }

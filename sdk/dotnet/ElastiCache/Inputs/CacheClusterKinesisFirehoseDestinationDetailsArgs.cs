@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class CacheClusterKinesisFirehoseDestinationDetailsArgs : Pulumi.ResourceArgs
+    public sealed class CacheClusterKinesisFirehoseDestinationDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryStream", required: true)]
         public Input<string> DeliveryStream { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public CacheClusterKinesisFirehoseDestinationDetailsArgs()
         {
         }
+        public static new CacheClusterKinesisFirehoseDestinationDetailsArgs Empty => new CacheClusterKinesisFirehoseDestinationDetailsArgs();
     }
 }

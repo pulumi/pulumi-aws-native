@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Chatbot
     /// Resource schema for AWS::Chatbot::SlackChannelConfiguration.
     /// </summary>
     [AwsNativeResourceType("aws-native:chatbot:SlackChannelConfiguration")]
-    public partial class SlackChannelConfiguration : Pulumi.CustomResource
+    public partial class SlackChannelConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Chatbot
         }
     }
 
-    public sealed class SlackChannelConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SlackChannelConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration
@@ -177,5 +177,6 @@ namespace Pulumi.AwsNative.Chatbot
         public SlackChannelConfigurationArgs()
         {
         }
+        public static new SlackChannelConfigurationArgs Empty => new SlackChannelConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The pattern to look for in the request headers.
     /// </summary>
-    public sealed class WebACLHeaderMatchPatternArgs : Pulumi.ResourceArgs
+    public sealed class WebACLHeaderMatchPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect all parts of the web request headers.
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLHeaderMatchPatternArgs()
         {
         }
+        public static new WebACLHeaderMatchPatternArgs Empty => new WebACLHeaderMatchPatternArgs();
     }
 }

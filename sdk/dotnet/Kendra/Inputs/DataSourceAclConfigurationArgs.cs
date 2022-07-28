@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceAclConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAclConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedGroupsColumnName", required: true)]
         public Input<string> AllowedGroupsColumnName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceAclConfigurationArgs()
         {
         }
+        public static new DataSourceAclConfigurationArgs Empty => new DataSourceAclConfigurationArgs();
     }
 }

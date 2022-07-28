@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class CoreDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class CoreDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("cores", required: true)]
         private InputList<Inputs.CoreDefinitionCoreArgs>? _cores;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public CoreDefinitionVersionArgs()
         {
         }
+        public static new CoreDefinitionVersionArgs Empty => new CoreDefinitionVersionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodePipeline
     /// </summary>
     [Obsolete(@"CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codepipeline:CustomActionType")]
-    public partial class CustomActionType : Pulumi.CustomResource
+    public partial class CustomActionType : global::Pulumi.CustomResource
     {
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CodePipeline
         }
     }
 
-    public sealed class CustomActionTypeArgs : Pulumi.ResourceArgs
+    public sealed class CustomActionTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -122,5 +122,6 @@ namespace Pulumi.AwsNative.CodePipeline
         public CustomActionTypeArgs()
         {
         }
+        public static new CustomActionTypeArgs Empty => new CustomActionTypeArgs();
     }
 }

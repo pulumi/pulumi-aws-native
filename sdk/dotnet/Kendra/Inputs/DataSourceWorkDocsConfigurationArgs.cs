@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceWorkDocsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWorkDocsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("crawlComments")]
         public Input<bool>? CrawlComments { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceWorkDocsConfigurationArgs()
         {
         }
+        public static new DataSourceWorkDocsConfigurationArgs Empty => new DataSourceWorkDocsConfigurationArgs();
     }
 }

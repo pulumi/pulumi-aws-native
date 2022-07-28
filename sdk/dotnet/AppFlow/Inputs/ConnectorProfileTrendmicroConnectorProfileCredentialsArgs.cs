@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileTrendmicroConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileTrendmicroConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Secret Access Key portion of the credentials.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileTrendmicroConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileTrendmicroConnectorProfileCredentialsArgs Empty => new ConnectorProfileTrendmicroConnectorProfileCredentialsArgs();
     }
 }

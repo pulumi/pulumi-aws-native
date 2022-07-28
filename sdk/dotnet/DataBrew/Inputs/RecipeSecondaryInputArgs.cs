@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Secondary input
     /// </summary>
-    public sealed class RecipeSecondaryInputArgs : Pulumi.ResourceArgs
+    public sealed class RecipeSecondaryInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataCatalogInputDefinition")]
         public Input<Inputs.RecipeDataCatalogInputDefinitionArgs>? DataCatalogInputDefinition { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeSecondaryInputArgs()
         {
         }
+        public static new RecipeSecondaryInputArgs Empty => new RecipeSecondaryInputArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolClientAnalyticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolClientAnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolClientAnalyticsConfigurationArgs()
         {
         }
+        public static new UserPoolClientAnalyticsConfigurationArgs Empty => new UserPoolClientAnalyticsConfigurationArgs();
     }
 }

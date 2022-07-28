@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowUpsolverS3OutputFormatConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowUpsolverS3OutputFormatConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregationConfig")]
         public Input<Inputs.FlowAggregationConfigArgs>? AggregationConfig { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowUpsolverS3OutputFormatConfigArgs()
         {
         }
+        public static new FlowUpsolverS3OutputFormatConfigArgs Empty => new FlowUpsolverS3OutputFormatConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QLDB.Inputs
 {
 
-    public sealed class StreamKinesisConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StreamKinesisConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregationEnabled")]
         public Input<bool>? AggregationEnabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.QLDB.Inputs
         public StreamKinesisConfigurationArgs()
         {
         }
+        public static new StreamKinesisConfigurationArgs Empty => new StreamKinesisConfigurationArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.XRay
     }
 
 
-    public sealed class GetSamplingRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetSamplingRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleARN", required: true)]
         public string RuleARN { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.XRay
         public GetSamplingRuleArgs()
         {
         }
+        public static new GetSamplingRuleArgs Empty => new GetSamplingRuleArgs();
     }
 
-    public sealed class GetSamplingRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSamplingRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleARN", required: true)]
         public Input<string> RuleARN { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.XRay
         public GetSamplingRuleInvokeArgs()
         {
         }
+        public static new GetSamplingRuleInvokeArgs Empty => new GetSamplingRuleInvokeArgs();
     }
 
 

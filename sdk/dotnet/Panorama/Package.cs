@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Panorama
     /// Schema for Package CloudFormation Resource
     /// </summary>
     [AwsNativeResourceType("aws-native:panorama:Package")]
-    public partial class Package : Pulumi.CustomResource
+    public partial class Package : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Panorama
         }
     }
 
-    public sealed class PackageArgs : Pulumi.ResourceArgs
+    public sealed class PackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.Panorama
         public PackageArgs()
         {
         }
+        public static new PackageArgs Empty => new PackageArgs();
     }
 }

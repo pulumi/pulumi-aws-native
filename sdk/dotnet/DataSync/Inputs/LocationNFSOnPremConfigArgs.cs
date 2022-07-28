@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
     /// </summary>
-    public sealed class LocationNFSOnPremConfigArgs : Pulumi.ResourceArgs
+    public sealed class LocationNFSOnPremConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationNFSOnPremConfigArgs()
         {
         }
+        public static new LocationNFSOnPremConfigArgs Empty => new LocationNFSOnPremConfigArgs();
     }
 }

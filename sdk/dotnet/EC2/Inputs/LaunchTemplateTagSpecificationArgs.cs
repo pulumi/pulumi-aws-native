@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateTagSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateTagSpecificationArgs()
         {
         }
+        public static new LaunchTemplateTagSpecificationArgs Empty => new LaunchTemplateTagSpecificationArgs();
     }
 }

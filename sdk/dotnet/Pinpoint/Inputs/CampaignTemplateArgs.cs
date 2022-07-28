@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignTemplateArgs : Pulumi.ResourceArgs
+    public sealed class CampaignTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignTemplateArgs()
         {
         }
+        public static new CampaignTemplateArgs Empty => new CampaignTemplateArgs();
     }
 }

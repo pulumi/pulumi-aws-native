@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;S3 parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceS3ParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceS3ParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("manifestFileLocation", required: true)]
         public Input<Inputs.DataSourceManifestFileLocationArgs> ManifestFileLocation { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceS3ParametersArgs()
         {
         }
+        public static new DataSourceS3ParametersArgs Empty => new DataSourceS3ParametersArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexJsonTokenTypeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexJsonTokenTypeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupAttributeField", required: true)]
         public Input<string> GroupAttributeField { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexJsonTokenTypeConfigurationArgs()
         {
         }
+        public static new IndexJsonTokenTypeConfigurationArgs Empty => new IndexJsonTokenTypeConfigurationArgs();
     }
 }

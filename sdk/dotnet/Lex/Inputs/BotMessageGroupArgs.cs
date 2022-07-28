@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// One or more messages that Amazon Lex can send to the user.
     /// </summary>
-    public sealed class BotMessageGroupArgs : Pulumi.ResourceArgs
+    public sealed class BotMessageGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("message", required: true)]
         public Input<Inputs.BotMessageArgs> Message { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotMessageGroupArgs()
         {
         }
+        public static new BotMessageGroupArgs Empty => new BotMessageGroupArgs();
     }
 }

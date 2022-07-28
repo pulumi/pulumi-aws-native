@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// <summary>
     /// Information about notification channels you have configured with DevOps Guru.
     /// </summary>
-    public sealed class NotificationChannelConfigArgs : Pulumi.ResourceArgs
+    public sealed class NotificationChannelConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("sns")]
         public Input<Inputs.NotificationChannelSnsChannelConfigArgs>? Sns { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         public NotificationChannelConfigArgs()
         {
         }
+        public static new NotificationChannelConfigArgs Empty => new NotificationChannelConfigArgs();
     }
 }

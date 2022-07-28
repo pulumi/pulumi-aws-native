@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerCatalogTargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerCatalogTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerCatalogTargetArgs()
         {
         }
+        public static new CrawlerCatalogTargetArgs Empty => new CrawlerCatalogTargetArgs();
     }
 }

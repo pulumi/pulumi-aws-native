@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// The dead-letter queue for failed asynchronous invocations.
     /// </summary>
-    public sealed class FunctionDeadLetterConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDeadLetterConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionDeadLetterConfigArgs()
         {
         }
+        public static new FunctionDeadLetterConfigArgs Empty => new FunctionDeadLetterConfigArgs();
     }
 }

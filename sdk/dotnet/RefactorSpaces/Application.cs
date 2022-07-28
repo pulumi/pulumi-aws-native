@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     /// Definition of AWS::RefactorSpaces::Application Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:refactorspaces:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         [Output("apiGatewayId")]
         public Output<string> ApiGatewayId { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiGatewayProxy")]
         public Input<Inputs.ApplicationApiGatewayProxyInputArgs>? ApiGatewayProxy { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

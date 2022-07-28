@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventAction", required: true)]
         public Input<string> EventAction { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs()
         {
         }
+        public static new UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs Empty => new UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs();
     }
 }

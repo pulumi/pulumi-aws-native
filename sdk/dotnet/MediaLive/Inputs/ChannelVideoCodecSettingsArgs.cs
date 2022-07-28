@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoCodecSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoCodecSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("frameCaptureSettings")]
         public Input<Inputs.ChannelFrameCaptureSettingsArgs>? FrameCaptureSettings { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoCodecSettingsArgs()
         {
         }
+        public static new ChannelVideoCodecSettingsArgs Empty => new ChannelVideoCodecSettingsArgs();
     }
 }

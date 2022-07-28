@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Schema of AWS::EC2::IPAMAllocation Type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:IPAMAllocation")]
-    public partial class IPAMAllocation : Pulumi.CustomResource
+    public partial class IPAMAllocation : global::Pulumi.CustomResource
     {
         [Output("cidr")]
         public Output<string?> Cidr { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class IPAMAllocationArgs : Pulumi.ResourceArgs
+    public sealed class IPAMAllocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.EC2
         public IPAMAllocationArgs()
         {
         }
+        public static new IPAMAllocationArgs Empty => new IPAMAllocationArgs();
     }
 }

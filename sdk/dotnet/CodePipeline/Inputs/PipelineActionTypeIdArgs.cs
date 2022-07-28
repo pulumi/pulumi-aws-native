@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineActionTypeIdArgs : Pulumi.ResourceArgs
+    public sealed class PipelineActionTypeIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineActionTypeIdArgs()
         {
         }
+        public static new PipelineActionTypeIdArgs Empty => new PipelineActionTypeIdArgs();
     }
 }

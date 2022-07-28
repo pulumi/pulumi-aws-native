@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// The actions to be performed.
     /// </summary>
-    public sealed class DetectorModelActionArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("clearTimer")]
         public Input<Inputs.DetectorModelClearTimerArgs>? ClearTimer { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelActionArgs()
         {
         }
+        public static new DetectorModelActionArgs Empty => new DetectorModelActionArgs();
     }
 }

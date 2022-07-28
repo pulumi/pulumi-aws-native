@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty.Inputs
 {
 
-    public sealed class DetectorCFNS3LogsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DetectorCFNS3LogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         public DetectorCFNS3LogsConfigurationArgs()
         {
         }
+        public static new DetectorCFNS3LogsConfigurationArgs Empty => new DetectorCFNS3LogsConfigurationArgs();
     }
 }

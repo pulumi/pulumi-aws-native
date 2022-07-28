@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.MediaConvert
     /// </summary>
     [Obsolete(@"Preset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:mediaconvert:Preset")]
-    public partial class Preset : Pulumi.CustomResource
+    public partial class Preset : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.MediaConvert
         }
     }
 
-    public sealed class PresetArgs : Pulumi.ResourceArgs
+    public sealed class PresetArgs : global::Pulumi.ResourceArgs
     {
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -97,5 +97,6 @@ namespace Pulumi.AwsNative.MediaConvert
         public PresetArgs()
         {
         }
+        public static new PresetArgs Empty => new PresetArgs();
     }
 }

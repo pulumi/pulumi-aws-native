@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteGrpcRouteMatchArgs : Pulumi.ResourceArgs
+    public sealed class RouteGrpcRouteMatchArgs : global::Pulumi.ResourceArgs
     {
         [Input("metadata")]
         private InputList<Inputs.RouteGrpcRouteMetadataArgs>? _metadata;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteGrpcRouteMatchArgs()
         {
         }
+        public static new RouteGrpcRouteMatchArgs Empty => new RouteGrpcRouteMatchArgs();
     }
 }

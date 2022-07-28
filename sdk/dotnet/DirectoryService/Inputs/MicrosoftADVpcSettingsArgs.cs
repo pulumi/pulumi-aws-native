@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DirectoryService.Inputs
 {
 
-    public sealed class MicrosoftADVpcSettingsArgs : Pulumi.ResourceArgs
+    public sealed class MicrosoftADVpcSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.DirectoryService.Inputs
         public MicrosoftADVpcSettingsArgs()
         {
         }
+        public static new MicrosoftADVpcSettingsArgs Empty => new MicrosoftADVpcSettingsArgs();
     }
 }

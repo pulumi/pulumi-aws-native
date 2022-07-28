@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetFilesLimitArgs : Pulumi.ResourceArgs
+    public sealed class DatasetFilesLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of files
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetFilesLimitArgs()
         {
         }
+        public static new DatasetFilesLimitArgs Empty => new DatasetFilesLimitArgs();
     }
 }

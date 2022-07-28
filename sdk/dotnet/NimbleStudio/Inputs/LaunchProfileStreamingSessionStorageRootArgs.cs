@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// &lt;p&gt;The upload storage root location (folder) on streaming workstations where files are
     ///             uploaded.&lt;/p&gt;
     /// </summary>
-    public sealed class LaunchProfileStreamingSessionStorageRootArgs : Pulumi.ResourceArgs
+    public sealed class LaunchProfileStreamingSessionStorageRootArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The folder path in Linux workstations where files are uploaded.&lt;/p&gt;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public LaunchProfileStreamingSessionStorageRootArgs()
         {
         }
+        public static new LaunchProfileStreamingSessionStorageRootArgs Empty => new LaunchProfileStreamingSessionStorageRootArgs();
     }
 }

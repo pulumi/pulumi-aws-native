@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
-    public sealed class SecretGenerateSecretStringArgs : Pulumi.ResourceArgs
+    public sealed class SecretGenerateSecretStringArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeCharacters")]
         public Input<string>? ExcludeCharacters { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         public SecretGenerateSecretStringArgs()
         {
         }
+        public static new SecretGenerateSecretStringArgs Empty => new SecretGenerateSecretStringArgs();
     }
 }

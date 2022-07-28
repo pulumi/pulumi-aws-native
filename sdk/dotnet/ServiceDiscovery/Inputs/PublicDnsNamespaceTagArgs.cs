@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    public sealed class PublicDnsNamespaceTagArgs : Pulumi.ResourceArgs
+    public sealed class PublicDnsNamespaceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
         public PublicDnsNamespaceTagArgs()
         {
         }
+        public static new PublicDnsNamespaceTagArgs Empty => new PublicDnsNamespaceTagArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSM
     }
 
 
-    public sealed class GetDocumentArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the Systems Manager document.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSM
         public GetDocumentArgs()
         {
         }
+        public static new GetDocumentArgs Empty => new GetDocumentArgs();
     }
 
-    public sealed class GetDocumentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the Systems Manager document.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSM
         public GetDocumentInvokeArgs()
         {
         }
+        public static new GetDocumentInvokeArgs Empty => new GetDocumentInvokeArgs();
     }
 
 

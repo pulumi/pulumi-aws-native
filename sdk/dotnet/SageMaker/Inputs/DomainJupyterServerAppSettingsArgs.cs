@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The JupyterServer app settings.
     /// </summary>
-    public sealed class DomainJupyterServerAppSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainJupyterServerAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainJupyterServerAppSettingsArgs()
         {
         }
+        public static new DomainJupyterServerAppSettingsArgs Empty => new DomainJupyterServerAppSettingsArgs();
     }
 }

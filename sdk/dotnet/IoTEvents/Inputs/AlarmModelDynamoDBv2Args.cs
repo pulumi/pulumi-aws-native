@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// 
     /// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
     /// </summary>
-    public sealed class AlarmModelDynamoDBv2Args : Pulumi.ResourceArgs
+    public sealed class AlarmModelDynamoDBv2Args : global::Pulumi.ResourceArgs
     {
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelDynamoDBv2Args()
         {
         }
+        public static new AlarmModelDynamoDBv2Args Empty => new AlarmModelDynamoDBv2Args();
     }
 }

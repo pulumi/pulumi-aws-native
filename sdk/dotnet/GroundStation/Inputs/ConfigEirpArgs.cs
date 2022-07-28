@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigEirpArgs : Pulumi.ResourceArgs
+    public sealed class ConfigEirpArgs : global::Pulumi.ResourceArgs
     {
         [Input("units")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigEirpUnits>? Units { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigEirpArgs()
         {
         }
+        public static new ConfigEirpArgs Empty => new ConfigEirpArgs();
     }
 }

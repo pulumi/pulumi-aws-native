@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class AlarmMetricDataQueryArgs : Pulumi.ResourceArgs
+    public sealed class AlarmMetricDataQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public AlarmMetricDataQueryArgs()
         {
         }
+        public static new AlarmMetricDataQueryArgs Empty => new AlarmMetricDataQueryArgs();
     }
 }

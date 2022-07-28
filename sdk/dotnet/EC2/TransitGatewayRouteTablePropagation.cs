@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"TransitGatewayRouteTablePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayRouteTablePropagation")]
-    public partial class TransitGatewayRouteTablePropagation : Pulumi.CustomResource
+    public partial class TransitGatewayRouteTablePropagation : global::Pulumi.CustomResource
     {
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayRouteTablePropagationArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayRouteTablePropagationArgs : global::Pulumi.ResourceArgs
     {
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayRouteTablePropagationArgs()
         {
         }
+        public static new TransitGatewayRouteTablePropagationArgs Empty => new TransitGatewayRouteTablePropagationArgs();
     }
 }

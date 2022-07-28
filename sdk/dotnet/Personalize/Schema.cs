@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize
     /// Resource schema for AWS::Personalize::Schema.
     /// </summary>
     [AwsNativeResourceType("aws-native:personalize:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The domain of a Domain dataset group.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Personalize
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain of a Domain dataset group.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Personalize
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 }

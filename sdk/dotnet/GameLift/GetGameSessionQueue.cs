@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetGameSessionQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetGameSessionQueueArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetGameSessionQueueArgs()
         {
         }
+        public static new GetGameSessionQueueArgs Empty => new GetGameSessionQueueArgs();
     }
 
-    public sealed class GetGameSessionQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGameSessionQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetGameSessionQueueInvokeArgs()
         {
         }
+        public static new GetGameSessionQueueInvokeArgs Empty => new GetGameSessionQueueInvokeArgs();
     }
 
 

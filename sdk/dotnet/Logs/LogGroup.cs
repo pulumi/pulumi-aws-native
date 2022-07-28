@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Logs
     /// Resource schema for AWS::Logs::LogGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:LogGroup")]
-    public partial class LogGroup : Pulumi.CustomResource
+    public partial class LogGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CloudWatch log group ARN.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class LogGroupArgs : Pulumi.ResourceArgs
+    public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Logs
         public LogGroupArgs()
         {
         }
+        public static new LogGroupArgs Empty => new LogGroupArgs();
     }
 }

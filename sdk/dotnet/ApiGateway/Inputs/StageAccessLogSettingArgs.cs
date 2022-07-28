@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// <summary>
     /// Specifies settings for logging access in this stage.
     /// </summary>
-    public sealed class StageAccessLogSettingArgs : Pulumi.ResourceArgs
+    public sealed class StageAccessLogSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public StageAccessLogSettingArgs()
         {
         }
+        public static new StageAccessLogSettingArgs Empty => new StageAccessLogSettingArgs();
     }
 }

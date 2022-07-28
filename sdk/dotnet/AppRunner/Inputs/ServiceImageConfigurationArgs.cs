@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Image Configuration
     /// </summary>
-    public sealed class ServiceImageConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceImageConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceImageConfigurationArgs()
         {
         }
+        public static new ServiceImageConfigurationArgs Empty => new ServiceImageConfigurationArgs();
     }
 }

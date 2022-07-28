@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ContactListTagArgs : Pulumi.ResourceArgs
+    public sealed class ContactListTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ContactListTagArgs()
         {
         }
+        public static new ContactListTagArgs Empty => new ContactListTagArgs();
     }
 }

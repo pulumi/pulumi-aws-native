@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class MeshSpecArgs : Pulumi.ResourceArgs
+    public sealed class MeshSpecArgs : global::Pulumi.ResourceArgs
     {
         [Input("egressFilter")]
         public Input<Inputs.MeshEgressFilterArgs>? EgressFilter { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public MeshSpecArgs()
         {
         }
+        public static new MeshSpecArgs Empty => new MeshSpecArgs();
     }
 }

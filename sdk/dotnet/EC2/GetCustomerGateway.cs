@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetCustomerGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetCustomerGatewayArgs()
         {
         }
+        public static new GetCustomerGatewayArgs Empty => new GetCustomerGatewayArgs();
     }
 
-    public sealed class GetCustomerGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetCustomerGatewayInvokeArgs()
         {
         }
+        public static new GetCustomerGatewayInvokeArgs Empty => new GetCustomerGatewayInvokeArgs();
     }
 
 

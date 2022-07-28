@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Rekognition
     }
 
 
-    public sealed class GetStreamProcessorArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamProcessorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Rekognition
         public GetStreamProcessorArgs()
         {
         }
+        public static new GetStreamProcessorArgs Empty => new GetStreamProcessorArgs();
     }
 
-    public sealed class GetStreamProcessorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamProcessorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Rekognition
         public GetStreamProcessorInvokeArgs()
         {
         }
+        public static new GetStreamProcessorInvokeArgs Empty => new GetStreamProcessorInvokeArgs();
     }
 
 

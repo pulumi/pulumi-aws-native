@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerShutdownEventConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LayerShutdownEventConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("delayUntilElbConnectionsDrained")]
         public Input<bool>? DelayUntilElbConnectionsDrained { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerShutdownEventConfigurationArgs()
         {
         }
+        public static new LayerShutdownEventConfigurationArgs Empty => new LayerShutdownEventConfigurationArgs();
     }
 }

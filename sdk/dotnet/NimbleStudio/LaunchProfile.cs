@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// Represents a launch profile which delegates access to a collection of studio components to studio users
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:LaunchProfile")]
-    public partial class LaunchProfile : Pulumi.CustomResource
+    public partial class LaunchProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The description.&lt;/p&gt;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
     }
 
-    public sealed class LaunchProfileArgs : Pulumi.ResourceArgs
+    public sealed class LaunchProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The description.&lt;/p&gt;
@@ -174,5 +174,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         public LaunchProfileArgs()
         {
         }
+        public static new LaunchProfileArgs Empty => new LaunchProfileArgs();
     }
 }

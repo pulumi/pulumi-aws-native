@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Athena
     }
 
 
-    public sealed class GetWorkGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workGroup name.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Athena
         public GetWorkGroupArgs()
         {
         }
+        public static new GetWorkGroupArgs Empty => new GetWorkGroupArgs();
     }
 
-    public sealed class GetWorkGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The workGroup name.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Athena
         public GetWorkGroupInvokeArgs()
         {
         }
+        public static new GetWorkGroupInvokeArgs Empty => new GetWorkGroupInvokeArgs();
     }
 
 

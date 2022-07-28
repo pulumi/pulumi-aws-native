@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.InspectorV2
     }
 
 
-    public sealed class GetFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Findings filter ARN.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.InspectorV2
         public GetFilterArgs()
         {
         }
+        public static new GetFilterArgs Empty => new GetFilterArgs();
     }
 
-    public sealed class GetFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Findings filter ARN.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public GetFilterInvokeArgs()
         {
         }
+        public static new GetFilterInvokeArgs Empty => new GetFilterInvokeArgs();
     }
 
 

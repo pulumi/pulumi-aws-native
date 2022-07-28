@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.InspectorV2
     /// Inspector Filter resource schema
     /// </summary>
     [AwsNativeResourceType("aws-native:inspectorv2:Filter")]
-    public partial class Filter : Pulumi.CustomResource
+    public partial class Filter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Findings filter ARN.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.InspectorV2
         }
     }
 
-    public sealed class FilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Findings filter description.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.InspectorV2
         public FilterArgs()
         {
         }
+        public static new FilterArgs Empty => new FilterArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterStorageInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterStorageInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("eBSStorageInfo")]
         public Input<Inputs.ClusterEBSStorageInfoArgs>? EBSStorageInfo { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterStorageInfoArgs()
         {
         }
+        public static new ClusterStorageInfoArgs Empty => new ClusterStorageInfoArgs();
     }
 }

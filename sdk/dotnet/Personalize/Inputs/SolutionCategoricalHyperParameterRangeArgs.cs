@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// Provides the name and values of a Categorical hyperparameter.
     /// </summary>
-    public sealed class SolutionCategoricalHyperParameterRangeArgs : Pulumi.ResourceArgs
+    public sealed class SolutionCategoricalHyperParameterRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the hyperparameter.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionCategoricalHyperParameterRangeArgs()
         {
         }
+        public static new SolutionCategoricalHyperParameterRangeArgs Empty => new SolutionCategoricalHyperParameterRangeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
-    public sealed class MemberFabricConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MemberFabricConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminPassword", required: true)]
         public Input<string> AdminPassword { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
         public MemberFabricConfigurationArgs()
         {
         }
+        public static new MemberFabricConfigurationArgs Empty => new MemberFabricConfigurationArgs();
     }
 }

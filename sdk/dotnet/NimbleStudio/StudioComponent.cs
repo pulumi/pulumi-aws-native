@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StudioComponent")]
-    public partial class StudioComponent : Pulumi.CustomResource
+    public partial class StudioComponent : global::Pulumi.CustomResource
     {
         [Output("configuration")]
         public Output<Outputs.StudioComponentConfiguration?> Configuration { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
     }
 
-    public sealed class StudioComponentArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         public Input<Inputs.StudioComponentConfigurationArgs>? Configuration { get; set; }
@@ -180,5 +180,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         public StudioComponentArgs()
         {
         }
+        public static new StudioComponentArgs Empty => new StudioComponentArgs();
     }
 }

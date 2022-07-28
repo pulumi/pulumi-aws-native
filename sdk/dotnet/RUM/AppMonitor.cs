@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RUM
     /// Resource Type definition for AWS::RUM::AppMonitor
     /// </summary>
     [AwsNativeResourceType("aws-native:rum:AppMonitor")]
-    public partial class AppMonitor : Pulumi.CustomResource
+    public partial class AppMonitor : global::Pulumi.CustomResource
     {
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.RUM
         }
     }
 
-    public sealed class AppMonitorArgs : Pulumi.ResourceArgs
+    public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.RUM
         public AppMonitorArgs()
         {
         }
+        public static new AppMonitorArgs Empty => new AppMonitorArgs();
     }
 }

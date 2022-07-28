@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class EventInvokeConfigDestinationConfigArgs : Pulumi.ResourceArgs
+    public sealed class EventInvokeConfigDestinationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("onFailure")]
         public Input<Inputs.EventInvokeConfigOnFailureArgs>? OnFailure { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventInvokeConfigDestinationConfigArgs()
         {
         }
+        public static new EventInvokeConfigDestinationConfigArgs Empty => new EventInvokeConfigDestinationConfigArgs();
     }
 }

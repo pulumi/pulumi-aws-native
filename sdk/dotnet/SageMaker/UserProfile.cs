@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::UserProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:UserProfile")]
-    public partial class UserProfile : Pulumi.CustomResource
+    public partial class UserProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the associated Domain.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class UserProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated Domain.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.SageMaker
         public UserProfileArgs()
         {
         }
+        public static new UserProfileArgs Empty => new UserProfileArgs();
     }
 }

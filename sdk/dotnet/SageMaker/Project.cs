@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::Project
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the project was created.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

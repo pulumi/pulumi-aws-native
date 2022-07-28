@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details of the client authentication used by the Kafka cluster.
     /// </summary>
-    public sealed class ConnectorKafkaClusterClientAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorKafkaClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationType", required: true)]
         public Input<Pulumi.AwsNative.KafkaConnect.ConnectorKafkaClusterClientAuthenticationType> AuthenticationType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorKafkaClusterClientAuthenticationArgs()
         {
         }
+        public static new ConnectorKafkaClusterClientAuthenticationArgs Empty => new ConnectorKafkaClusterClientAuthenticationArgs();
     }
 }

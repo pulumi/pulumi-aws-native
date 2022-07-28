@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// &lt;p&gt;Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
     ///             underlying data source.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceSslPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSslPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A Boolean option to control whether SSL should be disabled.&lt;/p&gt;
@@ -25,5 +25,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceSslPropertiesArgs()
         {
         }
+        public static new DataSourceSslPropertiesArgs Empty => new DataSourceSslPropertiesArgs();
     }
 }

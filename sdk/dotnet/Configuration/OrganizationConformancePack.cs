@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Configuration
     /// Resource schema for AWS::Config::OrganizationConformancePack.
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:OrganizationConformancePack")]
-    public partial class OrganizationConformancePack : Pulumi.CustomResource
+    public partial class OrganizationConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of ConformancePackInputParameter objects.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class OrganizationConformancePackArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConformancePackArgs : global::Pulumi.ResourceArgs
     {
         [Input("conformancePackInputParameters")]
         private InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.Configuration
         public OrganizationConformancePackArgs()
         {
         }
+        public static new OrganizationConformancePackArgs Empty => new OrganizationConformancePackArgs();
     }
 }

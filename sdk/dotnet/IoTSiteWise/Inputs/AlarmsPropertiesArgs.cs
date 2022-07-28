@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
     /// </summary>
-    public sealed class AlarmsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AlarmsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AlarmsPropertiesArgs()
         {
         }
+        public static new AlarmsPropertiesArgs Empty => new AlarmsPropertiesArgs();
     }
 }

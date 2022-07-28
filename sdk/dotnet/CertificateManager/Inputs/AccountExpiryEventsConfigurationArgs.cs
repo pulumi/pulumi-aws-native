@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CertificateManager.Inputs
 {
 
-    public sealed class AccountExpiryEventsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccountExpiryEventsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysBeforeExpiry")]
         public Input<int>? DaysBeforeExpiry { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CertificateManager.Inputs
         public AccountExpiryEventsConfigurationArgs()
         {
         }
+        public static new AccountExpiryEventsConfigurationArgs Empty => new AccountExpiryEventsConfigurationArgs();
     }
 }

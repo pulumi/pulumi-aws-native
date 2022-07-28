@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class StackElasticIpArgs : Pulumi.ResourceArgs
+    public sealed class StackElasticIpArgs : global::Pulumi.ResourceArgs
     {
         [Input("ip", required: true)]
         public Input<string> Ip { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public StackElasticIpArgs()
         {
         }
+        public static new StackElasticIpArgs Empty => new StackElasticIpArgs();
     }
 }

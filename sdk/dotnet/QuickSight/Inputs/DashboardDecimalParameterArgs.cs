@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A decimal parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardDecimalParameterArgs : Pulumi.ResourceArgs
+    public sealed class DashboardDecimalParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A display name for the decimal parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardDecimalParameterArgs()
         {
         }
+        public static new DashboardDecimalParameterArgs Empty => new DashboardDecimalParameterArgs();
     }
 }

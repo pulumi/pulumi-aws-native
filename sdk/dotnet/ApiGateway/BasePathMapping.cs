@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::BasePathMapping
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:BasePathMapping")]
-    public partial class BasePathMapping : Pulumi.CustomResource
+    public partial class BasePathMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class BasePathMappingArgs : Pulumi.ResourceArgs
+    public sealed class BasePathMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base path name that callers of the API must provide in the URL after the domain name.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public BasePathMappingArgs()
         {
         }
+        public static new BasePathMappingArgs Empty => new BasePathMappingArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Ground truth input provided in S3 
     /// </summary>
-    public sealed class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs : Pulumi.ResourceArgs
+    public sealed class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs()
         {
         }
+        public static new ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs Empty => new ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs();
     }
 }

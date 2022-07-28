@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CE
     }
 
 
-    public sealed class GetAnomalyMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyMonitorArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorArn", required: true)]
         public string MonitorArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CE
         public GetAnomalyMonitorArgs()
         {
         }
+        public static new GetAnomalyMonitorArgs Empty => new GetAnomalyMonitorArgs();
     }
 
-    public sealed class GetAnomalyMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalyMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorArn", required: true)]
         public Input<string> MonitorArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CE
         public GetAnomalyMonitorInvokeArgs()
         {
         }
+        public static new GetAnomalyMonitorInvokeArgs Empty => new GetAnomalyMonitorInvokeArgs();
     }
 
 

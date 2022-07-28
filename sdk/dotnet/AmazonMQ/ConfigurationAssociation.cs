@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     /// </summary>
     [Obsolete(@"ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:amazonmq:ConfigurationAssociation")]
-    public partial class ConfigurationAssociation : Pulumi.CustomResource
+    public partial class ConfigurationAssociation : global::Pulumi.CustomResource
     {
         [Output("broker")]
         public Output<string> Broker { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.AmazonMQ
         }
     }
 
-    public sealed class ConfigurationAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("broker", required: true)]
         public Input<string> Broker { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.AmazonMQ
         public ConfigurationAssociationArgs()
         {
         }
+        public static new ConfigurationAssociationArgs Empty => new ConfigurationAssociationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"UserToGroupAddition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:UserToGroupAddition")]
-    public partial class UserToGroupAddition : Pulumi.CustomResource
+    public partial class UserToGroupAddition : global::Pulumi.CustomResource
     {
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class UserToGroupAdditionArgs : Pulumi.ResourceArgs
+    public sealed class UserToGroupAdditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.IAM
         public UserToGroupAdditionArgs()
         {
         }
+        public static new UserToGroupAdditionArgs Empty => new UserToGroupAdditionArgs();
     }
 }

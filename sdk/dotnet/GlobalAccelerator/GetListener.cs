@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     }
 
 
-    public sealed class GetListenerArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetListenerArgs()
         {
         }
+        public static new GetListenerArgs Empty => new GetListenerArgs();
     }
 
-    public sealed class GetListenerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetListenerInvokeArgs()
         {
         }
+        public static new GetListenerInvokeArgs Empty => new GetListenerInvokeArgs();
     }
 
 

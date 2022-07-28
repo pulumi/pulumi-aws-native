@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
-    public sealed class SecretReplicaRegionArgs : Pulumi.ResourceArgs
+    public sealed class SecretReplicaRegionArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         public SecretReplicaRegionArgs()
         {
         }
+        public static new SecretReplicaRegionArgs Empty => new SecretReplicaRegionArgs();
     }
 }

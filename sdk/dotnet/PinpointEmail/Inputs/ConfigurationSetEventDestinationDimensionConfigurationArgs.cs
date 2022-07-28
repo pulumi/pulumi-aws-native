@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetEventDestinationDimensionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationDimensionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultDimensionValue", required: true)]
         public Input<string> DefaultDimensionValue { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetEventDestinationDimensionConfigurationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationDimensionConfigurationArgs Empty => new ConfigurationSetEventDestinationDimensionConfigurationArgs();
     }
 }

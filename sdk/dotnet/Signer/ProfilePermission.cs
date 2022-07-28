@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Signer
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:signer:ProfilePermission")]
-    public partial class ProfilePermission : Pulumi.CustomResource
+    public partial class ProfilePermission : global::Pulumi.CustomResource
     {
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Signer
         }
     }
 
-    public sealed class ProfilePermissionArgs : Pulumi.ResourceArgs
+    public sealed class ProfilePermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.Signer
         public ProfilePermissionArgs()
         {
         }
+        public static new ProfilePermissionArgs Empty => new ProfilePermissionArgs();
     }
 }

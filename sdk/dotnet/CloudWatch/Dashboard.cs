@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// </summary>
     [Obsolete(@"Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudwatch:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         [Output("dashboardBody")]
         public Output<string> DashboardBody { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         [Input("dashboardBody", required: true)]
         public Input<string> DashboardBody { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 }

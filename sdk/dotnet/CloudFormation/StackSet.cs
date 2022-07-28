@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:StackSet")]
-    public partial class StackSet : Pulumi.CustomResource
+    public partial class StackSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class StackSetArgs : Pulumi.ResourceArgs
+    public sealed class StackSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -267,5 +267,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public StackSetArgs()
         {
         }
+        public static new StackSetArgs Empty => new StackSetArgs();
     }
 }

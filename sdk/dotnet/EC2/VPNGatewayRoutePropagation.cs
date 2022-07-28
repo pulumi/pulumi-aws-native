@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPNGatewayRoutePropagation")]
-    public partial class VPNGatewayRoutePropagation : Pulumi.CustomResource
+    public partial class VPNGatewayRoutePropagation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPNGatewayRoutePropagationArgs : Pulumi.ResourceArgs
+    public sealed class VPNGatewayRoutePropagationArgs : global::Pulumi.ResourceArgs
     {
         [Input("routeTableIds", required: true)]
         private InputList<string>? _routeTableIds;
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.EC2
         public VPNGatewayRoutePropagationArgs()
         {
         }
+        public static new VPNGatewayRoutePropagationArgs Empty => new VPNGatewayRoutePropagationArgs();
     }
 }

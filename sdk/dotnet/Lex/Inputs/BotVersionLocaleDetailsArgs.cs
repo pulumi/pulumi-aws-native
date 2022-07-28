@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// The version of a bot used for a bot locale.
     /// </summary>
-    public sealed class BotVersionLocaleDetailsArgs : Pulumi.ResourceArgs
+    public sealed class BotVersionLocaleDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceBotVersion", required: true)]
         public Input<string> SourceBotVersion { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotVersionLocaleDetailsArgs()
         {
         }
+        public static new BotVersionLocaleDetailsArgs Empty => new BotVersionLocaleDetailsArgs();
     }
 }

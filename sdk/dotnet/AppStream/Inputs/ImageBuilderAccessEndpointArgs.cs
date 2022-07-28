@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class ImageBuilderAccessEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderAccessEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public ImageBuilderAccessEndpointArgs()
         {
         }
+        public static new ImageBuilderAccessEndpointArgs Empty => new ImageBuilderAccessEndpointArgs();
     }
 }

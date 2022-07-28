@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
 
-    public sealed class GetRuleGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleGroupArn", required: true)]
         public string RuleGroupArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public GetRuleGroupArgs()
         {
         }
+        public static new GetRuleGroupArgs Empty => new GetRuleGroupArgs();
     }
 
-    public sealed class GetRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleGroupArn", required: true)]
         public Input<string> RuleGroupArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public GetRuleGroupInvokeArgs()
         {
         }
+        public static new GetRuleGroupInvokeArgs Empty => new GetRuleGroupInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
 
-    public sealed class GetAssetArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifier for the Asset.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetAssetArgs()
         {
         }
+        public static new GetAssetArgs Empty => new GetAssetArgs();
     }
 
-    public sealed class GetAssetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifier for the Asset.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetAssetInvokeArgs()
         {
         }
+        public static new GetAssetInvokeArgs Empty => new GetAssetInvokeArgs();
     }
 
 

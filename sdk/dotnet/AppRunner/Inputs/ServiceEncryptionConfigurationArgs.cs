@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Encryption configuration (KMS key)
     /// </summary>
-    public sealed class ServiceEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The KMS Key
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceEncryptionConfigurationArgs()
         {
         }
+        public static new ServiceEncryptionConfigurationArgs Empty => new ServiceEncryptionConfigurationArgs();
     }
 }

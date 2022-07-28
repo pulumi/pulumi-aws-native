@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:RuleGroup")]
-    public partial class RuleGroup : Pulumi.CustomResource
+    public partial class RuleGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
     }
 
-    public sealed class RuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
@@ -146,5 +146,6 @@ namespace Pulumi.AwsNative.WAFv2
         public RuleGroupArgs()
         {
         }
+        public static new RuleGroupArgs Empty => new RuleGroupArgs();
     }
 }

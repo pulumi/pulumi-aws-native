@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// This type is used to map column(s) from the query result to a dimension in the destination table.
     /// </summary>
-    public sealed class ScheduledQueryDimensionMappingArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryDimensionMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensionValueType", required: true)]
         public Input<Pulumi.AwsNative.Timestream.ScheduledQueryDimensionValueType> DimensionValueType { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryDimensionMappingArgs()
         {
         }
+        public static new ScheduledQueryDimensionMappingArgs Empty => new ScheduledQueryDimensionMappingArgs();
     }
 }

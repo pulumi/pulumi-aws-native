@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupNotificationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("notificationTypes")]
         private InputList<string>? _notificationTypes;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupNotificationConfigurationArgs()
         {
         }
+        public static new AutoScalingGroupNotificationConfigurationArgs Empty => new AutoScalingGroupNotificationConfigurationArgs();
     }
 }

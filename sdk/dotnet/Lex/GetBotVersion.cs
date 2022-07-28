@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lex
     }
 
 
-    public sealed class GetBotVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetBotVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("botId", required: true)]
         public string BotId { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lex
         public GetBotVersionArgs()
         {
         }
+        public static new GetBotVersionArgs Empty => new GetBotVersionArgs();
     }
 
-    public sealed class GetBotVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBotVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lex
         public GetBotVersionInvokeArgs()
         {
         }
+        public static new GetBotVersionInvokeArgs Empty => new GetBotVersionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelNielsenConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelNielsenConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("distributorId")]
         public Input<string>? DistributorId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelNielsenConfigurationArgs()
         {
         }
+        public static new ChannelNielsenConfigurationArgs Empty => new ChannelNielsenConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelM3u8SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelM3u8SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioFramesPerPes")]
         public Input<int>? AudioFramesPerPes { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelM3u8SettingsArgs()
         {
         }
+        public static new ChannelM3u8SettingsArgs Empty => new ChannelM3u8SettingsArgs();
     }
 }

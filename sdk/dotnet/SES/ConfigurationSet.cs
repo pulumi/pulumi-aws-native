@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES
     /// Resource schema for AWS::SES::ConfigurationSet.
     /// </summary>
     [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
-    public partial class ConfigurationSet : Pulumi.CustomResource
+    public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
         [Output("deliveryOptions")]
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class ConfigurationSetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.SES
         public ConfigurationSetArgs()
         {
         }
+        public static new ConfigurationSetArgs Empty => new ConfigurationSetArgs();
     }
 }

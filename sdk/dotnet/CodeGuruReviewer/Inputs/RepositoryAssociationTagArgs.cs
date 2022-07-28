@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class RepositoryAssociationTagArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryAssociationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CodeGuruReviewer.Inputs
         public RepositoryAssociationTagArgs()
         {
         }
+        public static new RepositoryAssociationTagArgs Empty => new RepositoryAssociationTagArgs();
     }
 }

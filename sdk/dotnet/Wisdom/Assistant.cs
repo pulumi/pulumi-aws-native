@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Wisdom
     /// Definition of AWS::Wisdom::Assistant Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:wisdom:Assistant")]
-    public partial class Assistant : Pulumi.CustomResource
+    public partial class Assistant : global::Pulumi.CustomResource
     {
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Wisdom
         }
     }
 
-    public sealed class AssistantArgs : Pulumi.ResourceArgs
+    public sealed class AssistantArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.Wisdom
         public AssistantArgs()
         {
         }
+        public static new AssistantArgs Empty => new AssistantArgs();
     }
 }

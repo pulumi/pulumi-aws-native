@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
     /// </summary>
-    public sealed class AccessPolicyIdentityArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("iamRole")]
         public Input<Inputs.AccessPolicyIamRoleArgs>? IamRole { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AccessPolicyIdentityArgs()
         {
         }
+        public static new AccessPolicyIdentityArgs Empty => new AccessPolicyIdentityArgs();
     }
 }

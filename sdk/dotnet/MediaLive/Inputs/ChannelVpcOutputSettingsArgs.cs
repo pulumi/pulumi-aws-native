@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVpcOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVpcOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicAddressAllocationIds")]
         private InputList<string>? _publicAddressAllocationIds;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVpcOutputSettingsArgs()
         {
         }
+        public static new ChannelVpcOutputSettingsArgs Empty => new ChannelVpcOutputSettingsArgs();
     }
 }

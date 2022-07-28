@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetEndpointAccessArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointAccessArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the endpoint.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetEndpointAccessArgs()
         {
         }
+        public static new GetEndpointAccessArgs Empty => new GetEndpointAccessArgs();
     }
 
-    public sealed class GetEndpointAccessInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointAccessInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the endpoint.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetEndpointAccessInvokeArgs()
         {
         }
+        public static new GetEndpointAccessInvokeArgs Empty => new GetEndpointAccessInvokeArgs();
     }
 
 

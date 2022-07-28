@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
     /// </summary>
-    public sealed class IdentityProviderConfigRequiredClaimArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigRequiredClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key of the requiredClaims.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public IdentityProviderConfigRequiredClaimArgs()
         {
         }
+        public static new IdentityProviderConfigRequiredClaimArgs Empty => new IdentityProviderConfigRequiredClaimArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Prompts the user to confirm the intent.
     /// </summary>
-    public sealed class BotPromptSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotPromptSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotPromptSpecificationArgs()
         {
         }
+        public static new BotPromptSpecificationArgs Empty => new BotPromptSpecificationArgs();
     }
 }

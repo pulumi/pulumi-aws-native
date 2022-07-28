@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Events
     /// Resource Type definition for AWS::Events::Archive
     /// </summary>
     [AwsNativeResourceType("aws-native:events:Archive")]
-    public partial class Archive : Pulumi.CustomResource
+    public partial class Archive : global::Pulumi.CustomResource
     {
         [Output("archiveName")]
         public Output<string> ArchiveName { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Events
         }
     }
 
-    public sealed class ArchiveArgs : Pulumi.ResourceArgs
+    public sealed class ArchiveArgs : global::Pulumi.ResourceArgs
     {
         [Input("archiveName")]
         public Input<string>? ArchiveName { get; set; }
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.Events
         public ArchiveArgs()
         {
         }
+        public static new ArchiveArgs Empty => new ArchiveArgs();
     }
 }

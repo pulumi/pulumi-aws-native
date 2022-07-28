@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::PhoneNumber
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:PhoneNumber")]
-    public partial class PhoneNumber : Pulumi.CustomResource
+    public partial class PhoneNumber : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The phone number e164 address.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class PhoneNumberArgs : Pulumi.ResourceArgs
+    public sealed class PhoneNumberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The phone number country code.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.Connect
         public PhoneNumberArgs()
         {
         }
+        public static new PhoneNumberArgs Empty => new PhoneNumberArgs();
     }
 }

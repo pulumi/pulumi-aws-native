@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetUserProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetUserProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the associated Domain.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetUserProfileArgs()
         {
         }
+        public static new GetUserProfileArgs Empty => new GetUserProfileArgs();
     }
 
-    public sealed class GetUserProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the associated Domain.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetUserProfileInvokeArgs()
         {
         }
+        public static new GetUserProfileInvokeArgs Empty => new GetUserProfileInvokeArgs();
     }
 
 

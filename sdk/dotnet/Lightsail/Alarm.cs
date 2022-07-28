@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Alarm
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Alarm")]
-    public partial class Alarm : Pulumi.CustomResource
+    public partial class Alarm : global::Pulumi.CustomResource
     {
         [Output("alarmArn")]
         public Output<string> AlarmArn { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class AlarmArgs : Pulumi.ResourceArgs
+    public sealed class AlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
@@ -216,5 +216,6 @@ namespace Pulumi.AwsNative.Lightsail
         public AlarmArgs()
         {
         }
+        public static new AlarmArgs Empty => new AlarmArgs();
     }
 }

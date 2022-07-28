@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LicenseManager
     }
 
 
-    public sealed class GetLicenseArgs : Pulumi.InvokeArgs
+    public sealed class GetLicenseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name is a unique name for each resource.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.LicenseManager
         public GetLicenseArgs()
         {
         }
+        public static new GetLicenseArgs Empty => new GetLicenseArgs();
     }
 
-    public sealed class GetLicenseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLicenseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name is a unique name for each resource.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public GetLicenseInvokeArgs()
         {
         }
+        public static new GetLicenseInvokeArgs Empty => new GetLicenseInvokeArgs();
     }
 
 

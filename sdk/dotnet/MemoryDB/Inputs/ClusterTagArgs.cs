@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class ClusterTagArgs : Pulumi.ResourceArgs
+    public sealed class ClusterTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for the tag. May not be null.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public ClusterTagArgs()
         {
         }
+        public static new ClusterTagArgs Empty => new ClusterTagArgs();
     }
 }

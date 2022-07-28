@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// Specifies the schedule you want your task to use for repeated executions.
     /// </summary>
-    public sealed class TaskScheduleArgs : Pulumi.ResourceArgs
+    public sealed class TaskScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public TaskScheduleArgs()
         {
         }
+        public static new TaskScheduleArgs Empty => new TaskScheduleArgs();
     }
 }

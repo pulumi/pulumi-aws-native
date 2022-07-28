@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentEc2ConfigurationObjectArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentEc2ConfigurationObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("imageIdOverride")]
         public Input<string>? ImageIdOverride { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public ComputeEnvironmentEc2ConfigurationObjectArgs()
         {
         }
+        public static new ComputeEnvironmentEc2ConfigurationObjectArgs Empty => new ComputeEnvironmentEc2ConfigurationObjectArgs();
     }
 }

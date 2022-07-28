@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Source Code Version
     /// </summary>
-    public sealed class ServiceSourceCodeVersionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceCodeVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source Code Version Type
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceSourceCodeVersionArgs()
         {
         }
+        public static new ServiceSourceCodeVersionArgs Empty => new ServiceSourceCodeVersionArgs();
     }
 }

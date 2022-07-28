@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class AuthorizerJWTConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerJWTConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("audience")]
         private InputList<string>? _audience;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public AuthorizerJWTConfigurationArgs()
         {
         }
+        public static new AuthorizerJWTConfigurationArgs Empty => new AuthorizerJWTConfigurationArgs();
     }
 }

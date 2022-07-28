@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.FSx
     /// </summary>
     [Obsolete(@"FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:fsx:FileSystem")]
-    public partial class FileSystem : Pulumi.CustomResource
+    public partial class FileSystem : global::Pulumi.CustomResource
     {
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.FSx
         }
     }
 
-    public sealed class FileSystemArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
@@ -166,5 +166,6 @@ namespace Pulumi.AwsNative.FSx
         public FileSystemArgs()
         {
         }
+        public static new FileSystemArgs Empty => new FileSystemArgs();
     }
 }

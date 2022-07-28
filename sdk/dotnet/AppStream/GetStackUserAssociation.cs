@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream
     }
 
 
-    public sealed class GetStackUserAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetStackUserAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppStream
         public GetStackUserAssociationArgs()
         {
         }
+        public static new GetStackUserAssociationArgs Empty => new GetStackUserAssociationArgs();
     }
 
-    public sealed class GetStackUserAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStackUserAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppStream
         public GetStackUserAssociationInvokeArgs()
         {
         }
+        public static new GetStackUserAssociationInvokeArgs Empty => new GetStackUserAssociationInvokeArgs();
     }
 
 

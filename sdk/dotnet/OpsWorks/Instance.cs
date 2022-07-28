@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -222,5 +222,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 }

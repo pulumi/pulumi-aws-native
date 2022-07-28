@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Inputs
 {
 
-    public sealed class RotationScheduleHostedRotationLambdaArgs : Pulumi.ResourceArgs
+    public sealed class RotationScheduleHostedRotationLambdaArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeCharacters")]
         public Input<string>? ExcludeCharacters { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         public RotationScheduleHostedRotationLambdaArgs()
         {
         }
+        public static new RotationScheduleHostedRotationLambdaArgs Empty => new RotationScheduleHostedRotationLambdaArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Enables activity metrics.
     /// </summary>
-    public sealed class StorageLensActivityMetricsArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensActivityMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether activity metrics are enabled or disabled.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensActivityMetricsArgs()
         {
         }
+        public static new StorageLensActivityMetricsArgs Empty => new StorageLensActivityMetricsArgs();
     }
 }

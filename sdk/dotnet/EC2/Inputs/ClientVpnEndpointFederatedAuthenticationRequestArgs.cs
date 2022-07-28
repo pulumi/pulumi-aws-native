@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointFederatedAuthenticationRequestArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointFederatedAuthenticationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("sAMLProviderArn", required: true)]
         public Input<string> SAMLProviderArn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointFederatedAuthenticationRequestArgs()
         {
         }
+        public static new ClientVpnEndpointFederatedAuthenticationRequestArgs Empty => new ClientVpnEndpointFederatedAuthenticationRequestArgs();
     }
 }

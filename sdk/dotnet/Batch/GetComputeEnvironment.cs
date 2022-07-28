@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
 
-    public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("computeEnvironmentArn", required: true)]
         public string ComputeEnvironmentArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Batch
         public GetComputeEnvironmentArgs()
         {
         }
+        public static new GetComputeEnvironmentArgs Empty => new GetComputeEnvironmentArgs();
     }
 
-    public sealed class GetComputeEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("computeEnvironmentArn", required: true)]
         public Input<string> ComputeEnvironmentArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Batch
         public GetComputeEnvironmentInvokeArgs()
         {
         }
+        public static new GetComputeEnvironmentInvokeArgs Empty => new GetComputeEnvironmentInvokeArgs();
     }
 
 

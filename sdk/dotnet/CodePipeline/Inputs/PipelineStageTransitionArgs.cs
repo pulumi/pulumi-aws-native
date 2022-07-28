@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineStageTransitionArgs : Pulumi.ResourceArgs
+    public sealed class PipelineStageTransitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("reason", required: true)]
         public Input<string> Reason { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineStageTransitionArgs()
         {
         }
+        public static new PipelineStageTransitionArgs Empty => new PipelineStageTransitionArgs();
     }
 }

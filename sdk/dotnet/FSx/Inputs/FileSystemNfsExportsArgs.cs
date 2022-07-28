@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemNfsExportsArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemNfsExportsArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientConfigurations")]
         private InputList<Inputs.FileSystemClientConfigurationsArgs>? _clientConfigurations;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemNfsExportsArgs()
         {
         }
+        public static new FileSystemNfsExportsArgs Empty => new FileSystemNfsExportsArgs();
     }
 }

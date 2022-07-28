@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleAssetPropertyValueArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleAssetPropertyValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("quality")]
         public Input<string>? Quality { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleAssetPropertyValueArgs()
         {
         }
+        public static new TopicRuleAssetPropertyValueArgs Empty => new TopicRuleAssetPropertyValueArgs();
     }
 }

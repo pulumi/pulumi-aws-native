@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
     /// </summary>
-    public sealed class GatewayGreengrassV2Args : Pulumi.ResourceArgs
+    public sealed class GatewayGreengrassV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CoreDevice in GreenGrass V2.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public GatewayGreengrassV2Args()
         {
         }
+        public static new GatewayGreengrassV2Args Empty => new GatewayGreengrassV2Args();
     }
 }

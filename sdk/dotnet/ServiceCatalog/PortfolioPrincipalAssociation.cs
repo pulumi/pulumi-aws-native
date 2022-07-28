@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"PortfolioPrincipalAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:PortfolioPrincipalAssociation")]
-    public partial class PortfolioPrincipalAssociation : Pulumi.CustomResource
+    public partial class PortfolioPrincipalAssociation : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class PortfolioPrincipalAssociationArgs : Pulumi.ResourceArgs
+    public sealed class PortfolioPrincipalAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public PortfolioPrincipalAssociationArgs()
         {
         }
+        public static new PortfolioPrincipalAssociationArgs Empty => new PortfolioPrincipalAssociationArgs();
     }
 }

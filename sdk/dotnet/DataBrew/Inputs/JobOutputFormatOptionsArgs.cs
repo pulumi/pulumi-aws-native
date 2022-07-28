@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Format options for job Output
     /// </summary>
-    public sealed class JobOutputFormatOptionsArgs : Pulumi.ResourceArgs
+    public sealed class JobOutputFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("csv")]
         public Input<Inputs.JobCsvOutputOptionsArgs>? Csv { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobOutputFormatOptionsArgs()
         {
         }
+        public static new JobOutputFormatOptionsArgs Empty => new JobOutputFormatOptionsArgs();
     }
 }

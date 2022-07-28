@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
     /// </summary>
-    public sealed class WebACLOverrideActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLOverrideActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Count traffic towards application.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLOverrideActionArgs()
         {
         }
+        public static new WebACLOverrideActionArgs Empty => new WebACLOverrideActionArgs();
     }
 }

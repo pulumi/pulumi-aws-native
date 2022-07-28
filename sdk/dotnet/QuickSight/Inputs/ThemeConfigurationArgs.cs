@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// &lt;p&gt;The theme configuration. This configuration contains all of the display properties for
     ///             a theme.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ThemeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataColorPalette")]
         public Input<Inputs.ThemeDataColorPaletteArgs>? DataColorPalette { get; set; }
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeConfigurationArgs()
         {
         }
+        public static new ThemeConfigurationArgs Empty => new ThemeConfigurationArgs();
     }
 }

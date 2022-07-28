@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
     /// </summary>
-    public sealed class ConfigurationSetReputationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetReputationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetReputationOptionsArgs()
         {
         }
+        public static new ConfigurationSetReputationOptionsArgs Empty => new ConfigurationSetReputationOptionsArgs();
     }
 }

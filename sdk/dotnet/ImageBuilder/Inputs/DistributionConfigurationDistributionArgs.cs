@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The distributions of the distribution configuration.
     /// </summary>
-    public sealed class DistributionConfigurationDistributionArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionArgs : global::Pulumi.ResourceArgs
     {
         [Input("amiDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationAmiDistributionConfigurationArgs>? AmiDistributionConfiguration { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationDistributionArgs()
         {
         }
+        public static new DistributionConfigurationDistributionArgs Empty => new DistributionConfigurationDistributionArgs();
     }
 }

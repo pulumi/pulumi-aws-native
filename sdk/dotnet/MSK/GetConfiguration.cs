@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MSK
     }
 
 
-    public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MSK
         public GetConfigurationArgs()
         {
         }
+        public static new GetConfigurationArgs Empty => new GetConfigurationArgs();
     }
 
-    public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MSK
         public GetConfigurationInvokeArgs()
         {
         }
+        public static new GetConfigurationInvokeArgs Empty => new GetConfigurationInvokeArgs();
     }
 
 

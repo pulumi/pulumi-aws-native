@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The endpoint for a monitoring job.
     /// </summary>
-    public sealed class MonitoringScheduleEndpointInputArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleEndpointInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleEndpointInputArgs()
         {
         }
+        public static new MonitoringScheduleEndpointInputArgs Empty => new MonitoringScheduleEndpointInputArgs();
     }
 }

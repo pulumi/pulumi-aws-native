@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryFrequency")]
         public Input<string>? DeliveryFrequency { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public DeliveryChannelConfigSnapshotDeliveryPropertiesArgs()
         {
         }
+        public static new DeliveryChannelConfigSnapshotDeliveryPropertiesArgs Empty => new DeliveryChannelConfigSnapshotDeliveryPropertiesArgs();
     }
 }

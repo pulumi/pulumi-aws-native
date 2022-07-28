@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Format options for dataset
     /// </summary>
-    public sealed class DatasetFormatOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DatasetFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("csv")]
         public Input<Inputs.DatasetCsvOptionsArgs>? Csv { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetFormatOptionsArgs()
         {
         }
+        public static new DatasetFormatOptionsArgs Empty => new DatasetFormatOptionsArgs();
     }
 }

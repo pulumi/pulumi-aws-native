@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class FleetTagArgs : Pulumi.ResourceArgs
+    public sealed class FleetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public FleetTagArgs()
         {
         }
+        public static new FleetTagArgs Empty => new FleetTagArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueInstanceTerminationOptionArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueInstanceTerminationOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupBlueInstanceTerminationOptionArgs()
         {
         }
+        public static new DeploymentGroupBlueInstanceTerminationOptionArgs Empty => new DeploymentGroupBlueInstanceTerminationOptionArgs();
     }
 }

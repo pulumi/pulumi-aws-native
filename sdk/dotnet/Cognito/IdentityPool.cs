@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:IdentityPool")]
-    public partial class IdentityPool : Pulumi.CustomResource
+    public partial class IdentityPool : global::Pulumi.CustomResource
     {
         [Output("allowClassicFlow")]
         public Output<bool?> AllowClassicFlow { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class IdentityPoolArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowClassicFlow")]
         public Input<bool>? AllowClassicFlow { get; set; }
@@ -148,5 +148,6 @@ namespace Pulumi.AwsNative.Cognito
         public IdentityPoolArgs()
         {
         }
+        public static new IdentityPoolArgs Empty => new IdentityPoolArgs();
     }
 }

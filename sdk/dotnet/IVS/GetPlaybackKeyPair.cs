@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IVS
     }
 
 
-    public sealed class GetPlaybackKeyPairArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaybackKeyPairArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Key-pair identifier.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IVS
         public GetPlaybackKeyPairArgs()
         {
         }
+        public static new GetPlaybackKeyPairArgs Empty => new GetPlaybackKeyPairArgs();
     }
 
-    public sealed class GetPlaybackKeyPairInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaybackKeyPairInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Key-pair identifier.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IVS
         public GetPlaybackKeyPairInvokeArgs()
         {
         }
+        public static new GetPlaybackKeyPairInvokeArgs Empty => new GetPlaybackKeyPairInvokeArgs();
     }
 
 

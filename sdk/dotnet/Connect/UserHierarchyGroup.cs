@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::UserHierarchyGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:UserHierarchyGroup")]
-    public partial class UserHierarchyGroup : Pulumi.CustomResource
+    public partial class UserHierarchyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class UserHierarchyGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Connect
         public UserHierarchyGroupArgs()
         {
         }
+        public static new UserHierarchyGroupArgs Empty => new UserHierarchyGroupArgs();
     }
 }

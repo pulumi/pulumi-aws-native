@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// Resource Type definition for AWS::ElastiCache::User
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticache:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Access permissions string used for this user account.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access permissions string used for this user account.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

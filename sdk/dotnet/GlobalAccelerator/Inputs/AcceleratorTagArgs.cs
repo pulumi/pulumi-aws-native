@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// <summary>
     /// Tag is a key-value pair associated with accelerator.
     /// </summary>
-    public sealed class AcceleratorTagArgs : Pulumi.ResourceArgs
+    public sealed class AcceleratorTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key of the tag. Value can be 1 to 127 characters.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         public AcceleratorTagArgs()
         {
         }
+        public static new AcceleratorTagArgs Empty => new AcceleratorTagArgs();
     }
 }

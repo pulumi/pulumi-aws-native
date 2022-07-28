@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionAuthorizationConfigArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionAuthorizationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPointId")]
         public Input<string>? AccessPointId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionAuthorizationConfigArgs()
         {
         }
+        public static new JobDefinitionAuthorizationConfigArgs Empty => new JobDefinitionAuthorizationConfigArgs();
     }
 }

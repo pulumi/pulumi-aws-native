@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFrameCaptureOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFrameCaptureOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFrameCaptureOutputSettingsArgs()
         {
         }
+        public static new ChannelFrameCaptureOutputSettingsArgs Empty => new ChannelFrameCaptureOutputSettingsArgs();
     }
 }

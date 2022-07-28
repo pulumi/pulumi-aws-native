@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleCloudwatchLogsActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleCloudwatchLogsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleCloudwatchLogsActionArgs()
         {
         }
+        public static new TopicRuleCloudwatchLogsActionArgs Empty => new TopicRuleCloudwatchLogsActionArgs();
     }
 }

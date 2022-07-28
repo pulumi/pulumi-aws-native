@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// The encryption configuration for the cluster
     /// </summary>
-    public sealed class ClusterEncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption provider for the cluster.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public ClusterEncryptionConfigArgs()
         {
         }
+        public static new ClusterEncryptionConfigArgs Empty => new ClusterEncryptionConfigArgs();
     }
 }

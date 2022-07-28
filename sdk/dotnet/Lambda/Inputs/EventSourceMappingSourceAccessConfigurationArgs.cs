@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// The configuration used by AWS Lambda to access event source
     /// </summary>
-    public sealed class EventSourceMappingSourceAccessConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingSourceAccessConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of source access configuration.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventSourceMappingSourceAccessConfigurationArgs()
         {
         }
+        public static new EventSourceMappingSourceAccessConfigurationArgs Empty => new EventSourceMappingSourceAccessConfigurationArgs();
     }
 }

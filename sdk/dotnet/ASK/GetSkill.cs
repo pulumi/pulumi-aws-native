@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ASK
     }
 
 
-    public sealed class GetSkillArgs : Pulumi.InvokeArgs
+    public sealed class GetSkillArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ASK
         public GetSkillArgs()
         {
         }
+        public static new GetSkillArgs Empty => new GetSkillArgs();
     }
 
-    public sealed class GetSkillInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSkillInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ASK
         public GetSkillInvokeArgs()
         {
         }
+        public static new GetSkillInvokeArgs Empty => new GetSkillInvokeArgs();
     }
 
 

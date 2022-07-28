@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetApiCacheArgs : Pulumi.InvokeArgs
+    public sealed class GetApiCacheArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetApiCacheArgs()
         {
         }
+        public static new GetApiCacheArgs Empty => new GetApiCacheArgs();
     }
 
-    public sealed class GetApiCacheInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiCacheInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetApiCacheInvokeArgs()
         {
         }
+        public static new GetApiCacheInvokeArgs Empty => new GetApiCacheInvokeArgs();
     }
 
 

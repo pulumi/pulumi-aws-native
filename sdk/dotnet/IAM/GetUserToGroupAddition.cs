@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetUserToGroupAdditionArgs : Pulumi.InvokeArgs
+    public sealed class GetUserToGroupAdditionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IAM
         public GetUserToGroupAdditionArgs()
         {
         }
+        public static new GetUserToGroupAdditionArgs Empty => new GetUserToGroupAdditionArgs();
     }
 
-    public sealed class GetUserToGroupAdditionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserToGroupAdditionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IAM
         public GetUserToGroupAdditionInvokeArgs()
         {
         }
+        public static new GetUserToGroupAdditionInvokeArgs Empty => new GetUserToGroupAdditionInvokeArgs();
     }
 
 

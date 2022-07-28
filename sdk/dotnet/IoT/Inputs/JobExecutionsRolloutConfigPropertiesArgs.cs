@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Allows you to create a staged rollout of a job.
     /// </summary>
-    public sealed class JobExecutionsRolloutConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class JobExecutionsRolloutConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public JobExecutionsRolloutConfigPropertiesArgs()
         {
         }
+        public static new JobExecutionsRolloutConfigPropertiesArgs Empty => new JobExecutionsRolloutConfigPropertiesArgs();
     }
 }

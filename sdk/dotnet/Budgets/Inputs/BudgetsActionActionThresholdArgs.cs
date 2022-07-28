@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetsActionActionThresholdArgs : Pulumi.ResourceArgs
+    public sealed class BudgetsActionActionThresholdArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetsActionActionThresholdArgs()
         {
         }
+        public static new BudgetsActionActionThresholdArgs Empty => new BudgetsActionActionThresholdArgs();
     }
 }

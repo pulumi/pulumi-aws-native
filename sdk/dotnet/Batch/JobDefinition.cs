@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Batch
     /// </summary>
     [Obsolete(@"JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:batch:JobDefinition")]
-    public partial class JobDefinition : Pulumi.CustomResource
+    public partial class JobDefinition : global::Pulumi.CustomResource
     {
         [Output("containerProperties")]
         public Output<Outputs.JobDefinitionContainerProperties?> ContainerProperties { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Batch
         }
     }
 
-    public sealed class JobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerProperties")]
         public Input<Inputs.JobDefinitionContainerPropertiesArgs>? ContainerProperties { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.Batch
         public JobDefinitionArgs()
         {
         }
+        public static new JobDefinitionArgs Empty => new JobDefinitionArgs();
     }
 }

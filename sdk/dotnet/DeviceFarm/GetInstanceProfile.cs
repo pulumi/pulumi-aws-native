@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     }
 
 
-    public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetInstanceProfileArgs()
         {
         }
+        public static new GetInstanceProfileArgs Empty => new GetInstanceProfileArgs();
     }
 
-    public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetInstanceProfileInvokeArgs()
         {
         }
+        public static new GetInstanceProfileInvokeArgs Empty => new GetInstanceProfileInvokeArgs();
     }
 
 

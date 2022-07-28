@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleStepFunctionsActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleStepFunctionsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("executionNamePrefix")]
         public Input<string>? ExecutionNamePrefix { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleStepFunctionsActionArgs()
         {
         }
+        public static new TopicRuleStepFunctionsActionArgs Empty => new TopicRuleStepFunctionsActionArgs();
     }
 }

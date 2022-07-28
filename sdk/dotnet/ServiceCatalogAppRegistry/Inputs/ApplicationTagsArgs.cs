@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalogAppRegistry.Inputs
 {
 
-    public sealed class ApplicationTagsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationTagsArgs : global::Pulumi.ResourceArgs
     {
         public ApplicationTagsArgs()
         {
         }
+        public static new ApplicationTagsArgs Empty => new ApplicationTagsArgs();
     }
 }

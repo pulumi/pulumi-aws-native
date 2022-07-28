@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupRevisionLocationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupRevisionLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("gitHubLocation")]
         public Input<Inputs.DeploymentGroupGitHubLocationArgs>? GitHubLocation { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupRevisionLocationArgs()
         {
         }
+        public static new DeploymentGroupRevisionLocationArgs Empty => new DeploymentGroupRevisionLocationArgs();
     }
 }

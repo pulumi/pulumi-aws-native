@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetConnectorDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetConnectorDefinitionArgs()
         {
         }
+        public static new GetConnectorDefinitionArgs Empty => new GetConnectorDefinitionArgs();
     }
 
-    public sealed class GetConnectorDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetConnectorDefinitionInvokeArgs()
         {
         }
+        public static new GetConnectorDefinitionInvokeArgs Empty => new GetConnectorDefinitionInvokeArgs();
     }
 
 

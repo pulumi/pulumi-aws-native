@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelWebvttDestinationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelWebvttDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("styleControl")]
         public Input<string>? StyleControl { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelWebvttDestinationSettingsArgs()
         {
         }
+        public static new ChannelWebvttDestinationSettingsArgs Empty => new ChannelWebvttDestinationSettingsArgs();
     }
 }

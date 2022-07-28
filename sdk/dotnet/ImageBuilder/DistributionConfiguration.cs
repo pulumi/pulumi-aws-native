@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:DistributionConfiguration")]
-    public partial class DistributionConfiguration : Pulumi.CustomResource
+    public partial class DistributionConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class DistributionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the distribution configuration.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public DistributionConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationArgs Empty => new DistributionConfigurationArgs();
     }
 }

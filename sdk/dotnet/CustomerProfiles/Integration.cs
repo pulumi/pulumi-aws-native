@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// The resource schema for creating an Amazon Connect Customer Profiles Integration.
     /// </summary>
     [AwsNativeResourceType("aws-native:customerprofiles:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time of this integration got created
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique name of the domain.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 }

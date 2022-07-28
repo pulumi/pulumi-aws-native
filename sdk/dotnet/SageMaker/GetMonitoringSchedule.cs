@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetMonitoringScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitoringScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the monitoring schedule.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetMonitoringScheduleArgs()
         {
         }
+        public static new GetMonitoringScheduleArgs Empty => new GetMonitoringScheduleArgs();
     }
 
-    public sealed class GetMonitoringScheduleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitoringScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the monitoring schedule.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetMonitoringScheduleInvokeArgs()
         {
         }
+        public static new GetMonitoringScheduleInvokeArgs Empty => new GetMonitoringScheduleInvokeArgs();
     }
 
 

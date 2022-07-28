@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupPlanCopyActionResourceTypeArgs : Pulumi.ResourceArgs
+    public sealed class BackupPlanCopyActionResourceTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationBackupVaultArn", required: true)]
         public Input<string> DestinationBackupVaultArn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupPlanCopyActionResourceTypeArgs()
         {
         }
+        public static new BackupPlanCopyActionResourceTypeArgs Empty => new BackupPlanCopyActionResourceTypeArgs();
     }
 }

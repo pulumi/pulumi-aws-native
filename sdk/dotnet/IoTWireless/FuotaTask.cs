@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Create and manage FUOTA tasks.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:FuotaTask")]
-    public partial class FuotaTask : Pulumi.CustomResource
+    public partial class FuotaTask : global::Pulumi.CustomResource
     {
         /// <summary>
         /// FUOTA task arn. Returned after successful create.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class FuotaTaskArgs : Pulumi.ResourceArgs
+    public sealed class FuotaTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Multicast group to associate. Only for update request.
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public FuotaTaskArgs()
         {
         }
+        public static new FuotaTaskArgs Empty => new FuotaTaskArgs();
     }
 }

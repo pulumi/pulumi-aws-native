@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// Represents a streaming session machine image that can be used to launch a streaming session
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StreamingImage")]
-    public partial class StreamingImage : Pulumi.CustomResource
+    public partial class StreamingImage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
     }
 
-    public sealed class StreamingImageArgs : Pulumi.ResourceArgs
+    public sealed class StreamingImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         public StreamingImageArgs()
         {
         }
+        public static new StreamingImageArgs Empty => new StreamingImageArgs();
     }
 }

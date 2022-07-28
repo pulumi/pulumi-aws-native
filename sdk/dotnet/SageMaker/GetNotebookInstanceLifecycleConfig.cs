@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetNotebookInstanceLifecycleConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookInstanceLifecycleConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetNotebookInstanceLifecycleConfigArgs()
         {
         }
+        public static new GetNotebookInstanceLifecycleConfigArgs Empty => new GetNotebookInstanceLifecycleConfigArgs();
     }
 
-    public sealed class GetNotebookInstanceLifecycleConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotebookInstanceLifecycleConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetNotebookInstanceLifecycleConfigInvokeArgs()
         {
         }
+        public static new GetNotebookInstanceLifecycleConfigInvokeArgs Empty => new GetNotebookInstanceLifecycleConfigInvokeArgs();
     }
 
 

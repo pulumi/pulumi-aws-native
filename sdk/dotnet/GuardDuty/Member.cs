@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 }

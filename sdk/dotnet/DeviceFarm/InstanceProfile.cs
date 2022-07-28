@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:InstanceProfile")]
-    public partial class InstanceProfile : Pulumi.CustomResource
+    public partial class InstanceProfile : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class InstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public InstanceProfileArgs()
         {
         }
+        public static new InstanceProfileArgs Empty => new InstanceProfileArgs();
     }
 }

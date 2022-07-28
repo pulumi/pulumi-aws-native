@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeBuild
     }
 
 
-    public sealed class GetSourceCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetSourceCredentialArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public GetSourceCredentialArgs()
         {
         }
+        public static new GetSourceCredentialArgs Empty => new GetSourceCredentialArgs();
     }
 
-    public sealed class GetSourceCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSourceCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public GetSourceCredentialInvokeArgs()
         {
         }
+        public static new GetSourceCredentialInvokeArgs Empty => new GetSourceCredentialInvokeArgs();
     }
 
 

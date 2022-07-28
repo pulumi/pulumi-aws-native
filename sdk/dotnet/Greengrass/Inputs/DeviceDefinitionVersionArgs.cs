@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class DeviceDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class DeviceDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("devices", required: true)]
         private InputList<Inputs.DeviceDefinitionDeviceArgs>? _devices;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public DeviceDefinitionVersionArgs()
         {
         }
+        public static new DeviceDefinitionVersionArgs Empty => new DeviceDefinitionVersionArgs();
     }
 }

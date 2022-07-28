@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FIS.Inputs
 {
 
-    public sealed class ExperimentTemplateLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogsConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs>? CloudWatchLogsConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.FIS.Inputs
         public ExperimentTemplateLogConfigurationArgs()
         {
         }
+        public static new ExperimentTemplateLogConfigurationArgs Empty => new ExperimentTemplateLogConfigurationArgs();
     }
 }

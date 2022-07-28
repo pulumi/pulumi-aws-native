@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServicePlacementStrategyArgs : Pulumi.ResourceArgs
+    public sealed class ServicePlacementStrategyArgs : global::Pulumi.ResourceArgs
     {
         [Input("field")]
         public Input<string>? Field { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServicePlacementStrategyArgs()
         {
         }
+        public static new ServicePlacementStrategyArgs Empty => new ServicePlacementStrategyArgs();
     }
 }

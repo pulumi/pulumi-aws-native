@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// Resource schema for AWS::MediaPackage::Channel
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned to the Channel.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.MediaPackage
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A short text description of the Channel.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.MediaPackage
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

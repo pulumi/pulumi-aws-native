@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionComponentPlatformArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionComponentPlatformArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionComponentPlatformArgs()
         {
         }
+        public static new ComponentVersionComponentPlatformArgs Empty => new ComponentVersionComponentPlatformArgs();
     }
 }

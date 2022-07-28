@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class DataflowEndpointGroupEndpointDetailsArgs : Pulumi.ResourceArgs
+    public sealed class DataflowEndpointGroupEndpointDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpoint")]
         public Input<Inputs.DataflowEndpointGroupDataflowEndpointArgs>? Endpoint { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public DataflowEndpointGroupEndpointDetailsArgs()
         {
         }
+        public static new DataflowEndpointGroupEndpointDetailsArgs Empty => new DataflowEndpointGroupEndpointDetailsArgs();
     }
 }

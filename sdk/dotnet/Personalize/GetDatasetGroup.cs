@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Personalize
     }
 
 
-    public sealed class GetDatasetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Personalize
         public GetDatasetGroupArgs()
         {
         }
+        public static new GetDatasetGroupArgs Empty => new GetDatasetGroupArgs();
     }
 
-    public sealed class GetDatasetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Personalize
         public GetDatasetGroupInvokeArgs()
         {
         }
+        public static new GetDatasetGroupInvokeArgs Empty => new GetDatasetGroupInvokeArgs();
     }
 
 

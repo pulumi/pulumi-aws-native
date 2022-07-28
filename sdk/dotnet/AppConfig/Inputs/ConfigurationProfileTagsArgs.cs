@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Inputs
 {
 
-    public sealed class ConfigurationProfileTagsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
         public ConfigurationProfileTagsArgs()
         {
         }
+        public static new ConfigurationProfileTagsArgs Empty => new ConfigurationProfileTagsArgs();
     }
 }

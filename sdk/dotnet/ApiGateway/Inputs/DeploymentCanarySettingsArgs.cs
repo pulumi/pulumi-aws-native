@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DeploymentCanarySettingsArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentCanarySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The percentage (0-100) of traffic diverted to a canary deployment.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DeploymentCanarySettingsArgs()
         {
         }
+        public static new DeploymentCanarySettingsArgs Empty => new DeploymentCanarySettingsArgs();
     }
 }

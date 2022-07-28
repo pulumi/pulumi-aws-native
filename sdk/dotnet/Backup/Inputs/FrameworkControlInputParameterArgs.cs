@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class FrameworkControlInputParameterArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkControlInputParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public FrameworkControlInputParameterArgs()
         {
         }
+        public static new FrameworkControlInputParameterArgs Empty => new FrameworkControlInputParameterArgs();
     }
 }
