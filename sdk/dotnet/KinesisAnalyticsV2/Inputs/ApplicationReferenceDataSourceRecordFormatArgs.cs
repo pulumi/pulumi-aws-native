@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationReferenceDataSourceRecordFormatArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceRecordFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("mappingParameters")]
         public Input<Inputs.ApplicationReferenceDataSourceMappingParametersArgs>? MappingParameters { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationReferenceDataSourceRecordFormatArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceRecordFormatArgs Empty => new ApplicationReferenceDataSourceRecordFormatArgs();
     }
 }

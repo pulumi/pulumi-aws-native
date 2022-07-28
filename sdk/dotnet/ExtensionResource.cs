@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative
     /// A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
     /// </summary>
     [AwsNativeResourceType("aws-native:index:ExtensionResource")]
-    public partial class ExtensionResource : Pulumi.CustomResource
+    public partial class ExtensionResource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Dictionary of the extension resource attributes.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative
         }
     }
 
-    public sealed class ExtensionResourceArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("properties", required: true)]
         private InputMap<object>? _properties;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative
         public ExtensionResourceArgs()
         {
         }
+        public static new ExtensionResourceArgs Empty => new ExtensionResourceArgs();
     }
 }

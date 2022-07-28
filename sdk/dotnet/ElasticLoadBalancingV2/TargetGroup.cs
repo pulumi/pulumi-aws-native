@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// </summary>
     [Obsolete(@"TargetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:TargetGroup")]
-    public partial class TargetGroup : Pulumi.CustomResource
+    public partial class TargetGroup : global::Pulumi.CustomResource
     {
         [Output("healthCheckEnabled")]
         public Output<bool?> HealthCheckEnabled { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class TargetGroupArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("healthCheckEnabled")]
         public Input<bool>? HealthCheckEnabled { get; set; }
@@ -202,5 +202,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public TargetGroupArgs()
         {
         }
+        public static new TargetGroupArgs Empty => new TargetGroupArgs();
     }
 }

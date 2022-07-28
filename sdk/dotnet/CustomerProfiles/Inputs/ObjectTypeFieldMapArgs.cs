@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class ObjectTypeFieldMapArgs : Pulumi.ResourceArgs
+    public sealed class ObjectTypeFieldMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public ObjectTypeFieldMapArgs()
         {
         }
+        public static new ObjectTypeFieldMapArgs Empty => new ObjectTypeFieldMapArgs();
     }
 }

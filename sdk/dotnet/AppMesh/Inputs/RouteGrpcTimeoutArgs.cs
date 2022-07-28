@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteGrpcTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class RouteGrpcTimeoutArgs : global::Pulumi.ResourceArgs
     {
         [Input("idle")]
         public Input<Inputs.RouteDurationArgs>? Idle { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteGrpcTimeoutArgs()
         {
         }
+        public static new RouteGrpcTimeoutArgs Empty => new RouteGrpcTimeoutArgs();
     }
 }

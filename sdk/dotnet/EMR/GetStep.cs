@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
     }
 
 
-    public sealed class GetStepArgs : Pulumi.InvokeArgs
+    public sealed class GetStepArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EMR
         public GetStepArgs()
         {
         }
+        public static new GetStepArgs Empty => new GetStepArgs();
     }
 
-    public sealed class GetStepInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStepInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EMR
         public GetStepInvokeArgs()
         {
         }
+        public static new GetStepInvokeArgs Empty => new GetStepInvokeArgs();
     }
 
 

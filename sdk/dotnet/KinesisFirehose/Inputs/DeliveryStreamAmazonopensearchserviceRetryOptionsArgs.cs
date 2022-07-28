@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("durationInSeconds")]
         public Input<int>? DurationInSeconds { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamAmazonopensearchserviceRetryOptionsArgs()
         {
         }
+        public static new DeliveryStreamAmazonopensearchserviceRetryOptionsArgs Empty => new DeliveryStreamAmazonopensearchserviceRetryOptionsArgs();
     }
 }

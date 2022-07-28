@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The location of an application or a custom artifact.
     /// </summary>
-    public sealed class ApplicationS3ContentLocationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationS3ContentLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationS3ContentLocationArgs()
         {
         }
+        public static new ApplicationS3ContentLocationArgs Empty => new ApplicationS3ContentLocationArgs();
     }
 }

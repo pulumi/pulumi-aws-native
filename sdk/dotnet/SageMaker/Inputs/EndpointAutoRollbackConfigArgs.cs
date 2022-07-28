@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointAutoRollbackConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAutoRollbackConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarms", required: true)]
         private InputList<Inputs.EndpointAlarmArgs>? _alarms;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointAutoRollbackConfigArgs()
         {
         }
+        public static new EndpointAutoRollbackConfigArgs Empty => new EndpointAutoRollbackConfigArgs();
     }
 }

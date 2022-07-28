@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemSelfManagedActiveDirectoryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemSelfManagedActiveDirectoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsIps")]
         private InputList<string>? _dnsIps;
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemSelfManagedActiveDirectoryConfigurationArgs()
         {
         }
+        public static new FileSystemSelfManagedActiveDirectoryConfigurationArgs Empty => new FileSystemSelfManagedActiveDirectoryConfigurationArgs();
     }
 }

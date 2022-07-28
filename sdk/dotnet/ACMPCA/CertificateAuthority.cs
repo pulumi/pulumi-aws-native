@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// Private certificate authority.
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:CertificateAuthority")]
-    public partial class CertificateAuthority : Pulumi.CustomResource
+    public partial class CertificateAuthority : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate authority.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.ACMPCA
         }
     }
 
-    public sealed class CertificateAuthorityArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
@@ -170,5 +170,6 @@ namespace Pulumi.AwsNative.ACMPCA
         public CertificateAuthorityArgs()
         {
         }
+        public static new CertificateAuthorityArgs Empty => new CertificateAuthorityArgs();
     }
 }

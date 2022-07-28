@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The container repository where the output container image is stored.
     /// </summary>
-    public sealed class ContainerRecipeTargetContainerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeTargetContainerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ContainerRecipeTargetContainerRepositoryArgs()
         {
         }
+        public static new ContainerRecipeTargetContainerRepositoryArgs Empty => new ContainerRecipeTargetContainerRepositoryArgs();
     }
 }

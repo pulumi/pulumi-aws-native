@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     }
 
 
-    public sealed class GetEndpointGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetEndpointGroupArgs()
         {
         }
+        public static new GetEndpointGroupArgs Empty => new GetEndpointGroupArgs();
     }
 
-    public sealed class GetEndpointGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetEndpointGroupInvokeArgs()
         {
         }
+        public static new GetEndpointGroupInvokeArgs Empty => new GetEndpointGroupInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class RecoveryGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class RecoveryGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public RecoveryGroupTagArgs()
         {
         }
+        public static new RecoveryGroupTagArgs Empty => new RecoveryGroupTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastGroupMember")]
-    public partial class TransitGatewayMulticastGroupMember : Pulumi.CustomResource
+    public partial class TransitGatewayMulticastGroupMember : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayMulticastGroupMemberArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayMulticastGroupMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayMulticastGroupMemberArgs()
         {
         }
+        public static new TransitGatewayMulticastGroupMemberArgs Empty => new TransitGatewayMulticastGroupMemberArgs();
     }
 }

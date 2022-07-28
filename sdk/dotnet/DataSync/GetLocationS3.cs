@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationS3Args : Pulumi.InvokeArgs
+    public sealed class GetLocationS3Args : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationS3Args()
         {
         }
+        public static new GetLocationS3Args Empty => new GetLocationS3Args();
     }
 
-    public sealed class GetLocationS3InvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationS3InvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationS3InvokeArgs()
         {
         }
+        public static new GetLocationS3InvokeArgs Empty => new GetLocationS3InvokeArgs();
     }
 
 

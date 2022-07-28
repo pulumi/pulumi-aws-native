@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLManagedRuleGroupStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLManagedRuleGroupStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedRules")]
         private InputList<Inputs.WebACLExcludedRuleArgs>? _excludedRules;
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLManagedRuleGroupStatementArgs()
         {
         }
+        public static new WebACLManagedRuleGroupStatementArgs Empty => new WebACLManagedRuleGroupStatementArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ExperimentOnlineAbConfigObjectArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentOnlineAbConfigObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("controlTreatmentName")]
         public Input<string>? ControlTreatmentName { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ExperimentOnlineAbConfigObjectArgs()
         {
         }
+        public static new ExperimentOnlineAbConfigObjectArgs Empty => new ExperimentOnlineAbConfigObjectArgs();
     }
 }

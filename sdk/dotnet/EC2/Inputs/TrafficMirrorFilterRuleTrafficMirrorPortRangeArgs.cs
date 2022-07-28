@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs : global::Pulumi.ResourceArgs
     {
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs()
         {
         }
+        public static new TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs Empty => new TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPNConnection")]
-    public partial class VPNConnection : Pulumi.CustomResource
+    public partial class VPNConnection : global::Pulumi.CustomResource
     {
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPNConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VPNConnectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.EC2
         public VPNConnectionArgs()
         {
         }
+        public static new VPNConnectionArgs Empty => new VPNConnectionArgs();
     }
 }

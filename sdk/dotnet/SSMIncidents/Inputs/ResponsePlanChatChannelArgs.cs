@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// The chat channel configuration.
     /// </summary>
-    public sealed class ResponsePlanChatChannelArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanChatChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("chatbotSns")]
         private InputList<string>? _chatbotSns;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanChatChannelArgs()
         {
         }
+        public static new ResponsePlanChatChannelArgs Empty => new ResponsePlanChatChannelArgs();
     }
 }

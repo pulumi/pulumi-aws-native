@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex
     /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:BotAlias")]
-    public partial class BotAlias : Pulumi.CustomResource
+    public partial class BotAlias : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lex
         }
     }
 
-    public sealed class BotAliasArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasArgs : global::Pulumi.ResourceArgs
     {
         [Input("botAliasLocaleSettings")]
         private InputList<Inputs.BotAliasLocaleSettingsItemArgs>? _botAliasLocaleSettings;
@@ -143,5 +143,6 @@ namespace Pulumi.AwsNative.Lex
         public BotAliasArgs()
         {
         }
+        public static new BotAliasArgs Empty => new BotAliasArgs();
     }
 }

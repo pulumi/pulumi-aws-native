@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SQS
     }
 
 
-    public sealed class GetQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// URL of the source queue.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SQS
         public GetQueueArgs()
         {
         }
+        public static new GetQueueArgs Empty => new GetQueueArgs();
     }
 
-    public sealed class GetQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// URL of the source queue.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SQS
         public GetQueueInvokeArgs()
         {
         }
+        public static new GetQueueInvokeArgs Empty => new GetQueueInvokeArgs();
     }
 
 

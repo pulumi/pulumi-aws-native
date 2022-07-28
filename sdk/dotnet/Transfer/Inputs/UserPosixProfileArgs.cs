@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class UserPosixProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserPosixProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("gid", required: true)]
         public Input<double> Gid { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public UserPosixProfileArgs()
         {
         }
+        public static new UserPosixProfileArgs Empty => new UserPosixProfileArgs();
     }
 }

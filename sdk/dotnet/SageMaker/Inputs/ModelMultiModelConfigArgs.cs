@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelMultiModelConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelMultiModelConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("modelCacheSetting")]
         public Input<string>? ModelCacheSetting { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelMultiModelConfigArgs()
         {
         }
+        public static new ModelMultiModelConfigArgs Empty => new ModelMultiModelConfigArgs();
     }
 }

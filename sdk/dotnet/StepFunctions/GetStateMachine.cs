@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.StepFunctions
     }
 
 
-    public sealed class GetStateMachineArgs : Pulumi.InvokeArgs
+    public sealed class GetStateMachineArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.StepFunctions
         public GetStateMachineArgs()
         {
         }
+        public static new GetStateMachineArgs Empty => new GetStateMachineArgs();
     }
 
-    public sealed class GetStateMachineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStateMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public GetStateMachineInvokeArgs()
         {
         }
+        public static new GetStateMachineInvokeArgs Empty => new GetStateMachineInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// <summary>
     /// An array of objects representing the details of a repository filter.
     /// </summary>
-    public sealed class ReplicationConfigurationRepositoryFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationRepositoryFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public ReplicationConfigurationRepositoryFilterArgs()
         {
         }
+        public static new ReplicationConfigurationRepositoryFilterArgs Empty => new ReplicationConfigurationRepositoryFilterArgs();
     }
 }

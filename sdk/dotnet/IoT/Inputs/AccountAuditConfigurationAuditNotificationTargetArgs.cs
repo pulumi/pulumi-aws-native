@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class AccountAuditConfigurationAuditNotificationTargetArgs : Pulumi.ResourceArgs
+    public sealed class AccountAuditConfigurationAuditNotificationTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if notifications to the target are enabled.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public AccountAuditConfigurationAuditNotificationTargetArgs()
         {
         }
+        public static new AccountAuditConfigurationAuditNotificationTargetArgs Empty => new AccountAuditConfigurationAuditNotificationTargetArgs();
     }
 }

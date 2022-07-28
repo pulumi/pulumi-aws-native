@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// <summary>
     /// Configures the network resources of the environment.
     /// </summary>
-    public sealed class EnvironmentNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         public EnvironmentNetworkConfigurationArgs()
         {
         }
+        public static new EnvironmentNetworkConfigurationArgs Empty => new EnvironmentNetworkConfigurationArgs();
     }
 }

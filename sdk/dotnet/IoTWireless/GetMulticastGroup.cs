@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetMulticastGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetMulticastGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Multicast group id. Returned after successful create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetMulticastGroupArgs()
         {
         }
+        public static new GetMulticastGroupArgs Empty => new GetMulticastGroupArgs();
     }
 
-    public sealed class GetMulticastGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMulticastGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Multicast group id. Returned after successful create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetMulticastGroupInvokeArgs()
         {
         }
+        public static new GetMulticastGroupInvokeArgs Empty => new GetMulticastGroupInvokeArgs();
     }
 
 

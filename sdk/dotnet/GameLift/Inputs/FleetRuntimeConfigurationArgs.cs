@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// 
     /// An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
     /// </summary>
-    public sealed class FleetRuntimeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FleetRuntimeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
@@ -46,5 +46,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public FleetRuntimeConfigurationArgs()
         {
         }
+        public static new FleetRuntimeConfigurationArgs Empty => new FleetRuntimeConfigurationArgs();
     }
 }

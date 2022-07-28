@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class PipelineDatastoreArgs : Pulumi.ResourceArgs
+    public sealed class PipelineDatastoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("datastoreName", required: true)]
         public Input<string> DatastoreName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public PipelineDatastoreArgs()
         {
         }
+        public static new PipelineDatastoreArgs Empty => new PipelineDatastoreArgs();
     }
 }

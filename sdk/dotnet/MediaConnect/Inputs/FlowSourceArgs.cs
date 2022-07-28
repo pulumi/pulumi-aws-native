@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// <summary>
     /// The settings for the source of the flow.
     /// </summary>
-    public sealed class FlowSourceArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of decryption that is used on the content ingested from this source.
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public FlowSourceArgs()
         {
         }
+        public static new FlowSourceArgs Empty => new FlowSourceArgs();
     }
 }

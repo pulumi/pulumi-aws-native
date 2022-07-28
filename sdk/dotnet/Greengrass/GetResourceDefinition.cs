@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetResourceDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetResourceDefinitionArgs()
         {
         }
+        public static new GetResourceDefinitionArgs Empty => new GetResourceDefinitionArgs();
     }
 
-    public sealed class GetResourceDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetResourceDefinitionInvokeArgs()
         {
         }
+        public static new GetResourceDefinitionInvokeArgs Empty => new GetResourceDefinitionInvokeArgs();
     }
 
 

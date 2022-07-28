@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupStatelessRulesAndCustomActionsArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupStatelessRulesAndCustomActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customActions")]
         private InputList<Inputs.RuleGroupCustomActionArgs>? _customActions;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupStatelessRulesAndCustomActionsArgs()
         {
         }
+        public static new RuleGroupStatelessRulesAndCustomActionsArgs Empty => new RuleGroupStatelessRulesAndCustomActionsArgs();
     }
 }

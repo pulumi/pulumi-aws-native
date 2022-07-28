@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketReplicationRuleFilterArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationRuleFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("and")]
         public Input<Inputs.BucketReplicationRuleAndOperatorArgs>? And { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationRuleFilterArgs()
         {
         }
+        public static new BucketReplicationRuleFilterArgs Empty => new BucketReplicationRuleFilterArgs();
     }
 }

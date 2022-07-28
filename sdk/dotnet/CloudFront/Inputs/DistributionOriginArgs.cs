@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionAttempts")]
         public Input<int>? ConnectionAttempts { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionOriginArgs()
         {
         }
+        public static new DistributionOriginArgs Empty => new DistributionOriginArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// A portal resource.
     /// </summary>
-    public sealed class AccessPolicyPortalArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyPortalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the portal.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AccessPolicyPortalArgs()
         {
         }
+        public static new AccessPolicyPortalArgs Empty => new AccessPolicyPortalArgs();
     }
 }

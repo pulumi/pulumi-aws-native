@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information that defines how a detector operates.
     /// </summary>
-    public sealed class DetectorModelDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The state that is entered at the creation of each detector (instance).
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelDefinitionArgs()
         {
         }
+        public static new DetectorModelDefinitionArgs Empty => new DetectorModelDefinitionArgs();
     }
 }

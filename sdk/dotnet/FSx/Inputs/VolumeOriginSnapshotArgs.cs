@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class VolumeOriginSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class VolumeOriginSnapshotArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyStrategy", required: true)]
         public Input<string> CopyStrategy { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public VolumeOriginSnapshotArgs()
         {
         }
+        public static new VolumeOriginSnapshotArgs Empty => new VolumeOriginSnapshotArgs();
     }
 }

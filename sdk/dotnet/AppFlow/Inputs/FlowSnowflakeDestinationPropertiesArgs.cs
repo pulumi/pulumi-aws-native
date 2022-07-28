@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowSnowflakeDestinationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowSnowflakeDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowSnowflakeDestinationPropertiesArgs()
         {
         }
+        public static new FlowSnowflakeDestinationPropertiesArgs Empty => new FlowSnowflakeDestinationPropertiesArgs();
     }
 }

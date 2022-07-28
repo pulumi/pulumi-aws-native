@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetResponseHeadersPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetResponseHeadersPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetResponseHeadersPolicyArgs()
         {
         }
+        public static new GetResponseHeadersPolicyArgs Empty => new GetResponseHeadersPolicyArgs();
     }
 
-    public sealed class GetResponseHeadersPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResponseHeadersPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetResponseHeadersPolicyInvokeArgs()
         {
         }
+        public static new GetResponseHeadersPolicyInvokeArgs Empty => new GetResponseHeadersPolicyInvokeArgs();
     }
 
 

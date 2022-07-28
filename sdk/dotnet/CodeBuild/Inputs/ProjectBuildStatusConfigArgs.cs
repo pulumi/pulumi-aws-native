@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectBuildStatusConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectBuildStatusConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("context")]
         public Input<string>? Context { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectBuildStatusConfigArgs()
         {
         }
+        public static new ProjectBuildStatusConfigArgs Empty => new ProjectBuildStatusConfigArgs();
     }
 }

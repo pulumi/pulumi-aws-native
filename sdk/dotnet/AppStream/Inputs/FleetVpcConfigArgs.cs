@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class FleetVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class FleetVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public FleetVpcConfigArgs()
         {
         }
+        public static new FleetVpcConfigArgs Empty => new FleetVpcConfigArgs();
     }
 }

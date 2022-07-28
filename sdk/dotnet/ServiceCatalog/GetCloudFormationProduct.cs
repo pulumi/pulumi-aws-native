@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetCloudFormationProductArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFormationProductArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetCloudFormationProductArgs()
         {
         }
+        public static new GetCloudFormationProductArgs Empty => new GetCloudFormationProductArgs();
     }
 
-    public sealed class GetCloudFormationProductInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudFormationProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetCloudFormationProductInvokeArgs()
         {
         }
+        public static new GetCloudFormationProductInvokeArgs Empty => new GetCloudFormationProductInvokeArgs();
     }
 
 

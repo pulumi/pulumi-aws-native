@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     }
 
 
-    public sealed class GetRecoveryGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetRecoveryGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the recovery group to create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetRecoveryGroupArgs()
         {
         }
+        public static new GetRecoveryGroupArgs Empty => new GetRecoveryGroupArgs();
     }
 
-    public sealed class GetRecoveryGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecoveryGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the recovery group to create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetRecoveryGroupInvokeArgs()
         {
         }
+        public static new GetRecoveryGroupInvokeArgs Empty => new GetRecoveryGroupInvokeArgs();
     }
 
 

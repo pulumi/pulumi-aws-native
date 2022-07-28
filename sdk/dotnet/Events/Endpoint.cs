@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Events
     /// Resource Type definition for AWS::Events::Endpoint.
     /// </summary>
     [AwsNativeResourceType("aws-native:events:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Events
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.Events
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

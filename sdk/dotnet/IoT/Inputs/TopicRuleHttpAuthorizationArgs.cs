@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleHttpAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleHttpAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sigv4")]
         public Input<Inputs.TopicRuleSigV4AuthorizationArgs>? Sigv4 { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleHttpAuthorizationArgs()
         {
         }
+        public static new TopicRuleHttpAuthorizationArgs Empty => new TopicRuleHttpAuthorizationArgs();
     }
 }

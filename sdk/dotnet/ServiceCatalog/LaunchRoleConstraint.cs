@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"LaunchRoleConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:LaunchRoleConstraint")]
-    public partial class LaunchRoleConstraint : Pulumi.CustomResource
+    public partial class LaunchRoleConstraint : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class LaunchRoleConstraintArgs : Pulumi.ResourceArgs
+    public sealed class LaunchRoleConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public LaunchRoleConstraintArgs()
         {
         }
+        public static new LaunchRoleConstraintArgs Empty => new LaunchRoleConstraintArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Configuration
     /// Resource Type definition for AWS::Config::ConfigurationAggregator
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConfigurationAggregator")]
-    public partial class ConfigurationAggregator : Pulumi.CustomResource
+    public partial class ConfigurationAggregator : global::Pulumi.CustomResource
     {
         [Output("accountAggregationSources")]
         public Output<ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource>> AccountAggregationSources { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class ConfigurationAggregatorArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountAggregationSources")]
         private InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>? _accountAggregationSources;
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.Configuration
         public ConfigurationAggregatorArgs()
         {
         }
+        public static new ConfigurationAggregatorArgs Empty => new ConfigurationAggregatorArgs();
     }
 }

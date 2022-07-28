@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WorkSpaces.Inputs
 {
 
-    public sealed class WorkspacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkspacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeTypeName")]
         public Input<string>? ComputeTypeName { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WorkSpaces.Inputs
         public WorkspacePropertiesArgs()
         {
         }
+        public static new WorkspacePropertiesArgs Empty => new WorkspacePropertiesArgs();
     }
 }

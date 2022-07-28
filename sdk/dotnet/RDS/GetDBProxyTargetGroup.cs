@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBProxyTargetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBProxyTargetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBProxyTargetGroupArgs()
         {
         }
+        public static new GetDBProxyTargetGroupArgs Empty => new GetDBProxyTargetGroupArgs();
     }
 
-    public sealed class GetDBProxyTargetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBProxyTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBProxyTargetGroupInvokeArgs()
         {
         }
+        public static new GetDBProxyTargetGroupInvokeArgs Empty => new GetDBProxyTargetGroupInvokeArgs();
     }
 
 

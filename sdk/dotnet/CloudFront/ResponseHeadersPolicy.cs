@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:ResponseHeadersPolicy")]
-    public partial class ResponseHeadersPolicy : Pulumi.CustomResource
+    public partial class ResponseHeadersPolicy : global::Pulumi.CustomResource
     {
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class ResponseHeadersPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("responseHeadersPolicyConfig", required: true)]
         public Input<Inputs.ResponseHeadersPolicyConfigArgs> ResponseHeadersPolicyConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public ResponseHeadersPolicyArgs()
         {
         }
+        public static new ResponseHeadersPolicyArgs Empty => new ResponseHeadersPolicyArgs();
     }
 }

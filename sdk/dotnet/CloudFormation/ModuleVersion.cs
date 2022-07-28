@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// A module that has been registered in the CloudFormation registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ModuleVersion")]
-    public partial class ModuleVersion : Pulumi.CustomResource
+    public partial class ModuleVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class ModuleVersionArgs : Pulumi.ResourceArgs
+    public sealed class ModuleVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the module being registered.
@@ -143,5 +143,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public ModuleVersionArgs()
         {
         }
+        public static new ModuleVersionArgs Empty => new ModuleVersionArgs();
     }
 }

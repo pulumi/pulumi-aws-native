@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class MLTransformFindMatchesParametersArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformFindMatchesParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("accuracyCostTradeoff")]
         public Input<double>? AccuracyCostTradeoff { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public MLTransformFindMatchesParametersArgs()
         {
         }
+        public static new MLTransformFindMatchesParametersArgs Empty => new MLTransformFindMatchesParametersArgs();
     }
 }

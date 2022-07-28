@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class FleetComputeCapacityArgs : Pulumi.ResourceArgs
+    public sealed class FleetComputeCapacityArgs : global::Pulumi.ResourceArgs
     {
         [Input("desiredInstances", required: true)]
         public Input<int> DesiredInstances { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public FleetComputeCapacityArgs()
         {
         }
+        public static new FleetComputeCapacityArgs Empty => new FleetComputeCapacityArgs();
     }
 }

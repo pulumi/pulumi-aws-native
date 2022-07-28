@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// </summary>
     [Obsolete(@"Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudwatch:Alarm")]
-    public partial class Alarm : Pulumi.CustomResource
+    public partial class Alarm : global::Pulumi.CustomResource
     {
         [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class AlarmArgs : Pulumi.ResourceArgs
+    public sealed class AlarmArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -218,5 +218,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public AlarmArgs()
         {
         }
+        public static new AlarmArgs Empty => new AlarmArgs();
     }
 }

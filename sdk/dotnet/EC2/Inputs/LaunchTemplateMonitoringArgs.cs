@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateMonitoringArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMonitoringArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateMonitoringArgs()
         {
         }
+        public static new LaunchTemplateMonitoringArgs Empty => new LaunchTemplateMonitoringArgs();
     }
 }

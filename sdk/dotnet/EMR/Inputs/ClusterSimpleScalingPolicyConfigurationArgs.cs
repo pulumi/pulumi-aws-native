@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterSimpleScalingPolicyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSimpleScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adjustmentType")]
         public Input<string>? AdjustmentType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterSimpleScalingPolicyConfigurationArgs()
         {
         }
+        public static new ClusterSimpleScalingPolicyConfigurationArgs Empty => new ClusterSimpleScalingPolicyConfigurationArgs();
     }
 }

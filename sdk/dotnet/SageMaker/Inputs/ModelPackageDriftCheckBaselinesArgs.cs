@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Represents the drift check baselines that can be used when the model monitor is set using the model package.
     /// </summary>
-    public sealed class ModelPackageDriftCheckBaselinesArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageDriftCheckBaselinesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bias")]
         public Input<Inputs.ModelPackageDriftCheckBiasArgs>? Bias { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageDriftCheckBaselinesArgs()
         {
         }
+        public static new ModelPackageDriftCheckBaselinesArgs Empty => new ModelPackageDriftCheckBaselinesArgs();
     }
 }

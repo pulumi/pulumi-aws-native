@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EFS
     /// Resource Type definition for AWS::EFS::MountTarget
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:MountTarget")]
-    public partial class MountTarget : Pulumi.CustomResource
+    public partial class MountTarget : global::Pulumi.CustomResource
     {
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EFS
         }
     }
 
-    public sealed class MountTargetArgs : Pulumi.ResourceArgs
+    public sealed class MountTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.EFS
         public MountTargetArgs()
         {
         }
+        public static new MountTargetArgs Empty => new MountTargetArgs();
     }
 }

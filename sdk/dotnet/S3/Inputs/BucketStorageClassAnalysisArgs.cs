@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketStorageClassAnalysisArgs : Pulumi.ResourceArgs
+    public sealed class BucketStorageClassAnalysisArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataExport")]
         public Input<Inputs.BucketDataExportArgs>? DataExport { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketStorageClassAnalysisArgs()
         {
         }
+        public static new BucketStorageClassAnalysisArgs Empty => new BucketStorageClassAnalysisArgs();
     }
 }

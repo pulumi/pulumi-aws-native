@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// An ObjectType resource of Amazon Connect Customer Profiles
     /// </summary>
     [AwsNativeResourceType("aws-native:customerprofiles:ObjectType")]
-    public partial class ObjectType : Pulumi.CustomResource
+    public partial class ObjectType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether a profile should be created when data is received.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         }
     }
 
-    public sealed class ObjectTypeArgs : Pulumi.ResourceArgs
+    public sealed class ObjectTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether a profile should be created when data is received.
@@ -213,5 +213,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public ObjectTypeArgs()
         {
         }
+        public static new ObjectTypeArgs Empty => new ObjectTypeArgs();
     }
 }

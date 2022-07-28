@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Configurations of Source connector of the flow.
     /// </summary>
-    public sealed class FlowSourceFlowConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of source connector profile
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowSourceFlowConfigArgs()
         {
         }
+        public static new FlowSourceFlowConfigArgs Empty => new FlowSourceFlowConfigArgs();
     }
 }

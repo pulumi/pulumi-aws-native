@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetScheduledAuditArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAuditArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to give to the scheduled audit.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetScheduledAuditArgs()
         {
         }
+        public static new GetScheduledAuditArgs Empty => new GetScheduledAuditArgs();
     }
 
-    public sealed class GetScheduledAuditInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduledAuditInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to give to the scheduled audit.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetScheduledAuditInvokeArgs()
         {
         }
+        public static new GetScheduledAuditInvokeArgs Empty => new GetScheduledAuditInvokeArgs();
     }
 
 

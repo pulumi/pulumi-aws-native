@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigTagArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigTagArgs()
         {
         }
+        public static new EndpointConfigTagArgs Empty => new EndpointConfigTagArgs();
     }
 }

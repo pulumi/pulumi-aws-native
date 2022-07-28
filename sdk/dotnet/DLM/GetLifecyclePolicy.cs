@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DLM
     }
 
 
-    public sealed class GetLifecyclePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetLifecyclePolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DLM
         public GetLifecyclePolicyArgs()
         {
         }
+        public static new GetLifecyclePolicyArgs Empty => new GetLifecyclePolicyArgs();
     }
 
-    public sealed class GetLifecyclePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLifecyclePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DLM
         public GetLifecyclePolicyInvokeArgs()
         {
         }
+        public static new GetLifecyclePolicyInvokeArgs Empty => new GetLifecyclePolicyInvokeArgs();
     }
 
 

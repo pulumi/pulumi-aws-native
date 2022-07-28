@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT
     /// </summary>
     [Obsolete(@"Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot:Thing")]
-    public partial class Thing : Pulumi.CustomResource
+    public partial class Thing : global::Pulumi.CustomResource
     {
         [Output("attributePayload")]
         public Output<Outputs.ThingAttributePayload?> AttributePayload { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class ThingArgs : Pulumi.ResourceArgs
+    public sealed class ThingArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributePayload")]
         public Input<Inputs.ThingAttributePayloadArgs>? AttributePayload { get; set; }
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.IoT
         public ThingArgs()
         {
         }
+        public static new ThingArgs Empty => new ThingArgs();
     }
 }

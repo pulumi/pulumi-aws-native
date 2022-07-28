@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationObjectStorage.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationObjectStorage")]
-    public partial class LocationObjectStorage : Pulumi.CustomResource
+    public partial class LocationObjectStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Optional. The access key is used if credentials are required to access the self-managed object storage server.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationObjectStorageArgs : Pulumi.ResourceArgs
+    public sealed class LocationObjectStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Optional. The access key is used if credentials are required to access the self-managed object storage server.
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationObjectStorageArgs()
         {
         }
+        public static new LocationObjectStorageArgs Empty => new LocationObjectStorageArgs();
     }
 }

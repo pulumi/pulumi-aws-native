@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CUR
     /// </summary>
     [Obsolete(@"ReportDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cur:ReportDefinition")]
-    public partial class ReportDefinition : Pulumi.CustomResource
+    public partial class ReportDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of manifests that you want Amazon Web Services to create for this report.
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.CUR
         }
     }
 
-    public sealed class ReportDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ReportDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalArtifacts")]
         private InputList<Pulumi.AwsNative.CUR.ReportDefinitionAdditionalArtifactsItem>? _additionalArtifacts;
@@ -220,5 +220,6 @@ namespace Pulumi.AwsNative.CUR
         public ReportDefinitionArgs()
         {
         }
+        public static new ReportDefinitionArgs Empty => new ReportDefinitionArgs();
     }
 }

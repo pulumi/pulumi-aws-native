@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCCidrBlock")]
-    public partial class VPCCidrBlock : Pulumi.CustomResource
+    public partial class VPCCidrBlock : global::Pulumi.CustomResource
     {
         [Output("amazonProvidedIpv6CidrBlock")]
         public Output<bool?> AmazonProvidedIpv6CidrBlock { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCCidrBlockArgs : Pulumi.ResourceArgs
+    public sealed class VPCCidrBlockArgs : global::Pulumi.ResourceArgs
     {
         [Input("amazonProvidedIpv6CidrBlock")]
         public Input<bool>? AmazonProvidedIpv6CidrBlock { get; set; }
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCCidrBlockArgs()
         {
         }
+        public static new VPCCidrBlockArgs Empty => new VPCCidrBlockArgs();
     }
 }

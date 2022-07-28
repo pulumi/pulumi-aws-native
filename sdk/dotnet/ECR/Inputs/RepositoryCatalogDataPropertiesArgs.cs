@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// <summary>
     /// The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see &lt;link&gt;
     /// </summary>
-    public sealed class RepositoryCatalogDataPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryCatalogDataPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("aboutText")]
         public Input<string>? AboutText { get; set; }
@@ -43,5 +43,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public RepositoryCatalogDataPropertiesArgs()
         {
         }
+        public static new RepositoryCatalogDataPropertiesArgs Empty => new RepositoryCatalogDataPropertiesArgs();
     }
 }

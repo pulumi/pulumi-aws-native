@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// </summary>
     [Obsolete(@"ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         [Output("blockPublicPolicy")]
         public Output<bool?> BlockPublicPolicy { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.SecretsManager
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockPublicPolicy")]
         public Input<bool>? BlockPublicPolicy { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.SecretsManager
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 }

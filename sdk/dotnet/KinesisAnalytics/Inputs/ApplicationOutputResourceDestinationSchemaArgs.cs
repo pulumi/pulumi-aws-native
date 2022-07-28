@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationOutputResourceDestinationSchemaArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationOutputResourceDestinationSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationOutputResourceDestinationSchemaArgs()
         {
         }
+        public static new ApplicationOutputResourceDestinationSchemaArgs Empty => new ApplicationOutputResourceDestinationSchemaArgs();
     }
 }

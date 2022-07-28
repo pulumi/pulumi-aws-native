@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
 
-    public sealed class GetFirewallRuleGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ResourceId
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetFirewallRuleGroupArgs()
         {
         }
+        public static new GetFirewallRuleGroupArgs Empty => new GetFirewallRuleGroupArgs();
     }
 
-    public sealed class GetFirewallRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFirewallRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ResourceId
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetFirewallRuleGroupInvokeArgs()
         {
         }
+        public static new GetFirewallRuleGroupInvokeArgs Empty => new GetFirewallRuleGroupInvokeArgs();
     }
 
 

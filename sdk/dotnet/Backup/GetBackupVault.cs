@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
     }
 
 
-    public sealed class GetBackupVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupVaultArgs : global::Pulumi.InvokeArgs
     {
         [Input("backupVaultName", required: true)]
         public string BackupVaultName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Backup
         public GetBackupVaultArgs()
         {
         }
+        public static new GetBackupVaultArgs Empty => new GetBackupVaultArgs();
     }
 
-    public sealed class GetBackupVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Backup
         public GetBackupVaultInvokeArgs()
         {
         }
+        public static new GetBackupVaultInvokeArgs Empty => new GetBackupVaultInvokeArgs();
     }
 
 

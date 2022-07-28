@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetEndpointConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetEndpointConfigArgs()
         {
         }
+        public static new GetEndpointConfigArgs Empty => new GetEndpointConfigArgs();
     }
 
-    public sealed class GetEndpointConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetEndpointConfigInvokeArgs()
         {
         }
+        public static new GetEndpointConfigInvokeArgs Empty => new GetEndpointConfigInvokeArgs();
     }
 
 

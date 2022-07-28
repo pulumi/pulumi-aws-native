@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetIotEventsDestinationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetIotEventsDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputName", required: true)]
         public Input<string> InputName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetIotEventsDestinationConfigurationArgs()
         {
         }
+        public static new DatasetIotEventsDestinationConfigurationArgs Empty => new DatasetIotEventsDestinationConfigurationArgs();
     }
 }

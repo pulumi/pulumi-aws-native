@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class AliasProvisionedConcurrencyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AliasProvisionedConcurrencyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public AliasProvisionedConcurrencyConfigurationArgs()
         {
         }
+        public static new AliasProvisionedConcurrencyConfigurationArgs Empty => new AliasProvisionedConcurrencyConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileServiceNowConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileServiceNowConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the ServiceNow resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileServiceNowConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileServiceNowConnectorProfilePropertiesArgs Empty => new ConnectorProfileServiceNowConnectorProfilePropertiesArgs();
     }
 }

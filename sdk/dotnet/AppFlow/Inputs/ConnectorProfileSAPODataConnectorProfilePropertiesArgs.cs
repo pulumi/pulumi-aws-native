@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileSAPODataConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileSAPODataConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationHostUrl")]
         public Input<string>? ApplicationHostUrl { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileSAPODataConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileSAPODataConnectorProfilePropertiesArgs Empty => new ConnectorProfileSAPODataConnectorProfilePropertiesArgs();
     }
 }

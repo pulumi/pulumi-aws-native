@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryArtifactConfigArgs : Pulumi.ResourceArgs
+    public sealed class CanaryArtifactConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption configuration for uploading artifacts to S3
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryArtifactConfigArgs()
         {
         }
+        public static new CanaryArtifactConfigArgs Empty => new CanaryArtifactConfigArgs();
     }
 }

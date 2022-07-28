@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceCapacityProviderStrategyItemArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCapacityProviderStrategyItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("base")]
         public Input<int>? Base { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceCapacityProviderStrategyItemArgs()
         {
         }
+        public static new ServiceCapacityProviderStrategyItemArgs Empty => new ServiceCapacityProviderStrategyItemArgs();
     }
 }

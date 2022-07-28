@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainTagArgs : Pulumi.ResourceArgs
+    public sealed class DomainTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of the tag.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainTagArgs()
         {
         }
+        public static new DomainTagArgs Empty => new DomainTagArgs();
     }
 }

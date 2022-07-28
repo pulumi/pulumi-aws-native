@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
     }
 
 
-    public sealed class GetSuiteDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetSuiteDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifier for the suite definition.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         public GetSuiteDefinitionArgs()
         {
         }
+        public static new GetSuiteDefinitionArgs Empty => new GetSuiteDefinitionArgs();
     }
 
-    public sealed class GetSuiteDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSuiteDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique identifier for the suite definition.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         public GetSuiteDefinitionInvokeArgs()
         {
         }
+        public static new GetSuiteDefinitionInvokeArgs Empty => new GetSuiteDefinitionInvokeArgs();
     }
 
 

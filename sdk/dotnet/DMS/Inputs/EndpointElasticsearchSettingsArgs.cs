@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointElasticsearchSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointElasticsearchSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointElasticsearchSettingsArgs()
         {
         }
+        public static new EndpointElasticsearchSettingsArgs Empty => new EndpointElasticsearchSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class CellTagArgs : Pulumi.ResourceArgs
+    public sealed class CellTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public CellTagArgs()
         {
         }
+        public static new CellTagArgs Empty => new CellTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Dataset.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Dataset")]
-    public partial class Dataset : Pulumi.CustomResource
+    public partial class Dataset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Dataset format
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class DatasetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Dataset format
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.DataBrew
         public DatasetArgs()
         {
         }
+        public static new DatasetArgs Empty => new DatasetArgs();
     }
 }

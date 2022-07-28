@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    public sealed class BranchBasicAuthConfigArgs : Pulumi.ResourceArgs
+    public sealed class BranchBasicAuthConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public BranchBasicAuthConfigArgs()
         {
         }
+        public static new BranchBasicAuthConfigArgs Empty => new BranchBasicAuthConfigArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Signer
     }
 
 
-    public sealed class GetSigningProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified signing profile.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Signer
         public GetSigningProfileArgs()
         {
         }
+        public static new GetSigningProfileArgs Empty => new GetSigningProfileArgs();
     }
 
-    public sealed class GetSigningProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified signing profile.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Signer
         public GetSigningProfileInvokeArgs()
         {
         }
+        public static new GetSigningProfileInvokeArgs Empty => new GetSigningProfileInvokeArgs();
     }
 
 

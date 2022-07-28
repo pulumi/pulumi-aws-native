@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift
     /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:gamelift:GameServerGroup")]
-    public partial class GameServerGroup : Pulumi.CustomResource
+    public partial class GameServerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class GameServerGroupArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
@@ -237,5 +237,6 @@ namespace Pulumi.AwsNative.GameLift
         public GameServerGroupArgs()
         {
         }
+        public static new GameServerGroupArgs Empty => new GameServerGroupArgs();
     }
 }

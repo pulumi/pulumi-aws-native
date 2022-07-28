@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class ScriptTagArgs : Pulumi.ResourceArgs
+    public sealed class ScriptTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public ScriptTagArgs()
         {
         }
+        public static new ScriptTagArgs Empty => new ScriptTagArgs();
     }
 }

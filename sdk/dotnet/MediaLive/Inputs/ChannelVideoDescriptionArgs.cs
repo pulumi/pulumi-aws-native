@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoDescriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("codecSettings")]
         public Input<Inputs.ChannelVideoCodecSettingsArgs>? CodecSettings { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoDescriptionArgs()
         {
         }
+        public static new ChannelVideoDescriptionArgs Empty => new ChannelVideoDescriptionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
     /// </summary>
-    public sealed class RulesetColumnSelectorArgs : Pulumi.ResourceArgs
+    public sealed class RulesetColumnSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a column from a dataset
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RulesetColumnSelectorArgs()
         {
         }
+        public static new RulesetColumnSelectorArgs Empty => new RulesetColumnSelectorArgs();
     }
 }

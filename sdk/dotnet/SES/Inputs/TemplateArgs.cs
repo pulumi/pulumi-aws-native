@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// The content of the email, composed of a subject line, an HTML part, and a text-only part
     /// </summary>
-    public sealed class TemplateArgs : Pulumi.ResourceArgs
+    public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTML body of the email.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public TemplateArgs()
         {
         }
+        public static new TemplateArgs Empty => new TemplateArgs();
     }
 }

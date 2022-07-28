@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleAwsVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RuleAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignPublicIp")]
         public Input<string>? AssignPublicIp { get; set; }
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleAwsVpcConfigurationArgs()
         {
         }
+        public static new RuleAwsVpcConfigurationArgs Empty => new RuleAwsVpcConfigurationArgs();
     }
 }

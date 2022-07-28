@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::Project creates a new Device Farm Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultJobTimeoutMinutes")]
         public Input<int>? DefaultJobTimeoutMinutes { get; set; }
@@ -89,5 +89,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// </summary>
     [Obsolete(@"Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lightsail:Distribution")]
-    public partial class Distribution : Pulumi.CustomResource
+    public partial class Distribution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the bundle that is currently applied to your distribution, specified using the distributionName parameter, can be changed to another bundle.
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class DistributionArgs : Pulumi.ResourceArgs
+    public sealed class DistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bundle ID to use for the distribution.
@@ -211,5 +211,6 @@ namespace Pulumi.AwsNative.Lightsail
         public DistributionArgs()
         {
         }
+        public static new DistributionArgs Empty => new DistributionArgs();
     }
 }

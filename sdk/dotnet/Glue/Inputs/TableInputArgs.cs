@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TableInputArgs : Pulumi.ResourceArgs
+    public sealed class TableInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -53,5 +53,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TableInputArgs()
         {
         }
+        public static new TableInputArgs Empty => new TableInputArgs();
     }
 }

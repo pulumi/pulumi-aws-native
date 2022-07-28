@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
     /// </summary>
-    public sealed class ApplicationGlueDataCatalogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGlueDataCatalogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the database.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationGlueDataCatalogConfigurationArgs()
         {
         }
+        public static new ApplicationGlueDataCatalogConfigurationArgs Empty => new ApplicationGlueDataCatalogConfigurationArgs();
     }
 }

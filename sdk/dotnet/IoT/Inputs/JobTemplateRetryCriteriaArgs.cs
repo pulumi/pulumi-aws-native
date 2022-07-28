@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Specifies how many times a failure type should be retried.
     /// </summary>
-    public sealed class JobTemplateRetryCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateRetryCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("failureType")]
         public Input<Pulumi.AwsNative.IoT.JobTemplateJobRetryFailureType>? FailureType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public JobTemplateRetryCriteriaArgs()
         {
         }
+        public static new JobTemplateRetryCriteriaArgs Empty => new JobTemplateRetryCriteriaArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// The hyperparameters and their allowable ranges
     /// </summary>
-    public sealed class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("categoricalHyperParameterRanges")]
         private InputList<Inputs.SolutionCategoricalHyperParameterRangeArgs>? _categoricalHyperParameterRanges;
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs()
         {
         }
+        public static new SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs Empty => new SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs();
     }
 }

@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreJsonConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreJsonConfigurationArgs : global::Pulumi.ResourceArgs
     {
         public DatastoreJsonConfigurationArgs()
         {
         }
+        public static new DatastoreJsonConfigurationArgs Empty => new DatastoreJsonConfigurationArgs();
     }
 }

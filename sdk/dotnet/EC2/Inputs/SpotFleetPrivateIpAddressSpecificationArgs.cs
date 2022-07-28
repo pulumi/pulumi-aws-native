@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetPrivateIpAddressSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetPrivateIpAddressSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetPrivateIpAddressSpecificationArgs()
         {
         }
+        public static new SpotFleetPrivateIpAddressSpecificationArgs Empty => new SpotFleetPrivateIpAddressSpecificationArgs();
     }
 }

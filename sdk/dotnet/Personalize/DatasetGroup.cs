@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize
     /// Resource Schema for AWS::Personalize::DatasetGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:personalize:DatasetGroup")]
-    public partial class DatasetGroup : Pulumi.CustomResource
+    public partial class DatasetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Personalize
         }
     }
 
-    public sealed class DatasetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DatasetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain of a Domain dataset group.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.Personalize
         public DatasetGroupArgs()
         {
         }
+        public static new DatasetGroupArgs Empty => new DatasetGroupArgs();
     }
 }

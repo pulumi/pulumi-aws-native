@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The configuration of a Kinesis Data Analytics Studio notebook.
     /// </summary>
-    public sealed class ApplicationZeppelinApplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationZeppelinApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationZeppelinApplicationConfigurationArgs()
         {
         }
+        public static new ApplicationZeppelinApplicationConfigurationArgs Empty => new ApplicationZeppelinApplicationConfigurationArgs();
     }
 }

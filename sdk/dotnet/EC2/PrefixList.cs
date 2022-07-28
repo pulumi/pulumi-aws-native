@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource schema of AWS::EC2::PrefixList Type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:PrefixList")]
-    public partial class PrefixList : Pulumi.CustomResource
+    public partial class PrefixList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Ip Version of Prefix List.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class PrefixListArgs : Pulumi.ResourceArgs
+    public sealed class PrefixListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ip Version of Prefix List.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.EC2
         public PrefixListArgs()
         {
         }
+        public static new PrefixListArgs Empty => new PrefixListArgs();
     }
 }

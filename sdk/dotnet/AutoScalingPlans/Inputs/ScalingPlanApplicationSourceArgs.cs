@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanApplicationSourceArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanApplicationSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudFormationStackARN")]
         public Input<string>? CloudFormationStackARN { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
         public ScalingPlanApplicationSourceArgs()
         {
         }
+        public static new ScalingPlanApplicationSourceArgs Empty => new ScalingPlanApplicationSourceArgs();
     }
 }

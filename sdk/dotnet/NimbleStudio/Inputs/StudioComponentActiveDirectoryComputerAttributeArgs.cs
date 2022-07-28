@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.&lt;/p&gt;
     /// </summary>
-    public sealed class StudioComponentActiveDirectoryComputerAttributeArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentActiveDirectoryComputerAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The name for the LDAP attribute.&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public StudioComponentActiveDirectoryComputerAttributeArgs()
         {
         }
+        public static new StudioComponentActiveDirectoryComputerAttributeArgs Empty => new StudioComponentActiveDirectoryComputerAttributeArgs();
     }
 }

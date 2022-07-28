@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SecretsManager
     }
 
 
-    public sealed class GetSecretArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SecretsManager
         public GetSecretArgs()
         {
         }
+        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SecretsManager
         public GetSecretInvokeArgs()
         {
         }
+        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 

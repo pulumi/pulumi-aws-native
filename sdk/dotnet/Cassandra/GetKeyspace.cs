@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cassandra
     }
 
 
-    public sealed class GetKeyspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for Cassandra keyspace
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Cassandra
         public GetKeyspaceArgs()
         {
         }
+        public static new GetKeyspaceArgs Empty => new GetKeyspaceArgs();
     }
 
-    public sealed class GetKeyspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name for Cassandra keyspace
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Cassandra
         public GetKeyspaceInvokeArgs()
         {
         }
+        public static new GetKeyspaceInvokeArgs Empty => new GetKeyspaceInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketMetricsArgs : Pulumi.ResourceArgs
+    public sealed class BucketMetricsArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventThreshold")]
         public Input<Inputs.BucketReplicationTimeValueArgs>? EventThreshold { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketMetricsArgs()
         {
         }
+        public static new BucketMetricsArgs Empty => new BucketMetricsArgs();
     }
 }

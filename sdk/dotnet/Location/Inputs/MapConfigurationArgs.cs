@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location.Inputs
 {
 
-    public sealed class MapConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("style", required: true)]
         public Input<string> Style { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Location.Inputs
         public MapConfigurationArgs()
         {
         }
+        public static new MapConfigurationArgs Empty => new MapConfigurationArgs();
     }
 }

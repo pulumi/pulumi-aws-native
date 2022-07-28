@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     }
 
 
-    public sealed class GetListenerRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleArn", required: true)]
         public string RuleArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetListenerRuleArgs()
         {
         }
+        public static new GetListenerRuleArgs Empty => new GetListenerRuleArgs();
     }
 
-    public sealed class GetListenerRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetListenerRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleArn", required: true)]
         public Input<string> RuleArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetListenerRuleInvokeArgs()
         {
         }
+        public static new GetListenerRuleInvokeArgs Empty => new GetListenerRuleInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Athena.Inputs
 {
 
-    public sealed class DataCatalogTagArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public DataCatalogTagArgs()
         {
         }
+        public static new DataCatalogTagArgs Empty => new DataCatalogTagArgs();
     }
 }

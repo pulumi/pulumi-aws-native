@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetClientVpnEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnEndpointArgs()
         {
         }
+        public static new GetClientVpnEndpointArgs Empty => new GetClientVpnEndpointArgs();
     }
 
-    public sealed class GetClientVpnEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnEndpointInvokeArgs()
         {
         }
+        public static new GetClientVpnEndpointInvokeArgs Empty => new GetClientVpnEndpointInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource schema for AWS::SageMaker::Device
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Edge Device you want to register against a device fleet
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Edge Device you want to register against a device fleet
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.SageMaker
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 }

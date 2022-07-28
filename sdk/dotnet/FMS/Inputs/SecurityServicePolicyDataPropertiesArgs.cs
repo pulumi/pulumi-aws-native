@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FMS.Inputs
 {
 
-    public sealed class SecurityServicePolicyDataPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class SecurityServicePolicyDataPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("managedServiceData")]
         public Input<string>? ManagedServiceData { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FMS.Inputs
         public SecurityServicePolicyDataPropertiesArgs()
         {
         }
+        public static new SecurityServicePolicyDataPropertiesArgs Empty => new SecurityServicePolicyDataPropertiesArgs();
     }
 }

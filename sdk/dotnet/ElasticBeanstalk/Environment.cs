@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// </summary>
     [Obsolete(@"Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -149,5 +149,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

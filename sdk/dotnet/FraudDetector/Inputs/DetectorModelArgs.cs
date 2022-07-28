@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
     /// <summary>
     /// A model to associate with a detector.
     /// </summary>
-    public sealed class DetectorModelArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         public DetectorModelArgs()
         {
         }
+        public static new DetectorModelArgs Empty => new DetectorModelArgs();
     }
 }

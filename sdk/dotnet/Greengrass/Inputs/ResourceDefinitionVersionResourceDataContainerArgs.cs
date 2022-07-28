@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class ResourceDefinitionVersionResourceDataContainerArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDefinitionVersionResourceDataContainerArgs : global::Pulumi.ResourceArgs
     {
         [Input("localDeviceResourceData")]
         public Input<Inputs.ResourceDefinitionVersionLocalDeviceResourceDataArgs>? LocalDeviceResourceData { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public ResourceDefinitionVersionResourceDataContainerArgs()
         {
         }
+        public static new ResourceDefinitionVersionResourceDataContainerArgs Empty => new ResourceDefinitionVersionResourceDataContainerArgs();
     }
 }

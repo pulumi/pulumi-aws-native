@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupSelectionConditionParameterArgs : Pulumi.ResourceArgs
+    public sealed class BackupSelectionConditionParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditionKey")]
         public Input<string>? ConditionKey { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupSelectionConditionParameterArgs()
         {
         }
+        public static new BackupSelectionConditionParameterArgs Empty => new BackupSelectionConditionParameterArgs();
     }
 }

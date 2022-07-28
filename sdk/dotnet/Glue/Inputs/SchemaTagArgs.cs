@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class SchemaTagArgs : Pulumi.ResourceArgs
+    public sealed class SchemaTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A key to identify the tag.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public SchemaTagArgs()
         {
         }
+        public static new SchemaTagArgs Empty => new SchemaTagArgs();
     }
 }

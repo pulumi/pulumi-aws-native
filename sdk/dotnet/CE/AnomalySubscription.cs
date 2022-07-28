@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CE
     /// </summary>
     [Obsolete(@"AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ce:AnomalySubscription")]
-    public partial class AnomalySubscription : Pulumi.CustomResource
+    public partial class AnomalySubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The accountId
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.CE
         }
     }
 
-    public sealed class AnomalySubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class AnomalySubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The frequency at which anomaly reports are sent over email. 
@@ -163,5 +163,6 @@ namespace Pulumi.AwsNative.CE
         public AnomalySubscriptionArgs()
         {
         }
+        public static new AnomalySubscriptionArgs Empty => new AnomalySubscriptionArgs();
     }
 }

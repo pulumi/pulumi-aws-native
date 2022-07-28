@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class OnlineStoreConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class OnlineStoreConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableOnlineStore")]
         public Input<bool>? EnableOnlineStore { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public OnlineStoreConfigPropertiesArgs()
         {
         }
+        public static new OnlineStoreConfigPropertiesArgs Empty => new OnlineStoreConfigPropertiesArgs();
     }
 }

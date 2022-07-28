@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobS3TableOutputOptionsArgs : Pulumi.ResourceArgs
+    public sealed class JobS3TableOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("location", required: true)]
         public Input<Inputs.JobS3LocationArgs> Location { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobS3TableOutputOptionsArgs()
         {
         }
+        public static new JobS3TableOutputOptionsArgs Empty => new JobS3TableOutputOptionsArgs();
     }
 }

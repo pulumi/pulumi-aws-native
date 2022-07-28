@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A custom, extended built-in or a grammar slot type.
     /// </summary>
-    public sealed class BotSlotTypeArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotTypeArgs()
         {
         }
+        public static new BotSlotTypeArgs Empty => new BotSlotTypeArgs();
     }
 }

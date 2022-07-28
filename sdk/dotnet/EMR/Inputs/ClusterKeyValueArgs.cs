@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterKeyValueArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKeyValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterKeyValueArgs()
         {
         }
+        public static new ClusterKeyValueArgs Empty => new ClusterKeyValueArgs();
     }
 }

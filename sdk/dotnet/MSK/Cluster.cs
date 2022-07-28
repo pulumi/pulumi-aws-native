@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MSK
     /// Resource Type definition for AWS::MSK::Cluster
     /// </summary>
     [AwsNativeResourceType("aws-native:msk:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.MSK
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
@@ -150,5 +150,6 @@ namespace Pulumi.AwsNative.MSK
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

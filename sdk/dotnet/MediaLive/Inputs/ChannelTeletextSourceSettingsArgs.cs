@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelTeletextSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelTeletextSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("outputRectangle")]
         public Input<Inputs.ChannelCaptionRectangleArgs>? OutputRectangle { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelTeletextSourceSettingsArgs()
         {
         }
+        public static new ChannelTeletextSourceSettingsArgs Empty => new ChannelTeletextSourceSettingsArgs();
     }
 }

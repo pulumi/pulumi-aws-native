@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Chatbot
     }
 
 
-    public sealed class GetSlackChannelConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetSlackChannelConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Chatbot
         public GetSlackChannelConfigurationArgs()
         {
         }
+        public static new GetSlackChannelConfigurationArgs Empty => new GetSlackChannelConfigurationArgs();
     }
 
-    public sealed class GetSlackChannelConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSlackChannelConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Chatbot
         public GetSlackChannelConfigurationInvokeArgs()
         {
         }
+        public static new GetSlackChannelConfigurationInvokeArgs Empty => new GetSlackChannelConfigurationInvokeArgs();
     }
 
 

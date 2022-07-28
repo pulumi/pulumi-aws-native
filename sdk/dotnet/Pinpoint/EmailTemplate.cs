@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"EmailTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:EmailTemplate")]
-    public partial class EmailTemplate : Pulumi.CustomResource
+    public partial class EmailTemplate : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class EmailTemplateArgs : Pulumi.ResourceArgs
+    public sealed class EmailTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultSubstitutions")]
         public Input<string>? DefaultSubstitutions { get; set; }
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public EmailTemplateArgs()
         {
         }
+        public static new EmailTemplateArgs Empty => new EmailTemplateArgs();
     }
 }

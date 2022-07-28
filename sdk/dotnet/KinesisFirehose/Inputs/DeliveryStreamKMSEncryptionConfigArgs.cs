@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamKMSEncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamKMSEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("aWSKMSKeyARN", required: true)]
         public Input<string> AWSKMSKeyARN { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamKMSEncryptionConfigArgs()
         {
         }
+        public static new DeliveryStreamKMSEncryptionConfigArgs Empty => new DeliveryStreamKMSEncryptionConfigArgs();
     }
 }

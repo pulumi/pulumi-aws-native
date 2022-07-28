@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -44,5 +44,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectEnvironmentArgs()
         {
         }
+        public static new ProjectEnvironmentArgs Empty => new ProjectEnvironmentArgs();
     }
 }

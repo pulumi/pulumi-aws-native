@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Amplify
     /// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
     /// </summary>
     [AwsNativeResourceType("aws-native:amplify:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Amplify
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
@@ -174,5 +174,6 @@ namespace Pulumi.AwsNative.Amplify
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 }

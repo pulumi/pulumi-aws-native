@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexDocumentMetadataConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexDocumentMetadataConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexDocumentMetadataConfigurationArgs()
         {
         }
+        public static new IndexDocumentMetadataConfigurationArgs Empty => new IndexDocumentMetadataConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
     /// </summary>
-    public sealed class ApplicationParallelismConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationParallelismConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationParallelismConfigurationArgs()
         {
         }
+        public static new ApplicationParallelismConfigurationArgs Empty => new ApplicationParallelismConfigurationArgs();
     }
 }

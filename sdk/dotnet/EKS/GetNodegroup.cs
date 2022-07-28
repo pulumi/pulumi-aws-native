@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EKS
     }
 
 
-    public sealed class GetNodegroupArgs : Pulumi.InvokeArgs
+    public sealed class GetNodegroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EKS
         public GetNodegroupArgs()
         {
         }
+        public static new GetNodegroupArgs Empty => new GetNodegroupArgs();
     }
 
-    public sealed class GetNodegroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodegroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EKS
         public GetNodegroupInvokeArgs()
         {
         }
+        public static new GetNodegroupInvokeArgs Empty => new GetNodegroupInvokeArgs();
     }
 
 

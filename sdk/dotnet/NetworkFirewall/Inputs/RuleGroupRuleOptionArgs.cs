@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleOptionArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyword", required: true)]
         public Input<string> Keyword { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupRuleOptionArgs()
         {
         }
+        public static new RuleGroupRuleOptionArgs Empty => new RuleGroupRuleOptionArgs();
     }
 }

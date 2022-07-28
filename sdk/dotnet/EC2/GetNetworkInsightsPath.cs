@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNetworkInsightsPathArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsPathArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsPathId", required: true)]
         public string NetworkInsightsPathId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsPathArgs()
         {
         }
+        public static new GetNetworkInsightsPathArgs Empty => new GetNetworkInsightsPathArgs();
     }
 
-    public sealed class GetNetworkInsightsPathInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsPathInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsPathInvokeArgs()
         {
         }
+        public static new GetNetworkInsightsPathInvokeArgs Empty => new GetNetworkInsightsPathInvokeArgs();
     }
 
 

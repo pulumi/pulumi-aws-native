@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamHttpEndpointCommonAttributeArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamHttpEndpointCommonAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamHttpEndpointCommonAttributeArgs()
         {
         }
+        public static new DeliveryStreamHttpEndpointCommonAttributeArgs Empty => new DeliveryStreamHttpEndpointCommonAttributeArgs();
     }
 }

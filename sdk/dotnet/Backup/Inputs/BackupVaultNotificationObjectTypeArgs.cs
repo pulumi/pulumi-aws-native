@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupVaultNotificationObjectTypeArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultNotificationObjectTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupVaultEvents", required: true)]
         private InputList<string>? _backupVaultEvents;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupVaultNotificationObjectTypeArgs()
         {
         }
+        public static new BackupVaultNotificationObjectTypeArgs Empty => new BackupVaultNotificationObjectTypeArgs();
     }
 }

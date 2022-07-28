@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
     /// </summary>
-    public sealed class FleetCertificateConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FleetCertificateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateType", required: true)]
         public Input<Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType> CertificateType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public FleetCertificateConfigurationArgs()
         {
         }
+        public static new FleetCertificateConfigurationArgs Empty => new FleetCertificateConfigurationArgs();
     }
 }

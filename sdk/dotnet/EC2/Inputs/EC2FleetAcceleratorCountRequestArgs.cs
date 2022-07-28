@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetAcceleratorCountRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetAcceleratorCountRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetAcceleratorCountRequestArgs()
         {
         }
+        public static new EC2FleetAcceleratorCountRequestArgs Empty => new EC2FleetAcceleratorCountRequestArgs();
     }
 }

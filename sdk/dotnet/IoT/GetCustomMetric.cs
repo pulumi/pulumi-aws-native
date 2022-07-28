@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetCustomMetricArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomMetricArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetCustomMetricArgs()
         {
         }
+        public static new GetCustomMetricArgs Empty => new GetCustomMetricArgs();
     }
 
-    public sealed class GetCustomMetricInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomMetricInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetCustomMetricInvokeArgs()
         {
         }
+        public static new GetCustomMetricInvokeArgs Empty => new GetCustomMetricInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
     /// </summary>
-    public sealed class DomainSharingSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSharingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainSharingSettingsArgs()
         {
         }
+        public static new DomainSharingSettingsArgs Empty => new DomainSharingSettingsArgs();
     }
 }

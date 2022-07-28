@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketCorsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketCorsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("corsRules", required: true)]
         private InputList<Inputs.BucketCorsRuleArgs>? _corsRules;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketCorsConfigurationArgs()
         {
         }
+        public static new BucketCorsConfigurationArgs Empty => new BucketCorsConfigurationArgs();
     }
 }

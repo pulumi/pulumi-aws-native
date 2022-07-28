@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelCaptionLanguageMappingArgs : Pulumi.ResourceArgs
+    public sealed class ChannelCaptionLanguageMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("captionChannel")]
         public Input<int>? CaptionChannel { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelCaptionLanguageMappingArgs()
         {
         }
+        public static new ChannelCaptionLanguageMappingArgs Empty => new ChannelCaptionLanguageMappingArgs();
     }
 }

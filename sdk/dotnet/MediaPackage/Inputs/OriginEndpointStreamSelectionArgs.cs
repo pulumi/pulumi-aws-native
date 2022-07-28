@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A StreamSelection configuration.
     /// </summary>
-    public sealed class OriginEndpointStreamSelectionArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointStreamSelectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum video bitrate (bps) to include in output.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointStreamSelectionArgs()
         {
         }
+        public static new OriginEndpointStreamSelectionArgs Empty => new OriginEndpointStreamSelectionArgs();
     }
 }

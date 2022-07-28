@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroup")]
-    public partial class AttributeGroup : Pulumi.CustomResource
+    public partial class AttributeGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         }
     }
 
-    public sealed class AttributeGroupArgs : Pulumi.ResourceArgs
+    public sealed class AttributeGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
         public Input<object> Attributes { get; set; } = null!;
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public AttributeGroupArgs()
         {
         }
+        public static new AttributeGroupArgs Empty => new AttributeGroupArgs();
     }
 }

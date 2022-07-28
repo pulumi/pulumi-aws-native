@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterEBSStorageInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEBSStorageInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("provisionedThroughput")]
         public Input<Inputs.ClusterProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterEBSStorageInfoArgs()
         {
         }
+        public static new ClusterEBSStorageInfoArgs Empty => new ClusterEBSStorageInfoArgs();
     }
 }

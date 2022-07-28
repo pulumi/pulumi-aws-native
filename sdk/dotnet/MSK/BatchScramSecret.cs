@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MSK
     /// Resource Type definition for AWS::MSK::BatchScramSecret
     /// </summary>
     [AwsNativeResourceType("aws-native:msk:BatchScramSecret")]
-    public partial class BatchScramSecret : Pulumi.CustomResource
+    public partial class BatchScramSecret : global::Pulumi.CustomResource
     {
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.MSK
         }
     }
 
-    public sealed class BatchScramSecretArgs : Pulumi.ResourceArgs
+    public sealed class BatchScramSecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -80,5 +80,6 @@ namespace Pulumi.AwsNative.MSK
         public BatchScramSecretArgs()
         {
         }
+        public static new BatchScramSecretArgs Empty => new BatchScramSecretArgs();
     }
 }

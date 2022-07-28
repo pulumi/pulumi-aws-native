@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointTagSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointTagSpecificationArgs()
         {
         }
+        public static new ClientVpnEndpointTagSpecificationArgs Empty => new ClientVpnEndpointTagSpecificationArgs();
     }
 }

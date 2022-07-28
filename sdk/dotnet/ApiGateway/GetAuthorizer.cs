@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetAuthorizerArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
         [Input("authorizerId", required: true)]
         public string AuthorizerId { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetAuthorizerArgs()
         {
         }
+        public static new GetAuthorizerArgs Empty => new GetAuthorizerArgs();
     }
 
-    public sealed class GetAuthorizerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("authorizerId", required: true)]
         public Input<string> AuthorizerId { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetAuthorizerInvokeArgs()
         {
         }
+        public static new GetAuthorizerInvokeArgs Empty => new GetAuthorizerInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SNS
     /// </summary>
     [Obsolete(@"Subscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:Subscription")]
-    public partial class Subscription : Pulumi.CustomResource
+    public partial class Subscription : global::Pulumi.CustomResource
     {
         [Output("deliveryPolicy")]
         public Output<object?> DeliveryPolicy { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SNS
         }
     }
 
-    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryPolicy")]
         public Input<object>? DeliveryPolicy { get; set; }
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.SNS
         public SubscriptionArgs()
         {
         }
+        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 }

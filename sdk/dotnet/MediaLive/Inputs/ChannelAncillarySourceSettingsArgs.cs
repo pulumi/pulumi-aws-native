@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAncillarySourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAncillarySourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceAncillaryChannelNumber")]
         public Input<int>? SourceAncillaryChannelNumber { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAncillarySourceSettingsArgs()
         {
         }
+        public static new ChannelAncillarySourceSettingsArgs Empty => new ChannelAncillarySourceSettingsArgs();
     }
 }

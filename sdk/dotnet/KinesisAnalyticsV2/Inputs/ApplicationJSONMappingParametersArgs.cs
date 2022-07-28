@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
     /// </summary>
-    public sealed class ApplicationJSONMappingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationJSONMappingParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path to the top-level parent that contains the records.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationJSONMappingParametersArgs()
         {
         }
+        public static new ApplicationJSONMappingParametersArgs Empty => new ApplicationJSONMappingParametersArgs();
     }
 }

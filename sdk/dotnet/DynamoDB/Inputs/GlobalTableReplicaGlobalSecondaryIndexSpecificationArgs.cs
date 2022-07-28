@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.GlobalTableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs()
         {
         }
+        public static new GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs Empty => new GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs();
     }
 }

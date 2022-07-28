@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3
     /// The policy to be attached to a Multi Region Access Point
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:MultiRegionAccessPointPolicy")]
-    public partial class MultiRegionAccessPointPolicy : Pulumi.CustomResource
+    public partial class MultiRegionAccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Multi Region Access Point to apply policy
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class MultiRegionAccessPointPolicyArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Multi Region Access Point to apply policy
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.S3
         public MultiRegionAccessPointPolicyArgs()
         {
         }
+        public static new MultiRegionAccessPointPolicyArgs Empty => new MultiRegionAccessPointPolicyArgs();
     }
 }

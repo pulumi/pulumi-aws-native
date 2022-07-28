@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class AppImageConfigKernelSpecArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigKernelSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the kernel.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public AppImageConfigKernelSpecArgs()
         {
         }
+        public static new AppImageConfigKernelSpecArgs Empty => new AppImageConfigKernelSpecArgs();
     }
 }

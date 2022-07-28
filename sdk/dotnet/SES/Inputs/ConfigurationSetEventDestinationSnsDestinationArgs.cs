@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that contains SNS topic ARN associated event destination.
     /// </summary>
-    public sealed class ConfigurationSetEventDestinationSnsDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationSnsDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("topicARN", required: true)]
         public Input<string> TopicARN { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetEventDestinationSnsDestinationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationSnsDestinationArgs Empty => new ConfigurationSetEventDestinationSnsDestinationArgs();
     }
 }

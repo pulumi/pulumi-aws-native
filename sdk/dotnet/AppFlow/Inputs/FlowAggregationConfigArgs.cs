@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowAggregationConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowAggregationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregationType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowAggregationType>? AggregationType { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowAggregationConfigArgs()
         {
         }
+        public static new FlowAggregationConfigArgs Empty => new FlowAggregationConfigArgs();
     }
 }

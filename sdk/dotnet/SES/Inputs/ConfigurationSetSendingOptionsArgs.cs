@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
     /// </summary>
-    public sealed class ConfigurationSetSendingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetSendingOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetSendingOptionsArgs()
         {
         }
+        public static new ConfigurationSetSendingOptionsArgs Empty => new ConfigurationSetSendingOptionsArgs();
     }
 }

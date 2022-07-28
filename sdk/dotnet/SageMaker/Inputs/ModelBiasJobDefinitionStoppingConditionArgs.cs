@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Specifies a time limit for how long the monitoring job is allowed to run.
     /// </summary>
-    public sealed class ModelBiasJobDefinitionStoppingConditionArgs : Pulumi.ResourceArgs
+    public sealed class ModelBiasJobDefinitionStoppingConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum runtime allowed in seconds.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelBiasJobDefinitionStoppingConditionArgs()
         {
         }
+        public static new ModelBiasJobDefinitionStoppingConditionArgs Empty => new ModelBiasJobDefinitionStoppingConditionArgs();
     }
 }

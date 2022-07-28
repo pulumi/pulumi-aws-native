@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
 {
 
-    public sealed class ThemeTagsArgs : Pulumi.ResourceArgs
+    public sealed class ThemeTagsArgs : global::Pulumi.ResourceArgs
     {
         public ThemeTagsArgs()
         {
         }
+        public static new ThemeTagsArgs Empty => new ThemeTagsArgs();
     }
 }

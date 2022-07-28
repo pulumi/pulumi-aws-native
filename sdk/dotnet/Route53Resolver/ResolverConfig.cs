@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::ResolverConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverConfig")]
-    public partial class ResolverConfig : Pulumi.CustomResource
+    public partial class ResolverConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverConfigArgs()
         {
         }
+        public static new ResolverConfigArgs Empty => new ResolverConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs()
         {
         }
+        public static new MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs Empty => new MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs();
     }
 }

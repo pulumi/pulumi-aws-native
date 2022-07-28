@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;The configuration for a streaming session’s upload storage.&lt;/p&gt;
     /// </summary>
-    public sealed class LaunchProfileStreamConfigurationSessionStorageArgs : Pulumi.ResourceArgs
+    public sealed class LaunchProfileStreamConfigurationSessionStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode")]
         private InputList<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode>? _mode;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public LaunchProfileStreamConfigurationSessionStorageArgs()
         {
         }
+        public static new LaunchProfileStreamConfigurationSessionStorageArgs Empty => new LaunchProfileStreamConfigurationSessionStorageArgs();
     }
 }

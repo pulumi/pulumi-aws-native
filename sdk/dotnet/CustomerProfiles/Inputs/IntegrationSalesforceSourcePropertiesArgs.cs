@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationSalesforceSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationSalesforceSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationSalesforceSourcePropertiesArgs()
         {
         }
+        public static new IntegrationSalesforceSourcePropertiesArgs Empty => new IntegrationSalesforceSourcePropertiesArgs();
     }
 }

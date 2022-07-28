@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FinSpace
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:finspace:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID associated with the Environment
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.FinSpace
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataBundles")]
         private InputList<string>? _dataBundles;
@@ -183,5 +183,6 @@ namespace Pulumi.AwsNative.FinSpace
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 }

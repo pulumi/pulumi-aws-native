@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelH265SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelH265SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adaptiveQuantization")]
         public Input<string>? AdaptiveQuantization { get; set; }
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelH265SettingsArgs()
         {
         }
+        public static new ChannelH265SettingsArgs Empty => new ChannelH265SettingsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetEndpointAuthorizationArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetEndpointAuthorizationArgs()
         {
         }
+        public static new GetEndpointAuthorizationArgs Empty => new GetEndpointAuthorizationArgs();
     }
 
-    public sealed class GetEndpointAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The target AWS account ID to grant or revoke access for.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetEndpointAuthorizationInvokeArgs()
         {
         }
+        public static new GetEndpointAuthorizationInvokeArgs Empty => new GetEndpointAuthorizationInvokeArgs();
     }
 
 

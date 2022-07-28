@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream
     /// The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
     /// </summary>
     [AwsNativeResourceType("aws-native:timestream:ScheduledQuery")]
-    public partial class ScheduledQuery : Pulumi.CustomResource
+    public partial class ScheduledQuery : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.Timestream
         }
     }
 
-    public sealed class ScheduledQueryArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
@@ -179,5 +179,6 @@ namespace Pulumi.AwsNative.Timestream
         public ScheduledQueryArgs()
         {
         }
+        public static new ScheduledQueryArgs Empty => new ScheduledQueryArgs();
     }
 }

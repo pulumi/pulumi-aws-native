@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Contains settings used by Amazon Lex to select a slot value.
     /// </summary>
-    public sealed class BotSlotValueSelectionSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotValueSelectionSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("advancedRecognitionSetting")]
         public Input<Inputs.BotAdvancedRecognitionSettingArgs>? AdvancedRecognitionSetting { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotValueSelectionSettingArgs()
         {
         }
+        public static new BotSlotValueSelectionSettingArgs Empty => new BotSlotValueSelectionSettingArgs();
     }
 }

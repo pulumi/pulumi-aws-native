@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterHadoopJarStepConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterHadoopJarStepConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("args")]
         private InputList<string>? _args;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterHadoopJarStepConfigArgs()
         {
         }
+        public static new ClusterHadoopJarStepConfigArgs Empty => new ClusterHadoopJarStepConfigArgs();
     }
 }

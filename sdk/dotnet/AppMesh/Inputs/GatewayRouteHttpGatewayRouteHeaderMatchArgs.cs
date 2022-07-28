@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteHttpGatewayRouteHeaderMatchArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteHttpGatewayRouteHeaderMatchArgs : global::Pulumi.ResourceArgs
     {
         [Input("exact")]
         public Input<string>? Exact { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public GatewayRouteHttpGatewayRouteHeaderMatchArgs()
         {
         }
+        public static new GatewayRouteHttpGatewayRouteHeaderMatchArgs Empty => new GatewayRouteHttpGatewayRouteHeaderMatchArgs();
     }
 }

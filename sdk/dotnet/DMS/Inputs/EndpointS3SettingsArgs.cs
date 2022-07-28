@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointS3SettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointS3SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("addColumnName")]
         public Input<bool>? AddColumnName { get; set; }
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointS3SettingsArgs()
         {
         }
+        public static new EndpointS3SettingsArgs Empty => new EndpointS3SettingsArgs();
     }
 }

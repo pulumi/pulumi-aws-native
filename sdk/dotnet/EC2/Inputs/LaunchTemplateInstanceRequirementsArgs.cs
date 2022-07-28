@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorCount")]
         public Input<Inputs.LaunchTemplateAcceleratorCountArgs>? AcceleratorCount { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateInstanceRequirementsArgs()
         {
         }
+        public static new LaunchTemplateInstanceRequirementsArgs Empty => new LaunchTemplateInstanceRequirementsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteVirtualServiceArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteVirtualServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("virtualServiceName", required: true)]
         public Input<string> VirtualServiceName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public GatewayRouteVirtualServiceArgs()
         {
         }
+        public static new GatewayRouteVirtualServiceArgs Empty => new GatewayRouteVirtualServiceArgs();
     }
 }

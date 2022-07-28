@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseConsumptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LicenseConsumptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("borrowConfiguration")]
         public Input<Inputs.LicenseBorrowConfigurationArgs>? BorrowConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseConsumptionConfigurationArgs()
         {
         }
+        public static new LicenseConsumptionConfigurationArgs Empty => new LicenseConsumptionConfigurationArgs();
     }
 }

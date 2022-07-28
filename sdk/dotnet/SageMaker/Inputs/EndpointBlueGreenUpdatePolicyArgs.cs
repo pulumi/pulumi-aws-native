@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointBlueGreenUpdatePolicyArgs : Pulumi.ResourceArgs
+    public sealed class EndpointBlueGreenUpdatePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("maximumExecutionTimeoutInSeconds")]
         public Input<int>? MaximumExecutionTimeoutInSeconds { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointBlueGreenUpdatePolicyArgs()
         {
         }
+        public static new EndpointBlueGreenUpdatePolicyArgs Empty => new EndpointBlueGreenUpdatePolicyArgs();
     }
 }

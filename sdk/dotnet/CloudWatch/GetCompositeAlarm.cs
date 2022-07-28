@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetCompositeAlarmArgs : Pulumi.InvokeArgs
+    public sealed class GetCompositeAlarmArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Composite Alarm
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetCompositeAlarmArgs()
         {
         }
+        public static new GetCompositeAlarmArgs Empty => new GetCompositeAlarmArgs();
     }
 
-    public sealed class GetCompositeAlarmInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCompositeAlarmInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Composite Alarm
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetCompositeAlarmInvokeArgs()
         {
         }
+        public static new GetCompositeAlarmInvokeArgs Empty => new GetCompositeAlarmInvokeArgs();
     }
 
 

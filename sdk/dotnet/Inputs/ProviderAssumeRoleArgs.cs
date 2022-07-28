@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inputs
     /// <summary>
     /// The configuration for a Provider to assume a role.
     /// </summary>
-    public sealed class ProviderAssumeRoleArgs : Pulumi.ResourceArgs
+    public sealed class ProviderAssumeRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of seconds to restrict the assume role session duration.
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.Inputs
         public ProviderAssumeRoleArgs()
         {
         }
+        public static new ProviderAssumeRoleArgs Empty => new ProviderAssumeRoleArgs();
     }
 }

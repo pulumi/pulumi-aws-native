@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionEFSVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionEFSVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationConfig")]
         public Input<Inputs.TaskDefinitionAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionEFSVolumeConfigurationArgs()
         {
         }
+        public static new TaskDefinitionEFSVolumeConfigurationArgs Empty => new TaskDefinitionEFSVolumeConfigurationArgs();
     }
 }

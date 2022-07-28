@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SSM
     /// </summary>
     [Obsolete(@"MaintenanceWindow is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:MaintenanceWindow")]
-    public partial class MaintenanceWindow : Pulumi.CustomResource
+    public partial class MaintenanceWindow : global::Pulumi.CustomResource
     {
         [Output("allowUnassociatedTargets")]
         public Output<bool> AllowUnassociatedTargets { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class MaintenanceWindowArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowUnassociatedTargets", required: true)]
         public Input<bool> AllowUnassociatedTargets { get; set; } = null!;
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.SSM
         public MaintenanceWindowArgs()
         {
         }
+        public static new MaintenanceWindowArgs Empty => new MaintenanceWindowArgs();
     }
 }

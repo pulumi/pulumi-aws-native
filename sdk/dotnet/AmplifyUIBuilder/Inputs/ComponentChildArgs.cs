@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
 {
 
-    public sealed class ComponentChildArgs : Pulumi.ResourceArgs
+    public sealed class ComponentChildArgs : global::Pulumi.ResourceArgs
     {
         [Input("children")]
         private InputList<Inputs.ComponentChildArgs>? _children;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
         public ComponentChildArgs()
         {
         }
+        public static new ComponentChildArgs Empty => new ComponentChildArgs();
     }
 }

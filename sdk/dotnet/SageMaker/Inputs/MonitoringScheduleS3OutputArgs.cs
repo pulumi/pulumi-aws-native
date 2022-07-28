@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Information about where and how to store the results of a monitoring job.
     /// </summary>
-    public sealed class MonitoringScheduleS3OutputArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleS3OutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleS3OutputArgs()
         {
         }
+        public static new MonitoringScheduleS3OutputArgs Empty => new MonitoringScheduleS3OutputArgs();
     }
 }

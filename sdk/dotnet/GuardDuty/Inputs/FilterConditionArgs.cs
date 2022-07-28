@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty.Inputs
 {
 
-    public sealed class FilterConditionArgs : Pulumi.ResourceArgs
+    public sealed class FilterConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("eq")]
         private InputList<string>? _eq;
@@ -71,5 +71,6 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         public FilterConditionArgs()
         {
         }
+        public static new FilterConditionArgs Empty => new FilterConditionArgs();
     }
 }

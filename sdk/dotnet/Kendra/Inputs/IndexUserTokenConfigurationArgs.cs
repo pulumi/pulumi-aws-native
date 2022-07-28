@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexUserTokenConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexUserTokenConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("jsonTokenTypeConfiguration")]
         public Input<Inputs.IndexJsonTokenTypeConfigurationArgs>? JsonTokenTypeConfiguration { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexUserTokenConfigurationArgs()
         {
         }
+        public static new IndexUserTokenConfigurationArgs Empty => new IndexUserTokenConfigurationArgs();
     }
 }

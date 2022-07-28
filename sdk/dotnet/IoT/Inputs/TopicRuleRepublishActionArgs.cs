@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleRepublishActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleRepublishActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("qos")]
         public Input<int>? Qos { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleRepublishActionArgs()
         {
         }
+        public static new TopicRuleRepublishActionArgs Empty => new TopicRuleRepublishActionArgs();
     }
 }

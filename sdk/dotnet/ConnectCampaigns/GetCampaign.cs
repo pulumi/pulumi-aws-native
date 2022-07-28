@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
     }
 
 
-    public sealed class GetCampaignArgs : Pulumi.InvokeArgs
+    public sealed class GetCampaignArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Connect Campaign Arn
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public GetCampaignArgs()
         {
         }
+        public static new GetCampaignArgs Empty => new GetCampaignArgs();
     }
 
-    public sealed class GetCampaignInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCampaignInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Connect Campaign Arn
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public GetCampaignInvokeArgs()
         {
         }
+        public static new GetCampaignInvokeArgs Empty => new GetCampaignInvokeArgs();
     }
 
 

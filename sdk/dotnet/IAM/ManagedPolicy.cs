@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"ManagedPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:ManagedPolicy")]
-    public partial class ManagedPolicy : Pulumi.CustomResource
+    public partial class ManagedPolicy : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class ManagedPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.IAM
         public ManagedPolicyArgs()
         {
         }
+        public static new ManagedPolicyArgs Empty => new ManagedPolicyArgs();
     }
 }

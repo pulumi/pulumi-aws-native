@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of your load balancer.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetLoadBalancerArgs()
         {
         }
+        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of your load balancer.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetLoadBalancerInvokeArgs()
         {
         }
+        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 

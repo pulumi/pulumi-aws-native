@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about auto scaling of a connector. 
     /// </summary>
-    public sealed class ConnectorAutoScalingArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorAutoScalingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of workers for a connector.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorAutoScalingArgs()
         {
         }
+        public static new ConnectorAutoScalingArgs Empty => new ConnectorAutoScalingArgs();
     }
 }

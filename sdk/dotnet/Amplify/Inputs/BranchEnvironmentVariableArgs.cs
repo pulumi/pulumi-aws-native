@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    public sealed class BranchEnvironmentVariableArgs : Pulumi.ResourceArgs
+    public sealed class BranchEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public BranchEnvironmentVariableArgs()
         {
         }
+        public static new BranchEnvironmentVariableArgs Empty => new BranchEnvironmentVariableArgs();
     }
 }

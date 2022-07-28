@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class SegmentDimensionsArgs : Pulumi.ResourceArgs
+    public sealed class SegmentDimensionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public SegmentDimensionsArgs()
         {
         }
+        public static new SegmentDimensionsArgs Empty => new SegmentDimensionsArgs();
     }
 }

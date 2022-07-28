@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetHookVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetHookVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the HookVersion. This is used to uniquely identify a HookVersion resource
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookVersionArgs()
         {
         }
+        public static new GetHookVersionArgs Empty => new GetHookVersionArgs();
     }
 
-    public sealed class GetHookVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHookVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the HookVersion. This is used to uniquely identify a HookVersion resource
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookVersionInvokeArgs()
         {
         }
+        public static new GetHookVersionInvokeArgs Empty => new GetHookVersionInvokeArgs();
     }
 
 

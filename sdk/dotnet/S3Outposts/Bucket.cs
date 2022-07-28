@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// Resource Type Definition for AWS::S3Outposts::Bucket
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:Bucket")]
-    public partial class Bucket : Pulumi.CustomResource
+    public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.S3Outposts
         }
     }
 
-    public sealed class BucketArgs : Pulumi.ResourceArgs
+    public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for the bucket.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.S3Outposts
         public BucketArgs()
         {
         }
+        public static new BucketArgs Empty => new BucketArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupTagPropertyArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupTagPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupTagPropertyArgs()
         {
         }
+        public static new AutoScalingGroupTagPropertyArgs Empty => new AutoScalingGroupTagPropertyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetTagArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetTagArgs()
         {
         }
+        public static new EC2FleetTagArgs Empty => new EC2FleetTagArgs();
     }
 }

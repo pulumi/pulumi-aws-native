@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// <summary>
     /// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
     /// </summary>
-    public sealed class StackSetTagArgs : Pulumi.ResourceArgs
+    public sealed class StackSetTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public StackSetTagArgs()
         {
         }
+        public static new StackSetTagArgs Empty => new StackSetTagArgs();
     }
 }

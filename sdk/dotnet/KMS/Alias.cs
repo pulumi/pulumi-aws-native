@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KMS
     /// The AWS::KMS::Alias resource specifies a display name for an AWS KMS key in AWS Key Management Service (AWS KMS). You can use an alias to identify an AWS KMS key in cryptographic operations.
     /// </summary>
     [AwsNativeResourceType("aws-native:kms:Alias")]
-    public partial class Alias : Pulumi.CustomResource
+    public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.KMS
         }
     }
 
-    public sealed class AliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys.
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.KMS
         public AliasArgs()
         {
         }
+        public static new AliasArgs Empty => new AliasArgs();
     }
 }

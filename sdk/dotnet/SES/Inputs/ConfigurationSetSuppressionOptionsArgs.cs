@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that contains information about the suppression list preferences for your account.
     /// </summary>
-    public sealed class ConfigurationSetSuppressionOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetSuppressionOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("suppressedReasons")]
         private InputList<string>? _suppressedReasons;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetSuppressionOptionsArgs()
         {
         }
+        public static new ConfigurationSetSuppressionOptionsArgs Empty => new ConfigurationSetSuppressionOptionsArgs();
     }
 }

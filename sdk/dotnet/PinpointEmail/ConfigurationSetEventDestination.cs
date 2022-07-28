@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     /// </summary>
     [Obsolete(@"ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpointemail:ConfigurationSetEventDestination")]
-    public partial class ConfigurationSetEventDestination : Pulumi.CustomResource
+    public partial class ConfigurationSetEventDestination : global::Pulumi.CustomResource
     {
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         }
     }
 
-    public sealed class ConfigurationSetEventDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.PinpointEmail
         public ConfigurationSetEventDestinationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationArgs Empty => new ConfigurationSetEventDestinationArgs();
     }
 }

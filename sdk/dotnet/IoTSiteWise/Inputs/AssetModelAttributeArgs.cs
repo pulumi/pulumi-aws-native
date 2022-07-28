@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelAttributeArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelAttributeArgs()
         {
         }
+        public static new AssetModelAttributeArgs Empty => new AssetModelAttributeArgs();
     }
 }

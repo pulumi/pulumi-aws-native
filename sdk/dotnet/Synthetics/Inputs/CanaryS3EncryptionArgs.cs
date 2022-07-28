@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryS3EncryptionArgs : Pulumi.ResourceArgs
+    public sealed class CanaryS3EncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryS3EncryptionArgs()
         {
         }
+        public static new CanaryS3EncryptionArgs Empty => new CanaryS3EncryptionArgs();
     }
 }

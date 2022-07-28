@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Resource-specific logging allows you to specify a logging level for a specific thing group.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:ResourceSpecificLogging")]
-    public partial class ResourceSpecificLogging : Pulumi.CustomResource
+    public partial class ResourceSpecificLogging : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class ResourceSpecificLoggingArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSpecificLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.IoT
         public ResourceSpecificLoggingArgs()
         {
         }
+        public static new ResourceSpecificLoggingArgs Empty => new ResourceSpecificLoggingArgs();
     }
 }

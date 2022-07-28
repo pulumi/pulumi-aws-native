@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A structure that contains model metrics reports.
     /// </summary>
-    public sealed class ModelPackageModelMetricsArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageModelMetricsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bias")]
         public Input<Inputs.ModelPackageBiasArgs>? Bias { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageModelMetricsArgs()
         {
         }
+        public static new ModelPackageModelMetricsArgs Empty => new ModelPackageModelMetricsArgs();
     }
 }

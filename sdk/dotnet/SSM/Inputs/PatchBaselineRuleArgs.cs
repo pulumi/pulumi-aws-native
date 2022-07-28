@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class PatchBaselineRuleArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselineRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("approveAfterDays")]
         public Input<int>? ApproveAfterDays { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public PatchBaselineRuleArgs()
         {
         }
+        public static new PatchBaselineRuleArgs Empty => new PatchBaselineRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker
     /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:Robot")]
-    public partial class Robot : Pulumi.CustomResource
+    public partial class Robot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The target architecture of the robot.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.RoboMaker
         }
     }
 
-    public sealed class RobotArgs : Pulumi.ResourceArgs
+    public sealed class RobotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The target architecture of the robot.
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.RoboMaker
         public RobotArgs()
         {
         }
+        public static new RobotArgs Empty => new RobotArgs();
     }
 }

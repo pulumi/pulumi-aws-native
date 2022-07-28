@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.StepFunctions
     /// Resource schema for StateMachine
     /// </summary>
     [AwsNativeResourceType("aws-native:stepfunctions:StateMachine")]
-    public partial class StateMachine : Pulumi.CustomResource
+    public partial class StateMachine : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.StepFunctions
         }
     }
 
-    public sealed class StateMachineArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineArgs : global::Pulumi.ResourceArgs
     {
         [Input("definition")]
         public Input<Inputs.StateMachineDefinitionArgs>? Definition { get; set; }
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.StepFunctions
         public StateMachineArgs()
         {
         }
+        public static new StateMachineArgs Empty => new StateMachineArgs();
     }
 }

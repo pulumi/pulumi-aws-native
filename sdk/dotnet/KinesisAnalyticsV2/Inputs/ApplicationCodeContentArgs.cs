@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
     /// </summary>
-    public sealed class ApplicationCodeContentArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCodeContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the Amazon S3 bucket that contains the application code.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCodeContentArgs()
         {
         }
+        public static new ApplicationCodeContentArgs Empty => new ApplicationCodeContentArgs();
     }
 }

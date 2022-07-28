@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WorkSpaces.Inputs
 {
 
-    public sealed class ConnectionAliasTagArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionAliasTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WorkSpaces.Inputs
         public ConnectionAliasTagArgs()
         {
         }
+        public static new ConnectionAliasTagArgs Empty => new ConnectionAliasTagArgs();
     }
 }

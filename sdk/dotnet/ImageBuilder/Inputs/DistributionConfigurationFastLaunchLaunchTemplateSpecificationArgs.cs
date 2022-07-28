@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
     /// </summary>
-    public sealed class DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the launch template to use for faster launching for a Windows AMI.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs()
         {
         }
+        public static new DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs Empty => new DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs();
     }
 }

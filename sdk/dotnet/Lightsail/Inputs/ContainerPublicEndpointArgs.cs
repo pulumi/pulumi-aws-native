@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the settings of a public endpoint for an Amazon Lightsail container service.
     /// </summary>
-    public sealed class ContainerPublicEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ContainerPublicEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container for the endpoint.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerPublicEndpointArgs()
         {
         }
+        public static new ContainerPublicEndpointArgs Empty => new ContainerPublicEndpointArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The destination repository for the container image.
     /// </summary>
-    public sealed class DistributionConfigurationTargetContainerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationTargetContainerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository name of target container repository.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationTargetContainerRepositoryArgs()
         {
         }
+        public static new DistributionConfigurationTargetContainerRepositoryArgs Empty => new DistributionConfigurationTargetContainerRepositoryArgs();
     }
 }

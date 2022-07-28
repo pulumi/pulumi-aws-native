@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionEvaluateOnExitArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionEvaluateOnExitArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionEvaluateOnExitArgs()
         {
         }
+        public static new JobDefinitionEvaluateOnExitArgs Empty => new JobDefinitionEvaluateOnExitArgs();
     }
 }

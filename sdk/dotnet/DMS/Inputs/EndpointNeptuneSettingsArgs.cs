@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointNeptuneSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointNeptuneSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorRetryDuration")]
         public Input<int>? ErrorRetryDuration { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointNeptuneSettingsArgs()
         {
         }
+        public static new EndpointNeptuneSettingsArgs Empty => new EndpointNeptuneSettingsArgs();
     }
 }

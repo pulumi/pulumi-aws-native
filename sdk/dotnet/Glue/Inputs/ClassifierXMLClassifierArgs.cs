@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class ClassifierXMLClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierXMLClassifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("classification", required: true)]
         public Input<string> Classification { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public ClassifierXMLClassifierArgs()
         {
         }
+        public static new ClassifierXMLClassifierArgs Empty => new ClassifierXMLClassifierArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class VpcLinkTagArgs : Pulumi.ResourceArgs
+    public sealed class VpcLinkTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public VpcLinkTagArgs()
         {
         }
+        public static new VpcLinkTagArgs Empty => new VpcLinkTagArgs();
     }
 }

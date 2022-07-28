@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHlsGroupSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsGroupSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adMarkers")]
         private InputList<string>? _adMarkers;
@@ -154,5 +154,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHlsGroupSettingsArgs()
         {
         }
+        public static new ChannelHlsGroupSettingsArgs Empty => new ChannelHlsGroupSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorRDSSourceConfigArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorRDSSourceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("dBInstanceIdentifier", required: true)]
         public Input<string> DBInstanceIdentifier { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorRDSSourceConfigArgs()
         {
         }
+        public static new AnomalyDetectorRDSSourceConfigArgs Empty => new AnomalyDetectorRDSSourceConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::NetworkInterface resource creates network interface
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInterface")]
-    public partial class NetworkInterface : Pulumi.CustomResource
+    public partial class NetworkInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the network interface.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the network interface.
@@ -231,5 +231,6 @@ namespace Pulumi.AwsNative.EC2
         public NetworkInterfaceArgs()
         {
         }
+        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 }

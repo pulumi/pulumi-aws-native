@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RulePlacementConstraintArgs : Pulumi.ResourceArgs
+    public sealed class RulePlacementConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("expression")]
         public Input<string>? Expression { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RulePlacementConstraintArgs()
         {
         }
+        public static new RulePlacementConstraintArgs Empty => new RulePlacementConstraintArgs();
     }
 }

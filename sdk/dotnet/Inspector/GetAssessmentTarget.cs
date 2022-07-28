@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Inspector
     }
 
 
-    public sealed class GetAssessmentTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentTargetArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Inspector
         public GetAssessmentTargetArgs()
         {
         }
+        public static new GetAssessmentTargetArgs Empty => new GetAssessmentTargetArgs();
     }
 
-    public sealed class GetAssessmentTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Inspector
         public GetAssessmentTargetInvokeArgs()
         {
         }
+        public static new GetAssessmentTargetInvokeArgs Empty => new GetAssessmentTargetInvokeArgs();
     }
 
 

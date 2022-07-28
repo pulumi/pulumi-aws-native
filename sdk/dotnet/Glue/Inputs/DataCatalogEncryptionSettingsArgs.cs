@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class DataCatalogEncryptionSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionPasswordEncryption")]
         public Input<Inputs.DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs>? ConnectionPasswordEncryption { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public DataCatalogEncryptionSettingsArgs()
         {
         }
+        public static new DataCatalogEncryptionSettingsArgs Empty => new DataCatalogEncryptionSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the request headers that a Lightsail distribution bases caching on.
     /// </summary>
-    public sealed class DistributionHeaderObjectArgs : Pulumi.ResourceArgs
+    public sealed class DistributionHeaderObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("headersAllowList")]
         private InputList<string>? _headersAllowList;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionHeaderObjectArgs()
         {
         }
+        public static new DistributionHeaderObjectArgs Empty => new DistributionHeaderObjectArgs();
     }
 }

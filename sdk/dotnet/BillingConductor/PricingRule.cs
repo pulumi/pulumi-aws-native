@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// </summary>
     [Obsolete(@"PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:PricingRule")]
-    public partial class PricingRule : Pulumi.CustomResource
+    public partial class PricingRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Pricing rule ARN
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.BillingConductor
         }
     }
 
-    public sealed class PricingRuleArgs : Pulumi.ResourceArgs
+    public sealed class PricingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pricing rule description
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.BillingConductor
         public PricingRuleArgs()
         {
         }
+        public static new PricingRuleArgs Empty => new PricingRuleArgs();
     }
 }

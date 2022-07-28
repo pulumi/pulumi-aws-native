@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeBuild
     }
 
 
-    public sealed class GetReportGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetReportGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public GetReportGroupArgs()
         {
         }
+        public static new GetReportGroupArgs Empty => new GetReportGroupArgs();
     }
 
-    public sealed class GetReportGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public GetReportGroupInvokeArgs()
         {
         }
+        public static new GetReportGroupInvokeArgs Empty => new GetReportGroupInvokeArgs();
     }
 
 

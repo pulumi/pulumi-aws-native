@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     /// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesisanalyticsv2:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Use this parameter to configure the application.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use this parameter to configure the application.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

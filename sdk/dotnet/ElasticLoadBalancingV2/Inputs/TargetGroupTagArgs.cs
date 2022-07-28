@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class TargetGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public TargetGroupTagArgs()
         {
         }
+        public static new TargetGroupTagArgs Empty => new TargetGroupTagArgs();
     }
 }

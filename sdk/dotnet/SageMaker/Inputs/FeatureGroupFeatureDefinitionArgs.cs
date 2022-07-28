@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class FeatureGroupFeatureDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupFeatureDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("featureName", required: true)]
         public Input<string> FeatureName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public FeatureGroupFeatureDefinitionArgs()
         {
         }
+        public static new FeatureGroupFeatureDefinitionArgs Empty => new FeatureGroupFeatureDefinitionArgs();
     }
 }

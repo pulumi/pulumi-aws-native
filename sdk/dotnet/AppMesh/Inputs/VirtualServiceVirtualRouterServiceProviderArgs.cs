@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualServiceVirtualRouterServiceProviderArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceVirtualRouterServiceProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("virtualRouterName", required: true)]
         public Input<string> VirtualRouterName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualServiceVirtualRouterServiceProviderArgs()
         {
         }
+        public static new VirtualServiceVirtualRouterServiceProviderArgs Empty => new VirtualServiceVirtualRouterServiceProviderArgs();
     }
 }

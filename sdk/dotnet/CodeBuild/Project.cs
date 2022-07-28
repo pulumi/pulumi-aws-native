@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeBuild
     /// </summary>
     [Obsolete(@"Project is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codebuild:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.CodeBuild
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifacts", required: true)]
         public Input<Inputs.ProjectArtifactsArgs> Artifacts { get; set; } = null!;
@@ -236,5 +236,6 @@ namespace Pulumi.AwsNative.CodeBuild
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

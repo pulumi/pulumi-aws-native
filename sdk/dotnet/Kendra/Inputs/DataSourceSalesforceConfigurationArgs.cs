@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceSalesforceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSalesforceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("chatterFeedConfiguration")]
         public Input<Inputs.DataSourceSalesforceChatterFeedConfigurationArgs>? ChatterFeedConfiguration { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceSalesforceConfigurationArgs()
         {
         }
+        public static new DataSourceSalesforceConfigurationArgs Empty => new DataSourceSalesforceConfigurationArgs();
     }
 }

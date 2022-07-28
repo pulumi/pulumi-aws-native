@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT
     /// </summary>
     [Obsolete(@"PolicyPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot:PolicyPrincipalAttachment")]
-    public partial class PolicyPrincipalAttachment : Pulumi.CustomResource
+    public partial class PolicyPrincipalAttachment : global::Pulumi.CustomResource
     {
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class PolicyPrincipalAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPrincipalAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.IoT
         public PolicyPrincipalAttachmentArgs()
         {
         }
+        public static new PolicyPrincipalAttachmentArgs Empty => new PolicyPrincipalAttachmentArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Rule of WebACL that contains condition and action.
     /// </summary>
-    public sealed class WebACLRuleArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<Inputs.WebACLRuleActionArgs>? Action { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLRuleArgs()
         {
         }
+        public static new WebACLRuleArgs Empty => new WebACLRuleArgs();
     }
 }

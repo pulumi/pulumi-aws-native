@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterS3Args : Pulumi.ResourceArgs
+    public sealed class ClusterS3Args : global::Pulumi.ResourceArgs
     {
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterS3Args()
         {
         }
+        public static new ClusterS3Args Empty => new ClusterS3Args();
     }
 }

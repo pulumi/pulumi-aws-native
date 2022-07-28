@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::Gateway
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Gateway")]
-    public partial class Gateway : Pulumi.CustomResource
+    public partial class Gateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of gateway capability summaries that each contain a namespace and status.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class GatewayArgs : Pulumi.ResourceArgs
+    public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("gatewayCapabilitySummaries")]
         private InputList<Inputs.GatewayCapabilitySummaryArgs>? _gatewayCapabilitySummaries;
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GatewayArgs()
         {
         }
+        public static new GatewayArgs Empty => new GatewayArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetInternetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetInternetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of internet gateway.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetInternetGatewayArgs()
         {
         }
+        public static new GetInternetGatewayArgs Empty => new GetInternetGatewayArgs();
     }
 
-    public sealed class GetInternetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInternetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of internet gateway.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetInternetGatewayInvokeArgs()
         {
         }
+        public static new GetInternetGatewayInvokeArgs Empty => new GetInternetGatewayInvokeArgs();
     }
 
 

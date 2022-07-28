@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SNS
     }
 
 
-    public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SNS
         public GetSubscriptionArgs()
         {
         }
+        public static new GetSubscriptionArgs Empty => new GetSubscriptionArgs();
     }
 
-    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SNS
         public GetSubscriptionInvokeArgs()
         {
         }
+        public static new GetSubscriptionInvokeArgs Empty => new GetSubscriptionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleWorkmailActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleWorkmailActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("organizationArn", required: true)]
         public Input<string> OrganizationArn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleWorkmailActionArgs()
         {
         }
+        public static new ReceiptRuleWorkmailActionArgs Empty => new ReceiptRuleWorkmailActionArgs();
     }
 }

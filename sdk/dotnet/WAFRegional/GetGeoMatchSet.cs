@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetGeoMatchSetArgs : Pulumi.InvokeArgs
+    public sealed class GetGeoMatchSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetGeoMatchSetArgs()
         {
         }
+        public static new GetGeoMatchSetArgs Empty => new GetGeoMatchSetArgs();
     }
 
-    public sealed class GetGeoMatchSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGeoMatchSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetGeoMatchSetInvokeArgs()
         {
         }
+        public static new GetGeoMatchSetInvokeArgs Empty => new GetGeoMatchSetInvokeArgs();
     }
 
 

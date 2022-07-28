@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Represents a File Source Object.
     /// </summary>
-    public sealed class ModelPackageFileSourceArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageFileSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The digest of the file source.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageFileSourceArgs()
         {
         }
+        public static new ModelPackageFileSourceArgs Empty => new ModelPackageFileSourceArgs();
     }
 }

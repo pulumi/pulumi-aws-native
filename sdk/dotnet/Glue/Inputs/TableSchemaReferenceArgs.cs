@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TableSchemaReferenceArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("schemaId")]
         public Input<Inputs.TableSchemaIdArgs>? SchemaId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TableSchemaReferenceArgs()
         {
         }
+        public static new TableSchemaReferenceArgs Empty => new TableSchemaReferenceArgs();
     }
 }

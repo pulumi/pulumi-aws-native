@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LookoutVision
     }
 
 
-    public sealed class GetProjectArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
         [Input("projectName", required: true)]
         public string ProjectName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.LookoutVision
         public GetProjectArgs()
         {
         }
+        public static new GetProjectArgs Empty => new GetProjectArgs();
     }
 
-    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.LookoutVision
         public GetProjectInvokeArgs()
         {
         }
+        public static new GetProjectInvokeArgs Empty => new GetProjectInvokeArgs();
     }
 
 

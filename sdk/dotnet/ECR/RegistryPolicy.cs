@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR
     /// The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:RegistryPolicy")]
-    public partial class RegistryPolicy : Pulumi.CustomResource
+    public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ECR
         }
     }
 
-    public sealed class RegistryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RegistryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.ECR
         public RegistryPolicyArgs()
         {
         }
+        public static new RegistryPolicyArgs Empty => new RegistryPolicyArgs();
     }
 }

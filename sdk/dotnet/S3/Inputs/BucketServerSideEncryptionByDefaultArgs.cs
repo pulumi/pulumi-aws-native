@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
     /// </summary>
-    public sealed class BucketServerSideEncryptionByDefaultArgs : Pulumi.ResourceArgs
+    public sealed class BucketServerSideEncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketServerSideEncryptionByDefaultArgs()
         {
         }
+        public static new BucketServerSideEncryptionByDefaultArgs Empty => new BucketServerSideEncryptionByDefaultArgs();
     }
 }

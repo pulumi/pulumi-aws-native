@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:ADMChannel")]
-    public partial class ADMChannel : Pulumi.CustomResource
+    public partial class ADMChannel : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class ADMChannelArgs : Pulumi.ResourceArgs
+    public sealed class ADMChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public ADMChannelArgs()
         {
         }
+        public static new ADMChannelArgs Empty => new ADMChannelArgs();
     }
 }

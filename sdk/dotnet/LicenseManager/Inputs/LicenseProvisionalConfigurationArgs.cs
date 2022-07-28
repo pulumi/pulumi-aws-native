@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseProvisionalConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LicenseProvisionalConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxTimeToLiveInMinutes", required: true)]
         public Input<int> MaxTimeToLiveInMinutes { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseProvisionalConfigurationArgs()
         {
         }
+        public static new LicenseProvisionalConfigurationArgs Empty => new LicenseProvisionalConfigurationArgs();
     }
 }

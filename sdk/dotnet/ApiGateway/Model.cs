@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Model
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Model")]
-    public partial class Model : Pulumi.CustomResource
+    public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content type for the model.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type for the model.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 }

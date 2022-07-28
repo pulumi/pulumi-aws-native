@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// A function's ephemeral storage settings.
     /// </summary>
-    public sealed class FunctionEphemeralStorageArgs : Pulumi.ResourceArgs
+    public sealed class FunctionEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of ephemeral storage that your function has access to.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionEphemeralStorageArgs()
         {
         }
+        public static new FunctionEphemeralStorageArgs Empty => new FunctionEphemeralStorageArgs();
     }
 }

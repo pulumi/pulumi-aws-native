@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     /// </summary>
     [Obsolete(@"ApplicationReferenceDataSource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalyticsv2:ApplicationReferenceDataSource")]
-    public partial class ApplicationReferenceDataSource : Pulumi.CustomResource
+    public partial class ApplicationReferenceDataSource : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         }
     }
 
-    public sealed class ApplicationReferenceDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public ApplicationReferenceDataSourceArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceArgs Empty => new ApplicationReferenceDataSourceArgs();
     }
 }

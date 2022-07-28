@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
     /// </summary>
-    public sealed class FleetLocationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FleetLocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public FleetLocationConfigurationArgs()
         {
         }
+        public static new FleetLocationConfigurationArgs Empty => new FleetLocationConfigurationArgs();
     }
 }

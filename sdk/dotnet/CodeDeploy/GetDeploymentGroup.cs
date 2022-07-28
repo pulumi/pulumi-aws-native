@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeDeploy
     }
 
 
-    public sealed class GetDeploymentGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeDeploy
         public GetDeploymentGroupArgs()
         {
         }
+        public static new GetDeploymentGroupArgs Empty => new GetDeploymentGroupArgs();
     }
 
-    public sealed class GetDeploymentGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeploymentGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         public GetDeploymentGroupInvokeArgs()
         {
         }
+        public static new GetDeploymentGroupInvokeArgs Empty => new GetDeploymentGroupInvokeArgs();
     }
 
 

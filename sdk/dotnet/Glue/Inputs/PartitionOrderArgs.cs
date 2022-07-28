@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class PartitionOrderArgs : Pulumi.ResourceArgs
+    public sealed class PartitionOrderArgs : global::Pulumi.ResourceArgs
     {
         [Input("column", required: true)]
         public Input<string> Column { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public PartitionOrderArgs()
         {
         }
+        public static new PartitionOrderArgs Empty => new PartitionOrderArgs();
     }
 }

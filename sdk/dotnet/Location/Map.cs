@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location
     /// Definition of AWS::Location::Map Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:Map")]
-    public partial class Map : Pulumi.CustomResource
+    public partial class Map : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Location
         }
     }
 
-    public sealed class MapArgs : Pulumi.ResourceArgs
+    public sealed class MapArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration", required: true)]
         public Input<Inputs.MapConfigurationArgs> Configuration { get; set; } = null!;
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.Location
         public MapArgs()
         {
         }
+        public static new MapArgs Empty => new MapArgs();
     }
 }

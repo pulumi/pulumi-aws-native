@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
     /// </summary>
-    public sealed class ScheduledQueryMultiMeasureAttributeMappingArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryMultiMeasureAttributeMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("measureValueType", required: true)]
         public Input<Pulumi.AwsNative.Timestream.ScheduledQueryMultiMeasureAttributeMappingMeasureValueType> MeasureValueType { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryMultiMeasureAttributeMappingArgs()
         {
         }
+        public static new ScheduledQueryMultiMeasureAttributeMappingArgs Empty => new ScheduledQueryMultiMeasureAttributeMappingArgs();
     }
 }

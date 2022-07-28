@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT1Click.Inputs
 {
 
-    public sealed class ProjectPlacementTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ProjectPlacementTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultAttributes")]
         public Input<object>? DefaultAttributes { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT1Click.Inputs
         public ProjectPlacementTemplateArgs()
         {
         }
+        public static new ProjectPlacementTemplateArgs Empty => new ProjectPlacementTemplateArgs();
     }
 }

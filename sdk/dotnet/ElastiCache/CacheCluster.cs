@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"CacheCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:CacheCluster")]
-    public partial class CacheCluster : Pulumi.CustomResource
+    public partial class CacheCluster : global::Pulumi.CustomResource
     {
         [Output("aZMode")]
         public Output<string?> AZMode { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class CacheClusterArgs : Pulumi.ResourceArgs
+    public sealed class CacheClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("aZMode")]
         public Input<string>? AZMode { get; set; }
@@ -250,5 +250,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public CacheClusterArgs()
         {
         }
+        public static new CacheClusterArgs Empty => new CacheClusterArgs();
     }
 }

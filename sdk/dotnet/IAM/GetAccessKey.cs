@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetAccessKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessKeyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IAM
         public GetAccessKeyArgs()
         {
         }
+        public static new GetAccessKeyArgs Empty => new GetAccessKeyArgs();
     }
 
-    public sealed class GetAccessKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IAM
         public GetAccessKeyInvokeArgs()
         {
         }
+        public static new GetAccessKeyInvokeArgs Empty => new GetAccessKeyInvokeArgs();
     }
 
 

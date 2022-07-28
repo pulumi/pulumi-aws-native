@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
     /// </summary>
-    public sealed class BucketAccessControlTranslationArgs : Pulumi.ResourceArgs
+    public sealed class BucketAccessControlTranslationArgs : global::Pulumi.ResourceArgs
     {
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketAccessControlTranslationArgs()
         {
         }
+        public static new BucketAccessControlTranslationArgs Empty => new BucketAccessControlTranslationArgs();
     }
 }

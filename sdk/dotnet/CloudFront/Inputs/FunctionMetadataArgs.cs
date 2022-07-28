@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class FunctionMetadataArgs : Pulumi.ResourceArgs
+    public sealed class FunctionMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("functionARN")]
         public Input<string>? FunctionARN { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public FunctionMetadataArgs()
         {
         }
+        public static new FunctionMetadataArgs Empty => new FunctionMetadataArgs();
     }
 }

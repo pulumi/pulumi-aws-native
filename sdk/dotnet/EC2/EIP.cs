@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:EIP")]
-    public partial class EIP : Pulumi.CustomResource
+    public partial class EIP : global::Pulumi.CustomResource
     {
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class EIPArgs : Pulumi.ResourceArgs
+    public sealed class EIPArgs : global::Pulumi.ResourceArgs
     {
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.EC2
         public EIPArgs()
         {
         }
+        public static new EIPArgs Empty => new EIPArgs();
     }
 }

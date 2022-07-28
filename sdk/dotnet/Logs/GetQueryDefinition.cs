@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetQueryDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetQueryDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique identifier of a query definition
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Logs
         public GetQueryDefinitionArgs()
         {
         }
+        public static new GetQueryDefinitionArgs Empty => new GetQueryDefinitionArgs();
     }
 
-    public sealed class GetQueryDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueryDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique identifier of a query definition
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Logs
         public GetQueryDefinitionInvokeArgs()
         {
         }
+        public static new GetQueryDefinitionInvokeArgs Empty => new GetQueryDefinitionInvokeArgs();
     }
 
 

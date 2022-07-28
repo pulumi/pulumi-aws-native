@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleHttpParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleHttpParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerParameters")]
         public Input<object>? HeaderParameters { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleHttpParametersArgs()
         {
         }
+        public static new RuleHttpParametersArgs Empty => new RuleHttpParametersArgs();
     }
 }

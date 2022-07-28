@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     }
 
 
-    public sealed class GetTargetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetTargetGroupArgs()
         {
         }
+        public static new GetTargetGroupArgs Empty => new GetTargetGroupArgs();
     }
 
-    public sealed class GetTargetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetTargetGroupInvokeArgs()
         {
         }
+        public static new GetTargetGroupInvokeArgs Empty => new GetTargetGroupInvokeArgs();
     }
 
 

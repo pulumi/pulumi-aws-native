@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// An HTTP Live Streaming (HLS) encryption configuration.
     /// </summary>
-    public sealed class PackagingConfigurationHlsEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationHlsEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An HTTP Live Streaming (HLS) encryption configuration.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationHlsEncryptionArgs()
         {
         }
+        public static new PackagingConfigurationHlsEncryptionArgs Empty => new PackagingConfigurationHlsEncryptionArgs();
     }
 }

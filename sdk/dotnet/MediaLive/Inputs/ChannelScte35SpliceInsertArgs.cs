@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelScte35SpliceInsertArgs : Pulumi.ResourceArgs
+    public sealed class ChannelScte35SpliceInsertArgs : global::Pulumi.ResourceArgs
     {
         [Input("adAvailOffset")]
         public Input<int>? AdAvailOffset { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelScte35SpliceInsertArgs()
         {
         }
+        public static new ChannelScte35SpliceInsertArgs Empty => new ChannelScte35SpliceInsertArgs();
     }
 }

@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Custom response key and body map.
     /// </summary>
-    public sealed class WebACLCustomResponseBodiesArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCustomResponseBodiesArgs : global::Pulumi.ResourceArgs
     {
         public WebACLCustomResponseBodiesArgs()
         {
         }
+        public static new WebACLCustomResponseBodiesArgs Empty => new WebACLCustomResponseBodiesArgs();
     }
 }

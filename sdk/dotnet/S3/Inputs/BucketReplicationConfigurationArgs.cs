@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
     /// </summary>
-    public sealed class BucketReplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketReplicationConfigurationArgs()
         {
         }
+        public static new BucketReplicationConfigurationArgs Empty => new BucketReplicationConfigurationArgs();
     }
 }

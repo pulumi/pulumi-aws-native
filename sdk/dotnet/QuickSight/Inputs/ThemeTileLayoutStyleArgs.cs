@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The display options for the layout of tiles on a sheet.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeTileLayoutStyleArgs : Pulumi.ResourceArgs
+    public sealed class ThemeTileLayoutStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("gutter")]
         public Input<Inputs.ThemeGutterStyleArgs>? Gutter { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeTileLayoutStyleArgs()
         {
         }
+        public static new ThemeTileLayoutStyleArgs Empty => new ThemeTileLayoutStyleArgs();
     }
 }

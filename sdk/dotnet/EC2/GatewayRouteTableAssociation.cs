@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:GatewayRouteTableAssociation")]
-    public partial class GatewayRouteTableAssociation : Pulumi.CustomResource
+    public partial class GatewayRouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The route table association ID.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class GatewayRouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the gateway.
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.EC2
         public GatewayRouteTableAssociationArgs()
         {
         }
+        public static new GatewayRouteTableAssociationArgs Empty => new GatewayRouteTableAssociationArgs();
     }
 }

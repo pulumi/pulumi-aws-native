@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
 
-    public sealed class GetCacheClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetCacheClusterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetCacheClusterArgs()
         {
         }
+        public static new GetCacheClusterArgs Empty => new GetCacheClusterArgs();
     }
 
-    public sealed class GetCacheClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCacheClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetCacheClusterInvokeArgs()
         {
         }
+        public static new GetCacheClusterInvokeArgs Empty => new GetCacheClusterInvokeArgs();
     }
 
 

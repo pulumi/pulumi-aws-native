@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetLaunchRoleConstraintArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchRoleConstraintArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetLaunchRoleConstraintArgs()
         {
         }
+        public static new GetLaunchRoleConstraintArgs Empty => new GetLaunchRoleConstraintArgs();
     }
 
-    public sealed class GetLaunchRoleConstraintInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchRoleConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetLaunchRoleConstraintInvokeArgs()
         {
         }
+        public static new GetLaunchRoleConstraintInvokeArgs Empty => new GetLaunchRoleConstraintInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:StackFleetAssociation")]
-    public partial class StackFleetAssociation : Pulumi.CustomResource
+    public partial class StackFleetAssociation : global::Pulumi.CustomResource
     {
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class StackFleetAssociationArgs : Pulumi.ResourceArgs
+    public sealed class StackFleetAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("fleetName", required: true)]
         public Input<string> FleetName { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.AppStream
         public StackFleetAssociationArgs()
         {
         }
+        public static new StackFleetAssociationArgs Empty => new StackFleetAssociationArgs();
     }
 }

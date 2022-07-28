@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetGameServerGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGameServerGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A generated unique ID for the game server group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetGameServerGroupArgs()
         {
         }
+        public static new GetGameServerGroupArgs Empty => new GetGameServerGroupArgs();
     }
 
-    public sealed class GetGameServerGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGameServerGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A generated unique ID for the game server group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetGameServerGroupInvokeArgs()
         {
         }
+        public static new GetGameServerGroupInvokeArgs Empty => new GetGameServerGroupInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda
     /// Resource Type definition for AWS::Lambda::CodeSigningConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:CodeSigningConfig")]
-    public partial class CodeSigningConfig : Pulumi.CustomResource
+    public partial class CodeSigningConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class CodeSigningConfigArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Lambda
         public CodeSigningConfigArgs()
         {
         }
+        public static new CodeSigningConfigArgs Empty => new CodeSigningConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class DomainConfigurationAuthorizerConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainConfigurationAuthorizerConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowAuthorizerOverride")]
         public Input<bool>? AllowAuthorizerOverride { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public DomainConfigurationAuthorizerConfigArgs()
         {
         }
+        public static new DomainConfigurationAuthorizerConfigArgs Empty => new DomainConfigurationAuthorizerConfigArgs();
     }
 }

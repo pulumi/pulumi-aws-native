@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// Configuration settings for an NFS or SMB protocol, currently only support NFS
     /// </summary>
-    public sealed class LocationFSxOpenZFSProtocolArgs : Pulumi.ResourceArgs
+    public sealed class LocationFSxOpenZFSProtocolArgs : global::Pulumi.ResourceArgs
     {
         [Input("nFS")]
         public Input<Inputs.LocationFSxOpenZFSNFSArgs>? NFS { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationFSxOpenZFSProtocolArgs()
         {
         }
+        public static new LocationFSxOpenZFSProtocolArgs Empty => new LocationFSxOpenZFSProtocolArgs();
     }
 }

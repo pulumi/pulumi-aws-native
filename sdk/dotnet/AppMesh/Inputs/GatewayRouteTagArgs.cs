@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteTagArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public GatewayRouteTagArgs()
         {
         }
+        public static new GatewayRouteTagArgs Empty => new GatewayRouteTagArgs();
     }
 }

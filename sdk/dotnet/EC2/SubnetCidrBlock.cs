@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SubnetCidrBlock")]
-    public partial class SubnetCidrBlock : Pulumi.CustomResource
+    public partial class SubnetCidrBlock : global::Pulumi.CustomResource
     {
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SubnetCidrBlockArgs : Pulumi.ResourceArgs
+    public sealed class SubnetCidrBlockArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipv6CidrBlock", required: true)]
         public Input<string> Ipv6CidrBlock { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.EC2
         public SubnetCidrBlockArgs()
         {
         }
+        public static new SubnetCidrBlockArgs Empty => new SubnetCidrBlockArgs();
     }
 }

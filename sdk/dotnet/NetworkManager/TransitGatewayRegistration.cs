@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:TransitGatewayRegistration")]
-    public partial class TransitGatewayRegistration : Pulumi.CustomResource
+    public partial class TransitGatewayRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the global network.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class TransitGatewayRegistrationArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the global network.
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public TransitGatewayRegistrationArgs()
         {
         }
+        public static new TransitGatewayRegistrationArgs Empty => new TransitGatewayRegistrationArgs();
     }
 }

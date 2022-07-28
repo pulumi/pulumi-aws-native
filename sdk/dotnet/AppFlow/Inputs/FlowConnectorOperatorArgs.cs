@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Operation to be performed on provided source fields
     /// </summary>
-    public sealed class FlowConnectorOperatorArgs : Pulumi.ResourceArgs
+    public sealed class FlowConnectorOperatorArgs : global::Pulumi.ResourceArgs
     {
         [Input("amplitude")]
         public Input<Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator>? Amplitude { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowConnectorOperatorArgs()
         {
         }
+        public static new FlowConnectorOperatorArgs Empty => new FlowConnectorOperatorArgs();
     }
 }

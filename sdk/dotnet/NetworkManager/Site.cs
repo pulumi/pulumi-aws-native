@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::Site type describes a site.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:Site")]
-    public partial class Site : Pulumi.CustomResource
+    public partial class Site : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the site.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class SiteArgs : Pulumi.ResourceArgs
+    public sealed class SiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the site.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public SiteArgs()
         {
         }
+        public static new SiteArgs Empty => new SiteArgs();
     }
 }

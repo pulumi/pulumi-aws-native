@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class ReplicationGroupNodeGroupConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupNodeGroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodeGroupId")]
         public Input<string>? NodeGroupId { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public ReplicationGroupNodeGroupConfigurationArgs()
         {
         }
+        public static new ReplicationGroupNodeGroupConfigurationArgs Empty => new ReplicationGroupNodeGroupConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceLambdaConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceLambdaConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("lambdaFunctionArn", required: true)]
         public Input<string> LambdaFunctionArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceLambdaConfigArgs()
         {
         }
+        public static new DataSourceLambdaConfigArgs Empty => new DataSourceLambdaConfigArgs();
     }
 }

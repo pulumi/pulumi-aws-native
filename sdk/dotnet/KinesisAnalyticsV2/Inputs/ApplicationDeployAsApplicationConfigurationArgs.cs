@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
     /// </summary>
-    public sealed class ApplicationDeployAsApplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationDeployAsApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationDeployAsApplicationConfigurationArgs()
         {
         }
+        public static new ApplicationDeployAsApplicationConfigurationArgs Empty => new ApplicationDeployAsApplicationConfigurationArgs();
     }
 }

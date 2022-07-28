@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AutoScaling
     }
 
 
-    public sealed class GetLifecycleHookArgs : Pulumi.InvokeArgs
+    public sealed class GetLifecycleHookArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetLifecycleHookArgs()
         {
         }
+        public static new GetLifecycleHookArgs Empty => new GetLifecycleHookArgs();
     }
 
-    public sealed class GetLifecycleHookInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLifecycleHookInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetLifecycleHookInvokeArgs()
         {
         }
+        public static new GetLifecycleHookInvokeArgs Empty => new GetLifecycleHookInvokeArgs();
     }
 
 

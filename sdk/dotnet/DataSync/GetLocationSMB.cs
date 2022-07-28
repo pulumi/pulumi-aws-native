@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationSMBArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationSMBArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationSMBArgs()
         {
         }
+        public static new GetLocationSMBArgs Empty => new GetLocationSMBArgs();
     }
 
-    public sealed class GetLocationSMBInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationSMBInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationSMBInvokeArgs()
         {
         }
+        public static new GetLocationSMBInvokeArgs Empty => new GetLocationSMBInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LicenseManager
     /// Resource Type definition for AWS::LicenseManager::License
     /// </summary>
     [AwsNativeResourceType("aws-native:licensemanager:License")]
-    public partial class License : Pulumi.CustomResource
+    public partial class License : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Beneficiary of the license.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.LicenseManager
         }
     }
 
-    public sealed class LicenseArgs : Pulumi.ResourceArgs
+    public sealed class LicenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Beneficiary of the license.
@@ -181,5 +181,6 @@ namespace Pulumi.AwsNative.LicenseManager
         public LicenseArgs()
         {
         }
+        public static new LicenseArgs Empty => new LicenseArgs();
     }
 }

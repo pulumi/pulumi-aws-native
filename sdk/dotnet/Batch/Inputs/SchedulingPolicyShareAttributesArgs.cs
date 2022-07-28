@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class SchedulingPolicyShareAttributesArgs : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyShareAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("shareIdentifier")]
         public Input<string>? ShareIdentifier { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public SchedulingPolicyShareAttributesArgs()
         {
         }
+        public static new SchedulingPolicyShareAttributesArgs Empty => new SchedulingPolicyShareAttributesArgs();
     }
 }

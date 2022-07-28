@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Represents the overall status of a model package.
     /// </summary>
-    public sealed class ModelPackageStatusItemArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageStatusItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If the overall status is Failed, the reason for the failure.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageStatusItemArgs()
         {
         }
+        public static new ModelPackageStatusItemArgs Empty => new ModelPackageStatusItemArgs();
     }
 }

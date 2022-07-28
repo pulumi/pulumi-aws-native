@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigTagArgs : Pulumi.ResourceArgs
+    public sealed class ConfigTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigTagArgs()
         {
         }
+        public static new ConfigTagArgs Empty => new ConfigTagArgs();
     }
 }

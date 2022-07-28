@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EndpointEventBusArgs : Pulumi.ResourceArgs
+    public sealed class EndpointEventBusArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventBusArn", required: true)]
         public Input<string> EventBusArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EndpointEventBusArgs()
         {
         }
+        public static new EndpointEventBusArgs Empty => new EndpointEventBusArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Athena
     }
 
 
-    public sealed class GetNamedQueryArgs : Pulumi.InvokeArgs
+    public sealed class GetNamedQueryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique ID of the query.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Athena
         public GetNamedQueryArgs()
         {
         }
+        public static new GetNamedQueryArgs Empty => new GetNamedQueryArgs();
     }
 
-    public sealed class GetNamedQueryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamedQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique ID of the query.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Athena
         public GetNamedQueryInvokeArgs()
         {
         }
+        public static new GetNamedQueryInvokeArgs Empty => new GetNamedQueryInvokeArgs();
     }
 
 

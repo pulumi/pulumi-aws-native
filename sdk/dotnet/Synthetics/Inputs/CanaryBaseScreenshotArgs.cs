@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryBaseScreenshotArgs : Pulumi.ResourceArgs
+    public sealed class CanaryBaseScreenshotArgs : global::Pulumi.ResourceArgs
     {
         [Input("ignoreCoordinates")]
         private InputList<string>? _ignoreCoordinates;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryBaseScreenshotArgs()
         {
         }
+        public static new CanaryBaseScreenshotArgs Empty => new CanaryBaseScreenshotArgs();
     }
 }

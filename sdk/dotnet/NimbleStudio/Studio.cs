@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// Represents a studio that contains other Nimble Studio resources
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
-    public partial class Studio : Pulumi.CustomResource
+    public partial class Studio : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
     }
 
-    public sealed class StudioArgs : Pulumi.ResourceArgs
+    public sealed class StudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
@@ -144,5 +144,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         public StudioArgs()
         {
         }
+        public static new StudioArgs Empty => new StudioArgs();
     }
 }

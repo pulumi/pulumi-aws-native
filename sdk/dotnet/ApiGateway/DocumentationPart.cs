@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// </summary>
     [Obsolete(@"DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:DocumentationPart")]
-    public partial class DocumentationPart : Pulumi.CustomResource
+    public partial class DocumentationPart : global::Pulumi.CustomResource
     {
         [Output("location")]
         public Output<Outputs.DocumentationPartLocation> Location { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class DocumentationPartArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationPartArgs : global::Pulumi.ResourceArgs
     {
         [Input("location", required: true)]
         public Input<Inputs.DocumentationPartLocationArgs> Location { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public DocumentationPartArgs()
         {
         }
+        public static new DocumentationPartArgs Empty => new DocumentationPartArgs();
     }
 }

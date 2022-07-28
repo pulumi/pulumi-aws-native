@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
     /// <summary>
     /// Parameters of the first Superuser for the FinSpace Environment
     /// </summary>
-    public sealed class EnvironmentSuperuserParametersArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentSuperuserParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email address
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         public EnvironmentSuperuserParametersArgs()
         {
         }
+        public static new EnvironmentSuperuserParametersArgs Empty => new EnvironmentSuperuserParametersArgs();
     }
 }

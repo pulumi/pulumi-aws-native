@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemWindowsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemWindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
@@ -53,5 +53,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemWindowsConfigurationArgs()
         {
         }
+        public static new FileSystemWindowsConfigurationArgs Empty => new FileSystemWindowsConfigurationArgs();
     }
 }

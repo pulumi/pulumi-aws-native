@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// <summary>
     /// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
     /// </summary>
-    public sealed class ObjectTypeKeyArgs : Pulumi.ResourceArgs
+    public sealed class ObjectTypeKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldNames")]
         private InputList<string>? _fieldNames;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public ObjectTypeKeyArgs()
         {
         }
+        public static new ObjectTypeKeyArgs Empty => new ObjectTypeKeyArgs();
     }
 }

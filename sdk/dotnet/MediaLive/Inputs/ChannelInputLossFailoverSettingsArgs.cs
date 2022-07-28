@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputLossFailoverSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputLossFailoverSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputLossThresholdMsec")]
         public Input<int>? InputLossThresholdMsec { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputLossFailoverSettingsArgs()
         {
         }
+        public static new ChannelInputLossFailoverSettingsArgs Empty => new ChannelInputLossFailoverSettingsArgs();
     }
 }

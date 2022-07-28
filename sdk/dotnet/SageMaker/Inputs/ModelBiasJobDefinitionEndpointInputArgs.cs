@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The endpoint for a monitoring job.
     /// </summary>
-    public sealed class ModelBiasJobDefinitionEndpointInputArgs : Pulumi.ResourceArgs
+    public sealed class ModelBiasJobDefinitionEndpointInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitoring end time offset, e.g. PT0H
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelBiasJobDefinitionEndpointInputArgs()
         {
         }
+        public static new ModelBiasJobDefinitionEndpointInputArgs Empty => new ModelBiasJobDefinitionEndpointInputArgs();
     }
 }

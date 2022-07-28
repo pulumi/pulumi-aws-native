@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetContainerActionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetContainerActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetContainerActionArgs()
         {
         }
+        public static new DatasetContainerActionArgs Empty => new DatasetContainerActionArgs();
     }
 }

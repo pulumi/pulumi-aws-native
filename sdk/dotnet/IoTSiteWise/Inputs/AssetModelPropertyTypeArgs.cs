@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains a property type, which can be one of attribute, measurement, metric, or transform.
     /// </summary>
-    public sealed class AssetModelPropertyTypeArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelPropertyTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("attribute")]
         public Input<Inputs.AssetModelAttributeArgs>? Attribute { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelPropertyTypeArgs()
         {
         }
+        public static new AssetModelPropertyTypeArgs Empty => new AssetModelPropertyTypeArgs();
     }
 }

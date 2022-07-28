@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FraudDetector.Inputs
 {
 
-    public sealed class DetectorEventVariableArgs : Pulumi.ResourceArgs
+    public sealed class DetectorEventVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         public DetectorEventVariableArgs()
         {
         }
+        public static new DetectorEventVariableArgs Empty => new DetectorEventVariableArgs();
     }
 }

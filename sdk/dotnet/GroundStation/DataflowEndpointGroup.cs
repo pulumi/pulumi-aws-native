@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
     /// </summary>
     [AwsNativeResourceType("aws-native:groundstation:DataflowEndpointGroup")]
-    public partial class DataflowEndpointGroup : Pulumi.CustomResource
+    public partial class DataflowEndpointGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.GroundStation
         }
     }
 
-    public sealed class DataflowEndpointGroupArgs : Pulumi.ResourceArgs
+    public sealed class DataflowEndpointGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointDetails", required: true)]
         private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.GroundStation
         public DataflowEndpointGroupArgs()
         {
         }
+        public static new DataflowEndpointGroupArgs Empty => new DataflowEndpointGroupArgs();
     }
 }

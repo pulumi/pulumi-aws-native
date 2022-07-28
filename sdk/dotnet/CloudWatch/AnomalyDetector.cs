@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// </summary>
     [Obsolete(@"AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudwatch:AnomalyDetector")]
-    public partial class AnomalyDetector : Pulumi.CustomResource
+    public partial class AnomalyDetector : global::Pulumi.CustomResource
     {
         [Output("configuration")]
         public Output<Outputs.AnomalyDetectorConfiguration?> Configuration { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
     }
 
-    public sealed class AnomalyDetectorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         public Input<Inputs.AnomalyDetectorConfigurationArgs>? Configuration { get; set; }
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.CloudWatch
         public AnomalyDetectorArgs()
         {
         }
+        public static new AnomalyDetectorArgs Empty => new AnomalyDetectorArgs();
     }
 }

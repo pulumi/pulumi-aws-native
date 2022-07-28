@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative
     }
 
 
-    public sealed class CidrArgs : Pulumi.InvokeArgs
+    public sealed class CidrArgs : global::Pulumi.InvokeArgs
     {
         [Input("cidrBits", required: true)]
         public int CidrBits { get; set; }
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative
         public CidrArgs()
         {
         }
+        public static new CidrArgs Empty => new CidrArgs();
     }
 
-    public sealed class CidrInvokeArgs : Pulumi.InvokeArgs
+    public sealed class CidrInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("cidrBits", required: true)]
         public Input<int> CidrBits { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative
         public CidrInvokeArgs()
         {
         }
+        public static new CidrInvokeArgs Empty => new CidrInvokeArgs();
     }
 
 

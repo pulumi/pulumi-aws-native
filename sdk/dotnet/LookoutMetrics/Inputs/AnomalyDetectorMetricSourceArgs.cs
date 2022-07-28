@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorMetricSourceArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorMetricSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("appFlowConfig")]
         public Input<Inputs.AnomalyDetectorAppFlowConfigArgs>? AppFlowConfig { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorMetricSourceArgs()
         {
         }
+        public static new AnomalyDetectorMetricSourceArgs Empty => new AnomalyDetectorMetricSourceArgs();
     }
 }

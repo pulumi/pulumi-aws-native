@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ResourceGroups
     /// Schema for ResourceGroups::Group
     /// </summary>
     [AwsNativeResourceType("aws-native:resourcegroups:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Resource Group ARN.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ResourceGroups
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         private InputList<Inputs.GroupConfigurationItemArgs>? _configuration;
@@ -132,5 +132,6 @@ namespace Pulumi.AwsNative.ResourceGroups
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 }

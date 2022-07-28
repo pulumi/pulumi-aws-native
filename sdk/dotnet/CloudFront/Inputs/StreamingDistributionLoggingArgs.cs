@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class StreamingDistributionLoggingArgs : Pulumi.ResourceArgs
+    public sealed class StreamingDistributionLoggingArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public StreamingDistributionLoggingArgs()
         {
         }
+        public static new StreamingDistributionLoggingArgs Empty => new StreamingDistributionLoggingArgs();
     }
 }

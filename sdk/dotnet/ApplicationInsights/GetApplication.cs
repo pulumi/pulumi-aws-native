@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
     }
 
 
-    public sealed class GetApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the ApplicationInsights application.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public GetApplicationArgs()
         {
         }
+        public static new GetApplicationArgs Empty => new GetApplicationArgs();
     }
 
-    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the ApplicationInsights application.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public GetApplicationInvokeArgs()
         {
         }
+        public static new GetApplicationInvokeArgs Empty => new GetApplicationInvokeArgs();
     }
 
 

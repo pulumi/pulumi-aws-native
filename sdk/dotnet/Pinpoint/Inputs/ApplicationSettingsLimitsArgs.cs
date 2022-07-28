@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class ApplicationSettingsLimitsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSettingsLimitsArgs : global::Pulumi.ResourceArgs
     {
         [Input("daily")]
         public Input<int>? Daily { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public ApplicationSettingsLimitsArgs()
         {
         }
+        public static new ApplicationSettingsLimitsArgs Empty => new ApplicationSettingsLimitsArgs();
     }
 }

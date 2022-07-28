@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// AWS Route53 Recovery Control Cluster resource schema
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Cluster. You can use any non-white space character in the name
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

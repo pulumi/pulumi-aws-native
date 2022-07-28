@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointRedisSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointRedisSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("authPassword")]
         public Input<string>? AuthPassword { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointRedisSettingsArgs()
         {
         }
+        public static new EndpointRedisSettingsArgs Empty => new EndpointRedisSettingsArgs();
     }
 }

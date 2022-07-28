@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetRoleAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAliasArgs : global::Pulumi.InvokeArgs
     {
         [Input("roleAlias", required: true)]
         public string RoleAliasValue { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetRoleAliasArgs()
         {
         }
+        public static new GetRoleAliasArgs Empty => new GetRoleAliasArgs();
     }
 
-    public sealed class GetRoleAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("roleAlias", required: true)]
         public Input<string> RoleAlias { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetRoleAliasInvokeArgs()
         {
         }
+        public static new GetRoleAliasInvokeArgs Empty => new GetRoleAliasInvokeArgs();
     }
 
 

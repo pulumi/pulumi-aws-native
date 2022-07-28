@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CE.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class AnomalyMonitorResourceTagArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyMonitorResourceTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name for the tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CE.Inputs
         public AnomalyMonitorResourceTagArgs()
         {
         }
+        public static new AnomalyMonitorResourceTagArgs Empty => new AnomalyMonitorResourceTagArgs();
     }
 }

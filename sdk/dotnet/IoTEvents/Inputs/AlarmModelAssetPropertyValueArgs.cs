@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
     /// </summary>
-    public sealed class AlarmModelAssetPropertyValueArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelAssetPropertyValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelAssetPropertyValueArgs()
         {
         }
+        public static new AlarmModelAssetPropertyValueArgs Empty => new AlarmModelAssetPropertyValueArgs();
     }
 }

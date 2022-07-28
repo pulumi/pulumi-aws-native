@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetCapacityReservationArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityReservationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetCapacityReservationArgs()
         {
         }
+        public static new GetCapacityReservationArgs Empty => new GetCapacityReservationArgs();
     }
 
-    public sealed class GetCapacityReservationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityReservationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetCapacityReservationInvokeArgs()
         {
         }
+        public static new GetCapacityReservationInvokeArgs Empty => new GetCapacityReservationInvokeArgs();
     }
 
 

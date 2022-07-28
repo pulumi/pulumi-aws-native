@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::CachePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:CachePolicy")]
-    public partial class CachePolicy : Pulumi.CustomResource
+    public partial class CachePolicy : global::Pulumi.CustomResource
     {
         [Output("cachePolicyConfig")]
         public Output<Outputs.CachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class CachePolicyArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("cachePolicyConfig", required: true)]
         public Input<Inputs.CachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public CachePolicyArgs()
         {
         }
+        public static new CachePolicyArgs Empty => new CachePolicyArgs();
     }
 }

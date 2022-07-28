@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
     /// </summary>
-    public sealed class AlarmModelIotEventsArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelIotEventsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the AWS IoT Events input where the data is sent.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelIotEventsArgs()
         {
         }
+        public static new AlarmModelIotEventsArgs Empty => new AlarmModelIotEventsArgs();
     }
 }

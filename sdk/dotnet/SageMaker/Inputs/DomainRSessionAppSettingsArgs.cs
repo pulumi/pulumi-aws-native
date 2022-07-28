@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A collection of settings that apply to an RSessionGateway app.
     /// </summary>
-    public sealed class DomainRSessionAppSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainRSessionAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customImages")]
         private InputList<Inputs.DomainCustomImageArgs>? _customImages;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainRSessionAppSettingsArgs()
         {
         }
+        public static new DomainRSessionAppSettingsArgs Empty => new DomainRSessionAppSettingsArgs();
     }
 }

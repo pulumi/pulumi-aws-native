@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class CapacityProviderAutoScalingGroupProviderArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderAutoScalingGroupProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingGroupArn", required: true)]
         public Input<string> AutoScalingGroupArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public CapacityProviderAutoScalingGroupProviderArgs()
         {
         }
+        public static new CapacityProviderAutoScalingGroupProviderArgs Empty => new CapacityProviderAutoScalingGroupProviderArgs();
     }
 }

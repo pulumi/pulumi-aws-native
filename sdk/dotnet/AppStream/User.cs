@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.AppStream
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
     /// <summary>
     /// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
     /// </summary>
-    public sealed class ContactStageArgs : Pulumi.ResourceArgs
+    public sealed class ContactStageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time to wait until beginning the next stage.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         public ContactStageArgs()
         {
         }
+        public static new ContactStageArgs Empty => new ContactStageArgs();
     }
 }

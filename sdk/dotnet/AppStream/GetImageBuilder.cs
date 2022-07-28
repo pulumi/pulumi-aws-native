@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream
     }
 
 
-    public sealed class GetImageBuilderArgs : Pulumi.InvokeArgs
+    public sealed class GetImageBuilderArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppStream
         public GetImageBuilderArgs()
         {
         }
+        public static new GetImageBuilderArgs Empty => new GetImageBuilderArgs();
     }
 
-    public sealed class GetImageBuilderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageBuilderInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppStream
         public GetImageBuilderInvokeArgs()
         {
         }
+        public static new GetImageBuilderInvokeArgs Empty => new GetImageBuilderInvokeArgs();
     }
 
 

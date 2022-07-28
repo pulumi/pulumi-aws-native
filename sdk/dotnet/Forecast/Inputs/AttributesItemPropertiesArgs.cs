@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Forecast.Inputs
 {
 
-    public sealed class AttributesItemPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AttributesItemPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the dataset field
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Forecast.Inputs
         public AttributesItemPropertiesArgs()
         {
         }
+        public static new AttributesItemPropertiesArgs Empty => new AttributesItemPropertiesArgs();
     }
 }

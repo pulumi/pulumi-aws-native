@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResourceGroups.Inputs
 {
 
-    public sealed class GroupResourceQueryArgs : Pulumi.ResourceArgs
+    public sealed class GroupResourceQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("query")]
         public Input<Inputs.GroupQueryArgs>? Query { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         public GroupResourceQueryArgs()
         {
         }
+        public static new GroupResourceQueryArgs Empty => new GroupResourceQueryArgs();
     }
 }

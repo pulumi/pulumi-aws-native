@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RUM
     }
 
 
-    public sealed class GetAppMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetAppMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the app monitor
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RUM
         public GetAppMonitorArgs()
         {
         }
+        public static new GetAppMonitorArgs Empty => new GetAppMonitorArgs();
     }
 
-    public sealed class GetAppMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the app monitor
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RUM
         public GetAppMonitorInvokeArgs()
         {
         }
+        public static new GetAppMonitorInvokeArgs Empty => new GetAppMonitorInvokeArgs();
     }
 
 

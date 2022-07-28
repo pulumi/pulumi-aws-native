@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing the VPC configuration to use for an Amazon EKS cluster.
     /// </summary>
-    public sealed class ClusterResourcesVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterResourcesVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public ClusterResourcesVpcConfigArgs()
         {
         }
+        public static new ClusterResourcesVpcConfigArgs Empty => new ClusterResourcesVpcConfigArgs();
     }
 }

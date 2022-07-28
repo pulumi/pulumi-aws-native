@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
 
-    public sealed class GetResolverConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverConfigArgs()
         {
         }
+        public static new GetResolverConfigArgs Empty => new GetResolverConfigArgs();
     }
 
-    public sealed class GetResolverConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverConfigInvokeArgs()
         {
         }
+        public static new GetResolverConfigInvokeArgs Empty => new GetResolverConfigInvokeArgs();
     }
 
 

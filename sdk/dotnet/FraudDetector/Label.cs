@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// An label for fraud detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:Label")]
-    public partial class Label : Pulumi.CustomResource
+    public partial class Label : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The label ARN.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class LabelArgs : Pulumi.ResourceArgs
+    public sealed class LabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The label description.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public LabelArgs()
         {
         }
+        public static new LabelArgs Empty => new LabelArgs();
     }
 }

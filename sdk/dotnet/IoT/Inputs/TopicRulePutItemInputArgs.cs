@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRulePutItemInputArgs : Pulumi.ResourceArgs
+    public sealed class TopicRulePutItemInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRulePutItemInputArgs()
         {
         }
+        public static new TopicRulePutItemInputArgs Empty => new TopicRulePutItemInputArgs();
     }
 }

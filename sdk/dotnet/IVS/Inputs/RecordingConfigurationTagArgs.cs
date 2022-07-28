@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IVS.Inputs
 {
 
-    public sealed class RecordingConfigurationTagArgs : Pulumi.ResourceArgs
+    public sealed class RecordingConfigurationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IVS.Inputs
         public RecordingConfigurationTagArgs()
         {
         }
+        public static new RecordingConfigurationTagArgs Empty => new RecordingConfigurationTagArgs();
     }
 }

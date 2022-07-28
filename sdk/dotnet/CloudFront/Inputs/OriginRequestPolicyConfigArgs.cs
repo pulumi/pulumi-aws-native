@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class OriginRequestPolicyConfigArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public OriginRequestPolicyConfigArgs()
         {
         }
+        public static new OriginRequestPolicyConfigArgs Empty => new OriginRequestPolicyConfigArgs();
     }
 }

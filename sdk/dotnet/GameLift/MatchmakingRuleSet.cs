@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GameLift
     /// </summary>
     [Obsolete(@"MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:MatchmakingRuleSet")]
-    public partial class MatchmakingRuleSet : Pulumi.CustomResource
+    public partial class MatchmakingRuleSet : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class MatchmakingRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class MatchmakingRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.GameLift
         public MatchmakingRuleSetArgs()
         {
         }
+        public static new MatchmakingRuleSetArgs Empty => new MatchmakingRuleSetArgs();
     }
 }

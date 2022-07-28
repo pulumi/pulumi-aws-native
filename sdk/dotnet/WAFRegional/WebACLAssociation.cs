@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"WebACLAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:WebACLAssociation")]
-    public partial class WebACLAssociation : Pulumi.CustomResource
+    public partial class WebACLAssociation : global::Pulumi.CustomResource
     {
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class WebACLAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WebACLAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public WebACLAssociationArgs()
         {
         }
+        public static new WebACLAssociationArgs Empty => new WebACLAssociationArgs();
     }
 }

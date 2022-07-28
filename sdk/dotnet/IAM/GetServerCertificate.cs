@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetServerCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCertificateArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverCertificateName", required: true)]
         public string ServerCertificateName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IAM
         public GetServerCertificateArgs()
         {
         }
+        public static new GetServerCertificateArgs Empty => new GetServerCertificateArgs();
     }
 
-    public sealed class GetServerCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverCertificateName", required: true)]
         public Input<string> ServerCertificateName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IAM
         public GetServerCertificateInvokeArgs()
         {
         }
+        public static new GetServerCertificateInvokeArgs Empty => new GetServerCertificateInvokeArgs();
     }
 
 

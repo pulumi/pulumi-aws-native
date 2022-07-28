@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Container image configuration object for the monitoring job.
     /// </summary>
-    public sealed class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 URI to an analysis configuration file
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs()
         {
         }
+        public static new ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs Empty => new ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs();
     }
 }

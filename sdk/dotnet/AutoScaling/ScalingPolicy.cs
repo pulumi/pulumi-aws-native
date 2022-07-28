@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// </summary>
     [Obsolete(@"ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:ScalingPolicy")]
-    public partial class ScalingPolicy : Pulumi.CustomResource
+    public partial class ScalingPolicy : global::Pulumi.CustomResource
     {
         [Output("adjustmentType")]
         public Output<string?> AdjustmentType { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class ScalingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("adjustmentType")]
         public Input<string>? AdjustmentType { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public ScalingPolicyArgs()
         {
         }
+        public static new ScalingPolicyArgs Empty => new ScalingPolicyArgs();
     }
 }

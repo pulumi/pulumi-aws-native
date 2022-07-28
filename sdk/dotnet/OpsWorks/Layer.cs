@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Layer")]
-    public partial class Layer : Pulumi.CustomResource
+    public partial class Layer : global::Pulumi.CustomResource
     {
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class LayerArgs : Pulumi.ResourceArgs
+    public sealed class LayerArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
@@ -198,5 +198,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public LayerArgs()
         {
         }
+        public static new LayerArgs Empty => new LayerArgs();
     }
 }

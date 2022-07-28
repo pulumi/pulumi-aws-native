@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// A module that has been registered in the CloudFormation registry as the default version
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ModuleDefaultVersion")]
-    public partial class ModuleDefaultVersion : Pulumi.CustomResource
+    public partial class ModuleDefaultVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module version to set as the default version.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class ModuleDefaultVersionArgs : Pulumi.ResourceArgs
+    public sealed class ModuleDefaultVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module version to set as the default version.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public ModuleDefaultVersionArgs()
         {
         }
+        public static new ModuleDefaultVersionArgs Empty => new ModuleDefaultVersionArgs();
     }
 }

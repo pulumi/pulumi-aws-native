@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The output object for a monitoring job.
     /// </summary>
-    public sealed class ModelQualityJobDefinitionMonitoringOutputArgs : Pulumi.ResourceArgs
+    public sealed class ModelQualityJobDefinitionMonitoringOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Output", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionS3OutputArgs> S3Output { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelQualityJobDefinitionMonitoringOutputArgs()
         {
         }
+        public static new ModelQualityJobDefinitionMonitoringOutputArgs Empty => new ModelQualityJobDefinitionMonitoringOutputArgs();
     }
 }

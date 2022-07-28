@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;SQL Server parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceSqlServerParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSqlServerParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceSqlServerParametersArgs()
         {
         }
+        public static new DataSourceSqlServerParametersArgs Empty => new DataSourceSqlServerParametersArgs();
     }
 }

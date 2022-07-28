@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// An entity type for fraud detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:EntityType")]
-    public partial class EntityType : Pulumi.CustomResource
+    public partial class EntityType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The entity type ARN.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class EntityTypeArgs : Pulumi.ResourceArgs
+    public sealed class EntityTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The entity type description.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public EntityTypeArgs()
         {
         }
+        public static new EntityTypeArgs Empty => new EntityTypeArgs();
     }
 }

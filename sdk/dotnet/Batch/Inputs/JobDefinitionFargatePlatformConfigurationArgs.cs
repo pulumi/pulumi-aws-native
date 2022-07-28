@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionFargatePlatformConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionFargatePlatformConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionFargatePlatformConfigurationArgs()
         {
         }
+        public static new JobDefinitionFargatePlatformConfigurationArgs Empty => new JobDefinitionFargatePlatformConfigurationArgs();
     }
 }

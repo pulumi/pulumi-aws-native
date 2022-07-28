@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Create and manage Multicast groups.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:MulticastGroup")]
-    public partial class MulticastGroup : Pulumi.CustomResource
+    public partial class MulticastGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Multicast group arn. Returned after successful create.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class MulticastGroupArgs : Pulumi.ResourceArgs
+    public sealed class MulticastGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Wireless device to associate. Only for update request.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public MulticastGroupArgs()
         {
         }
+        public static new MulticastGroupArgs Empty => new MulticastGroupArgs();
     }
 }

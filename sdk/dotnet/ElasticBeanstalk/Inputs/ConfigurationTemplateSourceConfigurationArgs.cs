@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ConfigurationTemplateSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationTemplateSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ConfigurationTemplateSourceConfigurationArgs()
         {
         }
+        public static new ConfigurationTemplateSourceConfigurationArgs Empty => new ConfigurationTemplateSourceConfigurationArgs();
     }
 }

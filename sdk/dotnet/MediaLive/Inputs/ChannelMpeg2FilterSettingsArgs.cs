@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMpeg2FilterSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMpeg2FilterSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("temporalFilterSettings")]
         public Input<Inputs.ChannelTemporalFilterSettingsArgs>? TemporalFilterSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMpeg2FilterSettingsArgs()
         {
         }
+        public static new ChannelMpeg2FilterSettingsArgs Empty => new ChannelMpeg2FilterSettingsArgs();
     }
 }

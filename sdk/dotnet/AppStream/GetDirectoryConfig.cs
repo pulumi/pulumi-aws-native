@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream
     }
 
 
-    public sealed class GetDirectoryConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppStream
         public GetDirectoryConfigArgs()
         {
         }
+        public static new GetDirectoryConfigArgs Empty => new GetDirectoryConfigArgs();
     }
 
-    public sealed class GetDirectoryConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppStream
         public GetDirectoryConfigInvokeArgs()
         {
         }
+        public static new GetDirectoryConfigInvokeArgs Empty => new GetDirectoryConfigInvokeArgs();
     }
 
 

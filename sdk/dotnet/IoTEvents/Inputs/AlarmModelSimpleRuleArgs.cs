@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// A rule that compares an input property value to a threshold value with a comparison operator.
     /// </summary>
-    public sealed class AlarmModelSimpleRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelSimpleRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The comparison operator.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelSimpleRuleArgs()
         {
         }
+        public static new AlarmModelSimpleRuleArgs Empty => new AlarmModelSimpleRuleArgs();
     }
 }

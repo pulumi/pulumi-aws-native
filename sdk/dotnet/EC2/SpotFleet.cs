@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::SpotFleet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:SpotFleet")]
-    public partial class SpotFleet : Pulumi.CustomResource
+    public partial class SpotFleet : global::Pulumi.CustomResource
     {
         [Output("spotFleetRequestConfigData")]
         public Output<Outputs.SpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SpotFleetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetArgs : global::Pulumi.ResourceArgs
     {
         [Input("spotFleetRequestConfigData", required: true)]
         public Input<Inputs.SpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
@@ -69,5 +69,6 @@ namespace Pulumi.AwsNative.EC2
         public SpotFleetArgs()
         {
         }
+        public static new SpotFleetArgs Empty => new SpotFleetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class FunctionFileSystemConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionFileSystemConfigArgs()
         {
         }
+        public static new FunctionFileSystemConfigArgs Empty => new FunctionFileSystemConfigArgs();
     }
 }

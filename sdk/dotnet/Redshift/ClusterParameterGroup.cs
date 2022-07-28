@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Redshift
     /// </summary>
     [Obsolete(@"ClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:redshift:ClusterParameterGroup")]
-    public partial class ClusterParameterGroup : Pulumi.CustomResource
+    public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class ClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.Redshift
         public ClusterParameterGroupArgs()
         {
         }
+        public static new ClusterParameterGroupArgs Empty => new ClusterParameterGroupArgs();
     }
 }

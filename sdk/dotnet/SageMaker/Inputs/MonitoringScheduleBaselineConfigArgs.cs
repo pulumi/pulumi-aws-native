@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     /// </summary>
-    public sealed class MonitoringScheduleBaselineConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("constraintsResource")]
         public Input<Inputs.MonitoringScheduleConstraintsResourceArgs>? ConstraintsResource { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleBaselineConfigArgs()
         {
         }
+        public static new MonitoringScheduleBaselineConfigArgs Empty => new MonitoringScheduleBaselineConfigArgs();
     }
 }

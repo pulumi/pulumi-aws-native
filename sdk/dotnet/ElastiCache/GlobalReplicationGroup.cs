@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticache:GlobalReplicationGroup")]
-    public partial class GlobalReplicationGroup : Pulumi.CustomResource
+    public partial class GlobalReplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AutomaticFailoverEnabled
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class GlobalReplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class GlobalReplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AutomaticFailoverEnabled
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public GlobalReplicationGroupArgs()
         {
         }
+        public static new GlobalReplicationGroupArgs Empty => new GlobalReplicationGroupArgs();
     }
 }

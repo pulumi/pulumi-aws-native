@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 extension information for a certificate.
     /// </summary>
-    public sealed class CertificateCustomExtensionArgs : Pulumi.ResourceArgs
+    public sealed class CertificateCustomExtensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("critical")]
         public Input<bool>? Critical { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateCustomExtensionArgs()
         {
         }
+        public static new CertificateCustomExtensionArgs Empty => new CertificateCustomExtensionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterIamArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIamArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterIamArgs()
         {
         }
+        public static new ClusterIamArgs Empty => new ClusterIamArgs();
     }
 }

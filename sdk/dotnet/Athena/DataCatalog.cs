@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena
     /// Resource schema for AWS::Athena::DataCatalog
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:DataCatalog")]
-    public partial class DataCatalog : Pulumi.CustomResource
+    public partial class DataCatalog : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the data catalog to be created. 
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Athena
         }
     }
 
-    public sealed class DataCatalogArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the data catalog to be created. 
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Athena
         public DataCatalogArgs()
         {
         }
+        public static new DataCatalogArgs Empty => new DataCatalogArgs();
     }
 }

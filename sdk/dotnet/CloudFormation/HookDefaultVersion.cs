@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Set a version as default version for a hook in CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:HookDefaultVersion")]
-    public partial class HookDefaultVersion : Pulumi.CustomResource
+    public partial class HookDefaultVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class HookDefaultVersionArgs : Pulumi.ResourceArgs
+    public sealed class HookDefaultVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the type being registered.
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public HookDefaultVersionArgs()
         {
         }
+        public static new HookDefaultVersionArgs Empty => new HookDefaultVersionArgs();
     }
 }

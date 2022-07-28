@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterConnectivityInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConnectivityInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("publicAccess")]
         public Input<Inputs.ClusterPublicAccessArgs>? PublicAccess { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterConnectivityInfoArgs()
         {
         }
+        public static new ClusterConnectivityInfoArgs Empty => new ClusterConnectivityInfoArgs();
     }
 }

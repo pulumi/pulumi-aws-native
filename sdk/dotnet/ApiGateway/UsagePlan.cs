@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::UsagePlan
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlan")]
-    public partial class UsagePlan : Pulumi.CustomResource
+    public partial class UsagePlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API stages to associate with this usage plan.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class UsagePlanArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiStages")]
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public UsagePlanArgs()
         {
         }
+        public static new UsagePlanArgs Empty => new UsagePlanArgs();
     }
 }

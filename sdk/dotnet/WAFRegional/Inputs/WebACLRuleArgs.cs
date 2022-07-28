@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFRegional.Inputs
 {
 
-    public sealed class WebACLRuleArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Inputs.WebACLActionArgs> Action { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFRegional.Inputs
         public WebACLRuleArgs()
         {
         }
+        public static new WebACLRuleArgs Empty => new WebACLRuleArgs();
     }
 }

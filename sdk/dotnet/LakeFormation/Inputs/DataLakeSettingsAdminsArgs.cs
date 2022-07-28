@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class DataLakeSettingsAdminsArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeSettingsAdminsArgs : global::Pulumi.ResourceArgs
     {
         public DataLakeSettingsAdminsArgs()
         {
         }
+        public static new DataLakeSettingsAdminsArgs Empty => new DataLakeSettingsAdminsArgs();
     }
 }

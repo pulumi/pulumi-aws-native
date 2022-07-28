@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift.Inputs
     /// <summary>
     /// Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
     /// </summary>
-    public sealed class ScheduledActionResizeClusterMessageArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionResizeClusterMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("classic")]
         public Input<bool>? Classic { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ScheduledActionResizeClusterMessageArgs()
         {
         }
+        public static new ScheduledActionResizeClusterMessageArgs Empty => new ScheduledActionResizeClusterMessageArgs();
     }
 }

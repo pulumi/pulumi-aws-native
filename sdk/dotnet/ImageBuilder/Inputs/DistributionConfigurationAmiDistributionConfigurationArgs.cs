@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The specific AMI settings (for example, launch permissions, AMI tags).
     /// </summary>
-    public sealed class DistributionConfigurationAmiDistributionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationAmiDistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tags to apply to AMIs distributed to this Region.
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationAmiDistributionConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationAmiDistributionConfigurationArgs Empty => new DistributionConfigurationAmiDistributionConfigurationArgs();
     }
 }

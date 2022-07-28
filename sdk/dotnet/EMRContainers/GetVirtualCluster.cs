@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMRContainers
     }
 
 
-    public sealed class GetVirtualClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the virtual cluster.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EMRContainers
         public GetVirtualClusterArgs()
         {
         }
+        public static new GetVirtualClusterArgs Empty => new GetVirtualClusterArgs();
     }
 
-    public sealed class GetVirtualClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the virtual cluster.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EMRContainers
         public GetVirtualClusterInvokeArgs()
         {
         }
+        public static new GetVirtualClusterInvokeArgs Empty => new GetVirtualClusterInvokeArgs();
     }
 
 

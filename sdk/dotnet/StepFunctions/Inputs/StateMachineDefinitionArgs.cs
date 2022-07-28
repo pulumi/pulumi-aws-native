@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class StateMachineDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineDefinitionArgs : global::Pulumi.ResourceArgs
     {
         public StateMachineDefinitionArgs()
         {
         }
+        public static new StateMachineDefinitionArgs Empty => new StateMachineDefinitionArgs();
     }
 }

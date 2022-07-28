@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Budgets
     }
 
 
-    public sealed class GetBudgetsActionArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetsActionArgs : global::Pulumi.InvokeArgs
     {
         [Input("actionId", required: true)]
         public string ActionId { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Budgets
         public GetBudgetsActionArgs()
         {
         }
+        public static new GetBudgetsActionArgs Empty => new GetBudgetsActionArgs();
     }
 
-    public sealed class GetBudgetsActionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetsActionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("actionId", required: true)]
         public Input<string> ActionId { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Budgets
         public GetBudgetsActionInvokeArgs()
         {
         }
+        public static new GetBudgetsActionInvokeArgs Empty => new GetBudgetsActionInvokeArgs();
     }
 
 

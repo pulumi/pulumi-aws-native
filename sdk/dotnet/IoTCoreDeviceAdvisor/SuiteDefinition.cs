@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotcoredeviceadvisor:SuiteDefinition")]
-    public partial class SuiteDefinition : Pulumi.CustomResource
+    public partial class SuiteDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource name for the suite definition.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         }
     }
 
-    public sealed class SuiteDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class SuiteDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("suiteDefinitionConfiguration", required: true)]
         public Input<Inputs.SuiteDefinitionConfigurationPropertiesArgs> SuiteDefinitionConfiguration { get; set; } = null!;
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         public SuiteDefinitionArgs()
         {
         }
+        public static new SuiteDefinitionArgs Empty => new SuiteDefinitionArgs();
     }
 }

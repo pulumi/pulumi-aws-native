@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the health check configuration of an Amazon Lightsail container service.
     /// </summary>
-    public sealed class ContainerHealthCheckConfigArgs : Pulumi.ResourceArgs
+    public sealed class ContainerHealthCheckConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerHealthCheckConfigArgs()
         {
         }
+        public static new ContainerHealthCheckConfigArgs Empty => new ContainerHealthCheckConfigArgs();
     }
 }

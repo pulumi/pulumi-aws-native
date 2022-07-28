@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::Host
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:Host")]
-    public partial class Host : Pulumi.CustomResource
+    public partial class Host : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class HostArgs : Pulumi.ResourceArgs
+    public sealed class HostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.EC2
         public HostArgs()
         {
         }
+        public static new HostArgs Empty => new HostArgs();
     }
 }

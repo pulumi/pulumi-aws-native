@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaLive
     }
 
 
-    public sealed class GetInputSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetInputSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MediaLive
         public GetInputSecurityGroupArgs()
         {
         }
+        public static new GetInputSecurityGroupArgs Empty => new GetInputSecurityGroupArgs();
     }
 
-    public sealed class GetInputSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInputSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MediaLive
         public GetInputSecurityGroupInvokeArgs()
         {
         }
+        public static new GetInputSecurityGroupInvokeArgs Empty => new GetInputSecurityGroupInvokeArgs();
     }
 
 

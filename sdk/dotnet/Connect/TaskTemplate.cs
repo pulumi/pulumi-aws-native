@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::TaskTemplate.
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:TaskTemplate")]
-    public partial class TaskTemplate : Pulumi.CustomResource
+    public partial class TaskTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier (arn) of the task template.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class TaskTemplateArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
@@ -188,5 +188,6 @@ namespace Pulumi.AwsNative.Connect
         public TaskTemplateArgs()
         {
         }
+        public static new TaskTemplateArgs Empty => new TaskTemplateArgs();
     }
 }

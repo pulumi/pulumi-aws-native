@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"AccessKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:AccessKey")]
-    public partial class AccessKey : Pulumi.CustomResource
+    public partial class AccessKey : global::Pulumi.CustomResource
     {
         [Output("secretAccessKey")]
         public Output<string> SecretAccessKey { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class AccessKeyArgs : Pulumi.ResourceArgs
+    public sealed class AccessKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("serial")]
         public Input<int>? Serial { get; set; }
@@ -85,5 +85,6 @@ namespace Pulumi.AwsNative.IAM
         public AccessKeyArgs()
         {
         }
+        public static new AccessKeyArgs Empty => new AccessKeyArgs();
     }
 }

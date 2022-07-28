@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SES
     }
 
 
-    public sealed class GetConfigurationSetEventDestinationArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationSetEventDestinationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SES
         public GetConfigurationSetEventDestinationArgs()
         {
         }
+        public static new GetConfigurationSetEventDestinationArgs Empty => new GetConfigurationSetEventDestinationArgs();
     }
 
-    public sealed class GetConfigurationSetEventDestinationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationSetEventDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SES
         public GetConfigurationSetEventDestinationInvokeArgs()
         {
         }
+        public static new GetConfigurationSetEventDestinationInvokeArgs Empty => new GetConfigurationSetEventDestinationInvokeArgs();
     }
 
 

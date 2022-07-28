@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainVPCOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainVPCOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainVPCOptionsArgs()
         {
         }
+        public static new DomainVPCOptionsArgs Empty => new DomainVPCOptionsArgs();
     }
 }

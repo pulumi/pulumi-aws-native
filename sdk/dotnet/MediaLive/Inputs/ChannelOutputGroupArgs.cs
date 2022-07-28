@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelOutputGroupArgs : Pulumi.ResourceArgs
+    public sealed class ChannelOutputGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelOutputGroupArgs()
         {
         }
+        public static new ChannelOutputGroupArgs Empty => new ChannelOutputGroupArgs();
     }
 }

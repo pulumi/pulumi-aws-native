@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The value to be compared with the metric.
     /// </summary>
-    public sealed class SecurityProfileMetricValueArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileMetricValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileMetricValueArgs()
         {
         }
+        public static new SecurityProfileMetricValueArgs Empty => new SecurityProfileMetricValueArgs();
     }
 }

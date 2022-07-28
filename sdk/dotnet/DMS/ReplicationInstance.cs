@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DMS
     /// </summary>
     [Obsolete(@"ReplicationInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:ReplicationInstance")]
-    public partial class ReplicationInstance : Pulumi.CustomResource
+    public partial class ReplicationInstance : global::Pulumi.CustomResource
     {
         [Output("allocatedStorage")]
         public Output<int?> AllocatedStorage { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.DMS
         }
     }
 
-    public sealed class ReplicationInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -170,5 +170,6 @@ namespace Pulumi.AwsNative.DMS
         public ReplicationInstanceArgs()
         {
         }
+        public static new ReplicationInstanceArgs Empty => new ReplicationInstanceArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS
     }
 
 
-    public sealed class GetPrimaryTaskSetArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryTaskSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ECS
         public GetPrimaryTaskSetArgs()
         {
         }
+        public static new GetPrimaryTaskSetArgs Empty => new GetPrimaryTaskSetArgs();
     }
 
-    public sealed class GetPrimaryTaskSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrimaryTaskSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ECS
         public GetPrimaryTaskSetInvokeArgs()
         {
         }
+        public static new GetPrimaryTaskSetInvokeArgs Empty => new GetPrimaryTaskSetInvokeArgs();
     }
 
 

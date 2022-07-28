@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53.Inputs
 {
 
-    public sealed class CidrCollectionLocationArgs : Pulumi.ResourceArgs
+    public sealed class CidrCollectionLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrList", required: true)]
         private InputList<string>? _cidrList;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public CidrCollectionLocationArgs()
         {
         }
+        public static new CidrCollectionLocationArgs Empty => new CidrCollectionLocationArgs();
     }
 }

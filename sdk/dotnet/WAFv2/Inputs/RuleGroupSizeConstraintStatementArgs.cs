@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Size Constraint statement.
     /// </summary>
-    public sealed class RuleGroupSizeConstraintStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupSizeConstraintStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupSizeConstraintStatementComparisonOperator> ComparisonOperator { get; set; } = null!;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupSizeConstraintStatementArgs()
         {
         }
+        public static new RuleGroupSizeConstraintStatementArgs Empty => new RuleGroupSizeConstraintStatementArgs();
     }
 }

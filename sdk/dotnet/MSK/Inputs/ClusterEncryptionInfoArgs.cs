@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterEncryptionInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionAtRest")]
         public Input<Inputs.ClusterEncryptionAtRestArgs>? EncryptionAtRest { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterEncryptionInfoArgs()
         {
         }
+        public static new ClusterEncryptionInfoArgs Empty => new ClusterEncryptionInfoArgs();
     }
 }

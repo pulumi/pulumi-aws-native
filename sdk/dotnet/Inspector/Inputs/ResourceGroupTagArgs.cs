@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Inspector.Inputs
 {
 
-    public sealed class ResourceGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Inspector.Inputs
         public ResourceGroupTagArgs()
         {
         }
+        public static new ResourceGroupTagArgs Empty => new ResourceGroupTagArgs();
     }
 }

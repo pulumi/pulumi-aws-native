@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Job is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         [Output("allocatedCapacity")]
         public Output<double?> AllocatedCapacity { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocatedCapacity")]
         public Input<double>? AllocatedCapacity { get; set; }
@@ -172,5 +172,6 @@ namespace Pulumi.AwsNative.Glue
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 }

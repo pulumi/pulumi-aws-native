@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class StackChefConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StackChefConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("berkshelfVersion")]
         public Input<string>? BerkshelfVersion { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public StackChefConfigurationArgs()
         {
         }
+        public static new StackChefConfigurationArgs Empty => new StackChefConfigurationArgs();
     }
 }

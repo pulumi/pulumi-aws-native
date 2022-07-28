@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupAddressArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupAddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressDefinition", required: true)]
         public Input<string> AddressDefinition { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupAddressArgs()
         {
         }
+        public static new RuleGroupAddressArgs Empty => new RuleGroupAddressArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class XssMatchSetXssMatchTupleArgs : Pulumi.ResourceArgs
+    public sealed class XssMatchSetXssMatchTupleArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.XssMatchSetFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public XssMatchSetXssMatchTupleArgs()
         {
         }
+        public static new XssMatchSetXssMatchTupleArgs Empty => new XssMatchSetXssMatchTupleArgs();
     }
 }

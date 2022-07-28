@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceAwsIamConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAwsIamConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("signingRegion")]
         public Input<string>? SigningRegion { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceAwsIamConfigArgs()
         {
         }
+        public static new DataSourceAwsIamConfigArgs Empty => new DataSourceAwsIamConfigArgs();
     }
 }

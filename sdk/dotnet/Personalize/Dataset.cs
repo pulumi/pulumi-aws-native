@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize
     /// Resource schema for AWS::Personalize::Dataset.
     /// </summary>
     [AwsNativeResourceType("aws-native:personalize:Dataset")]
-    public partial class Dataset : Pulumi.CustomResource
+    public partial class Dataset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the dataset
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Personalize
         }
     }
 
-    public sealed class DatasetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Personalize
         public DatasetArgs()
         {
         }
+        public static new DatasetArgs Empty => new DatasetArgs();
     }
 }

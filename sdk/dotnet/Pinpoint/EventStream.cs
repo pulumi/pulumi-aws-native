@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"EventStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:EventStream")]
-    public partial class EventStream : Pulumi.CustomResource
+    public partial class EventStream : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class EventStreamArgs : Pulumi.ResourceArgs
+    public sealed class EventStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public EventStreamArgs()
         {
         }
+        public static new EventStreamArgs Empty => new EventStreamArgs();
     }
 }

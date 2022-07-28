@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectFilterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ProjectFilterGroupArgs : global::Pulumi.ResourceArgs
     {
         public ProjectFilterGroupArgs()
         {
         }
+        public static new ProjectFilterGroupArgs Empty => new ProjectFilterGroupArgs();
     }
 }

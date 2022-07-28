@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class PermissionsColumnWildcardArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsColumnWildcardArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
         public PermissionsColumnWildcardArgs()
         {
         }
+        public static new PermissionsColumnWildcardArgs Empty => new PermissionsColumnWildcardArgs();
     }
 }

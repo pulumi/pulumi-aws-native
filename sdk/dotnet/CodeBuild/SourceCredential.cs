@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeBuild
     /// </summary>
     [Obsolete(@"SourceCredential is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codebuild:SourceCredential")]
-    public partial class SourceCredential : Pulumi.CustomResource
+    public partial class SourceCredential : global::Pulumi.CustomResource
     {
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CodeBuild
         }
     }
 
-    public sealed class SourceCredentialArgs : Pulumi.ResourceArgs
+    public sealed class SourceCredentialArgs : global::Pulumi.ResourceArgs
     {
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.CodeBuild
         public SourceCredentialArgs()
         {
         }
+        public static new SourceCredentialArgs Empty => new SourceCredentialArgs();
     }
 }

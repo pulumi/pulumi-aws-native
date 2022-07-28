@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceElasticInferenceAcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class InstanceElasticInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceElasticInferenceAcceleratorArgs()
         {
         }
+        public static new InstanceElasticInferenceAcceleratorArgs Empty => new InstanceElasticInferenceAcceleratorArgs();
     }
 }

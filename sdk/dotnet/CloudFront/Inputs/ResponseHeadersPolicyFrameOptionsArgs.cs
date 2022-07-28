@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyFrameOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyFrameOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("frameOption", required: true)]
         public Input<string> FrameOption { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyFrameOptionsArgs()
         {
         }
+        public static new ResponseHeadersPolicyFrameOptionsArgs Empty => new ResponseHeadersPolicyFrameOptionsArgs();
     }
 }

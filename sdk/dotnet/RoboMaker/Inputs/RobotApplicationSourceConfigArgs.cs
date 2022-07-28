@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker.Inputs
 {
 
-    public sealed class RobotApplicationSourceConfigArgs : Pulumi.ResourceArgs
+    public sealed class RobotApplicationSourceConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The architecture of robot application.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         public RobotApplicationSourceConfigArgs()
         {
         }
+        public static new RobotApplicationSourceConfigArgs Empty => new RobotApplicationSourceConfigArgs();
     }
 }

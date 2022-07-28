@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableTimeToLiveSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableTimeToLiveSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeName")]
         public Input<string>? AttributeName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableTimeToLiveSpecificationArgs()
         {
         }
+        public static new GlobalTableTimeToLiveSpecificationArgs Empty => new GlobalTableTimeToLiveSpecificationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexSearchArgs : Pulumi.ResourceArgs
+    public sealed class IndexSearchArgs : global::Pulumi.ResourceArgs
     {
         [Input("displayable")]
         public Input<bool>? Displayable { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexSearchArgs()
         {
         }
+        public static new IndexSearchArgs Empty => new IndexSearchArgs();
     }
 }

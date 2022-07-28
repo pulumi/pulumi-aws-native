@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// Permission set on private certificate authority
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:Permission")]
-    public partial class Permission : Pulumi.CustomResource
+    public partial class Permission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ACMPCA
         }
     }
 
-    public sealed class PermissionArgs : Pulumi.ResourceArgs
+    public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.ACMPCA
         public PermissionArgs()
         {
         }
+        public static new PermissionArgs Empty => new PermissionArgs();
     }
 }

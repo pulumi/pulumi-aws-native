@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionFunctionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionFunctionAssociationArgs()
         {
         }
+        public static new DistributionFunctionAssociationArgs Empty => new DistributionFunctionAssociationArgs();
     }
 }

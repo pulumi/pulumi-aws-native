@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Location
     }
 
 
-    public sealed class GetMapArgs : Pulumi.InvokeArgs
+    public sealed class GetMapArgs : global::Pulumi.InvokeArgs
     {
         [Input("mapName", required: true)]
         public string MapName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Location
         public GetMapArgs()
         {
         }
+        public static new GetMapArgs Empty => new GetMapArgs();
     }
 
-    public sealed class GetMapInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMapInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Location
         public GetMapInvokeArgs()
         {
         }
+        public static new GetMapInvokeArgs Empty => new GetMapInvokeArgs();
     }
 
 

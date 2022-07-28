@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class LayerLifecycleEventConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LayerLifecycleEventConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("shutdownEventConfiguration")]
         public Input<Inputs.LayerShutdownEventConfigurationArgs>? ShutdownEventConfiguration { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public LayerLifecycleEventConfigurationArgs()
         {
         }
+        public static new LayerLifecycleEventConfigurationArgs Empty => new LayerLifecycleEventConfigurationArgs();
     }
 }

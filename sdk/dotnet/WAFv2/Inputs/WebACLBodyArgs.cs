@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The body of a web request. This immediately follows the request headers.
     /// </summary>
-    public sealed class WebACLBodyArgs : Pulumi.ResourceArgs
+    public sealed class WebACLBodyArgs : global::Pulumi.ResourceArgs
     {
         [Input("oversizeHandling")]
         public Input<Pulumi.AwsNative.WAFv2.WebACLOversizeHandling>? OversizeHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLBodyArgs()
         {
         }
+        public static new WebACLBodyArgs Empty => new WebACLBodyArgs();
     }
 }

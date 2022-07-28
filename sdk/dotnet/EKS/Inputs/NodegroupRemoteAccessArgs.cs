@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing a remote access configuration specification for AWS EKS Nodegroup.
     /// </summary>
-    public sealed class NodegroupRemoteAccessArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupRemoteAccessArgs : global::Pulumi.ResourceArgs
     {
         [Input("ec2SshKey", required: true)]
         public Input<string> Ec2SshKey { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public NodegroupRemoteAccessArgs()
         {
         }
+        public static new NodegroupRemoteAccessArgs Empty => new NodegroupRemoteAccessArgs();
     }
 }

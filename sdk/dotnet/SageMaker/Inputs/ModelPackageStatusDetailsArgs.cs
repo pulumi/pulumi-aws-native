@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Details about the current status of the model package.
     /// </summary>
-    public sealed class ModelPackageStatusDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageStatusDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("imageScanStatuses")]
         private InputList<Inputs.ModelPackageStatusItemArgs>? _imageScanStatuses;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageStatusDetailsArgs()
         {
         }
+        public static new ModelPackageStatusDetailsArgs Empty => new ModelPackageStatusDetailsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceFleetConfigInstanceTypeConfigArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetConfigInstanceTypeConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("bidPrice")]
         public Input<string>? BidPrice { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceFleetConfigInstanceTypeConfigArgs()
         {
         }
+        public static new InstanceFleetConfigInstanceTypeConfigArgs Empty => new InstanceFleetConfigInstanceTypeConfigArgs();
     }
 }

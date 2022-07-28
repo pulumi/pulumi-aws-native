@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamKinesisStreamSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamKinesisStreamSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kinesisStreamARN", required: true)]
         public Input<string> KinesisStreamARN { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamKinesisStreamSourceConfigurationArgs()
         {
         }
+        public static new DeliveryStreamKinesisStreamSourceConfigurationArgs Empty => new DeliveryStreamKinesisStreamSourceConfigurationArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"BaiduChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:BaiduChannel")]
-    public partial class BaiduChannel : Pulumi.CustomResource
+    public partial class BaiduChannel : global::Pulumi.CustomResource
     {
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class BaiduChannelArgs : Pulumi.ResourceArgs
+    public sealed class BaiduChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public BaiduChannelArgs()
         {
         }
+        public static new BaiduChannelArgs Empty => new BaiduChannelArgs();
     }
 }

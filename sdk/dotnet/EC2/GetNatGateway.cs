@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("natGatewayId", required: true)]
         public string NatGatewayId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNatGatewayArgs()
         {
         }
+        public static new GetNatGatewayArgs Empty => new GetNatGatewayArgs();
     }
 
-    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("natGatewayId", required: true)]
         public Input<string> NatGatewayId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNatGatewayInvokeArgs()
         {
         }
+        public static new GetNatGatewayInvokeArgs Empty => new GetNatGatewayInvokeArgs();
     }
 
 

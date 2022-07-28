@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Amazon EBS-specific block device mapping specifications. 
     /// </summary>
-    public sealed class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use to configure delete on termination of the associated device.
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs()
         {
         }
+        public static new ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs Empty => new ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs();
     }
 }

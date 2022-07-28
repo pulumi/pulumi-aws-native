@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetClusterSecurityGroupIngressArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSecurityGroupIngressArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterSecurityGroupIngressArgs()
         {
         }
+        public static new GetClusterSecurityGroupIngressArgs Empty => new GetClusterSecurityGroupIngressArgs();
     }
 
-    public sealed class GetClusterSecurityGroupIngressInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSecurityGroupIngressInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterSecurityGroupIngressInvokeArgs()
         {
         }
+        public static new GetClusterSecurityGroupIngressInvokeArgs Empty => new GetClusterSecurityGroupIngressInvokeArgs();
     }
 
 

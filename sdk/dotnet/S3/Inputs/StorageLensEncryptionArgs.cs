@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
     /// </summary>
-    public sealed class StorageLensEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensEncryptionArgs : global::Pulumi.ResourceArgs
     {
         public StorageLensEncryptionArgs()
         {
         }
+        public static new StorageLensEncryptionArgs Empty => new StorageLensEncryptionArgs();
     }
 }

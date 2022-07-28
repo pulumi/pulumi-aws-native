@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A metadata error structure for an analysis.&lt;/p&gt;
     /// </summary>
-    public sealed class AnalysisErrorArgs : Pulumi.ResourceArgs
+    public sealed class AnalysisErrorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public AnalysisErrorArgs()
         {
         }
+        public static new AnalysisErrorArgs Empty => new AnalysisErrorArgs();
     }
 }

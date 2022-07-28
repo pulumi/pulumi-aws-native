@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FSx
     }
 
 
-    public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
+    public sealed class GetFileSystemArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.FSx
         public GetFileSystemArgs()
         {
         }
+        public static new GetFileSystemArgs Empty => new GetFileSystemArgs();
     }
 
-    public sealed class GetFileSystemInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFileSystemInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.FSx
         public GetFileSystemInvokeArgs()
         {
         }
+        public static new GetFileSystemInvokeArgs Empty => new GetFileSystemInvokeArgs();
     }
 
 

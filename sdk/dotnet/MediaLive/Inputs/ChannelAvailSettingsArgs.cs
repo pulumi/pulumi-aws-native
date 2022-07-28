@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAvailSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAvailSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("scte35SpliceInsert")]
         public Input<Inputs.ChannelScte35SpliceInsertArgs>? Scte35SpliceInsert { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAvailSettingsArgs()
         {
         }
+        public static new ChannelAvailSettingsArgs Empty => new ChannelAvailSettingsArgs();
     }
 }

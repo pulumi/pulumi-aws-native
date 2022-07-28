@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DocumentationPartLocationArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationPartLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("method")]
         public Input<string>? Method { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DocumentationPartLocationArgs()
         {
         }
+        public static new DocumentationPartLocationArgs Empty => new DocumentationPartLocationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
     /// <summary>
     /// Configuration to define what content transformation will be applied on which S3 Action.
     /// </summary>
-    public sealed class AccessPointTransformationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointTransformationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
         public AccessPointTransformationConfigurationArgs()
         {
         }
+        public static new AccessPointTransformationConfigurationArgs Empty => new AccessPointTransformationConfigurationArgs();
     }
 }

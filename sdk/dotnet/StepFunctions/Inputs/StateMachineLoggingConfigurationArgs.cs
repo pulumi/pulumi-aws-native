@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class StateMachineLoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations")]
         private InputList<Inputs.StateMachineLogDestinationArgs>? _destinations;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public StateMachineLoggingConfigurationArgs()
         {
         }
+        public static new StateMachineLoggingConfigurationArgs Empty => new StateMachineLoggingConfigurationArgs();
     }
 }

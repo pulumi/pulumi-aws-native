@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
     /// </summary>
-    public sealed class StreamProcessorNotificationChannelArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorNotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the SNS topic.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorNotificationChannelArgs()
         {
         }
+        public static new StreamProcessorNotificationChannelArgs Empty => new StreamProcessorNotificationChannelArgs();
     }
 }

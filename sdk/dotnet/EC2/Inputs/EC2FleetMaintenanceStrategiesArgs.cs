@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetMaintenanceStrategiesArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetMaintenanceStrategiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityRebalance")]
         public Input<Inputs.EC2FleetCapacityRebalanceArgs>? CapacityRebalance { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetMaintenanceStrategiesArgs()
         {
         }
+        public static new EC2FleetMaintenanceStrategiesArgs Empty => new EC2FleetMaintenanceStrategiesArgs();
     }
 }

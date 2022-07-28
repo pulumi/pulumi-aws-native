@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.LakeFormation
     }
 
 
-    public sealed class GetPermissionsArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.LakeFormation
         public GetPermissionsArgs()
         {
         }
+        public static new GetPermissionsArgs Empty => new GetPermissionsArgs();
     }
 
-    public sealed class GetPermissionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.LakeFormation
         public GetPermissionsInvokeArgs()
         {
         }
+        public static new GetPermissionsInvokeArgs Empty => new GetPermissionsInvokeArgs();
     }
 
 

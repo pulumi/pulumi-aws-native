@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Rekognition
     }
 
 
-    public sealed class GetCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetCollectionArgs : global::Pulumi.InvokeArgs
     {
         [Input("collectionId", required: true)]
         public string CollectionId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Rekognition
         public GetCollectionArgs()
         {
         }
+        public static new GetCollectionArgs Empty => new GetCollectionArgs();
     }
 
-    public sealed class GetCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Rekognition
         public GetCollectionInvokeArgs()
         {
         }
+        public static new GetCollectionInvokeArgs Empty => new GetCollectionInvokeArgs();
     }
 
 

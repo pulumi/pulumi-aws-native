@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
-    public sealed class ServiceKeyValuePairArgs : Pulumi.ResourceArgs
+    public sealed class ServiceKeyValuePairArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceKeyValuePairArgs()
         {
         }
+        public static new ServiceKeyValuePairArgs Empty => new ServiceKeyValuePairArgs();
     }
 }

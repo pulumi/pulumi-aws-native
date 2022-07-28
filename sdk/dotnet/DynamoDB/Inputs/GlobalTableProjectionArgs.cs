@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableProjectionArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableProjectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("nonKeyAttributes")]
         private InputList<string>? _nonKeyAttributes;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableProjectionArgs()
         {
         }
+        public static new GlobalTableProjectionArgs Empty => new GlobalTableProjectionArgs();
     }
 }

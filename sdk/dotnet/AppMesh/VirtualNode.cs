@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// </summary>
     [Obsolete(@"VirtualNode is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:VirtualNode")]
-    public partial class VirtualNode : Pulumi.CustomResource
+    public partial class VirtualNode : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AppMesh
         }
     }
 
-    public sealed class VirtualNodeArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.AppMesh
         public VirtualNodeArgs()
         {
         }
+        public static new VirtualNodeArgs Empty => new VirtualNodeArgs();
     }
 }

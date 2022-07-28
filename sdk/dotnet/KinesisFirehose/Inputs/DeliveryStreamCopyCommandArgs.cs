@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamCopyCommandArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamCopyCommandArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyOptions")]
         public Input<string>? CopyOptions { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamCopyCommandArgs()
         {
         }
+        public static new DeliveryStreamCopyCommandArgs Empty => new DeliveryStreamCopyCommandArgs();
     }
 }

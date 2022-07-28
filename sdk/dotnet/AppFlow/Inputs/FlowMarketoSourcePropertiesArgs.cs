@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowMarketoSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowMarketoSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowMarketoSourcePropertiesArgs()
         {
         }
+        public static new FlowMarketoSourcePropertiesArgs Empty => new FlowMarketoSourcePropertiesArgs();
     }
 }

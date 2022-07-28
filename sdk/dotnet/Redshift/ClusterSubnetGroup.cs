@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Redshift
     /// </summary>
     [Obsolete(@"ClusterSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:redshift:ClusterSubnetGroup")]
-    public partial class ClusterSubnetGroup : Pulumi.CustomResource
+    public partial class ClusterSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class ClusterSubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.Redshift
         public ClusterSubnetGroupArgs()
         {
         }
+        public static new ClusterSubnetGroupArgs Empty => new ClusterSubnetGroupArgs();
     }
 }

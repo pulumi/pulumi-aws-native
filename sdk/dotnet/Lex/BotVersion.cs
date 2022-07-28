@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex
     /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:BotVersion")]
-    public partial class BotVersion : Pulumi.CustomResource
+    public partial class BotVersion : global::Pulumi.CustomResource
     {
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Lex
         }
     }
 
-    public sealed class BotVersionArgs : Pulumi.ResourceArgs
+    public sealed class BotVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
@@ -89,5 +89,6 @@ namespace Pulumi.AwsNative.Lex
         public BotVersionArgs()
         {
         }
+        public static new BotVersionArgs Empty => new BotVersionArgs();
     }
 }

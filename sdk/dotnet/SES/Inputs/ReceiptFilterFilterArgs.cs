@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptFilterFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptFilterFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipFilter", required: true)]
         public Input<Inputs.ReceiptFilterIpFilterArgs> IpFilter { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptFilterFilterArgs()
         {
         }
+        public static new ReceiptFilterFilterArgs Empty => new ReceiptFilterFilterArgs();
     }
 }

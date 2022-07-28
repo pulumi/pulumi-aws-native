@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupInstancesDistributionArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupInstancesDistributionArgs : global::Pulumi.ResourceArgs
     {
         [Input("onDemandAllocationStrategy")]
         public Input<string>? OnDemandAllocationStrategy { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupInstancesDistributionArgs()
         {
         }
+        public static new AutoScalingGroupInstancesDistributionArgs Empty => new AutoScalingGroupInstancesDistributionArgs();
     }
 }

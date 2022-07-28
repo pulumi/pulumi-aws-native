@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     /// </summary>
-    public sealed class SecurityProfileStatisticalThresholdArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileStatisticalThresholdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The percentile which resolves to a threshold value by which compliance with a behavior is determined
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileStatisticalThresholdArgs()
         {
         }
+        public static new SecurityProfileStatisticalThresholdArgs Empty => new SecurityProfileStatisticalThresholdArgs();
     }
 }

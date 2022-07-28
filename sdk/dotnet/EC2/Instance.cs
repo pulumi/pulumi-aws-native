@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         [Output("additionalInfo")]
         public Output<string?> AdditionalInfo { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
@@ -371,5 +371,6 @@ namespace Pulumi.AwsNative.EC2
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 }

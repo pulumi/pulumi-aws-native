@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseValidityDateFormatArgs : Pulumi.ResourceArgs
+    public sealed class LicenseValidityDateFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Validity begin date for the license.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseValidityDateFormatArgs()
         {
         }
+        public static new LicenseValidityDateFormatArgs Empty => new LicenseValidityDateFormatArgs();
     }
 }

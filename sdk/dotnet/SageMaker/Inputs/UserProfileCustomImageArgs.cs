@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A custom SageMaker image.
     /// </summary>
-    public sealed class UserProfileCustomImageArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileCustomImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the AppImageConfig.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public UserProfileCustomImageArgs()
         {
         }
+        public static new UserProfileCustomImageArgs Empty => new UserProfileCustomImageArgs();
     }
 }

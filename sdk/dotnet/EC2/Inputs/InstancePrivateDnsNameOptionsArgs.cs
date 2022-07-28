@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstancePrivateDnsNameOptionsArgs : Pulumi.ResourceArgs
+    public sealed class InstancePrivateDnsNameOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableResourceNameDnsAAAARecord")]
         public Input<bool>? EnableResourceNameDnsAAAARecord { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstancePrivateDnsNameOptionsArgs()
         {
         }
+        public static new InstancePrivateDnsNameOptionsArgs Empty => new InstancePrivateDnsNameOptionsArgs();
     }
 }

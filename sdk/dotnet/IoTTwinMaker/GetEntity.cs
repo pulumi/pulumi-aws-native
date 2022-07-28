@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
 
-    public sealed class GetEntityArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the entity.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetEntityArgs()
         {
         }
+        public static new GetEntityArgs Empty => new GetEntityArgs();
     }
 
-    public sealed class GetEntityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the entity.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetEntityInvokeArgs()
         {
         }
+        public static new GetEntityInvokeArgs Empty => new GetEntityInvokeArgs();
     }
 
 

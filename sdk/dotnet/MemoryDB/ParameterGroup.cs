@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB
     /// The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:memorydb:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the parameter group.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.MemoryDB
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the parameter group.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.MemoryDB
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 }

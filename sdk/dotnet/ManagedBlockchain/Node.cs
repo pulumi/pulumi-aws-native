@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
     /// </summary>
     [Obsolete(@"Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:managedblockchain:Node")]
-    public partial class Node : Pulumi.CustomResource
+    public partial class Node : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         }
     }
 
-    public sealed class NodeArgs : Pulumi.ResourceArgs
+    public sealed class NodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public NodeArgs()
         {
         }
+        public static new NodeArgs Empty => new NodeArgs();
     }
 }

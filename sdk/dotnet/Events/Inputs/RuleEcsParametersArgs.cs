@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleEcsParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleEcsParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.RuleCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
@@ -77,5 +77,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleEcsParametersArgs()
         {
         }
+        public static new RuleEcsParametersArgs Empty => new RuleEcsParametersArgs();
     }
 }

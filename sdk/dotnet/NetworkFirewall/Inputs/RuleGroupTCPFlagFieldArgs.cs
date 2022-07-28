@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupTCPFlagFieldArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupTCPFlagFieldArgs : global::Pulumi.ResourceArgs
     {
         [Input("flags", required: true)]
         private InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag>? _flags;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupTCPFlagFieldArgs()
         {
         }
+        public static new RuleGroupTCPFlagFieldArgs Empty => new RuleGroupTCPFlagFieldArgs();
     }
 }

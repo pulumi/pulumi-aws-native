@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Synthetics
     }
 
 
-    public sealed class GetCanaryArgs : Pulumi.InvokeArgs
+    public sealed class GetCanaryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the canary.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Synthetics
         public GetCanaryArgs()
         {
         }
+        public static new GetCanaryArgs Empty => new GetCanaryArgs();
     }
 
-    public sealed class GetCanaryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCanaryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the canary.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Synthetics
         public GetCanaryInvokeArgs()
         {
         }
+        public static new GetCanaryInvokeArgs Empty => new GetCanaryInvokeArgs();
     }
 
 

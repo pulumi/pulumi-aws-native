@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTransitGatewayPeeringAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayPeeringAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the transit gateway peering attachment.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayPeeringAttachmentArgs()
         {
         }
+        public static new GetTransitGatewayPeeringAttachmentArgs Empty => new GetTransitGatewayPeeringAttachmentArgs();
     }
 
-    public sealed class GetTransitGatewayPeeringAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayPeeringAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the transit gateway peering attachment.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayPeeringAttachmentInvokeArgs()
         {
         }
+        public static new GetTransitGatewayPeeringAttachmentInvokeArgs Empty => new GetTransitGatewayPeeringAttachmentInvokeArgs();
     }
 
 

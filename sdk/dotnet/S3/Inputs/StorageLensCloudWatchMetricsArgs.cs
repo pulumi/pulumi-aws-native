@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
     /// </summary>
-    public sealed class StorageLensCloudWatchMetricsArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensCloudWatchMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether CloudWatch metrics are enabled or disabled.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensCloudWatchMetricsArgs()
         {
         }
+        public static new StorageLensCloudWatchMetricsArgs Empty => new StorageLensCloudWatchMetricsArgs();
     }
 }

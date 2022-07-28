@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class AnomalyDetectorConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedTimeRanges")]
         private InputList<Inputs.AnomalyDetectorRangeArgs>? _excludedTimeRanges;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public AnomalyDetectorConfigurationArgs()
         {
         }
+        public static new AnomalyDetectorConfigurationArgs Empty => new AnomalyDetectorConfigurationArgs();
     }
 }

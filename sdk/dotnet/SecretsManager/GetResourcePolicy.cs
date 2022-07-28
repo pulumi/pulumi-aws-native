@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SecretsManager
     }
 
 
-    public sealed class GetResourcePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SecretsManager
         public GetResourcePolicyArgs()
         {
         }
+        public static new GetResourcePolicyArgs Empty => new GetResourcePolicyArgs();
     }
 
-    public sealed class GetResourcePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SecretsManager
         public GetResourcePolicyInvokeArgs()
         {
         }
+        public static new GetResourcePolicyInvokeArgs Empty => new GetResourcePolicyInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
     /// </summary>
-    public sealed class GameServerGroupLaunchTemplateArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameServerGroupLaunchTemplateArgs()
         {
         }
+        public static new GameServerGroupLaunchTemplateArgs Empty => new GameServerGroupLaunchTemplateArgs();
     }
 }

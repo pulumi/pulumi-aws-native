@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Sets the environment variables in the Docker container
     /// </summary>
-    public sealed class ModelPackageEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         public ModelPackageEnvironmentArgs()
         {
         }
+        public static new ModelPackageEnvironmentArgs Empty => new ModelPackageEnvironmentArgs();
     }
 }

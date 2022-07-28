@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     }
 
 
-    public sealed class GetApplicationVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public GetApplicationVersionArgs()
         {
         }
+        public static new GetApplicationVersionArgs Empty => new GetApplicationVersionArgs();
     }
 
-    public sealed class GetApplicationVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public GetApplicationVersionInvokeArgs()
         {
         }
+        public static new GetApplicationVersionInvokeArgs Empty => new GetApplicationVersionInvokeArgs();
     }
 
 

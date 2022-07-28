@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     /// </summary>
     [Obsolete(@"Identity is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpointemail:Identity")]
-    public partial class Identity : Pulumi.CustomResource
+    public partial class Identity : global::Pulumi.CustomResource
     {
         [Output("dkimSigningEnabled")]
         public Output<bool?> DkimSigningEnabled { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         }
     }
 
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("dkimSigningEnabled")]
         public Input<bool>? DkimSigningEnabled { get; set; }
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.PinpointEmail
         public IdentityArgs()
         {
         }
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

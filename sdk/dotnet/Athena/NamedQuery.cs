@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena
     /// Resource schema for AWS::Athena::NamedQuery
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:NamedQuery")]
-    public partial class NamedQuery : Pulumi.CustomResource
+    public partial class NamedQuery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The database to which the query belongs.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Athena
         }
     }
 
-    public sealed class NamedQueryArgs : Pulumi.ResourceArgs
+    public sealed class NamedQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The database to which the query belongs.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Athena
         public NamedQueryArgs()
         {
         }
+        public static new NamedQueryArgs Empty => new NamedQueryArgs();
     }
 }

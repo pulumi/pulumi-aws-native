@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Checks valid token exists with request.
     /// </summary>
-    public sealed class WebACLCaptchaActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCaptchaActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRequestHandling")]
         public Input<Inputs.WebACLCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLCaptchaActionArgs()
         {
         }
+        public static new WebACLCaptchaActionArgs Empty => new WebACLCaptchaActionArgs();
     }
 }

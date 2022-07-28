@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// FSx OpenZFS file system NFS protocol information
     /// </summary>
-    public sealed class LocationFSxOpenZFSNFSArgs : Pulumi.ResourceArgs
+    public sealed class LocationFSxOpenZFSNFSArgs : global::Pulumi.ResourceArgs
     {
         [Input("mountOptions", required: true)]
         public Input<Inputs.LocationFSxOpenZFSMountOptionsArgs> MountOptions { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationFSxOpenZFSNFSArgs()
         {
         }
+        public static new LocationFSxOpenZFSNFSArgs Empty => new LocationFSxOpenZFSNFSArgs();
     }
 }

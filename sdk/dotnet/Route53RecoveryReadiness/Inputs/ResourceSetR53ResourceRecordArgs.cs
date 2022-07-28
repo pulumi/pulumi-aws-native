@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// <summary>
     /// The Route 53 resource that a DNS target resource record points to.
     /// </summary>
-    public sealed class ResourceSetR53ResourceRecordArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetR53ResourceRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS target domain name.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetR53ResourceRecordArgs()
         {
         }
+        public static new ResourceSetR53ResourceRecordArgs Empty => new ResourceSetR53ResourceRecordArgs();
     }
 }

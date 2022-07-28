@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetAuthorizerArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
         [Input("authorizerName", required: true)]
         public string AuthorizerName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetAuthorizerArgs()
         {
         }
+        public static new GetAuthorizerArgs Empty => new GetAuthorizerArgs();
     }
 
-    public sealed class GetAuthorizerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("authorizerName", required: true)]
         public Input<string> AuthorizerName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetAuthorizerInvokeArgs()
         {
         }
+        public static new GetAuthorizerInvokeArgs Empty => new GetAuthorizerInvokeArgs();
     }
 
 

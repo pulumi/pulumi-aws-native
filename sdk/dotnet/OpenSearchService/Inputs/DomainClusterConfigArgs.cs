@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainClusterConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("dedicatedMasterCount")]
         public Input<int>? DedicatedMasterCount { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainClusterConfigArgs()
         {
         }
+        public static new DomainClusterConfigArgs Empty => new DomainClusterConfigArgs();
     }
 }

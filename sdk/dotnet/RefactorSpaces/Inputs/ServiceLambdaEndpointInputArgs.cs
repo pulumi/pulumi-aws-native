@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 {
 
-    public sealed class ServiceLambdaEndpointInputArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLambdaEndpointInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         public ServiceLambdaEndpointInputArgs()
         {
         }
+        public static new ServiceLambdaEndpointInputArgs Empty => new ServiceLambdaEndpointInputArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetByteMatchSetArgs : Pulumi.InvokeArgs
+    public sealed class GetByteMatchSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetByteMatchSetArgs()
         {
         }
+        public static new GetByteMatchSetArgs Empty => new GetByteMatchSetArgs();
     }
 
-    public sealed class GetByteMatchSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetByteMatchSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetByteMatchSetInvokeArgs()
         {
         }
+        public static new GetByteMatchSetInvokeArgs Empty => new GetByteMatchSetInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTransitGatewayRouteTablePropagationArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayRouteTablePropagationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayRouteTablePropagationArgs()
         {
         }
+        public static new GetTransitGatewayRouteTablePropagationArgs Empty => new GetTransitGatewayRouteTablePropagationArgs();
     }
 
-    public sealed class GetTransitGatewayRouteTablePropagationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayRouteTablePropagationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayRouteTablePropagationInvokeArgs()
         {
         }
+        public static new GetTransitGatewayRouteTablePropagationInvokeArgs Empty => new GetTransitGatewayRouteTablePropagationInvokeArgs();
     }
 
 

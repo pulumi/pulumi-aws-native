@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS.Inputs
 {
 
-    public sealed class FileSystemBackupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EFS.Inputs
         public FileSystemBackupPolicyArgs()
         {
         }
+        public static new FileSystemBackupPolicyArgs Empty => new FileSystemBackupPolicyArgs();
     }
 }

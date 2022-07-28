@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Configuration details about the monitoring schedule.
     /// </summary>
-    public sealed class MonitoringScheduleScheduleConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleScheduleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A cron expression that describes details about the monitoring schedule.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleScheduleConfigArgs()
         {
         }
+        public static new MonitoringScheduleScheduleConfigArgs Empty => new MonitoringScheduleScheduleConfigArgs();
     }
 }

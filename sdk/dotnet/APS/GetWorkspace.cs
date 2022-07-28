@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.APS
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Workspace arn.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.APS
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Workspace arn.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.APS
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

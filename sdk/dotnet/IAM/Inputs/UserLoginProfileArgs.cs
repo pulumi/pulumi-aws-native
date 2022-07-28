@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM.Inputs
 {
 
-    public sealed class UserLoginProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserLoginProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IAM.Inputs
         public UserLoginProfileArgs()
         {
         }
+        public static new UserLoginProfileArgs Empty => new UserLoginProfileArgs();
     }
 }

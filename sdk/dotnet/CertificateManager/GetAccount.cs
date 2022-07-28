@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CertificateManager
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CertificateManager
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CertificateManager
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

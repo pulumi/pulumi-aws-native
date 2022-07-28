@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetGlobalClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RDS
         public GetGlobalClusterArgs()
         {
         }
+        public static new GetGlobalClusterArgs Empty => new GetGlobalClusterArgs();
     }
 
-    public sealed class GetGlobalClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RDS
         public GetGlobalClusterInvokeArgs()
         {
         }
+        public static new GetGlobalClusterInvokeArgs Empty => new GetGlobalClusterInvokeArgs();
     }
 
 

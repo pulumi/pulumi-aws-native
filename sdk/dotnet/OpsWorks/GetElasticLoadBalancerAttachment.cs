@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorks
     }
 
 
-    public sealed class GetElasticLoadBalancerAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticLoadBalancerAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetElasticLoadBalancerAttachmentArgs()
         {
         }
+        public static new GetElasticLoadBalancerAttachmentArgs Empty => new GetElasticLoadBalancerAttachmentArgs();
     }
 
-    public sealed class GetElasticLoadBalancerAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticLoadBalancerAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetElasticLoadBalancerAttachmentInvokeArgs()
         {
         }
+        public static new GetElasticLoadBalancerAttachmentInvokeArgs Empty => new GetElasticLoadBalancerAttachmentInvokeArgs();
     }
 
 

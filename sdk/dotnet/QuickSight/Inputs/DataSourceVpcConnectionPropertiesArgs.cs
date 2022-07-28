@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;VPC connection properties.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceVpcConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceVpcConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) for the VPC connection.&lt;/p&gt;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceVpcConnectionPropertiesArgs()
         {
         }
+        public static new DataSourceVpcConnectionPropertiesArgs Empty => new DataSourceVpcConnectionPropertiesArgs();
     }
 }

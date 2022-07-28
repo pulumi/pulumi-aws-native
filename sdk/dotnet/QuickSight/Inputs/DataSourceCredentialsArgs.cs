@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// &lt;p&gt;Data source credentials. This is a variant type structure. For this structure to be
     ///             valid, only one of the attributes can be non-null.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of a data source that has the credential pair that you
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceCredentialsArgs()
         {
         }
+        public static new DataSourceCredentialsArgs Empty => new DataSourceCredentialsArgs();
     }
 }

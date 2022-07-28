@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAvailBlankingArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAvailBlankingArgs : global::Pulumi.ResourceArgs
     {
         [Input("availBlankingImage")]
         public Input<Inputs.ChannelInputLocationArgs>? AvailBlankingImage { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAvailBlankingArgs()
         {
         }
+        public static new ChannelAvailBlankingArgs Empty => new ChannelAvailBlankingArgs();
     }
 }

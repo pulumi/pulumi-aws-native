@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
     /// Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
     /// </summary>
     [AwsNativeResourceType("aws-native:codestarconnections:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the connection. Connection names must be unique in an AWS user account.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 }

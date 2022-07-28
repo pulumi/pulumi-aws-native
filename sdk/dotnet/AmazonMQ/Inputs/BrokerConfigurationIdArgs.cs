@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerConfigurationIdArgs : Pulumi.ResourceArgs
+    public sealed class BrokerConfigurationIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerConfigurationIdArgs()
         {
         }
+        public static new BrokerConfigurationIdArgs Empty => new BrokerConfigurationIdArgs();
     }
 }

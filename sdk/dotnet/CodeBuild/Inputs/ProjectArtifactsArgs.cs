@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectArtifactsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArtifactsArgs : global::Pulumi.ResourceArgs
     {
         [Input("artifactIdentifier")]
         public Input<string>? ArtifactIdentifier { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectArtifactsArgs()
         {
         }
+        public static new ProjectArtifactsArgs Empty => new ProjectArtifactsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
-    public sealed class ScalableTargetScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ScalableTargetScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public ScalableTargetScheduledActionArgs()
         {
         }
+        public static new ScalableTargetScheduledActionArgs Empty => new ScalableTargetScheduledActionArgs();
     }
 }

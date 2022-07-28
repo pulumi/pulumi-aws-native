@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class FuotaTaskLoRaWANArgs : Pulumi.ResourceArgs
+    public sealed class FuotaTaskLoRaWANArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// FUOTA task LoRaWAN RF region
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public FuotaTaskLoRaWANArgs()
         {
         }
+        public static new FuotaTaskLoRaWANArgs Empty => new FuotaTaskLoRaWANArgs();
     }
 }

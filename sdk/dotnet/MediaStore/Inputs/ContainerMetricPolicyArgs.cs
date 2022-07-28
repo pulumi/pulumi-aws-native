@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaStore.Inputs
 {
 
-    public sealed class ContainerMetricPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ContainerMetricPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerLevelMetrics", required: true)]
         public Input<string> ContainerLevelMetrics { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.MediaStore.Inputs
         public ContainerMetricPolicyArgs()
         {
         }
+        public static new ContainerMetricPolicyArgs Empty => new ContainerMetricPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// Resource schema for AWS::AutoScaling::WarmPool.
     /// </summary>
     [AwsNativeResourceType("aws-native:autoscaling:WarmPool")]
-    public partial class WarmPool : Pulumi.CustomResource
+    public partial class WarmPool : global::Pulumi.CustomResource
     {
         [Output("autoScalingGroupName")]
         public Output<string> AutoScalingGroupName { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class WarmPoolArgs : Pulumi.ResourceArgs
+    public sealed class WarmPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public WarmPoolArgs()
         {
         }
+        public static new WarmPoolArgs Empty => new WarmPoolArgs();
     }
 }

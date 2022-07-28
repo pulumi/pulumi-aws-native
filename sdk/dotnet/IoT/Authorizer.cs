@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Creates an authorizer.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizerFunctionArn", required: true)]
         public Input<string> AuthorizerFunctionArn { get; set; } = null!;
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.IoT
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 }

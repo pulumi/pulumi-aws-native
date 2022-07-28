@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// Resource schema for AWS::MediaConnect::FlowEntitlement
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowEntitlement")]
-    public partial class FlowEntitlement : Pulumi.CustomResource
+    public partial class FlowEntitlement : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
     }
 
-    public sealed class FlowEntitlementArgs : Pulumi.ResourceArgs
+    public sealed class FlowEntitlementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public FlowEntitlementArgs()
         {
         }
+        public static new FlowEntitlementArgs Empty => new FlowEntitlementArgs();
     }
 }

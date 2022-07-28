@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetModelBiasJobDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetModelBiasJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelBiasJobDefinitionArgs()
         {
         }
+        public static new GetModelBiasJobDefinitionArgs Empty => new GetModelBiasJobDefinitionArgs();
     }
 
-    public sealed class GetModelBiasJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetModelBiasJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelBiasJobDefinitionInvokeArgs()
         {
         }
+        public static new GetModelBiasJobDefinitionInvokeArgs Empty => new GetModelBiasJobDefinitionInvokeArgs();
     }
 
 

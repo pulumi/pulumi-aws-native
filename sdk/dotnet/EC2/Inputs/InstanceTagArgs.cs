@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceTagArgs : Pulumi.ResourceArgs
+    public sealed class InstanceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceTagArgs()
         {
         }
+        public static new InstanceTagArgs Empty => new InstanceTagArgs();
     }
 }

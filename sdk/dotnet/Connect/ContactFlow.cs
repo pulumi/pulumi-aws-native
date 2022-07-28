@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::ContactFlow
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:ContactFlow")]
-    public partial class ContactFlow : Pulumi.CustomResource
+    public partial class ContactFlow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the contact flow (ARN).
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class ContactFlowArgs : Pulumi.ResourceArgs
+    public sealed class ContactFlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the contact flow in JSON format.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.Connect
         public ContactFlowArgs()
         {
         }
+        public static new ContactFlowArgs Empty => new ContactFlowArgs();
     }
 }

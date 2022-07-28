@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointVariantPropertyArgs : Pulumi.ResourceArgs
+    public sealed class EndpointVariantPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("variantPropertyType")]
         public Input<string>? VariantPropertyType { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointVariantPropertyArgs()
         {
         }
+        public static new EndpointVariantPropertyArgs Empty => new EndpointVariantPropertyArgs();
     }
 }

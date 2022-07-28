@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNetworkInsightsAnalysisArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsAnalysisArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsAnalysisId", required: true)]
         public string NetworkInsightsAnalysisId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsAnalysisArgs()
         {
         }
+        public static new GetNetworkInsightsAnalysisArgs Empty => new GetNetworkInsightsAnalysisArgs();
     }
 
-    public sealed class GetNetworkInsightsAnalysisInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInsightsAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("networkInsightsAnalysisId", required: true)]
         public Input<string> NetworkInsightsAnalysisId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInsightsAnalysisInvokeArgs()
         {
         }
+        public static new GetNetworkInsightsAnalysisInvokeArgs Empty => new GetNetworkInsightsAnalysisInvokeArgs();
     }
 
 

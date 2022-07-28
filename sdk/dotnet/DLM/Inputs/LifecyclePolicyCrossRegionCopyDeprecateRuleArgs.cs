@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyCrossRegionCopyDeprecateRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyCrossRegionCopyDeprecateRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyCrossRegionCopyDeprecateRuleArgs()
         {
         }
+        public static new LifecyclePolicyCrossRegionCopyDeprecateRuleArgs Empty => new LifecyclePolicyCrossRegionCopyDeprecateRuleArgs();
     }
 }

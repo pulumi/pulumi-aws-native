@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::Subnet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:Subnet")]
-    public partial class Subnet : Pulumi.CustomResource
+    public partial class Subnet : global::Pulumi.CustomResource
     {
         [Output("assignIpv6AddressOnCreation")]
         public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
@@ -149,5 +149,6 @@ namespace Pulumi.AwsNative.EC2
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 }

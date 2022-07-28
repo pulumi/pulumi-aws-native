@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCGatewayAttachment")]
-    public partial class VPCGatewayAttachment : Pulumi.CustomResource
+    public partial class VPCGatewayAttachment : global::Pulumi.CustomResource
     {
         [Output("internetGatewayId")]
         public Output<string?> InternetGatewayId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCGatewayAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VPCGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("internetGatewayId")]
         public Input<string>? InternetGatewayId { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCGatewayAttachmentArgs()
         {
         }
+        public static new VPCGatewayAttachmentArgs Empty => new VPCGatewayAttachmentArgs();
     }
 }

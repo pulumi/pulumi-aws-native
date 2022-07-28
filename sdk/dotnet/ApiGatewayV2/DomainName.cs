@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// </summary>
     [Obsolete(@"DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:DomainName")]
-    public partial class DomainName : Pulumi.CustomResource
+    public partial class DomainName : global::Pulumi.CustomResource
     {
         [Output("domainName")]
         public Output<string> DomainNameValue { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class DomainNameArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainName", required: true)]
         public Input<string> DomainNameValue { get; set; } = null!;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public DomainNameArgs()
         {
         }
+        public static new DomainNameArgs Empty => new DomainNameArgs();
     }
 }

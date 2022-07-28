@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// `"name1", "address1"`
     /// `"name2", "address2"`
     /// </summary>
-    public sealed class ApplicationCSVMappingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCSVMappingParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCSVMappingParametersArgs()
         {
         }
+        public static new ApplicationCSVMappingParametersArgs Empty => new ApplicationCSVMappingParametersArgs();
     }
 }

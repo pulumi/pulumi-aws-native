@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"CodeRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:CodeRepository")]
-    public partial class CodeRepository : Pulumi.CustomResource
+    public partial class CodeRepository : global::Pulumi.CustomResource
     {
         [Output("codeRepositoryName")]
         public Output<string?> CodeRepositoryName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class CodeRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class CodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("codeRepositoryName")]
         public Input<string>? CodeRepositoryName { get; set; }
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.SageMaker
         public CodeRepositoryArgs()
         {
         }
+        public static new CodeRepositoryArgs Empty => new CodeRepositoryArgs();
     }
 }

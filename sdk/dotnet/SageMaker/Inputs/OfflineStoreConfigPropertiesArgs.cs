@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class OfflineStoreConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class OfflineStoreConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataCatalogConfig")]
         public Input<Inputs.FeatureGroupDataCatalogConfigArgs>? DataCatalogConfig { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public OfflineStoreConfigPropertiesArgs()
         {
         }
+        public static new OfflineStoreConfigPropertiesArgs Empty => new OfflineStoreConfigPropertiesArgs();
     }
 }

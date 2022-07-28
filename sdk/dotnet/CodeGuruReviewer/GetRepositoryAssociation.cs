@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
     }
 
 
-    public sealed class GetRepositoryAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the repository association.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         public GetRepositoryAssociationArgs()
         {
         }
+        public static new GetRepositoryAssociationArgs Empty => new GetRepositoryAssociationArgs();
     }
 
-    public sealed class GetRepositoryAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the repository association.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         public GetRepositoryAssociationInvokeArgs()
         {
         }
+        public static new GetRepositoryAssociationInvokeArgs Empty => new GetRepositoryAssociationInvokeArgs();
     }
 
 

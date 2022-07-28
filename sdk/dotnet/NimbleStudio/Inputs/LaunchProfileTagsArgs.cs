@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    public sealed class LaunchProfileTagsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchProfileTagsArgs : global::Pulumi.ResourceArgs
     {
         public LaunchProfileTagsArgs()
         {
         }
+        public static new LaunchProfileTagsArgs Empty => new LaunchProfileTagsArgs();
     }
 }

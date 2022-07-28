@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetTableArgs : Pulumi.InvokeArgs
+    public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetTableArgs()
         {
         }
+        public static new GetTableArgs Empty => new GetTableArgs();
     }
 
-    public sealed class GetTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetTableInvokeArgs()
         {
         }
+        public static new GetTableInvokeArgs Empty => new GetTableInvokeArgs();
     }
 
 

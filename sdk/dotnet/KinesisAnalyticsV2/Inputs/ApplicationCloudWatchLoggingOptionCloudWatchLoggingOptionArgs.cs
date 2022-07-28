@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("logStreamARN", required: true)]
         public Input<string> LogStreamARN { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs()
         {
         }
+        public static new ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs Empty => new ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs();
     }
 }

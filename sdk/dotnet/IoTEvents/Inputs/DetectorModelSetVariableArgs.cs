@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information about the variable and its new value.
     /// </summary>
-    public sealed class DetectorModelSetVariableArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelSetVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The new value of the variable.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelSetVariableArgs()
         {
         }
+        public static new DetectorModelSetVariableArgs Empty => new DetectorModelSetVariableArgs();
     }
 }

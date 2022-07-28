@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("classification")]
         public Input<string>? Classification { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterConfigurationArgs()
         {
         }
+        public static new ClusterConfigurationArgs Empty => new ClusterConfigurationArgs();
     }
 }

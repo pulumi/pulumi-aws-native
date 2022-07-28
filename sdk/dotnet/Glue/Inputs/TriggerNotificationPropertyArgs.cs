@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TriggerNotificationPropertyArgs : Pulumi.ResourceArgs
+    public sealed class TriggerNotificationPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("notifyDelayAfter")]
         public Input<int>? NotifyDelayAfter { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TriggerNotificationPropertyArgs()
         {
         }
+        public static new TriggerNotificationPropertyArgs Empty => new TriggerNotificationPropertyArgs();
     }
 }

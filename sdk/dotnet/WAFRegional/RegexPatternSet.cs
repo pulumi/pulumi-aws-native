@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:RegexPatternSet")]
-    public partial class RegexPatternSet : Pulumi.CustomResource
+    public partial class RegexPatternSet : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class RegexPatternSetArgs : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public RegexPatternSetArgs()
         {
         }
+        public static new RegexPatternSetArgs Empty => new RegexPatternSetArgs();
     }
 }

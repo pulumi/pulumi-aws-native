@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyParametersArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeBootVolume")]
         public Input<bool>? ExcludeBootVolume { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyParametersArgs()
         {
         }
+        public static new LifecyclePolicyParametersArgs Empty => new LifecyclePolicyParametersArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleAssetPropertyTimestampArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleAssetPropertyTimestampArgs : global::Pulumi.ResourceArgs
     {
         [Input("offsetInNanos")]
         public Input<string>? OffsetInNanos { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleAssetPropertyTimestampArgs()
         {
         }
+        public static new TopicRuleAssetPropertyTimestampArgs Empty => new TopicRuleAssetPropertyTimestampArgs();
     }
 }

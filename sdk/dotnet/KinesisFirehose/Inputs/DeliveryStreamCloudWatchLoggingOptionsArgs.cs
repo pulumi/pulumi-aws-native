@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamCloudWatchLoggingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamCloudWatchLoggingOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamCloudWatchLoggingOptionsArgs()
         {
         }
+        public static new DeliveryStreamCloudWatchLoggingOptionsArgs Empty => new DeliveryStreamCloudWatchLoggingOptionsArgs();
     }
 }

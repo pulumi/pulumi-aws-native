@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppIntegrations
     /// Resource Type definition for AWS::AppIntegrations::DataIntegration
     /// </summary>
     [AwsNativeResourceType("aws-native:appintegrations:DataIntegration")]
-    public partial class DataIntegration : Pulumi.CustomResource
+    public partial class DataIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the data integration.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         }
     }
 
-    public sealed class DataIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class DataIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data integration description.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.AppIntegrations
         public DataIntegrationArgs()
         {
         }
+        public static new DataIntegrationArgs Empty => new DataIntegrationArgs();
     }
 }

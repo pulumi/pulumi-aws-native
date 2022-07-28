@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// </summary>
     [Obsolete(@"ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:ApplicationVersion")]
-    public partial class ApplicationVersion : Pulumi.CustomResource
+    public partial class ApplicationVersion : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         }
     }
 
-    public sealed class ApplicationVersionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public ApplicationVersionArgs()
         {
         }
+        public static new ApplicationVersionArgs Empty => new ApplicationVersionArgs();
     }
 }

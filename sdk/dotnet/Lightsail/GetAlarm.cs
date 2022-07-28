@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetAlarmArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetAlarmArgs()
         {
         }
+        public static new GetAlarmArgs Empty => new GetAlarmArgs();
     }
 
-    public sealed class GetAlarmInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetAlarmInvokeArgs()
         {
         }
+        public static new GetAlarmInvokeArgs Empty => new GetAlarmInvokeArgs();
     }
 
 

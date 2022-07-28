@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTransitGatewayMulticastDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayMulticastDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the transit gateway multicast domain.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayMulticastDomainArgs()
         {
         }
+        public static new GetTransitGatewayMulticastDomainArgs Empty => new GetTransitGatewayMulticastDomainArgs();
     }
 
-    public sealed class GetTransitGatewayMulticastDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayMulticastDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the transit gateway multicast domain.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayMulticastDomainInvokeArgs()
         {
         }
+        public static new GetTransitGatewayMulticastDomainInvokeArgs Empty => new GetTransitGatewayMulticastDomainInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerTagsEntryArgs : Pulumi.ResourceArgs
+    public sealed class BrokerTagsEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerTagsEntryArgs()
         {
         }
+        public static new BrokerTagsEntryArgs Empty => new BrokerTagsEntryArgs();
     }
 }

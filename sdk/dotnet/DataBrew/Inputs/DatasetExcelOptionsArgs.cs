@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetExcelOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DatasetExcelOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerRow")]
         public Input<bool>? HeaderRow { get; set; }
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetExcelOptionsArgs()
         {
         }
+        public static new DatasetExcelOptionsArgs Empty => new DatasetExcelOptionsArgs();
     }
 }

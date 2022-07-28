@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Path options for dataset
     /// </summary>
-    public sealed class DatasetPathOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DatasetPathOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("filesLimit")]
         public Input<Inputs.DatasetFilesLimitArgs>? FilesLimit { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetPathOptionsArgs()
         {
         }
+        public static new DatasetPathOptionsArgs Empty => new DatasetPathOptionsArgs();
     }
 }

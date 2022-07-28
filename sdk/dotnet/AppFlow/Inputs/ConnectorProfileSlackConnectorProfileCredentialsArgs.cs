@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileSlackConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileSlackConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials used to access protected resources.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileSlackConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileSlackConnectorProfileCredentialsArgs Empty => new ConnectorProfileSlackConnectorProfileCredentialsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TriggerConditionArgs : Pulumi.ResourceArgs
+    public sealed class TriggerConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("crawlState")]
         public Input<string>? CrawlState { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TriggerConditionArgs()
         {
         }
+        public static new TriggerConditionArgs Empty => new TriggerConditionArgs();
     }
 }

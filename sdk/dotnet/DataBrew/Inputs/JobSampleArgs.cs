@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Job Sample
     /// </summary>
-    public sealed class JobSampleArgs : Pulumi.ResourceArgs
+    public sealed class JobSampleArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode")]
         public Input<Pulumi.AwsNative.DataBrew.JobSampleMode>? Mode { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobSampleArgs()
         {
         }
+        public static new JobSampleArgs Empty => new JobSampleArgs();
     }
 }

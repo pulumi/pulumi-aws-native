@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileDatadogConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileDatadogConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Datadog resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileDatadogConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileDatadogConnectorProfilePropertiesArgs Empty => new ConnectorProfileDatadogConnectorProfilePropertiesArgs();
     }
 }

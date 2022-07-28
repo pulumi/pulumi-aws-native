@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DirectoryService
     /// </summary>
     [Obsolete(@"SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:directoryservice:SimpleAD")]
-    public partial class SimpleAD : Pulumi.CustomResource
+    public partial class SimpleAD : global::Pulumi.CustomResource
     {
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.DirectoryService
         }
     }
 
-    public sealed class SimpleADArgs : Pulumi.ResourceArgs
+    public sealed class SimpleADArgs : global::Pulumi.ResourceArgs
     {
         [Input("createAlias")]
         public Input<bool>? CreateAlias { get; set; }
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.DirectoryService
         public SimpleADArgs()
         {
         }
+        public static new SimpleADArgs Empty => new SimpleADArgs();
     }
 }

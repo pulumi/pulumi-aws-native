@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// AWS Ground Station Mission Profile resource type for CloudFormation.
     /// </summary>
     [AwsNativeResourceType("aws-native:groundstation:MissionProfile")]
-    public partial class MissionProfile : Pulumi.CustomResource
+    public partial class MissionProfile : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.GroundStation
         }
     }
 
-    public sealed class MissionProfileArgs : Pulumi.ResourceArgs
+    public sealed class MissionProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Post-pass time needed after the contact.
@@ -145,5 +145,6 @@ namespace Pulumi.AwsNative.GroundStation
         public MissionProfileArgs()
         {
         }
+        public static new MissionProfileArgs Empty => new MissionProfileArgs();
     }
 }

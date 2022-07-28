@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupNotStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupNotStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupStatementArgs> Statement { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupNotStatementArgs()
         {
         }
+        public static new RuleGroupNotStatementArgs Empty => new RuleGroupNotStatementArgs();
     }
 }

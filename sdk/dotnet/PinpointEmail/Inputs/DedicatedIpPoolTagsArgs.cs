@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class DedicatedIpPoolTagsArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedIpPoolTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public DedicatedIpPoolTagsArgs()
         {
         }
+        public static new DedicatedIpPoolTagsArgs Empty => new DedicatedIpPoolTagsArgs();
     }
 }

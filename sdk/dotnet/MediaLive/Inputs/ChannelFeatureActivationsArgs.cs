@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFeatureActivationsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFeatureActivationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputPrepareScheduleActions")]
         public Input<string>? InputPrepareScheduleActions { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFeatureActivationsArgs()
         {
         }
+        public static new ChannelFeatureActivationsArgs Empty => new ChannelFeatureActivationsArgs();
     }
 }

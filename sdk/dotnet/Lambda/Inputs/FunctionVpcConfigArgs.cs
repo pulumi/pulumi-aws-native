@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
     /// </summary>
-    public sealed class FunctionVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionVpcConfigArgs()
         {
         }
+        public static new FunctionVpcConfigArgs Empty => new FunctionVpcConfigArgs();
     }
 }

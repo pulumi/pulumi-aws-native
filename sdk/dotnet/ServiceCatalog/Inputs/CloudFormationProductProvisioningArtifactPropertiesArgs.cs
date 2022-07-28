@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    public sealed class CloudFormationProductProvisioningArtifactPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationProductProvisioningArtifactPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         public CloudFormationProductProvisioningArtifactPropertiesArgs()
         {
         }
+        public static new CloudFormationProductProvisioningArtifactPropertiesArgs Empty => new CloudFormationProductProvisioningArtifactPropertiesArgs();
     }
 }

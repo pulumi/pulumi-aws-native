@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAribSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAribSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         public ChannelAribSourceSettingsArgs()
         {
         }
+        public static new ChannelAribSourceSettingsArgs Empty => new ChannelAribSourceSettingsArgs();
     }
 }

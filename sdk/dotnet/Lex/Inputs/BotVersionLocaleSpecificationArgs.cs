@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    public sealed class BotVersionLocaleSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotVersionLocaleSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("botVersionLocaleDetails", required: true)]
         public Input<Inputs.BotVersionLocaleDetailsArgs> BotVersionLocaleDetails { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotVersionLocaleSpecificationArgs()
         {
         }
+        public static new BotVersionLocaleSpecificationArgs Empty => new BotVersionLocaleSpecificationArgs();
     }
 }

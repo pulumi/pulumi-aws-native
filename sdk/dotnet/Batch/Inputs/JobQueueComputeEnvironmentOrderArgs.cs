@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobQueueComputeEnvironmentOrderArgs : Pulumi.ResourceArgs
+    public sealed class JobQueueComputeEnvironmentOrderArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeEnvironment", required: true)]
         public Input<string> ComputeEnvironment { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobQueueComputeEnvironmentOrderArgs()
         {
         }
+        public static new JobQueueComputeEnvironmentOrderArgs Empty => new JobQueueComputeEnvironmentOrderArgs();
     }
 }

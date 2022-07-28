@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioOnlyHlsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioOnlyHlsSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioGroupId")]
         public Input<string>? AudioGroupId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioOnlyHlsSettingsArgs()
         {
         }
+        public static new ChannelAudioOnlyHlsSettingsArgs Empty => new ChannelAudioOnlyHlsSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class CacheClusterTagArgs : Pulumi.ResourceArgs
+    public sealed class CacheClusterTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public CacheClusterTagArgs()
         {
         }
+        public static new CacheClusterTagArgs Empty => new CacheClusterTagArgs();
     }
 }

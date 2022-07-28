@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceRegistryArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceRegistryArgs()
         {
         }
+        public static new ServiceRegistryArgs Empty => new ServiceRegistryArgs();
     }
 }

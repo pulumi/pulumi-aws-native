@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FIS
     }
 
 
-    public sealed class GetExperimentTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.FIS
         public GetExperimentTemplateArgs()
         {
         }
+        public static new GetExperimentTemplateArgs Empty => new GetExperimentTemplateArgs();
     }
 
-    public sealed class GetExperimentTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExperimentTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.FIS
         public GetExperimentTemplateInvokeArgs()
         {
         }
+        public static new GetExperimentTemplateInvokeArgs Empty => new GetExperimentTemplateInvokeArgs();
     }
 
 

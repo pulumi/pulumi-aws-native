@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// <summary>
     /// The target resource that the Route 53 record points to.
     /// </summary>
-    public sealed class ResourceSetTargetResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetTargetResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("nLBResource")]
         public Input<Inputs.ResourceSetNLBResourceArgs>? NLBResource { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetTargetResourceArgs()
         {
         }
+        public static new ResourceSetTargetResourceArgs Empty => new ResourceSetTargetResourceArgs();
     }
 }

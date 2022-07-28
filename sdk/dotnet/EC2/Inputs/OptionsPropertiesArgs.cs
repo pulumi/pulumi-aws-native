@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     /// <summary>
     /// The options for the transit gateway vpc attachment.
     /// </summary>
-    public sealed class OptionsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class OptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public OptionsPropertiesArgs()
         {
         }
+        public static new OptionsPropertiesArgs Empty => new OptionsPropertiesArgs();
     }
 }

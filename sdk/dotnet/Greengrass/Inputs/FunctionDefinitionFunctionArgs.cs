@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionFunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionFunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionFunctionArgs()
         {
         }
+        public static new FunctionDefinitionFunctionArgs Empty => new FunctionDefinitionFunctionArgs();
     }
 }

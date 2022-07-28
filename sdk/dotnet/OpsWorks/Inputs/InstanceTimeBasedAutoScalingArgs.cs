@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class InstanceTimeBasedAutoScalingArgs : Pulumi.ResourceArgs
+    public sealed class InstanceTimeBasedAutoScalingArgs : global::Pulumi.ResourceArgs
     {
         [Input("friday")]
         public Input<object>? Friday { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public InstanceTimeBasedAutoScalingArgs()
         {
         }
+        public static new InstanceTimeBasedAutoScalingArgs Empty => new InstanceTimeBasedAutoScalingArgs();
     }
 }

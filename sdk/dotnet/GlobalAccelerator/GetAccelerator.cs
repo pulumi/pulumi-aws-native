@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     }
 
 
-    public sealed class GetAcceleratorArgs : Pulumi.InvokeArgs
+    public sealed class GetAcceleratorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetAcceleratorArgs()
         {
         }
+        public static new GetAcceleratorArgs Empty => new GetAcceleratorArgs();
     }
 
-    public sealed class GetAcceleratorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAcceleratorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public GetAcceleratorInvokeArgs()
         {
         }
+        public static new GetAcceleratorInvokeArgs Empty => new GetAcceleratorInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EventSchemas
     }
 
 
-    public sealed class GetRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetRegistryArgs()
         {
         }
+        public static new GetRegistryArgs Empty => new GetRegistryArgs();
     }
 
-    public sealed class GetRegistryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetRegistryInvokeArgs()
         {
         }
+        public static new GetRegistryInvokeArgs Empty => new GetRegistryInvokeArgs();
     }
 
 

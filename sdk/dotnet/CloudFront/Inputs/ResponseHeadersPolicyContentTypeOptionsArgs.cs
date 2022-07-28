@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyContentTypeOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyContentTypeOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyContentTypeOptionsArgs()
         {
         }
+        public static new ResponseHeadersPolicyContentTypeOptionsArgs Empty => new ResponseHeadersPolicyContentTypeOptionsArgs();
     }
 }

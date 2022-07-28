@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetTypeActivationArgs : Pulumi.InvokeArgs
+    public sealed class GetTypeActivationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the extension.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetTypeActivationArgs()
         {
         }
+        public static new GetTypeActivationArgs Empty => new GetTypeActivationArgs();
     }
 
-    public sealed class GetTypeActivationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTypeActivationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the extension.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetTypeActivationInvokeArgs()
         {
         }
+        public static new GetTypeActivationInvokeArgs Empty => new GetTypeActivationInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR
     /// The AWS::ECR::PullThroughCacheRule resource configures the upstream registry configuration details for an Amazon Elastic Container Registry (Amazon Private ECR) pull-through cache.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:PullThroughCacheRule")]
-    public partial class PullThroughCacheRule : Pulumi.CustomResource
+    public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ECR
         }
     }
 
-    public sealed class PullThroughCacheRuleArgs : Pulumi.ResourceArgs
+    public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.ECR
         public PullThroughCacheRuleArgs()
         {
         }
+        public static new PullThroughCacheRuleArgs Empty => new PullThroughCacheRuleArgs();
     }
 }

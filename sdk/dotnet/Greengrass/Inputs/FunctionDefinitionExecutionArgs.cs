@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionExecutionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionExecutionArgs : global::Pulumi.ResourceArgs
     {
         [Input("isolationMode")]
         public Input<string>? IsolationMode { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionExecutionArgs()
         {
         }
+        public static new FunctionDefinitionExecutionArgs Empty => new FunctionDefinitionExecutionArgs();
     }
 }

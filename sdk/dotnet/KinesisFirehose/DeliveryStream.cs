@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
     /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesisfirehose:DeliveryStream")]
-    public partial class DeliveryStream : Pulumi.CustomResource
+    public partial class DeliveryStream : global::Pulumi.CustomResource
     {
         [Output("amazonopensearchserviceDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration?> AmazonopensearchserviceDestinationConfiguration { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         }
     }
 
-    public sealed class DeliveryStreamArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("amazonopensearchserviceDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>? AmazonopensearchserviceDestinationConfiguration { get; set; }
@@ -143,5 +143,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public DeliveryStreamArgs()
         {
         }
+        public static new DeliveryStreamArgs Empty => new DeliveryStreamArgs();
     }
 }

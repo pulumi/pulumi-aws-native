@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
     }
 
 
-    public sealed class GetNotificationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public GetNotificationRuleArgs()
         {
         }
+        public static new GetNotificationRuleArgs Empty => new GetNotificationRuleArgs();
     }
 
-    public sealed class GetNotificationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public GetNotificationRuleInvokeArgs()
         {
         }
+        public static new GetNotificationRuleInvokeArgs Empty => new GetNotificationRuleInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSM
     /// Resource Type definition for AWS::SSM::ResourceDataSync
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:ResourceDataSync")]
-    public partial class ResourceDataSync : Pulumi.CustomResource
+    public partial class ResourceDataSync : global::Pulumi.CustomResource
     {
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class ResourceDataSyncArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.SSM
         public ResourceDataSyncArgs()
         {
         }
+        public static new ResourceDataSyncArgs Empty => new ResourceDataSyncArgs();
     }
 }

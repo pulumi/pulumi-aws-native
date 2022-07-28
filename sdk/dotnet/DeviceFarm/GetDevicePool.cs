@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     }
 
 
-    public sealed class GetDevicePoolArgs : Pulumi.InvokeArgs
+    public sealed class GetDevicePoolArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetDevicePoolArgs()
         {
         }
+        public static new GetDevicePoolArgs Empty => new GetDevicePoolArgs();
     }
 
-    public sealed class GetDevicePoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDevicePoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetDevicePoolInvokeArgs()
         {
         }
+        public static new GetDevicePoolInvokeArgs Empty => new GetDevicePoolInvokeArgs();
     }
 
 

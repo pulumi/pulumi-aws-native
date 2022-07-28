@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:ScheduledAudit")]
-    public partial class ScheduledAudit : Pulumi.CustomResource
+    public partial class ScheduledAudit : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class ScheduledAuditArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledAuditArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.IoT
         public ScheduledAuditArgs()
         {
         }
+        public static new ScheduledAuditArgs Empty => new ScheduledAuditArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
 
-    public sealed class GetAnalysisArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalysisArgs : global::Pulumi.InvokeArgs
     {
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.QuickSight
         public GetAnalysisArgs()
         {
         }
+        public static new GetAnalysisArgs Empty => new GetAnalysisArgs();
     }
 
-    public sealed class GetAnalysisInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.QuickSight
         public GetAnalysisInvokeArgs()
         {
         }
+        public static new GetAnalysisInvokeArgs Empty => new GetAnalysisInvokeArgs();
     }
 
 

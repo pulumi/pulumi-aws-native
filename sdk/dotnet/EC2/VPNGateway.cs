@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Schema for EC2 VPN Gateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VPNGateway")]
-    public partial class VPNGateway : Pulumi.CustomResource
+    public partial class VPNGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPNGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VPNGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EC2
         public VPNGatewayArgs()
         {
         }
+        public static new VPNGatewayArgs Empty => new VPNGatewayArgs();
     }
 }

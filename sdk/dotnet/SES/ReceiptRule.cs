@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SES
     /// </summary>
     [Obsolete(@"ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ReceiptRule")]
-    public partial class ReceiptRule : Pulumi.CustomResource
+    public partial class ReceiptRule : global::Pulumi.CustomResource
     {
         [Output("after")]
         public Output<string?> After { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class ReceiptRuleArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("after")]
         public Input<string>? After { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.SES
         public ReceiptRuleArgs()
         {
         }
+        public static new ReceiptRuleArgs Empty => new ReceiptRuleArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPCDHCPOptionsAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCDHCPOptionsAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCDHCPOptionsAssociationArgs()
         {
         }
+        public static new GetVPCDHCPOptionsAssociationArgs Empty => new GetVPCDHCPOptionsAssociationArgs();
     }
 
-    public sealed class GetVPCDHCPOptionsAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCDHCPOptionsAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCDHCPOptionsAssociationInvokeArgs()
         {
         }
+        public static new GetVPCDHCPOptionsAssociationInvokeArgs Empty => new GetVPCDHCPOptionsAssociationInvokeArgs();
     }
 
 

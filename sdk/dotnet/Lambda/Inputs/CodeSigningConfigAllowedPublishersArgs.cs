@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
     /// </summary>
-    public sealed class CodeSigningConfigAllowedPublishersArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigAllowedPublishersArgs : global::Pulumi.ResourceArgs
     {
         [Input("signingProfileVersionArns", required: true)]
         private InputList<string>? _signingProfileVersionArns;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public CodeSigningConfigAllowedPublishersArgs()
         {
         }
+        public static new CodeSigningConfigAllowedPublishersArgs Empty => new CodeSigningConfigAllowedPublishersArgs();
     }
 }

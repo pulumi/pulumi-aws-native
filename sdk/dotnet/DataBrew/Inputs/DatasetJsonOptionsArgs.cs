@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Json options
     /// </summary>
-    public sealed class DatasetJsonOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DatasetJsonOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("multiLine")]
         public Input<bool>? MultiLine { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetJsonOptionsArgs()
         {
         }
+        public static new DatasetJsonOptionsArgs Empty => new DatasetJsonOptionsArgs();
     }
 }

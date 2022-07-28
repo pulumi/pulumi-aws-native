@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// <summary>
     /// Represents a field in a ProfileObjectType.
     /// </summary>
-    public sealed class ObjectTypeFieldArgs : Pulumi.ResourceArgs
+    public sealed class ObjectTypeFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type of the field. Used for determining equality when searching.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public ObjectTypeFieldArgs()
         {
         }
+        public static new ObjectTypeFieldArgs Empty => new ObjectTypeFieldArgs();
     }
 }

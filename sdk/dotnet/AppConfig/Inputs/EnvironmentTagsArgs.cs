@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Inputs
 {
 
-    public sealed class EnvironmentTagsArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
         public EnvironmentTagsArgs()
         {
         }
+        public static new EnvironmentTagsArgs Empty => new EnvironmentTagsArgs();
     }
 }

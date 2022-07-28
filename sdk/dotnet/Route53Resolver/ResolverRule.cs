@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource Type definition for AWS::Route53Resolver::ResolverRule
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverRule")]
-    public partial class ResolverRule : Pulumi.CustomResource
+    public partial class ResolverRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resolver rule.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverRuleArgs : Pulumi.ResourceArgs
+    public sealed class ResolverRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverRuleArgs()
         {
         }
+        public static new ResolverRuleArgs Empty => new ResolverRuleArgs();
     }
 }

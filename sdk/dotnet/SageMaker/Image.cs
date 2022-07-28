@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::Image
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Image")]
-    public partial class Image : Pulumi.CustomResource
+    public partial class Image : global::Pulumi.CustomResource
     {
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ImageArgs : Pulumi.ResourceArgs
+    public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         [Input("imageDescription")]
         public Input<string>? ImageDescription { get; set; }
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ImageArgs()
         {
         }
+        public static new ImageArgs Empty => new ImageArgs();
     }
 }

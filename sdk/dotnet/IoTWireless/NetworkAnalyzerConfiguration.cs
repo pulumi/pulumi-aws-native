@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Create and manage NetworkAnalyzerConfiguration resource.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:NetworkAnalyzerConfiguration")]
-    public partial class NetworkAnalyzerConfiguration : Pulumi.CustomResource
+    public partial class NetworkAnalyzerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn for network analyzer configuration, Returned upon successful create.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class NetworkAnalyzerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAnalyzerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the new resource
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public NetworkAnalyzerConfigurationArgs()
         {
         }
+        public static new NetworkAnalyzerConfigurationArgs Empty => new NetworkAnalyzerConfigurationArgs();
     }
 }

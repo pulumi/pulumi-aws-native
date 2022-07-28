@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     /// </summary>
     [Obsolete(@"Service is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicediscovery:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

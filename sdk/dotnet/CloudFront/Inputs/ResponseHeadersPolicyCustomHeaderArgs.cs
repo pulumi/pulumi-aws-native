@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyCustomHeaderArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyCustomHeaderArgs : global::Pulumi.ResourceArgs
     {
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyCustomHeaderArgs()
         {
         }
+        public static new ResponseHeadersPolicyCustomHeaderArgs Empty => new ResponseHeadersPolicyCustomHeaderArgs();
     }
 }

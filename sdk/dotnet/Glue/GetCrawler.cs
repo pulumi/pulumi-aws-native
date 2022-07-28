@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetCrawlerArgs : Pulumi.InvokeArgs
+    public sealed class GetCrawlerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetCrawlerArgs()
         {
         }
+        public static new GetCrawlerArgs Empty => new GetCrawlerArgs();
     }
 
-    public sealed class GetCrawlerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCrawlerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetCrawlerInvokeArgs()
         {
         }
+        public static new GetCrawlerInvokeArgs Empty => new GetCrawlerInvokeArgs();
     }
 
 

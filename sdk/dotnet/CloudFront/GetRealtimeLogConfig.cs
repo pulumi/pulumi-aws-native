@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetRealtimeLogConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetRealtimeLogConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetRealtimeLogConfigArgs()
         {
         }
+        public static new GetRealtimeLogConfigArgs Empty => new GetRealtimeLogConfigArgs();
     }
 
-    public sealed class GetRealtimeLogConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRealtimeLogConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetRealtimeLogConfigInvokeArgs()
         {
         }
+        public static new GetRealtimeLogConfigInvokeArgs Empty => new GetRealtimeLogConfigInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DAX.Inputs
 {
 
-    public sealed class ClusterSSESpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sSEEnabled")]
         public Input<bool>? SSEEnabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DAX.Inputs
         public ClusterSSESpecificationArgs()
         {
         }
+        public static new ClusterSSESpecificationArgs Empty => new ClusterSSESpecificationArgs();
     }
 }

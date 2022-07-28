@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateLicenseSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateLicenseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("licenseConfigurationArn")]
         public Input<string>? LicenseConfigurationArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateLicenseSpecificationArgs()
         {
         }
+        public static new LaunchTemplateLicenseSpecificationArgs Empty => new LaunchTemplateLicenseSpecificationArgs();
     }
 }

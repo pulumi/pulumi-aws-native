@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAutomaticInputFailoverSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAutomaticInputFailoverSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorClearTimeMsec")]
         public Input<int>? ErrorClearTimeMsec { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAutomaticInputFailoverSettingsArgs()
         {
         }
+        public static new ChannelAutomaticInputFailoverSettingsArgs Empty => new ChannelAutomaticInputFailoverSettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// <summary>
     /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
     /// </summary>
-    public sealed class GameServerGroupAutoScalingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupAutoScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("estimatedInstanceWarmup")]
         public Input<double>? EstimatedInstanceWarmup { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameServerGroupAutoScalingPolicyArgs()
         {
         }
+        public static new GameServerGroupAutoScalingPolicyArgs Empty => new GameServerGroupAutoScalingPolicyArgs();
     }
 }

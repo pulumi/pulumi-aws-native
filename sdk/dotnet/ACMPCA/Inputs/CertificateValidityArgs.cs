@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Validity for a certificate.
     /// </summary>
-    public sealed class CertificateValidityArgs : Pulumi.ResourceArgs
+    public sealed class CertificateValidityArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateValidityArgs()
         {
         }
+        public static new CertificateValidityArgs Empty => new CertificateValidityArgs();
     }
 }

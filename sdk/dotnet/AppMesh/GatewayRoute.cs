@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// </summary>
     [Obsolete(@"GatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:GatewayRoute")]
-    public partial class GatewayRoute : Pulumi.CustomResource
+    public partial class GatewayRoute : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AppMesh
         }
     }
 
-    public sealed class GatewayRouteArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("gatewayRouteName")]
         public Input<string>? GatewayRouteName { get; set; }
@@ -114,5 +114,6 @@ namespace Pulumi.AwsNative.AppMesh
         public GatewayRouteArgs()
         {
         }
+        public static new GatewayRouteArgs Empty => new GatewayRouteArgs();
     }
 }

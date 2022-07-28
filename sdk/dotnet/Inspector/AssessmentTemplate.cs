@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inspector
     /// Resource Type definition for AWS::Inspector::AssessmentTemplate
     /// </summary>
     [AwsNativeResourceType("aws-native:inspector:AssessmentTemplate")]
-    public partial class AssessmentTemplate : Pulumi.CustomResource
+    public partial class AssessmentTemplate : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Inspector
         }
     }
 
-    public sealed class AssessmentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("assessmentTargetArn", required: true)]
         public Input<string> AssessmentTargetArn { get; set; } = null!;
@@ -106,5 +106,6 @@ namespace Pulumi.AwsNative.Inspector
         public AssessmentTemplateArgs()
         {
         }
+        public static new AssessmentTemplateArgs Empty => new AssessmentTemplateArgs();
     }
 }

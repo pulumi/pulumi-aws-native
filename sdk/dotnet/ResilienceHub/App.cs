@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ResilienceHub
     /// Resource Type Definition for AWS::ResilienceHub::App.
     /// </summary>
     [AwsNativeResourceType("aws-native:resiliencehub:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the App.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Assessment execution schedule.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.ResilienceHub
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 }

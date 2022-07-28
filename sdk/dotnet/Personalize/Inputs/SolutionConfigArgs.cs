@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// <summary>
     /// The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
     /// </summary>
-    public sealed class SolutionConfigArgs : Pulumi.ResourceArgs
+    public sealed class SolutionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lists the hyperparameter names and ranges.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         public SolutionConfigArgs()
         {
         }
+        public static new SolutionConfigArgs Empty => new SolutionConfigArgs();
     }
 }

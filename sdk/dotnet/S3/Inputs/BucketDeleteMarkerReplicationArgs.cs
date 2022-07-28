@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketDeleteMarkerReplicationArgs : Pulumi.ResourceArgs
+    public sealed class BucketDeleteMarkerReplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("status")]
         public Input<Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus>? Status { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketDeleteMarkerReplicationArgs()
         {
         }
+        public static new BucketDeleteMarkerReplicationArgs Empty => new BucketDeleteMarkerReplicationArgs();
     }
 }

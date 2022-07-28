@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Describes the S3 data source.
     /// </summary>
-    public sealed class ModelPackageS3DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageS3DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 Data Source Type
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageS3DataSourceArgs()
         {
         }
+        public static new ModelPackageS3DataSourceArgs Empty => new ModelPackageS3DataSourceArgs();
     }
 }

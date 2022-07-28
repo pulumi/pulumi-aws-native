@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetDocumentationPartArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentationPartArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDocumentationPartArgs()
         {
         }
+        public static new GetDocumentationPartArgs Empty => new GetDocumentationPartArgs();
     }
 
-    public sealed class GetDocumentationPartInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentationPartInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetDocumentationPartInvokeArgs()
         {
         }
+        public static new GetDocumentationPartInvokeArgs Empty => new GetDocumentationPartInvokeArgs();
     }
 
 

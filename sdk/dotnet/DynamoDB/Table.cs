@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DynamoDB
     /// </summary>
     [Obsolete(@"Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dynamodb:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.DynamoDB
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeDefinitions")]
         private InputList<Inputs.TableAttributeDefinitionArgs>? _attributeDefinitions;
@@ -185,5 +185,6 @@ namespace Pulumi.AwsNative.DynamoDB
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 }

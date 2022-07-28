@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSM
     }
 
 
-    public sealed class GetAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique identifier of the association.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSM
         public GetAssociationArgs()
         {
         }
+        public static new GetAssociationArgs Empty => new GetAssociationArgs();
     }
 
-    public sealed class GetAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique identifier of the association.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSM
         public GetAssociationInvokeArgs()
         {
         }
+        public static new GetAssociationInvokeArgs Empty => new GetAssociationInvokeArgs();
     }
 
 

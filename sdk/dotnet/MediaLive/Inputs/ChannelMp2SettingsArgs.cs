@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMp2SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMp2SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bitrate")]
         public Input<double>? Bitrate { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMp2SettingsArgs()
         {
         }
+        public static new ChannelMp2SettingsArgs Empty => new ChannelMp2SettingsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
     /// </summary>
-    public sealed class LoggingFilterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class LoggingFilterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default handling for logs that don't match any of the specified filtering conditions.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingFilterPropertiesArgs()
         {
         }
+        public static new LoggingFilterPropertiesArgs Empty => new LoggingFilterPropertiesArgs();
     }
 }

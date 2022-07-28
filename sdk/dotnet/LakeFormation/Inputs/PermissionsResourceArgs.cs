@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
-    public sealed class PermissionsResourceArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsResourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataLocationResource")]
         public Input<Inputs.PermissionsDataLocationResourceArgs>? DataLocationResource { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
         public PermissionsResourceArgs()
         {
         }
+        public static new PermissionsResourceArgs Empty => new PermissionsResourceArgs();
     }
 }

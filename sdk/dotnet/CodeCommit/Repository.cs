@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeCommit
     /// </summary>
     [Obsolete(@"Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codecommit:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.CodeCommit
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("code")]
         public Input<Inputs.RepositoryCodeArgs>? Code { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.CodeCommit
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// ManagedRuleGroupConfig.
     /// </summary>
-    public sealed class WebACLManagedRuleGroupConfigArgs : Pulumi.ResourceArgs
+    public sealed class WebACLManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("loginPath")]
         public Input<string>? LoginPath { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLManagedRuleGroupConfigArgs()
         {
         }
+        public static new WebACLManagedRuleGroupConfigArgs Empty => new WebACLManagedRuleGroupConfigArgs();
     }
 }

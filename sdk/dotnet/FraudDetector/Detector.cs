@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// A resource schema for a Detector in Amazon Fraud Detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:Detector")]
-    public partial class Detector : Pulumi.CustomResource
+    public partial class Detector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the detector.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class DetectorArgs : Pulumi.ResourceArgs
+    public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatedModels")]
         private InputList<Inputs.DetectorModelArgs>? _associatedModels;
@@ -188,5 +188,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public DetectorArgs()
         {
         }
+        public static new DetectorArgs Empty => new DetectorArgs();
     }
 }

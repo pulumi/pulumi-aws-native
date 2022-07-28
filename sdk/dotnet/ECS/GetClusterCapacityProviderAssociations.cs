@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS
     }
 
 
-    public sealed class GetClusterCapacityProviderAssociationsArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterCapacityProviderAssociationsArgs : global::Pulumi.InvokeArgs
     {
         [Input("cluster", required: true)]
         public string Cluster { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ECS
         public GetClusterCapacityProviderAssociationsArgs()
         {
         }
+        public static new GetClusterCapacityProviderAssociationsArgs Empty => new GetClusterCapacityProviderAssociationsArgs();
     }
 
-    public sealed class GetClusterCapacityProviderAssociationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterCapacityProviderAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ECS
         public GetClusterCapacityProviderAssociationsInvokeArgs()
         {
         }
+        public static new GetClusterCapacityProviderAssociationsInvokeArgs Empty => new GetClusterCapacityProviderAssociationsInvokeArgs();
     }
 
 

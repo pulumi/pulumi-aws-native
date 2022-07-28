@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetDeviceProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service profile Id. Returned after successful create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetDeviceProfileArgs()
         {
         }
+        public static new GetDeviceProfileArgs Empty => new GetDeviceProfileArgs();
     }
 
-    public sealed class GetDeviceProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Service profile Id. Returned after successful create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetDeviceProfileInvokeArgs()
         {
         }
+        public static new GetDeviceProfileInvokeArgs Empty => new GetDeviceProfileInvokeArgs();
     }
 
 

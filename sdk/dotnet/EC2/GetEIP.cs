@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetEIPArgs : Pulumi.InvokeArgs
+    public sealed class GetEIPArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetEIPArgs()
         {
         }
+        public static new GetEIPArgs Empty => new GetEIPArgs();
     }
 
-    public sealed class GetEIPInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEIPInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetEIPInvokeArgs()
         {
         }
+        public static new GetEIPInvokeArgs Empty => new GetEIPInvokeArgs();
     }
 
 

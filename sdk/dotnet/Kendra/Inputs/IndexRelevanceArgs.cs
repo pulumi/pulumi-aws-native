@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexRelevanceArgs : Pulumi.ResourceArgs
+    public sealed class IndexRelevanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("duration")]
         public Input<string>? Duration { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexRelevanceArgs()
         {
         }
+        public static new IndexRelevanceArgs Empty => new IndexRelevanceArgs();
     }
 }

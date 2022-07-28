@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class UserSshPublicKeyArgs : Pulumi.ResourceArgs
+    public sealed class UserSshPublicKeyArgs : global::Pulumi.ResourceArgs
     {
         public UserSshPublicKeyArgs()
         {
         }
+        public static new UserSshPublicKeyArgs Empty => new UserSshPublicKeyArgs();
     }
 }

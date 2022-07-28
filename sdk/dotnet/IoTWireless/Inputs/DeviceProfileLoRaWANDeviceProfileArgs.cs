@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class DeviceProfileLoRaWANDeviceProfileArgs : Pulumi.ResourceArgs
+    public sealed class DeviceProfileLoRaWANDeviceProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("classBTimeout")]
         public Input<int>? ClassBTimeout { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public DeviceProfileLoRaWANDeviceProfileArgs()
         {
         }
+        public static new DeviceProfileLoRaWANDeviceProfileArgs Empty => new DeviceProfileLoRaWANDeviceProfileArgs();
     }
 }

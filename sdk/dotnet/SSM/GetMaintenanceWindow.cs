@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSM
     }
 
 
-    public sealed class GetMaintenanceWindowArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceWindowArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SSM
         public GetMaintenanceWindowArgs()
         {
         }
+        public static new GetMaintenanceWindowArgs Empty => new GetMaintenanceWindowArgs();
     }
 
-    public sealed class GetMaintenanceWindowInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceWindowInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SSM
         public GetMaintenanceWindowInvokeArgs()
         {
         }
+        public static new GetMaintenanceWindowInvokeArgs Empty => new GetMaintenanceWindowInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetFleetLaunchTemplateOverridesRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetFleetLaunchTemplateOverridesRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetFleetLaunchTemplateOverridesRequestArgs()
         {
         }
+        public static new EC2FleetFleetLaunchTemplateOverridesRequestArgs Empty => new EC2FleetFleetLaunchTemplateOverridesRequestArgs();
     }
 }

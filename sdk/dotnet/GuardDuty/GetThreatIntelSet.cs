@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GuardDuty
     }
 
 
-    public sealed class GetThreatIntelSetArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetThreatIntelSetArgs()
         {
         }
+        public static new GetThreatIntelSetArgs Empty => new GetThreatIntelSetArgs();
     }
 
-    public sealed class GetThreatIntelSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThreatIntelSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetThreatIntelSetInvokeArgs()
         {
         }
+        public static new GetThreatIntelSetInvokeArgs Empty => new GetThreatIntelSetInvokeArgs();
     }
 
 

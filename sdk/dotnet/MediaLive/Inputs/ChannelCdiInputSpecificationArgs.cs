@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelCdiInputSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelCdiInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resolution")]
         public Input<string>? Resolution { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelCdiInputSpecificationArgs()
         {
         }
+        public static new ChannelCdiInputSpecificationArgs Empty => new ChannelCdiInputSpecificationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB
     /// Resource Type definition for AWS::MemoryDB::ACL
     /// </summary>
     [AwsNativeResourceType("aws-native:memorydb:ACL")]
-    public partial class ACL : Pulumi.CustomResource
+    public partial class ACL : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the acl.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.MemoryDB
         }
     }
 
-    public sealed class ACLArgs : Pulumi.ResourceArgs
+    public sealed class ACLArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the acl.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.MemoryDB
         public ACLArgs()
         {
         }
+        public static new ACLArgs Empty => new ACLArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
     /// </summary>
-    public sealed class DistributionCookieObjectArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCookieObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("cookiesAllowList")]
         private InputList<string>? _cookiesAllowList;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionCookieObjectArgs()
         {
         }
+        public static new DistributionCookieObjectArgs Empty => new DistributionCookieObjectArgs();
     }
 }

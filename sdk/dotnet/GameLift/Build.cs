@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GameLift
     /// </summary>
     [Obsolete(@"Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:Build")]
-    public partial class Build : Pulumi.CustomResource
+    public partial class Build : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class BuildArgs : Pulumi.ResourceArgs
+    public sealed class BuildArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.GameLift
         public BuildArgs()
         {
         }
+        public static new BuildArgs Empty => new BuildArgs();
     }
 }

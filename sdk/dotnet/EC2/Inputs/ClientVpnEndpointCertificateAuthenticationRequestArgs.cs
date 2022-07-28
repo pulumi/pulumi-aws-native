@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointCertificateAuthenticationRequestArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointCertificateAuthenticationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientRootCertificateChainArn", required: true)]
         public Input<string> ClientRootCertificateChainArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointCertificateAuthenticationRequestArgs()
         {
         }
+        public static new ClientVpnEndpointCertificateAuthenticationRequestArgs Empty => new ClientVpnEndpointCertificateAuthenticationRequestArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DMS
     /// </summary>
     [Obsolete(@"ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:ReplicationSubnetGroup")]
-    public partial class ReplicationSubnetGroup : Pulumi.CustomResource
+    public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("replicationSubnetGroupDescription")]
         public Output<string> ReplicationSubnetGroupDescription { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.DMS
         }
     }
 
-    public sealed class ReplicationSubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("replicationSubnetGroupDescription", required: true)]
         public Input<string> ReplicationSubnetGroupDescription { get; set; } = null!;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.DMS
         public ReplicationSubnetGroupArgs()
         {
         }
+        public static new ReplicationSubnetGroupArgs Empty => new ReplicationSubnetGroupArgs();
     }
 }

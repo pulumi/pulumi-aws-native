@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceNetworkInterfaceArgs()
         {
         }
+        public static new InstanceNetworkInterfaceArgs Empty => new InstanceNetworkInterfaceArgs();
     }
 }

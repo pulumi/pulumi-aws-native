@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterInstanceFleetConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceFleetConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("instanceTypeConfigs")]
         private InputList<Inputs.ClusterInstanceTypeConfigArgs>? _instanceTypeConfigs;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterInstanceFleetConfigArgs()
         {
         }
+        public static new ClusterInstanceFleetConfigArgs Empty => new ClusterInstanceFleetConfigArgs();
     }
 }

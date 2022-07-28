@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationObjectStorageArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationObjectStorageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationObjectStorageArgs()
         {
         }
+        public static new GetLocationObjectStorageArgs Empty => new GetLocationObjectStorageArgs();
     }
 
-    public sealed class GetLocationObjectStorageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationObjectStorageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationObjectStorageInvokeArgs()
         {
         }
+        public static new GetLocationObjectStorageInvokeArgs Empty => new GetLocationObjectStorageInvokeArgs();
     }
 
 

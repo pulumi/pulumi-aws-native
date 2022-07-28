@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"SizeConstraintSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:SizeConstraintSet")]
-    public partial class SizeConstraintSet : Pulumi.CustomResource
+    public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class SizeConstraintSetArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public SizeConstraintSetArgs()
         {
         }
+        public static new SizeConstraintSetArgs Empty => new SizeConstraintSetArgs();
     }
 }

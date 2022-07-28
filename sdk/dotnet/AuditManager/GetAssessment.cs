@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AuditManager
     }
 
 
-    public sealed class GetAssessmentArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("assessmentId", required: true)]
         public string AssessmentId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AuditManager
         public GetAssessmentArgs()
         {
         }
+        public static new GetAssessmentArgs Empty => new GetAssessmentArgs();
     }
 
-    public sealed class GetAssessmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssessmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("assessmentId", required: true)]
         public Input<string> AssessmentId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AuditManager
         public GetAssessmentInvokeArgs()
         {
         }
+        public static new GetAssessmentInvokeArgs Empty => new GetAssessmentInvokeArgs();
     }
 
 

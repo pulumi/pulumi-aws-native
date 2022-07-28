@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inputs
     /// <summary>
     /// The configuration for for customizing service endpoints.
     /// </summary>
-    public sealed class ProviderEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ProviderEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override the default endpoint for AWS Access Analyzer
@@ -972,5 +972,6 @@ namespace Pulumi.AwsNative.Inputs
         public ProviderEndpointArgs()
         {
         }
+        public static new ProviderEndpointArgs Empty => new ProviderEndpointArgs();
     }
 }

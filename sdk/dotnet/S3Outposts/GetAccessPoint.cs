@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3Outposts
     }
 
 
-    public sealed class GetAccessPointArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified AccessPoint.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3Outposts
         public GetAccessPointArgs()
         {
         }
+        public static new GetAccessPointArgs Empty => new GetAccessPointArgs();
     }
 
-    public sealed class GetAccessPointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified AccessPoint.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3Outposts
         public GetAccessPointInvokeArgs()
         {
         }
+        public static new GetAccessPointInvokeArgs Empty => new GetAccessPointInvokeArgs();
     }
 
 

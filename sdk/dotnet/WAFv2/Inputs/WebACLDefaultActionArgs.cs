@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Default Action WebACL will take against ingress traffic when there is no matching Rule.
     /// </summary>
-    public sealed class WebACLDefaultActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLDefaultActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("allow")]
         public Input<Inputs.WebACLAllowActionArgs>? Allow { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLDefaultActionArgs()
         {
         }
+        public static new WebACLDefaultActionArgs Empty => new WebACLDefaultActionArgs();
     }
 }

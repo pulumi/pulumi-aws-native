@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// <summary>
     /// A port range to support for connections from  clients to your accelerator.
     /// </summary>
-    public sealed class ListenerPortRangeArgs : Pulumi.ResourceArgs
+    public sealed class ListenerPortRangeArgs : global::Pulumi.ResourceArgs
     {
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         public ListenerPortRangeArgs()
         {
         }
+        public static new ListenerPortRangeArgs Empty => new ListenerPortRangeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("logDriver", required: true)]
         public Input<string> LogDriver { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionLogConfigurationArgs()
         {
         }
+        public static new JobDefinitionLogConfigurationArgs Empty => new JobDefinitionLogConfigurationArgs();
     }
 }

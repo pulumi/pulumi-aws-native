@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableKeySchemaArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableKeySchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableKeySchemaArgs()
         {
         }
+        public static new GlobalTableKeySchemaArgs Empty => new GlobalTableKeySchemaArgs();
     }
 }

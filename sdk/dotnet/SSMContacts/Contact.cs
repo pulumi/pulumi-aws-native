@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMContacts
     /// Resource Type definition for AWS::SSMContacts::Contact
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmcontacts:Contact")]
-    public partial class Contact : Pulumi.CustomResource
+    public partial class Contact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.SSMContacts
         }
     }
 
-    public sealed class ContactArgs : Pulumi.ResourceArgs
+    public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.SSMContacts
         public ContactArgs()
         {
         }
+        public static new ContactArgs Empty => new ContactArgs();
     }
 }

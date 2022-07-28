@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes a container deployment configuration of an Amazon Lightsail container service.
     /// </summary>
-    public sealed class ContainerServiceDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.ContainerArgs>? _containers;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerServiceDeploymentArgs()
         {
         }
+        public static new ContainerServiceDeploymentArgs Empty => new ContainerServiceDeploymentArgs();
     }
 }

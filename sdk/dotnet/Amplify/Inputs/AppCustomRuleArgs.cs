@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    public sealed class AppCustomRuleArgs : Pulumi.ResourceArgs
+    public sealed class AppCustomRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("condition")]
         public Input<string>? Condition { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public AppCustomRuleArgs()
         {
         }
+        public static new AppCustomRuleArgs Empty => new AppCustomRuleArgs();
     }
 }

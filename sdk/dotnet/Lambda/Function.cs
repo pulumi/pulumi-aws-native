@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda
     /// Resource Type definition for AWS::Lambda::Function
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         [Output("architectures")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>> Architectures { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("architectures")]
         private InputList<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>? _architectures;
@@ -350,5 +350,6 @@ namespace Pulumi.AwsNative.Lambda
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 }

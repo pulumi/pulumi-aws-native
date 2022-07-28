@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3
     /// Resource Type definition for AWS::S3::Bucket
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:Bucket")]
-    public partial class Bucket : Pulumi.CustomResource
+    public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration for the transfer acceleration state.
@@ -196,7 +196,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class BucketArgs : Pulumi.ResourceArgs
+    public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for the transfer acceleration state.
@@ -339,5 +339,6 @@ namespace Pulumi.AwsNative.S3
         public BucketArgs()
         {
         }
+        public static new BucketArgs Empty => new BucketArgs();
     }
 }

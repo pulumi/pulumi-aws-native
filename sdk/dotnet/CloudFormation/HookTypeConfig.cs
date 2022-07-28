@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Specifies the configuration data for a registered hook in CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:HookTypeConfig")]
-    public partial class HookTypeConfig : Pulumi.CustomResource
+    public partial class HookTypeConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The configuration data for the extension, in this account and region.
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class HookTypeConfigArgs : Pulumi.ResourceArgs
+    public sealed class HookTypeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration data for the extension, in this account and region.
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public HookTypeConfigArgs()
         {
         }
+        public static new HookTypeConfigArgs Empty => new HookTypeConfigArgs();
     }
 }

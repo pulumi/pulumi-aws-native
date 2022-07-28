@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisVideo
     /// Resource Type Definition for AWS::KinesisVideo::SignalingChannel
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesisvideo:SignalingChannel")]
-    public partial class SignalingChannel : Pulumi.CustomResource
+    public partial class SignalingChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         }
     }
 
-    public sealed class SignalingChannelArgs : Pulumi.ResourceArgs
+    public sealed class SignalingChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The period of time a signaling channel retains undelivered messages before they are discarded.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.KinesisVideo
         public SignalingChannelArgs()
         {
         }
+        public static new SignalingChannelArgs Empty => new SignalingChannelArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EventSchemas.Inputs
 {
 
-    public sealed class RegistryTagsEntryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTagsEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EventSchemas.Inputs
         public RegistryTagsEntryArgs()
         {
         }
+        public static new RegistryTagsEntryArgs Empty => new RegistryTagsEntryArgs();
     }
 }

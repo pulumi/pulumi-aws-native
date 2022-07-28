@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
     /// </summary>
-    public sealed class BucketQueueConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketQueueConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketQueueConfigurationArgs()
         {
         }
+        public static new BucketQueueConfigurationArgs Empty => new BucketQueueConfigurationArgs();
     }
 }

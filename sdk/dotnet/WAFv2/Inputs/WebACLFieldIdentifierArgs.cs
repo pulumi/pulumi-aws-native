@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLFieldIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class WebACLFieldIdentifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLFieldIdentifierArgs()
         {
         }
+        public static new WebACLFieldIdentifierArgs Empty => new WebACLFieldIdentifierArgs();
     }
 }

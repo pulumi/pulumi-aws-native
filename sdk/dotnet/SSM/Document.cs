@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSM
     /// The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:Document")]
-    public partial class Document : Pulumi.CustomResource
+    public partial class Document : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of key and value pairs that describe attachments to a version of a document.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class DocumentArgs : Pulumi.ResourceArgs
+    public sealed class DocumentArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachments")]
         private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachments;
@@ -201,5 +201,6 @@ namespace Pulumi.AwsNative.SSM
         public DocumentArgs()
         {
         }
+        public static new DocumentArgs Empty => new DocumentArgs();
     }
 }

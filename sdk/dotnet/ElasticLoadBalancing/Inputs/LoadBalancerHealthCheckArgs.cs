@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerHealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         [Input("healthyThreshold", required: true)]
         public Input<string> HealthyThreshold { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerHealthCheckArgs()
         {
         }
+        public static new LoadBalancerHealthCheckArgs Empty => new LoadBalancerHealthCheckArgs();
     }
 }

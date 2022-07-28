@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Configurations of destination connector.
     /// </summary>
-    public sealed class FlowDestinationFlowConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of destination connector profile
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowDestinationFlowConfigArgs()
         {
         }
+        public static new FlowDestinationFlowConfigArgs Empty => new FlowDestinationFlowConfigArgs();
     }
 }

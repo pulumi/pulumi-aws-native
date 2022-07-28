@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupVaultLockConfigurationTypeArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultLockConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("changeableForDays")]
         public Input<double>? ChangeableForDays { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupVaultLockConfigurationTypeArgs()
         {
         }
+        public static new BackupVaultLockConfigurationTypeArgs Empty => new BackupVaultLockConfigurationTypeArgs();
     }
 }

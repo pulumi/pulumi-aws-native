@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Bucket-level metrics configurations.
     /// </summary>
-    public sealed class StorageLensBucketLevelArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensBucketLevelArgs : global::Pulumi.ResourceArgs
     {
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensActivityMetricsArgs>? ActivityMetrics { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensBucketLevelArgs()
         {
         }
+        public static new StorageLensBucketLevelArgs Empty => new StorageLensBucketLevelArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class UsagePlanApiStageArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanApiStageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public UsagePlanApiStageArgs()
         {
         }
+        public static new UsagePlanApiStageArgs Empty => new UsagePlanApiStageArgs();
     }
 }

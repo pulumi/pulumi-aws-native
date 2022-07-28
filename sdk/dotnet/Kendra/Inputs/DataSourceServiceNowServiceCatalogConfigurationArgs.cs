@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceServiceNowServiceCatalogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceServiceNowServiceCatalogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceServiceNowServiceCatalogConfigurationArgs()
         {
         }
+        public static new DataSourceServiceNowServiceCatalogConfigurationArgs Empty => new DataSourceServiceNowServiceCatalogConfigurationArgs();
     }
 }

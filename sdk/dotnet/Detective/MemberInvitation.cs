@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Detective
     /// Resource schema for AWS::Detective::MemberInvitation
     /// </summary>
     [AwsNativeResourceType("aws-native:detective:MemberInvitation")]
-    public partial class MemberInvitation : Pulumi.CustomResource
+    public partial class MemberInvitation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Detective
         }
     }
 
-    public sealed class MemberInvitationArgs : Pulumi.ResourceArgs
+    public sealed class MemberInvitationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Detective
         public MemberInvitationArgs()
         {
         }
+        public static new MemberInvitationArgs Empty => new MemberInvitationArgs();
     }
 }

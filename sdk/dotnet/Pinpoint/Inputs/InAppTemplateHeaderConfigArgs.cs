@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class InAppTemplateHeaderConfigArgs : Pulumi.ResourceArgs
+    public sealed class InAppTemplateHeaderConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("alignment")]
         public Input<Pulumi.AwsNative.Pinpoint.InAppTemplateAlignment>? Alignment { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public InAppTemplateHeaderConfigArgs()
         {
         }
+        public static new InAppTemplateHeaderConfigArgs Empty => new InAppTemplateHeaderConfigArgs();
     }
 }

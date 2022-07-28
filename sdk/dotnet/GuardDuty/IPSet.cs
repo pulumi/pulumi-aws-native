@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:IPSet")]
-    public partial class IPSet : Pulumi.CustomResource
+    public partial class IPSet : global::Pulumi.CustomResource
     {
         [Output("activate")]
         public Output<bool> Activate { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class IPSetArgs : Pulumi.ResourceArgs
+    public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("activate", required: true)]
         public Input<bool> Activate { get; set; } = null!;
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public IPSetArgs()
         {
         }
+        public static new IPSetArgs Empty => new IPSetArgs();
     }
 }

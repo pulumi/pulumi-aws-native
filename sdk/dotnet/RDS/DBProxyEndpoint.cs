@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// Resource schema for AWS::RDS::DBProxyEndpoint.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBProxyEndpoint")]
-    public partial class DBProxyEndpoint : Pulumi.CustomResource
+    public partial class DBProxyEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB proxy endpoint.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBProxyEndpointArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
@@ -177,5 +177,6 @@ namespace Pulumi.AwsNative.RDS
         public DBProxyEndpointArgs()
         {
         }
+        public static new DBProxyEndpointArgs Empty => new DBProxyEndpointArgs();
     }
 }

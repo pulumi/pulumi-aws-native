@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupSelectionResourceTypeConditionsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BackupSelectionResourceTypeConditionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("stringEquals")]
         private InputList<Inputs.BackupSelectionConditionParameterArgs>? _stringEquals;
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupSelectionResourceTypeConditionsPropertiesArgs()
         {
         }
+        public static new BackupSelectionResourceTypeConditionsPropertiesArgs Empty => new BackupSelectionResourceTypeConditionsPropertiesArgs();
     }
 }

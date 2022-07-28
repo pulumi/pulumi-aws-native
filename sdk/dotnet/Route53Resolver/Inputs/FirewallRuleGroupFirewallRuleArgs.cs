@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
     /// <summary>
     /// Firewall Rule associating the Rule Group to a Domain List
     /// </summary>
-    public sealed class FirewallRuleGroupFirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleGroupFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rule Action
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         public FirewallRuleGroupFirewallRuleArgs()
         {
         }
+        public static new FirewallRuleGroupFirewallRuleArgs Empty => new FirewallRuleGroupFirewallRuleArgs();
     }
 }

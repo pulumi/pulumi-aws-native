@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMRServerless
     /// Resource schema for AWS::EMRServerless::Application Type
     /// </summary>
     [AwsNativeResourceType("aws-native:emrserverless:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the EMR Serverless Application.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.EMRServerless
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for Auto Start of Application.
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.EMRServerless
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 }

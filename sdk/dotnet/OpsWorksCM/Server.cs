@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
     /// Resource Type definition for AWS::OpsWorksCM::Server
     /// </summary>
     [AwsNativeResourceType("aws-native:opsworkscm:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
@@ -215,5 +215,6 @@ namespace Pulumi.AwsNative.OpsWorksCM
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 }

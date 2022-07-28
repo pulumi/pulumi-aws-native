@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Location
     }
 
 
-    public sealed class GetRouteCalculatorArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteCalculatorArgs : global::Pulumi.InvokeArgs
     {
         [Input("calculatorName", required: true)]
         public string CalculatorName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Location
         public GetRouteCalculatorArgs()
         {
         }
+        public static new GetRouteCalculatorArgs Empty => new GetRouteCalculatorArgs();
     }
 
-    public sealed class GetRouteCalculatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteCalculatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Location
         public GetRouteCalculatorInvokeArgs()
         {
         }
+        public static new GetRouteCalculatorInvokeArgs Empty => new GetRouteCalculatorInvokeArgs();
     }
 
 

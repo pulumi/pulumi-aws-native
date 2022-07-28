@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information required to publish the Amazon SNS message.
     /// </summary>
-    public sealed class DetectorModelSnsArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelSnsArgs : global::Pulumi.ResourceArgs
     {
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelSnsArgs()
         {
         }
+        public static new DetectorModelSnsArgs Empty => new DetectorModelSnsArgs();
     }
 }

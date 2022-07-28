@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
     /// <summary>
     /// The type of email sending events to publish to the event destination.
     /// </summary>
-    public sealed class TrailEventSelectorArgs : Pulumi.ResourceArgs
+    public sealed class TrailEventSelectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataResources")]
         private InputList<Inputs.TrailDataResourceArgs>? _dataResources;
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
         public TrailEventSelectorArgs()
         {
         }
+        public static new TrailEventSelectorArgs Empty => new TrailEventSelectorArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleAddHeaderActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleAddHeaderActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleAddHeaderActionArgs()
         {
         }
+        public static new ReceiptRuleAddHeaderActionArgs Empty => new ReceiptRuleAddHeaderActionArgs();
     }
 }

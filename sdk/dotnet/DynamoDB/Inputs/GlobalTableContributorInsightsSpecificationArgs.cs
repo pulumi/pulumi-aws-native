@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableContributorInsightsSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableContributorInsightsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableContributorInsightsSpecificationArgs()
         {
         }
+        public static new GlobalTableContributorInsightsSpecificationArgs Empty => new GlobalTableContributorInsightsSpecificationArgs();
     }
 }

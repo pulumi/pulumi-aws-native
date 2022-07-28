@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
     /// </summary>
-    public sealed class WorkflowS3TagArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowS3TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name assigned to the tag that you create.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowS3TagArgs()
         {
         }
+        public static new WorkflowS3TagArgs Empty => new WorkflowS3TagArgs();
     }
 }

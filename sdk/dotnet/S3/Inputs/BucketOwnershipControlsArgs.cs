@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketOwnershipControlsArgs : Pulumi.ResourceArgs
+    public sealed class BucketOwnershipControlsArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.BucketOwnershipControlsRuleArgs>? _rules;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketOwnershipControlsArgs()
         {
         }
+        public static new BucketOwnershipControlsArgs Empty => new BucketOwnershipControlsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Settings that you can use for eliciting a slot value.
     /// </summary>
-    public sealed class BotSlotValueElicitationSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotValueElicitationSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A list of default values for a slot.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotValueElicitationSettingArgs()
         {
         }
+        public static new BotSlotValueElicitationSettingArgs Empty => new BotSlotValueElicitationSettingArgs();
     }
 }

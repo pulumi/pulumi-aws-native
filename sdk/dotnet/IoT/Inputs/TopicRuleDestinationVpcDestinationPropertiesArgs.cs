@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleDestinationVpcDestinationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationVpcDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleDestinationVpcDestinationPropertiesArgs()
         {
         }
+        public static new TopicRuleDestinationVpcDestinationPropertiesArgs Empty => new TopicRuleDestinationVpcDestinationPropertiesArgs();
     }
 }

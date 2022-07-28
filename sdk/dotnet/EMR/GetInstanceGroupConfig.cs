@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
     }
 
 
-    public sealed class GetInstanceGroupConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceGroupConfigArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EMR
         public GetInstanceGroupConfigArgs()
         {
         }
+        public static new GetInstanceGroupConfigArgs Empty => new GetInstanceGroupConfigArgs();
     }
 
-    public sealed class GetInstanceGroupConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceGroupConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EMR
         public GetInstanceGroupConfigInvokeArgs()
         {
         }
+        public static new GetInstanceGroupConfigInvokeArgs Empty => new GetInstanceGroupConfigInvokeArgs();
     }
 
 

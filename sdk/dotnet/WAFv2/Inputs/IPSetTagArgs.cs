@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class IPSetTagArgs : Pulumi.ResourceArgs
+    public sealed class IPSetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public IPSetTagArgs()
         {
         }
+        public static new IPSetTagArgs Empty => new IPSetTagArgs();
     }
 }

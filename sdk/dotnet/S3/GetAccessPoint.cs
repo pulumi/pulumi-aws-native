@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3
     }
 
 
-    public sealed class GetAccessPointArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3
         public GetAccessPointArgs()
         {
         }
+        public static new GetAccessPointArgs Empty => new GetAccessPointArgs();
     }
 
-    public sealed class GetAccessPointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3
         public GetAccessPointInvokeArgs()
         {
         }
+        public static new GetAccessPointInvokeArgs Empty => new GetAccessPointInvokeArgs();
     }
 
 

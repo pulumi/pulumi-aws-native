@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.
     /// </summary>
-    public sealed class DistributionQueryStringObjectArgs : Pulumi.ResourceArgs
+    public sealed class DistributionQueryStringObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the distribution forwards and caches based on query strings.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionQueryStringObjectArgs()
         {
         }
+        public static new DistributionQueryStringObjectArgs Empty => new DistributionQueryStringObjectArgs();
     }
 }

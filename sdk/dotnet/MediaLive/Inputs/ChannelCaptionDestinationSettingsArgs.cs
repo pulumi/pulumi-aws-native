@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelCaptionDestinationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelCaptionDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("aribDestinationSettings")]
         public Input<Inputs.ChannelAribDestinationSettingsArgs>? AribDestinationSettings { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelCaptionDestinationSettingsArgs()
         {
         }
+        public static new ChannelCaptionDestinationSettingsArgs Empty => new ChannelCaptionDestinationSettingsArgs();
     }
 }

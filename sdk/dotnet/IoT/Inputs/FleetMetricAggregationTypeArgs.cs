@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Aggregation types supported by Fleet Indexing
     /// </summary>
-    public sealed class FleetMetricAggregationTypeArgs : Pulumi.ResourceArgs
+    public sealed class FleetMetricAggregationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public FleetMetricAggregationTypeArgs()
         {
         }
+        public static new FleetMetricAggregationTypeArgs Empty => new FleetMetricAggregationTypeArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SES
     /// </summary>
     [Obsolete(@"ReceiptRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ReceiptRuleSet")]
-    public partial class ReceiptRuleSet : Pulumi.CustomResource
+    public partial class ReceiptRuleSet : global::Pulumi.CustomResource
     {
         [Output("ruleSetName")]
         public Output<string?> RuleSetName { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class ReceiptRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleSetName")]
         public Input<string>? RuleSetName { get; set; }
@@ -70,5 +70,6 @@ namespace Pulumi.AwsNative.SES
         public ReceiptRuleSetArgs()
         {
         }
+        public static new ReceiptRuleSetArgs Empty => new ReceiptRuleSetArgs();
     }
 }

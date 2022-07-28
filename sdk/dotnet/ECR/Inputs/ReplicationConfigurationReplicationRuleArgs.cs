@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// <summary>
     /// An array of objects representing the details of a replication destination.
     /// </summary>
-    public sealed class ReplicationConfigurationReplicationRuleArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationReplicationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations", required: true)]
         private InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs>? _destinations;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public ReplicationConfigurationReplicationRuleArgs()
         {
         }
+        public static new ReplicationConfigurationReplicationRuleArgs Empty => new ReplicationConfigurationReplicationRuleArgs();
     }
 }

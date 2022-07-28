@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Publishes new or first hook version to AWS CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:HookVersion")]
-    public partial class HookVersion : Pulumi.CustomResource
+    public partial class HookVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type, here the HookVersion. This is used to uniquely identify a HookVersion resource
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class HookVersionArgs : Pulumi.ResourceArgs
+    public sealed class HookVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
@@ -155,5 +155,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public HookVersionArgs()
         {
         }
+        public static new HookVersionArgs Empty => new HookVersionArgs();
     }
 }

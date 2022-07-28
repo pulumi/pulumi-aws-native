@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelRemixSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelRemixSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelMappings")]
         private InputList<Inputs.ChannelAudioChannelMappingArgs>? _channelMappings;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelRemixSettingsArgs()
         {
         }
+        public static new ChannelRemixSettingsArgs Empty => new ChannelRemixSettingsArgs();
     }
 }

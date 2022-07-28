@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigAntennaUplinkConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigAntennaUplinkConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("spectrumConfig")]
         public Input<Inputs.ConfigUplinkSpectrumConfigArgs>? SpectrumConfig { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigAntennaUplinkConfigArgs()
         {
         }
+        public static new ConfigAntennaUplinkConfigArgs Empty => new ConfigAntennaUplinkConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
 {
 
-    public sealed class AnalyzerFilterArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("contains")]
         private InputList<string>? _contains;
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
         public AnalyzerFilterArgs()
         {
         }
+        public static new AnalyzerFilterArgs Empty => new AnalyzerFilterArgs();
     }
 }

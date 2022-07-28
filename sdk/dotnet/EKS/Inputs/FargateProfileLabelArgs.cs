@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// A key-value pair to associate with a pod.
     /// </summary>
-    public sealed class FargateProfileLabelArgs : Pulumi.ResourceArgs
+    public sealed class FargateProfileLabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the label.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public FargateProfileLabelArgs()
         {
         }
+        public static new FargateProfileLabelArgs Empty => new FargateProfileLabelArgs();
     }
 }

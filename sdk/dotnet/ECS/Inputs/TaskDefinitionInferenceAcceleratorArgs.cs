@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionInferenceAcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionInferenceAcceleratorArgs()
         {
         }
+        public static new TaskDefinitionInferenceAcceleratorArgs Empty => new TaskDefinitionInferenceAcceleratorArgs();
     }
 }

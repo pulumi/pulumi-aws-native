@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// The incident template configuration.
     /// </summary>
-    public sealed class ResponsePlanIncidentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanIncidentTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deduplication string.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanIncidentTemplateArgs()
         {
         }
+        public static new ResponsePlanIncidentTemplateArgs Empty => new ResponsePlanIncidentTemplateArgs();
     }
 }

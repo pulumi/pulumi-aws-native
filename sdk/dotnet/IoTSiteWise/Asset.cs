@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::Asset
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Asset")]
-    public partial class Asset : Pulumi.CustomResource
+    public partial class Asset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the asset
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class AssetArgs : Pulumi.ResourceArgs
+    public sealed class AssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the asset
@@ -151,5 +151,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public AssetArgs()
         {
         }
+        public static new AssetArgs Empty => new AssetArgs();
     }
 }

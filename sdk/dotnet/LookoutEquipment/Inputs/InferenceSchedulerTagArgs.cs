@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
     /// <summary>
     /// A tag is a key-value pair that can be added to a resource as metadata.
     /// </summary>
-    public sealed class InferenceSchedulerTagArgs : Pulumi.ResourceArgs
+    public sealed class InferenceSchedulerTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for the specified tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
         public InferenceSchedulerTagArgs()
         {
         }
+        public static new InferenceSchedulerTagArgs Empty => new InferenceSchedulerTagArgs();
     }
 }

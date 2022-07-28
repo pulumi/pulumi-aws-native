@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class RouteTableTagArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public RouteTableTagArgs()
         {
         }
+        public static new RouteTableTagArgs Empty => new RouteTableTagArgs();
     }
 }

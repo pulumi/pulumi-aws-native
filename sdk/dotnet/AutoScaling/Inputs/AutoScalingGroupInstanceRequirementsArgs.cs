@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupInstanceRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorCount")]
         public Input<Inputs.AutoScalingGroupAcceleratorCountRequestArgs>? AcceleratorCount { get; set; }
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupInstanceRequirementsArgs()
         {
         }
+        public static new AutoScalingGroupInstanceRequirementsArgs Empty => new AutoScalingGroupInstanceRequirementsArgs();
     }
 }

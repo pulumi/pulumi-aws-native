@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPCEndpointServicePermissionsArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEndpointServicePermissionsArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCEndpointServicePermissionsArgs()
         {
         }
+        public static new GetVPCEndpointServicePermissionsArgs Empty => new GetVPCEndpointServicePermissionsArgs();
     }
 
-    public sealed class GetVPCEndpointServicePermissionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEndpointServicePermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCEndpointServicePermissionsInvokeArgs()
         {
         }
+        public static new GetVPCEndpointServicePermissionsInvokeArgs Empty => new GetVPCEndpointServicePermissionsInvokeArgs();
     }
 
 

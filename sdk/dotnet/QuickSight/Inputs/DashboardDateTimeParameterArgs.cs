@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A date-time parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardDateTimeParameterArgs : Pulumi.ResourceArgs
+    public sealed class DashboardDateTimeParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A display name for the date-time parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardDateTimeParameterArgs()
         {
         }
+        public static new DashboardDateTimeParameterArgs Empty => new DashboardDateTimeParameterArgs();
     }
 }

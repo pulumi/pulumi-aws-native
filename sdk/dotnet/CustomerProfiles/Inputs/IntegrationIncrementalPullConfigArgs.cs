@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationIncrementalPullConfigArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationIncrementalPullConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("datetimeTypeFieldName")]
         public Input<string>? DatetimeTypeFieldName { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationIncrementalPullConfigArgs()
         {
         }
+        public static new IntegrationIncrementalPullConfigArgs Empty => new IntegrationIncrementalPullConfigArgs();
     }
 }

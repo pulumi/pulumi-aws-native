@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:ThreatIntelSet")]
-    public partial class ThreatIntelSet : Pulumi.CustomResource
+    public partial class ThreatIntelSet : global::Pulumi.CustomResource
     {
         [Output("activate")]
         public Output<bool> Activate { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class ThreatIntelSetArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("activate", required: true)]
         public Input<bool> Activate { get; set; } = null!;
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public ThreatIntelSetArgs()
         {
         }
+        public static new ThreatIntelSetArgs Empty => new ThreatIntelSetArgs();
     }
 }

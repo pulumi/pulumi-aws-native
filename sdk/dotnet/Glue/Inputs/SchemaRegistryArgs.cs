@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
     /// <summary>
     /// Identifier for the registry which the schema is part of.
     /// </summary>
-    public sealed class SchemaRegistryArgs : Pulumi.ResourceArgs
+    public sealed class SchemaRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name for the Registry.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public SchemaRegistryArgs()
         {
         }
+        public static new SchemaRegistryArgs Empty => new SchemaRegistryArgs();
     }
 }

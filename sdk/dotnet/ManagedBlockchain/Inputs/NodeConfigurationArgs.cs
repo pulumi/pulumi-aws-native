@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
-    public sealed class NodeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
         public NodeConfigurationArgs()
         {
         }
+        public static new NodeConfigurationArgs Empty => new NodeConfigurationArgs();
     }
 }

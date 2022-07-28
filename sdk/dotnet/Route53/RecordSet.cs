@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Route53
     /// </summary>
     [Obsolete(@"RecordSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53:RecordSet")]
-    public partial class RecordSet : Pulumi.CustomResource
+    public partial class RecordSet : global::Pulumi.CustomResource
     {
         [Output("aliasTarget")]
         public Output<Outputs.RecordSetAliasTarget?> AliasTarget { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class RecordSetArgs : Pulumi.ResourceArgs
+    public sealed class RecordSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliasTarget")]
         public Input<Inputs.RecordSetAliasTargetArgs>? AliasTarget { get; set; }
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.Route53
         public RecordSetArgs()
         {
         }
+        public static new RecordSetArgs Empty => new RecordSetArgs();
     }
 }

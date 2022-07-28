@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FSx
     }
 
 
-    public sealed class GetStorageVirtualMachineArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageVirtualMachineArgs : global::Pulumi.InvokeArgs
     {
         [Input("storageVirtualMachineId", required: true)]
         public string StorageVirtualMachineId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.FSx
         public GetStorageVirtualMachineArgs()
         {
         }
+        public static new GetStorageVirtualMachineArgs Empty => new GetStorageVirtualMachineArgs();
     }
 
-    public sealed class GetStorageVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStorageVirtualMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("storageVirtualMachineId", required: true)]
         public Input<string> StorageVirtualMachineId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.FSx
         public GetStorageVirtualMachineInvokeArgs()
         {
         }
+        public static new GetStorageVirtualMachineInvokeArgs Empty => new GetStorageVirtualMachineInvokeArgs();
     }
 
 

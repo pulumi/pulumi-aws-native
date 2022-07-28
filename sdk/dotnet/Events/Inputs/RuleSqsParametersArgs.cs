@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleSqsParametersArgs : Pulumi.ResourceArgs
+    public sealed class RuleSqsParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("messageGroupId", required: true)]
         public Input<string> MessageGroupId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleSqsParametersArgs()
         {
         }
+        public static new RuleSqsParametersArgs Empty => new RuleSqsParametersArgs();
     }
 }

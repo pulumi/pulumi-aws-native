@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetLaunchNotificationConstraintArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchNotificationConstraintArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetLaunchNotificationConstraintArgs()
         {
         }
+        public static new GetLaunchNotificationConstraintArgs Empty => new GetLaunchNotificationConstraintArgs();
     }
 
-    public sealed class GetLaunchNotificationConstraintInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchNotificationConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetLaunchNotificationConstraintInvokeArgs()
         {
         }
+        public static new GetLaunchNotificationConstraintInvokeArgs Empty => new GetLaunchNotificationConstraintInvokeArgs();
     }
 
 

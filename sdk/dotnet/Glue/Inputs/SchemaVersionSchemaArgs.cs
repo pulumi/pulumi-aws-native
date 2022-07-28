@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
     /// <summary>
     /// Identifier for the schema where the schema version will be created.
     /// </summary>
-    public sealed class SchemaVersionSchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaVersionSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the registry to identify where the Schema is located.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public SchemaVersionSchemaArgs()
         {
         }
+        public static new SchemaVersionSchemaArgs Empty => new SchemaVersionSchemaArgs();
     }
 }

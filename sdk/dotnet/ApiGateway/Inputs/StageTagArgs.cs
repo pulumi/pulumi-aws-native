@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// <summary>
     /// Identify and categorize resources.
     /// </summary>
-    public sealed class StageTagArgs : Pulumi.ResourceArgs
+    public sealed class StageTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public StageTagArgs()
         {
         }
+        public static new StageTagArgs Empty => new StageTagArgs();
     }
 }

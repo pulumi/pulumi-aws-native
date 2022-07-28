@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     }
 
 
-    public sealed class GetResourceSetArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource set to create.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetResourceSetArgs()
         {
         }
+        public static new GetResourceSetArgs Empty => new GetResourceSetArgs();
     }
 
-    public sealed class GetResourceSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource set to create.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public GetResourceSetInvokeArgs()
         {
         }
+        public static new GetResourceSetInvokeArgs Empty => new GetResourceSetInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetSpotPlacementArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetSpotPlacementArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetSpotPlacementArgs()
         {
         }
+        public static new SpotFleetSpotPlacementArgs Empty => new SpotFleetSpotPlacementArgs();
     }
 }

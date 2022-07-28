@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    public sealed class BudgetNotificationWithSubscribersArgs : Pulumi.ResourceArgs
+    public sealed class BudgetNotificationWithSubscribersArgs : global::Pulumi.ResourceArgs
     {
         [Input("notification", required: true)]
         public Input<Inputs.BudgetNotificationArgs> Notification { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public BudgetNotificationWithSubscribersArgs()
         {
         }
+        public static new BudgetNotificationWithSubscribersArgs Empty => new BudgetNotificationWithSubscribersArgs();
     }
 }

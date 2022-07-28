@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Details required for scheduled trigger type
     /// </summary>
-    public sealed class FlowScheduledTriggerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowScheduledTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataPullMode")]
         public Input<Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowScheduledTriggerPropertiesArgs()
         {
         }
+        public static new FlowScheduledTriggerPropertiesArgs Empty => new FlowScheduledTriggerPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
     /// <summary>
     /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
     /// </summary>
-    public sealed class StreamEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class StreamEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption type to use. The only valid value is KMS. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
         public StreamEncryptionArgs()
         {
         }
+        public static new StreamEncryptionArgs Empty => new StreamEncryptionArgs();
     }
 }

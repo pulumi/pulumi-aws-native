@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiOpenIDConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiOpenIDConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("authTTL")]
         public Input<double>? AuthTTL { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public GraphQLApiOpenIDConnectConfigArgs()
         {
         }
+        public static new GraphQLApiOpenIDConnectConfigArgs Empty => new GraphQLApiOpenIDConnectConfigArgs();
     }
 }

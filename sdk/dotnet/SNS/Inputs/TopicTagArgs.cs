@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SNS.Inputs
 {
 
-    public sealed class TopicTagArgs : Pulumi.ResourceArgs
+    public sealed class TopicTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SNS.Inputs
         public TopicTagArgs()
         {
         }
+        public static new TopicTagArgs Empty => new TopicTagArgs();
     }
 }

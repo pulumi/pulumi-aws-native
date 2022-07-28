@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexValueImportanceItemArgs : Pulumi.ResourceArgs
+    public sealed class IndexValueImportanceItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexValueImportanceItemArgs()
         {
         }
+        public static new IndexValueImportanceItemArgs Empty => new IndexValueImportanceItemArgs();
     }
 }

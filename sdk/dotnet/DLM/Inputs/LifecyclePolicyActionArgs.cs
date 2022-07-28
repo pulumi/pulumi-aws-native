@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyActionArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("crossRegionCopy", required: true)]
         private InputList<Inputs.LifecyclePolicyCrossRegionCopyActionArgs>? _crossRegionCopy;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyActionArgs()
         {
         }
+        public static new LifecyclePolicyActionArgs Empty => new LifecyclePolicyActionArgs();
     }
 }

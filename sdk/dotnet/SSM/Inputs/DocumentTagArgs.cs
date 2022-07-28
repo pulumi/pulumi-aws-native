@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class DocumentTagArgs : Pulumi.ResourceArgs
+    public sealed class DocumentTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the tag.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public DocumentTagArgs()
         {
         }
+        public static new DocumentTagArgs Empty => new DocumentTagArgs();
     }
 }

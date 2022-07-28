@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptFilterIpFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptFilterIpFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptFilterIpFilterArgs()
         {
         }
+        public static new ReceiptFilterIpFilterArgs Empty => new ReceiptFilterIpFilterArgs();
     }
 }

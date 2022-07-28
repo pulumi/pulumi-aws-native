@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Configuring the test bot alias settings for a given bot
     /// </summary>
-    public sealed class BotTestBotAliasSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BotTestBotAliasSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("botAliasLocaleSettings")]
         private InputList<Inputs.BotAliasLocaleSettingsItemArgs>? _botAliasLocaleSettings;
@@ -38,5 +38,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotTestBotAliasSettingsArgs()
         {
         }
+        public static new BotTestBotAliasSettingsArgs Empty => new BotTestBotAliasSettingsArgs();
     }
 }

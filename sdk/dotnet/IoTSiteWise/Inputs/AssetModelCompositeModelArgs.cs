@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
     /// </summary>
-    public sealed class AssetModelCompositeModelArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelCompositeModelArgs : global::Pulumi.ResourceArgs
     {
         [Input("compositeModelProperties")]
         private InputList<Inputs.AssetModelPropertyArgs>? _compositeModelProperties;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelCompositeModelArgs()
         {
         }
+        public static new AssetModelCompositeModelArgs Empty => new AssetModelCompositeModelArgs();
     }
 }

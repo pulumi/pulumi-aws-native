@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// </summary>
     [Obsolete(@"RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:RotationSchedule")]
-    public partial class RotationSchedule : Pulumi.CustomResource
+    public partial class RotationSchedule : global::Pulumi.CustomResource
     {
         [Output("hostedRotationLambda")]
         public Output<Outputs.RotationScheduleHostedRotationLambda?> HostedRotationLambda { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.SecretsManager
         }
     }
 
-    public sealed class RotationScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RotationScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("hostedRotationLambda")]
         public Input<Inputs.RotationScheduleHostedRotationLambdaArgs>? HostedRotationLambda { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.SecretsManager
         public RotationScheduleArgs()
         {
         }
+        public static new RotationScheduleArgs Empty => new RotationScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class GameSessionQueueDestinationArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueueDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameSessionQueueDestinationArgs()
         {
         }
+        public static new GameSessionQueueDestinationArgs Empty => new GameSessionQueueDestinationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.BucketRuleArgs>? _rules;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketLifecycleConfigurationArgs()
         {
         }
+        public static new BucketLifecycleConfigurationArgs Empty => new BucketLifecycleConfigurationArgs();
     }
 }

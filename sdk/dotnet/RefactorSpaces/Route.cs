@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     /// Definition of AWS::RefactorSpaces::Route Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:refactorspaces:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 }

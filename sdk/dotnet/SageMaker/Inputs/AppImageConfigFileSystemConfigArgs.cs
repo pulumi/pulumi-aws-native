@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
     /// </summary>
-    public sealed class AppImageConfigFileSystemConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default POSIX group ID (GID). If not specified, defaults to 100.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public AppImageConfigFileSystemConfigArgs()
         {
         }
+        public static new AppImageConfigFileSystemConfigArgs Empty => new AppImageConfigFileSystemConfigArgs();
     }
 }

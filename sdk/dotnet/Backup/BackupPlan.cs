@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup
     /// Resource Type definition for AWS::Backup::BackupPlan
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupPlan")]
-    public partial class BackupPlan : Pulumi.CustomResource
+    public partial class BackupPlan : global::Pulumi.CustomResource
     {
         [Output("backupPlan")]
         public Output<Outputs.BackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Backup
         }
     }
 
-    public sealed class BackupPlanArgs : Pulumi.ResourceArgs
+    public sealed class BackupPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
@@ -84,5 +84,6 @@ namespace Pulumi.AwsNative.Backup
         public BackupPlanArgs()
         {
         }
+        public static new BackupPlanArgs Empty => new BackupPlanArgs();
     }
 }

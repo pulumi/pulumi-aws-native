@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTransitGatewayMulticastGroupMemberArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayMulticastGroupMemberArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -48,9 +48,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayMulticastGroupMemberArgs()
         {
         }
+        public static new GetTransitGatewayMulticastGroupMemberArgs Empty => new GetTransitGatewayMulticastGroupMemberArgs();
     }
 
-    public sealed class GetTransitGatewayMulticastGroupMemberInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayMulticastGroupMemberInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -73,6 +74,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayMulticastGroupMemberInvokeArgs()
         {
         }
+        public static new GetTransitGatewayMulticastGroupMemberInvokeArgs Empty => new GetTransitGatewayMulticastGroupMemberInvokeArgs();
     }
 
 

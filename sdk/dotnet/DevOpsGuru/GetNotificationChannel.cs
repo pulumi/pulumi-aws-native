@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     }
 
 
-    public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of a notification channel.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DevOpsGuru
         public GetNotificationChannelArgs()
         {
         }
+        public static new GetNotificationChannelArgs Empty => new GetNotificationChannelArgs();
     }
 
-    public sealed class GetNotificationChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of a notification channel.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         public GetNotificationChannelInvokeArgs()
         {
         }
+        public static new GetNotificationChannelInvokeArgs Empty => new GetNotificationChannelInvokeArgs();
     }
 
 

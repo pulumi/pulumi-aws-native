@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayHealthCheckPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayHealthCheckPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("healthyThreshold", required: true)]
         public Input<int> HealthyThreshold { get; set; } = null!;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayHealthCheckPolicyArgs()
         {
         }
+        public static new VirtualGatewayHealthCheckPolicyArgs Empty => new VirtualGatewayHealthCheckPolicyArgs();
     }
 }

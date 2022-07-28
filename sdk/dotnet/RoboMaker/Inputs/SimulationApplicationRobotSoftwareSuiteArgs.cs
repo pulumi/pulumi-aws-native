@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
     /// <summary>
     /// Information about a robot software suite.
     /// </summary>
-    public sealed class SimulationApplicationRobotSoftwareSuiteArgs : Pulumi.ResourceArgs
+    public sealed class SimulationApplicationRobotSoftwareSuiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the robot software suite.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         public SimulationApplicationRobotSoftwareSuiteArgs()
         {
         }
+        public static new SimulationApplicationRobotSoftwareSuiteArgs Empty => new SimulationApplicationRobotSoftwareSuiteArgs();
     }
 }

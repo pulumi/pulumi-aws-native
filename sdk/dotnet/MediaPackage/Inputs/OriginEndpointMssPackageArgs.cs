@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Microsoft Smooth Streaming (MSS) packaging configuration.
     /// </summary>
-    public sealed class OriginEndpointMssPackageArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointMssPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryption")]
         public Input<Inputs.OriginEndpointMssEncryptionArgs>? Encryption { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointMssPackageArgs()
         {
         }
+        public static new OriginEndpointMssPackageArgs Empty => new OriginEndpointMssPackageArgs();
     }
 }

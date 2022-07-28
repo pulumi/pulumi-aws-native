@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceHookConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceHookConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("invocationCondition")]
         public Input<Inputs.DataSourceDocumentAttributeConditionArgs>? InvocationCondition { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceHookConfigurationArgs()
         {
         }
+        public static new DataSourceHookConfigurationArgs Empty => new DataSourceHookConfigurationArgs();
     }
 }

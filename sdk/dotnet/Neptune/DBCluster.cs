@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Neptune
     /// </summary>
     [Obsolete(@"DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:neptune:DBCluster")]
-    public partial class DBCluster : Pulumi.CustomResource
+    public partial class DBCluster : global::Pulumi.CustomResource
     {
         [Output("associatedRoles")]
         public Output<ImmutableArray<Outputs.DBClusterRole>> AssociatedRoles { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Neptune
         }
     }
 
-    public sealed class DBClusterArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatedRoles")]
         private InputList<Inputs.DBClusterRoleArgs>? _associatedRoles;
@@ -230,5 +230,6 @@ namespace Pulumi.AwsNative.Neptune
         public DBClusterArgs()
         {
         }
+        public static new DBClusterArgs Empty => new DBClusterArgs();
     }
 }

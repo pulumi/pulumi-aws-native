@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class SegmentBehaviorArgs : Pulumi.ResourceArgs
+    public sealed class SegmentBehaviorArgs : global::Pulumi.ResourceArgs
     {
         [Input("recency")]
         public Input<Inputs.SegmentRecencyArgs>? Recency { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public SegmentBehaviorArgs()
         {
         }
+        public static new SegmentBehaviorArgs Empty => new SegmentBehaviorArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The display options for tile borders for visuals.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeBorderStyleArgs : Pulumi.ResourceArgs
+    public sealed class ThemeBorderStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The option to enable display of borders for visuals.&lt;/p&gt;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeBorderStyleArgs()
         {
         }
+        public static new ThemeBorderStyleArgs Empty => new ThemeBorderStyleArgs();
     }
 }

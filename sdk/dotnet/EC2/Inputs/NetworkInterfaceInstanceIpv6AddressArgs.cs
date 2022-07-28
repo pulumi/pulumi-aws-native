@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class NetworkInterfaceInstanceIpv6AddressArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceInstanceIpv6AddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipv6Address", required: true)]
         public Input<string> Ipv6Address { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public NetworkInterfaceInstanceIpv6AddressArgs()
         {
         }
+        public static new NetworkInterfaceInstanceIpv6AddressArgs Empty => new NetworkInterfaceInstanceIpv6AddressArgs();
     }
 }

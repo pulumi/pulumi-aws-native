@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:DataQualityJobDefinition")]
-    public partial class DataQualityJobDefinition : Pulumi.CustomResource
+    public partial class DataQualityJobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the job definition was created.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class DataQualityJobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DataQualityJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataQualityAppSpecification", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs> DataQualityAppSpecification { get; set; } = null!;
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.SageMaker
         public DataQualityJobDefinitionArgs()
         {
         }
+        public static new DataQualityJobDefinitionArgs Empty => new DataQualityJobDefinitionArgs();
     }
 }

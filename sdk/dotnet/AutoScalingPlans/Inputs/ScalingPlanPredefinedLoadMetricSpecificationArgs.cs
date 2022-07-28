@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanPredefinedLoadMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanPredefinedLoadMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("predefinedLoadMetricType", required: true)]
         public Input<string> PredefinedLoadMetricType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
         public ScalingPlanPredefinedLoadMetricSpecificationArgs()
         {
         }
+        public static new ScalingPlanPredefinedLoadMetricSpecificationArgs Empty => new ScalingPlanPredefinedLoadMetricSpecificationArgs();
     }
 }

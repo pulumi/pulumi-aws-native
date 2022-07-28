@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class TaskTemplateTagArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateTagArgs()
         {
         }
+        public static new TaskTemplateTagArgs Empty => new TaskTemplateTagArgs();
     }
 }

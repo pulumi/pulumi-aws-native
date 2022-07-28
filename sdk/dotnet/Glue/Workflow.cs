@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Workflow is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         [Output("defaultRunProperties")]
         public Output<object?> DefaultRunProperties { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRunProperties")]
         public Input<object>? DefaultRunProperties { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Glue
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 }

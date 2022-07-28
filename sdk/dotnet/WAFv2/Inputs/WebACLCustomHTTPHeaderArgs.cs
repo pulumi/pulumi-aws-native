@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// HTTP header.
     /// </summary>
-    public sealed class WebACLCustomHTTPHeaderArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCustomHTTPHeaderArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLCustomHTTPHeaderArgs()
         {
         }
+        public static new WebACLCustomHTTPHeaderArgs Empty => new WebACLCustomHTTPHeaderArgs();
     }
 }

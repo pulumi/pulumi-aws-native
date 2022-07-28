@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Input ServiceCatalog Provisioning Details
     /// </summary>
-    public sealed class ServiceCatalogProvisioningDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCatalogProvisioningDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ServiceCatalogProvisioningDetailsPropertiesArgs()
         {
         }
+        public static new ServiceCatalogProvisioningDetailsPropertiesArgs Empty => new ServiceCatalogProvisioningDetailsPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Condition expressions applied to the step action
     /// </summary>
-    public sealed class RecipeConditionExpressionArgs : Pulumi.ResourceArgs
+    public sealed class RecipeConditionExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Input condition to be applied to the target column
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeConditionExpressionArgs()
         {
         }
+        public static new RecipeConditionExpressionArgs Empty => new RecipeConditionExpressionArgs();
     }
 }

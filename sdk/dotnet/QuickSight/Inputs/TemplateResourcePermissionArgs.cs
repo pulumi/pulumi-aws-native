@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Permission for the resource.&lt;/p&gt;
     /// </summary>
-    public sealed class TemplateResourcePermissionArgs : Pulumi.ResourceArgs
+    public sealed class TemplateResourcePermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public TemplateResourcePermissionArgs()
         {
         }
+        public static new TemplateResourcePermissionArgs Empty => new TemplateResourcePermissionArgs();
     }
 }

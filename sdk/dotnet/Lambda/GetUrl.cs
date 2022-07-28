@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetUrlArgs()
         {
         }
+        public static new GetUrlArgs Empty => new GetUrlArgs();
     }
 
-    public sealed class GetUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetUrlInvokeArgs()
         {
         }
+        public static new GetUrlInvokeArgs Empty => new GetUrlInvokeArgs();
     }
 
 

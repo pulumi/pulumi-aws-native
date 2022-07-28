@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
     /// </summary>
-    public sealed class ApplicationSqlApplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSqlApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<Inputs.ApplicationInputArgs>? _inputs;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationSqlApplicationConfigurationArgs()
         {
         }
+        public static new ApplicationSqlApplicationConfigurationArgs Empty => new ApplicationSqlApplicationConfigurationArgs();
     }
 }

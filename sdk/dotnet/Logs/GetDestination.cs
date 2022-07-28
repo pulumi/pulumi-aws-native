@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetDestinationArgs : Pulumi.InvokeArgs
+    public sealed class GetDestinationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Logs
         public GetDestinationArgs()
         {
         }
+        public static new GetDestinationArgs Empty => new GetDestinationArgs();
     }
 
-    public sealed class GetDestinationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Logs
         public GetDestinationInvokeArgs()
         {
         }
+        public static new GetDestinationInvokeArgs Empty => new GetDestinationInvokeArgs();
     }
 
 

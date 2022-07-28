@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceAccessControlListConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAccessControlListConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyPath")]
         public Input<string>? KeyPath { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceAccessControlListConfigurationArgs()
         {
         }
+        public static new DataSourceAccessControlListConfigurationArgs Empty => new DataSourceAccessControlListConfigurationArgs();
     }
 }

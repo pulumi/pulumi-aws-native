@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Neptune
     /// </summary>
     [Obsolete(@"DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:neptune:DBParameterGroup")]
-    public partial class DBParameterGroup : Pulumi.CustomResource
+    public partial class DBParameterGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Neptune
         }
     }
 
-    public sealed class DBParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Neptune
         public DBParameterGroupArgs()
         {
         }
+        public static new DBParameterGroupArgs Empty => new DBParameterGroupArgs();
     }
 }

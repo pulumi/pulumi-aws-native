@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleDynamoDBv2ActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDynamoDBv2ActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("putItem")]
         public Input<Inputs.TopicRulePutItemInputArgs>? PutItem { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleDynamoDBv2ActionArgs()
         {
         }
+        public static new TopicRuleDynamoDBv2ActionArgs Empty => new TopicRuleDynamoDBv2ActionArgs();
     }
 }

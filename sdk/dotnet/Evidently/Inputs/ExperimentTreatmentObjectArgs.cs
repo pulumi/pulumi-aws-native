@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ExperimentTreatmentObjectArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTreatmentObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ExperimentTreatmentObjectArgs()
         {
         }
+        public static new ExperimentTreatmentObjectArgs Empty => new ExperimentTreatmentObjectArgs();
     }
 }

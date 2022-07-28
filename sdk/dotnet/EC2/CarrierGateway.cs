@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:CarrierGateway")]
-    public partial class CarrierGateway : Pulumi.CustomResource
+    public partial class CarrierGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the carrier gateway.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class CarrierGatewayArgs : Pulumi.ResourceArgs
+    public sealed class CarrierGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputList<Inputs.CarrierGatewayTagArgs>? _tags;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EC2
         public CarrierGatewayArgs()
         {
         }
+        public static new CarrierGatewayArgs Empty => new CarrierGatewayArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:WebACL")]
-    public partial class WebACL : Pulumi.CustomResource
+    public partial class WebACL : global::Pulumi.CustomResource
     {
         [Output("defaultAction")]
         public Output<Outputs.WebACLAction> DefaultAction { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class WebACLArgs : Pulumi.ResourceArgs
+    public sealed class WebACLArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebACLActionArgs> DefaultAction { get; set; } = null!;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public WebACLArgs()
         {
         }
+        public static new WebACLArgs Empty => new WebACLArgs();
     }
 }

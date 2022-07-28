@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.APS
     /// Resource Type definition for AWS::APS::Workspace
     /// </summary>
     [AwsNativeResourceType("aws-native:aps:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AMP Workspace alert manager definition data
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.APS
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AMP Workspace alert manager definition data
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.APS
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

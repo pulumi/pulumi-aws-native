@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
     /// <summary>
     /// Specify checkpoint version for update. This is only required to update the Compatibility.
     /// </summary>
-    public sealed class SchemaVersionArgs : Pulumi.ResourceArgs
+    public sealed class SchemaVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the latest version needs to be updated.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public SchemaVersionArgs()
         {
         }
+        public static new SchemaVersionArgs Empty => new SchemaVersionArgs();
     }
 }

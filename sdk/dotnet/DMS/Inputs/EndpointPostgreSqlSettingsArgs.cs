@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointPostgreSqlSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointPostgreSqlSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("afterConnectScript")]
         public Input<string>? AfterConnectScript { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointPostgreSqlSettingsArgs()
         {
         }
+        public static new EndpointPostgreSqlSettingsArgs Empty => new EndpointPostgreSqlSettingsArgs();
     }
 }

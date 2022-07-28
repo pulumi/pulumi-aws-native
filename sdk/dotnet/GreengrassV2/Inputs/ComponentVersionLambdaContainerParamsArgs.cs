@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaContainerParamsArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaContainerParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("devices")]
         private InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>? _devices;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaContainerParamsArgs()
         {
         }
+        public static new ComponentVersionLambdaContainerParamsArgs Empty => new ComponentVersionLambdaContainerParamsArgs();
     }
 }

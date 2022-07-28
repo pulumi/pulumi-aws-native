@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class WebhookAuthConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WebhookAuthConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedIPRange")]
         public Input<string>? AllowedIPRange { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public WebhookAuthConfigurationArgs()
         {
         }
+        public static new WebhookAuthConfigurationArgs Empty => new WebhookAuthConfigurationArgs();
     }
 }

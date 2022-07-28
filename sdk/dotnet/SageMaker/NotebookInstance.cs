@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:NotebookInstance")]
-    public partial class NotebookInstance : Pulumi.CustomResource
+    public partial class NotebookInstance : global::Pulumi.CustomResource
     {
         [Output("acceleratorTypes")]
         public Output<ImmutableArray<string>> AcceleratorTypes { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class NotebookInstanceArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorTypes")]
         private InputList<string>? _acceleratorTypes;
@@ -174,5 +174,6 @@ namespace Pulumi.AwsNative.SageMaker
         public NotebookInstanceArgs()
         {
         }
+        public static new NotebookInstanceArgs Empty => new NotebookInstanceArgs();
     }
 }

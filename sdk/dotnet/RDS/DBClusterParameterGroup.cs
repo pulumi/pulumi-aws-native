@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBClusterParameterGroup")]
-    public partial class DBClusterParameterGroup : Pulumi.CustomResource
+    public partial class DBClusterParameterGroup : global::Pulumi.CustomResource
     {
         [Output("dBClusterParameterGroupName")]
         public Output<string> DBClusterParameterGroupName { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class DBClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly description for this DB cluster parameter group.
@@ -120,5 +120,6 @@ namespace Pulumi.AwsNative.RDS
         public DBClusterParameterGroupArgs()
         {
         }
+        public static new DBClusterParameterGroupArgs Empty => new DBClusterParameterGroupArgs();
     }
 }

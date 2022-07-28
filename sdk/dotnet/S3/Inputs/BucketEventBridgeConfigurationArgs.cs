@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketEventBridgeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketEventBridgeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketEventBridgeConfigurationArgs()
         {
         }
+        public static new BucketEventBridgeConfigurationArgs Empty => new BucketEventBridgeConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class AppSslConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AppSslConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public AppSslConfigurationArgs()
         {
         }
+        public static new AppSslConfigurationArgs Empty => new AppSslConfigurationArgs();
     }
 }

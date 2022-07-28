@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineArtifactStoreArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArtifactStoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionKey")]
         public Input<Inputs.PipelineEncryptionKeyArgs>? EncryptionKey { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineArtifactStoreArgs()
         {
         }
+        public static new PipelineArtifactStoreArgs Empty => new PipelineArtifactStoreArgs();
     }
 }

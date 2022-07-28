@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// Resource Type definition for AWS::AutoScaling::LifecycleHook
     /// </summary>
     [AwsNativeResourceType("aws-native:autoscaling:LifecycleHook")]
-    public partial class LifecycleHook : Pulumi.CustomResource
+    public partial class LifecycleHook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class LifecycleHookArgs : Pulumi.ResourceArgs
+    public sealed class LifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Auto Scaling group for the lifecycle hook.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public LifecycleHookArgs()
         {
         }
+        public static new LifecycleHookArgs Empty => new LifecycleHookArgs();
     }
 }

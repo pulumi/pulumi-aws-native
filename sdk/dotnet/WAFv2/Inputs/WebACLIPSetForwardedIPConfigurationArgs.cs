@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLIPSetForwardedIPConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WebACLIPSetForwardedIPConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("fallbackBehavior", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior> FallbackBehavior { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLIPSetForwardedIPConfigurationArgs()
         {
         }
+        public static new WebACLIPSetForwardedIPConfigurationArgs Empty => new WebACLIPSetForwardedIPConfigurationArgs();
     }
 }

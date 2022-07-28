@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetModelArgs : Pulumi.InvokeArgs
+    public sealed class GetModelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetModelArgs()
         {
         }
+        public static new GetModelArgs Empty => new GetModelArgs();
     }
 
-    public sealed class GetModelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetModelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetModelInvokeArgs()
         {
         }
+        public static new GetModelInvokeArgs Empty => new GetModelInvokeArgs();
     }
 
 

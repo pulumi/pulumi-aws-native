@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// Resource schema for AWS::IoTSiteWise::Portal
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Portal")]
-    public partial class Portal : Pulumi.CustomResource
+    public partial class Portal : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
     }
 
-    public sealed class PortalArgs : Pulumi.ResourceArgs
+    public sealed class PortalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
@@ -189,5 +189,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public PortalArgs()
         {
         }
+        public static new PortalArgs Empty => new PortalArgs();
     }
 }

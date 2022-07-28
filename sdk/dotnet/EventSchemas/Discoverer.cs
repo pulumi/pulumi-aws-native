@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EventSchemas
     /// </summary>
     [Obsolete(@"Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Discoverer")]
-    public partial class Discoverer : Pulumi.CustomResource
+    public partial class Discoverer : global::Pulumi.CustomResource
     {
         [Output("crossAccount")]
         public Output<bool?> CrossAccount { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.EventSchemas
         }
     }
 
-    public sealed class DiscovererArgs : Pulumi.ResourceArgs
+    public sealed class DiscovererArgs : global::Pulumi.ResourceArgs
     {
         [Input("crossAccount")]
         public Input<bool>? CrossAccount { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.EventSchemas
         public DiscovererArgs()
         {
         }
+        public static new DiscovererArgs Empty => new DiscovererArgs();
     }
 }

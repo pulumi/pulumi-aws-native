@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceToIndexFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceToIndexFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSourceFieldName", required: true)]
         public Input<string> DataSourceFieldName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceToIndexFieldMappingArgs()
         {
         }
+        public static new DataSourceToIndexFieldMappingArgs Empty => new DataSourceToIndexFieldMappingArgs();
     }
 }

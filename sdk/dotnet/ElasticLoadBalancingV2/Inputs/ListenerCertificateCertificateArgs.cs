@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerCertificateCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ListenerCertificateCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerCertificateCertificateArgs()
         {
         }
+        public static new ListenerCertificateCertificateArgs Empty => new ListenerCertificateCertificateArgs();
     }
 }

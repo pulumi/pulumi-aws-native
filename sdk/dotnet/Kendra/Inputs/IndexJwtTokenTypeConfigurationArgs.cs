@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexJwtTokenTypeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexJwtTokenTypeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("claimRegex")]
         public Input<string>? ClaimRegex { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexJwtTokenTypeConfigurationArgs()
         {
         }
+        public static new IndexJwtTokenTypeConfigurationArgs Empty => new IndexJwtTokenTypeConfigurationArgs();
     }
 }

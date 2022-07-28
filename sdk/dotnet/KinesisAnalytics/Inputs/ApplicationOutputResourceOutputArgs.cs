@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationOutputResourceOutputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationOutputResourceOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationSchema", required: true)]
         public Input<Inputs.ApplicationOutputResourceDestinationSchemaArgs> DestinationSchema { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationOutputResourceOutputArgs()
         {
         }
+        public static new ApplicationOutputResourceOutputArgs Empty => new ApplicationOutputResourceOutputArgs();
     }
 }

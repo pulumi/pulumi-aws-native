@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// </summary>
     [Obsolete(@"ResolverEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53resolver:ResolverEndpoint")]
-    public partial class ResolverEndpoint : Pulumi.CustomResource
+    public partial class ResolverEndpoint : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ResolverEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
@@ -121,5 +121,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverEndpointArgs()
         {
         }
+        public static new ResolverEndpointArgs Empty => new ResolverEndpointArgs();
     }
 }

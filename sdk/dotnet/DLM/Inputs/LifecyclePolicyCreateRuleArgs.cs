@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyCreateRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyCreateRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cronExpression")]
         public Input<string>? CronExpression { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyCreateRuleArgs()
         {
         }
+        public static new LifecyclePolicyCreateRuleArgs Empty => new LifecyclePolicyCreateRuleArgs();
     }
 }

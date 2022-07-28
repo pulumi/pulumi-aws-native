@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemOpenZFSConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemOpenZFSConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemOpenZFSConfigurationArgs()
         {
         }
+        public static new FileSystemOpenZFSConfigurationArgs Empty => new FileSystemOpenZFSConfigurationArgs();
     }
 }

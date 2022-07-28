@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Evidently
     }
 
 
-    public sealed class GetFeatureArgs : Pulumi.InvokeArgs
+    public sealed class GetFeatureArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Evidently
         public GetFeatureArgs()
         {
         }
+        public static new GetFeatureArgs Empty => new GetFeatureArgs();
     }
 
-    public sealed class GetFeatureInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFeatureInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Evidently
         public GetFeatureInvokeArgs()
         {
         }
+        public static new GetFeatureInvokeArgs Empty => new GetFeatureInvokeArgs();
     }
 
 

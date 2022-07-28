@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"VoiceChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:VoiceChannel")]
-    public partial class VoiceChannel : Pulumi.CustomResource
+    public partial class VoiceChannel : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class VoiceChannelArgs : Pulumi.ResourceArgs
+    public sealed class VoiceChannelArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public VoiceChannelArgs()
         {
         }
+        public static new VoiceChannelArgs Empty => new VoiceChannelArgs();
     }
 }

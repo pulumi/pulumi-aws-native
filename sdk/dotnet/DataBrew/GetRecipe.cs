@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew
     }
 
 
-    public sealed class GetRecipeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecipeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Recipe name
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataBrew
         public GetRecipeArgs()
         {
         }
+        public static new GetRecipeArgs Empty => new GetRecipeArgs();
     }
 
-    public sealed class GetRecipeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Recipe name
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataBrew
         public GetRecipeInvokeArgs()
         {
         }
+        public static new GetRecipeInvokeArgs Empty => new GetRecipeInvokeArgs();
     }
 
 

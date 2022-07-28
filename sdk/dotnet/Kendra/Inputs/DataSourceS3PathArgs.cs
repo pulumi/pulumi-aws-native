@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceS3PathArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceS3PathArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceS3PathArgs()
         {
         }
+        public static new DataSourceS3PathArgs Empty => new DataSourceS3PathArgs();
     }
 }

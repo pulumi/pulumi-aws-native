@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.IoTEvents
     }
 
 
-    public sealed class GetAlarmModelArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmModelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alarm model.
@@ -40,9 +40,10 @@ namespace Pulumi.AwsNative.IoTEvents
         public GetAlarmModelArgs()
         {
         }
+        public static new GetAlarmModelArgs Empty => new GetAlarmModelArgs();
     }
 
-    public sealed class GetAlarmModelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlarmModelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alarm model.
@@ -53,6 +54,7 @@ namespace Pulumi.AwsNative.IoTEvents
         public GetAlarmModelInvokeArgs()
         {
         }
+        public static new GetAlarmModelInvokeArgs Empty => new GetAlarmModelInvokeArgs();
     }
 
 

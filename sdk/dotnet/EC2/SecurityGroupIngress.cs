@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SecurityGroupIngress")]
-    public partial class SecurityGroupIngress : Pulumi.CustomResource
+    public partial class SecurityGroupIngress : global::Pulumi.CustomResource
     {
         [Output("cidrIp")]
         public Output<string?> CidrIp { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrIp")]
         public Input<string>? CidrIp { get; set; }
@@ -136,5 +136,6 @@ namespace Pulumi.AwsNative.EC2
         public SecurityGroupIngressArgs()
         {
         }
+        public static new SecurityGroupIngressArgs Empty => new SecurityGroupIngressArgs();
     }
 }

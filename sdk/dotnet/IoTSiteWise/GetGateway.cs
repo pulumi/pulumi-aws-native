@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
 
-    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the gateway device.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetGatewayArgs()
         {
         }
+        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the gateway device.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetGatewayInvokeArgs()
         {
         }
+        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::KeyGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:KeyGroup")]
-    public partial class KeyGroup : Pulumi.CustomResource
+    public partial class KeyGroup : global::Pulumi.CustomResource
     {
         [Output("keyGroupConfig")]
         public Output<Outputs.KeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class KeyGroupArgs : Pulumi.ResourceArgs
+    public sealed class KeyGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyGroupConfig", required: true)]
         public Input<Inputs.KeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public KeyGroupArgs()
         {
         }
+        public static new KeyGroupArgs Empty => new KeyGroupArgs();
     }
 }

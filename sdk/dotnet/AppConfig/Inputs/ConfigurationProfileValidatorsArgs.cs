@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Inputs
 {
 
-    public sealed class ConfigurationProfileValidatorsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileValidatorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
         public ConfigurationProfileValidatorsArgs()
         {
         }
+        public static new ConfigurationProfileValidatorsArgs Empty => new ConfigurationProfileValidatorsArgs();
     }
 }

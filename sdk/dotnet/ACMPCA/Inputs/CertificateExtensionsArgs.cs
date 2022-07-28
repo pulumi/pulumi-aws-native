@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.500 extensions for a Certificate.
     /// </summary>
-    public sealed class CertificateExtensionsArgs : Pulumi.ResourceArgs
+    public sealed class CertificateExtensionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificatePolicies")]
         private InputList<Inputs.CertificatePolicyInformationArgs>? _certificatePolicies;
@@ -53,5 +53,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateExtensionsArgs()
         {
         }
+        public static new CertificateExtensionsArgs Empty => new CertificateExtensionsArgs();
     }
 }

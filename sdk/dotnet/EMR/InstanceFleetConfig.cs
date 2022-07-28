@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EMR
     /// </summary>
     [Obsolete(@"InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:InstanceFleetConfig")]
-    public partial class InstanceFleetConfig : Pulumi.CustomResource
+    public partial class InstanceFleetConfig : global::Pulumi.CustomResource
     {
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class InstanceFleetConfigArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.EMR
         public InstanceFleetConfigArgs()
         {
         }
+        public static new InstanceFleetConfigArgs Empty => new InstanceFleetConfigArgs();
     }
 }

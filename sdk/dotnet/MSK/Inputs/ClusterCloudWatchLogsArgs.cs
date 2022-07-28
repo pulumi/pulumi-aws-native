@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterCloudWatchLogsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudWatchLogsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterCloudWatchLogsArgs()
         {
         }
+        public static new ClusterCloudWatchLogsArgs Empty => new ClusterCloudWatchLogsArgs();
     }
 }

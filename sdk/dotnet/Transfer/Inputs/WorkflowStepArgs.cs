@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// The basic building block of a workflow.
     /// </summary>
-    public sealed class WorkflowStepArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details for a step that performs a file copy.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowStepArgs()
         {
         }
+        public static new WorkflowStepArgs Empty => new WorkflowStepArgs();
     }
 }

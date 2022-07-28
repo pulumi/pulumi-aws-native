@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Athena
     }
 
 
-    public sealed class GetPreparedStatementArgs : Pulumi.InvokeArgs
+    public sealed class GetPreparedStatementArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the prepared statement.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Athena
         public GetPreparedStatementArgs()
         {
         }
+        public static new GetPreparedStatementArgs Empty => new GetPreparedStatementArgs();
     }
 
-    public sealed class GetPreparedStatementInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPreparedStatementInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the prepared statement.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Athena
         public GetPreparedStatementInvokeArgs()
         {
         }
+        public static new GetPreparedStatementInvokeArgs Empty => new GetPreparedStatementInvokeArgs();
     }
 
 

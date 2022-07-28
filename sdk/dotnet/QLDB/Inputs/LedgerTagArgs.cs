@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QLDB.Inputs
 {
 
-    public sealed class LedgerTagArgs : Pulumi.ResourceArgs
+    public sealed class LedgerTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.QLDB.Inputs
         public LedgerTagArgs()
         {
         }
+        public static new LedgerTagArgs Empty => new LedgerTagArgs();
     }
 }

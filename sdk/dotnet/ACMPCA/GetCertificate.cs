@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ACMPCA
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the issued certificate.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ACMPCA
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the issued certificate.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ACMPCA
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

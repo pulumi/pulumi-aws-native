@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverRuleAssociation")]
-    public partial class ResolverRuleAssociation : Pulumi.CustomResource
+    public partial class ResolverRuleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of an association between a Resolver rule and a VPC.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverRuleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResolverRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an association between a Resolver rule and a VPC.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverRuleAssociationArgs()
         {
         }
+        public static new ResolverRuleAssociationArgs Empty => new ResolverRuleAssociationArgs();
     }
 }

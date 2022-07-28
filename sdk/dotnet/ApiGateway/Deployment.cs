@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Deployment
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies settings for the canary deployment.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for the canary deployment.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 }

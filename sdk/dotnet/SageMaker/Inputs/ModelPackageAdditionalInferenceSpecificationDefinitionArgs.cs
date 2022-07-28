@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
     /// </summary>
-    public sealed class ModelPackageAdditionalInferenceSpecificationDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageAdditionalInferenceSpecificationDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers", required: true)]
         private InputList<Inputs.ModelPackageContainerDefinitionArgs>? _containers;
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageAdditionalInferenceSpecificationDefinitionArgs()
         {
         }
+        public static new ModelPackageAdditionalInferenceSpecificationDefinitionArgs Empty => new ModelPackageAdditionalInferenceSpecificationDefinitionArgs();
     }
 }

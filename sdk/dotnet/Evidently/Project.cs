@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Evidently
     /// Resource Type definition for AWS::Evidently::Project
     /// </summary>
     [AwsNativeResourceType("aws-native:evidently:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Evidently
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDelivery")]
         public Input<Inputs.ProjectDataDeliveryObjectArgs>? DataDelivery { get; set; }
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.Evidently
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 }

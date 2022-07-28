@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// <summary>
     /// Identifies the report template for the report. Reports are built using a report template.
     /// </summary>
-    public sealed class ReportSettingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ReportSettingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("frameworkArns")]
         private InputList<string>? _frameworkArns;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public ReportSettingPropertiesArgs()
         {
         }
+        public static new ReportSettingPropertiesArgs Empty => new ReportSettingPropertiesArgs();
     }
 }

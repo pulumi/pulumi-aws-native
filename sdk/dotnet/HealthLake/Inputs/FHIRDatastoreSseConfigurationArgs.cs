@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
     /// <summary>
     /// The server-side encryption key configuration for a customer provided encryption key.
     /// </summary>
-    public sealed class FHIRDatastoreSseConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FHIRDatastoreSseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsEncryptionConfig", required: true)]
         public Input<Inputs.FHIRDatastoreKmsEncryptionConfigArgs> KmsEncryptionConfig { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
         public FHIRDatastoreSseConfigurationArgs()
         {
         }
+        public static new FHIRDatastoreSseConfigurationArgs Empty => new FHIRDatastoreSseConfigurationArgs();
     }
 }

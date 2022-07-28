@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     /// <summary>
     /// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
     /// </summary>
-    public sealed class AnalyzerArchiveRuleArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerArchiveRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         private InputList<Inputs.AnalyzerFilterArgs>? _filter;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
         public AnalyzerArchiveRuleArgs()
         {
         }
+        public static new AnalyzerArchiveRuleArgs Empty => new AnalyzerArchiveRuleArgs();
     }
 }

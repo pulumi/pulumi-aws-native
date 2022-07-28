@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IAM
     }
 
 
-    public sealed class GetSAMLProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetSAMLProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the SAML provider
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IAM
         public GetSAMLProviderArgs()
         {
         }
+        public static new GetSAMLProviderArgs Empty => new GetSAMLProviderArgs();
     }
 
-    public sealed class GetSAMLProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSAMLProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the SAML provider
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IAM
         public GetSAMLProviderInvokeArgs()
         {
         }
+        public static new GetSAMLProviderInvokeArgs Empty => new GetSAMLProviderInvokeArgs();
     }
 
 

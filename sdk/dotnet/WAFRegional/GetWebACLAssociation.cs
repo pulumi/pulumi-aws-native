@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetWebACLAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetWebACLAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetWebACLAssociationArgs()
         {
         }
+        public static new GetWebACLAssociationArgs Empty => new GetWebACLAssociationArgs();
     }
 
-    public sealed class GetWebACLAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebACLAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetWebACLAssociationInvokeArgs()
         {
         }
+        public static new GetWebACLAssociationInvokeArgs Empty => new GetWebACLAssociationInvokeArgs();
     }
 
 

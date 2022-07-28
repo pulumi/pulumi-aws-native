@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteGrpcGatewayRouteMetadataArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteGrpcGatewayRouteMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public GatewayRouteGrpcGatewayRouteMetadataArgs()
         {
         }
+        public static new GatewayRouteGrpcGatewayRouteMetadataArgs Empty => new GatewayRouteGrpcGatewayRouteMetadataArgs();
     }
 }

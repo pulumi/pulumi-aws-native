@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DeploymentTagArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DeploymentTagArgs()
         {
         }
+        public static new DeploymentTagArgs Empty => new DeploymentTagArgs();
     }
 }

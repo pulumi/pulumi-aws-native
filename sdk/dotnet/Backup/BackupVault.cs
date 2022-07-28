@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup
     /// Resource Type definition for AWS::Backup::BackupVault
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupVault")]
-    public partial class BackupVault : Pulumi.CustomResource
+    public partial class BackupVault : global::Pulumi.CustomResource
     {
         [Output("accessPolicy")]
         public Output<object?> AccessPolicy { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Backup
         }
     }
 
-    public sealed class BackupVaultArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicy")]
         public Input<object>? AccessPolicy { get; set; }
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.Backup
         public BackupVaultArgs()
         {
         }
+        public static new BackupVaultArgs Empty => new BackupVaultArgs();
     }
 }

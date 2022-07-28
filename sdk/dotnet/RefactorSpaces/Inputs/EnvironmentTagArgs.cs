@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
     /// <summary>
     /// A label for tagging Environment resource
     /// </summary>
-    public sealed class EnvironmentTagArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         public EnvironmentTagArgs()
         {
         }
+        public static new EnvironmentTagArgs Empty => new EnvironmentTagArgs();
     }
 }

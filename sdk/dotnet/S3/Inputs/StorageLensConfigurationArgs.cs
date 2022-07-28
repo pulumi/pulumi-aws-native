@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies the details of Amazon S3 Storage Lens configuration.
     /// </summary>
-    public sealed class StorageLensConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountLevel", required: true)]
         public Input<Inputs.StorageLensAccountLevelArgs> AccountLevel { get; set; } = null!;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensConfigurationArgs()
         {
         }
+        public static new StorageLensConfigurationArgs Empty => new StorageLensConfigurationArgs();
     }
 }

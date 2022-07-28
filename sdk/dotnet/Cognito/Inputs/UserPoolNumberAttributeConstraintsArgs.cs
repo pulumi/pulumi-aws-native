@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolNumberAttributeConstraintsArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolNumberAttributeConstraintsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxValue")]
         public Input<string>? MaxValue { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolNumberAttributeConstraintsArgs()
         {
         }
+        public static new UserPoolNumberAttributeConstraintsArgs Empty => new UserPoolNumberAttributeConstraintsArgs();
     }
 }

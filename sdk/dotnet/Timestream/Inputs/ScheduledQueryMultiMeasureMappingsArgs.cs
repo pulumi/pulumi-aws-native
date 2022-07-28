@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
     /// </summary>
-    public sealed class ScheduledQueryMultiMeasureMappingsArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryMultiMeasureMappingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("multiMeasureAttributeMappings", required: true)]
         private InputList<Inputs.ScheduledQueryMultiMeasureAttributeMappingArgs>? _multiMeasureAttributeMappings;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryMultiMeasureMappingsArgs()
         {
         }
+        public static new ScheduledQueryMultiMeasureMappingsArgs Empty => new ScheduledQueryMultiMeasureMappingsArgs();
     }
 }

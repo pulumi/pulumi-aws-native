@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoBlackFailoverSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoBlackFailoverSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("blackDetectThreshold")]
         public Input<double>? BlackDetectThreshold { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoBlackFailoverSettingsArgs()
         {
         }
+        public static new ChannelVideoBlackFailoverSettingsArgs Empty => new ChannelVideoBlackFailoverSettingsArgs();
     }
 }

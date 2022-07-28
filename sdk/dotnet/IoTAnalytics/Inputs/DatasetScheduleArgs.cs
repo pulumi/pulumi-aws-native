@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetScheduleArgs : Pulumi.ResourceArgs
+    public sealed class DatasetScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetScheduleArgs()
         {
         }
+        public static new DatasetScheduleArgs Empty => new DatasetScheduleArgs();
     }
 }

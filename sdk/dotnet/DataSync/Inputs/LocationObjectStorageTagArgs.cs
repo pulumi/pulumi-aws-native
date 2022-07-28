@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class LocationObjectStorageTagArgs : Pulumi.ResourceArgs
+    public sealed class LocationObjectStorageTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for an AWS resource tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationObjectStorageTagArgs()
         {
         }
+        public static new LocationObjectStorageTagArgs Empty => new LocationObjectStorageTagArgs();
     }
 }

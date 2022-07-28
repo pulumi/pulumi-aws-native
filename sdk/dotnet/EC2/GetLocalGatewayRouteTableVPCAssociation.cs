@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetLocalGatewayRouteTableVPCAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTableVPCAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the association.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetLocalGatewayRouteTableVPCAssociationArgs()
         {
         }
+        public static new GetLocalGatewayRouteTableVPCAssociationArgs Empty => new GetLocalGatewayRouteTableVPCAssociationArgs();
     }
 
-    public sealed class GetLocalGatewayRouteTableVPCAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTableVPCAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the association.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetLocalGatewayRouteTableVPCAssociationInvokeArgs()
         {
         }
+        public static new GetLocalGatewayRouteTableVPCAssociationInvokeArgs Empty => new GetLocalGatewayRouteTableVPCAssociationInvokeArgs();
     }
 
 

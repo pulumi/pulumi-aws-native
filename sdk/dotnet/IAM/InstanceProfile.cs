@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::InstanceProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:InstanceProfile")]
-    public partial class InstanceProfile : Pulumi.CustomResource
+    public partial class InstanceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class InstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the instance profile to create.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.IAM
         public InstanceProfileArgs()
         {
         }
+        public static new InstanceProfileArgs Empty => new InstanceProfileArgs();
     }
 }

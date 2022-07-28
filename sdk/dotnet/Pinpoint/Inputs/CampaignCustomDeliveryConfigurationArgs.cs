@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignCustomDeliveryConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CampaignCustomDeliveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryUri")]
         public Input<string>? DeliveryUri { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignCustomDeliveryConfigurationArgs()
         {
         }
+        public static new CampaignCustomDeliveryConfigurationArgs Empty => new CampaignCustomDeliveryConfigurationArgs();
     }
 }

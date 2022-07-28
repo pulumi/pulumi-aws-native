@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyTagArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyTagArgs()
         {
         }
+        public static new LifecyclePolicyTagArgs Empty => new LifecyclePolicyTagArgs();
     }
 }

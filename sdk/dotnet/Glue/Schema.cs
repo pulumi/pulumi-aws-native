@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue
     /// This resource represents a schema of Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name for the Schema.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("checkpointVersion")]
         public Input<Inputs.SchemaVersionArgs>? CheckpointVersion { get; set; }
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.Glue
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 }

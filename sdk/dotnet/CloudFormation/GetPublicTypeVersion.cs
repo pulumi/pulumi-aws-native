@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetPublicTypeVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicTypeVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetPublicTypeVersionArgs()
         {
         }
+        public static new GetPublicTypeVersionArgs Empty => new GetPublicTypeVersionArgs();
     }
 
-    public sealed class GetPublicTypeVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicTypeVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetPublicTypeVersionInvokeArgs()
         {
         }
+        public static new GetPublicTypeVersionInvokeArgs Empty => new GetPublicTypeVersionInvokeArgs();
     }
 
 

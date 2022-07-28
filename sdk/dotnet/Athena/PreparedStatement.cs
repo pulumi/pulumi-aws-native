@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena
     /// Resource schema for AWS::Athena::PreparedStatement
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:PreparedStatement")]
-    public partial class PreparedStatement : Pulumi.CustomResource
+    public partial class PreparedStatement : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the prepared statement.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Athena
         }
     }
 
-    public sealed class PreparedStatementArgs : Pulumi.ResourceArgs
+    public sealed class PreparedStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the prepared statement.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Athena
         public PreparedStatementArgs()
         {
         }
+        public static new PreparedStatementArgs Empty => new PreparedStatementArgs();
     }
 }

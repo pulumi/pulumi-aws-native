@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The row-level security configuration for the dataset.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSetRowLevelPermissionDataSetArgs : Pulumi.ResourceArgs
+    public sealed class DataSetRowLevelPermissionDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the permission dataset.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSetRowLevelPermissionDataSetArgs()
         {
         }
+        public static new DataSetRowLevelPermissionDataSetArgs Empty => new DataSetRowLevelPermissionDataSetArgs();
     }
 }

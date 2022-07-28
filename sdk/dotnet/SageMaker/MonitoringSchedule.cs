@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:MonitoringSchedule")]
-    public partial class MonitoringSchedule : Pulumi.CustomResource
+    public partial class MonitoringSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the schedule was created.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class MonitoringScheduleArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.SageMaker
         public MonitoringScheduleArgs()
         {
         }
+        public static new MonitoringScheduleArgs Empty => new MonitoringScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleOpenSearchActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleOpenSearchActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleOpenSearchActionArgs()
         {
         }
+        public static new TopicRuleOpenSearchActionArgs Empty => new TopicRuleOpenSearchActionArgs();
     }
 }

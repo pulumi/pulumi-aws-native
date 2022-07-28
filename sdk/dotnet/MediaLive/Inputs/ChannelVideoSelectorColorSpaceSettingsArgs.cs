@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoSelectorColorSpaceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoSelectorColorSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("hdr10Settings")]
         public Input<Inputs.ChannelHdr10SettingsArgs>? Hdr10Settings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoSelectorColorSpaceSettingsArgs()
         {
         }
+        public static new ChannelVideoSelectorColorSpaceSettingsArgs Empty => new ChannelVideoSelectorColorSpaceSettingsArgs();
     }
 }

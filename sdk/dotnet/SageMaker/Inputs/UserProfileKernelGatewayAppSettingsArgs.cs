@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The kernel gateway app settings.
     /// </summary>
-    public sealed class UserProfileKernelGatewayAppSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileKernelGatewayAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customImages")]
         private InputList<Inputs.UserProfileCustomImageArgs>? _customImages;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public UserProfileKernelGatewayAppSettingsArgs()
         {
         }
+        public static new UserProfileKernelGatewayAppSettingsArgs Empty => new UserProfileKernelGatewayAppSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleHttpHeaderConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleHttpHeaderConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("httpHeaderName")]
         public Input<string>? HttpHeaderName { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleHttpHeaderConfigArgs()
         {
         }
+        public static new ListenerRuleHttpHeaderConfigArgs Empty => new ListenerRuleHttpHeaderConfigArgs();
     }
 }

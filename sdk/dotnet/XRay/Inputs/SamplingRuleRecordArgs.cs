@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay.Inputs
 {
 
-    public sealed class SamplingRuleRecordArgs : Pulumi.ResourceArgs
+    public sealed class SamplingRuleRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the rule was created, in Unix time seconds.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.XRay.Inputs
         public SamplingRuleRecordArgs()
         {
         }
+        public static new SamplingRuleRecordArgs Empty => new SamplingRuleRecordArgs();
     }
 }

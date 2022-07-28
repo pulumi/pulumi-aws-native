@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
     /// <summary>
     /// Specifies configuration information for the input data for the inference, including timestamp format and delimiter.
     /// </summary>
-    public sealed class InferenceSchedulerInputNameConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InferenceSchedulerInputNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the delimiter character used between items in the data.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
         public InferenceSchedulerInputNameConfigurationArgs()
         {
         }
+        public static new InferenceSchedulerInputNameConfigurationArgs Empty => new InferenceSchedulerInputNameConfigurationArgs();
     }
 }

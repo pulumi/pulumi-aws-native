@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     /// </summary>
-    public sealed class WebACLStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("andStatement")]
         public Input<Inputs.WebACLAndStatementArgs>? AndStatement { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLStatementArgs()
         {
         }
+        public static new WebACLStatementArgs Empty => new WebACLStatementArgs();
     }
 }

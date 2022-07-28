@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53
     /// Resource schema for AWS::Route53::HostedZone.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:HostedZone")]
-    public partial class HostedZone : Pulumi.CustomResource
+    public partial class HostedZone : global::Pulumi.CustomResource
     {
         [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class HostedZoneArgs : Pulumi.ResourceArgs
+    public sealed class HostedZoneArgs : global::Pulumi.ResourceArgs
     {
         [Input("hostedZoneConfig")]
         public Input<Inputs.HostedZoneConfigArgs>? HostedZoneConfig { get; set; }
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.Route53
         public HostedZoneArgs()
         {
         }
+        public static new HostedZoneArgs Empty => new HostedZoneArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLRegexMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRegexMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLRegexMatchStatementArgs()
         {
         }
+        public static new WebACLRegexMatchStatementArgs Empty => new WebACLRegexMatchStatementArgs();
     }
 }

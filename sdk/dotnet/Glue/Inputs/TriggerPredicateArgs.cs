@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TriggerPredicateArgs : Pulumi.ResourceArgs
+    public sealed class TriggerPredicateArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.TriggerConditionArgs>? _conditions;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TriggerPredicateArgs()
         {
         }
+        public static new TriggerPredicateArgs Empty => new TriggerPredicateArgs();
     }
 }

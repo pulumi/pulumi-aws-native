@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The base location of the Amazon Data Analytics application.
     /// </summary>
-    public sealed class ApplicationS3ContentBaseLocationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationS3ContentBaseLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base path for the S3 bucket.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationS3ContentBaseLocationArgs()
         {
         }
+        public static new ApplicationS3ContentBaseLocationArgs Empty => new ApplicationS3ContentBaseLocationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
     /// </summary>
     [AwsNativeResourceType("aws-native:accessanalyzer:Analyzer")]
-    public partial class Analyzer : Pulumi.CustomResource
+    public partial class Analyzer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Analyzer name
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         }
     }
 
-    public sealed class AnalyzerArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analyzer name
@@ -122,5 +122,6 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         public AnalyzerArgs()
         {
         }
+        public static new AnalyzerArgs Empty => new AnalyzerArgs();
     }
 }

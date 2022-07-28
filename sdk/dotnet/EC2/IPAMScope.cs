@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Schema of AWS::EC2::IPAMScope Type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:IPAMScope")]
-    public partial class IPAMScope : Pulumi.CustomResource
+    public partial class IPAMScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM scope.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class IPAMScopeArgs : Pulumi.ResourceArgs
+    public sealed class IPAMScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.EC2
         public IPAMScopeArgs()
         {
         }
+        public static new IPAMScopeArgs Empty => new IPAMScopeArgs();
     }
 }

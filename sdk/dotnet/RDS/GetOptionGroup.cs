@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetOptionGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetOptionGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RDS
         public GetOptionGroupArgs()
         {
         }
+        public static new GetOptionGroupArgs Empty => new GetOptionGroupArgs();
     }
 
-    public sealed class GetOptionGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOptionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RDS
         public GetOptionGroupInvokeArgs()
         {
         }
+        public static new GetOptionGroupInvokeArgs Empty => new GetOptionGroupInvokeArgs();
     }
 
 

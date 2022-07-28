@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterPackageFilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterPackageFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("architecture")]
         public Input<Inputs.FilterStringFilterArgs>? Architecture { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterPackageFilterArgs()
         {
         }
+        public static new FilterPackageFilterArgs Empty => new FilterPackageFilterArgs();
     }
 }

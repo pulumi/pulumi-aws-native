@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceSalesforceChatterFeedConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSalesforceChatterFeedConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("documentDataFieldName", required: true)]
         public Input<string> DocumentDataFieldName { get; set; } = null!;
@@ -37,5 +37,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceSalesforceChatterFeedConfigurationArgs()
         {
         }
+        public static new DataSourceSalesforceChatterFeedConfigurationArgs Empty => new DataSourceSalesforceChatterFeedConfigurationArgs();
     }
 }

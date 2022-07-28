@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DocDB.Inputs
 {
 
-    public sealed class DBClusterTagArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DocDB.Inputs
         public DBClusterTagArgs()
         {
         }
+        public static new DBClusterTagArgs Empty => new DBClusterTagArgs();
     }
 }

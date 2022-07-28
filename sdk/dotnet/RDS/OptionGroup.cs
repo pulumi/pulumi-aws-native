@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RDS
     /// </summary>
     [Obsolete(@"OptionGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:OptionGroup")]
-    public partial class OptionGroup : Pulumi.CustomResource
+    public partial class OptionGroup : global::Pulumi.CustomResource
     {
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class OptionGroupArgs : Pulumi.ResourceArgs
+    public sealed class OptionGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.RDS
         public OptionGroupArgs()
         {
         }
+        public static new OptionGroupArgs Empty => new OptionGroupArgs();
     }
 }

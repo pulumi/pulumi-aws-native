@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupDeploymentReadyOptionArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupDeploymentReadyOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionOnTimeout")]
         public Input<string>? ActionOnTimeout { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupDeploymentReadyOptionArgs()
         {
         }
+        public static new DeploymentGroupDeploymentReadyOptionArgs Empty => new DeploymentGroupDeploymentReadyOptionArgs();
     }
 }

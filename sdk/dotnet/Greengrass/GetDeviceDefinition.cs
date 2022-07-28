@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetDeviceDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetDeviceDefinitionArgs()
         {
         }
+        public static new GetDeviceDefinitionArgs Empty => new GetDeviceDefinitionArgs();
     }
 
-    public sealed class GetDeviceDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetDeviceDefinitionInvokeArgs()
         {
         }
+        public static new GetDeviceDefinitionInvokeArgs Empty => new GetDeviceDefinitionInvokeArgs();
     }
 
 

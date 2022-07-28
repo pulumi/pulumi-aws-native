@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetImageArgs : Pulumi.InvokeArgs
+    public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         [Input("imageArn", required: true)]
         public string ImageArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetImageArgs()
         {
         }
+        public static new GetImageArgs Empty => new GetImageArgs();
     }
 
-    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("imageArn", required: true)]
         public Input<string> ImageArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetImageInvokeArgs()
         {
         }
+        public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
     }
 
 

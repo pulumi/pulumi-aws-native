@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowSalesforceSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowSalesforceSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowSalesforceSourcePropertiesArgs()
         {
         }
+        public static new FlowSalesforceSourcePropertiesArgs Empty => new FlowSalesforceSourcePropertiesArgs();
     }
 }

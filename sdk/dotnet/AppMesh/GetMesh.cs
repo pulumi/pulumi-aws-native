@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh
     }
 
 
-    public sealed class GetMeshArgs : Pulumi.InvokeArgs
+    public sealed class GetMeshArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppMesh
         public GetMeshArgs()
         {
         }
+        public static new GetMeshArgs Empty => new GetMeshArgs();
     }
 
-    public sealed class GetMeshInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMeshInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppMesh
         public GetMeshInvokeArgs()
         {
         }
+        public static new GetMeshInvokeArgs Empty => new GetMeshInvokeArgs();
     }
 
 

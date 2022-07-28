@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     /// </summary>
     [Obsolete(@"ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:applicationautoscaling:ScalableTarget")]
-    public partial class ScalableTarget : Pulumi.CustomResource
+    public partial class ScalableTarget : global::Pulumi.CustomResource
     {
         [Output("maxCapacity")]
         public Output<int> MaxCapacity { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         }
     }
 
-    public sealed class ScalableTargetArgs : Pulumi.ResourceArgs
+    public sealed class ScalableTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         public ScalableTargetArgs()
         {
         }
+        public static new ScalableTargetArgs Empty => new ScalableTargetArgs();
     }
 }

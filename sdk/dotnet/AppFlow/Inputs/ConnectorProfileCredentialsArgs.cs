@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Connector specific configuration needed to create connector profile based on Authentication mechanism
     /// </summary>
-    public sealed class ConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("amplitude")]
         public Input<Inputs.ConnectorProfileAmplitudeConnectorProfileCredentialsArgs>? Amplitude { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileCredentialsArgs Empty => new ConnectorProfileCredentialsArgs();
     }
 }

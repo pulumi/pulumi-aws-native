@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFrameCaptureSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFrameCaptureSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("captureInterval")]
         public Input<int>? CaptureInterval { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFrameCaptureSettingsArgs()
         {
         }
+        public static new ChannelFrameCaptureSettingsArgs Empty => new ChannelFrameCaptureSettingsArgs();
     }
 }

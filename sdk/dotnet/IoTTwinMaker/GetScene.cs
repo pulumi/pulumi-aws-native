@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
 
-    public sealed class GetSceneArgs : Pulumi.InvokeArgs
+    public sealed class GetSceneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the scene.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetSceneArgs()
         {
         }
+        public static new GetSceneArgs Empty => new GetSceneArgs();
     }
 
-    public sealed class GetSceneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSceneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the scene.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetSceneInvokeArgs()
         {
         }
+        public static new GetSceneInvokeArgs Empty => new GetSceneInvokeArgs();
     }
 
 

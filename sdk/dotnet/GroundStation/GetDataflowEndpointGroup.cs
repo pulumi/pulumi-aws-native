@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GroundStation
     }
 
 
-    public sealed class GetDataflowEndpointGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDataflowEndpointGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GroundStation
         public GetDataflowEndpointGroupArgs()
         {
         }
+        public static new GetDataflowEndpointGroupArgs Empty => new GetDataflowEndpointGroupArgs();
     }
 
-    public sealed class GetDataflowEndpointGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataflowEndpointGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GroundStation
         public GetDataflowEndpointGroupInvokeArgs()
         {
         }
+        public static new GetDataflowEndpointGroupInvokeArgs Empty => new GetDataflowEndpointGroupInvokeArgs();
     }
 
 

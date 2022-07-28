@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPCPeeringConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCPeeringConnectionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCPeeringConnectionArgs()
         {
         }
+        public static new GetVPCPeeringConnectionArgs Empty => new GetVPCPeeringConnectionArgs();
     }
 
-    public sealed class GetVPCPeeringConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCPeeringConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCPeeringConnectionInvokeArgs()
         {
         }
+        public static new GetVPCPeeringConnectionInvokeArgs Empty => new GetVPCPeeringConnectionInvokeArgs();
     }
 
 

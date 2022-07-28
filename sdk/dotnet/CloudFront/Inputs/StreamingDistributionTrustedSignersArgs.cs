@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class StreamingDistributionTrustedSignersArgs : Pulumi.ResourceArgs
+    public sealed class StreamingDistributionTrustedSignersArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountNumbers")]
         private InputList<string>? _awsAccountNumbers;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public StreamingDistributionTrustedSignersArgs()
         {
         }
+        public static new StreamingDistributionTrustedSignersArgs Empty => new StreamingDistributionTrustedSignersArgs();
     }
 }

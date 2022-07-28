@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"ResourceUpdateConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:ResourceUpdateConstraint")]
-    public partial class ResourceUpdateConstraint : Pulumi.CustomResource
+    public partial class ResourceUpdateConstraint : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class ResourceUpdateConstraintArgs : Pulumi.ResourceArgs
+    public sealed class ResourceUpdateConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public ResourceUpdateConstraintArgs()
         {
         }
+        public static new ResourceUpdateConstraintArgs Empty => new ResourceUpdateConstraintArgs();
     }
 }

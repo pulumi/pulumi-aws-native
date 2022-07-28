@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
 {
 
-    public sealed class MemberConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MemberConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain.Inputs
         public MemberConfigurationArgs()
         {
         }
+        public static new MemberConfigurationArgs Empty => new MemberConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
     /// </summary>
-    public sealed class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs Empty => new ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 {
 
-    public sealed class ApplicationApiGatewayProxyInputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApiGatewayProxyInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointType")]
         public Input<Pulumi.AwsNative.RefactorSpaces.ApplicationApiGatewayEndpointType>? EndpointType { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         public ApplicationApiGatewayProxyInputArgs()
         {
         }
+        public static new ApplicationApiGatewayProxyInputArgs Empty => new ApplicationApiGatewayProxyInputArgs();
     }
 }

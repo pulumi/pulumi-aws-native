@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// </summary>
     [Obsolete(@"GeoMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:GeoMatchSet")]
-    public partial class GeoMatchSet : Pulumi.CustomResource
+    public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
         [Output("geoMatchConstraints")]
         public Output<ImmutableArray<Outputs.GeoMatchSetGeoMatchConstraint>> GeoMatchConstraints { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAFRegional
         }
     }
 
-    public sealed class GeoMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAFRegional
         public GeoMatchSetArgs()
         {
         }
+        public static new GeoMatchSetArgs Empty => new GeoMatchSetArgs();
     }
 }

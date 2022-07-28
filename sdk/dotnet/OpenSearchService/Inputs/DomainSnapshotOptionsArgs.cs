@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainSnapshotOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSnapshotOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("automatedSnapshotStartHour")]
         public Input<int>? AutomatedSnapshotStartHour { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainSnapshotOptionsArgs()
         {
         }
+        public static new DomainSnapshotOptionsArgs Empty => new DomainSnapshotOptionsArgs();
     }
 }

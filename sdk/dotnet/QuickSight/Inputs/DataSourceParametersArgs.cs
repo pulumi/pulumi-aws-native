@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     ///             This is a variant type structure. For this structure to be valid, only one of the
     ///             attributes can be non-null.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("amazonElasticsearchParameters")]
         public Input<Inputs.DataSourceAmazonElasticsearchParametersArgs>? AmazonElasticsearchParameters { get; set; }
@@ -71,5 +71,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceParametersArgs()
         {
         }
+        public static new DataSourceParametersArgs Empty => new DataSourceParametersArgs();
     }
 }

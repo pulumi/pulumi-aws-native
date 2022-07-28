@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class ApiKeyStageKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyStageKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public ApiKeyStageKeyArgs()
         {
         }
+        public static new ApiKeyStageKeyArgs Empty => new ApiKeyStageKeyArgs();
     }
 }

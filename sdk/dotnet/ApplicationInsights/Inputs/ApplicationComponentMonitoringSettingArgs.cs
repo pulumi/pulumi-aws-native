@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The monitoring setting of the component.
     /// </summary>
-    public sealed class ApplicationComponentMonitoringSettingArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationComponentMonitoringSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the compnonent.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationComponentMonitoringSettingArgs()
         {
         }
+        public static new ApplicationComponentMonitoringSettingArgs Empty => new ApplicationComponentMonitoringSettingArgs();
     }
 }

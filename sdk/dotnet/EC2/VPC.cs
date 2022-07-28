@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::VPC
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VPC")]
-    public partial class VPC : Pulumi.CustomResource
+    public partial class VPC : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The primary IPv4 CIDR block for the VPC.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCArgs : Pulumi.ResourceArgs
+    public sealed class VPCArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary IPv4 CIDR block for the VPC.
@@ -195,5 +195,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCArgs()
         {
         }
+        public static new VPCArgs Empty => new VPCArgs();
     }
 }

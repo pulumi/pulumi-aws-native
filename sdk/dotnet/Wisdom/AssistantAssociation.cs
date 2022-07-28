@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Wisdom
     /// Definition of AWS::Wisdom::AssistantAssociation Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:wisdom:AssistantAssociation")]
-    public partial class AssistantAssociation : Pulumi.CustomResource
+    public partial class AssistantAssociation : global::Pulumi.CustomResource
     {
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Wisdom
         }
     }
 
-    public sealed class AssistantAssociationArgs : Pulumi.ResourceArgs
+    public sealed class AssistantAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
@@ -101,5 +101,6 @@ namespace Pulumi.AwsNative.Wisdom
         public AssistantAssociationArgs()
         {
         }
+        public static new AssistantAssociationArgs Empty => new AssistantAssociationArgs();
     }
 }

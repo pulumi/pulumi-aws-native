@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RUM.Inputs
     /// <summary>
     /// AppMonitor configuration
     /// </summary>
-    public sealed class AppMonitorConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AppMonitorConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.RUM.Inputs
         public AppMonitorConfigurationArgs()
         {
         }
+        public static new AppMonitorConfigurationArgs Empty => new AppMonitorConfigurationArgs();
     }
 }

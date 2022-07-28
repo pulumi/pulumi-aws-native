@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// <summary>
     /// Logging configuration for a specific airflow component.
     /// </summary>
-    public sealed class EnvironmentModuleLoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentModuleLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         public EnvironmentModuleLoggingConfigurationArgs()
         {
         }
+        public static new EnvironmentModuleLoggingConfigurationArgs Empty => new EnvironmentModuleLoggingConfigurationArgs();
     }
 }

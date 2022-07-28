@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DMS
     }
 
 
-    public sealed class GetReplicationSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DMS
         public GetReplicationSubnetGroupArgs()
         {
         }
+        public static new GetReplicationSubnetGroupArgs Empty => new GetReplicationSubnetGroupArgs();
     }
 
-    public sealed class GetReplicationSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DMS
         public GetReplicationSubnetGroupInvokeArgs()
         {
         }
+        public static new GetReplicationSubnetGroupInvokeArgs Empty => new GetReplicationSubnetGroupInvokeArgs();
     }
 
 

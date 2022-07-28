@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public ComputeEnvironmentLaunchTemplateSpecificationArgs()
         {
         }
+        public static new ComputeEnvironmentLaunchTemplateSpecificationArgs Empty => new ComputeEnvironmentLaunchTemplateSpecificationArgs();
     }
 }

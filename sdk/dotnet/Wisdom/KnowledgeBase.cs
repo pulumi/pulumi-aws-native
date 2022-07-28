@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Wisdom
     /// Definition of AWS::Wisdom::KnowledgeBase Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:wisdom:KnowledgeBase")]
-    public partial class KnowledgeBase : Pulumi.CustomResource
+    public partial class KnowledgeBase : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Wisdom
         }
     }
 
-    public sealed class KnowledgeBaseArgs : Pulumi.ResourceArgs
+    public sealed class KnowledgeBaseArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.Wisdom
         public KnowledgeBaseArgs()
         {
         }
+        public static new KnowledgeBaseArgs Empty => new KnowledgeBaseArgs();
     }
 }

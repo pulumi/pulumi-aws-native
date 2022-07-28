@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EFS
     }
 
 
-    public sealed class GetAccessPointArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
         [Input("accessPointId", required: true)]
         public string AccessPointId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EFS
         public GetAccessPointArgs()
         {
         }
+        public static new GetAccessPointArgs Empty => new GetAccessPointArgs();
     }
 
-    public sealed class GetAccessPointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("accessPointId", required: true)]
         public Input<string> AccessPointId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EFS
         public GetAccessPointInvokeArgs()
         {
         }
+        public static new GetAccessPointInvokeArgs Empty => new GetAccessPointInvokeArgs();
     }
 
 

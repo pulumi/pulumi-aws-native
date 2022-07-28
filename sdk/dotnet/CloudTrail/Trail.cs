@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudTrail
     /// Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudtrail:Trail")]
-    public partial class Trail : Pulumi.CustomResource
+    public partial class Trail : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.CloudTrail
         }
     }
 
-    public sealed class TrailArgs : Pulumi.ResourceArgs
+    public sealed class TrailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -254,5 +254,6 @@ namespace Pulumi.AwsNative.CloudTrail
         public TrailArgs()
         {
         }
+        public static new TrailArgs Empty => new TrailArgs();
     }
 }

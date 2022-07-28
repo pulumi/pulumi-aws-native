@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// Aws Route53 Recovery Readiness Check Schema and API specification.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:ReadinessCheck")]
-    public partial class ReadinessCheck : Pulumi.CustomResource
+    public partial class ReadinessCheck : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the readiness check.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
     }
 
-    public sealed class ReadinessCheckArgs : Pulumi.ResourceArgs
+    public sealed class ReadinessCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ReadinessCheck to create.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public ReadinessCheckArgs()
         {
         }
+        public static new ReadinessCheckArgs Empty => new ReadinessCheckArgs();
     }
 }

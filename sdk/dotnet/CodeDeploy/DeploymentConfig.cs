@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeDeploy
     /// </summary>
     [Obsolete(@"DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codedeploy:DeploymentConfig")]
-    public partial class DeploymentConfig : Pulumi.CustomResource
+    public partial class DeploymentConfig : global::Pulumi.CustomResource
     {
         [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         }
     }
 
-    public sealed class DeploymentConfigArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.CodeDeploy
         public DeploymentConfigArgs()
         {
         }
+        public static new DeploymentConfigArgs Empty => new DeploymentConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EventSubscriptionTagArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EventSubscriptionTagArgs()
         {
         }
+        public static new EventSubscriptionTagArgs Empty => new EventSubscriptionTagArgs();
     }
 }

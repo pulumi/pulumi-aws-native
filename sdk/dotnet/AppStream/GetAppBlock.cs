@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream
     }
 
 
-    public sealed class GetAppBlockArgs : Pulumi.InvokeArgs
+    public sealed class GetAppBlockArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppStream
         public GetAppBlockArgs()
         {
         }
+        public static new GetAppBlockArgs Empty => new GetAppBlockArgs();
     }
 
-    public sealed class GetAppBlockInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppStream
         public GetAppBlockInvokeArgs()
         {
         }
+        public static new GetAppBlockInvokeArgs Empty => new GetAppBlockInvokeArgs();
     }
 
 

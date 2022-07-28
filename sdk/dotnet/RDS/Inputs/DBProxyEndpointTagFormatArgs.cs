@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBProxyEndpointTagFormatArgs : Pulumi.ResourceArgs
+    public sealed class DBProxyEndpointTagFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBProxyEndpointTagFormatArgs()
         {
         }
+        public static new DBProxyEndpointTagFormatArgs Empty => new DBProxyEndpointTagFormatArgs();
     }
 }

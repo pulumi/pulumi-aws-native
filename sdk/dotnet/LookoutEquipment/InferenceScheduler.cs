@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
     /// </summary>
     [Obsolete(@"InferenceScheduler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lookoutequipment:InferenceScheduler")]
-    public partial class InferenceScheduler : Pulumi.CustomResource
+    public partial class InferenceScheduler : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A period of time (in minutes) by which inference on the data is delayed after the data starts.
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
         }
     }
 
-    public sealed class InferenceSchedulerArgs : Pulumi.ResourceArgs
+    public sealed class InferenceSchedulerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A period of time (in minutes) by which inference on the data is delayed after the data starts.
@@ -184,5 +184,6 @@ namespace Pulumi.AwsNative.LookoutEquipment
         public InferenceSchedulerArgs()
         {
         }
+        public static new InferenceSchedulerArgs Empty => new InferenceSchedulerArgs();
     }
 }

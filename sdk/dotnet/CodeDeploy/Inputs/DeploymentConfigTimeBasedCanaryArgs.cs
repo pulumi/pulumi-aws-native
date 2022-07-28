@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTimeBasedCanaryArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTimeBasedCanaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("canaryInterval", required: true)]
         public Input<int> CanaryInterval { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentConfigTimeBasedCanaryArgs()
         {
         }
+        public static new DeploymentConfigTimeBasedCanaryArgs Empty => new DeploymentConfigTimeBasedCanaryArgs();
     }
 }

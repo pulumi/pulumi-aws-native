@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class PipelineSelectAttributesArgs : Pulumi.ResourceArgs
+    public sealed class PipelineSelectAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
         private InputList<string>? _attributes;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public PipelineSelectAttributesArgs()
         {
         }
+        public static new PipelineSelectAttributesArgs Empty => new PipelineSelectAttributesArgs();
     }
 }

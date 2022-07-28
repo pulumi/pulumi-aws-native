@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
     /// </summary>
-    public sealed class BucketDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BucketDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID that owns the destination S3 bucket. 
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketDestinationArgs()
         {
         }
+        public static new BucketDestinationArgs Empty => new BucketDestinationArgs();
     }
 }

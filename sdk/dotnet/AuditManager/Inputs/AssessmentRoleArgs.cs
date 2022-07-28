@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// <summary>
     /// The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
     /// </summary>
-    public sealed class AssessmentRoleArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public AssessmentRoleArgs()
         {
         }
+        public static new AssessmentRoleArgs Empty => new AssessmentRoleArgs();
     }
 }

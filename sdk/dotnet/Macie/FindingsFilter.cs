@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Macie
     /// Macie FindingsFilter resource schema.
     /// </summary>
     [AwsNativeResourceType("aws-native:macie:FindingsFilter")]
-    public partial class FindingsFilter : Pulumi.CustomResource
+    public partial class FindingsFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Findings filter action.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Macie
         }
     }
 
-    public sealed class FindingsFilterArgs : Pulumi.ResourceArgs
+    public sealed class FindingsFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Findings filter action.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.Macie
         public FindingsFilterArgs()
         {
         }
+        public static new FindingsFilterArgs Empty => new FindingsFilterArgs();
     }
 }

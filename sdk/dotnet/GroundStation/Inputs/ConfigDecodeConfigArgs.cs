@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigDecodeConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigDecodeConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("unvalidatedJSON")]
         public Input<string>? UnvalidatedJSON { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigDecodeConfigArgs()
         {
         }
+        public static new ConfigDecodeConfigArgs Empty => new ConfigDecodeConfigArgs();
     }
 }

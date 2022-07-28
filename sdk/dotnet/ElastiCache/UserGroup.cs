@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// Resource Type definition for AWS::ElastiCache::UserGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticache:UserGroup")]
-    public partial class UserGroup : Pulumi.CustomResource
+    public partial class UserGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user account.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class UserGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Must be redis.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public UserGroupArgs()
         {
         }
+        public static new UserGroupArgs Empty => new UserGroupArgs();
     }
 }

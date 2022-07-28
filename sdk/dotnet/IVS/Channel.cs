@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS
     /// Resource Type definition for AWS::IVS::Channel
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Channel ARN is automatically generated on creation and assigned as the unique identifier.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.IVS
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the channel is authorized.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.IVS
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 }

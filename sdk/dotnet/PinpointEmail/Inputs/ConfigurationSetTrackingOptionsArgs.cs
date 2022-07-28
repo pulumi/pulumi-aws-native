@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetTrackingOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetTrackingOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRedirectDomain")]
         public Input<string>? CustomRedirectDomain { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetTrackingOptionsArgs()
         {
         }
+        public static new ConfigurationSetTrackingOptionsArgs Empty => new ConfigurationSetTrackingOptionsArgs();
     }
 }

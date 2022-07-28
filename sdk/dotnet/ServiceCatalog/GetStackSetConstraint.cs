@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetStackSetConstraintArgs : Pulumi.InvokeArgs
+    public sealed class GetStackSetConstraintArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetStackSetConstraintArgs()
         {
         }
+        public static new GetStackSetConstraintArgs Empty => new GetStackSetConstraintArgs();
     }
 
-    public sealed class GetStackSetConstraintInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStackSetConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetStackSetConstraintInvokeArgs()
         {
         }
+        public static new GetStackSetConstraintInvokeArgs Empty => new GetStackSetConstraintInvokeArgs();
     }
 
 

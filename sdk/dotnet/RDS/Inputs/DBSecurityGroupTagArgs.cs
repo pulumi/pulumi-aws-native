@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBSecurityGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class DBSecurityGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBSecurityGroupTagArgs()
         {
         }
+        public static new DBSecurityGroupTagArgs Empty => new DBSecurityGroupTagArgs();
     }
 }

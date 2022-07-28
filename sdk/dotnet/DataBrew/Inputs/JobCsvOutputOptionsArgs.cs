@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Output Csv options
     /// </summary>
-    public sealed class JobCsvOutputOptionsArgs : Pulumi.ResourceArgs
+    public sealed class JobCsvOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobCsvOutputOptionsArgs()
         {
         }
+        public static new JobCsvOutputOptionsArgs Empty => new JobCsvOutputOptionsArgs();
     }
 }

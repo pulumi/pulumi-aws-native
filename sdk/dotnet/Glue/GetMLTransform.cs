@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetMLTransformArgs : Pulumi.InvokeArgs
+    public sealed class GetMLTransformArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetMLTransformArgs()
         {
         }
+        public static new GetMLTransformArgs Empty => new GetMLTransformArgs();
     }
 
-    public sealed class GetMLTransformInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMLTransformInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetMLTransformInvokeArgs()
         {
         }
+        public static new GetMLTransformInvokeArgs Empty => new GetMLTransformInvokeArgs();
     }
 
 

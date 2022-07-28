@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectTriggersArgs : Pulumi.ResourceArgs
+    public sealed class ProjectTriggersArgs : global::Pulumi.ResourceArgs
     {
         [Input("buildType")]
         public Input<string>? BuildType { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectTriggersArgs()
         {
         }
+        public static new ProjectTriggersArgs Empty => new ProjectTriggersArgs();
     }
 }

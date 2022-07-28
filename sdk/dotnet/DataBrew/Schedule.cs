@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Schedule.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Schedule cron
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Schedule cron
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.DataBrew
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 }

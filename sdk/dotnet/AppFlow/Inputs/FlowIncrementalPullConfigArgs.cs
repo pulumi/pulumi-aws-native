@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Configuration for scheduled incremental data pull
     /// </summary>
-    public sealed class FlowIncrementalPullConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowIncrementalPullConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("datetimeTypeFieldName")]
         public Input<string>? DatetimeTypeFieldName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowIncrementalPullConfigArgs()
         {
         }
+        public static new FlowIncrementalPullConfigArgs Empty => new FlowIncrementalPullConfigArgs();
     }
 }

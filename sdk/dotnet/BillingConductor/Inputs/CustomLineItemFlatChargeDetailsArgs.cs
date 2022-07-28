@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class CustomLineItemFlatChargeDetailsArgs : Pulumi.ResourceArgs
+    public sealed class CustomLineItemFlatChargeDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("chargeValue", required: true)]
         public Input<double> ChargeValue { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public CustomLineItemFlatChargeDetailsArgs()
         {
         }
+        public static new CustomLineItemFlatChargeDetailsArgs Empty => new CustomLineItemFlatChargeDetailsArgs();
     }
 }

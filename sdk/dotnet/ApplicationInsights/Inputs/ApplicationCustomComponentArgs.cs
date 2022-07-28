@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The custom grouped component.
     /// </summary>
-    public sealed class ApplicationCustomComponentArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCustomComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the component.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationCustomComponentArgs()
         {
         }
+        public static new ApplicationCustomComponentArgs Empty => new ApplicationCustomComponentArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class PartitionInputArgs : Pulumi.ResourceArgs
+    public sealed class PartitionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public PartitionInputArgs()
         {
         }
+        public static new PartitionInputArgs Empty => new PartitionInputArgs();
     }
 }

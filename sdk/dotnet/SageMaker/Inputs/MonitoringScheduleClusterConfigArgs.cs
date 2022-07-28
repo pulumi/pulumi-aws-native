@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Configuration for the cluster used to run model monitoring jobs.
     /// </summary>
-    public sealed class MonitoringScheduleClusterConfigArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleClusterConfigArgs()
         {
         }
+        public static new MonitoringScheduleClusterConfigArgs Empty => new MonitoringScheduleClusterConfigArgs();
     }
 }

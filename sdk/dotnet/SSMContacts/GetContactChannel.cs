@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSMContacts
     }
 
 
-    public sealed class GetContactChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetContactChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SSMContacts
         public GetContactChannelArgs()
         {
         }
+        public static new GetContactChannelArgs Empty => new GetContactChannelArgs();
     }
 
-    public sealed class GetContactChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContactChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SSMContacts
         public GetContactChannelInvokeArgs()
         {
         }
+        public static new GetContactChannelInvokeArgs Empty => new GetContactChannelInvokeArgs();
     }
 
 

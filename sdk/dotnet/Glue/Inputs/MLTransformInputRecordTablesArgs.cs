@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class MLTransformInputRecordTablesArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformInputRecordTablesArgs : global::Pulumi.ResourceArgs
     {
         [Input("glueTables")]
         private InputList<Inputs.MLTransformGlueTablesArgs>? _glueTables;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public MLTransformInputRecordTablesArgs()
         {
         }
+        public static new MLTransformInputRecordTablesArgs Empty => new MLTransformInputRecordTablesArgs();
     }
 }

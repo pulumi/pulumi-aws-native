@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ASK
     /// </summary>
     [Obsolete(@"Skill is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ask:Skill")]
-    public partial class Skill : Pulumi.CustomResource
+    public partial class Skill : global::Pulumi.CustomResource
     {
         [Output("authenticationConfiguration")]
         public Output<Outputs.SkillAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ASK
         }
     }
 
-    public sealed class SkillArgs : Pulumi.ResourceArgs
+    public sealed class SkillArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationConfiguration", required: true)]
         public Input<Inputs.SkillAuthenticationConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.ASK
         public SkillArgs()
         {
         }
+        public static new SkillArgs Empty => new SkillArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    public sealed class ServiceDnsRecordArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDnsRecordArgs : global::Pulumi.ResourceArgs
     {
         [Input("tTL", required: true)]
         public Input<double> TTL { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
         public ServiceDnsRecordArgs()
         {
         }
+        public static new ServiceDnsRecordArgs Empty => new ServiceDnsRecordArgs();
     }
 }

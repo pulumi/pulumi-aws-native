@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Schema of AWS::EC2::IPAMPool Type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:IPAMPool")]
-    public partial class IPAMPool : Pulumi.CustomResource
+    public partial class IPAMPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family of the address space in this pool. Either IPv4 or IPv6.
@@ -181,7 +181,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class IPAMPoolArgs : Pulumi.ResourceArgs
+    public sealed class IPAMPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family of the address space in this pool. Either IPv4 or IPv6.
@@ -279,5 +279,6 @@ namespace Pulumi.AwsNative.EC2
         public IPAMPoolArgs()
         {
         }
+        public static new IPAMPoolArgs Empty => new IPAMPoolArgs();
     }
 }

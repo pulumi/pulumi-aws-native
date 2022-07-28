@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Specifies which audit checks are enabled and disabled for this account.
     /// </summary>
-    public sealed class AccountAuditConfigurationAuditCheckConfigurationsArgs : Pulumi.ResourceArgs
+    public sealed class AccountAuditConfigurationAuditCheckConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticatedCognitoRoleOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? AuthenticatedCognitoRoleOverlyPermissiveCheck { get; set; }
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public AccountAuditConfigurationAuditCheckConfigurationsArgs()
         {
         }
+        public static new AccountAuditConfigurationAuditCheckConfigurationsArgs Empty => new AccountAuditConfigurationAuditCheckConfigurationsArgs();
     }
 }

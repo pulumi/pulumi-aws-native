@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class FunctionDefinitionVersionDefaultConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionVersionDefaultConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("execution", required: true)]
         public Input<Inputs.FunctionDefinitionVersionExecutionArgs> Execution { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public FunctionDefinitionVersionDefaultConfigArgs()
         {
         }
+        public static new FunctionDefinitionVersionDefaultConfigArgs Empty => new FunctionDefinitionVersionDefaultConfigArgs();
     }
 }

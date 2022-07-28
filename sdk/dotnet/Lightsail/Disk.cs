@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// Resource Type definition for AWS::Lightsail::Disk
     /// </summary>
     [AwsNativeResourceType("aws-native:lightsail:Disk")]
-    public partial class Disk : Pulumi.CustomResource
+    public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An array of objects representing the add-ons to enable for the new instance.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Lightsail
         }
     }
 
-    public sealed class DiskArgs : Pulumi.ResourceArgs
+    public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
         [Input("addOns")]
         private InputList<Inputs.DiskAddOnArgs>? _addOns;
@@ -189,5 +189,6 @@ namespace Pulumi.AwsNative.Lightsail
         public DiskArgs()
         {
         }
+        public static new DiskArgs Empty => new DiskArgs();
     }
 }

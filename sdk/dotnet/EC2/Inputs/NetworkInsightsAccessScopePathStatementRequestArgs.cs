@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class NetworkInsightsAccessScopePathStatementRequestArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsAccessScopePathStatementRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("packetHeaderStatement")]
         public Input<Inputs.NetworkInsightsAccessScopePacketHeaderStatementRequestArgs>? PacketHeaderStatement { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public NetworkInsightsAccessScopePathStatementRequestArgs()
         {
         }
+        public static new NetworkInsightsAccessScopePathStatementRequestArgs Empty => new NetworkInsightsAccessScopePathStatementRequestArgs();
     }
 }

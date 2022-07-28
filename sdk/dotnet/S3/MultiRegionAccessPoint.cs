@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3
     /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:MultiRegionAccessPoint")]
-    public partial class MultiRegionAccessPoint : Pulumi.CustomResource
+    public partial class MultiRegionAccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class MultiRegionAccessPointArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name you want to assign to this Multi Region Access Point.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.S3
         public MultiRegionAccessPointArgs()
         {
         }
+        public static new MultiRegionAccessPointArgs Empty => new MultiRegionAccessPointArgs();
     }
 }

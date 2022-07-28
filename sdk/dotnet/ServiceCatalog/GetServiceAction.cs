@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetServiceActionArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceActionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetServiceActionArgs()
         {
         }
+        public static new GetServiceActionArgs Empty => new GetServiceActionArgs();
     }
 
-    public sealed class GetServiceActionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceActionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetServiceActionInvokeArgs()
         {
         }
+        public static new GetServiceActionInvokeArgs Empty => new GetServiceActionInvokeArgs();
     }
 
 

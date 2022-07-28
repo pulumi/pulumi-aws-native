@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobOutputArgs : Pulumi.ResourceArgs
+    public sealed class JobOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("compressionFormat")]
         public Input<Pulumi.AwsNative.DataBrew.JobOutputCompressionFormat>? CompressionFormat { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobOutputArgs()
         {
         }
+        public static new JobOutputArgs Empty => new JobOutputArgs();
     }
 }

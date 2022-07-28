@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterStringFilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterStringFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparison", required: true)]
         public Input<Pulumi.AwsNative.InspectorV2.FilterStringComparison> Comparison { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterStringFilterArgs()
         {
         }
+        public static new FilterStringFilterArgs Empty => new FilterStringFilterArgs();
     }
 }

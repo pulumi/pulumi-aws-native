@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeStar
     /// </summary>
     [Obsolete(@"GitHubRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codestar:GitHubRepository")]
-    public partial class GitHubRepository : Pulumi.CustomResource
+    public partial class GitHubRepository : global::Pulumi.CustomResource
     {
         [Output("code")]
         public Output<Outputs.GitHubRepositoryCode?> Code { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CodeStar
         }
     }
 
-    public sealed class GitHubRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class GitHubRepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("code")]
         public Input<Inputs.GitHubRepositoryCodeArgs>? Code { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.CodeStar
         public GitHubRepositoryArgs()
         {
         }
+        public static new GitHubRepositoryArgs Empty => new GitHubRepositoryArgs();
     }
 }

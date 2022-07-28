@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FIS.Inputs
 {
 
-    public sealed class ExperimentTemplateStopConditionArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateStopConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FIS.Inputs
         public ExperimentTemplateStopConditionArgs()
         {
         }
+        public static new ExperimentTemplateStopConditionArgs Empty => new ExperimentTemplateStopConditionArgs();
     }
 }

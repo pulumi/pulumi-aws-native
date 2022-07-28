@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiGatewayManagedOverridesRouteOverridesArgs : Pulumi.ResourceArgs
+    public sealed class ApiGatewayManagedOverridesRouteOverridesArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationScopes")]
         private InputList<string>? _authorizationScopes;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public ApiGatewayManagedOverridesRouteOverridesArgs()
         {
         }
+        public static new ApiGatewayManagedOverridesRouteOverridesArgs Empty => new ApiGatewayManagedOverridesRouteOverridesArgs();
     }
 }

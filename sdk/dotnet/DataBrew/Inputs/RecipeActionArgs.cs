@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class RecipeActionArgs : Pulumi.ResourceArgs
+    public sealed class RecipeActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Step action operation
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RecipeActionArgs()
         {
         }
+        public static new RecipeActionArgs Empty => new RecipeActionArgs();
     }
 }

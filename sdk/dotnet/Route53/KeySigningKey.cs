@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53
     /// Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:KeySigningKey")]
-    public partial class KeySigningKey : Pulumi.CustomResource
+    public partial class KeySigningKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class KeySigningKeyArgs : Pulumi.ResourceArgs
+    public sealed class KeySigningKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Route53
         public KeySigningKeyArgs()
         {
         }
+        public static new KeySigningKeyArgs Empty => new KeySigningKeyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayVpcAttachment")]
-    public partial class TransitGatewayVpcAttachment : Pulumi.CustomResource
+    public partial class TransitGatewayVpcAttachment : global::Pulumi.CustomResource
     {
         [Output("addSubnetIds")]
         public Output<ImmutableArray<string>> AddSubnetIds { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TransitGatewayVpcAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayVpcAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("addSubnetIds")]
         private InputList<string>? _addSubnetIds;
@@ -131,5 +131,6 @@ namespace Pulumi.AwsNative.EC2
         public TransitGatewayVpcAttachmentArgs()
         {
         }
+        public static new TransitGatewayVpcAttachmentArgs Empty => new TransitGatewayVpcAttachmentArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetFilterArgs : Pulumi.ResourceArgs
+    public sealed class DatasetFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("deltaTime")]
         public Input<Inputs.DatasetDeltaTimeArgs>? DeltaTime { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetFilterArgs()
         {
         }
+        public static new DatasetFilterArgs Empty => new DatasetFilterArgs();
     }
 }

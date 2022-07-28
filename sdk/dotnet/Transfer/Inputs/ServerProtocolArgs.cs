@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class ServerProtocolArgs : Pulumi.ResourceArgs
+    public sealed class ServerProtocolArgs : global::Pulumi.ResourceArgs
     {
         public ServerProtocolArgs()
         {
         }
+        public static new ServerProtocolArgs Empty => new ServerProtocolArgs();
     }
 }

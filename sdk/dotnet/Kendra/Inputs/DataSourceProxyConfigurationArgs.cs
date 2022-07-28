@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceProxyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceProxyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("credentials")]
         public Input<string>? Credentials { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceProxyConfigurationArgs()
         {
         }
+        public static new DataSourceProxyConfigurationArgs Empty => new DataSourceProxyConfigurationArgs();
     }
 }

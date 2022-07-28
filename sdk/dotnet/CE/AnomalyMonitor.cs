@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CE
     /// </summary>
     [Obsolete(@"AnomalyMonitor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ce:AnomalyMonitor")]
-    public partial class AnomalyMonitor : Pulumi.CustomResource
+    public partial class AnomalyMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date when the monitor was created. 
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.CE
         }
     }
 
-    public sealed class AnomalyMonitorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dimensions to evaluate
@@ -145,5 +145,6 @@ namespace Pulumi.AwsNative.CE
         public AnomalyMonitorArgs()
         {
         }
+        public static new AnomalyMonitorArgs Empty => new AnomalyMonitorArgs();
     }
 }

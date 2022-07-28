@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// </summary>
     [Obsolete(@"CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:CoreNetwork")]
-    public partial class CoreNetwork : Pulumi.CustomResource
+    public partial class CoreNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon resource name) of core network
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class CoreNetworkArgs : Pulumi.ResourceArgs
+    public sealed class CoreNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of core network
@@ -160,5 +160,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public CoreNetworkArgs()
         {
         }
+        public static new CoreNetworkArgs Empty => new CoreNetworkArgs();
     }
 }

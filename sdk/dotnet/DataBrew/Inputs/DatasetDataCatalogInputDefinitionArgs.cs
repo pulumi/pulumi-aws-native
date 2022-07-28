@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetDataCatalogInputDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDataCatalogInputDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Catalog id
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetDataCatalogInputDefinitionArgs()
         {
         }
+        public static new DatasetDataCatalogInputDefinitionArgs Empty => new DatasetDataCatalogInputDefinitionArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Transfer
     /// </summary>
     [Obsolete(@"User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:transfer:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Transfer
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
@@ -142,5 +142,6 @@ namespace Pulumi.AwsNative.Transfer
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 }

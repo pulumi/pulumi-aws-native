@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationSMB.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationSMB")]
-    public partial class LocationSMB : Pulumi.CustomResource
+    public partial class LocationSMB : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationSMBArgs : Pulumi.ResourceArgs
+    public sealed class LocationSMBArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -177,5 +177,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationSMBArgs()
         {
         }
+        public static new LocationSMBArgs Empty => new LocationSMBArgs();
     }
 }

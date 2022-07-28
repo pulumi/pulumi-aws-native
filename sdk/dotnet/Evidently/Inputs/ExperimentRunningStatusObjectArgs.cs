@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ExperimentRunningStatusObjectArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentRunningStatusObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provide the analysis Completion time for an experiment
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ExperimentRunningStatusObjectArgs()
         {
         }
+        public static new ExperimentRunningStatusObjectArgs Empty => new ExperimentRunningStatusObjectArgs();
     }
 }

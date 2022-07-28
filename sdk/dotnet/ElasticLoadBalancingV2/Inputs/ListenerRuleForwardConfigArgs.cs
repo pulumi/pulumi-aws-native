@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleForwardConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleForwardConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetGroupStickinessConfig")]
         public Input<Inputs.ListenerRuleTargetGroupStickinessConfigArgs>? TargetGroupStickinessConfig { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleForwardConfigArgs()
         {
         }
+        public static new ListenerRuleForwardConfigArgs Empty => new ListenerRuleForwardConfigArgs();
     }
 }

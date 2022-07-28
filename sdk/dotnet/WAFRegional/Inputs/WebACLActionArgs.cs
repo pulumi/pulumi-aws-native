@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFRegional.Inputs
 {
 
-    public sealed class WebACLActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.WAFRegional.Inputs
         public WebACLActionArgs()
         {
         }
+        public static new WebACLActionArgs Empty => new WebACLActionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DynamoDB
     /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
     /// </summary>
     [AwsNativeResourceType("aws-native:dynamodb:GlobalTable")]
-    public partial class GlobalTable : Pulumi.CustomResource
+    public partial class GlobalTable : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.DynamoDB
         }
     }
 
-    public sealed class GlobalTableArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeDefinitions", required: true)]
         private InputList<Inputs.GlobalTableAttributeDefinitionArgs>? _attributeDefinitions;
@@ -163,5 +163,6 @@ namespace Pulumi.AwsNative.DynamoDB
         public GlobalTableArgs()
         {
         }
+        public static new GlobalTableArgs Empty => new GlobalTableArgs();
     }
 }

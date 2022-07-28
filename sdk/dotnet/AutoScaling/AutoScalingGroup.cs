@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// </summary>
     [Obsolete(@"AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:AutoScalingGroup")]
-    public partial class AutoScalingGroup : Pulumi.CustomResource
+    public partial class AutoScalingGroup : global::Pulumi.CustomResource
     {
         [Output("autoScalingGroupName")]
         public Output<string?> AutoScalingGroupName { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class AutoScalingGroupArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingGroupName")]
         public Input<string>? AutoScalingGroupName { get; set; }
@@ -280,5 +280,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public AutoScalingGroupArgs()
         {
         }
+        public static new AutoScalingGroupArgs Empty => new AutoScalingGroupArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS
     }
 
 
-    public sealed class GetTaskDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ECS
         public GetTaskDefinitionArgs()
         {
         }
+        public static new GetTaskDefinitionArgs Empty => new GetTaskDefinitionArgs();
     }
 
-    public sealed class GetTaskDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ECS
         public GetTaskDefinitionInvokeArgs()
         {
         }
+        public static new GetTaskDefinitionInvokeArgs Empty => new GetTaskDefinitionInvokeArgs();
     }
 
 

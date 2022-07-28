@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     }
 
 
-    public sealed class GetNetworkProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetNetworkProfileArgs()
         {
         }
+        public static new GetNetworkProfileArgs Empty => new GetNetworkProfileArgs();
     }
 
-    public sealed class GetNetworkProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetNetworkProfileInvokeArgs()
         {
         }
+        public static new GetNetworkProfileInvokeArgs Empty => new GetNetworkProfileInvokeArgs();
     }
 
 

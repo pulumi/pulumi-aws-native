@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location
     /// Definition of AWS::Location::RouteCalculator Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:RouteCalculator")]
-    public partial class RouteCalculator : Pulumi.CustomResource
+    public partial class RouteCalculator : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Location
         }
     }
 
-    public sealed class RouteCalculatorArgs : Pulumi.ResourceArgs
+    public sealed class RouteCalculatorArgs : global::Pulumi.ResourceArgs
     {
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Location
         public RouteCalculatorArgs()
         {
         }
+        public static new RouteCalculatorArgs Empty => new RouteCalculatorArgs();
     }
 }

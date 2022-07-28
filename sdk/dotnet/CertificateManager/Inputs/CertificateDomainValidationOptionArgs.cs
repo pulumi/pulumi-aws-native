@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CertificateManager.Inputs
 {
 
-    public sealed class CertificateDomainValidationOptionArgs : Pulumi.ResourceArgs
+    public sealed class CertificateDomainValidationOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CertificateManager.Inputs
         public CertificateDomainValidationOptionArgs()
         {
         }
+        public static new CertificateDomainValidationOptionArgs Empty => new CertificateDomainValidationOptionArgs();
     }
 }

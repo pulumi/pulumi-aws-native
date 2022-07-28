@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointMicrosoftSqlServerSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointMicrosoftSqlServerSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bcpPacketSize")]
         public Input<int>? BcpPacketSize { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointMicrosoftSqlServerSettingsArgs()
         {
         }
+        public static new EndpointMicrosoftSqlServerSettingsArgs Empty => new EndpointMicrosoftSqlServerSettingsArgs();
     }
 }

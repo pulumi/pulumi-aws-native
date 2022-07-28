@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:CustomerGatewayAssociation")]
-    public partial class CustomerGatewayAssociation : Pulumi.CustomResource
+    public partial class CustomerGatewayAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class CustomerGatewayAssociationArgs : Pulumi.ResourceArgs
+    public sealed class CustomerGatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public CustomerGatewayAssociationArgs()
         {
         }
+        public static new CustomerGatewayAssociationArgs Empty => new CustomerGatewayAssociationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHlsInputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsInputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bandwidth")]
         public Input<int>? Bandwidth { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHlsInputSettingsArgs()
         {
         }
+        public static new ChannelHlsInputSettingsArgs Empty => new ChannelHlsInputSettingsArgs();
     }
 }

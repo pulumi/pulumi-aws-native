@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
 
-    public sealed class GetResolverEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("resolverEndpointId", required: true)]
         public string ResolverEndpointId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverEndpointArgs()
         {
         }
+        public static new GetResolverEndpointArgs Empty => new GetResolverEndpointArgs();
     }
 
-    public sealed class GetResolverEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("resolverEndpointId", required: true)]
         public Input<string> ResolverEndpointId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverEndpointInvokeArgs()
         {
         }
+        public static new GetResolverEndpointInvokeArgs Empty => new GetResolverEndpointInvokeArgs();
     }
 
 

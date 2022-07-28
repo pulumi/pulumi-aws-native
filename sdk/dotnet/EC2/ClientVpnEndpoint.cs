@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:ClientVpnEndpoint")]
-    public partial class ClientVpnEndpoint : Pulumi.CustomResource
+    public partial class ClientVpnEndpoint : global::Pulumi.CustomResource
     {
         [Output("authenticationOptions")]
         public Output<ImmutableArray<Outputs.ClientVpnEndpointClientAuthenticationRequest>> AuthenticationOptions { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class ClientVpnEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationOptions", required: true)]
         private InputList<Inputs.ClientVpnEndpointClientAuthenticationRequestArgs>? _authenticationOptions;
@@ -180,5 +180,6 @@ namespace Pulumi.AwsNative.EC2
         public ClientVpnEndpointArgs()
         {
         }
+        public static new ClientVpnEndpointArgs Empty => new ClientVpnEndpointArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetMitigationActionArgs : Pulumi.InvokeArgs
+    public sealed class GetMitigationActionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the mitigation action.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetMitigationActionArgs()
         {
         }
+        public static new GetMitigationActionArgs Empty => new GetMitigationActionArgs();
     }
 
-    public sealed class GetMitigationActionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMitigationActionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the mitigation action.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetMitigationActionInvokeArgs()
         {
         }
+        public static new GetMitigationActionInvokeArgs Empty => new GetMitigationActionInvokeArgs();
     }
 
 

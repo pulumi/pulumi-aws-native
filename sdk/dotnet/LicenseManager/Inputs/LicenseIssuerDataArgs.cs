@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseIssuerDataArgs : Pulumi.ResourceArgs
+    public sealed class LicenseIssuerDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseIssuerDataArgs()
         {
         }
+        public static new LicenseIssuerDataArgs Empty => new LicenseIssuerDataArgs();
     }
 }

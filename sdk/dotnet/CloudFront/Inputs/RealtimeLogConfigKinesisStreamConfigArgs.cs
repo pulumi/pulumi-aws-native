@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class RealtimeLogConfigKinesisStreamConfigArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigKinesisStreamConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public RealtimeLogConfigKinesisStreamConfigArgs()
         {
         }
+        public static new RealtimeLogConfigKinesisStreamConfigArgs Empty => new RealtimeLogConfigKinesisStreamConfigArgs();
     }
 }

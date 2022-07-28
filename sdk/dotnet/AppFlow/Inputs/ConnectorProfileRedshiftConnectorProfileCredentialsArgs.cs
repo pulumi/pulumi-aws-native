@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileRedshiftConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileRedshiftConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password that corresponds to the username.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileRedshiftConnectorProfileCredentialsArgs()
         {
         }
+        public static new ConnectorProfileRedshiftConnectorProfileCredentialsArgs Empty => new ConnectorProfileRedshiftConnectorProfileCredentialsArgs();
     }
 }

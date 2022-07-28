@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationMaxAgeRuleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMaxAgeRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteSourceFromS3")]
         public Input<bool>? DeleteSourceFromS3 { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ApplicationMaxAgeRuleArgs()
         {
         }
+        public static new ApplicationMaxAgeRuleArgs Empty => new ApplicationMaxAgeRuleArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// Resource Type Definition for AWS::S3Outposts::Endpoint
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.S3Outposts
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
@@ -150,5 +150,6 @@ namespace Pulumi.AwsNative.S3Outposts
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

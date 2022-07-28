@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelTagArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelTagArgs()
         {
         }
+        public static new AssetModelTagArgs Empty => new AssetModelTagArgs();
     }
 }

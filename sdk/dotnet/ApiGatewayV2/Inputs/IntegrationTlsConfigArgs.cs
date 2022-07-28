@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class IntegrationTlsConfigArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTlsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("serverNameToVerify")]
         public Input<string>? ServerNameToVerify { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public IntegrationTlsConfigArgs()
         {
         }
+        public static new IntegrationTlsConfigArgs Empty => new IntegrationTlsConfigArgs();
     }
 }

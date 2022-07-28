@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolGroup")]
-    public partial class UserPoolGroup : Pulumi.CustomResource
+    public partial class UserPoolGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolGroupArgs()
         {
         }
+        public static new UserPoolGroupArgs Empty => new UserPoolGroupArgs();
     }
 }

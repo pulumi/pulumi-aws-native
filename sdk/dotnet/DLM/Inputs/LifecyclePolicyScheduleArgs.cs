@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -65,5 +65,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyScheduleArgs()
         {
         }
+        public static new LifecyclePolicyScheduleArgs Empty => new LifecyclePolicyScheduleArgs();
     }
 }

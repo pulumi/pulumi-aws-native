@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetConfigRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("configRuleId", required: true)]
         public string ConfigRuleId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigRuleArgs()
         {
         }
+        public static new GetConfigRuleArgs Empty => new GetConfigRuleArgs();
     }
 
-    public sealed class GetConfigRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("configRuleId", required: true)]
         public Input<string> ConfigRuleId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigRuleInvokeArgs()
         {
         }
+        public static new GetConfigRuleInvokeArgs Empty => new GetConfigRuleInvokeArgs();
     }
 
 

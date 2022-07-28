@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// </summary>
     [Obsolete(@"Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:Secret")]
-    public partial class Secret : Pulumi.CustomResource
+    public partial class Secret : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.SecretsManager
         }
     }
 
-    public sealed class SecretArgs : Pulumi.ResourceArgs
+    public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.SecretsManager
         public SecretArgs()
         {
         }
+        public static new SecretArgs Empty => new SecretArgs();
     }
 }

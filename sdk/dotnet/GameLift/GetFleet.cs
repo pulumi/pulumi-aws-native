@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetFleetArgs : Pulumi.InvokeArgs
+    public sealed class GetFleetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique fleet ID
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetFleetArgs()
         {
         }
+        public static new GetFleetArgs Empty => new GetFleetArgs();
     }
 
-    public sealed class GetFleetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique fleet ID
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetFleetInvokeArgs()
         {
         }
+        public static new GetFleetInvokeArgs Empty => new GetFleetInvokeArgs();
     }
 
 

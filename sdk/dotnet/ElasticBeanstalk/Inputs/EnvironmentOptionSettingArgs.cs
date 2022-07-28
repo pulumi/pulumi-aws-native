@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class EnvironmentOptionSettingArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentOptionSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public EnvironmentOptionSettingArgs()
         {
         }
+        public static new EnvironmentOptionSettingArgs Empty => new EnvironmentOptionSettingArgs();
     }
 }

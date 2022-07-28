@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 OtherName information.
     /// </summary>
-    public sealed class CertificateAuthorityOtherNameArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityOtherNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("typeId", required: true)]
         public Input<string> TypeId { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityOtherNameArgs()
         {
         }
+        public static new CertificateAuthorityOtherNameArgs Empty => new CertificateAuthorityOtherNameArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("cACertificatePem")]
         public Input<string>? CACertificatePem { get; set; }
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.IoT
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

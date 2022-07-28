@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS.Inputs
 {
 
-    public sealed class AccessPointTagArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EFS.Inputs
         public AccessPointTagArgs()
         {
         }
+        public static new AccessPointTagArgs Empty => new AccessPointTagArgs();
     }
 }

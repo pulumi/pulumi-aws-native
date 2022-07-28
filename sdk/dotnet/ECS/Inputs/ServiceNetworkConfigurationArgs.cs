@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsvpcConfiguration")]
         public Input<Inputs.ServiceAwsVpcConfigurationArgs>? AwsvpcConfiguration { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceNetworkConfigurationArgs()
         {
         }
+        public static new ServiceNetworkConfigurationArgs Empty => new ServiceNetworkConfigurationArgs();
     }
 }

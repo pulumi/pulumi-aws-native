@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// A certificate issued via a private certificate authority
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.ACMPCA
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.ACMPCA
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 }

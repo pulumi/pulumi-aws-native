@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationTriggerPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("scheduled")]
         public Input<Inputs.IntegrationScheduledTriggerPropertiesArgs>? Scheduled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationTriggerPropertiesArgs()
         {
         }
+        public static new IntegrationTriggerPropertiesArgs Empty => new IntegrationTriggerPropertiesArgs();
     }
 }

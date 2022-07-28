@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResilienceHub.Inputs
 {
 
-    public sealed class AppPhysicalResourceIdArgs : Pulumi.ResourceArgs
+    public sealed class AppPhysicalResourceIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
         public AppPhysicalResourceIdArgs()
         {
         }
+        public static new AppPhysicalResourceIdArgs Empty => new AppPhysicalResourceIdArgs();
     }
 }

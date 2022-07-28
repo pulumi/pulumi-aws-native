@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// The queue configuration. This is required only if QuickConnectType is QUEUE.
     /// </summary>
-    public sealed class QuickConnectQueueQuickConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectQueueQuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public QuickConnectQueueQuickConnectConfigArgs()
         {
         }
+        public static new QuickConnectQueueQuickConnectConfigArgs Empty => new QuickConnectQueueQuickConnectConfigArgs();
     }
 }

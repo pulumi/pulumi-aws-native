@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Trigger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Trigger")]
-    public partial class Trigger : Pulumi.CustomResource
+    public partial class Trigger : global::Pulumi.CustomResource
     {
         [Output("actions")]
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class TriggerArgs : Pulumi.ResourceArgs
+    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.TriggerActionArgs>? _actions;
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.Glue
         public TriggerArgs()
         {
         }
+        public static new TriggerArgs Empty => new TriggerArgs();
     }
 }

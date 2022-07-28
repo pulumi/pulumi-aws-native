@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EKS
     }
 
 
-    public sealed class GetIdentityProviderConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityProviderConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the identity provider configuration.
@@ -48,9 +48,10 @@ namespace Pulumi.AwsNative.EKS
         public GetIdentityProviderConfigArgs()
         {
         }
+        public static new GetIdentityProviderConfigArgs Empty => new GetIdentityProviderConfigArgs();
     }
 
-    public sealed class GetIdentityProviderConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityProviderConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the identity provider configuration.
@@ -73,6 +74,7 @@ namespace Pulumi.AwsNative.EKS
         public GetIdentityProviderConfigInvokeArgs()
         {
         }
+        public static new GetIdentityProviderConfigInvokeArgs Empty => new GetIdentityProviderConfigInvokeArgs();
     }
 
 

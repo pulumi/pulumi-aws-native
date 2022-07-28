@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleARN", required: true)]
         public Input<string> RoleARN { get; set; } = null!;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamVpcConfigurationArgs()
         {
         }
+        public static new DeliveryStreamVpcConfigurationArgs Empty => new DeliveryStreamVpcConfigurationArgs();
     }
 }

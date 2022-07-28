@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamOpenXJsonSerDeArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamOpenXJsonSerDeArgs : global::Pulumi.ResourceArgs
     {
         [Input("caseInsensitive")]
         public Input<bool>? CaseInsensitive { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamOpenXJsonSerDeArgs()
         {
         }
+        public static new DeliveryStreamOpenXJsonSerDeArgs Empty => new DeliveryStreamOpenXJsonSerDeArgs();
     }
 }

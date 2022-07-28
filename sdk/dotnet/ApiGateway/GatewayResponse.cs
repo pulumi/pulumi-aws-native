@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// </summary>
     [Obsolete(@"GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:GatewayResponse")]
-    public partial class GatewayResponse : Pulumi.CustomResource
+    public partial class GatewayResponse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The response parameters (paths, query strings, and headers) for the response.
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class GatewayResponseArgs : Pulumi.ResourceArgs
+    public sealed class GatewayResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The response parameters (paths, query strings, and headers) for the response.
@@ -124,5 +124,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public GatewayResponseArgs()
         {
         }
+        public static new GatewayResponseArgs Empty => new GatewayResponseArgs();
     }
 }

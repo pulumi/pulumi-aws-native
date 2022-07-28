@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// Resource Type definition for AWS::Pinpoint::InAppTemplate
     /// </summary>
     [AwsNativeResourceType("aws-native:pinpoint:InAppTemplate")]
-    public partial class InAppTemplate : Pulumi.CustomResource
+    public partial class InAppTemplate : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class InAppTemplateArgs : Pulumi.ResourceArgs
+    public sealed class InAppTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("content")]
         private InputList<Inputs.InAppTemplateInAppMessageContentArgs>? _content;
@@ -107,5 +107,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public InAppTemplateArgs()
         {
         }
+        public static new InAppTemplateArgs Empty => new InAppTemplateArgs();
     }
 }

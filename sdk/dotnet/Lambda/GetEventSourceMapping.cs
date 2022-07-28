@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
 
-    public sealed class GetEventSourceMappingArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSourceMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Event Source Mapping Identifier UUID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lambda
         public GetEventSourceMappingArgs()
         {
         }
+        public static new GetEventSourceMappingArgs Empty => new GetEventSourceMappingArgs();
     }
 
-    public sealed class GetEventSourceMappingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSourceMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Event Source Mapping Identifier UUID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lambda
         public GetEventSourceMappingInvokeArgs()
         {
         }
+        public static new GetEventSourceMappingInvokeArgs Empty => new GetEventSourceMappingInvokeArgs();
     }
 
 

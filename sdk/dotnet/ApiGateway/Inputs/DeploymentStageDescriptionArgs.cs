@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class DeploymentStageDescriptionArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentStageDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for logging access in this stage.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public DeploymentStageDescriptionArgs()
         {
         }
+        public static new DeploymentStageDescriptionArgs Empty => new DeploymentStageDescriptionArgs();
     }
 }

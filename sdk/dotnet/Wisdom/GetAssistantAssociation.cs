@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Wisdom
     }
 
 
-    public sealed class GetAssistantAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetAssistantAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("assistantAssociationId", required: true)]
         public string AssistantAssociationId { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Wisdom
         public GetAssistantAssociationArgs()
         {
         }
+        public static new GetAssistantAssociationArgs Empty => new GetAssistantAssociationArgs();
     }
 
-    public sealed class GetAssistantAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssistantAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("assistantAssociationId", required: true)]
         public Input<string> AssistantAssociationId { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Wisdom
         public GetAssistantAssociationInvokeArgs()
         {
         }
+        public static new GetAssistantAssociationInvokeArgs Empty => new GetAssistantAssociationInvokeArgs();
     }
 
 

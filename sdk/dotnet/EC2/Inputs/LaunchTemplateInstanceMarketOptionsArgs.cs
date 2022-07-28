@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceMarketOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceMarketOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateInstanceMarketOptionsArgs()
         {
         }
+        public static new LaunchTemplateInstanceMarketOptionsArgs Empty => new LaunchTemplateInstanceMarketOptionsArgs();
     }
 }

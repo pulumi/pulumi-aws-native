@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetInAppTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetInAppTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("templateName", required: true)]
         public string TemplateName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetInAppTemplateArgs()
         {
         }
+        public static new GetInAppTemplateArgs Empty => new GetInAppTemplateArgs();
     }
 
-    public sealed class GetInAppTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInAppTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetInAppTemplateInvokeArgs()
         {
         }
+        public static new GetInAppTemplateInvokeArgs Empty => new GetInAppTemplateInvokeArgs();
     }
 
 

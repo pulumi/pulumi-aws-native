@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SES
     }
 
 
-    public sealed class GetConfigurationSetArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration set.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SES
         public GetConfigurationSetArgs()
         {
         }
+        public static new GetConfigurationSetArgs Empty => new GetConfigurationSetArgs();
     }
 
-    public sealed class GetConfigurationSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the configuration set.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SES
         public GetConfigurationSetInvokeArgs()
         {
         }
+        public static new GetConfigurationSetInvokeArgs Empty => new GetConfigurationSetInvokeArgs();
     }
 
 

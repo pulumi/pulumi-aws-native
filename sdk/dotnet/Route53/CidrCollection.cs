@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53
     /// Resource schema for AWS::Route53::CidrCollection.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:CidrCollection")]
-    public partial class CidrCollection : Pulumi.CustomResource
+    public partial class CidrCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon resource name (ARN) to uniquely identify the AWS resource.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class CidrCollectionArgs : Pulumi.ResourceArgs
+    public sealed class CidrCollectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<Inputs.CidrCollectionLocationArgs>? _locations;
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Route53
         public CidrCollectionArgs()
         {
         }
+        public static new CidrCollectionArgs Empty => new CidrCollectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:ResourceSet")]
-    public partial class ResourceSet : Pulumi.CustomResource
+    public partial class ResourceSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource set.
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
     }
 
-    public sealed class ResourceSetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the resource set to create.
@@ -133,5 +133,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public ResourceSetArgs()
         {
         }
+        public static new ResourceSetArgs Empty => new ResourceSetArgs();
     }
 }

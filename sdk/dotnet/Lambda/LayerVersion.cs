@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lambda
     /// </summary>
     [Obsolete(@"LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:LayerVersion")]
-    public partial class LayerVersion : Pulumi.CustomResource
+    public partial class LayerVersion : global::Pulumi.CustomResource
     {
         [Output("compatibleArchitectures")]
         public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class LayerVersionArgs : Pulumi.ResourceArgs
+    public sealed class LayerVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("compatibleArchitectures")]
         private InputList<string>? _compatibleArchitectures;
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.Lambda
         public LayerVersionArgs()
         {
         }
+        public static new LayerVersionArgs Empty => new LayerVersionArgs();
     }
 }

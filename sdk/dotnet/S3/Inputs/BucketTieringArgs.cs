@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketTieringArgs : Pulumi.ResourceArgs
+    public sealed class BucketTieringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketTieringArgs()
         {
         }
+        public static new BucketTieringArgs Empty => new BucketTieringArgs();
     }
 }

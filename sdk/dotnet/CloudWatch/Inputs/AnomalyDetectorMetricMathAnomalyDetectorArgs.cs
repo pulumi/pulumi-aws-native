@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class AnomalyDetectorMetricMathAnomalyDetectorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorMetricMathAnomalyDetectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricDataQueries")]
         private InputList<Inputs.AnomalyDetectorMetricDataQueryArgs>? _metricDataQueries;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public AnomalyDetectorMetricMathAnomalyDetectorArgs()
         {
         }
+        public static new AnomalyDetectorMetricMathAnomalyDetectorArgs Empty => new AnomalyDetectorMetricMathAnomalyDetectorArgs();
     }
 }

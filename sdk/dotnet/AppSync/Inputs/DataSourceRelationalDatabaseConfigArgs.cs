@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceRelationalDatabaseConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceRelationalDatabaseConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("rdsHttpEndpointConfig")]
         public Input<Inputs.DataSourceRdsHttpEndpointConfigArgs>? RdsHttpEndpointConfig { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceRelationalDatabaseConfigArgs()
         {
         }
+        public static new DataSourceRelationalDatabaseConfigArgs Empty => new DataSourceRelationalDatabaseConfigArgs();
     }
 }

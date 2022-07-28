@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// Resource schema for AWS::DataBrew::Ruleset.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Ruleset")]
-    public partial class Ruleset : Pulumi.CustomResource
+    public partial class Ruleset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the Ruleset
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.DataBrew
         }
     }
 
-    public sealed class RulesetArgs : Pulumi.ResourceArgs
+    public sealed class RulesetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the Ruleset
@@ -128,5 +128,6 @@ namespace Pulumi.AwsNative.DataBrew
         public RulesetArgs()
         {
         }
+        public static new RulesetArgs Empty => new RulesetArgs();
     }
 }

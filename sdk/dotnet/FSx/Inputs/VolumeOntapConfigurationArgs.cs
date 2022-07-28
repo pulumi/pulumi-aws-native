@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class VolumeOntapConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VolumeOntapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("junctionPath", required: true)]
         public Input<string> JunctionPath { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public VolumeOntapConfigurationArgs()
         {
         }
+        public static new VolumeOntapConfigurationArgs Empty => new VolumeOntapConfigurationArgs();
     }
 }

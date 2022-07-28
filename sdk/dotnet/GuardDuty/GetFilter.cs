@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GuardDuty
     }
 
 
-    public sealed class GetFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetFilterArgs()
         {
         }
+        public static new GetFilterArgs Empty => new GetFilterArgs();
     }
 
-    public sealed class GetFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public GetFilterInvokeArgs()
         {
         }
+        public static new GetFilterInvokeArgs Empty => new GetFilterInvokeArgs();
     }
 
 

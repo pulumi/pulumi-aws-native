@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleDynamoDBActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDynamoDBActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("hashKeyField", required: true)]
         public Input<string> HashKeyField { get; set; } = null!;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleDynamoDBActionArgs()
         {
         }
+        public static new TopicRuleDynamoDBActionArgs Empty => new TopicRuleDynamoDBActionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// The S3 location in customer's account where inference output &amp; artifacts are stored, as part of connected home feature.
     /// </summary>
-    public sealed class StreamProcessorS3DestinationArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorS3DestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the S3 bucket.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorS3DestinationArgs()
         {
         }
+        public static new StreamProcessorS3DestinationArgs Empty => new StreamProcessorS3DestinationArgs();
     }
 }

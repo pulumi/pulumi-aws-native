@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// The properties that determine whether magnetic store writes are enabled.
     /// </summary>
-    public sealed class MagneticStoreWritePropertiesPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MagneticStoreWritePropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag indicating whether magnetic store writes are enabled.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public MagneticStoreWritePropertiesPropertiesArgs()
         {
         }
+        public static new MagneticStoreWritePropertiesPropertiesArgs Empty => new MagneticStoreWritePropertiesPropertiesArgs();
     }
 }

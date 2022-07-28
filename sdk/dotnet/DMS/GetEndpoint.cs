@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DMS
     }
 
 
-    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DMS
         public GetEndpointArgs()
         {
         }
+        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DMS
         public GetEndpointInvokeArgs()
         {
         }
+        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

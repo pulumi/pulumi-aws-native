@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
     /// <summary>
     /// Configuration for Auto Stop of Application
     /// </summary>
-    public sealed class ApplicationAutoStopConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAutoStopConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to true, the Application will automatically stop after being idle. Defaults to true.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationAutoStopConfigurationArgs()
         {
         }
+        public static new ApplicationAutoStopConfigurationArgs Empty => new ApplicationAutoStopConfigurationArgs();
     }
 }

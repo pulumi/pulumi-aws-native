@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiLogConfigArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiLogConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogsRoleArn")]
         public Input<string>? CloudWatchLogsRoleArn { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public GraphQLApiLogConfigArgs()
         {
         }
+        public static new GraphQLApiLogConfigArgs Empty => new GraphQLApiLogConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMRContainers.Inputs
 {
 
-    public sealed class VirtualClusterEksInfoArgs : Pulumi.ResourceArgs
+    public sealed class VirtualClusterEksInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EMRContainers.Inputs
         public VirtualClusterEksInfoArgs()
         {
         }
+        public static new VirtualClusterEksInfoArgs Empty => new VirtualClusterEksInfoArgs();
     }
 }

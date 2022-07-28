@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Describes code configuration for an application.
     /// </summary>
-    public sealed class ApplicationCodeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location and type of the application code.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCodeConfigurationArgs()
         {
         }
+        public static new ApplicationCodeConfigurationArgs Empty => new ApplicationCodeConfigurationArgs();
     }
 }

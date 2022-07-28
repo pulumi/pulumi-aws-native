@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetKeyGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetKeyGroupArgs()
         {
         }
+        public static new GetKeyGroupArgs Empty => new GetKeyGroupArgs();
     }
 
-    public sealed class GetKeyGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetKeyGroupInvokeArgs()
         {
         }
+        public static new GetKeyGroupInvokeArgs Empty => new GetKeyGroupInvokeArgs();
     }
 
 

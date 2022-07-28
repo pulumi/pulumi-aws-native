@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetTriggeringDatasetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetTriggeringDatasetArgs : global::Pulumi.ResourceArgs
     {
         [Input("datasetName", required: true)]
         public Input<string> DatasetName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetTriggeringDatasetArgs()
         {
         }
+        public static new DatasetTriggeringDatasetArgs Empty => new DatasetTriggeringDatasetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class UserTagArgs : Pulumi.ResourceArgs
+    public sealed class UserTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public UserTagArgs()
         {
         }
+        public static new UserTagArgs Empty => new UserTagArgs();
     }
 }

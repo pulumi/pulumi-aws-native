@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupTrafficRouteArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupTrafficRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("listenerArns")]
         private InputList<string>? _listenerArns;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupTrafficRouteArgs()
         {
         }
+        public static new DeploymentGroupTrafficRouteArgs Empty => new DeploymentGroupTrafficRouteArgs();
     }
 }

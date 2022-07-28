@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateTotalLocalStorageGBArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateTotalLocalStorageGBArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<double>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateTotalLocalStorageGBArgs()
         {
         }
+        public static new LaunchTemplateTotalLocalStorageGBArgs Empty => new LaunchTemplateTotalLocalStorageGBArgs();
     }
 }

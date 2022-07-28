@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationInputProcessingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInputProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputLambdaProcessor")]
         public Input<Inputs.ApplicationInputLambdaProcessorArgs>? InputLambdaProcessor { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationInputProcessingConfigurationArgs()
         {
         }
+        public static new ApplicationInputProcessingConfigurationArgs Empty => new ApplicationInputProcessingConfigurationArgs();
     }
 }

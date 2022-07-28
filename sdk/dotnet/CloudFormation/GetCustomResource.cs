@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetCustomResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomResourceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetCustomResourceArgs()
         {
         }
+        public static new GetCustomResourceArgs Empty => new GetCustomResourceArgs();
     }
 
-    public sealed class GetCustomResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetCustomResourceInvokeArgs()
         {
         }
+        public static new GetCustomResourceInvokeArgs Empty => new GetCustomResourceInvokeArgs();
     }
 
 

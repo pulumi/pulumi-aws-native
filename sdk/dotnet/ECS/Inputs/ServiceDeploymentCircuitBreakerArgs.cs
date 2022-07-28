@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class ServiceDeploymentCircuitBreakerArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDeploymentCircuitBreakerArgs : global::Pulumi.ResourceArgs
     {
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ServiceDeploymentCircuitBreakerArgs()
         {
         }
+        public static new ServiceDeploymentCircuitBreakerArgs Empty => new ServiceDeploymentCircuitBreakerArgs();
     }
 }

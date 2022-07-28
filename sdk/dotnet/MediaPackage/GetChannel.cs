@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
 
-    public sealed class GetChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Channel.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetChannelArgs()
         {
         }
+        public static new GetChannelArgs Empty => new GetChannelArgs();
     }
 
-    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Channel.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public GetChannelInvokeArgs()
         {
         }
+        public static new GetChannelInvokeArgs Empty => new GetChannelInvokeArgs();
     }
 
 

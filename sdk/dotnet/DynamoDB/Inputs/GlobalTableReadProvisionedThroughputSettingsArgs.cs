@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableReadProvisionedThroughputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableReadProvisionedThroughputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("readCapacityAutoScalingSettings")]
         public Input<Inputs.GlobalTableCapacityAutoScalingSettingsArgs>? ReadCapacityAutoScalingSettings { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableReadProvisionedThroughputSettingsArgs()
         {
         }
+        public static new GlobalTableReadProvisionedThroughputSettingsArgs Empty => new GlobalTableReadProvisionedThroughputSettingsArgs();
     }
 }

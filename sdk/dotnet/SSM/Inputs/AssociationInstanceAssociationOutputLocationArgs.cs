@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class AssociationInstanceAssociationOutputLocationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationInstanceAssociationOutputLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Location")]
         public Input<Inputs.AssociationS3OutputLocationArgs>? S3Location { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public AssociationInstanceAssociationOutputLocationArgs()
         {
         }
+        public static new AssociationInstanceAssociationOutputLocationArgs Empty => new AssociationInstanceAssociationOutputLocationArgs();
     }
 }

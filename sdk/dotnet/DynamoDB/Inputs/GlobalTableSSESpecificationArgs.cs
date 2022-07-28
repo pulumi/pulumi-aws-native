@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableSSESpecificationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sSEEnabled", required: true)]
         public Input<bool> SSEEnabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableSSESpecificationArgs()
         {
         }
+        public static new GlobalTableSSESpecificationArgs Empty => new GlobalTableSSESpecificationArgs();
     }
 }

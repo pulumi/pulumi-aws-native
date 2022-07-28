@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
     }
 
 
-    public sealed class GetClusterParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterParameterGroupArgs()
         {
         }
+        public static new GetClusterParameterGroupArgs Empty => new GetClusterParameterGroupArgs();
     }
 
-    public sealed class GetClusterParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Redshift
         public GetClusterParameterGroupInvokeArgs()
         {
         }
+        public static new GetClusterParameterGroupInvokeArgs Empty => new GetClusterParameterGroupInvokeArgs();
     }
 
 

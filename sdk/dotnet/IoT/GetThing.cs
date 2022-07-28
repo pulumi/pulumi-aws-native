@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetThingArgs : Pulumi.InvokeArgs
+    public sealed class GetThingArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetThingArgs()
         {
         }
+        public static new GetThingArgs Empty => new GetThingArgs();
     }
 
-    public sealed class GetThingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThingInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetThingInvokeArgs()
         {
         }
+        public static new GetThingInvokeArgs Empty => new GetThingInvokeArgs();
     }
 
 

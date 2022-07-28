@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// </summary>
     [Obsolete(@"VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:VpcLink")]
-    public partial class VpcLink : Pulumi.CustomResource
+    public partial class VpcLink : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class VpcLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public VpcLinkArgs()
         {
         }
+        public static new VpcLinkArgs Empty => new VpcLinkArgs();
     }
 }

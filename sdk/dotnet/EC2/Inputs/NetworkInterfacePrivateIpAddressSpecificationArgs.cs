@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class NetworkInterfacePrivateIpAddressSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfacePrivateIpAddressSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public NetworkInterfacePrivateIpAddressSpecificationArgs()
         {
         }
+        public static new NetworkInterfacePrivateIpAddressSpecificationArgs Empty => new NetworkInterfacePrivateIpAddressSpecificationArgs();
     }
 }

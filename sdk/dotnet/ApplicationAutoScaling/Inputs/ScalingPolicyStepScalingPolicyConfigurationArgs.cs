@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
-    public sealed class ScalingPolicyStepScalingPolicyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPolicyStepScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adjustmentType")]
         public Input<string>? AdjustmentType { get; set; }
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public ScalingPolicyStepScalingPolicyConfigurationArgs()
         {
         }
+        public static new ScalingPolicyStepScalingPolicyConfigurationArgs Empty => new ScalingPolicyStepScalingPolicyConfigurationArgs();
     }
 }

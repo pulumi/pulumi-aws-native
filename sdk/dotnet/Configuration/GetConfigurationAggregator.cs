@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetConfigurationAggregatorArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationAggregatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the aggregator.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigurationAggregatorArgs()
         {
         }
+        public static new GetConfigurationAggregatorArgs Empty => new GetConfigurationAggregatorArgs();
     }
 
-    public sealed class GetConfigurationAggregatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationAggregatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the aggregator.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetConfigurationAggregatorInvokeArgs()
         {
         }
+        public static new GetConfigurationAggregatorInvokeArgs Empty => new GetConfigurationAggregatorInvokeArgs();
     }
 
 

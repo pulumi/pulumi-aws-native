@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetTopicRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleName", required: true)]
         public string RuleName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetTopicRuleArgs()
         {
         }
+        public static new GetTopicRuleArgs Empty => new GetTopicRuleArgs();
     }
 
-    public sealed class GetTopicRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetTopicRuleInvokeArgs()
         {
         }
+        public static new GetTopicRuleInvokeArgs Empty => new GetTopicRuleInvokeArgs();
     }
 
 

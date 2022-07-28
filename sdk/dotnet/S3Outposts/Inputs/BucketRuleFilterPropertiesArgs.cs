@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
     /// <summary>
     /// The container for the filter of the lifecycle rule.
     /// </summary>
-    public sealed class BucketRuleFilterPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class BucketRuleFilterPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public BucketRuleFilterPropertiesArgs()
         {
         }
+        public static new BucketRuleFilterPropertiesArgs Empty => new BucketRuleFilterPropertiesArgs();
     }
 }

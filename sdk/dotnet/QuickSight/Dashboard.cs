@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::Dashboard Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -208,5 +208,6 @@ namespace Pulumi.AwsNative.QuickSight
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 }

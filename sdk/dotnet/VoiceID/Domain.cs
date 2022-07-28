@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.VoiceID
     /// The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
     /// </summary>
     [AwsNativeResourceType("aws-native:voiceid:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.VoiceID
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -95,5 +95,6 @@ namespace Pulumi.AwsNative.VoiceID
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Data quality rule for a target resource (dataset)
     /// </summary>
-    public sealed class RulesetRuleArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("checkExpression", required: true)]
         public Input<string> CheckExpression { get; set; } = null!;
@@ -49,5 +49,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RulesetRuleArgs()
         {
         }
+        public static new RulesetRuleArgs Empty => new RulesetRuleArgs();
     }
 }

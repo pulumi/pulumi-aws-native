@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The Windows faster-launching configuration to use for AMI distribution.
     /// </summary>
-    public sealed class DistributionConfigurationFastLaunchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationFastLaunchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The owner account ID for the fast-launch enabled Windows AMI.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public DistributionConfigurationFastLaunchConfigurationArgs()
         {
         }
+        public static new DistributionConfigurationFastLaunchConfigurationArgs Empty => new DistributionConfigurationFastLaunchConfigurationArgs();
     }
 }

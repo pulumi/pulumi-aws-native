@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Health check configuration
     /// </summary>
-    public sealed class ServiceHealthCheckConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHealthCheckConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Health check Healthy Threshold
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceHealthCheckConfigurationArgs()
         {
         }
+        public static new ServiceHealthCheckConfigurationArgs Empty => new ServiceHealthCheckConfigurationArgs();
     }
 }

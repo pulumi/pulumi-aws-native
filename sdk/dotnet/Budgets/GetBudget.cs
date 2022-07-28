@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Budgets
     }
 
 
-    public sealed class GetBudgetArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Budgets
         public GetBudgetArgs()
         {
         }
+        public static new GetBudgetArgs Empty => new GetBudgetArgs();
     }
 
-    public sealed class GetBudgetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBudgetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Budgets
         public GetBudgetInvokeArgs()
         {
         }
+        public static new GetBudgetInvokeArgs Empty => new GetBudgetInvokeArgs();
     }
 
 

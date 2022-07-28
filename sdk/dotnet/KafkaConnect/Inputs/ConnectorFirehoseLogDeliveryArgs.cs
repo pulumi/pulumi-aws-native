@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about delivering logs to Amazon Kinesis Data Firehose.
     /// </summary>
-    public sealed class ConnectorFirehoseLogDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorFirehoseLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Kinesis Data Firehose delivery stream that is the destination for log delivery.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorFirehoseLogDeliveryArgs()
         {
         }
+        public static new ConnectorFirehoseLogDeliveryArgs Empty => new ConnectorFirehoseLogDeliveryArgs();
     }
 }

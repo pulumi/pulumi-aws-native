@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetStreamingDistributionArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingDistributionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetStreamingDistributionArgs()
         {
         }
+        public static new GetStreamingDistributionArgs Empty => new GetStreamingDistributionArgs();
     }
 
-    public sealed class GetStreamingDistributionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetStreamingDistributionInvokeArgs()
         {
         }
+        public static new GetStreamingDistributionInvokeArgs Empty => new GetStreamingDistributionInvokeArgs();
     }
 
 

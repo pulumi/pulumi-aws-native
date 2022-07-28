@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class WirelessDeviceAbpV10xArgs : Pulumi.ResourceArgs
+    public sealed class WirelessDeviceAbpV10xArgs : global::Pulumi.ResourceArgs
     {
         [Input("devAddr", required: true)]
         public Input<string> DevAddr { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public WirelessDeviceAbpV10xArgs()
         {
         }
+        public static new WirelessDeviceAbpV10xArgs Empty => new WirelessDeviceAbpV10xArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class JobDatabaseTableOutputOptionsArgs : Pulumi.ResourceArgs
+    public sealed class JobDatabaseTableOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobDatabaseTableOutputOptionsArgs()
         {
         }
+        public static new JobDatabaseTableOutputOptionsArgs Empty => new JobDatabaseTableOutputOptionsArgs();
     }
 }

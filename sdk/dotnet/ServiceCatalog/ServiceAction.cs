@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// Resource Schema for AWS::ServiceCatalog::ServiceAction
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:ServiceAction")]
-    public partial class ServiceAction : Pulumi.CustomResource
+    public partial class ServiceAction : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class ServiceActionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage>? AcceptLanguage { get; set; }
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public ServiceActionArgs()
         {
         }
+        public static new ServiceActionArgs Empty => new ServiceActionArgs();
     }
 }

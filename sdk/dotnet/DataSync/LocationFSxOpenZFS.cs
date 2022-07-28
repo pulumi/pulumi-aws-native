@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationFSxOpenZFS.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxOpenZFS")]
-    public partial class LocationFSxOpenZFS : Pulumi.CustomResource
+    public partial class LocationFSxOpenZFS : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationFSxOpenZFSArgs : Pulumi.ResourceArgs
+    public sealed class LocationFSxOpenZFSArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationFSxOpenZFSArgs()
         {
         }
+        public static new LocationFSxOpenZFSArgs Empty => new LocationFSxOpenZFSArgs();
     }
 }

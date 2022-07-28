@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionAuthorizationConfigArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionAuthorizationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPointId")]
         public Input<string>? AccessPointId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionAuthorizationConfigArgs()
         {
         }
+        public static new TaskDefinitionAuthorizationConfigArgs Empty => new TaskDefinitionAuthorizationConfigArgs();
     }
 }

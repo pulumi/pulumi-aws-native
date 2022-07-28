@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayListenerTlsAcmCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayListenerTlsAcmCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayListenerTlsAcmCertificateArgs()
         {
         }
+        public static new VirtualGatewayListenerTlsAcmCertificateArgs Empty => new VirtualGatewayListenerTlsAcmCertificateArgs();
     }
 }

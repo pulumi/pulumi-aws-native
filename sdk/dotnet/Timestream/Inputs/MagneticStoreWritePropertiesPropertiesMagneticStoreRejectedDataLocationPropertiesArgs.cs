@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Location to store information about records that were asynchronously rejected during magnetic store writes.
     /// </summary>
-    public sealed class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3 configuration for location to store rejections from magnetic store writes
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs()
         {
         }
+        public static new MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs Empty => new MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs();
     }
 }

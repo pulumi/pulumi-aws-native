@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The body of a web request. This immediately follows the request headers.
     /// </summary>
-    public sealed class RuleGroupBodyArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupBodyArgs : global::Pulumi.ResourceArgs
     {
         [Input("oversizeHandling")]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupOversizeHandling>? OversizeHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupBodyArgs()
         {
         }
+        public static new RuleGroupBodyArgs Empty => new RuleGroupBodyArgs();
     }
 }

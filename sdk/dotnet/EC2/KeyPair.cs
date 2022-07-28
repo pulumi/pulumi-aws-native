@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// The AWS::EC2::KeyPair creates an SSH key pair
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:KeyPair")]
-    public partial class KeyPair : Pulumi.CustomResource
+    public partial class KeyPair : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A short sequence of bytes used for public key verification
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class KeyPairArgs : Pulumi.ResourceArgs
+    public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SSH key pair
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.EC2
         public KeyPairArgs()
         {
         }
+        public static new KeyPairArgs Empty => new KeyPairArgs();
     }
 }

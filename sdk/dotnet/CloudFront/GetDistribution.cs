@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetDistributionArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetDistributionArgs()
         {
         }
+        public static new GetDistributionArgs Empty => new GetDistributionArgs();
     }
 
-    public sealed class GetDistributionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetDistributionInvokeArgs()
         {
         }
+        public static new GetDistributionInvokeArgs Empty => new GetDistributionInvokeArgs();
     }
 
 

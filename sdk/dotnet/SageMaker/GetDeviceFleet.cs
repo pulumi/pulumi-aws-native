@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetDeviceFleetArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceFleetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the edge device fleet
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetDeviceFleetArgs()
         {
         }
+        public static new GetDeviceFleetArgs Empty => new GetDeviceFleetArgs();
     }
 
-    public sealed class GetDeviceFleetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDeviceFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the edge device fleet
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetDeviceFleetInvokeArgs()
         {
         }
+        public static new GetDeviceFleetInvokeArgs Empty => new GetDeviceFleetInvokeArgs();
     }
 
 

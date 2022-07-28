@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:NotebookInstanceLifecycleConfig")]
-    public partial class NotebookInstanceLifecycleConfig : Pulumi.CustomResource
+    public partial class NotebookInstanceLifecycleConfig : global::Pulumi.CustomResource
     {
         [Output("notebookInstanceLifecycleConfigName")]
         public Output<string?> NotebookInstanceLifecycleConfigName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class NotebookInstanceLifecycleConfigArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("notebookInstanceLifecycleConfigName")]
         public Input<string>? NotebookInstanceLifecycleConfigName { get; set; }
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.SageMaker
         public NotebookInstanceLifecycleConfigArgs()
         {
         }
+        public static new NotebookInstanceLifecycleConfigArgs Empty => new NotebookInstanceLifecycleConfigArgs();
     }
 }

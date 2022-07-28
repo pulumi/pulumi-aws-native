@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    public sealed class ClusterLoggingPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ClusterLoggingPropertiesArgs()
         {
         }
+        public static new ClusterLoggingPropertiesArgs Empty => new ClusterLoggingPropertiesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     }
 
 
-    public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("environmentIdentifier", required: true)]
         public string EnvironmentIdentifier { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetEnvironmentArgs()
         {
         }
+        public static new GetEnvironmentArgs Empty => new GetEnvironmentArgs();
     }
 
-    public sealed class GetEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetEnvironmentInvokeArgs()
         {
         }
+        public static new GetEnvironmentInvokeArgs Empty => new GetEnvironmentInvokeArgs();
     }
 
 

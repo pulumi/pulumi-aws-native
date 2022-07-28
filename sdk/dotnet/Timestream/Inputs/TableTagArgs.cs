@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
     /// </summary>
-    public sealed class TableTagArgs : Pulumi.ResourceArgs
+    public sealed class TableTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public TableTagArgs()
         {
         }
+        public static new TableTagArgs Empty => new TableTagArgs();
     }
 }

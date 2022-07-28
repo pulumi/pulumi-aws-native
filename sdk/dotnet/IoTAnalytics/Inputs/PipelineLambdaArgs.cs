@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class PipelineLambdaArgs : Pulumi.ResourceArgs
+    public sealed class PipelineLambdaArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchSize", required: true)]
         public Input<int> BatchSize { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public PipelineLambdaArgs()
         {
         }
+        public static new PipelineLambdaArgs Empty => new PipelineLambdaArgs();
     }
 }

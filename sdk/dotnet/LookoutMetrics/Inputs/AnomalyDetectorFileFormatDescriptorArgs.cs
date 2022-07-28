@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorFileFormatDescriptorArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorFileFormatDescriptorArgs : global::Pulumi.ResourceArgs
     {
         [Input("csvFormatDescriptor")]
         public Input<Inputs.AnomalyDetectorCsvFormatDescriptorArgs>? CsvFormatDescriptor { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorFileFormatDescriptorArgs()
         {
         }
+        public static new AnomalyDetectorFileFormatDescriptorArgs Empty => new AnomalyDetectorFileFormatDescriptorArgs();
     }
 }

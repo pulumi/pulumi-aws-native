@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
 
-    public sealed class GetLoggingConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggingConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.WAFv2
         public GetLoggingConfigurationArgs()
         {
         }
+        public static new GetLoggingConfigurationArgs Empty => new GetLoggingConfigurationArgs();
     }
 
-    public sealed class GetLoggingConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggingConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.WAFv2
         public GetLoggingConfigurationInvokeArgs()
         {
         }
+        public static new GetLoggingConfigurationInvokeArgs Empty => new GetLoggingConfigurationInvokeArgs();
     }
 
 

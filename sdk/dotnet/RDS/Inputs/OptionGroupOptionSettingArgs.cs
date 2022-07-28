@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class OptionGroupOptionSettingArgs : Pulumi.ResourceArgs
+    public sealed class OptionGroupOptionSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public OptionGroupOptionSettingArgs()
         {
         }
+        public static new OptionGroupOptionSettingArgs Empty => new OptionGroupOptionSettingArgs();
     }
 }

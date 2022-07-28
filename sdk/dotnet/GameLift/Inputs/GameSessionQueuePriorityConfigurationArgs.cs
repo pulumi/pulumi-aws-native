@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class GameSessionQueuePriorityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueuePriorityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("locationOrder")]
         private InputList<string>? _locationOrder;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameSessionQueuePriorityConfigurationArgs()
         {
         }
+        public static new GameSessionQueuePriorityConfigurationArgs Empty => new GameSessionQueuePriorityConfigurationArgs();
     }
 }

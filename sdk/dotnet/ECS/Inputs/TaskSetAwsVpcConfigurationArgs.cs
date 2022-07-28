@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
     /// </summary>
-    public sealed class TaskSetAwsVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskSetAwsVpcConfigurationArgs()
         {
         }
+        public static new TaskSetAwsVpcConfigurationArgs Empty => new TaskSetAwsVpcConfigurationArgs();
     }
 }

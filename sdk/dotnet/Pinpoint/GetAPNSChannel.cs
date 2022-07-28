@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetAPNSChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetAPNSChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetAPNSChannelArgs()
         {
         }
+        public static new GetAPNSChannelArgs Empty => new GetAPNSChannelArgs();
     }
 
-    public sealed class GetAPNSChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAPNSChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetAPNSChannelInvokeArgs()
         {
         }
+        public static new GetAPNSChannelInvokeArgs Empty => new GetAPNSChannelInvokeArgs();
     }
 
 

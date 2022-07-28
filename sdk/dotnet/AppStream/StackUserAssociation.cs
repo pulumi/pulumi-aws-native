@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"StackUserAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:StackUserAssociation")]
-    public partial class StackUserAssociation : Pulumi.CustomResource
+    public partial class StackUserAssociation : global::Pulumi.CustomResource
     {
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class StackUserAssociationArgs : Pulumi.ResourceArgs
+    public sealed class StackUserAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.AppStream
         public StackUserAssociationArgs()
         {
         }
+        public static new StackUserAssociationArgs Empty => new StackUserAssociationArgs();
     }
 }

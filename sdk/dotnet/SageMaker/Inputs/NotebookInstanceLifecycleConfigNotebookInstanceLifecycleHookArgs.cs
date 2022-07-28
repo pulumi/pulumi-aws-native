@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs()
         {
         }
+        public static new NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs Empty => new NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs();
     }
 }

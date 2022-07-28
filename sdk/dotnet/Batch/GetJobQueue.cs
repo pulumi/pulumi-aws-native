@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
 
-    public sealed class GetJobQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetJobQueueArgs : global::Pulumi.InvokeArgs
     {
         [Input("jobQueueArn", required: true)]
         public string JobQueueArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Batch
         public GetJobQueueArgs()
         {
         }
+        public static new GetJobQueueArgs Empty => new GetJobQueueArgs();
     }
 
-    public sealed class GetJobQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetJobQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("jobQueueArn", required: true)]
         public Input<string> JobQueueArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Batch
         public GetJobQueueInvokeArgs()
         {
         }
+        public static new GetJobQueueInvokeArgs Empty => new GetJobQueueInvokeArgs();
     }
 
 

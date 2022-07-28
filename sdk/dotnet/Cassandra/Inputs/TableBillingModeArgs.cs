@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
-    public sealed class TableBillingModeArgs : Pulumi.ResourceArgs
+    public sealed class TableBillingModeArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Cassandra.TableMode> Mode { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableBillingModeArgs()
         {
         }
+        public static new TableBillingModeArgs Empty => new TableBillingModeArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// </summary>
     [Obsolete(@"ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         [Output("cacheParameterGroupFamily")]
         public Output<string> CacheParameterGroupFamily { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("cacheParameterGroupFamily", required: true)]
         public Input<string> CacheParameterGroupFamily { get; set; } = null!;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.ElastiCache
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 }

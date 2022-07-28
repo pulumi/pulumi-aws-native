@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GameLift
     /// </summary>
     [Obsolete(@"MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:MatchmakingConfiguration")]
-    public partial class MatchmakingConfiguration : Pulumi.CustomResource
+    public partial class MatchmakingConfiguration : global::Pulumi.CustomResource
     {
         [Output("acceptanceRequired")]
         public Output<bool> AcceptanceRequired { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class MatchmakingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MatchmakingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptanceRequired", required: true)]
         public Input<bool> AcceptanceRequired { get; set; } = null!;
@@ -172,5 +172,6 @@ namespace Pulumi.AwsNative.GameLift
         public MatchmakingConfigurationArgs()
         {
         }
+        public static new MatchmakingConfigurationArgs Empty => new MatchmakingConfigurationArgs();
     }
 }

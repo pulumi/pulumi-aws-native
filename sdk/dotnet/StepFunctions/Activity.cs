@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.StepFunctions
     /// Resource schema for Activity
     /// </summary>
     [AwsNativeResourceType("aws-native:stepfunctions:Activity")]
-    public partial class Activity : Pulumi.CustomResource
+    public partial class Activity : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.StepFunctions
         }
     }
 
-    public sealed class ActivityArgs : Pulumi.ResourceArgs
+    public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -83,5 +83,6 @@ namespace Pulumi.AwsNative.StepFunctions
         public ActivityArgs()
         {
         }
+        public static new ActivityArgs Empty => new ActivityArgs();
     }
 }

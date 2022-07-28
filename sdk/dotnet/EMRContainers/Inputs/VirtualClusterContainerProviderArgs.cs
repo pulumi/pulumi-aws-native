@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMRContainers.Inputs
 {
 
-    public sealed class VirtualClusterContainerProviderArgs : Pulumi.ResourceArgs
+    public sealed class VirtualClusterContainerProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the container cluster
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EMRContainers.Inputs
         public VirtualClusterContainerProviderArgs()
         {
         }
+        public static new VirtualClusterContainerProviderArgs Empty => new VirtualClusterContainerProviderArgs();
     }
 }

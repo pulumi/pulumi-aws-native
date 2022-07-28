@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    public sealed class ComponentVersionLambdaLinuxProcessParamsArgs : Pulumi.ResourceArgs
+    public sealed class ComponentVersionLambdaLinuxProcessParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerParams")]
         public Input<Inputs.ComponentVersionLambdaContainerParamsArgs>? ContainerParams { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public ComponentVersionLambdaLinuxProcessParamsArgs()
         {
         }
+        public static new ComponentVersionLambdaLinuxProcessParamsArgs Empty => new ComponentVersionLambdaLinuxProcessParamsArgs();
     }
 }

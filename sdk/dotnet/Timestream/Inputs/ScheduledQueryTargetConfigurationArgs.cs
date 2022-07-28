@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Configuration of target store where scheduled query results are written to.
     /// </summary>
-    public sealed class ScheduledQueryTargetConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryTargetConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("timestreamConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryTimestreamConfigurationArgs> TimestreamConfiguration { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryTargetConfigurationArgs()
         {
         }
+        public static new ScheduledQueryTargetConfigurationArgs Empty => new ScheduledQueryTargetConfigurationArgs();
     }
 }

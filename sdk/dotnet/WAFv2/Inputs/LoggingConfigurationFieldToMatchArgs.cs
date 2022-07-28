@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class LoggingConfigurationFieldToMatchArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public LoggingConfigurationFieldToMatchArgs()
         {
         }
+        public static new LoggingConfigurationFieldToMatchArgs Empty => new LoggingConfigurationFieldToMatchArgs();
     }
 }

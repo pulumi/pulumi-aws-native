@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Visibility Metric of the RuleGroup.
     /// </summary>
-    public sealed class RuleGroupVisibilityConfigArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupVisibilityConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchMetricsEnabled", required: true)]
         public Input<bool> CloudWatchMetricsEnabled { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupVisibilityConfigArgs()
         {
         }
+        public static new RuleGroupVisibilityConfigArgs Empty => new RuleGroupVisibilityConfigArgs();
     }
 }

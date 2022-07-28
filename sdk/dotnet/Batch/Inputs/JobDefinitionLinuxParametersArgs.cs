@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionLinuxParametersArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionLinuxParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("devices")]
         private InputList<Inputs.JobDefinitionDeviceArgs>? _devices;
@@ -43,5 +43,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionLinuxParametersArgs()
         {
         }
+        public static new JobDefinitionLinuxParametersArgs Empty => new JobDefinitionLinuxParametersArgs();
     }
 }

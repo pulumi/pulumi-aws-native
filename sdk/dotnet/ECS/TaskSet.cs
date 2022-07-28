@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:TaskSet")]
-    public partial class TaskSet : Pulumi.CustomResource
+    public partial class TaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class TaskSetArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -182,5 +182,6 @@ namespace Pulumi.AwsNative.ECS
         public TaskSetArgs()
         {
         }
+        public static new TaskSetArgs Empty => new TaskSetArgs();
     }
 }

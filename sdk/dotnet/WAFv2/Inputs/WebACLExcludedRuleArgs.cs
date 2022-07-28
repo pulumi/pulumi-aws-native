@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
     /// </summary>
-    public sealed class WebACLExcludedRuleArgs : Pulumi.ResourceArgs
+    public sealed class WebACLExcludedRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLExcludedRuleArgs()
         {
         }
+        public static new WebACLExcludedRuleArgs Empty => new WebACLExcludedRuleArgs();
     }
 }

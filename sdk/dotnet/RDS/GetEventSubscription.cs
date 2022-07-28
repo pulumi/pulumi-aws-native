@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetEventSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the subscription.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RDS
         public GetEventSubscriptionArgs()
         {
         }
+        public static new GetEventSubscriptionArgs Empty => new GetEventSubscriptionArgs();
     }
 
-    public sealed class GetEventSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the subscription.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RDS
         public GetEventSubscriptionInvokeArgs()
         {
         }
+        public static new GetEventSubscriptionInvokeArgs Empty => new GetEventSubscriptionInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetOriginRequestPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginRequestPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetOriginRequestPolicyArgs()
         {
         }
+        public static new GetOriginRequestPolicyArgs Empty => new GetOriginRequestPolicyArgs();
     }
 
-    public sealed class GetOriginRequestPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginRequestPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetOriginRequestPolicyInvokeArgs()
         {
         }
+        public static new GetOriginRequestPolicyInvokeArgs Empty => new GetOriginRequestPolicyInvokeArgs();
     }
 
 

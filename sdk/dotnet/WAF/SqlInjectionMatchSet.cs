@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAF
     /// </summary>
     [Obsolete(@"SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:SqlInjectionMatchSet")]
-    public partial class SqlInjectionMatchSet : Pulumi.CustomResource
+    public partial class SqlInjectionMatchSet : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAF
         }
     }
 
-    public sealed class SqlInjectionMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAF
         public SqlInjectionMatchSetArgs()
         {
         }
+        public static new SqlInjectionMatchSetArgs Empty => new SqlInjectionMatchSetArgs();
     }
 }

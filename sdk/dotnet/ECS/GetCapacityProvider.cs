@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS
     }
 
 
-    public sealed class GetCapacityProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityProviderArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ECS
         public GetCapacityProviderArgs()
         {
         }
+        public static new GetCapacityProviderArgs Empty => new GetCapacityProviderArgs();
     }
 
-    public sealed class GetCapacityProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCapacityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ECS
         public GetCapacityProviderInvokeArgs()
         {
         }
+        public static new GetCapacityProviderInvokeArgs Empty => new GetCapacityProviderInvokeArgs();
     }
 
 

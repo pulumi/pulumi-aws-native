@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Settings required for a slot type based on a grammar that you provide.
     /// </summary>
-    public sealed class BotGrammarSlotTypeSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotGrammarSlotTypeSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("source")]
         public Input<Inputs.BotGrammarSlotTypeSourceArgs>? Source { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotGrammarSlotTypeSettingArgs()
         {
         }
+        public static new BotGrammarSlotTypeSettingArgs Empty => new BotGrammarSlotTypeSettingArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetTargetCapacitySpecificationRequestArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetTargetCapacitySpecificationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultTargetCapacityType")]
         public Input<Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType>? DefaultTargetCapacityType { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetTargetCapacitySpecificationRequestArgs()
         {
         }
+        public static new EC2FleetTargetCapacitySpecificationRequestArgs Empty => new EC2FleetTargetCapacitySpecificationRequestArgs();
     }
 }

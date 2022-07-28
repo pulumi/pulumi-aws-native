@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorks.Inputs
 {
 
-    public sealed class AppSourceArgs : Pulumi.ResourceArgs
+    public sealed class AppSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
         public AppSourceArgs()
         {
         }
+        public static new AppSourceArgs Empty => new AppSourceArgs();
     }
 }

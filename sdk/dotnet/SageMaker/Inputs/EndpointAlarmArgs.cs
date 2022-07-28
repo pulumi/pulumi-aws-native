@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointAlarmArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAlarmArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmName", required: true)]
         public Input<string> AlarmName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointAlarmArgs()
         {
         }
+        public static new EndpointAlarmArgs Empty => new EndpointAlarmArgs();
     }
 }

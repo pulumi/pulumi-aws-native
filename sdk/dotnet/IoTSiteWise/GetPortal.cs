@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
 
-    public sealed class GetPortalArgs : Pulumi.InvokeArgs
+    public sealed class GetPortalArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the portal.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetPortalArgs()
         {
         }
+        public static new GetPortalArgs Empty => new GetPortalArgs();
     }
 
-    public sealed class GetPortalInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPortalInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the portal.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public GetPortalInvokeArgs()
         {
         }
+        public static new GetPortalInvokeArgs Empty => new GetPortalInvokeArgs();
     }
 
 

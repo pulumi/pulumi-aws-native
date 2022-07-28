@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatastoreSchemaDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DatastoreSchemaDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<Inputs.DatastoreColumnArgs>? _columns;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatastoreSchemaDefinitionArgs()
         {
         }
+        public static new DatastoreSchemaDefinitionArgs Empty => new DatastoreSchemaDefinitionArgs();
     }
 }

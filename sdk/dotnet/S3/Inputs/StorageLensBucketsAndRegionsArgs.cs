@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
     /// </summary>
-    public sealed class StorageLensBucketsAndRegionsArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensBucketsAndRegionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("buckets")]
         private InputList<string>? _buckets;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensBucketsAndRegionsArgs()
         {
         }
+        public static new StorageLensBucketsAndRegionsArgs Empty => new StorageLensBucketsAndRegionsArgs();
     }
 }

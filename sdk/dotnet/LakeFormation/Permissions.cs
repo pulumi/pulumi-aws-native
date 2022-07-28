@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.LakeFormation
     /// </summary>
     [Obsolete(@"Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lakeformation:Permissions")]
-    public partial class Permissions : Pulumi.CustomResource
+    public partial class Permissions : global::Pulumi.CustomResource
     {
         [Output("dataLakePrincipal")]
         public Output<Outputs.PermissionsDataLakePrincipal> DataLakePrincipal { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.LakeFormation
         }
     }
 
-    public sealed class PermissionsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataLakePrincipal", required: true)]
         public Input<Inputs.PermissionsDataLakePrincipalArgs> DataLakePrincipal { get; set; } = null!;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.LakeFormation
         public PermissionsArgs()
         {
         }
+        public static new PermissionsArgs Empty => new PermissionsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateBlockDeviceMappingArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateBlockDeviceMappingArgs()
         {
         }
+        public static new LaunchTemplateBlockDeviceMappingArgs Empty => new LaunchTemplateBlockDeviceMappingArgs();
     }
 }

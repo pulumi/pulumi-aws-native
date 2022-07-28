@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Configuration details of the component.
     /// </summary>
-    public sealed class ContainerRecipeComponentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeComponentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ContainerRecipeComponentConfigurationArgs()
         {
         }
+        public static new ContainerRecipeComponentConfigurationArgs Empty => new ContainerRecipeComponentConfigurationArgs();
     }
 }

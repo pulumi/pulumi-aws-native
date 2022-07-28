@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing a launch template specification for AWS EKS Nodegroup.
     /// </summary>
-    public sealed class NodegroupLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public NodegroupLaunchTemplateSpecificationArgs()
         {
         }
+        public static new NodegroupLaunchTemplateSpecificationArgs Empty => new NodegroupLaunchTemplateSpecificationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// A container for filter information for the selection of S3 objects encrypted with AWS KMS.
     /// </summary>
-    public sealed class BucketSseKmsEncryptedObjectsArgs : Pulumi.ResourceArgs
+    public sealed class BucketSseKmsEncryptedObjectsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketSseKmsEncryptedObjectsArgs()
         {
         }
+        public static new BucketSseKmsEncryptedObjectsArgs Empty => new BucketSseKmsEncryptedObjectsArgs();
     }
 }

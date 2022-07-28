@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskDefinitionHostVolumePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionHostVolumePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourcePath")]
         public Input<string>? SourcePath { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskDefinitionHostVolumePropertiesArgs()
         {
         }
+        public static new TaskDefinitionHostVolumePropertiesArgs Empty => new TaskDefinitionHostVolumePropertiesArgs();
     }
 }

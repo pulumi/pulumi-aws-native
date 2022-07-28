@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// AWS Ground Station config resource type for CloudFormation.
     /// </summary>
     [AwsNativeResourceType("aws-native:groundstation:Config")]
-    public partial class Config : Pulumi.CustomResource
+    public partial class Config : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.GroundStation
         }
     }
 
-    public sealed class ConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("configData", required: true)]
         public Input<Inputs.ConfigDataArgs> ConfigData { get; set; } = null!;
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.GroundStation
         public ConfigArgs()
         {
         }
+        public static new ConfigArgs Empty => new ConfigArgs();
     }
 }

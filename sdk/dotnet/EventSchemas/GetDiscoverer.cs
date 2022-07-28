@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EventSchemas
     }
 
 
-    public sealed class GetDiscovererArgs : Pulumi.InvokeArgs
+    public sealed class GetDiscovererArgs : global::Pulumi.InvokeArgs
     {
         [Input("discovererId", required: true)]
         public string DiscovererId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetDiscovererArgs()
         {
         }
+        public static new GetDiscovererArgs Empty => new GetDiscovererArgs();
     }
 
-    public sealed class GetDiscovererInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiscovererInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("discovererId", required: true)]
         public Input<string> DiscovererId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetDiscovererInvokeArgs()
         {
         }
+        public static new GetDiscovererInvokeArgs Empty => new GetDiscovererInvokeArgs();
     }
 
 

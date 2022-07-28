@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// A project resource.
     /// </summary>
-    public sealed class AccessPolicyProjectArgs : Pulumi.ResourceArgs
+    public sealed class AccessPolicyProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the project.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AccessPolicyProjectArgs()
         {
         }
+        public static new AccessPolicyProjectArgs Empty => new AccessPolicyProjectArgs();
     }
 }

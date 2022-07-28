@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::DataSource Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:DataSource")]
-    public partial class DataSource : Pulumi.CustomResource
+    public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;A set of alternate data source parameters that you want to share for the credentials
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("alternateDataSourceParameters")]
         private InputList<Inputs.DataSourceParametersArgs>? _alternateDataSourceParameters;
@@ -214,5 +214,6 @@ namespace Pulumi.AwsNative.QuickSight
         public DataSourceArgs()
         {
         }
+        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 }

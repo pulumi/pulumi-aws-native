@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
     /// </summary>
-    public sealed class BotIntentConfirmationSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotIntentConfirmationSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("declinationResponse", required: true)]
         public Input<Inputs.BotResponseSpecificationArgs> DeclinationResponse { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotIntentConfirmationSettingArgs()
         {
         }
+        public static new BotIntentConfirmationSettingArgs Empty => new BotIntentConfirmationSettingArgs();
     }
 }

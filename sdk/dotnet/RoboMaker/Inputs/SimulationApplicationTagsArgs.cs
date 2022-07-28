@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class SimulationApplicationTagsArgs : Pulumi.ResourceArgs
+    public sealed class SimulationApplicationTagsArgs : global::Pulumi.ResourceArgs
     {
         public SimulationApplicationTagsArgs()
         {
         }
+        public static new SimulationApplicationTagsArgs Empty => new SimulationApplicationTagsArgs();
     }
 }

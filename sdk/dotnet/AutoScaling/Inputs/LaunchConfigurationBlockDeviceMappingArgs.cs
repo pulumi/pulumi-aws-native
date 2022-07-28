@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// <summary>
     /// BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
     /// </summary>
-    public sealed class LaunchConfigurationBlockDeviceMappingArgs : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public LaunchConfigurationBlockDeviceMappingArgs()
         {
         }
+        public static new LaunchConfigurationBlockDeviceMappingArgs Empty => new LaunchConfigurationBlockDeviceMappingArgs();
     }
 }

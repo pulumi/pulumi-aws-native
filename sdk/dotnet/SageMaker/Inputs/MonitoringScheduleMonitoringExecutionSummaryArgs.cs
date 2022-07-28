@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Summary of information about monitoring job
     /// </summary>
-    public sealed class MonitoringScheduleMonitoringExecutionSummaryArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringScheduleMonitoringExecutionSummaryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time at which the monitoring job was created.
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public MonitoringScheduleMonitoringExecutionSummaryArgs()
         {
         }
+        public static new MonitoringScheduleMonitoringExecutionSummaryArgs Empty => new MonitoringScheduleMonitoringExecutionSummaryArgs();
     }
 }

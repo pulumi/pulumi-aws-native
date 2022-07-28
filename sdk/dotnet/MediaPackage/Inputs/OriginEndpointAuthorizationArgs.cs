@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// CDN Authorization credentials
     /// </summary>
-    public sealed class OriginEndpointAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointAuthorizationArgs()
         {
         }
+        public static new OriginEndpointAuthorizationArgs Empty => new OriginEndpointAuthorizationArgs();
     }
 }

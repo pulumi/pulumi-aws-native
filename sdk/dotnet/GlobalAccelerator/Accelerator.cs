@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// Resource Type definition for AWS::GlobalAccelerator::Accelerator
     /// </summary>
     [AwsNativeResourceType("aws-native:globalaccelerator:Accelerator")]
-    public partial class Accelerator : Pulumi.CustomResource
+    public partial class Accelerator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
     }
 
-    public sealed class AcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class AcceleratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether an accelerator is enabled. The value is true or false.
@@ -146,5 +146,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public AcceleratorArgs()
         {
         }
+        public static new AcceleratorArgs Empty => new AcceleratorArgs();
     }
 }

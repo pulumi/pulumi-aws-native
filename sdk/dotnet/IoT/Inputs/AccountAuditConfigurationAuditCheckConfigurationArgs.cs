@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The configuration for a specific audit check.
     /// </summary>
-    public sealed class AccountAuditConfigurationAuditCheckConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AccountAuditConfigurationAuditCheckConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if the check is enabled.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public AccountAuditConfigurationAuditCheckConfigurationArgs()
         {
         }
+        public static new AccountAuditConfigurationAuditCheckConfigurationArgs Empty => new AccountAuditConfigurationAuditCheckConfigurationArgs();
     }
 }

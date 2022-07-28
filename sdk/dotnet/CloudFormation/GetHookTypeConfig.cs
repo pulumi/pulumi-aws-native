@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetHookTypeConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetHookTypeConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookTypeConfigArgs()
         {
         }
+        public static new GetHookTypeConfigArgs Empty => new GetHookTypeConfigArgs();
     }
 
-    public sealed class GetHookTypeConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHookTypeConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the configuration data, in this account and region.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetHookTypeConfigInvokeArgs()
         {
         }
+        public static new GetHookTypeConfigInvokeArgs Empty => new GetHookTypeConfigInvokeArgs();
     }
 
 

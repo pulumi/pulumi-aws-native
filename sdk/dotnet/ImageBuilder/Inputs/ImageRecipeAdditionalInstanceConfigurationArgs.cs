@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Specify additional settings and launch scripts for your build instances.
     /// </summary>
-    public sealed class ImageRecipeAdditionalInstanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeAdditionalInstanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contains settings for the SSM agent on your build instance.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ImageRecipeAdditionalInstanceConfigurationArgs()
         {
         }
+        public static new ImageRecipeAdditionalInstanceConfigurationArgs Empty => new ImageRecipeAdditionalInstanceConfigurationArgs();
     }
 }

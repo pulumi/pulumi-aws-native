@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceCustomDocumentEnrichmentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceCustomDocumentEnrichmentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("inlineConfigurations")]
         private InputList<Inputs.DataSourceInlineCustomDocumentEnrichmentConfigurationArgs>? _inlineConfigurations;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceCustomDocumentEnrichmentConfigurationArgs()
         {
         }
+        public static new DataSourceCustomDocumentEnrichmentConfigurationArgs Empty => new DataSourceCustomDocumentEnrichmentConfigurationArgs();
     }
 }

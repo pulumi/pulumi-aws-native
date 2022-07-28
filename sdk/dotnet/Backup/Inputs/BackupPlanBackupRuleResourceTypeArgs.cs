@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    public sealed class BackupPlanBackupRuleResourceTypeArgs : Pulumi.ResourceArgs
+    public sealed class BackupPlanBackupRuleResourceTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("completionWindowMinutes")]
         public Input<double>? CompletionWindowMinutes { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public BackupPlanBackupRuleResourceTypeArgs()
         {
         }
+        public static new BackupPlanBackupRuleResourceTypeArgs Empty => new BackupPlanBackupRuleResourceTypeArgs();
     }
 }

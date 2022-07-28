@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class WirelessDeviceSessionKeysAbpV11Args : Pulumi.ResourceArgs
+    public sealed class WirelessDeviceSessionKeysAbpV11Args : global::Pulumi.ResourceArgs
     {
         [Input("appSKey", required: true)]
         public Input<string> AppSKey { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public WirelessDeviceSessionKeysAbpV11Args()
         {
         }
+        public static new WirelessDeviceSessionKeysAbpV11Args Empty => new WirelessDeviceSessionKeysAbpV11Args();
     }
 }

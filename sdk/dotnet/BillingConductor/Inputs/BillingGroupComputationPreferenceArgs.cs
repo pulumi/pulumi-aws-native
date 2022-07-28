@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class BillingGroupComputationPreferenceArgs : Pulumi.ResourceArgs
+    public sealed class BillingGroupComputationPreferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the attached pricing plan
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public BillingGroupComputationPreferenceArgs()
         {
         }
+        public static new BillingGroupComputationPreferenceArgs Empty => new BillingGroupComputationPreferenceArgs();
     }
 }

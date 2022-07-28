@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Action taken when Rule matches its condition.
     /// </summary>
-    public sealed class RuleGroupRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow traffic towards application.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleActionArgs()
         {
         }
+        public static new RuleGroupRuleActionArgs Empty => new RuleGroupRuleActionArgs();
     }
 }

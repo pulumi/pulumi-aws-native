@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketMetricsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketMetricsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketMetricsConfigurationArgs()
         {
         }
+        public static new BucketMetricsConfigurationArgs Empty => new BucketMetricsConfigurationArgs();
     }
 }

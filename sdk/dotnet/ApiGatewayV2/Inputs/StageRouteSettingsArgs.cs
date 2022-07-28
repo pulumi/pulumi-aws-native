@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class StageRouteSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StageRouteSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataTraceEnabled")]
         public Input<bool>? DataTraceEnabled { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public StageRouteSettingsArgs()
         {
         }
+        public static new StageRouteSettingsArgs Empty => new StageRouteSettingsArgs();
     }
 }

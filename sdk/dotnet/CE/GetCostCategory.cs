@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CE
     }
 
 
-    public sealed class GetCostCategoryArgs : Pulumi.InvokeArgs
+    public sealed class GetCostCategoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cost category ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CE
         public GetCostCategoryArgs()
         {
         }
+        public static new GetCostCategoryArgs Empty => new GetCostCategoryArgs();
     }
 
-    public sealed class GetCostCategoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCostCategoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Cost category ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CE
         public GetCostCategoryInvokeArgs()
         {
         }
+        public static new GetCostCategoryInvokeArgs Empty => new GetCostCategoryInvokeArgs();
     }
 
 

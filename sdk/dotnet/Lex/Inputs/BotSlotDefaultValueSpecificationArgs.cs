@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A list of values that Amazon Lex should use as the default value for a slot.
     /// </summary>
-    public sealed class BotSlotDefaultValueSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotSlotDefaultValueSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValueList", required: true)]
         private InputList<Inputs.BotSlotDefaultValueArgs>? _defaultValueList;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotSlotDefaultValueSpecificationArgs()
         {
         }
+        public static new BotSlotDefaultValueSpecificationArgs Empty => new BotSlotDefaultValueSpecificationArgs();
     }
 }

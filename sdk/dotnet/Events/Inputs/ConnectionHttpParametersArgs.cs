@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class ConnectionHttpParametersArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionHttpParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("bodyParameters")]
         private InputList<Inputs.ConnectionParameterArgs>? _bodyParameters;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public ConnectionHttpParametersArgs()
         {
         }
+        public static new ConnectionHttpParametersArgs Empty => new ConnectionHttpParametersArgs();
     }
 }

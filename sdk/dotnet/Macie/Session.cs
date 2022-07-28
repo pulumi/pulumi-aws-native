@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Macie
     /// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
     /// </summary>
     [AwsNativeResourceType("aws-native:macie:Session")]
-    public partial class Session : Pulumi.CustomResource
+    public partial class Session : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID of customer
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Macie
         }
     }
 
-    public sealed class SessionArgs : Pulumi.ResourceArgs
+    public sealed class SessionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A enumeration value that specifies how frequently finding updates are published.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Macie
         public SessionArgs()
         {
         }
+        public static new SessionArgs Empty => new SessionArgs();
     }
 }

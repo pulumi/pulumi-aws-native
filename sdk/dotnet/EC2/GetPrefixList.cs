@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetPrefixListArgs : Pulumi.InvokeArgs
+    public sealed class GetPrefixListArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of Prefix List.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetPrefixListArgs()
         {
         }
+        public static new GetPrefixListArgs Empty => new GetPrefixListArgs();
     }
 
-    public sealed class GetPrefixListInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrefixListInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of Prefix List.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetPrefixListInvokeArgs()
         {
         }
+        public static new GetPrefixListInvokeArgs Empty => new GetPrefixListInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectRegistryCredentialArgs : Pulumi.ResourceArgs
+    public sealed class ProjectRegistryCredentialArgs : global::Pulumi.ResourceArgs
     {
         [Input("credential", required: true)]
         public Input<string> Credential { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectRegistryCredentialArgs()
         {
         }
+        public static new ProjectRegistryCredentialArgs Empty => new ProjectRegistryCredentialArgs();
     }
 }

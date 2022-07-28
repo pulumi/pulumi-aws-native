@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetInsightRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetInsightRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetInsightRuleArgs()
         {
         }
+        public static new GetInsightRuleArgs Empty => new GetInsightRuleArgs();
     }
 
-    public sealed class GetInsightRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInsightRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetInsightRuleInvokeArgs()
         {
         }
+        public static new GetInsightRuleInvokeArgs Empty => new GetInsightRuleInvokeArgs();
     }
 
 

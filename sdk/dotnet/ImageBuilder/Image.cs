@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// Resource schema for AWS::ImageBuilder::Image
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:Image")]
-    public partial class Image : Pulumi.CustomResource
+    public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image.
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
     }
 
-    public sealed class ImageArgs : Pulumi.ResourceArgs
+    public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
@@ -171,5 +171,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         public ImageArgs()
         {
         }
+        public static new ImageArgs Empty => new ImageArgs();
     }
 }

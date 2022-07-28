@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetUserHierarchyGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetUserHierarchyGroupArgs()
         {
         }
+        public static new GetUserHierarchyGroupArgs Empty => new GetUserHierarchyGroupArgs();
     }
 
-    public sealed class GetUserHierarchyGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user hierarchy group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetUserHierarchyGroupInvokeArgs()
         {
         }
+        public static new GetUserHierarchyGroupInvokeArgs Empty => new GetUserHierarchyGroupInvokeArgs();
     }
 
 

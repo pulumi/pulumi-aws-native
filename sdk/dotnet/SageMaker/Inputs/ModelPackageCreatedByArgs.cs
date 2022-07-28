@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class ModelPackageCreatedByArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageCreatedByArgs : global::Pulumi.ResourceArgs
     {
         public ModelPackageCreatedByArgs()
         {
         }
+        public static new ModelPackageCreatedByArgs Empty => new ModelPackageCreatedByArgs();
     }
 }

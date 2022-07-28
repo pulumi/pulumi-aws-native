@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationTagArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationTagArgs()
         {
         }
+        public static new IntegrationTagArgs Empty => new IntegrationTagArgs();
     }
 }

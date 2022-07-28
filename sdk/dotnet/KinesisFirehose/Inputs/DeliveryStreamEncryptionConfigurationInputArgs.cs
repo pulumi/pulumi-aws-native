@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamEncryptionConfigurationInputArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamEncryptionConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("keyARN")]
         public Input<string>? KeyARN { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamEncryptionConfigurationInputArgs()
         {
         }
+        public static new DeliveryStreamEncryptionConfigurationInputArgs Empty => new DeliveryStreamEncryptionConfigurationInputArgs();
     }
 }

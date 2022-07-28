@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationNFSArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationNFSArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the NFS location.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationNFSArgs()
         {
         }
+        public static new GetLocationNFSArgs Empty => new GetLocationNFSArgs();
     }
 
-    public sealed class GetLocationNFSInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationNFSInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the NFS location.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationNFSInvokeArgs()
         {
         }
+        public static new GetLocationNFSInvokeArgs Empty => new GetLocationNFSInvokeArgs();
     }
 
 

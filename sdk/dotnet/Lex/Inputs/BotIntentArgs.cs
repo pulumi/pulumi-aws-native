@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
     /// </summary>
-    public sealed class BotIntentArgs : Pulumi.ResourceArgs
+    public sealed class BotIntentArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -86,5 +86,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotIntentArgs()
         {
         }
+        public static new BotIntentArgs Empty => new BotIntentArgs();
     }
 }

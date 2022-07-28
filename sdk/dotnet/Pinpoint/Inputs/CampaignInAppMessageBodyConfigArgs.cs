@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignInAppMessageBodyConfigArgs : Pulumi.ResourceArgs
+    public sealed class CampaignInAppMessageBodyConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("alignment")]
         public Input<string>? Alignment { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignInAppMessageBodyConfigArgs()
         {
         }
+        public static new CampaignInAppMessageBodyConfigArgs Empty => new CampaignInAppMessageBodyConfigArgs();
     }
 }

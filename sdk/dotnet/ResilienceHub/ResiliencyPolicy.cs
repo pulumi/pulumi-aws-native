@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ResilienceHub
     /// Resource Type Definition for Resiliency Policy.
     /// </summary>
     [AwsNativeResourceType("aws-native:resiliencehub:ResiliencyPolicy")]
-    public partial class ResiliencyPolicy : Pulumi.CustomResource
+    public partial class ResiliencyPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Data Location Constraint of the Policy.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         }
     }
 
-    public sealed class ResiliencyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResiliencyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data Location Constraint of the Policy.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.ResilienceHub
         public ResiliencyPolicyArgs()
         {
         }
+        public static new ResiliencyPolicyArgs Empty => new ResiliencyPolicyArgs();
     }
 }

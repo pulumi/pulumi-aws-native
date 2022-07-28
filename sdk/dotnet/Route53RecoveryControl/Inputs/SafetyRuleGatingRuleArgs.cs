@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
     /// <summary>
     /// A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
     /// </summary>
-    public sealed class SafetyRuleGatingRuleArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleGatingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("gatingControls", required: true)]
         private InputList<string>? _gatingControls;
@@ -49,5 +49,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public SafetyRuleGatingRuleArgs()
         {
         }
+        public static new SafetyRuleGatingRuleArgs Empty => new SafetyRuleGatingRuleArgs();
     }
 }

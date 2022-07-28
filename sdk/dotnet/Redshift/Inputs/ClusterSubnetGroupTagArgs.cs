@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    public sealed class ClusterSubnetGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSubnetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ClusterSubnetGroupTagArgs()
         {
         }
+        public static new ClusterSubnetGroupTagArgs Empty => new ClusterSubnetGroupTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// <summary>
     /// Stack instances in some specific accounts and Regions.
     /// </summary>
-    public sealed class StackSetStackInstancesArgs : Pulumi.ResourceArgs
+    public sealed class StackSetStackInstancesArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentTargets", required: true)]
         public Input<Inputs.StackSetDeploymentTargetsArgs> DeploymentTargets { get; set; } = null!;
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public StackSetStackInstancesArgs()
         {
         }
+        public static new StackSetStackInstancesArgs Empty => new StackSetStackInstancesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class SizeConstraintSetSizeConstraintArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetSizeConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public SizeConstraintSetSizeConstraintArgs()
         {
         }
+        public static new SizeConstraintSetSizeConstraintArgs Empty => new SizeConstraintSetSizeConstraintArgs();
     }
 }

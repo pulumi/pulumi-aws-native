@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
     /// </summary>
-    public sealed class ClusterCapacityProviderStrategyItemArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProviderStrategyItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("base")]
         public Input<int>? Base { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public ClusterCapacityProviderStrategyItemArgs()
         {
         }
+        public static new ClusterCapacityProviderStrategyItemArgs Empty => new ClusterCapacityProviderStrategyItemArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
     /// </summary>
-    public sealed class DistributionInputOriginArgs : Pulumi.ResourceArgs
+    public sealed class DistributionInputOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the origin resource.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionInputOriginArgs()
         {
         }
+        public static new DistributionInputOriginArgs Empty => new DistributionInputOriginArgs();
     }
 }

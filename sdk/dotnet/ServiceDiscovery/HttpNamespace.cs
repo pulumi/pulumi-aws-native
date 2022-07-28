@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     /// </summary>
     [Obsolete(@"HttpNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicediscovery:HttpNamespace")]
-    public partial class HttpNamespace : Pulumi.CustomResource
+    public partial class HttpNamespace : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         }
     }
 
-    public sealed class HttpNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class HttpNamespaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public HttpNamespaceArgs()
         {
         }
+        public static new HttpNamespaceArgs Empty => new HttpNamespaceArgs();
     }
 }

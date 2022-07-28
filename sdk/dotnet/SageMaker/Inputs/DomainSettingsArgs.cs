@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A collection of Domain settings.
     /// </summary>
-    public sealed class DomainSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("rStudioServerProDomainSettings")]
         public Input<Inputs.DomainRStudioServerProDomainSettingsArgs>? RStudioServerProDomainSettings { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DomainSettingsArgs()
         {
         }
+        public static new DomainSettingsArgs Empty => new DomainSettingsArgs();
     }
 }

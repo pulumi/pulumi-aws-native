@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A CMAF packaging configuration.
     /// </summary>
-    public sealed class PackagingConfigurationCmafPackageArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationCmafPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationCmafEncryptionArgs>? Encryption { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationCmafPackageArgs()
         {
         }
+        public static new PackagingConfigurationCmafPackageArgs Empty => new PackagingConfigurationCmafPackageArgs();
     }
 }

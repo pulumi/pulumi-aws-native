@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class DeviceDefinitionDeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceDefinitionDeviceArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public DeviceDefinitionDeviceArgs()
         {
         }
+        public static new DeviceDefinitionDeviceArgs Empty => new DeviceDefinitionDeviceArgs();
     }
 }

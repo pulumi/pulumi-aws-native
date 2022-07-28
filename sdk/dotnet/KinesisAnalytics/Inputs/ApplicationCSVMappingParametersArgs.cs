@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationCSVMappingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCSVMappingParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationCSVMappingParametersArgs()
         {
         }
+        public static new ApplicationCSVMappingParametersArgs Empty => new ApplicationCSVMappingParametersArgs();
     }
 }

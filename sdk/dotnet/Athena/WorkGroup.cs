@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena
     /// Resource schema for AWS::Athena::WorkGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:WorkGroup")]
-    public partial class WorkGroup : Pulumi.CustomResource
+    public partial class WorkGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time the workgroup was created.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Athena
         }
     }
 
-    public sealed class WorkGroupArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The workgroup description.
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.Athena
         public WorkGroupArgs()
         {
         }
+        public static new WorkGroupArgs Empty => new WorkGroupArgs();
     }
 }

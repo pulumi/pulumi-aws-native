@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     }
 
 
-    public sealed class GetVPCEConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetVPCEConfigurationArgs()
         {
         }
+        public static new GetVPCEConfigurationArgs Empty => new GetVPCEConfigurationArgs();
     }
 
-    public sealed class GetVPCEConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public GetVPCEConfigurationInvokeArgs()
         {
         }
+        public static new GetVPCEConfigurationInvokeArgs Empty => new GetVPCEConfigurationInvokeArgs();
     }
 
 

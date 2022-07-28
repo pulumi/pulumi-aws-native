@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The output configuration for monitoring jobs.
     /// </summary>
-    public sealed class DataQualityJobDefinitionMonitoringOutputConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataQualityJobDefinitionMonitoringOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public DataQualityJobDefinitionMonitoringOutputConfigArgs()
         {
         }
+        public static new DataQualityJobDefinitionMonitoringOutputConfigArgs Empty => new DataQualityJobDefinitionMonitoringOutputConfigArgs();
     }
 }

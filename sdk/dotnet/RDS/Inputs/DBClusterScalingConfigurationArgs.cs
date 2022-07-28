@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    public sealed class DBClusterScalingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterScalingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoPause")]
         public Input<bool>? AutoPause { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public DBClusterScalingConfigurationArgs()
         {
         }
+        public static new DBClusterScalingConfigurationArgs Empty => new DBClusterScalingConfigurationArgs();
     }
 }

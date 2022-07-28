@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCEndpointServicePermissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpointServicePermissions")]
-    public partial class VPCEndpointServicePermissions : Pulumi.CustomResource
+    public partial class VPCEndpointServicePermissions : global::Pulumi.CustomResource
     {
         [Output("allowedPrincipals")]
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCEndpointServicePermissionsArgs : Pulumi.ResourceArgs
+    public sealed class VPCEndpointServicePermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedPrincipals")]
         private InputList<string>? _allowedPrincipals;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCEndpointServicePermissionsArgs()
         {
         }
+        public static new VPCEndpointServicePermissionsArgs Empty => new VPCEndpointServicePermissionsArgs();
     }
 }

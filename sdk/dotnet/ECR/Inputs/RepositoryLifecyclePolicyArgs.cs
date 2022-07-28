@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// <summary>
     /// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
     /// </summary>
-    public sealed class RepositoryLifecyclePolicyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("lifecyclePolicyText")]
         public Input<string>? LifecyclePolicyText { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public RepositoryLifecyclePolicyArgs()
         {
         }
+        public static new RepositoryLifecyclePolicyArgs Empty => new RepositoryLifecyclePolicyArgs();
     }
 }

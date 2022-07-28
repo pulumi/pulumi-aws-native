@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     /// </summary>
-    public sealed class ModelQualityJobDefinitionModelQualityBaselineConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelQualityJobDefinitionModelQualityBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelQualityJobDefinitionModelQualityBaselineConfigArgs()
         {
         }
+        public static new ModelQualityJobDefinitionModelQualityBaselineConfigArgs Empty => new ModelQualityJobDefinitionModelQualityBaselineConfigArgs();
     }
 }

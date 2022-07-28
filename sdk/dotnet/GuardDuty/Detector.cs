@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// </summary>
     [Obsolete(@"Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Detector")]
-    public partial class Detector : Pulumi.CustomResource
+    public partial class Detector : global::Pulumi.CustomResource
     {
         [Output("dataSources")]
         public Output<Outputs.DetectorCFNDataSourceConfigurations?> DataSources { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.GuardDuty
         }
     }
 
-    public sealed class DetectorArgs : Pulumi.ResourceArgs
+    public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSources")]
         public Input<Inputs.DetectorCFNDataSourceConfigurationsArgs>? DataSources { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.GuardDuty
         public DetectorArgs()
         {
         }
+        public static new DetectorArgs Empty => new DetectorArgs();
     }
 }

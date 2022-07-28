@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetRetentionPeriodArgs : Pulumi.ResourceArgs
+    public sealed class DatasetRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
         [Input("numberOfDays")]
         public Input<int>? NumberOfDays { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetRetentionPeriodArgs()
         {
         }
+        public static new DatasetRetentionPeriodArgs Empty => new DatasetRetentionPeriodArgs();
     }
 }

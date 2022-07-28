@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class AssociationTargetArgs : Pulumi.ResourceArgs
+    public sealed class AssociationTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public AssociationTargetArgs()
         {
         }
+        public static new AssociationTargetArgs Empty => new AssociationTargetArgs();
     }
 }

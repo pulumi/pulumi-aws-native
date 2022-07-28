@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class ConnectionParameterArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("isValueSecret")]
         public Input<bool>? IsValueSecret { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public ConnectionParameterArgs()
         {
         }
+        public static new ConnectionParameterArgs Empty => new ConnectionParameterArgs();
     }
 }

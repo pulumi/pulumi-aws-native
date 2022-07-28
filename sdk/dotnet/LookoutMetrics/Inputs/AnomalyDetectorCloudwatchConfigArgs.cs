@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorCloudwatchConfigArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorCloudwatchConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorCloudwatchConfigArgs()
         {
         }
+        public static new AnomalyDetectorCloudwatchConfigArgs Empty => new AnomalyDetectorCloudwatchConfigArgs();
     }
 }

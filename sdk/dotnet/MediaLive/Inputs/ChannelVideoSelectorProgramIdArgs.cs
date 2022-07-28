@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelVideoSelectorProgramIdArgs : Pulumi.ResourceArgs
+    public sealed class ChannelVideoSelectorProgramIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("programId")]
         public Input<int>? ProgramId { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelVideoSelectorProgramIdArgs()
         {
         }
+        public static new ChannelVideoSelectorProgramIdArgs Empty => new ChannelVideoSelectorProgramIdArgs();
     }
 }

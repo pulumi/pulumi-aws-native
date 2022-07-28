@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Instance Configuration
     /// </summary>
-    public sealed class ServiceInstanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceInstanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CPU
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceInstanceConfigurationArgs()
         {
         }
+        public static new ServiceInstanceConfigurationArgs Empty => new ServiceInstanceConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowErrorHandlingConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowErrorHandlingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowErrorHandlingConfigArgs()
         {
         }
+        public static new FlowErrorHandlingConfigArgs Empty => new FlowErrorHandlingConfigArgs();
     }
 }

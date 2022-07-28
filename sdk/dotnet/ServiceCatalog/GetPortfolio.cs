@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     }
 
 
-    public sealed class GetPortfolioArgs : Pulumi.InvokeArgs
+    public sealed class GetPortfolioArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetPortfolioArgs()
         {
         }
+        public static new GetPortfolioArgs Empty => new GetPortfolioArgs();
     }
 
-    public sealed class GetPortfolioInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPortfolioInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public GetPortfolioInvokeArgs()
         {
         }
+        public static new GetPortfolioInvokeArgs Empty => new GetPortfolioInvokeArgs();
     }
 
 

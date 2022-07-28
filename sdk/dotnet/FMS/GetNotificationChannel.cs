@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FMS
     }
 
 
-    public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("snsTopicArn", required: true)]
         public string SnsTopicArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.FMS
         public GetNotificationChannelArgs()
         {
         }
+        public static new GetNotificationChannelArgs Empty => new GetNotificationChannelArgs();
     }
 
-    public sealed class GetNotificationChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.FMS
         public GetNotificationChannelInvokeArgs()
         {
         }
+        public static new GetNotificationChannelInvokeArgs Empty => new GetNotificationChannelInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationVersionSourceBundleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationVersionSourceBundleArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
         public ApplicationVersionSourceBundleArgs()
         {
         }
+        public static new ApplicationVersionSourceBundleArgs Empty => new ApplicationVersionSourceBundleArgs();
     }
 }

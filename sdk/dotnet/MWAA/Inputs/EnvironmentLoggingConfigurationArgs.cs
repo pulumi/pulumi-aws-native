@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// <summary>
     /// Logging configuration for the environment.
     /// </summary>
-    public sealed class EnvironmentLoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? DagProcessingLogs { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         public EnvironmentLoggingConfigurationArgs()
         {
         }
+        public static new EnvironmentLoggingConfigurationArgs Empty => new EnvironmentLoggingConfigurationArgs();
     }
 }

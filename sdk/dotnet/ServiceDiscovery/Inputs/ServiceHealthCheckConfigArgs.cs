@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    public sealed class ServiceHealthCheckConfigArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHealthCheckConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("failureThreshold")]
         public Input<double>? FailureThreshold { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
         public ServiceHealthCheckConfigArgs()
         {
         }
+        public static new ServiceHealthCheckConfigArgs Empty => new ServiceHealthCheckConfigArgs();
     }
 }

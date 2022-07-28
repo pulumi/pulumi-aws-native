@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECR
     /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:ReplicationConfiguration")]
-    public partial class ReplicationConfiguration : Pulumi.CustomResource
+    public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The RegistryId associated with the aws account.
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ECR
         }
     }
 
-    public sealed class ReplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("replicationConfiguration", required: true)]
         public Input<Inputs.ReplicationConfigurationArgs> ReplicationConfigurationValue { get; set; } = null!;
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.ECR
         public ReplicationConfigurationArgs()
         {
         }
+        public static new ReplicationConfigurationArgs Empty => new ReplicationConfigurationArgs();
     }
 }

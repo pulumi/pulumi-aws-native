@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EventSchemas
     }
 
 
-    public sealed class GetSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetSchemaArgs()
         {
         }
+        public static new GetSchemaArgs Empty => new GetSchemaArgs();
     }
 
-    public sealed class GetSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EventSchemas
         public GetSchemaInvokeArgs()
         {
         }
+        public static new GetSchemaInvokeArgs Empty => new GetSchemaInvokeArgs();
     }
 
 

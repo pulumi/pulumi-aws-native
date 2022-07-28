@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointClientConnectOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointClientConnectOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointClientConnectOptionsArgs()
         {
         }
+        public static new ClientVpnEndpointClientConnectOptionsArgs Empty => new ClientVpnEndpointClientConnectOptionsArgs();
     }
 }

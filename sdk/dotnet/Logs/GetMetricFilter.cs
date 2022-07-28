@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Logs
     }
 
 
-    public sealed class GetMetricFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Logs
         public GetMetricFilterArgs()
         {
         }
+        public static new GetMetricFilterArgs Empty => new GetMetricFilterArgs();
     }
 
-    public sealed class GetMetricFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMetricFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Logs
         public GetMetricFilterInvokeArgs()
         {
         }
+        public static new GetMetricFilterInvokeArgs Empty => new GetMetricFilterInvokeArgs();
     }
 
 

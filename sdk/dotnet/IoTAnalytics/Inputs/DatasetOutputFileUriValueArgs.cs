@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetOutputFileUriValueArgs : Pulumi.ResourceArgs
+    public sealed class DatasetOutputFileUriValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("fileName", required: true)]
         public Input<string> FileName { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetOutputFileUriValueArgs()
         {
         }
+        public static new DatasetOutputFileUriValueArgs Empty => new DatasetOutputFileUriValueArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSO.Inputs
     /// <summary>
     /// The metadata that you apply to the permission set to help you categorize and organize them.
     /// </summary>
-    public sealed class PermissionSetTagArgs : Pulumi.ResourceArgs
+    public sealed class PermissionSetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SSO.Inputs
         public PermissionSetTagArgs()
         {
         }
+        public static new PermissionSetTagArgs Empty => new PermissionSetTagArgs();
     }
 }

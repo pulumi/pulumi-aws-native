@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Inputs
 {
 
-    public sealed class EnvironmentMonitorsArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentMonitorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarmArn")]
         public Input<string>? AlarmArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
         public EnvironmentMonitorsArgs()
         {
         }
+        public static new EnvironmentMonitorsArgs Empty => new EnvironmentMonitorsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class ByteMatchSetByteMatchTupleArgs : Pulumi.ResourceArgs
+    public sealed class ByteMatchSetByteMatchTupleArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.ByteMatchSetFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public ByteMatchSetByteMatchTupleArgs()
         {
         }
+        public static new ByteMatchSetByteMatchTupleArgs Empty => new ByteMatchSetByteMatchTupleArgs();
     }
 }

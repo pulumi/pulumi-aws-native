@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryVisualReferenceArgs : Pulumi.ResourceArgs
+    public sealed class CanaryVisualReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Canary run id to be used as base reference for visual testing
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryVisualReferenceArgs()
         {
         }
+        public static new CanaryVisualReferenceArgs Empty => new CanaryVisualReferenceArgs();
     }
 }

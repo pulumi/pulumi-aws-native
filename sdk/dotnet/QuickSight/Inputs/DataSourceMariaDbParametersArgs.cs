@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;MariaDB parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceMariaDbParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceMariaDbParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceMariaDbParametersArgs()
         {
         }
+        public static new DataSourceMariaDbParametersArgs Empty => new DataSourceMariaDbParametersArgs();
     }
 }

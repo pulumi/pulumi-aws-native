@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class TransitGatewayConnectTagArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayConnectTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public TransitGatewayConnectTagArgs()
         {
         }
+        public static new TransitGatewayConnectTagArgs Empty => new TransitGatewayConnectTagArgs();
     }
 }

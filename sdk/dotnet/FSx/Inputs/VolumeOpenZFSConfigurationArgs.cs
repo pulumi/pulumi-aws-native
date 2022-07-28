@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class VolumeOpenZFSConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VolumeOpenZFSConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public VolumeOpenZFSConfigurationArgs()
         {
         }
+        public static new VolumeOpenZFSConfigurationArgs Empty => new VolumeOpenZFSConfigurationArgs();
     }
 }

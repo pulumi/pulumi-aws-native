@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The metadata properties associated with the model package versions.
     /// </summary>
-    public sealed class ModelPackageCustomerMetadataPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageCustomerMetadataPropertiesArgs : global::Pulumi.ResourceArgs
     {
         public ModelPackageCustomerMetadataPropertiesArgs()
         {
         }
+        public static new ModelPackageCustomerMetadataPropertiesArgs Empty => new ModelPackageCustomerMetadataPropertiesArgs();
     }
 }

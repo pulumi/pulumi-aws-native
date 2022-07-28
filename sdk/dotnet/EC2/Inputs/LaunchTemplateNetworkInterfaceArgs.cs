@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("associateCarrierIpAddress")]
         public Input<bool>? AssociateCarrierIpAddress { get; set; }
@@ -97,5 +97,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateNetworkInterfaceArgs()
         {
         }
+        public static new LaunchTemplateNetworkInterfaceArgs Empty => new LaunchTemplateNetworkInterfaceArgs();
     }
 }

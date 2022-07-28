@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     }
 
 
-    public sealed class GetAccessPointPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         public GetAccessPointPolicyArgs()
         {
         }
+        public static new GetAccessPointPolicyArgs Empty => new GetAccessPointPolicyArgs();
     }
 
-    public sealed class GetAccessPointPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccessPointPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         public GetAccessPointPolicyInvokeArgs()
         {
         }
+        public static new GetAccessPointPolicyInvokeArgs Empty => new GetAccessPointPolicyInvokeArgs();
     }
 
 

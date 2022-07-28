@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class CustomActionTypeTagArgs : Pulumi.ResourceArgs
+    public sealed class CustomActionTypeTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public CustomActionTypeTagArgs()
         {
         }
+        public static new CustomActionTypeTagArgs Empty => new CustomActionTypeTagArgs();
     }
 }

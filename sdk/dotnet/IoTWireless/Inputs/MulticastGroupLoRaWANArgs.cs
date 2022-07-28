@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class MulticastGroupLoRaWANArgs : Pulumi.ResourceArgs
+    public sealed class MulticastGroupLoRaWANArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Multicast group LoRaWAN DL Class
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public MulticastGroupLoRaWANArgs()
         {
         }
+        public static new MulticastGroupLoRaWANArgs Empty => new MulticastGroupLoRaWANArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ImageVersion
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ImageVersion")]
-    public partial class ImageVersion : Pulumi.CustomResource
+    public partial class ImageVersion : global::Pulumi.CustomResource
     {
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ImageVersionArgs : Pulumi.ResourceArgs
+    public sealed class ImageVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ImageVersionArgs()
         {
         }
+        public static new ImageVersionArgs Empty => new ImageVersionArgs();
     }
 }

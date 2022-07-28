@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowS3InputFormatConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowS3InputFormatConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3InputFileType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowS3InputFormatConfigS3InputFileType>? S3InputFileType { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowS3InputFormatConfigArgs()
         {
         }
+        public static new FlowS3InputFormatConfigArgs Empty => new FlowS3InputFormatConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A list of message groups that Amazon Lex uses to respond the user input.
     /// </summary>
-    public sealed class BotResponseSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotResponseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotResponseSpecificationArgs()
         {
         }
+        public static new BotResponseSpecificationArgs Empty => new BotResponseSpecificationArgs();
     }
 }

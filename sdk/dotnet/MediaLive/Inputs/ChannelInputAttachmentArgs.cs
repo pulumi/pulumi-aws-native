@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("automaticInputFailoverSettings")]
         public Input<Inputs.ChannelAutomaticInputFailoverSettingsArgs>? AutomaticInputFailoverSettings { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputAttachmentArgs()
         {
         }
+        public static new ChannelInputAttachmentArgs Empty => new ChannelInputAttachmentArgs();
     }
 }

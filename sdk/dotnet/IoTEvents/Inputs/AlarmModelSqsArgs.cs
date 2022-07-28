@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
-    public sealed class AlarmModelSqsArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelSqsArgs : global::Pulumi.ResourceArgs
     {
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelSqsArgs()
         {
         }
+        public static new AlarmModelSqsArgs Empty => new AlarmModelSqsArgs();
     }
 }

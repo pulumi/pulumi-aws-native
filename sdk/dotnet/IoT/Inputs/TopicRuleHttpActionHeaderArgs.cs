@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleHttpActionHeaderArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleHttpActionHeaderArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleHttpActionHeaderArgs()
         {
         }
+        public static new TopicRuleHttpActionHeaderArgs Empty => new TopicRuleHttpActionHeaderArgs();
     }
 }

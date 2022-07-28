@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
     /// </summary>
-    public sealed class StorageLensAwsOrgArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensAwsOrgArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensAwsOrgArgs()
         {
         }
+        public static new StorageLensAwsOrgArgs Empty => new StorageLensAwsOrgArgs();
     }
 }

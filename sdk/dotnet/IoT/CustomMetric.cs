@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// A custom metric published by your devices to Device Defender.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:CustomMetric")]
-    public partial class CustomMetric : Pulumi.CustomResource
+    public partial class CustomMetric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class CustomMetricArgs : Pulumi.ResourceArgs
+    public sealed class CustomMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.IoT
         public CustomMetricArgs()
         {
         }
+        public static new CustomMetricArgs Empty => new CustomMetricArgs();
     }
 }

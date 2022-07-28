@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorMetricSetArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorMetricSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensionList")]
         private InputList<string>? _dimensionList;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorMetricSetArgs()
         {
         }
+        public static new AnomalyDetectorMetricSetArgs Empty => new AnomalyDetectorMetricSetArgs();
     }
 }

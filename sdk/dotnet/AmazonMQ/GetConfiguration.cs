@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     }
 
 
-    public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AmazonMQ
         public GetConfigurationArgs()
         {
         }
+        public static new GetConfigurationArgs Empty => new GetConfigurationArgs();
     }
 
-    public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AmazonMQ
         public GetConfigurationInvokeArgs()
         {
         }
+        public static new GetConfigurationInvokeArgs Empty => new GetConfigurationInvokeArgs();
     }
 
 

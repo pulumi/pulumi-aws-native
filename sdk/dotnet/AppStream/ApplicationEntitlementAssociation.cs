@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppStream
     /// Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:appstream:ApplicationEntitlementAssociation")]
-    public partial class ApplicationEntitlementAssociation : Pulumi.CustomResource
+    public partial class ApplicationEntitlementAssociation : global::Pulumi.CustomResource
     {
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class ApplicationEntitlementAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationEntitlementAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.AppStream
         public ApplicationEntitlementAssociationArgs()
         {
         }
+        public static new ApplicationEntitlementAssociationArgs Empty => new ApplicationEntitlementAssociationArgs();
     }
 }

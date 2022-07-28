@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetNetworkInterfacePermissionArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfacePermissionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInterfacePermissionArgs()
         {
         }
+        public static new GetNetworkInterfacePermissionArgs Empty => new GetNetworkInterfacePermissionArgs();
     }
 
-    public sealed class GetNetworkInterfacePermissionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfacePermissionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetNetworkInterfacePermissionInvokeArgs()
         {
         }
+        public static new GetNetworkInterfacePermissionInvokeArgs Empty => new GetNetworkInterfacePermissionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateCapacityReservationTargetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCapacityReservationTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityReservationId")]
         public Input<string>? CapacityReservationId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateCapacityReservationTargetArgs()
         {
         }
+        public static new LaunchTemplateCapacityReservationTargetArgs Empty => new LaunchTemplateCapacityReservationTargetArgs();
     }
 }

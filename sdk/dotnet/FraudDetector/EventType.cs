@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// A resource schema for an EventType in Amazon Fraud Detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:EventType")]
-    public partial class EventType : Pulumi.CustomResource
+    public partial class EventType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the event type.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.FraudDetector
         }
     }
 
-    public sealed class EventTypeArgs : Pulumi.ResourceArgs
+    public sealed class EventTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the event type.
@@ -156,5 +156,6 @@ namespace Pulumi.AwsNative.FraudDetector
         public EventTypeArgs()
         {
         }
+        public static new EventTypeArgs Empty => new EventTypeArgs();
     }
 }

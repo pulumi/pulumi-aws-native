@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:Stack")]
-    public partial class Stack : Pulumi.CustomResource
+    public partial class Stack : global::Pulumi.CustomResource
     {
         [Output("accessEndpoints")]
         public Output<ImmutableArray<Outputs.StackAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class StackArgs : Pulumi.ResourceArgs
+    public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.StackAccessEndpointArgs>? _accessEndpoints;
@@ -178,5 +178,6 @@ namespace Pulumi.AwsNative.AppStream
         public StackArgs()
         {
         }
+        public static new StackArgs Empty => new StackArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFRegional
     }
 
 
-    public sealed class GetRegexPatternSetArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetRegexPatternSetArgs()
         {
         }
+        public static new GetRegexPatternSetArgs Empty => new GetRegexPatternSetArgs();
     }
 
-    public sealed class GetRegexPatternSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WAFRegional
         public GetRegexPatternSetInvokeArgs()
         {
         }
+        public static new GetRegexPatternSetInvokeArgs Empty => new GetRegexPatternSetInvokeArgs();
     }
 
 

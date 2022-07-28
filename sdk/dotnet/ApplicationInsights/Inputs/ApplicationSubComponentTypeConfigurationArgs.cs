@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// One type sub component configurations for the component.
     /// </summary>
-    public sealed class ApplicationSubComponentTypeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSubComponentTypeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings of sub components.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationSubComponentTypeConfigurationArgs()
         {
         }
+        public static new ApplicationSubComponentTypeConfigurationArgs Empty => new ApplicationSubComponentTypeConfigurationArgs();
     }
 }

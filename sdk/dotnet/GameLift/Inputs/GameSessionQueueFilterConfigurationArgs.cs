@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class GameSessionQueueFilterConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueueFilterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedLocations")]
         private InputList<string>? _allowedLocations;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameSessionQueueFilterConfigurationArgs()
         {
         }
+        public static new GameSessionQueueFilterConfigurationArgs Empty => new GameSessionQueueFilterConfigurationArgs();
     }
 }

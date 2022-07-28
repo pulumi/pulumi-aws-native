@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
-    public sealed class ScalableTargetActionArgs : Pulumi.ResourceArgs
+    public sealed class ScalableTargetActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacity")]
         public Input<int>? MaxCapacity { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public ScalableTargetActionArgs()
         {
         }
+        public static new ScalableTargetActionArgs Empty => new ScalableTargetActionArgs();
     }
 }

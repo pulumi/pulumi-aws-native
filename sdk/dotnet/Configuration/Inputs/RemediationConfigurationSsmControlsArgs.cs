@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class RemediationConfigurationSsmControlsArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationSsmControlsArgs : global::Pulumi.ResourceArgs
     {
         [Input("concurrentExecutionRatePercentage")]
         public Input<int>? ConcurrentExecutionRatePercentage { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public RemediationConfigurationSsmControlsArgs()
         {
         }
+        public static new RemediationConfigurationSsmControlsArgs Empty => new RemediationConfigurationSsmControlsArgs();
     }
 }

@@ -13,10 +13,11 @@ namespace Pulumi.AwsNative.FIS.Inputs
     /// <summary>
     /// The targets for the experiment.
     /// </summary>
-    public sealed class ExperimentTemplateTargetMapArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateTargetMapArgs : global::Pulumi.ResourceArgs
     {
         public ExperimentTemplateTargetMapArgs()
         {
         }
+        public static new ExperimentTemplateTargetMapArgs Empty => new ExperimentTemplateTargetMapArgs();
     }
 }

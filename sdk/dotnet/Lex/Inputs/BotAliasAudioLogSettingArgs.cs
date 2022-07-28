@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
     /// </summary>
-    public sealed class BotAliasAudioLogSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasAudioLogSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("destination", required: true)]
         public Input<Inputs.BotAliasAudioLogDestinationArgs> Destination { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasAudioLogSettingArgs()
         {
         }
+        public static new BotAliasAudioLogSettingArgs Empty => new BotAliasAudioLogSettingArgs();
     }
 }

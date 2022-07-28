@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// The pattern to look for in the request cookies.
     /// </summary>
-    public sealed class WebACLCookieMatchPatternArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCookieMatchPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect all parts of the web request cookies.
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLCookieMatchPatternArgs()
         {
         }
+        public static new WebACLCookieMatchPatternArgs Empty => new WebACLCookieMatchPatternArgs();
     }
 }

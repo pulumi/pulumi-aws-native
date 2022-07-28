@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FIS.Inputs
 {
 
-    public sealed class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FIS.Inputs
         public ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs()
         {
         }
+        public static new ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs Empty => new ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs();
     }
 }

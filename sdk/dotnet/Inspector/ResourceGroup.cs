@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inspector
     /// Resource Type definition for AWS::Inspector::ResourceGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:inspector:ResourceGroup")]
-    public partial class ResourceGroup : Pulumi.CustomResource
+    public partial class ResourceGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Inspector
         }
     }
 
-    public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceGroupTags", required: true)]
         private InputList<Inputs.ResourceGroupTagArgs>? _resourceGroupTags;
@@ -77,5 +77,6 @@ namespace Pulumi.AwsNative.Inspector
         public ResourceGroupArgs()
         {
         }
+        public static new ResourceGroupArgs Empty => new ResourceGroupArgs();
     }
 }

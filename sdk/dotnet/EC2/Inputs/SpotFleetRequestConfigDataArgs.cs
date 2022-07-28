@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetRequestConfigDataArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestConfigDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
         public Input<Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataAllocationStrategy>? AllocationStrategy { get; set; }
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetRequestConfigDataArgs()
         {
         }
+        public static new SpotFleetRequestConfigDataArgs Empty => new SpotFleetRequestConfigDataArgs();
     }
 }

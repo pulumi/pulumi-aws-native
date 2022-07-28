@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyRetainRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyRetainRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyRetainRuleArgs()
         {
         }
+        public static new LifecyclePolicyRetainRuleArgs Empty => new LifecyclePolicyRetainRuleArgs();
     }
 }

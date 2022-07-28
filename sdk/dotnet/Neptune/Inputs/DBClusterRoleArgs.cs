@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Neptune.Inputs
 {
 
-    public sealed class DBClusterRoleArgs : Pulumi.ResourceArgs
+    public sealed class DBClusterRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Neptune.Inputs
         public DBClusterRoleArgs()
         {
         }
+        public static new DBClusterRoleArgs Empty => new DBClusterRoleArgs();
     }
 }

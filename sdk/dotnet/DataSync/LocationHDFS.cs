@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationHDFS.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationHDFS")]
-    public partial class LocationHDFS : Pulumi.CustomResource
+    public partial class LocationHDFS : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN(s) of the agent(s) to use for an HDFS location.
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationHDFSArgs : Pulumi.ResourceArgs
+    public sealed class LocationHDFSArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -243,5 +243,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationHDFSArgs()
         {
         }
+        public static new LocationHDFSArgs Empty => new LocationHDFSArgs();
     }
 }

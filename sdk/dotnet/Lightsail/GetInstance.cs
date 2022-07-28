@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The names to use for your new Lightsail instance.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetInstanceArgs()
         {
         }
+        public static new GetInstanceArgs Empty => new GetInstanceArgs();
     }
 
-    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The names to use for your new Lightsail instance.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetInstanceInvokeArgs()
         {
         }
+        public static new GetInstanceInvokeArgs Empty => new GetInstanceInvokeArgs();
     }
 
 

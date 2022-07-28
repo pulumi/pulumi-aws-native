@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowPrefixConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowPrefixConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("prefixFormat")]
         public Input<Pulumi.AwsNative.AppFlow.FlowPrefixFormat>? PrefixFormat { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowPrefixConfigArgs()
         {
         }
+        public static new FlowPrefixConfigArgs Empty => new FlowPrefixConfigArgs();
     }
 }

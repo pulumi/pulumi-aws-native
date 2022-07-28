@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:ClientVpnRoute")]
-    public partial class ClientVpnRoute : Pulumi.CustomResource
+    public partial class ClientVpnRoute : global::Pulumi.CustomResource
     {
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class ClientVpnRouteArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientVpnEndpointId", required: true)]
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.EC2
         public ClientVpnRouteArgs()
         {
         }
+        public static new ClientVpnRouteArgs Empty => new ClientVpnRouteArgs();
     }
 }

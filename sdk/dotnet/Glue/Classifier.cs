@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Classifier is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Classifier")]
-    public partial class Classifier : Pulumi.CustomResource
+    public partial class Classifier : global::Pulumi.CustomResource
     {
         [Output("csvClassifier")]
         public Output<Outputs.ClassifierCsvClassifier?> CsvClassifier { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class ClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierArgs>? CsvClassifier { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Glue
         public ClassifierArgs()
         {
         }
+        public static new ClassifierArgs Empty => new ClassifierArgs();
     }
 }

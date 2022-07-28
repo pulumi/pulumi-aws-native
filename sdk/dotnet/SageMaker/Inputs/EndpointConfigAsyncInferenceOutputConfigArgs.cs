@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigAsyncInferenceOutputConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigAsyncInferenceOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigAsyncInferenceOutputConfigArgs()
         {
         }
+        public static new EndpointConfigAsyncInferenceOutputConfigArgs Empty => new EndpointConfigAsyncInferenceOutputConfigArgs();
     }
 }

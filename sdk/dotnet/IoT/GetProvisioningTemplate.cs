@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetProvisioningTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetProvisioningTemplateArgs : global::Pulumi.InvokeArgs
     {
         [Input("templateName", required: true)]
         public string TemplateName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoT
         public GetProvisioningTemplateArgs()
         {
         }
+        public static new GetProvisioningTemplateArgs Empty => new GetProvisioningTemplateArgs();
     }
 
-    public sealed class GetProvisioningTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProvisioningTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoT
         public GetProvisioningTemplateInvokeArgs()
         {
         }
+        public static new GetProvisioningTemplateInvokeArgs Empty => new GetProvisioningTemplateInvokeArgs();
     }
 
 

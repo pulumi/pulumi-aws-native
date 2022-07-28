@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceVpcConfigurationArgs()
         {
         }
+        public static new DataSourceVpcConfigurationArgs Empty => new DataSourceVpcConfigurationArgs();
     }
 }

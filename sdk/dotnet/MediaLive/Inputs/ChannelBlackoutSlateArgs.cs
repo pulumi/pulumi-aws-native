@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelBlackoutSlateArgs : Pulumi.ResourceArgs
+    public sealed class ChannelBlackoutSlateArgs : global::Pulumi.ResourceArgs
     {
         [Input("blackoutSlateImage")]
         public Input<Inputs.ChannelInputLocationArgs>? BlackoutSlateImage { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelBlackoutSlateArgs()
         {
         }
+        public static new ChannelBlackoutSlateArgs Empty => new ChannelBlackoutSlateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     /// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
     /// </summary>
     [AwsNativeResourceType("aws-native:s3objectlambda:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name you want to assign to this Object lambda Access Point.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 }

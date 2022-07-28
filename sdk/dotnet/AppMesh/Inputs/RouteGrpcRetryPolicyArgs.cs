@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteGrpcRetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RouteGrpcRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("grpcRetryEvents")]
         private InputList<string>? _grpcRetryEvents;
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteGrpcRetryPolicyArgs()
         {
         }
+        public static new RouteGrpcRetryPolicyArgs Empty => new RouteGrpcRetryPolicyArgs();
     }
 }

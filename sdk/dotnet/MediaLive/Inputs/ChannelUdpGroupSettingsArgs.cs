@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelUdpGroupSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelUdpGroupSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelUdpGroupSettingsArgs()
         {
         }
+        public static new ChannelUdpGroupSettingsArgs Empty => new ChannelUdpGroupSettingsArgs();
     }
 }

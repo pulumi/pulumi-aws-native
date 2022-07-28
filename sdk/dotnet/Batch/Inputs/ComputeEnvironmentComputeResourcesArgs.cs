@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentComputeResourcesArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentComputeResourcesArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public ComputeEnvironmentComputeResourcesArgs()
         {
         }
+        public static new ComputeEnvironmentComputeResourcesArgs Empty => new ComputeEnvironmentComputeResourcesArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetDHCPOptionsArgs : Pulumi.InvokeArgs
+    public sealed class GetDHCPOptionsArgs : global::Pulumi.InvokeArgs
     {
         [Input("dhcpOptionsId", required: true)]
         public string DhcpOptionsId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetDHCPOptionsArgs()
         {
         }
+        public static new GetDHCPOptionsArgs Empty => new GetDHCPOptionsArgs();
     }
 
-    public sealed class GetDHCPOptionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDHCPOptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("dhcpOptionsId", required: true)]
         public Input<string> DhcpOptionsId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetDHCPOptionsInvokeArgs()
         {
         }
+        public static new GetDHCPOptionsInvokeArgs Empty => new GetDHCPOptionsInvokeArgs();
     }
 
 

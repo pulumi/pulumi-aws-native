@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Greengrass.Inputs
 {
 
-    public sealed class CoreDefinitionVersionCoreArgs : Pulumi.ResourceArgs
+    public sealed class CoreDefinitionVersionCoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
         public CoreDefinitionVersionCoreArgs()
         {
         }
+        public static new CoreDefinitionVersionCoreArgs Empty => new CoreDefinitionVersionCoreArgs();
     }
 }

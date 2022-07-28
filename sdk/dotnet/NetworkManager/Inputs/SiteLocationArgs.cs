@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// The location of the site
     /// </summary>
-    public sealed class SiteLocationArgs : Pulumi.ResourceArgs
+    public sealed class SiteLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The physical address.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public SiteLocationArgs()
         {
         }
+        public static new SiteLocationArgs Empty => new SiteLocationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceAuthorizationConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceAuthorizationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceAuthorizationConfigArgs()
         {
         }
+        public static new DataSourceAuthorizationConfigArgs Empty => new DataSourceAuthorizationConfigArgs();
     }
 }

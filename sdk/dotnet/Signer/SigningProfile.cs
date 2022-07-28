@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Signer
     /// A signing profile is a signing template that can be used to carry out a pre-defined signing job.
     /// </summary>
     [AwsNativeResourceType("aws-native:signer:SigningProfile")]
-    public partial class SigningProfile : Pulumi.CustomResource
+    public partial class SigningProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified signing profile.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Signer
         }
     }
 
-    public sealed class SigningProfileArgs : Pulumi.ResourceArgs
+    public sealed class SigningProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target signing platform.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Signer
         public SigningProfileArgs()
         {
         }
+        public static new SigningProfileArgs Empty => new SigningProfileArgs();
     }
 }

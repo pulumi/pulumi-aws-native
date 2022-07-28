@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationIdentifier", required: true)]
         public string ApplicationIdentifier { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

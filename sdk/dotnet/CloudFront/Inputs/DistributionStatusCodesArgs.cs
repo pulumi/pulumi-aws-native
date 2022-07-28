@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionStatusCodesArgs : Pulumi.ResourceArgs
+    public sealed class DistributionStatusCodesArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<int>? _items;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionStatusCodesArgs()
         {
         }
+        public static new DistributionStatusCodesArgs Empty => new DistributionStatusCodesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationS3
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationS3")]
-    public partial class LocationS3 : Pulumi.CustomResource
+    public partial class LocationS3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationS3Args : Pulumi.ResourceArgs
+    public sealed class LocationS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationS3Args()
         {
         }
+        public static new LocationS3Args Empty => new LocationS3Args();
     }
 }

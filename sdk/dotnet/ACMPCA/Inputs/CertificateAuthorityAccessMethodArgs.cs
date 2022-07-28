@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
     /// </summary>
-    public sealed class CertificateAuthorityAccessMethodArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityAccessMethodArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessMethodType")]
         public Input<string>? AccessMethodType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityAccessMethodArgs()
         {
         }
+        public static new CertificateAuthorityAccessMethodArgs Empty => new CertificateAuthorityAccessMethodArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    public sealed class CloudFormationProvisionedProductTagArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationProvisionedProductTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         public CloudFormationProvisionedProductTagArgs()
         {
         }
+        public static new CloudFormationProvisionedProductTagArgs Empty => new CloudFormationProvisionedProductTagArgs();
     }
 }

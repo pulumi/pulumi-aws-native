@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
     /// </summary>
-    public sealed class BotAliasLocaleSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasLocaleSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("codeHookSpecification")]
         public Input<Inputs.BotAliasCodeHookSpecificationArgs>? CodeHookSpecification { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotAliasLocaleSettingsArgs()
         {
         }
+        public static new BotAliasLocaleSettingsArgs Empty => new BotAliasLocaleSettingsArgs();
     }
 }

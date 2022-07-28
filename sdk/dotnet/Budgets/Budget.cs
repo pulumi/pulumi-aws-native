@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Budgets
     /// </summary>
     [Obsolete(@"Budget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:budgets:Budget")]
-    public partial class Budget : Pulumi.CustomResource
+    public partial class Budget : global::Pulumi.CustomResource
     {
         [Output("budget")]
         public Output<Outputs.BudgetData> BudgetValue { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Budgets
         }
     }
 
-    public sealed class BudgetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetArgs : global::Pulumi.ResourceArgs
     {
         [Input("budget", required: true)]
         public Input<Inputs.BudgetDataArgs> BudgetValue { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Budgets
         public BudgetArgs()
         {
         }
+        public static new BudgetArgs Empty => new BudgetArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;A string parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardStringParameterArgs : Pulumi.ResourceArgs
+    public sealed class DashboardStringParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;A display name for a string parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardStringParameterArgs()
         {
         }
+        public static new DashboardStringParameterArgs Empty => new DashboardStringParameterArgs();
     }
 }

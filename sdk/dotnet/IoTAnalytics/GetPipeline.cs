@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     }
 
 
-    public sealed class GetPipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
         [Input("pipelineName", required: true)]
         public string PipelineName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public GetPipelineArgs()
         {
         }
+        public static new GetPipelineArgs Empty => new GetPipelineArgs();
     }
 
-    public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public GetPipelineInvokeArgs()
         {
         }
+        public static new GetPipelineInvokeArgs Empty => new GetPipelineInvokeArgs();
     }
 
 

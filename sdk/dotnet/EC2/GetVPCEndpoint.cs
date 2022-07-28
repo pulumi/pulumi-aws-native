@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPCEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCEndpointArgs()
         {
         }
+        public static new GetVPCEndpointArgs Empty => new GetVPCEndpointArgs();
     }
 
-    public sealed class GetVPCEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCEndpointInvokeArgs()
         {
         }
+        public static new GetVPCEndpointInvokeArgs Empty => new GetVPCEndpointInvokeArgs();
     }
 
 

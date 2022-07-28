@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodePipeline
     }
 
 
-    public sealed class GetWebhookArgs : Pulumi.InvokeArgs
+    public sealed class GetWebhookArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CodePipeline
         public GetWebhookArgs()
         {
         }
+        public static new GetWebhookArgs Empty => new GetWebhookArgs();
     }
 
-    public sealed class GetWebhookInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebhookInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CodePipeline
         public GetWebhookInvokeArgs()
         {
         }
+        public static new GetWebhookInvokeArgs Empty => new GetWebhookInvokeArgs();
     }
 
 

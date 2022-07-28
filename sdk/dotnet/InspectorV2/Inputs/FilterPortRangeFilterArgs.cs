@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterPortRangeFilterArgs : Pulumi.ResourceArgs
+    public sealed class FilterPortRangeFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("beginInclusive")]
         public Input<int>? BeginInclusive { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterPortRangeFilterArgs()
         {
         }
+        public static new FilterPortRangeFilterArgs Empty => new FilterPortRangeFilterArgs();
     }
 }

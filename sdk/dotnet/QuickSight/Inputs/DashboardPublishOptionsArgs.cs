@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardPublishOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DashboardPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adHocFilteringOption")]
         public Input<Inputs.DashboardAdHocFilteringOptionArgs>? AdHocFilteringOption { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardPublishOptionsArgs()
         {
         }
+        public static new DashboardPublishOptionsArgs Empty => new DashboardPublishOptionsArgs();
     }
 }

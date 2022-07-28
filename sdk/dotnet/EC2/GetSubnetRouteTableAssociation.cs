@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetSubnetRouteTableAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetRouteTableAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetRouteTableAssociationArgs()
         {
         }
+        public static new GetSubnetRouteTableAssociationArgs Empty => new GetSubnetRouteTableAssociationArgs();
     }
 
-    public sealed class GetSubnetRouteTableAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetRouteTableAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetRouteTableAssociationInvokeArgs()
         {
         }
+        public static new GetSubnetRouteTableAssociationInvokeArgs Empty => new GetSubnetRouteTableAssociationInvokeArgs();
     }
 
 

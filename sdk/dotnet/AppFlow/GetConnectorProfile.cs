@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow
     }
 
 
-    public sealed class GetConnectorProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppFlow
         public GetConnectorProfileArgs()
         {
         }
+        public static new GetConnectorProfileArgs Empty => new GetConnectorProfileArgs();
     }
 
-    public sealed class GetConnectorProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppFlow
         public GetConnectorProfileInvokeArgs()
         {
         }
+        public static new GetConnectorProfileInvokeArgs Empty => new GetConnectorProfileInvokeArgs();
     }
 
 

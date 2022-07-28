@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda
     /// Resource Type definition for AWS::Lambda::Url
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:Url")]
-    public partial class Url : Pulumi.CustomResource
+    public partial class Url : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class UrlArgs : Pulumi.ResourceArgs
+    public sealed class UrlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.Lambda
         public UrlArgs()
         {
         }
+        public static new UrlArgs Empty => new UrlArgs();
     }
 }

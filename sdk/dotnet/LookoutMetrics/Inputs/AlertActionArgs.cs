@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AlertActionArgs : Pulumi.ResourceArgs
+    public sealed class AlertActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("lambdaConfiguration")]
         public Input<Inputs.AlertLambdaConfigurationArgs>? LambdaConfiguration { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AlertActionArgs()
         {
         }
+        public static new AlertActionArgs Empty => new AlertActionArgs();
     }
 }

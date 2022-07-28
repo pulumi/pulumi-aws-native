@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// Provides information for updating the user on the progress of fulfilling an intent.
     /// </summary>
-    public sealed class BotPostFulfillmentStatusSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class BotPostFulfillmentStatusSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("failureResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? FailureResponse { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotPostFulfillmentStatusSpecificationArgs()
         {
         }
+        public static new BotPostFulfillmentStatusSpecificationArgs Empty => new BotPostFulfillmentStatusSpecificationArgs();
     }
 }

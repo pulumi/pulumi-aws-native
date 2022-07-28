@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     }
 
 
-    public sealed class GetResourceCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of ResourceCollection
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DevOpsGuru
         public GetResourceCollectionArgs()
         {
         }
+        public static new GetResourceCollectionArgs Empty => new GetResourceCollectionArgs();
     }
 
-    public sealed class GetResourceCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of ResourceCollection
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         public GetResourceCollectionInvokeArgs()
         {
         }
+        public static new GetResourceCollectionInvokeArgs Empty => new GetResourceCollectionInvokeArgs();
     }
 
 

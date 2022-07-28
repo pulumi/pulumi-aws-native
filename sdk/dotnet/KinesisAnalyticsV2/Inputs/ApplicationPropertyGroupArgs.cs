@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Property key-value pairs passed into an application.
     /// </summary>
-    public sealed class ApplicationPropertyGroupArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationPropertyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the key of an application execution property key-value pair.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationPropertyGroupArgs()
         {
         }
+        public static new ApplicationPropertyGroupArgs Empty => new ApplicationPropertyGroupArgs();
     }
 }

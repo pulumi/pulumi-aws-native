@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTrafficMirrorFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficMirrorFilterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTrafficMirrorFilterArgs()
         {
         }
+        public static new GetTrafficMirrorFilterArgs Empty => new GetTrafficMirrorFilterArgs();
     }
 
-    public sealed class GetTrafficMirrorFilterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficMirrorFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTrafficMirrorFilterInvokeArgs()
         {
         }
+        public static new GetTrafficMirrorFilterInvokeArgs Empty => new GetTrafficMirrorFilterInvokeArgs();
     }
 
 

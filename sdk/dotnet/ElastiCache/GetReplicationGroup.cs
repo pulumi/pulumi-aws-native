@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
 
-    public sealed class GetReplicationGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("replicationGroupId", required: true)]
         public string ReplicationGroupId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetReplicationGroupArgs()
         {
         }
+        public static new GetReplicationGroupArgs Empty => new GetReplicationGroupArgs();
     }
 
-    public sealed class GetReplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("replicationGroupId", required: true)]
         public Input<string> ReplicationGroupId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetReplicationGroupInvokeArgs()
         {
         }
+        public static new GetReplicationGroupInvokeArgs Empty => new GetReplicationGroupInvokeArgs();
     }
 
 

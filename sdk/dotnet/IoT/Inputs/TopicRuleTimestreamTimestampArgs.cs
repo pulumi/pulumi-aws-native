@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleTimestreamTimestampArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleTimestreamTimestampArgs : global::Pulumi.ResourceArgs
     {
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleTimestreamTimestampArgs()
         {
         }
+        public static new TopicRuleTimestreamTimestampArgs Empty => new TopicRuleTimestreamTimestampArgs();
     }
 }

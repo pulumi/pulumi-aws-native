@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RAM
     /// </summary>
     [Obsolete(@"ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ram:ResourceShare")]
-    public partial class ResourceShare : Pulumi.CustomResource
+    public partial class ResourceShare : global::Pulumi.CustomResource
     {
         [Output("allowExternalPrincipals")]
         public Output<bool?> AllowExternalPrincipals { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.RAM
         }
     }
 
-    public sealed class ResourceShareArgs : Pulumi.ResourceArgs
+    public sealed class ResourceShareArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowExternalPrincipals")]
         public Input<bool>? AllowExternalPrincipals { get; set; }
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.RAM
         public ResourceShareArgs()
         {
         }
+        public static new ResourceShareArgs Empty => new ResourceShareArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information required to publish the MQTT message through the AWS IoT message broker.
     /// </summary>
-    public sealed class DetectorModelIotTopicPublishArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelIotTopicPublishArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.&lt;variable-name&gt;`) and input values (`$input.&lt;input-name&gt;.&lt;path-to-datum&gt;`) as the topic string.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelIotTopicPublishArgs()
         {
         }
+        public static new DetectorModelIotTopicPublishArgs Empty => new DetectorModelIotTopicPublishArgs();
     }
 }

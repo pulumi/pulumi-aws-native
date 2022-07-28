@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::Template Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Template")]
-    public partial class Template : Pulumi.CustomResource
+    public partial class Template : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the template.&lt;/p&gt;
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class TemplateArgs : Pulumi.ResourceArgs
+    public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -168,5 +168,6 @@ namespace Pulumi.AwsNative.QuickSight
         public TemplateArgs()
         {
         }
+        public static new TemplateArgs Empty => new TemplateArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::SAMLProvider
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:SAMLProvider")]
-    public partial class SAMLProvider : Pulumi.CustomResource
+    public partial class SAMLProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the SAML provider
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class SAMLProviderArgs : Pulumi.ResourceArgs
+    public sealed class SAMLProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -92,5 +92,6 @@ namespace Pulumi.AwsNative.IAM
         public SAMLProviderArgs()
         {
         }
+        public static new SAMLProviderArgs Empty => new SAMLProviderArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.S3
     /// </summary>
     [Obsolete(@"BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:s3:BucketPolicy")]
-    public partial class BucketPolicy : Pulumi.CustomResource
+    public partial class BucketPolicy : global::Pulumi.CustomResource
     {
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class BucketPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BucketPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.S3
         public BucketPolicyArgs()
         {
         }
+        public static new BucketPolicyArgs Empty => new BucketPolicyArgs();
     }
 }

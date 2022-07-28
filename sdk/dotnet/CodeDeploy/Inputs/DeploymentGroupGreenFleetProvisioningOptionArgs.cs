@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupGreenFleetProvisioningOptionArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupGreenFleetProvisioningOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupGreenFleetProvisioningOptionArgs()
         {
         }
+        public static new DeploymentGroupGreenFleetProvisioningOptionArgs Empty => new DeploymentGroupGreenFleetProvisioningOptionArgs();
     }
 }

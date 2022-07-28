@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class VPNConnectionVpnTunnelOptionsSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class VPNConnectionVpnTunnelOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("preSharedKey")]
         public Input<string>? PreSharedKey { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public VPNConnectionVpnTunnelOptionsSpecificationArgs()
         {
         }
+        public static new VPNConnectionVpnTunnelOptionsSpecificationArgs Empty => new VPNConnectionVpnTunnelOptionsSpecificationArgs();
     }
 }

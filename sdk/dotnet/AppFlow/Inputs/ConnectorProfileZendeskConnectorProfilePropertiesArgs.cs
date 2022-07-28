@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileZendeskConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileZendeskConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Zendesk resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileZendeskConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileZendeskConnectorProfilePropertiesArgs Empty => new ConnectorProfileZendeskConnectorProfilePropertiesArgs();
     }
 }

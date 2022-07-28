@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// <summary>
     /// The Network Load Balancer resource that a DNS target resource points to.
     /// </summary>
-    public sealed class ResourceSetNLBResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetNLBResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Network Load Balancer resource Amazon Resource Name (ARN).
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetNLBResourceArgs()
         {
         }
+        public static new ResourceSetNLBResourceArgs Empty => new ResourceSetNLBResourceArgs();
     }
 }

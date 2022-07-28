@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ReportGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ReportGroupTagArgs()
         {
         }
+        public static new ReportGroupTagArgs Empty => new ReportGroupTagArgs();
     }
 }

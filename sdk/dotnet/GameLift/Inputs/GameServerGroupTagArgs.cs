@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class GameServerGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key for a developer-defined key:value pair for tagging an AWS resource.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public GameServerGroupTagArgs()
         {
         }
+        public static new GameServerGroupTagArgs Empty => new GameServerGroupTagArgs();
     }
 }

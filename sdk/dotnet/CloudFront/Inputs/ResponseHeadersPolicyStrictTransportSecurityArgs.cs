@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyStrictTransportSecurityArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyStrictTransportSecurityArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlMaxAgeSec", required: true)]
         public Input<int> AccessControlMaxAgeSec { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyStrictTransportSecurityArgs()
         {
         }
+        public static new ResponseHeadersPolicyStrictTransportSecurityArgs Empty => new ResponseHeadersPolicyStrictTransportSecurityArgs();
     }
 }

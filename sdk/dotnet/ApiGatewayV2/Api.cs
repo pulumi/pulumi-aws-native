@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// </summary>
     [Obsolete(@"Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Api")]
-    public partial class Api : Pulumi.CustomResource
+    public partial class Api : global::Pulumi.CustomResource
     {
         [Output("apiEndpoint")]
         public Output<string> ApiEndpoint { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class ApiArgs : Pulumi.ResourceArgs
+    public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiKeySelectionExpression")]
         public Input<string>? ApiKeySelectionExpression { get; set; }
@@ -169,5 +169,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public ApiArgs()
         {
         }
+        public static new ApiArgs Empty => new ApiArgs();
     }
 }

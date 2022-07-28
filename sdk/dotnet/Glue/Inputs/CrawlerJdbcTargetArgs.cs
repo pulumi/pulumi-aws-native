@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerJdbcTargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerJdbcTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerJdbcTargetArgs()
         {
         }
+        public static new CrawlerJdbcTargetArgs Empty => new CrawlerJdbcTargetArgs();
     }
 }

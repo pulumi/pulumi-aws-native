@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppStream
     /// </summary>
     [Obsolete(@"ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:ImageBuilder")]
-    public partial class ImageBuilder : Pulumi.CustomResource
+    public partial class ImageBuilder : global::Pulumi.CustomResource
     {
         [Output("accessEndpoints")]
         public Output<ImmutableArray<Outputs.ImageBuilderAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class ImageBuilderArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.ImageBuilderAccessEndpointArgs>? _accessEndpoints;
@@ -155,5 +155,6 @@ namespace Pulumi.AwsNative.AppStream
         public ImageBuilderArgs()
         {
         }
+        public static new ImageBuilderArgs Empty => new ImageBuilderArgs();
     }
 }

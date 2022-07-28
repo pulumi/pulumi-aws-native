@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor.Inputs
 {
 
-    public sealed class SuiteDefinitionDeviceUnderTestArgs : Pulumi.ResourceArgs
+    public sealed class SuiteDefinitionDeviceUnderTestArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor.Inputs
         public SuiteDefinitionDeviceUnderTestArgs()
         {
         }
+        public static new SuiteDefinitionDeviceUnderTestArgs Empty => new SuiteDefinitionDeviceUnderTestArgs();
     }
 }

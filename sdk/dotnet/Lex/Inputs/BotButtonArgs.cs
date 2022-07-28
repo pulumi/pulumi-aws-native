@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A button to use on a response card used to gather slot values from a user.
     /// </summary>
-    public sealed class BotButtonArgs : Pulumi.ResourceArgs
+    public sealed class BotButtonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The text that appears on the button.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotButtonArgs()
         {
         }
+        public static new BotButtonArgs Empty => new BotButtonArgs();
     }
 }

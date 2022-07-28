@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.509 ExtendedKeyUsage information.
     /// </summary>
-    public sealed class CertificateExtendedKeyUsageArgs : Pulumi.ResourceArgs
+    public sealed class CertificateExtendedKeyUsageArgs : global::Pulumi.ResourceArgs
     {
         [Input("extendedKeyUsageObjectIdentifier")]
         public Input<string>? ExtendedKeyUsageObjectIdentifier { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateExtendedKeyUsageArgs()
         {
         }
+        public static new CertificateExtendedKeyUsageArgs Empty => new CertificateExtendedKeyUsageArgs();
     }
 }

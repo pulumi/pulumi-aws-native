@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::DataSet Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:DataSet")]
-    public partial class DataSet : Pulumi.CustomResource
+    public partial class DataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class DataSetArgs : Pulumi.ResourceArgs
+    public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
@@ -220,5 +220,6 @@ namespace Pulumi.AwsNative.QuickSight
         public DataSetArgs()
         {
         }
+        public static new DataSetArgs Empty => new DataSetArgs();
     }
 }

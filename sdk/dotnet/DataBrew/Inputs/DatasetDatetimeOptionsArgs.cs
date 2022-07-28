@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetDatetimeOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDatetimeOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date/time format of a date parameter
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetDatetimeOptionsArgs()
         {
         }
+        public static new DatasetDatetimeOptionsArgs Empty => new DatasetDatetimeOptionsArgs();
     }
 }

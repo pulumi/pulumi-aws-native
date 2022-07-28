@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.HealthLake
     }
 
 
-    public sealed class GetFHIRDatastoreArgs : Pulumi.InvokeArgs
+    public sealed class GetFHIRDatastoreArgs : global::Pulumi.InvokeArgs
     {
         [Input("datastoreId", required: true)]
         public string DatastoreId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.HealthLake
         public GetFHIRDatastoreArgs()
         {
         }
+        public static new GetFHIRDatastoreArgs Empty => new GetFHIRDatastoreArgs();
     }
 
-    public sealed class GetFHIRDatastoreInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFHIRDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("datastoreId", required: true)]
         public Input<string> DatastoreId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.HealthLake
         public GetFHIRDatastoreInvokeArgs()
         {
         }
+        public static new GetFHIRDatastoreInvokeArgs Empty => new GetFHIRDatastoreInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// </summary>
     [Obsolete(@"WaitConditionHandle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudformation:WaitConditionHandle")]
-    public partial class WaitConditionHandle : Pulumi.CustomResource
+    public partial class WaitConditionHandle : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create a WaitConditionHandle resource with the given unique name, arguments, and options.
@@ -58,10 +58,11 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class WaitConditionHandleArgs : Pulumi.ResourceArgs
+    public sealed class WaitConditionHandleArgs : global::Pulumi.ResourceArgs
     {
         public WaitConditionHandleArgs()
         {
         }
+        public static new WaitConditionHandleArgs Empty => new WaitConditionHandleArgs();
     }
 }

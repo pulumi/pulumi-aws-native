@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigServerlessConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigServerlessConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxConcurrency", required: true)]
         public Input<int> MaxConcurrency { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigServerlessConfigArgs()
         {
         }
+        public static new EndpointConfigServerlessConfigArgs Empty => new EndpointConfigServerlessConfigArgs();
     }
 }

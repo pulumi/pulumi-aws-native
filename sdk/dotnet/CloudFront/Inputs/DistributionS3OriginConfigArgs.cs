@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionS3OriginConfigArgs : Pulumi.ResourceArgs
+    public sealed class DistributionS3OriginConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("originAccessIdentity")]
         public Input<string>? OriginAccessIdentity { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionS3OriginConfigArgs()
         {
         }
+        public static new DistributionS3OriginConfigArgs Empty => new DistributionS3OriginConfigArgs();
     }
 }

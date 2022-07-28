@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchService.Inputs
 {
 
-    public sealed class DomainMasterUserOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainMasterUserOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("masterUserARN")]
         public Input<string>? MasterUserARN { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public DomainMasterUserOptionsArgs()
         {
         }
+        public static new DomainMasterUserOptionsArgs Empty => new DomainMasterUserOptionsArgs();
     }
 }

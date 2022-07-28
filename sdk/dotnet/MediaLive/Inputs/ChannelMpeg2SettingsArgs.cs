@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMpeg2SettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMpeg2SettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adaptiveQuantization")]
         public Input<string>? AdaptiveQuantization { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMpeg2SettingsArgs()
         {
         }
+        public static new ChannelMpeg2SettingsArgs Empty => new ChannelMpeg2SettingsArgs();
     }
 }

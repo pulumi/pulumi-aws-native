@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// <summary>
     /// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer. 
     /// </summary>
-    public sealed class TaskSetLoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetLoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container (as it appears in a container definition) to associate with the load balancer.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskSetLoadBalancerArgs()
         {
         }
+        public static new TaskSetLoadBalancerArgs Empty => new TaskSetLoadBalancerArgs();
     }
 }

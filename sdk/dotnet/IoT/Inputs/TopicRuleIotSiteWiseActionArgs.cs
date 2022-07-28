@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleIotSiteWiseActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleIotSiteWiseActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("putAssetPropertyValueEntries", required: true)]
         private InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs>? _putAssetPropertyValueEntries;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleIotSiteWiseActionArgs()
         {
         }
+        public static new TopicRuleIotSiteWiseActionArgs Empty => new TopicRuleIotSiteWiseActionArgs();
     }
 }

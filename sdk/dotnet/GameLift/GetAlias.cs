@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique alias ID
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetAliasArgs()
         {
         }
+        public static new GetAliasArgs Empty => new GetAliasArgs();
     }
 
-    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Unique alias ID
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetAliasInvokeArgs()
         {
         }
+        public static new GetAliasInvokeArgs Empty => new GetAliasInvokeArgs();
     }
 
 

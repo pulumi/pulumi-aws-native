@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignEventDimensionsArgs : Pulumi.ResourceArgs
+    public sealed class CampaignEventDimensionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignEventDimensionsArgs()
         {
         }
+        public static new CampaignEventDimensionsArgs Empty => new CampaignEventDimensionsArgs();
     }
 }

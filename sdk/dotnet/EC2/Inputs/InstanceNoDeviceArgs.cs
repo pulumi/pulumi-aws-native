@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceNoDeviceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceNoDeviceArgs : global::Pulumi.ResourceArgs
     {
         public InstanceNoDeviceArgs()
         {
         }
+        public static new InstanceNoDeviceArgs Empty => new InstanceNoDeviceArgs();
     }
 }

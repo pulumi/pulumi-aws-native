@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:DeviceDefinitionVersion")]
-    public partial class DeviceDefinitionVersion : Pulumi.CustomResource
+    public partial class DeviceDefinitionVersion : global::Pulumi.CustomResource
     {
         [Output("deviceDefinitionId")]
         public Output<string> DeviceDefinitionId { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class DeviceDefinitionVersionArgs : Pulumi.ResourceArgs
+    public sealed class DeviceDefinitionVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceDefinitionId", required: true)]
         public Input<string> DeviceDefinitionId { get; set; } = null!;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.Greengrass
         public DeviceDefinitionVersionArgs()
         {
         }
+        public static new DeviceDefinitionVersionArgs Empty => new DeviceDefinitionVersionArgs();
     }
 }

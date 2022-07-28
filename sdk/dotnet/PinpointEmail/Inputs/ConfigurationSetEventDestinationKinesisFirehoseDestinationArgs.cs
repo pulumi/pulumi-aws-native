@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PinpointEmail.Inputs
 {
 
-    public sealed class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryStreamArn", required: true)]
         public Input<string> DeliveryStreamArn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.PinpointEmail.Inputs
         public ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs Empty => new ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs();
     }
 }

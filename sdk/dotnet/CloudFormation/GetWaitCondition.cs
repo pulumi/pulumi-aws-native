@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetWaitConditionArgs : Pulumi.InvokeArgs
+    public sealed class GetWaitConditionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetWaitConditionArgs()
         {
         }
+        public static new GetWaitConditionArgs Empty => new GetWaitConditionArgs();
     }
 
-    public sealed class GetWaitConditionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWaitConditionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetWaitConditionInvokeArgs()
         {
         }
+        public static new GetWaitConditionInvokeArgs Empty => new GetWaitConditionInvokeArgs();
     }
 
 

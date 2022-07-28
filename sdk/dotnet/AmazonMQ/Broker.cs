@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     /// </summary>
     [Obsolete(@"Broker is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:amazonmq:Broker")]
-    public partial class Broker : Pulumi.CustomResource
+    public partial class Broker : global::Pulumi.CustomResource
     {
         [Output("amqpEndpoints")]
         public Output<ImmutableArray<string>> AmqpEndpoints { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.AmazonMQ
         }
     }
 
-    public sealed class BrokerArgs : Pulumi.ResourceArgs
+    public sealed class BrokerArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -219,5 +219,6 @@ namespace Pulumi.AwsNative.AmazonMQ
         public BrokerArgs()
         {
         }
+        public static new BrokerArgs Empty => new BrokerArgs();
     }
 }

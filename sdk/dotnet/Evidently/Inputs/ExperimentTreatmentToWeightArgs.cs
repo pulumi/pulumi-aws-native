@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ExperimentTreatmentToWeightArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTreatmentToWeightArgs : global::Pulumi.ResourceArgs
     {
         [Input("splitWeight", required: true)]
         public Input<int> SplitWeight { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ExperimentTreatmentToWeightArgs()
         {
         }
+        public static new ExperimentTreatmentToWeightArgs Empty => new ExperimentTreatmentToWeightArgs();
     }
 }

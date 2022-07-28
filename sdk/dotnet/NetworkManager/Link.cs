@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::Link type describes a link.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:Link")]
-    public partial class Link : Pulumi.CustomResource
+    public partial class Link : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Bandwidth for the link.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class LinkArgs : Pulumi.ResourceArgs
+    public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Bandwidth for the link.
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public LinkArgs()
         {
         }
+        public static new LinkArgs Empty => new LinkArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetCodeRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeRepositoryArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetCodeRepositoryArgs()
         {
         }
+        public static new GetCodeRepositoryArgs Empty => new GetCodeRepositoryArgs();
     }
 
-    public sealed class GetCodeRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetCodeRepositoryInvokeArgs()
         {
         }
+        public static new GetCodeRepositoryInvokeArgs Empty => new GetCodeRepositoryInvokeArgs();
     }
 
 

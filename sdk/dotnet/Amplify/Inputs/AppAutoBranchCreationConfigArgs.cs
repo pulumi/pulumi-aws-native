@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    public sealed class AppAutoBranchCreationConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppAutoBranchCreationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoBranchCreationPatterns")]
         private InputList<string>? _autoBranchCreationPatterns;
@@ -55,5 +55,6 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public AppAutoBranchCreationConfigArgs()
         {
         }
+        public static new AppAutoBranchCreationConfigArgs Empty => new AppAutoBranchCreationConfigArgs();
     }
 }

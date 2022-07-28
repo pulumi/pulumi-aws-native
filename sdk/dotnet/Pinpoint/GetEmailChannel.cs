@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint
     }
 
 
-    public sealed class GetEmailChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetEmailChannelArgs()
         {
         }
+        public static new GetEmailChannelArgs Empty => new GetEmailChannelArgs();
     }
 
-    public sealed class GetEmailChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public GetEmailChannelInvokeArgs()
         {
         }
+        public static new GetEmailChannelInvokeArgs Empty => new GetEmailChannelInvokeArgs();
     }
 
 

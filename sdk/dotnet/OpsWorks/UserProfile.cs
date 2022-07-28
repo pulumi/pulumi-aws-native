@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:UserProfile")]
-    public partial class UserProfile : Pulumi.CustomResource
+    public partial class UserProfile : global::Pulumi.CustomResource
     {
         [Output("allowSelfManagement")]
         public Output<bool?> AllowSelfManagement { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class UserProfileArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowSelfManagement")]
         public Input<bool>? AllowSelfManagement { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public UserProfileArgs()
         {
         }
+        public static new UserProfileArgs Empty => new UserProfileArgs();
     }
 }

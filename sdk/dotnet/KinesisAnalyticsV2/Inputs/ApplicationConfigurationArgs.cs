@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// Specifies the creation parameters for a Kinesis Data Analytics application.
     /// </summary>
-    public sealed class ApplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationConfigurationArgs()
         {
         }
+        public static new ApplicationConfigurationArgs Empty => new ApplicationConfigurationArgs();
     }
 }

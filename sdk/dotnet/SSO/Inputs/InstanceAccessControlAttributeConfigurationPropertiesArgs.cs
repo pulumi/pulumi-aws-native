@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSO.Inputs
     /// <summary>
     /// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
     /// </summary>
-    public sealed class InstanceAccessControlAttributeConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAccessControlAttributeConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessControlAttributes", required: true)]
         private InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>? _accessControlAttributes;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.SSO.Inputs
         public InstanceAccessControlAttributeConfigurationPropertiesArgs()
         {
         }
+        public static new InstanceAccessControlAttributeConfigurationPropertiesArgs Empty => new InstanceAccessControlAttributeConfigurationPropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     /// Definition of AWS::AmplifyUIBuilder::Component Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:amplifyuibuilder:Component")]
-    public partial class Component : Pulumi.CustomResource
+    public partial class Component : global::Pulumi.CustomResource
     {
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         }
     }
 
-    public sealed class ComponentArgs : Pulumi.ResourceArgs
+    public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
         [Input("bindingProperties", required: true)]
         public Input<Inputs.ComponentBindingPropertiesArgs> BindingProperties { get; set; } = null!;
@@ -151,5 +151,6 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public ComponentArgs()
         {
         }
+        public static new ComponentArgs Empty => new ComponentArgs();
     }
 }

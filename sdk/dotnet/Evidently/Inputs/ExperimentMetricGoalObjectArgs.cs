@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class ExperimentMetricGoalObjectArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentMetricGoalObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("desiredChange", required: true)]
         public Input<Pulumi.AwsNative.Evidently.ExperimentMetricGoalObjectDesiredChange> DesiredChange { get; set; } = null!;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ExperimentMetricGoalObjectArgs()
         {
         }
+        public static new ExperimentMetricGoalObjectArgs Empty => new ExperimentMetricGoalObjectArgs();
     }
 }

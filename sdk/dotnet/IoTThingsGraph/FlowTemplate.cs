@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTThingsGraph
     /// </summary>
     [Obsolete(@"FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotthingsgraph:FlowTemplate")]
-    public partial class FlowTemplate : Pulumi.CustomResource
+    public partial class FlowTemplate : global::Pulumi.CustomResource
     {
         [Output("compatibleNamespaceVersion")]
         public Output<double?> CompatibleNamespaceVersion { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         }
     }
 
-    public sealed class FlowTemplateArgs : Pulumi.ResourceArgs
+    public sealed class FlowTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("compatibleNamespaceVersion")]
         public Input<double>? CompatibleNamespaceVersion { get; set; }
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         public FlowTemplateArgs()
         {
         }
+        public static new FlowTemplateArgs Empty => new FlowTemplateArgs();
     }
 }

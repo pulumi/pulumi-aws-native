@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
-    public sealed class DetectorModelLambdaArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelLambdaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lambda function that is executed.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelLambdaArgs()
         {
         }
+        public static new DetectorModelLambdaArgs Empty => new DetectorModelLambdaArgs();
     }
 }

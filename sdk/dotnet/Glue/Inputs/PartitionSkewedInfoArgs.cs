@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class PartitionSkewedInfoArgs : Pulumi.ResourceArgs
+    public sealed class PartitionSkewedInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("skewedColumnNames")]
         private InputList<string>? _skewedColumnNames;
@@ -34,5 +34,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public PartitionSkewedInfoArgs()
         {
         }
+        public static new PartitionSkewedInfoArgs Empty => new PartitionSkewedInfoArgs();
     }
 }

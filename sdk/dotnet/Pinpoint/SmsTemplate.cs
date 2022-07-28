@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"SmsTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:SmsTemplate")]
-    public partial class SmsTemplate : Pulumi.CustomResource
+    public partial class SmsTemplate : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class SmsTemplateArgs : Pulumi.ResourceArgs
+    public sealed class SmsTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
@@ -97,5 +97,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public SmsTemplateArgs()
         {
         }
+        public static new SmsTemplateArgs Empty => new SmsTemplateArgs();
     }
 }

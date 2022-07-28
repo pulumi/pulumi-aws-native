@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53.Inputs
 {
 
-    public sealed class RecordSetGeoLocationArgs : Pulumi.ResourceArgs
+    public sealed class RecordSetGeoLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("continentCode")]
         public Input<string>? ContinentCode { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public RecordSetGeoLocationArgs()
         {
         }
+        public static new RecordSetGeoLocationArgs Empty => new RecordSetGeoLocationArgs();
     }
 }

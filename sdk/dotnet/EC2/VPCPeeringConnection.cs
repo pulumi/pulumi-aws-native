@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::VPCPeeringConnection
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VPCPeeringConnection")]
-    public partial class VPCPeeringConnection : Pulumi.CustomResource
+    public partial class VPCPeeringConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID of the owner of the accepter VPC.
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCPeeringConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VPCPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID of the owner of the accepter VPC.
@@ -134,5 +134,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCPeeringConnectionArgs()
         {
         }
+        public static new VPCPeeringConnectionArgs Empty => new VPCPeeringConnectionArgs();
     }
 }

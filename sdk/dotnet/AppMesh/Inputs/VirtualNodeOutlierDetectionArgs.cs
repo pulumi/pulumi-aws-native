@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeOutlierDetectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeOutlierDetectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("baseEjectionDuration", required: true)]
         public Input<Inputs.VirtualNodeDurationArgs> BaseEjectionDuration { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeOutlierDetectionArgs()
         {
         }
+        public static new VirtualNodeOutlierDetectionArgs Empty => new VirtualNodeOutlierDetectionArgs();
     }
 }

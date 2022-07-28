@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResilienceHub.Inputs
 {
 
-    public sealed class ResiliencyPolicyPolicyMapArgs : Pulumi.ResourceArgs
+    public sealed class ResiliencyPolicyPolicyMapArgs : global::Pulumi.ResourceArgs
     {
         public ResiliencyPolicyPolicyMapArgs()
         {
         }
+        public static new ResiliencyPolicyPolicyMapArgs Empty => new ResiliencyPolicyPolicyMapArgs();
     }
 }

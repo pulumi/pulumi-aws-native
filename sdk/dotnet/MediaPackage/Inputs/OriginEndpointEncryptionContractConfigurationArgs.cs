@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
     /// </summary>
-    public sealed class OriginEndpointEncryptionContractConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OriginEndpointEncryptionContractConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A collection of audio encryption presets.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public OriginEndpointEncryptionContractConfigurationArgs()
         {
         }
+        public static new OriginEndpointEncryptionContractConfigurationArgs Empty => new OriginEndpointEncryptionContractConfigurationArgs();
     }
 }

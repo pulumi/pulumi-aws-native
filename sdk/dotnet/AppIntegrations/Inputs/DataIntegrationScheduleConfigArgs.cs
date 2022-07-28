@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppIntegrations.Inputs
 {
 
-    public sealed class DataIntegrationScheduleConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataIntegrationScheduleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         public DataIntegrationScheduleConfigArgs()
         {
         }
+        public static new DataIntegrationScheduleConfigArgs Empty => new DataIntegrationScheduleConfigArgs();
     }
 }

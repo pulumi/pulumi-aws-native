@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class CustomLineItemBillingPeriodRangeArgs : Pulumi.ResourceArgs
+    public sealed class CustomLineItemBillingPeriodRangeArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusiveEndBillingPeriod")]
         public Input<string>? ExclusiveEndBillingPeriod { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public CustomLineItemBillingPeriodRangeArgs()
         {
         }
+        public static new CustomLineItemBillingPeriodRangeArgs Empty => new CustomLineItemBillingPeriodRangeArgs();
     }
 }

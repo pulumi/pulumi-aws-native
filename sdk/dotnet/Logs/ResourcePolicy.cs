@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Logs
     /// The resource schema for AWSLogs ResourcePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:ResourcePolicy")]
-    public partial class ResourcePolicy : Pulumi.CustomResource
+    public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The policy document
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.Logs
         public ResourcePolicyArgs()
         {
         }
+        public static new ResourcePolicyArgs Empty => new ResourcePolicyArgs();
     }
 }

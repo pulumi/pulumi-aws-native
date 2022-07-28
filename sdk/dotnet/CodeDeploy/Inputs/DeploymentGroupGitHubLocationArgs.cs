@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupGitHubLocationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupGitHubLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("commitId", required: true)]
         public Input<string> CommitId { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupGitHubLocationArgs()
         {
         }
+        public static new DeploymentGroupGitHubLocationArgs Empty => new DeploymentGroupGitHubLocationArgs();
     }
 }

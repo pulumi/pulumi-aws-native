@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// <summary>
     /// Network egress configuration
     /// </summary>
-    public sealed class ServiceEgressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEgressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network egress type.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         public ServiceEgressConfigurationArgs()
         {
         }
+        public static new ServiceEgressConfigurationArgs Empty => new ServiceEgressConfigurationArgs();
     }
 }

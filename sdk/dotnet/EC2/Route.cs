@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         [Output("carrierGatewayId")]
         public Output<string?> CarrierGatewayId { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("carrierGatewayId")]
         public Input<string>? CarrierGatewayId { get; set; }
@@ -142,5 +142,6 @@ namespace Pulumi.AwsNative.EC2
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 }

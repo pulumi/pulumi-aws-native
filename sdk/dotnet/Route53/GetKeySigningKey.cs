@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53
     }
 
 
-    public sealed class GetKeySigningKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetKeySigningKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.Route53
         public GetKeySigningKeyArgs()
         {
         }
+        public static new GetKeySigningKeyArgs Empty => new GetKeySigningKeyArgs();
     }
 
-    public sealed class GetKeySigningKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeySigningKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.Route53
         public GetKeySigningKeyInvokeArgs()
         {
         }
+        public static new GetKeySigningKeyInvokeArgs Empty => new GetKeySigningKeyInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AutoScaling
     }
 
 
-    public sealed class GetWarmPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetWarmPoolArgs : global::Pulumi.InvokeArgs
     {
         [Input("autoScalingGroupName", required: true)]
         public string AutoScalingGroupName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetWarmPoolArgs()
         {
         }
+        public static new GetWarmPoolArgs Empty => new GetWarmPoolArgs();
     }
 
-    public sealed class GetWarmPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWarmPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public GetWarmPoolInvokeArgs()
         {
         }
+        public static new GetWarmPoolInvokeArgs Empty => new GetWarmPoolInvokeArgs();
     }
 
 

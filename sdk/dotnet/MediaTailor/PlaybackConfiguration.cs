@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaTailor
     /// Resource schema for AWS::MediaTailor::PlaybackConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:mediatailor:PlaybackConfiguration")]
-    public partial class PlaybackConfiguration : Pulumi.CustomResource
+    public partial class PlaybackConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.MediaTailor
         }
     }
 
-    public sealed class PlaybackConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
@@ -267,5 +267,6 @@ namespace Pulumi.AwsNative.MediaTailor
         public PlaybackConfigurationArgs()
         {
         }
+        public static new PlaybackConfigurationArgs Empty => new PlaybackConfigurationArgs();
     }
 }

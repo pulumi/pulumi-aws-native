@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS
     /// Create an Elastic Container Service (ECS) cluster.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS cluster, such as arn:aws:ecs:us-east-2:123456789012:cluster/MyECSCluster.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.ECS
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders")]
         private InputList<string>? _capacityProviders;
@@ -131,5 +131,6 @@ namespace Pulumi.AwsNative.ECS
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

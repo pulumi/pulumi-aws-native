@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// The constraints for the task template
     /// </summary>
-    public sealed class ConstraintsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConstraintsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("invisibleFields")]
         private InputList<Inputs.TaskTemplateInvisibleFieldInfoArgs>? _invisibleFields;
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public ConstraintsPropertiesArgs()
         {
         }
+        public static new ConstraintsPropertiesArgs Empty => new ConstraintsPropertiesArgs();
     }
 }

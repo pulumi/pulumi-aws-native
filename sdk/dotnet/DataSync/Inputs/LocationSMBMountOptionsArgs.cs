@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// The mount options used by DataSync to access the SMB server.
     /// </summary>
-    public sealed class LocationSMBMountOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LocationSMBMountOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public LocationSMBMountOptionsArgs()
         {
         }
+        public static new LocationSMBMountOptionsArgs Empty => new LocationSMBMountOptionsArgs();
     }
 }

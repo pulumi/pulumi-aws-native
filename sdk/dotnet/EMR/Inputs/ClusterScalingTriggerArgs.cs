@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterScalingTriggerArgs : Pulumi.ResourceArgs
+    public sealed class ClusterScalingTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchAlarmDefinition", required: true)]
         public Input<Inputs.ClusterCloudWatchAlarmDefinitionArgs> CloudWatchAlarmDefinition { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterScalingTriggerArgs()
         {
         }
+        public static new ClusterScalingTriggerArgs Empty => new ClusterScalingTriggerArgs();
     }
 }

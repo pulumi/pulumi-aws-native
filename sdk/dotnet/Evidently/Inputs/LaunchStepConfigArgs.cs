@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class LaunchStepConfigArgs : Pulumi.ResourceArgs
+    public sealed class LaunchStepConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupWeights", required: true)]
         private InputList<Inputs.LaunchGroupToWeightArgs>? _groupWeights;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public LaunchStepConfigArgs()
         {
         }
+        public static new LaunchStepConfigArgs Empty => new LaunchStepConfigArgs();
     }
 }

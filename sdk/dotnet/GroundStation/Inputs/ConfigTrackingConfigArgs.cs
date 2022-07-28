@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GroundStation.Inputs
 {
 
-    public sealed class ConfigTrackingConfigArgs : Pulumi.ResourceArgs
+    public sealed class ConfigTrackingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("autotrack")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigTrackingConfigAutotrack>? Autotrack { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public ConfigTrackingConfigArgs()
         {
         }
+        public static new ConfigTrackingConfigArgs Empty => new ConfigTrackingConfigArgs();
     }
 }

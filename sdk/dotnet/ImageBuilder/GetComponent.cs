@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetComponentArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetComponentArgs()
         {
         }
+        public static new GetComponentArgs Empty => new GetComponentArgs();
     }
 
-    public sealed class GetComponentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetComponentInvokeArgs()
         {
         }
+        public static new GetComponentInvokeArgs Empty => new GetComponentInvokeArgs();
     }
 
 

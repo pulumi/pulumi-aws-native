@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
     /// </summary>
-    public sealed class DistributionCacheSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCacheSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP methods that are processed and forwarded to the distribution's origin.
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionCacheSettingsArgs()
         {
         }
+        public static new DistributionCacheSettingsArgs Empty => new DistributionCacheSettingsArgs();
     }
 }

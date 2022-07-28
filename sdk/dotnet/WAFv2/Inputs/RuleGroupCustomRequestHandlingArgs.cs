@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Custom request handling.
     /// </summary>
-    public sealed class RuleGroupCustomRequestHandlingArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupCustomRequestHandlingArgs : global::Pulumi.ResourceArgs
     {
         [Input("insertHeaders", required: true)]
         private InputList<Inputs.RuleGroupCustomHTTPHeaderArgs>? _insertHeaders;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupCustomRequestHandlingArgs()
         {
         }
+        public static new RuleGroupCustomRequestHandlingArgs Empty => new RuleGroupCustomRequestHandlingArgs();
     }
 }

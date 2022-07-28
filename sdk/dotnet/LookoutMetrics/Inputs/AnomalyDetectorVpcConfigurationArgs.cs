@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    public sealed class AnomalyDetectorVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AnomalyDetectorVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIdList", required: true)]
         private InputList<string>? _securityGroupIdList;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AnomalyDetectorVpcConfigurationArgs()
         {
         }
+        public static new AnomalyDetectorVpcConfigurationArgs Empty => new AnomalyDetectorVpcConfigurationArgs();
     }
 }

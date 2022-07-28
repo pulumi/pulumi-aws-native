@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Amplify
     }
 
 
-    public sealed class GetBranchArgs : Pulumi.InvokeArgs
+    public sealed class GetBranchArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Amplify
         public GetBranchArgs()
         {
         }
+        public static new GetBranchArgs Empty => new GetBranchArgs();
     }
 
-    public sealed class GetBranchInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBranchInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Amplify
         public GetBranchInvokeArgs()
         {
         }
+        public static new GetBranchInvokeArgs Empty => new GetBranchInvokeArgs();
     }
 
 

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     ///             a variant type structure. For this structure to be valid, only one of the attributes can
     ///             be non-null.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSetColumnGroupArgs : Pulumi.ResourceArgs
+    public sealed class DataSetColumnGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("geoSpatialColumnGroup")]
         public Input<Inputs.DataSetGeoSpatialColumnGroupArgs>? GeoSpatialColumnGroup { get; set; }
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSetColumnGroupArgs()
         {
         }
+        public static new DataSetColumnGroupArgs Empty => new DataSetColumnGroupArgs();
     }
 }

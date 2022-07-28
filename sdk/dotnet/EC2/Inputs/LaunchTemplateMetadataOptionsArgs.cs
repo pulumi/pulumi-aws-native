@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateMetadataOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateMetadataOptionsArgs()
         {
         }
+        public static new LaunchTemplateMetadataOptionsArgs Empty => new LaunchTemplateMetadataOptionsArgs();
     }
 }

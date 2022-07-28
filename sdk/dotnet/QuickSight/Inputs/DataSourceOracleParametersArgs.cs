@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class DataSourceOracleParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceOracleParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceOracleParametersArgs()
         {
         }
+        public static new DataSourceOracleParametersArgs Empty => new DataSourceOracleParametersArgs();
     }
 }

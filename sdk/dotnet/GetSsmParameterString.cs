@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative
     }
 
 
-    public sealed class GetSsmParameterStringArgs : Pulumi.InvokeArgs
+    public sealed class GetSsmParameterStringArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -27,9 +27,10 @@ namespace Pulumi.AwsNative
         public GetSsmParameterStringArgs()
         {
         }
+        public static new GetSsmParameterStringArgs Empty => new GetSsmParameterStringArgs();
     }
 
-    public sealed class GetSsmParameterStringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSsmParameterStringInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -37,6 +38,7 @@ namespace Pulumi.AwsNative
         public GetSsmParameterStringInvokeArgs()
         {
         }
+        public static new GetSsmParameterStringInvokeArgs Empty => new GetSsmParameterStringInvokeArgs();
     }
 
 

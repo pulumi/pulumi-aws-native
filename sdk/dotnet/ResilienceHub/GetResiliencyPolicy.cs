@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ResilienceHub
     }
 
 
-    public sealed class GetResiliencyPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetResiliencyPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ResilienceHub
         public GetResiliencyPolicyArgs()
         {
         }
+        public static new GetResiliencyPolicyArgs Empty => new GetResiliencyPolicyArgs();
     }
 
-    public sealed class GetResiliencyPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResiliencyPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public GetResiliencyPolicyInvokeArgs()
         {
         }
+        public static new GetResiliencyPolicyInvokeArgs Empty => new GetResiliencyPolicyInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class DomainConfigurationTagArgs : Pulumi.ResourceArgs
+    public sealed class DomainConfigurationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public DomainConfigurationTagArgs()
         {
         }
+        public static new DomainConfigurationTagArgs Empty => new DomainConfigurationTagArgs();
     }
 }

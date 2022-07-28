@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// An aggregated metric of certain devices in your fleet
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:FleetMetric")]
-    public partial class FleetMetric : Pulumi.CustomResource
+    public partial class FleetMetric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The aggregation field to perform aggregation and metric emission
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class FleetMetricArgs : Pulumi.ResourceArgs
+    public sealed class FleetMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The aggregation field to perform aggregation and metric emission
@@ -207,5 +207,6 @@ namespace Pulumi.AwsNative.IoT
         public FleetMetricArgs()
         {
         }
+        public static new FleetMetricArgs Empty => new FleetMetricArgs();
     }
 }

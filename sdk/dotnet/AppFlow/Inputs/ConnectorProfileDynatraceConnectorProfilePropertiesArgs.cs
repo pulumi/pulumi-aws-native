@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileDynatraceConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileDynatraceConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Dynatrace resource
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileDynatraceConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileDynatraceConnectorProfilePropertiesArgs Empty => new ConnectorProfileDynatraceConnectorProfilePropertiesArgs();
     }
 }

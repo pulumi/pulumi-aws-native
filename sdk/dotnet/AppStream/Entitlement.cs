@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppStream
     /// Resource Type definition for AWS::AppStream::Entitlement
     /// </summary>
     [AwsNativeResourceType("aws-native:appstream:Entitlement")]
-    public partial class Entitlement : Pulumi.CustomResource
+    public partial class Entitlement : global::Pulumi.CustomResource
     {
         [Output("appVisibility")]
         public Output<string> AppVisibility { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.AppStream
         }
     }
 
-    public sealed class EntitlementArgs : Pulumi.ResourceArgs
+    public sealed class EntitlementArgs : global::Pulumi.ResourceArgs
     {
         [Input("appVisibility", required: true)]
         public Input<string> AppVisibility { get; set; } = null!;
@@ -104,5 +104,6 @@ namespace Pulumi.AwsNative.AppStream
         public EntitlementArgs()
         {
         }
+        public static new EntitlementArgs Empty => new EntitlementArgs();
     }
 }

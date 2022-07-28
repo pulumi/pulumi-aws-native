@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:CapacityReservation")]
-    public partial class CapacityReservation : Pulumi.CustomResource
+    public partial class CapacityReservation : global::Pulumi.CustomResource
     {
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class CapacityReservationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.EC2
         public CapacityReservationArgs()
         {
         }
+        public static new CapacityReservationArgs Empty => new CapacityReservationArgs();
     }
 }

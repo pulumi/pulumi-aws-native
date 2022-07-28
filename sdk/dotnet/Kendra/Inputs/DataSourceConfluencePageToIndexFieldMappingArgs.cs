@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConfluencePageToIndexFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConfluencePageToIndexFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSourceFieldName", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceConfluencePageFieldName> DataSourceFieldName { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConfluencePageToIndexFieldMappingArgs()
         {
         }
+        public static new DataSourceConfluencePageToIndexFieldMappingArgs Empty => new DataSourceConfluencePageToIndexFieldMappingArgs();
     }
 }

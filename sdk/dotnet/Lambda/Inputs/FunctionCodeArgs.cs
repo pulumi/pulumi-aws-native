@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    public sealed class FunctionCodeArgs : Pulumi.ResourceArgs
+    public sealed class FunctionCodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ImageUri.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public FunctionCodeArgs()
         {
         }
+        public static new FunctionCodeArgs Empty => new FunctionCodeArgs();
     }
 }

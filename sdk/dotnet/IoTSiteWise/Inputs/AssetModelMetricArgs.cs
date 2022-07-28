@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelMetricArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelMetricArgs()
         {
         }
+        public static new AssetModelMetricArgs Empty => new AssetModelMetricArgs();
     }
 }

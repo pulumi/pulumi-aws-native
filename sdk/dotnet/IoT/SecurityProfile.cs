@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// A security profile defines a set of expected behaviors for devices in your account.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:SecurityProfile")]
-    public partial class SecurityProfile : Pulumi.CustomResource
+    public partial class SecurityProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class SecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalMetricsToRetainV2")]
         private InputList<Inputs.SecurityProfileMetricToRetainArgs>? _additionalMetricsToRetainV2;
@@ -177,5 +177,6 @@ namespace Pulumi.AwsNative.IoT
         public SecurityProfileArgs()
         {
         }
+        public static new SecurityProfileArgs Empty => new SecurityProfileArgs();
     }
 }

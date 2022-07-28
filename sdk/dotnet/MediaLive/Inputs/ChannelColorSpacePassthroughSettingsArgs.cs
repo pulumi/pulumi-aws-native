@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelColorSpacePassthroughSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelColorSpacePassthroughSettingsArgs : global::Pulumi.ResourceArgs
     {
         public ChannelColorSpacePassthroughSettingsArgs()
         {
         }
+        public static new ChannelColorSpacePassthroughSettingsArgs Empty => new ChannelColorSpacePassthroughSettingsArgs();
     }
 }

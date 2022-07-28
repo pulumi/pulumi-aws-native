@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ModelPackage
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelPackage")]
-    public partial class ModelPackage : Pulumi.CustomResource
+    public partial class ModelPackage : global::Pulumi.CustomResource
     {
         [Output("additionalInferenceSpecificationDefinition")]
         public Output<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition?> AdditionalInferenceSpecificationDefinition { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelPackageArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalInferenceSpecificationDefinition")]
         public Input<Inputs.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>? AdditionalInferenceSpecificationDefinition { get; set; }
@@ -268,5 +268,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelPackageArgs()
         {
         }
+        public static new ModelPackageArgs Empty => new ModelPackageArgs();
     }
 }

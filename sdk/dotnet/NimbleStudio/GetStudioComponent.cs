@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     }
 
 
-    public sealed class GetStudioComponentArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioComponentArgs : global::Pulumi.InvokeArgs
     {
         [Input("studioComponentId", required: true)]
         public string StudioComponentId { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetStudioComponentArgs()
         {
         }
+        public static new GetStudioComponentArgs Empty => new GetStudioComponentArgs();
     }
 
-    public sealed class GetStudioComponentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStudioComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("studioComponentId", required: true)]
         public Input<string> StudioComponentId { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetStudioComponentInvokeArgs()
         {
         }
+        public static new GetStudioComponentInvokeArgs Empty => new GetStudioComponentInvokeArgs();
     }
 
 

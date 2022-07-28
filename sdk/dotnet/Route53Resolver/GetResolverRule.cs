@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
 
-    public sealed class GetResolverRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the endpoint that the rule is associated with.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverRuleArgs()
         {
         }
+        public static new GetResolverRuleArgs Empty => new GetResolverRuleArgs();
     }
 
-    public sealed class GetResolverRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the endpoint that the rule is associated with.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public GetResolverRuleInvokeArgs()
         {
         }
+        public static new GetResolverRuleInvokeArgs Empty => new GetResolverRuleInvokeArgs();
     }
 
 

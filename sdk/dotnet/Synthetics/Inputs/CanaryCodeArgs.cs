@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryCodeArgs : Pulumi.ResourceArgs
+    public sealed class CanaryCodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("handler", required: true)]
         public Input<string> Handler { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryCodeArgs()
         {
         }
+        public static new CanaryCodeArgs Empty => new CanaryCodeArgs();
     }
 }

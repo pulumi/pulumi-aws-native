@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// Contains a key/value pair that sets the named component parameter.
     /// </summary>
-    public sealed class ImageRecipeComponentParameterArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeComponentParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the component parameter to set.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public ImageRecipeComponentParameterArgs()
         {
         }
+        public static new ImageRecipeComponentParameterArgs Empty => new ImageRecipeComponentParameterArgs();
     }
 }

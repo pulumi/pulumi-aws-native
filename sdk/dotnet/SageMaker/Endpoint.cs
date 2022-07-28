@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         [Output("deploymentConfig")]
         public Output<Outputs.EndpointDeploymentConfig?> DeploymentConfig { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentConfig")]
         public Input<Inputs.EndpointDeploymentConfigArgs>? DeploymentConfig { get; set; }
@@ -116,5 +116,6 @@ namespace Pulumi.AwsNative.SageMaker
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 }

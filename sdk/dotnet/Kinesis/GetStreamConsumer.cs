@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kinesis
     }
 
 
-    public sealed class GetStreamConsumerArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamConsumerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Kinesis
         public GetStreamConsumerArgs()
         {
         }
+        public static new GetStreamConsumerArgs Empty => new GetStreamConsumerArgs();
     }
 
-    public sealed class GetStreamConsumerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamConsumerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Kinesis
         public GetStreamConsumerInvokeArgs()
         {
         }
+        public static new GetStreamConsumerInvokeArgs Empty => new GetStreamConsumerInvokeArgs();
     }
 
 

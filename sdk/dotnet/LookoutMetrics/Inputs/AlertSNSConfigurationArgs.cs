@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
     /// <summary>
     /// Configuration options for an SNS alert action.
     /// </summary>
-    public sealed class AlertSNSConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AlertSNSConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AlertSNSConfigurationArgs()
         {
         }
+        public static new AlertSNSConfigurationArgs Empty => new AlertSNSConfigurationArgs();
     }
 }

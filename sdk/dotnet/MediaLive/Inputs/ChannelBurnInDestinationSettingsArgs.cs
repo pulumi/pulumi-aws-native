@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelBurnInDestinationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelBurnInDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("alignment")]
         public Input<string>? Alignment { get; set; }
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelBurnInDestinationSettingsArgs()
         {
         }
+        public static new ChannelBurnInDestinationSettingsArgs Empty => new ChannelBurnInDestinationSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleDestinationHttpUrlDestinationSummaryArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationHttpUrlDestinationSummaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleDestinationHttpUrlDestinationSummaryArgs()
         {
         }
+        public static new TopicRuleDestinationHttpUrlDestinationSummaryArgs Empty => new TopicRuleDestinationHttpUrlDestinationSummaryArgs();
     }
 }

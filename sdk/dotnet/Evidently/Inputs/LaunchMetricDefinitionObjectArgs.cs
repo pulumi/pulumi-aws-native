@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class LaunchMetricDefinitionObjectArgs : Pulumi.ResourceArgs
+    public sealed class LaunchMetricDefinitionObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON path to reference the entity id in the event.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public LaunchMetricDefinitionObjectArgs()
         {
         }
+        public static new LaunchMetricDefinitionObjectArgs Empty => new LaunchMetricDefinitionObjectArgs();
     }
 }

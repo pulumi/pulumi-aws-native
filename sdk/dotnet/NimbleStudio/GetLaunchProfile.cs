@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     }
 
 
-    public sealed class GetLaunchProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("launchProfileId", required: true)]
         public string LaunchProfileId { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetLaunchProfileArgs()
         {
         }
+        public static new GetLaunchProfileArgs Empty => new GetLaunchProfileArgs();
     }
 
-    public sealed class GetLaunchProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLaunchProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("launchProfileId", required: true)]
         public Input<string> LaunchProfileId { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public GetLaunchProfileInvokeArgs()
         {
         }
+        public static new GetLaunchProfileInvokeArgs Empty => new GetLaunchProfileInvokeArgs();
     }
 
 

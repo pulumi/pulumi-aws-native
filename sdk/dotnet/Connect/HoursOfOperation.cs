@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect
     /// Resource Type definition for AWS::Connect::HoursOfOperation
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:HoursOfOperation")]
-    public partial class HoursOfOperation : Pulumi.CustomResource
+    public partial class HoursOfOperation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration information for the hours of operation: day, start time, and end time.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Connect
         }
     }
 
-    public sealed class HoursOfOperationArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationArgs : global::Pulumi.ResourceArgs
     {
         [Input("config", required: true)]
         private InputList<Inputs.HoursOfOperationConfigArgs>? _config;
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.Connect
         public HoursOfOperationArgs()
         {
         }
+        public static new HoursOfOperationArgs Empty => new HoursOfOperationArgs();
     }
 }

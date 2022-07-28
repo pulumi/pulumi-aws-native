@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationEFSArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationEFSArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationEFSArgs()
         {
         }
+        public static new GetLocationEFSArgs Empty => new GetLocationEFSArgs();
     }
 
-    public sealed class GetLocationEFSInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationEFSInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationEFSInvokeArgs()
         {
         }
+        public static new GetLocationEFSInvokeArgs Empty => new GetLocationEFSInvokeArgs();
     }
 
 

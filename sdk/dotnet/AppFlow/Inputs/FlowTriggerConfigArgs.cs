@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Trigger settings of the flow.
     /// </summary>
-    public sealed class FlowTriggerConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowTriggerConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details required based on the type of trigger
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowTriggerConfigArgs()
         {
         }
+        public static new FlowTriggerConfigArgs Empty => new FlowTriggerConfigArgs();
     }
 }

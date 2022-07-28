@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QLDB
     /// </summary>
     [Obsolete(@"Ledger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:qldb:Ledger")]
-    public partial class Ledger : Pulumi.CustomResource
+    public partial class Ledger : global::Pulumi.CustomResource
     {
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.QLDB
         }
     }
 
-    public sealed class LedgerArgs : Pulumi.ResourceArgs
+    public sealed class LedgerArgs : global::Pulumi.ResourceArgs
     {
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.QLDB
         public LedgerArgs()
         {
         }
+        public static new LedgerArgs Empty => new LedgerArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
     /// </summary>
-    public sealed class MitigationActionUpdateDeviceCertificateParamsArgs : Pulumi.ResourceArgs
+    public sealed class MitigationActionUpdateDeviceCertificateParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.IoT.MitigationActionUpdateDeviceCertificateParamsAction> Action { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public MitigationActionUpdateDeviceCertificateParamsArgs()
         {
         }
+        public static new MitigationActionUpdateDeviceCertificateParamsArgs Empty => new MitigationActionUpdateDeviceCertificateParamsArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RDS
     /// Resource Type definition for AWS::RDS::GlobalCluster
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:GlobalCluster")]
-    public partial class GlobalCluster : Pulumi.CustomResource
+    public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.RDS
         }
     }
 
-    public sealed class GlobalClusterArgs : Pulumi.ResourceArgs
+    public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
@@ -139,5 +139,6 @@ namespace Pulumi.AwsNative.RDS
         public GlobalClusterArgs()
         {
         }
+        public static new GlobalClusterArgs Empty => new GlobalClusterArgs();
     }
 }

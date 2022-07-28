@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class ConnectionApiKeyAuthParametersArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionApiKeyAuthParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiKeyName", required: true)]
         public Input<string> ApiKeyName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public ConnectionApiKeyAuthParametersArgs()
         {
         }
+        public static new ConnectionApiKeyAuthParametersArgs Empty => new ConnectionApiKeyAuthParametersArgs();
     }
 }

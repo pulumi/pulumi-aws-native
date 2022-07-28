@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceDynamoDBConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceDynamoDBConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceDynamoDBConfigArgs()
         {
         }
+        public static new DataSourceDynamoDBConfigArgs Empty => new DataSourceDynamoDBConfigArgs();
     }
 }

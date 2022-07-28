@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class LoadBalancerTagArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public LoadBalancerTagArgs()
         {
         }
+        public static new LoadBalancerTagArgs Empty => new LoadBalancerTagArgs();
     }
 }

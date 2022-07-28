@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignOverrideButtonConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CampaignOverrideButtonConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("buttonAction")]
         public Input<string>? ButtonAction { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignOverrideButtonConfigurationArgs()
         {
         }
+        public static new CampaignOverrideButtonConfigurationArgs Empty => new CampaignOverrideButtonConfigurationArgs();
     }
 }

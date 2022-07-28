@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
     /// <summary>
     /// The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
     /// </summary>
-    public sealed class FHIRDatastoreKmsEncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class FHIRDatastoreKmsEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.HealthLake.Inputs
         public FHIRDatastoreKmsEncryptionConfigArgs()
         {
         }
+        public static new FHIRDatastoreKmsEncryptionConfigArgs Empty => new FHIRDatastoreKmsEncryptionConfigArgs();
     }
 }

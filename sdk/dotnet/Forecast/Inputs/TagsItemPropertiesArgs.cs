@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Forecast.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class TagsItemPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class TagsItemPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Forecast.Inputs
         public TagsItemPropertiesArgs()
         {
         }
+        public static new TagsItemPropertiesArgs Empty => new TagsItemPropertiesArgs();
     }
 }

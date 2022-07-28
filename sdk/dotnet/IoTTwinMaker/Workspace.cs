@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     /// Resource schema for AWS::IoTTwinMaker::Workspace
     /// </summary>
     [AwsNativeResourceType("aws-native:iottwinmaker:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the workspace.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the workspace.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

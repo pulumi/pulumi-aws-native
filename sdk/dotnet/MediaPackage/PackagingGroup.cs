@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// Resource schema for AWS::MediaPackage::PackagingGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:PackagingGroup")]
-    public partial class PackagingGroup : Pulumi.CustomResource
+    public partial class PackagingGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the PackagingGroup.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.MediaPackage
         }
     }
 
-    public sealed class PackagingGroupArgs : Pulumi.ResourceArgs
+    public sealed class PackagingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CDN Authorization
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.MediaPackage
         public PackagingGroupArgs()
         {
         }
+        public static new PackagingGroupArgs Empty => new PackagingGroupArgs();
     }
 }

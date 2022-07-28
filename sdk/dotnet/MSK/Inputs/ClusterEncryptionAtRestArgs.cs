@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterEncryptionAtRestArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionAtRestArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataVolumeKMSKeyId", required: true)]
         public Input<string> DataVolumeKMSKeyId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterEncryptionAtRestArgs()
         {
         }
+        public static new ClusterEncryptionAtRestArgs Empty => new ClusterEncryptionAtRestArgs();
     }
 }

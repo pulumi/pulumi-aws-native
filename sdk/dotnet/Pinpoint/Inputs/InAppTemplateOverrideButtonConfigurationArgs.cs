@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class InAppTemplateOverrideButtonConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InAppTemplateOverrideButtonConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("buttonAction")]
         public Input<Pulumi.AwsNative.Pinpoint.InAppTemplateButtonAction>? ButtonAction { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public InAppTemplateOverrideButtonConfigurationArgs()
         {
         }
+        public static new InAppTemplateOverrideButtonConfigurationArgs Empty => new InAppTemplateOverrideButtonConfigurationArgs();
     }
 }

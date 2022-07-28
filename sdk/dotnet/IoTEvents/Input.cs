@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents
     /// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotevents:Input")]
-    public partial class Input : Pulumi.CustomResource
+    public partial class Input : global::Pulumi.CustomResource
     {
         [Output("inputDefinition")]
         public Output<Outputs.InputDefinition> InputDefinition { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.IoTEvents
         }
     }
 
-    public sealed class InputArgs : Pulumi.ResourceArgs
+    public sealed class InputArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputDefinition", required: true)]
         public Input<Inputs.InputDefinitionArgs> InputDefinition { get; set; } = null!;
@@ -115,5 +115,6 @@ namespace Pulumi.AwsNative.IoTEvents
         public InputArgs()
         {
         }
+        public static new InputArgs Empty => new InputArgs();
     }
 }

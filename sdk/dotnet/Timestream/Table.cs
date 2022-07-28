@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream
     /// The AWS::Timestream::Table resource creates a Timestream Table.
     /// </summary>
     [AwsNativeResourceType("aws-native:timestream:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Timestream
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the database which the table to be created belongs to.
@@ -138,5 +138,6 @@ namespace Pulumi.AwsNative.Timestream
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 }

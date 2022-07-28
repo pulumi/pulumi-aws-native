@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointConnectionLogOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointConnectionLogOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchLogGroup")]
         public Input<string>? CloudwatchLogGroup { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointConnectionLogOptionsArgs()
         {
         }
+        public static new ClientVpnEndpointConnectionLogOptionsArgs Empty => new ClientVpnEndpointConnectionLogOptionsArgs();
     }
 }

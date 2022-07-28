@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Athena
     }
 
 
-    public sealed class GetDataCatalogArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCatalogArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Athena
         public GetDataCatalogArgs()
         {
         }
+        public static new GetDataCatalogArgs Empty => new GetDataCatalogArgs();
     }
 
-    public sealed class GetDataCatalogInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataCatalogInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Athena
         public GetDataCatalogInvokeArgs()
         {
         }
+        public static new GetDataCatalogInvokeArgs Empty => new GetDataCatalogInvokeArgs();
     }
 
 

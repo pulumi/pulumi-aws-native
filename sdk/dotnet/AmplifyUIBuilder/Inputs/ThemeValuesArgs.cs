@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
 {
 
-    public sealed class ThemeValuesArgs : Pulumi.ResourceArgs
+    public sealed class ThemeValuesArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
         public ThemeValuesArgs()
         {
         }
+        public static new ThemeValuesArgs Empty => new ThemeValuesArgs();
     }
 }

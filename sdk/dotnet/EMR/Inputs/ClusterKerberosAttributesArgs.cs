@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterKerberosAttributesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKerberosAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("aDDomainJoinPassword")]
         public Input<string>? ADDomainJoinPassword { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterKerberosAttributesArgs()
         {
         }
+        public static new ClusterKerberosAttributesArgs Empty => new ClusterKerberosAttributesArgs();
     }
 }

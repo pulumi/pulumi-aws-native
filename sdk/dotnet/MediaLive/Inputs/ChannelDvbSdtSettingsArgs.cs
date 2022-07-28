@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelDvbSdtSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDvbSdtSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("outputSdt")]
         public Input<string>? OutputSdt { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelDvbSdtSettingsArgs()
         {
         }
+        public static new ChannelDvbSdtSettingsArgs Empty => new ChannelDvbSdtSettingsArgs();
     }
 }

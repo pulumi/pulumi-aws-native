@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// </summary>
     [Obsolete(@"Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 }

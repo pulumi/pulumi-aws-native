@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// </summary>
     [Obsolete(@"VirtualRouter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:VirtualRouter")]
-    public partial class VirtualRouter : Pulumi.CustomResource
+    public partial class VirtualRouter : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AppMesh
         }
     }
 
-    public sealed class VirtualRouterArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterArgs : global::Pulumi.ResourceArgs
     {
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.AppMesh
         public VirtualRouterArgs()
         {
         }
+        public static new VirtualRouterArgs Empty => new VirtualRouterArgs();
     }
 }

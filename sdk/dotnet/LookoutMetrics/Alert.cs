@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
     /// Resource Type definition for AWS::LookoutMetrics::Alert
     /// </summary>
     [AwsNativeResourceType("aws-native:lookoutmetrics:Alert")]
-    public partial class Alert : Pulumi.CustomResource
+    public partial class Alert : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The action to be taken by the alert when an anomaly is detected.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         }
     }
 
-    public sealed class AlertArgs : Pulumi.ResourceArgs
+    public sealed class AlertArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to be taken by the alert when an anomaly is detected.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public AlertArgs()
         {
         }
+        public static new AlertArgs Empty => new AlertArgs();
     }
 }

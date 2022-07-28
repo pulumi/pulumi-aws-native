@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// <summary>
     /// Details for a step that invokes a lambda function.
     /// </summary>
-    public sealed class WorkflowStepCustomStepDetailsPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepCustomStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the step, used as an identifier.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public WorkflowStepCustomStepDetailsPropertiesArgs()
         {
         }
+        public static new WorkflowStepCustomStepDetailsPropertiesArgs Empty => new WorkflowStepCustomStepDetailsPropertiesArgs();
     }
 }

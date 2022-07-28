@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterCloudWatchAlarmDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCloudWatchAlarmDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterCloudWatchAlarmDefinitionArgs()
         {
         }
+        public static new ClusterCloudWatchAlarmDefinitionArgs Empty => new ClusterCloudWatchAlarmDefinitionArgs();
     }
 }

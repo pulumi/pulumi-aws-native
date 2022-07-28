@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ReportGroupS3ReportExportConfigArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupS3ReportExportConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ReportGroupS3ReportExportConfigArgs()
         {
         }
+        public static new ReportGroupS3ReportExportConfigArgs Empty => new ReportGroupS3ReportExportConfigArgs();
     }
 }

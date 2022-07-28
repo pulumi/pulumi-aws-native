@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// A label for tagging AppFlow resources
     /// </summary>
-    public sealed class FlowTagArgs : Pulumi.ResourceArgs
+    public sealed class FlowTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string used to identify this tag
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowTagArgs()
         {
         }
+        public static new FlowTagArgs Empty => new FlowTagArgs();
     }
 }

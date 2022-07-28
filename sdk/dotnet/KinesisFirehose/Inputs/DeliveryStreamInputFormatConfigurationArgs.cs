@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamInputFormatConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamInputFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deserializer")]
         public Input<Inputs.DeliveryStreamDeserializerArgs>? Deserializer { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamInputFormatConfigurationArgs()
         {
         }
+        public static new DeliveryStreamInputFormatConfigurationArgs Empty => new DeliveryStreamInputFormatConfigurationArgs();
     }
 }

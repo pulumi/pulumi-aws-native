@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetVersioningConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetVersioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxVersions")]
         public Input<int>? MaxVersions { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetVersioningConfigurationArgs()
         {
         }
+        public static new DatasetVersioningConfigurationArgs Empty => new DatasetVersioningConfigurationArgs();
     }
 }

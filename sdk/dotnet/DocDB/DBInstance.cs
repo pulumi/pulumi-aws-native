@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DocDB
     /// </summary>
     [Obsolete(@"DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:docdb:DBInstance")]
-    public partial class DBInstance : Pulumi.CustomResource
+    public partial class DBInstance : global::Pulumi.CustomResource
     {
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.DocDB
         }
     }
 
-    public sealed class DBInstanceArgs : Pulumi.ResourceArgs
+    public sealed class DBInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.DocDB
         public DBInstanceArgs()
         {
         }
+        public static new DBInstanceArgs Empty => new DBInstanceArgs();
     }
 }

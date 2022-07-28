@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchOutputConfig")]
         public Input<Inputs.MaintenanceWindowTaskCloudWatchOutputConfigArgs>? CloudWatchOutputConfig { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs()
         {
         }
+        public static new MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs Empty => new MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs();
     }
 }

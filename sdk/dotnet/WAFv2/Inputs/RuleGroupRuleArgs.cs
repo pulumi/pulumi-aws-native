@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Rule of RuleGroup that contains condition and action.
     /// </summary>
-    public sealed class RuleGroupRuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<Inputs.RuleGroupRuleActionArgs>? Action { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupRuleArgs()
         {
         }
+        public static new RuleGroupRuleArgs Empty => new RuleGroupRuleArgs();
     }
 }

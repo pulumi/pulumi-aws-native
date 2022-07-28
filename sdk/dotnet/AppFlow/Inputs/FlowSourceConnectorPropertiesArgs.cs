@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// <summary>
     /// Source connector details required to query a connector
     /// </summary>
-    public sealed class FlowSourceConnectorPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("amplitude")]
         public Input<Inputs.FlowAmplitudeSourcePropertiesArgs>? Amplitude { get; set; }
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowSourceConnectorPropertiesArgs()
         {
         }
+        public static new FlowSourceConnectorPropertiesArgs Empty => new FlowSourceConnectorPropertiesArgs();
     }
 }

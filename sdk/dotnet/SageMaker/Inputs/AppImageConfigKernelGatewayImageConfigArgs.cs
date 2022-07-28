@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
     /// </summary>
-    public sealed class AppImageConfigKernelGatewayImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigKernelGatewayImageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public AppImageConfigKernelGatewayImageConfigArgs()
         {
         }
+        public static new AppImageConfigKernelGatewayImageConfigArgs Empty => new AppImageConfigKernelGatewayImageConfigArgs();
     }
 }

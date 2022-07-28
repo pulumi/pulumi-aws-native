@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT
     /// </summary>
     [Obsolete(@"ThingPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot:ThingPrincipalAttachment")]
-    public partial class ThingPrincipalAttachment : Pulumi.CustomResource
+    public partial class ThingPrincipalAttachment : global::Pulumi.CustomResource
     {
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class ThingPrincipalAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ThingPrincipalAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -76,5 +76,6 @@ namespace Pulumi.AwsNative.IoT
         public ThingPrincipalAttachmentArgs()
         {
         }
+        public static new ThingPrincipalAttachmentArgs Empty => new ThingPrincipalAttachmentArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetPartnerAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The partner account ID to disassociate from the AWS account
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetPartnerAccountArgs()
         {
         }
+        public static new GetPartnerAccountArgs Empty => new GetPartnerAccountArgs();
     }
 
-    public sealed class GetPartnerAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPartnerAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The partner account ID to disassociate from the AWS account
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetPartnerAccountInvokeArgs()
         {
         }
+        public static new GetPartnerAccountInvokeArgs Empty => new GetPartnerAccountInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionLegacyCustomOriginArgs : Pulumi.ResourceArgs
+    public sealed class DistributionLegacyCustomOriginArgs : global::Pulumi.ResourceArgs
     {
         [Input("dNSName", required: true)]
         public Input<string> DNSName { get; set; } = null!;
@@ -35,5 +35,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionLegacyCustomOriginArgs()
         {
         }
+        public static new DistributionLegacyCustomOriginArgs Empty => new DistributionLegacyCustomOriginArgs();
     }
 }

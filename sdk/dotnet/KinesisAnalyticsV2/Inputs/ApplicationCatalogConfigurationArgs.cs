@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
     /// <summary>
     /// The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
     /// </summary>
-    public sealed class ApplicationCatalogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationCatalogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationCatalogConfigurationArgs()
         {
         }
+        public static new ApplicationCatalogConfigurationArgs Empty => new ApplicationCatalogConfigurationArgs();
     }
 }

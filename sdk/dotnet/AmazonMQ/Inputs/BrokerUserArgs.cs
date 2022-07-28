@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerUserArgs : Pulumi.ResourceArgs
+    public sealed class BrokerUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("consoleAccess")]
         public Input<bool>? ConsoleAccess { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerUserArgs()
         {
         }
+        public static new BrokerUserArgs Empty => new BrokerUserArgs();
     }
 }

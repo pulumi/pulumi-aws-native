@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class NotebookInstanceTagArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public NotebookInstanceTagArgs()
         {
         }
+        public static new NotebookInstanceTagArgs Empty => new NotebookInstanceTagArgs();
     }
 }

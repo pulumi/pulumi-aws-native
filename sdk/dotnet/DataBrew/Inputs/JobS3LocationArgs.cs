@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// S3 Output location
     /// </summary>
-    public sealed class JobS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class JobS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobS3LocationArgs()
         {
         }
+        public static new JobS3LocationArgs Empty => new JobS3LocationArgs();
     }
 }

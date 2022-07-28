@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class StorageLensPrefixLevelStorageMetricsArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensPrefixLevelStorageMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether prefix-level storage metrics are enabled or disabled.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensPrefixLevelStorageMetricsArgs()
         {
         }
+        public static new StorageLensPrefixLevelStorageMetricsArgs Empty => new StorageLensPrefixLevelStorageMetricsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateHibernationOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateHibernationOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("configured")]
         public Input<bool>? Configured { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateHibernationOptionsArgs()
         {
         }
+        public static new LaunchTemplateHibernationOptionsArgs Empty => new LaunchTemplateHibernationOptionsArgs();
     }
 }

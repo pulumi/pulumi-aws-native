@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolIdentityProvider")]
-    public partial class UserPoolIdentityProvider : Pulumi.CustomResource
+    public partial class UserPoolIdentityProvider : global::Pulumi.CustomResource
     {
         [Output("attributeMapping")]
         public Output<object?> AttributeMapping { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolIdentityProviderArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolIdentityProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeMapping")]
         public Input<object>? AttributeMapping { get; set; }
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolIdentityProviderArgs()
         {
         }
+        public static new UserPoolIdentityProviderArgs Empty => new UserPoolIdentityProviderArgs();
     }
 }

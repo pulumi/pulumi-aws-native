@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Location
     }
 
 
-    public sealed class GetGeofenceCollectionArgs : Pulumi.InvokeArgs
+    public sealed class GetGeofenceCollectionArgs : global::Pulumi.InvokeArgs
     {
         [Input("collectionName", required: true)]
         public string CollectionName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Location
         public GetGeofenceCollectionArgs()
         {
         }
+        public static new GetGeofenceCollectionArgs Empty => new GetGeofenceCollectionArgs();
     }
 
-    public sealed class GetGeofenceCollectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGeofenceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Location
         public GetGeofenceCollectionInvokeArgs()
         {
         }
+        public static new GetGeofenceCollectionInvokeArgs Empty => new GetGeofenceCollectionInvokeArgs();
     }
 
 

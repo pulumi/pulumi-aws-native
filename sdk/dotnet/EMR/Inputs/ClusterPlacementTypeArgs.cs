@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterPlacementTypeArgs : Pulumi.ResourceArgs
+    public sealed class ClusterPlacementTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterPlacementTypeArgs()
         {
         }
+        public static new ClusterPlacementTypeArgs Empty => new ClusterPlacementTypeArgs();
     }
 }

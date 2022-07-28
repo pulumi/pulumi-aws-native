@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolAccountRecoverySettingArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolAccountRecoverySettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("recoveryMechanisms")]
         private InputList<Inputs.UserPoolRecoveryOptionArgs>? _recoveryMechanisms;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolAccountRecoverySettingArgs()
         {
         }
+        public static new UserPoolAccountRecoverySettingArgs Empty => new UserPoolAccountRecoverySettingArgs();
     }
 }

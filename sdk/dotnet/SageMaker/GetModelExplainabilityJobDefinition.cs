@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetModelExplainabilityJobDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetModelExplainabilityJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelExplainabilityJobDefinitionArgs()
         {
         }
+        public static new GetModelExplainabilityJobDefinitionArgs Empty => new GetModelExplainabilityJobDefinitionArgs();
     }
 
-    public sealed class GetModelExplainabilityJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetModelExplainabilityJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of job definition.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetModelExplainabilityJobDefinitionInvokeArgs()
         {
         }
+        public static new GetModelExplainabilityJobDefinitionInvokeArgs Empty => new GetModelExplainabilityJobDefinitionInvokeArgs();
     }
 
 

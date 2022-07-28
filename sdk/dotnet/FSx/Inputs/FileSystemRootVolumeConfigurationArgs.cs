@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemRootVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemRootVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
@@ -43,5 +43,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemRootVolumeConfigurationArgs()
         {
         }
+        public static new FileSystemRootVolumeConfigurationArgs Empty => new FileSystemRootVolumeConfigurationArgs();
     }
 }

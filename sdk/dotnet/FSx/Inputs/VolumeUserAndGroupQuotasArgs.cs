@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class VolumeUserAndGroupQuotasArgs : Pulumi.ResourceArgs
+    public sealed class VolumeUserAndGroupQuotasArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public VolumeUserAndGroupQuotasArgs()
         {
         }
+        public static new VolumeUserAndGroupQuotasArgs Empty => new VolumeUserAndGroupQuotasArgs();
     }
 }

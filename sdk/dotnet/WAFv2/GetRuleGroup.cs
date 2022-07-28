@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
 
-    public sealed class GetRuleGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.WAFv2
         public GetRuleGroupArgs()
         {
         }
+        public static new GetRuleGroupArgs Empty => new GetRuleGroupArgs();
     }
 
-    public sealed class GetRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.WAFv2
         public GetRuleGroupInvokeArgs()
         {
         }
+        public static new GetRuleGroupInvokeArgs Empty => new GetRuleGroupInvokeArgs();
     }
 
 

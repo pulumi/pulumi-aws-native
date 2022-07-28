@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetMatchmakingRuleSetArgs : Pulumi.InvokeArgs
+    public sealed class GetMatchmakingRuleSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetMatchmakingRuleSetArgs()
         {
         }
+        public static new GetMatchmakingRuleSetArgs Empty => new GetMatchmakingRuleSetArgs();
     }
 
-    public sealed class GetMatchmakingRuleSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMatchmakingRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetMatchmakingRuleSetInvokeArgs()
         {
         }
+        public static new GetMatchmakingRuleSetInvokeArgs Empty => new GetMatchmakingRuleSetInvokeArgs();
     }
 
 

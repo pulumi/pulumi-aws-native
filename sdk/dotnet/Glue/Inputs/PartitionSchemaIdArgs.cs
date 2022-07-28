@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class PartitionSchemaIdArgs : Pulumi.ResourceArgs
+    public sealed class PartitionSchemaIdArgs : global::Pulumi.ResourceArgs
     {
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public PartitionSchemaIdArgs()
         {
         }
+        public static new PartitionSchemaIdArgs Empty => new PartitionSchemaIdArgs();
     }
 }

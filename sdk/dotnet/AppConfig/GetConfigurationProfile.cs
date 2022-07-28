@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppConfig
     }
 
 
-    public sealed class GetConfigurationProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppConfig
         public GetConfigurationProfileArgs()
         {
         }
+        public static new GetConfigurationProfileArgs Empty => new GetConfigurationProfileArgs();
     }
 
-    public sealed class GetConfigurationProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppConfig
         public GetConfigurationProfileInvokeArgs()
         {
         }
+        public static new GetConfigurationProfileInvokeArgs Empty => new GetConfigurationProfileInvokeArgs();
     }
 
 

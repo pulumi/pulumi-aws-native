@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class BucketObjectLockConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketObjectLockConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("objectLockEnabled")]
         public Input<string>? ObjectLockEnabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketObjectLockConfigurationArgs()
         {
         }
+        public static new BucketObjectLockConfigurationArgs Empty => new BucketObjectLockConfigurationArgs();
     }
 }

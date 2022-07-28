@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Information about the scale out policy of the connector.
     /// </summary>
-    public sealed class ConnectorScaleOutPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorScaleOutPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorScaleOutPolicyArgs()
         {
         }
+        public static new ConnectorScaleOutPolicyArgs Empty => new ConnectorScaleOutPolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Describes the versioning state of an Amazon S3 bucket.
     /// </summary>
-    public sealed class BucketVersioningConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketVersioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The versioning state of the bucket.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketVersioningConfigurationArgs()
         {
         }
+        public static new BucketVersioningConfigurationArgs Empty => new BucketVersioningConfigurationArgs();
     }
 }

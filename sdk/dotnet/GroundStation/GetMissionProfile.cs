@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GroundStation
     }
 
 
-    public sealed class GetMissionProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetMissionProfileArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.GroundStation
         public GetMissionProfileArgs()
         {
         }
+        public static new GetMissionProfileArgs Empty => new GetMissionProfileArgs();
     }
 
-    public sealed class GetMissionProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMissionProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.GroundStation
         public GetMissionProfileInvokeArgs()
         {
         }
+        public static new GetMissionProfileInvokeArgs Empty => new GetMissionProfileInvokeArgs();
     }
 
 

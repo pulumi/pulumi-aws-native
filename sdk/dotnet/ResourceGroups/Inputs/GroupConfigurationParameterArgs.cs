@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResourceGroups.Inputs
 {
 
-    public sealed class GroupConfigurationParameterArgs : Pulumi.ResourceArgs
+    public sealed class GroupConfigurationParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         public GroupConfigurationParameterArgs()
         {
         }
+        public static new GroupConfigurationParameterArgs Empty => new GroupConfigurationParameterArgs();
     }
 }

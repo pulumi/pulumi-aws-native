@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Spark parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceSparkParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSparkParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Host.&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceSparkParametersArgs()
         {
         }
+        public static new DataSourceSparkParametersArgs Empty => new DataSourceSparkParametersArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra
     /// A Kendra index
     /// </summary>
     [AwsNativeResourceType("aws-native:kendra:Index")]
-    public partial class Index : Pulumi.CustomResource
+    public partial class Index : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Kendra
         }
     }
 
-    public sealed class IndexArgs : Pulumi.ResourceArgs
+    public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Capacity units
@@ -173,5 +173,6 @@ namespace Pulumi.AwsNative.Kendra
         public IndexArgs()
         {
         }
+        public static new IndexArgs Empty => new IndexArgs();
     }
 }

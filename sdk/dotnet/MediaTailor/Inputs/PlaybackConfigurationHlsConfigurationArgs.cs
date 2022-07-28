@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaTailor.Inputs
 {
 
-    public sealed class PlaybackConfigurationHlsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackConfigurationHlsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         public PlaybackConfigurationHlsConfigurationArgs()
         {
         }
+        public static new PlaybackConfigurationHlsConfigurationArgs Empty => new PlaybackConfigurationHlsConfigurationArgs();
     }
 }

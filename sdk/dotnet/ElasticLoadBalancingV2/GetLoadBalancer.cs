@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     }
 
 
-    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetLoadBalancerArgs()
         {
         }
+        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public GetLoadBalancerInvokeArgs()
         {
         }
+        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class ConnectionBasicAuthParametersArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionBasicAuthParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public ConnectionBasicAuthParametersArgs()
         {
         }
+        public static new ConnectionBasicAuthParametersArgs Empty => new ConnectionBasicAuthParametersArgs();
     }
 }

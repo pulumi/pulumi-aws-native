@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The route table ID.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetRouteTableArgs()
         {
         }
+        public static new GetRouteTableArgs Empty => new GetRouteTableArgs();
     }
 
-    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The route table ID.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetRouteTableInvokeArgs()
         {
         }
+        public static new GetRouteTableInvokeArgs Empty => new GetRouteTableInvokeArgs();
     }
 
 

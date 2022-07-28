@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// A collection of settings that configure user interaction with the RStudioServerPro app.
     /// </summary>
-    public sealed class UserProfileRStudioServerProAppSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileRStudioServerProAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether the current user has access to the RStudioServerPro app.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public UserProfileRStudioServerProAppSettingsArgs()
         {
         }
+        public static new UserProfileRStudioServerProAppSettingsArgs Empty => new UserProfileRStudioServerProAppSettingsArgs();
     }
 }

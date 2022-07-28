@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupMixedInstancesPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupMixedInstancesPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("instancesDistribution")]
         public Input<Inputs.AutoScalingGroupInstancesDistributionArgs>? InstancesDistribution { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupMixedInstancesPolicyArgs()
         {
         }
+        public static new AutoScalingGroupMixedInstancesPolicyArgs Empty => new AutoScalingGroupMixedInstancesPolicyArgs();
     }
 }

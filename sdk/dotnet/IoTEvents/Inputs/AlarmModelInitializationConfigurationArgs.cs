@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
     /// </summary>
-    public sealed class AlarmModelInitializationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelInitializationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelInitializationConfigurationArgs()
         {
         }
+        public static new AlarmModelInitializationConfigurationArgs Empty => new AlarmModelInitializationConfigurationArgs();
     }
 }

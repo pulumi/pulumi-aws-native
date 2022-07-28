@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class ChannelServiceManagedS3Args : Pulumi.ResourceArgs
+    public sealed class ChannelServiceManagedS3Args : global::Pulumi.ResourceArgs
     {
         public ChannelServiceManagedS3Args()
         {
         }
+        public static new ChannelServiceManagedS3Args Empty => new ChannelServiceManagedS3Args();
     }
 }

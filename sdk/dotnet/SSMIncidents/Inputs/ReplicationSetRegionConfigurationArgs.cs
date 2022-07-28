@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// The ReplicationSet regional configuration.
     /// </summary>
-    public sealed class ReplicationSetRegionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSetRegionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sseKmsKeyId", required: true)]
         public Input<string> SseKmsKeyId { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ReplicationSetRegionConfigurationArgs()
         {
         }
+        public static new ReplicationSetRegionConfigurationArgs Empty => new ReplicationSetRegionConfigurationArgs();
     }
 }

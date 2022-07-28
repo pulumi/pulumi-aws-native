@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class WebACLRuleGroupReferenceStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRuleGroupReferenceStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLRuleGroupReferenceStatementArgs()
         {
         }
+        public static new WebACLRuleGroupReferenceStatementArgs Empty => new WebACLRuleGroupReferenceStatementArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the connection.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Events
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the connection.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Events
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

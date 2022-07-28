@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// <summary>
     /// The resource element of a ResourceSet
     /// </summary>
-    public sealed class ResourceSetResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The component identifier of the resource, generated when DNS target resource is used.
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public ResourceSetResourceArgs()
         {
         }
+        public static new ResourceSetResourceArgs Empty => new ResourceSetResourceArgs();
     }
 }

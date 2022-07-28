@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Inputs
     /// <summary>
     /// The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
     /// </summary>
-    public sealed class ProviderDefaultTagsArgs : Pulumi.ResourceArgs
+    public sealed class ProviderDefaultTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Inputs
         public ProviderDefaultTagsArgs()
         {
         }
+        public static new ProviderDefaultTagsArgs Empty => new ProviderDefaultTagsArgs();
     }
 }

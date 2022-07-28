@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioSelectors")]
         private InputList<Inputs.ChannelAudioSelectorArgs>? _audioSelectors;
@@ -58,5 +58,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputSettingsArgs()
         {
         }
+        public static new ChannelInputSettingsArgs Empty => new ChannelInputSettingsArgs();
     }
 }

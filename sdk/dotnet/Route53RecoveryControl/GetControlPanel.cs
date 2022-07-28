@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     }
 
 
-    public sealed class GetControlPanelArgs : Pulumi.InvokeArgs
+    public sealed class GetControlPanelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public GetControlPanelArgs()
         {
         }
+        public static new GetControlPanelArgs Empty => new GetControlPanelArgs();
     }
 
-    public sealed class GetControlPanelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetControlPanelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public GetControlPanelInvokeArgs()
         {
         }
+        public static new GetControlPanelInvokeArgs Empty => new GetControlPanelInvokeArgs();
     }
 
 

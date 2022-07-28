@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ClientVpnEndpointClientLoginBannerOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ClientVpnEndpointClientLoginBannerOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bannerText")]
         public Input<string>? BannerText { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public ClientVpnEndpointClientLoginBannerOptionsArgs()
         {
         }
+        public static new ClientVpnEndpointClientLoginBannerOptionsArgs Empty => new ClientVpnEndpointClientLoginBannerOptionsArgs();
     }
 }

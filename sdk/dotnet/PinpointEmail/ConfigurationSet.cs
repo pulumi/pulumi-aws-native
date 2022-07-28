@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     /// </summary>
     [Obsolete(@"ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpointemail:ConfigurationSet")]
-    public partial class ConfigurationSet : Pulumi.CustomResource
+    public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
         [Output("deliveryOptions")]
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         }
     }
 
-    public sealed class ConfigurationSetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.PinpointEmail
         public ConfigurationSetArgs()
         {
         }
+        public static new ConfigurationSetArgs Empty => new ConfigurationSetArgs();
     }
 }

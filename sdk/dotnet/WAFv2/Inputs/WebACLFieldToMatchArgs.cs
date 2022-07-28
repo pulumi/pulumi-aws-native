@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Field of the request to match.
     /// </summary>
-    public sealed class WebACLFieldToMatchArgs : Pulumi.ResourceArgs
+    public sealed class WebACLFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// All query arguments of a web request.
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLFieldToMatchArgs()
         {
         }
+        public static new WebACLFieldToMatchArgs Empty => new WebACLFieldToMatchArgs();
     }
 }

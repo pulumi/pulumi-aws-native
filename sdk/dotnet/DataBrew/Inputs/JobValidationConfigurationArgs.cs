@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// Configuration to attach Rulesets to the job
     /// </summary>
-    public sealed class JobValidationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class JobValidationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arn of the Ruleset
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public JobValidationConfigurationArgs()
         {
         }
+        public static new JobValidationConfigurationArgs Empty => new JobValidationConfigurationArgs();
     }
 }

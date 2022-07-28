@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SES
     /// </summary>
     [Obsolete(@"ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ReceiptFilter")]
-    public partial class ReceiptFilter : Pulumi.CustomResource
+    public partial class ReceiptFilter : global::Pulumi.CustomResource
     {
         [Output("filter")]
         public Output<Outputs.ReceiptFilterFilter> Filter { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.SES
         }
     }
 
-    public sealed class ReceiptFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         public Input<Inputs.ReceiptFilterFilterArgs> Filter { get; set; } = null!;
@@ -70,5 +70,6 @@ namespace Pulumi.AwsNative.SES
         public ReceiptFilterArgs()
         {
         }
+        public static new ReceiptFilterArgs Empty => new ReceiptFilterArgs();
     }
 }

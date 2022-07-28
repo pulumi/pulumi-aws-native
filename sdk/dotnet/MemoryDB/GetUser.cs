@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MemoryDB
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the user.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MemoryDB
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

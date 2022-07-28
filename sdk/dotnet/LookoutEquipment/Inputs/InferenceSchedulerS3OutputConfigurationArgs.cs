@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
     /// <summary>
     /// Specifies configuration information for the output results from the inference, including output S3 location.
     /// </summary>
-    public sealed class InferenceSchedulerS3OutputConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InferenceSchedulerS3OutputConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
         public InferenceSchedulerS3OutputConfigurationArgs()
         {
         }
+        public static new InferenceSchedulerS3OutputConfigurationArgs Empty => new InferenceSchedulerS3OutputConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Inspector.Inputs
 {
 
-    public sealed class AssessmentTemplateTagArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentTemplateTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Inspector.Inputs
         public AssessmentTemplateTagArgs()
         {
         }
+        public static new AssessmentTemplateTagArgs Empty => new AssessmentTemplateTagArgs();
     }
 }

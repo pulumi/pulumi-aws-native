@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainElasticsearchClusterConfigArgs : Pulumi.ResourceArgs
+    public sealed class DomainElasticsearchClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("coldStorageOptions")]
         public Input<Inputs.DomainColdStorageOptionsArgs>? ColdStorageOptions { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainElasticsearchClusterConfigArgs()
         {
         }
+        public static new DomainElasticsearchClusterConfigArgs Empty => new DomainElasticsearchClusterConfigArgs();
     }
 }

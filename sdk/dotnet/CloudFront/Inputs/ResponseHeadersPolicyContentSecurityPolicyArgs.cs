@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyContentSecurityPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyContentSecurityPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentSecurityPolicy", required: true)]
         public Input<string> ContentSecurityPolicy { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyContentSecurityPolicyArgs()
         {
         }
+        public static new ResponseHeadersPolicyContentSecurityPolicyArgs Empty => new ResponseHeadersPolicyContentSecurityPolicyArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
 
-    public sealed class GetScriptArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.GameLift
         public GetScriptArgs()
         {
         }
+        public static new GetScriptArgs Empty => new GetScriptArgs();
     }
 
-    public sealed class GetScriptInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScriptInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.GameLift
         public GetScriptInvokeArgs()
         {
         }
+        public static new GetScriptInvokeArgs Empty => new GetScriptInvokeArgs();
     }
 
 

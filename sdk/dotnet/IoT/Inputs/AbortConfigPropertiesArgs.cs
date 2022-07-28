@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The criteria that determine when and how a job abort takes place.
     /// </summary>
-    public sealed class AbortConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class AbortConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("criteriaList", required: true)]
         private InputList<Inputs.JobTemplateAbortCriteriaArgs>? _criteriaList;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public AbortConfigPropertiesArgs()
         {
         }
+        public static new AbortConfigPropertiesArgs Empty => new AbortConfigPropertiesArgs();
     }
 }

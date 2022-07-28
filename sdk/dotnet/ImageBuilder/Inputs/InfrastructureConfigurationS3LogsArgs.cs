@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// <summary>
     /// The S3 path in which to store the logs.
     /// </summary>
-    public sealed class InfrastructureConfigurationS3LogsArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationS3LogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3BucketName
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         public InfrastructureConfigurationS3LogsArgs()
         {
         }
+        public static new InfrastructureConfigurationS3LogsArgs Empty => new InfrastructureConfigurationS3LogsArgs();
     }
 }

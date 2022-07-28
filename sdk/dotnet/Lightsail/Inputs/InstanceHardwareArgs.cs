@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Hardware of the Instance.
     /// </summary>
-    public sealed class InstanceHardwareArgs : Pulumi.ResourceArgs
+    public sealed class InstanceHardwareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// CPU count of the Instance.
@@ -42,5 +42,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceHardwareArgs()
         {
         }
+        public static new InstanceHardwareArgs Empty => new InstanceHardwareArgs();
     }
 }

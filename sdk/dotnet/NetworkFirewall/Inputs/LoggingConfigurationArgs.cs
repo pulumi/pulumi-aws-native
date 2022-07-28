@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class LoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("logDestinationConfigs", required: true)]
         private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public LoggingConfigurationArgs()
         {
         }
+        public static new LoggingConfigurationArgs Empty => new LoggingConfigurationArgs();
     }
 }

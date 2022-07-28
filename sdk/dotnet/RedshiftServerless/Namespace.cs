@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
     /// Definition of AWS::RedshiftServerless::Namespace Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:redshiftserverless:Namespace")]
-    public partial class Namespace : Pulumi.CustomResource
+    public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         }
     }
 
-    public sealed class NamespaceArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
@@ -216,5 +216,6 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public NamespaceArgs()
         {
         }
+        public static new NamespaceArgs Empty => new NamespaceArgs();
     }
 }

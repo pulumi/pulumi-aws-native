@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
     /// </summary>
     [Obsolete(@"Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:managedblockchain:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         [Output("invitationId")]
         public Output<string?> InvitationId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 }

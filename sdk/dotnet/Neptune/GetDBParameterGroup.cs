@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Neptune
     }
 
 
-    public sealed class GetDBParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDBParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Neptune
         public GetDBParameterGroupArgs()
         {
         }
+        public static new GetDBParameterGroupArgs Empty => new GetDBParameterGroupArgs();
     }
 
-    public sealed class GetDBParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Neptune
         public GetDBParameterGroupInvokeArgs()
         {
         }
+        public static new GetDBParameterGroupInvokeArgs Empty => new GetDBParameterGroupInvokeArgs();
     }
 
 

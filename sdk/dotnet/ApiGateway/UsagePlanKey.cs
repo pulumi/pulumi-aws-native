@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlanKey")]
-    public partial class UsagePlanKey : Pulumi.CustomResource
+    public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the usage plan key.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class UsagePlanKeyArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the usage plan key.
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public UsagePlanKeyArgs()
         {
         }
+        public static new UsagePlanKeyArgs Empty => new UsagePlanKeyArgs();
     }
 }

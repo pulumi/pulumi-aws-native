@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WorkSpaces
     /// </summary>
     [Obsolete(@"Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:workspaces:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.WorkSpaces
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 }

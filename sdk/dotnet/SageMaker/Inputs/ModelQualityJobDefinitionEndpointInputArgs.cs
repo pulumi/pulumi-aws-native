@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The endpoint for a monitoring job.
     /// </summary>
-    public sealed class ModelQualityJobDefinitionEndpointInputArgs : Pulumi.ResourceArgs
+    public sealed class ModelQualityJobDefinitionEndpointInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Monitoring end time offset, e.g. PT0H
@@ -66,5 +66,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelQualityJobDefinitionEndpointInputArgs()
         {
         }
+        public static new ModelQualityJobDefinitionEndpointInputArgs Empty => new ModelQualityJobDefinitionEndpointInputArgs();
     }
 }

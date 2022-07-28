@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The configuration of an ML Detect Security Profile.
     /// </summary>
-    public sealed class SecurityProfileMachineLearningDetectionConfigArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileMachineLearningDetectionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileMachineLearningDetectionConfigArgs()
         {
         }
+        public static new SecurityProfileMachineLearningDetectionConfigArgs Empty => new SecurityProfileMachineLearningDetectionConfigArgs();
     }
 }

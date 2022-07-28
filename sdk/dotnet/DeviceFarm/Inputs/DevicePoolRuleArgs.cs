@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
     /// <summary>
     /// Represents a condition for a device pool.
     /// </summary>
-    public sealed class DevicePoolRuleArgs : Pulumi.ResourceArgs
+    public sealed class DevicePoolRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rule's stringified attribute.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
         public DevicePoolRuleArgs()
         {
         }
+        public static new DevicePoolRuleArgs Empty => new DevicePoolRuleArgs();
     }
 }

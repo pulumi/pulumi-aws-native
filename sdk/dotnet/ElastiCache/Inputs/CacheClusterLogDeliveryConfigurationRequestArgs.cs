@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
-    public sealed class CacheClusterLogDeliveryConfigurationRequestArgs : Pulumi.ResourceArgs
+    public sealed class CacheClusterLogDeliveryConfigurationRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationDetails", required: true)]
         public Input<Inputs.CacheClusterDestinationDetailsArgs> DestinationDetails { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         public CacheClusterLogDeliveryConfigurationRequestArgs()
         {
         }
+        public static new CacheClusterLogDeliveryConfigurationRequestArgs Empty => new CacheClusterLogDeliveryConfigurationRequestArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::Domain
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
@@ -225,5 +225,6 @@ namespace Pulumi.AwsNative.SageMaker
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

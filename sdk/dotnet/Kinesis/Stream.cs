@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kinesis
     /// Resource Type definition for AWS::Kinesis::Stream
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesis:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon resource name (ARN) of the Kinesis stream
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Kinesis
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kinesis stream.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.Kinesis
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 }

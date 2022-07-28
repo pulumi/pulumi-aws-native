@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyStatefulEngineOptionsArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyStatefulEngineOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleOrder")]
         public Input<Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder>? RuleOrder { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public FirewallPolicyStatefulEngineOptionsArgs()
         {
         }
+        public static new FirewallPolicyStatefulEngineOptionsArgs Empty => new FirewallPolicyStatefulEngineOptionsArgs();
     }
 }

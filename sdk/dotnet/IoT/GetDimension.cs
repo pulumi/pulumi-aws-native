@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
 
-    public sealed class GetDimensionArgs : Pulumi.InvokeArgs
+    public sealed class GetDimensionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the dimension.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoT
         public GetDimensionArgs()
         {
         }
+        public static new GetDimensionArgs Empty => new GetDimensionArgs();
     }
 
-    public sealed class GetDimensionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDimensionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique identifier for the dimension.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoT
         public GetDimensionInvokeArgs()
         {
         }
+        public static new GetDimensionInvokeArgs Empty => new GetDimensionInvokeArgs();
     }
 
 

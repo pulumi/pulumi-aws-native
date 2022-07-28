@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:RoleAlias")]
-    public partial class RoleAlias : Pulumi.CustomResource
+    public partial class RoleAlias : global::Pulumi.CustomResource
     {
         [Output("credentialDurationSeconds")]
         public Output<int?> CredentialDurationSeconds { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class RoleAliasArgs : Pulumi.ResourceArgs
+    public sealed class RoleAliasArgs : global::Pulumi.ResourceArgs
     {
         [Input("credentialDurationSeconds")]
         public Input<int>? CredentialDurationSeconds { get; set; }
@@ -95,5 +95,6 @@ namespace Pulumi.AwsNative.IoT
         public RoleAliasArgs()
         {
         }
+        public static new RoleAliasArgs Empty => new RoleAliasArgs();
     }
 }

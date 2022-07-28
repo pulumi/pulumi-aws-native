@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Details on S3 location for error reports that result from running a query.
     /// </summary>
-    public sealed class ScheduledQueryS3ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryS3ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryS3ConfigurationArgs()
         {
         }
+        public static new ScheduledQueryS3ConfigurationArgs Empty => new ScheduledQueryS3ConfigurationArgs();
     }
 }

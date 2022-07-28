@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53
     }
 
 
-    public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordSetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Route53
         public GetRecordSetArgs()
         {
         }
+        public static new GetRecordSetArgs Empty => new GetRecordSetArgs();
     }
 
-    public sealed class GetRecordSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Route53
         public GetRecordSetInvokeArgs()
         {
         }
+        public static new GetRecordSetInvokeArgs Empty => new GetRecordSetInvokeArgs();
     }
 
 

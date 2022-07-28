@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EKS
     }
 
 
-    public sealed class GetFargateProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetFargateProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Cluster
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.EKS
         public GetFargateProfileArgs()
         {
         }
+        public static new GetFargateProfileArgs Empty => new GetFargateProfileArgs();
     }
 
-    public sealed class GetFargateProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFargateProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Cluster
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.EKS
         public GetFargateProfileInvokeArgs()
         {
         }
+        public static new GetFargateProfileInvokeArgs Empty => new GetFargateProfileInvokeArgs();
     }
 
 

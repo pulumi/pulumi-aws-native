@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterProvisionedThroughputArgs : Pulumi.ResourceArgs
+    public sealed class ClusterProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterProvisionedThroughputArgs()
         {
         }
+        public static new ClusterProvisionedThroughputArgs Empty => new ClusterProvisionedThroughputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
     /// <summary>
     /// Fair Share Policy for the Job Queue.
     /// </summary>
-    public sealed class SchedulingPolicyFairsharePolicyArgs : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyFairsharePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeReservation")]
         public Input<double>? ComputeReservation { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public SchedulingPolicyFairsharePolicyArgs()
         {
         }
+        public static new SchedulingPolicyFairsharePolicyArgs Empty => new SchedulingPolicyFairsharePolicyArgs();
     }
 }

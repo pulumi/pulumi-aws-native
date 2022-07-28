@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class NetworkAclEntryPortRangeArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclEntryPortRangeArgs : global::Pulumi.ResourceArgs
     {
         [Input("from")]
         public Input<int>? From { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public NetworkAclEntryPortRangeArgs()
         {
         }
+        public static new NetworkAclEntryPortRangeArgs Empty => new NetworkAclEntryPortRangeArgs();
     }
 }

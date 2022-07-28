@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// Connect attachment options for protocol
     /// </summary>
-    public sealed class ConnectAttachmentOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectAttachmentOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tunnel protocol for connect attachment
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public ConnectAttachmentOptionsArgs()
         {
         }
+        public static new ConnectAttachmentOptionsArgs Empty => new ConnectAttachmentOptionsArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EFS
     }
 
 
-    public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetMountTargetArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EFS
         public GetMountTargetArgs()
         {
         }
+        public static new GetMountTargetArgs Empty => new GetMountTargetArgs();
     }
 
-    public sealed class GetMountTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMountTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EFS
         public GetMountTargetInvokeArgs()
         {
         }
+        public static new GetMountTargetInvokeArgs Empty => new GetMountTargetInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
     /// </summary>
-    public sealed class ModelPackageValidationSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageValidationSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("validationProfiles", required: true)]
         private InputList<Inputs.ModelPackageValidationProfileArgs>? _validationProfiles;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageValidationSpecificationArgs()
         {
         }
+        public static new ModelPackageValidationSpecificationArgs Empty => new ModelPackageValidationSpecificationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetBlockDeviceMappingArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetBlockDeviceMappingArgs()
         {
         }
+        public static new SpotFleetBlockDeviceMappingArgs Empty => new SpotFleetBlockDeviceMappingArgs();
     }
 }

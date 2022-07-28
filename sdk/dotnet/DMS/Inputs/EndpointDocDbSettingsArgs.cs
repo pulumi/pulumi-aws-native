@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointDocDbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDocDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("docsToInvestigate")]
         public Input<int>? DocsToInvestigate { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointDocDbSettingsArgs()
         {
         }
+        public static new EndpointDocDbSettingsArgs Empty => new EndpointDocDbSettingsArgs();
     }
 }

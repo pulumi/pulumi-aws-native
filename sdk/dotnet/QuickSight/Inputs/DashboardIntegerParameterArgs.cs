@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;An integer parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardIntegerParameterArgs : Pulumi.ResourceArgs
+    public sealed class DashboardIntegerParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The name of the integer parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardIntegerParameterArgs()
         {
         }
+        public static new DashboardIntegerParameterArgs Empty => new DashboardIntegerParameterArgs();
     }
 }

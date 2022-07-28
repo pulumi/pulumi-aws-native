@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::App
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the app.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.SageMaker
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 }

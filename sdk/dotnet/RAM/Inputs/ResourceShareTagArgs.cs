@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RAM.Inputs
 {
 
-    public sealed class ResourceShareTagArgs : Pulumi.ResourceArgs
+    public sealed class ResourceShareTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.RAM.Inputs
         public ResourceShareTagArgs()
         {
         }
+        public static new ResourceShareTagArgs Empty => new ResourceShareTagArgs();
     }
 }

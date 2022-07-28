@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DMS.Inputs
 {
 
-    public sealed class EndpointDynamoDbSettingsArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDynamoDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.DMS.Inputs
         public EndpointDynamoDbSettingsArgs()
         {
         }
+        public static new EndpointDynamoDbSettingsArgs Empty => new EndpointDynamoDbSettingsArgs();
     }
 }

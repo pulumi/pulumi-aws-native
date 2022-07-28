@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleTargetGroupTupleArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleTargetGroupTupleArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleTargetGroupTupleArgs()
         {
         }
+        public static new ListenerRuleTargetGroupTupleArgs Empty => new ListenerRuleTargetGroupTupleArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DirectoryService
     /// </summary>
     [Obsolete(@"MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:directoryservice:MicrosoftAD")]
-    public partial class MicrosoftAD : Pulumi.CustomResource
+    public partial class MicrosoftAD : global::Pulumi.CustomResource
     {
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.DirectoryService
         }
     }
 
-    public sealed class MicrosoftADArgs : Pulumi.ResourceArgs
+    public sealed class MicrosoftADArgs : global::Pulumi.ResourceArgs
     {
         [Input("createAlias")]
         public Input<bool>? CreateAlias { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.DirectoryService
         public MicrosoftADArgs()
         {
         }
+        public static new MicrosoftADArgs Empty => new MicrosoftADArgs();
     }
 }

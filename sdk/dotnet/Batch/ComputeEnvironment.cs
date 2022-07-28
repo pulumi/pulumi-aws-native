@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch
     /// Resource Type definition for AWS::Batch::ComputeEnvironment
     /// </summary>
     [AwsNativeResourceType("aws-native:batch:ComputeEnvironment")]
-    public partial class ComputeEnvironment : Pulumi.CustomResource
+    public partial class ComputeEnvironment : global::Pulumi.CustomResource
     {
         [Output("computeEnvironmentArn")]
         public Output<string> ComputeEnvironmentArn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Batch
         }
     }
 
-    public sealed class ComputeEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }
@@ -126,5 +126,6 @@ namespace Pulumi.AwsNative.Batch
         public ComputeEnvironmentArgs()
         {
         }
+        public static new ComputeEnvironmentArgs Empty => new ComputeEnvironmentArgs();
     }
 }

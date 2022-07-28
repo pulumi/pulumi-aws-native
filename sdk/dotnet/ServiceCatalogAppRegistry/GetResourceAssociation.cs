@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     }
 
 
-    public sealed class GetResourceAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public GetResourceAssociationArgs()
         {
         }
+        public static new GetResourceAssociationArgs Empty => new GetResourceAssociationArgs();
     }
 
-    public sealed class GetResourceAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public GetResourceAssociationInvokeArgs()
         {
         }
+        public static new GetResourceAssociationInvokeArgs Empty => new GetResourceAssociationInvokeArgs();
     }
 
 

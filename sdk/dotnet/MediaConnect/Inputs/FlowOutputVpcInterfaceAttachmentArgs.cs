@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// <summary>
     /// The settings for attaching a VPC interface to an output.
     /// </summary>
-    public sealed class FlowOutputVpcInterfaceAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class FlowOutputVpcInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the VPC interface to use for this output.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public FlowOutputVpcInterfaceAttachmentArgs()
         {
         }
+        public static new FlowOutputVpcInterfaceAttachmentArgs Empty => new FlowOutputVpcInterfaceAttachmentArgs();
     }
 }

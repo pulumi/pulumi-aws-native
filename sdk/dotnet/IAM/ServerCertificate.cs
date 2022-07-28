@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::ServerCertificate
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:ServerCertificate")]
-    public partial class ServerCertificate : Pulumi.CustomResource
+    public partial class ServerCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the server certificate
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class ServerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ServerCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.IAM
         public ServerCertificateArgs()
         {
         }
+        public static new ServerCertificateArgs Empty => new ServerCertificateArgs();
     }
 }

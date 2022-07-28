@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch
     /// Resource Type definition for AWS::Batch::JobQueue
     /// </summary>
     [AwsNativeResourceType("aws-native:batch:JobQueue")]
-    public partial class JobQueue : Pulumi.CustomResource
+    public partial class JobQueue : global::Pulumi.CustomResource
     {
         [Output("computeEnvironmentOrder")]
         public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrder { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Batch
         }
     }
 
-    public sealed class JobQueueArgs : Pulumi.ResourceArgs
+    public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeEnvironmentOrder", required: true)]
         private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrder;
@@ -113,5 +113,6 @@ namespace Pulumi.AwsNative.Batch
         public JobQueueArgs()
         {
         }
+        public static new JobQueueArgs Empty => new JobQueueArgs();
     }
 }

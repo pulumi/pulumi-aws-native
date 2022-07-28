@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleSigV4AuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleSigV4AuthorizationArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleSigV4AuthorizationArgs()
         {
         }
+        public static new TopicRuleSigV4AuthorizationArgs Empty => new TopicRuleSigV4AuthorizationArgs();
     }
 }

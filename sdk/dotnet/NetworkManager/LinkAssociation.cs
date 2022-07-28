@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:LinkAssociation")]
-    public partial class LinkAssociation : Pulumi.CustomResource
+    public partial class LinkAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the device
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.NetworkManager
         }
     }
 
-    public sealed class LinkAssociationArgs : Pulumi.ResourceArgs
+    public sealed class LinkAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the device
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.NetworkManager
         public LinkAssociationArgs()
         {
         }
+        public static new LinkAssociationArgs Empty => new LinkAssociationArgs();
     }
 }

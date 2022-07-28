@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelQualityJobDefinition")]
-    public partial class ModelQualityJobDefinition : Pulumi.CustomResource
+    public partial class ModelQualityJobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the job definition was created.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelQualityJobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelQualityJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelQualityJobDefinitionArgs()
         {
         }
+        public static new ModelQualityJobDefinitionArgs Empty => new ModelQualityJobDefinitionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
 
-    public sealed class GetDBProxyEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetDBProxyEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.RDS
         public GetDBProxyEndpointArgs()
         {
         }
+        public static new GetDBProxyEndpointArgs Empty => new GetDBProxyEndpointArgs();
     }
 
-    public sealed class GetDBProxyEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDBProxyEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.RDS
         public GetDBProxyEndpointInvokeArgs()
         {
         }
+        public static new GetDBProxyEndpointInvokeArgs Empty => new GetDBProxyEndpointInvokeArgs();
     }
 
 

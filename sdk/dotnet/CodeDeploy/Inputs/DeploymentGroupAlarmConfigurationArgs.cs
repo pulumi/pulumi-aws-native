@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupAlarmConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupAlarmConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("alarms")]
         private InputList<Inputs.DeploymentGroupAlarmArgs>? _alarms;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupAlarmConfigurationArgs()
         {
         }
+        public static new DeploymentGroupAlarmConfigurationArgs Empty => new DeploymentGroupAlarmConfigurationArgs();
     }
 }

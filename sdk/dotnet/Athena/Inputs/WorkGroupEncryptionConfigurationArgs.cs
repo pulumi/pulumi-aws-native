@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// <summary>
     /// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
     /// </summary>
-    public sealed class WorkGroupEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionOption", required: true)]
         public Input<Pulumi.AwsNative.Athena.WorkGroupEncryptionOption> EncryptionOption { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public WorkGroupEncryptionConfigurationArgs()
         {
         }
+        public static new WorkGroupEncryptionConfigurationArgs Empty => new WorkGroupEncryptionConfigurationArgs();
     }
 }

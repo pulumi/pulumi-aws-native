@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
 
-    public sealed class GetRegexPatternSetArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the RegexPatternSet
@@ -48,9 +48,10 @@ namespace Pulumi.AwsNative.WAFv2
         public GetRegexPatternSetArgs()
         {
         }
+        public static new GetRegexPatternSetArgs Empty => new GetRegexPatternSetArgs();
     }
 
-    public sealed class GetRegexPatternSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Id of the RegexPatternSet
@@ -73,6 +74,7 @@ namespace Pulumi.AwsNative.WAFv2
         public GetRegexPatternSetInvokeArgs()
         {
         }
+        public static new GetRegexPatternSetInvokeArgs Empty => new GetRegexPatternSetInvokeArgs();
     }
 
 

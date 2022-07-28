@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueGreenDeploymentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueGreenDeploymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("deploymentReadyOption")]
         public Input<Inputs.DeploymentGroupDeploymentReadyOptionArgs>? DeploymentReadyOption { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupBlueGreenDeploymentConfigurationArgs()
         {
         }
+        public static new DeploymentGroupBlueGreenDeploymentConfigurationArgs Empty => new DeploymentGroupBlueGreenDeploymentConfigurationArgs();
     }
 }

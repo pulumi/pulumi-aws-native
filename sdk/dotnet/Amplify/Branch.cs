@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Amplify
     /// The AWS::Amplify::Branch resource creates a new branch within an app.
     /// </summary>
     [AwsNativeResourceType("aws-native:amplify:Branch")]
-    public partial class Branch : Pulumi.CustomResource
+    public partial class Branch : global::Pulumi.CustomResource
     {
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Amplify
         }
     }
 
-    public sealed class BranchArgs : Pulumi.ResourceArgs
+    public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -148,5 +148,6 @@ namespace Pulumi.AwsNative.Amplify
         public BranchArgs()
         {
         }
+        public static new BranchArgs Empty => new BranchArgs();
     }
 }

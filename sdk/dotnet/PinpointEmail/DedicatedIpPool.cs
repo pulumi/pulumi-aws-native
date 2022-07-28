@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     /// </summary>
     [Obsolete(@"DedicatedIpPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpointemail:DedicatedIpPool")]
-    public partial class DedicatedIpPool : Pulumi.CustomResource
+    public partial class DedicatedIpPool : global::Pulumi.CustomResource
     {
         [Output("poolName")]
         public Output<string?> PoolName { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         }
     }
 
-    public sealed class DedicatedIpPoolArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedIpPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.PinpointEmail
         public DedicatedIpPoolArgs()
         {
         }
+        public static new DedicatedIpPoolArgs Empty => new DedicatedIpPoolArgs();
     }
 }

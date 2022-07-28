@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.APS
     }
 
 
-    public sealed class GetRuleGroupsNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupsNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The RuleGroupsNamespace ARN.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.APS
         public GetRuleGroupsNamespaceArgs()
         {
         }
+        public static new GetRuleGroupsNamespaceArgs Empty => new GetRuleGroupsNamespaceArgs();
     }
 
-    public sealed class GetRuleGroupsNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRuleGroupsNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The RuleGroupsNamespace ARN.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.APS
         public GetRuleGroupsNamespaceInvokeArgs()
         {
         }
+        public static new GetRuleGroupsNamespaceInvokeArgs Empty => new GetRuleGroupsNamespaceInvokeArgs();
     }
 
 

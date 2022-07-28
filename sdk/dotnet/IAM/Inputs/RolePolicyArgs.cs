@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM.Inputs
     /// <summary>
     /// The inline policy document that is embedded in the specified IAM role.
     /// </summary>
-    public sealed class RolePolicyArgs : Pulumi.ResourceArgs
+    public sealed class RolePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IAM.Inputs
         public RolePolicyArgs()
         {
         }
+        public static new RolePolicyArgs Empty => new RolePolicyArgs();
     }
 }

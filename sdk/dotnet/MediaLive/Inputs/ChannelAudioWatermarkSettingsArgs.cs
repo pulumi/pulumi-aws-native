@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioWatermarkSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioWatermarkSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("nielsenWatermarksSettings")]
         public Input<Inputs.ChannelNielsenWatermarksSettingsArgs>? NielsenWatermarksSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioWatermarkSettingsArgs()
         {
         }
+        public static new ChannelAudioWatermarkSettingsArgs Empty => new ChannelAudioWatermarkSettingsArgs();
     }
 }

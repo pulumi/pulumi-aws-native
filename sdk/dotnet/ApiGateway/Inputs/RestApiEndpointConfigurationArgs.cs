@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class RestApiEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RestApiEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("types")]
         private InputList<string>? _types;
@@ -31,5 +31,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public RestApiEndpointConfigurationArgs()
         {
         }
+        public static new RestApiEndpointConfigurationArgs Empty => new RestApiEndpointConfigurationArgs();
     }
 }

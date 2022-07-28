@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeBuild.Inputs
 {
 
-    public sealed class ProjectEnvironmentVariableArgs : Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public ProjectEnvironmentVariableArgs()
         {
         }
+        public static new ProjectEnvironmentVariableArgs Empty => new ProjectEnvironmentVariableArgs();
     }
 }

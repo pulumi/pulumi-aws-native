@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolUserAttributeUpdateSettingsArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolUserAttributeUpdateSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributesRequireVerificationBeforeUpdate", required: true)]
         private InputList<string>? _attributesRequireVerificationBeforeUpdate;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolUserAttributeUpdateSettingsArgs()
         {
         }
+        public static new UserPoolUserAttributeUpdateSettingsArgs Empty => new UserPoolUserAttributeUpdateSettingsArgs();
     }
 }

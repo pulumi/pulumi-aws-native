@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelUdpOutputSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelUdpOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bufferMsec")]
         public Input<int>? BufferMsec { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelUdpOutputSettingsArgs()
         {
         }
+        public static new ChannelUdpOutputSettingsArgs Empty => new ChannelUdpOutputSettingsArgs();
     }
 }

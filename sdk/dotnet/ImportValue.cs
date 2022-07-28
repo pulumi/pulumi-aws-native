@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative
     }
 
 
-    public sealed class ImportValueArgs : Pulumi.InvokeArgs
+    public sealed class ImportValueArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -27,9 +27,10 @@ namespace Pulumi.AwsNative
         public ImportValueArgs()
         {
         }
+        public static new ImportValueArgs Empty => new ImportValueArgs();
     }
 
-    public sealed class ImportValueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class ImportValueInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -37,6 +38,7 @@ namespace Pulumi.AwsNative
         public ImportValueInvokeArgs()
         {
         }
+        public static new ImportValueInvokeArgs Empty => new ImportValueInvokeArgs();
     }
 
 

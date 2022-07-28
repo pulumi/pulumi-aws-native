@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"DevEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:DevEndpoint")]
-    public partial class DevEndpoint : Pulumi.CustomResource
+    public partial class DevEndpoint : global::Pulumi.CustomResource
     {
         [Output("arguments")]
         public Output<object?> Arguments { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class DevEndpointArgs : Pulumi.ResourceArgs
+    public sealed class DevEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         public Input<object>? Arguments { get; set; }
@@ -164,5 +164,6 @@ namespace Pulumi.AwsNative.Glue
         public DevEndpointArgs()
         {
         }
+        public static new DevEndpointArgs Empty => new DevEndpointArgs();
     }
 }

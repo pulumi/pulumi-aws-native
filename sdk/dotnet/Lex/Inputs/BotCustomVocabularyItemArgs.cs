@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
     /// </summary>
-    public sealed class BotCustomVocabularyItemArgs : Pulumi.ResourceArgs
+    public sealed class BotCustomVocabularyItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Phrase that should be recognized.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotCustomVocabularyItemArgs()
         {
         }
+        public static new BotCustomVocabularyItemArgs Empty => new BotCustomVocabularyItemArgs();
     }
 }

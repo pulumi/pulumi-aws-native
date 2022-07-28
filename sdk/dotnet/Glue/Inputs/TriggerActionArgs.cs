@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class TriggerActionArgs : Pulumi.ResourceArgs
+    public sealed class TriggerActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         public Input<object>? Arguments { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public TriggerActionArgs()
         {
         }
+        public static new TriggerActionArgs Empty => new TriggerActionArgs();
     }
 }

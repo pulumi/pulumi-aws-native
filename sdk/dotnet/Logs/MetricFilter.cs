@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Logs
     /// </summary>
     [Obsolete(@"MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:MetricFilter")]
-    public partial class MetricFilter : Pulumi.CustomResource
+    public partial class MetricFilter : global::Pulumi.CustomResource
     {
         [Output("filterPattern")]
         public Output<string> FilterPattern { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Logs
         }
     }
 
-    public sealed class MetricFilterArgs : Pulumi.ResourceArgs
+    public sealed class MetricFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterPattern", required: true)]
         public Input<string> FilterPattern { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.Logs
         public MetricFilterArgs()
         {
         }
+        public static new MetricFilterArgs Empty => new MetricFilterArgs();
     }
 }

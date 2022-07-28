@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowZendeskSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowZendeskSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowZendeskSourcePropertiesArgs()
         {
         }
+        public static new FlowZendeskSourcePropertiesArgs Empty => new FlowZendeskSourcePropertiesArgs();
     }
 }

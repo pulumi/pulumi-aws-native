@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// </summary>
     [Obsolete(@"EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:EndpointConfig")]
-    public partial class EndpointConfig : Pulumi.CustomResource
+    public partial class EndpointConfig : global::Pulumi.CustomResource
     {
         [Output("asyncInferenceConfig")]
         public Output<Outputs.EndpointConfigAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class EndpointConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("asyncInferenceConfig")]
         public Input<Inputs.EndpointConfigAsyncInferenceConfigArgs>? AsyncInferenceConfig { get; set; }
@@ -110,5 +110,6 @@ namespace Pulumi.AwsNative.SageMaker
         public EndpointConfigArgs()
         {
         }
+        public static new EndpointConfigArgs Empty => new EndpointConfigArgs();
     }
 }

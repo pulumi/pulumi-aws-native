@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CE
     }
 
 
-    public sealed class GetAnomalySubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalySubscriptionArgs : global::Pulumi.InvokeArgs
     {
         [Input("subscriptionArn", required: true)]
         public string SubscriptionArn { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CE
         public GetAnomalySubscriptionArgs()
         {
         }
+        public static new GetAnomalySubscriptionArgs Empty => new GetAnomalySubscriptionArgs();
     }
 
-    public sealed class GetAnomalySubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnomalySubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("subscriptionArn", required: true)]
         public Input<string> SubscriptionArn { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CE
         public GetAnomalySubscriptionInvokeArgs()
         {
         }
+        public static new GetAnomalySubscriptionInvokeArgs Empty => new GetAnomalySubscriptionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterScalingActionArgs : Pulumi.ResourceArgs
+    public sealed class ClusterScalingActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("market")]
         public Input<string>? Market { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterScalingActionArgs()
         {
         }
+        public static new ClusterScalingActionArgs Empty => new ClusterScalingActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelMsSmoothGroupSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelMsSmoothGroupSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("acquisitionPointId")]
         public Input<string>? AcquisitionPointId { get; set; }
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelMsSmoothGroupSettingsArgs()
         {
         }
+        public static new ChannelMsSmoothGroupSettingsArgs Empty => new ChannelMsSmoothGroupSettingsArgs();
     }
 }

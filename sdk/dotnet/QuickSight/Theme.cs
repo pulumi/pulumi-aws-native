@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// Definition of the AWS::QuickSight::Theme Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Theme")]
-    public partial class Theme : Pulumi.CustomResource
+    public partial class Theme : global::Pulumi.CustomResource
     {
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
     }
 
-    public sealed class ThemeArgs : Pulumi.ResourceArgs
+    public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -193,5 +193,6 @@ namespace Pulumi.AwsNative.QuickSight
         public ThemeArgs()
         {
         }
+        public static new ThemeArgs Empty => new ThemeArgs();
     }
 }

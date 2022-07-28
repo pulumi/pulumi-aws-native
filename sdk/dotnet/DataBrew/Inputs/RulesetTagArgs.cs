@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource
     /// </summary>
-    public sealed class RulesetTagArgs : Pulumi.ResourceArgs
+    public sealed class RulesetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RulesetTagArgs()
         {
         }
+        public static new RulesetTagArgs Empty => new RulesetTagArgs();
     }
 }

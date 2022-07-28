@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Allow traffic towards application.
     /// </summary>
-    public sealed class WebACLCountActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLCountActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customRequestHandling")]
         public Input<Inputs.WebACLCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLCountActionArgs()
         {
         }
+        public static new WebACLCountActionArgs Empty => new WebACLCountActionArgs();
     }
 }

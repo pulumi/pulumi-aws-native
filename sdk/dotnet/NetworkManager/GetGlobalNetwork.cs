@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetGlobalNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the global network.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetGlobalNetworkArgs()
         {
         }
+        public static new GetGlobalNetworkArgs Empty => new GetGlobalNetworkArgs();
     }
 
-    public sealed class GetGlobalNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the global network.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetGlobalNetworkInvokeArgs()
         {
         }
+        public static new GetGlobalNetworkInvokeArgs Empty => new GetGlobalNetworkInvokeArgs();
     }
 
 

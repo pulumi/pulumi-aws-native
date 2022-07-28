@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// <summary>
     /// The Athena engine version for running queries.
     /// </summary>
-    public sealed class WorkGroupEngineVersionArgs : Pulumi.ResourceArgs
+    public sealed class WorkGroupEngineVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("effectiveEngineVersion")]
         public Input<string>? EffectiveEngineVersion { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public WorkGroupEngineVersionArgs()
         {
         }
+        public static new WorkGroupEngineVersionArgs Empty => new WorkGroupEngineVersionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class DirectoryConfigServiceAccountCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryConfigServiceAccountCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public DirectoryConfigServiceAccountCredentialsArgs()
         {
         }
+        public static new DirectoryConfigServiceAccountCredentialsArgs Empty => new DirectoryConfigServiceAccountCredentialsArgs();
     }
 }

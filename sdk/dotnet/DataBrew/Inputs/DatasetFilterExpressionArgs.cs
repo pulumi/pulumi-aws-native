@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetFilterExpressionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetFilterExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Filtering expression for a parameter
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetFilterExpressionArgs()
         {
         }
+        public static new DatasetFilterExpressionArgs Empty => new DatasetFilterExpressionArgs();
     }
 }

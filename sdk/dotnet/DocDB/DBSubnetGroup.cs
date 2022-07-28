@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DocDB
     /// </summary>
     [Obsolete(@"DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:docdb:DBSubnetGroup")]
-    public partial class DBSubnetGroup : Pulumi.CustomResource
+    public partial class DBSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("dBSubnetGroupDescription")]
         public Output<string> DBSubnetGroupDescription { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.DocDB
         }
     }
 
-    public sealed class DBSubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class DBSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("dBSubnetGroupDescription", required: true)]
         public Input<string> DBSubnetGroupDescription { get; set; } = null!;
@@ -98,5 +98,6 @@ namespace Pulumi.AwsNative.DocDB
         public DBSubnetGroupArgs()
         {
         }
+        public static new DBSubnetGroupArgs Empty => new DBSubnetGroupArgs();
     }
 }

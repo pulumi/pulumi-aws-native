@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Information needed to set the timer.
     /// </summary>
-    public sealed class DetectorModelSetTimerArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelSetTimerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.&lt;variable-name&gt;`), and input values (`$input.&lt;input-name&gt;.&lt;path-to-datum&gt;`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelSetTimerArgs()
         {
         }
+        public static new DetectorModelSetTimerArgs Empty => new DetectorModelSetTimerArgs();
     }
 }

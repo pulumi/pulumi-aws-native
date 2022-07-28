@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"FunctionDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:FunctionDefinition")]
-    public partial class FunctionDefinition : Pulumi.CustomResource
+    public partial class FunctionDefinition : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class FunctionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("initialVersion")]
         public Input<Inputs.FunctionDefinitionVersionArgs>? InitialVersion { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Greengrass
         public FunctionDefinitionArgs()
         {
         }
+        public static new FunctionDefinitionArgs Empty => new FunctionDefinitionArgs();
     }
 }

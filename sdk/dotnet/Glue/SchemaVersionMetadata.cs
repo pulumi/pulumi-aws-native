@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Glue
     /// This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:SchemaVersionMetadata")]
-    public partial class SchemaVersionMetadata : Pulumi.CustomResource
+    public partial class SchemaVersionMetadata : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Metadata key
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class SchemaVersionMetadataArgs : Pulumi.ResourceArgs
+    public sealed class SchemaVersionMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Metadata key
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.Glue
         public SchemaVersionMetadataArgs()
         {
         }
+        public static new SchemaVersionMetadataArgs Empty => new SchemaVersionMetadataArgs();
     }
 }

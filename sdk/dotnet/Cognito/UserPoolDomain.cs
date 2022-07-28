@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolDomain")]
-    public partial class UserPoolDomain : Pulumi.CustomResource
+    public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
         [Output("customDomainConfig")]
         public Output<Outputs.UserPoolDomainCustomDomainConfigType?> CustomDomainConfig { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolDomainArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolDomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("customDomainConfig")]
         public Input<Inputs.UserPoolDomainCustomDomainConfigTypeArgs>? CustomDomainConfig { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolDomainArgs()
         {
         }
+        public static new UserPoolDomainArgs Empty => new UserPoolDomainArgs();
     }
 }

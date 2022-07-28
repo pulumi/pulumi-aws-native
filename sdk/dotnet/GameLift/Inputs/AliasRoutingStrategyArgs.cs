@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
-    public sealed class AliasRoutingStrategyArgs : Pulumi.ResourceArgs
+    public sealed class AliasRoutingStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public AliasRoutingStrategyArgs()
         {
         }
+        public static new AliasRoutingStrategyArgs Empty => new AliasRoutingStrategyArgs();
     }
 }

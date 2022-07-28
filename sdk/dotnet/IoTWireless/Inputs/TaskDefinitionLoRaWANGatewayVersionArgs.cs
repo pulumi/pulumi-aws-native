@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class TaskDefinitionLoRaWANGatewayVersionArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionLoRaWANGatewayVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("model")]
         public Input<string>? Model { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public TaskDefinitionLoRaWANGatewayVersionArgs()
         {
         }
+        public static new TaskDefinitionLoRaWANGatewayVersionArgs Empty => new TaskDefinitionLoRaWANGatewayVersionArgs();
     }
 }

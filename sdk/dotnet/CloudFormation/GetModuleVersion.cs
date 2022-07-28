@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetModuleVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetModuleVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetModuleVersionArgs()
         {
         }
+        public static new GetModuleVersionArgs Empty => new GetModuleVersionArgs();
     }
 
-    public sealed class GetModuleVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetModuleVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the module.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetModuleVersionInvokeArgs()
         {
         }
+        public static new GetModuleVersionInvokeArgs Empty => new GetModuleVersionInvokeArgs();
     }
 
 

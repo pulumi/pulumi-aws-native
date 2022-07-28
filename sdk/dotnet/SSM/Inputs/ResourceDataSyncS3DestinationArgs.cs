@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class ResourceDataSyncS3DestinationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncS3DestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public ResourceDataSyncS3DestinationArgs()
         {
         }
+        public static new ResourceDataSyncS3DestinationArgs Empty => new ResourceDataSyncS3DestinationArgs();
     }
 }

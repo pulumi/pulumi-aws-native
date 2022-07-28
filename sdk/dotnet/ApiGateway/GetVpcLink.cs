@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetVpcLinkArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetVpcLinkArgs()
         {
         }
+        public static new GetVpcLinkArgs Empty => new GetVpcLinkArgs();
     }
 
-    public sealed class GetVpcLinkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetVpcLinkInvokeArgs()
         {
         }
+        public static new GetVpcLinkInvokeArgs Empty => new GetVpcLinkInvokeArgs();
     }
 
 

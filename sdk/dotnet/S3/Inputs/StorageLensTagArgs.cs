@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    public sealed class StorageLensTagArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensTagArgs()
         {
         }
+        public static new StorageLensTagArgs Empty => new StorageLensTagArgs();
     }
 }

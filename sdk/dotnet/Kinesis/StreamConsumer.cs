@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Kinesis
     /// </summary>
     [Obsolete(@"StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesis:StreamConsumer")]
-    public partial class StreamConsumer : Pulumi.CustomResource
+    public partial class StreamConsumer : global::Pulumi.CustomResource
     {
         [Output("consumerARN")]
         public Output<string> ConsumerARN { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Kinesis
         }
     }
 
-    public sealed class StreamConsumerArgs : Pulumi.ResourceArgs
+    public sealed class StreamConsumerArgs : global::Pulumi.ResourceArgs
     {
         [Input("consumerName", required: true)]
         public Input<string> ConsumerName { get; set; } = null!;
@@ -85,5 +85,6 @@ namespace Pulumi.AwsNative.Kinesis
         public StreamConsumerArgs()
         {
         }
+        public static new StreamConsumerArgs Empty => new StreamConsumerArgs();
     }
 }

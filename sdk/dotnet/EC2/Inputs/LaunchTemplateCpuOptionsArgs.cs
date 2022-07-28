@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateCpuOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateCpuOptionsArgs()
         {
         }
+        public static new LaunchTemplateCpuOptionsArgs Empty => new LaunchTemplateCpuOptionsArgs();
     }
 }

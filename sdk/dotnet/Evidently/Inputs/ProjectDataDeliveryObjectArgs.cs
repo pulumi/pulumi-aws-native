@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Evidently.Inputs
     /// <summary>
     /// Destinations for data.
     /// </summary>
-    public sealed class ProjectDataDeliveryObjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectDataDeliveryObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public ProjectDataDeliveryObjectArgs()
         {
         }
+        public static new ProjectDataDeliveryObjectArgs Empty => new ProjectDataDeliveryObjectArgs();
     }
 }

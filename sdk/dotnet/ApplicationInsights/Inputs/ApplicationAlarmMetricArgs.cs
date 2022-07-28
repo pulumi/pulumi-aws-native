@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// A metric to be monitored for the component.
     /// </summary>
-    public sealed class ApplicationAlarmMetricArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAlarmMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the metric to be monitored for the component.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationAlarmMetricArgs()
         {
         }
+        public static new ApplicationAlarmMetricArgs Empty => new ApplicationAlarmMetricArgs();
     }
 }

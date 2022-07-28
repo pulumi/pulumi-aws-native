@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class OrganizationConfigRuleOrganizationCustomRuleMetadataArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigRuleOrganizationCustomRuleMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -52,5 +52,6 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public OrganizationConfigRuleOrganizationCustomRuleMetadataArgs()
         {
         }
+        public static new OrganizationConfigRuleOrganizationCustomRuleMetadataArgs Empty => new OrganizationConfigRuleOrganizationCustomRuleMetadataArgs();
     }
 }

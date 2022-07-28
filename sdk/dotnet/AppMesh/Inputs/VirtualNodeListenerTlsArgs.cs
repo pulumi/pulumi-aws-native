@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeListenerTlsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeListenerTlsArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificate", required: true)]
         public Input<Inputs.VirtualNodeListenerTlsCertificateArgs> Certificate { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeListenerTlsArgs()
         {
         }
+        public static new VirtualNodeListenerTlsArgs Empty => new VirtualNodeListenerTlsArgs();
     }
 }

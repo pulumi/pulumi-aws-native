@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleSageMakerPipelineParameterArgs : Pulumi.ResourceArgs
+    public sealed class RuleSageMakerPipelineParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleSageMakerPipelineParameterArgs()
         {
         }
+        public static new RuleSageMakerPipelineParameterArgs Empty => new RuleSageMakerPipelineParameterArgs();
     }
 }

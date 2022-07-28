@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamElasticsearchDestinationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamElasticsearchDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamElasticsearchBufferingHintsArgs>? BufferingHints { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamElasticsearchDestinationConfigurationArgs()
         {
         }
+        public static new DeliveryStreamElasticsearchDestinationConfigurationArgs Empty => new DeliveryStreamElasticsearchDestinationConfigurationArgs();
     }
 }

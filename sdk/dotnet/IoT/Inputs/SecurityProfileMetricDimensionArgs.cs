@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// The dimension of a metric.
     /// </summary>
-    public sealed class SecurityProfileMetricDimensionArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileMetricDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the dimension.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public SecurityProfileMetricDimensionArgs()
         {
         }
+        public static new SecurityProfileMetricDimensionArgs Empty => new SecurityProfileMetricDimensionArgs();
     }
 }

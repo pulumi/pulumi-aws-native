@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// The public domain name to use with the container service, such as example.com and www.example.com.
     /// </summary>
-    public sealed class ContainerPublicDomainNameArgs : Pulumi.ResourceArgs
+    public sealed class ContainerPublicDomainNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public ContainerPublicDomainNameArgs()
         {
         }
+        public static new ContainerPublicDomainNameArgs Empty => new ContainerPublicDomainNameArgs();
     }
 }

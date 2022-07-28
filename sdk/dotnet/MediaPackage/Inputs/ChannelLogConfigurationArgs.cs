@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
-    public sealed class ChannelLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public ChannelLogConfigurationArgs()
         {
         }
+        public static new ChannelLogConfigurationArgs Empty => new ChannelLogConfigurationArgs();
     }
 }

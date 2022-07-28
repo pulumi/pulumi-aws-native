@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:FirewallRuleGroup")]
-    public partial class FirewallRuleGroup : Pulumi.CustomResource
+    public partial class FirewallRuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class FirewallRuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("firewallRules")]
         private InputList<Inputs.FirewallRuleGroupFirewallRuleArgs>? _firewallRules;
@@ -165,5 +165,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public FirewallRuleGroupArgs()
         {
         }
+        public static new FirewallRuleGroupArgs Empty => new FirewallRuleGroupArgs();
     }
 }

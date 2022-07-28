@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceConnectionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceConnectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("databaseHost", required: true)]
         public Input<string> DatabaseHost { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceConnectionConfigurationArgs()
         {
         }
+        public static new DataSourceConnectionConfigurationArgs Empty => new DataSourceConnectionConfigurationArgs();
     }
 }

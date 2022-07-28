@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// AWS Route53 Recovery Control Routing Control resource schema .
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:RoutingControl")]
-    public partial class RoutingControl : Pulumi.CustomResource
+    public partial class RoutingControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn associated with Control Panel
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         }
     }
 
-    public sealed class RoutingControlArgs : Pulumi.ResourceArgs
+    public sealed class RoutingControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Arn associated with Control Panel
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public RoutingControlArgs()
         {
         }
+        public static new RoutingControlArgs Empty => new RoutingControlArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
     /// <summary>
     /// A string that contains insight types that are logged on a trail.
     /// </summary>
-    public sealed class TrailInsightSelectorArgs : Pulumi.ResourceArgs
+    public sealed class TrailInsightSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of insight to log on a trail.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
         public TrailInsightSelectorArgs()
         {
         }
+        public static new TrailInsightSelectorArgs Empty => new TrailInsightSelectorArgs();
     }
 }

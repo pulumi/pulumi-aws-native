@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class TopicRuleSnsActionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleSnsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("messageFormat")]
         public Input<string>? MessageFormat { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public TopicRuleSnsActionArgs()
         {
         }
+        public static new TopicRuleSnsActionArgs Empty => new TopicRuleSnsActionArgs();
     }
 }

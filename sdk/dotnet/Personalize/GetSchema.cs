@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Personalize
     }
 
 
-    public sealed class GetSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Arn for the schema.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Personalize
         public GetSchemaArgs()
         {
         }
+        public static new GetSchemaArgs Empty => new GetSchemaArgs();
     }
 
-    public sealed class GetSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Arn for the schema.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Personalize
         public GetSchemaInvokeArgs()
         {
         }
+        public static new GetSchemaInvokeArgs Empty => new GetSchemaInvokeArgs();
     }
 
 

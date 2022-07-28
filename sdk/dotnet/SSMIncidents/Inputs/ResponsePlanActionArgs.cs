@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
     /// <summary>
     /// The automation configuration to launch.
     /// </summary>
-    public sealed class ResponsePlanActionArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlanActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("ssmAutomation")]
         public Input<Inputs.ResponsePlanSsmAutomationArgs>? SsmAutomation { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         public ResponsePlanActionArgs()
         {
         }
+        public static new ResponsePlanActionArgs Empty => new ResponsePlanActionArgs();
     }
 }

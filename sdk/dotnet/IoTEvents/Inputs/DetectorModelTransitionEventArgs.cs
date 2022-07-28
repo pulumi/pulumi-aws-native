@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Specifies the `actions `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
     /// </summary>
-    public sealed class DetectorModelTransitionEventArgs : Pulumi.ResourceArgs
+    public sealed class DetectorModelTransitionEventArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.DetectorModelActionArgs>? _actions;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public DetectorModelTransitionEventArgs()
         {
         }
+        public static new DetectorModelTransitionEventArgs Empty => new DetectorModelTransitionEventArgs();
     }
 }

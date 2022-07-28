@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"CloudFormationProduct is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:CloudFormationProduct")]
-    public partial class CloudFormationProduct : Pulumi.CustomResource
+    public partial class CloudFormationProduct : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class CloudFormationProductArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationProductArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -149,5 +149,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public CloudFormationProductArgs()
         {
         }
+        public static new CloudFormationProductArgs Empty => new CloudFormationProductArgs();
     }
 }

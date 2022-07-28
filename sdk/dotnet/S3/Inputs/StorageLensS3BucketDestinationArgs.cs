@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
     /// </summary>
-    public sealed class StorageLensS3BucketDestinationArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensS3BucketDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID that owns the destination S3 bucket.
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensS3BucketDestinationArgs()
         {
         }
+        public static new StorageLensS3BucketDestinationArgs Empty => new StorageLensS3BucketDestinationArgs();
     }
 }

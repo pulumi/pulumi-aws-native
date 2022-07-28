@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class StreamingDistributionConfigArgs : Pulumi.ResourceArgs
+    public sealed class StreamingDistributionConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
@@ -41,5 +41,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public StreamingDistributionConfigArgs()
         {
         }
+        public static new StreamingDistributionConfigArgs Empty => new StreamingDistributionConfigArgs();
     }
 }

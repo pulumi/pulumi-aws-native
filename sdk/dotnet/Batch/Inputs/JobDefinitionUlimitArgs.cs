@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionUlimitArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionUlimitArgs : global::Pulumi.ResourceArgs
     {
         [Input("hardLimit", required: true)]
         public Input<int> HardLimit { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionUlimitArgs()
         {
         }
+        public static new JobDefinitionUlimitArgs Empty => new JobDefinitionUlimitArgs();
     }
 }

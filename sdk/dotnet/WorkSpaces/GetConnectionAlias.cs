@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WorkSpaces
     }
 
 
-    public sealed class GetConnectionAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionAliasArgs : global::Pulumi.InvokeArgs
     {
         [Input("aliasId", required: true)]
         public string AliasId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.WorkSpaces
         public GetConnectionAliasArgs()
         {
         }
+        public static new GetConnectionAliasArgs Empty => new GetConnectionAliasArgs();
     }
 
-    public sealed class GetConnectionAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("aliasId", required: true)]
         public Input<string> AliasId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public GetConnectionAliasInvokeArgs()
         {
         }
+        public static new GetConnectionAliasInvokeArgs Empty => new GetConnectionAliasInvokeArgs();
     }
 
 

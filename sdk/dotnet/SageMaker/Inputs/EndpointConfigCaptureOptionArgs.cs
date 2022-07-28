@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class EndpointConfigCaptureOptionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigCaptureOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("captureMode", required: true)]
         public Input<string> CaptureMode { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public EndpointConfigCaptureOptionArgs()
         {
         }
+        public static new EndpointConfigCaptureOptionArgs Empty => new EndpointConfigCaptureOptionArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique primary identifier for a Resource
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetResourceArgs()
         {
         }
+        public static new GetResourceArgs Empty => new GetResourceArgs();
     }
 
-    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique primary identifier for a Resource
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetResourceInvokeArgs()
         {
         }
+        public static new GetResourceInvokeArgs Empty => new GetResourceInvokeArgs();
     }
 
 

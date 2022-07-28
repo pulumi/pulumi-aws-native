@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     }
 
 
-    public sealed class GetThemeArgs : Pulumi.InvokeArgs
+    public sealed class GetThemeArgs : global::Pulumi.InvokeArgs
     {
         [Input("appId", required: true)]
         public string AppId { get; set; } = null!;
@@ -39,9 +39,10 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public GetThemeArgs()
         {
         }
+        public static new GetThemeArgs Empty => new GetThemeArgs();
     }
 
-    public sealed class GetThemeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThemeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public GetThemeInvokeArgs()
         {
         }
+        public static new GetThemeInvokeArgs Empty => new GetThemeInvokeArgs();
     }
 
 

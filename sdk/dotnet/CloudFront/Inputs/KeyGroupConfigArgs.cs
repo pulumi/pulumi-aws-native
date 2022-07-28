@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class KeyGroupConfigArgs : Pulumi.ResourceArgs
+    public sealed class KeyGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public KeyGroupConfigArgs()
         {
         }
+        public static new KeyGroupConfigArgs Empty => new KeyGroupConfigArgs();
     }
 }

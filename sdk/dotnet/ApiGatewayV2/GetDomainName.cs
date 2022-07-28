@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     }
 
 
-    public sealed class GetDomainNameArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetDomainNameArgs()
         {
         }
+        public static new GetDomainNameArgs Empty => new GetDomainNameArgs();
     }
 
-    public sealed class GetDomainNameInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainNameInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public GetDomainNameInvokeArgs()
         {
         }
+        public static new GetDomainNameInvokeArgs Empty => new GetDomainNameInvokeArgs();
     }
 
 

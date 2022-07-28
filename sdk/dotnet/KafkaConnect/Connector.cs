@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect
     /// Resource Type definition for AWS::KafkaConnect::Connector
     /// </summary>
     [AwsNativeResourceType("aws-native:kafkaconnect:Connector")]
-    public partial class Connector : Pulumi.CustomResource
+    public partial class Connector : global::Pulumi.CustomResource
     {
         [Output("capacity")]
         public Output<Outputs.ConnectorCapacity> Capacity { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         }
     }
 
-    public sealed class ConnectorArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacity", required: true)]
         public Input<Inputs.ConnectorCapacityArgs> Capacity { get; set; } = null!;
@@ -183,5 +183,6 @@ namespace Pulumi.AwsNative.KafkaConnect
         public ConnectorArgs()
         {
         }
+        public static new ConnectorArgs Empty => new ConnectorArgs();
     }
 }

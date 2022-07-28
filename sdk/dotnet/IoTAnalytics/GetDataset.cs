@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     }
 
 
-    public sealed class GetDatasetArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
         [Input("datasetName", required: true)]
         public string DatasetName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public GetDatasetArgs()
         {
         }
+        public static new GetDatasetArgs Empty => new GetDatasetArgs();
     }
 
-    public sealed class GetDatasetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("datasetName", required: true)]
         public Input<string> DatasetName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public GetDatasetInvokeArgs()
         {
         }
+        public static new GetDatasetInvokeArgs Empty => new GetDatasetInvokeArgs();
     }
 
 

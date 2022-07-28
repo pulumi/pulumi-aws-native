@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.500 attribute type and value.
     /// </summary>
-    public sealed class CertificateAuthorityCustomAttributeArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityCustomAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("objectIdentifier", required: true)]
         public Input<string> ObjectIdentifier { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityCustomAttributeArgs()
         {
         }
+        public static new CertificateAuthorityCustomAttributeArgs Empty => new CertificateAuthorityCustomAttributeArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelH265FilterSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelH265FilterSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("temporalFilterSettings")]
         public Input<Inputs.ChannelTemporalFilterSettingsArgs>? TemporalFilterSettings { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelH265FilterSettingsArgs()
         {
         }
+        public static new ChannelH265FilterSettingsArgs Empty => new ChannelH265FilterSettingsArgs();
     }
 }

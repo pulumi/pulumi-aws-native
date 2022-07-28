@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Budgets
     /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:budgets:BudgetsAction")]
-    public partial class BudgetsAction : Pulumi.CustomResource
+    public partial class BudgetsAction : global::Pulumi.CustomResource
     {
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Budgets
         }
     }
 
-    public sealed class BudgetsActionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetsActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionThreshold", required: true)]
         public Input<Inputs.BudgetsActionActionThresholdArgs> ActionThreshold { get; set; } = null!;
@@ -119,5 +119,6 @@ namespace Pulumi.AwsNative.Budgets
         public BudgetsActionArgs()
         {
         }
+        public static new BudgetsActionArgs Empty => new BudgetsActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class FuotaTaskTagArgs : Pulumi.ResourceArgs
+    public sealed class FuotaTaskTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public FuotaTaskTagArgs()
         {
         }
+        public static new FuotaTaskTagArgs Empty => new FuotaTaskTagArgs();
     }
 }

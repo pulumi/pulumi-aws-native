@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Redshift
     /// </summary>
     [Obsolete(@"ClusterSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:redshift:ClusterSecurityGroupIngress")]
-    public partial class ClusterSecurityGroupIngress : Pulumi.CustomResource
+    public partial class ClusterSecurityGroupIngress : global::Pulumi.CustomResource
     {
         [Output("cIDRIP")]
         public Output<string?> CIDRIP { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Redshift
         }
     }
 
-    public sealed class ClusterSecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cIDRIP")]
         public Input<string>? CIDRIP { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Redshift
         public ClusterSecurityGroupIngressArgs()
         {
         }
+        public static new ClusterSecurityGroupIngressArgs Empty => new ClusterSecurityGroupIngressArgs();
     }
 }

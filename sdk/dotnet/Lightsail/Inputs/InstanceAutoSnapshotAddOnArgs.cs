@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
     /// </summary>
-    public sealed class InstanceAutoSnapshotAddOnArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAutoSnapshotAddOnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The daily time when an automatic snapshot will be created.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public InstanceAutoSnapshotAddOnArgs()
         {
         }
+        public static new InstanceAutoSnapshotAddOnArgs Empty => new InstanceAutoSnapshotAddOnArgs();
     }
 }

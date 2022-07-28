@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class ScalingPolicyMetricArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPolicyMetricArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.ScalingPolicyMetricDimensionArgs>? _dimensions;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public ScalingPolicyMetricArgs()
         {
         }
+        public static new ScalingPolicyMetricArgs Empty => new ScalingPolicyMetricArgs();
     }
 }

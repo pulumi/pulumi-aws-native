@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// </summary>
     [Obsolete(@"Macro is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudformation:Macro")]
-    public partial class Macro : Pulumi.CustomResource
+    public partial class Macro : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class MacroArgs : Pulumi.ResourceArgs
+    public sealed class MacroArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public MacroArgs()
         {
         }
+        public static new MacroArgs Empty => new MacroArgs();
     }
 }

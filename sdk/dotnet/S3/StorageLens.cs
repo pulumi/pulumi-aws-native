@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3
     /// The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:StorageLens")]
-    public partial class StorageLens : Pulumi.CustomResource
+    public partial class StorageLens : global::Pulumi.CustomResource
     {
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class StorageLensArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.S3
         public StorageLensArgs()
         {
         }
+        public static new StorageLensArgs Empty => new StorageLensArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleCapacityProviderStrategyItemArgs : Pulumi.ResourceArgs
+    public sealed class RuleCapacityProviderStrategyItemArgs : global::Pulumi.ResourceArgs
     {
         [Input("base")]
         public Input<int>? Base { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleCapacityProviderStrategyItemArgs()
         {
         }
+        public static new RuleCapacityProviderStrategyItemArgs Empty => new RuleCapacityProviderStrategyItemArgs();
     }
 }

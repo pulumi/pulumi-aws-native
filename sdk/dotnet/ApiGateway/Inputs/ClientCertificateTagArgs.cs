@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class ClientCertificateTagArgs : Pulumi.ResourceArgs
+    public sealed class ClientCertificateTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public ClientCertificateTagArgs()
         {
         }
+        public static new ClientCertificateTagArgs Empty => new ClientCertificateTagArgs();
     }
 }

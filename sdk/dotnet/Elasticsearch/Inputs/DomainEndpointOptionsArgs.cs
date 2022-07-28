@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Elasticsearch.Inputs
 {
 
-    public sealed class DomainEndpointOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainEndpointOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("customEndpoint")]
         public Input<string>? CustomEndpoint { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         public DomainEndpointOptionsArgs()
         {
         }
+        public static new DomainEndpointOptionsArgs Empty => new DomainEndpointOptionsArgs();
     }
 }

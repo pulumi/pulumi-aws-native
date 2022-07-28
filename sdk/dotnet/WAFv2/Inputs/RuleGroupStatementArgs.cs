@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     /// </summary>
-    public sealed class RuleGroupStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("andStatement")]
         public Input<Inputs.RuleGroupAndStatementArgs>? AndStatement { get; set; }
@@ -57,5 +57,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupStatementArgs()
         {
         }
+        public static new RuleGroupStatementArgs Empty => new RuleGroupStatementArgs();
     }
 }

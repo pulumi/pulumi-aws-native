@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EventSchemas
     /// </summary>
     [Obsolete(@"Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Registry")]
-    public partial class Registry : Pulumi.CustomResource
+    public partial class Registry : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EventSchemas
         }
     }
 
-    public sealed class RegistryArgs : Pulumi.ResourceArgs
+    public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.EventSchemas
         public RegistryArgs()
         {
         }
+        public static new RegistryArgs Empty => new RegistryArgs();
     }
 }

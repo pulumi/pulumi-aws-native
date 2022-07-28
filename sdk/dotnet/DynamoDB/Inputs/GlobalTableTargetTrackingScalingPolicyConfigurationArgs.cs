@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
-    public sealed class GlobalTableTargetTrackingScalingPolicyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GlobalTableTargetTrackingScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         public GlobalTableTargetTrackingScalingPolicyConfigurationArgs()
         {
         }
+        public static new GlobalTableTargetTrackingScalingPolicyConfigurationArgs Empty => new GlobalTableTargetTrackingScalingPolicyConfigurationArgs();
     }
 }

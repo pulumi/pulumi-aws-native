@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class ClusterInstanceGroupConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingPolicy")]
         public Input<Inputs.ClusterAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public ClusterInstanceGroupConfigArgs()
         {
         }
+        public static new ClusterInstanceGroupConfigArgs Empty => new ClusterInstanceGroupConfigArgs();
     }
 }

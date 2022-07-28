@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerAppCookieStickinessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerAppCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("cookieName", required: true)]
         public Input<string> CookieName { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public LoadBalancerAppCookieStickinessPolicyArgs()
         {
         }
+        public static new LoadBalancerAppCookieStickinessPolicyArgs Empty => new LoadBalancerAppCookieStickinessPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evidently.Inputs
 {
 
-    public sealed class FeatureEntityOverrideArgs : Pulumi.ResourceArgs
+    public sealed class FeatureEntityOverrideArgs : global::Pulumi.ResourceArgs
     {
         [Input("entityId")]
         public Input<string>? EntityId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         public FeatureEntityOverrideArgs()
         {
         }
+        public static new FeatureEntityOverrideArgs Empty => new FeatureEntityOverrideArgs();
     }
 }

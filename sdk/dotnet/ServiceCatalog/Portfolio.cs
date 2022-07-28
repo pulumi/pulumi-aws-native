@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// </summary>
     [Obsolete(@"Portfolio is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:Portfolio")]
-    public partial class Portfolio : Pulumi.CustomResource
+    public partial class Portfolio : global::Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
     }
 
-    public sealed class PortfolioArgs : Pulumi.ResourceArgs
+    public sealed class PortfolioArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public PortfolioArgs()
         {
         }
+        public static new PortfolioArgs Empty => new PortfolioArgs();
     }
 }

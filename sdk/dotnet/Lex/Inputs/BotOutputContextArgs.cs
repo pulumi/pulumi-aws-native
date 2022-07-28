@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A session context that is activated when an intent is fulfilled.
     /// </summary>
-    public sealed class BotOutputContextArgs : Pulumi.ResourceArgs
+    public sealed class BotOutputContextArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotOutputContextArgs()
         {
         }
+        public static new BotOutputContextArgs Empty => new BotOutputContextArgs();
     }
 }

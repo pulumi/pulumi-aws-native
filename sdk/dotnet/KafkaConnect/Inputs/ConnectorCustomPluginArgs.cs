@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Details about a custom plugin.
     /// </summary>
-    public sealed class ConnectorCustomPluginArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCustomPluginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom plugin to use.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorCustomPluginArgs()
         {
         }
+        public static new ConnectorCustomPluginArgs Empty => new ConnectorCustomPluginArgs();
     }
 }

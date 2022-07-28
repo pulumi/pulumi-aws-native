@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerSchemaChangePolicyArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerSchemaChangePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteBehavior")]
         public Input<string>? DeleteBehavior { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerSchemaChangePolicyArgs()
         {
         }
+        public static new CrawlerSchemaChangePolicyArgs Empty => new CrawlerSchemaChangePolicyArgs();
     }
 }

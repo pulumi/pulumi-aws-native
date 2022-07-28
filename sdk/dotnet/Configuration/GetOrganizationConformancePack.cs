@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetOrganizationConformancePackArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationConformancePackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the organization conformance pack.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetOrganizationConformancePackArgs()
         {
         }
+        public static new GetOrganizationConformancePackArgs Empty => new GetOrganizationConformancePackArgs();
     }
 
-    public sealed class GetOrganizationConformancePackInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrganizationConformancePackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the organization conformance pack.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetOrganizationConformancePackInvokeArgs()
         {
         }
+        public static new GetOrganizationConformancePackInvokeArgs Empty => new GetOrganizationConformancePackInvokeArgs();
     }
 
 

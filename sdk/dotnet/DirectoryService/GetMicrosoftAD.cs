@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DirectoryService
     }
 
 
-    public sealed class GetMicrosoftADArgs : Pulumi.InvokeArgs
+    public sealed class GetMicrosoftADArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.DirectoryService
         public GetMicrosoftADArgs()
         {
         }
+        public static new GetMicrosoftADArgs Empty => new GetMicrosoftADArgs();
     }
 
-    public sealed class GetMicrosoftADInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMicrosoftADInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.DirectoryService
         public GetMicrosoftADInvokeArgs()
         {
         }
+        public static new GetMicrosoftADInvokeArgs Empty => new GetMicrosoftADInvokeArgs();
     }
 
 

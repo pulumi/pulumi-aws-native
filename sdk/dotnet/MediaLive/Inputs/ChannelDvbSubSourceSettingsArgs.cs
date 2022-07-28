@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelDvbSubSourceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDvbSubSourceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("ocrLanguage")]
         public Input<string>? OcrLanguage { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelDvbSubSourceSettingsArgs()
         {
         }
+        public static new ChannelDvbSubSourceSettingsArgs Empty => new ChannelDvbSubSourceSettingsArgs();
     }
 }

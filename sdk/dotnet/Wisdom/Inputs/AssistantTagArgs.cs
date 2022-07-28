@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
-    public sealed class AssistantTagArgs : Pulumi.ResourceArgs
+    public sealed class AssistantTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         public AssistantTagArgs()
         {
         }
+        public static new AssistantTagArgs Empty => new AssistantTagArgs();
     }
 }

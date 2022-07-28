@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterPrometheusArgs : Pulumi.ResourceArgs
+    public sealed class ClusterPrometheusArgs : global::Pulumi.ResourceArgs
     {
         [Input("jmxExporter")]
         public Input<Inputs.ClusterJmxExporterArgs>? JmxExporter { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterPrometheusArgs()
         {
         }
+        public static new ClusterPrometheusArgs Empty => new ClusterPrometheusArgs();
     }
 }

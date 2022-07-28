@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class WarmPoolInstanceReusePolicyArgs : Pulumi.ResourceArgs
+    public sealed class WarmPoolInstanceReusePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("reuseOnScaleIn")]
         public Input<bool>? ReuseOnScaleIn { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public WarmPoolInstanceReusePolicyArgs()
         {
         }
+        public static new WarmPoolInstanceReusePolicyArgs Empty => new WarmPoolInstanceReusePolicyArgs();
     }
 }

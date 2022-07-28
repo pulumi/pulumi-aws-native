@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:MLTransform")]
-    public partial class MLTransform : Pulumi.CustomResource
+    public partial class MLTransform : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class MLTransformArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -142,5 +142,6 @@ namespace Pulumi.AwsNative.Glue
         public MLTransformArgs()
         {
         }
+        public static new MLTransformArgs Empty => new MLTransformArgs();
     }
 }

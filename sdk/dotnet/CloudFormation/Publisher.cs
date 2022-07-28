@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Register as a publisher in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:Publisher")]
-    public partial class Publisher : Pulumi.CustomResource
+    public partial class Publisher : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
     }
 
-    public sealed class PublisherArgs : Pulumi.ResourceArgs
+    public sealed class PublisherArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.CloudFormation
         public PublisherArgs()
         {
         }
+        public static new PublisherArgs Empty => new PublisherArgs();
     }
 }

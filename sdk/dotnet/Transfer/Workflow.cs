@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Transfer
     /// Resource Type definition for AWS::Transfer::Workflow
     /// </summary>
     [AwsNativeResourceType("aws-native:transfer:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the unique Amazon Resource Name (ARN) for the workflow.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Transfer
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A textual description for the workflow.
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.Transfer
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 }

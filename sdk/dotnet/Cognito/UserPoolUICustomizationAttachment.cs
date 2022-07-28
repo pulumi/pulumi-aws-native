@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"UserPoolUICustomizationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolUICustomizationAttachment")]
-    public partial class UserPoolUICustomizationAttachment : Pulumi.CustomResource
+    public partial class UserPoolUICustomizationAttachment : global::Pulumi.CustomResource
     {
         [Output("cSS")]
         public Output<string?> CSS { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class UserPoolUICustomizationAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolUICustomizationAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("cSS")]
         public Input<string>? CSS { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Cognito
         public UserPoolUICustomizationAttachmentArgs()
         {
         }
+        public static new UserPoolUICustomizationAttachmentArgs Empty => new UserPoolUICustomizationAttachmentArgs();
     }
 }

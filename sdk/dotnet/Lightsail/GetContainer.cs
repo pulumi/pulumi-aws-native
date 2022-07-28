@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
 
-    public sealed class GetContainerArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the container service.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Lightsail
         public GetContainerArgs()
         {
         }
+        public static new GetContainerArgs Empty => new GetContainerArgs();
     }
 
-    public sealed class GetContainerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the container service.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         public GetContainerInvokeArgs()
         {
         }
+        public static new GetContainerInvokeArgs Empty => new GetContainerInvokeArgs();
     }
 
 

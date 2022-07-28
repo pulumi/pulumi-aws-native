@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// Resource Type Definition for AWS::S3Outposts::AccessPoint
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified AccessPoint.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.S3Outposts
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.S3Outposts
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 }

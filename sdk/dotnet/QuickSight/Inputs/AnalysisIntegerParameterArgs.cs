@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;An integer parameter.&lt;/p&gt;
     /// </summary>
-    public sealed class AnalysisIntegerParameterArgs : Pulumi.ResourceArgs
+    public sealed class AnalysisIntegerParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The name of the integer parameter.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public AnalysisIntegerParameterArgs()
         {
         }
+        public static new AnalysisIntegerParameterArgs Empty => new AnalysisIntegerParameterArgs();
     }
 }

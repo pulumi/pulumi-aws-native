@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetClientVpnAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnAuthorizationRuleArgs()
         {
         }
+        public static new GetClientVpnAuthorizationRuleArgs Empty => new GetClientVpnAuthorizationRuleArgs();
     }
 
-    public sealed class GetClientVpnAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClientVpnAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetClientVpnAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetClientVpnAuthorizationRuleInvokeArgs Empty => new GetClientVpnAuthorizationRuleInvokeArgs();
     }
 
 

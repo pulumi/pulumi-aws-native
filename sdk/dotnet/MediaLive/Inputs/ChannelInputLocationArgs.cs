@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelInputLocationArgs : Pulumi.ResourceArgs
+    public sealed class ChannelInputLocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("passwordParam")]
         public Input<string>? PasswordParam { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelInputLocationArgs()
         {
         }
+        public static new ChannelInputLocationArgs Empty => new ChannelInputLocationArgs();
     }
 }

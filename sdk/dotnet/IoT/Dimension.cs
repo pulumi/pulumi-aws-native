@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT
     /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Dimension")]
-    public partial class Dimension : Pulumi.CustomResource
+    public partial class Dimension : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon resource name) of the created dimension.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoT
         }
     }
 
-    public sealed class DimensionArgs : Pulumi.ResourceArgs
+    public sealed class DimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for the dimension.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.IoT
         public DimensionArgs()
         {
         }
+        public static new DimensionArgs Empty => new DimensionArgs();
     }
 }

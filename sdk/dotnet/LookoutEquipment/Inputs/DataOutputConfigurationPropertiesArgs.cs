@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
     /// <summary>
     /// Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
     /// </summary>
-    public sealed class DataOutputConfigurationPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataOutputConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID number for the AWS KMS key used to encrypt the inference output.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.LookoutEquipment.Inputs
         public DataOutputConfigurationPropertiesArgs()
         {
         }
+        public static new DataOutputConfigurationPropertiesArgs Empty => new DataOutputConfigurationPropertiesArgs();
     }
 }

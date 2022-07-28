@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
 
-    public sealed class GetClassifierArgs : Pulumi.InvokeArgs
+    public sealed class GetClassifierArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Glue
         public GetClassifierArgs()
         {
         }
+        public static new GetClassifierArgs Empty => new GetClassifierArgs();
     }
 
-    public sealed class GetClassifierInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClassifierInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Glue
         public GetClassifierInvokeArgs()
         {
         }
+        public static new GetClassifierInvokeArgs Empty => new GetClassifierInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class CrawlerDynamoDBTargetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerDynamoDBTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public CrawlerDynamoDBTargetArgs()
         {
         }
+        public static new CrawlerDynamoDBTargetArgs Empty => new CrawlerDynamoDBTargetArgs();
     }
 }

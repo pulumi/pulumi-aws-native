@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
 
-    public sealed class GetDashboardArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetDashboardArgs()
         {
         }
+        public static new GetDashboardArgs Empty => new GetDashboardArgs();
     }
 
-    public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public GetDashboardInvokeArgs()
         {
         }
+        public static new GetDashboardInvokeArgs Empty => new GetDashboardInvokeArgs();
     }
 
 

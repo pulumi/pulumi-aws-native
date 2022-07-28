@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeCommit.Inputs
 {
 
-    public sealed class RepositoryTriggerArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("branches")]
         private InputList<string>? _branches;
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.CodeCommit.Inputs
         public RepositoryTriggerArgs()
         {
         }
+        public static new RepositoryTriggerArgs Empty => new RepositoryTriggerArgs();
     }
 }

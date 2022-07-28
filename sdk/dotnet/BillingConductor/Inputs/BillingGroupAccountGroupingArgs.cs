@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class BillingGroupAccountGroupingArgs : Pulumi.ResourceArgs
+    public sealed class BillingGroupAccountGroupingArgs : global::Pulumi.ResourceArgs
     {
         [Input("linkedAccountIds", required: true)]
         private InputList<string>? _linkedAccountIds;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public BillingGroupAccountGroupingArgs()
         {
         }
+        public static new BillingGroupAccountGroupingArgs Empty => new BillingGroupAccountGroupingArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// </summary>
     [Obsolete(@"PricingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:PricingPlan")]
-    public partial class PricingPlan : Pulumi.CustomResource
+    public partial class PricingPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Pricing Plan ARN
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.BillingConductor
         }
     }
 
-    public sealed class PricingPlanArgs : Pulumi.ResourceArgs
+    public sealed class PricingPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -122,5 +122,6 @@ namespace Pulumi.AwsNative.BillingConductor
         public PricingPlanArgs()
         {
         }
+        public static new PricingPlanArgs Empty => new PricingPlanArgs();
     }
 }

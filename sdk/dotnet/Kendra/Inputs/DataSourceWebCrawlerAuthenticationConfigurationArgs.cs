@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceWebCrawlerAuthenticationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWebCrawlerAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("basicAuthentication")]
         private InputList<Inputs.DataSourceWebCrawlerBasicAuthenticationArgs>? _basicAuthentication;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceWebCrawlerAuthenticationConfigurationArgs()
         {
         }
+        public static new DataSourceWebCrawlerAuthenticationConfigurationArgs Empty => new DataSourceWebCrawlerAuthenticationConfigurationArgs();
     }
 }

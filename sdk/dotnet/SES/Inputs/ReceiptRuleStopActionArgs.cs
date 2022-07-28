@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleStopActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleStopActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleStopActionArgs()
         {
         }
+        public static new ReceiptRuleStopActionArgs Empty => new ReceiptRuleStopActionArgs();
     }
 }

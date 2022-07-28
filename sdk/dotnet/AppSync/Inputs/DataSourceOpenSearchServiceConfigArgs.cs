@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class DataSourceOpenSearchServiceConfigArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceOpenSearchServiceConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public DataSourceOpenSearchServiceConfigArgs()
         {
         }
+        public static new DataSourceOpenSearchServiceConfigArgs Empty => new DataSourceOpenSearchServiceConfigArgs();
     }
 }

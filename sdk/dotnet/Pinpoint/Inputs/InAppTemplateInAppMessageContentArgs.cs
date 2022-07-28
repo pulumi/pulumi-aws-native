@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class InAppTemplateInAppMessageContentArgs : Pulumi.ResourceArgs
+    public sealed class InAppTemplateInAppMessageContentArgs : global::Pulumi.ResourceArgs
     {
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public InAppTemplateInAppMessageContentArgs()
         {
         }
+        public static new InAppTemplateInAppMessageContentArgs Empty => new InAppTemplateInAppMessageContentArgs();
     }
 }

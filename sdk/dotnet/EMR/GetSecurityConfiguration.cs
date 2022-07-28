@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
     }
 
 
-    public sealed class GetSecurityConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EMR
         public GetSecurityConfigurationArgs()
         {
         }
+        public static new GetSecurityConfigurationArgs Empty => new GetSecurityConfigurationArgs();
     }
 
-    public sealed class GetSecurityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EMR
         public GetSecurityConfigurationInvokeArgs()
         {
         }
+        public static new GetSecurityConfigurationInvokeArgs Empty => new GetSecurityConfigurationInvokeArgs();
     }
 
 

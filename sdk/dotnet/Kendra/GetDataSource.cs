@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kendra
     }
 
 
-    public sealed class GetDataSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSourceArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Kendra
         public GetDataSourceArgs()
         {
         }
+        public static new GetDataSourceArgs Empty => new GetDataSourceArgs();
     }
 
-    public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Kendra
         public GetDataSourceInvokeArgs()
         {
         }
+        public static new GetDataSourceInvokeArgs Empty => new GetDataSourceInvokeArgs();
     }
 
 

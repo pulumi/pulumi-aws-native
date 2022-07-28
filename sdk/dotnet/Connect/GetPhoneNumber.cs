@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetPhoneNumberArgs : Pulumi.InvokeArgs
+    public sealed class GetPhoneNumberArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The phone number ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetPhoneNumberArgs()
         {
         }
+        public static new GetPhoneNumberArgs Empty => new GetPhoneNumberArgs();
     }
 
-    public sealed class GetPhoneNumberInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPhoneNumberInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The phone number ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetPhoneNumberInvokeArgs()
         {
         }
+        public static new GetPhoneNumberInvokeArgs Empty => new GetPhoneNumberInvokeArgs();
     }
 
 

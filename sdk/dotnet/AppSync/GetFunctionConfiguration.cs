@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetFunctionConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetFunctionConfigurationArgs()
         {
         }
+        public static new GetFunctionConfigurationArgs Empty => new GetFunctionConfigurationArgs();
     }
 
-    public sealed class GetFunctionConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetFunctionConfigurationInvokeArgs()
         {
         }
+        public static new GetFunctionConfigurationInvokeArgs Empty => new GetFunctionConfigurationInvokeArgs();
     }
 
 

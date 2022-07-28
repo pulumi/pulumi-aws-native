@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// </summary>
     [Obsolete(@"ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:ScheduledAction")]
-    public partial class ScheduledAction : Pulumi.CustomResource
+    public partial class ScheduledAction : global::Pulumi.CustomResource
     {
         [Output("autoScalingGroupName")]
         public Output<string> AutoScalingGroupName { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AutoScaling
         }
     }
 
-    public sealed class ScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.AutoScaling
         public ScheduledActionArgs()
         {
         }
+        public static new ScheduledActionArgs Empty => new ScheduledActionArgs();
     }
 }

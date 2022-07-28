@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.FraudDetector
     }
 
 
-    public sealed class GetEntityTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The entity type ARN.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetEntityTypeArgs()
         {
         }
+        public static new GetEntityTypeArgs Empty => new GetEntityTypeArgs();
     }
 
-    public sealed class GetEntityTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The entity type ARN.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public GetEntityTypeInvokeArgs()
         {
         }
+        public static new GetEntityTypeInvokeArgs Empty => new GetEntityTypeInvokeArgs();
     }
 
 

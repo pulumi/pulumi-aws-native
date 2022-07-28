@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Action taken when Rule matches its condition.
     /// </summary>
-    public sealed class WebACLRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class WebACLRuleActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("allow")]
         public Input<Inputs.WebACLAllowActionArgs>? Allow { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLRuleActionArgs()
         {
         }
+        public static new WebACLRuleActionArgs Empty => new WebACLRuleActionArgs();
     }
 }

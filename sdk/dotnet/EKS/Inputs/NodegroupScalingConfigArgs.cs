@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing a auto scaling group specification for AWS EKS Nodegroup.
     /// </summary>
-    public sealed class NodegroupScalingConfigArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupScalingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("desiredSize")]
         public Input<int>? DesiredSize { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public NodegroupScalingConfigArgs()
         {
         }
+        public static new NodegroupScalingConfigArgs Empty => new NodegroupScalingConfigArgs();
     }
 }

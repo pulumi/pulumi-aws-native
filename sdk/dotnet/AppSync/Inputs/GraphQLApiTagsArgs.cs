@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiTagsArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiTagsArgs : global::Pulumi.ResourceArgs
     {
         public GraphQLApiTagsArgs()
         {
         }
+        public static new GraphQLApiTagsArgs Empty => new GraphQLApiTagsArgs();
     }
 }

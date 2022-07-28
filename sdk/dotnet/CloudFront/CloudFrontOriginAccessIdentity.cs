@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:CloudFrontOriginAccessIdentity")]
-    public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
+    public partial class CloudFrontOriginAccessIdentity : global::Pulumi.CustomResource
     {
         [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
         }
     }
 
-    public sealed class CloudFrontOriginAccessIdentityArgs : Pulumi.ResourceArgs
+    public sealed class CloudFrontOriginAccessIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
         public Input<Inputs.CloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
@@ -72,5 +72,6 @@ namespace Pulumi.AwsNative.CloudFront
         public CloudFrontOriginAccessIdentityArgs()
         {
         }
+        public static new CloudFrontOriginAccessIdentityArgs Empty => new CloudFrontOriginAccessIdentityArgs();
     }
 }

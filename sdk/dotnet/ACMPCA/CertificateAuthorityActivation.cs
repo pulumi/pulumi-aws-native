@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// Used to install the certificate authority certificate and update the certificate authority status.
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:CertificateAuthorityActivation")]
-    public partial class CertificateAuthorityActivation : Pulumi.CustomResource
+    public partial class CertificateAuthorityActivation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Certificate Authority certificate that will be installed in the Certificate Authority.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ACMPCA
         }
     }
 
-    public sealed class CertificateAuthorityActivationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityActivationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate Authority certificate that will be installed in the Certificate Authority.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.ACMPCA
         public CertificateAuthorityActivationArgs()
         {
         }
+        public static new CertificateAuthorityActivationArgs Empty => new CertificateAuthorityActivationArgs();
     }
 }

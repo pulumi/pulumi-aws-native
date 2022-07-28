@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// </summary>
     [Obsolete(@"ApplicationSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:ApplicationSettings")]
-    public partial class ApplicationSettings : Pulumi.CustomResource
+    public partial class ApplicationSettings : global::Pulumi.CustomResource
     {
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Pinpoint
         }
     }
 
-    public sealed class ApplicationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -94,5 +94,6 @@ namespace Pulumi.AwsNative.Pinpoint
         public ApplicationSettingsArgs()
         {
         }
+        public static new ApplicationSettingsArgs Empty => new ApplicationSettingsArgs();
     }
 }

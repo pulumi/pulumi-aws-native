@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// A bounding box denoting a region of interest in the frame to be analyzed.
     /// </summary>
-    public sealed class StreamProcessorBoundingBoxArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorBoundingBoxArgs : global::Pulumi.ResourceArgs
     {
         [Input("height", required: true)]
         public Input<double> Height { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorBoundingBoxArgs()
         {
         }
+        public static new StreamProcessorBoundingBoxArgs Empty => new StreamProcessorBoundingBoxArgs();
     }
 }

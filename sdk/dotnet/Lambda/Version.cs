@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lambda
     /// </summary>
     [Obsolete(@"Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:Version")]
-    public partial class Version : Pulumi.CustomResource
+    public partial class Version : global::Pulumi.CustomResource
     {
         [Output("codeSha256")]
         public Output<string?> CodeSha256 { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class VersionArgs : Pulumi.ResourceArgs
+    public sealed class VersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("codeSha256")]
         public Input<string>? CodeSha256 { get; set; }
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.Lambda
         public VersionArgs()
         {
         }
+        public static new VersionArgs Empty => new VersionArgs();
     }
 }

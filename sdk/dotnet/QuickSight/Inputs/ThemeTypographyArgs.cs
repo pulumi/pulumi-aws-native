@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The typeface for the theme.&lt;/p&gt;
     /// </summary>
-    public sealed class ThemeTypographyArgs : Pulumi.ResourceArgs
+    public sealed class ThemeTypographyArgs : global::Pulumi.ResourceArgs
     {
         [Input("fontFamilies")]
         private InputList<Inputs.ThemeFontArgs>? _fontFamilies;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeTypographyArgs()
         {
         }
+        public static new ThemeTypographyArgs Empty => new ThemeTypographyArgs();
     }
 }

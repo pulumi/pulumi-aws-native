@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
-    public sealed class ServerIdentityProviderDetailsArgs : Pulumi.ResourceArgs
+    public sealed class ServerIdentityProviderDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public ServerIdentityProviderDetailsArgs()
         {
         }
+        public static new ServerIdentityProviderDetailsArgs Empty => new ServerIdentityProviderDetailsArgs();
     }
 }

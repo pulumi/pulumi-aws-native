@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// <summary>
     /// Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
     /// </summary>
-    public sealed class DistributionCacheBehaviorArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCacheBehaviorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cache behavior of the distribution.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         public DistributionCacheBehaviorArgs()
         {
         }
+        public static new DistributionCacheBehaviorArgs Empty => new DistributionCacheBehaviorArgs();
     }
 }

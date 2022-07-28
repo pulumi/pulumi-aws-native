@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
     /// <summary>
     /// Configuration for Auto Start of Application
     /// </summary>
-    public sealed class ApplicationAutoStartConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAutoStartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to true, the Application will automatically start. Defaults to true.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationAutoStartConfigurationArgs()
         {
         }
+        public static new ApplicationAutoStartConfigurationArgs Empty => new ApplicationAutoStartConfigurationArgs();
     }
 }

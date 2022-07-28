@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverDNSSECConfig")]
-    public partial class ResolverDNSSECConfig : Pulumi.CustomResource
+    public partial class ResolverDNSSECConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AccountId
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class ResolverDNSSECConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverDNSSECConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ResourceId
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public ResolverDNSSECConfigArgs()
         {
         }
+        public static new ResolverDNSSECConfigArgs Empty => new ResolverDNSSECConfigArgs();
     }
 }

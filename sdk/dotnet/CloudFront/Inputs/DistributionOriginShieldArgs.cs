@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginShieldArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginShieldArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public DistributionOriginShieldArgs()
         {
         }
+        public static new DistributionOriginShieldArgs Empty => new DistributionOriginShieldArgs();
     }
 }

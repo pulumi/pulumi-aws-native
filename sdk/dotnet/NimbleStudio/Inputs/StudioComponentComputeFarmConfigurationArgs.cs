@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// <summary>
     /// &lt;p&gt;The configuration for a render farm that is associated with a studio resource.&lt;/p&gt;
     /// </summary>
-    public sealed class StudioComponentComputeFarmConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StudioComponentComputeFarmConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;The name of an Active Directory user that is used on ComputeFarm worker instances.&lt;/p&gt;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         public StudioComponentComputeFarmConfigurationArgs()
         {
         }
+        public static new StudioComponentComputeFarmConfigurationArgs Empty => new StudioComponentComputeFarmConfigurationArgs();
     }
 }

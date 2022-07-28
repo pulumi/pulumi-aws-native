@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Prefix-level metrics configurations.
     /// </summary>
-    public sealed class StorageLensPrefixLevelArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensPrefixLevelArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageMetrics", required: true)]
         public Input<Inputs.StorageLensPrefixLevelStorageMetricsArgs> StorageMetrics { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensPrefixLevelArgs()
         {
         }
+        public static new StorageLensPrefixLevelArgs Empty => new StorageLensPrefixLevelArgs();
     }
 }

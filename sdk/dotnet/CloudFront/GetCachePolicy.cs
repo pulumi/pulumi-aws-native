@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
 
-    public sealed class GetCachePolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.CloudFront
         public GetCachePolicyArgs()
         {
         }
+        public static new GetCachePolicyArgs Empty => new GetCachePolicyArgs();
     }
 
-    public sealed class GetCachePolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         public GetCachePolicyInvokeArgs()
         {
         }
+        public static new GetCachePolicyInvokeArgs Empty => new GetCachePolicyInvokeArgs();
     }
 
 

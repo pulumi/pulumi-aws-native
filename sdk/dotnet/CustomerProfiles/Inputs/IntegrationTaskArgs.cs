@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationTaskArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTaskArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorOperator")]
         public Input<Inputs.IntegrationConnectorOperatorArgs>? ConnectorOperator { get; set; }
@@ -40,5 +40,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationTaskArgs()
         {
         }
+        public static new IntegrationTaskArgs Empty => new IntegrationTaskArgs();
     }
 }

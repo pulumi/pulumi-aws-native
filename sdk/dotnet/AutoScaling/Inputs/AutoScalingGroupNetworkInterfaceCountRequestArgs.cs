@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupNetworkInterfaceCountRequestArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupNetworkInterfaceCountRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupNetworkInterfaceCountRequestArgs()
         {
         }
+        public static new AutoScalingGroupNetworkInterfaceCountRequestArgs Empty => new AutoScalingGroupNetworkInterfaceCountRequestArgs();
     }
 }

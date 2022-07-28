@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location
     /// Definition of AWS::Location::PlaceIndex Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:PlaceIndex")]
-    public partial class PlaceIndex : Pulumi.CustomResource
+    public partial class PlaceIndex : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Location
         }
     }
 
-    public sealed class PlaceIndexArgs : Pulumi.ResourceArgs
+    public sealed class PlaceIndexArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.Location
         public PlaceIndexArgs()
         {
         }
+        public static new PlaceIndexArgs Empty => new PlaceIndexArgs();
     }
 }

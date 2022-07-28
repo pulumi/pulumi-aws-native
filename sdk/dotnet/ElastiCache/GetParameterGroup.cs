@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
 
-    public sealed class GetParameterGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetParameterGroupArgs()
         {
         }
+        public static new GetParameterGroupArgs Empty => new GetParameterGroupArgs();
     }
 
-    public sealed class GetParameterGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetParameterGroupInvokeArgs()
         {
         }
+        public static new GetParameterGroupInvokeArgs Empty => new GetParameterGroupInvokeArgs();
     }
 
 

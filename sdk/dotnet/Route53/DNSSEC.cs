@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53
     /// Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:DNSSEC")]
-    public partial class DNSSEC : Pulumi.CustomResource
+    public partial class DNSSEC : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class DNSSECArgs : Pulumi.ResourceArgs
+    public sealed class DNSSECArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique string (ID) used to identify a hosted zone.
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.Route53
         public DNSSECArgs()
         {
         }
+        public static new DNSSECArgs Empty => new DNSSECArgs();
     }
 }

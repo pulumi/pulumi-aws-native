@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class ActivityTagsEntryArgs : Pulumi.ResourceArgs
+    public sealed class ActivityTagsEntryArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public ActivityTagsEntryArgs()
         {
         }
+        public static new ActivityTagsEntryArgs Empty => new ActivityTagsEntryArgs();
     }
 }

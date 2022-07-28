@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Describes an association between a local gateway route table and a VPC.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:LocalGatewayRouteTableVPCAssociation")]
-    public partial class LocalGatewayRouteTableVPCAssociation : Pulumi.CustomResource
+    public partial class LocalGatewayRouteTableVPCAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the local gateway.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class LocalGatewayRouteTableVPCAssociationArgs : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteTableVPCAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the local gateway route table.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.EC2
         public LocalGatewayRouteTableVPCAssociationArgs()
         {
         }
+        public static new LocalGatewayRouteTableVPCAssociationArgs Empty => new LocalGatewayRouteTableVPCAssociationArgs();
     }
 }

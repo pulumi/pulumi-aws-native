@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleVariables")]
         public Input<Inputs.RuleGroupRuleVariablesArgs>? RuleVariables { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public RuleGroupArgs()
         {
         }
+        public static new RuleGroupArgs Empty => new RuleGroupArgs();
     }
 }

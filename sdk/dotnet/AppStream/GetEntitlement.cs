@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream
     }
 
 
-    public sealed class GetEntitlementArgs : Pulumi.InvokeArgs
+    public sealed class GetEntitlementArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.AppStream
         public GetEntitlementArgs()
         {
         }
+        public static new GetEntitlementArgs Empty => new GetEntitlementArgs();
     }
 
-    public sealed class GetEntitlementInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntitlementInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.AppStream
         public GetEntitlementInvokeArgs()
         {
         }
+        public static new GetEntitlementInvokeArgs Empty => new GetEntitlementInvokeArgs();
     }
 
 

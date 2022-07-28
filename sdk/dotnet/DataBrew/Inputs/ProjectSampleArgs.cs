@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class ProjectSampleArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSampleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sample size
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public ProjectSampleArgs()
         {
         }
+        public static new ProjectSampleArgs Empty => new ProjectSampleArgs();
     }
 }

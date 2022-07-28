@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup
     /// Contains detailed information about a report plan in AWS Backup Audit Manager.
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:ReportPlan")]
-    public partial class ReportPlan : Pulumi.CustomResource
+    public partial class ReportPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Backup
         }
     }
 
-    public sealed class ReportPlanArgs : Pulumi.ResourceArgs
+    public sealed class ReportPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.Backup
         public ReportPlanArgs()
         {
         }
+        public static new ReportPlanArgs Empty => new ReportPlanArgs();
     }
 }

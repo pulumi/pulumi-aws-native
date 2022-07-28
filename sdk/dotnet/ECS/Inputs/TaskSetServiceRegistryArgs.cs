@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    public sealed class TaskSetServiceRegistryArgs : Pulumi.ResourceArgs
+    public sealed class TaskSetServiceRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition that your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public TaskSetServiceRegistryArgs()
         {
         }
+        public static new TaskSetServiceRegistryArgs Empty => new TaskSetServiceRegistryArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53
     /// Resource schema for AWS::Route53::HealthCheck.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:HealthCheck")]
-    public partial class HealthCheck : Pulumi.CustomResource
+    public partial class HealthCheck : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A complex type that contains information about the health check.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Route53
         }
     }
 
-    public sealed class HealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A complex type that contains information about the health check.
@@ -96,5 +96,6 @@ namespace Pulumi.AwsNative.Route53
         public HealthCheckArgs()
         {
         }
+        public static new HealthCheckArgs Empty => new HealthCheckArgs();
     }
 }

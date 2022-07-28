@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Sqli Match Statement.
     /// </summary>
-    public sealed class WebACLSqliMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebACLSqliMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public WebACLSqliMatchStatementArgs()
         {
         }
+        public static new WebACLSqliMatchStatementArgs Empty => new WebACLSqliMatchStatementArgs();
     }
 }

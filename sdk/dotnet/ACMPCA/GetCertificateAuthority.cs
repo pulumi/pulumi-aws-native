@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ACMPCA
     }
 
 
-    public sealed class GetCertificateAuthorityArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate authority.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ACMPCA
         public GetCertificateAuthorityArgs()
         {
         }
+        public static new GetCertificateAuthorityArgs Empty => new GetCertificateAuthorityArgs();
     }
 
-    public sealed class GetCertificateAuthorityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate authority.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ACMPCA
         public GetCertificateAuthorityInvokeArgs()
         {
         }
+        public static new GetCertificateAuthorityInvokeArgs Empty => new GetCertificateAuthorityInvokeArgs();
     }
 
 

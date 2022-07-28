@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    public sealed class AlarmMetricArgs : Pulumi.ResourceArgs
+    public sealed class AlarmMetricArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.AlarmDimensionArgs>? _dimensions;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public AlarmMetricArgs()
         {
         }
+        public static new AlarmMetricArgs Empty => new AlarmMetricArgs();
     }
 }

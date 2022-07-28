@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Pinpoint.Inputs
 {
 
-    public sealed class CampaignLimitsArgs : Pulumi.ResourceArgs
+    public sealed class CampaignLimitsArgs : global::Pulumi.ResourceArgs
     {
         [Input("daily")]
         public Input<int>? Daily { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public CampaignLimitsArgs()
         {
         }
+        public static new CampaignLimitsArgs Empty => new CampaignLimitsArgs();
     }
 }

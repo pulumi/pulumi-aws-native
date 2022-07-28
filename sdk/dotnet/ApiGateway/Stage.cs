@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// Resource Type definition for AWS::ApiGateway::Stage
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Stage")]
-    public partial class Stage : Pulumi.CustomResource
+    public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies settings for logging access in this stage.
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
     }
 
-    public sealed class StageArgs : Pulumi.ResourceArgs
+    public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for logging access in this stage.
@@ -243,5 +243,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public StageArgs()
         {
         }
+        public static new StageArgs Empty => new StageArgs();
     }
 }

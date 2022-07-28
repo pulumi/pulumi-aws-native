@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync
     /// Resource schema for AWS::DataSync::LocationNFS
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationNFS")]
-    public partial class LocationNFS : Pulumi.CustomResource
+    public partial class LocationNFS : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the NFS location.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.DataSync
         }
     }
 
-    public sealed class LocationNFSArgs : Pulumi.ResourceArgs
+    public sealed class LocationNFSArgs : global::Pulumi.ResourceArgs
     {
         [Input("mountOptions")]
         public Input<Inputs.LocationNFSMountOptionsArgs>? MountOptions { get; set; }
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.DataSync
         public LocationNFSArgs()
         {
         }
+        public static new LocationNFSArgs Empty => new LocationNFSArgs();
     }
 }

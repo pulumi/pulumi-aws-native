@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayHttpConnectionPoolArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayHttpConnectionPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxConnections", required: true)]
         public Input<int> MaxConnections { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayHttpConnectionPoolArgs()
         {
         }
+        public static new VirtualGatewayHttpConnectionPoolArgs Empty => new VirtualGatewayHttpConnectionPoolArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelFmp4HlsSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFmp4HlsSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioRenditionSets")]
         public Input<string>? AudioRenditionSets { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelFmp4HlsSettingsArgs()
         {
         }
+        public static new ChannelFmp4HlsSettingsArgs Empty => new ChannelFmp4HlsSettingsArgs();
     }
 }

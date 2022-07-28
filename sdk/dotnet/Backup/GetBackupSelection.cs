@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
     }
 
 
-    public sealed class GetBackupSelectionArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupSelectionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Backup
         public GetBackupSelectionArgs()
         {
         }
+        public static new GetBackupSelectionArgs Empty => new GetBackupSelectionArgs();
     }
 
-    public sealed class GetBackupSelectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupSelectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Backup
         public GetBackupSelectionInvokeArgs()
         {
         }
+        public static new GetBackupSelectionInvokeArgs Empty => new GetBackupSelectionInvokeArgs();
     }
 
 

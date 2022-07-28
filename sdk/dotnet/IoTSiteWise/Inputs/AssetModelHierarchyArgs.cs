@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// Contains information about an asset model hierarchy.
     /// </summary>
-    public sealed class AssetModelHierarchyArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelHierarchyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelHierarchyArgs()
         {
         }
+        public static new AssetModelHierarchyArgs Empty => new AssetModelHierarchyArgs();
     }
 }

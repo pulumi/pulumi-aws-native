@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    public sealed class DeliveryStreamDynamicPartitioningConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryStreamDynamicPartitioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public DeliveryStreamDynamicPartitioningConfigurationArgs()
         {
         }
+        public static new DeliveryStreamDynamicPartitioningConfigurationArgs Empty => new DeliveryStreamDynamicPartitioningConfigurationArgs();
     }
 }

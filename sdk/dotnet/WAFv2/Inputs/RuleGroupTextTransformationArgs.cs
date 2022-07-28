@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Text Transformation on the Search String before match.
     /// </summary>
-    public sealed class RuleGroupTextTransformationArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupTextTransformationArgs : global::Pulumi.ResourceArgs
     {
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupTextTransformationArgs()
         {
         }
+        public static new RuleGroupTextTransformationArgs Empty => new RuleGroupTextTransformationArgs();
     }
 }

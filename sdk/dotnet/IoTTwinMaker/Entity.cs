@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     /// Resource schema for AWS::IoTTwinMaker::Entity
     /// </summary>
     [AwsNativeResourceType("aws-native:iottwinmaker:Entity")]
-    public partial class Entity : Pulumi.CustomResource
+    public partial class Entity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the entity.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         }
     }
 
-    public sealed class EntityArgs : Pulumi.ResourceArgs
+    public sealed class EntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A map that sets information about a component type.
@@ -177,5 +177,6 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public EntityArgs()
         {
         }
+        public static new EntityArgs Empty => new EntityArgs();
     }
 }

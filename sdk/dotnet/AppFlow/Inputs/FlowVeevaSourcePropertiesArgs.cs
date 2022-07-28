@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class FlowVeevaSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class FlowVeevaSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("documentType")]
         public Input<string>? DocumentType { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public FlowVeevaSourcePropertiesArgs()
         {
         }
+        public static new FlowVeevaSourcePropertiesArgs Empty => new FlowVeevaSourcePropertiesArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3
     /// The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The alias of this Access Point. This alias can be used for compatibility purposes with other AWS services and third-party applications.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.S3
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket that you want to associate this Access Point with.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.S3
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 }

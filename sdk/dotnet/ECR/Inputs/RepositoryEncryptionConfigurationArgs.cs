@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     /// 
     /// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
     /// </summary>
-    public sealed class RepositoryEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.ECR.RepositoryEncryptionType> EncryptionType { get; set; } = null!;
@@ -28,5 +28,6 @@ namespace Pulumi.AwsNative.ECR.Inputs
         public RepositoryEncryptionConfigurationArgs()
         {
         }
+        public static new RepositoryEncryptionConfigurationArgs Empty => new RepositoryEncryptionConfigurationArgs();
     }
 }

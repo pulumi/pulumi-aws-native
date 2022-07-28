@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    public sealed class CanaryScheduleArgs : Pulumi.ResourceArgs
+    public sealed class CanaryScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("durationInSeconds")]
         public Input<string>? DurationInSeconds { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public CanaryScheduleArgs()
         {
         }
+        public static new CanaryScheduleArgs Empty => new CanaryScheduleArgs();
     }
 }

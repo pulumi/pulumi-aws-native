@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
 
-    public sealed class GetNetworkAnalyzerConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkAnalyzerConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the network analyzer configuration
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetNetworkAnalyzerConfigurationArgs()
         {
         }
+        public static new GetNetworkAnalyzerConfigurationArgs Empty => new GetNetworkAnalyzerConfigurationArgs();
     }
 
-    public sealed class GetNetworkAnalyzerConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkAnalyzerConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the network analyzer configuration
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.IoTWireless
         public GetNetworkAnalyzerConfigurationInvokeArgs()
         {
         }
+        public static new GetNetworkAnalyzerConfigurationInvokeArgs Empty => new GetNetworkAnalyzerConfigurationInvokeArgs();
     }
 
 

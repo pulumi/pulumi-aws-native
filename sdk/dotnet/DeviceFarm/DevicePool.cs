@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:DevicePool")]
-    public partial class DevicePool : Pulumi.CustomResource
+    public partial class DevicePool : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         }
     }
 
-    public sealed class DevicePoolArgs : Pulumi.ResourceArgs
+    public sealed class DevicePoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.DeviceFarm
         public DevicePoolArgs()
         {
         }
+        public static new DevicePoolArgs Empty => new DevicePoolArgs();
     }
 }

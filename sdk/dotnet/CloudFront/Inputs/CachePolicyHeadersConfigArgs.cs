@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyHeadersConfigArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyHeadersConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerBehavior", required: true)]
         public Input<string> HeaderBehavior { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public CachePolicyHeadersConfigArgs()
         {
         }
+        public static new CachePolicyHeadersConfigArgs Empty => new CachePolicyHeadersConfigArgs();
     }
 }

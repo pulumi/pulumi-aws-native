@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// <summary>
     /// An AWS service such as Amazon S3, AWS CloudTrail, and so on.
     /// </summary>
-    public sealed class AssessmentAWSServiceArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentAWSServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public AssessmentAWSServiceArgs()
         {
         }
+        public static new AssessmentAWSServiceArgs Empty => new AssessmentAWSServiceArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAF
     /// </summary>
     [Obsolete(@"IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:IPSet")]
-    public partial class IPSet : Pulumi.CustomResource
+    public partial class IPSet : global::Pulumi.CustomResource
     {
         [Output("iPSetDescriptors")]
         public Output<ImmutableArray<Outputs.IPSetDescriptor>> IPSetDescriptors { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAF
         }
     }
 
-    public sealed class IPSetArgs : Pulumi.ResourceArgs
+    public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("iPSetDescriptors")]
         private InputList<Inputs.IPSetDescriptorArgs>? _iPSetDescriptors;
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAF
         public IPSetArgs()
         {
         }
+        public static new IPSetArgs Empty => new IPSetArgs();
     }
 }

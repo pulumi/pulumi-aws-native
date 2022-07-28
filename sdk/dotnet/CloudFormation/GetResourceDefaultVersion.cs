@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
 
-    public sealed class GetResourceDefaultVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDefaultVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetResourceDefaultVersionArgs()
         {
         }
+        public static new GetResourceDefaultVersionArgs Empty => new GetResourceDefaultVersionArgs();
     }
 
-    public sealed class GetResourceDefaultVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDefaultVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public GetResourceDefaultVersionInvokeArgs()
         {
         }
+        public static new GetResourceDefaultVersionInvokeArgs Empty => new GetResourceDefaultVersionInvokeArgs();
     }
 
 

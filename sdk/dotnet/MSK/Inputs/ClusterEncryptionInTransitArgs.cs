@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterEncryptionInTransitArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionInTransitArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientBroker")]
         public Input<Pulumi.AwsNative.MSK.ClusterEncryptionInTransitClientBroker>? ClientBroker { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterEncryptionInTransitArgs()
         {
         }
+        public static new ClusterEncryptionInTransitArgs Empty => new ClusterEncryptionInTransitArgs();
     }
 }

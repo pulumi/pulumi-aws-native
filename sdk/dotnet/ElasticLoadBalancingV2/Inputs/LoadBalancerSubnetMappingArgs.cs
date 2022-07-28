@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class LoadBalancerSubnetMappingArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerSubnetMappingArgs : global::Pulumi.ResourceArgs
     {
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public LoadBalancerSubnetMappingArgs()
         {
         }
+        public static new LoadBalancerSubnetMappingArgs Empty => new LoadBalancerSubnetMappingArgs();
     }
 }

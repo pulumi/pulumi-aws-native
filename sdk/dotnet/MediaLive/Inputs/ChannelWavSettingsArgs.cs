@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelWavSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelWavSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("bitDepth")]
         public Input<double>? BitDepth { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelWavSettingsArgs()
         {
         }
+        public static new ChannelWavSettingsArgs Empty => new ChannelWavSettingsArgs();
     }
 }

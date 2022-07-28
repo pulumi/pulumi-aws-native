@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
     /// <summary>
     /// Configuration options for a Lambda alert action.
     /// </summary>
-    public sealed class AlertLambdaConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AlertLambdaConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of a Lambda to send alert notifications to.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public AlertLambdaConfigurationArgs()
         {
         }
+        public static new AlertLambdaConfigurationArgs Empty => new AlertLambdaConfigurationArgs();
     }
 }

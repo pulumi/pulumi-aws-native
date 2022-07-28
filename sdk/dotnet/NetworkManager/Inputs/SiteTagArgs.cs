@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// A key-value pair to associate with a site resource.
     /// </summary>
-    public sealed class SiteTagArgs : Pulumi.ResourceArgs
+    public sealed class SiteTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public SiteTagArgs()
         {
         }
+        public static new SiteTagArgs Empty => new SiteTagArgs();
     }
 }

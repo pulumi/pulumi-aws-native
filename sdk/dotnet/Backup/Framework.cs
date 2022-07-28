@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Backup
     /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:Framework")]
-    public partial class Framework : Pulumi.CustomResource
+    public partial class Framework : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Backup
         }
     }
 
-    public sealed class FrameworkArgs : Pulumi.ResourceArgs
+    public sealed class FrameworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("frameworkControls", required: true)]
         private InputList<Inputs.FrameworkControlArgs>? _frameworkControls;
@@ -155,5 +155,6 @@ namespace Pulumi.AwsNative.Backup
         public FrameworkArgs()
         {
         }
+        public static new FrameworkArgs Empty => new FrameworkArgs();
     }
 }

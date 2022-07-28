@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppSync
     /// </summary>
     [Obsolete(@"ApiKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:ApiKey")]
-    public partial class ApiKey : Pulumi.CustomResource
+    public partial class ApiKey : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class ApiKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -91,5 +91,6 @@ namespace Pulumi.AwsNative.AppSync
         public ApiKeyArgs()
         {
         }
+        public static new ApiKeyArgs Empty => new ApiKeyArgs();
     }
 }

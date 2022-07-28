@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.APS
     /// RuleGroupsNamespace schema for cloudformation.
     /// </summary>
     [AwsNativeResourceType("aws-native:aps:RuleGroupsNamespace")]
-    public partial class RuleGroupsNamespace : Pulumi.CustomResource
+    public partial class RuleGroupsNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The RuleGroupsNamespace ARN.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.APS
         }
     }
 
-    public sealed class RuleGroupsNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupsNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The RuleGroupsNamespace data.
@@ -123,5 +123,6 @@ namespace Pulumi.AwsNative.APS
         public RuleGroupsNamespaceArgs()
         {
         }
+        public static new RuleGroupsNamespaceArgs Empty => new RuleGroupsNamespaceArgs();
     }
 }

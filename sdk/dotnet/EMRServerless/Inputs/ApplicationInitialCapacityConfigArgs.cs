@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMRServerless.Inputs
 {
 
-    public sealed class ApplicationInitialCapacityConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInitialCapacityConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("workerConfiguration", required: true)]
         public Input<Inputs.ApplicationWorkerConfigurationArgs> WorkerConfiguration { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationInitialCapacityConfigArgs()
         {
         }
+        public static new ApplicationInitialCapacityConfigArgs Empty => new ApplicationInitialCapacityConfigArgs();
     }
 }

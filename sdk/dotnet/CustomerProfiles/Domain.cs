@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// A domain defined for 3rd party data source in Profile Service
     /// </summary>
     [AwsNativeResourceType("aws-native:customerprofiles:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time of this integration got created
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the SQS dead letter queue
@@ -141,5 +141,6 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 }

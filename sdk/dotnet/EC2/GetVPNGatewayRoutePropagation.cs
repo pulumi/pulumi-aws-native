@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPNGatewayRoutePropagationArgs : Pulumi.InvokeArgs
+    public sealed class GetVPNGatewayRoutePropagationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPNGatewayRoutePropagationArgs()
         {
         }
+        public static new GetVPNGatewayRoutePropagationArgs Empty => new GetVPNGatewayRoutePropagationArgs();
     }
 
-    public sealed class GetVPNGatewayRoutePropagationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPNGatewayRoutePropagationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPNGatewayRoutePropagationInvokeArgs()
         {
         }
+        public static new GetVPNGatewayRoutePropagationInvokeArgs Empty => new GetVPNGatewayRoutePropagationInvokeArgs();
     }
 
 

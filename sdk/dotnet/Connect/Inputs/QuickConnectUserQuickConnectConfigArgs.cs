@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// The user configuration. This is required only if QuickConnectType is USER.
     /// </summary>
-    public sealed class QuickConnectUserQuickConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectUserQuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public QuickConnectUserQuickConnectConfigArgs()
         {
         }
+        public static new QuickConnectUserQuickConnectConfigArgs Empty => new QuickConnectUserQuickConnectConfigArgs();
     }
 }

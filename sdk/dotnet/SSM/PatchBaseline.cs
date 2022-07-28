@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SSM
     /// </summary>
     [Obsolete(@"PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:PatchBaseline")]
-    public partial class PatchBaseline : Pulumi.CustomResource
+    public partial class PatchBaseline : global::Pulumi.CustomResource
     {
         [Output("approvalRules")]
         public Output<Outputs.PatchBaselineRuleGroup?> ApprovalRules { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class PatchBaselineArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselineArgs : global::Pulumi.ResourceArgs
     {
         [Input("approvalRules")]
         public Input<Inputs.PatchBaselineRuleGroupArgs>? ApprovalRules { get; set; }
@@ -167,5 +167,6 @@ namespace Pulumi.AwsNative.SSM
         public PatchBaselineArgs()
         {
         }
+        public static new PatchBaselineArgs Empty => new PatchBaselineArgs();
     }
 }

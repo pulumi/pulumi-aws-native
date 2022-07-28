@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// </summary>
     [Obsolete(@"Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Stack")]
-    public partial class Stack : Pulumi.CustomResource
+    public partial class Stack : global::Pulumi.CustomResource
     {
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.OpsWorks
         }
     }
 
-    public sealed class StackArgs : Pulumi.ResourceArgs
+    public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -234,5 +234,6 @@ namespace Pulumi.AwsNative.OpsWorks
         public StackArgs()
         {
         }
+        public static new StackArgs Empty => new StackArgs();
     }
 }

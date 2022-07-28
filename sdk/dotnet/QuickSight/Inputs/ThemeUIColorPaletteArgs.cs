@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     ///                 Guide.&lt;/i&gt;
     ///         &lt;/p&gt;
     /// </summary>
-    public sealed class ThemeUIColorPaletteArgs : Pulumi.ResourceArgs
+    public sealed class ThemeUIColorPaletteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;This color is that applies to selected states and buttons.&lt;/p&gt;
@@ -128,5 +128,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public ThemeUIColorPaletteArgs()
         {
         }
+        public static new ThemeUIColorPaletteArgs Empty => new ThemeUIColorPaletteArgs();
     }
 }

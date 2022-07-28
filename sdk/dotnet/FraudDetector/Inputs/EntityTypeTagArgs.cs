@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FraudDetector.Inputs
 {
 
-    public sealed class EntityTypeTagArgs : Pulumi.ResourceArgs
+    public sealed class EntityTypeTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         public EntityTypeTagArgs()
         {
         }
+        public static new EntityTypeTagArgs Empty => new EntityTypeTagArgs();
     }
 }

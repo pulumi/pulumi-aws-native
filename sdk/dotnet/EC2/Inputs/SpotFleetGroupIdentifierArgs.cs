@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetGroupIdentifierArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetGroupIdentifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetGroupIdentifierArgs()
         {
         }
+        public static new SpotFleetGroupIdentifierArgs Empty => new SpotFleetGroupIdentifierArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// Create and manage wireless gateways, including LoRa gateways.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:WirelessGateway")]
-    public partial class WirelessGateway : Pulumi.CustomResource
+    public partial class WirelessGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn for Wireless Gateway. Returned upon successful create.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTWireless
         }
     }
 
-    public sealed class WirelessGatewayArgs : Pulumi.ResourceArgs
+    public sealed class WirelessGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of Wireless Gateway.
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public WirelessGatewayArgs()
         {
         }
+        public static new WirelessGatewayArgs Empty => new WirelessGatewayArgs();
     }
 }

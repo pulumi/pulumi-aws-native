@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewayClientTlsCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayClientTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         [Input("file")]
         public Input<Inputs.VirtualGatewayListenerTlsFileCertificateArgs>? File { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualGatewayClientTlsCertificateArgs()
         {
         }
+        public static new VirtualGatewayClientTlsCertificateArgs Empty => new VirtualGatewayClientTlsCertificateArgs();
     }
 }

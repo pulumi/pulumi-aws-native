@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// <summary>
     /// Represents the options that are available to control the behavior of a StartTaskExecution operation.
     /// </summary>
-    public sealed class TaskOptionsArgs : Pulumi.ResourceArgs
+    public sealed class TaskOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
@@ -108,5 +108,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public TaskOptionsArgs()
         {
         }
+        public static new TaskOptionsArgs Empty => new TaskOptionsArgs();
     }
 }

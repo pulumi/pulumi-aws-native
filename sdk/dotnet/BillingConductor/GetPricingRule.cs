@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
 
-    public sealed class GetPricingRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetPricingRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Pricing rule ARN
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetPricingRuleArgs()
         {
         }
+        public static new GetPricingRuleArgs Empty => new GetPricingRuleArgs();
     }
 
-    public sealed class GetPricingRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPricingRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Pricing rule ARN
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public GetPricingRuleInvokeArgs()
         {
         }
+        public static new GetPricingRuleInvokeArgs Empty => new GetPricingRuleInvokeArgs();
     }
 
 

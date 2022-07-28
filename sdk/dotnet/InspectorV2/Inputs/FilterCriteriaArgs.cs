@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
-    public sealed class FilterCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class FilterCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountId")]
         private InputList<Inputs.FilterStringFilterArgs>? _awsAccountId;
@@ -263,5 +263,6 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         public FilterCriteriaArgs()
         {
         }
+        public static new FilterCriteriaArgs Empty => new FilterCriteriaArgs();
     }
 }

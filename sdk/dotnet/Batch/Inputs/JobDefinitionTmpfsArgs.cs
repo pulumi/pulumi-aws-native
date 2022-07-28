@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionTmpfsArgs : Pulumi.ResourceArgs
+    public sealed class JobDefinitionTmpfsArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerPath", required: true)]
         public Input<string> ContainerPath { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public JobDefinitionTmpfsArgs()
         {
         }
+        public static new JobDefinitionTmpfsArgs Empty => new JobDefinitionTmpfsArgs();
     }
 }

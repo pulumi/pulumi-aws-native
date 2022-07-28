@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NetworkManager
     }
 
 
-    public sealed class GetSiteArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the global network.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetSiteArgs()
         {
         }
+        public static new GetSiteArgs Empty => new GetSiteArgs();
     }
 
-    public sealed class GetSiteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the global network.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public GetSiteInvokeArgs()
         {
         }
+        public static new GetSiteInvokeArgs Empty => new GetSiteInvokeArgs();
     }
 
 

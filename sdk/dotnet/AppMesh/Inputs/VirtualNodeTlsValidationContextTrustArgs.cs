@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeTlsValidationContextTrustArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeTlsValidationContextTrustArgs : global::Pulumi.ResourceArgs
     {
         [Input("aCM")]
         public Input<Inputs.VirtualNodeTlsValidationContextAcmTrustArgs>? ACM { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeTlsValidationContextTrustArgs()
         {
         }
+        public static new VirtualNodeTlsValidationContextTrustArgs Empty => new VirtualNodeTlsValidationContextTrustArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.S3Outposts
     }
 
 
-    public sealed class GetBucketPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.S3Outposts
         public GetBucketPolicyArgs()
         {
         }
+        public static new GetBucketPolicyArgs Empty => new GetBucketPolicyArgs();
     }
 
-    public sealed class GetBucketPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the specified bucket.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.S3Outposts
         public GetBucketPolicyInvokeArgs()
         {
         }
+        public static new GetBucketPolicyInvokeArgs Empty => new GetBucketPolicyInvokeArgs();
     }
 
 

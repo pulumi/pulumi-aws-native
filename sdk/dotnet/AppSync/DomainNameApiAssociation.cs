@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppSync
     /// Resource Type definition for AWS::AppSync::DomainNameApiAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:appsync:DomainNameApiAssociation")]
-    public partial class DomainNameApiAssociation : Pulumi.CustomResource
+    public partial class DomainNameApiAssociation : global::Pulumi.CustomResource
     {
         [Output("apiAssociationIdentifier")]
         public Output<string> ApiAssociationIdentifier { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.AppSync
         }
     }
 
-    public sealed class DomainNameApiAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameApiAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -78,5 +78,6 @@ namespace Pulumi.AwsNative.AppSync
         public DomainNameApiAssociationArgs()
         {
         }
+        public static new DomainNameApiAssociationArgs Empty => new DomainNameApiAssociationArgs();
     }
 }

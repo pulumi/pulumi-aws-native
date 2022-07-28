@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationServiceNowSourcePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceNowSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationServiceNowSourcePropertiesArgs()
         {
         }
+        public static new IntegrationServiceNowSourcePropertiesArgs Empty => new IntegrationServiceNowSourcePropertiesArgs();
     }
 }

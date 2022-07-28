@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     /// Resource type definition for AWS::SSMIncidents::ReplicationSet
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmincidents:ReplicationSet")]
-    public partial class ReplicationSet : Pulumi.CustomResource
+    public partial class ReplicationSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the ReplicationSet.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         }
     }
 
-    public sealed class ReplicationSetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deletionProtected")]
         public Input<bool>? DeletionProtected { get; set; }
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.SSMIncidents
         public ReplicationSetArgs()
         {
         }
+        public static new ReplicationSetArgs Empty => new ReplicationSetArgs();
     }
 }

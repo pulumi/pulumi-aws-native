@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class ApplicationTagArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.EMRServerless.Inputs
         public ApplicationTagArgs()
         {
         }
+        public static new ApplicationTagArgs Empty => new ApplicationTagArgs();
     }
 }

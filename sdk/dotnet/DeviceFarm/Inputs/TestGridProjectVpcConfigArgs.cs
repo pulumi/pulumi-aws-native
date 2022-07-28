@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
     /// <summary>
     /// The VPC security groups and subnets that are attached to a TestGrid project.
     /// </summary>
-    public sealed class TestGridProjectVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class TestGridProjectVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -45,5 +45,6 @@ namespace Pulumi.AwsNative.DeviceFarm.Inputs
         public TestGridProjectVpcConfigArgs()
         {
         }
+        public static new TestGridProjectVpcConfigArgs Empty => new TestGridProjectVpcConfigArgs();
     }
 }

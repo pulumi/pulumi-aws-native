@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpsWorksCM.Inputs
 {
 
-    public sealed class ServerTagArgs : Pulumi.ResourceArgs
+    public sealed class ServerTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.OpsWorksCM.Inputs
         public ServerTagArgs()
         {
         }
+        public static new ServerTagArgs Empty => new ServerTagArgs();
     }
 }

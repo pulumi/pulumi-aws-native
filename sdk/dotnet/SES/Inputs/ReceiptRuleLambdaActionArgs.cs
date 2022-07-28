@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Inputs
 {
 
-    public sealed class ReceiptRuleLambdaActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleLambdaActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ReceiptRuleLambdaActionArgs()
         {
         }
+        public static new ReceiptRuleLambdaActionArgs Empty => new ReceiptRuleLambdaActionArgs();
     }
 }

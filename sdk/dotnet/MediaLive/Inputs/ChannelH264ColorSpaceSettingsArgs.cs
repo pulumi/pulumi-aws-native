@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelH264ColorSpaceSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelH264ColorSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("colorSpacePassthroughSettings")]
         public Input<Inputs.ChannelColorSpacePassthroughSettingsArgs>? ColorSpacePassthroughSettings { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelH264ColorSpaceSettingsArgs()
         {
         }
+        public static new ChannelH264ColorSpaceSettingsArgs Empty => new ChannelH264ColorSpaceSettingsArgs();
     }
 }

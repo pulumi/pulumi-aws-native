@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    public sealed class StateMachineS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public StateMachineS3LocationArgs()
         {
         }
+        public static new StateMachineS3LocationArgs Empty => new StateMachineS3LocationArgs();
     }
 }

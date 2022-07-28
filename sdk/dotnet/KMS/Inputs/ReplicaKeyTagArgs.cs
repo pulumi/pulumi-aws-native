@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KMS.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class ReplicaKeyTagArgs : Pulumi.ResourceArgs
+    public sealed class ReplicaKeyTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.KMS.Inputs
         public ReplicaKeyTagArgs()
         {
         }
+        public static new ReplicaKeyTagArgs Empty => new ReplicaKeyTagArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The combination of user name and password that are used as credentials.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceCredentialPairArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceCredentialPairArgs : global::Pulumi.ResourceArgs
     {
         [Input("alternateDataSourceParameters")]
         private InputList<Inputs.DataSourceParametersArgs>? _alternateDataSourceParameters;
@@ -50,5 +50,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceCredentialPairArgs()
         {
         }
+        public static new DataSourceCredentialPairArgs Empty => new DataSourceCredentialPairArgs();
     }
 }

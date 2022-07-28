@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         [Input("cluster", required: true)]
         public string Cluster { get; set; } = null!;
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ECS
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ECS
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

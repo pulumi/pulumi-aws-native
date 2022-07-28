@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSMContacts
     /// Resource Type definition for AWS::SSMContacts::ContactChannel
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmcontacts:ContactChannel")]
-    public partial class ContactChannel : Pulumi.CustomResource
+    public partial class ContactChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.SSMContacts
         }
     }
 
-    public sealed class ContactChannelArgs : Pulumi.ResourceArgs
+    public sealed class ContactChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The details that SSM Incident Manager uses when trying to engage the contact channel.
@@ -129,5 +129,6 @@ namespace Pulumi.AwsNative.SSMContacts
         public ContactChannelArgs()
         {
         }
+        public static new ContactChannelArgs Empty => new ContactChannelArgs();
     }
 }

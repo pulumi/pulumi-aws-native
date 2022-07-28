@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
-    public sealed class MulticastGroupTagArgs : Pulumi.ResourceArgs
+    public sealed class MulticastGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public MulticastGroupTagArgs()
         {
         }
+        public static new MulticastGroupTagArgs Empty => new MulticastGroupTagArgs();
     }
 }

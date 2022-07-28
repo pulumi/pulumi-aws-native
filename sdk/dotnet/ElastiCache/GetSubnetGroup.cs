@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
 
-    public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetSubnetGroupArgs()
         {
         }
+        public static new GetSubnetGroupArgs Empty => new GetSubnetGroupArgs();
     }
 
-    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetSubnetGroupInvokeArgs()
         {
         }
+        public static new GetSubnetGroupInvokeArgs Empty => new GetSubnetGroupInvokeArgs();
     }
 
 

@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationS3EncryptionsArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationS3EncryptionsArgs : global::Pulumi.ResourceArgs
     {
         public SecurityConfigurationS3EncryptionsArgs()
         {
         }
+        public static new SecurityConfigurationS3EncryptionsArgs Empty => new SecurityConfigurationS3EncryptionsArgs();
     }
 }

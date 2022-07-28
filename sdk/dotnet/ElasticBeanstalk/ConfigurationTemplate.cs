@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// </summary>
     [Obsolete(@"ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:ConfigurationTemplate")]
-    public partial class ConfigurationTemplate : Pulumi.CustomResource
+    public partial class ConfigurationTemplate : global::Pulumi.CustomResource
     {
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         }
     }
 
-    public sealed class ConfigurationTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public ConfigurationTemplateArgs()
         {
         }
+        public static new ConfigurationTemplateArgs Empty => new ConfigurationTemplateArgs();
     }
 }

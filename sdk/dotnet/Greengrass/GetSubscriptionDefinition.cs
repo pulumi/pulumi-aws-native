@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetSubscriptionDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionDefinitionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetSubscriptionDefinitionArgs()
         {
         }
+        public static new GetSubscriptionDefinitionArgs Empty => new GetSubscriptionDefinitionArgs();
     }
 
-    public sealed class GetSubscriptionDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetSubscriptionDefinitionInvokeArgs()
         {
         }
+        public static new GetSubscriptionDefinitionInvokeArgs Empty => new GetSubscriptionDefinitionInvokeArgs();
     }
 
 

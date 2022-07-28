@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// <summary>
     /// Configuration needed to write data into the Timestream database and table.
     /// </summary>
-    public sealed class ScheduledQueryTimestreamConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryTimestreamConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -49,5 +49,6 @@ namespace Pulumi.AwsNative.Timestream.Inputs
         public ScheduledQueryTimestreamConfigurationArgs()
         {
         }
+        public static new ScheduledQueryTimestreamConfigurationArgs Empty => new ScheduledQueryTimestreamConfigurationArgs();
     }
 }

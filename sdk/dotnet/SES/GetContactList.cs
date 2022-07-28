@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SES
     }
 
 
-    public sealed class GetContactListArgs : Pulumi.InvokeArgs
+    public sealed class GetContactListArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the contact list.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SES
         public GetContactListArgs()
         {
         }
+        public static new GetContactListArgs Empty => new GetContactListArgs();
     }
 
-    public sealed class GetContactListInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContactListInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the contact list.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SES
         public GetContactListInvokeArgs()
         {
         }
+        public static new GetContactListInvokeArgs Empty => new GetContactListInvokeArgs();
     }
 
 

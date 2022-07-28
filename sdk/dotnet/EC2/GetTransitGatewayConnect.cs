@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetTransitGatewayConnectArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayConnectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Connect attachment.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayConnectArgs()
         {
         }
+        public static new GetTransitGatewayConnectArgs Empty => new GetTransitGatewayConnectArgs();
     }
 
-    public sealed class GetTransitGatewayConnectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayConnectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Connect attachment.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetTransitGatewayConnectInvokeArgs()
         {
         }
+        public static new GetTransitGatewayConnectInvokeArgs Empty => new GetTransitGatewayConnectInvokeArgs();
     }
 
 

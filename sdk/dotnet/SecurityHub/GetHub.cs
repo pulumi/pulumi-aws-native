@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
 
-    public sealed class GetHubArgs : Pulumi.InvokeArgs
+    public sealed class GetHubArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SecurityHub
         public GetHubArgs()
         {
         }
+        public static new GetHubArgs Empty => new GetHubArgs();
     }
 
-    public sealed class GetHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public GetHubInvokeArgs()
         {
         }
+        public static new GetHubInvokeArgs Empty => new GetHubInvokeArgs();
     }
 
 

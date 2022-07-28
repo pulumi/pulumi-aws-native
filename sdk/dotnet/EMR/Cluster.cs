@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EMR
     /// </summary>
     [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         [Output("additionalInfo")]
         public Output<object?> AdditionalInfo { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.EMR
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalInfo")]
         public Input<object>? AdditionalInfo { get; set; }
@@ -224,5 +224,6 @@ namespace Pulumi.AwsNative.EMR
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

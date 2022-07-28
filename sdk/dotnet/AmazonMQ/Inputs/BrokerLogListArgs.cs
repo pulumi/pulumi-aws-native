@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerLogListArgs : Pulumi.ResourceArgs
+    public sealed class BrokerLogListArgs : global::Pulumi.ResourceArgs
     {
         [Input("audit")]
         public Input<bool>? Audit { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerLogListArgs()
         {
         }
+        public static new BrokerLogListArgs Empty => new BrokerLogListArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IVS
     /// Resource Type definition for AWS::IVS::PlaybackKeyPair
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:PlaybackKeyPair")]
-    public partial class PlaybackKeyPair : Pulumi.CustomResource
+    public partial class PlaybackKeyPair : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Key-pair identifier.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IVS
         }
     }
 
-    public sealed class PlaybackKeyPairArgs : Pulumi.ResourceArgs
+    public sealed class PlaybackKeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
@@ -117,5 +117,6 @@ namespace Pulumi.AwsNative.IVS
         public PlaybackKeyPairArgs()
         {
         }
+        public static new PlaybackKeyPairArgs Empty => new PlaybackKeyPairArgs();
     }
 }

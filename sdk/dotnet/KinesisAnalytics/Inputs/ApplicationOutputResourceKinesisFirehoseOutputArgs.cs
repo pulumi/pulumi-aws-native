@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationOutputResourceKinesisFirehoseOutputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationOutputResourceKinesisFirehoseOutputArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceARN", required: true)]
         public Input<string> ResourceARN { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationOutputResourceKinesisFirehoseOutputArgs()
         {
         }
+        public static new ApplicationOutputResourceKinesisFirehoseOutputArgs Empty => new ApplicationOutputResourceKinesisFirehoseOutputArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Presto parameters.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourcePrestoParametersArgs : Pulumi.ResourceArgs
+    public sealed class DataSourcePrestoParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Catalog.&lt;/p&gt;
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourcePrestoParametersArgs()
         {
         }
+        public static new DataSourcePrestoParametersArgs Empty => new DataSourcePrestoParametersArgs();
     }
 }

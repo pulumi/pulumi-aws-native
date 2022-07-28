@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BillingConductor.Inputs
 {
 
-    public sealed class PricingRuleTagArgs : Pulumi.ResourceArgs
+    public sealed class PricingRuleTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
         public PricingRuleTagArgs()
         {
         }
+        public static new PricingRuleTagArgs Empty => new PricingRuleTagArgs();
     }
 }

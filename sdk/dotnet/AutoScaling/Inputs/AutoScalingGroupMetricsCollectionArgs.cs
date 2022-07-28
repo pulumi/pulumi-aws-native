@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupMetricsCollectionArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupMetricsCollectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("granularity", required: true)]
         public Input<string> Granularity { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupMetricsCollectionArgs()
         {
         }
+        public static new AutoScalingGroupMetricsCollectionArgs Empty => new AutoScalingGroupMetricsCollectionArgs();
     }
 }

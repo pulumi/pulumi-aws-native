@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 {
 
-    public sealed class RouteUriPathRouteInputArgs : Pulumi.ResourceArgs
+    public sealed class RouteUriPathRouteInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("activationState", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.RouteActivationState> ActivationState { get; set; } = null!;
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         public RouteUriPathRouteInputArgs()
         {
         }
+        public static new RouteUriPathRouteInputArgs Empty => new RouteUriPathRouteInputArgs();
     }
 }

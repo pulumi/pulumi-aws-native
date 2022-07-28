@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class IndexServerSideEncryptionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public IndexServerSideEncryptionConfigurationArgs()
         {
         }
+        public static new IndexServerSideEncryptionConfigurationArgs Empty => new IndexServerSideEncryptionConfigurationArgs();
     }
 }

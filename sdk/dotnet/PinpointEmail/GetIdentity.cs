@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.PinpointEmail
     }
 
 
-    public sealed class GetIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.PinpointEmail
         public GetIdentityArgs()
         {
         }
+        public static new GetIdentityArgs Empty => new GetIdentityArgs();
     }
 
-    public sealed class GetIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         public GetIdentityInvokeArgs()
         {
         }
+        public static new GetIdentityInvokeArgs Empty => new GetIdentityInvokeArgs();
     }
 
 

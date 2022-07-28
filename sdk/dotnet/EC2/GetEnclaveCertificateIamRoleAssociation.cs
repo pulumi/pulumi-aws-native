@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetEnclaveCertificateIamRoleAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetEnclaveCertificateIamRoleAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.EC2
         public GetEnclaveCertificateIamRoleAssociationArgs()
         {
         }
+        public static new GetEnclaveCertificateIamRoleAssociationArgs Empty => new GetEnclaveCertificateIamRoleAssociationArgs();
     }
 
-    public sealed class GetEnclaveCertificateIamRoleAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnclaveCertificateIamRoleAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.EC2
         public GetEnclaveCertificateIamRoleAssociationInvokeArgs()
         {
         }
+        public static new GetEnclaveCertificateIamRoleAssociationInvokeArgs Empty => new GetEnclaveCertificateIamRoleAssociationInvokeArgs();
     }
 
 

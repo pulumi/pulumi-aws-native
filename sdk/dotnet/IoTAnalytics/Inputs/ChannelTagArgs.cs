@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class ChannelTagArgs : Pulumi.ResourceArgs
+    public sealed class ChannelTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public ChannelTagArgs()
         {
         }
+        public static new ChannelTagArgs Empty => new ChannelTagArgs();
     }
 }

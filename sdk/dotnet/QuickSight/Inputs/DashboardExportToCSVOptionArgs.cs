@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Export to .csv option.&lt;/p&gt;
     /// </summary>
-    public sealed class DashboardExportToCSVOptionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardExportToCSVOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DashboardExportToCSVOptionArgs()
         {
         }
+        public static new DashboardExportToCSVOptionArgs Empty => new DashboardExportToCSVOptionArgs();
     }
 }

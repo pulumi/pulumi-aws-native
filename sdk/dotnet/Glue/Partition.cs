@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Glue
     /// </summary>
     [Obsolete(@"Partition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Partition")]
-    public partial class Partition : Pulumi.CustomResource
+    public partial class Partition : global::Pulumi.CustomResource
     {
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         }
     }
 
-    public sealed class PartitionArgs : Pulumi.ResourceArgs
+    public sealed class PartitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.Glue
         public PartitionArgs()
         {
         }
+        public static new PartitionArgs Empty => new PartitionArgs();
     }
 }

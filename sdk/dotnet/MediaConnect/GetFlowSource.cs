@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
 
-    public sealed class GetFlowSourceArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowSourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the source.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowSourceArgs()
         {
         }
+        public static new GetFlowSourceArgs Empty => new GetFlowSourceArgs();
     }
 
-    public sealed class GetFlowSourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFlowSourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the source.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public GetFlowSourceInvokeArgs()
         {
         }
+        public static new GetFlowSourceInvokeArgs Empty => new GetFlowSourceInvokeArgs();
     }
 
 

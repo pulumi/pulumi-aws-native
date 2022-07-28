@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SpotFleetClassicLoadBalancersConfigArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetClassicLoadBalancersConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("classicLoadBalancers", required: true)]
         private InputList<Inputs.SpotFleetClassicLoadBalancerArgs>? _classicLoadBalancers;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SpotFleetClassicLoadBalancersConfigArgs()
         {
         }
+        public static new SpotFleetClassicLoadBalancersConfigArgs Empty => new SpotFleetClassicLoadBalancersConfigArgs();
     }
 }

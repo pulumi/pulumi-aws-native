@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
     /// </summary>
-    public sealed class BotS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class BotS3LocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotS3LocationArgs()
         {
         }
+        public static new BotS3LocationArgs Empty => new BotS3LocationArgs();
     }
 }

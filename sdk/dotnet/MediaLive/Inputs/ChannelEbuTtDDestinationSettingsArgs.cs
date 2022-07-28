@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelEbuTtDDestinationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelEbuTtDDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("copyrightHolder")]
         public Input<string>? CopyrightHolder { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelEbuTtDDestinationSettingsArgs()
         {
         }
+        public static new ChannelEbuTtDDestinationSettingsArgs Empty => new ChannelEbuTtDDestinationSettingsArgs();
     }
 }

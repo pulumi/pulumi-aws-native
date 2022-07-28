@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     /// Definition of AWS::RefactorSpaces::Service Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:refactorspaces:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -135,5 +135,6 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 }

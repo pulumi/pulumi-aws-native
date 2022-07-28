@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DAX
     /// </summary>
     [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dax:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.DAX
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -167,5 +167,6 @@ namespace Pulumi.AwsNative.DAX
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 }

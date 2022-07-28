@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
-    public sealed class ResolverSyncConfigArgs : Pulumi.ResourceArgs
+    public sealed class ResolverSyncConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("conflictDetection", required: true)]
         public Input<string> ConflictDetection { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         public ResolverSyncConfigArgs()
         {
         }
+        public static new ResolverSyncConfigArgs Empty => new ResolverSyncConfigArgs();
     }
 }

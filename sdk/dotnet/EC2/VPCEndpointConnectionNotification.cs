@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpointConnectionNotification")]
-    public partial class VPCEndpointConnectionNotification : Pulumi.CustomResource
+    public partial class VPCEndpointConnectionNotification : global::Pulumi.CustomResource
     {
         [Output("connectionEvents")]
         public Output<ImmutableArray<string>> ConnectionEvents { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class VPCEndpointConnectionNotificationArgs : Pulumi.ResourceArgs
+    public sealed class VPCEndpointConnectionNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionEvents", required: true)]
         private InputList<string>? _connectionEvents;
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.EC2
         public VPCEndpointConnectionNotificationArgs()
         {
         }
+        public static new VPCEndpointConnectionNotificationArgs Empty => new VPCEndpointConnectionNotificationArgs();
     }
 }

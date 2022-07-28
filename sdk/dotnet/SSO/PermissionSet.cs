@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SSO
     /// Resource Type definition for SSO PermissionSet
     /// </summary>
     [AwsNativeResourceType("aws-native:sso:PermissionSet")]
-    public partial class PermissionSet : Pulumi.CustomResource
+    public partial class PermissionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The permission set description.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.SSO
         }
     }
 
-    public sealed class PermissionSetArgs : Pulumi.ResourceArgs
+    public sealed class PermissionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The permission set description.
@@ -163,5 +163,6 @@ namespace Pulumi.AwsNative.SSO
         public PermissionSetArgs()
         {
         }
+        public static new PermissionSetArgs Empty => new PermissionSetArgs();
     }
 }

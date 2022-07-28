@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
     /// <summary>
     /// Additional parameters to identify Federation mode
     /// </summary>
-    public sealed class EnvironmentFederationParametersArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentFederationParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// SAML metadata URL to link with the Environment
@@ -54,5 +54,6 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         public EnvironmentFederationParametersArgs()
         {
         }
+        public static new EnvironmentFederationParametersArgs Empty => new EnvironmentFederationParametersArgs();
     }
 }

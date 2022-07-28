@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
     /// <summary>
     /// The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
     /// </summary>
-    public sealed class SafetyRuleRuleConfigArgs : Pulumi.ResourceArgs
+    public sealed class SafetyRuleRuleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public SafetyRuleRuleConfigArgs()
         {
         }
+        public static new SafetyRuleRuleConfigArgs Empty => new SafetyRuleRuleConfigArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// The baseline constraints resource for a monitoring job.
     /// </summary>
-    public sealed class ModelExplainabilityJobDefinitionConstraintsResourceArgs : Pulumi.ResourceArgs
+    public sealed class ModelExplainabilityJobDefinitionConstraintsResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelExplainabilityJobDefinitionConstraintsResourceArgs()
         {
         }
+        public static new ModelExplainabilityJobDefinitionConstraintsResourceArgs Empty => new ModelExplainabilityJobDefinitionConstraintsResourceArgs();
     }
 }

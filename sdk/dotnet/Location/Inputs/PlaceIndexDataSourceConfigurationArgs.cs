@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location.Inputs
 {
 
-    public sealed class PlaceIndexDataSourceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PlaceIndexDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("intendedUse")]
         public Input<Pulumi.AwsNative.Location.PlaceIndexIntendedUse>? IntendedUse { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Location.Inputs
         public PlaceIndexDataSourceConfigurationArgs()
         {
         }
+        public static new PlaceIndexDataSourceConfigurationArgs Empty => new PlaceIndexDataSourceConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class ApplicationTagArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public ApplicationTagArgs()
         {
         }
+        public static new ApplicationTagArgs Empty => new ApplicationTagArgs();
     }
 }

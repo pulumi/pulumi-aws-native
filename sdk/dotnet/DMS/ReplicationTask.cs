@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DMS
     /// </summary>
     [Obsolete(@"ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:ReplicationTask")]
-    public partial class ReplicationTask : Pulumi.CustomResource
+    public partial class ReplicationTask : global::Pulumi.CustomResource
     {
         [Output("cdcStartPosition")]
         public Output<string?> CdcStartPosition { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.DMS
         }
     }
 
-    public sealed class ReplicationTaskArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationTaskArgs : global::Pulumi.ResourceArgs
     {
         [Input("cdcStartPosition")]
         public Input<string>? CdcStartPosition { get; set; }
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.DMS
         public ReplicationTaskArgs()
         {
         }
+        public static new ReplicationTaskArgs Empty => new ReplicationTaskArgs();
     }
 }

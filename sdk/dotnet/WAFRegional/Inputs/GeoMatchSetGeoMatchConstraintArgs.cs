@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFRegional.Inputs
 {
 
-    public sealed class GeoMatchSetGeoMatchConstraintArgs : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetGeoMatchConstraintArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAFRegional.Inputs
         public GeoMatchSetGeoMatchConstraintArgs()
         {
         }
+        public static new GeoMatchSetGeoMatchConstraintArgs Empty => new GeoMatchSetGeoMatchConstraintArgs();
     }
 }

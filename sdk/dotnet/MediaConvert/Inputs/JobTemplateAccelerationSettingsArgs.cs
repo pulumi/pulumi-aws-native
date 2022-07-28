@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConvert.Inputs
 {
 
-    public sealed class JobTemplateAccelerationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class JobTemplateAccelerationSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MediaConvert.Inputs
         public JobTemplateAccelerationSettingsArgs()
         {
         }
+        public static new JobTemplateAccelerationSettingsArgs Empty => new JobTemplateAccelerationSettingsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
-    public sealed class LicenseBorrowConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LicenseBorrowConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowEarlyCheckIn", required: true)]
         public Input<bool> AllowEarlyCheckIn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public LicenseBorrowConfigurationArgs()
         {
         }
+        public static new LicenseBorrowConfigurationArgs Empty => new LicenseBorrowConfigurationArgs();
     }
 }

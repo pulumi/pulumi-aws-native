@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito
     /// </summary>
     [Obsolete(@"IdentityPoolRoleAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:IdentityPoolRoleAttachment")]
-    public partial class IdentityPoolRoleAttachment : Pulumi.CustomResource
+    public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource
     {
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Cognito
         }
     }
 
-    public sealed class IdentityPoolRoleAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolRoleAttachmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Cognito
         public IdentityPoolRoleAttachmentArgs()
         {
         }
+        public static new IdentityPoolRoleAttachmentArgs Empty => new IdentityPoolRoleAttachmentArgs();
     }
 }

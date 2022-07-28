@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
     /// </summary>
-    public sealed class PackagingConfigurationDashPackageArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationDashPackageArgs : global::Pulumi.ResourceArgs
     {
         [Input("dashManifests", required: true)]
         private InputList<Inputs.PackagingConfigurationDashManifestArgs>? _dashManifests;
@@ -60,5 +60,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationDashPackageArgs()
         {
         }
+        public static new PackagingConfigurationDashPackageArgs Empty => new PackagingConfigurationDashPackageArgs();
     }
 }

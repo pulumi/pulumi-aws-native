@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// <summary>
     /// The asset property's definition, alias, and notification state.
     /// </summary>
-    public sealed class AssetPropertyArgs : Pulumi.ResourceArgs
+    public sealed class AssetPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property alias that identifies the property.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetPropertyArgs()
         {
         }
+        public static new AssetPropertyArgs Empty => new AssetPropertyArgs();
     }
 }

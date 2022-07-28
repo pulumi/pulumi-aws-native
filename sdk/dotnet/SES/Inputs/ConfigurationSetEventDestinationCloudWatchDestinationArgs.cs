@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// <summary>
     /// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
     /// </summary>
-    public sealed class ConfigurationSetEventDestinationCloudWatchDestinationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationSetEventDestinationCloudWatchDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensionConfigurations")]
         private InputList<Inputs.ConfigurationSetEventDestinationDimensionConfigurationArgs>? _dimensionConfigurations;
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SES.Inputs
         public ConfigurationSetEventDestinationCloudWatchDestinationArgs()
         {
         }
+        public static new ConfigurationSetEventDestinationCloudWatchDestinationArgs Empty => new ConfigurationSetEventDestinationCloudWatchDestinationArgs();
     }
 }

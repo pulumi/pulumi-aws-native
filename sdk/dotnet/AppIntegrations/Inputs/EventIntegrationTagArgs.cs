@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppIntegrations.Inputs
 {
 
-    public sealed class EventIntegrationTagArgs : Pulumi.ResourceArgs
+    public sealed class EventIntegrationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A key to identify the tag.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         public EventIntegrationTagArgs()
         {
         }
+        public static new EventIntegrationTagArgs Empty => new EventIntegrationTagArgs();
     }
 }

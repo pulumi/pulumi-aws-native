@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
     /// </summary>
     [Obsolete(@"LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticloadbalancing:LoadBalancer")]
-    public partial class LoadBalancer : Pulumi.CustomResource
+    public partial class LoadBalancer : global::Pulumi.CustomResource
     {
         [Output("accessLoggingPolicy")]
         public Output<Outputs.LoadBalancerAccessLoggingPolicy?> AccessLoggingPolicy { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         }
     }
 
-    public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLoggingPolicy")]
         public Input<Inputs.LoadBalancerAccessLoggingPolicyArgs>? AccessLoggingPolicy { get; set; }
@@ -226,5 +226,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public LoadBalancerArgs()
         {
         }
+        public static new LoadBalancerArgs Empty => new LoadBalancerArgs();
     }
 }

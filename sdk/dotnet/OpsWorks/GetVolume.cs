@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorks
     }
 
 
-    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetVolumeArgs()
         {
         }
+        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public GetVolumeInvokeArgs()
         {
         }
+        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 

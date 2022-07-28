@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
     /// <summary>
     /// A key-value pair to associate with a resource.
     /// </summary>
-    public sealed class HealthCheckTagArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public HealthCheckTagArgs()
         {
         }
+        public static new HealthCheckTagArgs Empty => new HealthCheckTagArgs();
     }
 }

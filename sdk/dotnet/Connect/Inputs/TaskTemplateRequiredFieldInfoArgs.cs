@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Required field info
     /// </summary>
-    public sealed class TaskTemplateRequiredFieldInfoArgs : Pulumi.ResourceArgs
+    public sealed class TaskTemplateRequiredFieldInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public TaskTemplateRequiredFieldInfoArgs()
         {
         }
+        public static new TaskTemplateRequiredFieldInfoArgs Empty => new TaskTemplateRequiredFieldInfoArgs();
     }
 }

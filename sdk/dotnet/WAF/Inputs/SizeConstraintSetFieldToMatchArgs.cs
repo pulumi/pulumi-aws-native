@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAF.Inputs
 {
 
-    public sealed class SizeConstraintSetFieldToMatchArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.WAF.Inputs
         public SizeConstraintSetFieldToMatchArgs()
         {
         }
+        public static new SizeConstraintSetFieldToMatchArgs Empty => new SizeConstraintSetFieldToMatchArgs();
     }
 }

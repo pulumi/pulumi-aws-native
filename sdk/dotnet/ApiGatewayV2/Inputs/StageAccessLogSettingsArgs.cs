@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class StageAccessLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StageAccessLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public StageAccessLogSettingsArgs()
         {
         }
+        public static new StageAccessLogSettingsArgs Empty => new StageAccessLogSettingsArgs();
     }
 }

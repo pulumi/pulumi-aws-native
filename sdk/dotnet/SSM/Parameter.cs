@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SSM
     /// </summary>
     [Obsolete(@"Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:Parameter")]
-    public partial class Parameter : Pulumi.CustomResource
+    public partial class Parameter : global::Pulumi.CustomResource
     {
         [Output("allowedPattern")]
         public Output<string?> AllowedPattern { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SSM
         }
     }
 
-    public sealed class ParameterArgs : Pulumi.ResourceArgs
+    public sealed class ParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedPattern")]
         public Input<string>? AllowedPattern { get; set; }
@@ -118,5 +118,6 @@ namespace Pulumi.AwsNative.SSM
         public ParameterArgs()
         {
         }
+        public static new ParameterArgs Empty => new ParameterArgs();
     }
 }

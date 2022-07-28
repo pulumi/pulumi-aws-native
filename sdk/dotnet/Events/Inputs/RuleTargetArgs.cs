@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleTargetArgs : Pulumi.ResourceArgs
+    public sealed class RuleTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -63,5 +63,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleTargetArgs()
         {
         }
+        public static new RuleTargetArgs Empty => new RuleTargetArgs();
     }
 }

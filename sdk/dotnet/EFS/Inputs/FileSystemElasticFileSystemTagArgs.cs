@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS.Inputs
 {
 
-    public sealed class FileSystemElasticFileSystemTagArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemElasticFileSystemTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EFS.Inputs
         public FileSystemElasticFileSystemTagArgs()
         {
         }
+        public static new FileSystemElasticFileSystemTagArgs Empty => new FileSystemElasticFileSystemTagArgs();
     }
 }

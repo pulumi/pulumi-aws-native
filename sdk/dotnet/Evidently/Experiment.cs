@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Evidently
     /// Resource Type definition for AWS::Evidently::Experiment.
     /// </summary>
     [AwsNativeResourceType("aws-native:evidently:Experiment")]
-    public partial class Experiment : Pulumi.CustomResource
+    public partial class Experiment : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Evidently
         }
     }
 
-    public sealed class ExperimentArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -154,5 +154,6 @@ namespace Pulumi.AwsNative.Evidently
         public ExperimentArgs()
         {
         }
+        public static new ExperimentArgs Empty => new ExperimentArgs();
     }
 }

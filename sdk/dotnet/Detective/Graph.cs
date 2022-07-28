@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Detective
     /// Resource schema for AWS::Detective::Graph
     /// </summary>
     [AwsNativeResourceType("aws-native:detective:Graph")]
-    public partial class Graph : Pulumi.CustomResource
+    public partial class Graph : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Detective graph ARN
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Detective
         }
     }
 
-    public sealed class GraphArgs : Pulumi.ResourceArgs
+    public sealed class GraphArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputList<Inputs.GraphTagArgs>? _tags;
@@ -80,5 +80,6 @@ namespace Pulumi.AwsNative.Detective
         public GraphArgs()
         {
         }
+        public static new GraphArgs Empty => new GraphArgs();
     }
 }

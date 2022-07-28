@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IAM
     /// </summary>
     [Obsolete(@"Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -109,5 +109,6 @@ namespace Pulumi.AwsNative.IAM
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// <summary>
     /// The configuration settings of the component.
     /// </summary>
-    public sealed class ApplicationComponentConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationComponentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public ApplicationComponentConfigurationArgs()
         {
         }
+        public static new ApplicationComponentConfigurationArgs Empty => new ApplicationComponentConfigurationArgs();
     }
 }

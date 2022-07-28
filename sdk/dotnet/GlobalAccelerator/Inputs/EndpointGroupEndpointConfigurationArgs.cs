@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     /// <summary>
     /// The configuration for a given endpoint
     /// </summary>
-    public sealed class EndpointGroupEndpointConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// true if client ip should be preserved
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         public EndpointGroupEndpointConfigurationArgs()
         {
         }
+        public static new EndpointGroupEndpointConfigurationArgs Empty => new EndpointGroupEndpointConfigurationArgs();
     }
 }

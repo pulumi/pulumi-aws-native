@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisVideo
     }
 
 
-    public sealed class GetSignalingChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalingChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Video Signaling Channel.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.KinesisVideo
         public GetSignalingChannelArgs()
         {
         }
+        public static new GetSignalingChannelArgs Empty => new GetSignalingChannelArgs();
     }
 
-    public sealed class GetSignalingChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSignalingChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kinesis Video Signaling Channel.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         public GetSignalingChannelInvokeArgs()
         {
         }
+        public static new GetSignalingChannelInvokeArgs Empty => new GetSignalingChannelInvokeArgs();
     }
 
 

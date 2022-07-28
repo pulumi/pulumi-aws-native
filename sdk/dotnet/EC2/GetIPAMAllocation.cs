@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetIPAMAllocationArgs : Pulumi.InvokeArgs
+    public sealed class GetIPAMAllocationArgs : global::Pulumi.InvokeArgs
     {
         [Input("cidr", required: true)]
         public string Cidr { get; set; } = null!;
@@ -45,9 +45,10 @@ namespace Pulumi.AwsNative.EC2
         public GetIPAMAllocationArgs()
         {
         }
+        public static new GetIPAMAllocationArgs Empty => new GetIPAMAllocationArgs();
     }
 
-    public sealed class GetIPAMAllocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIPAMAllocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
@@ -67,6 +68,7 @@ namespace Pulumi.AwsNative.EC2
         public GetIPAMAllocationInvokeArgs()
         {
         }
+        public static new GetIPAMAllocationInvokeArgs Empty => new GetIPAMAllocationInvokeArgs();
     }
 
 

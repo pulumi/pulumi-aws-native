@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// The Policy Status associated with this Multi Region Access Point
     /// </summary>
-    public sealed class PolicyStatusPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PolicyStatusPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the policy is public or not.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public PolicyStatusPropertiesArgs()
         {
         }
+        public static new PolicyStatusPropertiesArgs Empty => new PolicyStatusPropertiesArgs();
     }
 }

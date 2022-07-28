@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class AuthorizerTagArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public AuthorizerTagArgs()
         {
         }
+        public static new AuthorizerTagArgs Empty => new AuthorizerTagArgs();
     }
 }

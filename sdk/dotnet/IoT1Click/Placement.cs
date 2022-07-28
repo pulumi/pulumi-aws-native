@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT1Click
     /// </summary>
     [Obsolete(@"Placement is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot1click:Placement")]
-    public partial class Placement : Pulumi.CustomResource
+    public partial class Placement : global::Pulumi.CustomResource
     {
         [Output("associatedDevices")]
         public Output<object?> AssociatedDevices { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.IoT1Click
         }
     }
 
-    public sealed class PlacementArgs : Pulumi.ResourceArgs
+    public sealed class PlacementArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatedDevices")]
         public Input<object>? AssociatedDevices { get; set; }
@@ -88,5 +88,6 @@ namespace Pulumi.AwsNative.IoT1Click
         public PlacementArgs()
         {
         }
+        public static new PlacementArgs Empty => new PlacementArgs();
     }
 }

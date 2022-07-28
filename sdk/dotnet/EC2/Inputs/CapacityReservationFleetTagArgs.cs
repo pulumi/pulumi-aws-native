@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class CapacityReservationFleetTagArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationFleetTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public CapacityReservationFleetTagArgs()
         {
         }
+        public static new CapacityReservationFleetTagArgs Empty => new CapacityReservationFleetTagArgs();
     }
 }

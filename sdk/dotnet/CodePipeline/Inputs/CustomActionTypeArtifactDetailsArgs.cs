@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class CustomActionTypeArtifactDetailsArgs : Pulumi.ResourceArgs
+    public sealed class CustomActionTypeArtifactDetailsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maximumCount", required: true)]
         public Input<int> MaximumCount { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public CustomActionTypeArtifactDetailsArgs()
         {
         }
+        public static new CustomActionTypeArtifactDetailsArgs Empty => new CustomActionTypeArtifactDetailsArgs();
     }
 }

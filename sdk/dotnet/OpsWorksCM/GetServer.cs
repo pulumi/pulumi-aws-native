@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverName", required: true)]
         public string ServerName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.OpsWorksCM
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

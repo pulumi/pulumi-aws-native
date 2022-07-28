@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     /// <summary>
     /// A key-value pair to associate with a global network resource.
     /// </summary>
-    public sealed class GlobalNetworkTagArgs : Pulumi.ResourceArgs
+    public sealed class GlobalNetworkTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         public GlobalNetworkTagArgs()
         {
         }
+        public static new GlobalNetworkTagArgs Empty => new GlobalNetworkTagArgs();
     }
 }

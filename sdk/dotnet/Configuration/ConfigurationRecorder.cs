@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Configuration
     /// </summary>
     [Obsolete(@"ConfigurationRecorder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:ConfigurationRecorder")]
-    public partial class ConfigurationRecorder : Pulumi.CustomResource
+    public partial class ConfigurationRecorder : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Configuration
         }
     }
 
-    public sealed class ConfigurationRecorderArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationRecorderArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.Configuration
         public ConfigurationRecorderArgs()
         {
         }
+        public static new ConfigurationRecorderArgs Empty => new ConfigurationRecorderArgs();
     }
 }

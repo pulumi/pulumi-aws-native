@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Evidently
     /// Resource Type definition for AWS::Evidently::Launch.
     /// </summary>
     [AwsNativeResourceType("aws-native:evidently:Launch")]
-    public partial class Launch : Pulumi.CustomResource
+    public partial class Launch : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Evidently
         }
     }
 
-    public sealed class LaunchArgs : Pulumi.ResourceArgs
+    public sealed class LaunchArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -153,5 +153,6 @@ namespace Pulumi.AwsNative.Evidently
         public LaunchArgs()
         {
         }
+        public static new LaunchArgs Empty => new LaunchArgs();
     }
 }

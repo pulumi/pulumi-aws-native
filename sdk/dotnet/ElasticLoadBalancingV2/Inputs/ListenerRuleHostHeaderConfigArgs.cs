@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleHostHeaderConfigArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleHostHeaderConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("values")]
         private InputList<string>? _values;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public ListenerRuleHostHeaderConfigArgs()
         {
         }
+        public static new ListenerRuleHostHeaderConfigArgs Empty => new ListenerRuleHostHeaderConfigArgs();
     }
 }

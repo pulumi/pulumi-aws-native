@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GameLift
     /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
     /// </summary>
     [AwsNativeResourceType("aws-native:gamelift:Alias")]
-    public partial class Alias : Pulumi.CustomResource
+    public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Unique alias ID
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.GameLift
         }
     }
 
-    public sealed class AliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-readable description of the alias.
@@ -105,5 +105,6 @@ namespace Pulumi.AwsNative.GameLift
         public AliasArgs()
         {
         }
+        public static new AliasArgs Empty => new AliasArgs();
     }
 }

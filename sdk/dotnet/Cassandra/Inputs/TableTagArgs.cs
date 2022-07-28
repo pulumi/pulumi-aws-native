@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// <summary>
     /// A key-value pair to apply to the resource
     /// </summary>
-    public sealed class TableTagArgs : Pulumi.ResourceArgs
+    public sealed class TableTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public TableTagArgs()
         {
         }
+        public static new TableTagArgs Empty => new TableTagArgs();
     }
 }

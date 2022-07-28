@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
-    public sealed class UserProfileResourceSpecArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileResourceSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type that the image version runs on.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public UserProfileResourceSpecArgs()
         {
         }
+        public static new UserProfileResourceSpecArgs Empty => new UserProfileResourceSpecArgs();
     }
 }

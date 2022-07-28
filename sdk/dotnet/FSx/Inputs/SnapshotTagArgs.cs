@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class SnapshotTagArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public SnapshotTagArgs()
         {
         }
+        public static new SnapshotTagArgs Empty => new SnapshotTagArgs();
     }
 }

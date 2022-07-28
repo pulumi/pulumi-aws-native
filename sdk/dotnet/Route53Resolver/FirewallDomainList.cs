@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// Resource schema for AWS::Route53Resolver::FirewallDomainList.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:FirewallDomainList")]
-    public partial class FirewallDomainList : Pulumi.CustomResource
+    public partial class FirewallDomainList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Arn
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
     }
 
-    public sealed class FirewallDomainListArgs : Pulumi.ResourceArgs
+    public sealed class FirewallDomainListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// S3 URL to import domains from.
@@ -164,5 +164,6 @@ namespace Pulumi.AwsNative.Route53Resolver
         public FirewallDomainListArgs()
         {
         }
+        public static new FirewallDomainListArgs Empty => new FirewallDomainListArgs();
     }
 }

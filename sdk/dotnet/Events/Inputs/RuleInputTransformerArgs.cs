@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleInputTransformerArgs : Pulumi.ResourceArgs
+    public sealed class RuleInputTransformerArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputPathsMap")]
         public Input<object>? InputPathsMap { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleInputTransformerArgs()
         {
         }
+        public static new RuleInputTransformerArgs Empty => new RuleInputTransformerArgs();
     }
 }

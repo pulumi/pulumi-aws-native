@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileRedshiftConnectorProfilePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileRedshiftConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Amazon S3 bucket associated with Redshift.
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileRedshiftConnectorProfilePropertiesArgs()
         {
         }
+        public static new ConnectorProfileRedshiftConnectorProfilePropertiesArgs Empty => new ConnectorProfileRedshiftConnectorProfilePropertiesArgs();
     }
 }

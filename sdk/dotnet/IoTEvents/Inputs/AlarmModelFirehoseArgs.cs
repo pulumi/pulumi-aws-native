@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
     /// </summary>
-    public sealed class AlarmModelFirehoseArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelFirehoseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kinesis Data Firehose delivery stream where the data is written.
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelFirehoseArgs()
         {
         }
+        public static new AlarmModelFirehoseArgs Empty => new AlarmModelFirehoseArgs();
     }
 }

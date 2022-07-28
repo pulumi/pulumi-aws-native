@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
 
-    public sealed class GetUserGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetUserGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the user group.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetUserGroupArgs()
         {
         }
+        public static new GetUserGroupArgs Empty => new GetUserGroupArgs();
     }
 
-    public sealed class GetUserGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the user group.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public GetUserGroupInvokeArgs()
         {
         }
+        public static new GetUserGroupInvokeArgs Empty => new GetUserGroupInvokeArgs();
     }
 
 

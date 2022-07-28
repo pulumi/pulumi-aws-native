@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    public sealed class DataSourceOneDriveConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceOneDriveConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("disableLocalGroups")]
         public Input<bool>? DisableLocalGroups { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public DataSourceOneDriveConfigurationArgs()
         {
         }
+        public static new DataSourceOneDriveConfigurationArgs Empty => new DataSourceOneDriveConfigurationArgs();
     }
 }

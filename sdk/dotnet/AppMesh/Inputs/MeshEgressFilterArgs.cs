@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class MeshEgressFilterArgs : Pulumi.ResourceArgs
+    public sealed class MeshEgressFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public MeshEgressFilterArgs()
         {
         }
+        public static new MeshEgressFilterArgs Empty => new MeshEgressFilterArgs();
     }
 }

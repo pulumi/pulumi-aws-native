@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class LaunchTemplateElasticGpuSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public LaunchTemplateElasticGpuSpecificationArgs()
         {
         }
+        public static new LaunchTemplateElasticGpuSpecificationArgs Empty => new LaunchTemplateElasticGpuSpecificationArgs();
     }
 }

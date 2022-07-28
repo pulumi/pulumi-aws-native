@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupOnPremisesTagSetListObjectArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupOnPremisesTagSetListObjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("onPremisesTagGroup")]
         private InputList<Inputs.DeploymentGroupTagFilterArgs>? _onPremisesTagGroup;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupOnPremisesTagSetListObjectArgs()
         {
         }
+        public static new DeploymentGroupOnPremisesTagSetListObjectArgs Empty => new DeploymentGroupOnPremisesTagSetListObjectArgs();
     }
 }

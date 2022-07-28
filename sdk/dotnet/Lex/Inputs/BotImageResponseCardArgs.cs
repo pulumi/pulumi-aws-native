@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// <summary>
     /// A message that defines a response card that the client application can show to the user.
     /// </summary>
-    public sealed class BotImageResponseCardArgs : Pulumi.ResourceArgs
+    public sealed class BotImageResponseCardArgs : global::Pulumi.ResourceArgs
     {
         [Input("buttons")]
         private InputList<Inputs.BotButtonArgs>? _buttons;
@@ -48,5 +48,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public BotImageResponseCardArgs()
         {
         }
+        public static new BotImageResponseCardArgs Empty => new BotImageResponseCardArgs();
     }
 }

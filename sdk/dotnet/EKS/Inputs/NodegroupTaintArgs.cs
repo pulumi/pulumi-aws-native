@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// <summary>
     /// An object representing a Taint specification for AWS EKS Nodegroup.
     /// </summary>
-    public sealed class NodegroupTaintArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupTaintArgs : global::Pulumi.ResourceArgs
     {
         [Input("effect")]
         public Input<string>? Effect { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.EKS.Inputs
         public NodegroupTaintArgs()
         {
         }
+        public static new NodegroupTaintArgs Empty => new NodegroupTaintArgs();
     }
 }

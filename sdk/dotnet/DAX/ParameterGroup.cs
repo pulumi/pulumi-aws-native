@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DAX
     /// </summary>
     [Obsolete(@"ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dax:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.DAX
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -82,5 +82,6 @@ namespace Pulumi.AwsNative.DAX
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 }

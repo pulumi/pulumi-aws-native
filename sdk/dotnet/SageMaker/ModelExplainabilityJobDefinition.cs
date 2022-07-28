@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelExplainabilityJobDefinition")]
-    public partial class ModelExplainabilityJobDefinition : Pulumi.CustomResource
+    public partial class ModelExplainabilityJobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the job definition was created.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         }
     }
 
-    public sealed class ModelExplainabilityJobDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ModelExplainabilityJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -159,5 +159,6 @@ namespace Pulumi.AwsNative.SageMaker
         public ModelExplainabilityJobDefinitionArgs()
         {
         }
+        public static new ModelExplainabilityJobDefinitionArgs Empty => new ModelExplainabilityJobDefinitionArgs();
     }
 }

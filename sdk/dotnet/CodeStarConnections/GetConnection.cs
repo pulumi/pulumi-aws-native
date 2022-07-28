@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

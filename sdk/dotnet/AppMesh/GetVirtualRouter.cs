@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh
     }
 
 
-    public sealed class GetVirtualRouterArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualRouterArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualRouterArgs()
         {
         }
+        public static new GetVirtualRouterArgs Empty => new GetVirtualRouterArgs();
     }
 
-    public sealed class GetVirtualRouterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualRouterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppMesh
         public GetVirtualRouterInvokeArgs()
         {
         }
+        public static new GetVirtualRouterInvokeArgs Empty => new GetVirtualRouterInvokeArgs();
     }
 
 

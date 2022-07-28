@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterOpenMonitoringArgs : Pulumi.ResourceArgs
+    public sealed class ClusterOpenMonitoringArgs : global::Pulumi.ResourceArgs
     {
         [Input("prometheus", required: true)]
         public Input<Inputs.ClusterPrometheusArgs> Prometheus { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterOpenMonitoringArgs()
         {
         }
+        public static new ClusterOpenMonitoringArgs Empty => new ClusterOpenMonitoringArgs();
     }
 }

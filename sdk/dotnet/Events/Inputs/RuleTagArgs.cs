@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class RuleTagArgs : Pulumi.ResourceArgs
+    public sealed class RuleTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public RuleTagArgs()
         {
         }
+        public static new RuleTagArgs Empty => new RuleTagArgs();
     }
 }

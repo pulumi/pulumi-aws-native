@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaLive
     }
 
 
-    public sealed class GetChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.MediaLive
         public GetChannelArgs()
         {
         }
+        public static new GetChannelArgs Empty => new GetChannelArgs();
     }
 
-    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.MediaLive
         public GetChannelInvokeArgs()
         {
         }
+        public static new GetChannelInvokeArgs Empty => new GetChannelInvokeArgs();
     }
 
 

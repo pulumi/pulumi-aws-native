@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cognito.Inputs
 {
 
-    public sealed class UserPoolAdminCreateUserConfigArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolAdminCreateUserConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowAdminCreateUserOnly")]
         public Input<bool>? AllowAdminCreateUserOnly { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public UserPoolAdminCreateUserConfigArgs()
         {
         }
+        public static new UserPoolAdminCreateUserConfigArgs Empty => new UserPoolAdminCreateUserConfigArgs();
     }
 }

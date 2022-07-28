@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    public sealed class RuleGroupAndStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupAndStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.RuleGroupStatementArgs>? _statements;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupAndStatementArgs()
         {
         }
+        public static new RuleGroupAndStatementArgs Empty => new RuleGroupAndStatementArgs();
     }
 }

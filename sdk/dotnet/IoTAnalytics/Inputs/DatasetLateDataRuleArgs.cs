@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 {
 
-    public sealed class DatasetLateDataRuleArgs : Pulumi.ResourceArgs
+    public sealed class DatasetLateDataRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleConfiguration", required: true)]
         public Input<Inputs.DatasetLateDataRuleConfigurationArgs> RuleConfiguration { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public DatasetLateDataRuleArgs()
         {
         }
+        public static new DatasetLateDataRuleArgs Empty => new DatasetLateDataRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    public sealed class IntegrationTaskPropertiesMapArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTaskPropertiesMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("operatorPropertyKey", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationOperatorPropertiesKeys> OperatorPropertyKey { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public IntegrationTaskPropertiesMapArgs()
         {
         }
+        public static new IntegrationTaskPropertiesMapArgs Empty => new IntegrationTaskPropertiesMapArgs();
     }
 }

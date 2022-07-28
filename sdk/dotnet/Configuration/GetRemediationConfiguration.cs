@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration
     }
 
 
-    public sealed class GetRemediationConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetRemediationConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Configuration
         public GetRemediationConfigurationArgs()
         {
         }
+        public static new GetRemediationConfigurationArgs Empty => new GetRemediationConfigurationArgs();
     }
 
-    public sealed class GetRemediationConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRemediationConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Configuration
         public GetRemediationConfigurationInvokeArgs()
         {
         }
+        public static new GetRemediationConfigurationInvokeArgs Empty => new GetRemediationConfigurationInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR.Inputs
 {
 
-    public sealed class InstanceGroupConfigScalingConstraintsArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupConfigScalingConstraintsArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EMR.Inputs
         public InstanceGroupConfigScalingConstraintsArgs()
         {
         }
+        public static new InstanceGroupConfigScalingConstraintsArgs Empty => new InstanceGroupConfigScalingConstraintsArgs();
     }
 }

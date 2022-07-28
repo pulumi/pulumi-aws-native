@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
-    public sealed class PipelineBlockerDeclarationArgs : Pulumi.ResourceArgs
+    public sealed class PipelineBlockerDeclarationArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public PipelineBlockerDeclarationArgs()
         {
         }
+        public static new PipelineBlockerDeclarationArgs Empty => new PipelineBlockerDeclarationArgs();
     }
 }

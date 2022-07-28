@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeHttpTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeHttpTimeoutArgs : global::Pulumi.ResourceArgs
     {
         [Input("idle")]
         public Input<Inputs.VirtualNodeDurationArgs>? Idle { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeHttpTimeoutArgs()
         {
         }
+        public static new VirtualNodeHttpTimeoutArgs Empty => new VirtualNodeHttpTimeoutArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
 
-    public sealed class GetComponentTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the component type.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetComponentTypeArgs()
         {
         }
+        public static new GetComponentTypeArgs Empty => new GetComponentTypeArgs();
     }
 
-    public sealed class GetComponentTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the component type.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public GetComponentTypeInvokeArgs()
         {
         }
+        public static new GetComponentTypeInvokeArgs Empty => new GetComponentTypeInvokeArgs();
     }
 
 

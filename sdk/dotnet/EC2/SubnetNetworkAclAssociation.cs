@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2
     /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:SubnetNetworkAclAssociation")]
-    public partial class SubnetNetworkAclAssociation : Pulumi.CustomResource
+    public partial class SubnetNetworkAclAssociation : global::Pulumi.CustomResource
     {
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class SubnetNetworkAclAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetNetworkAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the network ACL
@@ -90,5 +90,6 @@ namespace Pulumi.AwsNative.EC2
         public SubnetNetworkAclAssociationArgs()
         {
         }
+        public static new SubnetNetworkAclAssociationArgs Empty => new SubnetNetworkAclAssociationArgs();
     }
 }

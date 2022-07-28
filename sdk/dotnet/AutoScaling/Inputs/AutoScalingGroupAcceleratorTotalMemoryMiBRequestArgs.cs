@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
-    public sealed class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs()
         {
         }
+        public static new AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs Empty => new AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs();
     }
 }

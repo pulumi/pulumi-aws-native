@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IAM
     /// Resource Type definition for AWS::IAM::VirtualMFADevice
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:VirtualMFADevice")]
-    public partial class VirtualMFADevice : Pulumi.CustomResource
+    public partial class VirtualMFADevice : global::Pulumi.CustomResource
     {
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IAM
         }
     }
 
-    public sealed class VirtualMFADeviceArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMFADeviceArgs : global::Pulumi.ResourceArgs
     {
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -100,5 +100,6 @@ namespace Pulumi.AwsNative.IAM
         public VirtualMFADeviceArgs()
         {
         }
+        public static new VirtualMFADeviceArgs Empty => new VirtualMFADeviceArgs();
     }
 }

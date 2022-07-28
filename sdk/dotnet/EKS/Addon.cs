@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS
     /// Resource Schema for AWS::EKS::Addon
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:Addon")]
-    public partial class Addon : Pulumi.CustomResource
+    public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of Addon
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EKS
         }
     }
 
-    public sealed class AddonArgs : Pulumi.ResourceArgs
+    public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Addon
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.EKS
         public AddonArgs()
         {
         }
+        public static new AddonArgs Empty => new AddonArgs();
     }
 }

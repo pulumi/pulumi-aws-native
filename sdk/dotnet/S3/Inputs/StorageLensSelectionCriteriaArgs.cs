@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Selection criteria for prefix-level metrics.
     /// </summary>
-    public sealed class StorageLensSelectionCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class StorageLensSelectionCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Delimiter to divide S3 key into hierarchy of prefixes.
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public StorageLensSelectionCriteriaArgs()
         {
         }
+        public static new StorageLensSelectionCriteriaArgs Empty => new StorageLensSelectionCriteriaArgs();
     }
 }

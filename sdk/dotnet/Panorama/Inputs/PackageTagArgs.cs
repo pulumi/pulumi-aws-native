@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Panorama.Inputs
 {
 
-    public sealed class PackageTagArgs : Pulumi.ResourceArgs
+    public sealed class PackageTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Panorama.Inputs
         public PackageTagArgs()
         {
         }
+        public static new PackageTagArgs Empty => new PackageTagArgs();
     }
 }

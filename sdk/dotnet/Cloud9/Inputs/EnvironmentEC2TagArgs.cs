@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cloud9.Inputs
 {
 
-    public sealed class EnvironmentEC2TagArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentEC2TagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Cloud9.Inputs
         public EnvironmentEC2TagArgs()
         {
         }
+        public static new EnvironmentEC2TagArgs Empty => new EnvironmentEC2TagArgs();
     }
 }

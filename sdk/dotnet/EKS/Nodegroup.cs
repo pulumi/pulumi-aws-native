@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EKS
     /// Resource schema for AWS::EKS::Nodegroup
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:Nodegroup")]
-    public partial class Nodegroup : Pulumi.CustomResource
+    public partial class Nodegroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AMI type for your node group.
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.EKS
         }
     }
 
-    public sealed class NodegroupArgs : Pulumi.ResourceArgs
+    public sealed class NodegroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AMI type for your node group.
@@ -300,5 +300,6 @@ namespace Pulumi.AwsNative.EKS
         public NodegroupArgs()
         {
         }
+        public static new NodegroupArgs Empty => new NodegroupArgs();
     }
 }

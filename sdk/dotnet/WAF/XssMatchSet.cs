@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WAF
     /// </summary>
     [Obsolete(@"XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:XssMatchSet")]
-    public partial class XssMatchSet : Pulumi.CustomResource
+    public partial class XssMatchSet : global::Pulumi.CustomResource
     {
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WAF
         }
     }
 
-    public sealed class XssMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class XssMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -81,5 +81,6 @@ namespace Pulumi.AwsNative.WAF
         public XssMatchSetArgs()
         {
         }
+        public static new XssMatchSetArgs Empty => new XssMatchSetArgs();
     }
 }

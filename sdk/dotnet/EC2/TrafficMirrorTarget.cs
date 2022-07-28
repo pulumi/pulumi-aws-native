@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EC2
     /// </summary>
     [Obsolete(@"TrafficMirrorTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TrafficMirrorTarget")]
-    public partial class TrafficMirrorTarget : Pulumi.CustomResource
+    public partial class TrafficMirrorTarget : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.EC2
         }
     }
 
-    public sealed class TrafficMirrorTargetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.AwsNative.EC2
         public TrafficMirrorTargetArgs()
         {
         }
+        public static new TrafficMirrorTargetArgs Empty => new TrafficMirrorTargetArgs();
     }
 }

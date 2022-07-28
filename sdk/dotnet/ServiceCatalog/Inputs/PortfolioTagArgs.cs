@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    public sealed class PortfolioTagArgs : Pulumi.ResourceArgs
+    public sealed class PortfolioTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         public PortfolioTagArgs()
         {
         }
+        public static new PortfolioTagArgs Empty => new PortfolioTagArgs();
     }
 }

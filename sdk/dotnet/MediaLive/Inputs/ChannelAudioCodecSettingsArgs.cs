@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelAudioCodecSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelAudioCodecSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("aacSettings")]
         public Input<Inputs.ChannelAacSettingsArgs>? AacSettings { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelAudioCodecSettingsArgs()
         {
         }
+        public static new ChannelAudioCodecSettingsArgs Empty => new ChannelAudioCodecSettingsArgs();
     }
 }

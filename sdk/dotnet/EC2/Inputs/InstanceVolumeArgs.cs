@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class InstanceVolumeArgs : Pulumi.ResourceArgs
+    public sealed class InstanceVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("device", required: true)]
         public Input<string> Device { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public InstanceVolumeArgs()
         {
         }
+        public static new InstanceVolumeArgs Empty => new InstanceVolumeArgs();
     }
 }

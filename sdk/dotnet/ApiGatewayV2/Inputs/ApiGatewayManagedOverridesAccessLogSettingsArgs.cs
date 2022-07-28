@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiGatewayManagedOverridesAccessLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ApiGatewayManagedOverridesAccessLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public ApiGatewayManagedOverridesAccessLogSettingsArgs()
         {
         }
+        public static new ApiGatewayManagedOverridesAccessLogSettingsArgs Empty => new ApiGatewayManagedOverridesAccessLogSettingsArgs();
     }
 }

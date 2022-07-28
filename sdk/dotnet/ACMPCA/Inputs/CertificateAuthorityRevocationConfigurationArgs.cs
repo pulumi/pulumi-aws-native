@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Certificate Authority revocation information.
     /// </summary>
-    public sealed class CertificateAuthorityRevocationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityRevocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("crlConfiguration")]
         public Input<Inputs.CertificateAuthorityCrlConfigurationArgs>? CrlConfiguration { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateAuthorityRevocationConfigurationArgs()
         {
         }
+        public static new CertificateAuthorityRevocationConfigurationArgs Empty => new CertificateAuthorityRevocationConfigurationArgs();
     }
 }

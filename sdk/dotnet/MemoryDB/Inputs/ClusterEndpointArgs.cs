@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MemoryDB.Inputs
 {
 
-    public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS address of the primary read-write node.
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.MemoryDB.Inputs
         public ClusterEndpointArgs()
         {
         }
+        public static new ClusterEndpointArgs Empty => new ClusterEndpointArgs();
     }
 }

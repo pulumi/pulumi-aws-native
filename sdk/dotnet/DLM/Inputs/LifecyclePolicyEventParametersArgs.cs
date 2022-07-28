@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DLM.Inputs
 {
 
-    public sealed class LifecyclePolicyEventParametersArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyEventParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("descriptionRegex")]
         public Input<string>? DescriptionRegex { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.DLM.Inputs
         public LifecyclePolicyEventParametersArgs()
         {
         }
+        public static new LifecyclePolicyEventParametersArgs Empty => new LifecyclePolicyEventParametersArgs();
     }
 }

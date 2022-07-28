@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// <summary>
     /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
     /// </summary>
-    public sealed class AlarmModelDynamoDBArgs : Pulumi.ResourceArgs
+    public sealed class AlarmModelDynamoDBArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the hash key (also called the partition key).
@@ -97,5 +97,6 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public AlarmModelDynamoDBArgs()
         {
         }
+        public static new AlarmModelDynamoDBArgs Empty => new AlarmModelDynamoDBArgs();
     }
 }

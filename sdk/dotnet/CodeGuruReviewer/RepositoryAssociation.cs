@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
     /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
     /// </summary>
     [AwsNativeResourceType("aws-native:codegurureviewer:RepositoryAssociation")]
-    public partial class RepositoryAssociation : Pulumi.CustomResource
+    public partial class RepositoryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the repository association.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         }
     }
 
-    public sealed class RepositoryAssociationArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
@@ -147,5 +147,6 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         public RepositoryAssociationArgs()
         {
         }
+        public static new RepositoryAssociationArgs Empty => new RepositoryAssociationArgs();
     }
 }

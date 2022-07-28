@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class MeshServiceDiscoveryArgs : Pulumi.ResourceArgs
+    public sealed class MeshServiceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipPreference")]
         public Input<string>? IpPreference { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public MeshServiceDiscoveryArgs()
         {
         }
+        public static new MeshServiceDiscoveryArgs Empty => new MeshServiceDiscoveryArgs();
     }
 }

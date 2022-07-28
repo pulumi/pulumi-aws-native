@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorOAuthRequestArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorOAuthRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The code provided by the connector when it has been authenticated via the connected app.
@@ -28,5 +28,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public ConnectorProfileConnectorOAuthRequestArgs()
         {
         }
+        public static new ConnectorProfileConnectorOAuthRequestArgs Empty => new ConnectorProfileConnectorOAuthRequestArgs();
     }
 }

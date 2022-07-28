@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class RouteGrpcRouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteGrpcRouteArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
         public Input<Inputs.RouteGrpcRouteActionArgs> Action { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public RouteGrpcRouteArgs()
         {
         }
+        public static new RouteGrpcRouteArgs Empty => new RouteGrpcRouteArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetImagePipelineArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image pipeline.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetImagePipelineArgs()
         {
         }
+        public static new GetImagePipelineArgs Empty => new GetImagePipelineArgs();
     }
 
-    public sealed class GetImagePipelineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImagePipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image pipeline.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetImagePipelineInvokeArgs()
         {
         }
+        public static new GetImagePipelineInvokeArgs Empty => new GetImagePipelineInvokeArgs();
     }
 
 

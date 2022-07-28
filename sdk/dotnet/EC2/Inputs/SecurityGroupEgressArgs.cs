@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class SecurityGroupEgressArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupEgressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrIp")]
         public Input<string>? CidrIp { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public SecurityGroupEgressArgs()
         {
         }
+        public static new SecurityGroupEgressArgs Empty => new SecurityGroupEgressArgs();
     }
 }

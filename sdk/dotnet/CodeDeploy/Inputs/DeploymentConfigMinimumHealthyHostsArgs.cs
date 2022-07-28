@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigMinimumHealthyHostsArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigMinimumHealthyHostsArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentConfigMinimumHealthyHostsArgs()
         {
         }
+        public static new DeploymentConfigMinimumHealthyHostsArgs Empty => new DeploymentConfigMinimumHealthyHostsArgs();
     }
 }

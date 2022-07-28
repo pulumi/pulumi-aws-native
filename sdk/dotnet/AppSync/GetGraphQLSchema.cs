@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync
     }
 
 
-    public sealed class GetGraphQLSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphQLSchemaArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.AppSync
         public GetGraphQLSchemaArgs()
         {
         }
+        public static new GetGraphQLSchemaArgs Empty => new GetGraphQLSchemaArgs();
     }
 
-    public sealed class GetGraphQLSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGraphQLSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public GetGraphQLSchemaInvokeArgs()
         {
         }
+        public static new GetGraphQLSchemaInvokeArgs Empty => new GetGraphQLSchemaInvokeArgs();
     }
 
 

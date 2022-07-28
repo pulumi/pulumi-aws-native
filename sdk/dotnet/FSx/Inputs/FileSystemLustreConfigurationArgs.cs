@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FSx.Inputs
 {
 
-    public sealed class FileSystemLustreConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemLustreConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoImportPolicy")]
         public Input<string>? AutoImportPolicy { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.AwsNative.FSx.Inputs
         public FileSystemLustreConfigurationArgs()
         {
         }
+        public static new FileSystemLustreConfigurationArgs Empty => new FileSystemLustreConfigurationArgs();
     }
 }

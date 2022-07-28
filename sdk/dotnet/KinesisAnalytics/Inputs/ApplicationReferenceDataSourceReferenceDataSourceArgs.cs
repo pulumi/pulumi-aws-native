@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 {
 
-    public sealed class ApplicationReferenceDataSourceReferenceDataSourceArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceReferenceDataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("referenceSchema", required: true)]
         public Input<Inputs.ApplicationReferenceDataSourceReferenceSchemaArgs> ReferenceSchema { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
         public ApplicationReferenceDataSourceReferenceDataSourceArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceReferenceDataSourceArgs Empty => new ApplicationReferenceDataSourceReferenceDataSourceArgs();
     }
 }

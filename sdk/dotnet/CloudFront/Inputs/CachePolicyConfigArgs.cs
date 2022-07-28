@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyConfigArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public CachePolicyConfigArgs()
         {
         }
+        public static new CachePolicyConfigArgs Empty => new CachePolicyConfigArgs();
     }
 }

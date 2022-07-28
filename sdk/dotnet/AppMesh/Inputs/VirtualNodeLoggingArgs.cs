@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeLoggingArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeLoggingArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessLog")]
         public Input<Inputs.VirtualNodeAccessLogArgs>? AccessLog { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeLoggingArgs()
         {
         }
+        public static new VirtualNodeLoggingArgs Empty => new VirtualNodeLoggingArgs();
     }
 }

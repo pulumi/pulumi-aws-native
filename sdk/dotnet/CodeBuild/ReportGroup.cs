@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CodeBuild
     /// </summary>
     [Obsolete(@"ReportGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codebuild:ReportGroup")]
-    public partial class ReportGroup : Pulumi.CustomResource
+    public partial class ReportGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.CodeBuild
         }
     }
 
-    public sealed class ReportGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteReports")]
         public Input<bool>? DeleteReports { get; set; }
@@ -102,5 +102,6 @@ namespace Pulumi.AwsNative.CodeBuild
         public ReportGroupArgs()
         {
         }
+        public static new ReportGroupArgs Empty => new ReportGroupArgs();
     }
 }

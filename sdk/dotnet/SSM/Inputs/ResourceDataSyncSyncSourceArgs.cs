@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSM.Inputs
 {
 
-    public sealed class ResourceDataSyncSyncSourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceDataSyncSyncSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsOrganizationsSource")]
         public Input<Inputs.ResourceDataSyncAwsOrganizationsSourceArgs>? AwsOrganizationsSource { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.AwsNative.SSM.Inputs
         public ResourceDataSyncSyncSourceArgs()
         {
         }
+        public static new ResourceDataSyncSyncSourceArgs Empty => new ResourceDataSyncSyncSourceArgs();
     }
 }

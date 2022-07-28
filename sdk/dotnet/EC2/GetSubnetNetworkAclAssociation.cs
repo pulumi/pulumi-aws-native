@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetSubnetNetworkAclAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetNetworkAclAssociationArgs : global::Pulumi.InvokeArgs
     {
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetNetworkAclAssociationArgs()
         {
         }
+        public static new GetSubnetNetworkAclAssociationArgs Empty => new GetSubnetNetworkAclAssociationArgs();
     }
 
-    public sealed class GetSubnetNetworkAclAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetNetworkAclAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetSubnetNetworkAclAssociationInvokeArgs()
         {
         }
+        public static new GetSubnetNetworkAclAssociationInvokeArgs Empty => new GetSubnetNetworkAclAssociationInvokeArgs();
     }
 
 

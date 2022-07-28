@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// <summary>
     /// Structure that contains X.500 distinguished name information.
     /// </summary>
-    public sealed class CertificateSubjectArgs : Pulumi.ResourceArgs
+    public sealed class CertificateSubjectArgs : global::Pulumi.ResourceArgs
     {
         [Input("commonName")]
         public Input<string>? CommonName { get; set; }
@@ -68,5 +68,6 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         public CertificateSubjectArgs()
         {
         }
+        public static new CertificateSubjectArgs Empty => new CertificateSubjectArgs();
     }
 }

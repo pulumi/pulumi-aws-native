@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// <summary>
     /// Specifies where worker logs are delivered.
     /// </summary>
-    public sealed class ConnectorWorkerLogDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorWorkerLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchLogs")]
         public Input<Inputs.ConnectorCloudWatchLogsLogDeliveryArgs>? CloudWatchLogs { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public ConnectorWorkerLogDeliveryArgs()
         {
         }
+        public static new ConnectorWorkerLogDeliveryArgs Empty => new ConnectorWorkerLogDeliveryArgs();
     }
 }

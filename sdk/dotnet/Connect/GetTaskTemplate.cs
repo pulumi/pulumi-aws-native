@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
 
-    public sealed class GetTaskTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier (arn) of the task template.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.Connect
         public GetTaskTemplateArgs()
         {
         }
+        public static new GetTaskTemplateArgs Empty => new GetTaskTemplateArgs();
     }
 
-    public sealed class GetTaskTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTaskTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier (arn) of the task template.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.Connect
         public GetTaskTemplateInvokeArgs()
         {
         }
+        public static new GetTaskTemplateInvokeArgs Empty => new GetTaskTemplateInvokeArgs();
     }
 
 

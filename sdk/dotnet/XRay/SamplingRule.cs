@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.XRay
     /// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
     /// </summary>
     [AwsNativeResourceType("aws-native:xray:SamplingRule")]
-    public partial class SamplingRule : Pulumi.CustomResource
+    public partial class SamplingRule : global::Pulumi.CustomResource
     {
         [Output("ruleARN")]
         public Output<string> RuleARN { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.XRay
         }
     }
 
-    public sealed class SamplingRuleArgs : Pulumi.ResourceArgs
+    public sealed class SamplingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -101,5 +101,6 @@ namespace Pulumi.AwsNative.XRay
         public SamplingRuleArgs()
         {
         }
+        public static new SamplingRuleArgs Empty => new SamplingRuleArgs();
     }
 }

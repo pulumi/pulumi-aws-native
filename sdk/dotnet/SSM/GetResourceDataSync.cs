@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSM
     }
 
 
-    public sealed class GetResourceDataSyncArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDataSyncArgs : global::Pulumi.InvokeArgs
     {
         [Input("syncName", required: true)]
         public string SyncName { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.SSM
         public GetResourceDataSyncArgs()
         {
         }
+        public static new GetResourceDataSyncArgs Empty => new GetResourceDataSyncArgs();
     }
 
-    public sealed class GetResourceDataSyncInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceDataSyncInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("syncName", required: true)]
         public Input<string> SyncName { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.SSM
         public GetResourceDataSyncInvokeArgs()
         {
         }
+        public static new GetResourceDataSyncInvokeArgs Empty => new GetResourceDataSyncInvokeArgs();
     }
 
 

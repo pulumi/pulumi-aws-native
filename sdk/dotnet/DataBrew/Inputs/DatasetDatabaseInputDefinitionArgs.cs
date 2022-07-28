@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    public sealed class DatasetDatabaseInputDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDatabaseInputDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Database table name
@@ -36,5 +36,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public DatasetDatabaseInputDefinitionArgs()
         {
         }
+        public static new DatasetDatabaseInputDefinitionArgs Empty => new DatasetDatabaseInputDefinitionArgs();
     }
 }

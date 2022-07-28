@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationReferenceDataSourceJSONMappingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationReferenceDataSourceJSONMappingParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public ApplicationReferenceDataSourceJSONMappingParametersArgs()
         {
         }
+        public static new ApplicationReferenceDataSourceJSONMappingParametersArgs Empty => new ApplicationReferenceDataSourceJSONMappingParametersArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AmazonMQ.Inputs
 {
 
-    public sealed class BrokerLdapServerMetadataArgs : Pulumi.ResourceArgs
+    public sealed class BrokerLdapServerMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("hosts", required: true)]
         private InputList<string>? _hosts;
@@ -53,5 +53,6 @@ namespace Pulumi.AwsNative.AmazonMQ.Inputs
         public BrokerLdapServerMetadataArgs()
         {
         }
+        public static new BrokerLdapServerMetadataArgs Empty => new BrokerLdapServerMetadataArgs();
     }
 }

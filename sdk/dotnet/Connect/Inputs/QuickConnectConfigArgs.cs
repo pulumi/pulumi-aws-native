@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// <summary>
     /// Configuration settings for the quick connect.
     /// </summary>
-    public sealed class QuickConnectConfigArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("phoneConfig")]
         public Input<Inputs.QuickConnectPhoneNumberQuickConnectConfigArgs>? PhoneConfig { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public QuickConnectConfigArgs()
         {
         }
+        public static new QuickConnectConfigArgs Empty => new QuickConnectConfigArgs();
     }
 }

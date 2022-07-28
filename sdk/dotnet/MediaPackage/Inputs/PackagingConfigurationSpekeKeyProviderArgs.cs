@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
     /// </summary>
-    public sealed class PackagingConfigurationSpekeKeyProviderArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationSpekeKeyProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationSpekeKeyProviderArgs()
         {
         }
+        public static new PackagingConfigurationSpekeKeyProviderArgs Empty => new PackagingConfigurationSpekeKeyProviderArgs();
     }
 }

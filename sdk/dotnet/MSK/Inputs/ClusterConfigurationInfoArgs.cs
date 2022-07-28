@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MSK.Inputs
 {
 
-    public sealed class ClusterConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MSK.Inputs
         public ClusterConfigurationInfoArgs()
         {
         }
+        public static new ClusterConfigurationInfoArgs Empty => new ClusterConfigurationInfoArgs();
     }
 }

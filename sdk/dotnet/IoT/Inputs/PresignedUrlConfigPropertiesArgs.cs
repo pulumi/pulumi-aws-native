@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// <summary>
     /// Configuration for pre-signed S3 URLs.
     /// </summary>
-    public sealed class PresignedUrlConfigPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PresignedUrlConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("expiresInSec")]
         public Input<int>? ExpiresInSec { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public PresignedUrlConfigPropertiesArgs()
         {
         }
+        public static new PresignedUrlConfigPropertiesArgs Empty => new PresignedUrlConfigPropertiesArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyXSSProtectionArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyXSSProtectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("modeBlock")]
         public Input<bool>? ModeBlock { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public ResponseHeadersPolicyXSSProtectionArgs()
         {
         }
+        public static new ResponseHeadersPolicyXSSProtectionArgs Empty => new ResponseHeadersPolicyXSSProtectionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// An (X, Y) cartesian coordinate denoting a point on the frame
     /// </summary>
-    public sealed class StreamProcessorPointArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The X coordinate of the point.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorPointArgs()
         {
         }
+        public static new StreamProcessorPointArgs Empty => new StreamProcessorPointArgs();
     }
 }

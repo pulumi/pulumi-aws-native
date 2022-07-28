@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
 
-    public sealed class GetDistributionConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetDistributionConfigurationArgs()
         {
         }
+        public static new GetDistributionConfigurationArgs Empty => new GetDistributionConfigurationArgs();
     }
 
-    public sealed class GetDistributionConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public GetDistributionConfigurationInvokeArgs()
         {
         }
+        public static new GetDistributionConfigurationInvokeArgs Empty => new GetDistributionConfigurationInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events.Inputs
 {
 
-    public sealed class EndpointSecondaryArgs : Pulumi.ResourceArgs
+    public sealed class EndpointSecondaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("route", required: true)]
         public Input<string> Route { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.Events.Inputs
         public EndpointSecondaryArgs()
         {
         }
+        public static new EndpointSecondaryArgs Empty => new EndpointSecondaryArgs();
     }
 }

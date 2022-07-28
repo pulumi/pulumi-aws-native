@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
 {
 
-    public sealed class ControlPanelTagArgs : Pulumi.ResourceArgs
+    public sealed class ControlPanelTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public ControlPanelTagArgs()
         {
         }
+        public static new ControlPanelTagArgs Empty => new ControlPanelTagArgs();
     }
 }

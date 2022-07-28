@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class EC2FleetPlacementArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetPlacementArgs : global::Pulumi.ResourceArgs
     {
         [Input("affinity")]
         public Input<string>? Affinity { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public EC2FleetPlacementArgs()
         {
         }
+        public static new EC2FleetPlacementArgs Empty => new EC2FleetPlacementArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetEC2FleetArgs : Pulumi.InvokeArgs
+    public sealed class GetEC2FleetArgs : global::Pulumi.InvokeArgs
     {
         [Input("fleetId", required: true)]
         public string FleetId { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.EC2
         public GetEC2FleetArgs()
         {
         }
+        public static new GetEC2FleetArgs Empty => new GetEC2FleetArgs();
     }
 
-    public sealed class GetEC2FleetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEC2FleetInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("fleetId", required: true)]
         public Input<string> FleetId { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.EC2
         public GetEC2FleetInvokeArgs()
         {
         }
+        public static new GetEC2FleetInvokeArgs Empty => new GetEC2FleetInvokeArgs();
     }
 
 

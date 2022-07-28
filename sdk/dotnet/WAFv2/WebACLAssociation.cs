@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:WebACLAssociation")]
-    public partial class WebACLAssociation : Pulumi.CustomResource
+    public partial class WebACLAssociation : global::Pulumi.CustomResource
     {
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
     }
 
-    public sealed class WebACLAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WebACLAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -75,5 +75,6 @@ namespace Pulumi.AwsNative.WAFv2
         public WebACLAssociationArgs()
         {
         }
+        public static new WebACLAssociationArgs Empty => new WebACLAssociationArgs();
     }
 }

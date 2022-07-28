@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda
     /// Resource Type definition for AWS::Lambda::EventSourceMapping
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:EventSourceMapping")]
-    public partial class EventSourceMapping : Pulumi.CustomResource
+    public partial class EventSourceMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.Lambda
         }
     }
 
-    public sealed class EventSourceMappingArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
@@ -315,5 +315,6 @@ namespace Pulumi.AwsNative.Lambda
         public EventSourceMappingArgs()
         {
         }
+        public static new EventSourceMappingArgs Empty => new EventSourceMappingArgs();
     }
 }

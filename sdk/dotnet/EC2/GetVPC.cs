@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
     }
 
 
-    public sealed class GetVPCArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id for the model.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCArgs()
         {
         }
+        public static new GetVPCArgs Empty => new GetVPCArgs();
     }
 
-    public sealed class GetVPCInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVPCInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Id for the model.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.EC2
         public GetVPCInvokeArgs()
         {
         }
+        public static new GetVPCInvokeArgs Empty => new GetVPCInvokeArgs();
     }
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AutoScalingPlans
     /// </summary>
     [Obsolete(@"ScalingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscalingplans:ScalingPlan")]
-    public partial class ScalingPlan : Pulumi.CustomResource
+    public partial class ScalingPlan : global::Pulumi.CustomResource
     {
         [Output("applicationSource")]
         public Output<Outputs.ScalingPlanApplicationSource> ApplicationSource { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.AutoScalingPlans
         }
     }
 
-    public sealed class ScalingPlanArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationSource", required: true)]
         public Input<Inputs.ScalingPlanApplicationSourceArgs> ApplicationSource { get; set; } = null!;
@@ -87,5 +87,6 @@ namespace Pulumi.AwsNative.AutoScalingPlans
         public ScalingPlanArgs()
         {
         }
+        public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }
 }

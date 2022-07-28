@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    public sealed class MethodIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class MethodIntegrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cacheKeyParameters")]
         private InputList<string>? _cacheKeyParameters;
@@ -111,5 +111,6 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public MethodIntegrationArgs()
         {
         }
+        public static new MethodIntegrationArgs Empty => new MethodIntegrationArgs();
     }
 }

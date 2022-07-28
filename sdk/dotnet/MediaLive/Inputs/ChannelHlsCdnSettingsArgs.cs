@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaLive.Inputs
 {
 
-    public sealed class ChannelHlsCdnSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsCdnSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("hlsAkamaiSettings")]
         public Input<Inputs.ChannelHlsAkamaiSettingsArgs>? HlsAkamaiSettings { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         public ChannelHlsCdnSettingsArgs()
         {
         }
+        public static new ChannelHlsCdnSettingsArgs Empty => new ChannelHlsCdnSettingsArgs();
     }
 }

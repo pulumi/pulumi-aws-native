@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroupAssociation")]
-    public partial class AttributeGroupAssociation : Pulumi.CustomResource
+    public partial class AttributeGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name or the Id of the Application.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         }
     }
 
-    public sealed class AttributeGroupAssociationArgs : Pulumi.ResourceArgs
+    public sealed class AttributeGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or the Id of the Application.
@@ -93,5 +93,6 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public AttributeGroupAssociationArgs()
         {
         }
+        public static new AttributeGroupAssociationArgs Empty => new AttributeGroupAssociationArgs();
     }
 }

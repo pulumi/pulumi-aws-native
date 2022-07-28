@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// <summary>
     /// Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
     /// </summary>
-    public sealed class ModelPackageSourceAlgorithmArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageSourceAlgorithmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public ModelPackageSourceAlgorithmArgs()
         {
         }
+        public static new ModelPackageSourceAlgorithmArgs Empty => new ModelPackageSourceAlgorithmArgs();
     }
 }

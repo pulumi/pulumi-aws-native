@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// <summary>
     /// A CMAF encryption configuration.
     /// </summary>
-    public sealed class PackagingConfigurationCmafEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class PackagingConfigurationCmafEncryptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public PackagingConfigurationCmafEncryptionArgs()
         {
         }
+        public static new PackagingConfigurationCmafEncryptionArgs Empty => new PackagingConfigurationCmafEncryptionArgs();
     }
 }

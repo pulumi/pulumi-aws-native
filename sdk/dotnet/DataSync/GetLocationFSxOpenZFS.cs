@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
     }
 
 
-    public sealed class GetLocationFSxOpenZFSArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxOpenZFSArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxOpenZFSArgs()
         {
         }
+        public static new GetLocationFSxOpenZFSArgs Empty => new GetLocationFSxOpenZFSArgs();
     }
 
-    public sealed class GetLocationFSxOpenZFSInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationFSxOpenZFSInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.DataSync
         public GetLocationFSxOpenZFSInvokeArgs()
         {
         }
+        public static new GetLocationFSxOpenZFSInvokeArgs Empty => new GetLocationFSxOpenZFSInvokeArgs();
     }
 
 

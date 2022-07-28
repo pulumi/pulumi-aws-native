@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Error information for the data source creation or update.&lt;/p&gt;
     /// </summary>
-    public sealed class DataSourceErrorInfoArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceErrorInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// &lt;p&gt;Error message.&lt;/p&gt;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public DataSourceErrorInfoArgs()
         {
         }
+        public static new DataSourceErrorInfoArgs Empty => new DataSourceErrorInfoArgs();
     }
 }

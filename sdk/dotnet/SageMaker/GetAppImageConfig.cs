@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
 
-    public sealed class GetAppImageConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetAppImageConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the AppImageConfig.
@@ -36,9 +36,10 @@ namespace Pulumi.AwsNative.SageMaker
         public GetAppImageConfigArgs()
         {
         }
+        public static new GetAppImageConfigArgs Empty => new GetAppImageConfigArgs();
     }
 
-    public sealed class GetAppImageConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppImageConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the AppImageConfig.
@@ -49,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker
         public GetAppImageConfigInvokeArgs()
         {
         }
+        public static new GetAppImageConfigInvokeArgs Empty => new GetAppImageConfigInvokeArgs();
     }
 
 

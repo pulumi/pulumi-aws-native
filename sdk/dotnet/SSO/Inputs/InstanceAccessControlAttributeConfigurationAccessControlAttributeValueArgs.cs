@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSO.Inputs
 {
 
-    public sealed class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs : Pulumi.ResourceArgs
+    public sealed class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("source", required: true)]
         private InputList<string>? _source;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.SSO.Inputs
         public InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs()
         {
         }
+        public static new InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs Empty => new InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs();
     }
 }

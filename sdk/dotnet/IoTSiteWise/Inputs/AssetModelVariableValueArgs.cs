@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    public sealed class AssetModelVariableValueArgs : Pulumi.ResourceArgs
+    public sealed class AssetModelVariableValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("hierarchyLogicalId")]
         public Input<string>? HierarchyLogicalId { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public AssetModelVariableValueArgs()
         {
         }
+        public static new AssetModelVariableValueArgs Empty => new AssetModelVariableValueArgs();
     }
 }

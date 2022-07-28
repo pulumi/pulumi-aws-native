@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// <summary>
     /// Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
     /// </summary>
-    public sealed class StreamProcessorFaceSearchSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StreamProcessorFaceSearchSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a collection that contains faces that you want to search for.
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
         public StreamProcessorFaceSearchSettingsArgs()
         {
         }
+        public static new StreamProcessorFaceSearchSettingsArgs Empty => new StreamProcessorFaceSearchSettingsArgs();
     }
 }

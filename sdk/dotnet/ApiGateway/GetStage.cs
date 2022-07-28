@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
 
-    public sealed class GetStageArgs : Pulumi.InvokeArgs
+    public sealed class GetStageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the RestApi resource that you're deploying with this stage.
@@ -42,9 +42,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetStageArgs()
         {
         }
+        public static new GetStageArgs Empty => new GetStageArgs();
     }
 
-    public sealed class GetStageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the RestApi resource that you're deploying with this stage.
@@ -61,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public GetStageInvokeArgs()
         {
         }
+        public static new GetStageInvokeArgs Empty => new GetStageInvokeArgs();
     }
 
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// <summary>
     /// Includes headers of a web request.
     /// </summary>
-    public sealed class RuleGroupHeadersArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchPattern", required: true)]
         public Input<Inputs.RuleGroupHeaderMatchPatternArgs> MatchPattern { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public RuleGroupHeadersArgs()
         {
         }
+        public static new RuleGroupHeadersArgs Empty => new RuleGroupHeadersArgs();
     }
 }

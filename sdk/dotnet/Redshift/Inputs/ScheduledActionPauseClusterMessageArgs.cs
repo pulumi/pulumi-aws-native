@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Redshift.Inputs
     /// <summary>
     /// Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
     /// </summary>
-    public sealed class ScheduledActionPauseClusterMessageArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionPauseClusterMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
         public ScheduledActionPauseClusterMessageArgs()
         {
         }
+        public static new ScheduledActionPauseClusterMessageArgs Empty => new ScheduledActionPauseClusterMessageArgs();
     }
 }

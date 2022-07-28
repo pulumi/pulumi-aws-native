@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AuditManager
     /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
     /// </summary>
     [AwsNativeResourceType("aws-native:auditmanager:Assessment")]
-    public partial class Assessment : Pulumi.CustomResource
+    public partial class Assessment : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.AuditManager
         }
     }
 
-    public sealed class AssessmentArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
@@ -156,5 +156,6 @@ namespace Pulumi.AwsNative.AuditManager
         public AssessmentArgs()
         {
         }
+        public static new AssessmentArgs Empty => new AssessmentArgs();
     }
 }

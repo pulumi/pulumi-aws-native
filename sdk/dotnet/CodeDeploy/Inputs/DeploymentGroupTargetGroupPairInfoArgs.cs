@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupTargetGroupPairInfoArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupTargetGroupPairInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("prodTrafficRoute")]
         public Input<Inputs.DeploymentGroupTrafficRouteArgs>? ProdTrafficRoute { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public DeploymentGroupTargetGroupPairInfoArgs()
         {
         }
+        public static new DeploymentGroupTargetGroupPairInfoArgs Empty => new DeploymentGroupTargetGroupPairInfoArgs();
     }
 }

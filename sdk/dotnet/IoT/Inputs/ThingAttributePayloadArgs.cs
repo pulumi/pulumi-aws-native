@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
-    public sealed class ThingAttributePayloadArgs : Pulumi.ResourceArgs
+    public sealed class ThingAttributePayloadArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public ThingAttributePayloadArgs()
         {
         }
+        public static new ThingAttributePayloadArgs Empty => new ThingAttributePayloadArgs();
     }
 }

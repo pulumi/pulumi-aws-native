@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualRouterSpecArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRouterSpecArgs : global::Pulumi.ResourceArgs
     {
         [Input("listeners", required: true)]
         private InputList<Inputs.VirtualRouterListenerArgs>? _listeners;
@@ -23,5 +23,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualRouterSpecArgs()
         {
         }
+        public static new VirtualRouterSpecArgs Empty => new VirtualRouterSpecArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// </summary>
     [Obsolete(@"GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:GroupVersion")]
-    public partial class GroupVersion : Pulumi.CustomResource
+    public partial class GroupVersion : global::Pulumi.CustomResource
     {
         [Output("connectorDefinitionVersionArn")]
         public Output<string?> ConnectorDefinitionVersionArn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Greengrass
         }
     }
 
-    public sealed class GroupVersionArgs : Pulumi.ResourceArgs
+    public sealed class GroupVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorDefinitionVersionArn")]
         public Input<string>? ConnectorDefinitionVersionArn { get; set; }
@@ -112,5 +112,6 @@ namespace Pulumi.AwsNative.Greengrass
         public GroupVersionArgs()
         {
         }
+        public static new GroupVersionArgs Empty => new GroupVersionArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// <summary>
     /// A key-value pair to associate expression's substitution variable names with their values
     /// </summary>
-    public sealed class RulesetSubstitutionValueArgs : Pulumi.ResourceArgs
+    public sealed class RulesetSubstitutionValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value or column name
@@ -30,5 +30,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public RulesetSubstitutionValueArgs()
         {
         }
+        public static new RulesetSubstitutionValueArgs Empty => new RulesetSubstitutionValueArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Greengrass
     }
 
 
-    public sealed class GetLoggerDefinitionVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggerDefinitionVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -33,9 +33,10 @@ namespace Pulumi.AwsNative.Greengrass
         public GetLoggerDefinitionVersionArgs()
         {
         }
+        public static new GetLoggerDefinitionVersionArgs Empty => new GetLoggerDefinitionVersionArgs();
     }
 
-    public sealed class GetLoggerDefinitionVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoggerDefinitionVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -43,6 +44,7 @@ namespace Pulumi.AwsNative.Greengrass
         public GetLoggerDefinitionVersionInvokeArgs()
         {
         }
+        public static new GetLoggerDefinitionVersionInvokeArgs Empty => new GetLoggerDefinitionVersionInvokeArgs();
     }
 
 

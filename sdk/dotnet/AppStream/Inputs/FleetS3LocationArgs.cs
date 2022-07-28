@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppStream.Inputs
 {
 
-    public sealed class FleetS3LocationArgs : Pulumi.ResourceArgs
+    public sealed class FleetS3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public FleetS3LocationArgs()
         {
         }
+        public static new FleetS3LocationArgs Empty => new FleetS3LocationArgs();
     }
 }

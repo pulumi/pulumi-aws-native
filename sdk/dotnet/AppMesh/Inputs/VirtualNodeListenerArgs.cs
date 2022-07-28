@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeListenerArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeListenerArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionPool")]
         public Input<Inputs.VirtualNodeConnectionPoolArgs>? ConnectionPool { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public VirtualNodeListenerArgs()
         {
         }
+        public static new VirtualNodeListenerArgs Empty => new VirtualNodeListenerArgs();
     }
 }

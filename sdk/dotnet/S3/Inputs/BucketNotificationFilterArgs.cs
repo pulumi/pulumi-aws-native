@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// <summary>
     /// Specifies object key name filtering rules.
     /// </summary>
-    public sealed class BucketNotificationFilterArgs : Pulumi.ResourceArgs
+    public sealed class BucketNotificationFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Key", required: true)]
         public Input<Inputs.BucketS3KeyFilterArgs> S3Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.AwsNative.S3.Inputs
         public BucketNotificationFilterArgs()
         {
         }
+        public static new BucketNotificationFilterArgs Empty => new BucketNotificationFilterArgs();
     }
 }

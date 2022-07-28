@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// <summary>
     /// A destination for events that failed processing.
     /// </summary>
-    public sealed class EventSourceMappingOnFailureArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingOnFailureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the destination resource.
@@ -24,5 +24,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public EventSourceMappingOnFailureArgs()
         {
         }
+        public static new EventSourceMappingOnFailureArgs Empty => new EventSourceMappingOnFailureArgs();
     }
 }
