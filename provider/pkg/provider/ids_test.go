@@ -4,10 +4,11 @@ package provider
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/require"
-	"testing"
 )
 
 func Test_getDefaultName(t *testing.T) {
@@ -72,7 +73,7 @@ func Test_getDefaultName(t *testing.T) {
 				MinLength: tt.minLength,
 				MaxLength: tt.maxLength,
 			}
-			got, err := getDefaultName(urn, autoNamingSpec, tt.olds, tt.news)
+			got, err := getDefaultName(nil, urn, autoNamingSpec, tt.olds, tt.news)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
