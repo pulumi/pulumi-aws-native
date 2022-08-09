@@ -24,7 +24,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
         dotnetversion:
         - 3.1.301
         pythonversion:
@@ -120,7 +120,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
         dotnetversion:
         - 3.1.301
         pythonversion:
@@ -210,7 +210,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
         dotnetversion:
         - 3.1.301
         pythonversion:
@@ -319,7 +319,7 @@ jobs:
     strategy:
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
     name: publish
     steps:
     - name: Checkout Repo
@@ -371,7 +371,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.18.x
+        - 1.19.x
         dotnetversion:
         - 3.1.301
         pythonversion:
