@@ -16,6 +16,7 @@ package provider
 
 import (
 	"fmt"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -26,6 +27,7 @@ import (
 // based on its URN name, It ensures the name meets the length constraints, if known.
 // Defaults to the name followed by 7 random hex characters separated by a '-'.
 func getDefaultName(
+	randomSeed []byte,
 	urn resource.URN,
 	autoNamingSpec *schema.AutoNamingSpec,
 	olds,
@@ -67,7 +69,7 @@ func getDefaultName(
 	}
 
 	// Resource name is URN name + "-" + random suffix.
-	random, err := resource.NewUniqueHex(prefix, randLength, maxLength)
+	random, err := resource.NewUniqueName(randomSeed, prefix, randLength, maxLength, nil)
 	if err != nil {
 		return resource.PropertyValue{}, err
 	}
