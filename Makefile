@@ -7,8 +7,11 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := $(shell pulumictl get version)
 
-PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
-WORKING_DIR     := $(shell pwd)
+PROVIDER_PKGS	:= $(shell cd ./provider && go list ./...)
+WORKING_DIR		:= $(shell pwd)
+
+JAVA_GEN		 := pulumi-java-gen
+JAVA_GEN_VERSION := v0.5.4
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}"
 
@@ -37,8 +40,9 @@ ensure:: init_submodules
 	cd sdk/go && GO111MODULE=on go mod tidy
 	cd examples && GO111MODULE=on go mod tidy
 
-local_generate:: clean
+local_generate:: clean bin/pulumi-java-gen
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs,dotnet,python,go,schema $(CFN_SCHEMA_DIR) ${VERSION}
+	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	echo "Finished generating."
 
 generate_schema::
@@ -97,6 +101,14 @@ build_dotnet::
 		echo "${PACK}\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
+build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java::
+	cd ${PACKDIR}/java/ && \
+		gradle --console=plain build
+
+generate_java:: bin/pulumi-java-gen
+	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+
 generate_go::
 	rm -rf sdk/go && mkdir sdk/go
 	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_DIR) ${VERSION}
@@ -104,10 +116,14 @@ generate_go::
 build_go::
 	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
 
+bin/pulumi-java-gen::
+	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
+
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
 	rm -rf sdk/python && mkdir sdk/python && echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
 	rm -rf sdk/dotnet && mkdir sdk/dotnet && echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
+	rm -rf sdk/java && mkdir sdk/java && echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/java/go.mod'
 	rm -rf sdk/go
 
 install_dotnet_sdk::
@@ -118,6 +134,8 @@ install_python_sdk::
 
 install_go_sdk::
 
+install_java_sdk::
+
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
@@ -125,7 +143,7 @@ test::
 	cd examples && go test -v -tags=all -timeout 2h
 
 build:: clean codegen local_generate provider build_sdks install_sdks
-build_sdks: build_nodejs build_dotnet build_python build_go
+build_sdks: build_nodejs build_dotnet build_python build_go build_java
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
 # Required for the codegen action that runs in pulumi/pulumi
