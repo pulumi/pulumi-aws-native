@@ -142,7 +142,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 // DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodArgs and DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodArgs{...}
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodArgs{...}
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 // DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeArgs and DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeArgs{...}
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPt
 // DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodArgs and DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput` via:
 //
-//          DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodArgs{...}
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodArgs{...}
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput
 // DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeArgs and DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput` via:
 //
-//          DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeArgs{...}
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -801,7 +801,7 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrO
 // DeliveryStreamEncryptionConfigurationInputKeyTypeInput is an input type that accepts DeliveryStreamEncryptionConfigurationInputKeyTypeArgs and DeliveryStreamEncryptionConfigurationInputKeyTypeOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInputKeyTypeInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationInputKeyTypeArgs{...}
+//	DeliveryStreamEncryptionConfigurationInputKeyTypeArgs{...}
 type DeliveryStreamEncryptionConfigurationInputKeyTypeInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToStri
 // DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput is an input type that accepts DeliveryStreamEncryptionConfigurationNoEncryptionConfigArgs and DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationNoEncryptionConfigArgs{...}
+//	DeliveryStreamEncryptionConfigurationNoEncryptionConfigArgs{...}
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -1131,7 +1131,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutp
 // DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatArgs and DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput values.
 // You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput` via:
 //
-//          DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatArgs{...}
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatArgs{...}
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput interface {
 	pulumi.Input
 
@@ -1295,7 +1295,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) T
 // DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeArgs and DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput values.
 // You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput` via:
 //
-//          DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeArgs{...}
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -1459,7 +1459,7 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) 
 // DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationContentEncodingArgs and DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput` via:
 //
-//          DeliveryStreamHttpEndpointRequestConfigurationContentEncodingArgs{...}
+//	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingArgs{...}
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput interface {
 	pulumi.Input
 
@@ -1625,7 +1625,7 @@ func (o DeliveryStreamProcessorTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // DeliveryStreamProcessorTypeInput is an input type that accepts DeliveryStreamProcessorTypeArgs and DeliveryStreamProcessorTypeOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorTypeInput` via:
 //
-//          DeliveryStreamProcessorTypeArgs{...}
+//	DeliveryStreamProcessorTypeArgs{...}
 type DeliveryStreamProcessorTypeInput interface {
 	pulumi.Input
 
@@ -1789,7 +1789,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToS
 // DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationS3BackupModeArgs and DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput values.
 // You can construct a concrete instance of `DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput` via:
 //
-//          DeliveryStreamRedshiftDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeArgs{...}
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -1956,7 +1956,7 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToSt
 // DeliveryStreamS3DestinationConfigurationCompressionFormatInput is an input type that accepts DeliveryStreamS3DestinationConfigurationCompressionFormatArgs and DeliveryStreamS3DestinationConfigurationCompressionFormatOutput values.
 // You can construct a concrete instance of `DeliveryStreamS3DestinationConfigurationCompressionFormatInput` via:
 //
-//          DeliveryStreamS3DestinationConfigurationCompressionFormatArgs{...}
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatArgs{...}
 type DeliveryStreamS3DestinationConfigurationCompressionFormatInput interface {
 	pulumi.Input
 
@@ -2120,7 +2120,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput) To
 // DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeArgs and DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput values.
 // You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput` via:
 //
-//          DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeArgs{...}
+//	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeArgs{...}
 type DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput interface {
 	pulumi.Input
 
@@ -2284,7 +2284,7 @@ func (o DeliveryStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DeliveryStreamTypeInput is an input type that accepts DeliveryStreamTypeArgs and DeliveryStreamTypeOutput values.
 // You can construct a concrete instance of `DeliveryStreamTypeInput` via:
 //
-//          DeliveryStreamTypeArgs{...}
+//	DeliveryStreamTypeArgs{...}
 type DeliveryStreamTypeInput interface {
 	pulumi.Input
 

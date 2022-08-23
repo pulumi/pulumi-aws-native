@@ -95,16 +95,18 @@ func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // <p>A structure that contains the permissions of the dashboard. You can use this structure
-//             for granting permissions by providing a list of IAM action information for each
-//             principal ARN. </p>
 //
-//         <p>To specify no permissions, omit the permissions list.</p>
+//	    for granting permissions by providing a list of IAM action information for each
+//	    principal ARN. </p>
+//
+//	<p>To specify no permissions, omit the permissions list.</p>
 func (o LookupDashboardResultOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardResourcePermission { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//             dashboard.</p>
+//
+//	dashboard.</p>
 func (o LookupDashboardResultOutput) Tags() DashboardTagArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardTag { return v.Tags }).(DashboardTagArrayOutput)
 }

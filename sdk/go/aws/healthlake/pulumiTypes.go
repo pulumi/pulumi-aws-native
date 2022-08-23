@@ -98,7 +98,7 @@ type FHIRDatastoreKmsEncryptionConfig struct {
 // FHIRDatastoreKmsEncryptionConfigInput is an input type that accepts FHIRDatastoreKmsEncryptionConfigArgs and FHIRDatastoreKmsEncryptionConfigOutput values.
 // You can construct a concrete instance of `FHIRDatastoreKmsEncryptionConfigInput` via:
 //
-//          FHIRDatastoreKmsEncryptionConfigArgs{...}
+//	FHIRDatastoreKmsEncryptionConfigArgs{...}
 type FHIRDatastoreKmsEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -137,11 +137,11 @@ func (i FHIRDatastoreKmsEncryptionConfigArgs) ToFHIRDatastoreKmsEncryptionConfig
 // FHIRDatastoreKmsEncryptionConfigPtrInput is an input type that accepts FHIRDatastoreKmsEncryptionConfigArgs, FHIRDatastoreKmsEncryptionConfigPtr and FHIRDatastoreKmsEncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `FHIRDatastoreKmsEncryptionConfigPtrInput` via:
 //
-//          FHIRDatastoreKmsEncryptionConfigArgs{...}
+//	        FHIRDatastoreKmsEncryptionConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FHIRDatastoreKmsEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type FHIRDatastorePreloadDataConfig struct {
 // FHIRDatastorePreloadDataConfigInput is an input type that accepts FHIRDatastorePreloadDataConfigArgs and FHIRDatastorePreloadDataConfigOutput values.
 // You can construct a concrete instance of `FHIRDatastorePreloadDataConfigInput` via:
 //
-//          FHIRDatastorePreloadDataConfigArgs{...}
+//	FHIRDatastorePreloadDataConfigArgs{...}
 type FHIRDatastorePreloadDataConfigInput interface {
 	pulumi.Input
 
@@ -292,11 +292,11 @@ func (i FHIRDatastorePreloadDataConfigArgs) ToFHIRDatastorePreloadDataConfigPtrO
 // FHIRDatastorePreloadDataConfigPtrInput is an input type that accepts FHIRDatastorePreloadDataConfigArgs, FHIRDatastorePreloadDataConfigPtr and FHIRDatastorePreloadDataConfigPtrOutput values.
 // You can construct a concrete instance of `FHIRDatastorePreloadDataConfigPtrInput` via:
 //
-//          FHIRDatastorePreloadDataConfigArgs{...}
+//	        FHIRDatastorePreloadDataConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FHIRDatastorePreloadDataConfigPtrInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ type FHIRDatastoreSseConfiguration struct {
 // FHIRDatastoreSseConfigurationInput is an input type that accepts FHIRDatastoreSseConfigurationArgs and FHIRDatastoreSseConfigurationOutput values.
 // You can construct a concrete instance of `FHIRDatastoreSseConfigurationInput` via:
 //
-//          FHIRDatastoreSseConfigurationArgs{...}
+//	FHIRDatastoreSseConfigurationArgs{...}
 type FHIRDatastoreSseConfigurationInput interface {
 	pulumi.Input
 
@@ -432,11 +432,11 @@ func (i FHIRDatastoreSseConfigurationArgs) ToFHIRDatastoreSseConfigurationPtrOut
 // FHIRDatastoreSseConfigurationPtrInput is an input type that accepts FHIRDatastoreSseConfigurationArgs, FHIRDatastoreSseConfigurationPtr and FHIRDatastoreSseConfigurationPtrOutput values.
 // You can construct a concrete instance of `FHIRDatastoreSseConfigurationPtrInput` via:
 //
-//          FHIRDatastoreSseConfigurationArgs{...}
+//	        FHIRDatastoreSseConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FHIRDatastoreSseConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -535,7 +535,7 @@ type FHIRDatastoreTag struct {
 // FHIRDatastoreTagInput is an input type that accepts FHIRDatastoreTagArgs and FHIRDatastoreTagOutput values.
 // You can construct a concrete instance of `FHIRDatastoreTagInput` via:
 //
-//          FHIRDatastoreTagArgs{...}
+//	FHIRDatastoreTagArgs{...}
 type FHIRDatastoreTagInput interface {
 	pulumi.Input
 
@@ -566,7 +566,7 @@ func (i FHIRDatastoreTagArgs) ToFHIRDatastoreTagOutputWithContext(ctx context.Co
 // FHIRDatastoreTagArrayInput is an input type that accepts FHIRDatastoreTagArray and FHIRDatastoreTagArrayOutput values.
 // You can construct a concrete instance of `FHIRDatastoreTagArrayInput` via:
 //
-//          FHIRDatastoreTagArray{ FHIRDatastoreTagArgs{...} }
+//	FHIRDatastoreTagArray{ FHIRDatastoreTagArgs{...} }
 type FHIRDatastoreTagArrayInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o AnomalyMonitorMonitorDimensionPtrOutput) ToStringPtrOutputWithContext(ct
 // AnomalyMonitorMonitorDimensionInput is an input type that accepts AnomalyMonitorMonitorDimensionArgs and AnomalyMonitorMonitorDimensionOutput values.
 // You can construct a concrete instance of `AnomalyMonitorMonitorDimensionInput` via:
 //
-//          AnomalyMonitorMonitorDimensionArgs{...}
+//	AnomalyMonitorMonitorDimensionArgs{...}
 type AnomalyMonitorMonitorDimensionInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o AnomalyMonitorMonitorTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // AnomalyMonitorMonitorTypeInput is an input type that accepts AnomalyMonitorMonitorTypeArgs and AnomalyMonitorMonitorTypeOutput values.
 // You can construct a concrete instance of `AnomalyMonitorMonitorTypeInput` via:
 //
-//          AnomalyMonitorMonitorTypeArgs{...}
+//	AnomalyMonitorMonitorTypeArgs{...}
 type AnomalyMonitorMonitorTypeInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o AnomalySubscriptionFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx 
 // AnomalySubscriptionFrequencyInput is an input type that accepts AnomalySubscriptionFrequencyArgs and AnomalySubscriptionFrequencyOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionFrequencyInput` via:
 //
-//          AnomalySubscriptionFrequencyArgs{...}
+//	AnomalySubscriptionFrequencyArgs{...}
 type AnomalySubscriptionFrequencyInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToStringPtrOutputWithConte
 // AnomalySubscriptionSubscriberStatusInput is an input type that accepts AnomalySubscriptionSubscriberStatusArgs and AnomalySubscriptionSubscriberStatusOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberStatusInput` via:
 //
-//          AnomalySubscriptionSubscriberStatusArgs{...}
+//	AnomalySubscriptionSubscriberStatusArgs{...}
 type AnomalySubscriptionSubscriberStatusInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ func (o AnomalySubscriptionSubscriberTypePtrOutput) ToStringPtrOutputWithContext
 // AnomalySubscriptionSubscriberTypeInput is an input type that accepts AnomalySubscriptionSubscriberTypeArgs and AnomalySubscriptionSubscriberTypeOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberTypeInput` via:
 //
-//          AnomalySubscriptionSubscriberTypeArgs{...}
+//	AnomalySubscriptionSubscriberTypeArgs{...}
 type AnomalySubscriptionSubscriberTypeInput interface {
 	pulumi.Input
 
@@ -960,7 +960,7 @@ func (o CostCategoryRuleVersionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // CostCategoryRuleVersionInput is an input type that accepts CostCategoryRuleVersionArgs and CostCategoryRuleVersionOutput values.
 // You can construct a concrete instance of `CostCategoryRuleVersionInput` via:
 //
-//          CostCategoryRuleVersionArgs{...}
+//	CostCategoryRuleVersionArgs{...}
 type CostCategoryRuleVersionInput interface {
 	pulumi.Input
 

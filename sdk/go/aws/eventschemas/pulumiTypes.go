@@ -18,7 +18,7 @@ type DiscovererTagsEntry struct {
 // DiscovererTagsEntryInput is an input type that accepts DiscovererTagsEntryArgs and DiscovererTagsEntryOutput values.
 // You can construct a concrete instance of `DiscovererTagsEntryInput` via:
 //
-//          DiscovererTagsEntryArgs{...}
+//	DiscovererTagsEntryArgs{...}
 type DiscovererTagsEntryInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DiscovererTagsEntryArgs) ToDiscovererTagsEntryOutputWithContext(ctx cont
 // DiscovererTagsEntryArrayInput is an input type that accepts DiscovererTagsEntryArray and DiscovererTagsEntryArrayOutput values.
 // You can construct a concrete instance of `DiscovererTagsEntryArrayInput` via:
 //
-//          DiscovererTagsEntryArray{ DiscovererTagsEntryArgs{...} }
+//	DiscovererTagsEntryArray{ DiscovererTagsEntryArgs{...} }
 type DiscovererTagsEntryArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type RegistryTagsEntry struct {
 // RegistryTagsEntryInput is an input type that accepts RegistryTagsEntryArgs and RegistryTagsEntryOutput values.
 // You can construct a concrete instance of `RegistryTagsEntryInput` via:
 //
-//          RegistryTagsEntryArgs{...}
+//	RegistryTagsEntryArgs{...}
 type RegistryTagsEntryInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i RegistryTagsEntryArgs) ToRegistryTagsEntryOutputWithContext(ctx context.
 // RegistryTagsEntryArrayInput is an input type that accepts RegistryTagsEntryArray and RegistryTagsEntryArrayOutput values.
 // You can construct a concrete instance of `RegistryTagsEntryArrayInput` via:
 //
-//          RegistryTagsEntryArray{ RegistryTagsEntryArgs{...} }
+//	RegistryTagsEntryArray{ RegistryTagsEntryArgs{...} }
 type RegistryTagsEntryArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type SchemaTagsEntry struct {
 // SchemaTagsEntryInput is an input type that accepts SchemaTagsEntryArgs and SchemaTagsEntryOutput values.
 // You can construct a concrete instance of `SchemaTagsEntryInput` via:
 //
-//          SchemaTagsEntryArgs{...}
+//	SchemaTagsEntryArgs{...}
 type SchemaTagsEntryInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i SchemaTagsEntryArgs) ToSchemaTagsEntryOutputWithContext(ctx context.Cont
 // SchemaTagsEntryArrayInput is an input type that accepts SchemaTagsEntryArray and SchemaTagsEntryArrayOutput values.
 // You can construct a concrete instance of `SchemaTagsEntryArrayInput` via:
 //
-//          SchemaTagsEntryArray{ SchemaTagsEntryArgs{...} }
+//	SchemaTagsEntryArray{ SchemaTagsEntryArgs{...} }
 type SchemaTagsEntryArrayInput interface {
 	pulumi.Input
 

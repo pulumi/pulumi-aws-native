@@ -21,7 +21,7 @@ type DataInputConfigurationProperties struct {
 // DataInputConfigurationPropertiesInput is an input type that accepts DataInputConfigurationPropertiesArgs and DataInputConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `DataInputConfigurationPropertiesInput` via:
 //
-//          DataInputConfigurationPropertiesArgs{...}
+//	DataInputConfigurationPropertiesArgs{...}
 type DataInputConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -143,7 +143,7 @@ type DataOutputConfigurationProperties struct {
 // DataOutputConfigurationPropertiesInput is an input type that accepts DataOutputConfigurationPropertiesArgs and DataOutputConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `DataOutputConfigurationPropertiesInput` via:
 //
-//          DataOutputConfigurationPropertiesArgs{...}
+//	DataOutputConfigurationPropertiesArgs{...}
 type DataOutputConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ type InferenceSchedulerInputNameConfiguration struct {
 // InferenceSchedulerInputNameConfigurationInput is an input type that accepts InferenceSchedulerInputNameConfigurationArgs and InferenceSchedulerInputNameConfigurationOutput values.
 // You can construct a concrete instance of `InferenceSchedulerInputNameConfigurationInput` via:
 //
-//          InferenceSchedulerInputNameConfigurationArgs{...}
+//	InferenceSchedulerInputNameConfigurationArgs{...}
 type InferenceSchedulerInputNameConfigurationInput interface {
 	pulumi.Input
 
@@ -289,11 +289,11 @@ func (i InferenceSchedulerInputNameConfigurationArgs) ToInferenceSchedulerInputN
 // InferenceSchedulerInputNameConfigurationPtrInput is an input type that accepts InferenceSchedulerInputNameConfigurationArgs, InferenceSchedulerInputNameConfigurationPtr and InferenceSchedulerInputNameConfigurationPtrOutput values.
 // You can construct a concrete instance of `InferenceSchedulerInputNameConfigurationPtrInput` via:
 //
-//          InferenceSchedulerInputNameConfigurationArgs{...}
+//	        InferenceSchedulerInputNameConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InferenceSchedulerInputNameConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ type InferenceSchedulerS3InputConfiguration struct {
 // InferenceSchedulerS3InputConfigurationInput is an input type that accepts InferenceSchedulerS3InputConfigurationArgs and InferenceSchedulerS3InputConfigurationOutput values.
 // You can construct a concrete instance of `InferenceSchedulerS3InputConfigurationInput` via:
 //
-//          InferenceSchedulerS3InputConfigurationArgs{...}
+//	InferenceSchedulerS3InputConfigurationArgs{...}
 type InferenceSchedulerS3InputConfigurationInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ type InferenceSchedulerS3OutputConfiguration struct {
 // InferenceSchedulerS3OutputConfigurationInput is an input type that accepts InferenceSchedulerS3OutputConfigurationArgs and InferenceSchedulerS3OutputConfigurationOutput values.
 // You can construct a concrete instance of `InferenceSchedulerS3OutputConfigurationInput` via:
 //
-//          InferenceSchedulerS3OutputConfigurationArgs{...}
+//	InferenceSchedulerS3OutputConfigurationArgs{...}
 type InferenceSchedulerS3OutputConfigurationInput interface {
 	pulumi.Input
 
@@ -609,7 +609,7 @@ type InferenceSchedulerTag struct {
 // InferenceSchedulerTagInput is an input type that accepts InferenceSchedulerTagArgs and InferenceSchedulerTagOutput values.
 // You can construct a concrete instance of `InferenceSchedulerTagInput` via:
 //
-//          InferenceSchedulerTagArgs{...}
+//	InferenceSchedulerTagArgs{...}
 type InferenceSchedulerTagInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ func (i InferenceSchedulerTagArgs) ToInferenceSchedulerTagOutputWithContext(ctx 
 // InferenceSchedulerTagArrayInput is an input type that accepts InferenceSchedulerTagArray and InferenceSchedulerTagArrayOutput values.
 // You can construct a concrete instance of `InferenceSchedulerTagArrayInput` via:
 //
-//          InferenceSchedulerTagArray{ InferenceSchedulerTagArgs{...} }
+//	InferenceSchedulerTagArray{ InferenceSchedulerTagArgs{...} }
 type InferenceSchedulerTagArrayInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type SkillAuthenticationConfiguration struct {
 // SkillAuthenticationConfigurationInput is an input type that accepts SkillAuthenticationConfigurationArgs and SkillAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `SkillAuthenticationConfigurationInput` via:
 //
-//          SkillAuthenticationConfigurationArgs{...}
+//	SkillAuthenticationConfigurationArgs{...}
 type SkillAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -129,7 +129,7 @@ type SkillOverrides struct {
 // SkillOverridesInput is an input type that accepts SkillOverridesArgs and SkillOverridesOutput values.
 // You can construct a concrete instance of `SkillOverridesInput` via:
 //
-//          SkillOverridesArgs{...}
+//	SkillOverridesArgs{...}
 type SkillOverridesInput interface {
 	pulumi.Input
 
@@ -164,11 +164,11 @@ func (i SkillOverridesArgs) ToSkillOverridesPtrOutputWithContext(ctx context.Con
 // SkillOverridesPtrInput is an input type that accepts SkillOverridesArgs, SkillOverridesPtr and SkillOverridesPtrOutput values.
 // You can construct a concrete instance of `SkillOverridesPtrInput` via:
 //
-//          SkillOverridesArgs{...}
+//	        SkillOverridesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SkillOverridesPtrInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ type SkillPackage struct {
 // SkillPackageInput is an input type that accepts SkillPackageArgs and SkillPackageOutput values.
 // You can construct a concrete instance of `SkillPackageInput` via:
 //
-//          SkillPackageArgs{...}
+//	SkillPackageArgs{...}
 type SkillPackageInput interface {
 	pulumi.Input
 

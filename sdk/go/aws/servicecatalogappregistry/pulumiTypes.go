@@ -16,7 +16,7 @@ type ApplicationTags struct {
 // ApplicationTagsInput is an input type that accepts ApplicationTagsArgs and ApplicationTagsOutput values.
 // You can construct a concrete instance of `ApplicationTagsInput` via:
 //
-//          ApplicationTagsArgs{...}
+//	ApplicationTagsArgs{...}
 type ApplicationTagsInput interface {
 	pulumi.Input
 
@@ -50,11 +50,11 @@ func (i ApplicationTagsArgs) ToApplicationTagsPtrOutputWithContext(ctx context.C
 // ApplicationTagsPtrInput is an input type that accepts ApplicationTagsArgs, ApplicationTagsPtr and ApplicationTagsPtrOutput values.
 // You can construct a concrete instance of `ApplicationTagsPtrInput` via:
 //
-//          ApplicationTagsArgs{...}
+//	        ApplicationTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationTagsPtrInput interface {
 	pulumi.Input
 
@@ -134,7 +134,7 @@ type AttributeGroupTags struct {
 // AttributeGroupTagsInput is an input type that accepts AttributeGroupTagsArgs and AttributeGroupTagsOutput values.
 // You can construct a concrete instance of `AttributeGroupTagsInput` via:
 //
-//          AttributeGroupTagsArgs{...}
+//	AttributeGroupTagsArgs{...}
 type AttributeGroupTagsInput interface {
 	pulumi.Input
 
@@ -168,11 +168,11 @@ func (i AttributeGroupTagsArgs) ToAttributeGroupTagsPtrOutputWithContext(ctx con
 // AttributeGroupTagsPtrInput is an input type that accepts AttributeGroupTagsArgs, AttributeGroupTagsPtr and AttributeGroupTagsPtrOutput values.
 // You can construct a concrete instance of `AttributeGroupTagsPtrInput` via:
 //
-//          AttributeGroupTagsArgs{...}
+//	        AttributeGroupTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AttributeGroupTagsPtrInput interface {
 	pulumi.Input
 

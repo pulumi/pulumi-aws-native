@@ -19,7 +19,7 @@ type FileSystemAuditLogConfiguration struct {
 // FileSystemAuditLogConfigurationInput is an input type that accepts FileSystemAuditLogConfigurationArgs and FileSystemAuditLogConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemAuditLogConfigurationInput` via:
 //
-//          FileSystemAuditLogConfigurationArgs{...}
+//	FileSystemAuditLogConfigurationArgs{...}
 type FileSystemAuditLogConfigurationInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i FileSystemAuditLogConfigurationArgs) ToFileSystemAuditLogConfigurationPt
 // FileSystemAuditLogConfigurationPtrInput is an input type that accepts FileSystemAuditLogConfigurationArgs, FileSystemAuditLogConfigurationPtr and FileSystemAuditLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemAuditLogConfigurationPtrInput` via:
 //
-//          FileSystemAuditLogConfigurationArgs{...}
+//	        FileSystemAuditLogConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemAuditLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type FileSystemClientConfigurations struct {
 // FileSystemClientConfigurationsInput is an input type that accepts FileSystemClientConfigurationsArgs and FileSystemClientConfigurationsOutput values.
 // You can construct a concrete instance of `FileSystemClientConfigurationsInput` via:
 //
-//          FileSystemClientConfigurationsArgs{...}
+//	FileSystemClientConfigurationsArgs{...}
 type FileSystemClientConfigurationsInput interface {
 	pulumi.Input
 
@@ -209,7 +209,7 @@ func (i FileSystemClientConfigurationsArgs) ToFileSystemClientConfigurationsOutp
 // FileSystemClientConfigurationsArrayInput is an input type that accepts FileSystemClientConfigurationsArray and FileSystemClientConfigurationsArrayOutput values.
 // You can construct a concrete instance of `FileSystemClientConfigurationsArrayInput` via:
 //
-//          FileSystemClientConfigurationsArray{ FileSystemClientConfigurationsArgs{...} }
+//	FileSystemClientConfigurationsArray{ FileSystemClientConfigurationsArgs{...} }
 type FileSystemClientConfigurationsArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +281,7 @@ type FileSystemDiskIopsConfiguration struct {
 // FileSystemDiskIopsConfigurationInput is an input type that accepts FileSystemDiskIopsConfigurationArgs and FileSystemDiskIopsConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemDiskIopsConfigurationInput` via:
 //
-//          FileSystemDiskIopsConfigurationArgs{...}
+//	FileSystemDiskIopsConfigurationArgs{...}
 type FileSystemDiskIopsConfigurationInput interface {
 	pulumi.Input
 
@@ -317,11 +317,11 @@ func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationPt
 // FileSystemDiskIopsConfigurationPtrInput is an input type that accepts FileSystemDiskIopsConfigurationArgs, FileSystemDiskIopsConfigurationPtr and FileSystemDiskIopsConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemDiskIopsConfigurationPtrInput` via:
 //
-//          FileSystemDiskIopsConfigurationArgs{...}
+//	        FileSystemDiskIopsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemDiskIopsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -439,7 +439,7 @@ type FileSystemLustreConfiguration struct {
 // FileSystemLustreConfigurationInput is an input type that accepts FileSystemLustreConfigurationArgs and FileSystemLustreConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemLustreConfigurationInput` via:
 //
-//          FileSystemLustreConfigurationArgs{...}
+//	FileSystemLustreConfigurationArgs{...}
 type FileSystemLustreConfigurationInput interface {
 	pulumi.Input
 
@@ -485,11 +485,11 @@ func (i FileSystemLustreConfigurationArgs) ToFileSystemLustreConfigurationPtrOut
 // FileSystemLustreConfigurationPtrInput is an input type that accepts FileSystemLustreConfigurationArgs, FileSystemLustreConfigurationPtr and FileSystemLustreConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemLustreConfigurationPtrInput` via:
 //
-//          FileSystemLustreConfigurationArgs{...}
+//	        FileSystemLustreConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemLustreConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -726,7 +726,7 @@ type FileSystemNfsExports struct {
 // FileSystemNfsExportsInput is an input type that accepts FileSystemNfsExportsArgs and FileSystemNfsExportsOutput values.
 // You can construct a concrete instance of `FileSystemNfsExportsInput` via:
 //
-//          FileSystemNfsExportsArgs{...}
+//	FileSystemNfsExportsArgs{...}
 type FileSystemNfsExportsInput interface {
 	pulumi.Input
 
@@ -753,7 +753,7 @@ func (i FileSystemNfsExportsArgs) ToFileSystemNfsExportsOutputWithContext(ctx co
 // FileSystemNfsExportsArrayInput is an input type that accepts FileSystemNfsExportsArray and FileSystemNfsExportsArrayOutput values.
 // You can construct a concrete instance of `FileSystemNfsExportsArrayInput` via:
 //
-//          FileSystemNfsExportsArray{ FileSystemNfsExportsArgs{...} }
+//	FileSystemNfsExportsArray{ FileSystemNfsExportsArgs{...} }
 type FileSystemNfsExportsArrayInput interface {
 	pulumi.Input
 
@@ -829,7 +829,7 @@ type FileSystemOntapConfiguration struct {
 // FileSystemOntapConfigurationInput is an input type that accepts FileSystemOntapConfigurationArgs and FileSystemOntapConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemOntapConfigurationInput` via:
 //
-//          FileSystemOntapConfigurationArgs{...}
+//	FileSystemOntapConfigurationArgs{...}
 type FileSystemOntapConfigurationInput interface {
 	pulumi.Input
 
@@ -873,11 +873,11 @@ func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationPtrOutpu
 // FileSystemOntapConfigurationPtrInput is an input type that accepts FileSystemOntapConfigurationArgs, FileSystemOntapConfigurationPtr and FileSystemOntapConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemOntapConfigurationPtrInput` via:
 //
-//          FileSystemOntapConfigurationArgs{...}
+//	        FileSystemOntapConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemOntapConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1097,7 +1097,7 @@ type FileSystemOpenZFSConfiguration struct {
 // FileSystemOpenZFSConfigurationInput is an input type that accepts FileSystemOpenZFSConfigurationArgs and FileSystemOpenZFSConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemOpenZFSConfigurationInput` via:
 //
-//          FileSystemOpenZFSConfigurationArgs{...}
+//	FileSystemOpenZFSConfigurationArgs{...}
 type FileSystemOpenZFSConfigurationInput interface {
 	pulumi.Input
 
@@ -1141,11 +1141,11 @@ func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationPtrO
 // FileSystemOpenZFSConfigurationPtrInput is an input type that accepts FileSystemOpenZFSConfigurationArgs, FileSystemOpenZFSConfigurationPtr and FileSystemOpenZFSConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemOpenZFSConfigurationPtrInput` via:
 //
-//          FileSystemOpenZFSConfigurationArgs{...}
+//	        FileSystemOpenZFSConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemOpenZFSConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1365,7 +1365,7 @@ type FileSystemRootVolumeConfiguration struct {
 // FileSystemRootVolumeConfigurationInput is an input type that accepts FileSystemRootVolumeConfigurationArgs and FileSystemRootVolumeConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemRootVolumeConfigurationInput` via:
 //
-//          FileSystemRootVolumeConfigurationArgs{...}
+//	FileSystemRootVolumeConfigurationArgs{...}
 type FileSystemRootVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1405,11 +1405,11 @@ func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurati
 // FileSystemRootVolumeConfigurationPtrInput is an input type that accepts FileSystemRootVolumeConfigurationArgs, FileSystemRootVolumeConfigurationPtr and FileSystemRootVolumeConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemRootVolumeConfigurationPtrInput` via:
 //
-//          FileSystemRootVolumeConfigurationArgs{...}
+//	        FileSystemRootVolumeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemRootVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1573,7 +1573,7 @@ type FileSystemSelfManagedActiveDirectoryConfiguration struct {
 // FileSystemSelfManagedActiveDirectoryConfigurationInput is an input type that accepts FileSystemSelfManagedActiveDirectoryConfigurationArgs and FileSystemSelfManagedActiveDirectoryConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemSelfManagedActiveDirectoryConfigurationInput` via:
 //
-//          FileSystemSelfManagedActiveDirectoryConfigurationArgs{...}
+//	FileSystemSelfManagedActiveDirectoryConfigurationArgs{...}
 type FileSystemSelfManagedActiveDirectoryConfigurationInput interface {
 	pulumi.Input
 
@@ -1613,11 +1613,11 @@ func (i FileSystemSelfManagedActiveDirectoryConfigurationArgs) ToFileSystemSelfM
 // FileSystemSelfManagedActiveDirectoryConfigurationPtrInput is an input type that accepts FileSystemSelfManagedActiveDirectoryConfigurationArgs, FileSystemSelfManagedActiveDirectoryConfigurationPtr and FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemSelfManagedActiveDirectoryConfigurationPtrInput` via:
 //
-//          FileSystemSelfManagedActiveDirectoryConfigurationArgs{...}
+//	        FileSystemSelfManagedActiveDirectoryConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemSelfManagedActiveDirectoryConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1781,7 +1781,7 @@ type FileSystemTag struct {
 // FileSystemTagInput is an input type that accepts FileSystemTagArgs and FileSystemTagOutput values.
 // You can construct a concrete instance of `FileSystemTagInput` via:
 //
-//          FileSystemTagArgs{...}
+//	FileSystemTagArgs{...}
 type FileSystemTagInput interface {
 	pulumi.Input
 
@@ -1809,7 +1809,7 @@ func (i FileSystemTagArgs) ToFileSystemTagOutputWithContext(ctx context.Context)
 // FileSystemTagArrayInput is an input type that accepts FileSystemTagArray and FileSystemTagArrayOutput values.
 // You can construct a concrete instance of `FileSystemTagArrayInput` via:
 //
-//          FileSystemTagArray{ FileSystemTagArgs{...} }
+//	FileSystemTagArray{ FileSystemTagArgs{...} }
 type FileSystemTagArrayInput interface {
 	pulumi.Input
 
@@ -1882,7 +1882,7 @@ type FileSystemUserAndGroupQuotas struct {
 // FileSystemUserAndGroupQuotasInput is an input type that accepts FileSystemUserAndGroupQuotasArgs and FileSystemUserAndGroupQuotasOutput values.
 // You can construct a concrete instance of `FileSystemUserAndGroupQuotasInput` via:
 //
-//          FileSystemUserAndGroupQuotasArgs{...}
+//	FileSystemUserAndGroupQuotasArgs{...}
 type FileSystemUserAndGroupQuotasInput interface {
 	pulumi.Input
 
@@ -1911,7 +1911,7 @@ func (i FileSystemUserAndGroupQuotasArgs) ToFileSystemUserAndGroupQuotasOutputWi
 // FileSystemUserAndGroupQuotasArrayInput is an input type that accepts FileSystemUserAndGroupQuotasArray and FileSystemUserAndGroupQuotasArrayOutput values.
 // You can construct a concrete instance of `FileSystemUserAndGroupQuotasArrayInput` via:
 //
-//          FileSystemUserAndGroupQuotasArray{ FileSystemUserAndGroupQuotasArgs{...} }
+//	FileSystemUserAndGroupQuotasArray{ FileSystemUserAndGroupQuotasArgs{...} }
 type FileSystemUserAndGroupQuotasArrayInput interface {
 	pulumi.Input
 
@@ -1996,7 +1996,7 @@ type FileSystemWindowsConfiguration struct {
 // FileSystemWindowsConfigurationInput is an input type that accepts FileSystemWindowsConfigurationArgs and FileSystemWindowsConfigurationOutput values.
 // You can construct a concrete instance of `FileSystemWindowsConfigurationInput` via:
 //
-//          FileSystemWindowsConfigurationArgs{...}
+//	FileSystemWindowsConfigurationArgs{...}
 type FileSystemWindowsConfigurationInput interface {
 	pulumi.Input
 
@@ -2041,11 +2041,11 @@ func (i FileSystemWindowsConfigurationArgs) ToFileSystemWindowsConfigurationPtrO
 // FileSystemWindowsConfigurationPtrInput is an input type that accepts FileSystemWindowsConfigurationArgs, FileSystemWindowsConfigurationPtr and FileSystemWindowsConfigurationPtrOutput values.
 // You can construct a concrete instance of `FileSystemWindowsConfigurationPtrInput` via:
 //
-//          FileSystemWindowsConfigurationArgs{...}
+//	        FileSystemWindowsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FileSystemWindowsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2274,7 +2274,7 @@ type SnapshotTag struct {
 // SnapshotTagInput is an input type that accepts SnapshotTagArgs and SnapshotTagOutput values.
 // You can construct a concrete instance of `SnapshotTagInput` via:
 //
-//          SnapshotTagArgs{...}
+//	SnapshotTagArgs{...}
 type SnapshotTagInput interface {
 	pulumi.Input
 
@@ -2302,7 +2302,7 @@ func (i SnapshotTagArgs) ToSnapshotTagOutputWithContext(ctx context.Context) Sna
 // SnapshotTagArrayInput is an input type that accepts SnapshotTagArray and SnapshotTagArrayOutput values.
 // You can construct a concrete instance of `SnapshotTagArrayInput` via:
 //
-//          SnapshotTagArray{ SnapshotTagArgs{...} }
+//	SnapshotTagArray{ SnapshotTagArgs{...} }
 type SnapshotTagArrayInput interface {
 	pulumi.Input
 
@@ -2374,7 +2374,7 @@ type StorageVirtualMachineActiveDirectoryConfiguration struct {
 // StorageVirtualMachineActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs and StorageVirtualMachineActiveDirectoryConfigurationOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationInput` via:
 //
-//          StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+//	StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
 type StorageVirtualMachineActiveDirectoryConfigurationInput interface {
 	pulumi.Input
 
@@ -2410,11 +2410,11 @@ func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualM
 // StorageVirtualMachineActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs, StorageVirtualMachineActiveDirectoryConfigurationPtr and StorageVirtualMachineActiveDirectoryConfigurationPtrOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationPtrInput` via:
 //
-//          StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+//	        StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageVirtualMachineActiveDirectoryConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2528,7 +2528,7 @@ type StorageVirtualMachineSelfManagedActiveDirectoryConfiguration struct {
 // StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput` via:
 //
-//          StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+//	StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
 type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput interface {
 	pulumi.Input
 
@@ -2568,11 +2568,11 @@ func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStor
 // StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs, StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtr and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput` via:
 //
-//          StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+//	        StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2736,7 +2736,7 @@ type StorageVirtualMachineTag struct {
 // StorageVirtualMachineTagInput is an input type that accepts StorageVirtualMachineTagArgs and StorageVirtualMachineTagOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineTagInput` via:
 //
-//          StorageVirtualMachineTagArgs{...}
+//	StorageVirtualMachineTagArgs{...}
 type StorageVirtualMachineTagInput interface {
 	pulumi.Input
 
@@ -2764,7 +2764,7 @@ func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutputWithContex
 // StorageVirtualMachineTagArrayInput is an input type that accepts StorageVirtualMachineTagArray and StorageVirtualMachineTagArrayOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineTagArrayInput` via:
 //
-//          StorageVirtualMachineTagArray{ StorageVirtualMachineTagArgs{...} }
+//	StorageVirtualMachineTagArray{ StorageVirtualMachineTagArgs{...} }
 type StorageVirtualMachineTagArrayInput interface {
 	pulumi.Input
 
@@ -2836,7 +2836,7 @@ type VolumeClientConfigurations struct {
 // VolumeClientConfigurationsInput is an input type that accepts VolumeClientConfigurationsArgs and VolumeClientConfigurationsOutput values.
 // You can construct a concrete instance of `VolumeClientConfigurationsInput` via:
 //
-//          VolumeClientConfigurationsArgs{...}
+//	VolumeClientConfigurationsArgs{...}
 type VolumeClientConfigurationsInput interface {
 	pulumi.Input
 
@@ -2864,7 +2864,7 @@ func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutputWithCo
 // VolumeClientConfigurationsArrayInput is an input type that accepts VolumeClientConfigurationsArray and VolumeClientConfigurationsArrayOutput values.
 // You can construct a concrete instance of `VolumeClientConfigurationsArrayInput` via:
 //
-//          VolumeClientConfigurationsArray{ VolumeClientConfigurationsArgs{...} }
+//	VolumeClientConfigurationsArray{ VolumeClientConfigurationsArgs{...} }
 type VolumeClientConfigurationsArrayInput interface {
 	pulumi.Input
 
@@ -2935,7 +2935,7 @@ type VolumeNfsExports struct {
 // VolumeNfsExportsInput is an input type that accepts VolumeNfsExportsArgs and VolumeNfsExportsOutput values.
 // You can construct a concrete instance of `VolumeNfsExportsInput` via:
 //
-//          VolumeNfsExportsArgs{...}
+//	VolumeNfsExportsArgs{...}
 type VolumeNfsExportsInput interface {
 	pulumi.Input
 
@@ -2962,7 +2962,7 @@ func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutputWithContext(ctx context.Co
 // VolumeNfsExportsArrayInput is an input type that accepts VolumeNfsExportsArray and VolumeNfsExportsArrayOutput values.
 // You can construct a concrete instance of `VolumeNfsExportsArrayInput` via:
 //
-//          VolumeNfsExportsArray{ VolumeNfsExportsArgs{...} }
+//	VolumeNfsExportsArray{ VolumeNfsExportsArgs{...} }
 type VolumeNfsExportsArrayInput interface {
 	pulumi.Input
 
@@ -3034,7 +3034,7 @@ type VolumeOntapConfiguration struct {
 // VolumeOntapConfigurationInput is an input type that accepts VolumeOntapConfigurationArgs and VolumeOntapConfigurationOutput values.
 // You can construct a concrete instance of `VolumeOntapConfigurationInput` via:
 //
-//          VolumeOntapConfigurationArgs{...}
+//	VolumeOntapConfigurationArgs{...}
 type VolumeOntapConfigurationInput interface {
 	pulumi.Input
 
@@ -3074,11 +3074,11 @@ func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutputWithCon
 // VolumeOntapConfigurationPtrInput is an input type that accepts VolumeOntapConfigurationArgs, VolumeOntapConfigurationPtr and VolumeOntapConfigurationPtrOutput values.
 // You can construct a concrete instance of `VolumeOntapConfigurationPtrInput` via:
 //
-//          VolumeOntapConfigurationArgs{...}
+//	        VolumeOntapConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeOntapConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3247,7 +3247,7 @@ type VolumeOpenZFSConfiguration struct {
 // VolumeOpenZFSConfigurationInput is an input type that accepts VolumeOpenZFSConfigurationArgs and VolumeOpenZFSConfigurationOutput values.
 // You can construct a concrete instance of `VolumeOpenZFSConfigurationInput` via:
 //
-//          VolumeOpenZFSConfigurationArgs{...}
+//	VolumeOpenZFSConfigurationArgs{...}
 type VolumeOpenZFSConfigurationInput interface {
 	pulumi.Input
 
@@ -3292,11 +3292,11 @@ func (i VolumeOpenZFSConfigurationArgs) ToVolumeOpenZFSConfigurationPtrOutputWit
 // VolumeOpenZFSConfigurationPtrInput is an input type that accepts VolumeOpenZFSConfigurationArgs, VolumeOpenZFSConfigurationPtr and VolumeOpenZFSConfigurationPtrOutput values.
 // You can construct a concrete instance of `VolumeOpenZFSConfigurationPtrInput` via:
 //
-//          VolumeOpenZFSConfigurationArgs{...}
+//	        VolumeOpenZFSConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeOpenZFSConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3521,7 +3521,7 @@ type VolumeOriginSnapshot struct {
 // VolumeOriginSnapshotInput is an input type that accepts VolumeOriginSnapshotArgs and VolumeOriginSnapshotOutput values.
 // You can construct a concrete instance of `VolumeOriginSnapshotInput` via:
 //
-//          VolumeOriginSnapshotArgs{...}
+//	VolumeOriginSnapshotArgs{...}
 type VolumeOriginSnapshotInput interface {
 	pulumi.Input
 
@@ -3557,11 +3557,11 @@ func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutputWithContext(ctx
 // VolumeOriginSnapshotPtrInput is an input type that accepts VolumeOriginSnapshotArgs, VolumeOriginSnapshotPtr and VolumeOriginSnapshotPtrOutput values.
 // You can construct a concrete instance of `VolumeOriginSnapshotPtrInput` via:
 //
-//          VolumeOriginSnapshotArgs{...}
+//	        VolumeOriginSnapshotArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeOriginSnapshotPtrInput interface {
 	pulumi.Input
 
@@ -3669,7 +3669,7 @@ type VolumeTag struct {
 // VolumeTagInput is an input type that accepts VolumeTagArgs and VolumeTagOutput values.
 // You can construct a concrete instance of `VolumeTagInput` via:
 //
-//          VolumeTagArgs{...}
+//	VolumeTagArgs{...}
 type VolumeTagInput interface {
 	pulumi.Input
 
@@ -3697,7 +3697,7 @@ func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeT
 // VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
 // You can construct a concrete instance of `VolumeTagArrayInput` via:
 //
-//          VolumeTagArray{ VolumeTagArgs{...} }
+//	VolumeTagArray{ VolumeTagArgs{...} }
 type VolumeTagArrayInput interface {
 	pulumi.Input
 
@@ -3769,7 +3769,7 @@ type VolumeTieringPolicy struct {
 // VolumeTieringPolicyInput is an input type that accepts VolumeTieringPolicyArgs and VolumeTieringPolicyOutput values.
 // You can construct a concrete instance of `VolumeTieringPolicyInput` via:
 //
-//          VolumeTieringPolicyArgs{...}
+//	VolumeTieringPolicyArgs{...}
 type VolumeTieringPolicyInput interface {
 	pulumi.Input
 
@@ -3805,11 +3805,11 @@ func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutputWithContext(ctx c
 // VolumeTieringPolicyPtrInput is an input type that accepts VolumeTieringPolicyArgs, VolumeTieringPolicyPtr and VolumeTieringPolicyPtrOutput values.
 // You can construct a concrete instance of `VolumeTieringPolicyPtrInput` via:
 //
-//          VolumeTieringPolicyArgs{...}
+//	        VolumeTieringPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VolumeTieringPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3918,7 +3918,7 @@ type VolumeUserAndGroupQuotas struct {
 // VolumeUserAndGroupQuotasInput is an input type that accepts VolumeUserAndGroupQuotasArgs and VolumeUserAndGroupQuotasOutput values.
 // You can construct a concrete instance of `VolumeUserAndGroupQuotasInput` via:
 //
-//          VolumeUserAndGroupQuotasArgs{...}
+//	VolumeUserAndGroupQuotasArgs{...}
 type VolumeUserAndGroupQuotasInput interface {
 	pulumi.Input
 
@@ -3947,7 +3947,7 @@ func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutputWithContex
 // VolumeUserAndGroupQuotasArrayInput is an input type that accepts VolumeUserAndGroupQuotasArray and VolumeUserAndGroupQuotasArrayOutput values.
 // You can construct a concrete instance of `VolumeUserAndGroupQuotasArrayInput` via:
 //
-//          VolumeUserAndGroupQuotasArray{ VolumeUserAndGroupQuotasArgs{...} }
+//	VolumeUserAndGroupQuotasArray{ VolumeUserAndGroupQuotasArgs{...} }
 type VolumeUserAndGroupQuotasArrayInput interface {
 	pulumi.Input
 

@@ -141,7 +141,7 @@ func (o FlowEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // FlowEncryptionAlgorithmInput is an input type that accepts FlowEncryptionAlgorithmArgs and FlowEncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `FlowEncryptionAlgorithmInput` via:
 //
-//          FlowEncryptionAlgorithmArgs{...}
+//	FlowEncryptionAlgorithmArgs{...}
 type FlowEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o FlowEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // FlowEncryptionKeyTypeInput is an input type that accepts FlowEncryptionKeyTypeArgs and FlowEncryptionKeyTypeOutput values.
 // You can construct a concrete instance of `FlowEncryptionKeyTypeInput` via:
 //
-//          FlowEncryptionKeyTypeArgs{...}
+//	FlowEncryptionKeyTypeArgs{...}
 type FlowEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContex
 // FlowEntitlementEncryptionAlgorithmInput is an input type that accepts FlowEntitlementEncryptionAlgorithmArgs and FlowEntitlementEncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `FlowEntitlementEncryptionAlgorithmInput` via:
 //
-//          FlowEntitlementEncryptionAlgorithmArgs{...}
+//	FlowEntitlementEncryptionAlgorithmArgs{...}
 type FlowEntitlementEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(
 // FlowEntitlementEncryptionKeyTypeInput is an input type that accepts FlowEntitlementEncryptionKeyTypeArgs and FlowEntitlementEncryptionKeyTypeOutput values.
 // You can construct a concrete instance of `FlowEntitlementEncryptionKeyTypeInput` via:
 //
-//          FlowEntitlementEncryptionKeyTypeArgs{...}
+//	FlowEntitlementEncryptionKeyTypeArgs{...}
 type FlowEntitlementEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -673,7 +673,7 @@ func (in *flowEntitlementEncryptionKeyTypePtr) ToFlowEntitlementEncryptionKeyTyp
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEntitlementEncryptionKeyTypePtrOutput)
 }
 
-//  An indication of whether the entitlement is enabled.
+// An indication of whether the entitlement is enabled.
 type FlowEntitlementEntitlementStatus string
 
 const (
@@ -803,7 +803,7 @@ func (o FlowEntitlementEntitlementStatusPtrOutput) ToStringPtrOutputWithContext(
 // FlowEntitlementEntitlementStatusInput is an input type that accepts FlowEntitlementEntitlementStatusArgs and FlowEntitlementEntitlementStatusOutput values.
 // You can construct a concrete instance of `FlowEntitlementEntitlementStatusInput` via:
 //
-//          FlowEntitlementEntitlementStatusArgs{...}
+//	FlowEntitlementEntitlementStatusArgs{...}
 type FlowEntitlementEntitlementStatusInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ func (o FlowFailoverConfigStatePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // FlowFailoverConfigStateInput is an input type that accepts FlowFailoverConfigStateArgs and FlowFailoverConfigStateOutput values.
 // You can construct a concrete instance of `FlowFailoverConfigStateInput` via:
 //
-//          FlowFailoverConfigStateArgs{...}
+//	FlowFailoverConfigStateArgs{...}
 type FlowFailoverConfigStateInput interface {
 	pulumi.Input
 
@@ -1133,7 +1133,7 @@ func (o FlowOutputEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx
 // FlowOutputEncryptionAlgorithmInput is an input type that accepts FlowOutputEncryptionAlgorithmArgs and FlowOutputEncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `FlowOutputEncryptionAlgorithmInput` via:
 //
-//          FlowOutputEncryptionAlgorithmArgs{...}
+//	FlowOutputEncryptionAlgorithmArgs{...}
 type FlowOutputEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -1298,7 +1298,7 @@ func (o FlowOutputEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // FlowOutputEncryptionKeyTypeInput is an input type that accepts FlowOutputEncryptionKeyTypeArgs and FlowOutputEncryptionKeyTypeOutput values.
 // You can construct a concrete instance of `FlowOutputEncryptionKeyTypeInput` via:
 //
-//          FlowOutputEncryptionKeyTypeArgs{...}
+//	FlowOutputEncryptionKeyTypeArgs{...}
 type FlowOutputEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -1467,7 +1467,7 @@ func (o FlowOutputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // FlowOutputProtocolInput is an input type that accepts FlowOutputProtocolArgs and FlowOutputProtocolOutput values.
 // You can construct a concrete instance of `FlowOutputProtocolInput` via:
 //
-//          FlowOutputProtocolArgs{...}
+//	FlowOutputProtocolArgs{...}
 type FlowOutputProtocolInput interface {
 	pulumi.Input
 
@@ -1633,7 +1633,7 @@ func (o FlowSourceEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx
 // FlowSourceEncryptionAlgorithmInput is an input type that accepts FlowSourceEncryptionAlgorithmArgs and FlowSourceEncryptionAlgorithmOutput values.
 // You can construct a concrete instance of `FlowSourceEncryptionAlgorithmInput` via:
 //
-//          FlowSourceEncryptionAlgorithmArgs{...}
+//	FlowSourceEncryptionAlgorithmArgs{...}
 type FlowSourceEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -1798,7 +1798,7 @@ func (o FlowSourceEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // FlowSourceEncryptionKeyTypeInput is an input type that accepts FlowSourceEncryptionKeyTypeArgs and FlowSourceEncryptionKeyTypeOutput values.
 // You can construct a concrete instance of `FlowSourceEncryptionKeyTypeInput` via:
 //
-//          FlowSourceEncryptionKeyTypeArgs{...}
+//	FlowSourceEncryptionKeyTypeArgs{...}
 type FlowSourceEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -1966,7 +1966,7 @@ func (o FlowSourceProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // FlowSourceProtocolInput is an input type that accepts FlowSourceProtocolArgs and FlowSourceProtocolOutput values.
 // You can construct a concrete instance of `FlowSourceProtocolInput` via:
 //
-//          FlowSourceProtocolArgs{...}
+//	FlowSourceProtocolArgs{...}
 type FlowSourceProtocolInput interface {
 	pulumi.Input
 

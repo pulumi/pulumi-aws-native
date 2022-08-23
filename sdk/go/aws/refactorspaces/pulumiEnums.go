@@ -139,7 +139,7 @@ func (o ApplicationApiGatewayEndpointTypePtrOutput) ToStringPtrOutputWithContext
 // ApplicationApiGatewayEndpointTypeInput is an input type that accepts ApplicationApiGatewayEndpointTypeArgs and ApplicationApiGatewayEndpointTypeOutput values.
 // You can construct a concrete instance of `ApplicationApiGatewayEndpointTypeInput` via:
 //
-//          ApplicationApiGatewayEndpointTypeArgs{...}
+//	ApplicationApiGatewayEndpointTypeArgs{...}
 type ApplicationApiGatewayEndpointTypeInput interface {
 	pulumi.Input
 
@@ -302,7 +302,7 @@ func (o ApplicationProxyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ApplicationProxyTypeInput is an input type that accepts ApplicationProxyTypeArgs and ApplicationProxyTypeOutput values.
 // You can construct a concrete instance of `ApplicationProxyTypeInput` via:
 //
-//          ApplicationProxyTypeArgs{...}
+//	ApplicationProxyTypeArgs{...}
 type ApplicationProxyTypeInput interface {
 	pulumi.Input
 
@@ -465,7 +465,7 @@ func (o EnvironmentNetworkFabricTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // EnvironmentNetworkFabricTypeInput is an input type that accepts EnvironmentNetworkFabricTypeArgs and EnvironmentNetworkFabricTypeOutput values.
 // You can construct a concrete instance of `EnvironmentNetworkFabricTypeInput` via:
 //
-//          EnvironmentNetworkFabricTypeArgs{...}
+//	EnvironmentNetworkFabricTypeArgs{...}
 type EnvironmentNetworkFabricTypeInput interface {
 	pulumi.Input
 
@@ -628,7 +628,7 @@ func (o RouteActivationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RouteActivationStateInput is an input type that accepts RouteActivationStateArgs and RouteActivationStateOutput values.
 // You can construct a concrete instance of `RouteActivationStateInput` via:
 //
-//          RouteActivationStateArgs{...}
+//	RouteActivationStateArgs{...}
 type RouteActivationStateInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ func (o RouteMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // RouteMethodInput is an input type that accepts RouteMethodArgs and RouteMethodOutput values.
 // You can construct a concrete instance of `RouteMethodInput` via:
 //
-//          RouteMethodArgs{...}
+//	RouteMethodArgs{...}
 type RouteMethodInput interface {
 	pulumi.Input
 
@@ -835,7 +835,7 @@ func (in *routeMethodPtr) ToRouteMethodPtrOutputWithContext(ctx context.Context)
 // RouteMethodArrayInput is an input type that accepts RouteMethodArray and RouteMethodArrayOutput values.
 // You can construct a concrete instance of `RouteMethodArrayInput` via:
 //
-//          RouteMethodArray{ RouteMethodArgs{...} }
+//	RouteMethodArray{ RouteMethodArgs{...} }
 type RouteMethodArrayInput interface {
 	pulumi.Input
 
@@ -1006,7 +1006,7 @@ func (o RouteTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // RouteTypeInput is an input type that accepts RouteTypeArgs and RouteTypeOutput values.
 // You can construct a concrete instance of `RouteTypeInput` via:
 //
-//          RouteTypeArgs{...}
+//	RouteTypeArgs{...}
 type RouteTypeInput interface {
 	pulumi.Input
 
@@ -1170,7 +1170,7 @@ func (o ServiceEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ServiceEndpointTypeInput is an input type that accepts ServiceEndpointTypeArgs and ServiceEndpointTypeOutput values.
 // You can construct a concrete instance of `ServiceEndpointTypeInput` via:
 //
-//          ServiceEndpointTypeArgs{...}
+//	ServiceEndpointTypeArgs{...}
 type ServiceEndpointTypeInput interface {
 	pulumi.Input
 

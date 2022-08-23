@@ -19,7 +19,7 @@ type CertificateApiPassthrough struct {
 // CertificateApiPassthroughInput is an input type that accepts CertificateApiPassthroughArgs and CertificateApiPassthroughOutput values.
 // You can construct a concrete instance of `CertificateApiPassthroughInput` via:
 //
-//          CertificateApiPassthroughArgs{...}
+//	CertificateApiPassthroughArgs{...}
 type CertificateApiPassthroughInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughPtrOutputWithC
 // CertificateApiPassthroughPtrInput is an input type that accepts CertificateApiPassthroughArgs, CertificateApiPassthroughPtr and CertificateApiPassthroughPtrOutput values.
 // You can construct a concrete instance of `CertificateApiPassthroughPtrInput` via:
 //
-//          CertificateApiPassthroughArgs{...}
+//	        CertificateApiPassthroughArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateApiPassthroughPtrInput interface {
 	pulumi.Input
 
@@ -170,7 +170,7 @@ type CertificateAuthorityAccessDescription struct {
 // CertificateAuthorityAccessDescriptionInput is an input type that accepts CertificateAuthorityAccessDescriptionArgs and CertificateAuthorityAccessDescriptionOutput values.
 // You can construct a concrete instance of `CertificateAuthorityAccessDescriptionInput` via:
 //
-//          CertificateAuthorityAccessDescriptionArgs{...}
+//	CertificateAuthorityAccessDescriptionArgs{...}
 type CertificateAuthorityAccessDescriptionInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ func (i CertificateAuthorityAccessDescriptionArgs) ToCertificateAuthorityAccessD
 // CertificateAuthorityAccessDescriptionArrayInput is an input type that accepts CertificateAuthorityAccessDescriptionArray and CertificateAuthorityAccessDescriptionArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityAccessDescriptionArrayInput` via:
 //
-//          CertificateAuthorityAccessDescriptionArray{ CertificateAuthorityAccessDescriptionArgs{...} }
+//	CertificateAuthorityAccessDescriptionArray{ CertificateAuthorityAccessDescriptionArgs{...} }
 type CertificateAuthorityAccessDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ type CertificateAuthorityAccessMethod struct {
 // CertificateAuthorityAccessMethodInput is an input type that accepts CertificateAuthorityAccessMethodArgs and CertificateAuthorityAccessMethodOutput values.
 // You can construct a concrete instance of `CertificateAuthorityAccessMethodInput` via:
 //
-//          CertificateAuthorityAccessMethodArgs{...}
+//	CertificateAuthorityAccessMethodArgs{...}
 type CertificateAuthorityAccessMethodInput interface {
 	pulumi.Input
 
@@ -334,7 +334,7 @@ type CertificateAuthorityCrlConfiguration struct {
 // CertificateAuthorityCrlConfigurationInput is an input type that accepts CertificateAuthorityCrlConfigurationArgs and CertificateAuthorityCrlConfigurationOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCrlConfigurationInput` via:
 //
-//          CertificateAuthorityCrlConfigurationArgs{...}
+//	CertificateAuthorityCrlConfigurationArgs{...}
 type CertificateAuthorityCrlConfigurationInput interface {
 	pulumi.Input
 
@@ -374,11 +374,11 @@ func (i CertificateAuthorityCrlConfigurationArgs) ToCertificateAuthorityCrlConfi
 // CertificateAuthorityCrlConfigurationPtrInput is an input type that accepts CertificateAuthorityCrlConfigurationArgs, CertificateAuthorityCrlConfigurationPtr and CertificateAuthorityCrlConfigurationPtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCrlConfigurationPtrInput` via:
 //
-//          CertificateAuthorityCrlConfigurationArgs{...}
+//	        CertificateAuthorityCrlConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityCrlConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -527,7 +527,7 @@ type CertificateAuthorityCsrExtensions struct {
 // CertificateAuthorityCsrExtensionsInput is an input type that accepts CertificateAuthorityCsrExtensionsArgs and CertificateAuthorityCsrExtensionsOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCsrExtensionsInput` via:
 //
-//          CertificateAuthorityCsrExtensionsArgs{...}
+//	CertificateAuthorityCsrExtensionsArgs{...}
 type CertificateAuthorityCsrExtensionsInput interface {
 	pulumi.Input
 
@@ -564,11 +564,11 @@ func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensio
 // CertificateAuthorityCsrExtensionsPtrInput is an input type that accepts CertificateAuthorityCsrExtensionsArgs, CertificateAuthorityCsrExtensionsPtr and CertificateAuthorityCsrExtensionsPtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCsrExtensionsPtrInput` via:
 //
-//          CertificateAuthorityCsrExtensionsArgs{...}
+//	        CertificateAuthorityCsrExtensionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityCsrExtensionsPtrInput interface {
 	pulumi.Input
 
@@ -680,7 +680,7 @@ type CertificateAuthorityCustomAttribute struct {
 // CertificateAuthorityCustomAttributeInput is an input type that accepts CertificateAuthorityCustomAttributeArgs and CertificateAuthorityCustomAttributeOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCustomAttributeInput` via:
 //
-//          CertificateAuthorityCustomAttributeArgs{...}
+//	CertificateAuthorityCustomAttributeArgs{...}
 type CertificateAuthorityCustomAttributeInput interface {
 	pulumi.Input
 
@@ -709,7 +709,7 @@ func (i CertificateAuthorityCustomAttributeArgs) ToCertificateAuthorityCustomAtt
 // CertificateAuthorityCustomAttributeArrayInput is an input type that accepts CertificateAuthorityCustomAttributeArray and CertificateAuthorityCustomAttributeArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCustomAttributeArrayInput` via:
 //
-//          CertificateAuthorityCustomAttributeArray{ CertificateAuthorityCustomAttributeArgs{...} }
+//	CertificateAuthorityCustomAttributeArray{ CertificateAuthorityCustomAttributeArgs{...} }
 type CertificateAuthorityCustomAttributeArrayInput interface {
 	pulumi.Input
 
@@ -783,7 +783,7 @@ type CertificateAuthorityEdiPartyName struct {
 // CertificateAuthorityEdiPartyNameInput is an input type that accepts CertificateAuthorityEdiPartyNameArgs and CertificateAuthorityEdiPartyNameOutput values.
 // You can construct a concrete instance of `CertificateAuthorityEdiPartyNameInput` via:
 //
-//          CertificateAuthorityEdiPartyNameArgs{...}
+//	CertificateAuthorityEdiPartyNameArgs{...}
 type CertificateAuthorityEdiPartyNameInput interface {
 	pulumi.Input
 
@@ -820,11 +820,11 @@ func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyName
 // CertificateAuthorityEdiPartyNamePtrInput is an input type that accepts CertificateAuthorityEdiPartyNameArgs, CertificateAuthorityEdiPartyNamePtr and CertificateAuthorityEdiPartyNamePtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityEdiPartyNamePtrInput` via:
 //
-//          CertificateAuthorityEdiPartyNameArgs{...}
+//	        CertificateAuthorityEdiPartyNameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityEdiPartyNamePtrInput interface {
 	pulumi.Input
 
@@ -940,7 +940,7 @@ type CertificateAuthorityGeneralName struct {
 // CertificateAuthorityGeneralNameInput is an input type that accepts CertificateAuthorityGeneralNameArgs and CertificateAuthorityGeneralNameOutput values.
 // You can construct a concrete instance of `CertificateAuthorityGeneralNameInput` via:
 //
-//          CertificateAuthorityGeneralNameArgs{...}
+//	CertificateAuthorityGeneralNameArgs{...}
 type CertificateAuthorityGeneralNameInput interface {
 	pulumi.Input
 
@@ -1035,7 +1035,7 @@ type CertificateAuthorityKeyUsage struct {
 // CertificateAuthorityKeyUsageInput is an input type that accepts CertificateAuthorityKeyUsageArgs and CertificateAuthorityKeyUsageOutput values.
 // You can construct a concrete instance of `CertificateAuthorityKeyUsageInput` via:
 //
-//          CertificateAuthorityKeyUsageArgs{...}
+//	CertificateAuthorityKeyUsageArgs{...}
 type CertificateAuthorityKeyUsageInput interface {
 	pulumi.Input
 
@@ -1079,11 +1079,11 @@ func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsagePtrOutpu
 // CertificateAuthorityKeyUsagePtrInput is an input type that accepts CertificateAuthorityKeyUsageArgs, CertificateAuthorityKeyUsagePtr and CertificateAuthorityKeyUsagePtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityKeyUsagePtrInput` via:
 //
-//          CertificateAuthorityKeyUsageArgs{...}
+//	        CertificateAuthorityKeyUsageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityKeyUsagePtrInput interface {
 	pulumi.Input
 
@@ -1284,7 +1284,7 @@ type CertificateAuthorityOcspConfiguration struct {
 // CertificateAuthorityOcspConfigurationInput is an input type that accepts CertificateAuthorityOcspConfigurationArgs and CertificateAuthorityOcspConfigurationOutput values.
 // You can construct a concrete instance of `CertificateAuthorityOcspConfigurationInput` via:
 //
-//          CertificateAuthorityOcspConfigurationArgs{...}
+//	CertificateAuthorityOcspConfigurationArgs{...}
 type CertificateAuthorityOcspConfigurationInput interface {
 	pulumi.Input
 
@@ -1321,11 +1321,11 @@ func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspCon
 // CertificateAuthorityOcspConfigurationPtrInput is an input type that accepts CertificateAuthorityOcspConfigurationArgs, CertificateAuthorityOcspConfigurationPtr and CertificateAuthorityOcspConfigurationPtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityOcspConfigurationPtrInput` via:
 //
-//          CertificateAuthorityOcspConfigurationArgs{...}
+//	        CertificateAuthorityOcspConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityOcspConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1435,7 +1435,7 @@ type CertificateAuthorityOtherName struct {
 // CertificateAuthorityOtherNameInput is an input type that accepts CertificateAuthorityOtherNameArgs and CertificateAuthorityOtherNameOutput values.
 // You can construct a concrete instance of `CertificateAuthorityOtherNameInput` via:
 //
-//          CertificateAuthorityOtherNameArgs{...}
+//	CertificateAuthorityOtherNameArgs{...}
 type CertificateAuthorityOtherNameInput interface {
 	pulumi.Input
 
@@ -1472,11 +1472,11 @@ func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNamePtrOut
 // CertificateAuthorityOtherNamePtrInput is an input type that accepts CertificateAuthorityOtherNameArgs, CertificateAuthorityOtherNamePtr and CertificateAuthorityOtherNamePtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityOtherNamePtrInput` via:
 //
-//          CertificateAuthorityOtherNameArgs{...}
+//	        CertificateAuthorityOtherNameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityOtherNamePtrInput interface {
 	pulumi.Input
 
@@ -1586,7 +1586,7 @@ type CertificateAuthorityRevocationConfiguration struct {
 // CertificateAuthorityRevocationConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs and CertificateAuthorityRevocationConfigurationOutput values.
 // You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationInput` via:
 //
-//          CertificateAuthorityRevocationConfigurationArgs{...}
+//	CertificateAuthorityRevocationConfigurationArgs{...}
 type CertificateAuthorityRevocationConfigurationInput interface {
 	pulumi.Input
 
@@ -1623,11 +1623,11 @@ func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityR
 // CertificateAuthorityRevocationConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs, CertificateAuthorityRevocationConfigurationPtr and CertificateAuthorityRevocationConfigurationPtrOutput values.
 // You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationPtrInput` via:
 //
-//          CertificateAuthorityRevocationConfigurationArgs{...}
+//	        CertificateAuthorityRevocationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthorityRevocationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1754,7 +1754,7 @@ type CertificateAuthoritySubject struct {
 // CertificateAuthoritySubjectInput is an input type that accepts CertificateAuthoritySubjectArgs and CertificateAuthoritySubjectOutput values.
 // You can construct a concrete instance of `CertificateAuthoritySubjectInput` via:
 //
-//          CertificateAuthoritySubjectArgs{...}
+//	CertificateAuthoritySubjectArgs{...}
 type CertificateAuthoritySubjectInput interface {
 	pulumi.Input
 
@@ -1804,11 +1804,11 @@ func (i CertificateAuthoritySubjectArgs) ToCertificateAuthoritySubjectPtrOutputW
 // CertificateAuthoritySubjectPtrInput is an input type that accepts CertificateAuthoritySubjectArgs, CertificateAuthoritySubjectPtr and CertificateAuthoritySubjectPtrOutput values.
 // You can construct a concrete instance of `CertificateAuthoritySubjectPtrInput` via:
 //
-//          CertificateAuthoritySubjectArgs{...}
+//	        CertificateAuthoritySubjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateAuthoritySubjectPtrInput interface {
 	pulumi.Input
 
@@ -2086,7 +2086,7 @@ type CertificateAuthorityTag struct {
 // CertificateAuthorityTagInput is an input type that accepts CertificateAuthorityTagArgs and CertificateAuthorityTagOutput values.
 // You can construct a concrete instance of `CertificateAuthorityTagInput` via:
 //
-//          CertificateAuthorityTagArgs{...}
+//	CertificateAuthorityTagArgs{...}
 type CertificateAuthorityTagInput interface {
 	pulumi.Input
 
@@ -2114,7 +2114,7 @@ func (i CertificateAuthorityTagArgs) ToCertificateAuthorityTagOutputWithContext(
 // CertificateAuthorityTagArrayInput is an input type that accepts CertificateAuthorityTagArray and CertificateAuthorityTagArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityTagArrayInput` via:
 //
-//          CertificateAuthorityTagArray{ CertificateAuthorityTagArgs{...} }
+//	CertificateAuthorityTagArray{ CertificateAuthorityTagArgs{...} }
 type CertificateAuthorityTagArrayInput interface {
 	pulumi.Input
 
@@ -2187,7 +2187,7 @@ type CertificateCustomAttribute struct {
 // CertificateCustomAttributeInput is an input type that accepts CertificateCustomAttributeArgs and CertificateCustomAttributeOutput values.
 // You can construct a concrete instance of `CertificateCustomAttributeInput` via:
 //
-//          CertificateCustomAttributeArgs{...}
+//	CertificateCustomAttributeArgs{...}
 type CertificateCustomAttributeInput interface {
 	pulumi.Input
 
@@ -2216,7 +2216,7 @@ func (i CertificateCustomAttributeArgs) ToCertificateCustomAttributeOutputWithCo
 // CertificateCustomAttributeArrayInput is an input type that accepts CertificateCustomAttributeArray and CertificateCustomAttributeArrayOutput values.
 // You can construct a concrete instance of `CertificateCustomAttributeArrayInput` via:
 //
-//          CertificateCustomAttributeArray{ CertificateCustomAttributeArgs{...} }
+//	CertificateCustomAttributeArray{ CertificateCustomAttributeArgs{...} }
 type CertificateCustomAttributeArrayInput interface {
 	pulumi.Input
 
@@ -2291,7 +2291,7 @@ type CertificateCustomExtension struct {
 // CertificateCustomExtensionInput is an input type that accepts CertificateCustomExtensionArgs and CertificateCustomExtensionOutput values.
 // You can construct a concrete instance of `CertificateCustomExtensionInput` via:
 //
-//          CertificateCustomExtensionArgs{...}
+//	CertificateCustomExtensionArgs{...}
 type CertificateCustomExtensionInput interface {
 	pulumi.Input
 
@@ -2321,7 +2321,7 @@ func (i CertificateCustomExtensionArgs) ToCertificateCustomExtensionOutputWithCo
 // CertificateCustomExtensionArrayInput is an input type that accepts CertificateCustomExtensionArray and CertificateCustomExtensionArrayOutput values.
 // You can construct a concrete instance of `CertificateCustomExtensionArrayInput` via:
 //
-//          CertificateCustomExtensionArray{ CertificateCustomExtensionArgs{...} }
+//	CertificateCustomExtensionArray{ CertificateCustomExtensionArgs{...} }
 type CertificateCustomExtensionArrayInput interface {
 	pulumi.Input
 
@@ -2399,7 +2399,7 @@ type CertificateEdiPartyName struct {
 // CertificateEdiPartyNameInput is an input type that accepts CertificateEdiPartyNameArgs and CertificateEdiPartyNameOutput values.
 // You can construct a concrete instance of `CertificateEdiPartyNameInput` via:
 //
-//          CertificateEdiPartyNameArgs{...}
+//	CertificateEdiPartyNameArgs{...}
 type CertificateEdiPartyNameInput interface {
 	pulumi.Input
 
@@ -2436,11 +2436,11 @@ func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNamePtrOutputWithConte
 // CertificateEdiPartyNamePtrInput is an input type that accepts CertificateEdiPartyNameArgs, CertificateEdiPartyNamePtr and CertificateEdiPartyNamePtrOutput values.
 // You can construct a concrete instance of `CertificateEdiPartyNamePtrInput` via:
 //
-//          CertificateEdiPartyNameArgs{...}
+//	        CertificateEdiPartyNameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateEdiPartyNamePtrInput interface {
 	pulumi.Input
 
@@ -2550,7 +2550,7 @@ type CertificateExtendedKeyUsage struct {
 // CertificateExtendedKeyUsageInput is an input type that accepts CertificateExtendedKeyUsageArgs and CertificateExtendedKeyUsageOutput values.
 // You can construct a concrete instance of `CertificateExtendedKeyUsageInput` via:
 //
-//          CertificateExtendedKeyUsageArgs{...}
+//	CertificateExtendedKeyUsageArgs{...}
 type CertificateExtendedKeyUsageInput interface {
 	pulumi.Input
 
@@ -2579,7 +2579,7 @@ func (i CertificateExtendedKeyUsageArgs) ToCertificateExtendedKeyUsageOutputWith
 // CertificateExtendedKeyUsageArrayInput is an input type that accepts CertificateExtendedKeyUsageArray and CertificateExtendedKeyUsageArrayOutput values.
 // You can construct a concrete instance of `CertificateExtendedKeyUsageArrayInput` via:
 //
-//          CertificateExtendedKeyUsageArray{ CertificateExtendedKeyUsageArgs{...} }
+//	CertificateExtendedKeyUsageArray{ CertificateExtendedKeyUsageArgs{...} }
 type CertificateExtendedKeyUsageArrayInput interface {
 	pulumi.Input
 
@@ -2656,7 +2656,7 @@ type CertificateExtensions struct {
 // CertificateExtensionsInput is an input type that accepts CertificateExtensionsArgs and CertificateExtensionsOutput values.
 // You can construct a concrete instance of `CertificateExtensionsInput` via:
 //
-//          CertificateExtensionsArgs{...}
+//	CertificateExtensionsArgs{...}
 type CertificateExtensionsInput interface {
 	pulumi.Input
 
@@ -2696,11 +2696,11 @@ func (i CertificateExtensionsArgs) ToCertificateExtensionsPtrOutputWithContext(c
 // CertificateExtensionsPtrInput is an input type that accepts CertificateExtensionsArgs, CertificateExtensionsPtr and CertificateExtensionsPtrOutput values.
 // You can construct a concrete instance of `CertificateExtensionsPtrInput` via:
 //
-//          CertificateExtensionsArgs{...}
+//	        CertificateExtensionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateExtensionsPtrInput interface {
 	pulumi.Input
 
@@ -2855,7 +2855,7 @@ type CertificateGeneralName struct {
 // CertificateGeneralNameInput is an input type that accepts CertificateGeneralNameArgs and CertificateGeneralNameOutput values.
 // You can construct a concrete instance of `CertificateGeneralNameInput` via:
 //
-//          CertificateGeneralNameArgs{...}
+//	CertificateGeneralNameArgs{...}
 type CertificateGeneralNameInput interface {
 	pulumi.Input
 
@@ -2890,7 +2890,7 @@ func (i CertificateGeneralNameArgs) ToCertificateGeneralNameOutputWithContext(ct
 // CertificateGeneralNameArrayInput is an input type that accepts CertificateGeneralNameArray and CertificateGeneralNameArrayOutput values.
 // You can construct a concrete instance of `CertificateGeneralNameArrayInput` via:
 //
-//          CertificateGeneralNameArray{ CertificateGeneralNameArgs{...} }
+//	CertificateGeneralNameArray{ CertificateGeneralNameArgs{...} }
 type CertificateGeneralNameArrayInput interface {
 	pulumi.Input
 
@@ -2995,7 +2995,7 @@ type CertificateKeyUsage struct {
 // CertificateKeyUsageInput is an input type that accepts CertificateKeyUsageArgs and CertificateKeyUsageOutput values.
 // You can construct a concrete instance of `CertificateKeyUsageInput` via:
 //
-//          CertificateKeyUsageArgs{...}
+//	CertificateKeyUsageArgs{...}
 type CertificateKeyUsageInput interface {
 	pulumi.Input
 
@@ -3039,11 +3039,11 @@ func (i CertificateKeyUsageArgs) ToCertificateKeyUsagePtrOutputWithContext(ctx c
 // CertificateKeyUsagePtrInput is an input type that accepts CertificateKeyUsageArgs, CertificateKeyUsagePtr and CertificateKeyUsagePtrOutput values.
 // You can construct a concrete instance of `CertificateKeyUsagePtrInput` via:
 //
-//          CertificateKeyUsageArgs{...}
+//	        CertificateKeyUsageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateKeyUsagePtrInput interface {
 	pulumi.Input
 
@@ -3244,7 +3244,7 @@ type CertificateOtherName struct {
 // CertificateOtherNameInput is an input type that accepts CertificateOtherNameArgs and CertificateOtherNameOutput values.
 // You can construct a concrete instance of `CertificateOtherNameInput` via:
 //
-//          CertificateOtherNameArgs{...}
+//	CertificateOtherNameArgs{...}
 type CertificateOtherNameInput interface {
 	pulumi.Input
 
@@ -3281,11 +3281,11 @@ func (i CertificateOtherNameArgs) ToCertificateOtherNamePtrOutputWithContext(ctx
 // CertificateOtherNamePtrInput is an input type that accepts CertificateOtherNameArgs, CertificateOtherNamePtr and CertificateOtherNamePtrOutput values.
 // You can construct a concrete instance of `CertificateOtherNamePtrInput` via:
 //
-//          CertificateOtherNameArgs{...}
+//	        CertificateOtherNameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateOtherNamePtrInput interface {
 	pulumi.Input
 
@@ -3395,7 +3395,7 @@ type CertificatePolicyInformation struct {
 // CertificatePolicyInformationInput is an input type that accepts CertificatePolicyInformationArgs and CertificatePolicyInformationOutput values.
 // You can construct a concrete instance of `CertificatePolicyInformationInput` via:
 //
-//          CertificatePolicyInformationArgs{...}
+//	CertificatePolicyInformationArgs{...}
 type CertificatePolicyInformationInput interface {
 	pulumi.Input
 
@@ -3424,7 +3424,7 @@ func (i CertificatePolicyInformationArgs) ToCertificatePolicyInformationOutputWi
 // CertificatePolicyInformationArrayInput is an input type that accepts CertificatePolicyInformationArray and CertificatePolicyInformationArrayOutput values.
 // You can construct a concrete instance of `CertificatePolicyInformationArrayInput` via:
 //
-//          CertificatePolicyInformationArray{ CertificatePolicyInformationArgs{...} }
+//	CertificatePolicyInformationArray{ CertificatePolicyInformationArgs{...} }
 type CertificatePolicyInformationArrayInput interface {
 	pulumi.Input
 
@@ -3498,7 +3498,7 @@ type CertificatePolicyQualifierInfo struct {
 // CertificatePolicyQualifierInfoInput is an input type that accepts CertificatePolicyQualifierInfoArgs and CertificatePolicyQualifierInfoOutput values.
 // You can construct a concrete instance of `CertificatePolicyQualifierInfoInput` via:
 //
-//          CertificatePolicyQualifierInfoArgs{...}
+//	CertificatePolicyQualifierInfoArgs{...}
 type CertificatePolicyQualifierInfoInput interface {
 	pulumi.Input
 
@@ -3527,7 +3527,7 @@ func (i CertificatePolicyQualifierInfoArgs) ToCertificatePolicyQualifierInfoOutp
 // CertificatePolicyQualifierInfoArrayInput is an input type that accepts CertificatePolicyQualifierInfoArray and CertificatePolicyQualifierInfoArrayOutput values.
 // You can construct a concrete instance of `CertificatePolicyQualifierInfoArrayInput` via:
 //
-//          CertificatePolicyQualifierInfoArray{ CertificatePolicyQualifierInfoArgs{...} }
+//	CertificatePolicyQualifierInfoArray{ CertificatePolicyQualifierInfoArgs{...} }
 type CertificatePolicyQualifierInfoArrayInput interface {
 	pulumi.Input
 
@@ -3600,7 +3600,7 @@ type CertificateQualifier struct {
 // CertificateQualifierInput is an input type that accepts CertificateQualifierArgs and CertificateQualifierOutput values.
 // You can construct a concrete instance of `CertificateQualifierInput` via:
 //
-//          CertificateQualifierArgs{...}
+//	CertificateQualifierArgs{...}
 type CertificateQualifierInput interface {
 	pulumi.Input
 
@@ -3666,7 +3666,7 @@ type CertificateSubject struct {
 // CertificateSubjectInput is an input type that accepts CertificateSubjectArgs and CertificateSubjectOutput values.
 // You can construct a concrete instance of `CertificateSubjectInput` via:
 //
-//          CertificateSubjectArgs{...}
+//	CertificateSubjectArgs{...}
 type CertificateSubjectInput interface {
 	pulumi.Input
 
@@ -3716,11 +3716,11 @@ func (i CertificateSubjectArgs) ToCertificateSubjectPtrOutputWithContext(ctx con
 // CertificateSubjectPtrInput is an input type that accepts CertificateSubjectArgs, CertificateSubjectPtr and CertificateSubjectPtrOutput values.
 // You can construct a concrete instance of `CertificateSubjectPtrInput` via:
 //
-//          CertificateSubjectArgs{...}
+//	        CertificateSubjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateSubjectPtrInput interface {
 	pulumi.Input
 
@@ -3999,7 +3999,7 @@ type CertificateValidity struct {
 // CertificateValidityInput is an input type that accepts CertificateValidityArgs and CertificateValidityOutput values.
 // You can construct a concrete instance of `CertificateValidityInput` via:
 //
-//          CertificateValidityArgs{...}
+//	CertificateValidityArgs{...}
 type CertificateValidityInput interface {
 	pulumi.Input
 
@@ -4036,11 +4036,11 @@ func (i CertificateValidityArgs) ToCertificateValidityPtrOutputWithContext(ctx c
 // CertificateValidityPtrInput is an input type that accepts CertificateValidityArgs, CertificateValidityPtr and CertificateValidityPtrOutput values.
 // You can construct a concrete instance of `CertificateValidityPtrInput` via:
 //
-//          CertificateValidityArgs{...}
+//	        CertificateValidityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertificateValidityPtrInput interface {
 	pulumi.Input
 

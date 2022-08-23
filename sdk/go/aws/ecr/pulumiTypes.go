@@ -21,7 +21,7 @@ type PublicRepositoryTag struct {
 // PublicRepositoryTagInput is an input type that accepts PublicRepositoryTagArgs and PublicRepositoryTagOutput values.
 // You can construct a concrete instance of `PublicRepositoryTagInput` via:
 //
-//          PublicRepositoryTagArgs{...}
+//	PublicRepositoryTagArgs{...}
 type PublicRepositoryTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutputWithContext(ctx cont
 // PublicRepositoryTagArrayInput is an input type that accepts PublicRepositoryTagArray and PublicRepositoryTagArrayOutput values.
 // You can construct a concrete instance of `PublicRepositoryTagArrayInput` via:
 //
-//          PublicRepositoryTagArray{ PublicRepositoryTagArgs{...} }
+//	PublicRepositoryTagArray{ PublicRepositoryTagArgs{...} }
 type PublicRepositoryTagArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type ReplicationConfigurationType struct {
 // ReplicationConfigurationTypeInput is an input type that accepts ReplicationConfigurationTypeArgs and ReplicationConfigurationTypeOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationTypeInput` via:
 //
-//          ReplicationConfigurationTypeArgs{...}
+//	ReplicationConfigurationTypeArgs{...}
 type ReplicationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -217,7 +217,7 @@ type ReplicationConfigurationReplicationDestination struct {
 // ReplicationConfigurationReplicationDestinationInput is an input type that accepts ReplicationConfigurationReplicationDestinationArgs and ReplicationConfigurationReplicationDestinationOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationDestinationInput` via:
 //
-//          ReplicationConfigurationReplicationDestinationArgs{...}
+//	ReplicationConfigurationReplicationDestinationArgs{...}
 type ReplicationConfigurationReplicationDestinationInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i ReplicationConfigurationReplicationDestinationArgs) ToReplicationConfigu
 // ReplicationConfigurationReplicationDestinationArrayInput is an input type that accepts ReplicationConfigurationReplicationDestinationArray and ReplicationConfigurationReplicationDestinationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationDestinationArrayInput` via:
 //
-//          ReplicationConfigurationReplicationDestinationArray{ ReplicationConfigurationReplicationDestinationArgs{...} }
+//	ReplicationConfigurationReplicationDestinationArray{ ReplicationConfigurationReplicationDestinationArgs{...} }
 type ReplicationConfigurationReplicationDestinationArrayInput interface {
 	pulumi.Input
 
@@ -322,7 +322,7 @@ type ReplicationConfigurationReplicationRule struct {
 // ReplicationConfigurationReplicationRuleInput is an input type that accepts ReplicationConfigurationReplicationRuleArgs and ReplicationConfigurationReplicationRuleOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationRuleInput` via:
 //
-//          ReplicationConfigurationReplicationRuleArgs{...}
+//	ReplicationConfigurationReplicationRuleArgs{...}
 type ReplicationConfigurationReplicationRuleInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ func (i ReplicationConfigurationReplicationRuleArgs) ToReplicationConfigurationR
 // ReplicationConfigurationReplicationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationRuleArray and ReplicationConfigurationReplicationRuleArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationRuleArrayInput` via:
 //
-//          ReplicationConfigurationReplicationRuleArray{ ReplicationConfigurationReplicationRuleArgs{...} }
+//	ReplicationConfigurationReplicationRuleArray{ ReplicationConfigurationReplicationRuleArgs{...} }
 type ReplicationConfigurationReplicationRuleArrayInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type ReplicationConfigurationRepositoryFilter struct {
 // ReplicationConfigurationRepositoryFilterInput is an input type that accepts ReplicationConfigurationRepositoryFilterArgs and ReplicationConfigurationRepositoryFilterOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationRepositoryFilterInput` via:
 //
-//          ReplicationConfigurationRepositoryFilterArgs{...}
+//	ReplicationConfigurationRepositoryFilterArgs{...}
 type ReplicationConfigurationRepositoryFilterInput interface {
 	pulumi.Input
 
@@ -462,7 +462,7 @@ func (i ReplicationConfigurationRepositoryFilterArgs) ToReplicationConfiguration
 // ReplicationConfigurationRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationRepositoryFilterArray and ReplicationConfigurationRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationRepositoryFilterArrayInput` via:
 //
-//          ReplicationConfigurationRepositoryFilterArray{ ReplicationConfigurationRepositoryFilterArgs{...} }
+//	ReplicationConfigurationRepositoryFilterArray{ ReplicationConfigurationRepositoryFilterArgs{...} }
 type ReplicationConfigurationRepositoryFilterArrayInput interface {
 	pulumi.Input
 
@@ -541,7 +541,7 @@ type RepositoryCatalogDataProperties struct {
 // RepositoryCatalogDataPropertiesInput is an input type that accepts RepositoryCatalogDataPropertiesArgs and RepositoryCatalogDataPropertiesOutput values.
 // You can construct a concrete instance of `RepositoryCatalogDataPropertiesInput` via:
 //
-//          RepositoryCatalogDataPropertiesArgs{...}
+//	RepositoryCatalogDataPropertiesArgs{...}
 type RepositoryCatalogDataPropertiesInput interface {
 	pulumi.Input
 
@@ -581,11 +581,11 @@ func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesPt
 // RepositoryCatalogDataPropertiesPtrInput is an input type that accepts RepositoryCatalogDataPropertiesArgs, RepositoryCatalogDataPropertiesPtr and RepositoryCatalogDataPropertiesPtrOutput values.
 // You can construct a concrete instance of `RepositoryCatalogDataPropertiesPtrInput` via:
 //
-//          RepositoryCatalogDataPropertiesArgs{...}
+//	        RepositoryCatalogDataPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryCatalogDataPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ type RepositoryEncryptionConfiguration struct {
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionConfigurationInput` via:
 //
-//          RepositoryEncryptionConfigurationArgs{...}
+//	RepositoryEncryptionConfigurationArgs{...}
 type RepositoryEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -779,11 +779,11 @@ func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurati
 // RepositoryEncryptionConfigurationPtrInput is an input type that accepts RepositoryEncryptionConfigurationArgs, RepositoryEncryptionConfigurationPtr and RepositoryEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionConfigurationPtrInput` via:
 //
-//          RepositoryEncryptionConfigurationArgs{...}
+//	        RepositoryEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -896,7 +896,7 @@ type RepositoryImageScanningConfiguration struct {
 // RepositoryImageScanningConfigurationInput is an input type that accepts RepositoryImageScanningConfigurationArgs and RepositoryImageScanningConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryImageScanningConfigurationInput` via:
 //
-//          RepositoryImageScanningConfigurationArgs{...}
+//	RepositoryImageScanningConfigurationArgs{...}
 type RepositoryImageScanningConfigurationInput interface {
 	pulumi.Input
 
@@ -932,11 +932,11 @@ func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfi
 // RepositoryImageScanningConfigurationPtrInput is an input type that accepts RepositoryImageScanningConfigurationArgs, RepositoryImageScanningConfigurationPtr and RepositoryImageScanningConfigurationPtrOutput values.
 // You can construct a concrete instance of `RepositoryImageScanningConfigurationPtrInput` via:
 //
-//          RepositoryImageScanningConfigurationArgs{...}
+//	        RepositoryImageScanningConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryImageScanningConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1033,7 +1033,7 @@ type RepositoryLifecyclePolicy struct {
 // RepositoryLifecyclePolicyInput is an input type that accepts RepositoryLifecyclePolicyArgs and RepositoryLifecyclePolicyOutput values.
 // You can construct a concrete instance of `RepositoryLifecyclePolicyInput` via:
 //
-//          RepositoryLifecyclePolicyArgs{...}
+//	RepositoryLifecyclePolicyArgs{...}
 type RepositoryLifecyclePolicyInput interface {
 	pulumi.Input
 
@@ -1070,11 +1070,11 @@ func (i RepositoryLifecyclePolicyArgs) ToRepositoryLifecyclePolicyPtrOutputWithC
 // RepositoryLifecyclePolicyPtrInput is an input type that accepts RepositoryLifecyclePolicyArgs, RepositoryLifecyclePolicyPtr and RepositoryLifecyclePolicyPtrOutput values.
 // You can construct a concrete instance of `RepositoryLifecyclePolicyPtrInput` via:
 //
-//          RepositoryLifecyclePolicyArgs{...}
+//	        RepositoryLifecyclePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryLifecyclePolicyPtrInput interface {
 	pulumi.Input
 
@@ -1186,7 +1186,7 @@ type RepositoryTag struct {
 // RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
 // You can construct a concrete instance of `RepositoryTagInput` via:
 //
-//          RepositoryTagArgs{...}
+//	RepositoryTagArgs{...}
 type RepositoryTagInput interface {
 	pulumi.Input
 
@@ -1217,7 +1217,7 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
-//          RepositoryTagArray{ RepositoryTagArgs{...} }
+//	RepositoryTagArray{ RepositoryTagArgs{...} }
 type RepositoryTagArrayInput interface {
 	pulumi.Input
 

@@ -18,7 +18,7 @@ type ChannelTag struct {
 // ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
 // You can construct a concrete instance of `ChannelTagInput` via:
 //
-//          ChannelTagArgs{...}
+//	ChannelTagArgs{...}
 type ChannelTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
-//          ChannelTagArray{ ChannelTagArgs{...} }
+//	ChannelTagArray{ ChannelTagArgs{...} }
 type ChannelTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type PlaybackKeyPairTag struct {
 // PlaybackKeyPairTagInput is an input type that accepts PlaybackKeyPairTagArgs and PlaybackKeyPairTagOutput values.
 // You can construct a concrete instance of `PlaybackKeyPairTagInput` via:
 //
-//          PlaybackKeyPairTagArgs{...}
+//	PlaybackKeyPairTagArgs{...}
 type PlaybackKeyPairTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i PlaybackKeyPairTagArgs) ToPlaybackKeyPairTagOutputWithContext(ctx contex
 // PlaybackKeyPairTagArrayInput is an input type that accepts PlaybackKeyPairTagArray and PlaybackKeyPairTagArrayOutput values.
 // You can construct a concrete instance of `PlaybackKeyPairTagArrayInput` via:
 //
-//          PlaybackKeyPairTagArray{ PlaybackKeyPairTagArgs{...} }
+//	PlaybackKeyPairTagArray{ PlaybackKeyPairTagArgs{...} }
 type PlaybackKeyPairTagArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type RecordingConfigurationDestinationConfiguration struct {
 // RecordingConfigurationDestinationConfigurationInput is an input type that accepts RecordingConfigurationDestinationConfigurationArgs and RecordingConfigurationDestinationConfigurationOutput values.
 // You can construct a concrete instance of `RecordingConfigurationDestinationConfigurationInput` via:
 //
-//          RecordingConfigurationDestinationConfigurationArgs{...}
+//	RecordingConfigurationDestinationConfigurationArgs{...}
 type RecordingConfigurationDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -272,7 +272,7 @@ type RecordingConfigurationS3DestinationConfiguration struct {
 // RecordingConfigurationS3DestinationConfigurationInput is an input type that accepts RecordingConfigurationS3DestinationConfigurationArgs and RecordingConfigurationS3DestinationConfigurationOutput values.
 // You can construct a concrete instance of `RecordingConfigurationS3DestinationConfigurationInput` via:
 //
-//          RecordingConfigurationS3DestinationConfigurationArgs{...}
+//	RecordingConfigurationS3DestinationConfigurationArgs{...}
 type RecordingConfigurationS3DestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -324,7 +324,7 @@ type RecordingConfigurationTag struct {
 // RecordingConfigurationTagInput is an input type that accepts RecordingConfigurationTagArgs and RecordingConfigurationTagOutput values.
 // You can construct a concrete instance of `RecordingConfigurationTagInput` via:
 //
-//          RecordingConfigurationTagArgs{...}
+//	RecordingConfigurationTagArgs{...}
 type RecordingConfigurationTagInput interface {
 	pulumi.Input
 
@@ -352,7 +352,7 @@ func (i RecordingConfigurationTagArgs) ToRecordingConfigurationTagOutputWithCont
 // RecordingConfigurationTagArrayInput is an input type that accepts RecordingConfigurationTagArray and RecordingConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `RecordingConfigurationTagArrayInput` via:
 //
-//          RecordingConfigurationTagArray{ RecordingConfigurationTagArgs{...} }
+//	RecordingConfigurationTagArray{ RecordingConfigurationTagArgs{...} }
 type RecordingConfigurationTagArrayInput interface {
 	pulumi.Input
 
@@ -427,7 +427,7 @@ type RecordingConfigurationThumbnailConfiguration struct {
 // RecordingConfigurationThumbnailConfigurationInput is an input type that accepts RecordingConfigurationThumbnailConfigurationArgs and RecordingConfigurationThumbnailConfigurationOutput values.
 // You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationInput` via:
 //
-//          RecordingConfigurationThumbnailConfigurationArgs{...}
+//	RecordingConfigurationThumbnailConfigurationArgs{...}
 type RecordingConfigurationThumbnailConfigurationInput interface {
 	pulumi.Input
 
@@ -466,11 +466,11 @@ func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurati
 // RecordingConfigurationThumbnailConfigurationPtrInput is an input type that accepts RecordingConfigurationThumbnailConfigurationArgs, RecordingConfigurationThumbnailConfigurationPtr and RecordingConfigurationThumbnailConfigurationPtrOutput values.
 // You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationPtrInput` via:
 //
-//          RecordingConfigurationThumbnailConfigurationArgs{...}
+//	        RecordingConfigurationThumbnailConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecordingConfigurationThumbnailConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -585,7 +585,7 @@ type StreamKeyTag struct {
 // StreamKeyTagInput is an input type that accepts StreamKeyTagArgs and StreamKeyTagOutput values.
 // You can construct a concrete instance of `StreamKeyTagInput` via:
 //
-//          StreamKeyTagArgs{...}
+//	StreamKeyTagArgs{...}
 type StreamKeyTagInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ func (i StreamKeyTagArgs) ToStreamKeyTagOutputWithContext(ctx context.Context) S
 // StreamKeyTagArrayInput is an input type that accepts StreamKeyTagArray and StreamKeyTagArrayOutput values.
 // You can construct a concrete instance of `StreamKeyTagArrayInput` via:
 //
-//          StreamKeyTagArray{ StreamKeyTagArgs{...} }
+//	StreamKeyTagArray{ StreamKeyTagArgs{...} }
 type StreamKeyTagArrayInput interface {
 	pulumi.Input
 

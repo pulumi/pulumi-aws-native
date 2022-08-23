@@ -18,7 +18,7 @@ type KeyspaceTag struct {
 // KeyspaceTagInput is an input type that accepts KeyspaceTagArgs and KeyspaceTagOutput values.
 // You can construct a concrete instance of `KeyspaceTagInput` via:
 //
-//          KeyspaceTagArgs{...}
+//	KeyspaceTagArgs{...}
 type KeyspaceTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i KeyspaceTagArgs) ToKeyspaceTagOutputWithContext(ctx context.Context) Key
 // KeyspaceTagArrayInput is an input type that accepts KeyspaceTagArray and KeyspaceTagArrayOutput values.
 // You can construct a concrete instance of `KeyspaceTagArrayInput` via:
 //
-//          KeyspaceTagArray{ KeyspaceTagArgs{...} }
+//	KeyspaceTagArray{ KeyspaceTagArgs{...} }
 type KeyspaceTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type TableBillingMode struct {
 // TableBillingModeInput is an input type that accepts TableBillingModeArgs and TableBillingModeOutput values.
 // You can construct a concrete instance of `TableBillingModeInput` via:
 //
-//          TableBillingModeArgs{...}
+//	TableBillingModeArgs{...}
 type TableBillingModeInput interface {
 	pulumi.Input
 
@@ -154,11 +154,11 @@ func (i TableBillingModeArgs) ToTableBillingModePtrOutputWithContext(ctx context
 // TableBillingModePtrInput is an input type that accepts TableBillingModeArgs, TableBillingModePtr and TableBillingModePtrOutput values.
 // You can construct a concrete instance of `TableBillingModePtrInput` via:
 //
-//          TableBillingModeArgs{...}
+//	        TableBillingModeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableBillingModePtrInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ type TableClusteringKeyColumn struct {
 // TableClusteringKeyColumnInput is an input type that accepts TableClusteringKeyColumnArgs and TableClusteringKeyColumnOutput values.
 // You can construct a concrete instance of `TableClusteringKeyColumnInput` via:
 //
-//          TableClusteringKeyColumnArgs{...}
+//	TableClusteringKeyColumnArgs{...}
 type TableClusteringKeyColumnInput interface {
 	pulumi.Input
 
@@ -294,7 +294,7 @@ func (i TableClusteringKeyColumnArgs) ToTableClusteringKeyColumnOutputWithContex
 // TableClusteringKeyColumnArrayInput is an input type that accepts TableClusteringKeyColumnArray and TableClusteringKeyColumnArrayOutput values.
 // You can construct a concrete instance of `TableClusteringKeyColumnArrayInput` via:
 //
-//          TableClusteringKeyColumnArray{ TableClusteringKeyColumnArgs{...} }
+//	TableClusteringKeyColumnArray{ TableClusteringKeyColumnArgs{...} }
 type TableClusteringKeyColumnArrayInput interface {
 	pulumi.Input
 
@@ -366,7 +366,7 @@ type TableColumn struct {
 // TableColumnInput is an input type that accepts TableColumnArgs and TableColumnOutput values.
 // You can construct a concrete instance of `TableColumnInput` via:
 //
-//          TableColumnArgs{...}
+//	TableColumnArgs{...}
 type TableColumnInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ func (i TableColumnArgs) ToTableColumnOutputWithContext(ctx context.Context) Tab
 // TableColumnArrayInput is an input type that accepts TableColumnArray and TableColumnArrayOutput values.
 // You can construct a concrete instance of `TableColumnArrayInput` via:
 //
-//          TableColumnArray{ TableColumnArgs{...} }
+//	TableColumnArray{ TableColumnArgs{...} }
 type TableColumnArrayInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type TableEncryptionSpecification struct {
 // TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
 // You can construct a concrete instance of `TableEncryptionSpecificationInput` via:
 //
-//          TableEncryptionSpecificationArgs{...}
+//	TableEncryptionSpecificationArgs{...}
 type TableEncryptionSpecificationInput interface {
 	pulumi.Input
 
@@ -504,11 +504,11 @@ func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationPtrOutpu
 // TableEncryptionSpecificationPtrInput is an input type that accepts TableEncryptionSpecificationArgs, TableEncryptionSpecificationPtr and TableEncryptionSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableEncryptionSpecificationPtrInput` via:
 //
-//          TableEncryptionSpecificationArgs{...}
+//	        TableEncryptionSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableEncryptionSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -618,7 +618,7 @@ type TableProvisionedThroughput struct {
 // TableProvisionedThroughputInput is an input type that accepts TableProvisionedThroughputArgs and TableProvisionedThroughputOutput values.
 // You can construct a concrete instance of `TableProvisionedThroughputInput` via:
 //
-//          TableProvisionedThroughputArgs{...}
+//	TableProvisionedThroughputArgs{...}
 type TableProvisionedThroughputInput interface {
 	pulumi.Input
 
@@ -655,11 +655,11 @@ func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputPtrOutputWit
 // TableProvisionedThroughputPtrInput is an input type that accepts TableProvisionedThroughputArgs, TableProvisionedThroughputPtr and TableProvisionedThroughputPtrOutput values.
 // You can construct a concrete instance of `TableProvisionedThroughputPtrInput` via:
 //
-//          TableProvisionedThroughputArgs{...}
+//	        TableProvisionedThroughputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableProvisionedThroughputPtrInput interface {
 	pulumi.Input
 
@@ -769,7 +769,7 @@ type TableTag struct {
 // TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
 // You can construct a concrete instance of `TableTagInput` via:
 //
-//          TableTagArgs{...}
+//	TableTagArgs{...}
 type TableTagInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
-//          TableTagArray{ TableTagArgs{...} }
+//	TableTagArray{ TableTagArgs{...} }
 type TableTagArrayInput interface {
 	pulumi.Input
 

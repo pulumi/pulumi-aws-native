@@ -18,7 +18,7 @@ type GroupPolicy struct {
 // GroupPolicyInput is an input type that accepts GroupPolicyArgs and GroupPolicyOutput values.
 // You can construct a concrete instance of `GroupPolicyInput` via:
 //
-//          GroupPolicyArgs{...}
+//	GroupPolicyArgs{...}
 type GroupPolicyInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i GroupPolicyArgs) ToGroupPolicyOutputWithContext(ctx context.Context) Gro
 // GroupPolicyArrayInput is an input type that accepts GroupPolicyArray and GroupPolicyArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyArrayInput` via:
 //
-//          GroupPolicyArray{ GroupPolicyArgs{...} }
+//	GroupPolicyArray{ GroupPolicyArgs{...} }
 type GroupPolicyArrayInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ type OIDCProviderTag struct {
 // OIDCProviderTagInput is an input type that accepts OIDCProviderTagArgs and OIDCProviderTagOutput values.
 // You can construct a concrete instance of `OIDCProviderTagInput` via:
 //
-//          OIDCProviderTagArgs{...}
+//	OIDCProviderTagArgs{...}
 type OIDCProviderTagInput interface {
 	pulumi.Input
 
@@ -152,7 +152,7 @@ func (i OIDCProviderTagArgs) ToOIDCProviderTagOutputWithContext(ctx context.Cont
 // OIDCProviderTagArrayInput is an input type that accepts OIDCProviderTagArray and OIDCProviderTagArrayOutput values.
 // You can construct a concrete instance of `OIDCProviderTagArrayInput` via:
 //
-//          OIDCProviderTagArray{ OIDCProviderTagArgs{...} }
+//	OIDCProviderTagArray{ OIDCProviderTagArgs{...} }
 type OIDCProviderTagArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type RolePolicy struct {
 // RolePolicyInput is an input type that accepts RolePolicyArgs and RolePolicyOutput values.
 // You can construct a concrete instance of `RolePolicyInput` via:
 //
-//          RolePolicyArgs{...}
+//	RolePolicyArgs{...}
 type RolePolicyInput interface {
 	pulumi.Input
 
@@ -261,7 +261,7 @@ func (i RolePolicyArgs) ToRolePolicyOutputWithContext(ctx context.Context) RoleP
 // RolePolicyArrayInput is an input type that accepts RolePolicyArray and RolePolicyArrayOutput values.
 // You can construct a concrete instance of `RolePolicyArrayInput` via:
 //
-//          RolePolicyArray{ RolePolicyArgs{...} }
+//	RolePolicyArray{ RolePolicyArgs{...} }
 type RolePolicyArrayInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ type RoleTag struct {
 // RoleTagInput is an input type that accepts RoleTagArgs and RoleTagOutput values.
 // You can construct a concrete instance of `RoleTagInput` via:
 //
-//          RoleTagArgs{...}
+//	RoleTagArgs{...}
 type RoleTagInput interface {
 	pulumi.Input
 
@@ -370,7 +370,7 @@ func (i RoleTagArgs) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutp
 // RoleTagArrayInput is an input type that accepts RoleTagArray and RoleTagArrayOutput values.
 // You can construct a concrete instance of `RoleTagArrayInput` via:
 //
-//          RoleTagArray{ RoleTagArgs{...} }
+//	RoleTagArray{ RoleTagArgs{...} }
 type RoleTagArrayInput interface {
 	pulumi.Input
 
@@ -448,7 +448,7 @@ type SAMLProviderTag struct {
 // SAMLProviderTagInput is an input type that accepts SAMLProviderTagArgs and SAMLProviderTagOutput values.
 // You can construct a concrete instance of `SAMLProviderTagInput` via:
 //
-//          SAMLProviderTagArgs{...}
+//	SAMLProviderTagArgs{...}
 type SAMLProviderTagInput interface {
 	pulumi.Input
 
@@ -479,7 +479,7 @@ func (i SAMLProviderTagArgs) ToSAMLProviderTagOutputWithContext(ctx context.Cont
 // SAMLProviderTagArrayInput is an input type that accepts SAMLProviderTagArray and SAMLProviderTagArrayOutput values.
 // You can construct a concrete instance of `SAMLProviderTagArrayInput` via:
 //
-//          SAMLProviderTagArray{ SAMLProviderTagArgs{...} }
+//	SAMLProviderTagArray{ SAMLProviderTagArgs{...} }
 type SAMLProviderTagArrayInput interface {
 	pulumi.Input
 
@@ -557,7 +557,7 @@ type ServerCertificateTag struct {
 // ServerCertificateTagInput is an input type that accepts ServerCertificateTagArgs and ServerCertificateTagOutput values.
 // You can construct a concrete instance of `ServerCertificateTagInput` via:
 //
-//          ServerCertificateTagArgs{...}
+//	ServerCertificateTagArgs{...}
 type ServerCertificateTagInput interface {
 	pulumi.Input
 
@@ -588,7 +588,7 @@ func (i ServerCertificateTagArgs) ToServerCertificateTagOutputWithContext(ctx co
 // ServerCertificateTagArrayInput is an input type that accepts ServerCertificateTagArray and ServerCertificateTagArrayOutput values.
 // You can construct a concrete instance of `ServerCertificateTagArrayInput` via:
 //
-//          ServerCertificateTagArray{ ServerCertificateTagArgs{...} }
+//	ServerCertificateTagArray{ ServerCertificateTagArgs{...} }
 type ServerCertificateTagArrayInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type UserLoginProfile struct {
 // UserLoginProfileInput is an input type that accepts UserLoginProfileArgs and UserLoginProfileOutput values.
 // You can construct a concrete instance of `UserLoginProfileInput` via:
 //
-//          UserLoginProfileArgs{...}
+//	UserLoginProfileArgs{...}
 type UserLoginProfileInput interface {
 	pulumi.Input
 
@@ -699,11 +699,11 @@ func (i UserLoginProfileArgs) ToUserLoginProfilePtrOutputWithContext(ctx context
 // UserLoginProfilePtrInput is an input type that accepts UserLoginProfileArgs, UserLoginProfilePtr and UserLoginProfilePtrOutput values.
 // You can construct a concrete instance of `UserLoginProfilePtrInput` via:
 //
-//          UserLoginProfileArgs{...}
+//	        UserLoginProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserLoginProfilePtrInput interface {
 	pulumi.Input
 
@@ -811,7 +811,7 @@ type UserPolicy struct {
 // UserPolicyInput is an input type that accepts UserPolicyArgs and UserPolicyOutput values.
 // You can construct a concrete instance of `UserPolicyInput` via:
 //
-//          UserPolicyArgs{...}
+//	UserPolicyArgs{...}
 type UserPolicyInput interface {
 	pulumi.Input
 
@@ -839,7 +839,7 @@ func (i UserPolicyArgs) ToUserPolicyOutputWithContext(ctx context.Context) UserP
 // UserPolicyArrayInput is an input type that accepts UserPolicyArray and UserPolicyArrayOutput values.
 // You can construct a concrete instance of `UserPolicyArrayInput` via:
 //
-//          UserPolicyArray{ UserPolicyArgs{...} }
+//	UserPolicyArray{ UserPolicyArgs{...} }
 type UserPolicyArrayInput interface {
 	pulumi.Input
 
@@ -911,7 +911,7 @@ type UserTag struct {
 // UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
 // You can construct a concrete instance of `UserTagInput` via:
 //
-//          UserTagArgs{...}
+//	UserTagArgs{...}
 type UserTagInput interface {
 	pulumi.Input
 
@@ -939,7 +939,7 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
-//          UserTagArray{ UserTagArgs{...} }
+//	UserTagArray{ UserTagArgs{...} }
 type UserTagArrayInput interface {
 	pulumi.Input
 
@@ -1014,7 +1014,7 @@ type VirtualMFADeviceTag struct {
 // VirtualMFADeviceTagInput is an input type that accepts VirtualMFADeviceTagArgs and VirtualMFADeviceTagOutput values.
 // You can construct a concrete instance of `VirtualMFADeviceTagInput` via:
 //
-//          VirtualMFADeviceTagArgs{...}
+//	VirtualMFADeviceTagArgs{...}
 type VirtualMFADeviceTagInput interface {
 	pulumi.Input
 
@@ -1045,7 +1045,7 @@ func (i VirtualMFADeviceTagArgs) ToVirtualMFADeviceTagOutputWithContext(ctx cont
 // VirtualMFADeviceTagArrayInput is an input type that accepts VirtualMFADeviceTagArray and VirtualMFADeviceTagArrayOutput values.
 // You can construct a concrete instance of `VirtualMFADeviceTagArrayInput` via:
 //
-//          VirtualMFADeviceTagArray{ VirtualMFADeviceTagArgs{...} }
+//	VirtualMFADeviceTagArray{ VirtualMFADeviceTagArgs{...} }
 type VirtualMFADeviceTagArrayInput interface {
 	pulumi.Input
 

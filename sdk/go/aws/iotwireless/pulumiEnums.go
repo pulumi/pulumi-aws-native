@@ -140,7 +140,7 @@ func (o DestinationExpressionTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // DestinationExpressionTypeInput is an input type that accepts DestinationExpressionTypeArgs and DestinationExpressionTypeOutput values.
 // You can construct a concrete instance of `DestinationExpressionTypeInput` via:
 //
-//          DestinationExpressionTypeArgs{...}
+//	DestinationExpressionTypeArgs{...}
 type DestinationExpressionTypeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToStringPtrOutputWithCont
 // NetworkAnalyzerConfigurationLogLevelInput is an input type that accepts NetworkAnalyzerConfigurationLogLevelArgs and NetworkAnalyzerConfigurationLogLevelOutput values.
 // You can construct a concrete instance of `NetworkAnalyzerConfigurationLogLevelInput` via:
 //
-//          NetworkAnalyzerConfigurationLogLevelArgs{...}
+//	NetworkAnalyzerConfigurationLogLevelArgs{...}
 type NetworkAnalyzerConfigurationLogLevelInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToStringPt
 // NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput is an input type that accepts NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs and NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput values.
 // You can construct a concrete instance of `NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput` via:
 //
-//          NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs{...}
+//	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs{...}
 type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (o PartnerAccountPartnerTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // PartnerAccountPartnerTypeInput is an input type that accepts PartnerAccountPartnerTypeArgs and PartnerAccountPartnerTypeOutput values.
 // You can construct a concrete instance of `PartnerAccountPartnerTypeInput` via:
 //
-//          PartnerAccountPartnerTypeArgs{...}
+//	PartnerAccountPartnerTypeArgs{...}
 type PartnerAccountPartnerTypeInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ func (o TaskDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // TaskDefinitionTypeInput is an input type that accepts TaskDefinitionTypeArgs and TaskDefinitionTypeOutput values.
 // You can construct a concrete instance of `TaskDefinitionTypeInput` via:
 //
-//          TaskDefinitionTypeArgs{...}
+//	TaskDefinitionTypeArgs{...}
 type TaskDefinitionTypeInput interface {
 	pulumi.Input
 
@@ -962,7 +962,7 @@ func (o WirelessDeviceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // WirelessDeviceTypeInput is an input type that accepts WirelessDeviceTypeArgs and WirelessDeviceTypeOutput values.
 // You can construct a concrete instance of `WirelessDeviceTypeInput` via:
 //
-//          WirelessDeviceTypeArgs{...}
+//	WirelessDeviceTypeArgs{...}
 type WirelessDeviceTypeInput interface {
 	pulumi.Input
 

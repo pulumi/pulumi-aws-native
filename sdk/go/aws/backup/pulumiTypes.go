@@ -18,7 +18,7 @@ type BackupPlanAdvancedBackupSettingResourceType struct {
 // BackupPlanAdvancedBackupSettingResourceTypeInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArgs and BackupPlanAdvancedBackupSettingResourceTypeOutput values.
 // You can construct a concrete instance of `BackupPlanAdvancedBackupSettingResourceTypeInput` via:
 //
-//          BackupPlanAdvancedBackupSettingResourceTypeArgs{...}
+//	BackupPlanAdvancedBackupSettingResourceTypeArgs{...}
 type BackupPlanAdvancedBackupSettingResourceTypeInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i BackupPlanAdvancedBackupSettingResourceTypeArgs) ToBackupPlanAdvancedBac
 // BackupPlanAdvancedBackupSettingResourceTypeArrayInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArray and BackupPlanAdvancedBackupSettingResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanAdvancedBackupSettingResourceTypeArrayInput` via:
 //
-//          BackupPlanAdvancedBackupSettingResourceTypeArray{ BackupPlanAdvancedBackupSettingResourceTypeArgs{...} }
+//	BackupPlanAdvancedBackupSettingResourceTypeArray{ BackupPlanAdvancedBackupSettingResourceTypeArgs{...} }
 type BackupPlanAdvancedBackupSettingResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -125,7 +125,7 @@ type BackupPlanBackupRuleResourceType struct {
 // BackupPlanBackupRuleResourceTypeInput is an input type that accepts BackupPlanBackupRuleResourceTypeArgs and BackupPlanBackupRuleResourceTypeOutput values.
 // You can construct a concrete instance of `BackupPlanBackupRuleResourceTypeInput` via:
 //
-//          BackupPlanBackupRuleResourceTypeArgs{...}
+//	BackupPlanBackupRuleResourceTypeArgs{...}
 type BackupPlanBackupRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -160,7 +160,7 @@ func (i BackupPlanBackupRuleResourceTypeArgs) ToBackupPlanBackupRuleResourceType
 // BackupPlanBackupRuleResourceTypeArrayInput is an input type that accepts BackupPlanBackupRuleResourceTypeArray and BackupPlanBackupRuleResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanBackupRuleResourceTypeArrayInput` via:
 //
-//          BackupPlanBackupRuleResourceTypeArray{ BackupPlanBackupRuleResourceTypeArgs{...} }
+//	BackupPlanBackupRuleResourceTypeArray{ BackupPlanBackupRuleResourceTypeArgs{...} }
 type BackupPlanBackupRuleResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +260,7 @@ type BackupPlanCopyActionResourceType struct {
 // BackupPlanCopyActionResourceTypeInput is an input type that accepts BackupPlanCopyActionResourceTypeArgs and BackupPlanCopyActionResourceTypeOutput values.
 // You can construct a concrete instance of `BackupPlanCopyActionResourceTypeInput` via:
 //
-//          BackupPlanCopyActionResourceTypeArgs{...}
+//	BackupPlanCopyActionResourceTypeArgs{...}
 type BackupPlanCopyActionResourceTypeInput interface {
 	pulumi.Input
 
@@ -288,7 +288,7 @@ func (i BackupPlanCopyActionResourceTypeArgs) ToBackupPlanCopyActionResourceType
 // BackupPlanCopyActionResourceTypeArrayInput is an input type that accepts BackupPlanCopyActionResourceTypeArray and BackupPlanCopyActionResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanCopyActionResourceTypeArrayInput` via:
 //
-//          BackupPlanCopyActionResourceTypeArray{ BackupPlanCopyActionResourceTypeArgs{...} }
+//	BackupPlanCopyActionResourceTypeArray{ BackupPlanCopyActionResourceTypeArgs{...} }
 type BackupPlanCopyActionResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +360,7 @@ type BackupPlanLifecycleResourceType struct {
 // BackupPlanLifecycleResourceTypeInput is an input type that accepts BackupPlanLifecycleResourceTypeArgs and BackupPlanLifecycleResourceTypeOutput values.
 // You can construct a concrete instance of `BackupPlanLifecycleResourceTypeInput` via:
 //
-//          BackupPlanLifecycleResourceTypeArgs{...}
+//	BackupPlanLifecycleResourceTypeArgs{...}
 type BackupPlanLifecycleResourceTypeInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i BackupPlanLifecycleResourceTypeArgs) ToBackupPlanLifecycleResourceTypePt
 // BackupPlanLifecycleResourceTypePtrInput is an input type that accepts BackupPlanLifecycleResourceTypeArgs, BackupPlanLifecycleResourceTypePtr and BackupPlanLifecycleResourceTypePtrOutput values.
 // You can construct a concrete instance of `BackupPlanLifecycleResourceTypePtrInput` via:
 //
-//          BackupPlanLifecycleResourceTypeArgs{...}
+//	        BackupPlanLifecycleResourceTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupPlanLifecycleResourceTypePtrInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type BackupPlanResourceType struct {
 // BackupPlanResourceTypeInput is an input type that accepts BackupPlanResourceTypeArgs and BackupPlanResourceTypeOutput values.
 // You can construct a concrete instance of `BackupPlanResourceTypeInput` via:
 //
-//          BackupPlanResourceTypeArgs{...}
+//	BackupPlanResourceTypeArgs{...}
 type BackupPlanResourceTypeInput interface {
 	pulumi.Input
 
@@ -622,7 +622,7 @@ type BackupSelectionConditionParameter struct {
 // BackupSelectionConditionParameterInput is an input type that accepts BackupSelectionConditionParameterArgs and BackupSelectionConditionParameterOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionParameterInput` via:
 //
-//          BackupSelectionConditionParameterArgs{...}
+//	BackupSelectionConditionParameterArgs{...}
 type BackupSelectionConditionParameterInput interface {
 	pulumi.Input
 
@@ -650,7 +650,7 @@ func (i BackupSelectionConditionParameterArgs) ToBackupSelectionConditionParamet
 // BackupSelectionConditionParameterArrayInput is an input type that accepts BackupSelectionConditionParameterArray and BackupSelectionConditionParameterArrayOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionParameterArrayInput` via:
 //
-//          BackupSelectionConditionParameterArray{ BackupSelectionConditionParameterArgs{...} }
+//	BackupSelectionConditionParameterArray{ BackupSelectionConditionParameterArgs{...} }
 type BackupSelectionConditionParameterArrayInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ type BackupSelectionConditionResourceType struct {
 // BackupSelectionConditionResourceTypeInput is an input type that accepts BackupSelectionConditionResourceTypeArgs and BackupSelectionConditionResourceTypeOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionResourceTypeInput` via:
 //
-//          BackupSelectionConditionResourceTypeArgs{...}
+//	BackupSelectionConditionResourceTypeArgs{...}
 type BackupSelectionConditionResourceTypeInput interface {
 	pulumi.Input
 
@@ -752,7 +752,7 @@ func (i BackupSelectionConditionResourceTypeArgs) ToBackupSelectionConditionReso
 // BackupSelectionConditionResourceTypeArrayInput is an input type that accepts BackupSelectionConditionResourceTypeArray and BackupSelectionConditionResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionResourceTypeArrayInput` via:
 //
-//          BackupSelectionConditionResourceTypeArray{ BackupSelectionConditionResourceTypeArgs{...} }
+//	BackupSelectionConditionResourceTypeArray{ BackupSelectionConditionResourceTypeArgs{...} }
 type BackupSelectionConditionResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -832,7 +832,7 @@ type BackupSelectionResourceType struct {
 // BackupSelectionResourceTypeInput is an input type that accepts BackupSelectionResourceTypeArgs and BackupSelectionResourceTypeOutput values.
 // You can construct a concrete instance of `BackupSelectionResourceTypeInput` via:
 //
-//          BackupSelectionResourceTypeArgs{...}
+//	BackupSelectionResourceTypeArgs{...}
 type BackupSelectionResourceTypeInput interface {
 	pulumi.Input
 
@@ -911,7 +911,7 @@ type BackupSelectionResourceTypeConditionsProperties struct {
 // BackupSelectionResourceTypeConditionsPropertiesInput is an input type that accepts BackupSelectionResourceTypeConditionsPropertiesArgs and BackupSelectionResourceTypeConditionsPropertiesOutput values.
 // You can construct a concrete instance of `BackupSelectionResourceTypeConditionsPropertiesInput` via:
 //
-//          BackupSelectionResourceTypeConditionsPropertiesArgs{...}
+//	BackupSelectionResourceTypeConditionsPropertiesArgs{...}
 type BackupSelectionResourceTypeConditionsPropertiesInput interface {
 	pulumi.Input
 
@@ -949,11 +949,11 @@ func (i BackupSelectionResourceTypeConditionsPropertiesArgs) ToBackupSelectionRe
 // BackupSelectionResourceTypeConditionsPropertiesPtrInput is an input type that accepts BackupSelectionResourceTypeConditionsPropertiesArgs, BackupSelectionResourceTypeConditionsPropertiesPtr and BackupSelectionResourceTypeConditionsPropertiesPtrOutput values.
 // You can construct a concrete instance of `BackupSelectionResourceTypeConditionsPropertiesPtrInput` via:
 //
-//          BackupSelectionResourceTypeConditionsPropertiesArgs{...}
+//	        BackupSelectionResourceTypeConditionsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupSelectionResourceTypeConditionsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1096,7 +1096,7 @@ type BackupVaultLockConfigurationType struct {
 // BackupVaultLockConfigurationTypeInput is an input type that accepts BackupVaultLockConfigurationTypeArgs and BackupVaultLockConfigurationTypeOutput values.
 // You can construct a concrete instance of `BackupVaultLockConfigurationTypeInput` via:
 //
-//          BackupVaultLockConfigurationTypeArgs{...}
+//	BackupVaultLockConfigurationTypeArgs{...}
 type BackupVaultLockConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -1133,11 +1133,11 @@ func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationType
 // BackupVaultLockConfigurationTypePtrInput is an input type that accepts BackupVaultLockConfigurationTypeArgs, BackupVaultLockConfigurationTypePtr and BackupVaultLockConfigurationTypePtrOutput values.
 // You can construct a concrete instance of `BackupVaultLockConfigurationTypePtrInput` via:
 //
-//          BackupVaultLockConfigurationTypeArgs{...}
+//	        BackupVaultLockConfigurationTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupVaultLockConfigurationTypePtrInput interface {
 	pulumi.Input
 
@@ -1258,7 +1258,7 @@ type BackupVaultNotificationObjectType struct {
 // BackupVaultNotificationObjectTypeInput is an input type that accepts BackupVaultNotificationObjectTypeArgs and BackupVaultNotificationObjectTypeOutput values.
 // You can construct a concrete instance of `BackupVaultNotificationObjectTypeInput` via:
 //
-//          BackupVaultNotificationObjectTypeArgs{...}
+//	BackupVaultNotificationObjectTypeArgs{...}
 type BackupVaultNotificationObjectTypeInput interface {
 	pulumi.Input
 
@@ -1294,11 +1294,11 @@ func (i BackupVaultNotificationObjectTypeArgs) ToBackupVaultNotificationObjectTy
 // BackupVaultNotificationObjectTypePtrInput is an input type that accepts BackupVaultNotificationObjectTypeArgs, BackupVaultNotificationObjectTypePtr and BackupVaultNotificationObjectTypePtrOutput values.
 // You can construct a concrete instance of `BackupVaultNotificationObjectTypePtrInput` via:
 //
-//          BackupVaultNotificationObjectTypeArgs{...}
+//	        BackupVaultNotificationObjectTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupVaultNotificationObjectTypePtrInput interface {
 	pulumi.Input
 
@@ -1410,7 +1410,7 @@ type FrameworkControl struct {
 // FrameworkControlInput is an input type that accepts FrameworkControlArgs and FrameworkControlOutput values.
 // You can construct a concrete instance of `FrameworkControlInput` via:
 //
-//          FrameworkControlArgs{...}
+//	FrameworkControlArgs{...}
 type FrameworkControlInput interface {
 	pulumi.Input
 
@@ -1442,7 +1442,7 @@ func (i FrameworkControlArgs) ToFrameworkControlOutputWithContext(ctx context.Co
 // FrameworkControlArrayInput is an input type that accepts FrameworkControlArray and FrameworkControlArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlArrayInput` via:
 //
-//          FrameworkControlArray{ FrameworkControlArgs{...} }
+//	FrameworkControlArray{ FrameworkControlArgs{...} }
 type FrameworkControlArrayInput interface {
 	pulumi.Input
 
@@ -1526,7 +1526,7 @@ type FrameworkControlControlScopeProperties struct {
 // FrameworkControlControlScopePropertiesInput is an input type that accepts FrameworkControlControlScopePropertiesArgs and FrameworkControlControlScopePropertiesOutput values.
 // You can construct a concrete instance of `FrameworkControlControlScopePropertiesInput` via:
 //
-//          FrameworkControlControlScopePropertiesArgs{...}
+//	FrameworkControlControlScopePropertiesArgs{...}
 type FrameworkControlControlScopePropertiesInput interface {
 	pulumi.Input
 
@@ -1567,11 +1567,11 @@ func (i FrameworkControlControlScopePropertiesArgs) ToFrameworkControlControlSco
 // FrameworkControlControlScopePropertiesPtrInput is an input type that accepts FrameworkControlControlScopePropertiesArgs, FrameworkControlControlScopePropertiesPtr and FrameworkControlControlScopePropertiesPtrOutput values.
 // You can construct a concrete instance of `FrameworkControlControlScopePropertiesPtrInput` via:
 //
-//          FrameworkControlControlScopePropertiesArgs{...}
+//	        FrameworkControlControlScopePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrameworkControlControlScopePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1699,7 +1699,7 @@ type FrameworkControlInputParameter struct {
 // FrameworkControlInputParameterInput is an input type that accepts FrameworkControlInputParameterArgs and FrameworkControlInputParameterOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterInput` via:
 //
-//          FrameworkControlInputParameterArgs{...}
+//	FrameworkControlInputParameterArgs{...}
 type FrameworkControlInputParameterInput interface {
 	pulumi.Input
 
@@ -1727,7 +1727,7 @@ func (i FrameworkControlInputParameterArgs) ToFrameworkControlInputParameterOutp
 // FrameworkControlInputParameterArrayInput is an input type that accepts FrameworkControlInputParameterArray and FrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterArrayInput` via:
 //
-//          FrameworkControlInputParameterArray{ FrameworkControlInputParameterArgs{...} }
+//	FrameworkControlInputParameterArray{ FrameworkControlInputParameterArgs{...} }
 type FrameworkControlInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -1802,7 +1802,7 @@ type FrameworkTag struct {
 // FrameworkTagInput is an input type that accepts FrameworkTagArgs and FrameworkTagOutput values.
 // You can construct a concrete instance of `FrameworkTagInput` via:
 //
-//          FrameworkTagArgs{...}
+//	FrameworkTagArgs{...}
 type FrameworkTagInput interface {
 	pulumi.Input
 
@@ -1833,7 +1833,7 @@ func (i FrameworkTagArgs) ToFrameworkTagOutputWithContext(ctx context.Context) F
 // FrameworkTagArrayInput is an input type that accepts FrameworkTagArray and FrameworkTagArrayOutput values.
 // You can construct a concrete instance of `FrameworkTagArrayInput` via:
 //
-//          FrameworkTagArray{ FrameworkTagArgs{...} }
+//	FrameworkTagArray{ FrameworkTagArgs{...} }
 type FrameworkTagArrayInput interface {
 	pulumi.Input
 
@@ -1913,7 +1913,7 @@ type ReportDeliveryChannelProperties struct {
 // ReportDeliveryChannelPropertiesInput is an input type that accepts ReportDeliveryChannelPropertiesArgs and ReportDeliveryChannelPropertiesOutput values.
 // You can construct a concrete instance of `ReportDeliveryChannelPropertiesInput` via:
 //
-//          ReportDeliveryChannelPropertiesArgs{...}
+//	ReportDeliveryChannelPropertiesArgs{...}
 type ReportDeliveryChannelPropertiesInput interface {
 	pulumi.Input
 
@@ -2038,7 +2038,7 @@ type ReportPlanTag struct {
 // ReportPlanTagInput is an input type that accepts ReportPlanTagArgs and ReportPlanTagOutput values.
 // You can construct a concrete instance of `ReportPlanTagInput` via:
 //
-//          ReportPlanTagArgs{...}
+//	ReportPlanTagArgs{...}
 type ReportPlanTagInput interface {
 	pulumi.Input
 
@@ -2069,7 +2069,7 @@ func (i ReportPlanTagArgs) ToReportPlanTagOutputWithContext(ctx context.Context)
 // ReportPlanTagArrayInput is an input type that accepts ReportPlanTagArray and ReportPlanTagArrayOutput values.
 // You can construct a concrete instance of `ReportPlanTagArrayInput` via:
 //
-//          ReportPlanTagArray{ ReportPlanTagArgs{...} }
+//	ReportPlanTagArray{ ReportPlanTagArgs{...} }
 type ReportPlanTagArrayInput interface {
 	pulumi.Input
 
@@ -2147,7 +2147,7 @@ type ReportSettingProperties struct {
 // ReportSettingPropertiesInput is an input type that accepts ReportSettingPropertiesArgs and ReportSettingPropertiesOutput values.
 // You can construct a concrete instance of `ReportSettingPropertiesInput` via:
 //
-//          ReportSettingPropertiesArgs{...}
+//	ReportSettingPropertiesArgs{...}
 type ReportSettingPropertiesInput interface {
 	pulumi.Input
 

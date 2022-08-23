@@ -112,17 +112,19 @@ func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // <p>A structure that describes the principals and the resource-level permissions on an
-//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-//             providing a list of AWS Identity and Access Management (IAM) action information for each
-//             principal listed by Amazon Resource Name (ARN). </p>
 //
-//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+//	    analysis. You can use the <code>Permissions</code> structure to grant permissions by
+//	    providing a list of AWS Identity and Access Management (IAM) action information for each
+//	    principal listed by Amazon Resource Name (ARN). </p>
+//
+//	<p>To specify no permissions, omit <code>Permissions</code>.</p>
 func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//             analysis.</p>
+//
+//	analysis.</p>
 func (o LookupAnalysisResultOutput) Tags() AnalysisTagArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisTag { return v.Tags }).(AnalysisTagArrayOutput)
 }

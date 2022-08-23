@@ -17,7 +17,7 @@ type ClusterSSESpecification struct {
 // ClusterSSESpecificationInput is an input type that accepts ClusterSSESpecificationArgs and ClusterSSESpecificationOutput values.
 // You can construct a concrete instance of `ClusterSSESpecificationInput` via:
 //
-//          ClusterSSESpecificationArgs{...}
+//	ClusterSSESpecificationArgs{...}
 type ClusterSSESpecificationInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i ClusterSSESpecificationArgs) ToClusterSSESpecificationPtrOutputWithConte
 // ClusterSSESpecificationPtrInput is an input type that accepts ClusterSSESpecificationArgs, ClusterSSESpecificationPtr and ClusterSSESpecificationPtrOutput values.
 // You can construct a concrete instance of `ClusterSSESpecificationPtrInput` via:
 //
-//          ClusterSSESpecificationArgs{...}
+//	        ClusterSSESpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterSSESpecificationPtrInput interface {
 	pulumi.Input
 

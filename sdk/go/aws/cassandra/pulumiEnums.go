@@ -139,7 +139,7 @@ func (o TableClusteringKeyColumnOrderByPtrOutput) ToStringPtrOutputWithContext(c
 // TableClusteringKeyColumnOrderByInput is an input type that accepts TableClusteringKeyColumnOrderByArgs and TableClusteringKeyColumnOrderByOutput values.
 // You can construct a concrete instance of `TableClusteringKeyColumnOrderByInput` via:
 //
-//          TableClusteringKeyColumnOrderByArgs{...}
+//	TableClusteringKeyColumnOrderByArgs{...}
 type TableClusteringKeyColumnOrderByInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o TableEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // TableEncryptionTypeInput is an input type that accepts TableEncryptionTypeArgs and TableEncryptionTypeOutput values.
 // You can construct a concrete instance of `TableEncryptionTypeInput` via:
 //
-//          TableEncryptionTypeArgs{...}
+//	TableEncryptionTypeArgs{...}
 type TableEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o TableModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // TableModeInput is an input type that accepts TableModeArgs and TableModeOutput values.
 // You can construct a concrete instance of `TableModeInput` via:
 //
-//          TableModeArgs{...}
+//	TableModeArgs{...}
 type TableModeInput interface {
 	pulumi.Input
 

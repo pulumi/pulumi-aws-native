@@ -18,7 +18,7 @@ type SigningProfileSignatureValidityPeriod struct {
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
 // You can construct a concrete instance of `SigningProfileSignatureValidityPeriodInput` via:
 //
-//          SigningProfileSignatureValidityPeriodArgs{...}
+//	SigningProfileSignatureValidityPeriodArgs{...}
 type SigningProfileSignatureValidityPeriodInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i SigningProfileSignatureValidityPeriodArgs) ToSigningProfileSignatureVali
 // SigningProfileSignatureValidityPeriodPtrInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs, SigningProfileSignatureValidityPeriodPtr and SigningProfileSignatureValidityPeriodPtrOutput values.
 // You can construct a concrete instance of `SigningProfileSignatureValidityPeriodPtrInput` via:
 //
-//          SigningProfileSignatureValidityPeriodArgs{...}
+//	        SigningProfileSignatureValidityPeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SigningProfileSignatureValidityPeriodPtrInput interface {
 	pulumi.Input
 
@@ -168,7 +168,7 @@ type SigningProfileTag struct {
 // SigningProfileTagInput is an input type that accepts SigningProfileTagArgs and SigningProfileTagOutput values.
 // You can construct a concrete instance of `SigningProfileTagInput` via:
 //
-//          SigningProfileTagArgs{...}
+//	SigningProfileTagArgs{...}
 type SigningProfileTagInput interface {
 	pulumi.Input
 
@@ -196,7 +196,7 @@ func (i SigningProfileTagArgs) ToSigningProfileTagOutputWithContext(ctx context.
 // SigningProfileTagArrayInput is an input type that accepts SigningProfileTagArray and SigningProfileTagArrayOutput values.
 // You can construct a concrete instance of `SigningProfileTagArrayInput` via:
 //
-//          SigningProfileTagArray{ SigningProfileTagArgs{...} }
+//	SigningProfileTagArray{ SigningProfileTagArgs{...} }
 type SigningProfileTagArrayInput interface {
 	pulumi.Input
 

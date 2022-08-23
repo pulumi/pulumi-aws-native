@@ -138,7 +138,7 @@ func (o DetectorEventVariableDataSourcePtrOutput) ToStringPtrOutputWithContext(c
 // DetectorEventVariableDataSourceInput is an input type that accepts DetectorEventVariableDataSourceArgs and DetectorEventVariableDataSourceOutput values.
 // You can construct a concrete instance of `DetectorEventVariableDataSourceInput` via:
 //
-//          DetectorEventVariableDataSourceArgs{...}
+//	DetectorEventVariableDataSourceArgs{...}
 type DetectorEventVariableDataSourceInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o DetectorEventVariableDataTypePtrOutput) ToStringPtrOutputWithContext(ctx
 // DetectorEventVariableDataTypeInput is an input type that accepts DetectorEventVariableDataTypeArgs and DetectorEventVariableDataTypeOutput values.
 // You can construct a concrete instance of `DetectorEventVariableDataTypeInput` via:
 //
-//          DetectorEventVariableDataTypeArgs{...}
+//	DetectorEventVariableDataTypeArgs{...}
 type DetectorEventVariableDataTypeInput interface {
 	pulumi.Input
 
@@ -499,7 +499,7 @@ func (o DetectorEventVariableVariableTypePtrOutput) ToStringPtrOutputWithContext
 // DetectorEventVariableVariableTypeInput is an input type that accepts DetectorEventVariableVariableTypeArgs and DetectorEventVariableVariableTypeOutput values.
 // You can construct a concrete instance of `DetectorEventVariableVariableTypeInput` via:
 //
-//          DetectorEventVariableVariableTypeArgs{...}
+//	DetectorEventVariableVariableTypeArgs{...}
 type DetectorEventVariableVariableTypeInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ func (o DetectorRuleExecutionModePtrOutput) ToStringPtrOutputWithContext(ctx con
 // DetectorRuleExecutionModeInput is an input type that accepts DetectorRuleExecutionModeArgs and DetectorRuleExecutionModeOutput values.
 // You can construct a concrete instance of `DetectorRuleExecutionModeInput` via:
 //
-//          DetectorRuleExecutionModeArgs{...}
+//	DetectorRuleExecutionModeArgs{...}
 type DetectorRuleExecutionModeInput interface {
 	pulumi.Input
 
@@ -826,7 +826,7 @@ func (o DetectorRuleLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // DetectorRuleLanguageInput is an input type that accepts DetectorRuleLanguageArgs and DetectorRuleLanguageOutput values.
 // You can construct a concrete instance of `DetectorRuleLanguageInput` via:
 //
-//          DetectorRuleLanguageArgs{...}
+//	DetectorRuleLanguageArgs{...}
 type DetectorRuleLanguageInput interface {
 	pulumi.Input
 
@@ -991,7 +991,7 @@ func (o DetectorVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 // DetectorVersionStatusInput is an input type that accepts DetectorVersionStatusArgs and DetectorVersionStatusOutput values.
 // You can construct a concrete instance of `DetectorVersionStatusInput` via:
 //
-//          DetectorVersionStatusArgs{...}
+//	DetectorVersionStatusArgs{...}
 type DetectorVersionStatusInput interface {
 	pulumi.Input
 
@@ -1154,7 +1154,7 @@ func (o EventTypeEventVariableDataSourcePtrOutput) ToStringPtrOutputWithContext(
 // EventTypeEventVariableDataSourceInput is an input type that accepts EventTypeEventVariableDataSourceArgs and EventTypeEventVariableDataSourceOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableDataSourceInput` via:
 //
-//          EventTypeEventVariableDataSourceArgs{...}
+//	EventTypeEventVariableDataSourceArgs{...}
 type EventTypeEventVariableDataSourceInput interface {
 	pulumi.Input
 
@@ -1320,7 +1320,7 @@ func (o EventTypeEventVariableDataTypePtrOutput) ToStringPtrOutputWithContext(ct
 // EventTypeEventVariableDataTypeInput is an input type that accepts EventTypeEventVariableDataTypeArgs and EventTypeEventVariableDataTypeOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableDataTypeInput` via:
 //
-//          EventTypeEventVariableDataTypeArgs{...}
+//	EventTypeEventVariableDataTypeArgs{...}
 type EventTypeEventVariableDataTypeInput interface {
 	pulumi.Input
 
@@ -1515,7 +1515,7 @@ func (o EventTypeEventVariableVariableTypePtrOutput) ToStringPtrOutputWithContex
 // EventTypeEventVariableVariableTypeInput is an input type that accepts EventTypeEventVariableVariableTypeArgs and EventTypeEventVariableVariableTypeOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableVariableTypeInput` via:
 //
-//          EventTypeEventVariableVariableTypeArgs{...}
+//	EventTypeEventVariableVariableTypeArgs{...}
 type EventTypeEventVariableVariableTypeInput interface {
 	pulumi.Input
 
@@ -1680,7 +1680,7 @@ func (o VariableDataSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // VariableDataSourceInput is an input type that accepts VariableDataSourceArgs and VariableDataSourceOutput values.
 // You can construct a concrete instance of `VariableDataSourceInput` via:
 //
-//          VariableDataSourceArgs{...}
+//	VariableDataSourceArgs{...}
 type VariableDataSourceInput interface {
 	pulumi.Input
 
@@ -1847,7 +1847,7 @@ func (o VariableDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // VariableDataTypeInput is an input type that accepts VariableDataTypeArgs and VariableDataTypeOutput values.
 // You can construct a concrete instance of `VariableDataTypeInput` via:
 //
-//          VariableDataTypeArgs{...}
+//	VariableDataTypeArgs{...}
 type VariableDataTypeInput interface {
 	pulumi.Input
 
@@ -2043,7 +2043,7 @@ func (o VariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // VariableTypeInput is an input type that accepts VariableTypeArgs and VariableTypeOutput values.
 // You can construct a concrete instance of `VariableTypeInput` via:
 //
-//          VariableTypeArgs{...}
+//	VariableTypeArgs{...}
 type VariableTypeInput interface {
 	pulumi.Input
 

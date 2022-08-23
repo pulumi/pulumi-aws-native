@@ -139,7 +139,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrO
 // CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionArgs and CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput values.
 // You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput` via:
 //
-//          CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionArgs{...}
+//	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionArgs{...}
 type CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o CapacityProviderManagedScalingStatusPtrOutput) ToStringPtrOutputWithCont
 // CapacityProviderManagedScalingStatusInput is an input type that accepts CapacityProviderManagedScalingStatusArgs and CapacityProviderManagedScalingStatusOutput values.
 // You can construct a concrete instance of `CapacityProviderManagedScalingStatusInput` via:
 //
-//          CapacityProviderManagedScalingStatusArgs{...}
+//	CapacityProviderManagedScalingStatusArgs{...}
 type CapacityProviderManagedScalingStatusInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToStringPtrOutputWith
 // ServiceAwsVpcConfigurationAssignPublicIpInput is an input type that accepts ServiceAwsVpcConfigurationAssignPublicIpArgs and ServiceAwsVpcConfigurationAssignPublicIpOutput values.
 // You can construct a concrete instance of `ServiceAwsVpcConfigurationAssignPublicIpInput` via:
 //
-//          ServiceAwsVpcConfigurationAssignPublicIpArgs{...}
+//	ServiceAwsVpcConfigurationAssignPublicIpArgs{...}
 type ServiceAwsVpcConfigurationAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -639,7 +639,7 @@ func (o ServiceDeploymentControllerTypePtrOutput) ToStringPtrOutputWithContext(c
 // ServiceDeploymentControllerTypeInput is an input type that accepts ServiceDeploymentControllerTypeArgs and ServiceDeploymentControllerTypeOutput values.
 // You can construct a concrete instance of `ServiceDeploymentControllerTypeInput` via:
 //
-//          ServiceDeploymentControllerTypeArgs{...}
+//	ServiceDeploymentControllerTypeArgs{...}
 type ServiceDeploymentControllerTypeInput interface {
 	pulumi.Input
 
@@ -804,7 +804,7 @@ func (o ServiceLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // ServiceLaunchTypeInput is an input type that accepts ServiceLaunchTypeArgs and ServiceLaunchTypeOutput values.
 // You can construct a concrete instance of `ServiceLaunchTypeInput` via:
 //
-//          ServiceLaunchTypeArgs{...}
+//	ServiceLaunchTypeArgs{...}
 type ServiceLaunchTypeInput interface {
 	pulumi.Input
 
@@ -968,7 +968,7 @@ func (o ServicePlacementConstraintTypePtrOutput) ToStringPtrOutputWithContext(ct
 // ServicePlacementConstraintTypeInput is an input type that accepts ServicePlacementConstraintTypeArgs and ServicePlacementConstraintTypeOutput values.
 // You can construct a concrete instance of `ServicePlacementConstraintTypeInput` via:
 //
-//          ServicePlacementConstraintTypeArgs{...}
+//	ServicePlacementConstraintTypeArgs{...}
 type ServicePlacementConstraintTypeInput interface {
 	pulumi.Input
 
@@ -1133,7 +1133,7 @@ func (o ServicePlacementStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // ServicePlacementStrategyTypeInput is an input type that accepts ServicePlacementStrategyTypeArgs and ServicePlacementStrategyTypeOutput values.
 // You can construct a concrete instance of `ServicePlacementStrategyTypeInput` via:
 //
-//          ServicePlacementStrategyTypeArgs{...}
+//	ServicePlacementStrategyTypeArgs{...}
 type ServicePlacementStrategyTypeInput interface {
 	pulumi.Input
 
@@ -1297,7 +1297,7 @@ func (o ServicePropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ServicePropagateTagsInput is an input type that accepts ServicePropagateTagsArgs and ServicePropagateTagsOutput values.
 // You can construct a concrete instance of `ServicePropagateTagsInput` via:
 //
-//          ServicePropagateTagsArgs{...}
+//	ServicePropagateTagsArgs{...}
 type ServicePropagateTagsInput interface {
 	pulumi.Input
 
@@ -1461,7 +1461,7 @@ func (o ServiceSchedulingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 // ServiceSchedulingStrategyInput is an input type that accepts ServiceSchedulingStrategyArgs and ServiceSchedulingStrategyOutput values.
 // You can construct a concrete instance of `ServiceSchedulingStrategyInput` via:
 //
-//          ServiceSchedulingStrategyArgs{...}
+//	ServiceSchedulingStrategyArgs{...}
 type ServiceSchedulingStrategyInput interface {
 	pulumi.Input
 
@@ -1625,7 +1625,7 @@ func (o TaskDefinitionAuthorizationConfigIAMPtrOutput) ToStringPtrOutputWithCont
 // TaskDefinitionAuthorizationConfigIAMInput is an input type that accepts TaskDefinitionAuthorizationConfigIAMArgs and TaskDefinitionAuthorizationConfigIAMOutput values.
 // You can construct a concrete instance of `TaskDefinitionAuthorizationConfigIAMInput` via:
 //
-//          TaskDefinitionAuthorizationConfigIAMArgs{...}
+//	TaskDefinitionAuthorizationConfigIAMArgs{...}
 type TaskDefinitionAuthorizationConfigIAMInput interface {
 	pulumi.Input
 
@@ -1789,7 +1789,7 @@ func (o TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput) ToString
 // TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationTransitEncryptionArgs and TaskDefinitionEFSVolumeConfigurationTransitEncryptionOutput values.
 // You can construct a concrete instance of `TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput` via:
 //
-//          TaskDefinitionEFSVolumeConfigurationTransitEncryptionArgs{...}
+//	TaskDefinitionEFSVolumeConfigurationTransitEncryptionArgs{...}
 type TaskDefinitionEFSVolumeConfigurationTransitEncryptionInput interface {
 	pulumi.Input
 
@@ -1954,7 +1954,7 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToStringPtrOutputWith
 // TaskSetAwsVpcConfigurationAssignPublicIpInput is an input type that accepts TaskSetAwsVpcConfigurationAssignPublicIpArgs and TaskSetAwsVpcConfigurationAssignPublicIpOutput values.
 // You can construct a concrete instance of `TaskSetAwsVpcConfigurationAssignPublicIpInput` via:
 //
-//          TaskSetAwsVpcConfigurationAssignPublicIpArgs{...}
+//	TaskSetAwsVpcConfigurationAssignPublicIpArgs{...}
 type TaskSetAwsVpcConfigurationAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -2119,7 +2119,7 @@ func (o TaskSetLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // TaskSetLaunchTypeInput is an input type that accepts TaskSetLaunchTypeArgs and TaskSetLaunchTypeOutput values.
 // You can construct a concrete instance of `TaskSetLaunchTypeInput` via:
 //
-//          TaskSetLaunchTypeArgs{...}
+//	TaskSetLaunchTypeArgs{...}
 type TaskSetLaunchTypeInput interface {
 	pulumi.Input
 
@@ -2283,7 +2283,7 @@ func (o TaskSetScaleUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // TaskSetScaleUnitInput is an input type that accepts TaskSetScaleUnitArgs and TaskSetScaleUnitOutput values.
 // You can construct a concrete instance of `TaskSetScaleUnitInput` via:
 //
-//          TaskSetScaleUnitArgs{...}
+//	TaskSetScaleUnitArgs{...}
 type TaskSetScaleUnitInput interface {
 	pulumi.Input
 

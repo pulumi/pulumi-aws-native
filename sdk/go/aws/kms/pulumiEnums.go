@@ -150,7 +150,7 @@ func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // KeySpecInput is an input type that accepts KeySpecArgs and KeySpecOutput values.
 // You can construct a concrete instance of `KeySpecInput` via:
 //
-//          KeySpecArgs{...}
+//	KeySpecArgs{...}
 type KeySpecInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 // KeyUsageInput is an input type that accepts KeyUsageArgs and KeyUsageOutput values.
 // You can construct a concrete instance of `KeyUsageInput` via:
 //
-//          KeyUsageArgs{...}
+//	KeyUsageArgs{...}
 type KeyUsageInput interface {
 	pulumi.Input
 

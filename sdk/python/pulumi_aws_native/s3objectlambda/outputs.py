@@ -11,11 +11,52 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccessPointAwsLambda',
     'AccessPointObjectLambdaConfiguration',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
+    'AccessPointTransformationConfigurationContentTransformationProperties',
     'PolicyStatusProperties',
 ]
+
+@pulumi.output_type
+class AccessPointAwsLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+        elif key == "functionPayload":
+            suggest = "function_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointAwsLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointAwsLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointAwsLambda.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_arn: str,
+                 function_payload: Optional[str] = None):
+        pulumi.set(__self__, "function_arn", function_arn)
+        if function_payload is not None:
+            pulumi.set(__self__, "function_payload", function_payload)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> str:
+        return pulumi.get(self, "function_arn")
+
+    @property
+    @pulumi.getter(name="functionPayload")
+    def function_payload(self) -> Optional[str]:
+        return pulumi.get(self, "function_payload")
+
 
 @pulumi.output_type
 class AccessPointObjectLambdaConfiguration(dict):
@@ -197,7 +238,7 @@ class AccessPointTransformationConfiguration(dict):
 
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 content_transformation: Any):
+                 content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties'):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
@@ -211,8 +252,37 @@ class AccessPointTransformationConfiguration(dict):
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> Any:
+    def content_transformation(self) -> 'outputs.AccessPointTransformationConfigurationContentTransformationProperties':
         return pulumi.get(self, "content_transformation")
+
+
+@pulumi.output_type
+class AccessPointTransformationConfigurationContentTransformationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsLambda":
+            suggest = "aws_lambda"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointTransformationConfigurationContentTransformationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointTransformationConfigurationContentTransformationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointTransformationConfigurationContentTransformationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_lambda: 'outputs.AccessPointAwsLambda'):
+        pulumi.set(__self__, "aws_lambda", aws_lambda)
+
+    @property
+    @pulumi.getter(name="awsLambda")
+    def aws_lambda(self) -> 'outputs.AccessPointAwsLambda':
+        return pulumi.get(self, "aws_lambda")
 
 
 @pulumi.output_type

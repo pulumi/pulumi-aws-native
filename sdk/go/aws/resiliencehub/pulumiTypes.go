@@ -20,7 +20,7 @@ type AppPhysicalResourceId struct {
 // AppPhysicalResourceIdInput is an input type that accepts AppPhysicalResourceIdArgs and AppPhysicalResourceIdOutput values.
 // You can construct a concrete instance of `AppPhysicalResourceIdInput` via:
 //
-//          AppPhysicalResourceIdArgs{...}
+//	AppPhysicalResourceIdArgs{...}
 type AppPhysicalResourceIdInput interface {
 	pulumi.Input
 
@@ -89,7 +89,7 @@ type AppResourceMapping struct {
 // AppResourceMappingInput is an input type that accepts AppResourceMappingArgs and AppResourceMappingOutput values.
 // You can construct a concrete instance of `AppResourceMappingInput` via:
 //
-//          AppResourceMappingArgs{...}
+//	AppResourceMappingArgs{...}
 type AppResourceMappingInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ func (i AppResourceMappingArgs) ToAppResourceMappingOutputWithContext(ctx contex
 // AppResourceMappingArrayInput is an input type that accepts AppResourceMappingArray and AppResourceMappingArrayOutput values.
 // You can construct a concrete instance of `AppResourceMappingArrayInput` via:
 //
-//          AppResourceMappingArray{ AppResourceMappingArgs{...} }
+//	AppResourceMappingArray{ AppResourceMappingArgs{...} }
 type AppResourceMappingArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +204,7 @@ type AppTagMap struct {
 // AppTagMapInput is an input type that accepts AppTagMap and AppTagMapOutput values.
 // You can construct a concrete instance of `AppTagMapInput` via:
 //
-//          AppTagMap{ "key": AppTagArgs{...} }
+//	AppTagMap{ "key": AppTagArgs{...} }
 type AppTagMapInput interface {
 	pulumi.Input
 
@@ -238,11 +238,11 @@ func (i AppTagMapArgs) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppT
 // AppTagMapPtrInput is an input type that accepts AppTagMapArgs, AppTagMapPtr and AppTagMapPtrOutput values.
 // You can construct a concrete instance of `AppTagMapPtrInput` via:
 //
-//          AppTagMapArgs{...}
+//	        AppTagMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppTagMapPtrInput interface {
 	pulumi.Input
 
@@ -322,7 +322,7 @@ type ResiliencyPolicyPolicyMap struct {
 // ResiliencyPolicyPolicyMapInput is an input type that accepts ResiliencyPolicyPolicyMap and ResiliencyPolicyPolicyMapOutput values.
 // You can construct a concrete instance of `ResiliencyPolicyPolicyMapInput` via:
 //
-//          ResiliencyPolicyPolicyMap{ "key": ResiliencyPolicyPolicyArgs{...} }
+//	ResiliencyPolicyPolicyMap{ "key": ResiliencyPolicyPolicyArgs{...} }
 type ResiliencyPolicyPolicyMapInput interface {
 	pulumi.Input
 
@@ -389,7 +389,7 @@ type ResiliencyPolicyTagMap struct {
 // ResiliencyPolicyTagMapInput is an input type that accepts ResiliencyPolicyTagMap and ResiliencyPolicyTagMapOutput values.
 // You can construct a concrete instance of `ResiliencyPolicyTagMapInput` via:
 //
-//          ResiliencyPolicyTagMap{ "key": ResiliencyPolicyTagArgs{...} }
+//	ResiliencyPolicyTagMap{ "key": ResiliencyPolicyTagArgs{...} }
 type ResiliencyPolicyTagMapInput interface {
 	pulumi.Input
 
@@ -423,11 +423,11 @@ func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapPtrOutputWithContext
 // ResiliencyPolicyTagMapPtrInput is an input type that accepts ResiliencyPolicyTagMapArgs, ResiliencyPolicyTagMapPtr and ResiliencyPolicyTagMapPtrOutput values.
 // You can construct a concrete instance of `ResiliencyPolicyTagMapPtrInput` via:
 //
-//          ResiliencyPolicyTagMapArgs{...}
+//	        ResiliencyPolicyTagMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResiliencyPolicyTagMapPtrInput interface {
 	pulumi.Input
 

@@ -180,7 +180,8 @@ func (o DataSetOutput) ColumnLevelPermissionRules() DataSetColumnLevelPermission
 }
 
 // <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
-//             imported into SPICE.</p>
+//
+//	imported into SPICE.</p>
 func (o DataSetOutput) ConsumedSpiceCapacityInBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *DataSet) pulumi.Float64Output { return v.ConsumedSpiceCapacityInBytes }).(pulumi.Float64Output)
 }
@@ -221,7 +222,8 @@ func (o DataSetOutput) Name() pulumi.StringPtrOutput {
 }
 
 // <p>The list of columns after all transforms. These columns are available in templates,
-//             analyses, and dashboards.</p>
+//
+//	analyses, and dashboards.</p>
 func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
 }

@@ -41,7 +41,7 @@ type LaunchProfileStreamConfiguration struct {
 // LaunchProfileStreamConfigurationInput is an input type that accepts LaunchProfileStreamConfigurationArgs and LaunchProfileStreamConfigurationOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamConfigurationInput` via:
 //
-//          LaunchProfileStreamConfigurationArgs{...}
+//	LaunchProfileStreamConfigurationArgs{...}
 type LaunchProfileStreamConfigurationInput interface {
 	pulumi.Input
 
@@ -109,7 +109,8 @@ func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() LaunchProfileStr
 }
 
 // <p>The EC2 instance types that users can select from when launching a streaming session
-//             with this launch profile.</p>
+//
+//	with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
 		return v.Ec2InstanceTypes
@@ -117,23 +118,25 @@ func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() LaunchProfile
 }
 
 // <p>The length of time, in minutes, that a streaming session can be active before it is
-//             stopped or terminated. After this point, Nimble Studio automatically terminates or
-//             stops the session. The default length of time is 690 minutes, and the maximum length of
-//             time is 30 days.</p>
+//
+//	stopped or terminated. After this point, Nimble Studio automatically terminates or
+//	stops the session. The default length of time is 690 minutes, and the maximum length of
+//	time is 30 days.</p>
 func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
 // <p>Integer that determines if you can start and stop your sessions and how long a session
-//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-//             StopStreamingSession, the session fails. If the time that a session stays in the READY
-//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-//             terminated by AWS (instead of stopped).</p>
-//         <p>If the value is set to a positive number, the session can be stopped. You can call
-//             StopStreamingSession to stop sessions in the READY state. If the time that a session
-//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-//             automatically be stopped by AWS (instead of terminated).</p>
+//
+//	    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//	<p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+//	    StopStreamingSession, the session fails. If the time that a session stays in the READY
+//	    state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+//	    terminated by AWS (instead of stopped).</p>
+//	<p>If the value is set to a positive number, the session can be stopped. You can call
+//	    StopStreamingSession to stop sessions in the READY state. If the time that a session
+//	    stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+//	    automatically be stopped by AWS (instead of terminated).</p>
 func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
@@ -145,7 +148,8 @@ func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileSt
 }
 
 // <p>The streaming images that users can select from when launching a streaming session
-//             with this launch profile.</p>
+//
+//	with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
@@ -184,7 +188,8 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfile
 }
 
 // <p>The EC2 instance types that users can select from when launching a streaming session
-//             with this launch profile.</p>
+//
+//	with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
 		if v == nil {
@@ -195,9 +200,10 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProf
 }
 
 // <p>The length of time, in minutes, that a streaming session can be active before it is
-//             stopped or terminated. After this point, Nimble Studio automatically terminates or
-//             stops the session. The default length of time is 690 minutes, and the maximum length of
-//             time is 30 days.</p>
+//
+//	stopped or terminated. After this point, Nimble Studio automatically terminates or
+//	stops the session. The default length of time is 690 minutes, and the maximum length of
+//	time is 30 days.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -208,15 +214,16 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 }
 
 // <p>Integer that determines if you can start and stop your sessions and how long a session
-//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-//             StopStreamingSession, the session fails. If the time that a session stays in the READY
-//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-//             terminated by AWS (instead of stopped).</p>
-//         <p>If the value is set to a positive number, the session can be stopped. You can call
-//             StopStreamingSession to stop sessions in the READY state. If the time that a session
-//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-//             automatically be stopped by AWS (instead of terminated).</p>
+//
+//	    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//	<p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+//	    StopStreamingSession, the session fails. If the time that a session stays in the READY
+//	    state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+//	    terminated by AWS (instead of stopped).</p>
+//	<p>If the value is set to a positive number, the session can be stopped. You can call
+//	    StopStreamingSession to stop sessions in the READY state. If the time that a session
+//	    stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+//	    automatically be stopped by AWS (instead of terminated).</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -236,7 +243,8 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfil
 }
 
 // <p>The streaming images that users can select from when launching a streaming session
-//             with this launch profile.</p>
+//
+//	with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -257,7 +265,7 @@ type LaunchProfileStreamConfigurationSessionStorage struct {
 // LaunchProfileStreamConfigurationSessionStorageInput is an input type that accepts LaunchProfileStreamConfigurationSessionStorageArgs and LaunchProfileStreamConfigurationSessionStorageOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamConfigurationSessionStorageInput` via:
 //
-//          LaunchProfileStreamConfigurationSessionStorageArgs{...}
+//	LaunchProfileStreamConfigurationSessionStorageArgs{...}
 type LaunchProfileStreamConfigurationSessionStorageInput interface {
 	pulumi.Input
 
@@ -296,11 +304,11 @@ func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStrea
 // LaunchProfileStreamConfigurationSessionStoragePtrInput is an input type that accepts LaunchProfileStreamConfigurationSessionStorageArgs, LaunchProfileStreamConfigurationSessionStoragePtr and LaunchProfileStreamConfigurationSessionStoragePtrOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamConfigurationSessionStoragePtrInput` via:
 //
-//          LaunchProfileStreamConfigurationSessionStorageArgs{...}
+//	        LaunchProfileStreamConfigurationSessionStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchProfileStreamConfigurationSessionStoragePtrInput interface {
 	pulumi.Input
 
@@ -352,7 +360,8 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStr
 }
 
 // <p>Allows artists to upload files to their workstations. The only valid option is
-//                 <code>UPLOAD</code>.</p>
+//
+//	<code>UPLOAD</code>.</p>
 func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
 		return v.Mode
@@ -390,7 +399,8 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchPr
 }
 
 // <p>Allows artists to upload files to their workstations. The only valid option is
-//                 <code>UPLOAD</code>.</p>
+//
+//	<code>UPLOAD</code>.</p>
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
 		if v == nil {
@@ -410,7 +420,8 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchPr
 }
 
 // <p>The upload storage root location (folder) on streaming workstations where files are
-//             uploaded.</p>
+//
+//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRoot struct {
 	// <p>The folder path in Linux workstations where files are uploaded.</p>
 	Linux *string `pulumi:"linux"`
@@ -421,7 +432,7 @@ type LaunchProfileStreamingSessionStorageRoot struct {
 // LaunchProfileStreamingSessionStorageRootInput is an input type that accepts LaunchProfileStreamingSessionStorageRootArgs and LaunchProfileStreamingSessionStorageRootOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingSessionStorageRootInput` via:
 //
-//          LaunchProfileStreamingSessionStorageRootArgs{...}
+//	LaunchProfileStreamingSessionStorageRootArgs{...}
 type LaunchProfileStreamingSessionStorageRootInput interface {
 	pulumi.Input
 
@@ -430,7 +441,8 @@ type LaunchProfileStreamingSessionStorageRootInput interface {
 }
 
 // <p>The upload storage root location (folder) on streaming workstations where files are
-//             uploaded.</p>
+//
+//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRootArgs struct {
 	// <p>The folder path in Linux workstations where files are uploaded.</p>
 	Linux pulumi.StringPtrInput `pulumi:"linux"`
@@ -461,11 +473,11 @@ func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSe
 // LaunchProfileStreamingSessionStorageRootPtrInput is an input type that accepts LaunchProfileStreamingSessionStorageRootArgs, LaunchProfileStreamingSessionStorageRootPtr and LaunchProfileStreamingSessionStorageRootPtrOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingSessionStorageRootPtrInput` via:
 //
-//          LaunchProfileStreamingSessionStorageRootArgs{...}
+//	        LaunchProfileStreamingSessionStorageRootArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchProfileStreamingSessionStorageRootPtrInput interface {
 	pulumi.Input
 
@@ -492,7 +504,8 @@ func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreami
 }
 
 // <p>The upload storage root location (folder) on streaming workstations where files are
-//             uploaded.</p>
+//
+//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRootOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamingSessionStorageRootOutput) ElementType() reflect.Type {
@@ -577,7 +590,7 @@ type LaunchProfileTags struct {
 // LaunchProfileTagsInput is an input type that accepts LaunchProfileTagsArgs and LaunchProfileTagsOutput values.
 // You can construct a concrete instance of `LaunchProfileTagsInput` via:
 //
-//          LaunchProfileTagsArgs{...}
+//	LaunchProfileTagsArgs{...}
 type LaunchProfileTagsInput interface {
 	pulumi.Input
 
@@ -611,11 +624,11 @@ func (i LaunchProfileTagsArgs) ToLaunchProfileTagsPtrOutputWithContext(ctx conte
 // LaunchProfileTagsPtrInput is an input type that accepts LaunchProfileTagsArgs, LaunchProfileTagsPtr and LaunchProfileTagsPtrOutput values.
 // You can construct a concrete instance of `LaunchProfileTagsPtrInput` via:
 //
-//          LaunchProfileTagsArgs{...}
+//	        LaunchProfileTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchProfileTagsPtrInput interface {
 	pulumi.Input
 
@@ -771,7 +784,7 @@ type StreamingImageTags struct {
 // StreamingImageTagsInput is an input type that accepts StreamingImageTagsArgs and StreamingImageTagsOutput values.
 // You can construct a concrete instance of `StreamingImageTagsInput` via:
 //
-//          StreamingImageTagsArgs{...}
+//	StreamingImageTagsArgs{...}
 type StreamingImageTagsInput interface {
 	pulumi.Input
 
@@ -805,11 +818,11 @@ func (i StreamingImageTagsArgs) ToStreamingImageTagsPtrOutputWithContext(ctx con
 // StreamingImageTagsPtrInput is an input type that accepts StreamingImageTagsArgs, StreamingImageTagsPtr and StreamingImageTagsPtrOutput values.
 // You can construct a concrete instance of `StreamingImageTagsPtrInput` via:
 //
-//          StreamingImageTagsArgs{...}
+//	        StreamingImageTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingImageTagsPtrInput interface {
 	pulumi.Input
 
@@ -894,7 +907,7 @@ type StudioComponentActiveDirectoryComputerAttribute struct {
 // StudioComponentActiveDirectoryComputerAttributeInput is an input type that accepts StudioComponentActiveDirectoryComputerAttributeArgs and StudioComponentActiveDirectoryComputerAttributeOutput values.
 // You can construct a concrete instance of `StudioComponentActiveDirectoryComputerAttributeInput` via:
 //
-//          StudioComponentActiveDirectoryComputerAttributeArgs{...}
+//	StudioComponentActiveDirectoryComputerAttributeArgs{...}
 type StudioComponentActiveDirectoryComputerAttributeInput interface {
 	pulumi.Input
 
@@ -925,7 +938,7 @@ func (i StudioComponentActiveDirectoryComputerAttributeArgs) ToStudioComponentAc
 // StudioComponentActiveDirectoryComputerAttributeArrayInput is an input type that accepts StudioComponentActiveDirectoryComputerAttributeArray and StudioComponentActiveDirectoryComputerAttributeArrayOutput values.
 // You can construct a concrete instance of `StudioComponentActiveDirectoryComputerAttributeArrayInput` via:
 //
-//          StudioComponentActiveDirectoryComputerAttributeArray{ StudioComponentActiveDirectoryComputerAttributeArgs{...} }
+//	StudioComponentActiveDirectoryComputerAttributeArray{ StudioComponentActiveDirectoryComputerAttributeArgs{...} }
 type StudioComponentActiveDirectoryComputerAttributeArrayInput interface {
 	pulumi.Input
 
@@ -1005,7 +1018,7 @@ type StudioComponentActiveDirectoryConfiguration struct {
 // StudioComponentActiveDirectoryConfigurationInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs and StudioComponentActiveDirectoryConfigurationOutput values.
 // You can construct a concrete instance of `StudioComponentActiveDirectoryConfigurationInput` via:
 //
-//          StudioComponentActiveDirectoryConfigurationArgs{...}
+//	StudioComponentActiveDirectoryConfigurationArgs{...}
 type StudioComponentActiveDirectoryConfigurationInput interface {
 	pulumi.Input
 
@@ -1046,11 +1059,11 @@ func (i StudioComponentActiveDirectoryConfigurationArgs) ToStudioComponentActive
 // StudioComponentActiveDirectoryConfigurationPtrInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs, StudioComponentActiveDirectoryConfigurationPtr and StudioComponentActiveDirectoryConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioComponentActiveDirectoryConfigurationPtrInput` via:
 //
-//          StudioComponentActiveDirectoryConfigurationArgs{...}
+//	        StudioComponentActiveDirectoryConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentActiveDirectoryConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1185,7 +1198,7 @@ type StudioComponentComputeFarmConfiguration struct {
 // StudioComponentComputeFarmConfigurationInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs and StudioComponentComputeFarmConfigurationOutput values.
 // You can construct a concrete instance of `StudioComponentComputeFarmConfigurationInput` via:
 //
-//          StudioComponentComputeFarmConfigurationArgs{...}
+//	StudioComponentComputeFarmConfigurationArgs{...}
 type StudioComponentComputeFarmConfigurationInput interface {
 	pulumi.Input
 
@@ -1224,11 +1237,11 @@ func (i StudioComponentComputeFarmConfigurationArgs) ToStudioComponentComputeFar
 // StudioComponentComputeFarmConfigurationPtrInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs, StudioComponentComputeFarmConfigurationPtr and StudioComponentComputeFarmConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioComponentComputeFarmConfigurationPtrInput` via:
 //
-//          StudioComponentComputeFarmConfigurationArgs{...}
+//	        StudioComponentComputeFarmConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentComputeFarmConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1344,7 +1357,7 @@ type StudioComponentConfiguration struct {
 // StudioComponentConfigurationInput is an input type that accepts StudioComponentConfigurationArgs and StudioComponentConfigurationOutput values.
 // You can construct a concrete instance of `StudioComponentConfigurationInput` via:
 //
-//          StudioComponentConfigurationArgs{...}
+//	StudioComponentConfigurationArgs{...}
 type StudioComponentConfigurationInput interface {
 	pulumi.Input
 
@@ -1383,11 +1396,11 @@ func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationPtrOutpu
 // StudioComponentConfigurationPtrInput is an input type that accepts StudioComponentConfigurationArgs, StudioComponentConfigurationPtr and StudioComponentConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioComponentConfigurationPtrInput` via:
 //
-//          StudioComponentConfigurationArgs{...}
+//	        StudioComponentConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1535,7 +1548,7 @@ type StudioComponentInitializationScript struct {
 // StudioComponentInitializationScriptInput is an input type that accepts StudioComponentInitializationScriptArgs and StudioComponentInitializationScriptOutput values.
 // You can construct a concrete instance of `StudioComponentInitializationScriptInput` via:
 //
-//          StudioComponentInitializationScriptArgs{...}
+//	StudioComponentInitializationScriptArgs{...}
 type StudioComponentInitializationScriptInput interface {
 	pulumi.Input
 
@@ -1568,7 +1581,7 @@ func (i StudioComponentInitializationScriptArgs) ToStudioComponentInitialization
 // StudioComponentInitializationScriptArrayInput is an input type that accepts StudioComponentInitializationScriptArray and StudioComponentInitializationScriptArrayOutput values.
 // You can construct a concrete instance of `StudioComponentInitializationScriptArrayInput` via:
 //
-//          StudioComponentInitializationScriptArray{ StudioComponentInitializationScriptArgs{...} }
+//	StudioComponentInitializationScriptArray{ StudioComponentInitializationScriptArgs{...} }
 type StudioComponentInitializationScriptArrayInput interface {
 	pulumi.Input
 
@@ -1654,7 +1667,7 @@ type StudioComponentLicenseServiceConfiguration struct {
 // StudioComponentLicenseServiceConfigurationInput is an input type that accepts StudioComponentLicenseServiceConfigurationArgs and StudioComponentLicenseServiceConfigurationOutput values.
 // You can construct a concrete instance of `StudioComponentLicenseServiceConfigurationInput` via:
 //
-//          StudioComponentLicenseServiceConfigurationArgs{...}
+//	StudioComponentLicenseServiceConfigurationArgs{...}
 type StudioComponentLicenseServiceConfigurationInput interface {
 	pulumi.Input
 
@@ -1691,11 +1704,11 @@ func (i StudioComponentLicenseServiceConfigurationArgs) ToStudioComponentLicense
 // StudioComponentLicenseServiceConfigurationPtrInput is an input type that accepts StudioComponentLicenseServiceConfigurationArgs, StudioComponentLicenseServiceConfigurationPtr and StudioComponentLicenseServiceConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioComponentLicenseServiceConfigurationPtrInput` via:
 //
-//          StudioComponentLicenseServiceConfigurationArgs{...}
+//	        StudioComponentLicenseServiceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentLicenseServiceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1796,7 +1809,7 @@ type StudioComponentScriptParameterKeyValue struct {
 // StudioComponentScriptParameterKeyValueInput is an input type that accepts StudioComponentScriptParameterKeyValueArgs and StudioComponentScriptParameterKeyValueOutput values.
 // You can construct a concrete instance of `StudioComponentScriptParameterKeyValueInput` via:
 //
-//          StudioComponentScriptParameterKeyValueArgs{...}
+//	StudioComponentScriptParameterKeyValueArgs{...}
 type StudioComponentScriptParameterKeyValueInput interface {
 	pulumi.Input
 
@@ -1827,7 +1840,7 @@ func (i StudioComponentScriptParameterKeyValueArgs) ToStudioComponentScriptParam
 // StudioComponentScriptParameterKeyValueArrayInput is an input type that accepts StudioComponentScriptParameterKeyValueArray and StudioComponentScriptParameterKeyValueArrayOutput values.
 // You can construct a concrete instance of `StudioComponentScriptParameterKeyValueArrayInput` via:
 //
-//          StudioComponentScriptParameterKeyValueArray{ StudioComponentScriptParameterKeyValueArgs{...} }
+//	StudioComponentScriptParameterKeyValueArray{ StudioComponentScriptParameterKeyValueArgs{...} }
 type StudioComponentScriptParameterKeyValueArrayInput interface {
 	pulumi.Input
 
@@ -1911,7 +1924,7 @@ type StudioComponentSharedFileSystemConfiguration struct {
 // StudioComponentSharedFileSystemConfigurationInput is an input type that accepts StudioComponentSharedFileSystemConfigurationArgs and StudioComponentSharedFileSystemConfigurationOutput values.
 // You can construct a concrete instance of `StudioComponentSharedFileSystemConfigurationInput` via:
 //
-//          StudioComponentSharedFileSystemConfigurationArgs{...}
+//	StudioComponentSharedFileSystemConfigurationArgs{...}
 type StudioComponentSharedFileSystemConfigurationInput interface {
 	pulumi.Input
 
@@ -1956,11 +1969,11 @@ func (i StudioComponentSharedFileSystemConfigurationArgs) ToStudioComponentShare
 // StudioComponentSharedFileSystemConfigurationPtrInput is an input type that accepts StudioComponentSharedFileSystemConfigurationArgs, StudioComponentSharedFileSystemConfigurationPtr and StudioComponentSharedFileSystemConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioComponentSharedFileSystemConfigurationPtrInput` via:
 //
-//          StudioComponentSharedFileSystemConfigurationArgs{...}
+//	        StudioComponentSharedFileSystemConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentSharedFileSystemConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2116,7 +2129,7 @@ type StudioComponentTags struct {
 // StudioComponentTagsInput is an input type that accepts StudioComponentTagsArgs and StudioComponentTagsOutput values.
 // You can construct a concrete instance of `StudioComponentTagsInput` via:
 //
-//          StudioComponentTagsArgs{...}
+//	StudioComponentTagsArgs{...}
 type StudioComponentTagsInput interface {
 	pulumi.Input
 
@@ -2150,11 +2163,11 @@ func (i StudioComponentTagsArgs) ToStudioComponentTagsPtrOutputWithContext(ctx c
 // StudioComponentTagsPtrInput is an input type that accepts StudioComponentTagsArgs, StudioComponentTagsPtr and StudioComponentTagsPtrOutput values.
 // You can construct a concrete instance of `StudioComponentTagsPtrInput` via:
 //
-//          StudioComponentTagsArgs{...}
+//	        StudioComponentTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioComponentTagsPtrInput interface {
 	pulumi.Input
 
@@ -2238,7 +2251,7 @@ type StudioEncryptionConfiguration struct {
 // StudioEncryptionConfigurationInput is an input type that accepts StudioEncryptionConfigurationArgs and StudioEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `StudioEncryptionConfigurationInput` via:
 //
-//          StudioEncryptionConfigurationArgs{...}
+//	StudioEncryptionConfigurationArgs{...}
 type StudioEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -2276,11 +2289,11 @@ func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationPtrOut
 // StudioEncryptionConfigurationPtrInput is an input type that accepts StudioEncryptionConfigurationArgs, StudioEncryptionConfigurationPtr and StudioEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `StudioEncryptionConfigurationPtrInput` via:
 //
-//          StudioEncryptionConfigurationArgs{...}
+//	        StudioEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2389,7 +2402,7 @@ type StudioTags struct {
 // StudioTagsInput is an input type that accepts StudioTagsArgs and StudioTagsOutput values.
 // You can construct a concrete instance of `StudioTagsInput` via:
 //
-//          StudioTagsArgs{...}
+//	StudioTagsArgs{...}
 type StudioTagsInput interface {
 	pulumi.Input
 
@@ -2423,11 +2436,11 @@ func (i StudioTagsArgs) ToStudioTagsPtrOutputWithContext(ctx context.Context) St
 // StudioTagsPtrInput is an input type that accepts StudioTagsArgs, StudioTagsPtr and StudioTagsPtrOutput values.
 // You can construct a concrete instance of `StudioTagsPtrInput` via:
 //
-//          StudioTagsArgs{...}
+//	        StudioTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StudioTagsPtrInput interface {
 	pulumi.Input
 

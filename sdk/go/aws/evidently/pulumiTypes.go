@@ -25,7 +25,7 @@ type ExperimentMetricGoalObject struct {
 // ExperimentMetricGoalObjectInput is an input type that accepts ExperimentMetricGoalObjectArgs and ExperimentMetricGoalObjectOutput values.
 // You can construct a concrete instance of `ExperimentMetricGoalObjectInput` via:
 //
-//          ExperimentMetricGoalObjectArgs{...}
+//	ExperimentMetricGoalObjectArgs{...}
 type ExperimentMetricGoalObjectInput interface {
 	pulumi.Input
 
@@ -60,7 +60,7 @@ func (i ExperimentMetricGoalObjectArgs) ToExperimentMetricGoalObjectOutputWithCo
 // ExperimentMetricGoalObjectArrayInput is an input type that accepts ExperimentMetricGoalObjectArray and ExperimentMetricGoalObjectArrayOutput values.
 // You can construct a concrete instance of `ExperimentMetricGoalObjectArrayInput` via:
 //
-//          ExperimentMetricGoalObjectArray{ ExperimentMetricGoalObjectArgs{...} }
+//	ExperimentMetricGoalObjectArray{ ExperimentMetricGoalObjectArgs{...} }
 type ExperimentMetricGoalObjectArrayInput interface {
 	pulumi.Input
 
@@ -151,7 +151,7 @@ type ExperimentOnlineAbConfigObject struct {
 // ExperimentOnlineAbConfigObjectInput is an input type that accepts ExperimentOnlineAbConfigObjectArgs and ExperimentOnlineAbConfigObjectOutput values.
 // You can construct a concrete instance of `ExperimentOnlineAbConfigObjectInput` via:
 //
-//          ExperimentOnlineAbConfigObjectArgs{...}
+//	ExperimentOnlineAbConfigObjectArgs{...}
 type ExperimentOnlineAbConfigObjectInput interface {
 	pulumi.Input
 
@@ -254,7 +254,7 @@ type ExperimentRunningStatusObject struct {
 // ExperimentRunningStatusObjectInput is an input type that accepts ExperimentRunningStatusObjectArgs and ExperimentRunningStatusObjectOutput values.
 // You can construct a concrete instance of `ExperimentRunningStatusObjectInput` via:
 //
-//          ExperimentRunningStatusObjectArgs{...}
+//	ExperimentRunningStatusObjectArgs{...}
 type ExperimentRunningStatusObjectInput interface {
 	pulumi.Input
 
@@ -296,11 +296,11 @@ func (i ExperimentRunningStatusObjectArgs) ToExperimentRunningStatusObjectPtrOut
 // ExperimentRunningStatusObjectPtrInput is an input type that accepts ExperimentRunningStatusObjectArgs, ExperimentRunningStatusObjectPtr and ExperimentRunningStatusObjectPtrOutput values.
 // You can construct a concrete instance of `ExperimentRunningStatusObjectPtrInput` via:
 //
-//          ExperimentRunningStatusObjectArgs{...}
+//	        ExperimentRunningStatusObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentRunningStatusObjectPtrInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ type ExperimentTag struct {
 // ExperimentTagInput is an input type that accepts ExperimentTagArgs and ExperimentTagOutput values.
 // You can construct a concrete instance of `ExperimentTagInput` via:
 //
-//          ExperimentTagArgs{...}
+//	ExperimentTagArgs{...}
 type ExperimentTagInput interface {
 	pulumi.Input
 
@@ -476,7 +476,7 @@ func (i ExperimentTagArgs) ToExperimentTagOutputWithContext(ctx context.Context)
 // ExperimentTagArrayInput is an input type that accepts ExperimentTagArray and ExperimentTagArrayOutput values.
 // You can construct a concrete instance of `ExperimentTagArrayInput` via:
 //
-//          ExperimentTagArray{ ExperimentTagArgs{...} }
+//	ExperimentTagArray{ ExperimentTagArgs{...} }
 type ExperimentTagArrayInput interface {
 	pulumi.Input
 
@@ -553,7 +553,7 @@ type ExperimentTreatmentObject struct {
 // ExperimentTreatmentObjectInput is an input type that accepts ExperimentTreatmentObjectArgs and ExperimentTreatmentObjectOutput values.
 // You can construct a concrete instance of `ExperimentTreatmentObjectInput` via:
 //
-//          ExperimentTreatmentObjectArgs{...}
+//	ExperimentTreatmentObjectArgs{...}
 type ExperimentTreatmentObjectInput interface {
 	pulumi.Input
 
@@ -583,7 +583,7 @@ func (i ExperimentTreatmentObjectArgs) ToExperimentTreatmentObjectOutputWithCont
 // ExperimentTreatmentObjectArrayInput is an input type that accepts ExperimentTreatmentObjectArray and ExperimentTreatmentObjectArrayOutput values.
 // You can construct a concrete instance of `ExperimentTreatmentObjectArrayInput` via:
 //
-//          ExperimentTreatmentObjectArray{ ExperimentTreatmentObjectArgs{...} }
+//	ExperimentTreatmentObjectArray{ ExperimentTreatmentObjectArgs{...} }
 type ExperimentTreatmentObjectArrayInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type ExperimentTreatmentToWeight struct {
 // ExperimentTreatmentToWeightInput is an input type that accepts ExperimentTreatmentToWeightArgs and ExperimentTreatmentToWeightOutput values.
 // You can construct a concrete instance of `ExperimentTreatmentToWeightInput` via:
 //
-//          ExperimentTreatmentToWeightArgs{...}
+//	ExperimentTreatmentToWeightArgs{...}
 type ExperimentTreatmentToWeightInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ func (i ExperimentTreatmentToWeightArgs) ToExperimentTreatmentToWeightOutputWith
 // ExperimentTreatmentToWeightArrayInput is an input type that accepts ExperimentTreatmentToWeightArray and ExperimentTreatmentToWeightArrayOutput values.
 // You can construct a concrete instance of `ExperimentTreatmentToWeightArrayInput` via:
 //
-//          ExperimentTreatmentToWeightArray{ ExperimentTreatmentToWeightArgs{...} }
+//	ExperimentTreatmentToWeightArray{ ExperimentTreatmentToWeightArgs{...} }
 type ExperimentTreatmentToWeightArrayInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ type FeatureEntityOverride struct {
 // FeatureEntityOverrideInput is an input type that accepts FeatureEntityOverrideArgs and FeatureEntityOverrideOutput values.
 // You can construct a concrete instance of `FeatureEntityOverrideInput` via:
 //
-//          FeatureEntityOverrideArgs{...}
+//	FeatureEntityOverrideArgs{...}
 type FeatureEntityOverrideInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ func (i FeatureEntityOverrideArgs) ToFeatureEntityOverrideOutputWithContext(ctx 
 // FeatureEntityOverrideArrayInput is an input type that accepts FeatureEntityOverrideArray and FeatureEntityOverrideArrayOutput values.
 // You can construct a concrete instance of `FeatureEntityOverrideArrayInput` via:
 //
-//          FeatureEntityOverrideArray{ FeatureEntityOverrideArgs{...} }
+//	FeatureEntityOverrideArray{ FeatureEntityOverrideArgs{...} }
 type FeatureEntityOverrideArrayInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type FeatureTag struct {
 // FeatureTagInput is an input type that accepts FeatureTagArgs and FeatureTagOutput values.
 // You can construct a concrete instance of `FeatureTagInput` via:
 //
-//          FeatureTagArgs{...}
+//	FeatureTagArgs{...}
 type FeatureTagInput interface {
 	pulumi.Input
 
@@ -897,7 +897,7 @@ func (i FeatureTagArgs) ToFeatureTagOutputWithContext(ctx context.Context) Featu
 // FeatureTagArrayInput is an input type that accepts FeatureTagArray and FeatureTagArrayOutput values.
 // You can construct a concrete instance of `FeatureTagArrayInput` via:
 //
-//          FeatureTagArray{ FeatureTagArgs{...} }
+//	FeatureTagArray{ FeatureTagArgs{...} }
 type FeatureTagArrayInput interface {
 	pulumi.Input
 
@@ -975,7 +975,7 @@ type FeatureVariationObject struct {
 // FeatureVariationObjectInput is an input type that accepts FeatureVariationObjectArgs and FeatureVariationObjectOutput values.
 // You can construct a concrete instance of `FeatureVariationObjectInput` via:
 //
-//          FeatureVariationObjectArgs{...}
+//	FeatureVariationObjectArgs{...}
 type FeatureVariationObjectInput interface {
 	pulumi.Input
 
@@ -1006,7 +1006,7 @@ func (i FeatureVariationObjectArgs) ToFeatureVariationObjectOutputWithContext(ct
 // FeatureVariationObjectArrayInput is an input type that accepts FeatureVariationObjectArray and FeatureVariationObjectArrayOutput values.
 // You can construct a concrete instance of `FeatureVariationObjectArrayInput` via:
 //
-//          FeatureVariationObjectArray{ FeatureVariationObjectArgs{...} }
+//	FeatureVariationObjectArray{ FeatureVariationObjectArgs{...} }
 type FeatureVariationObjectArrayInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ type LaunchExecutionStatusObject struct {
 // LaunchExecutionStatusObjectInput is an input type that accepts LaunchExecutionStatusObjectArgs and LaunchExecutionStatusObjectOutput values.
 // You can construct a concrete instance of `LaunchExecutionStatusObjectInput` via:
 //
-//          LaunchExecutionStatusObjectArgs{...}
+//	LaunchExecutionStatusObjectArgs{...}
 type LaunchExecutionStatusObjectInput interface {
 	pulumi.Input
 
@@ -1134,11 +1134,11 @@ func (i LaunchExecutionStatusObjectArgs) ToLaunchExecutionStatusObjectPtrOutputW
 // LaunchExecutionStatusObjectPtrInput is an input type that accepts LaunchExecutionStatusObjectArgs, LaunchExecutionStatusObjectPtr and LaunchExecutionStatusObjectPtrOutput values.
 // You can construct a concrete instance of `LaunchExecutionStatusObjectPtrInput` via:
 //
-//          LaunchExecutionStatusObjectArgs{...}
+//	        LaunchExecutionStatusObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchExecutionStatusObjectPtrInput interface {
 	pulumi.Input
 
@@ -1267,7 +1267,7 @@ type LaunchGroupObject struct {
 // LaunchGroupObjectInput is an input type that accepts LaunchGroupObjectArgs and LaunchGroupObjectOutput values.
 // You can construct a concrete instance of `LaunchGroupObjectInput` via:
 //
-//          LaunchGroupObjectArgs{...}
+//	LaunchGroupObjectArgs{...}
 type LaunchGroupObjectInput interface {
 	pulumi.Input
 
@@ -1297,7 +1297,7 @@ func (i LaunchGroupObjectArgs) ToLaunchGroupObjectOutputWithContext(ctx context.
 // LaunchGroupObjectArrayInput is an input type that accepts LaunchGroupObjectArray and LaunchGroupObjectArrayOutput values.
 // You can construct a concrete instance of `LaunchGroupObjectArrayInput` via:
 //
-//          LaunchGroupObjectArray{ LaunchGroupObjectArgs{...} }
+//	LaunchGroupObjectArray{ LaunchGroupObjectArgs{...} }
 type LaunchGroupObjectArrayInput interface {
 	pulumi.Input
 
@@ -1377,7 +1377,7 @@ type LaunchGroupToWeight struct {
 // LaunchGroupToWeightInput is an input type that accepts LaunchGroupToWeightArgs and LaunchGroupToWeightOutput values.
 // You can construct a concrete instance of `LaunchGroupToWeightInput` via:
 //
-//          LaunchGroupToWeightArgs{...}
+//	LaunchGroupToWeightArgs{...}
 type LaunchGroupToWeightInput interface {
 	pulumi.Input
 
@@ -1405,7 +1405,7 @@ func (i LaunchGroupToWeightArgs) ToLaunchGroupToWeightOutputWithContext(ctx cont
 // LaunchGroupToWeightArrayInput is an input type that accepts LaunchGroupToWeightArray and LaunchGroupToWeightArrayOutput values.
 // You can construct a concrete instance of `LaunchGroupToWeightArrayInput` via:
 //
-//          LaunchGroupToWeightArray{ LaunchGroupToWeightArgs{...} }
+//	LaunchGroupToWeightArray{ LaunchGroupToWeightArgs{...} }
 type LaunchGroupToWeightArrayInput interface {
 	pulumi.Input
 
@@ -1483,7 +1483,7 @@ type LaunchMetricDefinitionObject struct {
 // LaunchMetricDefinitionObjectInput is an input type that accepts LaunchMetricDefinitionObjectArgs and LaunchMetricDefinitionObjectOutput values.
 // You can construct a concrete instance of `LaunchMetricDefinitionObjectInput` via:
 //
-//          LaunchMetricDefinitionObjectArgs{...}
+//	LaunchMetricDefinitionObjectArgs{...}
 type LaunchMetricDefinitionObjectInput interface {
 	pulumi.Input
 
@@ -1517,7 +1517,7 @@ func (i LaunchMetricDefinitionObjectArgs) ToLaunchMetricDefinitionObjectOutputWi
 // LaunchMetricDefinitionObjectArrayInput is an input type that accepts LaunchMetricDefinitionObjectArray and LaunchMetricDefinitionObjectArrayOutput values.
 // You can construct a concrete instance of `LaunchMetricDefinitionObjectArrayInput` via:
 //
-//          LaunchMetricDefinitionObjectArray{ LaunchMetricDefinitionObjectArgs{...} }
+//	LaunchMetricDefinitionObjectArray{ LaunchMetricDefinitionObjectArgs{...} }
 type LaunchMetricDefinitionObjectArrayInput interface {
 	pulumi.Input
 
@@ -1604,7 +1604,7 @@ type LaunchStepConfig struct {
 // LaunchStepConfigInput is an input type that accepts LaunchStepConfigArgs and LaunchStepConfigOutput values.
 // You can construct a concrete instance of `LaunchStepConfigInput` via:
 //
-//          LaunchStepConfigArgs{...}
+//	LaunchStepConfigArgs{...}
 type LaunchStepConfigInput interface {
 	pulumi.Input
 
@@ -1632,7 +1632,7 @@ func (i LaunchStepConfigArgs) ToLaunchStepConfigOutputWithContext(ctx context.Co
 // LaunchStepConfigArrayInput is an input type that accepts LaunchStepConfigArray and LaunchStepConfigArrayOutput values.
 // You can construct a concrete instance of `LaunchStepConfigArrayInput` via:
 //
-//          LaunchStepConfigArray{ LaunchStepConfigArgs{...} }
+//	LaunchStepConfigArray{ LaunchStepConfigArgs{...} }
 type LaunchStepConfigArrayInput interface {
 	pulumi.Input
 
@@ -1707,7 +1707,7 @@ type LaunchTag struct {
 // LaunchTagInput is an input type that accepts LaunchTagArgs and LaunchTagOutput values.
 // You can construct a concrete instance of `LaunchTagInput` via:
 //
-//          LaunchTagArgs{...}
+//	LaunchTagArgs{...}
 type LaunchTagInput interface {
 	pulumi.Input
 
@@ -1738,7 +1738,7 @@ func (i LaunchTagArgs) ToLaunchTagOutputWithContext(ctx context.Context) LaunchT
 // LaunchTagArrayInput is an input type that accepts LaunchTagArray and LaunchTagArrayOutput values.
 // You can construct a concrete instance of `LaunchTagArrayInput` via:
 //
-//          LaunchTagArray{ LaunchTagArgs{...} }
+//	LaunchTagArray{ LaunchTagArgs{...} }
 type LaunchTagArrayInput interface {
 	pulumi.Input
 
@@ -1814,7 +1814,7 @@ type ProjectDataDeliveryObject struct {
 // ProjectDataDeliveryObjectInput is an input type that accepts ProjectDataDeliveryObjectArgs and ProjectDataDeliveryObjectOutput values.
 // You can construct a concrete instance of `ProjectDataDeliveryObjectInput` via:
 //
-//          ProjectDataDeliveryObjectArgs{...}
+//	ProjectDataDeliveryObjectArgs{...}
 type ProjectDataDeliveryObjectInput interface {
 	pulumi.Input
 
@@ -1851,11 +1851,11 @@ func (i ProjectDataDeliveryObjectArgs) ToProjectDataDeliveryObjectPtrOutputWithC
 // ProjectDataDeliveryObjectPtrInput is an input type that accepts ProjectDataDeliveryObjectArgs, ProjectDataDeliveryObjectPtr and ProjectDataDeliveryObjectPtrOutput values.
 // You can construct a concrete instance of `ProjectDataDeliveryObjectPtrInput` via:
 //
-//          ProjectDataDeliveryObjectArgs{...}
+//	        ProjectDataDeliveryObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProjectDataDeliveryObjectPtrInput interface {
 	pulumi.Input
 
@@ -1964,7 +1964,7 @@ type ProjectS3Destination struct {
 // ProjectS3DestinationInput is an input type that accepts ProjectS3DestinationArgs and ProjectS3DestinationOutput values.
 // You can construct a concrete instance of `ProjectS3DestinationInput` via:
 //
-//          ProjectS3DestinationArgs{...}
+//	ProjectS3DestinationArgs{...}
 type ProjectS3DestinationInput interface {
 	pulumi.Input
 
@@ -2000,11 +2000,11 @@ func (i ProjectS3DestinationArgs) ToProjectS3DestinationPtrOutputWithContext(ctx
 // ProjectS3DestinationPtrInput is an input type that accepts ProjectS3DestinationArgs, ProjectS3DestinationPtr and ProjectS3DestinationPtrOutput values.
 // You can construct a concrete instance of `ProjectS3DestinationPtrInput` via:
 //
-//          ProjectS3DestinationArgs{...}
+//	        ProjectS3DestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProjectS3DestinationPtrInput interface {
 	pulumi.Input
 
@@ -2115,7 +2115,7 @@ type ProjectTag struct {
 // ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
 // You can construct a concrete instance of `ProjectTagInput` via:
 //
-//          ProjectTagArgs{...}
+//	ProjectTagArgs{...}
 type ProjectTagInput interface {
 	pulumi.Input
 
@@ -2146,7 +2146,7 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
-//          ProjectTagArray{ ProjectTagArgs{...} }
+//	ProjectTagArray{ ProjectTagArgs{...} }
 type ProjectTagArrayInput interface {
 	pulumi.Input
 

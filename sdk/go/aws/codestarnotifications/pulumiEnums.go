@@ -139,7 +139,7 @@ func (o NotificationRuleDetailTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // NotificationRuleDetailTypeInput is an input type that accepts NotificationRuleDetailTypeArgs and NotificationRuleDetailTypeOutput values.
 // You can construct a concrete instance of `NotificationRuleDetailTypeInput` via:
 //
-//          NotificationRuleDetailTypeArgs{...}
+//	NotificationRuleDetailTypeArgs{...}
 type NotificationRuleDetailTypeInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o NotificationRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // NotificationRuleStatusInput is an input type that accepts NotificationRuleStatusArgs and NotificationRuleStatusOutput values.
 // You can construct a concrete instance of `NotificationRuleStatusInput` via:
 //
-//          NotificationRuleStatusArgs{...}
+//	NotificationRuleStatusArgs{...}
 type NotificationRuleStatusInput interface {
 	pulumi.Input
 

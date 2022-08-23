@@ -18,7 +18,7 @@ type InstanceAccessControlAttributeConfigurationAccessControlAttribute struct {
 // InstanceAccessControlAttributeConfigurationAccessControlAttributeInput is an input type that accepts InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs and InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationAccessControlAttributeInput` via:
 //
-//          InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{...}
+//	InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{...}
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs) T
 // InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput is an input type that accepts InstanceAccessControlAttributeConfigurationAccessControlAttributeArray and InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput` via:
 //
-//          InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{ InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{...} }
+//	InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{ InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{...} }
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput interface {
 	pulumi.Input
 
@@ -119,7 +119,7 @@ type InstanceAccessControlAttributeConfigurationAccessControlAttributeValue stru
 // InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput is an input type that accepts InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs and InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput` via:
 //
-//          InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{...}
+//	InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{...}
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput interface {
 	pulumi.Input
 
@@ -171,7 +171,7 @@ type InstanceAccessControlAttributeConfigurationProperties struct {
 // InstanceAccessControlAttributeConfigurationPropertiesInput is an input type that accepts InstanceAccessControlAttributeConfigurationPropertiesArgs and InstanceAccessControlAttributeConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationPropertiesInput` via:
 //
-//          InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
+//	InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
 type InstanceAccessControlAttributeConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -207,11 +207,11 @@ func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAcc
 // InstanceAccessControlAttributeConfigurationPropertiesPtrInput is an input type that accepts InstanceAccessControlAttributeConfigurationPropertiesArgs, InstanceAccessControlAttributeConfigurationPropertiesPtr and InstanceAccessControlAttributeConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationPropertiesPtrInput` via:
 //
-//          InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
+//	        InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceAccessControlAttributeConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ type PermissionSetTag struct {
 // PermissionSetTagInput is an input type that accepts PermissionSetTagArgs and PermissionSetTagOutput values.
 // You can construct a concrete instance of `PermissionSetTagInput` via:
 //
-//          PermissionSetTagArgs{...}
+//	PermissionSetTagArgs{...}
 type PermissionSetTagInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ func (i PermissionSetTagArgs) ToPermissionSetTagOutputWithContext(ctx context.Co
 // PermissionSetTagArrayInput is an input type that accepts PermissionSetTagArray and PermissionSetTagArrayOutput values.
 // You can construct a concrete instance of `PermissionSetTagArrayInput` via:
 //
-//          PermissionSetTagArray{ PermissionSetTagArgs{...} }
+//	PermissionSetTagArray{ PermissionSetTagArgs{...} }
 type PermissionSetTagArrayInput interface {
 	pulumi.Input
 

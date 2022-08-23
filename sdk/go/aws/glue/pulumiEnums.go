@@ -146,7 +146,7 @@ func (o SchemaCompatibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // SchemaCompatibilityInput is an input type that accepts SchemaCompatibilityArgs and SchemaCompatibilityOutput values.
 // You can construct a concrete instance of `SchemaCompatibilityInput` via:
 //
-//          SchemaCompatibilityArgs{...}
+//	SchemaCompatibilityArgs{...}
 type SchemaCompatibilityInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (o SchemaDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // SchemaDataFormatInput is an input type that accepts SchemaDataFormatArgs and SchemaDataFormatOutput values.
 // You can construct a concrete instance of `SchemaDataFormatInput` via:
 //
-//          SchemaDataFormatArgs{...}
+//	SchemaDataFormatArgs{...}
 type SchemaDataFormatInput interface {
 	pulumi.Input
 

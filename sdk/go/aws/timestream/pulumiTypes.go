@@ -19,7 +19,7 @@ type DatabaseTag struct {
 // DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
 // You can construct a concrete instance of `DatabaseTagInput` via:
 //
-//          DatabaseTagArgs{...}
+//	DatabaseTagArgs{...}
 type DatabaseTagInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) Dat
 // DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
 // You can construct a concrete instance of `DatabaseTagArrayInput` via:
 //
-//          DatabaseTagArray{ DatabaseTagArgs{...} }
+//	DatabaseTagArray{ DatabaseTagArgs{...} }
 type DatabaseTagArrayInput interface {
 	pulumi.Input
 
@@ -124,7 +124,7 @@ type MagneticStoreWritePropertiesProperties struct {
 // MagneticStoreWritePropertiesPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesArgs and MagneticStoreWritePropertiesPropertiesOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesArgs{...}
+//	MagneticStoreWritePropertiesPropertiesArgs{...}
 type MagneticStoreWritePropertiesPropertiesInput interface {
 	pulumi.Input
 
@@ -163,11 +163,11 @@ func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWriteProperti
 // MagneticStoreWritePropertiesPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesArgs, MagneticStoreWritePropertiesPropertiesPtr and MagneticStoreWritePropertiesPropertiesPtrOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesPtrInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesArgs{...}
+//	        MagneticStoreWritePropertiesPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MagneticStoreWritePropertiesPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -283,7 +283,7 @@ type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProp
 // MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
+//	MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput interface {
 	pulumi.Input
 
@@ -320,11 +320,11 @@ func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 // MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs, MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtr and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
+//	        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -431,7 +431,7 @@ type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProp
 // MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
+//	MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -474,11 +474,11 @@ func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 // MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput is an input type that accepts MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs, MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtr and MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput` via:
 //
-//          MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
+//	        MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -632,7 +632,7 @@ type RetentionPropertiesProperties struct {
 // RetentionPropertiesPropertiesInput is an input type that accepts RetentionPropertiesPropertiesArgs and RetentionPropertiesPropertiesOutput values.
 // You can construct a concrete instance of `RetentionPropertiesPropertiesInput` via:
 //
-//          RetentionPropertiesPropertiesArgs{...}
+//	RetentionPropertiesPropertiesArgs{...}
 type RetentionPropertiesPropertiesInput interface {
 	pulumi.Input
 
@@ -671,11 +671,11 @@ func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesPtrOut
 // RetentionPropertiesPropertiesPtrInput is an input type that accepts RetentionPropertiesPropertiesArgs, RetentionPropertiesPropertiesPtr and RetentionPropertiesPropertiesPtrOutput values.
 // You can construct a concrete instance of `RetentionPropertiesPropertiesPtrInput` via:
 //
-//          RetentionPropertiesPropertiesArgs{...}
+//	        RetentionPropertiesPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RetentionPropertiesPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -789,7 +789,7 @@ type ScheduledQueryDimensionMapping struct {
 // ScheduledQueryDimensionMappingInput is an input type that accepts ScheduledQueryDimensionMappingArgs and ScheduledQueryDimensionMappingOutput values.
 // You can construct a concrete instance of `ScheduledQueryDimensionMappingInput` via:
 //
-//          ScheduledQueryDimensionMappingArgs{...}
+//	ScheduledQueryDimensionMappingArgs{...}
 type ScheduledQueryDimensionMappingInput interface {
 	pulumi.Input
 
@@ -818,7 +818,7 @@ func (i ScheduledQueryDimensionMappingArgs) ToScheduledQueryDimensionMappingOutp
 // ScheduledQueryDimensionMappingArrayInput is an input type that accepts ScheduledQueryDimensionMappingArray and ScheduledQueryDimensionMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryDimensionMappingArrayInput` via:
 //
-//          ScheduledQueryDimensionMappingArray{ ScheduledQueryDimensionMappingArgs{...} }
+//	ScheduledQueryDimensionMappingArray{ ScheduledQueryDimensionMappingArgs{...} }
 type ScheduledQueryDimensionMappingArrayInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ type ScheduledQueryErrorReportConfiguration struct {
 // ScheduledQueryErrorReportConfigurationInput is an input type that accepts ScheduledQueryErrorReportConfigurationArgs and ScheduledQueryErrorReportConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryErrorReportConfigurationInput` via:
 //
-//          ScheduledQueryErrorReportConfigurationArgs{...}
+//	ScheduledQueryErrorReportConfigurationArgs{...}
 type ScheduledQueryErrorReportConfigurationInput interface {
 	pulumi.Input
 
@@ -947,7 +947,7 @@ type ScheduledQueryMixedMeasureMapping struct {
 // ScheduledQueryMixedMeasureMappingInput is an input type that accepts ScheduledQueryMixedMeasureMappingArgs and ScheduledQueryMixedMeasureMappingOutput values.
 // You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingInput` via:
 //
-//          ScheduledQueryMixedMeasureMappingArgs{...}
+//	ScheduledQueryMixedMeasureMappingArgs{...}
 type ScheduledQueryMixedMeasureMappingInput interface {
 	pulumi.Input
 
@@ -979,7 +979,7 @@ func (i ScheduledQueryMixedMeasureMappingArgs) ToScheduledQueryMixedMeasureMappi
 // ScheduledQueryMixedMeasureMappingArrayInput is an input type that accepts ScheduledQueryMixedMeasureMappingArray and ScheduledQueryMixedMeasureMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingArrayInput` via:
 //
-//          ScheduledQueryMixedMeasureMappingArray{ ScheduledQueryMixedMeasureMappingArgs{...} }
+//	ScheduledQueryMixedMeasureMappingArray{ ScheduledQueryMixedMeasureMappingArgs{...} }
 type ScheduledQueryMixedMeasureMappingArrayInput interface {
 	pulumi.Input
 
@@ -1070,7 +1070,7 @@ type ScheduledQueryMultiMeasureAttributeMapping struct {
 // ScheduledQueryMultiMeasureAttributeMappingInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingArgs and ScheduledQueryMultiMeasureAttributeMappingOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingInput` via:
 //
-//          ScheduledQueryMultiMeasureAttributeMappingArgs{...}
+//	ScheduledQueryMultiMeasureAttributeMappingArgs{...}
 type ScheduledQueryMultiMeasureAttributeMappingInput interface {
 	pulumi.Input
 
@@ -1100,7 +1100,7 @@ func (i ScheduledQueryMultiMeasureAttributeMappingArgs) ToScheduledQueryMultiMea
 // ScheduledQueryMultiMeasureAttributeMappingArrayInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingArray and ScheduledQueryMultiMeasureAttributeMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingArrayInput` via:
 //
-//          ScheduledQueryMultiMeasureAttributeMappingArray{ ScheduledQueryMultiMeasureAttributeMappingArgs{...} }
+//	ScheduledQueryMultiMeasureAttributeMappingArray{ ScheduledQueryMultiMeasureAttributeMappingArgs{...} }
 type ScheduledQueryMultiMeasureAttributeMappingArrayInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ type ScheduledQueryMultiMeasureMappings struct {
 // ScheduledQueryMultiMeasureMappingsInput is an input type that accepts ScheduledQueryMultiMeasureMappingsArgs and ScheduledQueryMultiMeasureMappingsOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureMappingsInput` via:
 //
-//          ScheduledQueryMultiMeasureMappingsArgs{...}
+//	ScheduledQueryMultiMeasureMappingsArgs{...}
 type ScheduledQueryMultiMeasureMappingsInput interface {
 	pulumi.Input
 
@@ -1217,11 +1217,11 @@ func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMapp
 // ScheduledQueryMultiMeasureMappingsPtrInput is an input type that accepts ScheduledQueryMultiMeasureMappingsArgs, ScheduledQueryMultiMeasureMappingsPtr and ScheduledQueryMultiMeasureMappingsPtrOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureMappingsPtrInput` via:
 //
-//          ScheduledQueryMultiMeasureMappingsArgs{...}
+//	        ScheduledQueryMultiMeasureMappingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledQueryMultiMeasureMappingsPtrInput interface {
 	pulumi.Input
 
@@ -1332,7 +1332,7 @@ type ScheduledQueryNotificationConfiguration struct {
 // ScheduledQueryNotificationConfigurationInput is an input type that accepts ScheduledQueryNotificationConfigurationArgs and ScheduledQueryNotificationConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryNotificationConfigurationInput` via:
 //
-//          ScheduledQueryNotificationConfigurationArgs{...}
+//	ScheduledQueryNotificationConfigurationArgs{...}
 type ScheduledQueryNotificationConfigurationInput interface {
 	pulumi.Input
 
@@ -1388,7 +1388,7 @@ type ScheduledQueryS3Configuration struct {
 // ScheduledQueryS3ConfigurationInput is an input type that accepts ScheduledQueryS3ConfigurationArgs and ScheduledQueryS3ConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryS3ConfigurationInput` via:
 //
-//          ScheduledQueryS3ConfigurationArgs{...}
+//	ScheduledQueryS3ConfigurationArgs{...}
 type ScheduledQueryS3ConfigurationInput interface {
 	pulumi.Input
 
@@ -1450,7 +1450,7 @@ type ScheduledQueryScheduleConfiguration struct {
 // ScheduledQueryScheduleConfigurationInput is an input type that accepts ScheduledQueryScheduleConfigurationArgs and ScheduledQueryScheduleConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryScheduleConfigurationInput` via:
 //
-//          ScheduledQueryScheduleConfigurationArgs{...}
+//	ScheduledQueryScheduleConfigurationArgs{...}
 type ScheduledQueryScheduleConfigurationInput interface {
 	pulumi.Input
 
@@ -1502,7 +1502,7 @@ type ScheduledQuerySnsConfiguration struct {
 // ScheduledQuerySnsConfigurationInput is an input type that accepts ScheduledQuerySnsConfigurationArgs and ScheduledQuerySnsConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQuerySnsConfigurationInput` via:
 //
-//          ScheduledQuerySnsConfigurationArgs{...}
+//	ScheduledQuerySnsConfigurationArgs{...}
 type ScheduledQuerySnsConfigurationInput interface {
 	pulumi.Input
 
@@ -1555,7 +1555,7 @@ type ScheduledQueryTag struct {
 // ScheduledQueryTagInput is an input type that accepts ScheduledQueryTagArgs and ScheduledQueryTagOutput values.
 // You can construct a concrete instance of `ScheduledQueryTagInput` via:
 //
-//          ScheduledQueryTagArgs{...}
+//	ScheduledQueryTagArgs{...}
 type ScheduledQueryTagInput interface {
 	pulumi.Input
 
@@ -1584,7 +1584,7 @@ func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutputWithContext(ctx context.
 // ScheduledQueryTagArrayInput is an input type that accepts ScheduledQueryTagArray and ScheduledQueryTagArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryTagArrayInput` via:
 //
-//          ScheduledQueryTagArray{ ScheduledQueryTagArgs{...} }
+//	ScheduledQueryTagArray{ ScheduledQueryTagArgs{...} }
 type ScheduledQueryTagArrayInput interface {
 	pulumi.Input
 
@@ -1657,7 +1657,7 @@ type ScheduledQueryTargetConfiguration struct {
 // ScheduledQueryTargetConfigurationInput is an input type that accepts ScheduledQueryTargetConfigurationArgs and ScheduledQueryTargetConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryTargetConfigurationInput` via:
 //
-//          ScheduledQueryTargetConfigurationArgs{...}
+//	ScheduledQueryTargetConfigurationArgs{...}
 type ScheduledQueryTargetConfigurationInput interface {
 	pulumi.Input
 
@@ -1693,11 +1693,11 @@ func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurati
 // ScheduledQueryTargetConfigurationPtrInput is an input type that accepts ScheduledQueryTargetConfigurationArgs, ScheduledQueryTargetConfigurationPtr and ScheduledQueryTargetConfigurationPtrOutput values.
 // You can construct a concrete instance of `ScheduledQueryTargetConfigurationPtrInput` via:
 //
-//          ScheduledQueryTargetConfigurationArgs{...}
+//	        ScheduledQueryTargetConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledQueryTargetConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1801,7 +1801,7 @@ type ScheduledQueryTimestreamConfiguration struct {
 // ScheduledQueryTimestreamConfigurationInput is an input type that accepts ScheduledQueryTimestreamConfigurationArgs and ScheduledQueryTimestreamConfigurationOutput values.
 // You can construct a concrete instance of `ScheduledQueryTimestreamConfigurationInput` via:
 //
-//          ScheduledQueryTimestreamConfigurationArgs{...}
+//	ScheduledQueryTimestreamConfigurationArgs{...}
 type ScheduledQueryTimestreamConfigurationInput interface {
 	pulumi.Input
 
@@ -1843,11 +1843,11 @@ func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamCon
 // ScheduledQueryTimestreamConfigurationPtrInput is an input type that accepts ScheduledQueryTimestreamConfigurationArgs, ScheduledQueryTimestreamConfigurationPtr and ScheduledQueryTimestreamConfigurationPtrOutput values.
 // You can construct a concrete instance of `ScheduledQueryTimestreamConfigurationPtrInput` via:
 //
-//          ScheduledQueryTimestreamConfigurationArgs{...}
+//	        ScheduledQueryTimestreamConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledQueryTimestreamConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2028,7 +2028,7 @@ type TableTag struct {
 // TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
 // You can construct a concrete instance of `TableTagInput` via:
 //
-//          TableTagArgs{...}
+//	TableTagArgs{...}
 type TableTagInput interface {
 	pulumi.Input
 
@@ -2057,7 +2057,7 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
-//          TableTagArray{ TableTagArgs{...} }
+//	TableTagArray{ TableTagArgs{...} }
 type TableTagArrayInput interface {
 	pulumi.Input
 

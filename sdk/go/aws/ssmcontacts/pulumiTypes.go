@@ -21,7 +21,7 @@ type ContactChannelTargetInfo struct {
 // ContactChannelTargetInfoInput is an input type that accepts ContactChannelTargetInfoArgs and ContactChannelTargetInfoOutput values.
 // You can construct a concrete instance of `ContactChannelTargetInfoInput` via:
 //
-//          ContactChannelTargetInfoArgs{...}
+//	ContactChannelTargetInfoArgs{...}
 type ContactChannelTargetInfoInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i ContactChannelTargetInfoArgs) ToContactChannelTargetInfoPtrOutputWithCon
 // ContactChannelTargetInfoPtrInput is an input type that accepts ContactChannelTargetInfoArgs, ContactChannelTargetInfoPtr and ContactChannelTargetInfoPtrOutput values.
 // You can construct a concrete instance of `ContactChannelTargetInfoPtrInput` via:
 //
-//          ContactChannelTargetInfoArgs{...}
+//	        ContactChannelTargetInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContactChannelTargetInfoPtrInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ type ContactStage struct {
 // ContactStageInput is an input type that accepts ContactStageArgs and ContactStageOutput values.
 // You can construct a concrete instance of `ContactStageInput` via:
 //
-//          ContactStageArgs{...}
+//	ContactStageArgs{...}
 type ContactStageInput interface {
 	pulumi.Input
 
@@ -211,7 +211,7 @@ func (i ContactStageArgs) ToContactStageOutputWithContext(ctx context.Context) C
 // ContactStageArrayInput is an input type that accepts ContactStageArray and ContactStageArrayOutput values.
 // You can construct a concrete instance of `ContactStageArrayInput` via:
 //
-//          ContactStageArray{ ContactStageArgs{...} }
+//	ContactStageArray{ ContactStageArgs{...} }
 type ContactStageArrayInput interface {
 	pulumi.Input
 
@@ -289,7 +289,7 @@ type ContactTargetInfo struct {
 // ContactTargetInfoInput is an input type that accepts ContactTargetInfoArgs and ContactTargetInfoOutput values.
 // You can construct a concrete instance of `ContactTargetInfoInput` via:
 //
-//          ContactTargetInfoArgs{...}
+//	ContactTargetInfoArgs{...}
 type ContactTargetInfoInput interface {
 	pulumi.Input
 
@@ -328,11 +328,11 @@ func (i ContactTargetInfoArgs) ToContactTargetInfoPtrOutputWithContext(ctx conte
 // ContactTargetInfoPtrInput is an input type that accepts ContactTargetInfoArgs, ContactTargetInfoPtr and ContactTargetInfoPtrOutput values.
 // You can construct a concrete instance of `ContactTargetInfoPtrInput` via:
 //
-//          ContactTargetInfoArgs{...}
+//	        ContactTargetInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContactTargetInfoPtrInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type ContactTargets struct {
 // ContactTargetsInput is an input type that accepts ContactTargetsArgs and ContactTargetsOutput values.
 // You can construct a concrete instance of `ContactTargetsInput` via:
 //
-//          ContactTargetsArgs{...}
+//	ContactTargetsArgs{...}
 type ContactTargetsInput interface {
 	pulumi.Input
 
@@ -475,7 +475,7 @@ func (i ContactTargetsArgs) ToContactTargetsOutputWithContext(ctx context.Contex
 // ContactTargetsArrayInput is an input type that accepts ContactTargetsArray and ContactTargetsArrayOutput values.
 // You can construct a concrete instance of `ContactTargetsArrayInput` via:
 //
-//          ContactTargetsArray{ ContactTargetsArgs{...} }
+//	ContactTargetsArray{ ContactTargetsArgs{...} }
 type ContactTargetsArrayInput interface {
 	pulumi.Input
 

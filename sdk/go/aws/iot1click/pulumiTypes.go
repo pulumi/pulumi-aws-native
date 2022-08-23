@@ -18,7 +18,7 @@ type ProjectPlacementTemplate struct {
 // ProjectPlacementTemplateInput is an input type that accepts ProjectPlacementTemplateArgs and ProjectPlacementTemplateOutput values.
 // You can construct a concrete instance of `ProjectPlacementTemplateInput` via:
 //
-//          ProjectPlacementTemplateArgs{...}
+//	ProjectPlacementTemplateArgs{...}
 type ProjectPlacementTemplateInput interface {
 	pulumi.Input
 

@@ -231,7 +231,7 @@ func (o AssessmentReportDestinationTypePtrOutput) ToStringPtrOutputWithContext(c
 // AssessmentReportDestinationTypeInput is an input type that accepts AssessmentReportDestinationTypeArgs and AssessmentReportDestinationTypeOutput values.
 // You can construct a concrete instance of `AssessmentReportDestinationTypeInput` via:
 //
-//          AssessmentReportDestinationTypeArgs{...}
+//	AssessmentReportDestinationTypeArgs{...}
 type AssessmentReportDestinationTypeInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ func (in *assessmentReportDestinationTypePtr) ToAssessmentReportDestinationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentReportDestinationTypePtrOutput)
 }
 
-//  The IAM role type.
+// The IAM role type.
 type AssessmentRoleType string
 
 const (
@@ -396,7 +396,7 @@ func (o AssessmentRoleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AssessmentRoleTypeInput is an input type that accepts AssessmentRoleTypeArgs and AssessmentRoleTypeOutput values.
 // You can construct a concrete instance of `AssessmentRoleTypeInput` via:
 //
-//          AssessmentRoleTypeArgs{...}
+//	AssessmentRoleTypeArgs{...}
 type AssessmentRoleTypeInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ func (o AssessmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
 // You can construct a concrete instance of `AssessmentStatusInput` via:
 //
-//          AssessmentStatusArgs{...}
+//	AssessmentStatusArgs{...}
 type AssessmentStatusInput interface {
 	pulumi.Input
 

@@ -184,6 +184,9 @@ __all__ = [
     'OfflineStoreConfigProperties',
     'OnlineStoreConfigProperties',
     'ParallelismConfigurationProperties',
+    'PipelineDefinition0Properties',
+    'PipelineDefinition1Properties',
+    'PipelineS3Location',
     'PipelineTag',
     'ProjectProvisioningParameter',
     'ProjectTag',
@@ -8962,6 +8965,140 @@ class ParallelismConfigurationProperties(dict):
         Maximum parallel execution steps
         """
         return pulumi.get(self, "max_parallel_execution_steps")
+
+
+@pulumi.output_type
+class PipelineDefinition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineDefinitionBody":
+            suggest = "pipeline_definition_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineDefinition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineDefinition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineDefinition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_definition_body: str):
+        """
+        :param str pipeline_definition_body: A specification that defines the pipeline in JSON format.
+        """
+        pulumi.set(__self__, "pipeline_definition_body", pipeline_definition_body)
+
+    @property
+    @pulumi.getter(name="pipelineDefinitionBody")
+    def pipeline_definition_body(self) -> str:
+        """
+        A specification that defines the pipeline in JSON format.
+        """
+        return pulumi.get(self, "pipeline_definition_body")
+
+
+@pulumi.output_type
+class PipelineDefinition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineDefinitionS3Location":
+            suggest = "pipeline_definition_s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineDefinition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineDefinition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineDefinition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_definition_s3_location: 'outputs.PipelineS3Location'):
+        pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
+
+    @property
+    @pulumi.getter(name="pipelineDefinitionS3Location")
+    def pipeline_definition_s3_location(self) -> 'outputs.PipelineS3Location':
+        return pulumi.get(self, "pipeline_definition_s3_location")
+
+
+@pulumi.output_type
+class PipelineS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eTag":
+            suggest = "e_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 key: str,
+                 e_tag: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str bucket: The name of the S3 bucket where the PipelineDefinition file is stored.
+        :param str key: The file name of the PipelineDefinition file (Amazon S3 object name).
+        :param str e_tag: The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+        :param str version: For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The name of the S3 bucket where the PipelineDefinition file is stored.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The file name of the PipelineDefinition file (Amazon S3 object name).
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

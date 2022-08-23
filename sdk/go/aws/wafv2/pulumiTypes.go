@@ -18,7 +18,7 @@ type IPSetTag struct {
 // IPSetTagInput is an input type that accepts IPSetTagArgs and IPSetTagOutput values.
 // You can construct a concrete instance of `IPSetTagInput` via:
 //
-//          IPSetTagArgs{...}
+//	IPSetTagArgs{...}
 type IPSetTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i IPSetTagArgs) ToIPSetTagOutputWithContext(ctx context.Context) IPSetTagO
 // IPSetTagArrayInput is an input type that accepts IPSetTagArray and IPSetTagArrayOutput values.
 // You can construct a concrete instance of `IPSetTagArrayInput` via:
 //
-//          IPSetTagArray{ IPSetTagArgs{...} }
+//	IPSetTagArray{ IPSetTagArgs{...} }
 type IPSetTagArrayInput interface {
 	pulumi.Input
 
@@ -120,7 +120,7 @@ type LoggingConfigurationCondition struct {
 // LoggingConfigurationConditionInput is an input type that accepts LoggingConfigurationConditionArgs and LoggingConfigurationConditionOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionInput` via:
 //
-//          LoggingConfigurationConditionArgs{...}
+//	LoggingConfigurationConditionArgs{...}
 type LoggingConfigurationConditionInput interface {
 	pulumi.Input
 
@@ -150,7 +150,7 @@ func (i LoggingConfigurationConditionArgs) ToLoggingConfigurationConditionOutput
 // LoggingConfigurationConditionArrayInput is an input type that accepts LoggingConfigurationConditionArray and LoggingConfigurationConditionArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionArrayInput` via:
 //
-//          LoggingConfigurationConditionArray{ LoggingConfigurationConditionArgs{...} }
+//	LoggingConfigurationConditionArray{ LoggingConfigurationConditionArgs{...} }
 type LoggingConfigurationConditionArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ type LoggingConfigurationConditionActionConditionProperties struct {
 // LoggingConfigurationConditionActionConditionPropertiesInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesArgs and LoggingConfigurationConditionActionConditionPropertiesOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesInput` via:
 //
-//          LoggingConfigurationConditionActionConditionPropertiesArgs{...}
+//	LoggingConfigurationConditionActionConditionPropertiesArgs{...}
 type LoggingConfigurationConditionActionConditionPropertiesInput interface {
 	pulumi.Input
 
@@ -266,11 +266,11 @@ func (i LoggingConfigurationConditionActionConditionPropertiesArgs) ToLoggingCon
 // LoggingConfigurationConditionActionConditionPropertiesPtrInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesArgs, LoggingConfigurationConditionActionConditionPropertiesPtr and LoggingConfigurationConditionActionConditionPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesPtrInput` via:
 //
-//          LoggingConfigurationConditionActionConditionPropertiesArgs{...}
+//	        LoggingConfigurationConditionActionConditionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingConfigurationConditionActionConditionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -371,7 +371,7 @@ type LoggingConfigurationConditionLabelNameConditionProperties struct {
 // LoggingConfigurationConditionLabelNameConditionPropertiesInput is an input type that accepts LoggingConfigurationConditionLabelNameConditionPropertiesArgs and LoggingConfigurationConditionLabelNameConditionPropertiesOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionLabelNameConditionPropertiesInput` via:
 //
-//          LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
+//	LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
 type LoggingConfigurationConditionLabelNameConditionPropertiesInput interface {
 	pulumi.Input
 
@@ -408,11 +408,11 @@ func (i LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ToLogging
 // LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput is an input type that accepts LoggingConfigurationConditionLabelNameConditionPropertiesArgs, LoggingConfigurationConditionLabelNameConditionPropertiesPtr and LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput` via:
 //
-//          LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
+//	        LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ type LoggingConfigurationFieldToMatch struct {
 // LoggingConfigurationFieldToMatchInput is an input type that accepts LoggingConfigurationFieldToMatchArgs and LoggingConfigurationFieldToMatchOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchInput` via:
 //
-//          LoggingConfigurationFieldToMatchArgs{...}
+//	LoggingConfigurationFieldToMatchArgs{...}
 type LoggingConfigurationFieldToMatchInput interface {
 	pulumi.Input
 
@@ -556,7 +556,7 @@ func (i LoggingConfigurationFieldToMatchArgs) ToLoggingConfigurationFieldToMatch
 // LoggingConfigurationFieldToMatchArrayInput is an input type that accepts LoggingConfigurationFieldToMatchArray and LoggingConfigurationFieldToMatchArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchArrayInput` via:
 //
-//          LoggingConfigurationFieldToMatchArray{ LoggingConfigurationFieldToMatchArgs{...} }
+//	LoggingConfigurationFieldToMatchArray{ LoggingConfigurationFieldToMatchArgs{...} }
 type LoggingConfigurationFieldToMatchArrayInput interface {
 	pulumi.Input
 
@@ -655,7 +655,7 @@ type LoggingConfigurationFieldToMatchJsonBodyProperties struct {
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesInput interface {
 	pulumi.Input
 
@@ -696,11 +696,11 @@ func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigu
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
+//	        LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -837,7 +837,7 @@ type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties st
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput interface {
 	pulumi.Input
 
@@ -876,11 +876,11 @@ func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
+//	        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -998,7 +998,7 @@ type LoggingConfigurationFieldToMatchSingleHeaderProperties struct {
 // LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs and LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput` via:
 //
-//          LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
+//	LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
 type LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput interface {
 	pulumi.Input
 
@@ -1035,11 +1035,11 @@ func (i LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ToLoggingCon
 // LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs, LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtr and LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput` via:
 //
-//          LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
+//	        LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1141,7 +1141,7 @@ type LoggingConfigurationFilter struct {
 // LoggingConfigurationFilterInput is an input type that accepts LoggingConfigurationFilterArgs and LoggingConfigurationFilterOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFilterInput` via:
 //
-//          LoggingConfigurationFilterArgs{...}
+//	LoggingConfigurationFilterArgs{...}
 type LoggingConfigurationFilterInput interface {
 	pulumi.Input
 
@@ -1173,7 +1173,7 @@ func (i LoggingConfigurationFilterArgs) ToLoggingConfigurationFilterOutputWithCo
 // LoggingConfigurationFilterArrayInput is an input type that accepts LoggingConfigurationFilterArray and LoggingConfigurationFilterArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFilterArrayInput` via:
 //
-//          LoggingConfigurationFilterArray{ LoggingConfigurationFilterArgs{...} }
+//	LoggingConfigurationFilterArray{ LoggingConfigurationFilterArgs{...} }
 type LoggingConfigurationFilterArrayInput interface {
 	pulumi.Input
 
@@ -1255,7 +1255,7 @@ type LoggingFilterProperties struct {
 // LoggingFilterPropertiesInput is an input type that accepts LoggingFilterPropertiesArgs and LoggingFilterPropertiesOutput values.
 // You can construct a concrete instance of `LoggingFilterPropertiesInput` via:
 //
-//          LoggingFilterPropertiesArgs{...}
+//	LoggingFilterPropertiesArgs{...}
 type LoggingFilterPropertiesInput interface {
 	pulumi.Input
 
@@ -1294,11 +1294,11 @@ func (i LoggingFilterPropertiesArgs) ToLoggingFilterPropertiesPtrOutputWithConte
 // LoggingFilterPropertiesPtrInput is an input type that accepts LoggingFilterPropertiesArgs, LoggingFilterPropertiesPtr and LoggingFilterPropertiesPtrOutput values.
 // You can construct a concrete instance of `LoggingFilterPropertiesPtrInput` via:
 //
-//          LoggingFilterPropertiesArgs{...}
+//	        LoggingFilterPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggingFilterPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1413,7 +1413,7 @@ type RegexPatternSetTag struct {
 // RegexPatternSetTagInput is an input type that accepts RegexPatternSetTagArgs and RegexPatternSetTagOutput values.
 // You can construct a concrete instance of `RegexPatternSetTagInput` via:
 //
-//          RegexPatternSetTagArgs{...}
+//	RegexPatternSetTagArgs{...}
 type RegexPatternSetTagInput interface {
 	pulumi.Input
 
@@ -1441,7 +1441,7 @@ func (i RegexPatternSetTagArgs) ToRegexPatternSetTagOutputWithContext(ctx contex
 // RegexPatternSetTagArrayInput is an input type that accepts RegexPatternSetTagArray and RegexPatternSetTagArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetTagArrayInput` via:
 //
-//          RegexPatternSetTagArray{ RegexPatternSetTagArgs{...} }
+//	RegexPatternSetTagArray{ RegexPatternSetTagArgs{...} }
 type RegexPatternSetTagArrayInput interface {
 	pulumi.Input
 
@@ -1512,7 +1512,7 @@ type RuleGroupAndStatement struct {
 // RuleGroupAndStatementInput is an input type that accepts RuleGroupAndStatementArgs and RuleGroupAndStatementOutput values.
 // You can construct a concrete instance of `RuleGroupAndStatementInput` via:
 //
-//          RuleGroupAndStatementArgs{...}
+//	RuleGroupAndStatementArgs{...}
 type RuleGroupAndStatementInput interface {
 	pulumi.Input
 
@@ -1547,11 +1547,11 @@ func (i RuleGroupAndStatementArgs) ToRuleGroupAndStatementPtrOutputWithContext(c
 // RuleGroupAndStatementPtrInput is an input type that accepts RuleGroupAndStatementArgs, RuleGroupAndStatementPtr and RuleGroupAndStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupAndStatementPtrInput` via:
 //
-//          RuleGroupAndStatementArgs{...}
+//	        RuleGroupAndStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupAndStatementPtrInput interface {
 	pulumi.Input
 
@@ -1646,7 +1646,7 @@ type RuleGroupBody struct {
 // RuleGroupBodyInput is an input type that accepts RuleGroupBodyArgs and RuleGroupBodyOutput values.
 // You can construct a concrete instance of `RuleGroupBodyInput` via:
 //
-//          RuleGroupBodyArgs{...}
+//	RuleGroupBodyArgs{...}
 type RuleGroupBodyInput interface {
 	pulumi.Input
 
@@ -1682,11 +1682,11 @@ func (i RuleGroupBodyArgs) ToRuleGroupBodyPtrOutputWithContext(ctx context.Conte
 // RuleGroupBodyPtrInput is an input type that accepts RuleGroupBodyArgs, RuleGroupBodyPtr and RuleGroupBodyPtrOutput values.
 // You can construct a concrete instance of `RuleGroupBodyPtrInput` via:
 //
-//          RuleGroupBodyArgs{...}
+//	        RuleGroupBodyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupBodyPtrInput interface {
 	pulumi.Input
 
@@ -1786,7 +1786,7 @@ type RuleGroupByteMatchStatement struct {
 // RuleGroupByteMatchStatementInput is an input type that accepts RuleGroupByteMatchStatementArgs and RuleGroupByteMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupByteMatchStatementInput` via:
 //
-//          RuleGroupByteMatchStatementArgs{...}
+//	RuleGroupByteMatchStatementArgs{...}
 type RuleGroupByteMatchStatementInput interface {
 	pulumi.Input
 
@@ -1826,11 +1826,11 @@ func (i RuleGroupByteMatchStatementArgs) ToRuleGroupByteMatchStatementPtrOutputW
 // RuleGroupByteMatchStatementPtrInput is an input type that accepts RuleGroupByteMatchStatementArgs, RuleGroupByteMatchStatementPtr and RuleGroupByteMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupByteMatchStatementPtrInput` via:
 //
-//          RuleGroupByteMatchStatementArgs{...}
+//	        RuleGroupByteMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupByteMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -1977,7 +1977,7 @@ type RuleGroupCaptchaConfig struct {
 // RuleGroupCaptchaConfigInput is an input type that accepts RuleGroupCaptchaConfigArgs and RuleGroupCaptchaConfigOutput values.
 // You can construct a concrete instance of `RuleGroupCaptchaConfigInput` via:
 //
-//          RuleGroupCaptchaConfigArgs{...}
+//	RuleGroupCaptchaConfigArgs{...}
 type RuleGroupCaptchaConfigInput interface {
 	pulumi.Input
 
@@ -2012,11 +2012,11 @@ func (i RuleGroupCaptchaConfigArgs) ToRuleGroupCaptchaConfigPtrOutputWithContext
 // RuleGroupCaptchaConfigPtrInput is an input type that accepts RuleGroupCaptchaConfigArgs, RuleGroupCaptchaConfigPtr and RuleGroupCaptchaConfigPtrOutput values.
 // You can construct a concrete instance of `RuleGroupCaptchaConfigPtrInput` via:
 //
-//          RuleGroupCaptchaConfigArgs{...}
+//	        RuleGroupCaptchaConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCaptchaConfigPtrInput interface {
 	pulumi.Input
 
@@ -2114,7 +2114,7 @@ type RuleGroupCookieMatchPattern struct {
 // RuleGroupCookieMatchPatternInput is an input type that accepts RuleGroupCookieMatchPatternArgs and RuleGroupCookieMatchPatternOutput values.
 // You can construct a concrete instance of `RuleGroupCookieMatchPatternInput` via:
 //
-//          RuleGroupCookieMatchPatternArgs{...}
+//	RuleGroupCookieMatchPatternArgs{...}
 type RuleGroupCookieMatchPatternInput interface {
 	pulumi.Input
 
@@ -2153,11 +2153,11 @@ func (i RuleGroupCookieMatchPatternArgs) ToRuleGroupCookieMatchPatternPtrOutputW
 // RuleGroupCookieMatchPatternPtrInput is an input type that accepts RuleGroupCookieMatchPatternArgs, RuleGroupCookieMatchPatternPtr and RuleGroupCookieMatchPatternPtrOutput values.
 // You can construct a concrete instance of `RuleGroupCookieMatchPatternPtrInput` via:
 //
-//          RuleGroupCookieMatchPatternArgs{...}
+//	        RuleGroupCookieMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCookieMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -2283,7 +2283,7 @@ type RuleGroupCookies struct {
 // RuleGroupCookiesInput is an input type that accepts RuleGroupCookiesArgs and RuleGroupCookiesOutput values.
 // You can construct a concrete instance of `RuleGroupCookiesInput` via:
 //
-//          RuleGroupCookiesArgs{...}
+//	RuleGroupCookiesArgs{...}
 type RuleGroupCookiesInput interface {
 	pulumi.Input
 
@@ -2321,11 +2321,11 @@ func (i RuleGroupCookiesArgs) ToRuleGroupCookiesPtrOutputWithContext(ctx context
 // RuleGroupCookiesPtrInput is an input type that accepts RuleGroupCookiesArgs, RuleGroupCookiesPtr and RuleGroupCookiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupCookiesPtrInput` via:
 //
-//          RuleGroupCookiesArgs{...}
+//	        RuleGroupCookiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCookiesPtrInput interface {
 	pulumi.Input
 
@@ -2448,7 +2448,7 @@ type RuleGroupCustomHTTPHeader struct {
 // RuleGroupCustomHTTPHeaderInput is an input type that accepts RuleGroupCustomHTTPHeaderArgs and RuleGroupCustomHTTPHeaderOutput values.
 // You can construct a concrete instance of `RuleGroupCustomHTTPHeaderInput` via:
 //
-//          RuleGroupCustomHTTPHeaderArgs{...}
+//	RuleGroupCustomHTTPHeaderArgs{...}
 type RuleGroupCustomHTTPHeaderInput interface {
 	pulumi.Input
 
@@ -2477,7 +2477,7 @@ func (i RuleGroupCustomHTTPHeaderArgs) ToRuleGroupCustomHTTPHeaderOutputWithCont
 // RuleGroupCustomHTTPHeaderArrayInput is an input type that accepts RuleGroupCustomHTTPHeaderArray and RuleGroupCustomHTTPHeaderArrayOutput values.
 // You can construct a concrete instance of `RuleGroupCustomHTTPHeaderArrayInput` via:
 //
-//          RuleGroupCustomHTTPHeaderArray{ RuleGroupCustomHTTPHeaderArgs{...} }
+//	RuleGroupCustomHTTPHeaderArray{ RuleGroupCustomHTTPHeaderArgs{...} }
 type RuleGroupCustomHTTPHeaderArrayInput interface {
 	pulumi.Input
 
@@ -2551,7 +2551,7 @@ type RuleGroupCustomRequestHandling struct {
 // RuleGroupCustomRequestHandlingInput is an input type that accepts RuleGroupCustomRequestHandlingArgs and RuleGroupCustomRequestHandlingOutput values.
 // You can construct a concrete instance of `RuleGroupCustomRequestHandlingInput` via:
 //
-//          RuleGroupCustomRequestHandlingArgs{...}
+//	RuleGroupCustomRequestHandlingArgs{...}
 type RuleGroupCustomRequestHandlingInput interface {
 	pulumi.Input
 
@@ -2588,11 +2588,11 @@ func (i RuleGroupCustomRequestHandlingArgs) ToRuleGroupCustomRequestHandlingPtrO
 // RuleGroupCustomRequestHandlingPtrInput is an input type that accepts RuleGroupCustomRequestHandlingArgs, RuleGroupCustomRequestHandlingPtr and RuleGroupCustomRequestHandlingPtrOutput values.
 // You can construct a concrete instance of `RuleGroupCustomRequestHandlingPtrInput` via:
 //
-//          RuleGroupCustomRequestHandlingArgs{...}
+//	        RuleGroupCustomRequestHandlingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCustomRequestHandlingPtrInput interface {
 	pulumi.Input
 
@@ -2694,7 +2694,7 @@ type RuleGroupCustomResponse struct {
 // RuleGroupCustomResponseInput is an input type that accepts RuleGroupCustomResponseArgs and RuleGroupCustomResponseOutput values.
 // You can construct a concrete instance of `RuleGroupCustomResponseInput` via:
 //
-//          RuleGroupCustomResponseArgs{...}
+//	RuleGroupCustomResponseArgs{...}
 type RuleGroupCustomResponseInput interface {
 	pulumi.Input
 
@@ -2734,11 +2734,11 @@ func (i RuleGroupCustomResponseArgs) ToRuleGroupCustomResponsePtrOutputWithConte
 // RuleGroupCustomResponsePtrInput is an input type that accepts RuleGroupCustomResponseArgs, RuleGroupCustomResponsePtr and RuleGroupCustomResponsePtrOutput values.
 // You can construct a concrete instance of `RuleGroupCustomResponsePtrInput` via:
 //
-//          RuleGroupCustomResponseArgs{...}
+//	        RuleGroupCustomResponseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCustomResponsePtrInput interface {
 	pulumi.Input
 
@@ -2863,7 +2863,7 @@ type RuleGroupCustomResponseBodies struct {
 // RuleGroupCustomResponseBodiesInput is an input type that accepts RuleGroupCustomResponseBodiesArgs and RuleGroupCustomResponseBodiesOutput values.
 // You can construct a concrete instance of `RuleGroupCustomResponseBodiesInput` via:
 //
-//          RuleGroupCustomResponseBodiesArgs{...}
+//	RuleGroupCustomResponseBodiesArgs{...}
 type RuleGroupCustomResponseBodiesInput interface {
 	pulumi.Input
 
@@ -2898,11 +2898,11 @@ func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesPtrOut
 // RuleGroupCustomResponseBodiesPtrInput is an input type that accepts RuleGroupCustomResponseBodiesArgs, RuleGroupCustomResponseBodiesPtr and RuleGroupCustomResponseBodiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupCustomResponseBodiesPtrInput` via:
 //
-//          RuleGroupCustomResponseBodiesArgs{...}
+//	        RuleGroupCustomResponseBodiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupCustomResponseBodiesPtrInput interface {
 	pulumi.Input
 
@@ -2999,7 +2999,7 @@ type RuleGroupFieldToMatch struct {
 // RuleGroupFieldToMatchInput is an input type that accepts RuleGroupFieldToMatchArgs and RuleGroupFieldToMatchOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchInput` via:
 //
-//          RuleGroupFieldToMatchArgs{...}
+//	RuleGroupFieldToMatchArgs{...}
 type RuleGroupFieldToMatchInput interface {
 	pulumi.Input
 
@@ -3049,11 +3049,11 @@ func (i RuleGroupFieldToMatchArgs) ToRuleGroupFieldToMatchPtrOutputWithContext(c
 // RuleGroupFieldToMatchPtrInput is an input type that accepts RuleGroupFieldToMatchArgs, RuleGroupFieldToMatchPtr and RuleGroupFieldToMatchPtrOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchPtrInput` via:
 //
-//          RuleGroupFieldToMatchArgs{...}
+//	        RuleGroupFieldToMatchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupFieldToMatchPtrInput interface {
 	pulumi.Input
 
@@ -3277,7 +3277,7 @@ type RuleGroupFieldToMatchSingleHeaderProperties struct {
 // RuleGroupFieldToMatchSingleHeaderPropertiesInput is an input type that accepts RuleGroupFieldToMatchSingleHeaderPropertiesArgs and RuleGroupFieldToMatchSingleHeaderPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchSingleHeaderPropertiesInput` via:
 //
-//          RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
+//	RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
 type RuleGroupFieldToMatchSingleHeaderPropertiesInput interface {
 	pulumi.Input
 
@@ -3312,11 +3312,11 @@ func (i RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ToRuleGroupFieldToMatch
 // RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts RuleGroupFieldToMatchSingleHeaderPropertiesArgs, RuleGroupFieldToMatchSingleHeaderPropertiesPtr and RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput` via:
 //
-//          RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
+//	        RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3411,7 +3411,7 @@ type RuleGroupFieldToMatchSingleQueryArgumentProperties struct {
 // RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput is an input type that accepts RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs and RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput` via:
 //
-//          RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//	RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
 type RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput interface {
 	pulumi.Input
 
@@ -3447,11 +3447,11 @@ func (i RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ToRuleGroupField
 // RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput is an input type that accepts RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs, RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtr and RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput` via:
 //
-//          RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//	        RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -3547,7 +3547,7 @@ type RuleGroupForwardedIPConfiguration struct {
 // RuleGroupForwardedIPConfigurationInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs and RuleGroupForwardedIPConfigurationOutput values.
 // You can construct a concrete instance of `RuleGroupForwardedIPConfigurationInput` via:
 //
-//          RuleGroupForwardedIPConfigurationArgs{...}
+//	RuleGroupForwardedIPConfigurationArgs{...}
 type RuleGroupForwardedIPConfigurationInput interface {
 	pulumi.Input
 
@@ -3583,11 +3583,11 @@ func (i RuleGroupForwardedIPConfigurationArgs) ToRuleGroupForwardedIPConfigurati
 // RuleGroupForwardedIPConfigurationPtrInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs, RuleGroupForwardedIPConfigurationPtr and RuleGroupForwardedIPConfigurationPtrOutput values.
 // You can construct a concrete instance of `RuleGroupForwardedIPConfigurationPtrInput` via:
 //
-//          RuleGroupForwardedIPConfigurationArgs{...}
+//	        RuleGroupForwardedIPConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupForwardedIPConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3697,7 +3697,7 @@ type RuleGroupGeoMatchStatement struct {
 // RuleGroupGeoMatchStatementInput is an input type that accepts RuleGroupGeoMatchStatementArgs and RuleGroupGeoMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupGeoMatchStatementInput` via:
 //
-//          RuleGroupGeoMatchStatementArgs{...}
+//	RuleGroupGeoMatchStatementArgs{...}
 type RuleGroupGeoMatchStatementInput interface {
 	pulumi.Input
 
@@ -3733,11 +3733,11 @@ func (i RuleGroupGeoMatchStatementArgs) ToRuleGroupGeoMatchStatementPtrOutputWit
 // RuleGroupGeoMatchStatementPtrInput is an input type that accepts RuleGroupGeoMatchStatementArgs, RuleGroupGeoMatchStatementPtr and RuleGroupGeoMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupGeoMatchStatementPtrInput` via:
 //
-//          RuleGroupGeoMatchStatementArgs{...}
+//	        RuleGroupGeoMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupGeoMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -3848,7 +3848,7 @@ type RuleGroupHeaderMatchPattern struct {
 // RuleGroupHeaderMatchPatternInput is an input type that accepts RuleGroupHeaderMatchPatternArgs and RuleGroupHeaderMatchPatternOutput values.
 // You can construct a concrete instance of `RuleGroupHeaderMatchPatternInput` via:
 //
-//          RuleGroupHeaderMatchPatternArgs{...}
+//	RuleGroupHeaderMatchPatternArgs{...}
 type RuleGroupHeaderMatchPatternInput interface {
 	pulumi.Input
 
@@ -3887,11 +3887,11 @@ func (i RuleGroupHeaderMatchPatternArgs) ToRuleGroupHeaderMatchPatternPtrOutputW
 // RuleGroupHeaderMatchPatternPtrInput is an input type that accepts RuleGroupHeaderMatchPatternArgs, RuleGroupHeaderMatchPatternPtr and RuleGroupHeaderMatchPatternPtrOutput values.
 // You can construct a concrete instance of `RuleGroupHeaderMatchPatternPtrInput` via:
 //
-//          RuleGroupHeaderMatchPatternArgs{...}
+//	        RuleGroupHeaderMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupHeaderMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -4017,7 +4017,7 @@ type RuleGroupHeaders struct {
 // RuleGroupHeadersInput is an input type that accepts RuleGroupHeadersArgs and RuleGroupHeadersOutput values.
 // You can construct a concrete instance of `RuleGroupHeadersInput` via:
 //
-//          RuleGroupHeadersArgs{...}
+//	RuleGroupHeadersArgs{...}
 type RuleGroupHeadersInput interface {
 	pulumi.Input
 
@@ -4055,11 +4055,11 @@ func (i RuleGroupHeadersArgs) ToRuleGroupHeadersPtrOutputWithContext(ctx context
 // RuleGroupHeadersPtrInput is an input type that accepts RuleGroupHeadersArgs, RuleGroupHeadersPtr and RuleGroupHeadersPtrOutput values.
 // You can construct a concrete instance of `RuleGroupHeadersPtrInput` via:
 //
-//          RuleGroupHeadersArgs{...}
+//	        RuleGroupHeadersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupHeadersPtrInput interface {
 	pulumi.Input
 
@@ -4182,7 +4182,7 @@ type RuleGroupIPSetForwardedIPConfiguration struct {
 // RuleGroupIPSetForwardedIPConfigurationInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs and RuleGroupIPSetForwardedIPConfigurationOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationInput` via:
 //
-//          RuleGroupIPSetForwardedIPConfigurationArgs{...}
+//	RuleGroupIPSetForwardedIPConfigurationArgs{...}
 type RuleGroupIPSetForwardedIPConfigurationInput interface {
 	pulumi.Input
 
@@ -4219,11 +4219,11 @@ func (i RuleGroupIPSetForwardedIPConfigurationArgs) ToRuleGroupIPSetForwardedIPC
 // RuleGroupIPSetForwardedIPConfigurationPtrInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs, RuleGroupIPSetForwardedIPConfigurationPtr and RuleGroupIPSetForwardedIPConfigurationPtrOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationPtrInput` via:
 //
-//          RuleGroupIPSetForwardedIPConfigurationArgs{...}
+//	        RuleGroupIPSetForwardedIPConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupIPSetForwardedIPConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4348,7 +4348,7 @@ type RuleGroupIPSetReferenceStatement struct {
 // RuleGroupIPSetReferenceStatementInput is an input type that accepts RuleGroupIPSetReferenceStatementArgs and RuleGroupIPSetReferenceStatementOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetReferenceStatementInput` via:
 //
-//          RuleGroupIPSetReferenceStatementArgs{...}
+//	RuleGroupIPSetReferenceStatementArgs{...}
 type RuleGroupIPSetReferenceStatementInput interface {
 	pulumi.Input
 
@@ -4384,11 +4384,11 @@ func (i RuleGroupIPSetReferenceStatementArgs) ToRuleGroupIPSetReferenceStatement
 // RuleGroupIPSetReferenceStatementPtrInput is an input type that accepts RuleGroupIPSetReferenceStatementArgs, RuleGroupIPSetReferenceStatementPtr and RuleGroupIPSetReferenceStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetReferenceStatementPtrInput` via:
 //
-//          RuleGroupIPSetReferenceStatementArgs{...}
+//	        RuleGroupIPSetReferenceStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupIPSetReferenceStatementPtrInput interface {
 	pulumi.Input
 
@@ -4497,7 +4497,7 @@ type RuleGroupImmunityTimeProperty struct {
 // RuleGroupImmunityTimePropertyInput is an input type that accepts RuleGroupImmunityTimePropertyArgs and RuleGroupImmunityTimePropertyOutput values.
 // You can construct a concrete instance of `RuleGroupImmunityTimePropertyInput` via:
 //
-//          RuleGroupImmunityTimePropertyArgs{...}
+//	RuleGroupImmunityTimePropertyArgs{...}
 type RuleGroupImmunityTimePropertyInput interface {
 	pulumi.Input
 
@@ -4532,11 +4532,11 @@ func (i RuleGroupImmunityTimePropertyArgs) ToRuleGroupImmunityTimePropertyPtrOut
 // RuleGroupImmunityTimePropertyPtrInput is an input type that accepts RuleGroupImmunityTimePropertyArgs, RuleGroupImmunityTimePropertyPtr and RuleGroupImmunityTimePropertyPtrOutput values.
 // You can construct a concrete instance of `RuleGroupImmunityTimePropertyPtrInput` via:
 //
-//          RuleGroupImmunityTimePropertyArgs{...}
+//	        RuleGroupImmunityTimePropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupImmunityTimePropertyPtrInput interface {
 	pulumi.Input
 
@@ -4634,7 +4634,7 @@ type RuleGroupJsonBody struct {
 // RuleGroupJsonBodyInput is an input type that accepts RuleGroupJsonBodyArgs and RuleGroupJsonBodyOutput values.
 // You can construct a concrete instance of `RuleGroupJsonBodyInput` via:
 //
-//          RuleGroupJsonBodyArgs{...}
+//	RuleGroupJsonBodyArgs{...}
 type RuleGroupJsonBodyInput interface {
 	pulumi.Input
 
@@ -4673,11 +4673,11 @@ func (i RuleGroupJsonBodyArgs) ToRuleGroupJsonBodyPtrOutputWithContext(ctx conte
 // RuleGroupJsonBodyPtrInput is an input type that accepts RuleGroupJsonBodyArgs, RuleGroupJsonBodyPtr and RuleGroupJsonBodyPtrOutput values.
 // You can construct a concrete instance of `RuleGroupJsonBodyPtrInput` via:
 //
-//          RuleGroupJsonBodyArgs{...}
+//	        RuleGroupJsonBodyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupJsonBodyPtrInput interface {
 	pulumi.Input
 
@@ -4814,7 +4814,7 @@ type RuleGroupJsonMatchPattern struct {
 // RuleGroupJsonMatchPatternInput is an input type that accepts RuleGroupJsonMatchPatternArgs and RuleGroupJsonMatchPatternOutput values.
 // You can construct a concrete instance of `RuleGroupJsonMatchPatternInput` via:
 //
-//          RuleGroupJsonMatchPatternArgs{...}
+//	RuleGroupJsonMatchPatternArgs{...}
 type RuleGroupJsonMatchPatternInput interface {
 	pulumi.Input
 
@@ -4852,11 +4852,11 @@ func (i RuleGroupJsonMatchPatternArgs) ToRuleGroupJsonMatchPatternPtrOutputWithC
 // RuleGroupJsonMatchPatternPtrInput is an input type that accepts RuleGroupJsonMatchPatternArgs, RuleGroupJsonMatchPatternPtr and RuleGroupJsonMatchPatternPtrOutput values.
 // You can construct a concrete instance of `RuleGroupJsonMatchPatternPtrInput` via:
 //
-//          RuleGroupJsonMatchPatternArgs{...}
+//	        RuleGroupJsonMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupJsonMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -4966,7 +4966,7 @@ type RuleGroupLabel struct {
 // RuleGroupLabelInput is an input type that accepts RuleGroupLabelArgs and RuleGroupLabelOutput values.
 // You can construct a concrete instance of `RuleGroupLabelInput` via:
 //
-//          RuleGroupLabelArgs{...}
+//	RuleGroupLabelArgs{...}
 type RuleGroupLabelInput interface {
 	pulumi.Input
 
@@ -4993,7 +4993,7 @@ func (i RuleGroupLabelArgs) ToRuleGroupLabelOutputWithContext(ctx context.Contex
 // RuleGroupLabelArrayInput is an input type that accepts RuleGroupLabelArray and RuleGroupLabelArrayOutput values.
 // You can construct a concrete instance of `RuleGroupLabelArrayInput` via:
 //
-//          RuleGroupLabelArray{ RuleGroupLabelArgs{...} }
+//	RuleGroupLabelArray{ RuleGroupLabelArgs{...} }
 type RuleGroupLabelArrayInput interface {
 	pulumi.Input
 
@@ -5061,7 +5061,7 @@ type RuleGroupLabelMatchStatement struct {
 // RuleGroupLabelMatchStatementInput is an input type that accepts RuleGroupLabelMatchStatementArgs and RuleGroupLabelMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupLabelMatchStatementInput` via:
 //
-//          RuleGroupLabelMatchStatementArgs{...}
+//	RuleGroupLabelMatchStatementArgs{...}
 type RuleGroupLabelMatchStatementInput interface {
 	pulumi.Input
 
@@ -5097,11 +5097,11 @@ func (i RuleGroupLabelMatchStatementArgs) ToRuleGroupLabelMatchStatementPtrOutpu
 // RuleGroupLabelMatchStatementPtrInput is an input type that accepts RuleGroupLabelMatchStatementArgs, RuleGroupLabelMatchStatementPtr and RuleGroupLabelMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupLabelMatchStatementPtrInput` via:
 //
-//          RuleGroupLabelMatchStatementArgs{...}
+//	        RuleGroupLabelMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupLabelMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -5250,7 +5250,7 @@ type RuleGroupNotStatement struct {
 // RuleGroupNotStatementInput is an input type that accepts RuleGroupNotStatementArgs and RuleGroupNotStatementOutput values.
 // You can construct a concrete instance of `RuleGroupNotStatementInput` via:
 //
-//          RuleGroupNotStatementArgs{...}
+//	RuleGroupNotStatementArgs{...}
 type RuleGroupNotStatementInput interface {
 	pulumi.Input
 
@@ -5285,11 +5285,11 @@ func (i RuleGroupNotStatementArgs) ToRuleGroupNotStatementPtrOutputWithContext(c
 // RuleGroupNotStatementPtrInput is an input type that accepts RuleGroupNotStatementArgs, RuleGroupNotStatementPtr and RuleGroupNotStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupNotStatementPtrInput` via:
 //
-//          RuleGroupNotStatementArgs{...}
+//	        RuleGroupNotStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupNotStatementPtrInput interface {
 	pulumi.Input
 
@@ -5383,7 +5383,7 @@ type RuleGroupOrStatement struct {
 // RuleGroupOrStatementInput is an input type that accepts RuleGroupOrStatementArgs and RuleGroupOrStatementOutput values.
 // You can construct a concrete instance of `RuleGroupOrStatementInput` via:
 //
-//          RuleGroupOrStatementArgs{...}
+//	RuleGroupOrStatementArgs{...}
 type RuleGroupOrStatementInput interface {
 	pulumi.Input
 
@@ -5418,11 +5418,11 @@ func (i RuleGroupOrStatementArgs) ToRuleGroupOrStatementPtrOutputWithContext(ctx
 // RuleGroupOrStatementPtrInput is an input type that accepts RuleGroupOrStatementArgs, RuleGroupOrStatementPtr and RuleGroupOrStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupOrStatementPtrInput` via:
 //
-//          RuleGroupOrStatementArgs{...}
+//	        RuleGroupOrStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupOrStatementPtrInput interface {
 	pulumi.Input
 
@@ -5519,7 +5519,7 @@ type RuleGroupRateBasedStatement struct {
 // RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
 // You can construct a concrete instance of `RuleGroupRateBasedStatementInput` via:
 //
-//          RuleGroupRateBasedStatementArgs{...}
+//	RuleGroupRateBasedStatementArgs{...}
 type RuleGroupRateBasedStatementInput interface {
 	pulumi.Input
 
@@ -5557,11 +5557,11 @@ func (i RuleGroupRateBasedStatementArgs) ToRuleGroupRateBasedStatementPtrOutputW
 // RuleGroupRateBasedStatementPtrInput is an input type that accepts RuleGroupRateBasedStatementArgs, RuleGroupRateBasedStatementPtr and RuleGroupRateBasedStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRateBasedStatementPtrInput` via:
 //
-//          RuleGroupRateBasedStatementArgs{...}
+//	        RuleGroupRateBasedStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRateBasedStatementPtrInput interface {
 	pulumi.Input
 
@@ -5698,7 +5698,7 @@ type RuleGroupRegexMatchStatement struct {
 // RuleGroupRegexMatchStatementInput is an input type that accepts RuleGroupRegexMatchStatementArgs and RuleGroupRegexMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupRegexMatchStatementInput` via:
 //
-//          RuleGroupRegexMatchStatementArgs{...}
+//	RuleGroupRegexMatchStatementArgs{...}
 type RuleGroupRegexMatchStatementInput interface {
 	pulumi.Input
 
@@ -5735,11 +5735,11 @@ func (i RuleGroupRegexMatchStatementArgs) ToRuleGroupRegexMatchStatementPtrOutpu
 // RuleGroupRegexMatchStatementPtrInput is an input type that accepts RuleGroupRegexMatchStatementArgs, RuleGroupRegexMatchStatementPtr and RuleGroupRegexMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRegexMatchStatementPtrInput` via:
 //
-//          RuleGroupRegexMatchStatementArgs{...}
+//	        RuleGroupRegexMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRegexMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -5861,7 +5861,7 @@ type RuleGroupRegexPatternSetReferenceStatement struct {
 // RuleGroupRegexPatternSetReferenceStatementInput is an input type that accepts RuleGroupRegexPatternSetReferenceStatementArgs and RuleGroupRegexPatternSetReferenceStatementOutput values.
 // You can construct a concrete instance of `RuleGroupRegexPatternSetReferenceStatementInput` via:
 //
-//          RuleGroupRegexPatternSetReferenceStatementArgs{...}
+//	RuleGroupRegexPatternSetReferenceStatementArgs{...}
 type RuleGroupRegexPatternSetReferenceStatementInput interface {
 	pulumi.Input
 
@@ -5898,11 +5898,11 @@ func (i RuleGroupRegexPatternSetReferenceStatementArgs) ToRuleGroupRegexPatternS
 // RuleGroupRegexPatternSetReferenceStatementPtrInput is an input type that accepts RuleGroupRegexPatternSetReferenceStatementArgs, RuleGroupRegexPatternSetReferenceStatementPtr and RuleGroupRegexPatternSetReferenceStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRegexPatternSetReferenceStatementPtrInput` via:
 //
-//          RuleGroupRegexPatternSetReferenceStatementArgs{...}
+//	        RuleGroupRegexPatternSetReferenceStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRegexPatternSetReferenceStatementPtrInput interface {
 	pulumi.Input
 
@@ -6032,7 +6032,7 @@ type RuleGroupRule struct {
 // RuleGroupRuleInput is an input type that accepts RuleGroupRuleArgs and RuleGroupRuleOutput values.
 // You can construct a concrete instance of `RuleGroupRuleInput` via:
 //
-//          RuleGroupRuleArgs{...}
+//	RuleGroupRuleArgs{...}
 type RuleGroupRuleInput interface {
 	pulumi.Input
 
@@ -6067,7 +6067,7 @@ func (i RuleGroupRuleArgs) ToRuleGroupRuleOutputWithContext(ctx context.Context)
 // RuleGroupRuleArrayInput is an input type that accepts RuleGroupRuleArray and RuleGroupRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleArrayInput` via:
 //
-//          RuleGroupRuleArray{ RuleGroupRuleArgs{...} }
+//	RuleGroupRuleArray{ RuleGroupRuleArgs{...} }
 type RuleGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -6168,7 +6168,7 @@ type RuleGroupRuleAction struct {
 // RuleGroupRuleActionInput is an input type that accepts RuleGroupRuleActionArgs and RuleGroupRuleActionOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionInput` via:
 //
-//          RuleGroupRuleActionArgs{...}
+//	RuleGroupRuleActionArgs{...}
 type RuleGroupRuleActionInput interface {
 	pulumi.Input
 
@@ -6211,11 +6211,11 @@ func (i RuleGroupRuleActionArgs) ToRuleGroupRuleActionPtrOutputWithContext(ctx c
 // RuleGroupRuleActionPtrInput is an input type that accepts RuleGroupRuleActionArgs, RuleGroupRuleActionPtr and RuleGroupRuleActionPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionPtrInput` via:
 //
-//          RuleGroupRuleActionArgs{...}
+//	        RuleGroupRuleActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRuleActionPtrInput interface {
 	pulumi.Input
 
@@ -6358,7 +6358,7 @@ type RuleGroupRuleActionAllowProperties struct {
 // RuleGroupRuleActionAllowPropertiesInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs and RuleGroupRuleActionAllowPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesInput` via:
 //
-//          RuleGroupRuleActionAllowPropertiesArgs{...}
+//	RuleGroupRuleActionAllowPropertiesArgs{...}
 type RuleGroupRuleActionAllowPropertiesInput interface {
 	pulumi.Input
 
@@ -6394,11 +6394,11 @@ func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowProper
 // RuleGroupRuleActionAllowPropertiesPtrInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs, RuleGroupRuleActionAllowPropertiesPtr and RuleGroupRuleActionAllowPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesPtrInput` via:
 //
-//          RuleGroupRuleActionAllowPropertiesArgs{...}
+//	        RuleGroupRuleActionAllowPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRuleActionAllowPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6496,7 +6496,7 @@ type RuleGroupRuleActionBlockProperties struct {
 // RuleGroupRuleActionBlockPropertiesInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs and RuleGroupRuleActionBlockPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesInput` via:
 //
-//          RuleGroupRuleActionBlockPropertiesArgs{...}
+//	RuleGroupRuleActionBlockPropertiesArgs{...}
 type RuleGroupRuleActionBlockPropertiesInput interface {
 	pulumi.Input
 
@@ -6532,11 +6532,11 @@ func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockProper
 // RuleGroupRuleActionBlockPropertiesPtrInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs, RuleGroupRuleActionBlockPropertiesPtr and RuleGroupRuleActionBlockPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesPtrInput` via:
 //
-//          RuleGroupRuleActionBlockPropertiesArgs{...}
+//	        RuleGroupRuleActionBlockPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRuleActionBlockPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6632,7 +6632,7 @@ type RuleGroupRuleActionCaptchaProperties struct {
 // RuleGroupRuleActionCaptchaPropertiesInput is an input type that accepts RuleGroupRuleActionCaptchaPropertiesArgs and RuleGroupRuleActionCaptchaPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionCaptchaPropertiesInput` via:
 //
-//          RuleGroupRuleActionCaptchaPropertiesArgs{...}
+//	RuleGroupRuleActionCaptchaPropertiesArgs{...}
 type RuleGroupRuleActionCaptchaPropertiesInput interface {
 	pulumi.Input
 
@@ -6668,11 +6668,11 @@ func (i RuleGroupRuleActionCaptchaPropertiesArgs) ToRuleGroupRuleActionCaptchaPr
 // RuleGroupRuleActionCaptchaPropertiesPtrInput is an input type that accepts RuleGroupRuleActionCaptchaPropertiesArgs, RuleGroupRuleActionCaptchaPropertiesPtr and RuleGroupRuleActionCaptchaPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionCaptchaPropertiesPtrInput` via:
 //
-//          RuleGroupRuleActionCaptchaPropertiesArgs{...}
+//	        RuleGroupRuleActionCaptchaPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRuleActionCaptchaPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6770,7 +6770,7 @@ type RuleGroupRuleActionCountProperties struct {
 // RuleGroupRuleActionCountPropertiesInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs and RuleGroupRuleActionCountPropertiesOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesInput` via:
 //
-//          RuleGroupRuleActionCountPropertiesArgs{...}
+//	RuleGroupRuleActionCountPropertiesArgs{...}
 type RuleGroupRuleActionCountPropertiesInput interface {
 	pulumi.Input
 
@@ -6806,11 +6806,11 @@ func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountProper
 // RuleGroupRuleActionCountPropertiesPtrInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs, RuleGroupRuleActionCountPropertiesPtr and RuleGroupRuleActionCountPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesPtrInput` via:
 //
-//          RuleGroupRuleActionCountPropertiesArgs{...}
+//	        RuleGroupRuleActionCountPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupRuleActionCountPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6911,7 +6911,7 @@ type RuleGroupSizeConstraintStatement struct {
 // RuleGroupSizeConstraintStatementInput is an input type that accepts RuleGroupSizeConstraintStatementArgs and RuleGroupSizeConstraintStatementOutput values.
 // You can construct a concrete instance of `RuleGroupSizeConstraintStatementInput` via:
 //
-//          RuleGroupSizeConstraintStatementArgs{...}
+//	RuleGroupSizeConstraintStatementArgs{...}
 type RuleGroupSizeConstraintStatementInput interface {
 	pulumi.Input
 
@@ -6950,11 +6950,11 @@ func (i RuleGroupSizeConstraintStatementArgs) ToRuleGroupSizeConstraintStatement
 // RuleGroupSizeConstraintStatementPtrInput is an input type that accepts RuleGroupSizeConstraintStatementArgs, RuleGroupSizeConstraintStatementPtr and RuleGroupSizeConstraintStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupSizeConstraintStatementPtrInput` via:
 //
-//          RuleGroupSizeConstraintStatementArgs{...}
+//	        RuleGroupSizeConstraintStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupSizeConstraintStatementPtrInput interface {
 	pulumi.Input
 
@@ -7092,7 +7092,7 @@ type RuleGroupSqliMatchStatement struct {
 // RuleGroupSqliMatchStatementInput is an input type that accepts RuleGroupSqliMatchStatementArgs and RuleGroupSqliMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupSqliMatchStatementInput` via:
 //
-//          RuleGroupSqliMatchStatementArgs{...}
+//	RuleGroupSqliMatchStatementArgs{...}
 type RuleGroupSqliMatchStatementInput interface {
 	pulumi.Input
 
@@ -7129,11 +7129,11 @@ func (i RuleGroupSqliMatchStatementArgs) ToRuleGroupSqliMatchStatementPtrOutputW
 // RuleGroupSqliMatchStatementPtrInput is an input type that accepts RuleGroupSqliMatchStatementArgs, RuleGroupSqliMatchStatementPtr and RuleGroupSqliMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupSqliMatchStatementPtrInput` via:
 //
-//          RuleGroupSqliMatchStatementArgs{...}
+//	        RuleGroupSqliMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupSqliMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -7254,7 +7254,7 @@ type RuleGroupStatement struct {
 // RuleGroupStatementInput is an input type that accepts RuleGroupStatementArgs and RuleGroupStatementOutput values.
 // You can construct a concrete instance of `RuleGroupStatementInput` via:
 //
-//          RuleGroupStatementArgs{...}
+//	RuleGroupStatementArgs{...}
 type RuleGroupStatementInput interface {
 	pulumi.Input
 
@@ -7302,11 +7302,11 @@ func (i RuleGroupStatementArgs) ToRuleGroupStatementPtrOutputWithContext(ctx con
 // RuleGroupStatementPtrInput is an input type that accepts RuleGroupStatementArgs, RuleGroupStatementPtr and RuleGroupStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupStatementPtrInput` via:
 //
-//          RuleGroupStatementArgs{...}
+//	        RuleGroupStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupStatementPtrInput interface {
 	pulumi.Input
 
@@ -7335,7 +7335,7 @@ func (i *ruleGroupStatementPtrType) ToRuleGroupStatementPtrOutputWithContext(ctx
 // RuleGroupStatementArrayInput is an input type that accepts RuleGroupStatementArray and RuleGroupStatementArrayOutput values.
 // You can construct a concrete instance of `RuleGroupStatementArrayInput` via:
 //
-//          RuleGroupStatementArray{ RuleGroupStatementArgs{...} }
+//	RuleGroupStatementArray{ RuleGroupStatementArgs{...} }
 type RuleGroupStatementArrayInput interface {
 	pulumi.Input
 
@@ -7605,7 +7605,7 @@ type RuleGroupTag struct {
 // RuleGroupTagInput is an input type that accepts RuleGroupTagArgs and RuleGroupTagOutput values.
 // You can construct a concrete instance of `RuleGroupTagInput` via:
 //
-//          RuleGroupTagArgs{...}
+//	RuleGroupTagArgs{...}
 type RuleGroupTagInput interface {
 	pulumi.Input
 
@@ -7633,7 +7633,7 @@ func (i RuleGroupTagArgs) ToRuleGroupTagOutputWithContext(ctx context.Context) R
 // RuleGroupTagArrayInput is an input type that accepts RuleGroupTagArray and RuleGroupTagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTagArrayInput` via:
 //
-//          RuleGroupTagArray{ RuleGroupTagArgs{...} }
+//	RuleGroupTagArray{ RuleGroupTagArgs{...} }
 type RuleGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -7706,7 +7706,7 @@ type RuleGroupTextTransformation struct {
 // RuleGroupTextTransformationInput is an input type that accepts RuleGroupTextTransformationArgs and RuleGroupTextTransformationOutput values.
 // You can construct a concrete instance of `RuleGroupTextTransformationInput` via:
 //
-//          RuleGroupTextTransformationArgs{...}
+//	RuleGroupTextTransformationArgs{...}
 type RuleGroupTextTransformationInput interface {
 	pulumi.Input
 
@@ -7735,7 +7735,7 @@ func (i RuleGroupTextTransformationArgs) ToRuleGroupTextTransformationOutputWith
 // RuleGroupTextTransformationArrayInput is an input type that accepts RuleGroupTextTransformationArray and RuleGroupTextTransformationArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTextTransformationArrayInput` via:
 //
-//          RuleGroupTextTransformationArray{ RuleGroupTextTransformationArgs{...} }
+//	RuleGroupTextTransformationArray{ RuleGroupTextTransformationArgs{...} }
 type RuleGroupTextTransformationArrayInput interface {
 	pulumi.Input
 
@@ -7810,7 +7810,7 @@ type RuleGroupVisibilityConfig struct {
 // RuleGroupVisibilityConfigInput is an input type that accepts RuleGroupVisibilityConfigArgs and RuleGroupVisibilityConfigOutput values.
 // You can construct a concrete instance of `RuleGroupVisibilityConfigInput` via:
 //
-//          RuleGroupVisibilityConfigArgs{...}
+//	RuleGroupVisibilityConfigArgs{...}
 type RuleGroupVisibilityConfigInput interface {
 	pulumi.Input
 
@@ -7924,7 +7924,7 @@ type RuleGroupXssMatchStatement struct {
 // RuleGroupXssMatchStatementInput is an input type that accepts RuleGroupXssMatchStatementArgs and RuleGroupXssMatchStatementOutput values.
 // You can construct a concrete instance of `RuleGroupXssMatchStatementInput` via:
 //
-//          RuleGroupXssMatchStatementArgs{...}
+//	RuleGroupXssMatchStatementArgs{...}
 type RuleGroupXssMatchStatementInput interface {
 	pulumi.Input
 
@@ -7961,11 +7961,11 @@ func (i RuleGroupXssMatchStatementArgs) ToRuleGroupXssMatchStatementPtrOutputWit
 // RuleGroupXssMatchStatementPtrInput is an input type that accepts RuleGroupXssMatchStatementArgs, RuleGroupXssMatchStatementPtr and RuleGroupXssMatchStatementPtrOutput values.
 // You can construct a concrete instance of `RuleGroupXssMatchStatementPtrInput` via:
 //
-//          RuleGroupXssMatchStatementArgs{...}
+//	        RuleGroupXssMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleGroupXssMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -8074,7 +8074,7 @@ type WebACLAllowAction struct {
 // WebACLAllowActionInput is an input type that accepts WebACLAllowActionArgs and WebACLAllowActionOutput values.
 // You can construct a concrete instance of `WebACLAllowActionInput` via:
 //
-//          WebACLAllowActionArgs{...}
+//	WebACLAllowActionArgs{...}
 type WebACLAllowActionInput interface {
 	pulumi.Input
 
@@ -8110,11 +8110,11 @@ func (i WebACLAllowActionArgs) ToWebACLAllowActionPtrOutputWithContext(ctx conte
 // WebACLAllowActionPtrInput is an input type that accepts WebACLAllowActionArgs, WebACLAllowActionPtr and WebACLAllowActionPtrOutput values.
 // You can construct a concrete instance of `WebACLAllowActionPtrInput` via:
 //
-//          WebACLAllowActionArgs{...}
+//	        WebACLAllowActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLAllowActionPtrInput interface {
 	pulumi.Input
 
@@ -8209,7 +8209,7 @@ type WebACLAndStatement struct {
 // WebACLAndStatementInput is an input type that accepts WebACLAndStatementArgs and WebACLAndStatementOutput values.
 // You can construct a concrete instance of `WebACLAndStatementInput` via:
 //
-//          WebACLAndStatementArgs{...}
+//	WebACLAndStatementArgs{...}
 type WebACLAndStatementInput interface {
 	pulumi.Input
 
@@ -8244,11 +8244,11 @@ func (i WebACLAndStatementArgs) ToWebACLAndStatementPtrOutputWithContext(ctx con
 // WebACLAndStatementPtrInput is an input type that accepts WebACLAndStatementArgs, WebACLAndStatementPtr and WebACLAndStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLAndStatementPtrInput` via:
 //
-//          WebACLAndStatementArgs{...}
+//	        WebACLAndStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLAndStatementPtrInput interface {
 	pulumi.Input
 
@@ -8343,7 +8343,7 @@ type WebACLBlockAction struct {
 // WebACLBlockActionInput is an input type that accepts WebACLBlockActionArgs and WebACLBlockActionOutput values.
 // You can construct a concrete instance of `WebACLBlockActionInput` via:
 //
-//          WebACLBlockActionArgs{...}
+//	WebACLBlockActionArgs{...}
 type WebACLBlockActionInput interface {
 	pulumi.Input
 
@@ -8379,11 +8379,11 @@ func (i WebACLBlockActionArgs) ToWebACLBlockActionPtrOutputWithContext(ctx conte
 // WebACLBlockActionPtrInput is an input type that accepts WebACLBlockActionArgs, WebACLBlockActionPtr and WebACLBlockActionPtrOutput values.
 // You can construct a concrete instance of `WebACLBlockActionPtrInput` via:
 //
-//          WebACLBlockActionArgs{...}
+//	        WebACLBlockActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLBlockActionPtrInput interface {
 	pulumi.Input
 
@@ -8479,7 +8479,7 @@ type WebACLBody struct {
 // WebACLBodyInput is an input type that accepts WebACLBodyArgs and WebACLBodyOutput values.
 // You can construct a concrete instance of `WebACLBodyInput` via:
 //
-//          WebACLBodyArgs{...}
+//	WebACLBodyArgs{...}
 type WebACLBodyInput interface {
 	pulumi.Input
 
@@ -8515,11 +8515,11 @@ func (i WebACLBodyArgs) ToWebACLBodyPtrOutputWithContext(ctx context.Context) We
 // WebACLBodyPtrInput is an input type that accepts WebACLBodyArgs, WebACLBodyPtr and WebACLBodyPtrOutput values.
 // You can construct a concrete instance of `WebACLBodyPtrInput` via:
 //
-//          WebACLBodyArgs{...}
+//	        WebACLBodyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLBodyPtrInput interface {
 	pulumi.Input
 
@@ -8619,7 +8619,7 @@ type WebACLByteMatchStatement struct {
 // WebACLByteMatchStatementInput is an input type that accepts WebACLByteMatchStatementArgs and WebACLByteMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLByteMatchStatementInput` via:
 //
-//          WebACLByteMatchStatementArgs{...}
+//	WebACLByteMatchStatementArgs{...}
 type WebACLByteMatchStatementInput interface {
 	pulumi.Input
 
@@ -8659,11 +8659,11 @@ func (i WebACLByteMatchStatementArgs) ToWebACLByteMatchStatementPtrOutputWithCon
 // WebACLByteMatchStatementPtrInput is an input type that accepts WebACLByteMatchStatementArgs, WebACLByteMatchStatementPtr and WebACLByteMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLByteMatchStatementPtrInput` via:
 //
-//          WebACLByteMatchStatementArgs{...}
+//	        WebACLByteMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLByteMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -8811,7 +8811,7 @@ type WebACLCaptchaAction struct {
 // WebACLCaptchaActionInput is an input type that accepts WebACLCaptchaActionArgs and WebACLCaptchaActionOutput values.
 // You can construct a concrete instance of `WebACLCaptchaActionInput` via:
 //
-//          WebACLCaptchaActionArgs{...}
+//	WebACLCaptchaActionArgs{...}
 type WebACLCaptchaActionInput interface {
 	pulumi.Input
 
@@ -8847,11 +8847,11 @@ func (i WebACLCaptchaActionArgs) ToWebACLCaptchaActionPtrOutputWithContext(ctx c
 // WebACLCaptchaActionPtrInput is an input type that accepts WebACLCaptchaActionArgs, WebACLCaptchaActionPtr and WebACLCaptchaActionPtrOutput values.
 // You can construct a concrete instance of `WebACLCaptchaActionPtrInput` via:
 //
-//          WebACLCaptchaActionArgs{...}
+//	        WebACLCaptchaActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCaptchaActionPtrInput interface {
 	pulumi.Input
 
@@ -8946,7 +8946,7 @@ type WebACLCaptchaConfig struct {
 // WebACLCaptchaConfigInput is an input type that accepts WebACLCaptchaConfigArgs and WebACLCaptchaConfigOutput values.
 // You can construct a concrete instance of `WebACLCaptchaConfigInput` via:
 //
-//          WebACLCaptchaConfigArgs{...}
+//	WebACLCaptchaConfigArgs{...}
 type WebACLCaptchaConfigInput interface {
 	pulumi.Input
 
@@ -8981,11 +8981,11 @@ func (i WebACLCaptchaConfigArgs) ToWebACLCaptchaConfigPtrOutputWithContext(ctx c
 // WebACLCaptchaConfigPtrInput is an input type that accepts WebACLCaptchaConfigArgs, WebACLCaptchaConfigPtr and WebACLCaptchaConfigPtrOutput values.
 // You can construct a concrete instance of `WebACLCaptchaConfigPtrInput` via:
 //
-//          WebACLCaptchaConfigArgs{...}
+//	        WebACLCaptchaConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCaptchaConfigPtrInput interface {
 	pulumi.Input
 
@@ -9083,7 +9083,7 @@ type WebACLCookieMatchPattern struct {
 // WebACLCookieMatchPatternInput is an input type that accepts WebACLCookieMatchPatternArgs and WebACLCookieMatchPatternOutput values.
 // You can construct a concrete instance of `WebACLCookieMatchPatternInput` via:
 //
-//          WebACLCookieMatchPatternArgs{...}
+//	WebACLCookieMatchPatternArgs{...}
 type WebACLCookieMatchPatternInput interface {
 	pulumi.Input
 
@@ -9122,11 +9122,11 @@ func (i WebACLCookieMatchPatternArgs) ToWebACLCookieMatchPatternPtrOutputWithCon
 // WebACLCookieMatchPatternPtrInput is an input type that accepts WebACLCookieMatchPatternArgs, WebACLCookieMatchPatternPtr and WebACLCookieMatchPatternPtrOutput values.
 // You can construct a concrete instance of `WebACLCookieMatchPatternPtrInput` via:
 //
-//          WebACLCookieMatchPatternArgs{...}
+//	        WebACLCookieMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCookieMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -9252,7 +9252,7 @@ type WebACLCookies struct {
 // WebACLCookiesInput is an input type that accepts WebACLCookiesArgs and WebACLCookiesOutput values.
 // You can construct a concrete instance of `WebACLCookiesInput` via:
 //
-//          WebACLCookiesArgs{...}
+//	WebACLCookiesArgs{...}
 type WebACLCookiesInput interface {
 	pulumi.Input
 
@@ -9290,11 +9290,11 @@ func (i WebACLCookiesArgs) ToWebACLCookiesPtrOutputWithContext(ctx context.Conte
 // WebACLCookiesPtrInput is an input type that accepts WebACLCookiesArgs, WebACLCookiesPtr and WebACLCookiesPtrOutput values.
 // You can construct a concrete instance of `WebACLCookiesPtrInput` via:
 //
-//          WebACLCookiesArgs{...}
+//	        WebACLCookiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCookiesPtrInput interface {
 	pulumi.Input
 
@@ -9416,7 +9416,7 @@ type WebACLCountAction struct {
 // WebACLCountActionInput is an input type that accepts WebACLCountActionArgs and WebACLCountActionOutput values.
 // You can construct a concrete instance of `WebACLCountActionInput` via:
 //
-//          WebACLCountActionArgs{...}
+//	WebACLCountActionArgs{...}
 type WebACLCountActionInput interface {
 	pulumi.Input
 
@@ -9452,11 +9452,11 @@ func (i WebACLCountActionArgs) ToWebACLCountActionPtrOutputWithContext(ctx conte
 // WebACLCountActionPtrInput is an input type that accepts WebACLCountActionArgs, WebACLCountActionPtr and WebACLCountActionPtrOutput values.
 // You can construct a concrete instance of `WebACLCountActionPtrInput` via:
 //
-//          WebACLCountActionArgs{...}
+//	        WebACLCountActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCountActionPtrInput interface {
 	pulumi.Input
 
@@ -9553,7 +9553,7 @@ type WebACLCustomHTTPHeader struct {
 // WebACLCustomHTTPHeaderInput is an input type that accepts WebACLCustomHTTPHeaderArgs and WebACLCustomHTTPHeaderOutput values.
 // You can construct a concrete instance of `WebACLCustomHTTPHeaderInput` via:
 //
-//          WebACLCustomHTTPHeaderArgs{...}
+//	WebACLCustomHTTPHeaderArgs{...}
 type WebACLCustomHTTPHeaderInput interface {
 	pulumi.Input
 
@@ -9582,7 +9582,7 @@ func (i WebACLCustomHTTPHeaderArgs) ToWebACLCustomHTTPHeaderOutputWithContext(ct
 // WebACLCustomHTTPHeaderArrayInput is an input type that accepts WebACLCustomHTTPHeaderArray and WebACLCustomHTTPHeaderArrayOutput values.
 // You can construct a concrete instance of `WebACLCustomHTTPHeaderArrayInput` via:
 //
-//          WebACLCustomHTTPHeaderArray{ WebACLCustomHTTPHeaderArgs{...} }
+//	WebACLCustomHTTPHeaderArray{ WebACLCustomHTTPHeaderArgs{...} }
 type WebACLCustomHTTPHeaderArrayInput interface {
 	pulumi.Input
 
@@ -9656,7 +9656,7 @@ type WebACLCustomRequestHandling struct {
 // WebACLCustomRequestHandlingInput is an input type that accepts WebACLCustomRequestHandlingArgs and WebACLCustomRequestHandlingOutput values.
 // You can construct a concrete instance of `WebACLCustomRequestHandlingInput` via:
 //
-//          WebACLCustomRequestHandlingArgs{...}
+//	WebACLCustomRequestHandlingArgs{...}
 type WebACLCustomRequestHandlingInput interface {
 	pulumi.Input
 
@@ -9693,11 +9693,11 @@ func (i WebACLCustomRequestHandlingArgs) ToWebACLCustomRequestHandlingPtrOutputW
 // WebACLCustomRequestHandlingPtrInput is an input type that accepts WebACLCustomRequestHandlingArgs, WebACLCustomRequestHandlingPtr and WebACLCustomRequestHandlingPtrOutput values.
 // You can construct a concrete instance of `WebACLCustomRequestHandlingPtrInput` via:
 //
-//          WebACLCustomRequestHandlingArgs{...}
+//	        WebACLCustomRequestHandlingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCustomRequestHandlingPtrInput interface {
 	pulumi.Input
 
@@ -9799,7 +9799,7 @@ type WebACLCustomResponse struct {
 // WebACLCustomResponseInput is an input type that accepts WebACLCustomResponseArgs and WebACLCustomResponseOutput values.
 // You can construct a concrete instance of `WebACLCustomResponseInput` via:
 //
-//          WebACLCustomResponseArgs{...}
+//	WebACLCustomResponseArgs{...}
 type WebACLCustomResponseInput interface {
 	pulumi.Input
 
@@ -9839,11 +9839,11 @@ func (i WebACLCustomResponseArgs) ToWebACLCustomResponsePtrOutputWithContext(ctx
 // WebACLCustomResponsePtrInput is an input type that accepts WebACLCustomResponseArgs, WebACLCustomResponsePtr and WebACLCustomResponsePtrOutput values.
 // You can construct a concrete instance of `WebACLCustomResponsePtrInput` via:
 //
-//          WebACLCustomResponseArgs{...}
+//	        WebACLCustomResponseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCustomResponsePtrInput interface {
 	pulumi.Input
 
@@ -9968,7 +9968,7 @@ type WebACLCustomResponseBodies struct {
 // WebACLCustomResponseBodiesInput is an input type that accepts WebACLCustomResponseBodiesArgs and WebACLCustomResponseBodiesOutput values.
 // You can construct a concrete instance of `WebACLCustomResponseBodiesInput` via:
 //
-//          WebACLCustomResponseBodiesArgs{...}
+//	WebACLCustomResponseBodiesArgs{...}
 type WebACLCustomResponseBodiesInput interface {
 	pulumi.Input
 
@@ -10003,11 +10003,11 @@ func (i WebACLCustomResponseBodiesArgs) ToWebACLCustomResponseBodiesPtrOutputWit
 // WebACLCustomResponseBodiesPtrInput is an input type that accepts WebACLCustomResponseBodiesArgs, WebACLCustomResponseBodiesPtr and WebACLCustomResponseBodiesPtrOutput values.
 // You can construct a concrete instance of `WebACLCustomResponseBodiesPtrInput` via:
 //
-//          WebACLCustomResponseBodiesArgs{...}
+//	        WebACLCustomResponseBodiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLCustomResponseBodiesPtrInput interface {
 	pulumi.Input
 
@@ -10091,7 +10091,7 @@ type WebACLDefaultAction struct {
 // WebACLDefaultActionInput is an input type that accepts WebACLDefaultActionArgs and WebACLDefaultActionOutput values.
 // You can construct a concrete instance of `WebACLDefaultActionInput` via:
 //
-//          WebACLDefaultActionArgs{...}
+//	WebACLDefaultActionArgs{...}
 type WebACLDefaultActionInput interface {
 	pulumi.Input
 
@@ -10190,7 +10190,7 @@ type WebACLExcludedRule struct {
 // WebACLExcludedRuleInput is an input type that accepts WebACLExcludedRuleArgs and WebACLExcludedRuleOutput values.
 // You can construct a concrete instance of `WebACLExcludedRuleInput` via:
 //
-//          WebACLExcludedRuleArgs{...}
+//	WebACLExcludedRuleArgs{...}
 type WebACLExcludedRuleInput interface {
 	pulumi.Input
 
@@ -10218,7 +10218,7 @@ func (i WebACLExcludedRuleArgs) ToWebACLExcludedRuleOutputWithContext(ctx contex
 // WebACLExcludedRuleArrayInput is an input type that accepts WebACLExcludedRuleArray and WebACLExcludedRuleArrayOutput values.
 // You can construct a concrete instance of `WebACLExcludedRuleArrayInput` via:
 //
-//          WebACLExcludedRuleArray{ WebACLExcludedRuleArgs{...} }
+//	WebACLExcludedRuleArray{ WebACLExcludedRuleArgs{...} }
 type WebACLExcludedRuleArrayInput interface {
 	pulumi.Input
 
@@ -10286,7 +10286,7 @@ type WebACLFieldIdentifier struct {
 // WebACLFieldIdentifierInput is an input type that accepts WebACLFieldIdentifierArgs and WebACLFieldIdentifierOutput values.
 // You can construct a concrete instance of `WebACLFieldIdentifierInput` via:
 //
-//          WebACLFieldIdentifierArgs{...}
+//	WebACLFieldIdentifierArgs{...}
 type WebACLFieldIdentifierInput interface {
 	pulumi.Input
 
@@ -10321,11 +10321,11 @@ func (i WebACLFieldIdentifierArgs) ToWebACLFieldIdentifierPtrOutputWithContext(c
 // WebACLFieldIdentifierPtrInput is an input type that accepts WebACLFieldIdentifierArgs, WebACLFieldIdentifierPtr and WebACLFieldIdentifierPtrOutput values.
 // You can construct a concrete instance of `WebACLFieldIdentifierPtrInput` via:
 //
-//          WebACLFieldIdentifierArgs{...}
+//	        WebACLFieldIdentifierArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLFieldIdentifierPtrInput interface {
 	pulumi.Input
 
@@ -10434,7 +10434,7 @@ type WebACLFieldToMatch struct {
 // WebACLFieldToMatchInput is an input type that accepts WebACLFieldToMatchArgs and WebACLFieldToMatchOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchInput` via:
 //
-//          WebACLFieldToMatchArgs{...}
+//	WebACLFieldToMatchArgs{...}
 type WebACLFieldToMatchInput interface {
 	pulumi.Input
 
@@ -10484,11 +10484,11 @@ func (i WebACLFieldToMatchArgs) ToWebACLFieldToMatchPtrOutputWithContext(ctx con
 // WebACLFieldToMatchPtrInput is an input type that accepts WebACLFieldToMatchArgs, WebACLFieldToMatchPtr and WebACLFieldToMatchPtrOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchPtrInput` via:
 //
-//          WebACLFieldToMatchArgs{...}
+//	        WebACLFieldToMatchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLFieldToMatchPtrInput interface {
 	pulumi.Input
 
@@ -10712,7 +10712,7 @@ type WebACLFieldToMatchSingleHeaderProperties struct {
 // WebACLFieldToMatchSingleHeaderPropertiesInput is an input type that accepts WebACLFieldToMatchSingleHeaderPropertiesArgs and WebACLFieldToMatchSingleHeaderPropertiesOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchSingleHeaderPropertiesInput` via:
 //
-//          WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
+//	WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
 type WebACLFieldToMatchSingleHeaderPropertiesInput interface {
 	pulumi.Input
 
@@ -10747,11 +10747,11 @@ func (i WebACLFieldToMatchSingleHeaderPropertiesArgs) ToWebACLFieldToMatchSingle
 // WebACLFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts WebACLFieldToMatchSingleHeaderPropertiesArgs, WebACLFieldToMatchSingleHeaderPropertiesPtr and WebACLFieldToMatchSingleHeaderPropertiesPtrOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchSingleHeaderPropertiesPtrInput` via:
 //
-//          WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
+//	        WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLFieldToMatchSingleHeaderPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -10846,7 +10846,7 @@ type WebACLFieldToMatchSingleQueryArgumentProperties struct {
 // WebACLFieldToMatchSingleQueryArgumentPropertiesInput is an input type that accepts WebACLFieldToMatchSingleQueryArgumentPropertiesArgs and WebACLFieldToMatchSingleQueryArgumentPropertiesOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchSingleQueryArgumentPropertiesInput` via:
 //
-//          WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//	WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
 type WebACLFieldToMatchSingleQueryArgumentPropertiesInput interface {
 	pulumi.Input
 
@@ -10882,11 +10882,11 @@ func (i WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ToWebACLFieldToMatc
 // WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput is an input type that accepts WebACLFieldToMatchSingleQueryArgumentPropertiesArgs, WebACLFieldToMatchSingleQueryArgumentPropertiesPtr and WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput values.
 // You can construct a concrete instance of `WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput` via:
 //
-//          WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//	        WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -10982,7 +10982,7 @@ type WebACLForwardedIPConfiguration struct {
 // WebACLForwardedIPConfigurationInput is an input type that accepts WebACLForwardedIPConfigurationArgs and WebACLForwardedIPConfigurationOutput values.
 // You can construct a concrete instance of `WebACLForwardedIPConfigurationInput` via:
 //
-//          WebACLForwardedIPConfigurationArgs{...}
+//	WebACLForwardedIPConfigurationArgs{...}
 type WebACLForwardedIPConfigurationInput interface {
 	pulumi.Input
 
@@ -11018,11 +11018,11 @@ func (i WebACLForwardedIPConfigurationArgs) ToWebACLForwardedIPConfigurationPtrO
 // WebACLForwardedIPConfigurationPtrInput is an input type that accepts WebACLForwardedIPConfigurationArgs, WebACLForwardedIPConfigurationPtr and WebACLForwardedIPConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebACLForwardedIPConfigurationPtrInput` via:
 //
-//          WebACLForwardedIPConfigurationArgs{...}
+//	        WebACLForwardedIPConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLForwardedIPConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11132,7 +11132,7 @@ type WebACLGeoMatchStatement struct {
 // WebACLGeoMatchStatementInput is an input type that accepts WebACLGeoMatchStatementArgs and WebACLGeoMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLGeoMatchStatementInput` via:
 //
-//          WebACLGeoMatchStatementArgs{...}
+//	WebACLGeoMatchStatementArgs{...}
 type WebACLGeoMatchStatementInput interface {
 	pulumi.Input
 
@@ -11168,11 +11168,11 @@ func (i WebACLGeoMatchStatementArgs) ToWebACLGeoMatchStatementPtrOutputWithConte
 // WebACLGeoMatchStatementPtrInput is an input type that accepts WebACLGeoMatchStatementArgs, WebACLGeoMatchStatementPtr and WebACLGeoMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLGeoMatchStatementPtrInput` via:
 //
-//          WebACLGeoMatchStatementArgs{...}
+//	        WebACLGeoMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLGeoMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -11283,7 +11283,7 @@ type WebACLHeaderMatchPattern struct {
 // WebACLHeaderMatchPatternInput is an input type that accepts WebACLHeaderMatchPatternArgs and WebACLHeaderMatchPatternOutput values.
 // You can construct a concrete instance of `WebACLHeaderMatchPatternInput` via:
 //
-//          WebACLHeaderMatchPatternArgs{...}
+//	WebACLHeaderMatchPatternArgs{...}
 type WebACLHeaderMatchPatternInput interface {
 	pulumi.Input
 
@@ -11322,11 +11322,11 @@ func (i WebACLHeaderMatchPatternArgs) ToWebACLHeaderMatchPatternPtrOutputWithCon
 // WebACLHeaderMatchPatternPtrInput is an input type that accepts WebACLHeaderMatchPatternArgs, WebACLHeaderMatchPatternPtr and WebACLHeaderMatchPatternPtrOutput values.
 // You can construct a concrete instance of `WebACLHeaderMatchPatternPtrInput` via:
 //
-//          WebACLHeaderMatchPatternArgs{...}
+//	        WebACLHeaderMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLHeaderMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -11452,7 +11452,7 @@ type WebACLHeaders struct {
 // WebACLHeadersInput is an input type that accepts WebACLHeadersArgs and WebACLHeadersOutput values.
 // You can construct a concrete instance of `WebACLHeadersInput` via:
 //
-//          WebACLHeadersArgs{...}
+//	WebACLHeadersArgs{...}
 type WebACLHeadersInput interface {
 	pulumi.Input
 
@@ -11490,11 +11490,11 @@ func (i WebACLHeadersArgs) ToWebACLHeadersPtrOutputWithContext(ctx context.Conte
 // WebACLHeadersPtrInput is an input type that accepts WebACLHeadersArgs, WebACLHeadersPtr and WebACLHeadersPtrOutput values.
 // You can construct a concrete instance of `WebACLHeadersPtrInput` via:
 //
-//          WebACLHeadersArgs{...}
+//	        WebACLHeadersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLHeadersPtrInput interface {
 	pulumi.Input
 
@@ -11617,7 +11617,7 @@ type WebACLIPSetForwardedIPConfiguration struct {
 // WebACLIPSetForwardedIPConfigurationInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs and WebACLIPSetForwardedIPConfigurationOutput values.
 // You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationInput` via:
 //
-//          WebACLIPSetForwardedIPConfigurationArgs{...}
+//	WebACLIPSetForwardedIPConfigurationArgs{...}
 type WebACLIPSetForwardedIPConfigurationInput interface {
 	pulumi.Input
 
@@ -11654,11 +11654,11 @@ func (i WebACLIPSetForwardedIPConfigurationArgs) ToWebACLIPSetForwardedIPConfigu
 // WebACLIPSetForwardedIPConfigurationPtrInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs, WebACLIPSetForwardedIPConfigurationPtr and WebACLIPSetForwardedIPConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationPtrInput` via:
 //
-//          WebACLIPSetForwardedIPConfigurationArgs{...}
+//	        WebACLIPSetForwardedIPConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLIPSetForwardedIPConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11783,7 +11783,7 @@ type WebACLIPSetReferenceStatement struct {
 // WebACLIPSetReferenceStatementInput is an input type that accepts WebACLIPSetReferenceStatementArgs and WebACLIPSetReferenceStatementOutput values.
 // You can construct a concrete instance of `WebACLIPSetReferenceStatementInput` via:
 //
-//          WebACLIPSetReferenceStatementArgs{...}
+//	WebACLIPSetReferenceStatementArgs{...}
 type WebACLIPSetReferenceStatementInput interface {
 	pulumi.Input
 
@@ -11819,11 +11819,11 @@ func (i WebACLIPSetReferenceStatementArgs) ToWebACLIPSetReferenceStatementPtrOut
 // WebACLIPSetReferenceStatementPtrInput is an input type that accepts WebACLIPSetReferenceStatementArgs, WebACLIPSetReferenceStatementPtr and WebACLIPSetReferenceStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLIPSetReferenceStatementPtrInput` via:
 //
-//          WebACLIPSetReferenceStatementArgs{...}
+//	        WebACLIPSetReferenceStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLIPSetReferenceStatementPtrInput interface {
 	pulumi.Input
 
@@ -11932,7 +11932,7 @@ type WebACLImmunityTimeProperty struct {
 // WebACLImmunityTimePropertyInput is an input type that accepts WebACLImmunityTimePropertyArgs and WebACLImmunityTimePropertyOutput values.
 // You can construct a concrete instance of `WebACLImmunityTimePropertyInput` via:
 //
-//          WebACLImmunityTimePropertyArgs{...}
+//	WebACLImmunityTimePropertyArgs{...}
 type WebACLImmunityTimePropertyInput interface {
 	pulumi.Input
 
@@ -11967,11 +11967,11 @@ func (i WebACLImmunityTimePropertyArgs) ToWebACLImmunityTimePropertyPtrOutputWit
 // WebACLImmunityTimePropertyPtrInput is an input type that accepts WebACLImmunityTimePropertyArgs, WebACLImmunityTimePropertyPtr and WebACLImmunityTimePropertyPtrOutput values.
 // You can construct a concrete instance of `WebACLImmunityTimePropertyPtrInput` via:
 //
-//          WebACLImmunityTimePropertyArgs{...}
+//	        WebACLImmunityTimePropertyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLImmunityTimePropertyPtrInput interface {
 	pulumi.Input
 
@@ -12069,7 +12069,7 @@ type WebACLJsonBody struct {
 // WebACLJsonBodyInput is an input type that accepts WebACLJsonBodyArgs and WebACLJsonBodyOutput values.
 // You can construct a concrete instance of `WebACLJsonBodyInput` via:
 //
-//          WebACLJsonBodyArgs{...}
+//	WebACLJsonBodyArgs{...}
 type WebACLJsonBodyInput interface {
 	pulumi.Input
 
@@ -12108,11 +12108,11 @@ func (i WebACLJsonBodyArgs) ToWebACLJsonBodyPtrOutputWithContext(ctx context.Con
 // WebACLJsonBodyPtrInput is an input type that accepts WebACLJsonBodyArgs, WebACLJsonBodyPtr and WebACLJsonBodyPtrOutput values.
 // You can construct a concrete instance of `WebACLJsonBodyPtrInput` via:
 //
-//          WebACLJsonBodyArgs{...}
+//	        WebACLJsonBodyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLJsonBodyPtrInput interface {
 	pulumi.Input
 
@@ -12249,7 +12249,7 @@ type WebACLJsonMatchPattern struct {
 // WebACLJsonMatchPatternInput is an input type that accepts WebACLJsonMatchPatternArgs and WebACLJsonMatchPatternOutput values.
 // You can construct a concrete instance of `WebACLJsonMatchPatternInput` via:
 //
-//          WebACLJsonMatchPatternArgs{...}
+//	WebACLJsonMatchPatternArgs{...}
 type WebACLJsonMatchPatternInput interface {
 	pulumi.Input
 
@@ -12287,11 +12287,11 @@ func (i WebACLJsonMatchPatternArgs) ToWebACLJsonMatchPatternPtrOutputWithContext
 // WebACLJsonMatchPatternPtrInput is an input type that accepts WebACLJsonMatchPatternArgs, WebACLJsonMatchPatternPtr and WebACLJsonMatchPatternPtrOutput values.
 // You can construct a concrete instance of `WebACLJsonMatchPatternPtrInput` via:
 //
-//          WebACLJsonMatchPatternArgs{...}
+//	        WebACLJsonMatchPatternArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLJsonMatchPatternPtrInput interface {
 	pulumi.Input
 
@@ -12401,7 +12401,7 @@ type WebACLLabel struct {
 // WebACLLabelInput is an input type that accepts WebACLLabelArgs and WebACLLabelOutput values.
 // You can construct a concrete instance of `WebACLLabelInput` via:
 //
-//          WebACLLabelArgs{...}
+//	WebACLLabelArgs{...}
 type WebACLLabelInput interface {
 	pulumi.Input
 
@@ -12428,7 +12428,7 @@ func (i WebACLLabelArgs) ToWebACLLabelOutputWithContext(ctx context.Context) Web
 // WebACLLabelArrayInput is an input type that accepts WebACLLabelArray and WebACLLabelArrayOutput values.
 // You can construct a concrete instance of `WebACLLabelArrayInput` via:
 //
-//          WebACLLabelArray{ WebACLLabelArgs{...} }
+//	WebACLLabelArray{ WebACLLabelArgs{...} }
 type WebACLLabelArrayInput interface {
 	pulumi.Input
 
@@ -12496,7 +12496,7 @@ type WebACLLabelMatchStatement struct {
 // WebACLLabelMatchStatementInput is an input type that accepts WebACLLabelMatchStatementArgs and WebACLLabelMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLLabelMatchStatementInput` via:
 //
-//          WebACLLabelMatchStatementArgs{...}
+//	WebACLLabelMatchStatementArgs{...}
 type WebACLLabelMatchStatementInput interface {
 	pulumi.Input
 
@@ -12532,11 +12532,11 @@ func (i WebACLLabelMatchStatementArgs) ToWebACLLabelMatchStatementPtrOutputWithC
 // WebACLLabelMatchStatementPtrInput is an input type that accepts WebACLLabelMatchStatementArgs, WebACLLabelMatchStatementPtr and WebACLLabelMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLLabelMatchStatementPtrInput` via:
 //
-//          WebACLLabelMatchStatementArgs{...}
+//	        WebACLLabelMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLLabelMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -12647,7 +12647,7 @@ type WebACLManagedRuleGroupConfig struct {
 // WebACLManagedRuleGroupConfigInput is an input type that accepts WebACLManagedRuleGroupConfigArgs and WebACLManagedRuleGroupConfigOutput values.
 // You can construct a concrete instance of `WebACLManagedRuleGroupConfigInput` via:
 //
-//          WebACLManagedRuleGroupConfigArgs{...}
+//	WebACLManagedRuleGroupConfigArgs{...}
 type WebACLManagedRuleGroupConfigInput interface {
 	pulumi.Input
 
@@ -12678,7 +12678,7 @@ func (i WebACLManagedRuleGroupConfigArgs) ToWebACLManagedRuleGroupConfigOutputWi
 // WebACLManagedRuleGroupConfigArrayInput is an input type that accepts WebACLManagedRuleGroupConfigArray and WebACLManagedRuleGroupConfigArrayOutput values.
 // You can construct a concrete instance of `WebACLManagedRuleGroupConfigArrayInput` via:
 //
-//          WebACLManagedRuleGroupConfigArray{ WebACLManagedRuleGroupConfigArgs{...} }
+//	WebACLManagedRuleGroupConfigArray{ WebACLManagedRuleGroupConfigArgs{...} }
 type WebACLManagedRuleGroupConfigArrayInput interface {
 	pulumi.Input
 
@@ -12764,7 +12764,7 @@ type WebACLManagedRuleGroupStatement struct {
 // WebACLManagedRuleGroupStatementInput is an input type that accepts WebACLManagedRuleGroupStatementArgs and WebACLManagedRuleGroupStatementOutput values.
 // You can construct a concrete instance of `WebACLManagedRuleGroupStatementInput` via:
 //
-//          WebACLManagedRuleGroupStatementArgs{...}
+//	WebACLManagedRuleGroupStatementArgs{...}
 type WebACLManagedRuleGroupStatementInput interface {
 	pulumi.Input
 
@@ -12805,11 +12805,11 @@ func (i WebACLManagedRuleGroupStatementArgs) ToWebACLManagedRuleGroupStatementPt
 // WebACLManagedRuleGroupStatementPtrInput is an input type that accepts WebACLManagedRuleGroupStatementArgs, WebACLManagedRuleGroupStatementPtr and WebACLManagedRuleGroupStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLManagedRuleGroupStatementPtrInput` via:
 //
-//          WebACLManagedRuleGroupStatementArgs{...}
+//	        WebACLManagedRuleGroupStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLManagedRuleGroupStatementPtrInput interface {
 	pulumi.Input
 
@@ -12972,7 +12972,7 @@ type WebACLNotStatement struct {
 // WebACLNotStatementInput is an input type that accepts WebACLNotStatementArgs and WebACLNotStatementOutput values.
 // You can construct a concrete instance of `WebACLNotStatementInput` via:
 //
-//          WebACLNotStatementArgs{...}
+//	WebACLNotStatementArgs{...}
 type WebACLNotStatementInput interface {
 	pulumi.Input
 
@@ -13007,11 +13007,11 @@ func (i WebACLNotStatementArgs) ToWebACLNotStatementPtrOutputWithContext(ctx con
 // WebACLNotStatementPtrInput is an input type that accepts WebACLNotStatementArgs, WebACLNotStatementPtr and WebACLNotStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLNotStatementPtrInput` via:
 //
-//          WebACLNotStatementArgs{...}
+//	        WebACLNotStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLNotStatementPtrInput interface {
 	pulumi.Input
 
@@ -13105,7 +13105,7 @@ type WebACLOrStatement struct {
 // WebACLOrStatementInput is an input type that accepts WebACLOrStatementArgs and WebACLOrStatementOutput values.
 // You can construct a concrete instance of `WebACLOrStatementInput` via:
 //
-//          WebACLOrStatementArgs{...}
+//	WebACLOrStatementArgs{...}
 type WebACLOrStatementInput interface {
 	pulumi.Input
 
@@ -13140,11 +13140,11 @@ func (i WebACLOrStatementArgs) ToWebACLOrStatementPtrOutputWithContext(ctx conte
 // WebACLOrStatementPtrInput is an input type that accepts WebACLOrStatementArgs, WebACLOrStatementPtr and WebACLOrStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLOrStatementPtrInput` via:
 //
-//          WebACLOrStatementArgs{...}
+//	        WebACLOrStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLOrStatementPtrInput interface {
 	pulumi.Input
 
@@ -13242,7 +13242,7 @@ type WebACLOverrideAction struct {
 // WebACLOverrideActionInput is an input type that accepts WebACLOverrideActionArgs and WebACLOverrideActionOutput values.
 // You can construct a concrete instance of `WebACLOverrideActionInput` via:
 //
-//          WebACLOverrideActionArgs{...}
+//	WebACLOverrideActionArgs{...}
 type WebACLOverrideActionInput interface {
 	pulumi.Input
 
@@ -13281,11 +13281,11 @@ func (i WebACLOverrideActionArgs) ToWebACLOverrideActionPtrOutputWithContext(ctx
 // WebACLOverrideActionPtrInput is an input type that accepts WebACLOverrideActionArgs, WebACLOverrideActionPtr and WebACLOverrideActionPtrOutput values.
 // You can construct a concrete instance of `WebACLOverrideActionPtrInput` via:
 //
-//          WebACLOverrideActionArgs{...}
+//	        WebACLOverrideActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLOverrideActionPtrInput interface {
 	pulumi.Input
 
@@ -13400,7 +13400,7 @@ type WebACLRateBasedStatement struct {
 // WebACLRateBasedStatementInput is an input type that accepts WebACLRateBasedStatementArgs and WebACLRateBasedStatementOutput values.
 // You can construct a concrete instance of `WebACLRateBasedStatementInput` via:
 //
-//          WebACLRateBasedStatementArgs{...}
+//	WebACLRateBasedStatementArgs{...}
 type WebACLRateBasedStatementInput interface {
 	pulumi.Input
 
@@ -13438,11 +13438,11 @@ func (i WebACLRateBasedStatementArgs) ToWebACLRateBasedStatementPtrOutputWithCon
 // WebACLRateBasedStatementPtrInput is an input type that accepts WebACLRateBasedStatementArgs, WebACLRateBasedStatementPtr and WebACLRateBasedStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLRateBasedStatementPtrInput` via:
 //
-//          WebACLRateBasedStatementArgs{...}
+//	        WebACLRateBasedStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLRateBasedStatementPtrInput interface {
 	pulumi.Input
 
@@ -13577,7 +13577,7 @@ type WebACLRegexMatchStatement struct {
 // WebACLRegexMatchStatementInput is an input type that accepts WebACLRegexMatchStatementArgs and WebACLRegexMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLRegexMatchStatementInput` via:
 //
-//          WebACLRegexMatchStatementArgs{...}
+//	WebACLRegexMatchStatementArgs{...}
 type WebACLRegexMatchStatementInput interface {
 	pulumi.Input
 
@@ -13614,11 +13614,11 @@ func (i WebACLRegexMatchStatementArgs) ToWebACLRegexMatchStatementPtrOutputWithC
 // WebACLRegexMatchStatementPtrInput is an input type that accepts WebACLRegexMatchStatementArgs, WebACLRegexMatchStatementPtr and WebACLRegexMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLRegexMatchStatementPtrInput` via:
 //
-//          WebACLRegexMatchStatementArgs{...}
+//	        WebACLRegexMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLRegexMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -13740,7 +13740,7 @@ type WebACLRegexPatternSetReferenceStatement struct {
 // WebACLRegexPatternSetReferenceStatementInput is an input type that accepts WebACLRegexPatternSetReferenceStatementArgs and WebACLRegexPatternSetReferenceStatementOutput values.
 // You can construct a concrete instance of `WebACLRegexPatternSetReferenceStatementInput` via:
 //
-//          WebACLRegexPatternSetReferenceStatementArgs{...}
+//	WebACLRegexPatternSetReferenceStatementArgs{...}
 type WebACLRegexPatternSetReferenceStatementInput interface {
 	pulumi.Input
 
@@ -13777,11 +13777,11 @@ func (i WebACLRegexPatternSetReferenceStatementArgs) ToWebACLRegexPatternSetRefe
 // WebACLRegexPatternSetReferenceStatementPtrInput is an input type that accepts WebACLRegexPatternSetReferenceStatementArgs, WebACLRegexPatternSetReferenceStatementPtr and WebACLRegexPatternSetReferenceStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLRegexPatternSetReferenceStatementPtrInput` via:
 //
-//          WebACLRegexPatternSetReferenceStatementArgs{...}
+//	        WebACLRegexPatternSetReferenceStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLRegexPatternSetReferenceStatementPtrInput interface {
 	pulumi.Input
 
@@ -13912,7 +13912,7 @@ type WebACLRule struct {
 // WebACLRuleInput is an input type that accepts WebACLRuleArgs and WebACLRuleOutput values.
 // You can construct a concrete instance of `WebACLRuleInput` via:
 //
-//          WebACLRuleArgs{...}
+//	WebACLRuleArgs{...}
 type WebACLRuleInput interface {
 	pulumi.Input
 
@@ -13948,7 +13948,7 @@ func (i WebACLRuleArgs) ToWebACLRuleOutputWithContext(ctx context.Context) WebAC
 // WebACLRuleArrayInput is an input type that accepts WebACLRuleArray and WebACLRuleArrayOutput values.
 // You can construct a concrete instance of `WebACLRuleArrayInput` via:
 //
-//          WebACLRuleArray{ WebACLRuleArgs{...} }
+//	WebACLRuleArray{ WebACLRuleArgs{...} }
 type WebACLRuleArrayInput interface {
 	pulumi.Input
 
@@ -14049,7 +14049,7 @@ type WebACLRuleAction struct {
 // WebACLRuleActionInput is an input type that accepts WebACLRuleActionArgs and WebACLRuleActionOutput values.
 // You can construct a concrete instance of `WebACLRuleActionInput` via:
 //
-//          WebACLRuleActionArgs{...}
+//	WebACLRuleActionArgs{...}
 type WebACLRuleActionInput interface {
 	pulumi.Input
 
@@ -14088,11 +14088,11 @@ func (i WebACLRuleActionArgs) ToWebACLRuleActionPtrOutputWithContext(ctx context
 // WebACLRuleActionPtrInput is an input type that accepts WebACLRuleActionArgs, WebACLRuleActionPtr and WebACLRuleActionPtrOutput values.
 // You can construct a concrete instance of `WebACLRuleActionPtrInput` via:
 //
-//          WebACLRuleActionArgs{...}
+//	        WebACLRuleActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLRuleActionPtrInput interface {
 	pulumi.Input
 
@@ -14227,7 +14227,7 @@ type WebACLRuleGroupReferenceStatement struct {
 // WebACLRuleGroupReferenceStatementInput is an input type that accepts WebACLRuleGroupReferenceStatementArgs and WebACLRuleGroupReferenceStatementOutput values.
 // You can construct a concrete instance of `WebACLRuleGroupReferenceStatementInput` via:
 //
-//          WebACLRuleGroupReferenceStatementArgs{...}
+//	WebACLRuleGroupReferenceStatementArgs{...}
 type WebACLRuleGroupReferenceStatementInput interface {
 	pulumi.Input
 
@@ -14263,11 +14263,11 @@ func (i WebACLRuleGroupReferenceStatementArgs) ToWebACLRuleGroupReferenceStateme
 // WebACLRuleGroupReferenceStatementPtrInput is an input type that accepts WebACLRuleGroupReferenceStatementArgs, WebACLRuleGroupReferenceStatementPtr and WebACLRuleGroupReferenceStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLRuleGroupReferenceStatementPtrInput` via:
 //
-//          WebACLRuleGroupReferenceStatementArgs{...}
+//	        WebACLRuleGroupReferenceStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLRuleGroupReferenceStatementPtrInput interface {
 	pulumi.Input
 
@@ -14378,7 +14378,7 @@ type WebACLSizeConstraintStatement struct {
 // WebACLSizeConstraintStatementInput is an input type that accepts WebACLSizeConstraintStatementArgs and WebACLSizeConstraintStatementOutput values.
 // You can construct a concrete instance of `WebACLSizeConstraintStatementInput` via:
 //
-//          WebACLSizeConstraintStatementArgs{...}
+//	WebACLSizeConstraintStatementArgs{...}
 type WebACLSizeConstraintStatementInput interface {
 	pulumi.Input
 
@@ -14417,11 +14417,11 @@ func (i WebACLSizeConstraintStatementArgs) ToWebACLSizeConstraintStatementPtrOut
 // WebACLSizeConstraintStatementPtrInput is an input type that accepts WebACLSizeConstraintStatementArgs, WebACLSizeConstraintStatementPtr and WebACLSizeConstraintStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLSizeConstraintStatementPtrInput` via:
 //
-//          WebACLSizeConstraintStatementArgs{...}
+//	        WebACLSizeConstraintStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLSizeConstraintStatementPtrInput interface {
 	pulumi.Input
 
@@ -14559,7 +14559,7 @@ type WebACLSqliMatchStatement struct {
 // WebACLSqliMatchStatementInput is an input type that accepts WebACLSqliMatchStatementArgs and WebACLSqliMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLSqliMatchStatementInput` via:
 //
-//          WebACLSqliMatchStatementArgs{...}
+//	WebACLSqliMatchStatementArgs{...}
 type WebACLSqliMatchStatementInput interface {
 	pulumi.Input
 
@@ -14596,11 +14596,11 @@ func (i WebACLSqliMatchStatementArgs) ToWebACLSqliMatchStatementPtrOutputWithCon
 // WebACLSqliMatchStatementPtrInput is an input type that accepts WebACLSqliMatchStatementArgs, WebACLSqliMatchStatementPtr and WebACLSqliMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLSqliMatchStatementPtrInput` via:
 //
-//          WebACLSqliMatchStatementArgs{...}
+//	        WebACLSqliMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLSqliMatchStatementPtrInput interface {
 	pulumi.Input
 
@@ -14723,7 +14723,7 @@ type WebACLStatement struct {
 // WebACLStatementInput is an input type that accepts WebACLStatementArgs and WebACLStatementOutput values.
 // You can construct a concrete instance of `WebACLStatementInput` via:
 //
-//          WebACLStatementArgs{...}
+//	WebACLStatementArgs{...}
 type WebACLStatementInput interface {
 	pulumi.Input
 
@@ -14773,11 +14773,11 @@ func (i WebACLStatementArgs) ToWebACLStatementPtrOutputWithContext(ctx context.C
 // WebACLStatementPtrInput is an input type that accepts WebACLStatementArgs, WebACLStatementPtr and WebACLStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLStatementPtrInput` via:
 //
-//          WebACLStatementArgs{...}
+//	        WebACLStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLStatementPtrInput interface {
 	pulumi.Input
 
@@ -14806,7 +14806,7 @@ func (i *webACLStatementPtrType) ToWebACLStatementPtrOutputWithContext(ctx conte
 // WebACLStatementArrayInput is an input type that accepts WebACLStatementArray and WebACLStatementArrayOutput values.
 // You can construct a concrete instance of `WebACLStatementArrayInput` via:
 //
-//          WebACLStatementArray{ WebACLStatementArgs{...} }
+//	WebACLStatementArray{ WebACLStatementArgs{...} }
 type WebACLStatementArrayInput interface {
 	pulumi.Input
 
@@ -15102,7 +15102,7 @@ type WebACLTag struct {
 // WebACLTagInput is an input type that accepts WebACLTagArgs and WebACLTagOutput values.
 // You can construct a concrete instance of `WebACLTagInput` via:
 //
-//          WebACLTagArgs{...}
+//	WebACLTagArgs{...}
 type WebACLTagInput interface {
 	pulumi.Input
 
@@ -15130,7 +15130,7 @@ func (i WebACLTagArgs) ToWebACLTagOutputWithContext(ctx context.Context) WebACLT
 // WebACLTagArrayInput is an input type that accepts WebACLTagArray and WebACLTagArrayOutput values.
 // You can construct a concrete instance of `WebACLTagArrayInput` via:
 //
-//          WebACLTagArray{ WebACLTagArgs{...} }
+//	WebACLTagArray{ WebACLTagArgs{...} }
 type WebACLTagArrayInput interface {
 	pulumi.Input
 
@@ -15203,7 +15203,7 @@ type WebACLTextTransformation struct {
 // WebACLTextTransformationInput is an input type that accepts WebACLTextTransformationArgs and WebACLTextTransformationOutput values.
 // You can construct a concrete instance of `WebACLTextTransformationInput` via:
 //
-//          WebACLTextTransformationArgs{...}
+//	WebACLTextTransformationArgs{...}
 type WebACLTextTransformationInput interface {
 	pulumi.Input
 
@@ -15232,7 +15232,7 @@ func (i WebACLTextTransformationArgs) ToWebACLTextTransformationOutputWithContex
 // WebACLTextTransformationArrayInput is an input type that accepts WebACLTextTransformationArray and WebACLTextTransformationArrayOutput values.
 // You can construct a concrete instance of `WebACLTextTransformationArrayInput` via:
 //
-//          WebACLTextTransformationArray{ WebACLTextTransformationArgs{...} }
+//	WebACLTextTransformationArray{ WebACLTextTransformationArgs{...} }
 type WebACLTextTransformationArrayInput interface {
 	pulumi.Input
 
@@ -15307,7 +15307,7 @@ type WebACLVisibilityConfig struct {
 // WebACLVisibilityConfigInput is an input type that accepts WebACLVisibilityConfigArgs and WebACLVisibilityConfigOutput values.
 // You can construct a concrete instance of `WebACLVisibilityConfigInput` via:
 //
-//          WebACLVisibilityConfigArgs{...}
+//	WebACLVisibilityConfigArgs{...}
 type WebACLVisibilityConfigInput interface {
 	pulumi.Input
 
@@ -15421,7 +15421,7 @@ type WebACLXssMatchStatement struct {
 // WebACLXssMatchStatementInput is an input type that accepts WebACLXssMatchStatementArgs and WebACLXssMatchStatementOutput values.
 // You can construct a concrete instance of `WebACLXssMatchStatementInput` via:
 //
-//          WebACLXssMatchStatementArgs{...}
+//	WebACLXssMatchStatementArgs{...}
 type WebACLXssMatchStatementInput interface {
 	pulumi.Input
 
@@ -15458,11 +15458,11 @@ func (i WebACLXssMatchStatementArgs) ToWebACLXssMatchStatementPtrOutputWithConte
 // WebACLXssMatchStatementPtrInput is an input type that accepts WebACLXssMatchStatementArgs, WebACLXssMatchStatementPtr and WebACLXssMatchStatementPtrOutput values.
 // You can construct a concrete instance of `WebACLXssMatchStatementPtrInput` via:
 //
-//          WebACLXssMatchStatementArgs{...}
+//	        WebACLXssMatchStatementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebACLXssMatchStatementPtrInput interface {
 	pulumi.Input
 

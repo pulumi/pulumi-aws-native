@@ -140,7 +140,7 @@ func (o DatasetFilesLimitOrderPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // DatasetFilesLimitOrderInput is an input type that accepts DatasetFilesLimitOrderArgs and DatasetFilesLimitOrderOutput values.
 // You can construct a concrete instance of `DatasetFilesLimitOrderInput` via:
 //
-//          DatasetFilesLimitOrderArgs{...}
+//	DatasetFilesLimitOrderArgs{...}
 type DatasetFilesLimitOrderInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o DatasetFilesLimitOrderedByPtrOutput) ToStringPtrOutputWithContext(ctx co
 // DatasetFilesLimitOrderedByInput is an input type that accepts DatasetFilesLimitOrderedByArgs and DatasetFilesLimitOrderedByOutput values.
 // You can construct a concrete instance of `DatasetFilesLimitOrderedByInput` via:
 //
-//          DatasetFilesLimitOrderedByArgs{...}
+//	DatasetFilesLimitOrderedByArgs{...}
 type DatasetFilesLimitOrderedByInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o DatasetFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DatasetFormatInput is an input type that accepts DatasetFormatArgs and DatasetFormatOutput values.
 // You can construct a concrete instance of `DatasetFormatInput` via:
 //
-//          DatasetFormatArgs{...}
+//	DatasetFormatArgs{...}
 type DatasetFormatInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o DatasetParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // DatasetParameterTypeInput is an input type that accepts DatasetParameterTypeArgs and DatasetParameterTypeOutput values.
 // You can construct a concrete instance of `DatasetParameterTypeInput` via:
 //
-//          DatasetParameterTypeArgs{...}
+//	DatasetParameterTypeArgs{...}
 type DatasetParameterTypeInput interface {
 	pulumi.Input
 
@@ -802,7 +802,7 @@ func (o JobDatabaseOutputDatabaseOutputModePtrOutput) ToStringPtrOutputWithConte
 // JobDatabaseOutputDatabaseOutputModeInput is an input type that accepts JobDatabaseOutputDatabaseOutputModeArgs and JobDatabaseOutputDatabaseOutputModeOutput values.
 // You can construct a concrete instance of `JobDatabaseOutputDatabaseOutputModeInput` via:
 //
-//          JobDatabaseOutputDatabaseOutputModeArgs{...}
+//	JobDatabaseOutputDatabaseOutputModeArgs{...}
 type JobDatabaseOutputDatabaseOutputModeInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ func (o JobEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // JobEncryptionModeInput is an input type that accepts JobEncryptionModeArgs and JobEncryptionModeOutput values.
 // You can construct a concrete instance of `JobEncryptionModeInput` via:
 //
-//          JobEncryptionModeArgs{...}
+//	JobEncryptionModeArgs{...}
 type JobEncryptionModeInput interface {
 	pulumi.Input
 
@@ -1132,7 +1132,7 @@ func (o JobLogSubscriptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // JobLogSubscriptionInput is an input type that accepts JobLogSubscriptionArgs and JobLogSubscriptionOutput values.
 // You can construct a concrete instance of `JobLogSubscriptionInput` via:
 //
-//          JobLogSubscriptionArgs{...}
+//	JobLogSubscriptionArgs{...}
 type JobLogSubscriptionInput interface {
 	pulumi.Input
 
@@ -1303,7 +1303,7 @@ func (o JobOutputCompressionFormatPtrOutput) ToStringPtrOutputWithContext(ctx co
 // JobOutputCompressionFormatInput is an input type that accepts JobOutputCompressionFormatArgs and JobOutputCompressionFormatOutput values.
 // You can construct a concrete instance of `JobOutputCompressionFormatInput` via:
 //
-//          JobOutputCompressionFormatArgs{...}
+//	JobOutputCompressionFormatArgs{...}
 type JobOutputCompressionFormatInput interface {
 	pulumi.Input
 
@@ -1473,7 +1473,7 @@ func (o JobOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // JobOutputFormatInput is an input type that accepts JobOutputFormatArgs and JobOutputFormatOutput values.
 // You can construct a concrete instance of `JobOutputFormatInput` via:
 //
-//          JobOutputFormatArgs{...}
+//	JobOutputFormatArgs{...}
 type JobOutputFormatInput interface {
 	pulumi.Input
 
@@ -1638,7 +1638,7 @@ func (o JobSampleModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // JobSampleModeInput is an input type that accepts JobSampleModeArgs and JobSampleModeOutput values.
 // You can construct a concrete instance of `JobSampleModeInput` via:
 //
-//          JobSampleModeArgs{...}
+//	JobSampleModeArgs{...}
 type JobSampleModeInput interface {
 	pulumi.Input
 
@@ -1803,7 +1803,7 @@ func (o JobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
 // You can construct a concrete instance of `JobTypeInput` via:
 //
-//          JobTypeArgs{...}
+//	JobTypeArgs{...}
 type JobTypeInput interface {
 	pulumi.Input
 
@@ -1966,7 +1966,7 @@ func (o JobValidationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // JobValidationModeInput is an input type that accepts JobValidationModeArgs and JobValidationModeOutput values.
 // You can construct a concrete instance of `JobValidationModeInput` via:
 //
-//          JobValidationModeArgs{...}
+//	JobValidationModeArgs{...}
 type JobValidationModeInput interface {
 	pulumi.Input
 
@@ -2132,7 +2132,7 @@ func (o ProjectSampleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // ProjectSampleTypeInput is an input type that accepts ProjectSampleTypeArgs and ProjectSampleTypeOutput values.
 // You can construct a concrete instance of `ProjectSampleTypeInput` via:
 //
-//          ProjectSampleTypeArgs{...}
+//	ProjectSampleTypeArgs{...}
 type ProjectSampleTypeInput interface {
 	pulumi.Input
 
@@ -2299,7 +2299,7 @@ func (o RulesetThresholdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RulesetThresholdTypeInput is an input type that accepts RulesetThresholdTypeArgs and RulesetThresholdTypeOutput values.
 // You can construct a concrete instance of `RulesetThresholdTypeInput` via:
 //
-//          RulesetThresholdTypeArgs{...}
+//	RulesetThresholdTypeArgs{...}
 type RulesetThresholdTypeInput interface {
 	pulumi.Input
 
@@ -2464,7 +2464,7 @@ func (o RulesetThresholdUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RulesetThresholdUnitInput is an input type that accepts RulesetThresholdUnitArgs and RulesetThresholdUnitOutput values.
 // You can construct a concrete instance of `RulesetThresholdUnitInput` via:
 //
-//          RulesetThresholdUnitArgs{...}
+//	RulesetThresholdUnitArgs{...}
 type RulesetThresholdUnitInput interface {
 	pulumi.Input
 

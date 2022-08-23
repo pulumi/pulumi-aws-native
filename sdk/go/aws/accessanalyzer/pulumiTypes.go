@@ -20,7 +20,7 @@ type AnalyzerArchiveRule struct {
 // AnalyzerArchiveRuleInput is an input type that accepts AnalyzerArchiveRuleArgs and AnalyzerArchiveRuleOutput values.
 // You can construct a concrete instance of `AnalyzerArchiveRuleInput` via:
 //
-//          AnalyzerArchiveRuleArgs{...}
+//	AnalyzerArchiveRuleArgs{...}
 type AnalyzerArchiveRuleInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AnalyzerArchiveRuleArgs) ToAnalyzerArchiveRuleOutputWithContext(ctx cont
 // AnalyzerArchiveRuleArrayInput is an input type that accepts AnalyzerArchiveRuleArray and AnalyzerArchiveRuleArrayOutput values.
 // You can construct a concrete instance of `AnalyzerArchiveRuleArrayInput` via:
 //
-//          AnalyzerArchiveRuleArray{ AnalyzerArchiveRuleArgs{...} }
+//	AnalyzerArchiveRuleArray{ AnalyzerArchiveRuleArgs{...} }
 type AnalyzerArchiveRuleArrayInput interface {
 	pulumi.Input
 
@@ -127,7 +127,7 @@ type AnalyzerFilter struct {
 // AnalyzerFilterInput is an input type that accepts AnalyzerFilterArgs and AnalyzerFilterOutput values.
 // You can construct a concrete instance of `AnalyzerFilterInput` via:
 //
-//          AnalyzerFilterArgs{...}
+//	AnalyzerFilterArgs{...}
 type AnalyzerFilterInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i AnalyzerFilterArgs) ToAnalyzerFilterOutputWithContext(ctx context.Contex
 // AnalyzerFilterArrayInput is an input type that accepts AnalyzerFilterArray and AnalyzerFilterArrayOutput values.
 // You can construct a concrete instance of `AnalyzerFilterArrayInput` via:
 //
-//          AnalyzerFilterArray{ AnalyzerFilterArgs{...} }
+//	AnalyzerFilterArray{ AnalyzerFilterArgs{...} }
 type AnalyzerFilterArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +245,7 @@ type AnalyzerTag struct {
 // AnalyzerTagInput is an input type that accepts AnalyzerTagArgs and AnalyzerTagOutput values.
 // You can construct a concrete instance of `AnalyzerTagInput` via:
 //
-//          AnalyzerTagArgs{...}
+//	AnalyzerTagArgs{...}
 type AnalyzerTagInput interface {
 	pulumi.Input
 
@@ -276,7 +276,7 @@ func (i AnalyzerTagArgs) ToAnalyzerTagOutputWithContext(ctx context.Context) Ana
 // AnalyzerTagArrayInput is an input type that accepts AnalyzerTagArray and AnalyzerTagArrayOutput values.
 // You can construct a concrete instance of `AnalyzerTagArrayInput` via:
 //
-//          AnalyzerTagArray{ AnalyzerTagArgs{...} }
+//	AnalyzerTagArray{ AnalyzerTagArgs{...} }
 type AnalyzerTagArrayInput interface {
 	pulumi.Input
 

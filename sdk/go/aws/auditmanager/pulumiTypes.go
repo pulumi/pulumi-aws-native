@@ -20,7 +20,7 @@ type AssessmentAWSAccount struct {
 // AssessmentAWSAccountInput is an input type that accepts AssessmentAWSAccountArgs and AssessmentAWSAccountOutput values.
 // You can construct a concrete instance of `AssessmentAWSAccountInput` via:
 //
-//          AssessmentAWSAccountArgs{...}
+//	AssessmentAWSAccountArgs{...}
 type AssessmentAWSAccountInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountPtrOutputWithContext(ctx
 // AssessmentAWSAccountPtrInput is an input type that accepts AssessmentAWSAccountArgs, AssessmentAWSAccountPtr and AssessmentAWSAccountPtrOutput values.
 // You can construct a concrete instance of `AssessmentAWSAccountPtrInput` via:
 //
-//          AssessmentAWSAccountArgs{...}
+//	        AssessmentAWSAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssessmentAWSAccountPtrInput interface {
 	pulumi.Input
 
@@ -91,7 +91,7 @@ func (i *assessmentAWSAccountPtrType) ToAssessmentAWSAccountPtrOutputWithContext
 // AssessmentAWSAccountArrayInput is an input type that accepts AssessmentAWSAccountArray and AssessmentAWSAccountArrayOutput values.
 // You can construct a concrete instance of `AssessmentAWSAccountArrayInput` via:
 //
-//          AssessmentAWSAccountArray{ AssessmentAWSAccountArgs{...} }
+//	AssessmentAWSAccountArray{ AssessmentAWSAccountArgs{...} }
 type AssessmentAWSAccountArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ type AssessmentAWSService struct {
 // AssessmentAWSServiceInput is an input type that accepts AssessmentAWSServiceArgs and AssessmentAWSServiceOutput values.
 // You can construct a concrete instance of `AssessmentAWSServiceInput` via:
 //
-//          AssessmentAWSServiceArgs{...}
+//	AssessmentAWSServiceArgs{...}
 type AssessmentAWSServiceInput interface {
 	pulumi.Input
 
@@ -257,7 +257,7 @@ func (i AssessmentAWSServiceArgs) ToAssessmentAWSServiceOutputWithContext(ctx co
 // AssessmentAWSServiceArrayInput is an input type that accepts AssessmentAWSServiceArray and AssessmentAWSServiceArrayOutput values.
 // You can construct a concrete instance of `AssessmentAWSServiceArrayInput` via:
 //
-//          AssessmentAWSServiceArray{ AssessmentAWSServiceArgs{...} }
+//	AssessmentAWSServiceArray{ AssessmentAWSServiceArgs{...} }
 type AssessmentAWSServiceArrayInput interface {
 	pulumi.Input
 
@@ -421,7 +421,7 @@ type AssessmentReportsDestination struct {
 // AssessmentReportsDestinationInput is an input type that accepts AssessmentReportsDestinationArgs and AssessmentReportsDestinationOutput values.
 // You can construct a concrete instance of `AssessmentReportsDestinationInput` via:
 //
-//          AssessmentReportsDestinationArgs{...}
+//	AssessmentReportsDestinationArgs{...}
 type AssessmentReportsDestinationInput interface {
 	pulumi.Input
 
@@ -458,11 +458,11 @@ func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationPtrOutpu
 // AssessmentReportsDestinationPtrInput is an input type that accepts AssessmentReportsDestinationArgs, AssessmentReportsDestinationPtr and AssessmentReportsDestinationPtrOutput values.
 // You can construct a concrete instance of `AssessmentReportsDestinationPtrInput` via:
 //
-//          AssessmentReportsDestinationArgs{...}
+//	        AssessmentReportsDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssessmentReportsDestinationPtrInput interface {
 	pulumi.Input
 
@@ -572,7 +572,7 @@ type AssessmentRole struct {
 // AssessmentRoleInput is an input type that accepts AssessmentRoleArgs and AssessmentRoleOutput values.
 // You can construct a concrete instance of `AssessmentRoleInput` via:
 //
-//          AssessmentRoleArgs{...}
+//	AssessmentRoleArgs{...}
 type AssessmentRoleInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ func (i AssessmentRoleArgs) ToAssessmentRoleOutputWithContext(ctx context.Contex
 // AssessmentRoleArrayInput is an input type that accepts AssessmentRoleArray and AssessmentRoleArrayOutput values.
 // You can construct a concrete instance of `AssessmentRoleArrayInput` via:
 //
-//          AssessmentRoleArray{ AssessmentRoleArgs{...} }
+//	AssessmentRoleArray{ AssessmentRoleArgs{...} }
 type AssessmentRoleArrayInput interface {
 	pulumi.Input
 
@@ -677,7 +677,7 @@ type AssessmentScope struct {
 // AssessmentScopeInput is an input type that accepts AssessmentScopeArgs and AssessmentScopeOutput values.
 // You can construct a concrete instance of `AssessmentScopeInput` via:
 //
-//          AssessmentScopeArgs{...}
+//	AssessmentScopeArgs{...}
 type AssessmentScopeInput interface {
 	pulumi.Input
 
@@ -716,11 +716,11 @@ func (i AssessmentScopeArgs) ToAssessmentScopePtrOutputWithContext(ctx context.C
 // AssessmentScopePtrInput is an input type that accepts AssessmentScopeArgs, AssessmentScopePtr and AssessmentScopePtrOutput values.
 // You can construct a concrete instance of `AssessmentScopePtrInput` via:
 //
-//          AssessmentScopeArgs{...}
+//	        AssessmentScopeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssessmentScopePtrInput interface {
 	pulumi.Input
 
@@ -836,7 +836,7 @@ type AssessmentTag struct {
 // AssessmentTagInput is an input type that accepts AssessmentTagArgs and AssessmentTagOutput values.
 // You can construct a concrete instance of `AssessmentTagInput` via:
 //
-//          AssessmentTagArgs{...}
+//	AssessmentTagArgs{...}
 type AssessmentTagInput interface {
 	pulumi.Input
 
@@ -867,7 +867,7 @@ func (i AssessmentTagArgs) ToAssessmentTagOutputWithContext(ctx context.Context)
 // AssessmentTagArrayInput is an input type that accepts AssessmentTagArray and AssessmentTagArrayOutput values.
 // You can construct a concrete instance of `AssessmentTagArrayInput` via:
 //
-//          AssessmentTagArray{ AssessmentTagArgs{...} }
+//	AssessmentTagArray{ AssessmentTagArgs{...} }
 type AssessmentTagArrayInput interface {
 	pulumi.Input
 

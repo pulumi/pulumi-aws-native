@@ -17,7 +17,7 @@ type ExperimentTemplateActionMap struct {
 // ExperimentTemplateActionMapInput is an input type that accepts ExperimentTemplateActionMap and ExperimentTemplateActionMapOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionMapInput` via:
 //
-//          ExperimentTemplateActionMap{ "key": ExperimentTemplateActionArgs{...} }
+//	ExperimentTemplateActionMap{ "key": ExperimentTemplateActionArgs{...} }
 type ExperimentTemplateActionMapInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapPtrOutputW
 // ExperimentTemplateActionMapPtrInput is an input type that accepts ExperimentTemplateActionMapArgs, ExperimentTemplateActionMapPtr and ExperimentTemplateActionMapPtrOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionMapPtrInput` via:
 //
-//          ExperimentTemplateActionMapArgs{...}
+//	        ExperimentTemplateActionMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentTemplateActionMapPtrInput interface {
 	pulumi.Input
 
@@ -140,7 +140,7 @@ type ExperimentTemplateLogConfiguration struct {
 // ExperimentTemplateLogConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationArgs and ExperimentTemplateLogConfigurationOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationInput` via:
 //
-//          ExperimentTemplateLogConfigurationArgs{...}
+//	ExperimentTemplateLogConfigurationArgs{...}
 type ExperimentTemplateLogConfigurationInput interface {
 	pulumi.Input
 
@@ -177,11 +177,11 @@ func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigura
 // ExperimentTemplateLogConfigurationPtrInput is an input type that accepts ExperimentTemplateLogConfigurationArgs, ExperimentTemplateLogConfigurationPtr and ExperimentTemplateLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationPtrInput` via:
 //
-//          ExperimentTemplateLogConfigurationArgs{...}
+//	        ExperimentTemplateLogConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentTemplateLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties str
 // ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInput is an input type that accepts ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs and ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInput` via:
 //
-//          ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{...}
+//	ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{...}
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -340,11 +340,11 @@ func (i ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesA
 // ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrInput is an input type that accepts ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs, ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtr and ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrInput` via:
 //
-//          ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{...}
+//	        ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -441,7 +441,7 @@ type ExperimentTemplateLogConfigurationS3ConfigurationProperties struct {
 // ExperimentTemplateLogConfigurationS3ConfigurationPropertiesInput is an input type that accepts ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs and ExperimentTemplateLogConfigurationS3ConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationS3ConfigurationPropertiesInput` via:
 //
-//          ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs{...}
+//	ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs{...}
 type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -477,11 +477,11 @@ func (i ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs) ToExper
 // ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput is an input type that accepts ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs, ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtr and ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput values.
 // You can construct a concrete instance of `ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput` via:
 //
-//          ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs{...}
+//	        ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ type ExperimentTemplateStopCondition struct {
 // ExperimentTemplateStopConditionInput is an input type that accepts ExperimentTemplateStopConditionArgs and ExperimentTemplateStopConditionOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionInput` via:
 //
-//          ExperimentTemplateStopConditionArgs{...}
+//	ExperimentTemplateStopConditionArgs{...}
 type ExperimentTemplateStopConditionInput interface {
 	pulumi.Input
 
@@ -617,7 +617,7 @@ func (i ExperimentTemplateStopConditionArgs) ToExperimentTemplateStopConditionOu
 // ExperimentTemplateStopConditionArrayInput is an input type that accepts ExperimentTemplateStopConditionArray and ExperimentTemplateStopConditionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionArrayInput` via:
 //
-//          ExperimentTemplateStopConditionArray{ ExperimentTemplateStopConditionArgs{...} }
+//	ExperimentTemplateStopConditionArray{ ExperimentTemplateStopConditionArgs{...} }
 type ExperimentTemplateStopConditionArrayInput interface {
 	pulumi.Input
 
@@ -688,7 +688,7 @@ type ExperimentTemplateTargetMap struct {
 // ExperimentTemplateTargetMapInput is an input type that accepts ExperimentTemplateTargetMap and ExperimentTemplateTargetMapOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetMapInput` via:
 //
-//          ExperimentTemplateTargetMap{ "key": ExperimentTemplateTargetArgs{...} }
+//	ExperimentTemplateTargetMap{ "key": ExperimentTemplateTargetArgs{...} }
 type ExperimentTemplateTargetMapInput interface {
 	pulumi.Input
 

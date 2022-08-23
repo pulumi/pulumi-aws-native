@@ -1672,7 +1672,6 @@ export namespace apigateway {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace apigatewayv2 {
@@ -2570,7 +2569,6 @@ export namespace appflow {
     export interface FlowZendeskSourcePropertiesArgs {
         object: pulumi.Input<string>;
     }
-
 }
 
 export namespace appintegrations {
@@ -3693,7 +3691,6 @@ export namespace appmesh {
     export interface VirtualServiceVirtualRouterServiceProviderArgs {
         virtualRouterName: pulumi.Input<string>;
     }
-
 }
 
 export namespace apprunner {
@@ -4049,7 +4046,6 @@ export namespace appstream {
         action: pulumi.Input<string>;
         permission: pulumi.Input<string>;
     }
-
 }
 
 export namespace appsync {
@@ -4169,7 +4165,6 @@ export namespace appsync {
         conflictHandler?: pulumi.Input<string>;
         lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverLambdaConflictHandlerConfigArgs>;
     }
-
 }
 
 export namespace aps {
@@ -4648,7 +4643,6 @@ export namespace autoscaling {
     export interface WarmPoolInstanceReusePolicyArgs {
         reuseOnScaleIn?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace autoscalingplans {
@@ -5089,7 +5083,6 @@ export namespace batch {
         shareIdentifier?: pulumi.Input<string>;
         weightFactor?: pulumi.Input<number>;
     }
-
 }
 
 export namespace billingconductor {
@@ -7223,7 +7216,6 @@ export namespace connect {
          */
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace connectcampaigns {
@@ -8962,7 +8954,6 @@ export namespace dms {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace docdb {
@@ -10358,7 +10349,6 @@ export namespace ec2 {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace ecr {
@@ -10937,7 +10927,6 @@ export namespace ecs {
          */
         registryArn?: pulumi.Input<string>;
     }
-
 }
 
 export namespace efs {
@@ -15954,7 +15943,6 @@ export namespace iot {
         unit: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace iot1click {
@@ -17417,7 +17405,6 @@ export namespace iotsitewise {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace iotthingsgraph {
@@ -17646,7 +17633,6 @@ export namespace iotwireless {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
-
 }
 
 export namespace ivs {
@@ -19107,7 +19093,6 @@ export namespace kinesisanalyticsv2 {
          */
         logLevel?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfigurationLogLevel>;
     }
-
 }
 
 export namespace kinesisfirehose {
@@ -19386,7 +19371,6 @@ export namespace kinesisfirehose {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
-
 }
 
 export namespace kinesisvideo {
@@ -20565,7 +20549,6 @@ export namespace lex {
          */
         detectSentiment: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace licensemanager {
@@ -21198,7 +21181,6 @@ export namespace lightsail {
          */
         value?: pulumi.Input<string>;
     }
-
 }
 
 export namespace location {
@@ -22901,7 +22883,6 @@ export namespace medialive {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
-
 }
 
 export namespace mediapackage {
@@ -23453,7 +23434,6 @@ export namespace mediapackage {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace mediastore {
@@ -24240,7 +24220,6 @@ export namespace networkmanager {
          */
         ipv6Support?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace nimblestudio {
@@ -25214,7 +25193,6 @@ export namespace pinpoint {
         dimensionType?: pulumi.Input<string>;
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
-
 }
 
 export namespace pinpointemail {
@@ -28567,6 +28545,11 @@ export namespace s3 {
 }
 
 export namespace s3objectlambda {
+    export interface AccessPointAwsLambdaArgs {
+        functionArn: pulumi.Input<string>;
+        functionPayload?: pulumi.Input<string>;
+    }
+
     /**
      * Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
      */
@@ -28582,7 +28565,11 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfigurationArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
-        contentTransformation: any;
+        contentTransformation: pulumi.Input<inputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationPropertiesArgs>;
+    }
+
+    export interface AccessPointTransformationConfigurationContentTransformationPropertiesArgs {
+        awsLambda: pulumi.Input<inputs.s3objectlambda.AccessPointAwsLambdaArgs>;
     }
 
 }
@@ -30766,6 +30753,36 @@ export namespace sagemaker {
         maxParallelExecutionSteps: pulumi.Input<number>;
     }
 
+    export interface PipelineDefinition0PropertiesArgs {
+        /**
+         * A specification that defines the pipeline in JSON format.
+         */
+        pipelineDefinitionBody: pulumi.Input<string>;
+    }
+
+    export interface PipelineDefinition1PropertiesArgs {
+        pipelineDefinitionS3Location: pulumi.Input<inputs.sagemaker.PipelineS3LocationArgs>;
+    }
+
+    export interface PipelineS3LocationArgs {
+        /**
+         * The name of the S3 bucket where the PipelineDefinition file is stored.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+         */
+        eTag?: pulumi.Input<string>;
+        /**
+         * The file name of the PipelineDefinition file (Amazon S3 object name).
+         */
+        key: pulumi.Input<string>;
+        /**
+         * For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface PipelineTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -30948,7 +30965,6 @@ export namespace sagemaker {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace secretsmanager {
@@ -33368,7 +33384,6 @@ export namespace wafv2 {
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
-
 }
 
 export namespace wisdom {

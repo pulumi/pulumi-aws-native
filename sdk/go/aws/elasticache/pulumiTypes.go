@@ -17,7 +17,7 @@ type CacheClusterCloudWatchLogsDestinationDetails struct {
 // CacheClusterCloudWatchLogsDestinationDetailsInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs and CacheClusterCloudWatchLogsDestinationDetailsOutput values.
 // You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsInput` via:
 //
-//          CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+//	CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
 type CacheClusterCloudWatchLogsDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWat
 // CacheClusterCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs, CacheClusterCloudWatchLogsDestinationDetailsPtr and CacheClusterCloudWatchLogsDestinationDetailsPtrOutput values.
 // You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsPtrInput` via:
 //
-//          CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+//	        CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheClusterCloudWatchLogsDestinationDetailsPtrInput interface {
 	pulumi.Input
 
@@ -151,7 +151,7 @@ type CacheClusterDestinationDetails struct {
 // CacheClusterDestinationDetailsInput is an input type that accepts CacheClusterDestinationDetailsArgs and CacheClusterDestinationDetailsOutput values.
 // You can construct a concrete instance of `CacheClusterDestinationDetailsInput` via:
 //
-//          CacheClusterDestinationDetailsArgs{...}
+//	CacheClusterDestinationDetailsArgs{...}
 type CacheClusterDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -209,7 +209,7 @@ type CacheClusterKinesisFirehoseDestinationDetails struct {
 // CacheClusterKinesisFirehoseDestinationDetailsInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs and CacheClusterKinesisFirehoseDestinationDetailsOutput values.
 // You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsInput` via:
 //
-//          CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+//	CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
 type CacheClusterKinesisFirehoseDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -244,11 +244,11 @@ func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesis
 // CacheClusterKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs, CacheClusterKinesisFirehoseDestinationDetailsPtr and CacheClusterKinesisFirehoseDestinationDetailsPtrOutput values.
 // You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsPtrInput` via:
 //
-//          CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+//	        CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CacheClusterKinesisFirehoseDestinationDetailsPtrInput interface {
 	pulumi.Input
 
@@ -345,7 +345,7 @@ type CacheClusterLogDeliveryConfigurationRequest struct {
 // CacheClusterLogDeliveryConfigurationRequestInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArgs and CacheClusterLogDeliveryConfigurationRequestOutput values.
 // You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestInput` via:
 //
-//          CacheClusterLogDeliveryConfigurationRequestArgs{...}
+//	CacheClusterLogDeliveryConfigurationRequestArgs{...}
 type CacheClusterLogDeliveryConfigurationRequestInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDelive
 // CacheClusterLogDeliveryConfigurationRequestArrayInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArray and CacheClusterLogDeliveryConfigurationRequestArrayOutput values.
 // You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestArrayInput` via:
 //
-//          CacheClusterLogDeliveryConfigurationRequestArray{ CacheClusterLogDeliveryConfigurationRequestArgs{...} }
+//	CacheClusterLogDeliveryConfigurationRequestArray{ CacheClusterLogDeliveryConfigurationRequestArgs{...} }
 type CacheClusterLogDeliveryConfigurationRequestArrayInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type CacheClusterTag struct {
 // CacheClusterTagInput is an input type that accepts CacheClusterTagArgs and CacheClusterTagOutput values.
 // You can construct a concrete instance of `CacheClusterTagInput` via:
 //
-//          CacheClusterTagArgs{...}
+//	CacheClusterTagArgs{...}
 type CacheClusterTagInput interface {
 	pulumi.Input
 
@@ -485,7 +485,7 @@ func (i CacheClusterTagArgs) ToCacheClusterTagOutputWithContext(ctx context.Cont
 // CacheClusterTagArrayInput is an input type that accepts CacheClusterTagArray and CacheClusterTagArrayOutput values.
 // You can construct a concrete instance of `CacheClusterTagArrayInput` via:
 //
-//          CacheClusterTagArray{ CacheClusterTagArgs{...} }
+//	CacheClusterTagArray{ CacheClusterTagArgs{...} }
 type CacheClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ type GlobalReplicationGroupMember struct {
 // GlobalReplicationGroupMemberInput is an input type that accepts GlobalReplicationGroupMemberArgs and GlobalReplicationGroupMemberOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupMemberInput` via:
 //
-//          GlobalReplicationGroupMemberArgs{...}
+//	GlobalReplicationGroupMemberArgs{...}
 type GlobalReplicationGroupMemberInput interface {
 	pulumi.Input
 
@@ -593,7 +593,7 @@ func (i GlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupMemberOutputWi
 // GlobalReplicationGroupMemberArrayInput is an input type that accepts GlobalReplicationGroupMemberArray and GlobalReplicationGroupMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupMemberArrayInput` via:
 //
-//          GlobalReplicationGroupMemberArray{ GlobalReplicationGroupMemberArgs{...} }
+//	GlobalReplicationGroupMemberArray{ GlobalReplicationGroupMemberArgs{...} }
 type GlobalReplicationGroupMemberArrayInput interface {
 	pulumi.Input
 
@@ -676,7 +676,7 @@ type GlobalReplicationGroupRegionalConfiguration struct {
 // GlobalReplicationGroupRegionalConfigurationInput is an input type that accepts GlobalReplicationGroupRegionalConfigurationArgs and GlobalReplicationGroupRegionalConfigurationOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupRegionalConfigurationInput` via:
 //
-//          GlobalReplicationGroupRegionalConfigurationArgs{...}
+//	GlobalReplicationGroupRegionalConfigurationArgs{...}
 type GlobalReplicationGroupRegionalConfigurationInput interface {
 	pulumi.Input
 
@@ -708,7 +708,7 @@ func (i GlobalReplicationGroupRegionalConfigurationArgs) ToGlobalReplicationGrou
 // GlobalReplicationGroupRegionalConfigurationArrayInput is an input type that accepts GlobalReplicationGroupRegionalConfigurationArray and GlobalReplicationGroupRegionalConfigurationArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupRegionalConfigurationArrayInput` via:
 //
-//          GlobalReplicationGroupRegionalConfigurationArray{ GlobalReplicationGroupRegionalConfigurationArgs{...} }
+//	GlobalReplicationGroupRegionalConfigurationArray{ GlobalReplicationGroupRegionalConfigurationArgs{...} }
 type GlobalReplicationGroupRegionalConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ type GlobalReplicationGroupReshardingConfiguration struct {
 // GlobalReplicationGroupReshardingConfigurationInput is an input type that accepts GlobalReplicationGroupReshardingConfigurationArgs and GlobalReplicationGroupReshardingConfigurationOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupReshardingConfigurationInput` via:
 //
-//          GlobalReplicationGroupReshardingConfigurationArgs{...}
+//	GlobalReplicationGroupReshardingConfigurationArgs{...}
 type GlobalReplicationGroupReshardingConfigurationInput interface {
 	pulumi.Input
 
@@ -821,7 +821,7 @@ func (i GlobalReplicationGroupReshardingConfigurationArgs) ToGlobalReplicationGr
 // GlobalReplicationGroupReshardingConfigurationArrayInput is an input type that accepts GlobalReplicationGroupReshardingConfigurationArray and GlobalReplicationGroupReshardingConfigurationArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupReshardingConfigurationArrayInput` via:
 //
-//          GlobalReplicationGroupReshardingConfigurationArray{ GlobalReplicationGroupReshardingConfigurationArgs{...} }
+//	GlobalReplicationGroupReshardingConfigurationArray{ GlobalReplicationGroupReshardingConfigurationArgs{...} }
 type GlobalReplicationGroupReshardingConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -895,7 +895,7 @@ type ParameterGroupTag struct {
 // ParameterGroupTagInput is an input type that accepts ParameterGroupTagArgs and ParameterGroupTagOutput values.
 // You can construct a concrete instance of `ParameterGroupTagInput` via:
 //
-//          ParameterGroupTagArgs{...}
+//	ParameterGroupTagArgs{...}
 type ParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -923,7 +923,7 @@ func (i ParameterGroupTagArgs) ToParameterGroupTagOutputWithContext(ctx context.
 // ParameterGroupTagArrayInput is an input type that accepts ParameterGroupTagArray and ParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupTagArrayInput` via:
 //
-//          ParameterGroupTagArray{ ParameterGroupTagArgs{...} }
+//	ParameterGroupTagArray{ ParameterGroupTagArgs{...} }
 type ParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -994,7 +994,7 @@ type ReplicationGroupCloudWatchLogsDestinationDetails struct {
 // ReplicationGroupCloudWatchLogsDestinationDetailsInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs and ReplicationGroupCloudWatchLogsDestinationDetailsOutput values.
 // You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsInput` via:
 //
-//          ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+//	ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
 type ReplicationGroupCloudWatchLogsDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -1029,11 +1029,11 @@ func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroup
 // ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs, ReplicationGroupCloudWatchLogsDestinationDetailsPtr and ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput values.
 // You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput` via:
 //
-//          ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+//	        ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1128,7 +1128,7 @@ type ReplicationGroupDestinationDetails struct {
 // ReplicationGroupDestinationDetailsInput is an input type that accepts ReplicationGroupDestinationDetailsArgs and ReplicationGroupDestinationDetailsOutput values.
 // You can construct a concrete instance of `ReplicationGroupDestinationDetailsInput` via:
 //
-//          ReplicationGroupDestinationDetailsArgs{...}
+//	ReplicationGroupDestinationDetailsArgs{...}
 type ReplicationGroupDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -1186,7 +1186,7 @@ type ReplicationGroupKinesisFirehoseDestinationDetails struct {
 // ReplicationGroupKinesisFirehoseDestinationDetailsInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs and ReplicationGroupKinesisFirehoseDestinationDetailsOutput values.
 // You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsInput` via:
 //
-//          ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+//	ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
 type ReplicationGroupKinesisFirehoseDestinationDetailsInput interface {
 	pulumi.Input
 
@@ -1221,11 +1221,11 @@ func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGrou
 // ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs, ReplicationGroupKinesisFirehoseDestinationDetailsPtr and ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput values.
 // You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput` via:
 //
-//          ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+//	        ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1322,7 +1322,7 @@ type ReplicationGroupLogDeliveryConfigurationRequest struct {
 // ReplicationGroupLogDeliveryConfigurationRequestInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArgs and ReplicationGroupLogDeliveryConfigurationRequestOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestInput` via:
 //
-//          ReplicationGroupLogDeliveryConfigurationRequestArgs{...}
+//	ReplicationGroupLogDeliveryConfigurationRequestArgs{...}
 type ReplicationGroupLogDeliveryConfigurationRequestInput interface {
 	pulumi.Input
 
@@ -1352,7 +1352,7 @@ func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupL
 // ReplicationGroupLogDeliveryConfigurationRequestArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArray and ReplicationGroupLogDeliveryConfigurationRequestArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestArrayInput` via:
 //
-//          ReplicationGroupLogDeliveryConfigurationRequestArray{ ReplicationGroupLogDeliveryConfigurationRequestArgs{...} }
+//	ReplicationGroupLogDeliveryConfigurationRequestArray{ ReplicationGroupLogDeliveryConfigurationRequestArgs{...} }
 type ReplicationGroupLogDeliveryConfigurationRequestArrayInput interface {
 	pulumi.Input
 
@@ -1437,7 +1437,7 @@ type ReplicationGroupNodeGroupConfiguration struct {
 // ReplicationGroupNodeGroupConfigurationInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArgs and ReplicationGroupNodeGroupConfigurationOutput values.
 // You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationInput` via:
 //
-//          ReplicationGroupNodeGroupConfigurationArgs{...}
+//	ReplicationGroupNodeGroupConfigurationArgs{...}
 type ReplicationGroupNodeGroupConfigurationInput interface {
 	pulumi.Input
 
@@ -1468,7 +1468,7 @@ func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupC
 // ReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArray and ReplicationGroupNodeGroupConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationArrayInput` via:
 //
-//          ReplicationGroupNodeGroupConfigurationArray{ ReplicationGroupNodeGroupConfigurationArgs{...} }
+//	ReplicationGroupNodeGroupConfigurationArray{ ReplicationGroupNodeGroupConfigurationArgs{...} }
 type ReplicationGroupNodeGroupConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1552,7 +1552,7 @@ type ReplicationGroupTag struct {
 // ReplicationGroupTagInput is an input type that accepts ReplicationGroupTagArgs and ReplicationGroupTagOutput values.
 // You can construct a concrete instance of `ReplicationGroupTagInput` via:
 //
-//          ReplicationGroupTagArgs{...}
+//	ReplicationGroupTagArgs{...}
 type ReplicationGroupTagInput interface {
 	pulumi.Input
 
@@ -1580,7 +1580,7 @@ func (i ReplicationGroupTagArgs) ToReplicationGroupTagOutputWithContext(ctx cont
 // ReplicationGroupTagArrayInput is an input type that accepts ReplicationGroupTagArray and ReplicationGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupTagArrayInput` via:
 //
-//          ReplicationGroupTagArray{ ReplicationGroupTagArgs{...} }
+//	ReplicationGroupTagArray{ ReplicationGroupTagArgs{...} }
 type ReplicationGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -1652,7 +1652,7 @@ type SecurityGroupTag struct {
 // SecurityGroupTagInput is an input type that accepts SecurityGroupTagArgs and SecurityGroupTagOutput values.
 // You can construct a concrete instance of `SecurityGroupTagInput` via:
 //
-//          SecurityGroupTagArgs{...}
+//	SecurityGroupTagArgs{...}
 type SecurityGroupTagInput interface {
 	pulumi.Input
 
@@ -1680,7 +1680,7 @@ func (i SecurityGroupTagArgs) ToSecurityGroupTagOutputWithContext(ctx context.Co
 // SecurityGroupTagArrayInput is an input type that accepts SecurityGroupTagArray and SecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupTagArrayInput` via:
 //
-//          SecurityGroupTagArray{ SecurityGroupTagArgs{...} }
+//	SecurityGroupTagArray{ SecurityGroupTagArgs{...} }
 type SecurityGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -1752,7 +1752,7 @@ type SubnetGroupTag struct {
 // SubnetGroupTagInput is an input type that accepts SubnetGroupTagArgs and SubnetGroupTagOutput values.
 // You can construct a concrete instance of `SubnetGroupTagInput` via:
 //
-//          SubnetGroupTagArgs{...}
+//	SubnetGroupTagArgs{...}
 type SubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -1780,7 +1780,7 @@ func (i SubnetGroupTagArgs) ToSubnetGroupTagOutputWithContext(ctx context.Contex
 // SubnetGroupTagArrayInput is an input type that accepts SubnetGroupTagArray and SubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupTagArrayInput` via:
 //
-//          SubnetGroupTagArray{ SubnetGroupTagArgs{...} }
+//	SubnetGroupTagArray{ SubnetGroupTagArgs{...} }
 type SubnetGroupTagArrayInput interface {
 	pulumi.Input
 

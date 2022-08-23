@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.ParallelismConfigurationProperties?> ParallelismConfiguration { get; private set; } = null!;
 
         [Output("pipelineDefinition")]
-        public Output<object> PipelineDefinition { get; private set; } = null!;
+        public Output<Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>> PipelineDefinition { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Pipeline.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.ParallelismConfigurationPropertiesArgs>? ParallelismConfiguration { get; set; }
 
         [Input("pipelineDefinition", required: true)]
-        public Input<object> PipelineDefinition { get; set; } = null!;
+        public InputUnion<Inputs.PipelineDefinition0PropertiesArgs, Inputs.PipelineDefinition1PropertiesArgs> PipelineDefinition { get; set; } = null!;
 
         /// <summary>
         /// The description of the Pipeline.

@@ -18,7 +18,7 @@ type DBClusterParameterGroupTag struct {
 // DBClusterParameterGroupTagInput is an input type that accepts DBClusterParameterGroupTagArgs and DBClusterParameterGroupTagOutput values.
 // You can construct a concrete instance of `DBClusterParameterGroupTagInput` via:
 //
-//          DBClusterParameterGroupTagArgs{...}
+//	DBClusterParameterGroupTagArgs{...}
 type DBClusterParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DBClusterParameterGroupTagArgs) ToDBClusterParameterGroupTagOutputWithCo
 // DBClusterParameterGroupTagArrayInput is an input type that accepts DBClusterParameterGroupTagArray and DBClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterParameterGroupTagArrayInput` via:
 //
-//          DBClusterParameterGroupTagArray{ DBClusterParameterGroupTagArgs{...} }
+//	DBClusterParameterGroupTagArray{ DBClusterParameterGroupTagArgs{...} }
 type DBClusterParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type DBClusterTag struct {
 // DBClusterTagInput is an input type that accepts DBClusterTagArgs and DBClusterTagOutput values.
 // You can construct a concrete instance of `DBClusterTagInput` via:
 //
-//          DBClusterTagArgs{...}
+//	DBClusterTagArgs{...}
 type DBClusterTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i DBClusterTagArgs) ToDBClusterTagOutputWithContext(ctx context.Context) D
 // DBClusterTagArrayInput is an input type that accepts DBClusterTagArray and DBClusterTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterTagArrayInput` via:
 //
-//          DBClusterTagArray{ DBClusterTagArgs{...} }
+//	DBClusterTagArray{ DBClusterTagArgs{...} }
 type DBClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type DBInstanceTag struct {
 // DBInstanceTagInput is an input type that accepts DBInstanceTagArgs and DBInstanceTagOutput values.
 // You can construct a concrete instance of `DBInstanceTagInput` via:
 //
-//          DBInstanceTagArgs{...}
+//	DBInstanceTagArgs{...}
 type DBInstanceTagInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i DBInstanceTagArgs) ToDBInstanceTagOutputWithContext(ctx context.Context)
 // DBInstanceTagArrayInput is an input type that accepts DBInstanceTagArray and DBInstanceTagArrayOutput values.
 // You can construct a concrete instance of `DBInstanceTagArrayInput` via:
 //
-//          DBInstanceTagArray{ DBInstanceTagArgs{...} }
+//	DBInstanceTagArray{ DBInstanceTagArgs{...} }
 type DBInstanceTagArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ type DBSubnetGroupTag struct {
 // DBSubnetGroupTagInput is an input type that accepts DBSubnetGroupTagArgs and DBSubnetGroupTagOutput values.
 // You can construct a concrete instance of `DBSubnetGroupTagInput` via:
 //
-//          DBSubnetGroupTagArgs{...}
+//	DBSubnetGroupTagArgs{...}
 type DBSubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -346,7 +346,7 @@ func (i DBSubnetGroupTagArgs) ToDBSubnetGroupTagOutputWithContext(ctx context.Co
 // DBSubnetGroupTagArrayInput is an input type that accepts DBSubnetGroupTagArray and DBSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBSubnetGroupTagArrayInput` via:
 //
-//          DBSubnetGroupTagArray{ DBSubnetGroupTagArgs{...} }
+//	DBSubnetGroupTagArray{ DBSubnetGroupTagArgs{...} }
 type DBSubnetGroupTagArrayInput interface {
 	pulumi.Input
 

@@ -18,7 +18,7 @@ type DetectorCFNDataSourceConfigurations struct {
 // DetectorCFNDataSourceConfigurationsInput is an input type that accepts DetectorCFNDataSourceConfigurationsArgs and DetectorCFNDataSourceConfigurationsOutput values.
 // You can construct a concrete instance of `DetectorCFNDataSourceConfigurationsInput` via:
 //
-//          DetectorCFNDataSourceConfigurationsArgs{...}
+//	DetectorCFNDataSourceConfigurationsArgs{...}
 type DetectorCFNDataSourceConfigurationsInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i DetectorCFNDataSourceConfigurationsArgs) ToDetectorCFNDataSourceConfigur
 // DetectorCFNDataSourceConfigurationsPtrInput is an input type that accepts DetectorCFNDataSourceConfigurationsArgs, DetectorCFNDataSourceConfigurationsPtr and DetectorCFNDataSourceConfigurationsPtrOutput values.
 // You can construct a concrete instance of `DetectorCFNDataSourceConfigurationsPtrInput` via:
 //
-//          DetectorCFNDataSourceConfigurationsArgs{...}
+//	        DetectorCFNDataSourceConfigurationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorCFNDataSourceConfigurationsPtrInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type DetectorCFNKubernetesAuditLogsConfiguration struct {
 // DetectorCFNKubernetesAuditLogsConfigurationInput is an input type that accepts DetectorCFNKubernetesAuditLogsConfigurationArgs and DetectorCFNKubernetesAuditLogsConfigurationOutput values.
 // You can construct a concrete instance of `DetectorCFNKubernetesAuditLogsConfigurationInput` via:
 //
-//          DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
+//	DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
 type DetectorCFNKubernetesAuditLogsConfigurationInput interface {
 	pulumi.Input
 
@@ -200,11 +200,11 @@ func (i DetectorCFNKubernetesAuditLogsConfigurationArgs) ToDetectorCFNKubernetes
 // DetectorCFNKubernetesAuditLogsConfigurationPtrInput is an input type that accepts DetectorCFNKubernetesAuditLogsConfigurationArgs, DetectorCFNKubernetesAuditLogsConfigurationPtr and DetectorCFNKubernetesAuditLogsConfigurationPtrOutput values.
 // You can construct a concrete instance of `DetectorCFNKubernetesAuditLogsConfigurationPtrInput` via:
 //
-//          DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
+//	        DetectorCFNKubernetesAuditLogsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorCFNKubernetesAuditLogsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -298,7 +298,7 @@ type DetectorCFNKubernetesConfiguration struct {
 // DetectorCFNKubernetesConfigurationInput is an input type that accepts DetectorCFNKubernetesConfigurationArgs and DetectorCFNKubernetesConfigurationOutput values.
 // You can construct a concrete instance of `DetectorCFNKubernetesConfigurationInput` via:
 //
-//          DetectorCFNKubernetesConfigurationArgs{...}
+//	DetectorCFNKubernetesConfigurationArgs{...}
 type DetectorCFNKubernetesConfigurationInput interface {
 	pulumi.Input
 
@@ -333,11 +333,11 @@ func (i DetectorCFNKubernetesConfigurationArgs) ToDetectorCFNKubernetesConfigura
 // DetectorCFNKubernetesConfigurationPtrInput is an input type that accepts DetectorCFNKubernetesConfigurationArgs, DetectorCFNKubernetesConfigurationPtr and DetectorCFNKubernetesConfigurationPtrOutput values.
 // You can construct a concrete instance of `DetectorCFNKubernetesConfigurationPtrInput` via:
 //
-//          DetectorCFNKubernetesConfigurationArgs{...}
+//	        DetectorCFNKubernetesConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorCFNKubernetesConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type DetectorCFNS3LogsConfiguration struct {
 // DetectorCFNS3LogsConfigurationInput is an input type that accepts DetectorCFNS3LogsConfigurationArgs and DetectorCFNS3LogsConfigurationOutput values.
 // You can construct a concrete instance of `DetectorCFNS3LogsConfigurationInput` via:
 //
-//          DetectorCFNS3LogsConfigurationArgs{...}
+//	DetectorCFNS3LogsConfigurationArgs{...}
 type DetectorCFNS3LogsConfigurationInput interface {
 	pulumi.Input
 
@@ -468,11 +468,11 @@ func (i DetectorCFNS3LogsConfigurationArgs) ToDetectorCFNS3LogsConfigurationPtrO
 // DetectorCFNS3LogsConfigurationPtrInput is an input type that accepts DetectorCFNS3LogsConfigurationArgs, DetectorCFNS3LogsConfigurationPtr and DetectorCFNS3LogsConfigurationPtrOutput values.
 // You can construct a concrete instance of `DetectorCFNS3LogsConfigurationPtrInput` via:
 //
-//          DetectorCFNS3LogsConfigurationArgs{...}
+//	        DetectorCFNS3LogsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorCFNS3LogsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -577,7 +577,7 @@ type FilterCondition struct {
 // FilterConditionInput is an input type that accepts FilterConditionArgs and FilterConditionOutput values.
 // You can construct a concrete instance of `FilterConditionInput` via:
 //
-//          FilterConditionArgs{...}
+//	FilterConditionArgs{...}
 type FilterConditionInput interface {
 	pulumi.Input
 
@@ -623,11 +623,11 @@ func (i FilterConditionArgs) ToFilterConditionPtrOutputWithContext(ctx context.C
 // FilterConditionPtrInput is an input type that accepts FilterConditionArgs, FilterConditionPtr and FilterConditionPtrOutput values.
 // You can construct a concrete instance of `FilterConditionPtrInput` via:
 //
-//          FilterConditionArgs{...}
+//	        FilterConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FilterConditionPtrInput interface {
 	pulumi.Input
 
@@ -865,7 +865,7 @@ type FilterFindingCriteria struct {
 // FilterFindingCriteriaInput is an input type that accepts FilterFindingCriteriaArgs and FilterFindingCriteriaOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaInput` via:
 //
-//          FilterFindingCriteriaArgs{...}
+//	FilterFindingCriteriaArgs{...}
 type FilterFindingCriteriaInput interface {
 	pulumi.Input
 

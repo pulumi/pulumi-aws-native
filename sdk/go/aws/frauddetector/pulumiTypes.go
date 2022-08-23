@@ -27,7 +27,7 @@ type DetectorEntityType struct {
 // DetectorEntityTypeInput is an input type that accepts DetectorEntityTypeArgs and DetectorEntityTypeOutput values.
 // You can construct a concrete instance of `DetectorEntityTypeInput` via:
 //
-//          DetectorEntityTypeArgs{...}
+//	DetectorEntityTypeArgs{...}
 type DetectorEntityTypeInput interface {
 	pulumi.Input
 
@@ -64,7 +64,7 @@ func (i DetectorEntityTypeArgs) ToDetectorEntityTypeOutputWithContext(ctx contex
 // DetectorEntityTypeArrayInput is an input type that accepts DetectorEntityTypeArray and DetectorEntityTypeArrayOutput values.
 // You can construct a concrete instance of `DetectorEntityTypeArrayInput` via:
 //
-//          DetectorEntityTypeArray{ DetectorEntityTypeArgs{...} }
+//	DetectorEntityTypeArray{ DetectorEntityTypeArgs{...} }
 type DetectorEntityTypeArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ type DetectorEventType struct {
 // DetectorEventTypeInput is an input type that accepts DetectorEventTypeArgs and DetectorEventTypeOutput values.
 // You can construct a concrete instance of `DetectorEventTypeInput` via:
 //
-//          DetectorEventTypeArgs{...}
+//	DetectorEventTypeArgs{...}
 type DetectorEventTypeInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ type DetectorEventVariable struct {
 // DetectorEventVariableInput is an input type that accepts DetectorEventVariableArgs and DetectorEventVariableOutput values.
 // You can construct a concrete instance of `DetectorEventVariableInput` via:
 //
-//          DetectorEventVariableArgs{...}
+//	DetectorEventVariableArgs{...}
 type DetectorEventVariableInput interface {
 	pulumi.Input
 
@@ -455,7 +455,7 @@ func (i DetectorEventVariableArgs) ToDetectorEventVariableOutputWithContext(ctx 
 // DetectorEventVariableArrayInput is an input type that accepts DetectorEventVariableArray and DetectorEventVariableArrayOutput values.
 // You can construct a concrete instance of `DetectorEventVariableArrayInput` via:
 //
-//          DetectorEventVariableArray{ DetectorEventVariableArgs{...} }
+//	DetectorEventVariableArray{ DetectorEventVariableArgs{...} }
 type DetectorEventVariableArrayInput interface {
 	pulumi.Input
 
@@ -576,7 +576,7 @@ type DetectorLabel struct {
 // DetectorLabelInput is an input type that accepts DetectorLabelArgs and DetectorLabelOutput values.
 // You can construct a concrete instance of `DetectorLabelInput` via:
 //
-//          DetectorLabelArgs{...}
+//	DetectorLabelArgs{...}
 type DetectorLabelInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ func (i DetectorLabelArgs) ToDetectorLabelOutputWithContext(ctx context.Context)
 // DetectorLabelArrayInput is an input type that accepts DetectorLabelArray and DetectorLabelArrayOutput values.
 // You can construct a concrete instance of `DetectorLabelArrayInput` via:
 //
-//          DetectorLabelArray{ DetectorLabelArgs{...} }
+//	DetectorLabelArray{ DetectorLabelArgs{...} }
 type DetectorLabelArrayInput interface {
 	pulumi.Input
 
@@ -709,7 +709,7 @@ type DetectorModel struct {
 // DetectorModelInput is an input type that accepts DetectorModelArgs and DetectorModelOutput values.
 // You can construct a concrete instance of `DetectorModelInput` via:
 //
-//          DetectorModelArgs{...}
+//	DetectorModelArgs{...}
 type DetectorModelInput interface {
 	pulumi.Input
 
@@ -737,7 +737,7 @@ func (i DetectorModelArgs) ToDetectorModelOutputWithContext(ctx context.Context)
 // DetectorModelArrayInput is an input type that accepts DetectorModelArray and DetectorModelArrayOutput values.
 // You can construct a concrete instance of `DetectorModelArrayInput` via:
 //
-//          DetectorModelArray{ DetectorModelArgs{...} }
+//	DetectorModelArray{ DetectorModelArgs{...} }
 type DetectorModelArrayInput interface {
 	pulumi.Input
 
@@ -815,7 +815,7 @@ type DetectorOutcome struct {
 // DetectorOutcomeInput is an input type that accepts DetectorOutcomeArgs and DetectorOutcomeOutput values.
 // You can construct a concrete instance of `DetectorOutcomeInput` via:
 //
-//          DetectorOutcomeArgs{...}
+//	DetectorOutcomeArgs{...}
 type DetectorOutcomeInput interface {
 	pulumi.Input
 
@@ -852,7 +852,7 @@ func (i DetectorOutcomeArgs) ToDetectorOutcomeOutputWithContext(ctx context.Cont
 // DetectorOutcomeArrayInput is an input type that accepts DetectorOutcomeArray and DetectorOutcomeArrayOutput values.
 // You can construct a concrete instance of `DetectorOutcomeArrayInput` via:
 //
-//          DetectorOutcomeArray{ DetectorOutcomeArgs{...} }
+//	DetectorOutcomeArray{ DetectorOutcomeArgs{...} }
 type DetectorOutcomeArrayInput interface {
 	pulumi.Input
 
@@ -961,7 +961,7 @@ type DetectorRule struct {
 // DetectorRuleInput is an input type that accepts DetectorRuleArgs and DetectorRuleOutput values.
 // You can construct a concrete instance of `DetectorRuleInput` via:
 //
-//          DetectorRuleArgs{...}
+//	DetectorRuleArgs{...}
 type DetectorRuleInput interface {
 	pulumi.Input
 
@@ -1002,7 +1002,7 @@ func (i DetectorRuleArgs) ToDetectorRuleOutputWithContext(ctx context.Context) D
 // DetectorRuleArrayInput is an input type that accepts DetectorRuleArray and DetectorRuleArrayOutput values.
 // You can construct a concrete instance of `DetectorRuleArrayInput` via:
 //
-//          DetectorRuleArray{ DetectorRuleArgs{...} }
+//	DetectorRuleArray{ DetectorRuleArgs{...} }
 type DetectorRuleArrayInput interface {
 	pulumi.Input
 
@@ -1114,7 +1114,7 @@ type DetectorTag struct {
 // DetectorTagInput is an input type that accepts DetectorTagArgs and DetectorTagOutput values.
 // You can construct a concrete instance of `DetectorTagInput` via:
 //
-//          DetectorTagArgs{...}
+//	DetectorTagArgs{...}
 type DetectorTagInput interface {
 	pulumi.Input
 
@@ -1142,7 +1142,7 @@ func (i DetectorTagArgs) ToDetectorTagOutputWithContext(ctx context.Context) Det
 // DetectorTagArrayInput is an input type that accepts DetectorTagArray and DetectorTagArrayOutput values.
 // You can construct a concrete instance of `DetectorTagArrayInput` via:
 //
-//          DetectorTagArray{ DetectorTagArgs{...} }
+//	DetectorTagArray{ DetectorTagArgs{...} }
 type DetectorTagArrayInput interface {
 	pulumi.Input
 
@@ -1214,7 +1214,7 @@ type EntityTypeTag struct {
 // EntityTypeTagInput is an input type that accepts EntityTypeTagArgs and EntityTypeTagOutput values.
 // You can construct a concrete instance of `EntityTypeTagInput` via:
 //
-//          EntityTypeTagArgs{...}
+//	EntityTypeTagArgs{...}
 type EntityTypeTagInput interface {
 	pulumi.Input
 
@@ -1242,7 +1242,7 @@ func (i EntityTypeTagArgs) ToEntityTypeTagOutputWithContext(ctx context.Context)
 // EntityTypeTagArrayInput is an input type that accepts EntityTypeTagArray and EntityTypeTagArrayOutput values.
 // You can construct a concrete instance of `EntityTypeTagArrayInput` via:
 //
-//          EntityTypeTagArray{ EntityTypeTagArgs{...} }
+//	EntityTypeTagArray{ EntityTypeTagArgs{...} }
 type EntityTypeTagArrayInput interface {
 	pulumi.Input
 
@@ -1323,7 +1323,7 @@ type EventTypeEntityType struct {
 // EventTypeEntityTypeInput is an input type that accepts EventTypeEntityTypeArgs and EventTypeEntityTypeOutput values.
 // You can construct a concrete instance of `EventTypeEntityTypeInput` via:
 //
-//          EventTypeEntityTypeArgs{...}
+//	EventTypeEntityTypeArgs{...}
 type EventTypeEntityTypeInput interface {
 	pulumi.Input
 
@@ -1360,7 +1360,7 @@ func (i EventTypeEntityTypeArgs) ToEventTypeEntityTypeOutputWithContext(ctx cont
 // EventTypeEntityTypeArrayInput is an input type that accepts EventTypeEntityTypeArray and EventTypeEntityTypeArrayOutput values.
 // You can construct a concrete instance of `EventTypeEntityTypeArrayInput` via:
 //
-//          EventTypeEntityTypeArray{ EventTypeEntityTypeArgs{...} }
+//	EventTypeEntityTypeArray{ EventTypeEntityTypeArgs{...} }
 type EventTypeEntityTypeArrayInput interface {
 	pulumi.Input
 
@@ -1469,7 +1469,7 @@ type EventTypeEventVariable struct {
 // EventTypeEventVariableInput is an input type that accepts EventTypeEventVariableArgs and EventTypeEventVariableOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableInput` via:
 //
-//          EventTypeEventVariableArgs{...}
+//	EventTypeEventVariableArgs{...}
 type EventTypeEventVariableInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ func (i EventTypeEventVariableArgs) ToEventTypeEventVariableOutputWithContext(ct
 // EventTypeEventVariableArrayInput is an input type that accepts EventTypeEventVariableArray and EventTypeEventVariableArrayOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableArrayInput` via:
 //
-//          EventTypeEventVariableArray{ EventTypeEventVariableArgs{...} }
+//	EventTypeEventVariableArray{ EventTypeEventVariableArgs{...} }
 type EventTypeEventVariableArrayInput interface {
 	pulumi.Input
 
@@ -1631,7 +1631,7 @@ type EventTypeLabel struct {
 // EventTypeLabelInput is an input type that accepts EventTypeLabelArgs and EventTypeLabelOutput values.
 // You can construct a concrete instance of `EventTypeLabelInput` via:
 //
-//          EventTypeLabelArgs{...}
+//	EventTypeLabelArgs{...}
 type EventTypeLabelInput interface {
 	pulumi.Input
 
@@ -1668,7 +1668,7 @@ func (i EventTypeLabelArgs) ToEventTypeLabelOutputWithContext(ctx context.Contex
 // EventTypeLabelArrayInput is an input type that accepts EventTypeLabelArray and EventTypeLabelArrayOutput values.
 // You can construct a concrete instance of `EventTypeLabelArrayInput` via:
 //
-//          EventTypeLabelArray{ EventTypeLabelArgs{...} }
+//	EventTypeLabelArray{ EventTypeLabelArgs{...} }
 type EventTypeLabelArrayInput interface {
 	pulumi.Input
 
@@ -1764,7 +1764,7 @@ type EventTypeTag struct {
 // EventTypeTagInput is an input type that accepts EventTypeTagArgs and EventTypeTagOutput values.
 // You can construct a concrete instance of `EventTypeTagInput` via:
 //
-//          EventTypeTagArgs{...}
+//	EventTypeTagArgs{...}
 type EventTypeTagInput interface {
 	pulumi.Input
 
@@ -1792,7 +1792,7 @@ func (i EventTypeTagArgs) ToEventTypeTagOutputWithContext(ctx context.Context) E
 // EventTypeTagArrayInput is an input type that accepts EventTypeTagArray and EventTypeTagArrayOutput values.
 // You can construct a concrete instance of `EventTypeTagArrayInput` via:
 //
-//          EventTypeTagArray{ EventTypeTagArgs{...} }
+//	EventTypeTagArray{ EventTypeTagArgs{...} }
 type EventTypeTagArrayInput interface {
 	pulumi.Input
 
@@ -1864,7 +1864,7 @@ type LabelTag struct {
 // LabelTagInput is an input type that accepts LabelTagArgs and LabelTagOutput values.
 // You can construct a concrete instance of `LabelTagInput` via:
 //
-//          LabelTagArgs{...}
+//	LabelTagArgs{...}
 type LabelTagInput interface {
 	pulumi.Input
 
@@ -1892,7 +1892,7 @@ func (i LabelTagArgs) ToLabelTagOutputWithContext(ctx context.Context) LabelTagO
 // LabelTagArrayInput is an input type that accepts LabelTagArray and LabelTagArrayOutput values.
 // You can construct a concrete instance of `LabelTagArrayInput` via:
 //
-//          LabelTagArray{ LabelTagArgs{...} }
+//	LabelTagArray{ LabelTagArgs{...} }
 type LabelTagArrayInput interface {
 	pulumi.Input
 
@@ -1964,7 +1964,7 @@ type OutcomeTag struct {
 // OutcomeTagInput is an input type that accepts OutcomeTagArgs and OutcomeTagOutput values.
 // You can construct a concrete instance of `OutcomeTagInput` via:
 //
-//          OutcomeTagArgs{...}
+//	OutcomeTagArgs{...}
 type OutcomeTagInput interface {
 	pulumi.Input
 
@@ -1992,7 +1992,7 @@ func (i OutcomeTagArgs) ToOutcomeTagOutputWithContext(ctx context.Context) Outco
 // OutcomeTagArrayInput is an input type that accepts OutcomeTagArray and OutcomeTagArrayOutput values.
 // You can construct a concrete instance of `OutcomeTagArrayInput` via:
 //
-//          OutcomeTagArray{ OutcomeTagArgs{...} }
+//	OutcomeTagArray{ OutcomeTagArgs{...} }
 type OutcomeTagArrayInput interface {
 	pulumi.Input
 
@@ -2064,7 +2064,7 @@ type VariableTag struct {
 // VariableTagInput is an input type that accepts VariableTagArgs and VariableTagOutput values.
 // You can construct a concrete instance of `VariableTagInput` via:
 //
-//          VariableTagArgs{...}
+//	VariableTagArgs{...}
 type VariableTagInput interface {
 	pulumi.Input
 
@@ -2092,7 +2092,7 @@ func (i VariableTagArgs) ToVariableTagOutputWithContext(ctx context.Context) Var
 // VariableTagArrayInput is an input type that accepts VariableTagArray and VariableTagArrayOutput values.
 // You can construct a concrete instance of `VariableTagArrayInput` via:
 //
-//          VariableTagArray{ VariableTagArgs{...} }
+//	VariableTagArray{ VariableTagArgs{...} }
 type VariableTagArrayInput interface {
 	pulumi.Input
 

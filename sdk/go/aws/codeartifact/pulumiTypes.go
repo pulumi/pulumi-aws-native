@@ -21,7 +21,7 @@ type DomainTag struct {
 // DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
 // You can construct a concrete instance of `DomainTagInput` via:
 //
-//          DomainTagArgs{...}
+//	DomainTagArgs{...}
 type DomainTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
-//          DomainTagArray{ DomainTagArgs{...} }
+//	DomainTagArray{ DomainTagArgs{...} }
 type DomainTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type RepositoryTag struct {
 // RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
 // You can construct a concrete instance of `RepositoryTagInput` via:
 //
-//          RepositoryTagArgs{...}
+//	RepositoryTagArgs{...}
 type RepositoryTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
-//          RepositoryTagArray{ RepositoryTagArgs{...} }
+//	RepositoryTagArray{ RepositoryTagArgs{...} }
 type RepositoryTagArrayInput interface {
 	pulumi.Input
 

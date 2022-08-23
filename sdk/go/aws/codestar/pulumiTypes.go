@@ -17,7 +17,7 @@ type GitHubRepositoryCode struct {
 // GitHubRepositoryCodeInput is an input type that accepts GitHubRepositoryCodeArgs and GitHubRepositoryCodeOutput values.
 // You can construct a concrete instance of `GitHubRepositoryCodeInput` via:
 //
-//          GitHubRepositoryCodeArgs{...}
+//	GitHubRepositoryCodeArgs{...}
 type GitHubRepositoryCodeInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i GitHubRepositoryCodeArgs) ToGitHubRepositoryCodePtrOutputWithContext(ctx
 // GitHubRepositoryCodePtrInput is an input type that accepts GitHubRepositoryCodeArgs, GitHubRepositoryCodePtr and GitHubRepositoryCodePtrOutput values.
 // You can construct a concrete instance of `GitHubRepositoryCodePtrInput` via:
 //
-//          GitHubRepositoryCodeArgs{...}
+//	        GitHubRepositoryCodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GitHubRepositoryCodePtrInput interface {
 	pulumi.Input
 
@@ -152,7 +152,7 @@ type GitHubRepositoryS3 struct {
 // GitHubRepositoryS3Input is an input type that accepts GitHubRepositoryS3Args and GitHubRepositoryS3Output values.
 // You can construct a concrete instance of `GitHubRepositoryS3Input` via:
 //
-//          GitHubRepositoryS3Args{...}
+//	GitHubRepositoryS3Args{...}
 type GitHubRepositoryS3Input interface {
 	pulumi.Input
 
@@ -189,11 +189,11 @@ func (i GitHubRepositoryS3Args) ToGitHubRepositoryS3PtrOutputWithContext(ctx con
 // GitHubRepositoryS3PtrInput is an input type that accepts GitHubRepositoryS3Args, GitHubRepositoryS3Ptr and GitHubRepositoryS3PtrOutput values.
 // You can construct a concrete instance of `GitHubRepositoryS3PtrInput` via:
 //
-//          GitHubRepositoryS3Args{...}
+//	        GitHubRepositoryS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GitHubRepositoryS3PtrInput interface {
 	pulumi.Input
 

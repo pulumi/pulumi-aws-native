@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
         }
 
         [Input("contentTransformation", required: true)]
-        public Input<object> ContentTransformation { get; set; } = null!;
+        public Input<Inputs.AccessPointTransformationConfigurationContentTransformationPropertiesArgs> ContentTransformation { get; set; } = null!;
 
         public AccessPointTransformationConfigurationArgs()
         {

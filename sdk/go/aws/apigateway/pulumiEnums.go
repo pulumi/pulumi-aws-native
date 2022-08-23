@@ -142,7 +142,7 @@ func (o MethodAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // MethodAuthorizationTypeInput is an input type that accepts MethodAuthorizationTypeArgs and MethodAuthorizationTypeOutput values.
 // You can construct a concrete instance of `MethodAuthorizationTypeInput` via:
 //
-//          MethodAuthorizationTypeArgs{...}
+//	MethodAuthorizationTypeArgs{...}
 type MethodAuthorizationTypeInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o MethodIntegrationConnectionTypePtrOutput) ToStringPtrOutputWithContext(c
 // MethodIntegrationConnectionTypeInput is an input type that accepts MethodIntegrationConnectionTypeArgs and MethodIntegrationConnectionTypeOutput values.
 // You can construct a concrete instance of `MethodIntegrationConnectionTypeInput` via:
 //
-//          MethodIntegrationConnectionTypeArgs{...}
+//	MethodIntegrationConnectionTypeArgs{...}
 type MethodIntegrationConnectionTypeInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o MethodIntegrationContentHandlingPtrOutput) ToStringPtrOutputWithContext(
 // MethodIntegrationContentHandlingInput is an input type that accepts MethodIntegrationContentHandlingArgs and MethodIntegrationContentHandlingOutput values.
 // You can construct a concrete instance of `MethodIntegrationContentHandlingInput` via:
 //
-//          MethodIntegrationContentHandlingArgs{...}
+//	MethodIntegrationContentHandlingArgs{...}
 type MethodIntegrationContentHandlingInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToStringPtrOutputWithCont
 // MethodIntegrationPassthroughBehaviorInput is an input type that accepts MethodIntegrationPassthroughBehaviorArgs and MethodIntegrationPassthroughBehaviorOutput values.
 // You can construct a concrete instance of `MethodIntegrationPassthroughBehaviorInput` via:
 //
-//          MethodIntegrationPassthroughBehaviorArgs{...}
+//	MethodIntegrationPassthroughBehaviorArgs{...}
 type MethodIntegrationPassthroughBehaviorInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ func (o MethodIntegrationResponseContentHandlingPtrOutput) ToStringPtrOutputWith
 // MethodIntegrationResponseContentHandlingInput is an input type that accepts MethodIntegrationResponseContentHandlingArgs and MethodIntegrationResponseContentHandlingOutput values.
 // You can construct a concrete instance of `MethodIntegrationResponseContentHandlingInput` via:
 //
-//          MethodIntegrationResponseContentHandlingArgs{...}
+//	MethodIntegrationResponseContentHandlingArgs{...}
 type MethodIntegrationResponseContentHandlingInput interface {
 	pulumi.Input
 
@@ -971,7 +971,7 @@ func (o MethodIntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // MethodIntegrationTypeInput is an input type that accepts MethodIntegrationTypeArgs and MethodIntegrationTypeOutput values.
 // You can construct a concrete instance of `MethodIntegrationTypeInput` via:
 //
-//          MethodIntegrationTypeArgs{...}
+//	MethodIntegrationTypeArgs{...}
 type MethodIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -1135,7 +1135,7 @@ func (o UsagePlanKeyKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // UsagePlanKeyKeyTypeInput is an input type that accepts UsagePlanKeyKeyTypeArgs and UsagePlanKeyKeyTypeOutput values.
 // You can construct a concrete instance of `UsagePlanKeyKeyTypeInput` via:
 //
-//          UsagePlanKeyKeyTypeArgs{...}
+//	UsagePlanKeyKeyTypeArgs{...}
 type UsagePlanKeyKeyTypeInput interface {
 	pulumi.Input
 

@@ -27,7 +27,7 @@ type BudgetCostTypes struct {
 // BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
 // You can construct a concrete instance of `BudgetCostTypesInput` via:
 //
-//          BudgetCostTypesArgs{...}
+//	BudgetCostTypesArgs{...}
 type BudgetCostTypesInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutputWithContext(ctx context.C
 // BudgetCostTypesPtrInput is an input type that accepts BudgetCostTypesArgs, BudgetCostTypesPtr and BudgetCostTypesPtrOutput values.
 // You can construct a concrete instance of `BudgetCostTypesPtrInput` via:
 //
-//          BudgetCostTypesArgs{...}
+//	        BudgetCostTypesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetCostTypesPtrInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ type BudgetData struct {
 // BudgetDataInput is an input type that accepts BudgetDataArgs and BudgetDataOutput values.
 // You can construct a concrete instance of `BudgetDataInput` via:
 //
-//          BudgetDataArgs{...}
+//	BudgetDataArgs{...}
 type BudgetDataInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ type BudgetNotification struct {
 // BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
 // You can construct a concrete instance of `BudgetNotificationInput` via:
 //
-//          BudgetNotificationArgs{...}
+//	BudgetNotificationArgs{...}
 type BudgetNotificationInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ type BudgetNotificationWithSubscribers struct {
 // BudgetNotificationWithSubscribersInput is an input type that accepts BudgetNotificationWithSubscribersArgs and BudgetNotificationWithSubscribersOutput values.
 // You can construct a concrete instance of `BudgetNotificationWithSubscribersInput` via:
 //
-//          BudgetNotificationWithSubscribersArgs{...}
+//	BudgetNotificationWithSubscribersArgs{...}
 type BudgetNotificationWithSubscribersInput interface {
 	pulumi.Input
 
@@ -583,7 +583,7 @@ func (i BudgetNotificationWithSubscribersArgs) ToBudgetNotificationWithSubscribe
 // BudgetNotificationWithSubscribersArrayInput is an input type that accepts BudgetNotificationWithSubscribersArray and BudgetNotificationWithSubscribersArrayOutput values.
 // You can construct a concrete instance of `BudgetNotificationWithSubscribersArrayInput` via:
 //
-//          BudgetNotificationWithSubscribersArray{ BudgetNotificationWithSubscribersArgs{...} }
+//	BudgetNotificationWithSubscribersArray{ BudgetNotificationWithSubscribersArgs{...} }
 type BudgetNotificationWithSubscribersArrayInput interface {
 	pulumi.Input
 
@@ -655,7 +655,7 @@ type BudgetSpend struct {
 // BudgetSpendInput is an input type that accepts BudgetSpendArgs and BudgetSpendOutput values.
 // You can construct a concrete instance of `BudgetSpendInput` via:
 //
-//          BudgetSpendArgs{...}
+//	BudgetSpendArgs{...}
 type BudgetSpendInput interface {
 	pulumi.Input
 
@@ -691,11 +691,11 @@ func (i BudgetSpendArgs) ToBudgetSpendPtrOutputWithContext(ctx context.Context) 
 // BudgetSpendPtrInput is an input type that accepts BudgetSpendArgs, BudgetSpendPtr and BudgetSpendPtrOutput values.
 // You can construct a concrete instance of `BudgetSpendPtrInput` via:
 //
-//          BudgetSpendArgs{...}
+//	        BudgetSpendArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetSpendPtrInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ type BudgetSubscriber struct {
 // BudgetSubscriberInput is an input type that accepts BudgetSubscriberArgs and BudgetSubscriberOutput values.
 // You can construct a concrete instance of `BudgetSubscriberInput` via:
 //
-//          BudgetSubscriberArgs{...}
+//	BudgetSubscriberArgs{...}
 type BudgetSubscriberInput interface {
 	pulumi.Input
 
@@ -831,7 +831,7 @@ func (i BudgetSubscriberArgs) ToBudgetSubscriberOutputWithContext(ctx context.Co
 // BudgetSubscriberArrayInput is an input type that accepts BudgetSubscriberArray and BudgetSubscriberArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriberArrayInput` via:
 //
-//          BudgetSubscriberArray{ BudgetSubscriberArgs{...} }
+//	BudgetSubscriberArray{ BudgetSubscriberArgs{...} }
 type BudgetSubscriberArrayInput interface {
 	pulumi.Input
 
@@ -903,7 +903,7 @@ type BudgetTimePeriod struct {
 // BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
 // You can construct a concrete instance of `BudgetTimePeriodInput` via:
 //
-//          BudgetTimePeriodArgs{...}
+//	BudgetTimePeriodArgs{...}
 type BudgetTimePeriodInput interface {
 	pulumi.Input
 
@@ -939,11 +939,11 @@ func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutputWithContext(ctx context
 // BudgetTimePeriodPtrInput is an input type that accepts BudgetTimePeriodArgs, BudgetTimePeriodPtr and BudgetTimePeriodPtrOutput values.
 // You can construct a concrete instance of `BudgetTimePeriodPtrInput` via:
 //
-//          BudgetTimePeriodArgs{...}
+//	        BudgetTimePeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetTimePeriodPtrInput interface {
 	pulumi.Input
 
@@ -1051,7 +1051,7 @@ type BudgetsActionActionThreshold struct {
 // BudgetsActionActionThresholdInput is an input type that accepts BudgetsActionActionThresholdArgs and BudgetsActionActionThresholdOutput values.
 // You can construct a concrete instance of `BudgetsActionActionThresholdInput` via:
 //
-//          BudgetsActionActionThresholdArgs{...}
+//	BudgetsActionActionThresholdArgs{...}
 type BudgetsActionActionThresholdInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ type BudgetsActionDefinition struct {
 // BudgetsActionDefinitionInput is an input type that accepts BudgetsActionDefinitionArgs and BudgetsActionDefinitionOutput values.
 // You can construct a concrete instance of `BudgetsActionDefinitionInput` via:
 //
-//          BudgetsActionDefinitionArgs{...}
+//	BudgetsActionDefinitionArgs{...}
 type BudgetsActionDefinitionInput interface {
 	pulumi.Input
 
@@ -1262,7 +1262,7 @@ type BudgetsActionIamActionDefinition struct {
 // BudgetsActionIamActionDefinitionInput is an input type that accepts BudgetsActionIamActionDefinitionArgs and BudgetsActionIamActionDefinitionOutput values.
 // You can construct a concrete instance of `BudgetsActionIamActionDefinitionInput` via:
 //
-//          BudgetsActionIamActionDefinitionArgs{...}
+//	BudgetsActionIamActionDefinitionArgs{...}
 type BudgetsActionIamActionDefinitionInput interface {
 	pulumi.Input
 
@@ -1300,11 +1300,11 @@ func (i BudgetsActionIamActionDefinitionArgs) ToBudgetsActionIamActionDefinition
 // BudgetsActionIamActionDefinitionPtrInput is an input type that accepts BudgetsActionIamActionDefinitionArgs, BudgetsActionIamActionDefinitionPtr and BudgetsActionIamActionDefinitionPtrOutput values.
 // You can construct a concrete instance of `BudgetsActionIamActionDefinitionPtrInput` via:
 //
-//          BudgetsActionIamActionDefinitionArgs{...}
+//	        BudgetsActionIamActionDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetsActionIamActionDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1438,7 +1438,7 @@ type BudgetsActionScpActionDefinition struct {
 // BudgetsActionScpActionDefinitionInput is an input type that accepts BudgetsActionScpActionDefinitionArgs and BudgetsActionScpActionDefinitionOutput values.
 // You can construct a concrete instance of `BudgetsActionScpActionDefinitionInput` via:
 //
-//          BudgetsActionScpActionDefinitionArgs{...}
+//	BudgetsActionScpActionDefinitionArgs{...}
 type BudgetsActionScpActionDefinitionInput interface {
 	pulumi.Input
 
@@ -1474,11 +1474,11 @@ func (i BudgetsActionScpActionDefinitionArgs) ToBudgetsActionScpActionDefinition
 // BudgetsActionScpActionDefinitionPtrInput is an input type that accepts BudgetsActionScpActionDefinitionArgs, BudgetsActionScpActionDefinitionPtr and BudgetsActionScpActionDefinitionPtrOutput values.
 // You can construct a concrete instance of `BudgetsActionScpActionDefinitionPtrInput` via:
 //
-//          BudgetsActionScpActionDefinitionArgs{...}
+//	        BudgetsActionScpActionDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetsActionScpActionDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1587,7 +1587,7 @@ type BudgetsActionSsmActionDefinition struct {
 // BudgetsActionSsmActionDefinitionInput is an input type that accepts BudgetsActionSsmActionDefinitionArgs and BudgetsActionSsmActionDefinitionOutput values.
 // You can construct a concrete instance of `BudgetsActionSsmActionDefinitionInput` via:
 //
-//          BudgetsActionSsmActionDefinitionArgs{...}
+//	BudgetsActionSsmActionDefinitionArgs{...}
 type BudgetsActionSsmActionDefinitionInput interface {
 	pulumi.Input
 
@@ -1624,11 +1624,11 @@ func (i BudgetsActionSsmActionDefinitionArgs) ToBudgetsActionSsmActionDefinition
 // BudgetsActionSsmActionDefinitionPtrInput is an input type that accepts BudgetsActionSsmActionDefinitionArgs, BudgetsActionSsmActionDefinitionPtr and BudgetsActionSsmActionDefinitionPtrOutput values.
 // You can construct a concrete instance of `BudgetsActionSsmActionDefinitionPtrInput` via:
 //
-//          BudgetsActionSsmActionDefinitionArgs{...}
+//	        BudgetsActionSsmActionDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BudgetsActionSsmActionDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1749,7 +1749,7 @@ type BudgetsActionSubscriber struct {
 // BudgetsActionSubscriberInput is an input type that accepts BudgetsActionSubscriberArgs and BudgetsActionSubscriberOutput values.
 // You can construct a concrete instance of `BudgetsActionSubscriberInput` via:
 //
-//          BudgetsActionSubscriberArgs{...}
+//	BudgetsActionSubscriberArgs{...}
 type BudgetsActionSubscriberInput interface {
 	pulumi.Input
 
@@ -1777,7 +1777,7 @@ func (i BudgetsActionSubscriberArgs) ToBudgetsActionSubscriberOutputWithContext(
 // BudgetsActionSubscriberArrayInput is an input type that accepts BudgetsActionSubscriberArray and BudgetsActionSubscriberArrayOutput values.
 // You can construct a concrete instance of `BudgetsActionSubscriberArrayInput` via:
 //
-//          BudgetsActionSubscriberArray{ BudgetsActionSubscriberArgs{...} }
+//	BudgetsActionSubscriberArray{ BudgetsActionSubscriberArgs{...} }
 type BudgetsActionSubscriberArrayInput interface {
 	pulumi.Input
 

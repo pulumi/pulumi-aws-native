@@ -26,7 +26,7 @@ type RotationScheduleHostedRotationLambda struct {
 // RotationScheduleHostedRotationLambdaInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs and RotationScheduleHostedRotationLambdaOutput values.
 // You can construct a concrete instance of `RotationScheduleHostedRotationLambdaInput` via:
 //
-//          RotationScheduleHostedRotationLambdaArgs{...}
+//	RotationScheduleHostedRotationLambdaArgs{...}
 type RotationScheduleHostedRotationLambdaInput interface {
 	pulumi.Input
 
@@ -70,11 +70,11 @@ func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotati
 // RotationScheduleHostedRotationLambdaPtrInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs, RotationScheduleHostedRotationLambdaPtr and RotationScheduleHostedRotationLambdaPtrOutput values.
 // You can construct a concrete instance of `RotationScheduleHostedRotationLambdaPtrInput` via:
 //
-//          RotationScheduleHostedRotationLambdaArgs{...}
+//	        RotationScheduleHostedRotationLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RotationScheduleHostedRotationLambdaPtrInput interface {
 	pulumi.Input
 
@@ -287,7 +287,7 @@ type RotationScheduleRotationRules struct {
 // RotationScheduleRotationRulesInput is an input type that accepts RotationScheduleRotationRulesArgs and RotationScheduleRotationRulesOutput values.
 // You can construct a concrete instance of `RotationScheduleRotationRulesInput` via:
 //
-//          RotationScheduleRotationRulesArgs{...}
+//	RotationScheduleRotationRulesArgs{...}
 type RotationScheduleRotationRulesInput interface {
 	pulumi.Input
 
@@ -324,11 +324,11 @@ func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesPtrOut
 // RotationScheduleRotationRulesPtrInput is an input type that accepts RotationScheduleRotationRulesArgs, RotationScheduleRotationRulesPtr and RotationScheduleRotationRulesPtrOutput values.
 // You can construct a concrete instance of `RotationScheduleRotationRulesPtrInput` via:
 //
-//          RotationScheduleRotationRulesArgs{...}
+//	        RotationScheduleRotationRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RotationScheduleRotationRulesPtrInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type SecretGenerateSecretString struct {
 // SecretGenerateSecretStringInput is an input type that accepts SecretGenerateSecretStringArgs and SecretGenerateSecretStringOutput values.
 // You can construct a concrete instance of `SecretGenerateSecretStringInput` via:
 //
-//          SecretGenerateSecretStringArgs{...}
+//	SecretGenerateSecretStringArgs{...}
 type SecretGenerateSecretStringInput interface {
 	pulumi.Input
 
@@ -501,11 +501,11 @@ func (i SecretGenerateSecretStringArgs) ToSecretGenerateSecretStringPtrOutputWit
 // SecretGenerateSecretStringPtrInput is an input type that accepts SecretGenerateSecretStringArgs, SecretGenerateSecretStringPtr and SecretGenerateSecretStringPtrOutput values.
 // You can construct a concrete instance of `SecretGenerateSecretStringPtrInput` via:
 //
-//          SecretGenerateSecretStringArgs{...}
+//	        SecretGenerateSecretStringArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SecretGenerateSecretStringPtrInput interface {
 	pulumi.Input
 
@@ -717,7 +717,7 @@ type SecretReplicaRegion struct {
 // SecretReplicaRegionInput is an input type that accepts SecretReplicaRegionArgs and SecretReplicaRegionOutput values.
 // You can construct a concrete instance of `SecretReplicaRegionInput` via:
 //
-//          SecretReplicaRegionArgs{...}
+//	SecretReplicaRegionArgs{...}
 type SecretReplicaRegionInput interface {
 	pulumi.Input
 
@@ -745,7 +745,7 @@ func (i SecretReplicaRegionArgs) ToSecretReplicaRegionOutputWithContext(ctx cont
 // SecretReplicaRegionArrayInput is an input type that accepts SecretReplicaRegionArray and SecretReplicaRegionArrayOutput values.
 // You can construct a concrete instance of `SecretReplicaRegionArrayInput` via:
 //
-//          SecretReplicaRegionArray{ SecretReplicaRegionArgs{...} }
+//	SecretReplicaRegionArray{ SecretReplicaRegionArgs{...} }
 type SecretReplicaRegionArrayInput interface {
 	pulumi.Input
 
@@ -817,7 +817,7 @@ type SecretTag struct {
 // SecretTagInput is an input type that accepts SecretTagArgs and SecretTagOutput values.
 // You can construct a concrete instance of `SecretTagInput` via:
 //
-//          SecretTagArgs{...}
+//	SecretTagArgs{...}
 type SecretTagInput interface {
 	pulumi.Input
 
@@ -845,7 +845,7 @@ func (i SecretTagArgs) ToSecretTagOutputWithContext(ctx context.Context) SecretT
 // SecretTagArrayInput is an input type that accepts SecretTagArray and SecretTagArrayOutput values.
 // You can construct a concrete instance of `SecretTagArrayInput` via:
 //
-//          SecretTagArray{ SecretTagArgs{...} }
+//	SecretTagArray{ SecretTagArgs{...} }
 type SecretTagArrayInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToStringPtr
 // ObservabilityConfigurationTraceConfigurationVendorInput is an input type that accepts ObservabilityConfigurationTraceConfigurationVendorArgs and ObservabilityConfigurationTraceConfigurationVendorOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationVendorInput` via:
 //
-//          ObservabilityConfigurationTraceConfigurationVendorArgs{...}
+//	ObservabilityConfigurationTraceConfigurationVendorArgs{...}
 type ObservabilityConfigurationTraceConfigurationVendorInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToStringPtrOutputW
 // ServiceCodeConfigurationConfigurationSourceInput is an input type that accepts ServiceCodeConfigurationConfigurationSourceArgs and ServiceCodeConfigurationConfigurationSourceOutput values.
 // You can construct a concrete instance of `ServiceCodeConfigurationConfigurationSourceInput` via:
 //
-//          ServiceCodeConfigurationConfigurationSourceArgs{...}
+//	ServiceCodeConfigurationConfigurationSourceArgs{...}
 type ServiceCodeConfigurationConfigurationSourceInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToStringPtrOutputWithCon
 // ServiceCodeConfigurationValuesRuntimeInput is an input type that accepts ServiceCodeConfigurationValuesRuntimeArgs and ServiceCodeConfigurationValuesRuntimeOutput values.
 // You can construct a concrete instance of `ServiceCodeConfigurationValuesRuntimeInput` via:
 //
-//          ServiceCodeConfigurationValuesRuntimeArgs{...}
+//	ServiceCodeConfigurationValuesRuntimeArgs{...}
 type ServiceCodeConfigurationValuesRuntimeInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ func (o ServiceEgressConfigurationEgressTypePtrOutput) ToStringPtrOutputWithCont
 // ServiceEgressConfigurationEgressTypeInput is an input type that accepts ServiceEgressConfigurationEgressTypeArgs and ServiceEgressConfigurationEgressTypeOutput values.
 // You can construct a concrete instance of `ServiceEgressConfigurationEgressTypeInput` via:
 //
-//          ServiceEgressConfigurationEgressTypeArgs{...}
+//	ServiceEgressConfigurationEgressTypeArgs{...}
 type ServiceEgressConfigurationEgressTypeInput interface {
 	pulumi.Input
 
@@ -802,7 +802,7 @@ func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToStringPtrOutputWithC
 // ServiceHealthCheckConfigurationProtocolInput is an input type that accepts ServiceHealthCheckConfigurationProtocolArgs and ServiceHealthCheckConfigurationProtocolOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigurationProtocolInput` via:
 //
-//          ServiceHealthCheckConfigurationProtocolArgs{...}
+//	ServiceHealthCheckConfigurationProtocolArgs{...}
 type ServiceHealthCheckConfigurationProtocolInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToStringPtrOutputWit
 // ServiceImageRepositoryImageRepositoryTypeInput is an input type that accepts ServiceImageRepositoryImageRepositoryTypeArgs and ServiceImageRepositoryImageRepositoryTypeOutput values.
 // You can construct a concrete instance of `ServiceImageRepositoryImageRepositoryTypeInput` via:
 //
-//          ServiceImageRepositoryImageRepositoryTypeArgs{...}
+//	ServiceImageRepositoryImageRepositoryTypeArgs{...}
 type ServiceImageRepositoryImageRepositoryTypeInput interface {
 	pulumi.Input
 
@@ -1131,7 +1131,7 @@ func (o ServiceSourceCodeVersionTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // ServiceSourceCodeVersionTypeInput is an input type that accepts ServiceSourceCodeVersionTypeArgs and ServiceSourceCodeVersionTypeOutput values.
 // You can construct a concrete instance of `ServiceSourceCodeVersionTypeInput` via:
 //
-//          ServiceSourceCodeVersionTypeArgs{...}
+//	ServiceSourceCodeVersionTypeArgs{...}
 type ServiceSourceCodeVersionTypeInput interface {
 	pulumi.Input
 

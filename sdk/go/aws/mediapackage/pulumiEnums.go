@@ -142,7 +142,7 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToStringPtrOutputWithC
 // OriginEndpointAdsOnDeliveryRestrictionsInput is an input type that accepts OriginEndpointAdsOnDeliveryRestrictionsArgs and OriginEndpointAdsOnDeliveryRestrictionsOutput values.
 // You can construct a concrete instance of `OriginEndpointAdsOnDeliveryRestrictionsInput` via:
 //
-//          OriginEndpointAdsOnDeliveryRestrictionsArgs{...}
+//	OriginEndpointAdsOnDeliveryRestrictionsArgs{...}
 type OriginEndpointAdsOnDeliveryRestrictionsInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToStringPtrOutputWithC
 // OriginEndpointDashPackageAdTriggersItemInput is an input type that accepts OriginEndpointDashPackageAdTriggersItemArgs and OriginEndpointDashPackageAdTriggersItemOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageAdTriggersItemInput` via:
 //
-//          OriginEndpointDashPackageAdTriggersItemArgs{...}
+//	OriginEndpointDashPackageAdTriggersItemArgs{...}
 type OriginEndpointDashPackageAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ func (in *originEndpointDashPackageAdTriggersItemPtr) ToOriginEndpointDashPackag
 // OriginEndpointDashPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackageAdTriggersItemArray and OriginEndpointDashPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageAdTriggersItemArrayInput` via:
 //
-//          OriginEndpointDashPackageAdTriggersItemArray{ OriginEndpointDashPackageAdTriggersItemArgs{...} }
+//	OriginEndpointDashPackageAdTriggersItemArray{ OriginEndpointDashPackageAdTriggersItemArgs{...} }
 type OriginEndpointDashPackageAdTriggersItemArrayInput interface {
 	pulumi.Input
 
@@ -522,7 +522,7 @@ func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToStringPtrOutputWithC
 // OriginEndpointDashPackageManifestLayoutInput is an input type that accepts OriginEndpointDashPackageManifestLayoutArgs and OriginEndpointDashPackageManifestLayoutOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageManifestLayoutInput` via:
 //
-//          OriginEndpointDashPackageManifestLayoutArgs{...}
+//	OriginEndpointDashPackageManifestLayoutArgs{...}
 type OriginEndpointDashPackageManifestLayoutInput interface {
 	pulumi.Input
 
@@ -685,7 +685,7 @@ func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToStringPtrOutputW
 // OriginEndpointDashPackagePeriodTriggersItemInput is an input type that accepts OriginEndpointDashPackagePeriodTriggersItemArgs and OriginEndpointDashPackagePeriodTriggersItemOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackagePeriodTriggersItemInput` via:
 //
-//          OriginEndpointDashPackagePeriodTriggersItemArgs{...}
+//	OriginEndpointDashPackagePeriodTriggersItemArgs{...}
 type OriginEndpointDashPackagePeriodTriggersItemInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ func (in *originEndpointDashPackagePeriodTriggersItemPtr) ToOriginEndpointDashPa
 // OriginEndpointDashPackagePeriodTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackagePeriodTriggersItemArray and OriginEndpointDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackagePeriodTriggersItemArrayInput` via:
 //
-//          OriginEndpointDashPackagePeriodTriggersItemArray{ OriginEndpointDashPackagePeriodTriggersItemArgs{...} }
+//	OriginEndpointDashPackagePeriodTriggersItemArray{ OriginEndpointDashPackagePeriodTriggersItemArgs{...} }
 type OriginEndpointDashPackagePeriodTriggersItemArrayInput interface {
 	pulumi.Input
 
@@ -896,7 +896,7 @@ func (o OriginEndpointDashPackageProfilePtrOutput) ToStringPtrOutputWithContext(
 // OriginEndpointDashPackageProfileInput is an input type that accepts OriginEndpointDashPackageProfileArgs and OriginEndpointDashPackageProfileOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageProfileInput` via:
 //
-//          OriginEndpointDashPackageProfileArgs{...}
+//	OriginEndpointDashPackageProfileArgs{...}
 type OriginEndpointDashPackageProfileInput interface {
 	pulumi.Input
 
@@ -1062,7 +1062,7 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToStringPtrOutp
 // OriginEndpointDashPackageSegmentTemplateFormatInput is an input type that accepts OriginEndpointDashPackageSegmentTemplateFormatArgs and OriginEndpointDashPackageSegmentTemplateFormatOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageSegmentTemplateFormatInput` via:
 //
-//          OriginEndpointDashPackageSegmentTemplateFormatArgs{...}
+//	OriginEndpointDashPackageSegmentTemplateFormatArgs{...}
 type OriginEndpointDashPackageSegmentTemplateFormatInput interface {
 	pulumi.Input
 
@@ -1228,7 +1228,7 @@ func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToStringPtrOutputWithContex
 // OriginEndpointDashPackageUtcTimingInput is an input type that accepts OriginEndpointDashPackageUtcTimingArgs and OriginEndpointDashPackageUtcTimingOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageUtcTimingInput` via:
 //
-//          OriginEndpointDashPackageUtcTimingArgs{...}
+//	OriginEndpointDashPackageUtcTimingArgs{...}
 type OriginEndpointDashPackageUtcTimingInput interface {
 	pulumi.Input
 
@@ -1392,7 +1392,7 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
 // OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioArgs and OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput values.
 // You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput` via:
 //
-//          OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioArgs{...}
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioArgs{...}
 type OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput interface {
 	pulumi.Input
 
@@ -1556,7 +1556,7 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
 // OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoArgs and OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput values.
 // You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput` via:
 //
-//          OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoArgs{...}
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoArgs{...}
 type OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput interface {
 	pulumi.Input
 
@@ -1721,7 +1721,7 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToStringPtrOutputW
 // OriginEndpointHlsEncryptionEncryptionMethodInput is an input type that accepts OriginEndpointHlsEncryptionEncryptionMethodArgs and OriginEndpointHlsEncryptionEncryptionMethodOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsEncryptionEncryptionMethodInput` via:
 //
-//          OriginEndpointHlsEncryptionEncryptionMethodArgs{...}
+//	OriginEndpointHlsEncryptionEncryptionMethodArgs{...}
 type OriginEndpointHlsEncryptionEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -1888,7 +1888,7 @@ func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToStringPtrOutputWithContex
 // OriginEndpointHlsManifestAdMarkersInput is an input type that accepts OriginEndpointHlsManifestAdMarkersArgs and OriginEndpointHlsManifestAdMarkersOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestAdMarkersInput` via:
 //
-//          OriginEndpointHlsManifestAdMarkersArgs{...}
+//	OriginEndpointHlsManifestAdMarkersArgs{...}
 type OriginEndpointHlsManifestAdMarkersInput interface {
 	pulumi.Input
 
@@ -2058,7 +2058,7 @@ func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToStringPtrOutputWithC
 // OriginEndpointHlsManifestAdTriggersItemInput is an input type that accepts OriginEndpointHlsManifestAdTriggersItemArgs and OriginEndpointHlsManifestAdTriggersItemOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestAdTriggersItemInput` via:
 //
-//          OriginEndpointHlsManifestAdTriggersItemArgs{...}
+//	OriginEndpointHlsManifestAdTriggersItemArgs{...}
 type OriginEndpointHlsManifestAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -2096,7 +2096,7 @@ func (in *originEndpointHlsManifestAdTriggersItemPtr) ToOriginEndpointHlsManifes
 // OriginEndpointHlsManifestAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsManifestAdTriggersItemArray and OriginEndpointHlsManifestAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestAdTriggersItemArrayInput` via:
 //
-//          OriginEndpointHlsManifestAdTriggersItemArray{ OriginEndpointHlsManifestAdTriggersItemArgs{...} }
+//	OriginEndpointHlsManifestAdTriggersItemArray{ OriginEndpointHlsManifestAdTriggersItemArgs{...} }
 type OriginEndpointHlsManifestAdTriggersItemArrayInput interface {
 	pulumi.Input
 
@@ -2269,7 +2269,7 @@ func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToStringPtrOutputWithCon
 // OriginEndpointHlsManifestPlaylistTypeInput is an input type that accepts OriginEndpointHlsManifestPlaylistTypeArgs and OriginEndpointHlsManifestPlaylistTypeOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestPlaylistTypeInput` via:
 //
-//          OriginEndpointHlsManifestPlaylistTypeArgs{...}
+//	OriginEndpointHlsManifestPlaylistTypeArgs{...}
 type OriginEndpointHlsManifestPlaylistTypeInput interface {
 	pulumi.Input
 
@@ -2436,7 +2436,7 @@ func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToStringPtrOutputWithContext
 // OriginEndpointHlsPackageAdMarkersInput is an input type that accepts OriginEndpointHlsPackageAdMarkersArgs and OriginEndpointHlsPackageAdMarkersOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageAdMarkersInput` via:
 //
-//          OriginEndpointHlsPackageAdMarkersArgs{...}
+//	OriginEndpointHlsPackageAdMarkersArgs{...}
 type OriginEndpointHlsPackageAdMarkersInput interface {
 	pulumi.Input
 
@@ -2606,7 +2606,7 @@ func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToStringPtrOutputWithCo
 // OriginEndpointHlsPackageAdTriggersItemInput is an input type that accepts OriginEndpointHlsPackageAdTriggersItemArgs and OriginEndpointHlsPackageAdTriggersItemOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageAdTriggersItemInput` via:
 //
-//          OriginEndpointHlsPackageAdTriggersItemArgs{...}
+//	OriginEndpointHlsPackageAdTriggersItemArgs{...}
 type OriginEndpointHlsPackageAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -2644,7 +2644,7 @@ func (in *originEndpointHlsPackageAdTriggersItemPtr) ToOriginEndpointHlsPackageA
 // OriginEndpointHlsPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsPackageAdTriggersItemArray and OriginEndpointHlsPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageAdTriggersItemArrayInput` via:
 //
-//          OriginEndpointHlsPackageAdTriggersItemArray{ OriginEndpointHlsPackageAdTriggersItemArgs{...} }
+//	OriginEndpointHlsPackageAdTriggersItemArray{ OriginEndpointHlsPackageAdTriggersItemArgs{...} }
 type OriginEndpointHlsPackageAdTriggersItemArrayInput interface {
 	pulumi.Input
 
@@ -2817,7 +2817,7 @@ func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToStringPtrOutputWithCont
 // OriginEndpointHlsPackagePlaylistTypeInput is an input type that accepts OriginEndpointHlsPackagePlaylistTypeArgs and OriginEndpointHlsPackagePlaylistTypeOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackagePlaylistTypeInput` via:
 //
-//          OriginEndpointHlsPackagePlaylistTypeArgs{...}
+//	OriginEndpointHlsPackagePlaylistTypeArgs{...}
 type OriginEndpointHlsPackagePlaylistTypeInput interface {
 	pulumi.Input
 
@@ -2982,7 +2982,7 @@ func (o OriginEndpointOriginationPtrOutput) ToStringPtrOutputWithContext(ctx con
 // OriginEndpointOriginationInput is an input type that accepts OriginEndpointOriginationArgs and OriginEndpointOriginationOutput values.
 // You can construct a concrete instance of `OriginEndpointOriginationInput` via:
 //
-//          OriginEndpointOriginationArgs{...}
+//	OriginEndpointOriginationArgs{...}
 type OriginEndpointOriginationInput interface {
 	pulumi.Input
 
@@ -3148,7 +3148,7 @@ func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToStringPtrOutputWith
 // OriginEndpointStreamSelectionStreamOrderInput is an input type that accepts OriginEndpointStreamSelectionStreamOrderArgs and OriginEndpointStreamSelectionStreamOrderOutput values.
 // You can construct a concrete instance of `OriginEndpointStreamSelectionStreamOrderInput` via:
 //
-//          OriginEndpointStreamSelectionStreamOrderArgs{...}
+//	OriginEndpointStreamSelectionStreamOrderArgs{...}
 type OriginEndpointStreamSelectionStreamOrderInput interface {
 	pulumi.Input
 
@@ -3313,7 +3313,7 @@ func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToStringPtrOu
 // PackagingConfigurationDashManifestManifestLayoutInput is an input type that accepts PackagingConfigurationDashManifestManifestLayoutArgs and PackagingConfigurationDashManifestManifestLayoutOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestManifestLayoutInput` via:
 //
-//          PackagingConfigurationDashManifestManifestLayoutArgs{...}
+//	PackagingConfigurationDashManifestManifestLayoutArgs{...}
 type PackagingConfigurationDashManifestManifestLayoutInput interface {
 	pulumi.Input
 
@@ -3478,7 +3478,7 @@ func (o PackagingConfigurationDashManifestProfilePtrOutput) ToStringPtrOutputWit
 // PackagingConfigurationDashManifestProfileInput is an input type that accepts PackagingConfigurationDashManifestProfileArgs and PackagingConfigurationDashManifestProfileOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestProfileInput` via:
 //
-//          PackagingConfigurationDashManifestProfileArgs{...}
+//	PackagingConfigurationDashManifestProfileArgs{...}
 type PackagingConfigurationDashManifestProfileInput interface {
 	pulumi.Input
 
@@ -3643,7 +3643,7 @@ func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToStringPt
 // PackagingConfigurationDashManifestScteMarkersSourceInput is an input type that accepts PackagingConfigurationDashManifestScteMarkersSourceArgs and PackagingConfigurationDashManifestScteMarkersSourceOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestScteMarkersSourceInput` via:
 //
-//          PackagingConfigurationDashManifestScteMarkersSourceArgs{...}
+//	PackagingConfigurationDashManifestScteMarkersSourceArgs{...}
 type PackagingConfigurationDashManifestScteMarkersSourceInput interface {
 	pulumi.Input
 
@@ -3806,7 +3806,7 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToStringPt
 // PackagingConfigurationDashPackagePeriodTriggersItemInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArgs and PackagingConfigurationDashPackagePeriodTriggersItemOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemInput` via:
 //
-//          PackagingConfigurationDashPackagePeriodTriggersItemArgs{...}
+//	PackagingConfigurationDashPackagePeriodTriggersItemArgs{...}
 type PackagingConfigurationDashPackagePeriodTriggersItemInput interface {
 	pulumi.Input
 
@@ -3844,7 +3844,7 @@ func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToPackagingCon
 // PackagingConfigurationDashPackagePeriodTriggersItemArrayInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArray and PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemArrayInput` via:
 //
-//          PackagingConfigurationDashPackagePeriodTriggersItemArray{ PackagingConfigurationDashPackagePeriodTriggersItemArgs{...} }
+//	PackagingConfigurationDashPackagePeriodTriggersItemArray{ PackagingConfigurationDashPackagePeriodTriggersItemArgs{...} }
 type PackagingConfigurationDashPackagePeriodTriggersItemArrayInput interface {
 	pulumi.Input
 
@@ -4017,7 +4017,7 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToStrin
 // PackagingConfigurationDashPackageSegmentTemplateFormatInput is an input type that accepts PackagingConfigurationDashPackageSegmentTemplateFormatArgs and PackagingConfigurationDashPackageSegmentTemplateFormatOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackageSegmentTemplateFormatInput` via:
 //
-//          PackagingConfigurationDashPackageSegmentTemplateFormatArgs{...}
+//	PackagingConfigurationDashPackageSegmentTemplateFormatArgs{...}
 type PackagingConfigurationDashPackageSegmentTemplateFormatInput interface {
 	pulumi.Input
 
@@ -4182,7 +4182,7 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToStringPt
 // PackagingConfigurationHlsEncryptionEncryptionMethodInput is an input type that accepts PackagingConfigurationHlsEncryptionEncryptionMethodArgs and PackagingConfigurationHlsEncryptionEncryptionMethodOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsEncryptionEncryptionMethodInput` via:
 //
-//          PackagingConfigurationHlsEncryptionEncryptionMethodArgs{...}
+//	PackagingConfigurationHlsEncryptionEncryptionMethodArgs{...}
 type PackagingConfigurationHlsEncryptionEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -4348,7 +4348,7 @@ func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToStringPtrOutputWi
 // PackagingConfigurationHlsManifestAdMarkersInput is an input type that accepts PackagingConfigurationHlsManifestAdMarkersArgs and PackagingConfigurationHlsManifestAdMarkersOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsManifestAdMarkersInput` via:
 //
-//          PackagingConfigurationHlsManifestAdMarkersArgs{...}
+//	PackagingConfigurationHlsManifestAdMarkersArgs{...}
 type PackagingConfigurationHlsManifestAdMarkersInput interface {
 	pulumi.Input
 
@@ -4514,7 +4514,7 @@ func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToStringPtrOu
 // PackagingConfigurationStreamSelectionStreamOrderInput is an input type that accepts PackagingConfigurationStreamSelectionStreamOrderArgs and PackagingConfigurationStreamSelectionStreamOrderOutput values.
 // You can construct a concrete instance of `PackagingConfigurationStreamSelectionStreamOrderInput` via:
 //
-//          PackagingConfigurationStreamSelectionStreamOrderArgs{...}
+//	PackagingConfigurationStreamSelectionStreamOrderArgs{...}
 type PackagingConfigurationStreamSelectionStreamOrderInput interface {
 	pulumi.Input
 

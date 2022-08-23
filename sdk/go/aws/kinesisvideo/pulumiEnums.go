@@ -139,7 +139,7 @@ func (o SignalingChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // SignalingChannelTypeInput is an input type that accepts SignalingChannelTypeArgs and SignalingChannelTypeOutput values.
 // You can construct a concrete instance of `SignalingChannelTypeInput` via:
 //
-//          SignalingChannelTypeArgs{...}
+//	SignalingChannelTypeArgs{...}
 type SignalingChannelTypeInput interface {
 	pulumi.Input
 

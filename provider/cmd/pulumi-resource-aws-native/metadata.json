@@ -37393,7 +37393,14 @@
                     "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
                 },
                 "pipelineDefinition": {
-                    "$ref": "pulumi.json#/Any"
+                    "oneOf": [
+                        {
+                            "$ref": "#/types/aws-native:sagemaker:PipelineDefinition0Properties"
+                        },
+                        {
+                            "$ref": "#/types/aws-native:sagemaker:PipelineDefinition1Properties"
+                        }
+                    ]
                 },
                 "pipelineDescription": {
                     "type": "string",
@@ -37423,7 +37430,14 @@
                     "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
                 },
                 "pipelineDefinition": {
-                    "$ref": "pulumi.json#/Any"
+                    "oneOf": [
+                        {
+                            "$ref": "#/types/aws-native:sagemaker:PipelineDefinition0Properties"
+                        },
+                        {
+                            "$ref": "#/types/aws-native:sagemaker:PipelineDefinition1Properties"
+                        }
+                    ]
                 },
                 "pipelineDescription": {
                     "type": "string",
@@ -73011,6 +73025,17 @@
                 }
             }
         },
+        "aws-native:s3objectlambda:AccessPointAwsLambda": {
+            "type": "object",
+            "properties": {
+                "functionArn": {
+                    "type": "string"
+                },
+                "functionPayload": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration": {
             "type": "object",
             "properties": {
@@ -73065,7 +73090,15 @@
                     }
                 },
                 "contentTransformation": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformationProperties"
+                }
+            }
+        },
+        "aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformationProperties": {
+            "type": "object",
+            "properties": {
+                "awsLambda": {
+                    "$ref": "#/types/aws-native:s3objectlambda:AccessPointAwsLambda"
                 }
             }
         },
@@ -75499,6 +75532,44 @@
                 "maxParallelExecutionSteps": {
                     "type": "integer",
                     "description": "Maximum parallel execution steps"
+                }
+            }
+        },
+        "aws-native:sagemaker:PipelineDefinition0Properties": {
+            "type": "object",
+            "properties": {
+                "pipelineDefinitionBody": {
+                    "type": "string",
+                    "description": "A specification that defines the pipeline in JSON format."
+                }
+            }
+        },
+        "aws-native:sagemaker:PipelineDefinition1Properties": {
+            "type": "object",
+            "properties": {
+                "pipelineDefinitionS3Location": {
+                    "$ref": "#/types/aws-native:sagemaker:PipelineS3Location"
+                }
+            }
+        },
+        "aws-native:sagemaker:PipelineS3Location": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket where the PipelineDefinition file is stored."
+                },
+                "eTag": {
+                    "type": "string",
+                    "description": "The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The file name of the PipelineDefinition file (Amazon S3 object name)."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "For versioning-enabled buckets, a specific version of the PipelineDefinition file."
                 }
             }
         },

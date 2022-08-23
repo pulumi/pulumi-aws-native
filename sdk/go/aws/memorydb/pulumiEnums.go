@@ -139,7 +139,7 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToStringPtrOutputWithCont
 // UserAuthenticationModePropertiesTypeInput is an input type that accepts UserAuthenticationModePropertiesTypeArgs and UserAuthenticationModePropertiesTypeOutput values.
 // You can construct a concrete instance of `UserAuthenticationModePropertiesTypeInput` via:
 //
-//          UserAuthenticationModePropertiesTypeArgs{...}
+//	UserAuthenticationModePropertiesTypeArgs{...}
 type UserAuthenticationModePropertiesTypeInput interface {
 	pulumi.Input
 

@@ -191,14 +191,15 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 }
 
 // Key/value pairs representing Airflow configuration variables.
-//     Keys are prefixed by their section:
 //
-//     [core]
-//     dags_folder={AIRFLOW_HOME}/dags
+//	Keys are prefixed by their section:
 //
-//     Would be represented as
+//	[core]
+//	dags_folder={AIRFLOW_HOME}/dags
 //
-//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+//	Would be represented as
+//
+//	"core.dags_folder": "{AIRFLOW_HOME}/dags"
 func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Environment) pulumi.AnyOutput { return v.AirflowConfigurationOptions }).(pulumi.AnyOutput)
 }

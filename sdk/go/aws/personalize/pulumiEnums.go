@@ -140,7 +140,7 @@ func (o DatasetGroupDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DatasetGroupDomainInput is an input type that accepts DatasetGroupDomainArgs and DatasetGroupDomainOutput values.
 // You can construct a concrete instance of `DatasetGroupDomainInput` via:
 //
-//          DatasetGroupDomainArgs{...}
+//	DatasetGroupDomainArgs{...}
 type DatasetGroupDomainInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o DatasetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // DatasetTypeInput is an input type that accepts DatasetTypeArgs and DatasetTypeOutput values.
 // You can construct a concrete instance of `DatasetTypeInput` via:
 //
-//          DatasetTypeArgs{...}
+//	DatasetTypeArgs{...}
 type DatasetTypeInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o SchemaDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // SchemaDomainInput is an input type that accepts SchemaDomainArgs and SchemaDomainOutput values.
 // You can construct a concrete instance of `SchemaDomainInput` via:
 //
-//          SchemaDomainArgs{...}
+//	SchemaDomainArgs{...}
 type SchemaDomainInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) To
 // SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeArgs and SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeArgs{...}
+//	SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeArgs{...}
 type SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput interface {
 	pulumi.Input
 

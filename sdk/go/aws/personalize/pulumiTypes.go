@@ -27,7 +27,7 @@ type DatasetImportJob struct {
 // DatasetImportJobInput is an input type that accepts DatasetImportJobArgs and DatasetImportJobOutput values.
 // You can construct a concrete instance of `DatasetImportJobInput` via:
 //
-//          DatasetImportJobArgs{...}
+//	DatasetImportJobArgs{...}
 type DatasetImportJobInput interface {
 	pulumi.Input
 
@@ -72,11 +72,11 @@ func (i DatasetImportJobArgs) ToDatasetImportJobPtrOutputWithContext(ctx context
 // DatasetImportJobPtrInput is an input type that accepts DatasetImportJobArgs, DatasetImportJobPtr and DatasetImportJobPtrOutput values.
 // You can construct a concrete instance of `DatasetImportJobPtrInput` via:
 //
-//          DatasetImportJobArgs{...}
+//	        DatasetImportJobArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetImportJobPtrInput interface {
 	pulumi.Input
 
@@ -235,7 +235,7 @@ type DatasetImportJobDataSourceProperties struct {
 // DatasetImportJobDataSourcePropertiesInput is an input type that accepts DatasetImportJobDataSourcePropertiesArgs and DatasetImportJobDataSourcePropertiesOutput values.
 // You can construct a concrete instance of `DatasetImportJobDataSourcePropertiesInput` via:
 //
-//          DatasetImportJobDataSourcePropertiesArgs{...}
+//	DatasetImportJobDataSourcePropertiesArgs{...}
 type DatasetImportJobDataSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -272,11 +272,11 @@ func (i DatasetImportJobDataSourcePropertiesArgs) ToDatasetImportJobDataSourcePr
 // DatasetImportJobDataSourcePropertiesPtrInput is an input type that accepts DatasetImportJobDataSourcePropertiesArgs, DatasetImportJobDataSourcePropertiesPtr and DatasetImportJobDataSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `DatasetImportJobDataSourcePropertiesPtrInput` via:
 //
-//          DatasetImportJobDataSourcePropertiesArgs{...}
+//	        DatasetImportJobDataSourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetImportJobDataSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ type SolutionCategoricalHyperParameterRange struct {
 // SolutionCategoricalHyperParameterRangeInput is an input type that accepts SolutionCategoricalHyperParameterRangeArgs and SolutionCategoricalHyperParameterRangeOutput values.
 // You can construct a concrete instance of `SolutionCategoricalHyperParameterRangeInput` via:
 //
-//          SolutionCategoricalHyperParameterRangeArgs{...}
+//	SolutionCategoricalHyperParameterRangeArgs{...}
 type SolutionCategoricalHyperParameterRangeInput interface {
 	pulumi.Input
 
@@ -408,7 +408,7 @@ func (i SolutionCategoricalHyperParameterRangeArgs) ToSolutionCategoricalHyperPa
 // SolutionCategoricalHyperParameterRangeArrayInput is an input type that accepts SolutionCategoricalHyperParameterRangeArray and SolutionCategoricalHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionCategoricalHyperParameterRangeArrayInput` via:
 //
-//          SolutionCategoricalHyperParameterRangeArray{ SolutionCategoricalHyperParameterRangeArgs{...} }
+//	SolutionCategoricalHyperParameterRangeArray{ SolutionCategoricalHyperParameterRangeArgs{...} }
 type SolutionCategoricalHyperParameterRangeArrayInput interface {
 	pulumi.Input
 
@@ -492,7 +492,7 @@ type SolutionConfig struct {
 // SolutionConfigInput is an input type that accepts SolutionConfigArgs and SolutionConfigOutput values.
 // You can construct a concrete instance of `SolutionConfigInput` via:
 //
-//          SolutionConfigArgs{...}
+//	SolutionConfigArgs{...}
 type SolutionConfigInput interface {
 	pulumi.Input
 
@@ -537,11 +537,11 @@ func (i SolutionConfigArgs) ToSolutionConfigPtrOutputWithContext(ctx context.Con
 // SolutionConfigPtrInput is an input type that accepts SolutionConfigArgs, SolutionConfigPtr and SolutionConfigPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigPtrInput` via:
 //
-//          SolutionConfigArgs{...}
+//	        SolutionConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigPtrInput interface {
 	pulumi.Input
 
@@ -702,7 +702,7 @@ type SolutionConfigAutoMLConfigProperties struct {
 // SolutionConfigAutoMLConfigPropertiesInput is an input type that accepts SolutionConfigAutoMLConfigPropertiesArgs and SolutionConfigAutoMLConfigPropertiesOutput values.
 // You can construct a concrete instance of `SolutionConfigAutoMLConfigPropertiesInput` via:
 //
-//          SolutionConfigAutoMLConfigPropertiesArgs{...}
+//	SolutionConfigAutoMLConfigPropertiesArgs{...}
 type SolutionConfigAutoMLConfigPropertiesInput interface {
 	pulumi.Input
 
@@ -741,11 +741,11 @@ func (i SolutionConfigAutoMLConfigPropertiesArgs) ToSolutionConfigAutoMLConfigPr
 // SolutionConfigAutoMLConfigPropertiesPtrInput is an input type that accepts SolutionConfigAutoMLConfigPropertiesArgs, SolutionConfigAutoMLConfigPropertiesPtr and SolutionConfigAutoMLConfigPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigAutoMLConfigPropertiesPtrInput` via:
 //
-//          SolutionConfigAutoMLConfigPropertiesArgs{...}
+//	        SolutionConfigAutoMLConfigPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigAutoMLConfigPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -863,7 +863,7 @@ type SolutionConfigHpoConfigProperties struct {
 // SolutionConfigHpoConfigPropertiesInput is an input type that accepts SolutionConfigHpoConfigPropertiesArgs and SolutionConfigHpoConfigPropertiesOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesArgs{...}
+//	SolutionConfigHpoConfigPropertiesArgs{...}
 type SolutionConfigHpoConfigPropertiesInput interface {
 	pulumi.Input
 
@@ -904,11 +904,11 @@ func (i SolutionConfigHpoConfigPropertiesArgs) ToSolutionConfigHpoConfigProperti
 // SolutionConfigHpoConfigPropertiesPtrInput is an input type that accepts SolutionConfigHpoConfigPropertiesArgs, SolutionConfigHpoConfigPropertiesPtr and SolutionConfigHpoConfigPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesPtrInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesArgs{...}
+//	        SolutionConfigHpoConfigPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigHpoConfigPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1047,7 +1047,7 @@ type SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties st
 // SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesInput is an input type that accepts SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs and SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs{...}
+//	SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs{...}
 type SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesInput interface {
 	pulumi.Input
 
@@ -1088,11 +1088,11 @@ func (i SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties
 // SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrInput is an input type that accepts SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs, SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtr and SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs{...}
+//	        SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1231,7 +1231,7 @@ type SolutionConfigHpoConfigPropertiesHpoObjectiveProperties struct {
 // SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs and SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs{...}
+//	SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs{...}
 type SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesInput interface {
 	pulumi.Input
 
@@ -1272,11 +1272,11 @@ func (i SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs) ToSolutionC
 // SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs, SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtr and SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs{...}
+//	        SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1409,7 +1409,7 @@ type SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties struct {
 // SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs and SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs{...}
+//	SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs{...}
 type SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesInput interface {
 	pulumi.Input
 
@@ -1448,11 +1448,11 @@ func (i SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs) ToSolu
 // SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs, SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtr and SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrOutput values.
 // You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrInput` via:
 //
-//          SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs{...}
+//	        SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1574,7 +1574,7 @@ type SolutionContinuousHyperParameterRange struct {
 // SolutionContinuousHyperParameterRangeInput is an input type that accepts SolutionContinuousHyperParameterRangeArgs and SolutionContinuousHyperParameterRangeOutput values.
 // You can construct a concrete instance of `SolutionContinuousHyperParameterRangeInput` via:
 //
-//          SolutionContinuousHyperParameterRangeArgs{...}
+//	SolutionContinuousHyperParameterRangeArgs{...}
 type SolutionContinuousHyperParameterRangeInput interface {
 	pulumi.Input
 
@@ -1607,7 +1607,7 @@ func (i SolutionContinuousHyperParameterRangeArgs) ToSolutionContinuousHyperPara
 // SolutionContinuousHyperParameterRangeArrayInput is an input type that accepts SolutionContinuousHyperParameterRangeArray and SolutionContinuousHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionContinuousHyperParameterRangeArrayInput` via:
 //
-//          SolutionContinuousHyperParameterRangeArray{ SolutionContinuousHyperParameterRangeArgs{...} }
+//	SolutionContinuousHyperParameterRangeArray{ SolutionContinuousHyperParameterRangeArgs{...} }
 type SolutionContinuousHyperParameterRangeArrayInput interface {
 	pulumi.Input
 
@@ -1692,7 +1692,7 @@ type SolutionIntegerHyperParameterRange struct {
 // SolutionIntegerHyperParameterRangeInput is an input type that accepts SolutionIntegerHyperParameterRangeArgs and SolutionIntegerHyperParameterRangeOutput values.
 // You can construct a concrete instance of `SolutionIntegerHyperParameterRangeInput` via:
 //
-//          SolutionIntegerHyperParameterRangeArgs{...}
+//	SolutionIntegerHyperParameterRangeArgs{...}
 type SolutionIntegerHyperParameterRangeInput interface {
 	pulumi.Input
 
@@ -1725,7 +1725,7 @@ func (i SolutionIntegerHyperParameterRangeArgs) ToSolutionIntegerHyperParameterR
 // SolutionIntegerHyperParameterRangeArrayInput is an input type that accepts SolutionIntegerHyperParameterRangeArray and SolutionIntegerHyperParameterRangeArrayOutput values.
 // You can construct a concrete instance of `SolutionIntegerHyperParameterRangeArrayInput` via:
 //
-//          SolutionIntegerHyperParameterRangeArray{ SolutionIntegerHyperParameterRangeArgs{...} }
+//	SolutionIntegerHyperParameterRangeArray{ SolutionIntegerHyperParameterRangeArgs{...} }
 type SolutionIntegerHyperParameterRangeArrayInput interface {
 	pulumi.Input
 

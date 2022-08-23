@@ -139,7 +139,7 @@ func (o GroupResourceQueryTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // GroupResourceQueryTypeInput is an input type that accepts GroupResourceQueryTypeArgs and GroupResourceQueryTypeOutput values.
 // You can construct a concrete instance of `GroupResourceQueryTypeInput` via:
 //
-//          GroupResourceQueryTypeArgs{...}
+//	GroupResourceQueryTypeArgs{...}
 type GroupResourceQueryTypeInput interface {
 	pulumi.Input
 

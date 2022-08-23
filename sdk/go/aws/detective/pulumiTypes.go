@@ -21,7 +21,7 @@ type GraphTag struct {
 // GraphTagInput is an input type that accepts GraphTagArgs and GraphTagOutput values.
 // You can construct a concrete instance of `GraphTagInput` via:
 //
-//          GraphTagArgs{...}
+//	GraphTagArgs{...}
 type GraphTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i GraphTagArgs) ToGraphTagOutputWithContext(ctx context.Context) GraphTagO
 // GraphTagArrayInput is an input type that accepts GraphTagArray and GraphTagArrayOutput values.
 // You can construct a concrete instance of `GraphTagArrayInput` via:
 //
-//          GraphTagArray{ GraphTagArgs{...} }
+//	GraphTagArray{ GraphTagArgs{...} }
 type GraphTagArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o InAppTemplateAlignmentPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // InAppTemplateAlignmentInput is an input type that accepts InAppTemplateAlignmentArgs and InAppTemplateAlignmentOutput values.
 // You can construct a concrete instance of `InAppTemplateAlignmentInput` via:
 //
-//          InAppTemplateAlignmentArgs{...}
+//	InAppTemplateAlignmentArgs{...}
 type InAppTemplateAlignmentInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o InAppTemplateButtonActionPtrOutput) ToStringPtrOutputWithContext(ctx con
 // InAppTemplateButtonActionInput is an input type that accepts InAppTemplateButtonActionArgs and InAppTemplateButtonActionOutput values.
 // You can construct a concrete instance of `InAppTemplateButtonActionInput` via:
 //
-//          InAppTemplateButtonActionArgs{...}
+//	InAppTemplateButtonActionArgs{...}
 type InAppTemplateButtonActionInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o InAppTemplateLayoutPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // InAppTemplateLayoutInput is an input type that accepts InAppTemplateLayoutArgs and InAppTemplateLayoutOutput values.
 // You can construct a concrete instance of `InAppTemplateLayoutInput` via:
 //
-//          InAppTemplateLayoutArgs{...}
+//	InAppTemplateLayoutArgs{...}
 type InAppTemplateLayoutInput interface {
 	pulumi.Input
 

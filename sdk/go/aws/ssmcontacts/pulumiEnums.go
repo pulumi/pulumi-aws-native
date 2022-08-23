@@ -141,7 +141,7 @@ func (o ContactChannelChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // ContactChannelChannelTypeInput is an input type that accepts ContactChannelChannelTypeArgs and ContactChannelChannelTypeOutput values.
 // You can construct a concrete instance of `ContactChannelChannelTypeInput` via:
 //
-//          ContactChannelChannelTypeArgs{...}
+//	ContactChannelChannelTypeArgs{...}
 type ContactChannelChannelTypeInput interface {
 	pulumi.Input
 
@@ -308,7 +308,7 @@ func (o ContactTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // ContactTypeInput is an input type that accepts ContactTypeArgs and ContactTypeOutput values.
 // You can construct a concrete instance of `ContactTypeInput` via:
 //
-//          ContactTypeArgs{...}
+//	ContactTypeArgs{...}
 type ContactTypeInput interface {
 	pulumi.Input
 

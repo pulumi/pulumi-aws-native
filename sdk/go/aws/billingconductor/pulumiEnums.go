@@ -319,7 +319,7 @@ func (o CustomLineItemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // CustomLineItemTypeInput is an input type that accepts CustomLineItemTypeArgs and CustomLineItemTypeOutput values.
 // You can construct a concrete instance of `CustomLineItemTypeInput` via:
 //
-//          CustomLineItemTypeArgs{...}
+//	CustomLineItemTypeArgs{...}
 type CustomLineItemTypeInput interface {
 	pulumi.Input
 
@@ -484,7 +484,7 @@ func (o PricingRuleScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // PricingRuleScopeInput is an input type that accepts PricingRuleScopeArgs and PricingRuleScopeOutput values.
 // You can construct a concrete instance of `PricingRuleScopeInput` via:
 //
-//          PricingRuleScopeArgs{...}
+//	PricingRuleScopeArgs{...}
 type PricingRuleScopeInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ func (o PricingRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // PricingRuleTypeInput is an input type that accepts PricingRuleTypeArgs and PricingRuleTypeOutput values.
 // You can construct a concrete instance of `PricingRuleTypeInput` via:
 //
-//          PricingRuleTypeArgs{...}
+//	PricingRuleTypeArgs{...}
 type PricingRuleTypeInput interface {
 	pulumi.Input
 

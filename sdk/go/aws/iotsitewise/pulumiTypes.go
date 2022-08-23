@@ -19,7 +19,7 @@ type AccessPolicyIamRole struct {
 // AccessPolicyIamRoleInput is an input type that accepts AccessPolicyIamRoleArgs and AccessPolicyIamRoleOutput values.
 // You can construct a concrete instance of `AccessPolicyIamRoleInput` via:
 //
-//          AccessPolicyIamRoleArgs{...}
+//	AccessPolicyIamRoleArgs{...}
 type AccessPolicyIamRoleInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRolePtrOutputWithContext(ctx c
 // AccessPolicyIamRolePtrInput is an input type that accepts AccessPolicyIamRoleArgs, AccessPolicyIamRolePtr and AccessPolicyIamRolePtrOutput values.
 // You can construct a concrete instance of `AccessPolicyIamRolePtrInput` via:
 //
-//          AccessPolicyIamRoleArgs{...}
+//	        AccessPolicyIamRoleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPolicyIamRolePtrInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type AccessPolicyIamUser struct {
 // AccessPolicyIamUserInput is an input type that accepts AccessPolicyIamUserArgs and AccessPolicyIamUserOutput values.
 // You can construct a concrete instance of `AccessPolicyIamUserInput` via:
 //
-//          AccessPolicyIamUserArgs{...}
+//	AccessPolicyIamUserArgs{...}
 type AccessPolicyIamUserInput interface {
 	pulumi.Input
 
@@ -196,11 +196,11 @@ func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserPtrOutputWithContext(ctx c
 // AccessPolicyIamUserPtrInput is an input type that accepts AccessPolicyIamUserArgs, AccessPolicyIamUserPtr and AccessPolicyIamUserPtrOutput values.
 // You can construct a concrete instance of `AccessPolicyIamUserPtrInput` via:
 //
-//          AccessPolicyIamUserArgs{...}
+//	        AccessPolicyIamUserArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPolicyIamUserPtrInput interface {
 	pulumi.Input
 
@@ -300,7 +300,7 @@ type AccessPolicyIdentity struct {
 // AccessPolicyIdentityInput is an input type that accepts AccessPolicyIdentityArgs and AccessPolicyIdentityOutput values.
 // You can construct a concrete instance of `AccessPolicyIdentityInput` via:
 //
-//          AccessPolicyIdentityArgs{...}
+//	AccessPolicyIdentityArgs{...}
 type AccessPolicyIdentityInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ type AccessPolicyPortal struct {
 // AccessPolicyPortalInput is an input type that accepts AccessPolicyPortalArgs and AccessPolicyPortalOutput values.
 // You can construct a concrete instance of `AccessPolicyPortalInput` via:
 //
-//          AccessPolicyPortalArgs{...}
+//	AccessPolicyPortalArgs{...}
 type AccessPolicyPortalInput interface {
 	pulumi.Input
 
@@ -451,11 +451,11 @@ func (i AccessPolicyPortalArgs) ToAccessPolicyPortalPtrOutputWithContext(ctx con
 // AccessPolicyPortalPtrInput is an input type that accepts AccessPolicyPortalArgs, AccessPolicyPortalPtr and AccessPolicyPortalPtrOutput values.
 // You can construct a concrete instance of `AccessPolicyPortalPtrInput` via:
 //
-//          AccessPolicyPortalArgs{...}
+//	        AccessPolicyPortalArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPolicyPortalPtrInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ type AccessPolicyProject struct {
 // AccessPolicyProjectInput is an input type that accepts AccessPolicyProjectArgs and AccessPolicyProjectOutput values.
 // You can construct a concrete instance of `AccessPolicyProjectInput` via:
 //
-//          AccessPolicyProjectArgs{...}
+//	AccessPolicyProjectArgs{...}
 type AccessPolicyProjectInput interface {
 	pulumi.Input
 
@@ -591,11 +591,11 @@ func (i AccessPolicyProjectArgs) ToAccessPolicyProjectPtrOutputWithContext(ctx c
 // AccessPolicyProjectPtrInput is an input type that accepts AccessPolicyProjectArgs, AccessPolicyProjectPtr and AccessPolicyProjectPtrOutput values.
 // You can construct a concrete instance of `AccessPolicyProjectPtrInput` via:
 //
-//          AccessPolicyProjectArgs{...}
+//	        AccessPolicyProjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPolicyProjectPtrInput interface {
 	pulumi.Input
 
@@ -694,7 +694,7 @@ type AccessPolicyResource struct {
 // AccessPolicyResourceInput is an input type that accepts AccessPolicyResourceArgs and AccessPolicyResourceOutput values.
 // You can construct a concrete instance of `AccessPolicyResourceInput` via:
 //
-//          AccessPolicyResourceArgs{...}
+//	AccessPolicyResourceArgs{...}
 type AccessPolicyResourceInput interface {
 	pulumi.Input
 
@@ -794,7 +794,7 @@ type AccessPolicyUser struct {
 // AccessPolicyUserInput is an input type that accepts AccessPolicyUserArgs and AccessPolicyUserOutput values.
 // You can construct a concrete instance of `AccessPolicyUserInput` via:
 //
-//          AccessPolicyUserArgs{...}
+//	AccessPolicyUserArgs{...}
 type AccessPolicyUserInput interface {
 	pulumi.Input
 
@@ -831,11 +831,11 @@ func (i AccessPolicyUserArgs) ToAccessPolicyUserPtrOutputWithContext(ctx context
 // AccessPolicyUserPtrInput is an input type that accepts AccessPolicyUserArgs, AccessPolicyUserPtr and AccessPolicyUserPtrOutput values.
 // You can construct a concrete instance of `AccessPolicyUserPtrInput` via:
 //
-//          AccessPolicyUserArgs{...}
+//	        AccessPolicyUserArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPolicyUserPtrInput interface {
 	pulumi.Input
 
@@ -936,7 +936,7 @@ type AlarmsProperties struct {
 // AlarmsPropertiesInput is an input type that accepts AlarmsPropertiesArgs and AlarmsPropertiesOutput values.
 // You can construct a concrete instance of `AlarmsPropertiesInput` via:
 //
-//          AlarmsPropertiesArgs{...}
+//	AlarmsPropertiesArgs{...}
 type AlarmsPropertiesInput interface {
 	pulumi.Input
 
@@ -975,11 +975,11 @@ func (i AlarmsPropertiesArgs) ToAlarmsPropertiesPtrOutputWithContext(ctx context
 // AlarmsPropertiesPtrInput is an input type that accepts AlarmsPropertiesArgs, AlarmsPropertiesPtr and AlarmsPropertiesPtrOutput values.
 // You can construct a concrete instance of `AlarmsPropertiesPtrInput` via:
 //
-//          AlarmsPropertiesArgs{...}
+//	        AlarmsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1095,7 +1095,7 @@ type AssetHierarchy struct {
 // AssetHierarchyInput is an input type that accepts AssetHierarchyArgs and AssetHierarchyOutput values.
 // You can construct a concrete instance of `AssetHierarchyInput` via:
 //
-//          AssetHierarchyArgs{...}
+//	AssetHierarchyArgs{...}
 type AssetHierarchyInput interface {
 	pulumi.Input
 
@@ -1126,7 +1126,7 @@ func (i AssetHierarchyArgs) ToAssetHierarchyOutputWithContext(ctx context.Contex
 // AssetHierarchyArrayInput is an input type that accepts AssetHierarchyArray and AssetHierarchyArrayOutput values.
 // You can construct a concrete instance of `AssetHierarchyArrayInput` via:
 //
-//          AssetHierarchyArray{ AssetHierarchyArgs{...} }
+//	AssetHierarchyArray{ AssetHierarchyArgs{...} }
 type AssetHierarchyArrayInput interface {
 	pulumi.Input
 
@@ -1200,7 +1200,7 @@ type AssetModelAttribute struct {
 // AssetModelAttributeInput is an input type that accepts AssetModelAttributeArgs and AssetModelAttributeOutput values.
 // You can construct a concrete instance of `AssetModelAttributeInput` via:
 //
-//          AssetModelAttributeArgs{...}
+//	AssetModelAttributeArgs{...}
 type AssetModelAttributeInput interface {
 	pulumi.Input
 
@@ -1235,11 +1235,11 @@ func (i AssetModelAttributeArgs) ToAssetModelAttributePtrOutputWithContext(ctx c
 // AssetModelAttributePtrInput is an input type that accepts AssetModelAttributeArgs, AssetModelAttributePtr and AssetModelAttributePtrOutput values.
 // You can construct a concrete instance of `AssetModelAttributePtrInput` via:
 //
-//          AssetModelAttributeArgs{...}
+//	        AssetModelAttributeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetModelAttributePtrInput interface {
 	pulumi.Input
 
@@ -1341,7 +1341,7 @@ type AssetModelCompositeModel struct {
 // AssetModelCompositeModelInput is an input type that accepts AssetModelCompositeModelArgs and AssetModelCompositeModelOutput values.
 // You can construct a concrete instance of `AssetModelCompositeModelInput` via:
 //
-//          AssetModelCompositeModelArgs{...}
+//	AssetModelCompositeModelArgs{...}
 type AssetModelCompositeModelInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ func (i AssetModelCompositeModelArgs) ToAssetModelCompositeModelOutputWithContex
 // AssetModelCompositeModelArrayInput is an input type that accepts AssetModelCompositeModelArray and AssetModelCompositeModelArrayOutput values.
 // You can construct a concrete instance of `AssetModelCompositeModelArrayInput` via:
 //
-//          AssetModelCompositeModelArray{ AssetModelCompositeModelArgs{...} }
+//	AssetModelCompositeModelArray{ AssetModelCompositeModelArgs{...} }
 type AssetModelCompositeModelArrayInput interface {
 	pulumi.Input
 
@@ -1463,7 +1463,7 @@ type AssetModelExpressionVariable struct {
 // AssetModelExpressionVariableInput is an input type that accepts AssetModelExpressionVariableArgs and AssetModelExpressionVariableOutput values.
 // You can construct a concrete instance of `AssetModelExpressionVariableInput` via:
 //
-//          AssetModelExpressionVariableArgs{...}
+//	AssetModelExpressionVariableArgs{...}
 type AssetModelExpressionVariableInput interface {
 	pulumi.Input
 
@@ -1493,7 +1493,7 @@ func (i AssetModelExpressionVariableArgs) ToAssetModelExpressionVariableOutputWi
 // AssetModelExpressionVariableArrayInput is an input type that accepts AssetModelExpressionVariableArray and AssetModelExpressionVariableArrayOutput values.
 // You can construct a concrete instance of `AssetModelExpressionVariableArrayInput` via:
 //
-//          AssetModelExpressionVariableArray{ AssetModelExpressionVariableArgs{...} }
+//	AssetModelExpressionVariableArray{ AssetModelExpressionVariableArgs{...} }
 type AssetModelExpressionVariableArrayInput interface {
 	pulumi.Input
 
@@ -1572,7 +1572,7 @@ type AssetModelHierarchy struct {
 // AssetModelHierarchyInput is an input type that accepts AssetModelHierarchyArgs and AssetModelHierarchyOutput values.
 // You can construct a concrete instance of `AssetModelHierarchyInput` via:
 //
-//          AssetModelHierarchyArgs{...}
+//	AssetModelHierarchyArgs{...}
 type AssetModelHierarchyInput interface {
 	pulumi.Input
 
@@ -1605,7 +1605,7 @@ func (i AssetModelHierarchyArgs) ToAssetModelHierarchyOutputWithContext(ctx cont
 // AssetModelHierarchyArrayInput is an input type that accepts AssetModelHierarchyArray and AssetModelHierarchyArrayOutput values.
 // You can construct a concrete instance of `AssetModelHierarchyArrayInput` via:
 //
-//          AssetModelHierarchyArray{ AssetModelHierarchyArgs{...} }
+//	AssetModelHierarchyArray{ AssetModelHierarchyArgs{...} }
 type AssetModelHierarchyArrayInput interface {
 	pulumi.Input
 
@@ -1689,7 +1689,7 @@ type AssetModelMetric struct {
 // AssetModelMetricInput is an input type that accepts AssetModelMetricArgs and AssetModelMetricOutput values.
 // You can construct a concrete instance of `AssetModelMetricInput` via:
 //
-//          AssetModelMetricArgs{...}
+//	AssetModelMetricArgs{...}
 type AssetModelMetricInput interface {
 	pulumi.Input
 
@@ -1729,11 +1729,11 @@ func (i AssetModelMetricArgs) ToAssetModelMetricPtrOutputWithContext(ctx context
 // AssetModelMetricPtrInput is an input type that accepts AssetModelMetricArgs, AssetModelMetricPtr and AssetModelMetricPtrOutput values.
 // You can construct a concrete instance of `AssetModelMetricPtrInput` via:
 //
-//          AssetModelMetricArgs{...}
+//	        AssetModelMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetModelMetricPtrInput interface {
 	pulumi.Input
 
@@ -1860,7 +1860,7 @@ type AssetModelMetricWindow struct {
 // AssetModelMetricWindowInput is an input type that accepts AssetModelMetricWindowArgs and AssetModelMetricWindowOutput values.
 // You can construct a concrete instance of `AssetModelMetricWindowInput` via:
 //
-//          AssetModelMetricWindowArgs{...}
+//	AssetModelMetricWindowArgs{...}
 type AssetModelMetricWindowInput interface {
 	pulumi.Input
 
@@ -1896,11 +1896,11 @@ func (i AssetModelMetricWindowArgs) ToAssetModelMetricWindowPtrOutputWithContext
 // AssetModelMetricWindowPtrInput is an input type that accepts AssetModelMetricWindowArgs, AssetModelMetricWindowPtr and AssetModelMetricWindowPtrOutput values.
 // You can construct a concrete instance of `AssetModelMetricWindowPtrInput` via:
 //
-//          AssetModelMetricWindowArgs{...}
+//	        AssetModelMetricWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetModelMetricWindowPtrInput interface {
 	pulumi.Input
 
@@ -2007,7 +2007,7 @@ type AssetModelProperty struct {
 // AssetModelPropertyInput is an input type that accepts AssetModelPropertyArgs and AssetModelPropertyOutput values.
 // You can construct a concrete instance of `AssetModelPropertyInput` via:
 //
-//          AssetModelPropertyArgs{...}
+//	AssetModelPropertyArgs{...}
 type AssetModelPropertyInput interface {
 	pulumi.Input
 
@@ -2046,7 +2046,7 @@ func (i AssetModelPropertyArgs) ToAssetModelPropertyOutputWithContext(ctx contex
 // AssetModelPropertyArrayInput is an input type that accepts AssetModelPropertyArray and AssetModelPropertyArrayOutput values.
 // You can construct a concrete instance of `AssetModelPropertyArrayInput` via:
 //
-//          AssetModelPropertyArray{ AssetModelPropertyArgs{...} }
+//	AssetModelPropertyArray{ AssetModelPropertyArgs{...} }
 type AssetModelPropertyArrayInput interface {
 	pulumi.Input
 
@@ -2144,7 +2144,7 @@ type AssetModelPropertyType struct {
 // AssetModelPropertyTypeInput is an input type that accepts AssetModelPropertyTypeArgs and AssetModelPropertyTypeOutput values.
 // You can construct a concrete instance of `AssetModelPropertyTypeInput` via:
 //
-//          AssetModelPropertyTypeArgs{...}
+//	AssetModelPropertyTypeArgs{...}
 type AssetModelPropertyTypeInput interface {
 	pulumi.Input
 
@@ -2211,7 +2211,7 @@ type AssetModelTag struct {
 // AssetModelTagInput is an input type that accepts AssetModelTagArgs and AssetModelTagOutput values.
 // You can construct a concrete instance of `AssetModelTagInput` via:
 //
-//          AssetModelTagArgs{...}
+//	AssetModelTagArgs{...}
 type AssetModelTagInput interface {
 	pulumi.Input
 
@@ -2239,7 +2239,7 @@ func (i AssetModelTagArgs) ToAssetModelTagOutputWithContext(ctx context.Context)
 // AssetModelTagArrayInput is an input type that accepts AssetModelTagArray and AssetModelTagArrayOutput values.
 // You can construct a concrete instance of `AssetModelTagArrayInput` via:
 //
-//          AssetModelTagArray{ AssetModelTagArgs{...} }
+//	AssetModelTagArray{ AssetModelTagArgs{...} }
 type AssetModelTagArrayInput interface {
 	pulumi.Input
 
@@ -2313,7 +2313,7 @@ type AssetModelTransform struct {
 // AssetModelTransformInput is an input type that accepts AssetModelTransformArgs and AssetModelTransformOutput values.
 // You can construct a concrete instance of `AssetModelTransformInput` via:
 //
-//          AssetModelTransformArgs{...}
+//	AssetModelTransformArgs{...}
 type AssetModelTransformInput interface {
 	pulumi.Input
 
@@ -2351,11 +2351,11 @@ func (i AssetModelTransformArgs) ToAssetModelTransformPtrOutputWithContext(ctx c
 // AssetModelTransformPtrInput is an input type that accepts AssetModelTransformArgs, AssetModelTransformPtr and AssetModelTransformPtrOutput values.
 // You can construct a concrete instance of `AssetModelTransformPtrInput` via:
 //
-//          AssetModelTransformArgs{...}
+//	        AssetModelTransformArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetModelTransformPtrInput interface {
 	pulumi.Input
 
@@ -2468,7 +2468,7 @@ type AssetModelTumblingWindow struct {
 // AssetModelTumblingWindowInput is an input type that accepts AssetModelTumblingWindowArgs and AssetModelTumblingWindowOutput values.
 // You can construct a concrete instance of `AssetModelTumblingWindowInput` via:
 //
-//          AssetModelTumblingWindowArgs{...}
+//	AssetModelTumblingWindowArgs{...}
 type AssetModelTumblingWindowInput interface {
 	pulumi.Input
 
@@ -2505,11 +2505,11 @@ func (i AssetModelTumblingWindowArgs) ToAssetModelTumblingWindowPtrOutputWithCon
 // AssetModelTumblingWindowPtrInput is an input type that accepts AssetModelTumblingWindowArgs, AssetModelTumblingWindowPtr and AssetModelTumblingWindowPtrOutput values.
 // You can construct a concrete instance of `AssetModelTumblingWindowPtrInput` via:
 //
-//          AssetModelTumblingWindowArgs{...}
+//	        AssetModelTumblingWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetModelTumblingWindowPtrInput interface {
 	pulumi.Input
 
@@ -2618,7 +2618,7 @@ type AssetModelVariableValue struct {
 // AssetModelVariableValueInput is an input type that accepts AssetModelVariableValueArgs and AssetModelVariableValueOutput values.
 // You can construct a concrete instance of `AssetModelVariableValueInput` via:
 //
-//          AssetModelVariableValueArgs{...}
+//	AssetModelVariableValueArgs{...}
 type AssetModelVariableValueInput interface {
 	pulumi.Input
 
@@ -2678,7 +2678,7 @@ type AssetProperty struct {
 // AssetPropertyInput is an input type that accepts AssetPropertyArgs and AssetPropertyOutput values.
 // You can construct a concrete instance of `AssetPropertyInput` via:
 //
-//          AssetPropertyArgs{...}
+//	AssetPropertyArgs{...}
 type AssetPropertyInput interface {
 	pulumi.Input
 
@@ -2711,7 +2711,7 @@ func (i AssetPropertyArgs) ToAssetPropertyOutputWithContext(ctx context.Context)
 // AssetPropertyArrayInput is an input type that accepts AssetPropertyArray and AssetPropertyArrayOutput values.
 // You can construct a concrete instance of `AssetPropertyArrayInput` via:
 //
-//          AssetPropertyArray{ AssetPropertyArgs{...} }
+//	AssetPropertyArray{ AssetPropertyArgs{...} }
 type AssetPropertyArrayInput interface {
 	pulumi.Input
 
@@ -2791,7 +2791,7 @@ type AssetTag struct {
 // AssetTagInput is an input type that accepts AssetTagArgs and AssetTagOutput values.
 // You can construct a concrete instance of `AssetTagInput` via:
 //
-//          AssetTagArgs{...}
+//	AssetTagArgs{...}
 type AssetTagInput interface {
 	pulumi.Input
 
@@ -2819,7 +2819,7 @@ func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagO
 // AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
 // You can construct a concrete instance of `AssetTagArrayInput` via:
 //
-//          AssetTagArray{ AssetTagArgs{...} }
+//	AssetTagArray{ AssetTagArgs{...} }
 type AssetTagArrayInput interface {
 	pulumi.Input
 
@@ -2892,7 +2892,7 @@ type DashboardTag struct {
 // DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
 // You can construct a concrete instance of `DashboardTagInput` via:
 //
-//          DashboardTagArgs{...}
+//	DashboardTagArgs{...}
 type DashboardTagInput interface {
 	pulumi.Input
 
@@ -2921,7 +2921,7 @@ func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) D
 // DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
 // You can construct a concrete instance of `DashboardTagArrayInput` via:
 //
-//          DashboardTagArray{ DashboardTagArgs{...} }
+//	DashboardTagArray{ DashboardTagArgs{...} }
 type DashboardTagArrayInput interface {
 	pulumi.Input
 
@@ -2995,7 +2995,7 @@ type GatewayCapabilitySummary struct {
 // GatewayCapabilitySummaryInput is an input type that accepts GatewayCapabilitySummaryArgs and GatewayCapabilitySummaryOutput values.
 // You can construct a concrete instance of `GatewayCapabilitySummaryInput` via:
 //
-//          GatewayCapabilitySummaryArgs{...}
+//	GatewayCapabilitySummaryArgs{...}
 type GatewayCapabilitySummaryInput interface {
 	pulumi.Input
 
@@ -3024,7 +3024,7 @@ func (i GatewayCapabilitySummaryArgs) ToGatewayCapabilitySummaryOutputWithContex
 // GatewayCapabilitySummaryArrayInput is an input type that accepts GatewayCapabilitySummaryArray and GatewayCapabilitySummaryArrayOutput values.
 // You can construct a concrete instance of `GatewayCapabilitySummaryArrayInput` via:
 //
-//          GatewayCapabilitySummaryArray{ GatewayCapabilitySummaryArgs{...} }
+//	GatewayCapabilitySummaryArray{ GatewayCapabilitySummaryArgs{...} }
 type GatewayCapabilitySummaryArrayInput interface {
 	pulumi.Input
 
@@ -3098,7 +3098,7 @@ type GatewayGreengrass struct {
 // GatewayGreengrassInput is an input type that accepts GatewayGreengrassArgs and GatewayGreengrassOutput values.
 // You can construct a concrete instance of `GatewayGreengrassInput` via:
 //
-//          GatewayGreengrassArgs{...}
+//	GatewayGreengrassArgs{...}
 type GatewayGreengrassInput interface {
 	pulumi.Input
 
@@ -3135,11 +3135,11 @@ func (i GatewayGreengrassArgs) ToGatewayGreengrassPtrOutputWithContext(ctx conte
 // GatewayGreengrassPtrInput is an input type that accepts GatewayGreengrassArgs, GatewayGreengrassPtr and GatewayGreengrassPtrOutput values.
 // You can construct a concrete instance of `GatewayGreengrassPtrInput` via:
 //
-//          GatewayGreengrassArgs{...}
+//	        GatewayGreengrassArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GatewayGreengrassPtrInput interface {
 	pulumi.Input
 
@@ -3238,7 +3238,7 @@ type GatewayGreengrassV2 struct {
 // GatewayGreengrassV2Input is an input type that accepts GatewayGreengrassV2Args and GatewayGreengrassV2Output values.
 // You can construct a concrete instance of `GatewayGreengrassV2Input` via:
 //
-//          GatewayGreengrassV2Args{...}
+//	GatewayGreengrassV2Args{...}
 type GatewayGreengrassV2Input interface {
 	pulumi.Input
 
@@ -3275,11 +3275,11 @@ func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2PtrOutputWithContext(ctx c
 // GatewayGreengrassV2PtrInput is an input type that accepts GatewayGreengrassV2Args, GatewayGreengrassV2Ptr and GatewayGreengrassV2PtrOutput values.
 // You can construct a concrete instance of `GatewayGreengrassV2PtrInput` via:
 //
-//          GatewayGreengrassV2Args{...}
+//	        GatewayGreengrassV2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GatewayGreengrassV2PtrInput interface {
 	pulumi.Input
 
@@ -3380,7 +3380,7 @@ type GatewayPlatform struct {
 // GatewayPlatformInput is an input type that accepts GatewayPlatformArgs and GatewayPlatformOutput values.
 // You can construct a concrete instance of `GatewayPlatformInput` via:
 //
-//          GatewayPlatformArgs{...}
+//	GatewayPlatformArgs{...}
 type GatewayPlatformInput interface {
 	pulumi.Input
 
@@ -3442,7 +3442,7 @@ type GatewayTag struct {
 // GatewayTagInput is an input type that accepts GatewayTagArgs and GatewayTagOutput values.
 // You can construct a concrete instance of `GatewayTagInput` via:
 //
-//          GatewayTagArgs{...}
+//	GatewayTagArgs{...}
 type GatewayTagInput interface {
 	pulumi.Input
 
@@ -3471,7 +3471,7 @@ func (i GatewayTagArgs) ToGatewayTagOutputWithContext(ctx context.Context) Gatew
 // GatewayTagArrayInput is an input type that accepts GatewayTagArray and GatewayTagArrayOutput values.
 // You can construct a concrete instance of `GatewayTagArrayInput` via:
 //
-//          GatewayTagArray{ GatewayTagArgs{...} }
+//	GatewayTagArray{ GatewayTagArgs{...} }
 type GatewayTagArrayInput interface {
 	pulumi.Input
 
@@ -3545,7 +3545,7 @@ type PortalTag struct {
 // PortalTagInput is an input type that accepts PortalTagArgs and PortalTagOutput values.
 // You can construct a concrete instance of `PortalTagInput` via:
 //
-//          PortalTagArgs{...}
+//	PortalTagArgs{...}
 type PortalTagInput interface {
 	pulumi.Input
 
@@ -3574,7 +3574,7 @@ func (i PortalTagArgs) ToPortalTagOutputWithContext(ctx context.Context) PortalT
 // PortalTagArrayInput is an input type that accepts PortalTagArray and PortalTagArrayOutput values.
 // You can construct a concrete instance of `PortalTagArrayInput` via:
 //
-//          PortalTagArray{ PortalTagArgs{...} }
+//	PortalTagArray{ PortalTagArgs{...} }
 type PortalTagArrayInput interface {
 	pulumi.Input
 
@@ -3648,7 +3648,7 @@ type ProjectTag struct {
 // ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
 // You can construct a concrete instance of `ProjectTagInput` via:
 //
-//          ProjectTagArgs{...}
+//	ProjectTagArgs{...}
 type ProjectTagInput interface {
 	pulumi.Input
 
@@ -3677,7 +3677,7 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
-//          ProjectTagArray{ ProjectTagArgs{...} }
+//	ProjectTagArray{ ProjectTagArgs{...} }
 type ProjectTagArrayInput interface {
 	pulumi.Input
 

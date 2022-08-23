@@ -35,7 +35,7 @@ type ComputeEnvironmentComputeResources struct {
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesInput` via:
 //
-//          ComputeEnvironmentComputeResourcesArgs{...}
+//	ComputeEnvironmentComputeResourcesArgs{...}
 type ComputeEnvironmentComputeResourcesInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 // ComputeEnvironmentComputeResourcesPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs, ComputeEnvironmentComputeResourcesPtr and ComputeEnvironmentComputeResourcesPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesPtrInput` via:
 //
-//          ComputeEnvironmentComputeResourcesArgs{...}
+//	        ComputeEnvironmentComputeResourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentComputeResourcesPtrInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ type ComputeEnvironmentEc2ConfigurationObject struct {
 // ComputeEnvironmentEc2ConfigurationObjectInput is an input type that accepts ComputeEnvironmentEc2ConfigurationObjectArgs and ComputeEnvironmentEc2ConfigurationObjectOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentEc2ConfigurationObjectInput` via:
 //
-//          ComputeEnvironmentEc2ConfigurationObjectArgs{...}
+//	ComputeEnvironmentEc2ConfigurationObjectArgs{...}
 type ComputeEnvironmentEc2ConfigurationObjectInput interface {
 	pulumi.Input
 
@@ -442,7 +442,7 @@ func (i ComputeEnvironmentEc2ConfigurationObjectArgs) ToComputeEnvironmentEc2Con
 // ComputeEnvironmentEc2ConfigurationObjectArrayInput is an input type that accepts ComputeEnvironmentEc2ConfigurationObjectArray and ComputeEnvironmentEc2ConfigurationObjectArrayOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentEc2ConfigurationObjectArrayInput` via:
 //
-//          ComputeEnvironmentEc2ConfigurationObjectArray{ ComputeEnvironmentEc2ConfigurationObjectArgs{...} }
+//	ComputeEnvironmentEc2ConfigurationObjectArray{ ComputeEnvironmentEc2ConfigurationObjectArgs{...} }
 type ComputeEnvironmentEc2ConfigurationObjectArrayInput interface {
 	pulumi.Input
 
@@ -515,7 +515,7 @@ type ComputeEnvironmentLaunchTemplateSpecification struct {
 // ComputeEnvironmentLaunchTemplateSpecificationInput is an input type that accepts ComputeEnvironmentLaunchTemplateSpecificationArgs and ComputeEnvironmentLaunchTemplateSpecificationOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationInput` via:
 //
-//          ComputeEnvironmentLaunchTemplateSpecificationArgs{...}
+//	ComputeEnvironmentLaunchTemplateSpecificationArgs{...}
 type ComputeEnvironmentLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -552,11 +552,11 @@ func (i ComputeEnvironmentLaunchTemplateSpecificationArgs) ToComputeEnvironmentL
 // ComputeEnvironmentLaunchTemplateSpecificationPtrInput is an input type that accepts ComputeEnvironmentLaunchTemplateSpecificationArgs, ComputeEnvironmentLaunchTemplateSpecificationPtr and ComputeEnvironmentLaunchTemplateSpecificationPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationPtrInput` via:
 //
-//          ComputeEnvironmentLaunchTemplateSpecificationArgs{...}
+//	        ComputeEnvironmentLaunchTemplateSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentLaunchTemplateSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -677,7 +677,7 @@ type ComputeEnvironmentUpdatePolicy struct {
 // ComputeEnvironmentUpdatePolicyInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs and ComputeEnvironmentUpdatePolicyOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentUpdatePolicyInput` via:
 //
-//          ComputeEnvironmentUpdatePolicyArgs{...}
+//	ComputeEnvironmentUpdatePolicyArgs{...}
 type ComputeEnvironmentUpdatePolicyInput interface {
 	pulumi.Input
 
@@ -713,11 +713,11 @@ func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyPtrO
 // ComputeEnvironmentUpdatePolicyPtrInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs, ComputeEnvironmentUpdatePolicyPtr and ComputeEnvironmentUpdatePolicyPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentUpdatePolicyPtrInput` via:
 //
-//          ComputeEnvironmentUpdatePolicyArgs{...}
+//	        ComputeEnvironmentUpdatePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentUpdatePolicyPtrInput interface {
 	pulumi.Input
 
@@ -825,7 +825,7 @@ type JobDefinitionAuthorizationConfig struct {
 // JobDefinitionAuthorizationConfigInput is an input type that accepts JobDefinitionAuthorizationConfigArgs and JobDefinitionAuthorizationConfigOutput values.
 // You can construct a concrete instance of `JobDefinitionAuthorizationConfigInput` via:
 //
-//          JobDefinitionAuthorizationConfigArgs{...}
+//	JobDefinitionAuthorizationConfigArgs{...}
 type JobDefinitionAuthorizationConfigInput interface {
 	pulumi.Input
 
@@ -861,11 +861,11 @@ func (i JobDefinitionAuthorizationConfigArgs) ToJobDefinitionAuthorizationConfig
 // JobDefinitionAuthorizationConfigPtrInput is an input type that accepts JobDefinitionAuthorizationConfigArgs, JobDefinitionAuthorizationConfigPtr and JobDefinitionAuthorizationConfigPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionAuthorizationConfigPtrInput` via:
 //
-//          JobDefinitionAuthorizationConfigArgs{...}
+//	        JobDefinitionAuthorizationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionAuthorizationConfigPtrInput interface {
 	pulumi.Input
 
@@ -991,7 +991,7 @@ type JobDefinitionContainerProperties struct {
 // JobDefinitionContainerPropertiesInput is an input type that accepts JobDefinitionContainerPropertiesArgs and JobDefinitionContainerPropertiesOutput values.
 // You can construct a concrete instance of `JobDefinitionContainerPropertiesInput` via:
 //
-//          JobDefinitionContainerPropertiesArgs{...}
+//	JobDefinitionContainerPropertiesArgs{...}
 type JobDefinitionContainerPropertiesInput interface {
 	pulumi.Input
 
@@ -1045,11 +1045,11 @@ func (i JobDefinitionContainerPropertiesArgs) ToJobDefinitionContainerProperties
 // JobDefinitionContainerPropertiesPtrInput is an input type that accepts JobDefinitionContainerPropertiesArgs, JobDefinitionContainerPropertiesPtr and JobDefinitionContainerPropertiesPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionContainerPropertiesPtrInput` via:
 //
-//          JobDefinitionContainerPropertiesArgs{...}
+//	        JobDefinitionContainerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionContainerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1398,7 +1398,7 @@ type JobDefinitionDevice struct {
 // JobDefinitionDeviceInput is an input type that accepts JobDefinitionDeviceArgs and JobDefinitionDeviceOutput values.
 // You can construct a concrete instance of `JobDefinitionDeviceInput` via:
 //
-//          JobDefinitionDeviceArgs{...}
+//	JobDefinitionDeviceArgs{...}
 type JobDefinitionDeviceInput interface {
 	pulumi.Input
 
@@ -1427,7 +1427,7 @@ func (i JobDefinitionDeviceArgs) ToJobDefinitionDeviceOutputWithContext(ctx cont
 // JobDefinitionDeviceArrayInput is an input type that accepts JobDefinitionDeviceArray and JobDefinitionDeviceArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionDeviceArrayInput` via:
 //
-//          JobDefinitionDeviceArray{ JobDefinitionDeviceArgs{...} }
+//	JobDefinitionDeviceArray{ JobDefinitionDeviceArgs{...} }
 type JobDefinitionDeviceArrayInput interface {
 	pulumi.Input
 
@@ -1506,7 +1506,7 @@ type JobDefinitionEfsVolumeConfiguration struct {
 // JobDefinitionEfsVolumeConfigurationInput is an input type that accepts JobDefinitionEfsVolumeConfigurationArgs and JobDefinitionEfsVolumeConfigurationOutput values.
 // You can construct a concrete instance of `JobDefinitionEfsVolumeConfigurationInput` via:
 //
-//          JobDefinitionEfsVolumeConfigurationArgs{...}
+//	JobDefinitionEfsVolumeConfigurationArgs{...}
 type JobDefinitionEfsVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1545,11 +1545,11 @@ func (i JobDefinitionEfsVolumeConfigurationArgs) ToJobDefinitionEfsVolumeConfigu
 // JobDefinitionEfsVolumeConfigurationPtrInput is an input type that accepts JobDefinitionEfsVolumeConfigurationArgs, JobDefinitionEfsVolumeConfigurationPtr and JobDefinitionEfsVolumeConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionEfsVolumeConfigurationPtrInput` via:
 //
-//          JobDefinitionEfsVolumeConfigurationArgs{...}
+//	        JobDefinitionEfsVolumeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionEfsVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1698,7 +1698,7 @@ type JobDefinitionEnvironment struct {
 // JobDefinitionEnvironmentInput is an input type that accepts JobDefinitionEnvironmentArgs and JobDefinitionEnvironmentOutput values.
 // You can construct a concrete instance of `JobDefinitionEnvironmentInput` via:
 //
-//          JobDefinitionEnvironmentArgs{...}
+//	JobDefinitionEnvironmentArgs{...}
 type JobDefinitionEnvironmentInput interface {
 	pulumi.Input
 
@@ -1726,7 +1726,7 @@ func (i JobDefinitionEnvironmentArgs) ToJobDefinitionEnvironmentOutputWithContex
 // JobDefinitionEnvironmentArrayInput is an input type that accepts JobDefinitionEnvironmentArray and JobDefinitionEnvironmentArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEnvironmentArrayInput` via:
 //
-//          JobDefinitionEnvironmentArray{ JobDefinitionEnvironmentArgs{...} }
+//	JobDefinitionEnvironmentArray{ JobDefinitionEnvironmentArgs{...} }
 type JobDefinitionEnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -1800,7 +1800,7 @@ type JobDefinitionEvaluateOnExit struct {
 // JobDefinitionEvaluateOnExitInput is an input type that accepts JobDefinitionEvaluateOnExitArgs and JobDefinitionEvaluateOnExitOutput values.
 // You can construct a concrete instance of `JobDefinitionEvaluateOnExitInput` via:
 //
-//          JobDefinitionEvaluateOnExitArgs{...}
+//	JobDefinitionEvaluateOnExitArgs{...}
 type JobDefinitionEvaluateOnExitInput interface {
 	pulumi.Input
 
@@ -1830,7 +1830,7 @@ func (i JobDefinitionEvaluateOnExitArgs) ToJobDefinitionEvaluateOnExitOutputWith
 // JobDefinitionEvaluateOnExitArrayInput is an input type that accepts JobDefinitionEvaluateOnExitArray and JobDefinitionEvaluateOnExitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEvaluateOnExitArrayInput` via:
 //
-//          JobDefinitionEvaluateOnExitArray{ JobDefinitionEvaluateOnExitArgs{...} }
+//	JobDefinitionEvaluateOnExitArray{ JobDefinitionEvaluateOnExitArgs{...} }
 type JobDefinitionEvaluateOnExitArrayInput interface {
 	pulumi.Input
 
@@ -1909,7 +1909,7 @@ type JobDefinitionFargatePlatformConfiguration struct {
 // JobDefinitionFargatePlatformConfigurationInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs and JobDefinitionFargatePlatformConfigurationOutput values.
 // You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationInput` via:
 //
-//          JobDefinitionFargatePlatformConfigurationArgs{...}
+//	JobDefinitionFargatePlatformConfigurationArgs{...}
 type JobDefinitionFargatePlatformConfigurationInput interface {
 	pulumi.Input
 
@@ -1944,11 +1944,11 @@ func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePla
 // JobDefinitionFargatePlatformConfigurationPtrInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs, JobDefinitionFargatePlatformConfigurationPtr and JobDefinitionFargatePlatformConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationPtrInput` via:
 //
-//          JobDefinitionFargatePlatformConfigurationArgs{...}
+//	        JobDefinitionFargatePlatformConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionFargatePlatformConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2047,7 +2047,7 @@ type JobDefinitionLinuxParameters struct {
 // JobDefinitionLinuxParametersInput is an input type that accepts JobDefinitionLinuxParametersArgs and JobDefinitionLinuxParametersOutput values.
 // You can construct a concrete instance of `JobDefinitionLinuxParametersInput` via:
 //
-//          JobDefinitionLinuxParametersArgs{...}
+//	JobDefinitionLinuxParametersArgs{...}
 type JobDefinitionLinuxParametersInput interface {
 	pulumi.Input
 
@@ -2087,11 +2087,11 @@ func (i JobDefinitionLinuxParametersArgs) ToJobDefinitionLinuxParametersPtrOutpu
 // JobDefinitionLinuxParametersPtrInput is an input type that accepts JobDefinitionLinuxParametersArgs, JobDefinitionLinuxParametersPtr and JobDefinitionLinuxParametersPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionLinuxParametersPtrInput` via:
 //
-//          JobDefinitionLinuxParametersArgs{...}
+//	        JobDefinitionLinuxParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionLinuxParametersPtrInput interface {
 	pulumi.Input
 
@@ -2252,7 +2252,7 @@ type JobDefinitionLogConfiguration struct {
 // JobDefinitionLogConfigurationInput is an input type that accepts JobDefinitionLogConfigurationArgs and JobDefinitionLogConfigurationOutput values.
 // You can construct a concrete instance of `JobDefinitionLogConfigurationInput` via:
 //
-//          JobDefinitionLogConfigurationArgs{...}
+//	JobDefinitionLogConfigurationArgs{...}
 type JobDefinitionLogConfigurationInput interface {
 	pulumi.Input
 
@@ -2289,11 +2289,11 @@ func (i JobDefinitionLogConfigurationArgs) ToJobDefinitionLogConfigurationPtrOut
 // JobDefinitionLogConfigurationPtrInput is an input type that accepts JobDefinitionLogConfigurationArgs, JobDefinitionLogConfigurationPtr and JobDefinitionLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionLogConfigurationPtrInput` via:
 //
-//          JobDefinitionLogConfigurationArgs{...}
+//	        JobDefinitionLogConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2415,7 +2415,7 @@ type JobDefinitionMountPoints struct {
 // JobDefinitionMountPointsInput is an input type that accepts JobDefinitionMountPointsArgs and JobDefinitionMountPointsOutput values.
 // You can construct a concrete instance of `JobDefinitionMountPointsInput` via:
 //
-//          JobDefinitionMountPointsArgs{...}
+//	JobDefinitionMountPointsArgs{...}
 type JobDefinitionMountPointsInput interface {
 	pulumi.Input
 
@@ -2444,7 +2444,7 @@ func (i JobDefinitionMountPointsArgs) ToJobDefinitionMountPointsOutputWithContex
 // JobDefinitionMountPointsArrayInput is an input type that accepts JobDefinitionMountPointsArray and JobDefinitionMountPointsArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionMountPointsArrayInput` via:
 //
-//          JobDefinitionMountPointsArray{ JobDefinitionMountPointsArgs{...} }
+//	JobDefinitionMountPointsArray{ JobDefinitionMountPointsArgs{...} }
 type JobDefinitionMountPointsArrayInput interface {
 	pulumi.Input
 
@@ -2519,7 +2519,7 @@ type JobDefinitionNetworkConfiguration struct {
 // JobDefinitionNetworkConfigurationInput is an input type that accepts JobDefinitionNetworkConfigurationArgs and JobDefinitionNetworkConfigurationOutput values.
 // You can construct a concrete instance of `JobDefinitionNetworkConfigurationInput` via:
 //
-//          JobDefinitionNetworkConfigurationArgs{...}
+//	JobDefinitionNetworkConfigurationArgs{...}
 type JobDefinitionNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -2554,11 +2554,11 @@ func (i JobDefinitionNetworkConfigurationArgs) ToJobDefinitionNetworkConfigurati
 // JobDefinitionNetworkConfigurationPtrInput is an input type that accepts JobDefinitionNetworkConfigurationArgs, JobDefinitionNetworkConfigurationPtr and JobDefinitionNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionNetworkConfigurationPtrInput` via:
 //
-//          JobDefinitionNetworkConfigurationArgs{...}
+//	        JobDefinitionNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2654,7 +2654,7 @@ type JobDefinitionNodeProperties struct {
 // JobDefinitionNodePropertiesInput is an input type that accepts JobDefinitionNodePropertiesArgs and JobDefinitionNodePropertiesOutput values.
 // You can construct a concrete instance of `JobDefinitionNodePropertiesInput` via:
 //
-//          JobDefinitionNodePropertiesArgs{...}
+//	JobDefinitionNodePropertiesArgs{...}
 type JobDefinitionNodePropertiesInput interface {
 	pulumi.Input
 
@@ -2691,11 +2691,11 @@ func (i JobDefinitionNodePropertiesArgs) ToJobDefinitionNodePropertiesPtrOutputW
 // JobDefinitionNodePropertiesPtrInput is an input type that accepts JobDefinitionNodePropertiesArgs, JobDefinitionNodePropertiesPtr and JobDefinitionNodePropertiesPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionNodePropertiesPtrInput` via:
 //
-//          JobDefinitionNodePropertiesArgs{...}
+//	        JobDefinitionNodePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionNodePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2816,7 +2816,7 @@ type JobDefinitionNodeRangeProperty struct {
 // JobDefinitionNodeRangePropertyInput is an input type that accepts JobDefinitionNodeRangePropertyArgs and JobDefinitionNodeRangePropertyOutput values.
 // You can construct a concrete instance of `JobDefinitionNodeRangePropertyInput` via:
 //
-//          JobDefinitionNodeRangePropertyArgs{...}
+//	JobDefinitionNodeRangePropertyArgs{...}
 type JobDefinitionNodeRangePropertyInput interface {
 	pulumi.Input
 
@@ -2844,7 +2844,7 @@ func (i JobDefinitionNodeRangePropertyArgs) ToJobDefinitionNodeRangePropertyOutp
 // JobDefinitionNodeRangePropertyArrayInput is an input type that accepts JobDefinitionNodeRangePropertyArray and JobDefinitionNodeRangePropertyArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionNodeRangePropertyArrayInput` via:
 //
-//          JobDefinitionNodeRangePropertyArray{ JobDefinitionNodeRangePropertyArgs{...} }
+//	JobDefinitionNodeRangePropertyArray{ JobDefinitionNodeRangePropertyArgs{...} }
 type JobDefinitionNodeRangePropertyArrayInput interface {
 	pulumi.Input
 
@@ -2916,7 +2916,7 @@ type JobDefinitionResourceRequirement struct {
 // JobDefinitionResourceRequirementInput is an input type that accepts JobDefinitionResourceRequirementArgs and JobDefinitionResourceRequirementOutput values.
 // You can construct a concrete instance of `JobDefinitionResourceRequirementInput` via:
 //
-//          JobDefinitionResourceRequirementArgs{...}
+//	JobDefinitionResourceRequirementArgs{...}
 type JobDefinitionResourceRequirementInput interface {
 	pulumi.Input
 
@@ -2944,7 +2944,7 @@ func (i JobDefinitionResourceRequirementArgs) ToJobDefinitionResourceRequirement
 // JobDefinitionResourceRequirementArrayInput is an input type that accepts JobDefinitionResourceRequirementArray and JobDefinitionResourceRequirementArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionResourceRequirementArrayInput` via:
 //
-//          JobDefinitionResourceRequirementArray{ JobDefinitionResourceRequirementArgs{...} }
+//	JobDefinitionResourceRequirementArray{ JobDefinitionResourceRequirementArgs{...} }
 type JobDefinitionResourceRequirementArrayInput interface {
 	pulumi.Input
 
@@ -3016,7 +3016,7 @@ type JobDefinitionRetryStrategy struct {
 // JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyInput` via:
 //
-//          JobDefinitionRetryStrategyArgs{...}
+//	JobDefinitionRetryStrategyArgs{...}
 type JobDefinitionRetryStrategyInput interface {
 	pulumi.Input
 
@@ -3052,11 +3052,11 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutputWit
 // JobDefinitionRetryStrategyPtrInput is an input type that accepts JobDefinitionRetryStrategyArgs, JobDefinitionRetryStrategyPtr and JobDefinitionRetryStrategyPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyPtrInput` via:
 //
-//          JobDefinitionRetryStrategyArgs{...}
+//	        JobDefinitionRetryStrategyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionRetryStrategyPtrInput interface {
 	pulumi.Input
 
@@ -3164,7 +3164,7 @@ type JobDefinitionSecret struct {
 // JobDefinitionSecretInput is an input type that accepts JobDefinitionSecretArgs and JobDefinitionSecretOutput values.
 // You can construct a concrete instance of `JobDefinitionSecretInput` via:
 //
-//          JobDefinitionSecretArgs{...}
+//	JobDefinitionSecretArgs{...}
 type JobDefinitionSecretInput interface {
 	pulumi.Input
 
@@ -3192,7 +3192,7 @@ func (i JobDefinitionSecretArgs) ToJobDefinitionSecretOutputWithContext(ctx cont
 // JobDefinitionSecretArrayInput is an input type that accepts JobDefinitionSecretArray and JobDefinitionSecretArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionSecretArrayInput` via:
 //
-//          JobDefinitionSecretArray{ JobDefinitionSecretArgs{...} }
+//	JobDefinitionSecretArray{ JobDefinitionSecretArgs{...} }
 type JobDefinitionSecretArrayInput interface {
 	pulumi.Input
 
@@ -3263,7 +3263,7 @@ type JobDefinitionTimeout struct {
 // JobDefinitionTimeoutInput is an input type that accepts JobDefinitionTimeoutArgs and JobDefinitionTimeoutOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutInput` via:
 //
-//          JobDefinitionTimeoutArgs{...}
+//	JobDefinitionTimeoutArgs{...}
 type JobDefinitionTimeoutInput interface {
 	pulumi.Input
 
@@ -3298,11 +3298,11 @@ func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutputWithContext(ctx
 // JobDefinitionTimeoutPtrInput is an input type that accepts JobDefinitionTimeoutArgs, JobDefinitionTimeoutPtr and JobDefinitionTimeoutPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutPtrInput` via:
 //
-//          JobDefinitionTimeoutArgs{...}
+//	        JobDefinitionTimeoutArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionTimeoutPtrInput interface {
 	pulumi.Input
 
@@ -3398,7 +3398,7 @@ type JobDefinitionTmpfs struct {
 // JobDefinitionTmpfsInput is an input type that accepts JobDefinitionTmpfsArgs and JobDefinitionTmpfsOutput values.
 // You can construct a concrete instance of `JobDefinitionTmpfsInput` via:
 //
-//          JobDefinitionTmpfsArgs{...}
+//	JobDefinitionTmpfsArgs{...}
 type JobDefinitionTmpfsInput interface {
 	pulumi.Input
 
@@ -3427,7 +3427,7 @@ func (i JobDefinitionTmpfsArgs) ToJobDefinitionTmpfsOutputWithContext(ctx contex
 // JobDefinitionTmpfsArrayInput is an input type that accepts JobDefinitionTmpfsArray and JobDefinitionTmpfsArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionTmpfsArrayInput` via:
 //
-//          JobDefinitionTmpfsArray{ JobDefinitionTmpfsArgs{...} }
+//	JobDefinitionTmpfsArray{ JobDefinitionTmpfsArgs{...} }
 type JobDefinitionTmpfsArrayInput interface {
 	pulumi.Input
 
@@ -3504,7 +3504,7 @@ type JobDefinitionUlimit struct {
 // JobDefinitionUlimitInput is an input type that accepts JobDefinitionUlimitArgs and JobDefinitionUlimitOutput values.
 // You can construct a concrete instance of `JobDefinitionUlimitInput` via:
 //
-//          JobDefinitionUlimitArgs{...}
+//	JobDefinitionUlimitArgs{...}
 type JobDefinitionUlimitInput interface {
 	pulumi.Input
 
@@ -3533,7 +3533,7 @@ func (i JobDefinitionUlimitArgs) ToJobDefinitionUlimitOutputWithContext(ctx cont
 // JobDefinitionUlimitArrayInput is an input type that accepts JobDefinitionUlimitArray and JobDefinitionUlimitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionUlimitArrayInput` via:
 //
-//          JobDefinitionUlimitArray{ JobDefinitionUlimitArgs{...} }
+//	JobDefinitionUlimitArray{ JobDefinitionUlimitArgs{...} }
 type JobDefinitionUlimitArrayInput interface {
 	pulumi.Input
 
@@ -3610,7 +3610,7 @@ type JobDefinitionVolumes struct {
 // JobDefinitionVolumesInput is an input type that accepts JobDefinitionVolumesArgs and JobDefinitionVolumesOutput values.
 // You can construct a concrete instance of `JobDefinitionVolumesInput` via:
 //
-//          JobDefinitionVolumesArgs{...}
+//	JobDefinitionVolumesArgs{...}
 type JobDefinitionVolumesInput interface {
 	pulumi.Input
 
@@ -3639,7 +3639,7 @@ func (i JobDefinitionVolumesArgs) ToJobDefinitionVolumesOutputWithContext(ctx co
 // JobDefinitionVolumesArrayInput is an input type that accepts JobDefinitionVolumesArray and JobDefinitionVolumesArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionVolumesArrayInput` via:
 //
-//          JobDefinitionVolumesArray{ JobDefinitionVolumesArgs{...} }
+//	JobDefinitionVolumesArray{ JobDefinitionVolumesArgs{...} }
 type JobDefinitionVolumesArrayInput interface {
 	pulumi.Input
 
@@ -3714,7 +3714,7 @@ type JobDefinitionVolumesHost struct {
 // JobDefinitionVolumesHostInput is an input type that accepts JobDefinitionVolumesHostArgs and JobDefinitionVolumesHostOutput values.
 // You can construct a concrete instance of `JobDefinitionVolumesHostInput` via:
 //
-//          JobDefinitionVolumesHostArgs{...}
+//	JobDefinitionVolumesHostArgs{...}
 type JobDefinitionVolumesHostInput interface {
 	pulumi.Input
 
@@ -3749,11 +3749,11 @@ func (i JobDefinitionVolumesHostArgs) ToJobDefinitionVolumesHostPtrOutputWithCon
 // JobDefinitionVolumesHostPtrInput is an input type that accepts JobDefinitionVolumesHostArgs, JobDefinitionVolumesHostPtr and JobDefinitionVolumesHostPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionVolumesHostPtrInput` via:
 //
-//          JobDefinitionVolumesHostArgs{...}
+//	        JobDefinitionVolumesHostArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionVolumesHostPtrInput interface {
 	pulumi.Input
 
@@ -3848,7 +3848,7 @@ type JobQueueComputeEnvironmentOrder struct {
 // JobQueueComputeEnvironmentOrderInput is an input type that accepts JobQueueComputeEnvironmentOrderArgs and JobQueueComputeEnvironmentOrderOutput values.
 // You can construct a concrete instance of `JobQueueComputeEnvironmentOrderInput` via:
 //
-//          JobQueueComputeEnvironmentOrderArgs{...}
+//	JobQueueComputeEnvironmentOrderArgs{...}
 type JobQueueComputeEnvironmentOrderInput interface {
 	pulumi.Input
 
@@ -3876,7 +3876,7 @@ func (i JobQueueComputeEnvironmentOrderArgs) ToJobQueueComputeEnvironmentOrderOu
 // JobQueueComputeEnvironmentOrderArrayInput is an input type that accepts JobQueueComputeEnvironmentOrderArray and JobQueueComputeEnvironmentOrderArrayOutput values.
 // You can construct a concrete instance of `JobQueueComputeEnvironmentOrderArrayInput` via:
 //
-//          JobQueueComputeEnvironmentOrderArray{ JobQueueComputeEnvironmentOrderArgs{...} }
+//	JobQueueComputeEnvironmentOrderArray{ JobQueueComputeEnvironmentOrderArgs{...} }
 type JobQueueComputeEnvironmentOrderArrayInput interface {
 	pulumi.Input
 
@@ -3951,7 +3951,7 @@ type SchedulingPolicyFairsharePolicy struct {
 // SchedulingPolicyFairsharePolicyInput is an input type that accepts SchedulingPolicyFairsharePolicyArgs and SchedulingPolicyFairsharePolicyOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairsharePolicyInput` via:
 //
-//          SchedulingPolicyFairsharePolicyArgs{...}
+//	SchedulingPolicyFairsharePolicyArgs{...}
 type SchedulingPolicyFairsharePolicyInput interface {
 	pulumi.Input
 
@@ -3990,11 +3990,11 @@ func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyPt
 // SchedulingPolicyFairsharePolicyPtrInput is an input type that accepts SchedulingPolicyFairsharePolicyArgs, SchedulingPolicyFairsharePolicyPtr and SchedulingPolicyFairsharePolicyPtrOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairsharePolicyPtrInput` via:
 //
-//          SchedulingPolicyFairsharePolicyArgs{...}
+//	        SchedulingPolicyFairsharePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SchedulingPolicyFairsharePolicyPtrInput interface {
 	pulumi.Input
 
@@ -4118,7 +4118,7 @@ type SchedulingPolicyShareAttributes struct {
 // SchedulingPolicyShareAttributesInput is an input type that accepts SchedulingPolicyShareAttributesArgs and SchedulingPolicyShareAttributesOutput values.
 // You can construct a concrete instance of `SchedulingPolicyShareAttributesInput` via:
 //
-//          SchedulingPolicyShareAttributesArgs{...}
+//	SchedulingPolicyShareAttributesArgs{...}
 type SchedulingPolicyShareAttributesInput interface {
 	pulumi.Input
 
@@ -4146,7 +4146,7 @@ func (i SchedulingPolicyShareAttributesArgs) ToSchedulingPolicyShareAttributesOu
 // SchedulingPolicyShareAttributesArrayInput is an input type that accepts SchedulingPolicyShareAttributesArray and SchedulingPolicyShareAttributesArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyShareAttributesArrayInput` via:
 //
-//          SchedulingPolicyShareAttributesArray{ SchedulingPolicyShareAttributesArgs{...} }
+//	SchedulingPolicyShareAttributesArray{ SchedulingPolicyShareAttributesArgs{...} }
 type SchedulingPolicyShareAttributesArrayInput interface {
 	pulumi.Input
 

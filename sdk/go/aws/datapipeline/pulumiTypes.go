@@ -19,7 +19,7 @@ type PipelineField struct {
 // PipelineFieldInput is an input type that accepts PipelineFieldArgs and PipelineFieldOutput values.
 // You can construct a concrete instance of `PipelineFieldInput` via:
 //
-//          PipelineFieldArgs{...}
+//	PipelineFieldArgs{...}
 type PipelineFieldInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i PipelineFieldArgs) ToPipelineFieldOutputWithContext(ctx context.Context)
 // PipelineFieldArrayInput is an input type that accepts PipelineFieldArray and PipelineFieldArrayOutput values.
 // You can construct a concrete instance of `PipelineFieldArrayInput` via:
 //
-//          PipelineFieldArray{ PipelineFieldArgs{...} }
+//	PipelineFieldArray{ PipelineFieldArgs{...} }
 type PipelineFieldArrayInput interface {
 	pulumi.Input
 
@@ -125,7 +125,7 @@ type PipelineObject struct {
 // PipelineObjectInput is an input type that accepts PipelineObjectArgs and PipelineObjectOutput values.
 // You can construct a concrete instance of `PipelineObjectInput` via:
 //
-//          PipelineObjectArgs{...}
+//	PipelineObjectArgs{...}
 type PipelineObjectInput interface {
 	pulumi.Input
 
@@ -154,7 +154,7 @@ func (i PipelineObjectArgs) ToPipelineObjectOutputWithContext(ctx context.Contex
 // PipelineObjectArrayInput is an input type that accepts PipelineObjectArray and PipelineObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineObjectArrayInput` via:
 //
-//          PipelineObjectArray{ PipelineObjectArgs{...} }
+//	PipelineObjectArray{ PipelineObjectArgs{...} }
 type PipelineObjectArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type PipelineParameterAttribute struct {
 // PipelineParameterAttributeInput is an input type that accepts PipelineParameterAttributeArgs and PipelineParameterAttributeOutput values.
 // You can construct a concrete instance of `PipelineParameterAttributeInput` via:
 //
-//          PipelineParameterAttributeArgs{...}
+//	PipelineParameterAttributeArgs{...}
 type PipelineParameterAttributeInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ func (i PipelineParameterAttributeArgs) ToPipelineParameterAttributeOutputWithCo
 // PipelineParameterAttributeArrayInput is an input type that accepts PipelineParameterAttributeArray and PipelineParameterAttributeArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterAttributeArrayInput` via:
 //
-//          PipelineParameterAttributeArray{ PipelineParameterAttributeArgs{...} }
+//	PipelineParameterAttributeArray{ PipelineParameterAttributeArgs{...} }
 type PipelineParameterAttributeArrayInput interface {
 	pulumi.Input
 
@@ -330,7 +330,7 @@ type PipelineParameterObject struct {
 // PipelineParameterObjectInput is an input type that accepts PipelineParameterObjectArgs and PipelineParameterObjectOutput values.
 // You can construct a concrete instance of `PipelineParameterObjectInput` via:
 //
-//          PipelineParameterObjectArgs{...}
+//	PipelineParameterObjectArgs{...}
 type PipelineParameterObjectInput interface {
 	pulumi.Input
 
@@ -358,7 +358,7 @@ func (i PipelineParameterObjectArgs) ToPipelineParameterObjectOutputWithContext(
 // PipelineParameterObjectArrayInput is an input type that accepts PipelineParameterObjectArray and PipelineParameterObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterObjectArrayInput` via:
 //
-//          PipelineParameterObjectArray{ PipelineParameterObjectArgs{...} }
+//	PipelineParameterObjectArray{ PipelineParameterObjectArgs{...} }
 type PipelineParameterObjectArrayInput interface {
 	pulumi.Input
 
@@ -430,7 +430,7 @@ type PipelineParameterValue struct {
 // PipelineParameterValueInput is an input type that accepts PipelineParameterValueArgs and PipelineParameterValueOutput values.
 // You can construct a concrete instance of `PipelineParameterValueInput` via:
 //
-//          PipelineParameterValueArgs{...}
+//	PipelineParameterValueArgs{...}
 type PipelineParameterValueInput interface {
 	pulumi.Input
 
@@ -458,7 +458,7 @@ func (i PipelineParameterValueArgs) ToPipelineParameterValueOutputWithContext(ct
 // PipelineParameterValueArrayInput is an input type that accepts PipelineParameterValueArray and PipelineParameterValueArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterValueArrayInput` via:
 //
-//          PipelineParameterValueArray{ PipelineParameterValueArgs{...} }
+//	PipelineParameterValueArray{ PipelineParameterValueArgs{...} }
 type PipelineParameterValueArrayInput interface {
 	pulumi.Input
 
@@ -530,7 +530,7 @@ type PipelineTag struct {
 // PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
 // You can construct a concrete instance of `PipelineTagInput` via:
 //
-//          PipelineTagArgs{...}
+//	PipelineTagArgs{...}
 type PipelineTagInput interface {
 	pulumi.Input
 
@@ -558,7 +558,7 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
-//          PipelineTagArray{ PipelineTagArgs{...} }
+//	PipelineTagArray{ PipelineTagArgs{...} }
 type PipelineTagArrayInput interface {
 	pulumi.Input
 

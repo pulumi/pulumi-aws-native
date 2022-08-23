@@ -142,7 +142,7 @@ func (o AppAutoBranchCreationConfigStagePtrOutput) ToStringPtrOutputWithContext(
 // AppAutoBranchCreationConfigStageInput is an input type that accepts AppAutoBranchCreationConfigStageArgs and AppAutoBranchCreationConfigStageOutput values.
 // You can construct a concrete instance of `AppAutoBranchCreationConfigStageInput` via:
 //
-//          AppAutoBranchCreationConfigStageArgs{...}
+//	AppAutoBranchCreationConfigStageArgs{...}
 type AppAutoBranchCreationConfigStageInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o BranchStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // BranchStageInput is an input type that accepts BranchStageArgs and BranchStageOutput values.
 // You can construct a concrete instance of `BranchStageInput` via:
 //
-//          BranchStageArgs{...}
+//	BranchStageArgs{...}
 type BranchStageInput interface {
 	pulumi.Input
 

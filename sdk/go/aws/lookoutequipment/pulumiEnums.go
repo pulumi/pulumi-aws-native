@@ -143,7 +143,7 @@ func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToStringPtrOutputWithCon
 // InferenceSchedulerDataUploadFrequencyInput is an input type that accepts InferenceSchedulerDataUploadFrequencyArgs and InferenceSchedulerDataUploadFrequencyOutput values.
 // You can construct a concrete instance of `InferenceSchedulerDataUploadFrequencyInput` via:
 //
-//          InferenceSchedulerDataUploadFrequencyArgs{...}
+//	InferenceSchedulerDataUploadFrequencyArgs{...}
 type InferenceSchedulerDataUploadFrequencyInput interface {
 	pulumi.Input
 

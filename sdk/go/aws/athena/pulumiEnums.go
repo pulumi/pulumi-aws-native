@@ -141,7 +141,7 @@ func (o DataCatalogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // DataCatalogTypeInput is an input type that accepts DataCatalogTypeArgs and DataCatalogTypeOutput values.
 // You can construct a concrete instance of `DataCatalogTypeInput` via:
 //
-//          DataCatalogTypeArgs{...}
+//	DataCatalogTypeArgs{...}
 type DataCatalogTypeInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o WorkGroupEncryptionOptionPtrOutput) ToStringPtrOutputWithContext(ctx con
 // WorkGroupEncryptionOptionInput is an input type that accepts WorkGroupEncryptionOptionArgs and WorkGroupEncryptionOptionOutput values.
 // You can construct a concrete instance of `WorkGroupEncryptionOptionInput` via:
 //
-//          WorkGroupEncryptionOptionArgs{...}
+//	WorkGroupEncryptionOptionArgs{...}
 type WorkGroupEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o WorkGroupStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // WorkGroupStateEnumInput is an input type that accepts WorkGroupStateEnumArgs and WorkGroupStateEnumOutput values.
 // You can construct a concrete instance of `WorkGroupStateEnumInput` via:
 //
-//          WorkGroupStateEnumArgs{...}
+//	WorkGroupStateEnumArgs{...}
 type WorkGroupStateEnumInput interface {
 	pulumi.Input
 

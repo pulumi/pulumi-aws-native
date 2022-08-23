@@ -142,7 +142,7 @@ func (o RepositoryAssociationTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // RepositoryAssociationTypeInput is an input type that accepts RepositoryAssociationTypeArgs and RepositoryAssociationTypeOutput values.
 // You can construct a concrete instance of `RepositoryAssociationTypeInput` via:
 //
-//          RepositoryAssociationTypeArgs{...}
+//	RepositoryAssociationTypeArgs{...}
 type RepositoryAssociationTypeInput interface {
 	pulumi.Input
 

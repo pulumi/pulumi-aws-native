@@ -71,7 +71,7 @@ type AssetTag struct {
 // AssetTagInput is an input type that accepts AssetTagArgs and AssetTagOutput values.
 // You can construct a concrete instance of `AssetTagInput` via:
 //
-//          AssetTagArgs{...}
+//	AssetTagArgs{...}
 type AssetTagInput interface {
 	pulumi.Input
 
@@ -99,7 +99,7 @@ func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagO
 // AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
 // You can construct a concrete instance of `AssetTagArrayInput` via:
 //
-//          AssetTagArray{ AssetTagArgs{...} }
+//	AssetTagArray{ AssetTagArgs{...} }
 type AssetTagArrayInput interface {
 	pulumi.Input
 
@@ -298,7 +298,7 @@ type ChannelLogConfiguration struct {
 // ChannelLogConfigurationInput is an input type that accepts ChannelLogConfigurationArgs and ChannelLogConfigurationOutput values.
 // You can construct a concrete instance of `ChannelLogConfigurationInput` via:
 //
-//          ChannelLogConfigurationArgs{...}
+//	ChannelLogConfigurationArgs{...}
 type ChannelLogConfigurationInput interface {
 	pulumi.Input
 
@@ -334,11 +334,11 @@ func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationPtrOutputWithConte
 // ChannelLogConfigurationPtrInput is an input type that accepts ChannelLogConfigurationArgs, ChannelLogConfigurationPtr and ChannelLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `ChannelLogConfigurationPtrInput` via:
 //
-//          ChannelLogConfigurationArgs{...}
+//	        ChannelLogConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -435,7 +435,7 @@ type ChannelTag struct {
 // ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
 // You can construct a concrete instance of `ChannelTagInput` via:
 //
-//          ChannelTagArgs{...}
+//	ChannelTagArgs{...}
 type ChannelTagInput interface {
 	pulumi.Input
 
@@ -463,7 +463,7 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
-//          ChannelTagArray{ ChannelTagArgs{...} }
+//	ChannelTagArray{ ChannelTagArgs{...} }
 type ChannelTagArrayInput interface {
 	pulumi.Input
 
@@ -538,7 +538,7 @@ type OriginEndpointAuthorization struct {
 // OriginEndpointAuthorizationInput is an input type that accepts OriginEndpointAuthorizationArgs and OriginEndpointAuthorizationOutput values.
 // You can construct a concrete instance of `OriginEndpointAuthorizationInput` via:
 //
-//          OriginEndpointAuthorizationArgs{...}
+//	OriginEndpointAuthorizationArgs{...}
 type OriginEndpointAuthorizationInput interface {
 	pulumi.Input
 
@@ -577,11 +577,11 @@ func (i OriginEndpointAuthorizationArgs) ToOriginEndpointAuthorizationPtrOutputW
 // OriginEndpointAuthorizationPtrInput is an input type that accepts OriginEndpointAuthorizationArgs, OriginEndpointAuthorizationPtr and OriginEndpointAuthorizationPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointAuthorizationPtrInput` via:
 //
-//          OriginEndpointAuthorizationArgs{...}
+//	        OriginEndpointAuthorizationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointAuthorizationPtrInput interface {
 	pulumi.Input
 
@@ -698,7 +698,7 @@ type OriginEndpointCmafEncryption struct {
 // OriginEndpointCmafEncryptionInput is an input type that accepts OriginEndpointCmafEncryptionArgs and OriginEndpointCmafEncryptionOutput values.
 // You can construct a concrete instance of `OriginEndpointCmafEncryptionInput` via:
 //
-//          OriginEndpointCmafEncryptionArgs{...}
+//	OriginEndpointCmafEncryptionArgs{...}
 type OriginEndpointCmafEncryptionInput interface {
 	pulumi.Input
 
@@ -738,11 +738,11 @@ func (i OriginEndpointCmafEncryptionArgs) ToOriginEndpointCmafEncryptionPtrOutpu
 // OriginEndpointCmafEncryptionPtrInput is an input type that accepts OriginEndpointCmafEncryptionArgs, OriginEndpointCmafEncryptionPtr and OriginEndpointCmafEncryptionPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointCmafEncryptionPtrInput` via:
 //
-//          OriginEndpointCmafEncryptionArgs{...}
+//	        OriginEndpointCmafEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointCmafEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -875,7 +875,7 @@ type OriginEndpointCmafPackage struct {
 // OriginEndpointCmafPackageInput is an input type that accepts OriginEndpointCmafPackageArgs and OriginEndpointCmafPackageOutput values.
 // You can construct a concrete instance of `OriginEndpointCmafPackageInput` via:
 //
-//          OriginEndpointCmafPackageArgs{...}
+//	OriginEndpointCmafPackageArgs{...}
 type OriginEndpointCmafPackageInput interface {
 	pulumi.Input
 
@@ -918,11 +918,11 @@ func (i OriginEndpointCmafPackageArgs) ToOriginEndpointCmafPackagePtrOutputWithC
 // OriginEndpointCmafPackagePtrInput is an input type that accepts OriginEndpointCmafPackageArgs, OriginEndpointCmafPackagePtr and OriginEndpointCmafPackagePtrOutput values.
 // You can construct a concrete instance of `OriginEndpointCmafPackagePtrInput` via:
 //
-//          OriginEndpointCmafPackageArgs{...}
+//	        OriginEndpointCmafPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointCmafPackagePtrInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ type OriginEndpointDashEncryption struct {
 // OriginEndpointDashEncryptionInput is an input type that accepts OriginEndpointDashEncryptionArgs and OriginEndpointDashEncryptionOutput values.
 // You can construct a concrete instance of `OriginEndpointDashEncryptionInput` via:
 //
-//          OriginEndpointDashEncryptionArgs{...}
+//	OriginEndpointDashEncryptionArgs{...}
 type OriginEndpointDashEncryptionInput interface {
 	pulumi.Input
 
@@ -1116,11 +1116,11 @@ func (i OriginEndpointDashEncryptionArgs) ToOriginEndpointDashEncryptionPtrOutpu
 // OriginEndpointDashEncryptionPtrInput is an input type that accepts OriginEndpointDashEncryptionArgs, OriginEndpointDashEncryptionPtr and OriginEndpointDashEncryptionPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointDashEncryptionPtrInput` via:
 //
-//          OriginEndpointDashEncryptionArgs{...}
+//	        OriginEndpointDashEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointDashEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1257,7 +1257,7 @@ type OriginEndpointDashPackage struct {
 // OriginEndpointDashPackageInput is an input type that accepts OriginEndpointDashPackageArgs and OriginEndpointDashPackageOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageInput` via:
 //
-//          OriginEndpointDashPackageArgs{...}
+//	OriginEndpointDashPackageArgs{...}
 type OriginEndpointDashPackageInput interface {
 	pulumi.Input
 
@@ -1319,11 +1319,11 @@ func (i OriginEndpointDashPackageArgs) ToOriginEndpointDashPackagePtrOutputWithC
 // OriginEndpointDashPackagePtrInput is an input type that accepts OriginEndpointDashPackageArgs, OriginEndpointDashPackagePtr and OriginEndpointDashPackagePtrOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackagePtrInput` via:
 //
-//          OriginEndpointDashPackageArgs{...}
+//	        OriginEndpointDashPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointDashPackagePtrInput interface {
 	pulumi.Input
 
@@ -1634,7 +1634,7 @@ type OriginEndpointEncryptionContractConfiguration struct {
 // OriginEndpointEncryptionContractConfigurationInput is an input type that accepts OriginEndpointEncryptionContractConfigurationArgs and OriginEndpointEncryptionContractConfigurationOutput values.
 // You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationInput` via:
 //
-//          OriginEndpointEncryptionContractConfigurationArgs{...}
+//	OriginEndpointEncryptionContractConfigurationArgs{...}
 type OriginEndpointEncryptionContractConfigurationInput interface {
 	pulumi.Input
 
@@ -1673,11 +1673,11 @@ func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncry
 // OriginEndpointEncryptionContractConfigurationPtrInput is an input type that accepts OriginEndpointEncryptionContractConfigurationArgs, OriginEndpointEncryptionContractConfigurationPtr and OriginEndpointEncryptionContractConfigurationPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPtrInput` via:
 //
-//          OriginEndpointEncryptionContractConfigurationArgs{...}
+//	        OriginEndpointEncryptionContractConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointEncryptionContractConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1802,7 +1802,7 @@ type OriginEndpointHlsEncryption struct {
 // OriginEndpointHlsEncryptionInput is an input type that accepts OriginEndpointHlsEncryptionArgs and OriginEndpointHlsEncryptionOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsEncryptionInput` via:
 //
-//          OriginEndpointHlsEncryptionArgs{...}
+//	OriginEndpointHlsEncryptionArgs{...}
 type OriginEndpointHlsEncryptionInput interface {
 	pulumi.Input
 
@@ -1846,11 +1846,11 @@ func (i OriginEndpointHlsEncryptionArgs) ToOriginEndpointHlsEncryptionPtrOutputW
 // OriginEndpointHlsEncryptionPtrInput is an input type that accepts OriginEndpointHlsEncryptionArgs, OriginEndpointHlsEncryptionPtr and OriginEndpointHlsEncryptionPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsEncryptionPtrInput` via:
 //
-//          OriginEndpointHlsEncryptionArgs{...}
+//	        OriginEndpointHlsEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointHlsEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -2026,7 +2026,7 @@ type OriginEndpointHlsManifest struct {
 // OriginEndpointHlsManifestInput is an input type that accepts OriginEndpointHlsManifestArgs and OriginEndpointHlsManifestOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestInput` via:
 //
-//          OriginEndpointHlsManifestArgs{...}
+//	OriginEndpointHlsManifestArgs{...}
 type OriginEndpointHlsManifestInput interface {
 	pulumi.Input
 
@@ -2072,7 +2072,7 @@ func (i OriginEndpointHlsManifestArgs) ToOriginEndpointHlsManifestOutputWithCont
 // OriginEndpointHlsManifestArrayInput is an input type that accepts OriginEndpointHlsManifestArray and OriginEndpointHlsManifestArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestArrayInput` via:
 //
-//          OriginEndpointHlsManifestArray{ OriginEndpointHlsManifestArgs{...} }
+//	OriginEndpointHlsManifestArray{ OriginEndpointHlsManifestArgs{...} }
 type OriginEndpointHlsManifestArrayInput interface {
 	pulumi.Input
 
@@ -2206,7 +2206,7 @@ type OriginEndpointHlsPackage struct {
 // OriginEndpointHlsPackageInput is an input type that accepts OriginEndpointHlsPackageArgs and OriginEndpointHlsPackageOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageInput` via:
 //
-//          OriginEndpointHlsPackageArgs{...}
+//	OriginEndpointHlsPackageArgs{...}
 type OriginEndpointHlsPackageInput interface {
 	pulumi.Input
 
@@ -2260,11 +2260,11 @@ func (i OriginEndpointHlsPackageArgs) ToOriginEndpointHlsPackagePtrOutputWithCon
 // OriginEndpointHlsPackagePtrInput is an input type that accepts OriginEndpointHlsPackageArgs, OriginEndpointHlsPackagePtr and OriginEndpointHlsPackagePtrOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackagePtrInput` via:
 //
-//          OriginEndpointHlsPackageArgs{...}
+//	        OriginEndpointHlsPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointHlsPackagePtrInput interface {
 	pulumi.Input
 
@@ -2508,7 +2508,7 @@ type OriginEndpointMssEncryption struct {
 // OriginEndpointMssEncryptionInput is an input type that accepts OriginEndpointMssEncryptionArgs and OriginEndpointMssEncryptionOutput values.
 // You can construct a concrete instance of `OriginEndpointMssEncryptionInput` via:
 //
-//          OriginEndpointMssEncryptionArgs{...}
+//	OriginEndpointMssEncryptionArgs{...}
 type OriginEndpointMssEncryptionInput interface {
 	pulumi.Input
 
@@ -2544,11 +2544,11 @@ func (i OriginEndpointMssEncryptionArgs) ToOriginEndpointMssEncryptionPtrOutputW
 // OriginEndpointMssEncryptionPtrInput is an input type that accepts OriginEndpointMssEncryptionArgs, OriginEndpointMssEncryptionPtr and OriginEndpointMssEncryptionPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointMssEncryptionPtrInput` via:
 //
-//          OriginEndpointMssEncryptionArgs{...}
+//	        OriginEndpointMssEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointMssEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -2649,7 +2649,7 @@ type OriginEndpointMssPackage struct {
 // OriginEndpointMssPackageInput is an input type that accepts OriginEndpointMssPackageArgs and OriginEndpointMssPackageOutput values.
 // You can construct a concrete instance of `OriginEndpointMssPackageInput` via:
 //
-//          OriginEndpointMssPackageArgs{...}
+//	OriginEndpointMssPackageArgs{...}
 type OriginEndpointMssPackageInput interface {
 	pulumi.Input
 
@@ -2690,11 +2690,11 @@ func (i OriginEndpointMssPackageArgs) ToOriginEndpointMssPackagePtrOutputWithCon
 // OriginEndpointMssPackagePtrInput is an input type that accepts OriginEndpointMssPackageArgs, OriginEndpointMssPackagePtr and OriginEndpointMssPackagePtrOutput values.
 // You can construct a concrete instance of `OriginEndpointMssPackagePtrInput` via:
 //
-//          OriginEndpointMssPackageArgs{...}
+//	        OriginEndpointMssPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointMssPackagePtrInput interface {
 	pulumi.Input
 
@@ -2843,7 +2843,7 @@ type OriginEndpointSpekeKeyProvider struct {
 // OriginEndpointSpekeKeyProviderInput is an input type that accepts OriginEndpointSpekeKeyProviderArgs and OriginEndpointSpekeKeyProviderOutput values.
 // You can construct a concrete instance of `OriginEndpointSpekeKeyProviderInput` via:
 //
-//          OriginEndpointSpekeKeyProviderArgs{...}
+//	OriginEndpointSpekeKeyProviderArgs{...}
 type OriginEndpointSpekeKeyProviderInput interface {
 	pulumi.Input
 
@@ -2889,11 +2889,11 @@ func (i OriginEndpointSpekeKeyProviderArgs) ToOriginEndpointSpekeKeyProviderPtrO
 // OriginEndpointSpekeKeyProviderPtrInput is an input type that accepts OriginEndpointSpekeKeyProviderArgs, OriginEndpointSpekeKeyProviderPtr and OriginEndpointSpekeKeyProviderPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointSpekeKeyProviderPtrInput` via:
 //
-//          OriginEndpointSpekeKeyProviderArgs{...}
+//	        OriginEndpointSpekeKeyProviderArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointSpekeKeyProviderPtrInput interface {
 	pulumi.Input
 
@@ -3071,7 +3071,7 @@ type OriginEndpointStreamSelection struct {
 // OriginEndpointStreamSelectionInput is an input type that accepts OriginEndpointStreamSelectionArgs and OriginEndpointStreamSelectionOutput values.
 // You can construct a concrete instance of `OriginEndpointStreamSelectionInput` via:
 //
-//          OriginEndpointStreamSelectionArgs{...}
+//	OriginEndpointStreamSelectionArgs{...}
 type OriginEndpointStreamSelectionInput interface {
 	pulumi.Input
 
@@ -3112,11 +3112,11 @@ func (i OriginEndpointStreamSelectionArgs) ToOriginEndpointStreamSelectionPtrOut
 // OriginEndpointStreamSelectionPtrInput is an input type that accepts OriginEndpointStreamSelectionArgs, OriginEndpointStreamSelectionPtr and OriginEndpointStreamSelectionPtrOutput values.
 // You can construct a concrete instance of `OriginEndpointStreamSelectionPtrInput` via:
 //
-//          OriginEndpointStreamSelectionArgs{...}
+//	        OriginEndpointStreamSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OriginEndpointStreamSelectionPtrInput interface {
 	pulumi.Input
 
@@ -3244,7 +3244,7 @@ type OriginEndpointTag struct {
 // OriginEndpointTagInput is an input type that accepts OriginEndpointTagArgs and OriginEndpointTagOutput values.
 // You can construct a concrete instance of `OriginEndpointTagInput` via:
 //
-//          OriginEndpointTagArgs{...}
+//	OriginEndpointTagArgs{...}
 type OriginEndpointTagInput interface {
 	pulumi.Input
 
@@ -3272,7 +3272,7 @@ func (i OriginEndpointTagArgs) ToOriginEndpointTagOutputWithContext(ctx context.
 // OriginEndpointTagArrayInput is an input type that accepts OriginEndpointTagArray and OriginEndpointTagArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointTagArrayInput` via:
 //
-//          OriginEndpointTagArray{ OriginEndpointTagArgs{...} }
+//	OriginEndpointTagArray{ OriginEndpointTagArgs{...} }
 type OriginEndpointTagArrayInput interface {
 	pulumi.Input
 
@@ -3344,7 +3344,7 @@ type PackagingConfigurationCmafEncryption struct {
 // PackagingConfigurationCmafEncryptionInput is an input type that accepts PackagingConfigurationCmafEncryptionArgs and PackagingConfigurationCmafEncryptionOutput values.
 // You can construct a concrete instance of `PackagingConfigurationCmafEncryptionInput` via:
 //
-//          PackagingConfigurationCmafEncryptionArgs{...}
+//	PackagingConfigurationCmafEncryptionArgs{...}
 type PackagingConfigurationCmafEncryptionInput interface {
 	pulumi.Input
 
@@ -3380,11 +3380,11 @@ func (i PackagingConfigurationCmafEncryptionArgs) ToPackagingConfigurationCmafEn
 // PackagingConfigurationCmafEncryptionPtrInput is an input type that accepts PackagingConfigurationCmafEncryptionArgs, PackagingConfigurationCmafEncryptionPtr and PackagingConfigurationCmafEncryptionPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationCmafEncryptionPtrInput` via:
 //
-//          PackagingConfigurationCmafEncryptionArgs{...}
+//	        PackagingConfigurationCmafEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationCmafEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -3487,7 +3487,7 @@ type PackagingConfigurationCmafPackage struct {
 // PackagingConfigurationCmafPackageInput is an input type that accepts PackagingConfigurationCmafPackageArgs and PackagingConfigurationCmafPackageOutput values.
 // You can construct a concrete instance of `PackagingConfigurationCmafPackageInput` via:
 //
-//          PackagingConfigurationCmafPackageArgs{...}
+//	PackagingConfigurationCmafPackageArgs{...}
 type PackagingConfigurationCmafPackageInput interface {
 	pulumi.Input
 
@@ -3528,11 +3528,11 @@ func (i PackagingConfigurationCmafPackageArgs) ToPackagingConfigurationCmafPacka
 // PackagingConfigurationCmafPackagePtrInput is an input type that accepts PackagingConfigurationCmafPackageArgs, PackagingConfigurationCmafPackagePtr and PackagingConfigurationCmafPackagePtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationCmafPackagePtrInput` via:
 //
-//          PackagingConfigurationCmafPackageArgs{...}
+//	        PackagingConfigurationCmafPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationCmafPackagePtrInput interface {
 	pulumi.Input
 
@@ -3671,7 +3671,7 @@ type PackagingConfigurationDashEncryption struct {
 // PackagingConfigurationDashEncryptionInput is an input type that accepts PackagingConfigurationDashEncryptionArgs and PackagingConfigurationDashEncryptionOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashEncryptionInput` via:
 //
-//          PackagingConfigurationDashEncryptionArgs{...}
+//	PackagingConfigurationDashEncryptionArgs{...}
 type PackagingConfigurationDashEncryptionInput interface {
 	pulumi.Input
 
@@ -3707,11 +3707,11 @@ func (i PackagingConfigurationDashEncryptionArgs) ToPackagingConfigurationDashEn
 // PackagingConfigurationDashEncryptionPtrInput is an input type that accepts PackagingConfigurationDashEncryptionArgs, PackagingConfigurationDashEncryptionPtr and PackagingConfigurationDashEncryptionPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashEncryptionPtrInput` via:
 //
-//          PackagingConfigurationDashEncryptionArgs{...}
+//	        PackagingConfigurationDashEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationDashEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -3818,7 +3818,7 @@ type PackagingConfigurationDashManifest struct {
 // PackagingConfigurationDashManifestInput is an input type that accepts PackagingConfigurationDashManifestArgs and PackagingConfigurationDashManifestOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestInput` via:
 //
-//          PackagingConfigurationDashManifestArgs{...}
+//	PackagingConfigurationDashManifestArgs{...}
 type PackagingConfigurationDashManifestInput interface {
 	pulumi.Input
 
@@ -3855,7 +3855,7 @@ func (i PackagingConfigurationDashManifestArgs) ToPackagingConfigurationDashMani
 // PackagingConfigurationDashManifestArrayInput is an input type that accepts PackagingConfigurationDashManifestArray and PackagingConfigurationDashManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestArrayInput` via:
 //
-//          PackagingConfigurationDashManifestArray{ PackagingConfigurationDashManifestArgs{...} }
+//	PackagingConfigurationDashManifestArray{ PackagingConfigurationDashManifestArgs{...} }
 type PackagingConfigurationDashManifestArrayInput interface {
 	pulumi.Input
 
@@ -3965,7 +3965,7 @@ type PackagingConfigurationDashPackage struct {
 // PackagingConfigurationDashPackageInput is an input type that accepts PackagingConfigurationDashPackageArgs and PackagingConfigurationDashPackageOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackageInput` via:
 //
-//          PackagingConfigurationDashPackageArgs{...}
+//	PackagingConfigurationDashPackageArgs{...}
 type PackagingConfigurationDashPackageInput interface {
 	pulumi.Input
 
@@ -4010,11 +4010,11 @@ func (i PackagingConfigurationDashPackageArgs) ToPackagingConfigurationDashPacka
 // PackagingConfigurationDashPackagePtrInput is an input type that accepts PackagingConfigurationDashPackageArgs, PackagingConfigurationDashPackagePtr and PackagingConfigurationDashPackagePtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackagePtrInput` via:
 //
-//          PackagingConfigurationDashPackageArgs{...}
+//	        PackagingConfigurationDashPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationDashPackagePtrInput interface {
 	pulumi.Input
 
@@ -4191,7 +4191,7 @@ type PackagingConfigurationHlsEncryption struct {
 // PackagingConfigurationHlsEncryptionInput is an input type that accepts PackagingConfigurationHlsEncryptionArgs and PackagingConfigurationHlsEncryptionOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsEncryptionInput` via:
 //
-//          PackagingConfigurationHlsEncryptionArgs{...}
+//	PackagingConfigurationHlsEncryptionArgs{...}
 type PackagingConfigurationHlsEncryptionInput interface {
 	pulumi.Input
 
@@ -4231,11 +4231,11 @@ func (i PackagingConfigurationHlsEncryptionArgs) ToPackagingConfigurationHlsEncr
 // PackagingConfigurationHlsEncryptionPtrInput is an input type that accepts PackagingConfigurationHlsEncryptionArgs, PackagingConfigurationHlsEncryptionPtr and PackagingConfigurationHlsEncryptionPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsEncryptionPtrInput` via:
 //
-//          PackagingConfigurationHlsEncryptionArgs{...}
+//	        PackagingConfigurationHlsEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationHlsEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -4374,7 +4374,7 @@ type PackagingConfigurationHlsManifest struct {
 // PackagingConfigurationHlsManifestInput is an input type that accepts PackagingConfigurationHlsManifestArgs and PackagingConfigurationHlsManifestOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsManifestInput` via:
 //
-//          PackagingConfigurationHlsManifestArgs{...}
+//	PackagingConfigurationHlsManifestArgs{...}
 type PackagingConfigurationHlsManifestInput interface {
 	pulumi.Input
 
@@ -4411,7 +4411,7 @@ func (i PackagingConfigurationHlsManifestArgs) ToPackagingConfigurationHlsManife
 // PackagingConfigurationHlsManifestArrayInput is an input type that accepts PackagingConfigurationHlsManifestArray and PackagingConfigurationHlsManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsManifestArrayInput` via:
 //
-//          PackagingConfigurationHlsManifestArray{ PackagingConfigurationHlsManifestArgs{...} }
+//	PackagingConfigurationHlsManifestArray{ PackagingConfigurationHlsManifestArgs{...} }
 type PackagingConfigurationHlsManifestArrayInput interface {
 	pulumi.Input
 
@@ -4513,7 +4513,7 @@ type PackagingConfigurationHlsPackage struct {
 // PackagingConfigurationHlsPackageInput is an input type that accepts PackagingConfigurationHlsPackageArgs and PackagingConfigurationHlsPackageOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsPackageInput` via:
 //
-//          PackagingConfigurationHlsPackageArgs{...}
+//	PackagingConfigurationHlsPackageArgs{...}
 type PackagingConfigurationHlsPackageInput interface {
 	pulumi.Input
 
@@ -4554,11 +4554,11 @@ func (i PackagingConfigurationHlsPackageArgs) ToPackagingConfigurationHlsPackage
 // PackagingConfigurationHlsPackagePtrInput is an input type that accepts PackagingConfigurationHlsPackageArgs, PackagingConfigurationHlsPackagePtr and PackagingConfigurationHlsPackagePtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsPackagePtrInput` via:
 //
-//          PackagingConfigurationHlsPackageArgs{...}
+//	        PackagingConfigurationHlsPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationHlsPackagePtrInput interface {
 	pulumi.Input
 
@@ -4697,7 +4697,7 @@ type PackagingConfigurationMssEncryption struct {
 // PackagingConfigurationMssEncryptionInput is an input type that accepts PackagingConfigurationMssEncryptionArgs and PackagingConfigurationMssEncryptionOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssEncryptionInput` via:
 //
-//          PackagingConfigurationMssEncryptionArgs{...}
+//	PackagingConfigurationMssEncryptionArgs{...}
 type PackagingConfigurationMssEncryptionInput interface {
 	pulumi.Input
 
@@ -4733,11 +4733,11 @@ func (i PackagingConfigurationMssEncryptionArgs) ToPackagingConfigurationMssEncr
 // PackagingConfigurationMssEncryptionPtrInput is an input type that accepts PackagingConfigurationMssEncryptionArgs, PackagingConfigurationMssEncryptionPtr and PackagingConfigurationMssEncryptionPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssEncryptionPtrInput` via:
 //
-//          PackagingConfigurationMssEncryptionArgs{...}
+//	        PackagingConfigurationMssEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationMssEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -4836,7 +4836,7 @@ type PackagingConfigurationMssManifest struct {
 // PackagingConfigurationMssManifestInput is an input type that accepts PackagingConfigurationMssManifestArgs and PackagingConfigurationMssManifestOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssManifestInput` via:
 //
-//          PackagingConfigurationMssManifestArgs{...}
+//	PackagingConfigurationMssManifestArgs{...}
 type PackagingConfigurationMssManifestInput interface {
 	pulumi.Input
 
@@ -4865,7 +4865,7 @@ func (i PackagingConfigurationMssManifestArgs) ToPackagingConfigurationMssManife
 // PackagingConfigurationMssManifestArrayInput is an input type that accepts PackagingConfigurationMssManifestArray and PackagingConfigurationMssManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssManifestArrayInput` via:
 //
-//          PackagingConfigurationMssManifestArray{ PackagingConfigurationMssManifestArgs{...} }
+//	PackagingConfigurationMssManifestArray{ PackagingConfigurationMssManifestArgs{...} }
 type PackagingConfigurationMssManifestArrayInput interface {
 	pulumi.Input
 
@@ -4943,7 +4943,7 @@ type PackagingConfigurationMssPackage struct {
 // PackagingConfigurationMssPackageInput is an input type that accepts PackagingConfigurationMssPackageArgs and PackagingConfigurationMssPackageOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssPackageInput` via:
 //
-//          PackagingConfigurationMssPackageArgs{...}
+//	PackagingConfigurationMssPackageArgs{...}
 type PackagingConfigurationMssPackageInput interface {
 	pulumi.Input
 
@@ -4982,11 +4982,11 @@ func (i PackagingConfigurationMssPackageArgs) ToPackagingConfigurationMssPackage
 // PackagingConfigurationMssPackagePtrInput is an input type that accepts PackagingConfigurationMssPackageArgs, PackagingConfigurationMssPackagePtr and PackagingConfigurationMssPackagePtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssPackagePtrInput` via:
 //
-//          PackagingConfigurationMssPackageArgs{...}
+//	        PackagingConfigurationMssPackageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationMssPackagePtrInput interface {
 	pulumi.Input
 
@@ -5114,7 +5114,7 @@ type PackagingConfigurationSpekeKeyProvider struct {
 // PackagingConfigurationSpekeKeyProviderInput is an input type that accepts PackagingConfigurationSpekeKeyProviderArgs and PackagingConfigurationSpekeKeyProviderOutput values.
 // You can construct a concrete instance of `PackagingConfigurationSpekeKeyProviderInput` via:
 //
-//          PackagingConfigurationSpekeKeyProviderArgs{...}
+//	PackagingConfigurationSpekeKeyProviderArgs{...}
 type PackagingConfigurationSpekeKeyProviderInput interface {
 	pulumi.Input
 
@@ -5154,11 +5154,11 @@ func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpek
 // PackagingConfigurationSpekeKeyProviderPtrInput is an input type that accepts PackagingConfigurationSpekeKeyProviderArgs, PackagingConfigurationSpekeKeyProviderPtr and PackagingConfigurationSpekeKeyProviderPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationSpekeKeyProviderPtrInput` via:
 //
-//          PackagingConfigurationSpekeKeyProviderArgs{...}
+//	        PackagingConfigurationSpekeKeyProviderArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationSpekeKeyProviderPtrInput interface {
 	pulumi.Input
 
@@ -5289,7 +5289,7 @@ type PackagingConfigurationStreamSelection struct {
 // PackagingConfigurationStreamSelectionInput is an input type that accepts PackagingConfigurationStreamSelectionArgs and PackagingConfigurationStreamSelectionOutput values.
 // You can construct a concrete instance of `PackagingConfigurationStreamSelectionInput` via:
 //
-//          PackagingConfigurationStreamSelectionArgs{...}
+//	PackagingConfigurationStreamSelectionArgs{...}
 type PackagingConfigurationStreamSelectionInput interface {
 	pulumi.Input
 
@@ -5330,11 +5330,11 @@ func (i PackagingConfigurationStreamSelectionArgs) ToPackagingConfigurationStrea
 // PackagingConfigurationStreamSelectionPtrInput is an input type that accepts PackagingConfigurationStreamSelectionArgs, PackagingConfigurationStreamSelectionPtr and PackagingConfigurationStreamSelectionPtrOutput values.
 // You can construct a concrete instance of `PackagingConfigurationStreamSelectionPtrInput` via:
 //
-//          PackagingConfigurationStreamSelectionArgs{...}
+//	        PackagingConfigurationStreamSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingConfigurationStreamSelectionPtrInput interface {
 	pulumi.Input
 
@@ -5464,7 +5464,7 @@ type PackagingConfigurationTag struct {
 // PackagingConfigurationTagInput is an input type that accepts PackagingConfigurationTagArgs and PackagingConfigurationTagOutput values.
 // You can construct a concrete instance of `PackagingConfigurationTagInput` via:
 //
-//          PackagingConfigurationTagArgs{...}
+//	PackagingConfigurationTagArgs{...}
 type PackagingConfigurationTagInput interface {
 	pulumi.Input
 
@@ -5492,7 +5492,7 @@ func (i PackagingConfigurationTagArgs) ToPackagingConfigurationTagOutputWithCont
 // PackagingConfigurationTagArrayInput is an input type that accepts PackagingConfigurationTagArray and PackagingConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationTagArrayInput` via:
 //
-//          PackagingConfigurationTagArray{ PackagingConfigurationTagArgs{...} }
+//	PackagingConfigurationTagArray{ PackagingConfigurationTagArgs{...} }
 type PackagingConfigurationTagArrayInput interface {
 	pulumi.Input
 
@@ -5566,7 +5566,7 @@ type PackagingGroupAuthorization struct {
 // PackagingGroupAuthorizationInput is an input type that accepts PackagingGroupAuthorizationArgs and PackagingGroupAuthorizationOutput values.
 // You can construct a concrete instance of `PackagingGroupAuthorizationInput` via:
 //
-//          PackagingGroupAuthorizationArgs{...}
+//	PackagingGroupAuthorizationArgs{...}
 type PackagingGroupAuthorizationInput interface {
 	pulumi.Input
 
@@ -5604,11 +5604,11 @@ func (i PackagingGroupAuthorizationArgs) ToPackagingGroupAuthorizationPtrOutputW
 // PackagingGroupAuthorizationPtrInput is an input type that accepts PackagingGroupAuthorizationArgs, PackagingGroupAuthorizationPtr and PackagingGroupAuthorizationPtrOutput values.
 // You can construct a concrete instance of `PackagingGroupAuthorizationPtrInput` via:
 //
-//          PackagingGroupAuthorizationArgs{...}
+//	        PackagingGroupAuthorizationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingGroupAuthorizationPtrInput interface {
 	pulumi.Input
 
@@ -5720,7 +5720,7 @@ type PackagingGroupLogConfiguration struct {
 // PackagingGroupLogConfigurationInput is an input type that accepts PackagingGroupLogConfigurationArgs and PackagingGroupLogConfigurationOutput values.
 // You can construct a concrete instance of `PackagingGroupLogConfigurationInput` via:
 //
-//          PackagingGroupLogConfigurationArgs{...}
+//	PackagingGroupLogConfigurationArgs{...}
 type PackagingGroupLogConfigurationInput interface {
 	pulumi.Input
 
@@ -5756,11 +5756,11 @@ func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationPtrO
 // PackagingGroupLogConfigurationPtrInput is an input type that accepts PackagingGroupLogConfigurationArgs, PackagingGroupLogConfigurationPtr and PackagingGroupLogConfigurationPtrOutput values.
 // You can construct a concrete instance of `PackagingGroupLogConfigurationPtrInput` via:
 //
-//          PackagingGroupLogConfigurationArgs{...}
+//	        PackagingGroupLogConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PackagingGroupLogConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5857,7 +5857,7 @@ type PackagingGroupTag struct {
 // PackagingGroupTagInput is an input type that accepts PackagingGroupTagArgs and PackagingGroupTagOutput values.
 // You can construct a concrete instance of `PackagingGroupTagInput` via:
 //
-//          PackagingGroupTagArgs{...}
+//	PackagingGroupTagArgs{...}
 type PackagingGroupTagInput interface {
 	pulumi.Input
 
@@ -5885,7 +5885,7 @@ func (i PackagingGroupTagArgs) ToPackagingGroupTagOutputWithContext(ctx context.
 // PackagingGroupTagArrayInput is an input type that accepts PackagingGroupTagArray and PackagingGroupTagArrayOutput values.
 // You can construct a concrete instance of `PackagingGroupTagArrayInput` via:
 //
-//          PackagingGroupTagArray{ PackagingGroupTagArgs{...} }
+//	PackagingGroupTagArray{ PackagingGroupTagArgs{...} }
 type PackagingGroupTagArrayInput interface {
 	pulumi.Input
 

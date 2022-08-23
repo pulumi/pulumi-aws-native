@@ -147,7 +147,7 @@ func (o AnalysisErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // AnalysisErrorTypeInput is an input type that accepts AnalysisErrorTypeArgs and AnalysisErrorTypeOutput values.
 // You can construct a concrete instance of `AnalysisErrorTypeInput` via:
 //
-//          AnalysisErrorTypeArgs{...}
+//	AnalysisErrorTypeArgs{...}
 type AnalysisErrorTypeInput interface {
 	pulumi.Input
 
@@ -406,7 +406,7 @@ func (o DashboardBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // DashboardBehaviorInput is an input type that accepts DashboardBehaviorArgs and DashboardBehaviorOutput values.
 // You can construct a concrete instance of `DashboardBehaviorInput` via:
 //
-//          DashboardBehaviorArgs{...}
+//	DashboardBehaviorArgs{...}
 type DashboardBehaviorInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ func (o DashboardUIStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // DashboardUIStateInput is an input type that accepts DashboardUIStateArgs and DashboardUIStateOutput values.
 // You can construct a concrete instance of `DashboardUIStateInput` via:
 //
-//          DashboardUIStateArgs{...}
+//	DashboardUIStateArgs{...}
 type DashboardUIStateInput interface {
 	pulumi.Input
 
@@ -1018,7 +1018,7 @@ func (o DataSetGeoSpatialCountryCodePtrOutput) ToStringPtrOutputWithContext(ctx 
 // DataSetGeoSpatialCountryCodeInput is an input type that accepts DataSetGeoSpatialCountryCodeArgs and DataSetGeoSpatialCountryCodeOutput values.
 // You can construct a concrete instance of `DataSetGeoSpatialCountryCodeInput` via:
 //
-//          DataSetGeoSpatialCountryCodeArgs{...}
+//	DataSetGeoSpatialCountryCodeArgs{...}
 type DataSetGeoSpatialCountryCodeInput interface {
 	pulumi.Input
 
@@ -1182,7 +1182,7 @@ func (o DataSetImportModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // DataSetImportModeInput is an input type that accepts DataSetImportModeArgs and DataSetImportModeOutput values.
 // You can construct a concrete instance of `DataSetImportModeInput` via:
 //
-//          DataSetImportModeArgs{...}
+//	DataSetImportModeArgs{...}
 type DataSetImportModeInput interface {
 	pulumi.Input
 
@@ -1346,7 +1346,7 @@ func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToStringPtrOutputWithCo
 // DataSetRowLevelPermissionFormatVersionInput is an input type that accepts DataSetRowLevelPermissionFormatVersionArgs and DataSetRowLevelPermissionFormatVersionOutput values.
 // You can construct a concrete instance of `DataSetRowLevelPermissionFormatVersionInput` via:
 //
-//          DataSetRowLevelPermissionFormatVersionArgs{...}
+//	DataSetRowLevelPermissionFormatVersionArgs{...}
 type DataSetRowLevelPermissionFormatVersionInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ func (o DataSetRowLevelPermissionPolicyPtrOutput) ToStringPtrOutputWithContext(c
 // DataSetRowLevelPermissionPolicyInput is an input type that accepts DataSetRowLevelPermissionPolicyArgs and DataSetRowLevelPermissionPolicyOutput values.
 // You can construct a concrete instance of `DataSetRowLevelPermissionPolicyInput` via:
 //
-//          DataSetRowLevelPermissionPolicyArgs{...}
+//	DataSetRowLevelPermissionPolicyArgs{...}
 type DataSetRowLevelPermissionPolicyInput interface {
 	pulumi.Input
 
@@ -1680,7 +1680,7 @@ func (o DataSourceErrorInfoTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // DataSourceErrorInfoTypeInput is an input type that accepts DataSourceErrorInfoTypeArgs and DataSourceErrorInfoTypeOutput values.
 // You can construct a concrete instance of `DataSourceErrorInfoTypeInput` via:
 //
-//          DataSourceErrorInfoTypeArgs{...}
+//	DataSourceErrorInfoTypeArgs{...}
 type DataSourceErrorInfoTypeInput interface {
 	pulumi.Input
 
@@ -1961,7 +1961,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // DataSourceTypeInput is an input type that accepts DataSourceTypeArgs and DataSourceTypeOutput values.
 // You can construct a concrete instance of `DataSourceTypeInput` via:
 //
-//          DataSourceTypeArgs{...}
+//	DataSourceTypeArgs{...}
 type DataSourceTypeInput interface {
 	pulumi.Input
 

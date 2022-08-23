@@ -21,7 +21,7 @@ type RuleGroupsNamespaceTag struct {
 // RuleGroupsNamespaceTagInput is an input type that accepts RuleGroupsNamespaceTagArgs and RuleGroupsNamespaceTagOutput values.
 // You can construct a concrete instance of `RuleGroupsNamespaceTagInput` via:
 //
-//          RuleGroupsNamespaceTagArgs{...}
+//	RuleGroupsNamespaceTagArgs{...}
 type RuleGroupsNamespaceTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i RuleGroupsNamespaceTagArgs) ToRuleGroupsNamespaceTagOutputWithContext(ct
 // RuleGroupsNamespaceTagArrayInput is an input type that accepts RuleGroupsNamespaceTagArray and RuleGroupsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupsNamespaceTagArrayInput` via:
 //
-//          RuleGroupsNamespaceTagArray{ RuleGroupsNamespaceTagArgs{...} }
+//	RuleGroupsNamespaceTagArray{ RuleGroupsNamespaceTagArgs{...} }
 type RuleGroupsNamespaceTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type WorkspaceTag struct {
 // WorkspaceTagInput is an input type that accepts WorkspaceTagArgs and WorkspaceTagOutput values.
 // You can construct a concrete instance of `WorkspaceTagInput` via:
 //
-//          WorkspaceTagArgs{...}
+//	WorkspaceTagArgs{...}
 type WorkspaceTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) W
 // WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
 // You can construct a concrete instance of `WorkspaceTagArrayInput` via:
 //
-//          WorkspaceTagArray{ WorkspaceTagArgs{...} }
+//	WorkspaceTagArray{ WorkspaceTagArgs{...} }
 type WorkspaceTagArrayInput interface {
 	pulumi.Input
 

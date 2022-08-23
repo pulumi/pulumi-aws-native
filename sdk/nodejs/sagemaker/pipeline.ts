@@ -36,7 +36,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.ParallelismConfigurationProperties | undefined>;
-    public readonly pipelineDefinition!: pulumi.Output<any>;
+    public readonly pipelineDefinition!: pulumi.Output<outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties>;
     /**
      * The description of the Pipeline.
      */
@@ -98,7 +98,7 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineArgs {
     parallelismConfiguration?: pulumi.Input<inputs.sagemaker.ParallelismConfigurationPropertiesArgs>;
-    pipelineDefinition: any;
+    pipelineDefinition: pulumi.Input<inputs.sagemaker.PipelineDefinition0PropertiesArgs | inputs.sagemaker.PipelineDefinition1PropertiesArgs>;
     /**
      * The description of the Pipeline.
      */

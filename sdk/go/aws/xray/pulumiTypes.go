@@ -20,7 +20,7 @@ type GroupInsightsConfiguration struct {
 // GroupInsightsConfigurationInput is an input type that accepts GroupInsightsConfigurationArgs and GroupInsightsConfigurationOutput values.
 // You can construct a concrete instance of `GroupInsightsConfigurationInput` via:
 //
-//          GroupInsightsConfigurationArgs{...}
+//	GroupInsightsConfigurationArgs{...}
 type GroupInsightsConfigurationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationPtrOutputWit
 // GroupInsightsConfigurationPtrInput is an input type that accepts GroupInsightsConfigurationArgs, GroupInsightsConfigurationPtr and GroupInsightsConfigurationPtrOutput values.
 // You can construct a concrete instance of `GroupInsightsConfigurationPtrInput` via:
 //
-//          GroupInsightsConfigurationArgs{...}
+//	        GroupInsightsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupInsightsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -196,7 +196,7 @@ type SamplingRuleType struct {
 // SamplingRuleTypeInput is an input type that accepts SamplingRuleTypeArgs and SamplingRuleTypeOutput values.
 // You can construct a concrete instance of `SamplingRuleTypeInput` via:
 //
-//          SamplingRuleTypeArgs{...}
+//	SamplingRuleTypeArgs{...}
 type SamplingRuleTypeInput interface {
 	pulumi.Input
 
@@ -254,11 +254,11 @@ func (i SamplingRuleTypeArgs) ToSamplingRuleTypePtrOutputWithContext(ctx context
 // SamplingRuleTypePtrInput is an input type that accepts SamplingRuleTypeArgs, SamplingRuleTypePtr and SamplingRuleTypePtrOutput values.
 // You can construct a concrete instance of `SamplingRuleTypePtrInput` via:
 //
-//          SamplingRuleTypeArgs{...}
+//	        SamplingRuleTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SamplingRuleTypePtrInput interface {
 	pulumi.Input
 
@@ -534,7 +534,7 @@ type SamplingRuleRecord struct {
 // SamplingRuleRecordInput is an input type that accepts SamplingRuleRecordArgs and SamplingRuleRecordOutput values.
 // You can construct a concrete instance of `SamplingRuleRecordInput` via:
 //
-//          SamplingRuleRecordArgs{...}
+//	SamplingRuleRecordArgs{...}
 type SamplingRuleRecordInput interface {
 	pulumi.Input
 
@@ -573,11 +573,11 @@ func (i SamplingRuleRecordArgs) ToSamplingRuleRecordPtrOutputWithContext(ctx con
 // SamplingRuleRecordPtrInput is an input type that accepts SamplingRuleRecordArgs, SamplingRuleRecordPtr and SamplingRuleRecordPtrOutput values.
 // You can construct a concrete instance of `SamplingRuleRecordPtrInput` via:
 //
-//          SamplingRuleRecordArgs{...}
+//	        SamplingRuleRecordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SamplingRuleRecordPtrInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type SamplingRuleUpdate struct {
 // SamplingRuleUpdateInput is an input type that accepts SamplingRuleUpdateArgs and SamplingRuleUpdateOutput values.
 // You can construct a concrete instance of `SamplingRuleUpdateInput` via:
 //
-//          SamplingRuleUpdateArgs{...}
+//	SamplingRuleUpdateArgs{...}
 type SamplingRuleUpdateInput interface {
 	pulumi.Input
 
@@ -778,11 +778,11 @@ func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdatePtrOutputWithContext(ctx con
 // SamplingRuleUpdatePtrInput is an input type that accepts SamplingRuleUpdateArgs, SamplingRuleUpdatePtr and SamplingRuleUpdatePtrOutput values.
 // You can construct a concrete instance of `SamplingRuleUpdatePtrInput` via:
 //
-//          SamplingRuleUpdateArgs{...}
+//	        SamplingRuleUpdateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SamplingRuleUpdatePtrInput interface {
 	pulumi.Input
 
@@ -1040,7 +1040,7 @@ type TagsItemProperties struct {
 // TagsItemPropertiesInput is an input type that accepts TagsItemPropertiesArgs and TagsItemPropertiesOutput values.
 // You can construct a concrete instance of `TagsItemPropertiesInput` via:
 //
-//          TagsItemPropertiesArgs{...}
+//	TagsItemPropertiesArgs{...}
 type TagsItemPropertiesInput interface {
 	pulumi.Input
 
@@ -1068,7 +1068,7 @@ func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx contex
 // TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
 //
-//          TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
+//	TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
 type TagsItemPropertiesArrayInput interface {
 	pulumi.Input
 

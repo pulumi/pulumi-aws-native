@@ -195,7 +195,7 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // AppResourceSpecInstanceTypeInput is an input type that accepts AppResourceSpecInstanceTypeArgs and AppResourceSpecInstanceTypeOutput values.
 // You can construct a concrete instance of `AppResourceSpecInstanceTypeInput` via:
 //
-//          AppResourceSpecInstanceTypeArgs{...}
+//	AppResourceSpecInstanceTypeArgs{...}
 type AppResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -363,7 +363,7 @@ func (o AppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // AppTypeInput is an input type that accepts AppTypeArgs and AppTypeOutput values.
 // You can construct a concrete instance of `AppTypeInput` via:
 //
-//          AppTypeArgs{...}
+//	AppTypeArgs{...}
 type AppTypeInput interface {
 	pulumi.Input
 
@@ -528,7 +528,7 @@ func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) To
 // DataQualityJobDefinitionEndpointInputS3DataDistributionTypeInput is an input type that accepts DataQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs and DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput values.
 // You can construct a concrete instance of `DataQualityJobDefinitionEndpointInputS3DataDistributionTypeInput` via:
 //
-//          DataQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
+//	DataQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
 type DataQualityJobDefinitionEndpointInputS3DataDistributionTypeInput interface {
 	pulumi.Input
 
@@ -693,7 +693,7 @@ func (o DataQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToStringPtrOu
 // DataQualityJobDefinitionEndpointInputS3InputModeInput is an input type that accepts DataQualityJobDefinitionEndpointInputS3InputModeArgs and DataQualityJobDefinitionEndpointInputS3InputModeOutput values.
 // You can construct a concrete instance of `DataQualityJobDefinitionEndpointInputS3InputModeInput` via:
 //
-//          DataQualityJobDefinitionEndpointInputS3InputModeArgs{...}
+//	DataQualityJobDefinitionEndpointInputS3InputModeArgs{...}
 type DataQualityJobDefinitionEndpointInputS3InputModeInput interface {
 	pulumi.Input
 
@@ -858,7 +858,7 @@ func (o DataQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToStringPtrOutput
 // DataQualityJobDefinitionS3OutputS3UploadModeInput is an input type that accepts DataQualityJobDefinitionS3OutputS3UploadModeArgs and DataQualityJobDefinitionS3OutputS3UploadModeOutput values.
 // You can construct a concrete instance of `DataQualityJobDefinitionS3OutputS3UploadModeInput` via:
 //
-//          DataQualityJobDefinitionS3OutputS3UploadModeArgs{...}
+//	DataQualityJobDefinitionS3OutputS3UploadModeArgs{...}
 type DataQualityJobDefinitionS3OutputS3UploadModeInput interface {
 	pulumi.Input
 
@@ -1023,7 +1023,7 @@ func (o DomainAppNetworkAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // DomainAppNetworkAccessTypeInput is an input type that accepts DomainAppNetworkAccessTypeArgs and DomainAppNetworkAccessTypeOutput values.
 // You can construct a concrete instance of `DomainAppNetworkAccessTypeInput` via:
 //
-//          DomainAppNetworkAccessTypeArgs{...}
+//	DomainAppNetworkAccessTypeArgs{...}
 type DomainAppNetworkAccessTypeInput interface {
 	pulumi.Input
 
@@ -1188,7 +1188,7 @@ func (o DomainAppSecurityGroupManagementPtrOutput) ToStringPtrOutputWithContext(
 // DomainAppSecurityGroupManagementInput is an input type that accepts DomainAppSecurityGroupManagementArgs and DomainAppSecurityGroupManagementOutput values.
 // You can construct a concrete instance of `DomainAppSecurityGroupManagementInput` via:
 //
-//          DomainAppSecurityGroupManagementArgs{...}
+//	DomainAppSecurityGroupManagementArgs{...}
 type DomainAppSecurityGroupManagementInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ func (o DomainAuthModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // DomainAuthModeInput is an input type that accepts DomainAuthModeArgs and DomainAuthModeOutput values.
 // You can construct a concrete instance of `DomainAuthModeInput` via:
 //
-//          DomainAuthModeArgs{...}
+//	DomainAuthModeArgs{...}
 type DomainAuthModeInput interface {
 	pulumi.Input
 
@@ -1518,7 +1518,7 @@ func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtrOutpu
 // DomainRStudioServerProAppSettingsAccessStatusInput is an input type that accepts DomainRStudioServerProAppSettingsAccessStatusArgs and DomainRStudioServerProAppSettingsAccessStatusOutput values.
 // You can construct a concrete instance of `DomainRStudioServerProAppSettingsAccessStatusInput` via:
 //
-//          DomainRStudioServerProAppSettingsAccessStatusArgs{...}
+//	DomainRStudioServerProAppSettingsAccessStatusArgs{...}
 type DomainRStudioServerProAppSettingsAccessStatusInput interface {
 	pulumi.Input
 
@@ -1683,7 +1683,7 @@ func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOutputWi
 // DomainRStudioServerProAppSettingsUserGroupInput is an input type that accepts DomainRStudioServerProAppSettingsUserGroupArgs and DomainRStudioServerProAppSettingsUserGroupOutput values.
 // You can construct a concrete instance of `DomainRStudioServerProAppSettingsUserGroupInput` via:
 //
-//          DomainRStudioServerProAppSettingsUserGroupArgs{...}
+//	DomainRStudioServerProAppSettingsUserGroupArgs{...}
 type DomainRStudioServerProAppSettingsUserGroupInput interface {
 	pulumi.Input
 
@@ -1878,7 +1878,7 @@ func (o DomainResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ct
 // DomainResourceSpecInstanceTypeInput is an input type that accepts DomainResourceSpecInstanceTypeArgs and DomainResourceSpecInstanceTypeOutput values.
 // You can construct a concrete instance of `DomainResourceSpecInstanceTypeInput` via:
 //
-//          DomainResourceSpecInstanceTypeArgs{...}
+//	DomainResourceSpecInstanceTypeArgs{...}
 type DomainResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -2043,7 +2043,7 @@ func (o DomainSharingSettingsNotebookOutputOptionPtrOutput) ToStringPtrOutputWit
 // DomainSharingSettingsNotebookOutputOptionInput is an input type that accepts DomainSharingSettingsNotebookOutputOptionArgs and DomainSharingSettingsNotebookOutputOptionOutput values.
 // You can construct a concrete instance of `DomainSharingSettingsNotebookOutputOptionInput` via:
 //
-//          DomainSharingSettingsNotebookOutputOptionArgs{...}
+//	DomainSharingSettingsNotebookOutputOptionArgs{...}
 type DomainSharingSettingsNotebookOutputOptionInput interface {
 	pulumi.Input
 
@@ -2208,7 +2208,7 @@ func (o FeatureGroupFeatureDefinitionFeatureTypePtrOutput) ToStringPtrOutputWith
 // FeatureGroupFeatureDefinitionFeatureTypeInput is an input type that accepts FeatureGroupFeatureDefinitionFeatureTypeArgs and FeatureGroupFeatureDefinitionFeatureTypeOutput values.
 // You can construct a concrete instance of `FeatureGroupFeatureDefinitionFeatureTypeInput` via:
 //
-//          FeatureGroupFeatureDefinitionFeatureTypeArgs{...}
+//	FeatureGroupFeatureDefinitionFeatureTypeArgs{...}
 type FeatureGroupFeatureDefinitionFeatureTypeInput interface {
 	pulumi.Input
 
@@ -2373,7 +2373,7 @@ func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToSt
 // ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeInput is an input type that accepts ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeArgs and ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput values.
 // You can construct a concrete instance of `ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeInput` via:
 //
-//          ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
+//	ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
 type ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeInput interface {
 	pulumi.Input
 
@@ -2538,7 +2538,7 @@ func (o ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput) ToStringPtrOutp
 // ModelBiasJobDefinitionEndpointInputS3InputModeInput is an input type that accepts ModelBiasJobDefinitionEndpointInputS3InputModeArgs and ModelBiasJobDefinitionEndpointInputS3InputModeOutput values.
 // You can construct a concrete instance of `ModelBiasJobDefinitionEndpointInputS3InputModeInput` via:
 //
-//          ModelBiasJobDefinitionEndpointInputS3InputModeArgs{...}
+//	ModelBiasJobDefinitionEndpointInputS3InputModeArgs{...}
 type ModelBiasJobDefinitionEndpointInputS3InputModeInput interface {
 	pulumi.Input
 
@@ -2703,7 +2703,7 @@ func (o ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput) ToStringPtrOutputWi
 // ModelBiasJobDefinitionS3OutputS3UploadModeInput is an input type that accepts ModelBiasJobDefinitionS3OutputS3UploadModeArgs and ModelBiasJobDefinitionS3OutputS3UploadModeOutput values.
 // You can construct a concrete instance of `ModelBiasJobDefinitionS3OutputS3UploadModeInput` via:
 //
-//          ModelBiasJobDefinitionS3OutputS3UploadModeArgs{...}
+//	ModelBiasJobDefinitionS3OutputS3UploadModeArgs{...}
 type ModelBiasJobDefinitionS3OutputS3UploadModeInput interface {
 	pulumi.Input
 
@@ -2868,7 +2868,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOu
 // ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeInput is an input type that accepts ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeArgs and ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutput values.
 // You can construct a concrete instance of `ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeInput` via:
 //
-//          ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
+//	ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
 type ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeInput interface {
 	pulumi.Input
 
@@ -3033,7 +3033,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput) ToStr
 // ModelExplainabilityJobDefinitionEndpointInputS3InputModeInput is an input type that accepts ModelExplainabilityJobDefinitionEndpointInputS3InputModeArgs and ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput values.
 // You can construct a concrete instance of `ModelExplainabilityJobDefinitionEndpointInputS3InputModeInput` via:
 //
-//          ModelExplainabilityJobDefinitionEndpointInputS3InputModeArgs{...}
+//	ModelExplainabilityJobDefinitionEndpointInputS3InputModeArgs{...}
 type ModelExplainabilityJobDefinitionEndpointInputS3InputModeInput interface {
 	pulumi.Input
 
@@ -3198,7 +3198,7 @@ func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput) ToStringP
 // ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput is an input type that accepts ModelExplainabilityJobDefinitionS3OutputS3UploadModeArgs and ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput values.
 // You can construct a concrete instance of `ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput` via:
 //
-//          ModelExplainabilityJobDefinitionS3OutputS3UploadModeArgs{...}
+//	ModelExplainabilityJobDefinitionS3OutputS3UploadModeArgs{...}
 type ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput interface {
 	pulumi.Input
 
@@ -3459,7 +3459,7 @@ func (o ModelPackageModelApprovalStatusPtrOutput) ToStringPtrOutputWithContext(c
 // ModelPackageModelApprovalStatusInput is an input type that accepts ModelPackageModelApprovalStatusArgs and ModelPackageModelApprovalStatusOutput values.
 // You can construct a concrete instance of `ModelPackageModelApprovalStatusInput` via:
 //
-//          ModelPackageModelApprovalStatusArgs{...}
+//	ModelPackageModelApprovalStatusArgs{...}
 type ModelPackageModelApprovalStatusInput interface {
 	pulumi.Input
 
@@ -3625,7 +3625,7 @@ func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToStringPtrOutputWithContex
 // ModelPackageS3DataSourceS3DataTypeInput is an input type that accepts ModelPackageS3DataSourceS3DataTypeArgs and ModelPackageS3DataSourceS3DataTypeOutput values.
 // You can construct a concrete instance of `ModelPackageS3DataSourceS3DataTypeInput` via:
 //
-//          ModelPackageS3DataSourceS3DataTypeArgs{...}
+//	ModelPackageS3DataSourceS3DataTypeArgs{...}
 type ModelPackageS3DataSourceS3DataTypeInput interface {
 	pulumi.Input
 
@@ -3886,7 +3886,7 @@ func (o ModelPackageStatusItemStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 // ModelPackageStatusItemStatusInput is an input type that accepts ModelPackageStatusItemStatusArgs and ModelPackageStatusItemStatusOutput values.
 // You can construct a concrete instance of `ModelPackageStatusItemStatusInput` via:
 //
-//          ModelPackageStatusItemStatusArgs{...}
+//	ModelPackageStatusItemStatusArgs{...}
 type ModelPackageStatusItemStatusInput interface {
 	pulumi.Input
 
@@ -4051,7 +4051,7 @@ func (o ModelPackageTransformInputCompressionTypePtrOutput) ToStringPtrOutputWit
 // ModelPackageTransformInputCompressionTypeInput is an input type that accepts ModelPackageTransformInputCompressionTypeArgs and ModelPackageTransformInputCompressionTypeOutput values.
 // You can construct a concrete instance of `ModelPackageTransformInputCompressionTypeInput` via:
 //
-//          ModelPackageTransformInputCompressionTypeArgs{...}
+//	ModelPackageTransformInputCompressionTypeArgs{...}
 type ModelPackageTransformInputCompressionTypeInput interface {
 	pulumi.Input
 
@@ -4218,7 +4218,7 @@ func (o ModelPackageTransformInputSplitTypePtrOutput) ToStringPtrOutputWithConte
 // ModelPackageTransformInputSplitTypeInput is an input type that accepts ModelPackageTransformInputSplitTypeArgs and ModelPackageTransformInputSplitTypeOutput values.
 // You can construct a concrete instance of `ModelPackageTransformInputSplitTypeInput` via:
 //
-//          ModelPackageTransformInputSplitTypeArgs{...}
+//	ModelPackageTransformInputSplitTypeArgs{...}
 type ModelPackageTransformInputSplitTypeInput interface {
 	pulumi.Input
 
@@ -4383,7 +4383,7 @@ func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToStringPtrOut
 // ModelPackageTransformJobDefinitionBatchStrategyInput is an input type that accepts ModelPackageTransformJobDefinitionBatchStrategyArgs and ModelPackageTransformJobDefinitionBatchStrategyOutput values.
 // You can construct a concrete instance of `ModelPackageTransformJobDefinitionBatchStrategyInput` via:
 //
-//          ModelPackageTransformJobDefinitionBatchStrategyArgs{...}
+//	ModelPackageTransformJobDefinitionBatchStrategyArgs{...}
 type ModelPackageTransformJobDefinitionBatchStrategyInput interface {
 	pulumi.Input
 
@@ -4548,7 +4548,7 @@ func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToStringPtrOutputWithC
 // ModelPackageTransformOutputAssembleWithInput is an input type that accepts ModelPackageTransformOutputAssembleWithArgs and ModelPackageTransformOutputAssembleWithOutput values.
 // You can construct a concrete instance of `ModelPackageTransformOutputAssembleWithInput` via:
 //
-//          ModelPackageTransformOutputAssembleWithArgs{...}
+//	ModelPackageTransformOutputAssembleWithArgs{...}
 type ModelPackageTransformOutputAssembleWithInput interface {
 	pulumi.Input
 
@@ -4713,7 +4713,7 @@ func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) T
 // ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput is an input type that accepts ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs and ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput values.
 // You can construct a concrete instance of `ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput` via:
 //
-//          ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
+//	ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeArgs{...}
 type ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput interface {
 	pulumi.Input
 
@@ -4878,7 +4878,7 @@ func (o ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToStringPtrO
 // ModelQualityJobDefinitionEndpointInputS3InputModeInput is an input type that accepts ModelQualityJobDefinitionEndpointInputS3InputModeArgs and ModelQualityJobDefinitionEndpointInputS3InputModeOutput values.
 // You can construct a concrete instance of `ModelQualityJobDefinitionEndpointInputS3InputModeInput` via:
 //
-//          ModelQualityJobDefinitionEndpointInputS3InputModeArgs{...}
+//	ModelQualityJobDefinitionEndpointInputS3InputModeArgs{...}
 type ModelQualityJobDefinitionEndpointInputS3InputModeInput interface {
 	pulumi.Input
 
@@ -5044,7 +5044,7 @@ func (o ModelQualityJobDefinitionProblemTypePtrOutput) ToStringPtrOutputWithCont
 // ModelQualityJobDefinitionProblemTypeInput is an input type that accepts ModelQualityJobDefinitionProblemTypeArgs and ModelQualityJobDefinitionProblemTypeOutput values.
 // You can construct a concrete instance of `ModelQualityJobDefinitionProblemTypeInput` via:
 //
-//          ModelQualityJobDefinitionProblemTypeArgs{...}
+//	ModelQualityJobDefinitionProblemTypeArgs{...}
 type ModelQualityJobDefinitionProblemTypeInput interface {
 	pulumi.Input
 
@@ -5209,7 +5209,7 @@ func (o ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToStringPtrOutpu
 // ModelQualityJobDefinitionS3OutputS3UploadModeInput is an input type that accepts ModelQualityJobDefinitionS3OutputS3UploadModeArgs and ModelQualityJobDefinitionS3OutputS3UploadModeOutput values.
 // You can construct a concrete instance of `ModelQualityJobDefinitionS3OutputS3UploadModeInput` via:
 //
-//          ModelQualityJobDefinitionS3OutputS3UploadModeArgs{...}
+//	ModelQualityJobDefinitionS3OutputS3UploadModeArgs{...}
 type ModelQualityJobDefinitionS3OutputS3UploadModeInput interface {
 	pulumi.Input
 
@@ -5374,7 +5374,7 @@ func (o MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput) ToString
 // MonitoringScheduleEndpointInputS3DataDistributionTypeInput is an input type that accepts MonitoringScheduleEndpointInputS3DataDistributionTypeArgs and MonitoringScheduleEndpointInputS3DataDistributionTypeOutput values.
 // You can construct a concrete instance of `MonitoringScheduleEndpointInputS3DataDistributionTypeInput` via:
 //
-//          MonitoringScheduleEndpointInputS3DataDistributionTypeArgs{...}
+//	MonitoringScheduleEndpointInputS3DataDistributionTypeArgs{...}
 type MonitoringScheduleEndpointInputS3DataDistributionTypeInput interface {
 	pulumi.Input
 
@@ -5539,7 +5539,7 @@ func (o MonitoringScheduleEndpointInputS3InputModePtrOutput) ToStringPtrOutputWi
 // MonitoringScheduleEndpointInputS3InputModeInput is an input type that accepts MonitoringScheduleEndpointInputS3InputModeArgs and MonitoringScheduleEndpointInputS3InputModeOutput values.
 // You can construct a concrete instance of `MonitoringScheduleEndpointInputS3InputModeInput` via:
 //
-//          MonitoringScheduleEndpointInputS3InputModeArgs{...}
+//	MonitoringScheduleEndpointInputS3InputModeArgs{...}
 type MonitoringScheduleEndpointInputS3InputModeInput interface {
 	pulumi.Input
 
@@ -5709,7 +5709,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtr
 // MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusInput is an input type that accepts MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusArgs and MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput values.
 // You can construct a concrete instance of `MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusInput` via:
 //
-//          MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusArgs{...}
+//	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusArgs{...}
 type MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusInput interface {
 	pulumi.Input
 
@@ -5876,7 +5876,7 @@ func (o MonitoringScheduleMonitoringTypePtrOutput) ToStringPtrOutputWithContext(
 // MonitoringScheduleMonitoringTypeInput is an input type that accepts MonitoringScheduleMonitoringTypeArgs and MonitoringScheduleMonitoringTypeOutput values.
 // You can construct a concrete instance of `MonitoringScheduleMonitoringTypeInput` via:
 //
-//          MonitoringScheduleMonitoringTypeArgs{...}
+//	MonitoringScheduleMonitoringTypeArgs{...}
 type MonitoringScheduleMonitoringTypeInput interface {
 	pulumi.Input
 
@@ -6041,7 +6041,7 @@ func (o MonitoringScheduleS3OutputS3UploadModePtrOutput) ToStringPtrOutputWithCo
 // MonitoringScheduleS3OutputS3UploadModeInput is an input type that accepts MonitoringScheduleS3OutputS3UploadModeArgs and MonitoringScheduleS3OutputS3UploadModeOutput values.
 // You can construct a concrete instance of `MonitoringScheduleS3OutputS3UploadModeInput` via:
 //
-//          MonitoringScheduleS3OutputS3UploadModeArgs{...}
+//	MonitoringScheduleS3OutputS3UploadModeArgs{...}
 type MonitoringScheduleS3OutputS3UploadModeInput interface {
 	pulumi.Input
 
@@ -6208,7 +6208,7 @@ func (o MonitoringScheduleStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // MonitoringScheduleStatusInput is an input type that accepts MonitoringScheduleStatusArgs and MonitoringScheduleStatusOutput values.
 // You can construct a concrete instance of `MonitoringScheduleStatusInput` via:
 //
-//          MonitoringScheduleStatusArgs{...}
+//	MonitoringScheduleStatusArgs{...}
 type MonitoringScheduleStatusInput interface {
 	pulumi.Input
 
@@ -6469,7 +6469,7 @@ func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToStringPtr
 // UserProfileRStudioServerProAppSettingsAccessStatusInput is an input type that accepts UserProfileRStudioServerProAppSettingsAccessStatusArgs and UserProfileRStudioServerProAppSettingsAccessStatusOutput values.
 // You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsAccessStatusInput` via:
 //
-//          UserProfileRStudioServerProAppSettingsAccessStatusArgs{...}
+//	UserProfileRStudioServerProAppSettingsAccessStatusArgs{...}
 type UserProfileRStudioServerProAppSettingsAccessStatusInput interface {
 	pulumi.Input
 
@@ -6634,7 +6634,7 @@ func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToStringPtrOut
 // UserProfileRStudioServerProAppSettingsUserGroupInput is an input type that accepts UserProfileRStudioServerProAppSettingsUserGroupArgs and UserProfileRStudioServerProAppSettingsUserGroupOutput values.
 // You can construct a concrete instance of `UserProfileRStudioServerProAppSettingsUserGroupInput` via:
 //
-//          UserProfileRStudioServerProAppSettingsUserGroupArgs{...}
+//	UserProfileRStudioServerProAppSettingsUserGroupArgs{...}
 type UserProfileRStudioServerProAppSettingsUserGroupInput interface {
 	pulumi.Input
 
@@ -6829,7 +6829,7 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithConte
 // UserProfileResourceSpecInstanceTypeInput is an input type that accepts UserProfileResourceSpecInstanceTypeArgs and UserProfileResourceSpecInstanceTypeOutput values.
 // You can construct a concrete instance of `UserProfileResourceSpecInstanceTypeInput` via:
 //
-//          UserProfileResourceSpecInstanceTypeArgs{...}
+//	UserProfileResourceSpecInstanceTypeArgs{...}
 type UserProfileResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -6994,7 +6994,7 @@ func (o UserProfileSharingSettingsNotebookOutputOptionPtrOutput) ToStringPtrOutp
 // UserProfileSharingSettingsNotebookOutputOptionInput is an input type that accepts UserProfileSharingSettingsNotebookOutputOptionArgs and UserProfileSharingSettingsNotebookOutputOptionOutput values.
 // You can construct a concrete instance of `UserProfileSharingSettingsNotebookOutputOptionInput` via:
 //
-//          UserProfileSharingSettingsNotebookOutputOptionArgs{...}
+//	UserProfileSharingSettingsNotebookOutputOptionArgs{...}
 type UserProfileSharingSettingsNotebookOutputOptionInput interface {
 	pulumi.Input
 

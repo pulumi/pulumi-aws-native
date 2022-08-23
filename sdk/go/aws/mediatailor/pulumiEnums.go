@@ -140,7 +140,7 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToStringPtrOutputWit
 // PlaybackConfigurationAvailSuppressionModeInput is an input type that accepts PlaybackConfigurationAvailSuppressionModeArgs and PlaybackConfigurationAvailSuppressionModeOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationAvailSuppressionModeInput` via:
 //
-//          PlaybackConfigurationAvailSuppressionModeArgs{...}
+//	PlaybackConfigurationAvailSuppressionModeArgs{...}
 type PlaybackConfigurationAvailSuppressionModeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToStr
 // PlaybackConfigurationDashConfigurationOriginManifestTypeInput is an input type that accepts PlaybackConfigurationDashConfigurationOriginManifestTypeArgs and PlaybackConfigurationDashConfigurationOriginManifestTypeOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationDashConfigurationOriginManifestTypeInput` via:
 //
-//          PlaybackConfigurationDashConfigurationOriginManifestTypeArgs{...}
+//	PlaybackConfigurationDashConfigurationOriginManifestTypeArgs{...}
 type PlaybackConfigurationDashConfigurationOriginManifestTypeInput interface {
 	pulumi.Input
 

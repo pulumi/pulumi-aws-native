@@ -143,7 +143,7 @@ func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToStringPtrOutput
 // DatasetAttributesItemPropertiesAttributeTypeInput is an input type that accepts DatasetAttributesItemPropertiesAttributeTypeArgs and DatasetAttributesItemPropertiesAttributeTypeOutput values.
 // You can construct a concrete instance of `DatasetAttributesItemPropertiesAttributeTypeInput` via:
 //
-//          DatasetAttributesItemPropertiesAttributeTypeArgs{...}
+//	DatasetAttributesItemPropertiesAttributeTypeArgs{...}
 type DatasetAttributesItemPropertiesAttributeTypeInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ func (o DatasetDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DatasetDomainInput is an input type that accepts DatasetDomainArgs and DatasetDomainOutput values.
 // You can construct a concrete instance of `DatasetDomainInput` via:
 //
-//          DatasetDomainArgs{...}
+//	DatasetDomainArgs{...}
 type DatasetDomainInput interface {
 	pulumi.Input
 
@@ -483,7 +483,7 @@ func (o DatasetGroupDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DatasetGroupDomainInput is an input type that accepts DatasetGroupDomainArgs and DatasetGroupDomainOutput values.
 // You can construct a concrete instance of `DatasetGroupDomainInput` via:
 //
-//          DatasetGroupDomainArgs{...}
+//	DatasetGroupDomainArgs{...}
 type DatasetGroupDomainInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ func (o DatasetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // DatasetTypeInput is an input type that accepts DatasetTypeArgs and DatasetTypeOutput values.
 // You can construct a concrete instance of `DatasetTypeInput` via:
 //
-//          DatasetTypeArgs{...}
+//	DatasetTypeArgs{...}
 type DatasetTypeInput interface {
 	pulumi.Input
 

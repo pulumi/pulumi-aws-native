@@ -18,7 +18,7 @@ type BotAdvancedRecognitionSetting struct {
 // BotAdvancedRecognitionSettingInput is an input type that accepts BotAdvancedRecognitionSettingArgs and BotAdvancedRecognitionSettingOutput values.
 // You can construct a concrete instance of `BotAdvancedRecognitionSettingInput` via:
 //
-//          BotAdvancedRecognitionSettingArgs{...}
+//	BotAdvancedRecognitionSettingArgs{...}
 type BotAdvancedRecognitionSettingInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingPtrOut
 // BotAdvancedRecognitionSettingPtrInput is an input type that accepts BotAdvancedRecognitionSettingArgs, BotAdvancedRecognitionSettingPtr and BotAdvancedRecognitionSettingPtrOutput values.
 // You can construct a concrete instance of `BotAdvancedRecognitionSettingPtrInput` via:
 //
-//          BotAdvancedRecognitionSettingArgs{...}
+//	        BotAdvancedRecognitionSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAdvancedRecognitionSettingPtrInput interface {
 	pulumi.Input
 
@@ -154,7 +154,7 @@ type BotAliasAudioLogDestination struct {
 // BotAliasAudioLogDestinationInput is an input type that accepts BotAliasAudioLogDestinationArgs and BotAliasAudioLogDestinationOutput values.
 // You can construct a concrete instance of `BotAliasAudioLogDestinationInput` via:
 //
-//          BotAliasAudioLogDestinationArgs{...}
+//	BotAliasAudioLogDestinationArgs{...}
 type BotAliasAudioLogDestinationInput interface {
 	pulumi.Input
 
@@ -207,7 +207,7 @@ type BotAliasAudioLogSetting struct {
 // BotAliasAudioLogSettingInput is an input type that accepts BotAliasAudioLogSettingArgs and BotAliasAudioLogSettingOutput values.
 // You can construct a concrete instance of `BotAliasAudioLogSettingInput` via:
 //
-//          BotAliasAudioLogSettingArgs{...}
+//	BotAliasAudioLogSettingArgs{...}
 type BotAliasAudioLogSettingInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ func (i BotAliasAudioLogSettingArgs) ToBotAliasAudioLogSettingOutputWithContext(
 // BotAliasAudioLogSettingArrayInput is an input type that accepts BotAliasAudioLogSettingArray and BotAliasAudioLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasAudioLogSettingArrayInput` via:
 //
-//          BotAliasAudioLogSettingArray{ BotAliasAudioLogSettingArgs{...} }
+//	BotAliasAudioLogSettingArray{ BotAliasAudioLogSettingArgs{...} }
 type BotAliasAudioLogSettingArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +311,7 @@ type BotAliasCloudWatchLogGroupLogDestination struct {
 // BotAliasCloudWatchLogGroupLogDestinationInput is an input type that accepts BotAliasCloudWatchLogGroupLogDestinationArgs and BotAliasCloudWatchLogGroupLogDestinationOutput values.
 // You can construct a concrete instance of `BotAliasCloudWatchLogGroupLogDestinationInput` via:
 //
-//          BotAliasCloudWatchLogGroupLogDestinationArgs{...}
+//	BotAliasCloudWatchLogGroupLogDestinationArgs{...}
 type BotAliasCloudWatchLogGroupLogDestinationInput interface {
 	pulumi.Input
 
@@ -370,7 +370,7 @@ type BotAliasCodeHookSpecification struct {
 // BotAliasCodeHookSpecificationInput is an input type that accepts BotAliasCodeHookSpecificationArgs and BotAliasCodeHookSpecificationOutput values.
 // You can construct a concrete instance of `BotAliasCodeHookSpecificationInput` via:
 //
-//          BotAliasCodeHookSpecificationArgs{...}
+//	BotAliasCodeHookSpecificationArgs{...}
 type BotAliasCodeHookSpecificationInput interface {
 	pulumi.Input
 
@@ -406,11 +406,11 @@ func (i BotAliasCodeHookSpecificationArgs) ToBotAliasCodeHookSpecificationPtrOut
 // BotAliasCodeHookSpecificationPtrInput is an input type that accepts BotAliasCodeHookSpecificationArgs, BotAliasCodeHookSpecificationPtr and BotAliasCodeHookSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotAliasCodeHookSpecificationPtrInput` via:
 //
-//          BotAliasCodeHookSpecificationArgs{...}
+//	        BotAliasCodeHookSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAliasCodeHookSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ type BotAliasConversationLogSettings struct {
 // BotAliasConversationLogSettingsInput is an input type that accepts BotAliasConversationLogSettingsArgs and BotAliasConversationLogSettingsOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogSettingsInput` via:
 //
-//          BotAliasConversationLogSettingsArgs{...}
+//	BotAliasConversationLogSettingsArgs{...}
 type BotAliasConversationLogSettingsInput interface {
 	pulumi.Input
 
@@ -544,11 +544,11 @@ func (i BotAliasConversationLogSettingsArgs) ToBotAliasConversationLogSettingsPt
 // BotAliasConversationLogSettingsPtrInput is an input type that accepts BotAliasConversationLogSettingsArgs, BotAliasConversationLogSettingsPtr and BotAliasConversationLogSettingsPtrOutput values.
 // You can construct a concrete instance of `BotAliasConversationLogSettingsPtrInput` via:
 //
-//          BotAliasConversationLogSettingsArgs{...}
+//	        BotAliasConversationLogSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAliasConversationLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ type BotAliasLambdaCodeHook struct {
 // BotAliasLambdaCodeHookInput is an input type that accepts BotAliasLambdaCodeHookArgs and BotAliasLambdaCodeHookOutput values.
 // You can construct a concrete instance of `BotAliasLambdaCodeHookInput` via:
 //
-//          BotAliasLambdaCodeHookArgs{...}
+//	BotAliasLambdaCodeHookArgs{...}
 type BotAliasLambdaCodeHookInput interface {
 	pulumi.Input
 
@@ -699,11 +699,11 @@ func (i BotAliasLambdaCodeHookArgs) ToBotAliasLambdaCodeHookPtrOutputWithContext
 // BotAliasLambdaCodeHookPtrInput is an input type that accepts BotAliasLambdaCodeHookArgs, BotAliasLambdaCodeHookPtr and BotAliasLambdaCodeHookPtrOutput values.
 // You can construct a concrete instance of `BotAliasLambdaCodeHookPtrInput` via:
 //
-//          BotAliasLambdaCodeHookArgs{...}
+//	        BotAliasLambdaCodeHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotAliasLambdaCodeHookPtrInput interface {
 	pulumi.Input
 
@@ -818,7 +818,7 @@ type BotAliasLocaleSettings struct {
 // BotAliasLocaleSettingsInput is an input type that accepts BotAliasLocaleSettingsArgs and BotAliasLocaleSettingsOutput values.
 // You can construct a concrete instance of `BotAliasLocaleSettingsInput` via:
 //
-//          BotAliasLocaleSettingsArgs{...}
+//	BotAliasLocaleSettingsArgs{...}
 type BotAliasLocaleSettingsInput interface {
 	pulumi.Input
 
@@ -879,7 +879,7 @@ type BotAliasLocaleSettingsItem struct {
 // BotAliasLocaleSettingsItemInput is an input type that accepts BotAliasLocaleSettingsItemArgs and BotAliasLocaleSettingsItemOutput values.
 // You can construct a concrete instance of `BotAliasLocaleSettingsItemInput` via:
 //
-//          BotAliasLocaleSettingsItemArgs{...}
+//	BotAliasLocaleSettingsItemArgs{...}
 type BotAliasLocaleSettingsItemInput interface {
 	pulumi.Input
 
@@ -909,7 +909,7 @@ func (i BotAliasLocaleSettingsItemArgs) ToBotAliasLocaleSettingsItemOutputWithCo
 // BotAliasLocaleSettingsItemArrayInput is an input type that accepts BotAliasLocaleSettingsItemArray and BotAliasLocaleSettingsItemArrayOutput values.
 // You can construct a concrete instance of `BotAliasLocaleSettingsItemArrayInput` via:
 //
-//          BotAliasLocaleSettingsItemArray{ BotAliasLocaleSettingsItemArgs{...} }
+//	BotAliasLocaleSettingsItemArray{ BotAliasLocaleSettingsItemArgs{...} }
 type BotAliasLocaleSettingsItemArrayInput interface {
 	pulumi.Input
 
@@ -988,7 +988,7 @@ type BotAliasS3BucketLogDestination struct {
 // BotAliasS3BucketLogDestinationInput is an input type that accepts BotAliasS3BucketLogDestinationArgs and BotAliasS3BucketLogDestinationOutput values.
 // You can construct a concrete instance of `BotAliasS3BucketLogDestinationInput` via:
 //
-//          BotAliasS3BucketLogDestinationArgs{...}
+//	BotAliasS3BucketLogDestinationArgs{...}
 type BotAliasS3BucketLogDestinationInput interface {
 	pulumi.Input
 
@@ -1059,7 +1059,7 @@ type BotAliasTag struct {
 // BotAliasTagInput is an input type that accepts BotAliasTagArgs and BotAliasTagOutput values.
 // You can construct a concrete instance of `BotAliasTagInput` via:
 //
-//          BotAliasTagArgs{...}
+//	BotAliasTagArgs{...}
 type BotAliasTagInput interface {
 	pulumi.Input
 
@@ -1090,7 +1090,7 @@ func (i BotAliasTagArgs) ToBotAliasTagOutputWithContext(ctx context.Context) Bot
 // BotAliasTagArrayInput is an input type that accepts BotAliasTagArray and BotAliasTagArrayOutput values.
 // You can construct a concrete instance of `BotAliasTagArrayInput` via:
 //
-//          BotAliasTagArray{ BotAliasTagArgs{...} }
+//	BotAliasTagArray{ BotAliasTagArgs{...} }
 type BotAliasTagArrayInput interface {
 	pulumi.Input
 
@@ -1165,7 +1165,7 @@ type BotAliasTextLogDestination struct {
 // BotAliasTextLogDestinationInput is an input type that accepts BotAliasTextLogDestinationArgs and BotAliasTextLogDestinationOutput values.
 // You can construct a concrete instance of `BotAliasTextLogDestinationInput` via:
 //
-//          BotAliasTextLogDestinationArgs{...}
+//	BotAliasTextLogDestinationArgs{...}
 type BotAliasTextLogDestinationInput interface {
 	pulumi.Input
 
@@ -1218,7 +1218,7 @@ type BotAliasTextLogSetting struct {
 // BotAliasTextLogSettingInput is an input type that accepts BotAliasTextLogSettingArgs and BotAliasTextLogSettingOutput values.
 // You can construct a concrete instance of `BotAliasTextLogSettingInput` via:
 //
-//          BotAliasTextLogSettingArgs{...}
+//	BotAliasTextLogSettingArgs{...}
 type BotAliasTextLogSettingInput interface {
 	pulumi.Input
 
@@ -1247,7 +1247,7 @@ func (i BotAliasTextLogSettingArgs) ToBotAliasTextLogSettingOutputWithContext(ct
 // BotAliasTextLogSettingArrayInput is an input type that accepts BotAliasTextLogSettingArray and BotAliasTextLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasTextLogSettingArrayInput` via:
 //
-//          BotAliasTextLogSettingArray{ BotAliasTextLogSettingArgs{...} }
+//	BotAliasTextLogSettingArray{ BotAliasTextLogSettingArgs{...} }
 type BotAliasTextLogSettingArrayInput interface {
 	pulumi.Input
 
@@ -1320,7 +1320,7 @@ type BotAudioLogDestination struct {
 // BotAudioLogDestinationInput is an input type that accepts BotAudioLogDestinationArgs and BotAudioLogDestinationOutput values.
 // You can construct a concrete instance of `BotAudioLogDestinationInput` via:
 //
-//          BotAudioLogDestinationArgs{...}
+//	BotAudioLogDestinationArgs{...}
 type BotAudioLogDestinationInput interface {
 	pulumi.Input
 
@@ -1373,7 +1373,7 @@ type BotAudioLogSetting struct {
 // BotAudioLogSettingInput is an input type that accepts BotAudioLogSettingArgs and BotAudioLogSettingOutput values.
 // You can construct a concrete instance of `BotAudioLogSettingInput` via:
 //
-//          BotAudioLogSettingArgs{...}
+//	BotAudioLogSettingArgs{...}
 type BotAudioLogSettingInput interface {
 	pulumi.Input
 
@@ -1402,7 +1402,7 @@ func (i BotAudioLogSettingArgs) ToBotAudioLogSettingOutputWithContext(ctx contex
 // BotAudioLogSettingArrayInput is an input type that accepts BotAudioLogSettingArray and BotAudioLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAudioLogSettingArrayInput` via:
 //
-//          BotAudioLogSettingArray{ BotAudioLogSettingArgs{...} }
+//	BotAudioLogSettingArray{ BotAudioLogSettingArgs{...} }
 type BotAudioLogSettingArrayInput interface {
 	pulumi.Input
 
@@ -1478,7 +1478,7 @@ type BotButton struct {
 // BotButtonInput is an input type that accepts BotButtonArgs and BotButtonOutput values.
 // You can construct a concrete instance of `BotButtonInput` via:
 //
-//          BotButtonArgs{...}
+//	BotButtonArgs{...}
 type BotButtonInput interface {
 	pulumi.Input
 
@@ -1509,7 +1509,7 @@ func (i BotButtonArgs) ToBotButtonOutputWithContext(ctx context.Context) BotButt
 // BotButtonArrayInput is an input type that accepts BotButtonArray and BotButtonArrayOutput values.
 // You can construct a concrete instance of `BotButtonArrayInput` via:
 //
-//          BotButtonArray{ BotButtonArgs{...} }
+//	BotButtonArray{ BotButtonArgs{...} }
 type BotButtonArrayInput interface {
 	pulumi.Input
 
@@ -1586,7 +1586,7 @@ type BotCloudWatchLogGroupLogDestination struct {
 // BotCloudWatchLogGroupLogDestinationInput is an input type that accepts BotCloudWatchLogGroupLogDestinationArgs and BotCloudWatchLogGroupLogDestinationOutput values.
 // You can construct a concrete instance of `BotCloudWatchLogGroupLogDestinationInput` via:
 //
-//          BotCloudWatchLogGroupLogDestinationArgs{...}
+//	BotCloudWatchLogGroupLogDestinationArgs{...}
 type BotCloudWatchLogGroupLogDestinationInput interface {
 	pulumi.Input
 
@@ -1651,7 +1651,7 @@ type BotConversationLogSettings struct {
 // BotConversationLogSettingsInput is an input type that accepts BotConversationLogSettingsArgs and BotConversationLogSettingsOutput values.
 // You can construct a concrete instance of `BotConversationLogSettingsInput` via:
 //
-//          BotConversationLogSettingsArgs{...}
+//	BotConversationLogSettingsArgs{...}
 type BotConversationLogSettingsInput interface {
 	pulumi.Input
 
@@ -1688,11 +1688,11 @@ func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsPtrOutputWit
 // BotConversationLogSettingsPtrInput is an input type that accepts BotConversationLogSettingsArgs, BotConversationLogSettingsPtr and BotConversationLogSettingsPtrOutput values.
 // You can construct a concrete instance of `BotConversationLogSettingsPtrInput` via:
 //
-//          BotConversationLogSettingsArgs{...}
+//	        BotConversationLogSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotConversationLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1802,7 +1802,7 @@ type BotCustomPayload struct {
 // BotCustomPayloadInput is an input type that accepts BotCustomPayloadArgs and BotCustomPayloadOutput values.
 // You can construct a concrete instance of `BotCustomPayloadInput` via:
 //
-//          BotCustomPayloadArgs{...}
+//	BotCustomPayloadArgs{...}
 type BotCustomPayloadInput interface {
 	pulumi.Input
 
@@ -1839,11 +1839,11 @@ func (i BotCustomPayloadArgs) ToBotCustomPayloadPtrOutputWithContext(ctx context
 // BotCustomPayloadPtrInput is an input type that accepts BotCustomPayloadArgs, BotCustomPayloadPtr and BotCustomPayloadPtrOutput values.
 // You can construct a concrete instance of `BotCustomPayloadPtrInput` via:
 //
-//          BotCustomPayloadArgs{...}
+//	        BotCustomPayloadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotCustomPayloadPtrInput interface {
 	pulumi.Input
 
@@ -1941,7 +1941,7 @@ type BotCustomVocabulary struct {
 // BotCustomVocabularyInput is an input type that accepts BotCustomVocabularyArgs and BotCustomVocabularyOutput values.
 // You can construct a concrete instance of `BotCustomVocabularyInput` via:
 //
-//          BotCustomVocabularyArgs{...}
+//	BotCustomVocabularyArgs{...}
 type BotCustomVocabularyInput interface {
 	pulumi.Input
 
@@ -1977,11 +1977,11 @@ func (i BotCustomVocabularyArgs) ToBotCustomVocabularyPtrOutputWithContext(ctx c
 // BotCustomVocabularyPtrInput is an input type that accepts BotCustomVocabularyArgs, BotCustomVocabularyPtr and BotCustomVocabularyPtrOutput values.
 // You can construct a concrete instance of `BotCustomVocabularyPtrInput` via:
 //
-//          BotCustomVocabularyArgs{...}
+//	        BotCustomVocabularyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotCustomVocabularyPtrInput interface {
 	pulumi.Input
 
@@ -2080,7 +2080,7 @@ type BotCustomVocabularyItem struct {
 // BotCustomVocabularyItemInput is an input type that accepts BotCustomVocabularyItemArgs and BotCustomVocabularyItemOutput values.
 // You can construct a concrete instance of `BotCustomVocabularyItemInput` via:
 //
-//          BotCustomVocabularyItemArgs{...}
+//	BotCustomVocabularyItemArgs{...}
 type BotCustomVocabularyItemInput interface {
 	pulumi.Input
 
@@ -2111,7 +2111,7 @@ func (i BotCustomVocabularyItemArgs) ToBotCustomVocabularyItemOutputWithContext(
 // BotCustomVocabularyItemArrayInput is an input type that accepts BotCustomVocabularyItemArray and BotCustomVocabularyItemArrayOutput values.
 // You can construct a concrete instance of `BotCustomVocabularyItemArrayInput` via:
 //
-//          BotCustomVocabularyItemArray{ BotCustomVocabularyItemArgs{...} }
+//	BotCustomVocabularyItemArray{ BotCustomVocabularyItemArgs{...} }
 type BotCustomVocabularyItemArrayInput interface {
 	pulumi.Input
 
@@ -2186,7 +2186,7 @@ type BotDialogCodeHookSetting struct {
 // BotDialogCodeHookSettingInput is an input type that accepts BotDialogCodeHookSettingArgs and BotDialogCodeHookSettingOutput values.
 // You can construct a concrete instance of `BotDialogCodeHookSettingInput` via:
 //
-//          BotDialogCodeHookSettingArgs{...}
+//	BotDialogCodeHookSettingArgs{...}
 type BotDialogCodeHookSettingInput interface {
 	pulumi.Input
 
@@ -2222,11 +2222,11 @@ func (i BotDialogCodeHookSettingArgs) ToBotDialogCodeHookSettingPtrOutputWithCon
 // BotDialogCodeHookSettingPtrInput is an input type that accepts BotDialogCodeHookSettingArgs, BotDialogCodeHookSettingPtr and BotDialogCodeHookSettingPtrOutput values.
 // You can construct a concrete instance of `BotDialogCodeHookSettingPtrInput` via:
 //
-//          BotDialogCodeHookSettingArgs{...}
+//	        BotDialogCodeHookSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotDialogCodeHookSettingPtrInput interface {
 	pulumi.Input
 
@@ -2322,7 +2322,7 @@ type BotExternalSourceSetting struct {
 // BotExternalSourceSettingInput is an input type that accepts BotExternalSourceSettingArgs and BotExternalSourceSettingOutput values.
 // You can construct a concrete instance of `BotExternalSourceSettingInput` via:
 //
-//          BotExternalSourceSettingArgs{...}
+//	BotExternalSourceSettingArgs{...}
 type BotExternalSourceSettingInput interface {
 	pulumi.Input
 
@@ -2358,11 +2358,11 @@ func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingPtrOutputWithCon
 // BotExternalSourceSettingPtrInput is an input type that accepts BotExternalSourceSettingArgs, BotExternalSourceSettingPtr and BotExternalSourceSettingPtrOutput values.
 // You can construct a concrete instance of `BotExternalSourceSettingPtrInput` via:
 //
-//          BotExternalSourceSettingArgs{...}
+//	        BotExternalSourceSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotExternalSourceSettingPtrInput interface {
 	pulumi.Input
 
@@ -2460,7 +2460,7 @@ type BotFulfillmentCodeHookSetting struct {
 // BotFulfillmentCodeHookSettingInput is an input type that accepts BotFulfillmentCodeHookSettingArgs and BotFulfillmentCodeHookSettingOutput values.
 // You can construct a concrete instance of `BotFulfillmentCodeHookSettingInput` via:
 //
-//          BotFulfillmentCodeHookSettingArgs{...}
+//	BotFulfillmentCodeHookSettingArgs{...}
 type BotFulfillmentCodeHookSettingInput interface {
 	pulumi.Input
 
@@ -2498,11 +2498,11 @@ func (i BotFulfillmentCodeHookSettingArgs) ToBotFulfillmentCodeHookSettingPtrOut
 // BotFulfillmentCodeHookSettingPtrInput is an input type that accepts BotFulfillmentCodeHookSettingArgs, BotFulfillmentCodeHookSettingPtr and BotFulfillmentCodeHookSettingPtrOutput values.
 // You can construct a concrete instance of `BotFulfillmentCodeHookSettingPtrInput` via:
 //
-//          BotFulfillmentCodeHookSettingArgs{...}
+//	        BotFulfillmentCodeHookSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotFulfillmentCodeHookSettingPtrInput interface {
 	pulumi.Input
 
@@ -2632,7 +2632,7 @@ type BotFulfillmentStartResponseSpecification struct {
 // BotFulfillmentStartResponseSpecificationInput is an input type that accepts BotFulfillmentStartResponseSpecificationArgs and BotFulfillmentStartResponseSpecificationOutput values.
 // You can construct a concrete instance of `BotFulfillmentStartResponseSpecificationInput` via:
 //
-//          BotFulfillmentStartResponseSpecificationArgs{...}
+//	BotFulfillmentStartResponseSpecificationArgs{...}
 type BotFulfillmentStartResponseSpecificationInput interface {
 	pulumi.Input
 
@@ -2672,11 +2672,11 @@ func (i BotFulfillmentStartResponseSpecificationArgs) ToBotFulfillmentStartRespo
 // BotFulfillmentStartResponseSpecificationPtrInput is an input type that accepts BotFulfillmentStartResponseSpecificationArgs, BotFulfillmentStartResponseSpecificationPtr and BotFulfillmentStartResponseSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotFulfillmentStartResponseSpecificationPtrInput` via:
 //
-//          BotFulfillmentStartResponseSpecificationArgs{...}
+//	        BotFulfillmentStartResponseSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotFulfillmentStartResponseSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2806,7 +2806,7 @@ type BotFulfillmentUpdateResponseSpecification struct {
 // BotFulfillmentUpdateResponseSpecificationInput is an input type that accepts BotFulfillmentUpdateResponseSpecificationArgs and BotFulfillmentUpdateResponseSpecificationOutput values.
 // You can construct a concrete instance of `BotFulfillmentUpdateResponseSpecificationInput` via:
 //
-//          BotFulfillmentUpdateResponseSpecificationArgs{...}
+//	BotFulfillmentUpdateResponseSpecificationArgs{...}
 type BotFulfillmentUpdateResponseSpecificationInput interface {
 	pulumi.Input
 
@@ -2846,11 +2846,11 @@ func (i BotFulfillmentUpdateResponseSpecificationArgs) ToBotFulfillmentUpdateRes
 // BotFulfillmentUpdateResponseSpecificationPtrInput is an input type that accepts BotFulfillmentUpdateResponseSpecificationArgs, BotFulfillmentUpdateResponseSpecificationPtr and BotFulfillmentUpdateResponseSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotFulfillmentUpdateResponseSpecificationPtrInput` via:
 //
-//          BotFulfillmentUpdateResponseSpecificationArgs{...}
+//	        BotFulfillmentUpdateResponseSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotFulfillmentUpdateResponseSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2981,7 +2981,7 @@ type BotFulfillmentUpdatesSpecification struct {
 // BotFulfillmentUpdatesSpecificationInput is an input type that accepts BotFulfillmentUpdatesSpecificationArgs and BotFulfillmentUpdatesSpecificationOutput values.
 // You can construct a concrete instance of `BotFulfillmentUpdatesSpecificationInput` via:
 //
-//          BotFulfillmentUpdatesSpecificationArgs{...}
+//	BotFulfillmentUpdatesSpecificationArgs{...}
 type BotFulfillmentUpdatesSpecificationInput interface {
 	pulumi.Input
 
@@ -3022,11 +3022,11 @@ func (i BotFulfillmentUpdatesSpecificationArgs) ToBotFulfillmentUpdatesSpecifica
 // BotFulfillmentUpdatesSpecificationPtrInput is an input type that accepts BotFulfillmentUpdatesSpecificationArgs, BotFulfillmentUpdatesSpecificationPtr and BotFulfillmentUpdatesSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotFulfillmentUpdatesSpecificationPtrInput` via:
 //
-//          BotFulfillmentUpdatesSpecificationArgs{...}
+//	        BotFulfillmentUpdatesSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotFulfillmentUpdatesSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3169,7 +3169,7 @@ type BotGrammarSlotTypeSetting struct {
 // BotGrammarSlotTypeSettingInput is an input type that accepts BotGrammarSlotTypeSettingArgs and BotGrammarSlotTypeSettingOutput values.
 // You can construct a concrete instance of `BotGrammarSlotTypeSettingInput` via:
 //
-//          BotGrammarSlotTypeSettingArgs{...}
+//	BotGrammarSlotTypeSettingArgs{...}
 type BotGrammarSlotTypeSettingInput interface {
 	pulumi.Input
 
@@ -3205,11 +3205,11 @@ func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingPtrOutputWithC
 // BotGrammarSlotTypeSettingPtrInput is an input type that accepts BotGrammarSlotTypeSettingArgs, BotGrammarSlotTypeSettingPtr and BotGrammarSlotTypeSettingPtrOutput values.
 // You can construct a concrete instance of `BotGrammarSlotTypeSettingPtrInput` via:
 //
-//          BotGrammarSlotTypeSettingArgs{...}
+//	        BotGrammarSlotTypeSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotGrammarSlotTypeSettingPtrInput interface {
 	pulumi.Input
 
@@ -3310,7 +3310,7 @@ type BotGrammarSlotTypeSource struct {
 // BotGrammarSlotTypeSourceInput is an input type that accepts BotGrammarSlotTypeSourceArgs and BotGrammarSlotTypeSourceOutput values.
 // You can construct a concrete instance of `BotGrammarSlotTypeSourceInput` via:
 //
-//          BotGrammarSlotTypeSourceArgs{...}
+//	BotGrammarSlotTypeSourceArgs{...}
 type BotGrammarSlotTypeSourceInput interface {
 	pulumi.Input
 
@@ -3351,11 +3351,11 @@ func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourcePtrOutputWithCon
 // BotGrammarSlotTypeSourcePtrInput is an input type that accepts BotGrammarSlotTypeSourceArgs, BotGrammarSlotTypeSourcePtr and BotGrammarSlotTypeSourcePtrOutput values.
 // You can construct a concrete instance of `BotGrammarSlotTypeSourcePtrInput` via:
 //
-//          BotGrammarSlotTypeSourceArgs{...}
+//	        BotGrammarSlotTypeSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotGrammarSlotTypeSourcePtrInput interface {
 	pulumi.Input
 
@@ -3490,7 +3490,7 @@ type BotImageResponseCard struct {
 // BotImageResponseCardInput is an input type that accepts BotImageResponseCardArgs and BotImageResponseCardOutput values.
 // You can construct a concrete instance of `BotImageResponseCardInput` via:
 //
-//          BotImageResponseCardArgs{...}
+//	BotImageResponseCardArgs{...}
 type BotImageResponseCardInput interface {
 	pulumi.Input
 
@@ -3533,11 +3533,11 @@ func (i BotImageResponseCardArgs) ToBotImageResponseCardPtrOutputWithContext(ctx
 // BotImageResponseCardPtrInput is an input type that accepts BotImageResponseCardArgs, BotImageResponseCardPtr and BotImageResponseCardPtrOutput values.
 // You can construct a concrete instance of `BotImageResponseCardPtrInput` via:
 //
-//          BotImageResponseCardArgs{...}
+//	        BotImageResponseCardArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotImageResponseCardPtrInput interface {
 	pulumi.Input
 
@@ -3681,7 +3681,7 @@ type BotInputContext struct {
 // BotInputContextInput is an input type that accepts BotInputContextArgs and BotInputContextOutput values.
 // You can construct a concrete instance of `BotInputContextInput` via:
 //
-//          BotInputContextArgs{...}
+//	BotInputContextArgs{...}
 type BotInputContextInput interface {
 	pulumi.Input
 
@@ -3710,7 +3710,7 @@ func (i BotInputContextArgs) ToBotInputContextOutputWithContext(ctx context.Cont
 // BotInputContextArrayInput is an input type that accepts BotInputContextArray and BotInputContextArrayOutput values.
 // You can construct a concrete instance of `BotInputContextArrayInput` via:
 //
-//          BotInputContextArray{ BotInputContextArgs{...} }
+//	BotInputContextArray{ BotInputContextArgs{...} }
 type BotInputContextArrayInput interface {
 	pulumi.Input
 
@@ -3793,7 +3793,7 @@ type BotIntent struct {
 // BotIntentInput is an input type that accepts BotIntentArgs and BotIntentOutput values.
 // You can construct a concrete instance of `BotIntentInput` via:
 //
-//          BotIntentArgs{...}
+//	BotIntentArgs{...}
 type BotIntentInput interface {
 	pulumi.Input
 
@@ -3834,7 +3834,7 @@ func (i BotIntentArgs) ToBotIntentOutputWithContext(ctx context.Context) BotInte
 // BotIntentArrayInput is an input type that accepts BotIntentArray and BotIntentArrayOutput values.
 // You can construct a concrete instance of `BotIntentArrayInput` via:
 //
-//          BotIntentArray{ BotIntentArgs{...} }
+//	BotIntentArray{ BotIntentArgs{...} }
 type BotIntentArrayInput interface {
 	pulumi.Input
 
@@ -3953,7 +3953,7 @@ type BotIntentClosingSetting struct {
 // BotIntentClosingSettingInput is an input type that accepts BotIntentClosingSettingArgs and BotIntentClosingSettingOutput values.
 // You can construct a concrete instance of `BotIntentClosingSettingInput` via:
 //
-//          BotIntentClosingSettingArgs{...}
+//	BotIntentClosingSettingArgs{...}
 type BotIntentClosingSettingInput interface {
 	pulumi.Input
 
@@ -3990,11 +3990,11 @@ func (i BotIntentClosingSettingArgs) ToBotIntentClosingSettingPtrOutputWithConte
 // BotIntentClosingSettingPtrInput is an input type that accepts BotIntentClosingSettingArgs, BotIntentClosingSettingPtr and BotIntentClosingSettingPtrOutput values.
 // You can construct a concrete instance of `BotIntentClosingSettingPtrInput` via:
 //
-//          BotIntentClosingSettingArgs{...}
+//	        BotIntentClosingSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotIntentClosingSettingPtrInput interface {
 	pulumi.Input
 
@@ -4105,7 +4105,7 @@ type BotIntentConfirmationSetting struct {
 // BotIntentConfirmationSettingInput is an input type that accepts BotIntentConfirmationSettingArgs and BotIntentConfirmationSettingOutput values.
 // You can construct a concrete instance of `BotIntentConfirmationSettingInput` via:
 //
-//          BotIntentConfirmationSettingArgs{...}
+//	BotIntentConfirmationSettingArgs{...}
 type BotIntentConfirmationSettingInput interface {
 	pulumi.Input
 
@@ -4143,11 +4143,11 @@ func (i BotIntentConfirmationSettingArgs) ToBotIntentConfirmationSettingPtrOutpu
 // BotIntentConfirmationSettingPtrInput is an input type that accepts BotIntentConfirmationSettingArgs, BotIntentConfirmationSettingPtr and BotIntentConfirmationSettingPtrOutput values.
 // You can construct a concrete instance of `BotIntentConfirmationSettingPtrInput` via:
 //
-//          BotIntentConfirmationSettingArgs{...}
+//	        BotIntentConfirmationSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotIntentConfirmationSettingPtrInput interface {
 	pulumi.Input
 
@@ -4272,7 +4272,7 @@ type BotKendraConfiguration struct {
 // BotKendraConfigurationInput is an input type that accepts BotKendraConfigurationArgs and BotKendraConfigurationOutput values.
 // You can construct a concrete instance of `BotKendraConfigurationInput` via:
 //
-//          BotKendraConfigurationArgs{...}
+//	BotKendraConfigurationArgs{...}
 type BotKendraConfigurationInput interface {
 	pulumi.Input
 
@@ -4311,11 +4311,11 @@ func (i BotKendraConfigurationArgs) ToBotKendraConfigurationPtrOutputWithContext
 // BotKendraConfigurationPtrInput is an input type that accepts BotKendraConfigurationArgs, BotKendraConfigurationPtr and BotKendraConfigurationPtrOutput values.
 // You can construct a concrete instance of `BotKendraConfigurationPtrInput` via:
 //
-//          BotKendraConfigurationArgs{...}
+//	        BotKendraConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotKendraConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4455,7 +4455,7 @@ type BotLocale struct {
 // BotLocaleInput is an input type that accepts BotLocaleArgs and BotLocaleOutput values.
 // You can construct a concrete instance of `BotLocaleInput` via:
 //
-//          BotLocaleArgs{...}
+//	BotLocaleArgs{...}
 type BotLocaleInput interface {
 	pulumi.Input
 
@@ -4491,7 +4491,7 @@ func (i BotLocaleArgs) ToBotLocaleOutputWithContext(ctx context.Context) BotLoca
 // BotLocaleArrayInput is an input type that accepts BotLocaleArray and BotLocaleArrayOutput values.
 // You can construct a concrete instance of `BotLocaleArrayInput` via:
 //
-//          BotLocaleArray{ BotLocaleArgs{...} }
+//	BotLocaleArray{ BotLocaleArgs{...} }
 type BotLocaleArrayInput interface {
 	pulumi.Input
 
@@ -4589,7 +4589,7 @@ type BotMessage struct {
 // BotMessageInput is an input type that accepts BotMessageArgs and BotMessageOutput values.
 // You can construct a concrete instance of `BotMessageInput` via:
 //
-//          BotMessageArgs{...}
+//	BotMessageArgs{...}
 type BotMessageInput interface {
 	pulumi.Input
 
@@ -4620,7 +4620,7 @@ func (i BotMessageArgs) ToBotMessageOutputWithContext(ctx context.Context) BotMe
 // BotMessageArrayInput is an input type that accepts BotMessageArray and BotMessageArrayOutput values.
 // You can construct a concrete instance of `BotMessageArrayInput` via:
 //
-//          BotMessageArray{ BotMessageArgs{...} }
+//	BotMessageArray{ BotMessageArgs{...} }
 type BotMessageArrayInput interface {
 	pulumi.Input
 
@@ -4703,7 +4703,7 @@ type BotMessageGroup struct {
 // BotMessageGroupInput is an input type that accepts BotMessageGroupArgs and BotMessageGroupOutput values.
 // You can construct a concrete instance of `BotMessageGroupInput` via:
 //
-//          BotMessageGroupArgs{...}
+//	BotMessageGroupArgs{...}
 type BotMessageGroupInput interface {
 	pulumi.Input
 
@@ -4733,7 +4733,7 @@ func (i BotMessageGroupArgs) ToBotMessageGroupOutputWithContext(ctx context.Cont
 // BotMessageGroupArrayInput is an input type that accepts BotMessageGroupArray and BotMessageGroupArrayOutput values.
 // You can construct a concrete instance of `BotMessageGroupArrayInput` via:
 //
-//          BotMessageGroupArray{ BotMessageGroupArgs{...} }
+//	BotMessageGroupArray{ BotMessageGroupArgs{...} }
 type BotMessageGroupArrayInput interface {
 	pulumi.Input
 
@@ -4807,7 +4807,7 @@ type BotMultipleValuesSetting struct {
 // BotMultipleValuesSettingInput is an input type that accepts BotMultipleValuesSettingArgs and BotMultipleValuesSettingOutput values.
 // You can construct a concrete instance of `BotMultipleValuesSettingInput` via:
 //
-//          BotMultipleValuesSettingArgs{...}
+//	BotMultipleValuesSettingArgs{...}
 type BotMultipleValuesSettingInput interface {
 	pulumi.Input
 
@@ -4843,11 +4843,11 @@ func (i BotMultipleValuesSettingArgs) ToBotMultipleValuesSettingPtrOutputWithCon
 // BotMultipleValuesSettingPtrInput is an input type that accepts BotMultipleValuesSettingArgs, BotMultipleValuesSettingPtr and BotMultipleValuesSettingPtrOutput values.
 // You can construct a concrete instance of `BotMultipleValuesSettingPtrInput` via:
 //
-//          BotMultipleValuesSettingArgs{...}
+//	        BotMultipleValuesSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotMultipleValuesSettingPtrInput interface {
 	pulumi.Input
 
@@ -4944,7 +4944,7 @@ type BotObfuscationSetting struct {
 // BotObfuscationSettingInput is an input type that accepts BotObfuscationSettingArgs and BotObfuscationSettingOutput values.
 // You can construct a concrete instance of `BotObfuscationSettingInput` via:
 //
-//          BotObfuscationSettingArgs{...}
+//	BotObfuscationSettingArgs{...}
 type BotObfuscationSettingInput interface {
 	pulumi.Input
 
@@ -4981,11 +4981,11 @@ func (i BotObfuscationSettingArgs) ToBotObfuscationSettingPtrOutputWithContext(c
 // BotObfuscationSettingPtrInput is an input type that accepts BotObfuscationSettingArgs, BotObfuscationSettingPtr and BotObfuscationSettingPtrOutput values.
 // You can construct a concrete instance of `BotObfuscationSettingPtrInput` via:
 //
-//          BotObfuscationSettingArgs{...}
+//	        BotObfuscationSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotObfuscationSettingPtrInput interface {
 	pulumi.Input
 
@@ -5087,7 +5087,7 @@ type BotOutputContext struct {
 // BotOutputContextInput is an input type that accepts BotOutputContextArgs and BotOutputContextOutput values.
 // You can construct a concrete instance of `BotOutputContextInput` via:
 //
-//          BotOutputContextArgs{...}
+//	BotOutputContextArgs{...}
 type BotOutputContextInput interface {
 	pulumi.Input
 
@@ -5117,7 +5117,7 @@ func (i BotOutputContextArgs) ToBotOutputContextOutputWithContext(ctx context.Co
 // BotOutputContextArrayInput is an input type that accepts BotOutputContextArray and BotOutputContextArrayOutput values.
 // You can construct a concrete instance of `BotOutputContextArrayInput` via:
 //
-//          BotOutputContextArray{ BotOutputContextArgs{...} }
+//	BotOutputContextArray{ BotOutputContextArgs{...} }
 type BotOutputContextArrayInput interface {
 	pulumi.Input
 
@@ -5195,7 +5195,7 @@ type BotPlainTextMessage struct {
 // BotPlainTextMessageInput is an input type that accepts BotPlainTextMessageArgs and BotPlainTextMessageOutput values.
 // You can construct a concrete instance of `BotPlainTextMessageInput` via:
 //
-//          BotPlainTextMessageArgs{...}
+//	BotPlainTextMessageArgs{...}
 type BotPlainTextMessageInput interface {
 	pulumi.Input
 
@@ -5232,11 +5232,11 @@ func (i BotPlainTextMessageArgs) ToBotPlainTextMessagePtrOutputWithContext(ctx c
 // BotPlainTextMessagePtrInput is an input type that accepts BotPlainTextMessageArgs, BotPlainTextMessagePtr and BotPlainTextMessagePtrOutput values.
 // You can construct a concrete instance of `BotPlainTextMessagePtrInput` via:
 //
-//          BotPlainTextMessageArgs{...}
+//	        BotPlainTextMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotPlainTextMessagePtrInput interface {
 	pulumi.Input
 
@@ -5336,7 +5336,7 @@ type BotPostFulfillmentStatusSpecification struct {
 // BotPostFulfillmentStatusSpecificationInput is an input type that accepts BotPostFulfillmentStatusSpecificationArgs and BotPostFulfillmentStatusSpecificationOutput values.
 // You can construct a concrete instance of `BotPostFulfillmentStatusSpecificationInput` via:
 //
-//          BotPostFulfillmentStatusSpecificationArgs{...}
+//	BotPostFulfillmentStatusSpecificationArgs{...}
 type BotPostFulfillmentStatusSpecificationInput interface {
 	pulumi.Input
 
@@ -5374,11 +5374,11 @@ func (i BotPostFulfillmentStatusSpecificationArgs) ToBotPostFulfillmentStatusSpe
 // BotPostFulfillmentStatusSpecificationPtrInput is an input type that accepts BotPostFulfillmentStatusSpecificationArgs, BotPostFulfillmentStatusSpecificationPtr and BotPostFulfillmentStatusSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotPostFulfillmentStatusSpecificationPtrInput` via:
 //
-//          BotPostFulfillmentStatusSpecificationArgs{...}
+//	        BotPostFulfillmentStatusSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotPostFulfillmentStatusSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -5503,7 +5503,7 @@ type BotPromptSpecification struct {
 // BotPromptSpecificationInput is an input type that accepts BotPromptSpecificationArgs and BotPromptSpecificationOutput values.
 // You can construct a concrete instance of `BotPromptSpecificationInput` via:
 //
-//          BotPromptSpecificationArgs{...}
+//	BotPromptSpecificationArgs{...}
 type BotPromptSpecificationInput interface {
 	pulumi.Input
 
@@ -5542,11 +5542,11 @@ func (i BotPromptSpecificationArgs) ToBotPromptSpecificationPtrOutputWithContext
 // BotPromptSpecificationPtrInput is an input type that accepts BotPromptSpecificationArgs, BotPromptSpecificationPtr and BotPromptSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotPromptSpecificationPtrInput` via:
 //
-//          BotPromptSpecificationArgs{...}
+//	        BotPromptSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotPromptSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -5672,7 +5672,7 @@ type BotResponseSpecification struct {
 // BotResponseSpecificationInput is an input type that accepts BotResponseSpecificationArgs and BotResponseSpecificationOutput values.
 // You can construct a concrete instance of `BotResponseSpecificationInput` via:
 //
-//          BotResponseSpecificationArgs{...}
+//	BotResponseSpecificationArgs{...}
 type BotResponseSpecificationInput interface {
 	pulumi.Input
 
@@ -5710,11 +5710,11 @@ func (i BotResponseSpecificationArgs) ToBotResponseSpecificationPtrOutputWithCon
 // BotResponseSpecificationPtrInput is an input type that accepts BotResponseSpecificationArgs, BotResponseSpecificationPtr and BotResponseSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotResponseSpecificationPtrInput` via:
 //
-//          BotResponseSpecificationArgs{...}
+//	        BotResponseSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotResponseSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -5830,7 +5830,7 @@ type BotS3BucketLogDestination struct {
 // BotS3BucketLogDestinationInput is an input type that accepts BotS3BucketLogDestinationArgs and BotS3BucketLogDestinationOutput values.
 // You can construct a concrete instance of `BotS3BucketLogDestinationInput` via:
 //
-//          BotS3BucketLogDestinationArgs{...}
+//	BotS3BucketLogDestinationArgs{...}
 type BotS3BucketLogDestinationInput interface {
 	pulumi.Input
 
@@ -5903,7 +5903,7 @@ type BotS3Location struct {
 // BotS3LocationInput is an input type that accepts BotS3LocationArgs and BotS3LocationOutput values.
 // You can construct a concrete instance of `BotS3LocationInput` via:
 //
-//          BotS3LocationArgs{...}
+//	BotS3LocationArgs{...}
 type BotS3LocationInput interface {
 	pulumi.Input
 
@@ -5944,11 +5944,11 @@ func (i BotS3LocationArgs) ToBotS3LocationPtrOutputWithContext(ctx context.Conte
 // BotS3LocationPtrInput is an input type that accepts BotS3LocationArgs, BotS3LocationPtr and BotS3LocationPtrOutput values.
 // You can construct a concrete instance of `BotS3LocationPtrInput` via:
 //
-//          BotS3LocationArgs{...}
+//	        BotS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -6077,7 +6077,7 @@ type BotSSMLMessage struct {
 // BotSSMLMessageInput is an input type that accepts BotSSMLMessageArgs and BotSSMLMessageOutput values.
 // You can construct a concrete instance of `BotSSMLMessageInput` via:
 //
-//          BotSSMLMessageArgs{...}
+//	BotSSMLMessageArgs{...}
 type BotSSMLMessageInput interface {
 	pulumi.Input
 
@@ -6114,11 +6114,11 @@ func (i BotSSMLMessageArgs) ToBotSSMLMessagePtrOutputWithContext(ctx context.Con
 // BotSSMLMessagePtrInput is an input type that accepts BotSSMLMessageArgs, BotSSMLMessagePtr and BotSSMLMessagePtrOutput values.
 // You can construct a concrete instance of `BotSSMLMessagePtrInput` via:
 //
-//          BotSSMLMessageArgs{...}
+//	        BotSSMLMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotSSMLMessagePtrInput interface {
 	pulumi.Input
 
@@ -6216,7 +6216,7 @@ type BotSampleUtterance struct {
 // BotSampleUtteranceInput is an input type that accepts BotSampleUtteranceArgs and BotSampleUtteranceOutput values.
 // You can construct a concrete instance of `BotSampleUtteranceInput` via:
 //
-//          BotSampleUtteranceArgs{...}
+//	BotSampleUtteranceArgs{...}
 type BotSampleUtteranceInput interface {
 	pulumi.Input
 
@@ -6244,7 +6244,7 @@ func (i BotSampleUtteranceArgs) ToBotSampleUtteranceOutputWithContext(ctx contex
 // BotSampleUtteranceArrayInput is an input type that accepts BotSampleUtteranceArray and BotSampleUtteranceArrayOutput values.
 // You can construct a concrete instance of `BotSampleUtteranceArrayInput` via:
 //
-//          BotSampleUtteranceArray{ BotSampleUtteranceArgs{...} }
+//	BotSampleUtteranceArray{ BotSampleUtteranceArgs{...} }
 type BotSampleUtteranceArrayInput interface {
 	pulumi.Input
 
@@ -6314,7 +6314,7 @@ type BotSampleValue struct {
 // BotSampleValueInput is an input type that accepts BotSampleValueArgs and BotSampleValueOutput values.
 // You can construct a concrete instance of `BotSampleValueInput` via:
 //
-//          BotSampleValueArgs{...}
+//	BotSampleValueArgs{...}
 type BotSampleValueInput interface {
 	pulumi.Input
 
@@ -6343,7 +6343,7 @@ func (i BotSampleValueArgs) ToBotSampleValueOutputWithContext(ctx context.Contex
 // BotSampleValueArrayInput is an input type that accepts BotSampleValueArray and BotSampleValueArrayOutput values.
 // You can construct a concrete instance of `BotSampleValueArrayInput` via:
 //
-//          BotSampleValueArray{ BotSampleValueArgs{...} }
+//	BotSampleValueArray{ BotSampleValueArgs{...} }
 type BotSampleValueArrayInput interface {
 	pulumi.Input
 
@@ -6418,7 +6418,7 @@ type BotSlot struct {
 // BotSlotInput is an input type that accepts BotSlotArgs and BotSlotOutput values.
 // You can construct a concrete instance of `BotSlotInput` via:
 //
-//          BotSlotArgs{...}
+//	BotSlotArgs{...}
 type BotSlotInput interface {
 	pulumi.Input
 
@@ -6451,7 +6451,7 @@ func (i BotSlotArgs) ToBotSlotOutputWithContext(ctx context.Context) BotSlotOutp
 // BotSlotArrayInput is an input type that accepts BotSlotArray and BotSlotArrayOutput values.
 // You can construct a concrete instance of `BotSlotArrayInput` via:
 //
-//          BotSlotArray{ BotSlotArgs{...} }
+//	BotSlotArray{ BotSlotArgs{...} }
 type BotSlotArrayInput interface {
 	pulumi.Input
 
@@ -6541,7 +6541,7 @@ type BotSlotDefaultValue struct {
 // BotSlotDefaultValueInput is an input type that accepts BotSlotDefaultValueArgs and BotSlotDefaultValueOutput values.
 // You can construct a concrete instance of `BotSlotDefaultValueInput` via:
 //
-//          BotSlotDefaultValueArgs{...}
+//	BotSlotDefaultValueArgs{...}
 type BotSlotDefaultValueInput interface {
 	pulumi.Input
 
@@ -6570,7 +6570,7 @@ func (i BotSlotDefaultValueArgs) ToBotSlotDefaultValueOutputWithContext(ctx cont
 // BotSlotDefaultValueArrayInput is an input type that accepts BotSlotDefaultValueArray and BotSlotDefaultValueArrayOutput values.
 // You can construct a concrete instance of `BotSlotDefaultValueArrayInput` via:
 //
-//          BotSlotDefaultValueArray{ BotSlotDefaultValueArgs{...} }
+//	BotSlotDefaultValueArray{ BotSlotDefaultValueArgs{...} }
 type BotSlotDefaultValueArrayInput interface {
 	pulumi.Input
 
@@ -6641,7 +6641,7 @@ type BotSlotDefaultValueSpecification struct {
 // BotSlotDefaultValueSpecificationInput is an input type that accepts BotSlotDefaultValueSpecificationArgs and BotSlotDefaultValueSpecificationOutput values.
 // You can construct a concrete instance of `BotSlotDefaultValueSpecificationInput` via:
 //
-//          BotSlotDefaultValueSpecificationArgs{...}
+//	BotSlotDefaultValueSpecificationArgs{...}
 type BotSlotDefaultValueSpecificationInput interface {
 	pulumi.Input
 
@@ -6678,11 +6678,11 @@ func (i BotSlotDefaultValueSpecificationArgs) ToBotSlotDefaultValueSpecification
 // BotSlotDefaultValueSpecificationPtrInput is an input type that accepts BotSlotDefaultValueSpecificationArgs, BotSlotDefaultValueSpecificationPtr and BotSlotDefaultValueSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotSlotDefaultValueSpecificationPtrInput` via:
 //
-//          BotSlotDefaultValueSpecificationArgs{...}
+//	        BotSlotDefaultValueSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotSlotDefaultValueSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -6782,7 +6782,7 @@ type BotSlotPriority struct {
 // BotSlotPriorityInput is an input type that accepts BotSlotPriorityArgs and BotSlotPriorityOutput values.
 // You can construct a concrete instance of `BotSlotPriorityInput` via:
 //
-//          BotSlotPriorityArgs{...}
+//	BotSlotPriorityArgs{...}
 type BotSlotPriorityInput interface {
 	pulumi.Input
 
@@ -6812,7 +6812,7 @@ func (i BotSlotPriorityArgs) ToBotSlotPriorityOutputWithContext(ctx context.Cont
 // BotSlotPriorityArrayInput is an input type that accepts BotSlotPriorityArray and BotSlotPriorityArrayOutput values.
 // You can construct a concrete instance of `BotSlotPriorityArrayInput` via:
 //
-//          BotSlotPriorityArray{ BotSlotPriorityArgs{...} }
+//	BotSlotPriorityArray{ BotSlotPriorityArgs{...} }
 type BotSlotPriorityArrayInput interface {
 	pulumi.Input
 
@@ -6891,7 +6891,7 @@ type BotSlotType struct {
 // BotSlotTypeInput is an input type that accepts BotSlotTypeArgs and BotSlotTypeOutput values.
 // You can construct a concrete instance of `BotSlotTypeInput` via:
 //
-//          BotSlotTypeArgs{...}
+//	BotSlotTypeArgs{...}
 type BotSlotTypeInput interface {
 	pulumi.Input
 
@@ -6924,7 +6924,7 @@ func (i BotSlotTypeArgs) ToBotSlotTypeOutputWithContext(ctx context.Context) Bot
 // BotSlotTypeArrayInput is an input type that accepts BotSlotTypeArray and BotSlotTypeArrayOutput values.
 // You can construct a concrete instance of `BotSlotTypeArrayInput` via:
 //
-//          BotSlotTypeArray{ BotSlotTypeArgs{...} }
+//	BotSlotTypeArray{ BotSlotTypeArgs{...} }
 type BotSlotTypeArrayInput interface {
 	pulumi.Input
 
@@ -7014,7 +7014,7 @@ type BotSlotTypeValue struct {
 // BotSlotTypeValueInput is an input type that accepts BotSlotTypeValueArgs and BotSlotTypeValueOutput values.
 // You can construct a concrete instance of `BotSlotTypeValueInput` via:
 //
-//          BotSlotTypeValueArgs{...}
+//	BotSlotTypeValueArgs{...}
 type BotSlotTypeValueInput interface {
 	pulumi.Input
 
@@ -7043,7 +7043,7 @@ func (i BotSlotTypeValueArgs) ToBotSlotTypeValueOutputWithContext(ctx context.Co
 // BotSlotTypeValueArrayInput is an input type that accepts BotSlotTypeValueArray and BotSlotTypeValueArrayOutput values.
 // You can construct a concrete instance of `BotSlotTypeValueArrayInput` via:
 //
-//          BotSlotTypeValueArray{ BotSlotTypeValueArgs{...} }
+//	BotSlotTypeValueArray{ BotSlotTypeValueArgs{...} }
 type BotSlotTypeValueArrayInput interface {
 	pulumi.Input
 
@@ -7125,7 +7125,7 @@ type BotSlotValueElicitationSetting struct {
 // BotSlotValueElicitationSettingInput is an input type that accepts BotSlotValueElicitationSettingArgs and BotSlotValueElicitationSettingOutput values.
 // You can construct a concrete instance of `BotSlotValueElicitationSettingInput` via:
 //
-//          BotSlotValueElicitationSettingArgs{...}
+//	BotSlotValueElicitationSettingArgs{...}
 type BotSlotValueElicitationSettingInput interface {
 	pulumi.Input
 
@@ -7212,7 +7212,7 @@ type BotSlotValueRegexFilter struct {
 // BotSlotValueRegexFilterInput is an input type that accepts BotSlotValueRegexFilterArgs and BotSlotValueRegexFilterOutput values.
 // You can construct a concrete instance of `BotSlotValueRegexFilterInput` via:
 //
-//          BotSlotValueRegexFilterArgs{...}
+//	BotSlotValueRegexFilterArgs{...}
 type BotSlotValueRegexFilterInput interface {
 	pulumi.Input
 
@@ -7249,11 +7249,11 @@ func (i BotSlotValueRegexFilterArgs) ToBotSlotValueRegexFilterPtrOutputWithConte
 // BotSlotValueRegexFilterPtrInput is an input type that accepts BotSlotValueRegexFilterArgs, BotSlotValueRegexFilterPtr and BotSlotValueRegexFilterPtrOutput values.
 // You can construct a concrete instance of `BotSlotValueRegexFilterPtrInput` via:
 //
-//          BotSlotValueRegexFilterArgs{...}
+//	        BotSlotValueRegexFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotSlotValueRegexFilterPtrInput interface {
 	pulumi.Input
 
@@ -7353,7 +7353,7 @@ type BotSlotValueSelectionSetting struct {
 // BotSlotValueSelectionSettingInput is an input type that accepts BotSlotValueSelectionSettingArgs and BotSlotValueSelectionSettingOutput values.
 // You can construct a concrete instance of `BotSlotValueSelectionSettingInput` via:
 //
-//          BotSlotValueSelectionSettingArgs{...}
+//	BotSlotValueSelectionSettingArgs{...}
 type BotSlotValueSelectionSettingInput interface {
 	pulumi.Input
 
@@ -7391,11 +7391,11 @@ func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingPtrOutpu
 // BotSlotValueSelectionSettingPtrInput is an input type that accepts BotSlotValueSelectionSettingArgs, BotSlotValueSelectionSettingPtr and BotSlotValueSelectionSettingPtrOutput values.
 // You can construct a concrete instance of `BotSlotValueSelectionSettingPtrInput` via:
 //
-//          BotSlotValueSelectionSettingArgs{...}
+//	        BotSlotValueSelectionSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotSlotValueSelectionSettingPtrInput interface {
 	pulumi.Input
 
@@ -7523,7 +7523,7 @@ type BotStillWaitingResponseSpecification struct {
 // BotStillWaitingResponseSpecificationInput is an input type that accepts BotStillWaitingResponseSpecificationArgs and BotStillWaitingResponseSpecificationOutput values.
 // You can construct a concrete instance of `BotStillWaitingResponseSpecificationInput` via:
 //
-//          BotStillWaitingResponseSpecificationArgs{...}
+//	BotStillWaitingResponseSpecificationArgs{...}
 type BotStillWaitingResponseSpecificationInput interface {
 	pulumi.Input
 
@@ -7563,11 +7563,11 @@ func (i BotStillWaitingResponseSpecificationArgs) ToBotStillWaitingResponseSpeci
 // BotStillWaitingResponseSpecificationPtrInput is an input type that accepts BotStillWaitingResponseSpecificationArgs, BotStillWaitingResponseSpecificationPtr and BotStillWaitingResponseSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotStillWaitingResponseSpecificationPtrInput` via:
 //
-//          BotStillWaitingResponseSpecificationArgs{...}
+//	        BotStillWaitingResponseSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotStillWaitingResponseSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -7707,7 +7707,7 @@ type BotTag struct {
 // BotTagInput is an input type that accepts BotTagArgs and BotTagOutput values.
 // You can construct a concrete instance of `BotTagInput` via:
 //
-//          BotTagArgs{...}
+//	BotTagArgs{...}
 type BotTagInput interface {
 	pulumi.Input
 
@@ -7738,7 +7738,7 @@ func (i BotTagArgs) ToBotTagOutputWithContext(ctx context.Context) BotTagOutput 
 // BotTagArrayInput is an input type that accepts BotTagArray and BotTagArrayOutput values.
 // You can construct a concrete instance of `BotTagArrayInput` via:
 //
-//          BotTagArray{ BotTagArgs{...} }
+//	BotTagArray{ BotTagArgs{...} }
 type BotTagArrayInput interface {
 	pulumi.Input
 
@@ -7817,7 +7817,7 @@ type BotTestBotAliasSettings struct {
 // BotTestBotAliasSettingsInput is an input type that accepts BotTestBotAliasSettingsArgs and BotTestBotAliasSettingsOutput values.
 // You can construct a concrete instance of `BotTestBotAliasSettingsInput` via:
 //
-//          BotTestBotAliasSettingsArgs{...}
+//	BotTestBotAliasSettingsArgs{...}
 type BotTestBotAliasSettingsInput interface {
 	pulumi.Input
 
@@ -7857,11 +7857,11 @@ func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsPtrOutputWithConte
 // BotTestBotAliasSettingsPtrInput is an input type that accepts BotTestBotAliasSettingsArgs, BotTestBotAliasSettingsPtr and BotTestBotAliasSettingsPtrOutput values.
 // You can construct a concrete instance of `BotTestBotAliasSettingsPtrInput` via:
 //
-//          BotTestBotAliasSettingsArgs{...}
+//	        BotTestBotAliasSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotTestBotAliasSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8001,7 +8001,7 @@ type BotTestBotAliasSettingsSentimentAnalysisSettingsProperties struct {
 // BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput is an input type that accepts BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs and BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput values.
 // You can construct a concrete instance of `BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput` via:
 //
-//          BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
+//	BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
 type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput interface {
 	pulumi.Input
 
@@ -8038,11 +8038,11 @@ func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTes
 // BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput is an input type that accepts BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs, BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtr and BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput values.
 // You can construct a concrete instance of `BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput` via:
 //
-//          BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
+//	        BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -8140,7 +8140,7 @@ type BotTextLogDestination struct {
 // BotTextLogDestinationInput is an input type that accepts BotTextLogDestinationArgs and BotTextLogDestinationOutput values.
 // You can construct a concrete instance of `BotTextLogDestinationInput` via:
 //
-//          BotTextLogDestinationArgs{...}
+//	BotTextLogDestinationArgs{...}
 type BotTextLogDestinationInput interface {
 	pulumi.Input
 
@@ -8193,7 +8193,7 @@ type BotTextLogSetting struct {
 // BotTextLogSettingInput is an input type that accepts BotTextLogSettingArgs and BotTextLogSettingOutput values.
 // You can construct a concrete instance of `BotTextLogSettingInput` via:
 //
-//          BotTextLogSettingArgs{...}
+//	BotTextLogSettingArgs{...}
 type BotTextLogSettingInput interface {
 	pulumi.Input
 
@@ -8222,7 +8222,7 @@ func (i BotTextLogSettingArgs) ToBotTextLogSettingOutputWithContext(ctx context.
 // BotTextLogSettingArrayInput is an input type that accepts BotTextLogSettingArray and BotTextLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotTextLogSettingArrayInput` via:
 //
-//          BotTextLogSettingArray{ BotTextLogSettingArgs{...} }
+//	BotTextLogSettingArray{ BotTextLogSettingArgs{...} }
 type BotTextLogSettingArrayInput interface {
 	pulumi.Input
 
@@ -8295,7 +8295,7 @@ type BotVersionLocaleDetails struct {
 // BotVersionLocaleDetailsInput is an input type that accepts BotVersionLocaleDetailsArgs and BotVersionLocaleDetailsOutput values.
 // You can construct a concrete instance of `BotVersionLocaleDetailsInput` via:
 //
-//          BotVersionLocaleDetailsArgs{...}
+//	BotVersionLocaleDetailsArgs{...}
 type BotVersionLocaleDetailsInput interface {
 	pulumi.Input
 
@@ -8347,7 +8347,7 @@ type BotVersionLocaleSpecification struct {
 // BotVersionLocaleSpecificationInput is an input type that accepts BotVersionLocaleSpecificationArgs and BotVersionLocaleSpecificationOutput values.
 // You can construct a concrete instance of `BotVersionLocaleSpecificationInput` via:
 //
-//          BotVersionLocaleSpecificationArgs{...}
+//	BotVersionLocaleSpecificationArgs{...}
 type BotVersionLocaleSpecificationInput interface {
 	pulumi.Input
 
@@ -8375,7 +8375,7 @@ func (i BotVersionLocaleSpecificationArgs) ToBotVersionLocaleSpecificationOutput
 // BotVersionLocaleSpecificationArrayInput is an input type that accepts BotVersionLocaleSpecificationArray and BotVersionLocaleSpecificationArrayOutput values.
 // You can construct a concrete instance of `BotVersionLocaleSpecificationArrayInput` via:
 //
-//          BotVersionLocaleSpecificationArray{ BotVersionLocaleSpecificationArgs{...} }
+//	BotVersionLocaleSpecificationArray{ BotVersionLocaleSpecificationArgs{...} }
 type BotVersionLocaleSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -8448,7 +8448,7 @@ type BotVoiceSettings struct {
 // BotVoiceSettingsInput is an input type that accepts BotVoiceSettingsArgs and BotVoiceSettingsOutput values.
 // You can construct a concrete instance of `BotVoiceSettingsInput` via:
 //
-//          BotVoiceSettingsArgs{...}
+//	BotVoiceSettingsArgs{...}
 type BotVoiceSettingsInput interface {
 	pulumi.Input
 
@@ -8485,11 +8485,11 @@ func (i BotVoiceSettingsArgs) ToBotVoiceSettingsPtrOutputWithContext(ctx context
 // BotVoiceSettingsPtrInput is an input type that accepts BotVoiceSettingsArgs, BotVoiceSettingsPtr and BotVoiceSettingsPtrOutput values.
 // You can construct a concrete instance of `BotVoiceSettingsPtrInput` via:
 //
-//          BotVoiceSettingsArgs{...}
+//	        BotVoiceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotVoiceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8594,7 +8594,7 @@ type BotWaitAndContinueSpecification struct {
 // BotWaitAndContinueSpecificationInput is an input type that accepts BotWaitAndContinueSpecificationArgs and BotWaitAndContinueSpecificationOutput values.
 // You can construct a concrete instance of `BotWaitAndContinueSpecificationInput` via:
 //
-//          BotWaitAndContinueSpecificationArgs{...}
+//	BotWaitAndContinueSpecificationArgs{...}
 type BotWaitAndContinueSpecificationInput interface {
 	pulumi.Input
 
@@ -8637,11 +8637,11 @@ func (i BotWaitAndContinueSpecificationArgs) ToBotWaitAndContinueSpecificationPt
 // BotWaitAndContinueSpecificationPtrInput is an input type that accepts BotWaitAndContinueSpecificationArgs, BotWaitAndContinueSpecificationPtr and BotWaitAndContinueSpecificationPtrOutput values.
 // You can construct a concrete instance of `BotWaitAndContinueSpecificationPtrInput` via:
 //
-//          BotWaitAndContinueSpecificationArgs{...}
+//	        BotWaitAndContinueSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BotWaitAndContinueSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -8786,7 +8786,7 @@ type DataPrivacyProperties struct {
 // DataPrivacyPropertiesInput is an input type that accepts DataPrivacyPropertiesArgs and DataPrivacyPropertiesOutput values.
 // You can construct a concrete instance of `DataPrivacyPropertiesInput` via:
 //
-//          DataPrivacyPropertiesArgs{...}
+//	DataPrivacyPropertiesArgs{...}
 type DataPrivacyPropertiesInput interface {
 	pulumi.Input
 
@@ -8870,7 +8870,7 @@ type ResourcePolicyPolicy struct {
 // ResourcePolicyPolicyInput is an input type that accepts ResourcePolicyPolicyArgs and ResourcePolicyPolicyOutput values.
 // You can construct a concrete instance of `ResourcePolicyPolicyInput` via:
 //
-//          ResourcePolicyPolicyArgs{...}
+//	ResourcePolicyPolicyArgs{...}
 type ResourcePolicyPolicyInput interface {
 	pulumi.Input
 
@@ -8942,7 +8942,7 @@ type SentimentAnalysisSettingsProperties struct {
 // SentimentAnalysisSettingsPropertiesInput is an input type that accepts SentimentAnalysisSettingsPropertiesArgs and SentimentAnalysisSettingsPropertiesOutput values.
 // You can construct a concrete instance of `SentimentAnalysisSettingsPropertiesInput` via:
 //
-//          SentimentAnalysisSettingsPropertiesArgs{...}
+//	SentimentAnalysisSettingsPropertiesArgs{...}
 type SentimentAnalysisSettingsPropertiesInput interface {
 	pulumi.Input
 
@@ -8979,11 +8979,11 @@ func (i SentimentAnalysisSettingsPropertiesArgs) ToSentimentAnalysisSettingsProp
 // SentimentAnalysisSettingsPropertiesPtrInput is an input type that accepts SentimentAnalysisSettingsPropertiesArgs, SentimentAnalysisSettingsPropertiesPtr and SentimentAnalysisSettingsPropertiesPtrOutput values.
 // You can construct a concrete instance of `SentimentAnalysisSettingsPropertiesPtrInput` via:
 //
-//          SentimentAnalysisSettingsPropertiesArgs{...}
+//	        SentimentAnalysisSettingsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SentimentAnalysisSettingsPropertiesPtrInput interface {
 	pulumi.Input
 

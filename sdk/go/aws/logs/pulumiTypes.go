@@ -21,7 +21,7 @@ type LogGroupTag struct {
 // LogGroupTagInput is an input type that accepts LogGroupTagArgs and LogGroupTagOutput values.
 // You can construct a concrete instance of `LogGroupTagInput` via:
 //
-//          LogGroupTagArgs{...}
+//	LogGroupTagArgs{...}
 type LogGroupTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i LogGroupTagArgs) ToLogGroupTagOutputWithContext(ctx context.Context) Log
 // LogGroupTagArrayInput is an input type that accepts LogGroupTagArray and LogGroupTagArrayOutput values.
 // You can construct a concrete instance of `LogGroupTagArrayInput` via:
 //
-//          LogGroupTagArray{ LogGroupTagArgs{...} }
+//	LogGroupTagArray{ LogGroupTagArgs{...} }
 type LogGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -129,7 +129,7 @@ type MetricFilterMetricTransformation struct {
 // MetricFilterMetricTransformationInput is an input type that accepts MetricFilterMetricTransformationArgs and MetricFilterMetricTransformationOutput values.
 // You can construct a concrete instance of `MetricFilterMetricTransformationInput` via:
 //
-//          MetricFilterMetricTransformationArgs{...}
+//	MetricFilterMetricTransformationArgs{...}
 type MetricFilterMetricTransformationInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ func (i MetricFilterMetricTransformationArgs) ToMetricFilterMetricTransformation
 // MetricFilterMetricTransformationArrayInput is an input type that accepts MetricFilterMetricTransformationArray and MetricFilterMetricTransformationArrayOutput values.
 // You can construct a concrete instance of `MetricFilterMetricTransformationArrayInput` via:
 //
-//          MetricFilterMetricTransformationArray{ MetricFilterMetricTransformationArgs{...} }
+//	MetricFilterMetricTransformationArray{ MetricFilterMetricTransformationArgs{...} }
 type MetricFilterMetricTransformationArrayInput interface {
 	pulumi.Input
 

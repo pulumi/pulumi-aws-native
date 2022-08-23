@@ -140,7 +140,7 @@ func (o ConfigBandwidthUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ConfigBandwidthUnitsInput is an input type that accepts ConfigBandwidthUnitsArgs and ConfigBandwidthUnitsOutput values.
 // You can construct a concrete instance of `ConfigBandwidthUnitsInput` via:
 //
-//          ConfigBandwidthUnitsArgs{...}
+//	ConfigBandwidthUnitsArgs{...}
 type ConfigBandwidthUnitsInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o ConfigEirpUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // ConfigEirpUnitsInput is an input type that accepts ConfigEirpUnitsArgs and ConfigEirpUnitsOutput values.
 // You can construct a concrete instance of `ConfigEirpUnitsInput` via:
 //
-//          ConfigEirpUnitsArgs{...}
+//	ConfigEirpUnitsArgs{...}
 type ConfigEirpUnitsInput interface {
 	pulumi.Input
 
@@ -468,7 +468,7 @@ func (o ConfigFrequencyUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ConfigFrequencyUnitsInput is an input type that accepts ConfigFrequencyUnitsArgs and ConfigFrequencyUnitsOutput values.
 // You can construct a concrete instance of `ConfigFrequencyUnitsInput` via:
 //
-//          ConfigFrequencyUnitsArgs{...}
+//	ConfigFrequencyUnitsArgs{...}
 type ConfigFrequencyUnitsInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (o ConfigPolarizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ConfigPolarizationInput is an input type that accepts ConfigPolarizationArgs and ConfigPolarizationOutput values.
 // You can construct a concrete instance of `ConfigPolarizationInput` via:
 //
-//          ConfigPolarizationArgs{...}
+//	ConfigPolarizationArgs{...}
 type ConfigPolarizationInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (o ConfigTrackingConfigAutotrackPtrOutput) ToStringPtrOutputWithContext(ctx
 // ConfigTrackingConfigAutotrackInput is an input type that accepts ConfigTrackingConfigAutotrackArgs and ConfigTrackingConfigAutotrackOutput values.
 // You can construct a concrete instance of `ConfigTrackingConfigAutotrackInput` via:
 //
-//          ConfigTrackingConfigAutotrackArgs{...}
+//	ConfigTrackingConfigAutotrackArgs{...}
 type ConfigTrackingConfigAutotrackInput interface {
 	pulumi.Input
 

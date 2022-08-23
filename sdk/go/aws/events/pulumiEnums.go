@@ -144,7 +144,7 @@ func (o ApiDestinationHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // ApiDestinationHttpMethodInput is an input type that accepts ApiDestinationHttpMethodArgs and ApiDestinationHttpMethodOutput values.
 // You can construct a concrete instance of `ApiDestinationHttpMethodInput` via:
 //
-//          ApiDestinationHttpMethodArgs{...}
+//	ApiDestinationHttpMethodArgs{...}
 type ApiDestinationHttpMethodInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o ConnectionAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // ConnectionAuthorizationTypeInput is an input type that accepts ConnectionAuthorizationTypeArgs and ConnectionAuthorizationTypeOutput values.
 // You can construct a concrete instance of `ConnectionAuthorizationTypeInput` via:
 //
-//          ConnectionAuthorizationTypeArgs{...}
+//	ConnectionAuthorizationTypeArgs{...}
 type ConnectionAuthorizationTypeInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToStringPtrOutputWithConte
 // ConnectionOAuthParametersHttpMethodInput is an input type that accepts ConnectionOAuthParametersHttpMethodArgs and ConnectionOAuthParametersHttpMethodOutput values.
 // You can construct a concrete instance of `ConnectionOAuthParametersHttpMethodInput` via:
 //
-//          ConnectionOAuthParametersHttpMethodArgs{...}
+//	ConnectionOAuthParametersHttpMethodArgs{...}
 type ConnectionOAuthParametersHttpMethodInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o EndpointReplicationStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // EndpointReplicationStateInput is an input type that accepts EndpointReplicationStateArgs and EndpointReplicationStateOutput values.
 // You can construct a concrete instance of `EndpointReplicationStateInput` via:
 //
-//          EndpointReplicationStateArgs{...}
+//	EndpointReplicationStateArgs{...}
 type EndpointReplicationStateInput interface {
 	pulumi.Input
 

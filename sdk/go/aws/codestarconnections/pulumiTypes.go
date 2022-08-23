@@ -21,7 +21,7 @@ type ConnectionTag struct {
 // ConnectionTagInput is an input type that accepts ConnectionTagArgs and ConnectionTagOutput values.
 // You can construct a concrete instance of `ConnectionTagInput` via:
 //
-//          ConnectionTagArgs{...}
+//	ConnectionTagArgs{...}
 type ConnectionTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ConnectionTagArgs) ToConnectionTagOutputWithContext(ctx context.Context)
 // ConnectionTagArrayInput is an input type that accepts ConnectionTagArray and ConnectionTagArrayOutput values.
 // You can construct a concrete instance of `ConnectionTagArrayInput` via:
 //
-//          ConnectionTagArray{ ConnectionTagArgs{...} }
+//	ConnectionTagArray{ ConnectionTagArgs{...} }
 type ConnectionTagArrayInput interface {
 	pulumi.Input
 

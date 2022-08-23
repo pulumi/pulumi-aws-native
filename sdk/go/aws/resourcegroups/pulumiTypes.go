@@ -18,7 +18,7 @@ type GroupConfigurationItem struct {
 // GroupConfigurationItemInput is an input type that accepts GroupConfigurationItemArgs and GroupConfigurationItemOutput values.
 // You can construct a concrete instance of `GroupConfigurationItemInput` via:
 //
-//          GroupConfigurationItemArgs{...}
+//	GroupConfigurationItemArgs{...}
 type GroupConfigurationItemInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i GroupConfigurationItemArgs) ToGroupConfigurationItemOutputWithContext(ct
 // GroupConfigurationItemArrayInput is an input type that accepts GroupConfigurationItemArray and GroupConfigurationItemArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationItemArrayInput` via:
 //
-//          GroupConfigurationItemArray{ GroupConfigurationItemArgs{...} }
+//	GroupConfigurationItemArray{ GroupConfigurationItemArgs{...} }
 type GroupConfigurationItemArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type GroupConfigurationParameter struct {
 // GroupConfigurationParameterInput is an input type that accepts GroupConfigurationParameterArgs and GroupConfigurationParameterOutput values.
 // You can construct a concrete instance of `GroupConfigurationParameterInput` via:
 //
-//          GroupConfigurationParameterArgs{...}
+//	GroupConfigurationParameterArgs{...}
 type GroupConfigurationParameterInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutputWith
 // GroupConfigurationParameterArrayInput is an input type that accepts GroupConfigurationParameterArray and GroupConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationParameterArrayInput` via:
 //
-//          GroupConfigurationParameterArray{ GroupConfigurationParameterArgs{...} }
+//	GroupConfigurationParameterArray{ GroupConfigurationParameterArgs{...} }
 type GroupConfigurationParameterArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ type GroupQuery struct {
 // GroupQueryInput is an input type that accepts GroupQueryArgs and GroupQueryOutput values.
 // You can construct a concrete instance of `GroupQueryInput` via:
 //
-//          GroupQueryArgs{...}
+//	GroupQueryArgs{...}
 type GroupQueryInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i GroupQueryArgs) ToGroupQueryPtrOutputWithContext(ctx context.Context) Gr
 // GroupQueryPtrInput is an input type that accepts GroupQueryArgs, GroupQueryPtr and GroupQueryPtrOutput values.
 // You can construct a concrete instance of `GroupQueryPtrInput` via:
 //
-//          GroupQueryArgs{...}
+//	        GroupQueryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupQueryPtrInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ type GroupResourceQuery struct {
 // GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
 // You can construct a concrete instance of `GroupResourceQueryInput` via:
 //
-//          GroupResourceQueryArgs{...}
+//	GroupResourceQueryArgs{...}
 type GroupResourceQueryInput interface {
 	pulumi.Input
 
@@ -417,11 +417,11 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutputWithContext(ctx con
 // GroupResourceQueryPtrInput is an input type that accepts GroupResourceQueryArgs, GroupResourceQueryPtr and GroupResourceQueryPtrOutput values.
 // You can construct a concrete instance of `GroupResourceQueryPtrInput` via:
 //
-//          GroupResourceQueryArgs{...}
+//	        GroupResourceQueryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupResourceQueryPtrInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ type GroupTag struct {
 // GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
 // You can construct a concrete instance of `GroupTagInput` via:
 //
-//          GroupTagArgs{...}
+//	GroupTagArgs{...}
 type GroupTagInput interface {
 	pulumi.Input
 
@@ -557,7 +557,7 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
-//          GroupTagArray{ GroupTagArgs{...} }
+//	GroupTagArray{ GroupTagArgs{...} }
 type GroupTagArrayInput interface {
 	pulumi.Input
 
@@ -629,7 +629,7 @@ type GroupTagFilter struct {
 // GroupTagFilterInput is an input type that accepts GroupTagFilterArgs and GroupTagFilterOutput values.
 // You can construct a concrete instance of `GroupTagFilterInput` via:
 //
-//          GroupTagFilterArgs{...}
+//	GroupTagFilterArgs{...}
 type GroupTagFilterInput interface {
 	pulumi.Input
 
@@ -657,7 +657,7 @@ func (i GroupTagFilterArgs) ToGroupTagFilterOutputWithContext(ctx context.Contex
 // GroupTagFilterArrayInput is an input type that accepts GroupTagFilterArray and GroupTagFilterArrayOutput values.
 // You can construct a concrete instance of `GroupTagFilterArrayInput` via:
 //
-//          GroupTagFilterArray{ GroupTagFilterArgs{...} }
+//	GroupTagFilterArray{ GroupTagFilterArgs{...} }
 type GroupTagFilterArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o AddonResolveConflictsPtrOutput) ToStringPtrOutputWithContext(ctx context
 // AddonResolveConflictsInput is an input type that accepts AddonResolveConflictsArgs and AddonResolveConflictsOutput values.
 // You can construct a concrete instance of `AddonResolveConflictsInput` via:
 //
-//          AddonResolveConflictsArgs{...}
+//	AddonResolveConflictsArgs{...}
 type AddonResolveConflictsInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToStringPtrOutputWithCo
 // ClusterKubernetesNetworkConfigIpFamilyInput is an input type that accepts ClusterKubernetesNetworkConfigIpFamilyArgs and ClusterKubernetesNetworkConfigIpFamilyOutput values.
 // You can construct a concrete instance of `ClusterKubernetesNetworkConfigIpFamilyInput` via:
 //
-//          ClusterKubernetesNetworkConfigIpFamilyArgs{...}
+//	ClusterKubernetesNetworkConfigIpFamilyArgs{...}
 type ClusterKubernetesNetworkConfigIpFamilyInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o IdentityProviderConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // IdentityProviderConfigTypeInput is an input type that accepts IdentityProviderConfigTypeArgs and IdentityProviderConfigTypeOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigTypeInput` via:
 //
-//          IdentityProviderConfigTypeArgs{...}
+//	IdentityProviderConfigTypeArgs{...}
 type IdentityProviderConfigTypeInput interface {
 	pulumi.Input
 

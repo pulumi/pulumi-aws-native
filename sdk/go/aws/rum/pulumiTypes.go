@@ -35,7 +35,7 @@ type AppMonitorConfiguration struct {
 // AppMonitorConfigurationInput is an input type that accepts AppMonitorConfigurationArgs and AppMonitorConfigurationOutput values.
 // You can construct a concrete instance of `AppMonitorConfigurationInput` via:
 //
-//          AppMonitorConfigurationArgs{...}
+//	AppMonitorConfigurationArgs{...}
 type AppMonitorConfigurationInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i AppMonitorConfigurationArgs) ToAppMonitorConfigurationPtrOutputWithConte
 // AppMonitorConfigurationPtrInput is an input type that accepts AppMonitorConfigurationArgs, AppMonitorConfigurationPtr and AppMonitorConfigurationPtrOutput values.
 // You can construct a concrete instance of `AppMonitorConfigurationPtrInput` via:
 //
-//          AppMonitorConfigurationArgs{...}
+//	        AppMonitorConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppMonitorConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -313,7 +313,7 @@ type AppMonitorTag struct {
 // AppMonitorTagInput is an input type that accepts AppMonitorTagArgs and AppMonitorTagOutput values.
 // You can construct a concrete instance of `AppMonitorTagInput` via:
 //
-//          AppMonitorTagArgs{...}
+//	AppMonitorTagArgs{...}
 type AppMonitorTagInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ func (i AppMonitorTagArgs) ToAppMonitorTagOutputWithContext(ctx context.Context)
 // AppMonitorTagArrayInput is an input type that accepts AppMonitorTagArray and AppMonitorTagArrayOutput values.
 // You can construct a concrete instance of `AppMonitorTagArrayInput` via:
 //
-//          AppMonitorTagArray{ AppMonitorTagArgs{...} }
+//	AppMonitorTagArray{ AppMonitorTagArgs{...} }
 type AppMonitorTagArrayInput interface {
 	pulumi.Input
 

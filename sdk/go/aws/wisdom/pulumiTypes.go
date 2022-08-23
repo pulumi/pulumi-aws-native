@@ -17,7 +17,7 @@ type AssistantAssociationAssociationData struct {
 // AssistantAssociationAssociationDataInput is an input type that accepts AssistantAssociationAssociationDataArgs and AssistantAssociationAssociationDataOutput values.
 // You can construct a concrete instance of `AssistantAssociationAssociationDataInput` via:
 //
-//          AssistantAssociationAssociationDataArgs{...}
+//	AssistantAssociationAssociationDataArgs{...}
 type AssistantAssociationAssociationDataInput interface {
 	pulumi.Input
 
@@ -67,7 +67,7 @@ type AssistantAssociationTag struct {
 // AssistantAssociationTagInput is an input type that accepts AssistantAssociationTagArgs and AssistantAssociationTagOutput values.
 // You can construct a concrete instance of `AssistantAssociationTagInput` via:
 //
-//          AssistantAssociationTagArgs{...}
+//	AssistantAssociationTagArgs{...}
 type AssistantAssociationTagInput interface {
 	pulumi.Input
 
@@ -95,7 +95,7 @@ func (i AssistantAssociationTagArgs) ToAssistantAssociationTagOutputWithContext(
 // AssistantAssociationTagArrayInput is an input type that accepts AssistantAssociationTagArray and AssistantAssociationTagArrayOutput values.
 // You can construct a concrete instance of `AssistantAssociationTagArrayInput` via:
 //
-//          AssistantAssociationTagArray{ AssistantAssociationTagArgs{...} }
+//	AssistantAssociationTagArray{ AssistantAssociationTagArgs{...} }
 type AssistantAssociationTagArrayInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ type AssistantServerSideEncryptionConfiguration struct {
 // AssistantServerSideEncryptionConfigurationInput is an input type that accepts AssistantServerSideEncryptionConfigurationArgs and AssistantServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `AssistantServerSideEncryptionConfigurationInput` via:
 //
-//          AssistantServerSideEncryptionConfigurationArgs{...}
+//	AssistantServerSideEncryptionConfigurationArgs{...}
 type AssistantServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -201,11 +201,11 @@ func (i AssistantServerSideEncryptionConfigurationArgs) ToAssistantServerSideEnc
 // AssistantServerSideEncryptionConfigurationPtrInput is an input type that accepts AssistantServerSideEncryptionConfigurationArgs, AssistantServerSideEncryptionConfigurationPtr and AssistantServerSideEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `AssistantServerSideEncryptionConfigurationPtrInput` via:
 //
-//          AssistantServerSideEncryptionConfigurationArgs{...}
+//	        AssistantServerSideEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssistantServerSideEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -300,7 +300,7 @@ type AssistantTag struct {
 // AssistantTagInput is an input type that accepts AssistantTagArgs and AssistantTagOutput values.
 // You can construct a concrete instance of `AssistantTagInput` via:
 //
-//          AssistantTagArgs{...}
+//	AssistantTagArgs{...}
 type AssistantTagInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ func (i AssistantTagArgs) ToAssistantTagOutputWithContext(ctx context.Context) A
 // AssistantTagArrayInput is an input type that accepts AssistantTagArray and AssistantTagArrayOutput values.
 // You can construct a concrete instance of `AssistantTagArrayInput` via:
 //
-//          AssistantTagArray{ AssistantTagArgs{...} }
+//	AssistantTagArray{ AssistantTagArgs{...} }
 type AssistantTagArrayInput interface {
 	pulumi.Input
 
@@ -400,7 +400,7 @@ type KnowledgeBaseAppIntegrationsConfiguration struct {
 // KnowledgeBaseAppIntegrationsConfigurationInput is an input type that accepts KnowledgeBaseAppIntegrationsConfigurationArgs and KnowledgeBaseAppIntegrationsConfigurationOutput values.
 // You can construct a concrete instance of `KnowledgeBaseAppIntegrationsConfigurationInput` via:
 //
-//          KnowledgeBaseAppIntegrationsConfigurationArgs{...}
+//	KnowledgeBaseAppIntegrationsConfigurationArgs{...}
 type KnowledgeBaseAppIntegrationsConfigurationInput interface {
 	pulumi.Input
 
@@ -436,11 +436,11 @@ func (i KnowledgeBaseAppIntegrationsConfigurationArgs) ToKnowledgeBaseAppIntegra
 // KnowledgeBaseAppIntegrationsConfigurationPtrInput is an input type that accepts KnowledgeBaseAppIntegrationsConfigurationArgs, KnowledgeBaseAppIntegrationsConfigurationPtr and KnowledgeBaseAppIntegrationsConfigurationPtrOutput values.
 // You can construct a concrete instance of `KnowledgeBaseAppIntegrationsConfigurationPtrInput` via:
 //
-//          KnowledgeBaseAppIntegrationsConfigurationArgs{...}
+//	        KnowledgeBaseAppIntegrationsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KnowledgeBaseAppIntegrationsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ type KnowledgeBaseRenderingConfiguration struct {
 // KnowledgeBaseRenderingConfigurationInput is an input type that accepts KnowledgeBaseRenderingConfigurationArgs and KnowledgeBaseRenderingConfigurationOutput values.
 // You can construct a concrete instance of `KnowledgeBaseRenderingConfigurationInput` via:
 //
-//          KnowledgeBaseRenderingConfigurationArgs{...}
+//	KnowledgeBaseRenderingConfigurationArgs{...}
 type KnowledgeBaseRenderingConfigurationInput interface {
 	pulumi.Input
 
@@ -582,11 +582,11 @@ func (i KnowledgeBaseRenderingConfigurationArgs) ToKnowledgeBaseRenderingConfigu
 // KnowledgeBaseRenderingConfigurationPtrInput is an input type that accepts KnowledgeBaseRenderingConfigurationArgs, KnowledgeBaseRenderingConfigurationPtr and KnowledgeBaseRenderingConfigurationPtrOutput values.
 // You can construct a concrete instance of `KnowledgeBaseRenderingConfigurationPtrInput` via:
 //
-//          KnowledgeBaseRenderingConfigurationArgs{...}
+//	        KnowledgeBaseRenderingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KnowledgeBaseRenderingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -680,7 +680,7 @@ type KnowledgeBaseServerSideEncryptionConfiguration struct {
 // KnowledgeBaseServerSideEncryptionConfigurationInput is an input type that accepts KnowledgeBaseServerSideEncryptionConfigurationArgs and KnowledgeBaseServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `KnowledgeBaseServerSideEncryptionConfigurationInput` via:
 //
-//          KnowledgeBaseServerSideEncryptionConfigurationArgs{...}
+//	KnowledgeBaseServerSideEncryptionConfigurationArgs{...}
 type KnowledgeBaseServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -715,11 +715,11 @@ func (i KnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseServe
 // KnowledgeBaseServerSideEncryptionConfigurationPtrInput is an input type that accepts KnowledgeBaseServerSideEncryptionConfigurationArgs, KnowledgeBaseServerSideEncryptionConfigurationPtr and KnowledgeBaseServerSideEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `KnowledgeBaseServerSideEncryptionConfigurationPtrInput` via:
 //
-//          KnowledgeBaseServerSideEncryptionConfigurationArgs{...}
+//	        KnowledgeBaseServerSideEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KnowledgeBaseServerSideEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -813,7 +813,7 @@ type KnowledgeBaseSourceConfiguration struct {
 // KnowledgeBaseSourceConfigurationInput is an input type that accepts KnowledgeBaseSourceConfigurationArgs and KnowledgeBaseSourceConfigurationOutput values.
 // You can construct a concrete instance of `KnowledgeBaseSourceConfigurationInput` via:
 //
-//          KnowledgeBaseSourceConfigurationArgs{...}
+//	KnowledgeBaseSourceConfigurationArgs{...}
 type KnowledgeBaseSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -848,11 +848,11 @@ func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfiguration
 // KnowledgeBaseSourceConfigurationPtrInput is an input type that accepts KnowledgeBaseSourceConfigurationArgs, KnowledgeBaseSourceConfigurationPtr and KnowledgeBaseSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `KnowledgeBaseSourceConfigurationPtrInput` via:
 //
-//          KnowledgeBaseSourceConfigurationArgs{...}
+//	        KnowledgeBaseSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KnowledgeBaseSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -949,7 +949,7 @@ type KnowledgeBaseTag struct {
 // KnowledgeBaseTagInput is an input type that accepts KnowledgeBaseTagArgs and KnowledgeBaseTagOutput values.
 // You can construct a concrete instance of `KnowledgeBaseTagInput` via:
 //
-//          KnowledgeBaseTagArgs{...}
+//	KnowledgeBaseTagArgs{...}
 type KnowledgeBaseTagInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ func (i KnowledgeBaseTagArgs) ToKnowledgeBaseTagOutputWithContext(ctx context.Co
 // KnowledgeBaseTagArrayInput is an input type that accepts KnowledgeBaseTagArray and KnowledgeBaseTagArrayOutput values.
 // You can construct a concrete instance of `KnowledgeBaseTagArrayInput` via:
 //
-//          KnowledgeBaseTagArray{ KnowledgeBaseTagArgs{...} }
+//	KnowledgeBaseTagArray{ KnowledgeBaseTagArgs{...} }
 type KnowledgeBaseTagArrayInput interface {
 	pulumi.Input
 

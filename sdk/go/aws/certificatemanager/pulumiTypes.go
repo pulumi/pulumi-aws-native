@@ -17,7 +17,7 @@ type AccountExpiryEventsConfiguration struct {
 // AccountExpiryEventsConfigurationInput is an input type that accepts AccountExpiryEventsConfigurationArgs and AccountExpiryEventsConfigurationOutput values.
 // You can construct a concrete instance of `AccountExpiryEventsConfigurationInput` via:
 //
-//          AccountExpiryEventsConfigurationArgs{...}
+//	AccountExpiryEventsConfigurationArgs{...}
 type AccountExpiryEventsConfigurationInput interface {
 	pulumi.Input
 
@@ -101,7 +101,7 @@ type CertificateDomainValidationOption struct {
 // CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
 // You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
 //
-//          CertificateDomainValidationOptionArgs{...}
+//	CertificateDomainValidationOptionArgs{...}
 type CertificateDomainValidationOptionInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 // CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
 // You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
 //
-//          CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
+//	CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
 type CertificateDomainValidationOptionArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +206,7 @@ type CertificateTag struct {
 // CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
 // You can construct a concrete instance of `CertificateTagInput` via:
 //
-//          CertificateTagArgs{...}
+//	CertificateTagArgs{...}
 type CertificateTagInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Contex
 // CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
 // You can construct a concrete instance of `CertificateTagArrayInput` via:
 //
-//          CertificateTagArray{ CertificateTagArgs{...} }
+//	CertificateTagArray{ CertificateTagArgs{...} }
 type CertificateTagArrayInput interface {
 	pulumi.Input
 

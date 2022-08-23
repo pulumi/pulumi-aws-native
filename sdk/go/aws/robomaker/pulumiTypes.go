@@ -17,7 +17,7 @@ type FleetTags struct {
 // FleetTagsInput is an input type that accepts FleetTagsArgs and FleetTagsOutput values.
 // You can construct a concrete instance of `FleetTagsInput` via:
 //
-//          FleetTagsArgs{...}
+//	FleetTagsArgs{...}
 type FleetTagsInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i FleetTagsArgs) ToFleetTagsPtrOutputWithContext(ctx context.Context) Flee
 // FleetTagsPtrInput is an input type that accepts FleetTagsArgs, FleetTagsPtr and FleetTagsPtrOutput values.
 // You can construct a concrete instance of `FleetTagsPtrInput` via:
 //
-//          FleetTagsArgs{...}
+//	        FleetTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetTagsPtrInput interface {
 	pulumi.Input
 
@@ -142,7 +142,7 @@ type RobotApplicationRobotSoftwareSuite struct {
 // RobotApplicationRobotSoftwareSuiteInput is an input type that accepts RobotApplicationRobotSoftwareSuiteArgs and RobotApplicationRobotSoftwareSuiteOutput values.
 // You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteInput` via:
 //
-//          RobotApplicationRobotSoftwareSuiteArgs{...}
+//	RobotApplicationRobotSoftwareSuiteArgs{...}
 type RobotApplicationRobotSoftwareSuiteInput interface {
 	pulumi.Input
 
@@ -253,7 +253,7 @@ type RobotApplicationSourceConfig struct {
 // RobotApplicationSourceConfigInput is an input type that accepts RobotApplicationSourceConfigArgs and RobotApplicationSourceConfigOutput values.
 // You can construct a concrete instance of `RobotApplicationSourceConfigInput` via:
 //
-//          RobotApplicationSourceConfigArgs{...}
+//	RobotApplicationSourceConfigArgs{...}
 type RobotApplicationSourceConfigInput interface {
 	pulumi.Input
 
@@ -285,7 +285,7 @@ func (i RobotApplicationSourceConfigArgs) ToRobotApplicationSourceConfigOutputWi
 // RobotApplicationSourceConfigArrayInput is an input type that accepts RobotApplicationSourceConfigArray and RobotApplicationSourceConfigArrayOutput values.
 // You can construct a concrete instance of `RobotApplicationSourceConfigArrayInput` via:
 //
-//          RobotApplicationSourceConfigArray{ RobotApplicationSourceConfigArgs{...} }
+//	RobotApplicationSourceConfigArray{ RobotApplicationSourceConfigArgs{...} }
 type RobotApplicationSourceConfigArrayInput interface {
 	pulumi.Input
 
@@ -363,7 +363,7 @@ type RobotApplicationTags struct {
 // RobotApplicationTagsInput is an input type that accepts RobotApplicationTagsArgs and RobotApplicationTagsOutput values.
 // You can construct a concrete instance of `RobotApplicationTagsInput` via:
 //
-//          RobotApplicationTagsArgs{...}
+//	RobotApplicationTagsArgs{...}
 type RobotApplicationTagsInput interface {
 	pulumi.Input
 
@@ -398,11 +398,11 @@ func (i RobotApplicationTagsArgs) ToRobotApplicationTagsPtrOutputWithContext(ctx
 // RobotApplicationTagsPtrInput is an input type that accepts RobotApplicationTagsArgs, RobotApplicationTagsPtr and RobotApplicationTagsPtrOutput values.
 // You can construct a concrete instance of `RobotApplicationTagsPtrInput` via:
 //
-//          RobotApplicationTagsArgs{...}
+//	        RobotApplicationTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RobotApplicationTagsPtrInput interface {
 	pulumi.Input
 
@@ -484,7 +484,7 @@ type RobotTags struct {
 // RobotTagsInput is an input type that accepts RobotTagsArgs and RobotTagsOutput values.
 // You can construct a concrete instance of `RobotTagsInput` via:
 //
-//          RobotTagsArgs{...}
+//	RobotTagsArgs{...}
 type RobotTagsInput interface {
 	pulumi.Input
 
@@ -519,11 +519,11 @@ func (i RobotTagsArgs) ToRobotTagsPtrOutputWithContext(ctx context.Context) Robo
 // RobotTagsPtrInput is an input type that accepts RobotTagsArgs, RobotTagsPtr and RobotTagsPtrOutput values.
 // You can construct a concrete instance of `RobotTagsPtrInput` via:
 //
-//          RobotTagsArgs{...}
+//	        RobotTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RobotTagsPtrInput interface {
 	pulumi.Input
 
@@ -609,7 +609,7 @@ type SimulationApplicationRenderingEngine struct {
 // SimulationApplicationRenderingEngineInput is an input type that accepts SimulationApplicationRenderingEngineArgs and SimulationApplicationRenderingEngineOutput values.
 // You can construct a concrete instance of `SimulationApplicationRenderingEngineInput` via:
 //
-//          SimulationApplicationRenderingEngineArgs{...}
+//	SimulationApplicationRenderingEngineArgs{...}
 type SimulationApplicationRenderingEngineInput interface {
 	pulumi.Input
 
@@ -648,11 +648,11 @@ func (i SimulationApplicationRenderingEngineArgs) ToSimulationApplicationRenderi
 // SimulationApplicationRenderingEnginePtrInput is an input type that accepts SimulationApplicationRenderingEngineArgs, SimulationApplicationRenderingEnginePtr and SimulationApplicationRenderingEnginePtrOutput values.
 // You can construct a concrete instance of `SimulationApplicationRenderingEnginePtrInput` via:
 //
-//          SimulationApplicationRenderingEngineArgs{...}
+//	        SimulationApplicationRenderingEngineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SimulationApplicationRenderingEnginePtrInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ type SimulationApplicationRobotSoftwareSuite struct {
 // SimulationApplicationRobotSoftwareSuiteInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteArgs and SimulationApplicationRobotSoftwareSuiteOutput values.
 // You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuiteInput` via:
 //
-//          SimulationApplicationRobotSoftwareSuiteArgs{...}
+//	SimulationApplicationRobotSoftwareSuiteArgs{...}
 type SimulationApplicationRobotSoftwareSuiteInput interface {
 	pulumi.Input
 
@@ -880,7 +880,7 @@ type SimulationApplicationSimulationSoftwareSuite struct {
 // SimulationApplicationSimulationSoftwareSuiteInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteArgs and SimulationApplicationSimulationSoftwareSuiteOutput values.
 // You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuiteInput` via:
 //
-//          SimulationApplicationSimulationSoftwareSuiteArgs{...}
+//	SimulationApplicationSimulationSoftwareSuiteArgs{...}
 type SimulationApplicationSimulationSoftwareSuiteInput interface {
 	pulumi.Input
 
@@ -994,7 +994,7 @@ type SimulationApplicationSourceConfig struct {
 // SimulationApplicationSourceConfigInput is an input type that accepts SimulationApplicationSourceConfigArgs and SimulationApplicationSourceConfigOutput values.
 // You can construct a concrete instance of `SimulationApplicationSourceConfigInput` via:
 //
-//          SimulationApplicationSourceConfigArgs{...}
+//	SimulationApplicationSourceConfigArgs{...}
 type SimulationApplicationSourceConfigInput interface {
 	pulumi.Input
 
@@ -1027,7 +1027,7 @@ func (i SimulationApplicationSourceConfigArgs) ToSimulationApplicationSourceConf
 // SimulationApplicationSourceConfigArrayInput is an input type that accepts SimulationApplicationSourceConfigArray and SimulationApplicationSourceConfigArrayOutput values.
 // You can construct a concrete instance of `SimulationApplicationSourceConfigArrayInput` via:
 //
-//          SimulationApplicationSourceConfigArray{ SimulationApplicationSourceConfigArgs{...} }
+//	SimulationApplicationSourceConfigArray{ SimulationApplicationSourceConfigArgs{...} }
 type SimulationApplicationSourceConfigArrayInput interface {
 	pulumi.Input
 
@@ -1108,7 +1108,7 @@ type SimulationApplicationTags struct {
 // SimulationApplicationTagsInput is an input type that accepts SimulationApplicationTagsArgs and SimulationApplicationTagsOutput values.
 // You can construct a concrete instance of `SimulationApplicationTagsInput` via:
 //
-//          SimulationApplicationTagsArgs{...}
+//	SimulationApplicationTagsArgs{...}
 type SimulationApplicationTagsInput interface {
 	pulumi.Input
 
@@ -1143,11 +1143,11 @@ func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsPtrOutputWithC
 // SimulationApplicationTagsPtrInput is an input type that accepts SimulationApplicationTagsArgs, SimulationApplicationTagsPtr and SimulationApplicationTagsPtrOutput values.
 // You can construct a concrete instance of `SimulationApplicationTagsPtrInput` via:
 //
-//          SimulationApplicationTagsArgs{...}
+//	        SimulationApplicationTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SimulationApplicationTagsPtrInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o AuthorizerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // AuthorizerStatusInput is an input type that accepts AuthorizerStatusArgs and AuthorizerStatusOutput values.
 // You can construct a concrete instance of `AuthorizerStatusInput` via:
 //
-//          AuthorizerStatusArgs{...}
+//	AuthorizerStatusArgs{...}
 type AuthorizerStatusInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o CertificateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // CertificateModeInput is an input type that accepts CertificateModeArgs and CertificateModeOutput values.
 // You can construct a concrete instance of `CertificateModeInput` via:
 //
-//          CertificateModeArgs{...}
+//	CertificateModeArgs{...}
 type CertificateModeInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o CertificateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // CertificateStatusInput is an input type that accepts CertificateStatusArgs and CertificateStatusOutput values.
 // You can construct a concrete instance of `CertificateStatusInput` via:
 //
-//          CertificateStatusArgs{...}
+//	CertificateStatusArgs{...}
 type CertificateStatusInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ func (o CustomMetricMetricTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // CustomMetricMetricTypeInput is an input type that accepts CustomMetricMetricTypeArgs and CustomMetricMetricTypeOutput values.
 // You can construct a concrete instance of `CustomMetricMetricTypeInput` via:
 //
-//          CustomMetricMetricTypeArgs{...}
+//	CustomMetricMetricTypeArgs{...}
 type CustomMetricMetricTypeInput interface {
 	pulumi.Input
 
@@ -801,7 +801,7 @@ func (o DimensionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // DimensionTypeInput is an input type that accepts DimensionTypeArgs and DimensionTypeOutput values.
 // You can construct a concrete instance of `DimensionTypeInput` via:
 //
-//          DimensionTypeArgs{...}
+//	DimensionTypeArgs{...}
 type DimensionTypeInput interface {
 	pulumi.Input
 
@@ -1147,7 +1147,7 @@ func (o DomainConfigurationServiceTypePtrOutput) ToStringPtrOutputWithContext(ct
 // DomainConfigurationServiceTypeInput is an input type that accepts DomainConfigurationServiceTypeArgs and DomainConfigurationServiceTypeOutput values.
 // You can construct a concrete instance of `DomainConfigurationServiceTypeInput` via:
 //
-//          DomainConfigurationServiceTypeArgs{...}
+//	DomainConfigurationServiceTypeArgs{...}
 type DomainConfigurationServiceTypeInput interface {
 	pulumi.Input
 
@@ -1311,7 +1311,7 @@ func (o DomainConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 // DomainConfigurationStatusInput is an input type that accepts DomainConfigurationStatusArgs and DomainConfigurationStatusOutput values.
 // You can construct a concrete instance of `DomainConfigurationStatusInput` via:
 //
-//          DomainConfigurationStatusArgs{...}
+//	DomainConfigurationStatusArgs{...}
 type DomainConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -1474,7 +1474,7 @@ func (o JobTemplateActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // JobTemplateActionInput is an input type that accepts JobTemplateActionArgs and JobTemplateActionOutput values.
 // You can construct a concrete instance of `JobTemplateActionInput` via:
 //
-//          JobTemplateActionArgs{...}
+//	JobTemplateActionArgs{...}
 type JobTemplateActionInput interface {
 	pulumi.Input
 
@@ -1640,7 +1640,7 @@ func (o JobTemplateFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // JobTemplateFailureTypeInput is an input type that accepts JobTemplateFailureTypeArgs and JobTemplateFailureTypeOutput values.
 // You can construct a concrete instance of `JobTemplateFailureTypeInput` via:
 //
-//          JobTemplateFailureTypeArgs{...}
+//	JobTemplateFailureTypeArgs{...}
 type JobTemplateFailureTypeInput interface {
 	pulumi.Input
 
@@ -1805,7 +1805,7 @@ func (o JobTemplateJobRetryFailureTypePtrOutput) ToStringPtrOutputWithContext(ct
 // JobTemplateJobRetryFailureTypeInput is an input type that accepts JobTemplateJobRetryFailureTypeArgs and JobTemplateJobRetryFailureTypeOutput values.
 // You can construct a concrete instance of `JobTemplateJobRetryFailureTypeInput` via:
 //
-//          JobTemplateJobRetryFailureTypeArgs{...}
+//	JobTemplateJobRetryFailureTypeArgs{...}
 type JobTemplateJobRetryFailureTypeInput interface {
 	pulumi.Input
 
@@ -1973,7 +1973,7 @@ func (o LoggingDefaultLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // LoggingDefaultLogLevelInput is an input type that accepts LoggingDefaultLogLevelArgs and LoggingDefaultLogLevelOutput values.
 // You can construct a concrete instance of `LoggingDefaultLogLevelInput` via:
 //
-//          LoggingDefaultLogLevelArgs{...}
+//	LoggingDefaultLogLevelArgs{...}
 type LoggingDefaultLogLevelInput interface {
 	pulumi.Input
 
@@ -2008,7 +2008,7 @@ func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingDefaultLogLevelPtrOutput)
 }
 
-//  Specifies which types of information are logged.
+// Specifies which types of information are logged.
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
 const (
@@ -2140,7 +2140,7 @@ func (o MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput) ToStringPtrOutp
 // MitigationActionEnableIoTLoggingParamsLogLevelInput is an input type that accepts MitigationActionEnableIoTLoggingParamsLogLevelArgs and MitigationActionEnableIoTLoggingParamsLogLevelOutput values.
 // You can construct a concrete instance of `MitigationActionEnableIoTLoggingParamsLogLevelInput` via:
 //
-//          MitigationActionEnableIoTLoggingParamsLogLevelArgs{...}
+//	MitigationActionEnableIoTLoggingParamsLogLevelArgs{...}
 type MitigationActionEnableIoTLoggingParamsLogLevelInput interface {
 	pulumi.Input
 
@@ -2303,7 +2303,7 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput) 
 // MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput is an input type that accepts MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameArgs and MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput values.
 // You can construct a concrete instance of `MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput` via:
 //
-//          MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameArgs{...}
+//	MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameArgs{...}
 type MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput interface {
 	pulumi.Input
 
@@ -2466,7 +2466,7 @@ func (o MitigationActionUpdateCACertificateParamsActionPtrOutput) ToStringPtrOut
 // MitigationActionUpdateCACertificateParamsActionInput is an input type that accepts MitigationActionUpdateCACertificateParamsActionArgs and MitigationActionUpdateCACertificateParamsActionOutput values.
 // You can construct a concrete instance of `MitigationActionUpdateCACertificateParamsActionInput` via:
 //
-//          MitigationActionUpdateCACertificateParamsActionArgs{...}
+//	MitigationActionUpdateCACertificateParamsActionArgs{...}
 type MitigationActionUpdateCACertificateParamsActionInput interface {
 	pulumi.Input
 
@@ -2629,7 +2629,7 @@ func (o MitigationActionUpdateDeviceCertificateParamsActionPtrOutput) ToStringPt
 // MitigationActionUpdateDeviceCertificateParamsActionInput is an input type that accepts MitigationActionUpdateDeviceCertificateParamsActionArgs and MitigationActionUpdateDeviceCertificateParamsActionOutput values.
 // You can construct a concrete instance of `MitigationActionUpdateDeviceCertificateParamsActionInput` via:
 //
-//          MitigationActionUpdateDeviceCertificateParamsActionArgs{...}
+//	MitigationActionUpdateDeviceCertificateParamsActionArgs{...}
 type MitigationActionUpdateDeviceCertificateParamsActionInput interface {
 	pulumi.Input
 
@@ -2797,7 +2797,7 @@ func (o ResourceSpecificLoggingLogLevelPtrOutput) ToStringPtrOutputWithContext(c
 // ResourceSpecificLoggingLogLevelInput is an input type that accepts ResourceSpecificLoggingLogLevelArgs and ResourceSpecificLoggingLogLevelOutput values.
 // You can construct a concrete instance of `ResourceSpecificLoggingLogLevelInput` via:
 //
-//          ResourceSpecificLoggingLogLevelArgs{...}
+//	ResourceSpecificLoggingLogLevelArgs{...}
 type ResourceSpecificLoggingLogLevelInput interface {
 	pulumi.Input
 
@@ -2964,7 +2964,7 @@ func (o ResourceSpecificLoggingTargetTypePtrOutput) ToStringPtrOutputWithContext
 // ResourceSpecificLoggingTargetTypeInput is an input type that accepts ResourceSpecificLoggingTargetTypeArgs and ResourceSpecificLoggingTargetTypeOutput values.
 // You can construct a concrete instance of `ResourceSpecificLoggingTargetTypeInput` via:
 //
-//          ResourceSpecificLoggingTargetTypeArgs{...}
+//	ResourceSpecificLoggingTargetTypeArgs{...}
 type ResourceSpecificLoggingTargetTypeInput interface {
 	pulumi.Input
 
@@ -3134,7 +3134,7 @@ func (o ScheduledAuditDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ScheduledAuditDayOfWeekInput is an input type that accepts ScheduledAuditDayOfWeekArgs and ScheduledAuditDayOfWeekOutput values.
 // You can construct a concrete instance of `ScheduledAuditDayOfWeekInput` via:
 //
-//          ScheduledAuditDayOfWeekArgs{...}
+//	ScheduledAuditDayOfWeekArgs{...}
 type ScheduledAuditDayOfWeekInput interface {
 	pulumi.Input
 
@@ -3301,7 +3301,7 @@ func (o ScheduledAuditFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ScheduledAuditFrequencyInput is an input type that accepts ScheduledAuditFrequencyArgs and ScheduledAuditFrequencyOutput values.
 // You can construct a concrete instance of `ScheduledAuditFrequencyInput` via:
 //
-//          ScheduledAuditFrequencyArgs{...}
+//	ScheduledAuditFrequencyArgs{...}
 type ScheduledAuditFrequencyInput interface {
 	pulumi.Input
 
@@ -3474,7 +3474,7 @@ func (o SecurityProfileBehaviorCriteriaComparisonOperatorPtrOutput) ToStringPtrO
 // SecurityProfileBehaviorCriteriaComparisonOperatorInput is an input type that accepts SecurityProfileBehaviorCriteriaComparisonOperatorArgs and SecurityProfileBehaviorCriteriaComparisonOperatorOutput values.
 // You can construct a concrete instance of `SecurityProfileBehaviorCriteriaComparisonOperatorInput` via:
 //
-//          SecurityProfileBehaviorCriteriaComparisonOperatorArgs{...}
+//	SecurityProfileBehaviorCriteriaComparisonOperatorArgs{...}
 type SecurityProfileBehaviorCriteriaComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -3640,7 +3640,7 @@ func (o SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrOutput) T
 // SecurityProfileMachineLearningDetectionConfigConfidenceLevelInput is an input type that accepts SecurityProfileMachineLearningDetectionConfigConfidenceLevelArgs and SecurityProfileMachineLearningDetectionConfigConfidenceLevelOutput values.
 // You can construct a concrete instance of `SecurityProfileMachineLearningDetectionConfigConfidenceLevelInput` via:
 //
-//          SecurityProfileMachineLearningDetectionConfigConfidenceLevelArgs{...}
+//	SecurityProfileMachineLearningDetectionConfigConfidenceLevelArgs{...}
 type SecurityProfileMachineLearningDetectionConfigConfidenceLevelInput interface {
 	pulumi.Input
 
@@ -3805,7 +3805,7 @@ func (o SecurityProfileMetricDimensionOperatorPtrOutput) ToStringPtrOutputWithCo
 // SecurityProfileMetricDimensionOperatorInput is an input type that accepts SecurityProfileMetricDimensionOperatorArgs and SecurityProfileMetricDimensionOperatorOutput values.
 // You can construct a concrete instance of `SecurityProfileMetricDimensionOperatorInput` via:
 //
-//          SecurityProfileMetricDimensionOperatorArgs{...}
+//	SecurityProfileMetricDimensionOperatorArgs{...}
 type SecurityProfileMetricDimensionOperatorInput interface {
 	pulumi.Input
 
@@ -3980,7 +3980,7 @@ func (o SecurityProfileStatisticalThresholdStatisticPtrOutput) ToStringPtrOutput
 // SecurityProfileStatisticalThresholdStatisticInput is an input type that accepts SecurityProfileStatisticalThresholdStatisticArgs and SecurityProfileStatisticalThresholdStatisticOutput values.
 // You can construct a concrete instance of `SecurityProfileStatisticalThresholdStatisticInput` via:
 //
-//          SecurityProfileStatisticalThresholdStatisticArgs{...}
+//	SecurityProfileStatisticalThresholdStatisticArgs{...}
 type SecurityProfileStatisticalThresholdStatisticInput interface {
 	pulumi.Input
 
@@ -4150,7 +4150,7 @@ func (o TopicRuleCannedAccessControlListPtrOutput) ToStringPtrOutputWithContext(
 // TopicRuleCannedAccessControlListInput is an input type that accepts TopicRuleCannedAccessControlListArgs and TopicRuleCannedAccessControlListOutput values.
 // You can construct a concrete instance of `TopicRuleCannedAccessControlListInput` via:
 //
-//          TopicRuleCannedAccessControlListArgs{...}
+//	TopicRuleCannedAccessControlListArgs{...}
 type TopicRuleCannedAccessControlListInput interface {
 	pulumi.Input
 
@@ -4315,7 +4315,7 @@ func (o TopicRuleDestinationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 // TopicRuleDestinationStatusInput is an input type that accepts TopicRuleDestinationStatusArgs and TopicRuleDestinationStatusOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationStatusInput` via:
 //
-//          TopicRuleDestinationStatusArgs{...}
+//	TopicRuleDestinationStatusArgs{...}
 type TopicRuleDestinationStatusInput interface {
 	pulumi.Input
 

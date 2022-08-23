@@ -17,7 +17,7 @@ type BillingGroupAccountGrouping struct {
 // BillingGroupAccountGroupingInput is an input type that accepts BillingGroupAccountGroupingArgs and BillingGroupAccountGroupingOutput values.
 // You can construct a concrete instance of `BillingGroupAccountGroupingInput` via:
 //
-//          BillingGroupAccountGroupingArgs{...}
+//	BillingGroupAccountGroupingArgs{...}
 type BillingGroupAccountGroupingInput interface {
 	pulumi.Input
 
@@ -100,7 +100,7 @@ type BillingGroupComputationPreference struct {
 // BillingGroupComputationPreferenceInput is an input type that accepts BillingGroupComputationPreferenceArgs and BillingGroupComputationPreferenceOutput values.
 // You can construct a concrete instance of `BillingGroupComputationPreferenceInput` via:
 //
-//          BillingGroupComputationPreferenceArgs{...}
+//	BillingGroupComputationPreferenceArgs{...}
 type BillingGroupComputationPreferenceInput interface {
 	pulumi.Input
 
@@ -186,7 +186,7 @@ type BillingGroupTag struct {
 // BillingGroupTagInput is an input type that accepts BillingGroupTagArgs and BillingGroupTagOutput values.
 // You can construct a concrete instance of `BillingGroupTagInput` via:
 //
-//          BillingGroupTagArgs{...}
+//	BillingGroupTagArgs{...}
 type BillingGroupTagInput interface {
 	pulumi.Input
 
@@ -214,7 +214,7 @@ func (i BillingGroupTagArgs) ToBillingGroupTagOutputWithContext(ctx context.Cont
 // BillingGroupTagArrayInput is an input type that accepts BillingGroupTagArray and BillingGroupTagArrayOutput values.
 // You can construct a concrete instance of `BillingGroupTagArrayInput` via:
 //
-//          BillingGroupTagArray{ BillingGroupTagArgs{...} }
+//	BillingGroupTagArray{ BillingGroupTagArgs{...} }
 type BillingGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ type CustomLineItemBillingPeriodRange struct {
 // CustomLineItemBillingPeriodRangeInput is an input type that accepts CustomLineItemBillingPeriodRangeArgs and CustomLineItemBillingPeriodRangeOutput values.
 // You can construct a concrete instance of `CustomLineItemBillingPeriodRangeInput` via:
 //
-//          CustomLineItemBillingPeriodRangeArgs{...}
+//	CustomLineItemBillingPeriodRangeArgs{...}
 type CustomLineItemBillingPeriodRangeInput interface {
 	pulumi.Input
 
@@ -322,11 +322,11 @@ func (i CustomLineItemBillingPeriodRangeArgs) ToCustomLineItemBillingPeriodRange
 // CustomLineItemBillingPeriodRangePtrInput is an input type that accepts CustomLineItemBillingPeriodRangeArgs, CustomLineItemBillingPeriodRangePtr and CustomLineItemBillingPeriodRangePtrOutput values.
 // You can construct a concrete instance of `CustomLineItemBillingPeriodRangePtrInput` via:
 //
-//          CustomLineItemBillingPeriodRangeArgs{...}
+//	        CustomLineItemBillingPeriodRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLineItemBillingPeriodRangePtrInput interface {
 	pulumi.Input
 
@@ -435,7 +435,7 @@ type CustomLineItemChargeDetails struct {
 // CustomLineItemChargeDetailsInput is an input type that accepts CustomLineItemChargeDetailsArgs and CustomLineItemChargeDetailsOutput values.
 // You can construct a concrete instance of `CustomLineItemChargeDetailsInput` via:
 //
-//          CustomLineItemChargeDetailsArgs{...}
+//	CustomLineItemChargeDetailsArgs{...}
 type CustomLineItemChargeDetailsInput interface {
 	pulumi.Input
 
@@ -472,11 +472,11 @@ func (i CustomLineItemChargeDetailsArgs) ToCustomLineItemChargeDetailsPtrOutputW
 // CustomLineItemChargeDetailsPtrInput is an input type that accepts CustomLineItemChargeDetailsArgs, CustomLineItemChargeDetailsPtr and CustomLineItemChargeDetailsPtrOutput values.
 // You can construct a concrete instance of `CustomLineItemChargeDetailsPtrInput` via:
 //
-//          CustomLineItemChargeDetailsArgs{...}
+//	        CustomLineItemChargeDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLineItemChargeDetailsPtrInput interface {
 	pulumi.Input
 
@@ -596,7 +596,7 @@ type CustomLineItemFlatChargeDetails struct {
 // CustomLineItemFlatChargeDetailsInput is an input type that accepts CustomLineItemFlatChargeDetailsArgs and CustomLineItemFlatChargeDetailsOutput values.
 // You can construct a concrete instance of `CustomLineItemFlatChargeDetailsInput` via:
 //
-//          CustomLineItemFlatChargeDetailsArgs{...}
+//	CustomLineItemFlatChargeDetailsArgs{...}
 type CustomLineItemFlatChargeDetailsInput interface {
 	pulumi.Input
 
@@ -631,11 +631,11 @@ func (i CustomLineItemFlatChargeDetailsArgs) ToCustomLineItemFlatChargeDetailsPt
 // CustomLineItemFlatChargeDetailsPtrInput is an input type that accepts CustomLineItemFlatChargeDetailsArgs, CustomLineItemFlatChargeDetailsPtr and CustomLineItemFlatChargeDetailsPtrOutput values.
 // You can construct a concrete instance of `CustomLineItemFlatChargeDetailsPtrInput` via:
 //
-//          CustomLineItemFlatChargeDetailsArgs{...}
+//	        CustomLineItemFlatChargeDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLineItemFlatChargeDetailsPtrInput interface {
 	pulumi.Input
 
@@ -730,7 +730,7 @@ type CustomLineItemPercentageChargeDetails struct {
 // CustomLineItemPercentageChargeDetailsInput is an input type that accepts CustomLineItemPercentageChargeDetailsArgs and CustomLineItemPercentageChargeDetailsOutput values.
 // You can construct a concrete instance of `CustomLineItemPercentageChargeDetailsInput` via:
 //
-//          CustomLineItemPercentageChargeDetailsArgs{...}
+//	CustomLineItemPercentageChargeDetailsArgs{...}
 type CustomLineItemPercentageChargeDetailsInput interface {
 	pulumi.Input
 
@@ -766,11 +766,11 @@ func (i CustomLineItemPercentageChargeDetailsArgs) ToCustomLineItemPercentageCha
 // CustomLineItemPercentageChargeDetailsPtrInput is an input type that accepts CustomLineItemPercentageChargeDetailsArgs, CustomLineItemPercentageChargeDetailsPtr and CustomLineItemPercentageChargeDetailsPtrOutput values.
 // You can construct a concrete instance of `CustomLineItemPercentageChargeDetailsPtrInput` via:
 //
-//          CustomLineItemPercentageChargeDetailsArgs{...}
+//	        CustomLineItemPercentageChargeDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomLineItemPercentageChargeDetailsPtrInput interface {
 	pulumi.Input
 
@@ -878,7 +878,7 @@ type CustomLineItemTag struct {
 // CustomLineItemTagInput is an input type that accepts CustomLineItemTagArgs and CustomLineItemTagOutput values.
 // You can construct a concrete instance of `CustomLineItemTagInput` via:
 //
-//          CustomLineItemTagArgs{...}
+//	CustomLineItemTagArgs{...}
 type CustomLineItemTagInput interface {
 	pulumi.Input
 
@@ -906,7 +906,7 @@ func (i CustomLineItemTagArgs) ToCustomLineItemTagOutputWithContext(ctx context.
 // CustomLineItemTagArrayInput is an input type that accepts CustomLineItemTagArray and CustomLineItemTagArrayOutput values.
 // You can construct a concrete instance of `CustomLineItemTagArrayInput` via:
 //
-//          CustomLineItemTagArray{ CustomLineItemTagArgs{...} }
+//	CustomLineItemTagArray{ CustomLineItemTagArgs{...} }
 type CustomLineItemTagArrayInput interface {
 	pulumi.Input
 
@@ -978,7 +978,7 @@ type PricingPlanTag struct {
 // PricingPlanTagInput is an input type that accepts PricingPlanTagArgs and PricingPlanTagOutput values.
 // You can construct a concrete instance of `PricingPlanTagInput` via:
 //
-//          PricingPlanTagArgs{...}
+//	PricingPlanTagArgs{...}
 type PricingPlanTagInput interface {
 	pulumi.Input
 
@@ -1006,7 +1006,7 @@ func (i PricingPlanTagArgs) ToPricingPlanTagOutputWithContext(ctx context.Contex
 // PricingPlanTagArrayInput is an input type that accepts PricingPlanTagArray and PricingPlanTagArrayOutput values.
 // You can construct a concrete instance of `PricingPlanTagArrayInput` via:
 //
-//          PricingPlanTagArray{ PricingPlanTagArgs{...} }
+//	PricingPlanTagArray{ PricingPlanTagArgs{...} }
 type PricingPlanTagArrayInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ type PricingRuleTag struct {
 // PricingRuleTagInput is an input type that accepts PricingRuleTagArgs and PricingRuleTagOutput values.
 // You can construct a concrete instance of `PricingRuleTagInput` via:
 //
-//          PricingRuleTagArgs{...}
+//	PricingRuleTagArgs{...}
 type PricingRuleTagInput interface {
 	pulumi.Input
 
@@ -1106,7 +1106,7 @@ func (i PricingRuleTagArgs) ToPricingRuleTagOutputWithContext(ctx context.Contex
 // PricingRuleTagArrayInput is an input type that accepts PricingRuleTagArray and PricingRuleTagArrayOutput values.
 // You can construct a concrete instance of `PricingRuleTagArrayInput` via:
 //
-//          PricingRuleTagArray{ PricingRuleTagArgs{...} }
+//	PricingRuleTagArray{ PricingRuleTagArgs{...} }
 type PricingRuleTagArrayInput interface {
 	pulumi.Input
 

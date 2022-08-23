@@ -139,7 +139,7 @@ func (o ResourceAssociationResourceTypePtrOutput) ToStringPtrOutputWithContext(c
 // ResourceAssociationResourceTypeInput is an input type that accepts ResourceAssociationResourceTypeArgs and ResourceAssociationResourceTypeOutput values.
 // You can construct a concrete instance of `ResourceAssociationResourceTypeInput` via:
 //
-//          ResourceAssociationResourceTypeArgs{...}
+//	ResourceAssociationResourceTypeArgs{...}
 type ResourceAssociationResourceTypeInput interface {
 	pulumi.Input
 

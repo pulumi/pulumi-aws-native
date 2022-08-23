@@ -140,7 +140,7 @@ func (o AssignmentPrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // AssignmentPrincipalTypeInput is an input type that accepts AssignmentPrincipalTypeArgs and AssignmentPrincipalTypeOutput values.
 // You can construct a concrete instance of `AssignmentPrincipalTypeInput` via:
 //
-//          AssignmentPrincipalTypeArgs{...}
+//	AssignmentPrincipalTypeArgs{...}
 type AssignmentPrincipalTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o AssignmentTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // AssignmentTargetTypeInput is an input type that accepts AssignmentTargetTypeArgs and AssignmentTargetTypeOutput values.
 // You can construct a concrete instance of `AssignmentTargetTypeInput` via:
 //
-//          AssignmentTargetTypeArgs{...}
+//	AssignmentTargetTypeArgs{...}
 type AssignmentTargetTypeInput interface {
 	pulumi.Input
 

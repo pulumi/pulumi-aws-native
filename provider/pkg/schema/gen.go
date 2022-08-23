@@ -885,7 +885,11 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	}
 
 	// Union types.
-	if len(propSchema.AnyOf) > 0 {
+	if len(propSchema.AnyOf) == 1 {
+		return ctx.propertyTypeSpec(parentName, propSchema.AnyOf[0])
+	}
+
+	if len(propSchema.AnyOf) > 1 {
 		var types []pschema.TypeSpec
 		for _, sch := range propSchema.AnyOf {
 			typ, err := ctx.propertyTypeSpec(parentName, sch)
@@ -897,6 +901,28 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		return &pschema.TypeSpec{
 			OneOf: types,
 		}, nil
+	}
+
+	if len(propSchema.OneOf) == 1 {
+		return ctx.propertyTypeSpec(parentName, propSchema.OneOf[0])
+	}
+
+	if len(propSchema.OneOf) > 1 {
+		var types []pschema.TypeSpec
+		for i, sch := range propSchema.OneOf {
+			typ, err := ctx.propertyTypeSpec(fmt.Sprintf("%s%d", parentName, i), sch)
+			if err != nil {
+				return nil, err
+			}
+			types = append(types, *typ)
+		}
+		for _, typ := range types {
+			if typ.Ref != "pulumi.json#/Any" {
+				return &pschema.TypeSpec{
+					OneOf: types,
+				}, nil
+			}
+		}
 	}
 
 	if len(propSchema.Enum) > 0 {
@@ -931,10 +957,13 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 				Type:  "array",
 				Items: elementType,
 			}, nil
+		default:
+			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 		}
 	}
 
-	return nil, errors.Errorf("failed to generate property types for %+v", propSchema)
+	fmt.Printf("failed to generate property types for %+v", propSchema)
+	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 }
 
 func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, error) {

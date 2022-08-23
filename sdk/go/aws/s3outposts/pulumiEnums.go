@@ -139,7 +139,7 @@ func (o BucketRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // BucketRuleStatusInput is an input type that accepts BucketRuleStatusArgs and BucketRuleStatusOutput values.
 // You can construct a concrete instance of `BucketRuleStatusInput` via:
 //
-//          BucketRuleStatusArgs{...}
+//	BucketRuleStatusArgs{...}
 type BucketRuleStatusInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o EndpointAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // EndpointAccessTypeInput is an input type that accepts EndpointAccessTypeArgs and EndpointAccessTypeOutput values.
 // You can construct a concrete instance of `EndpointAccessTypeInput` via:
 //
-//          EndpointAccessTypeArgs{...}
+//	EndpointAccessTypeArgs{...}
 type EndpointAccessTypeInput interface {
 	pulumi.Input
 

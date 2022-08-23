@@ -20,7 +20,7 @@ type CidrCollectionLocation struct {
 // CidrCollectionLocationInput is an input type that accepts CidrCollectionLocationArgs and CidrCollectionLocationOutput values.
 // You can construct a concrete instance of `CidrCollectionLocationInput` via:
 //
-//          CidrCollectionLocationArgs{...}
+//	CidrCollectionLocationArgs{...}
 type CidrCollectionLocationInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i CidrCollectionLocationArgs) ToCidrCollectionLocationOutputWithContext(ct
 // CidrCollectionLocationArrayInput is an input type that accepts CidrCollectionLocationArray and CidrCollectionLocationArrayOutput values.
 // You can construct a concrete instance of `CidrCollectionLocationArrayInput` via:
 //
-//          CidrCollectionLocationArray{ CidrCollectionLocationArgs{...} }
+//	CidrCollectionLocationArray{ CidrCollectionLocationArgs{...} }
 type CidrCollectionLocationArrayInput interface {
 	pulumi.Input
 
@@ -127,7 +127,7 @@ type HealthCheckAlarmIdentifier struct {
 // HealthCheckAlarmIdentifierInput is an input type that accepts HealthCheckAlarmIdentifierArgs and HealthCheckAlarmIdentifierOutput values.
 // You can construct a concrete instance of `HealthCheckAlarmIdentifierInput` via:
 //
-//          HealthCheckAlarmIdentifierArgs{...}
+//	HealthCheckAlarmIdentifierArgs{...}
 type HealthCheckAlarmIdentifierInput interface {
 	pulumi.Input
 
@@ -166,11 +166,11 @@ func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutputWit
 // HealthCheckAlarmIdentifierPtrInput is an input type that accepts HealthCheckAlarmIdentifierArgs, HealthCheckAlarmIdentifierPtr and HealthCheckAlarmIdentifierPtrOutput values.
 // You can construct a concrete instance of `HealthCheckAlarmIdentifierPtrInput` via:
 //
-//          HealthCheckAlarmIdentifierArgs{...}
+//	        HealthCheckAlarmIdentifierArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HealthCheckAlarmIdentifierPtrInput interface {
 	pulumi.Input
 
@@ -299,7 +299,7 @@ type HealthCheckConfigProperties struct {
 // HealthCheckConfigPropertiesInput is an input type that accepts HealthCheckConfigPropertiesArgs and HealthCheckConfigPropertiesOutput values.
 // You can construct a concrete instance of `HealthCheckConfigPropertiesInput` via:
 //
-//          HealthCheckConfigPropertiesArgs{...}
+//	HealthCheckConfigPropertiesArgs{...}
 type HealthCheckConfigPropertiesInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ type HealthCheckTag struct {
 // HealthCheckTagInput is an input type that accepts HealthCheckTagArgs and HealthCheckTagOutput values.
 // You can construct a concrete instance of `HealthCheckTagInput` via:
 //
-//          HealthCheckTagArgs{...}
+//	HealthCheckTagArgs{...}
 type HealthCheckTagInput interface {
 	pulumi.Input
 
@@ -644,7 +644,7 @@ func (i HealthCheckTagArgs) ToHealthCheckTagOutputWithContext(ctx context.Contex
 // HealthCheckTagArrayInput is an input type that accepts HealthCheckTagArray and HealthCheckTagArrayOutput values.
 // You can construct a concrete instance of `HealthCheckTagArrayInput` via:
 //
-//          HealthCheckTagArray{ HealthCheckTagArgs{...} }
+//	HealthCheckTagArray{ HealthCheckTagArgs{...} }
 type HealthCheckTagArrayInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type HostedZoneConfig struct {
 // HostedZoneConfigInput is an input type that accepts HostedZoneConfigArgs and HostedZoneConfigOutput values.
 // You can construct a concrete instance of `HostedZoneConfigInput` via:
 //
-//          HostedZoneConfigArgs{...}
+//	HostedZoneConfigArgs{...}
 type HostedZoneConfigInput interface {
 	pulumi.Input
 
@@ -761,11 +761,11 @@ func (i HostedZoneConfigArgs) ToHostedZoneConfigPtrOutputWithContext(ctx context
 // HostedZoneConfigPtrInput is an input type that accepts HostedZoneConfigArgs, HostedZoneConfigPtr and HostedZoneConfigPtrOutput values.
 // You can construct a concrete instance of `HostedZoneConfigPtrInput` via:
 //
-//          HostedZoneConfigArgs{...}
+//	        HostedZoneConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HostedZoneConfigPtrInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type HostedZoneQueryLoggingConfig struct {
 // HostedZoneQueryLoggingConfigInput is an input type that accepts HostedZoneQueryLoggingConfigArgs and HostedZoneQueryLoggingConfigOutput values.
 // You can construct a concrete instance of `HostedZoneQueryLoggingConfigInput` via:
 //
-//          HostedZoneQueryLoggingConfigArgs{...}
+//	HostedZoneQueryLoggingConfigArgs{...}
 type HostedZoneQueryLoggingConfigInput interface {
 	pulumi.Input
 
@@ -903,11 +903,11 @@ func (i HostedZoneQueryLoggingConfigArgs) ToHostedZoneQueryLoggingConfigPtrOutpu
 // HostedZoneQueryLoggingConfigPtrInput is an input type that accepts HostedZoneQueryLoggingConfigArgs, HostedZoneQueryLoggingConfigPtr and HostedZoneQueryLoggingConfigPtrOutput values.
 // You can construct a concrete instance of `HostedZoneQueryLoggingConfigPtrInput` via:
 //
-//          HostedZoneQueryLoggingConfigArgs{...}
+//	        HostedZoneQueryLoggingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HostedZoneQueryLoggingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1008,7 +1008,7 @@ type HostedZoneTag struct {
 // HostedZoneTagInput is an input type that accepts HostedZoneTagArgs and HostedZoneTagOutput values.
 // You can construct a concrete instance of `HostedZoneTagInput` via:
 //
-//          HostedZoneTagArgs{...}
+//	HostedZoneTagArgs{...}
 type HostedZoneTagInput interface {
 	pulumi.Input
 
@@ -1039,7 +1039,7 @@ func (i HostedZoneTagArgs) ToHostedZoneTagOutputWithContext(ctx context.Context)
 // HostedZoneTagArrayInput is an input type that accepts HostedZoneTagArray and HostedZoneTagArrayOutput values.
 // You can construct a concrete instance of `HostedZoneTagArrayInput` via:
 //
-//          HostedZoneTagArray{ HostedZoneTagArgs{...} }
+//	HostedZoneTagArray{ HostedZoneTagArgs{...} }
 type HostedZoneTagArrayInput interface {
 	pulumi.Input
 
@@ -1117,7 +1117,7 @@ type HostedZoneVPC struct {
 // HostedZoneVPCInput is an input type that accepts HostedZoneVPCArgs and HostedZoneVPCOutput values.
 // You can construct a concrete instance of `HostedZoneVPCInput` via:
 //
-//          HostedZoneVPCArgs{...}
+//	HostedZoneVPCArgs{...}
 type HostedZoneVPCInput interface {
 	pulumi.Input
 
@@ -1148,7 +1148,7 @@ func (i HostedZoneVPCArgs) ToHostedZoneVPCOutputWithContext(ctx context.Context)
 // HostedZoneVPCArrayInput is an input type that accepts HostedZoneVPCArray and HostedZoneVPCArrayOutput values.
 // You can construct a concrete instance of `HostedZoneVPCArrayInput` via:
 //
-//          HostedZoneVPCArray{ HostedZoneVPCArgs{...} }
+//	HostedZoneVPCArray{ HostedZoneVPCArgs{...} }
 type HostedZoneVPCArrayInput interface {
 	pulumi.Input
 
@@ -1224,7 +1224,7 @@ type RecordSetAliasTarget struct {
 // RecordSetAliasTargetInput is an input type that accepts RecordSetAliasTargetArgs and RecordSetAliasTargetOutput values.
 // You can construct a concrete instance of `RecordSetAliasTargetInput` via:
 //
-//          RecordSetAliasTargetArgs{...}
+//	RecordSetAliasTargetArgs{...}
 type RecordSetAliasTargetInput interface {
 	pulumi.Input
 
@@ -1261,11 +1261,11 @@ func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetPtrOutputWithContext(ctx
 // RecordSetAliasTargetPtrInput is an input type that accepts RecordSetAliasTargetArgs, RecordSetAliasTargetPtr and RecordSetAliasTargetPtrOutput values.
 // You can construct a concrete instance of `RecordSetAliasTargetPtrInput` via:
 //
-//          RecordSetAliasTargetArgs{...}
+//	        RecordSetAliasTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecordSetAliasTargetPtrInput interface {
 	pulumi.Input
 
@@ -1387,7 +1387,7 @@ type RecordSetGeoLocation struct {
 // RecordSetGeoLocationInput is an input type that accepts RecordSetGeoLocationArgs and RecordSetGeoLocationOutput values.
 // You can construct a concrete instance of `RecordSetGeoLocationInput` via:
 //
-//          RecordSetGeoLocationArgs{...}
+//	RecordSetGeoLocationArgs{...}
 type RecordSetGeoLocationInput interface {
 	pulumi.Input
 
@@ -1424,11 +1424,11 @@ func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationPtrOutputWithContext(ctx
 // RecordSetGeoLocationPtrInput is an input type that accepts RecordSetGeoLocationArgs, RecordSetGeoLocationPtr and RecordSetGeoLocationPtrOutput values.
 // You can construct a concrete instance of `RecordSetGeoLocationPtrInput` via:
 //
-//          RecordSetGeoLocationArgs{...}
+//	        RecordSetGeoLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecordSetGeoLocationPtrInput interface {
 	pulumi.Input
 
@@ -1550,7 +1550,7 @@ type RecordSetGroupAliasTarget struct {
 // RecordSetGroupAliasTargetInput is an input type that accepts RecordSetGroupAliasTargetArgs and RecordSetGroupAliasTargetOutput values.
 // You can construct a concrete instance of `RecordSetGroupAliasTargetInput` via:
 //
-//          RecordSetGroupAliasTargetArgs{...}
+//	RecordSetGroupAliasTargetArgs{...}
 type RecordSetGroupAliasTargetInput interface {
 	pulumi.Input
 
@@ -1587,11 +1587,11 @@ func (i RecordSetGroupAliasTargetArgs) ToRecordSetGroupAliasTargetPtrOutputWithC
 // RecordSetGroupAliasTargetPtrInput is an input type that accepts RecordSetGroupAliasTargetArgs, RecordSetGroupAliasTargetPtr and RecordSetGroupAliasTargetPtrOutput values.
 // You can construct a concrete instance of `RecordSetGroupAliasTargetPtrInput` via:
 //
-//          RecordSetGroupAliasTargetArgs{...}
+//	        RecordSetGroupAliasTargetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecordSetGroupAliasTargetPtrInput interface {
 	pulumi.Input
 
@@ -1713,7 +1713,7 @@ type RecordSetGroupGeoLocation struct {
 // RecordSetGroupGeoLocationInput is an input type that accepts RecordSetGroupGeoLocationArgs and RecordSetGroupGeoLocationOutput values.
 // You can construct a concrete instance of `RecordSetGroupGeoLocationInput` via:
 //
-//          RecordSetGroupGeoLocationArgs{...}
+//	RecordSetGroupGeoLocationArgs{...}
 type RecordSetGroupGeoLocationInput interface {
 	pulumi.Input
 
@@ -1750,11 +1750,11 @@ func (i RecordSetGroupGeoLocationArgs) ToRecordSetGroupGeoLocationPtrOutputWithC
 // RecordSetGroupGeoLocationPtrInput is an input type that accepts RecordSetGroupGeoLocationArgs, RecordSetGroupGeoLocationPtr and RecordSetGroupGeoLocationPtrOutput values.
 // You can construct a concrete instance of `RecordSetGroupGeoLocationPtrInput` via:
 //
-//          RecordSetGroupGeoLocationArgs{...}
+//	        RecordSetGroupGeoLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RecordSetGroupGeoLocationPtrInput interface {
 	pulumi.Input
 
@@ -1887,7 +1887,7 @@ type RecordSetGroupRecordSet struct {
 // RecordSetGroupRecordSetInput is an input type that accepts RecordSetGroupRecordSetArgs and RecordSetGroupRecordSetOutput values.
 // You can construct a concrete instance of `RecordSetGroupRecordSetInput` via:
 //
-//          RecordSetGroupRecordSetArgs{...}
+//	RecordSetGroupRecordSetArgs{...}
 type RecordSetGroupRecordSetInput interface {
 	pulumi.Input
 
@@ -1927,7 +1927,7 @@ func (i RecordSetGroupRecordSetArgs) ToRecordSetGroupRecordSetOutputWithContext(
 // RecordSetGroupRecordSetArrayInput is an input type that accepts RecordSetGroupRecordSetArray and RecordSetGroupRecordSetArrayOutput values.
 // You can construct a concrete instance of `RecordSetGroupRecordSetArrayInput` via:
 //
-//          RecordSetGroupRecordSetArray{ RecordSetGroupRecordSetArgs{...} }
+//	RecordSetGroupRecordSetArray{ RecordSetGroupRecordSetArgs{...} }
 type RecordSetGroupRecordSetArrayInput interface {
 	pulumi.Input
 

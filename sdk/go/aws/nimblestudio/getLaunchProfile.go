@@ -88,7 +88,8 @@ func (o LookupLaunchProfileResultOutput) LaunchProfileId() pulumi.StringPtrOutpu
 }
 
 // <p>The version number of the protocol that is used by the launch profile. The only valid
-//             version is "2021-03-31".</p>
+//
+//	version is "2021-03-31".</p>
 func (o LookupLaunchProfileResultOutput) LaunchProfileProtocolVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) []string { return v.LaunchProfileProtocolVersions }).(pulumi.StringArrayOutput)
 }
@@ -103,7 +104,8 @@ func (o LookupLaunchProfileResultOutput) StreamConfiguration() LaunchProfileStre
 }
 
 // <p>Unique identifiers for a collection of studio components that can be used with this
-//             launch profile.</p>
+//
+//	launch profile.</p>
 func (o LookupLaunchProfileResultOutput) StudioComponentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) []string { return v.StudioComponentIds }).(pulumi.StringArrayOutput)
 }

@@ -140,7 +140,7 @@ func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToStringPtrOutpu
 // ConnectorKafkaClusterClientAuthenticationTypeInput is an input type that accepts ConnectorKafkaClusterClientAuthenticationTypeArgs and ConnectorKafkaClusterClientAuthenticationTypeOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterClientAuthenticationTypeInput` via:
 //
-//          ConnectorKafkaClusterClientAuthenticationTypeArgs{...}
+//	ConnectorKafkaClusterClientAuthenticationTypeArgs{...}
 type ConnectorKafkaClusterClientAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToStringPtrOutput
 // ConnectorKafkaClusterEncryptionInTransitTypeInput is an input type that accepts ConnectorKafkaClusterEncryptionInTransitTypeArgs and ConnectorKafkaClusterEncryptionInTransitTypeOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterEncryptionInTransitTypeInput` via:
 //
-//          ConnectorKafkaClusterEncryptionInTransitTypeArgs{...}
+//	ConnectorKafkaClusterEncryptionInTransitTypeArgs{...}
 type ConnectorKafkaClusterEncryptionInTransitTypeInput interface {
 	pulumi.Input
 

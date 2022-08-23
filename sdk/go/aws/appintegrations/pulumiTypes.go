@@ -22,7 +22,7 @@ type DataIntegrationScheduleConfig struct {
 // DataIntegrationScheduleConfigInput is an input type that accepts DataIntegrationScheduleConfigArgs and DataIntegrationScheduleConfigOutput values.
 // You can construct a concrete instance of `DataIntegrationScheduleConfigInput` via:
 //
-//          DataIntegrationScheduleConfigArgs{...}
+//	DataIntegrationScheduleConfigArgs{...}
 type DataIntegrationScheduleConfigInput interface {
 	pulumi.Input
 
@@ -91,7 +91,7 @@ type DataIntegrationTag struct {
 // DataIntegrationTagInput is an input type that accepts DataIntegrationTagArgs and DataIntegrationTagOutput values.
 // You can construct a concrete instance of `DataIntegrationTagInput` via:
 //
-//          DataIntegrationTagArgs{...}
+//	DataIntegrationTagArgs{...}
 type DataIntegrationTagInput interface {
 	pulumi.Input
 
@@ -122,7 +122,7 @@ func (i DataIntegrationTagArgs) ToDataIntegrationTagOutputWithContext(ctx contex
 // DataIntegrationTagArrayInput is an input type that accepts DataIntegrationTagArray and DataIntegrationTagArrayOutput values.
 // You can construct a concrete instance of `DataIntegrationTagArrayInput` via:
 //
-//          DataIntegrationTagArray{ DataIntegrationTagArgs{...} }
+//	DataIntegrationTagArray{ DataIntegrationTagArgs{...} }
 type DataIntegrationTagArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +269,7 @@ type EventIntegrationEventFilter struct {
 // EventIntegrationEventFilterInput is an input type that accepts EventIntegrationEventFilterArgs and EventIntegrationEventFilterOutput values.
 // You can construct a concrete instance of `EventIntegrationEventFilterInput` via:
 //
-//          EventIntegrationEventFilterArgs{...}
+//	EventIntegrationEventFilterArgs{...}
 type EventIntegrationEventFilterInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ type EventIntegrationTag struct {
 // EventIntegrationTagInput is an input type that accepts EventIntegrationTagArgs and EventIntegrationTagOutput values.
 // You can construct a concrete instance of `EventIntegrationTagInput` via:
 //
-//          EventIntegrationTagArgs{...}
+//	EventIntegrationTagArgs{...}
 type EventIntegrationTagInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ func (i EventIntegrationTagArgs) ToEventIntegrationTagOutputWithContext(ctx cont
 // EventIntegrationTagArrayInput is an input type that accepts EventIntegrationTagArray and EventIntegrationTagArrayOutput values.
 // You can construct a concrete instance of `EventIntegrationTagArrayInput` via:
 //
-//          EventIntegrationTagArray{ EventIntegrationTagArgs{...} }
+//	EventIntegrationTagArray{ EventIntegrationTagArgs{...} }
 type EventIntegrationTagArrayInput interface {
 	pulumi.Input
 

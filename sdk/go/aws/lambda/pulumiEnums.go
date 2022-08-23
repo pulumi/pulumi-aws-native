@@ -140,7 +140,7 @@ func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutp
 // CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput is an input type that accepts CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentArgs and CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput values.
 // You can construct a concrete instance of `CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput` via:
 //
-//          CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentArgs{...}
+//	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentArgs{...}
 type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o EventSourceMappingFunctionResponseTypesItemPtrOutput) ToStringPtrOutputW
 // EventSourceMappingFunctionResponseTypesItemInput is an input type that accepts EventSourceMappingFunctionResponseTypesItemArgs and EventSourceMappingFunctionResponseTypesItemOutput values.
 // You can construct a concrete instance of `EventSourceMappingFunctionResponseTypesItemInput` via:
 //
-//          EventSourceMappingFunctionResponseTypesItemArgs{...}
+//	EventSourceMappingFunctionResponseTypesItemArgs{...}
 type EventSourceMappingFunctionResponseTypesItemInput interface {
 	pulumi.Input
 
@@ -341,7 +341,7 @@ func (in *eventSourceMappingFunctionResponseTypesItemPtr) ToEventSourceMappingFu
 // EventSourceMappingFunctionResponseTypesItemArrayInput is an input type that accepts EventSourceMappingFunctionResponseTypesItemArray and EventSourceMappingFunctionResponseTypesItemArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingFunctionResponseTypesItemArrayInput` via:
 //
-//          EventSourceMappingFunctionResponseTypesItemArray{ EventSourceMappingFunctionResponseTypesItemArgs{...} }
+//	EventSourceMappingFunctionResponseTypesItemArray{ EventSourceMappingFunctionResponseTypesItemArgs{...} }
 type EventSourceMappingFunctionResponseTypesItemArrayInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) ToStringPtrOut
 // EventSourceMappingSourceAccessConfigurationTypeInput is an input type that accepts EventSourceMappingSourceAccessConfigurationTypeArgs and EventSourceMappingSourceAccessConfigurationTypeOutput values.
 // You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationTypeInput` via:
 //
-//          EventSourceMappingSourceAccessConfigurationTypeArgs{...}
+//	EventSourceMappingSourceAccessConfigurationTypeArgs{...}
 type EventSourceMappingSourceAccessConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -683,7 +683,7 @@ func (o FunctionArchitecturesItemPtrOutput) ToStringPtrOutputWithContext(ctx con
 // FunctionArchitecturesItemInput is an input type that accepts FunctionArchitecturesItemArgs and FunctionArchitecturesItemOutput values.
 // You can construct a concrete instance of `FunctionArchitecturesItemInput` via:
 //
-//          FunctionArchitecturesItemArgs{...}
+//	FunctionArchitecturesItemArgs{...}
 type FunctionArchitecturesItemInput interface {
 	pulumi.Input
 
@@ -721,7 +721,7 @@ func (in *functionArchitecturesItemPtr) ToFunctionArchitecturesItemPtrOutputWith
 // FunctionArchitecturesItemArrayInput is an input type that accepts FunctionArchitecturesItemArray and FunctionArchitecturesItemArrayOutput values.
 // You can construct a concrete instance of `FunctionArchitecturesItemArrayInput` via:
 //
-//          FunctionArchitecturesItemArray{ FunctionArchitecturesItemArgs{...} }
+//	FunctionArchitecturesItemArray{ FunctionArchitecturesItemArgs{...} }
 type FunctionArchitecturesItemArrayInput interface {
 	pulumi.Input
 
@@ -893,7 +893,7 @@ func (o FunctionPackageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // FunctionPackageTypeInput is an input type that accepts FunctionPackageTypeArgs and FunctionPackageTypeOutput values.
 // You can construct a concrete instance of `FunctionPackageTypeInput` via:
 //
-//          FunctionPackageTypeArgs{...}
+//	FunctionPackageTypeArgs{...}
 type FunctionPackageTypeInput interface {
 	pulumi.Input
 
@@ -1058,7 +1058,7 @@ func (o FunctionTracingConfigModePtrOutput) ToStringPtrOutputWithContext(ctx con
 // FunctionTracingConfigModeInput is an input type that accepts FunctionTracingConfigModeArgs and FunctionTracingConfigModeOutput values.
 // You can construct a concrete instance of `FunctionTracingConfigModeInput` via:
 //
-//          FunctionTracingConfigModeArgs{...}
+//	FunctionTracingConfigModeArgs{...}
 type FunctionTracingConfigModeInput interface {
 	pulumi.Input
 
@@ -1227,7 +1227,7 @@ func (o UrlAllowMethodsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // UrlAllowMethodsItemInput is an input type that accepts UrlAllowMethodsItemArgs and UrlAllowMethodsItemOutput values.
 // You can construct a concrete instance of `UrlAllowMethodsItemInput` via:
 //
-//          UrlAllowMethodsItemArgs{...}
+//	UrlAllowMethodsItemArgs{...}
 type UrlAllowMethodsItemInput interface {
 	pulumi.Input
 
@@ -1265,7 +1265,7 @@ func (in *urlAllowMethodsItemPtr) ToUrlAllowMethodsItemPtrOutputWithContext(ctx 
 // UrlAllowMethodsItemArrayInput is an input type that accepts UrlAllowMethodsItemArray and UrlAllowMethodsItemArrayOutput values.
 // You can construct a concrete instance of `UrlAllowMethodsItemArrayInput` via:
 //
-//          UrlAllowMethodsItemArray{ UrlAllowMethodsItemArgs{...} }
+//	UrlAllowMethodsItemArray{ UrlAllowMethodsItemArgs{...} }
 type UrlAllowMethodsItemArrayInput interface {
 	pulumi.Input
 
@@ -1437,7 +1437,7 @@ func (o UrlAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // UrlAuthTypeInput is an input type that accepts UrlAuthTypeArgs and UrlAuthTypeOutput values.
 // You can construct a concrete instance of `UrlAuthTypeInput` via:
 //
-//          UrlAuthTypeArgs{...}
+//	UrlAuthTypeArgs{...}
 type UrlAuthTypeInput interface {
 	pulumi.Input
 
@@ -1602,7 +1602,7 @@ func (o UrlInvokeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // UrlInvokeModeInput is an input type that accepts UrlInvokeModeArgs and UrlInvokeModeOutput values.
 // You can construct a concrete instance of `UrlInvokeModeInput` via:
 //
-//          UrlInvokeModeArgs{...}
+//	UrlInvokeModeArgs{...}
 type UrlInvokeModeInput interface {
 	pulumi.Input
 

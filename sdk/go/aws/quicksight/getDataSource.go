@@ -92,14 +92,15 @@ func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutputWithContext(
 }
 
 // <p>A set of alternate data source parameters that you want to share for the credentials
-//             stored with this data source. The credentials are applied in tandem with the data source
-//             parameters when you copy a data source by using a create or update request. The API
-//             operation compares the <code>DataSourceParameters</code> structure that's in the request
-//             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-//             structures are an exact match, the request is allowed to use the credentials from this
-//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
-//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
-//             are automatically allowed.</p>
+//
+//	stored with this data source. The credentials are applied in tandem with the data source
+//	parameters when you copy a data source by using a create or update request. The API
+//	operation compares the <code>DataSourceParameters</code> structure that's in the request
+//	with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//	structures are an exact match, the request is allowed to use the credentials from this
+//	existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+//	the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+//	are automatically allowed.</p>
 func (o LookupDataSourceResultOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) []DataSourceParameters { return v.AlternateDataSourceParameters }).(DataSourceParametersArrayOutput)
 }

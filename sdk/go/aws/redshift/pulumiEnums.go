@@ -142,7 +142,7 @@ func (o EventSubscriptionEventCategoriesItemPtrOutput) ToStringPtrOutputWithCont
 // EventSubscriptionEventCategoriesItemInput is an input type that accepts EventSubscriptionEventCategoriesItemArgs and EventSubscriptionEventCategoriesItemOutput values.
 // You can construct a concrete instance of `EventSubscriptionEventCategoriesItemInput` via:
 //
-//          EventSubscriptionEventCategoriesItemArgs{...}
+//	EventSubscriptionEventCategoriesItemArgs{...}
 type EventSubscriptionEventCategoriesItemInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ func (in *eventSubscriptionEventCategoriesItemPtr) ToEventSubscriptionEventCateg
 // EventSubscriptionEventCategoriesItemArrayInput is an input type that accepts EventSubscriptionEventCategoriesItemArray and EventSubscriptionEventCategoriesItemArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionEventCategoriesItemArrayInput` via:
 //
-//          EventSubscriptionEventCategoriesItemArray{ EventSubscriptionEventCategoriesItemArgs{...} }
+//	EventSubscriptionEventCategoriesItemArray{ EventSubscriptionEventCategoriesItemArgs{...} }
 type EventSubscriptionEventCategoriesItemArrayInput interface {
 	pulumi.Input
 
@@ -352,7 +352,7 @@ func (o EventSubscriptionSeverityPtrOutput) ToStringPtrOutputWithContext(ctx con
 // EventSubscriptionSeverityInput is an input type that accepts EventSubscriptionSeverityArgs and EventSubscriptionSeverityOutput values.
 // You can construct a concrete instance of `EventSubscriptionSeverityInput` via:
 //
-//          EventSubscriptionSeverityArgs{...}
+//	EventSubscriptionSeverityArgs{...}
 type EventSubscriptionSeverityInput interface {
 	pulumi.Input
 
@@ -520,7 +520,7 @@ func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // EventSubscriptionSourceTypeInput is an input type that accepts EventSubscriptionSourceTypeArgs and EventSubscriptionSourceTypeOutput values.
 // You can construct a concrete instance of `EventSubscriptionSourceTypeInput` via:
 //
-//          EventSubscriptionSourceTypeArgs{...}
+//	EventSubscriptionSourceTypeArgs{...}
 type EventSubscriptionSourceTypeInput interface {
 	pulumi.Input
 

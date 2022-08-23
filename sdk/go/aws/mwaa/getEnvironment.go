@@ -93,14 +93,15 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 }
 
 // Key/value pairs representing Airflow configuration variables.
-//     Keys are prefixed by their section:
 //
-//     [core]
-//     dags_folder={AIRFLOW_HOME}/dags
+//	Keys are prefixed by their section:
 //
-//     Would be represented as
+//	[core]
+//	dags_folder={AIRFLOW_HOME}/dags
 //
-//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+//	Would be represented as
+//
+//	"core.dags_folder": "{AIRFLOW_HOME}/dags"
 func (o LookupEnvironmentResultOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) interface{} { return v.AirflowConfigurationOptions }).(pulumi.AnyOutput)
 }

@@ -232,7 +232,7 @@ func (o LocationEFSInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ct
 // LocationEFSInTransitEncryptionInput is an input type that accepts LocationEFSInTransitEncryptionArgs and LocationEFSInTransitEncryptionOutput values.
 // You can construct a concrete instance of `LocationEFSInTransitEncryptionInput` via:
 //
-//          LocationEFSInTransitEncryptionArgs{...}
+//	LocationEFSInTransitEncryptionArgs{...}
 type LocationEFSInTransitEncryptionInput interface {
 	pulumi.Input
 
@@ -399,7 +399,7 @@ func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithCon
 // LocationFSxOpenZFSMountOptionsVersionInput is an input type that accepts LocationFSxOpenZFSMountOptionsVersionArgs and LocationFSxOpenZFSMountOptionsVersionOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsVersionInput` via:
 //
-//          LocationFSxOpenZFSMountOptionsVersionArgs{...}
+//	LocationFSxOpenZFSMountOptionsVersionArgs{...}
 type LocationFSxOpenZFSMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ct
 // LocationHDFSAuthenticationTypeInput is an input type that accepts LocationHDFSAuthenticationTypeArgs and LocationHDFSAuthenticationTypeOutput values.
 // You can construct a concrete instance of `LocationHDFSAuthenticationTypeInput` via:
 //
-//          LocationHDFSAuthenticationTypeArgs{...}
+//	LocationHDFSAuthenticationTypeArgs{...}
 type LocationHDFSAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -731,7 +731,7 @@ func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtr
 // LocationHDFSQopConfigurationDataTransferProtectionInput is an input type that accepts LocationHDFSQopConfigurationDataTransferProtectionArgs and LocationHDFSQopConfigurationDataTransferProtectionOutput values.
 // You can construct a concrete instance of `LocationHDFSQopConfigurationDataTransferProtectionInput` via:
 //
-//          LocationHDFSQopConfigurationDataTransferProtectionArgs{...}
+//	LocationHDFSQopConfigurationDataTransferProtectionArgs{...}
 type LocationHDFSQopConfigurationDataTransferProtectionInput interface {
 	pulumi.Input
 
@@ -898,7 +898,7 @@ func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWit
 // LocationHDFSQopConfigurationRpcProtectionInput is an input type that accepts LocationHDFSQopConfigurationRpcProtectionArgs and LocationHDFSQopConfigurationRpcProtectionOutput values.
 // You can construct a concrete instance of `LocationHDFSQopConfigurationRpcProtectionInput` via:
 //
-//          LocationHDFSQopConfigurationRpcProtectionArgs{...}
+//	LocationHDFSQopConfigurationRpcProtectionArgs{...}
 type LocationHDFSQopConfigurationRpcProtectionInput interface {
 	pulumi.Input
 
@@ -1065,7 +1065,7 @@ func (o LocationNFSMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 // LocationNFSMountOptionsVersionInput is an input type that accepts LocationNFSMountOptionsVersionArgs and LocationNFSMountOptionsVersionOutput values.
 // You can construct a concrete instance of `LocationNFSMountOptionsVersionInput` via:
 //
-//          LocationNFSMountOptionsVersionArgs{...}
+//	LocationNFSMountOptionsVersionArgs{...}
 type LocationNFSMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1230,7 +1230,7 @@ func (o LocationObjectStorageServerProtocolPtrOutput) ToStringPtrOutputWithConte
 // LocationObjectStorageServerProtocolInput is an input type that accepts LocationObjectStorageServerProtocolArgs and LocationObjectStorageServerProtocolOutput values.
 // You can construct a concrete instance of `LocationObjectStorageServerProtocolInput` via:
 //
-//          LocationObjectStorageServerProtocolArgs{...}
+//	LocationObjectStorageServerProtocolArgs{...}
 type LocationObjectStorageServerProtocolInput interface {
 	pulumi.Input
 
@@ -1399,7 +1399,7 @@ func (o LocationS3S3StorageClassPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // LocationS3S3StorageClassInput is an input type that accepts LocationS3S3StorageClassArgs and LocationS3S3StorageClassOutput values.
 // You can construct a concrete instance of `LocationS3S3StorageClassInput` via:
 //
-//          LocationS3S3StorageClassArgs{...}
+//	LocationS3S3StorageClassArgs{...}
 type LocationS3S3StorageClassInput interface {
 	pulumi.Input
 
@@ -1565,7 +1565,7 @@ func (o LocationSMBMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 // LocationSMBMountOptionsVersionInput is an input type that accepts LocationSMBMountOptionsVersionArgs and LocationSMBMountOptionsVersionOutput values.
 // You can construct a concrete instance of `LocationSMBMountOptionsVersionInput` via:
 //
-//          LocationSMBMountOptionsVersionArgs{...}
+//	LocationSMBMountOptionsVersionArgs{...}
 type LocationSMBMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1729,7 +1729,7 @@ func (o TaskFilterRuleFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // TaskFilterRuleFilterTypeInput is an input type that accepts TaskFilterRuleFilterTypeArgs and TaskFilterRuleFilterTypeOutput values.
 // You can construct a concrete instance of `TaskFilterRuleFilterTypeInput` via:
 //
-//          TaskFilterRuleFilterTypeArgs{...}
+//	TaskFilterRuleFilterTypeArgs{...}
 type TaskFilterRuleFilterTypeInput interface {
 	pulumi.Input
 
@@ -1894,7 +1894,7 @@ func (o TaskOptionsAtimePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // TaskOptionsAtimeInput is an input type that accepts TaskOptionsAtimeArgs and TaskOptionsAtimeOutput values.
 // You can construct a concrete instance of `TaskOptionsAtimeInput` via:
 //
-//          TaskOptionsAtimeArgs{...}
+//	TaskOptionsAtimeArgs{...}
 type TaskOptionsAtimeInput interface {
 	pulumi.Input
 
@@ -2061,7 +2061,7 @@ func (o TaskOptionsGidPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // TaskOptionsGidInput is an input type that accepts TaskOptionsGidArgs and TaskOptionsGidOutput values.
 // You can construct a concrete instance of `TaskOptionsGidInput` via:
 //
-//          TaskOptionsGidArgs{...}
+//	TaskOptionsGidArgs{...}
 type TaskOptionsGidInput interface {
 	pulumi.Input
 
@@ -2227,7 +2227,7 @@ func (o TaskOptionsLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // TaskOptionsLogLevelInput is an input type that accepts TaskOptionsLogLevelArgs and TaskOptionsLogLevelOutput values.
 // You can construct a concrete instance of `TaskOptionsLogLevelInput` via:
 //
-//          TaskOptionsLogLevelArgs{...}
+//	TaskOptionsLogLevelArgs{...}
 type TaskOptionsLogLevelInput interface {
 	pulumi.Input
 
@@ -2392,7 +2392,7 @@ func (o TaskOptionsMtimePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // TaskOptionsMtimeInput is an input type that accepts TaskOptionsMtimeArgs and TaskOptionsMtimeOutput values.
 // You can construct a concrete instance of `TaskOptionsMtimeInput` via:
 //
-//          TaskOptionsMtimeArgs{...}
+//	TaskOptionsMtimeArgs{...}
 type TaskOptionsMtimeInput interface {
 	pulumi.Input
 
@@ -2557,7 +2557,7 @@ func (o TaskOptionsObjectTagsPtrOutput) ToStringPtrOutputWithContext(ctx context
 // TaskOptionsObjectTagsInput is an input type that accepts TaskOptionsObjectTagsArgs and TaskOptionsObjectTagsOutput values.
 // You can construct a concrete instance of `TaskOptionsObjectTagsInput` via:
 //
-//          TaskOptionsObjectTagsArgs{...}
+//	TaskOptionsObjectTagsArgs{...}
 type TaskOptionsObjectTagsInput interface {
 	pulumi.Input
 
@@ -2722,7 +2722,7 @@ func (o TaskOptionsOverwriteModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // TaskOptionsOverwriteModeInput is an input type that accepts TaskOptionsOverwriteModeArgs and TaskOptionsOverwriteModeOutput values.
 // You can construct a concrete instance of `TaskOptionsOverwriteModeInput` via:
 //
-//          TaskOptionsOverwriteModeArgs{...}
+//	TaskOptionsOverwriteModeArgs{...}
 type TaskOptionsOverwriteModeInput interface {
 	pulumi.Input
 
@@ -2887,7 +2887,7 @@ func (o TaskOptionsPosixPermissionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 // TaskOptionsPosixPermissionsInput is an input type that accepts TaskOptionsPosixPermissionsArgs and TaskOptionsPosixPermissionsOutput values.
 // You can construct a concrete instance of `TaskOptionsPosixPermissionsInput` via:
 //
-//          TaskOptionsPosixPermissionsArgs{...}
+//	TaskOptionsPosixPermissionsArgs{...}
 type TaskOptionsPosixPermissionsInput interface {
 	pulumi.Input
 
@@ -3052,7 +3052,7 @@ func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToStringPtrOutputWithContext(c
 // TaskOptionsPreserveDeletedFilesInput is an input type that accepts TaskOptionsPreserveDeletedFilesArgs and TaskOptionsPreserveDeletedFilesOutput values.
 // You can construct a concrete instance of `TaskOptionsPreserveDeletedFilesInput` via:
 //
-//          TaskOptionsPreserveDeletedFilesArgs{...}
+//	TaskOptionsPreserveDeletedFilesArgs{...}
 type TaskOptionsPreserveDeletedFilesInput interface {
 	pulumi.Input
 
@@ -3217,7 +3217,7 @@ func (o TaskOptionsPreserveDevicesPtrOutput) ToStringPtrOutputWithContext(ctx co
 // TaskOptionsPreserveDevicesInput is an input type that accepts TaskOptionsPreserveDevicesArgs and TaskOptionsPreserveDevicesOutput values.
 // You can construct a concrete instance of `TaskOptionsPreserveDevicesInput` via:
 //
-//          TaskOptionsPreserveDevicesArgs{...}
+//	TaskOptionsPreserveDevicesArgs{...}
 type TaskOptionsPreserveDevicesInput interface {
 	pulumi.Input
 
@@ -3383,7 +3383,7 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToStringPtrOutputWithCo
 // TaskOptionsSecurityDescriptorCopyFlagsInput is an input type that accepts TaskOptionsSecurityDescriptorCopyFlagsArgs and TaskOptionsSecurityDescriptorCopyFlagsOutput values.
 // You can construct a concrete instance of `TaskOptionsSecurityDescriptorCopyFlagsInput` via:
 //
-//          TaskOptionsSecurityDescriptorCopyFlagsArgs{...}
+//	TaskOptionsSecurityDescriptorCopyFlagsArgs{...}
 type TaskOptionsSecurityDescriptorCopyFlagsInput interface {
 	pulumi.Input
 
@@ -3548,7 +3548,7 @@ func (o TaskOptionsTaskQueueingPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // TaskOptionsTaskQueueingInput is an input type that accepts TaskOptionsTaskQueueingArgs and TaskOptionsTaskQueueingOutput values.
 // You can construct a concrete instance of `TaskOptionsTaskQueueingInput` via:
 //
-//          TaskOptionsTaskQueueingArgs{...}
+//	TaskOptionsTaskQueueingArgs{...}
 type TaskOptionsTaskQueueingInput interface {
 	pulumi.Input
 
@@ -3713,7 +3713,7 @@ func (o TaskOptionsTransferModePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // TaskOptionsTransferModeInput is an input type that accepts TaskOptionsTransferModeArgs and TaskOptionsTransferModeOutput values.
 // You can construct a concrete instance of `TaskOptionsTransferModeInput` via:
 //
-//          TaskOptionsTransferModeArgs{...}
+//	TaskOptionsTransferModeArgs{...}
 type TaskOptionsTransferModeInput interface {
 	pulumi.Input
 
@@ -3880,7 +3880,7 @@ func (o TaskOptionsUidPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // TaskOptionsUidInput is an input type that accepts TaskOptionsUidArgs and TaskOptionsUidOutput values.
 // You can construct a concrete instance of `TaskOptionsUidInput` via:
 //
-//          TaskOptionsUidArgs{...}
+//	TaskOptionsUidArgs{...}
 type TaskOptionsUidInput interface {
 	pulumi.Input
 
@@ -4046,7 +4046,7 @@ func (o TaskOptionsVerifyModePtrOutput) ToStringPtrOutputWithContext(ctx context
 // TaskOptionsVerifyModeInput is an input type that accepts TaskOptionsVerifyModeArgs and TaskOptionsVerifyModeOutput values.
 // You can construct a concrete instance of `TaskOptionsVerifyModeInput` via:
 //
-//          TaskOptionsVerifyModeArgs{...}
+//	TaskOptionsVerifyModeArgs{...}
 type TaskOptionsVerifyModeInput interface {
 	pulumi.Input
 

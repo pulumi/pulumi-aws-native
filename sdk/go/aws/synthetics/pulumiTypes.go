@@ -18,7 +18,7 @@ type CanaryArtifactConfig struct {
 // CanaryArtifactConfigInput is an input type that accepts CanaryArtifactConfigArgs and CanaryArtifactConfigOutput values.
 // You can construct a concrete instance of `CanaryArtifactConfigInput` via:
 //
-//          CanaryArtifactConfigArgs{...}
+//	CanaryArtifactConfigArgs{...}
 type CanaryArtifactConfigInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigPtrOutputWithContext(ctx
 // CanaryArtifactConfigPtrInput is an input type that accepts CanaryArtifactConfigArgs, CanaryArtifactConfigPtr and CanaryArtifactConfigPtrOutput values.
 // You can construct a concrete instance of `CanaryArtifactConfigPtrInput` via:
 //
-//          CanaryArtifactConfigArgs{...}
+//	        CanaryArtifactConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CanaryArtifactConfigPtrInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type CanaryBaseScreenshot struct {
 // CanaryBaseScreenshotInput is an input type that accepts CanaryBaseScreenshotArgs and CanaryBaseScreenshotOutput values.
 // You can construct a concrete instance of `CanaryBaseScreenshotInput` via:
 //
-//          CanaryBaseScreenshotArgs{...}
+//	CanaryBaseScreenshotArgs{...}
 type CanaryBaseScreenshotInput interface {
 	pulumi.Input
 
@@ -187,7 +187,7 @@ func (i CanaryBaseScreenshotArgs) ToCanaryBaseScreenshotOutputWithContext(ctx co
 // CanaryBaseScreenshotArrayInput is an input type that accepts CanaryBaseScreenshotArray and CanaryBaseScreenshotArrayOutput values.
 // You can construct a concrete instance of `CanaryBaseScreenshotArrayInput` via:
 //
-//          CanaryBaseScreenshotArray{ CanaryBaseScreenshotArgs{...} }
+//	CanaryBaseScreenshotArray{ CanaryBaseScreenshotArgs{...} }
 type CanaryBaseScreenshotArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ type CanaryCode struct {
 // CanaryCodeInput is an input type that accepts CanaryCodeArgs and CanaryCodeOutput values.
 // You can construct a concrete instance of `CanaryCodeInput` via:
 //
-//          CanaryCodeArgs{...}
+//	CanaryCodeArgs{...}
 type CanaryCodeInput interface {
 	pulumi.Input
 
@@ -409,7 +409,7 @@ type CanaryRunConfig struct {
 // CanaryRunConfigInput is an input type that accepts CanaryRunConfigArgs and CanaryRunConfigOutput values.
 // You can construct a concrete instance of `CanaryRunConfigInput` via:
 //
-//          CanaryRunConfigArgs{...}
+//	CanaryRunConfigArgs{...}
 type CanaryRunConfigInput interface {
 	pulumi.Input
 
@@ -451,11 +451,11 @@ func (i CanaryRunConfigArgs) ToCanaryRunConfigPtrOutputWithContext(ctx context.C
 // CanaryRunConfigPtrInput is an input type that accepts CanaryRunConfigArgs, CanaryRunConfigPtr and CanaryRunConfigPtrOutput values.
 // You can construct a concrete instance of `CanaryRunConfigPtrInput` via:
 //
-//          CanaryRunConfigArgs{...}
+//	        CanaryRunConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CanaryRunConfigPtrInput interface {
 	pulumi.Input
 
@@ -599,7 +599,7 @@ type CanaryS3Encryption struct {
 // CanaryS3EncryptionInput is an input type that accepts CanaryS3EncryptionArgs and CanaryS3EncryptionOutput values.
 // You can construct a concrete instance of `CanaryS3EncryptionInput` via:
 //
-//          CanaryS3EncryptionArgs{...}
+//	CanaryS3EncryptionArgs{...}
 type CanaryS3EncryptionInput interface {
 	pulumi.Input
 
@@ -637,11 +637,11 @@ func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionPtrOutputWithContext(ctx con
 // CanaryS3EncryptionPtrInput is an input type that accepts CanaryS3EncryptionArgs, CanaryS3EncryptionPtr and CanaryS3EncryptionPtrOutput values.
 // You can construct a concrete instance of `CanaryS3EncryptionPtrInput` via:
 //
-//          CanaryS3EncryptionArgs{...}
+//	        CanaryS3EncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CanaryS3EncryptionPtrInput interface {
 	pulumi.Input
 
@@ -753,7 +753,7 @@ type CanarySchedule struct {
 // CanaryScheduleInput is an input type that accepts CanaryScheduleArgs and CanaryScheduleOutput values.
 // You can construct a concrete instance of `CanaryScheduleInput` via:
 //
-//          CanaryScheduleArgs{...}
+//	CanaryScheduleArgs{...}
 type CanaryScheduleInput interface {
 	pulumi.Input
 
@@ -853,7 +853,7 @@ type CanaryTag struct {
 // CanaryTagInput is an input type that accepts CanaryTagArgs and CanaryTagOutput values.
 // You can construct a concrete instance of `CanaryTagInput` via:
 //
-//          CanaryTagArgs{...}
+//	CanaryTagArgs{...}
 type CanaryTagInput interface {
 	pulumi.Input
 
@@ -884,7 +884,7 @@ func (i CanaryTagArgs) ToCanaryTagOutputWithContext(ctx context.Context) CanaryT
 // CanaryTagArrayInput is an input type that accepts CanaryTagArray and CanaryTagArrayOutput values.
 // You can construct a concrete instance of `CanaryTagArrayInput` via:
 //
-//          CanaryTagArray{ CanaryTagArgs{...} }
+//	CanaryTagArray{ CanaryTagArgs{...} }
 type CanaryTagArrayInput interface {
 	pulumi.Input
 
@@ -960,7 +960,7 @@ type CanaryVPCConfig struct {
 // CanaryVPCConfigInput is an input type that accepts CanaryVPCConfigArgs and CanaryVPCConfigOutput values.
 // You can construct a concrete instance of `CanaryVPCConfigInput` via:
 //
-//          CanaryVPCConfigArgs{...}
+//	CanaryVPCConfigArgs{...}
 type CanaryVPCConfigInput interface {
 	pulumi.Input
 
@@ -997,11 +997,11 @@ func (i CanaryVPCConfigArgs) ToCanaryVPCConfigPtrOutputWithContext(ctx context.C
 // CanaryVPCConfigPtrInput is an input type that accepts CanaryVPCConfigArgs, CanaryVPCConfigPtr and CanaryVPCConfigPtrOutput values.
 // You can construct a concrete instance of `CanaryVPCConfigPtrInput` via:
 //
-//          CanaryVPCConfigArgs{...}
+//	        CanaryVPCConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CanaryVPCConfigPtrInput interface {
 	pulumi.Input
 
@@ -1124,7 +1124,7 @@ type CanaryVisualReference struct {
 // CanaryVisualReferenceInput is an input type that accepts CanaryVisualReferenceArgs and CanaryVisualReferenceOutput values.
 // You can construct a concrete instance of `CanaryVisualReferenceInput` via:
 //
-//          CanaryVisualReferenceArgs{...}
+//	CanaryVisualReferenceArgs{...}
 type CanaryVisualReferenceInput interface {
 	pulumi.Input
 
@@ -1162,11 +1162,11 @@ func (i CanaryVisualReferenceArgs) ToCanaryVisualReferencePtrOutputWithContext(c
 // CanaryVisualReferencePtrInput is an input type that accepts CanaryVisualReferenceArgs, CanaryVisualReferencePtr and CanaryVisualReferencePtrOutput values.
 // You can construct a concrete instance of `CanaryVisualReferencePtrInput` via:
 //
-//          CanaryVisualReferenceArgs{...}
+//	        CanaryVisualReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CanaryVisualReferencePtrInput interface {
 	pulumi.Input
 

@@ -18,7 +18,7 @@ type EnvironmentEC2Repository struct {
 // EnvironmentEC2RepositoryInput is an input type that accepts EnvironmentEC2RepositoryArgs and EnvironmentEC2RepositoryOutput values.
 // You can construct a concrete instance of `EnvironmentEC2RepositoryInput` via:
 //
-//          EnvironmentEC2RepositoryArgs{...}
+//	EnvironmentEC2RepositoryArgs{...}
 type EnvironmentEC2RepositoryInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i EnvironmentEC2RepositoryArgs) ToEnvironmentEC2RepositoryOutputWithContex
 // EnvironmentEC2RepositoryArrayInput is an input type that accepts EnvironmentEC2RepositoryArray and EnvironmentEC2RepositoryArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2RepositoryArrayInput` via:
 //
-//          EnvironmentEC2RepositoryArray{ EnvironmentEC2RepositoryArgs{...} }
+//	EnvironmentEC2RepositoryArray{ EnvironmentEC2RepositoryArgs{...} }
 type EnvironmentEC2RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type EnvironmentEC2Tag struct {
 // EnvironmentEC2TagInput is an input type that accepts EnvironmentEC2TagArgs and EnvironmentEC2TagOutput values.
 // You can construct a concrete instance of `EnvironmentEC2TagInput` via:
 //
-//          EnvironmentEC2TagArgs{...}
+//	EnvironmentEC2TagArgs{...}
 type EnvironmentEC2TagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i EnvironmentEC2TagArgs) ToEnvironmentEC2TagOutputWithContext(ctx context.
 // EnvironmentEC2TagArrayInput is an input type that accepts EnvironmentEC2TagArray and EnvironmentEC2TagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2TagArrayInput` via:
 //
-//          EnvironmentEC2TagArray{ EnvironmentEC2TagArgs{...} }
+//	EnvironmentEC2TagArray{ EnvironmentEC2TagArgs{...} }
 type EnvironmentEC2TagArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToStrin
 // WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput is an input type that accepts WorkflowStepCopyStepDetailsPropertiesOverwriteExistingArgs and WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput` via:
 //
-//          WorkflowStepCopyStepDetailsPropertiesOverwriteExistingArgs{...}
+//	WorkflowStepCopyStepDetailsPropertiesOverwriteExistingArgs{...}
 type WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o WorkflowStepTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // WorkflowStepTypeInput is an input type that accepts WorkflowStepTypeArgs and WorkflowStepTypeOutput values.
 // You can construct a concrete instance of `WorkflowStepTypeInput` via:
 //
-//          WorkflowStepTypeArgs{...}
+//	WorkflowStepTypeArgs{...}
 type WorkflowStepTypeInput interface {
 	pulumi.Input
 

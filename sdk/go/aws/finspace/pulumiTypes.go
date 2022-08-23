@@ -29,7 +29,7 @@ type EnvironmentFederationParameters struct {
 // EnvironmentFederationParametersInput is an input type that accepts EnvironmentFederationParametersArgs and EnvironmentFederationParametersOutput values.
 // You can construct a concrete instance of `EnvironmentFederationParametersInput` via:
 //
-//          EnvironmentFederationParametersArgs{...}
+//	EnvironmentFederationParametersArgs{...}
 type EnvironmentFederationParametersInput interface {
 	pulumi.Input
 
@@ -76,11 +76,11 @@ func (i EnvironmentFederationParametersArgs) ToEnvironmentFederationParametersPt
 // EnvironmentFederationParametersPtrInput is an input type that accepts EnvironmentFederationParametersArgs, EnvironmentFederationParametersPtr and EnvironmentFederationParametersPtrOutput values.
 // You can construct a concrete instance of `EnvironmentFederationParametersPtrInput` via:
 //
-//          EnvironmentFederationParametersArgs{...}
+//	        EnvironmentFederationParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentFederationParametersPtrInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ type EnvironmentSuperuserParameters struct {
 // EnvironmentSuperuserParametersInput is an input type that accepts EnvironmentSuperuserParametersArgs and EnvironmentSuperuserParametersOutput values.
 // You can construct a concrete instance of `EnvironmentSuperuserParametersInput` via:
 //
-//          EnvironmentSuperuserParametersArgs{...}
+//	EnvironmentSuperuserParametersArgs{...}
 type EnvironmentSuperuserParametersInput interface {
 	pulumi.Input
 
@@ -299,11 +299,11 @@ func (i EnvironmentSuperuserParametersArgs) ToEnvironmentSuperuserParametersPtrO
 // EnvironmentSuperuserParametersPtrInput is an input type that accepts EnvironmentSuperuserParametersArgs, EnvironmentSuperuserParametersPtr and EnvironmentSuperuserParametersPtrOutput values.
 // You can construct a concrete instance of `EnvironmentSuperuserParametersPtrInput` via:
 //
-//          EnvironmentSuperuserParametersArgs{...}
+//	        EnvironmentSuperuserParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentSuperuserParametersPtrInput interface {
 	pulumi.Input
 

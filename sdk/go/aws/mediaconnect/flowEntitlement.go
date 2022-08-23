@@ -172,7 +172,7 @@ func (o FlowEntitlementOutput) EntitlementArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringOutput { return v.EntitlementArn }).(pulumi.StringOutput)
 }
 
-//  An indication of whether the entitlement is enabled.
+// An indication of whether the entitlement is enabled.
 func (o FlowEntitlementOutput) EntitlementStatus() FlowEntitlementEntitlementStatusPtrOutput {
 	return o.ApplyT(func(v *FlowEntitlement) FlowEntitlementEntitlementStatusPtrOutput { return v.EntitlementStatus }).(FlowEntitlementEntitlementStatusPtrOutput)
 }

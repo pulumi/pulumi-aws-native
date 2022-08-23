@@ -232,7 +232,7 @@ func (o FHIRDatastoreDatastoreTypeVersionPtrOutput) ToStringPtrOutputWithContext
 // FHIRDatastoreDatastoreTypeVersionInput is an input type that accepts FHIRDatastoreDatastoreTypeVersionArgs and FHIRDatastoreDatastoreTypeVersionOutput values.
 // You can construct a concrete instance of `FHIRDatastoreDatastoreTypeVersionInput` via:
 //
-//          FHIRDatastoreDatastoreTypeVersionArgs{...}
+//	FHIRDatastoreDatastoreTypeVersionArgs{...}
 type FHIRDatastoreDatastoreTypeVersionInput interface {
 	pulumi.Input
 
@@ -397,7 +397,7 @@ func (o FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToStringPtrOutputWithC
 // FHIRDatastoreKmsEncryptionConfigCmkTypeInput is an input type that accepts FHIRDatastoreKmsEncryptionConfigCmkTypeArgs and FHIRDatastoreKmsEncryptionConfigCmkTypeOutput values.
 // You can construct a concrete instance of `FHIRDatastoreKmsEncryptionConfigCmkTypeInput` via:
 //
-//          FHIRDatastoreKmsEncryptionConfigCmkTypeArgs{...}
+//	FHIRDatastoreKmsEncryptionConfigCmkTypeArgs{...}
 type FHIRDatastoreKmsEncryptionConfigCmkTypeInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ func (o FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToStringPtrOutpu
 // FHIRDatastorePreloadDataConfigPreloadDataTypeInput is an input type that accepts FHIRDatastorePreloadDataConfigPreloadDataTypeArgs and FHIRDatastorePreloadDataConfigPreloadDataTypeOutput values.
 // You can construct a concrete instance of `FHIRDatastorePreloadDataConfigPreloadDataTypeInput` via:
 //
-//          FHIRDatastorePreloadDataConfigPreloadDataTypeArgs{...}
+//	FHIRDatastorePreloadDataConfigPreloadDataTypeArgs{...}
 type FHIRDatastorePreloadDataConfigPreloadDataTypeInput interface {
 	pulumi.Input
 

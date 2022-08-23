@@ -18,7 +18,7 @@ type AutoScalingGroupAcceleratorCountRequest struct {
 // AutoScalingGroupAcceleratorCountRequestInput is an input type that accepts AutoScalingGroupAcceleratorCountRequestArgs and AutoScalingGroupAcceleratorCountRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupAcceleratorCountRequestInput` via:
 //
-//          AutoScalingGroupAcceleratorCountRequestArgs{...}
+//	AutoScalingGroupAcceleratorCountRequestArgs{...}
 type AutoScalingGroupAcceleratorCountRequestInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i AutoScalingGroupAcceleratorCountRequestArgs) ToAutoScalingGroupAccelerat
 // AutoScalingGroupAcceleratorCountRequestPtrInput is an input type that accepts AutoScalingGroupAcceleratorCountRequestArgs, AutoScalingGroupAcceleratorCountRequestPtr and AutoScalingGroupAcceleratorCountRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupAcceleratorCountRequestPtrInput` via:
 //
-//          AutoScalingGroupAcceleratorCountRequestArgs{...}
+//	        AutoScalingGroupAcceleratorCountRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupAcceleratorCountRequestPtrInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ type AutoScalingGroupAcceleratorTotalMemoryMiBRequest struct {
 // AutoScalingGroupAcceleratorTotalMemoryMiBRequestInput is an input type that accepts AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs and AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupAcceleratorTotalMemoryMiBRequestInput` via:
 //
-//          AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{...}
+//	AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{...}
 type AutoScalingGroupAcceleratorTotalMemoryMiBRequestInput interface {
 	pulumi.Input
 
@@ -202,11 +202,11 @@ func (i AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs) ToAutoScalingGroup
 // AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput is an input type that accepts AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs, AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtr and AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput` via:
 //
-//          AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{...}
+//	        AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type AutoScalingGroupBaselineEbsBandwidthMbpsRequest struct {
 // AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput is an input type that accepts AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs and AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput` via:
 //
-//          AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{...}
+//	AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{...}
 type AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput interface {
 	pulumi.Input
 
@@ -350,11 +350,11 @@ func (i AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs) ToAutoScalingGroupB
 // AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput is an input type that accepts AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs, AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtr and AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput` via:
 //
-//          AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{...}
+//	        AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ type AutoScalingGroupInstanceRequirements struct {
 // AutoScalingGroupInstanceRequirementsInput is an input type that accepts AutoScalingGroupInstanceRequirementsArgs and AutoScalingGroupInstanceRequirementsOutput values.
 // You can construct a concrete instance of `AutoScalingGroupInstanceRequirementsInput` via:
 //
-//          AutoScalingGroupInstanceRequirementsArgs{...}
+//	AutoScalingGroupInstanceRequirementsArgs{...}
 type AutoScalingGroupInstanceRequirementsInput interface {
 	pulumi.Input
 
@@ -536,11 +536,11 @@ func (i AutoScalingGroupInstanceRequirementsArgs) ToAutoScalingGroupInstanceRequ
 // AutoScalingGroupInstanceRequirementsPtrInput is an input type that accepts AutoScalingGroupInstanceRequirementsArgs, AutoScalingGroupInstanceRequirementsPtr and AutoScalingGroupInstanceRequirementsPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupInstanceRequirementsPtrInput` via:
 //
-//          AutoScalingGroupInstanceRequirementsArgs{...}
+//	        AutoScalingGroupInstanceRequirementsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupInstanceRequirementsPtrInput interface {
 	pulumi.Input
 
@@ -911,7 +911,7 @@ type AutoScalingGroupInstancesDistribution struct {
 // AutoScalingGroupInstancesDistributionInput is an input type that accepts AutoScalingGroupInstancesDistributionArgs and AutoScalingGroupInstancesDistributionOutput values.
 // You can construct a concrete instance of `AutoScalingGroupInstancesDistributionInput` via:
 //
-//          AutoScalingGroupInstancesDistributionArgs{...}
+//	AutoScalingGroupInstancesDistributionArgs{...}
 type AutoScalingGroupInstancesDistributionInput interface {
 	pulumi.Input
 
@@ -951,11 +951,11 @@ func (i AutoScalingGroupInstancesDistributionArgs) ToAutoScalingGroupInstancesDi
 // AutoScalingGroupInstancesDistributionPtrInput is an input type that accepts AutoScalingGroupInstancesDistributionArgs, AutoScalingGroupInstancesDistributionPtr and AutoScalingGroupInstancesDistributionPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupInstancesDistributionPtrInput` via:
 //
-//          AutoScalingGroupInstancesDistributionArgs{...}
+//	        AutoScalingGroupInstancesDistributionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupInstancesDistributionPtrInput interface {
 	pulumi.Input
 
@@ -1115,7 +1115,7 @@ type AutoScalingGroupLaunchTemplate struct {
 // AutoScalingGroupLaunchTemplateInput is an input type that accepts AutoScalingGroupLaunchTemplateArgs and AutoScalingGroupLaunchTemplateOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateInput` via:
 //
-//          AutoScalingGroupLaunchTemplateArgs{...}
+//	AutoScalingGroupLaunchTemplateArgs{...}
 type AutoScalingGroupLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -1151,11 +1151,11 @@ func (i AutoScalingGroupLaunchTemplateArgs) ToAutoScalingGroupLaunchTemplatePtrO
 // AutoScalingGroupLaunchTemplatePtrInput is an input type that accepts AutoScalingGroupLaunchTemplateArgs, AutoScalingGroupLaunchTemplatePtr and AutoScalingGroupLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplatePtrInput` via:
 //
-//          AutoScalingGroupLaunchTemplateArgs{...}
+//	        AutoScalingGroupLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -1267,7 +1267,7 @@ type AutoScalingGroupLaunchTemplateOverrides struct {
 // AutoScalingGroupLaunchTemplateOverridesInput is an input type that accepts AutoScalingGroupLaunchTemplateOverridesArgs and AutoScalingGroupLaunchTemplateOverridesOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateOverridesInput` via:
 //
-//          AutoScalingGroupLaunchTemplateOverridesArgs{...}
+//	AutoScalingGroupLaunchTemplateOverridesArgs{...}
 type AutoScalingGroupLaunchTemplateOverridesInput interface {
 	pulumi.Input
 
@@ -1297,7 +1297,7 @@ func (i AutoScalingGroupLaunchTemplateOverridesArgs) ToAutoScalingGroupLaunchTem
 // AutoScalingGroupLaunchTemplateOverridesArrayInput is an input type that accepts AutoScalingGroupLaunchTemplateOverridesArray and AutoScalingGroupLaunchTemplateOverridesArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateOverridesArrayInput` via:
 //
-//          AutoScalingGroupLaunchTemplateOverridesArray{ AutoScalingGroupLaunchTemplateOverridesArgs{...} }
+//	AutoScalingGroupLaunchTemplateOverridesArray{ AutoScalingGroupLaunchTemplateOverridesArgs{...} }
 type AutoScalingGroupLaunchTemplateOverridesArrayInput interface {
 	pulumi.Input
 
@@ -1382,7 +1382,7 @@ type AutoScalingGroupLaunchTemplateSpecification struct {
 // AutoScalingGroupLaunchTemplateSpecificationInput is an input type that accepts AutoScalingGroupLaunchTemplateSpecificationArgs and AutoScalingGroupLaunchTemplateSpecificationOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateSpecificationInput` via:
 //
-//          AutoScalingGroupLaunchTemplateSpecificationArgs{...}
+//	AutoScalingGroupLaunchTemplateSpecificationArgs{...}
 type AutoScalingGroupLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -1419,11 +1419,11 @@ func (i AutoScalingGroupLaunchTemplateSpecificationArgs) ToAutoScalingGroupLaunc
 // AutoScalingGroupLaunchTemplateSpecificationPtrInput is an input type that accepts AutoScalingGroupLaunchTemplateSpecificationArgs, AutoScalingGroupLaunchTemplateSpecificationPtr and AutoScalingGroupLaunchTemplateSpecificationPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateSpecificationPtrInput` via:
 //
-//          AutoScalingGroupLaunchTemplateSpecificationArgs{...}
+//	        AutoScalingGroupLaunchTemplateSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupLaunchTemplateSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1549,7 +1549,7 @@ type AutoScalingGroupLifecycleHookSpecification struct {
 // AutoScalingGroupLifecycleHookSpecificationInput is an input type that accepts AutoScalingGroupLifecycleHookSpecificationArgs and AutoScalingGroupLifecycleHookSpecificationOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLifecycleHookSpecificationInput` via:
 //
-//          AutoScalingGroupLifecycleHookSpecificationArgs{...}
+//	AutoScalingGroupLifecycleHookSpecificationArgs{...}
 type AutoScalingGroupLifecycleHookSpecificationInput interface {
 	pulumi.Input
 
@@ -1582,7 +1582,7 @@ func (i AutoScalingGroupLifecycleHookSpecificationArgs) ToAutoScalingGroupLifecy
 // AutoScalingGroupLifecycleHookSpecificationArrayInput is an input type that accepts AutoScalingGroupLifecycleHookSpecificationArray and AutoScalingGroupLifecycleHookSpecificationArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLifecycleHookSpecificationArrayInput` via:
 //
-//          AutoScalingGroupLifecycleHookSpecificationArray{ AutoScalingGroupLifecycleHookSpecificationArgs{...} }
+//	AutoScalingGroupLifecycleHookSpecificationArray{ AutoScalingGroupLifecycleHookSpecificationArgs{...} }
 type AutoScalingGroupLifecycleHookSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -1674,7 +1674,7 @@ type AutoScalingGroupMemoryGiBPerVCpuRequest struct {
 // AutoScalingGroupMemoryGiBPerVCpuRequestInput is an input type that accepts AutoScalingGroupMemoryGiBPerVCpuRequestArgs and AutoScalingGroupMemoryGiBPerVCpuRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMemoryGiBPerVCpuRequestInput` via:
 //
-//          AutoScalingGroupMemoryGiBPerVCpuRequestArgs{...}
+//	AutoScalingGroupMemoryGiBPerVCpuRequestArgs{...}
 type AutoScalingGroupMemoryGiBPerVCpuRequestInput interface {
 	pulumi.Input
 
@@ -1710,11 +1710,11 @@ func (i AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ToAutoScalingGroupMemoryGiB
 // AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput is an input type that accepts AutoScalingGroupMemoryGiBPerVCpuRequestArgs, AutoScalingGroupMemoryGiBPerVCpuRequestPtr and AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput` via:
 //
-//          AutoScalingGroupMemoryGiBPerVCpuRequestArgs{...}
+//	        AutoScalingGroupMemoryGiBPerVCpuRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput interface {
 	pulumi.Input
 
@@ -1822,7 +1822,7 @@ type AutoScalingGroupMemoryMiBRequest struct {
 // AutoScalingGroupMemoryMiBRequestInput is an input type that accepts AutoScalingGroupMemoryMiBRequestArgs and AutoScalingGroupMemoryMiBRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMemoryMiBRequestInput` via:
 //
-//          AutoScalingGroupMemoryMiBRequestArgs{...}
+//	AutoScalingGroupMemoryMiBRequestArgs{...}
 type AutoScalingGroupMemoryMiBRequestInput interface {
 	pulumi.Input
 
@@ -1858,11 +1858,11 @@ func (i AutoScalingGroupMemoryMiBRequestArgs) ToAutoScalingGroupMemoryMiBRequest
 // AutoScalingGroupMemoryMiBRequestPtrInput is an input type that accepts AutoScalingGroupMemoryMiBRequestArgs, AutoScalingGroupMemoryMiBRequestPtr and AutoScalingGroupMemoryMiBRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMemoryMiBRequestPtrInput` via:
 //
-//          AutoScalingGroupMemoryMiBRequestArgs{...}
+//	        AutoScalingGroupMemoryMiBRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupMemoryMiBRequestPtrInput interface {
 	pulumi.Input
 
@@ -1970,7 +1970,7 @@ type AutoScalingGroupMetricsCollection struct {
 // AutoScalingGroupMetricsCollectionInput is an input type that accepts AutoScalingGroupMetricsCollectionArgs and AutoScalingGroupMetricsCollectionOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMetricsCollectionInput` via:
 //
-//          AutoScalingGroupMetricsCollectionArgs{...}
+//	AutoScalingGroupMetricsCollectionArgs{...}
 type AutoScalingGroupMetricsCollectionInput interface {
 	pulumi.Input
 
@@ -1998,7 +1998,7 @@ func (i AutoScalingGroupMetricsCollectionArgs) ToAutoScalingGroupMetricsCollecti
 // AutoScalingGroupMetricsCollectionArrayInput is an input type that accepts AutoScalingGroupMetricsCollectionArray and AutoScalingGroupMetricsCollectionArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMetricsCollectionArrayInput` via:
 //
-//          AutoScalingGroupMetricsCollectionArray{ AutoScalingGroupMetricsCollectionArgs{...} }
+//	AutoScalingGroupMetricsCollectionArray{ AutoScalingGroupMetricsCollectionArgs{...} }
 type AutoScalingGroupMetricsCollectionArrayInput interface {
 	pulumi.Input
 
@@ -2070,7 +2070,7 @@ type AutoScalingGroupMixedInstancesPolicy struct {
 // AutoScalingGroupMixedInstancesPolicyInput is an input type that accepts AutoScalingGroupMixedInstancesPolicyArgs and AutoScalingGroupMixedInstancesPolicyOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMixedInstancesPolicyInput` via:
 //
-//          AutoScalingGroupMixedInstancesPolicyArgs{...}
+//	AutoScalingGroupMixedInstancesPolicyArgs{...}
 type AutoScalingGroupMixedInstancesPolicyInput interface {
 	pulumi.Input
 
@@ -2106,11 +2106,11 @@ func (i AutoScalingGroupMixedInstancesPolicyArgs) ToAutoScalingGroupMixedInstanc
 // AutoScalingGroupMixedInstancesPolicyPtrInput is an input type that accepts AutoScalingGroupMixedInstancesPolicyArgs, AutoScalingGroupMixedInstancesPolicyPtr and AutoScalingGroupMixedInstancesPolicyPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMixedInstancesPolicyPtrInput` via:
 //
-//          AutoScalingGroupMixedInstancesPolicyArgs{...}
+//	        AutoScalingGroupMixedInstancesPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupMixedInstancesPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2220,7 +2220,7 @@ type AutoScalingGroupNetworkInterfaceCountRequest struct {
 // AutoScalingGroupNetworkInterfaceCountRequestInput is an input type that accepts AutoScalingGroupNetworkInterfaceCountRequestArgs and AutoScalingGroupNetworkInterfaceCountRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupNetworkInterfaceCountRequestInput` via:
 //
-//          AutoScalingGroupNetworkInterfaceCountRequestArgs{...}
+//	AutoScalingGroupNetworkInterfaceCountRequestArgs{...}
 type AutoScalingGroupNetworkInterfaceCountRequestInput interface {
 	pulumi.Input
 
@@ -2256,11 +2256,11 @@ func (i AutoScalingGroupNetworkInterfaceCountRequestArgs) ToAutoScalingGroupNetw
 // AutoScalingGroupNetworkInterfaceCountRequestPtrInput is an input type that accepts AutoScalingGroupNetworkInterfaceCountRequestArgs, AutoScalingGroupNetworkInterfaceCountRequestPtr and AutoScalingGroupNetworkInterfaceCountRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupNetworkInterfaceCountRequestPtrInput` via:
 //
-//          AutoScalingGroupNetworkInterfaceCountRequestArgs{...}
+//	        AutoScalingGroupNetworkInterfaceCountRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupNetworkInterfaceCountRequestPtrInput interface {
 	pulumi.Input
 
@@ -2368,7 +2368,7 @@ type AutoScalingGroupNotificationConfiguration struct {
 // AutoScalingGroupNotificationConfigurationInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs and AutoScalingGroupNotificationConfigurationOutput values.
 // You can construct a concrete instance of `AutoScalingGroupNotificationConfigurationInput` via:
 //
-//          AutoScalingGroupNotificationConfigurationArgs{...}
+//	AutoScalingGroupNotificationConfigurationArgs{...}
 type AutoScalingGroupNotificationConfigurationInput interface {
 	pulumi.Input
 
@@ -2396,7 +2396,7 @@ func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotific
 // AutoScalingGroupNotificationConfigurationArrayInput is an input type that accepts AutoScalingGroupNotificationConfigurationArray and AutoScalingGroupNotificationConfigurationArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupNotificationConfigurationArrayInput` via:
 //
-//          AutoScalingGroupNotificationConfigurationArray{ AutoScalingGroupNotificationConfigurationArgs{...} }
+//	AutoScalingGroupNotificationConfigurationArray{ AutoScalingGroupNotificationConfigurationArgs{...} }
 type AutoScalingGroupNotificationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2469,7 +2469,7 @@ type AutoScalingGroupTagProperty struct {
 // AutoScalingGroupTagPropertyInput is an input type that accepts AutoScalingGroupTagPropertyArgs and AutoScalingGroupTagPropertyOutput values.
 // You can construct a concrete instance of `AutoScalingGroupTagPropertyInput` via:
 //
-//          AutoScalingGroupTagPropertyArgs{...}
+//	AutoScalingGroupTagPropertyArgs{...}
 type AutoScalingGroupTagPropertyInput interface {
 	pulumi.Input
 
@@ -2498,7 +2498,7 @@ func (i AutoScalingGroupTagPropertyArgs) ToAutoScalingGroupTagPropertyOutputWith
 // AutoScalingGroupTagPropertyArrayInput is an input type that accepts AutoScalingGroupTagPropertyArray and AutoScalingGroupTagPropertyArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupTagPropertyArrayInput` via:
 //
-//          AutoScalingGroupTagPropertyArray{ AutoScalingGroupTagPropertyArgs{...} }
+//	AutoScalingGroupTagPropertyArray{ AutoScalingGroupTagPropertyArgs{...} }
 type AutoScalingGroupTagPropertyArrayInput interface {
 	pulumi.Input
 
@@ -2574,7 +2574,7 @@ type AutoScalingGroupTotalLocalStorageGBRequest struct {
 // AutoScalingGroupTotalLocalStorageGBRequestInput is an input type that accepts AutoScalingGroupTotalLocalStorageGBRequestArgs and AutoScalingGroupTotalLocalStorageGBRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGBRequestInput` via:
 //
-//          AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
+//	AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
 type AutoScalingGroupTotalLocalStorageGBRequestInput interface {
 	pulumi.Input
 
@@ -2610,11 +2610,11 @@ func (i AutoScalingGroupTotalLocalStorageGBRequestArgs) ToAutoScalingGroupTotalL
 // AutoScalingGroupTotalLocalStorageGBRequestPtrInput is an input type that accepts AutoScalingGroupTotalLocalStorageGBRequestArgs, AutoScalingGroupTotalLocalStorageGBRequestPtr and AutoScalingGroupTotalLocalStorageGBRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupTotalLocalStorageGBRequestPtrInput` via:
 //
-//          AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
+//	        AutoScalingGroupTotalLocalStorageGBRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupTotalLocalStorageGBRequestPtrInput interface {
 	pulumi.Input
 
@@ -2722,7 +2722,7 @@ type AutoScalingGroupVCpuCountRequest struct {
 // AutoScalingGroupVCpuCountRequestInput is an input type that accepts AutoScalingGroupVCpuCountRequestArgs and AutoScalingGroupVCpuCountRequestOutput values.
 // You can construct a concrete instance of `AutoScalingGroupVCpuCountRequestInput` via:
 //
-//          AutoScalingGroupVCpuCountRequestArgs{...}
+//	AutoScalingGroupVCpuCountRequestArgs{...}
 type AutoScalingGroupVCpuCountRequestInput interface {
 	pulumi.Input
 
@@ -2758,11 +2758,11 @@ func (i AutoScalingGroupVCpuCountRequestArgs) ToAutoScalingGroupVCpuCountRequest
 // AutoScalingGroupVCpuCountRequestPtrInput is an input type that accepts AutoScalingGroupVCpuCountRequestArgs, AutoScalingGroupVCpuCountRequestPtr and AutoScalingGroupVCpuCountRequestPtrOutput values.
 // You can construct a concrete instance of `AutoScalingGroupVCpuCountRequestPtrInput` via:
 //
-//          AutoScalingGroupVCpuCountRequestArgs{...}
+//	        AutoScalingGroupVCpuCountRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AutoScalingGroupVCpuCountRequestPtrInput interface {
 	pulumi.Input
 
@@ -2883,7 +2883,7 @@ type LaunchConfigurationBlockDevice struct {
 // LaunchConfigurationBlockDeviceInput is an input type that accepts LaunchConfigurationBlockDeviceArgs and LaunchConfigurationBlockDeviceOutput values.
 // You can construct a concrete instance of `LaunchConfigurationBlockDeviceInput` via:
 //
-//          LaunchConfigurationBlockDeviceArgs{...}
+//	LaunchConfigurationBlockDeviceArgs{...}
 type LaunchConfigurationBlockDeviceInput interface {
 	pulumi.Input
 
@@ -2932,11 +2932,11 @@ func (i LaunchConfigurationBlockDeviceArgs) ToLaunchConfigurationBlockDevicePtrO
 // LaunchConfigurationBlockDevicePtrInput is an input type that accepts LaunchConfigurationBlockDeviceArgs, LaunchConfigurationBlockDevicePtr and LaunchConfigurationBlockDevicePtrOutput values.
 // You can construct a concrete instance of `LaunchConfigurationBlockDevicePtrInput` via:
 //
-//          LaunchConfigurationBlockDeviceArgs{...}
+//	        LaunchConfigurationBlockDeviceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchConfigurationBlockDevicePtrInput interface {
 	pulumi.Input
 
@@ -3131,7 +3131,7 @@ type LaunchConfigurationBlockDeviceMapping struct {
 // LaunchConfigurationBlockDeviceMappingInput is an input type that accepts LaunchConfigurationBlockDeviceMappingArgs and LaunchConfigurationBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `LaunchConfigurationBlockDeviceMappingInput` via:
 //
-//          LaunchConfigurationBlockDeviceMappingArgs{...}
+//	LaunchConfigurationBlockDeviceMappingArgs{...}
 type LaunchConfigurationBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -3166,7 +3166,7 @@ func (i LaunchConfigurationBlockDeviceMappingArgs) ToLaunchConfigurationBlockDev
 // LaunchConfigurationBlockDeviceMappingArrayInput is an input type that accepts LaunchConfigurationBlockDeviceMappingArray and LaunchConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `LaunchConfigurationBlockDeviceMappingArrayInput` via:
 //
-//          LaunchConfigurationBlockDeviceMappingArray{ LaunchConfigurationBlockDeviceMappingArgs{...} }
+//	LaunchConfigurationBlockDeviceMappingArray{ LaunchConfigurationBlockDeviceMappingArgs{...} }
 type LaunchConfigurationBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -3256,7 +3256,7 @@ type LaunchConfigurationMetadataOptions struct {
 // LaunchConfigurationMetadataOptionsInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs and LaunchConfigurationMetadataOptionsOutput values.
 // You can construct a concrete instance of `LaunchConfigurationMetadataOptionsInput` via:
 //
-//          LaunchConfigurationMetadataOptionsArgs{...}
+//	LaunchConfigurationMetadataOptionsArgs{...}
 type LaunchConfigurationMetadataOptionsInput interface {
 	pulumi.Input
 
@@ -3297,11 +3297,11 @@ func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOpt
 // LaunchConfigurationMetadataOptionsPtrInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs, LaunchConfigurationMetadataOptionsPtr and LaunchConfigurationMetadataOptionsPtrOutput values.
 // You can construct a concrete instance of `LaunchConfigurationMetadataOptionsPtrInput` via:
 //
-//          LaunchConfigurationMetadataOptionsArgs{...}
+//	        LaunchConfigurationMetadataOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LaunchConfigurationMetadataOptionsPtrInput interface {
 	pulumi.Input
 
@@ -3432,7 +3432,7 @@ type ScalingPolicyCustomizedMetricSpecification struct {
 // ScalingPolicyCustomizedMetricSpecificationInput is an input type that accepts ScalingPolicyCustomizedMetricSpecificationArgs and ScalingPolicyCustomizedMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPolicyCustomizedMetricSpecificationInput` via:
 //
-//          ScalingPolicyCustomizedMetricSpecificationArgs{...}
+//	ScalingPolicyCustomizedMetricSpecificationArgs{...}
 type ScalingPolicyCustomizedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -3471,11 +3471,11 @@ func (i ScalingPolicyCustomizedMetricSpecificationArgs) ToScalingPolicyCustomize
 // ScalingPolicyCustomizedMetricSpecificationPtrInput is an input type that accepts ScalingPolicyCustomizedMetricSpecificationArgs, ScalingPolicyCustomizedMetricSpecificationPtr and ScalingPolicyCustomizedMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyCustomizedMetricSpecificationPtrInput` via:
 //
-//          ScalingPolicyCustomizedMetricSpecificationArgs{...}
+//	        ScalingPolicyCustomizedMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyCustomizedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3623,7 +3623,7 @@ type ScalingPolicyMetric struct {
 // ScalingPolicyMetricInput is an input type that accepts ScalingPolicyMetricArgs and ScalingPolicyMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricInput` via:
 //
-//          ScalingPolicyMetricArgs{...}
+//	ScalingPolicyMetricArgs{...}
 type ScalingPolicyMetricInput interface {
 	pulumi.Input
 
@@ -3660,11 +3660,11 @@ func (i ScalingPolicyMetricArgs) ToScalingPolicyMetricPtrOutputWithContext(ctx c
 // ScalingPolicyMetricPtrInput is an input type that accepts ScalingPolicyMetricArgs, ScalingPolicyMetricPtr and ScalingPolicyMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricPtrInput` via:
 //
-//          ScalingPolicyMetricArgs{...}
+//	        ScalingPolicyMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyMetricPtrInput interface {
 	pulumi.Input
 
@@ -3788,7 +3788,7 @@ type ScalingPolicyMetricDataQuery struct {
 // ScalingPolicyMetricDataQueryInput is an input type that accepts ScalingPolicyMetricDataQueryArgs and ScalingPolicyMetricDataQueryOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDataQueryInput` via:
 //
-//          ScalingPolicyMetricDataQueryArgs{...}
+//	ScalingPolicyMetricDataQueryArgs{...}
 type ScalingPolicyMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -3819,7 +3819,7 @@ func (i ScalingPolicyMetricDataQueryArgs) ToScalingPolicyMetricDataQueryOutputWi
 // ScalingPolicyMetricDataQueryArrayInput is an input type that accepts ScalingPolicyMetricDataQueryArray and ScalingPolicyMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDataQueryArrayInput` via:
 //
-//          ScalingPolicyMetricDataQueryArray{ ScalingPolicyMetricDataQueryArgs{...} }
+//	ScalingPolicyMetricDataQueryArray{ ScalingPolicyMetricDataQueryArgs{...} }
 type ScalingPolicyMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -3903,7 +3903,7 @@ type ScalingPolicyMetricDimension struct {
 // ScalingPolicyMetricDimensionInput is an input type that accepts ScalingPolicyMetricDimensionArgs and ScalingPolicyMetricDimensionOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDimensionInput` via:
 //
-//          ScalingPolicyMetricDimensionArgs{...}
+//	ScalingPolicyMetricDimensionArgs{...}
 type ScalingPolicyMetricDimensionInput interface {
 	pulumi.Input
 
@@ -3931,7 +3931,7 @@ func (i ScalingPolicyMetricDimensionArgs) ToScalingPolicyMetricDimensionOutputWi
 // ScalingPolicyMetricDimensionArrayInput is an input type that accepts ScalingPolicyMetricDimensionArray and ScalingPolicyMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDimensionArrayInput` via:
 //
-//          ScalingPolicyMetricDimensionArray{ ScalingPolicyMetricDimensionArgs{...} }
+//	ScalingPolicyMetricDimensionArray{ ScalingPolicyMetricDimensionArgs{...} }
 type ScalingPolicyMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -4004,7 +4004,7 @@ type ScalingPolicyMetricStat struct {
 // ScalingPolicyMetricStatInput is an input type that accepts ScalingPolicyMetricStatArgs and ScalingPolicyMetricStatOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricStatInput` via:
 //
-//          ScalingPolicyMetricStatArgs{...}
+//	ScalingPolicyMetricStatArgs{...}
 type ScalingPolicyMetricStatInput interface {
 	pulumi.Input
 
@@ -4041,11 +4041,11 @@ func (i ScalingPolicyMetricStatArgs) ToScalingPolicyMetricStatPtrOutputWithConte
 // ScalingPolicyMetricStatPtrInput is an input type that accepts ScalingPolicyMetricStatArgs, ScalingPolicyMetricStatPtr and ScalingPolicyMetricStatPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricStatPtrInput` via:
 //
-//          ScalingPolicyMetricStatArgs{...}
+//	        ScalingPolicyMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -4166,7 +4166,7 @@ type ScalingPolicyPredefinedMetricSpecification struct {
 // ScalingPolicyPredefinedMetricSpecificationInput is an input type that accepts ScalingPolicyPredefinedMetricSpecificationArgs and ScalingPolicyPredefinedMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredefinedMetricSpecificationInput` via:
 //
-//          ScalingPolicyPredefinedMetricSpecificationArgs{...}
+//	ScalingPolicyPredefinedMetricSpecificationArgs{...}
 type ScalingPolicyPredefinedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -4202,11 +4202,11 @@ func (i ScalingPolicyPredefinedMetricSpecificationArgs) ToScalingPolicyPredefine
 // ScalingPolicyPredefinedMetricSpecificationPtrInput is an input type that accepts ScalingPolicyPredefinedMetricSpecificationArgs, ScalingPolicyPredefinedMetricSpecificationPtr and ScalingPolicyPredefinedMetricSpecificationPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredefinedMetricSpecificationPtrInput` via:
 //
-//          ScalingPolicyPredefinedMetricSpecificationArgs{...}
+//	        ScalingPolicyPredefinedMetricSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredefinedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -4317,7 +4317,7 @@ type ScalingPolicyPredictiveScalingConfiguration struct {
 // ScalingPolicyPredictiveScalingConfigurationInput is an input type that accepts ScalingPolicyPredictiveScalingConfigurationArgs and ScalingPolicyPredictiveScalingConfigurationOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingConfigurationInput` via:
 //
-//          ScalingPolicyPredictiveScalingConfigurationArgs{...}
+//	ScalingPolicyPredictiveScalingConfigurationArgs{...}
 type ScalingPolicyPredictiveScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -4356,11 +4356,11 @@ func (i ScalingPolicyPredictiveScalingConfigurationArgs) ToScalingPolicyPredicti
 // ScalingPolicyPredictiveScalingConfigurationPtrInput is an input type that accepts ScalingPolicyPredictiveScalingConfigurationArgs, ScalingPolicyPredictiveScalingConfigurationPtr and ScalingPolicyPredictiveScalingConfigurationPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingConfigurationPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingConfigurationArgs{...}
+//	        ScalingPolicyPredictiveScalingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4508,7 +4508,7 @@ type ScalingPolicyPredictiveScalingCustomizedCapacityMetric struct {
 // ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs and ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
+//	ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
 type ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput interface {
 	pulumi.Input
 
@@ -4543,11 +4543,11 @@ func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPol
 // ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs, ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtr and ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
+//	        ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput interface {
 	pulumi.Input
 
@@ -4643,7 +4643,7 @@ type ScalingPolicyPredictiveScalingCustomizedLoadMetric struct {
 // ScalingPolicyPredictiveScalingCustomizedLoadMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs and ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedLoadMetricInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
+//	ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
 type ScalingPolicyPredictiveScalingCustomizedLoadMetricInput interface {
 	pulumi.Input
 
@@ -4678,11 +4678,11 @@ func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyP
 // ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs, ScalingPolicyPredictiveScalingCustomizedLoadMetricPtr and ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
+//	        ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput interface {
 	pulumi.Input
 
@@ -4778,7 +4778,7 @@ type ScalingPolicyPredictiveScalingCustomizedScalingMetric struct {
 // ScalingPolicyPredictiveScalingCustomizedScalingMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs and ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedScalingMetricInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
+//	ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
 type ScalingPolicyPredictiveScalingCustomizedScalingMetricInput interface {
 	pulumi.Input
 
@@ -4813,11 +4813,11 @@ func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPoli
 // ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs, ScalingPolicyPredictiveScalingCustomizedScalingMetricPtr and ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
+//	        ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput interface {
 	pulumi.Input
 
@@ -4919,7 +4919,7 @@ type ScalingPolicyPredictiveScalingMetricSpecification struct {
 // ScalingPolicyPredictiveScalingMetricSpecificationInput is an input type that accepts ScalingPolicyPredictiveScalingMetricSpecificationArgs and ScalingPolicyPredictiveScalingMetricSpecificationOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricSpecificationInput` via:
 //
-//          ScalingPolicyPredictiveScalingMetricSpecificationArgs{...}
+//	ScalingPolicyPredictiveScalingMetricSpecificationArgs{...}
 type ScalingPolicyPredictiveScalingMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -4952,7 +4952,7 @@ func (i ScalingPolicyPredictiveScalingMetricSpecificationArgs) ToScalingPolicyPr
 // ScalingPolicyPredictiveScalingMetricSpecificationArrayInput is an input type that accepts ScalingPolicyPredictiveScalingMetricSpecificationArray and ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricSpecificationArrayInput` via:
 //
-//          ScalingPolicyPredictiveScalingMetricSpecificationArray{ ScalingPolicyPredictiveScalingMetricSpecificationArgs{...} }
+//	ScalingPolicyPredictiveScalingMetricSpecificationArray{ ScalingPolicyPredictiveScalingMetricSpecificationArgs{...} }
 type ScalingPolicyPredictiveScalingMetricSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -5056,7 +5056,7 @@ type ScalingPolicyPredictiveScalingPredefinedLoadMetric struct {
 // ScalingPolicyPredictiveScalingPredefinedLoadMetricInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs and ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedLoadMetricInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
+//	ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
 type ScalingPolicyPredictiveScalingPredefinedLoadMetricInput interface {
 	pulumi.Input
 
@@ -5092,11 +5092,11 @@ func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyP
 // ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs, ScalingPolicyPredictiveScalingPredefinedLoadMetricPtr and ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
+//	        ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput interface {
 	pulumi.Input
 
@@ -5204,7 +5204,7 @@ type ScalingPolicyPredictiveScalingPredefinedMetricPair struct {
 // ScalingPolicyPredictiveScalingPredefinedMetricPairInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedMetricPairArgs and ScalingPolicyPredictiveScalingPredefinedMetricPairOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedMetricPairInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
+//	ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
 type ScalingPolicyPredictiveScalingPredefinedMetricPairInput interface {
 	pulumi.Input
 
@@ -5240,11 +5240,11 @@ func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyP
 // ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedMetricPairArgs, ScalingPolicyPredictiveScalingPredefinedMetricPairPtr and ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
+//	        ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput interface {
 	pulumi.Input
 
@@ -5352,7 +5352,7 @@ type ScalingPolicyPredictiveScalingPredefinedScalingMetric struct {
 // ScalingPolicyPredictiveScalingPredefinedScalingMetricInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs and ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedScalingMetricInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
+//	ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
 type ScalingPolicyPredictiveScalingPredefinedScalingMetricInput interface {
 	pulumi.Input
 
@@ -5388,11 +5388,11 @@ func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPoli
 // ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs, ScalingPolicyPredictiveScalingPredefinedScalingMetricPtr and ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput` via:
 //
-//          ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
+//	        ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput interface {
 	pulumi.Input
 
@@ -5501,7 +5501,7 @@ type ScalingPolicyStepAdjustment struct {
 // ScalingPolicyStepAdjustmentInput is an input type that accepts ScalingPolicyStepAdjustmentArgs and ScalingPolicyStepAdjustmentOutput values.
 // You can construct a concrete instance of `ScalingPolicyStepAdjustmentInput` via:
 //
-//          ScalingPolicyStepAdjustmentArgs{...}
+//	ScalingPolicyStepAdjustmentArgs{...}
 type ScalingPolicyStepAdjustmentInput interface {
 	pulumi.Input
 
@@ -5530,7 +5530,7 @@ func (i ScalingPolicyStepAdjustmentArgs) ToScalingPolicyStepAdjustmentOutputWith
 // ScalingPolicyStepAdjustmentArrayInput is an input type that accepts ScalingPolicyStepAdjustmentArray and ScalingPolicyStepAdjustmentArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyStepAdjustmentArrayInput` via:
 //
-//          ScalingPolicyStepAdjustmentArray{ ScalingPolicyStepAdjustmentArgs{...} }
+//	ScalingPolicyStepAdjustmentArray{ ScalingPolicyStepAdjustmentArgs{...} }
 type ScalingPolicyStepAdjustmentArrayInput interface {
 	pulumi.Input
 
@@ -5608,7 +5608,7 @@ type ScalingPolicyTargetTrackingConfiguration struct {
 // ScalingPolicyTargetTrackingConfigurationInput is an input type that accepts ScalingPolicyTargetTrackingConfigurationArgs and ScalingPolicyTargetTrackingConfigurationOutput values.
 // You can construct a concrete instance of `ScalingPolicyTargetTrackingConfigurationInput` via:
 //
-//          ScalingPolicyTargetTrackingConfigurationArgs{...}
+//	ScalingPolicyTargetTrackingConfigurationArgs{...}
 type ScalingPolicyTargetTrackingConfigurationInput interface {
 	pulumi.Input
 
@@ -5646,11 +5646,11 @@ func (i ScalingPolicyTargetTrackingConfigurationArgs) ToScalingPolicyTargetTrack
 // ScalingPolicyTargetTrackingConfigurationPtrInput is an input type that accepts ScalingPolicyTargetTrackingConfigurationArgs, ScalingPolicyTargetTrackingConfigurationPtr and ScalingPolicyTargetTrackingConfigurationPtrOutput values.
 // You can construct a concrete instance of `ScalingPolicyTargetTrackingConfigurationPtrInput` via:
 //
-//          ScalingPolicyTargetTrackingConfigurationArgs{...}
+//	        ScalingPolicyTargetTrackingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScalingPolicyTargetTrackingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5787,7 +5787,7 @@ type WarmPoolInstanceReusePolicy struct {
 // WarmPoolInstanceReusePolicyInput is an input type that accepts WarmPoolInstanceReusePolicyArgs and WarmPoolInstanceReusePolicyOutput values.
 // You can construct a concrete instance of `WarmPoolInstanceReusePolicyInput` via:
 //
-//          WarmPoolInstanceReusePolicyArgs{...}
+//	WarmPoolInstanceReusePolicyArgs{...}
 type WarmPoolInstanceReusePolicyInput interface {
 	pulumi.Input
 
@@ -5822,11 +5822,11 @@ func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyPtrOutputW
 // WarmPoolInstanceReusePolicyPtrInput is an input type that accepts WarmPoolInstanceReusePolicyArgs, WarmPoolInstanceReusePolicyPtr and WarmPoolInstanceReusePolicyPtrOutput values.
 // You can construct a concrete instance of `WarmPoolInstanceReusePolicyPtrInput` via:
 //
-//          WarmPoolInstanceReusePolicyArgs{...}
+//	        WarmPoolInstanceReusePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WarmPoolInstanceReusePolicyPtrInput interface {
 	pulumi.Input
 

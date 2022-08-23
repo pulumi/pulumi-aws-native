@@ -141,7 +141,7 @@ func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToStringPtrOutputWithC
 // ReportDefinitionAdditionalArtifactsItemInput is an input type that accepts ReportDefinitionAdditionalArtifactsItemArgs and ReportDefinitionAdditionalArtifactsItemOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalArtifactsItemInput` via:
 //
-//          ReportDefinitionAdditionalArtifactsItemArgs{...}
+//	ReportDefinitionAdditionalArtifactsItemArgs{...}
 type ReportDefinitionAdditionalArtifactsItemInput interface {
 	pulumi.Input
 
@@ -179,7 +179,7 @@ func (in *reportDefinitionAdditionalArtifactsItemPtr) ToReportDefinitionAddition
 // ReportDefinitionAdditionalArtifactsItemArrayInput is an input type that accepts ReportDefinitionAdditionalArtifactsItemArray and ReportDefinitionAdditionalArtifactsItemArrayOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalArtifactsItemArrayInput` via:
 //
-//          ReportDefinitionAdditionalArtifactsItemArray{ ReportDefinitionAdditionalArtifactsItemArgs{...} }
+//	ReportDefinitionAdditionalArtifactsItemArray{ ReportDefinitionAdditionalArtifactsItemArgs{...} }
 type ReportDefinitionAdditionalArtifactsItemArrayInput interface {
 	pulumi.Input
 
@@ -350,7 +350,7 @@ func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToStringPtrOutput
 // ReportDefinitionAdditionalSchemaElementsItemInput is an input type that accepts ReportDefinitionAdditionalSchemaElementsItemArgs and ReportDefinitionAdditionalSchemaElementsItemOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalSchemaElementsItemInput` via:
 //
-//          ReportDefinitionAdditionalSchemaElementsItemArgs{...}
+//	ReportDefinitionAdditionalSchemaElementsItemArgs{...}
 type ReportDefinitionAdditionalSchemaElementsItemInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ func (in *reportDefinitionAdditionalSchemaElementsItemPtr) ToReportDefinitionAdd
 // ReportDefinitionAdditionalSchemaElementsItemArrayInput is an input type that accepts ReportDefinitionAdditionalSchemaElementsItemArray and ReportDefinitionAdditionalSchemaElementsItemArrayOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalSchemaElementsItemArrayInput` via:
 //
-//          ReportDefinitionAdditionalSchemaElementsItemArray{ ReportDefinitionAdditionalSchemaElementsItemArgs{...} }
+//	ReportDefinitionAdditionalSchemaElementsItemArray{ ReportDefinitionAdditionalSchemaElementsItemArgs{...} }
 type ReportDefinitionAdditionalSchemaElementsItemArrayInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ func (o ReportDefinitionCompressionPtrOutput) ToStringPtrOutputWithContext(ctx c
 // ReportDefinitionCompressionInput is an input type that accepts ReportDefinitionCompressionArgs and ReportDefinitionCompressionOutput values.
 // You can construct a concrete instance of `ReportDefinitionCompressionInput` via:
 //
-//          ReportDefinitionCompressionArgs{...}
+//	ReportDefinitionCompressionArgs{...}
 type ReportDefinitionCompressionInput interface {
 	pulumi.Input
 
@@ -726,7 +726,7 @@ func (o ReportDefinitionFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ReportDefinitionFormatInput is an input type that accepts ReportDefinitionFormatArgs and ReportDefinitionFormatOutput values.
 // You can construct a concrete instance of `ReportDefinitionFormatInput` via:
 //
-//          ReportDefinitionFormatArgs{...}
+//	ReportDefinitionFormatArgs{...}
 type ReportDefinitionFormatInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ func (o ReportDefinitionReportVersioningPtrOutput) ToStringPtrOutputWithContext(
 // ReportDefinitionReportVersioningInput is an input type that accepts ReportDefinitionReportVersioningArgs and ReportDefinitionReportVersioningOutput values.
 // You can construct a concrete instance of `ReportDefinitionReportVersioningInput` via:
 //
-//          ReportDefinitionReportVersioningArgs{...}
+//	ReportDefinitionReportVersioningArgs{...}
 type ReportDefinitionReportVersioningInput interface {
 	pulumi.Input
 
@@ -1057,7 +1057,7 @@ func (o ReportDefinitionTimeUnitPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // ReportDefinitionTimeUnitInput is an input type that accepts ReportDefinitionTimeUnitArgs and ReportDefinitionTimeUnitOutput values.
 // You can construct a concrete instance of `ReportDefinitionTimeUnitInput` via:
 //
-//          ReportDefinitionTimeUnitArgs{...}
+//	ReportDefinitionTimeUnitArgs{...}
 type ReportDefinitionTimeUnitInput interface {
 	pulumi.Input
 

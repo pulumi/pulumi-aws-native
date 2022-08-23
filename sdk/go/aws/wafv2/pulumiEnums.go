@@ -140,7 +140,7 @@ func (o IPSetIPAddressVersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 // IPSetIPAddressVersionInput is an input type that accepts IPSetIPAddressVersionArgs and IPSetIPAddressVersionOutput values.
 // You can construct a concrete instance of `IPSetIPAddressVersionInput` via:
 //
-//          IPSetIPAddressVersionArgs{...}
+//	IPSetIPAddressVersionArgs{...}
 type IPSetIPAddressVersionInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o IPSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // IPSetScopeInput is an input type that accepts IPSetScopeArgs and IPSetScopeOutput values.
 // You can construct a concrete instance of `IPSetScopeInput` via:
 //
-//          IPSetScopeArgs{...}
+//	IPSetScopeArgs{...}
 type IPSetScopeInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) T
 // LoggingConfigurationConditionActionConditionPropertiesActionInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesActionArgs and LoggingConfigurationConditionActionConditionPropertiesActionOutput values.
 // You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesActionInput` via:
 //
-//          LoggingConfigurationConditionActionConditionPropertiesActionArgs{...}
+//	LoggingConfigurationConditionActionConditionPropertiesActionArgs{...}
 type LoggingConfigurationConditionActionConditionPropertiesActionInput interface {
 	pulumi.Input
 
@@ -639,7 +639,7 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs{...}
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -805,7 +805,7 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) T
 // LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput` via:
 //
-//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs{...}
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput interface {
 	pulumi.Input
 
@@ -970,7 +970,7 @@ func (o LoggingConfigurationFilterBehaviorPtrOutput) ToStringPtrOutputWithContex
 // LoggingConfigurationFilterBehaviorInput is an input type that accepts LoggingConfigurationFilterBehaviorArgs and LoggingConfigurationFilterBehaviorOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFilterBehaviorInput` via:
 //
-//          LoggingConfigurationFilterBehaviorArgs{...}
+//	LoggingConfigurationFilterBehaviorArgs{...}
 type LoggingConfigurationFilterBehaviorInput interface {
 	pulumi.Input
 
@@ -1135,7 +1135,7 @@ func (o LoggingConfigurationFilterRequirementPtrOutput) ToStringPtrOutputWithCon
 // LoggingConfigurationFilterRequirementInput is an input type that accepts LoggingConfigurationFilterRequirementArgs and LoggingConfigurationFilterRequirementOutput values.
 // You can construct a concrete instance of `LoggingConfigurationFilterRequirementInput` via:
 //
-//          LoggingConfigurationFilterRequirementArgs{...}
+//	LoggingConfigurationFilterRequirementArgs{...}
 type LoggingConfigurationFilterRequirementInput interface {
 	pulumi.Input
 
@@ -1300,7 +1300,7 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToS
 // LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput is an input type that accepts LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs and LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput values.
 // You can construct a concrete instance of `LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput` via:
 //
-//          LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs{...}
+//	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs{...}
 type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput interface {
 	pulumi.Input
 
@@ -1465,7 +1465,7 @@ func (o RegexPatternSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // RegexPatternSetScopeInput is an input type that accepts RegexPatternSetScopeArgs and RegexPatternSetScopeOutput values.
 // You can construct a concrete instance of `RegexPatternSetScopeInput` via:
 //
-//          RegexPatternSetScopeArgs{...}
+//	RegexPatternSetScopeArgs{...}
 type RegexPatternSetScopeInput interface {
 	pulumi.Input
 
@@ -1631,7 +1631,7 @@ func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithCont
 // RuleGroupBodyParsingFallbackBehaviorInput is an input type that accepts RuleGroupBodyParsingFallbackBehaviorArgs and RuleGroupBodyParsingFallbackBehaviorOutput values.
 // You can construct a concrete instance of `RuleGroupBodyParsingFallbackBehaviorInput` via:
 //
-//          RuleGroupBodyParsingFallbackBehaviorArgs{...}
+//	RuleGroupBodyParsingFallbackBehaviorArgs{...}
 type RuleGroupBodyParsingFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -1795,7 +1795,7 @@ func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrO
 // RuleGroupForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupForwardedIPConfigurationFallbackBehaviorArgs and RuleGroupForwardedIPConfigurationFallbackBehaviorOutput values.
 // You can construct a concrete instance of `RuleGroupForwardedIPConfigurationFallbackBehaviorInput` via:
 //
-//          RuleGroupForwardedIPConfigurationFallbackBehaviorArgs{...}
+//	RuleGroupForwardedIPConfigurationFallbackBehaviorArgs{...}
 type RuleGroupForwardedIPConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -1959,7 +1959,7 @@ func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStrin
 // RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorArgs and RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput` via:
 //
-//          RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
+//	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
 type RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -2124,7 +2124,7 @@ func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutp
 // RuleGroupIPSetForwardedIPConfigurationPositionInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationPositionArgs and RuleGroupIPSetForwardedIPConfigurationPositionOutput values.
 // You can construct a concrete instance of `RuleGroupIPSetForwardedIPConfigurationPositionInput` via:
 //
-//          RuleGroupIPSetForwardedIPConfigurationPositionArgs{...}
+//	RuleGroupIPSetForwardedIPConfigurationPositionArgs{...}
 type RuleGroupIPSetForwardedIPConfigurationPositionInput interface {
 	pulumi.Input
 
@@ -2290,7 +2290,7 @@ func (o RuleGroupJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // RuleGroupJsonMatchScopeInput is an input type that accepts RuleGroupJsonMatchScopeArgs and RuleGroupJsonMatchScopeOutput values.
 // You can construct a concrete instance of `RuleGroupJsonMatchScopeInput` via:
 //
-//          RuleGroupJsonMatchScopeArgs{...}
+//	RuleGroupJsonMatchScopeArgs{...}
 type RuleGroupJsonMatchScopeInput interface {
 	pulumi.Input
 
@@ -2454,7 +2454,7 @@ func (o RuleGroupLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // RuleGroupLabelMatchScopeInput is an input type that accepts RuleGroupLabelMatchScopeArgs and RuleGroupLabelMatchScopeOutput values.
 // You can construct a concrete instance of `RuleGroupLabelMatchScopeInput` via:
 //
-//          RuleGroupLabelMatchScopeArgs{...}
+//	RuleGroupLabelMatchScopeArgs{...}
 type RuleGroupLabelMatchScopeInput interface {
 	pulumi.Input
 
@@ -2620,7 +2620,7 @@ func (o RuleGroupMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // RuleGroupMapMatchScopeInput is an input type that accepts RuleGroupMapMatchScopeArgs and RuleGroupMapMatchScopeOutput values.
 // You can construct a concrete instance of `RuleGroupMapMatchScopeInput` via:
 //
-//          RuleGroupMapMatchScopeArgs{...}
+//	RuleGroupMapMatchScopeArgs{...}
 type RuleGroupMapMatchScopeInput interface {
 	pulumi.Input
 
@@ -2786,7 +2786,7 @@ func (o RuleGroupOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx con
 // RuleGroupOversizeHandlingInput is an input type that accepts RuleGroupOversizeHandlingArgs and RuleGroupOversizeHandlingOutput values.
 // You can construct a concrete instance of `RuleGroupOversizeHandlingInput` via:
 //
-//          RuleGroupOversizeHandlingArgs{...}
+//	RuleGroupOversizeHandlingArgs{...}
 type RuleGroupOversizeHandlingInput interface {
 	pulumi.Input
 
@@ -2954,7 +2954,7 @@ func (o RuleGroupPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx
 // RuleGroupPositionalConstraintInput is an input type that accepts RuleGroupPositionalConstraintArgs and RuleGroupPositionalConstraintOutput values.
 // You can construct a concrete instance of `RuleGroupPositionalConstraintInput` via:
 //
-//          RuleGroupPositionalConstraintArgs{...}
+//	RuleGroupPositionalConstraintArgs{...}
 type RuleGroupPositionalConstraintInput interface {
 	pulumi.Input
 
@@ -3118,7 +3118,7 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputW
 // RuleGroupRateBasedStatementAggregateKeyTypeInput is an input type that accepts RuleGroupRateBasedStatementAggregateKeyTypeArgs and RuleGroupRateBasedStatementAggregateKeyTypeOutput values.
 // You can construct a concrete instance of `RuleGroupRateBasedStatementAggregateKeyTypeInput` via:
 //
-//          RuleGroupRateBasedStatementAggregateKeyTypeArgs{...}
+//	RuleGroupRateBasedStatementAggregateKeyTypeArgs{...}
 type RuleGroupRateBasedStatementAggregateKeyTypeInput interface {
 	pulumi.Input
 
@@ -3283,7 +3283,7 @@ func (o RuleGroupScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // RuleGroupScopeInput is an input type that accepts RuleGroupScopeArgs and RuleGroupScopeOutput values.
 // You can construct a concrete instance of `RuleGroupScopeInput` via:
 //
-//          RuleGroupScopeArgs{...}
+//	RuleGroupScopeArgs{...}
 type RuleGroupScopeInput interface {
 	pulumi.Input
 
@@ -3451,7 +3451,7 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtr
 // RuleGroupSizeConstraintStatementComparisonOperatorInput is an input type that accepts RuleGroupSizeConstraintStatementComparisonOperatorArgs and RuleGroupSizeConstraintStatementComparisonOperatorOutput values.
 // You can construct a concrete instance of `RuleGroupSizeConstraintStatementComparisonOperatorInput` via:
 //
-//          RuleGroupSizeConstraintStatementComparisonOperatorArgs{...}
+//	RuleGroupSizeConstraintStatementComparisonOperatorArgs{...}
 type RuleGroupSizeConstraintStatementComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -3635,7 +3635,7 @@ func (o RuleGroupTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(c
 // RuleGroupTextTransformationTypeInput is an input type that accepts RuleGroupTextTransformationTypeArgs and RuleGroupTextTransformationTypeOutput values.
 // You can construct a concrete instance of `RuleGroupTextTransformationTypeInput` via:
 //
-//          RuleGroupTextTransformationTypeArgs{...}
+//	RuleGroupTextTransformationTypeArgs{...}
 type RuleGroupTextTransformationTypeInput interface {
 	pulumi.Input
 
@@ -3801,7 +3801,7 @@ func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext
 // WebACLBodyParsingFallbackBehaviorInput is an input type that accepts WebACLBodyParsingFallbackBehaviorArgs and WebACLBodyParsingFallbackBehaviorOutput values.
 // You can construct a concrete instance of `WebACLBodyParsingFallbackBehaviorInput` via:
 //
-//          WebACLBodyParsingFallbackBehaviorArgs{...}
+//	WebACLBodyParsingFallbackBehaviorArgs{...}
 type WebACLBodyParsingFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -3965,7 +3965,7 @@ func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutp
 // WebACLForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts WebACLForwardedIPConfigurationFallbackBehaviorArgs and WebACLForwardedIPConfigurationFallbackBehaviorOutput values.
 // You can construct a concrete instance of `WebACLForwardedIPConfigurationFallbackBehaviorInput` via:
 //
-//          WebACLForwardedIPConfigurationFallbackBehaviorArgs{...}
+//	WebACLForwardedIPConfigurationFallbackBehaviorArgs{...}
 type WebACLForwardedIPConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -4129,7 +4129,7 @@ func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToStringPt
 // WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput is an input type that accepts WebACLIPSetForwardedIPConfigurationFallbackBehaviorArgs and WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput values.
 // You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput` via:
 //
-//          WebACLIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
+//	WebACLIPSetForwardedIPConfigurationFallbackBehaviorArgs{...}
 type WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -4294,7 +4294,7 @@ func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToStringPtrOutputW
 // WebACLIPSetForwardedIPConfigurationPositionInput is an input type that accepts WebACLIPSetForwardedIPConfigurationPositionArgs and WebACLIPSetForwardedIPConfigurationPositionOutput values.
 // You can construct a concrete instance of `WebACLIPSetForwardedIPConfigurationPositionInput` via:
 //
-//          WebACLIPSetForwardedIPConfigurationPositionArgs{...}
+//	WebACLIPSetForwardedIPConfigurationPositionArgs{...}
 type WebACLIPSetForwardedIPConfigurationPositionInput interface {
 	pulumi.Input
 
@@ -4460,7 +4460,7 @@ func (o WebACLJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // WebACLJsonMatchScopeInput is an input type that accepts WebACLJsonMatchScopeArgs and WebACLJsonMatchScopeOutput values.
 // You can construct a concrete instance of `WebACLJsonMatchScopeInput` via:
 //
-//          WebACLJsonMatchScopeArgs{...}
+//	WebACLJsonMatchScopeArgs{...}
 type WebACLJsonMatchScopeInput interface {
 	pulumi.Input
 
@@ -4624,7 +4624,7 @@ func (o WebACLLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context
 // WebACLLabelMatchScopeInput is an input type that accepts WebACLLabelMatchScopeArgs and WebACLLabelMatchScopeOutput values.
 // You can construct a concrete instance of `WebACLLabelMatchScopeInput` via:
 //
-//          WebACLLabelMatchScopeArgs{...}
+//	WebACLLabelMatchScopeArgs{...}
 type WebACLLabelMatchScopeInput interface {
 	pulumi.Input
 
@@ -4788,7 +4788,7 @@ func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithC
 // WebACLManagedRuleGroupConfigPayloadTypeInput is an input type that accepts WebACLManagedRuleGroupConfigPayloadTypeArgs and WebACLManagedRuleGroupConfigPayloadTypeOutput values.
 // You can construct a concrete instance of `WebACLManagedRuleGroupConfigPayloadTypeInput` via:
 //
-//          WebACLManagedRuleGroupConfigPayloadTypeArgs{...}
+//	WebACLManagedRuleGroupConfigPayloadTypeArgs{...}
 type WebACLManagedRuleGroupConfigPayloadTypeInput interface {
 	pulumi.Input
 
@@ -4954,7 +4954,7 @@ func (o WebACLMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // WebACLMapMatchScopeInput is an input type that accepts WebACLMapMatchScopeArgs and WebACLMapMatchScopeOutput values.
 // You can construct a concrete instance of `WebACLMapMatchScopeInput` via:
 //
-//          WebACLMapMatchScopeArgs{...}
+//	WebACLMapMatchScopeArgs{...}
 type WebACLMapMatchScopeInput interface {
 	pulumi.Input
 
@@ -5120,7 +5120,7 @@ func (o WebACLOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // WebACLOversizeHandlingInput is an input type that accepts WebACLOversizeHandlingArgs and WebACLOversizeHandlingOutput values.
 // You can construct a concrete instance of `WebACLOversizeHandlingInput` via:
 //
-//          WebACLOversizeHandlingArgs{...}
+//	WebACLOversizeHandlingArgs{...}
 type WebACLOversizeHandlingInput interface {
 	pulumi.Input
 
@@ -5288,7 +5288,7 @@ func (o WebACLPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx co
 // WebACLPositionalConstraintInput is an input type that accepts WebACLPositionalConstraintArgs and WebACLPositionalConstraintOutput values.
 // You can construct a concrete instance of `WebACLPositionalConstraintInput` via:
 //
-//          WebACLPositionalConstraintArgs{...}
+//	WebACLPositionalConstraintArgs{...}
 type WebACLPositionalConstraintInput interface {
 	pulumi.Input
 
@@ -5452,7 +5452,7 @@ func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputWith
 // WebACLRateBasedStatementAggregateKeyTypeInput is an input type that accepts WebACLRateBasedStatementAggregateKeyTypeArgs and WebACLRateBasedStatementAggregateKeyTypeOutput values.
 // You can construct a concrete instance of `WebACLRateBasedStatementAggregateKeyTypeInput` via:
 //
-//          WebACLRateBasedStatementAggregateKeyTypeArgs{...}
+//	WebACLRateBasedStatementAggregateKeyTypeArgs{...}
 type WebACLRateBasedStatementAggregateKeyTypeInput interface {
 	pulumi.Input
 
@@ -5617,7 +5617,7 @@ func (o WebACLScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // WebACLScopeInput is an input type that accepts WebACLScopeArgs and WebACLScopeOutput values.
 // You can construct a concrete instance of `WebACLScopeInput` via:
 //
-//          WebACLScopeArgs{...}
+//	WebACLScopeArgs{...}
 type WebACLScopeInput interface {
 	pulumi.Input
 
@@ -5785,7 +5785,7 @@ func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOut
 // WebACLSizeConstraintStatementComparisonOperatorInput is an input type that accepts WebACLSizeConstraintStatementComparisonOperatorArgs and WebACLSizeConstraintStatementComparisonOperatorOutput values.
 // You can construct a concrete instance of `WebACLSizeConstraintStatementComparisonOperatorInput` via:
 //
-//          WebACLSizeConstraintStatementComparisonOperatorArgs{...}
+//	WebACLSizeConstraintStatementComparisonOperatorArgs{...}
 type WebACLSizeConstraintStatementComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -5969,7 +5969,7 @@ func (o WebACLTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // WebACLTextTransformationTypeInput is an input type that accepts WebACLTextTransformationTypeArgs and WebACLTextTransformationTypeOutput values.
 // You can construct a concrete instance of `WebACLTextTransformationTypeInput` via:
 //
-//          WebACLTextTransformationTypeArgs{...}
+//	WebACLTextTransformationTypeArgs{...}
 type WebACLTextTransformationTypeInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type DatasetCsvOptions struct {
 // DatasetCsvOptionsInput is an input type that accepts DatasetCsvOptionsArgs and DatasetCsvOptionsOutput values.
 // You can construct a concrete instance of `DatasetCsvOptionsInput` via:
 //
-//          DatasetCsvOptionsArgs{...}
+//	DatasetCsvOptionsArgs{...}
 type DatasetCsvOptionsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i DatasetCsvOptionsArgs) ToDatasetCsvOptionsPtrOutputWithContext(ctx conte
 // DatasetCsvOptionsPtrInput is an input type that accepts DatasetCsvOptionsArgs, DatasetCsvOptionsPtr and DatasetCsvOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetCsvOptionsPtrInput` via:
 //
-//          DatasetCsvOptionsArgs{...}
+//	        DatasetCsvOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetCsvOptionsPtrInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ type DatasetDataCatalogInputDefinition struct {
 // DatasetDataCatalogInputDefinitionInput is an input type that accepts DatasetDataCatalogInputDefinitionArgs and DatasetDataCatalogInputDefinitionOutput values.
 // You can construct a concrete instance of `DatasetDataCatalogInputDefinitionInput` via:
 //
-//          DatasetDataCatalogInputDefinitionArgs{...}
+//	DatasetDataCatalogInputDefinitionArgs{...}
 type DatasetDataCatalogInputDefinitionInput interface {
 	pulumi.Input
 
@@ -215,11 +215,11 @@ func (i DatasetDataCatalogInputDefinitionArgs) ToDatasetDataCatalogInputDefiniti
 // DatasetDataCatalogInputDefinitionPtrInput is an input type that accepts DatasetDataCatalogInputDefinitionArgs, DatasetDataCatalogInputDefinitionPtr and DatasetDataCatalogInputDefinitionPtrOutput values.
 // You can construct a concrete instance of `DatasetDataCatalogInputDefinitionPtrInput` via:
 //
-//          DatasetDataCatalogInputDefinitionArgs{...}
+//	        DatasetDataCatalogInputDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDataCatalogInputDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -364,7 +364,7 @@ type DatasetDatabaseInputDefinition struct {
 // DatasetDatabaseInputDefinitionInput is an input type that accepts DatasetDatabaseInputDefinitionArgs and DatasetDatabaseInputDefinitionOutput values.
 // You can construct a concrete instance of `DatasetDatabaseInputDefinitionInput` via:
 //
-//          DatasetDatabaseInputDefinitionArgs{...}
+//	DatasetDatabaseInputDefinitionArgs{...}
 type DatasetDatabaseInputDefinitionInput interface {
 	pulumi.Input
 
@@ -405,11 +405,11 @@ func (i DatasetDatabaseInputDefinitionArgs) ToDatasetDatabaseInputDefinitionPtrO
 // DatasetDatabaseInputDefinitionPtrInput is an input type that accepts DatasetDatabaseInputDefinitionArgs, DatasetDatabaseInputDefinitionPtr and DatasetDatabaseInputDefinitionPtrOutput values.
 // You can construct a concrete instance of `DatasetDatabaseInputDefinitionPtrInput` via:
 //
-//          DatasetDatabaseInputDefinitionArgs{...}
+//	        DatasetDatabaseInputDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDatabaseInputDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -553,7 +553,7 @@ type DatasetDatetimeOptions struct {
 // DatasetDatetimeOptionsInput is an input type that accepts DatasetDatetimeOptionsArgs and DatasetDatetimeOptionsOutput values.
 // You can construct a concrete instance of `DatasetDatetimeOptionsInput` via:
 //
-//          DatasetDatetimeOptionsArgs{...}
+//	DatasetDatetimeOptionsArgs{...}
 type DatasetDatetimeOptionsInput interface {
 	pulumi.Input
 
@@ -593,11 +593,11 @@ func (i DatasetDatetimeOptionsArgs) ToDatasetDatetimeOptionsPtrOutputWithContext
 // DatasetDatetimeOptionsPtrInput is an input type that accepts DatasetDatetimeOptionsArgs, DatasetDatetimeOptionsPtr and DatasetDatetimeOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetDatetimeOptionsPtrInput` via:
 //
-//          DatasetDatetimeOptionsArgs{...}
+//	        DatasetDatetimeOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDatetimeOptionsPtrInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ type DatasetExcelOptions struct {
 // DatasetExcelOptionsInput is an input type that accepts DatasetExcelOptionsArgs and DatasetExcelOptionsOutput values.
 // You can construct a concrete instance of `DatasetExcelOptionsInput` via:
 //
-//          DatasetExcelOptionsArgs{...}
+//	DatasetExcelOptionsArgs{...}
 type DatasetExcelOptionsInput interface {
 	pulumi.Input
 
@@ -762,11 +762,11 @@ func (i DatasetExcelOptionsArgs) ToDatasetExcelOptionsPtrOutputWithContext(ctx c
 // DatasetExcelOptionsPtrInput is an input type that accepts DatasetExcelOptionsArgs, DatasetExcelOptionsPtr and DatasetExcelOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetExcelOptionsPtrInput` via:
 //
-//          DatasetExcelOptionsArgs{...}
+//	        DatasetExcelOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetExcelOptionsPtrInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ type DatasetFilesLimit struct {
 // DatasetFilesLimitInput is an input type that accepts DatasetFilesLimitArgs and DatasetFilesLimitOutput values.
 // You can construct a concrete instance of `DatasetFilesLimitInput` via:
 //
-//          DatasetFilesLimitArgs{...}
+//	DatasetFilesLimitArgs{...}
 type DatasetFilesLimitInput interface {
 	pulumi.Input
 
@@ -931,11 +931,11 @@ func (i DatasetFilesLimitArgs) ToDatasetFilesLimitPtrOutputWithContext(ctx conte
 // DatasetFilesLimitPtrInput is an input type that accepts DatasetFilesLimitArgs, DatasetFilesLimitPtr and DatasetFilesLimitPtrOutput values.
 // You can construct a concrete instance of `DatasetFilesLimitPtrInput` via:
 //
-//          DatasetFilesLimitArgs{...}
+//	        DatasetFilesLimitArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetFilesLimitPtrInput interface {
 	pulumi.Input
 
@@ -1063,7 +1063,7 @@ type DatasetFilterExpression struct {
 // DatasetFilterExpressionInput is an input type that accepts DatasetFilterExpressionArgs and DatasetFilterExpressionOutput values.
 // You can construct a concrete instance of `DatasetFilterExpressionInput` via:
 //
-//          DatasetFilterExpressionArgs{...}
+//	DatasetFilterExpressionArgs{...}
 type DatasetFilterExpressionInput interface {
 	pulumi.Input
 
@@ -1100,11 +1100,11 @@ func (i DatasetFilterExpressionArgs) ToDatasetFilterExpressionPtrOutputWithConte
 // DatasetFilterExpressionPtrInput is an input type that accepts DatasetFilterExpressionArgs, DatasetFilterExpressionPtr and DatasetFilterExpressionPtrOutput values.
 // You can construct a concrete instance of `DatasetFilterExpressionPtrInput` via:
 //
-//          DatasetFilterExpressionArgs{...}
+//	        DatasetFilterExpressionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetFilterExpressionPtrInput interface {
 	pulumi.Input
 
@@ -1216,7 +1216,7 @@ type DatasetFilterValue struct {
 // DatasetFilterValueInput is an input type that accepts DatasetFilterValueArgs and DatasetFilterValueOutput values.
 // You can construct a concrete instance of `DatasetFilterValueInput` via:
 //
-//          DatasetFilterValueArgs{...}
+//	DatasetFilterValueArgs{...}
 type DatasetFilterValueInput interface {
 	pulumi.Input
 
@@ -1246,7 +1246,7 @@ func (i DatasetFilterValueArgs) ToDatasetFilterValueOutputWithContext(ctx contex
 // DatasetFilterValueArrayInput is an input type that accepts DatasetFilterValueArray and DatasetFilterValueArrayOutput values.
 // You can construct a concrete instance of `DatasetFilterValueArrayInput` via:
 //
-//          DatasetFilterValueArray{ DatasetFilterValueArgs{...} }
+//	DatasetFilterValueArray{ DatasetFilterValueArgs{...} }
 type DatasetFilterValueArrayInput interface {
 	pulumi.Input
 
@@ -1322,7 +1322,7 @@ type DatasetFormatOptions struct {
 // DatasetFormatOptionsInput is an input type that accepts DatasetFormatOptionsArgs and DatasetFormatOptionsOutput values.
 // You can construct a concrete instance of `DatasetFormatOptionsInput` via:
 //
-//          DatasetFormatOptionsArgs{...}
+//	DatasetFormatOptionsArgs{...}
 type DatasetFormatOptionsInput interface {
 	pulumi.Input
 
@@ -1360,11 +1360,11 @@ func (i DatasetFormatOptionsArgs) ToDatasetFormatOptionsPtrOutputWithContext(ctx
 // DatasetFormatOptionsPtrInput is an input type that accepts DatasetFormatOptionsArgs, DatasetFormatOptionsPtr and DatasetFormatOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetFormatOptionsPtrInput` via:
 //
-//          DatasetFormatOptionsArgs{...}
+//	        DatasetFormatOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetFormatOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1489,7 +1489,7 @@ type DatasetInputType struct {
 // DatasetInputTypeInput is an input type that accepts DatasetInputTypeArgs and DatasetInputTypeOutput values.
 // You can construct a concrete instance of `DatasetInputTypeInput` via:
 //
-//          DatasetInputTypeArgs{...}
+//	DatasetInputTypeArgs{...}
 type DatasetInputTypeInput interface {
 	pulumi.Input
 
@@ -1616,7 +1616,7 @@ type DatasetJsonOptions struct {
 // DatasetJsonOptionsInput is an input type that accepts DatasetJsonOptionsArgs and DatasetJsonOptionsOutput values.
 // You can construct a concrete instance of `DatasetJsonOptionsInput` via:
 //
-//          DatasetJsonOptionsArgs{...}
+//	DatasetJsonOptionsArgs{...}
 type DatasetJsonOptionsInput interface {
 	pulumi.Input
 
@@ -1652,11 +1652,11 @@ func (i DatasetJsonOptionsArgs) ToDatasetJsonOptionsPtrOutputWithContext(ctx con
 // DatasetJsonOptionsPtrInput is an input type that accepts DatasetJsonOptionsArgs, DatasetJsonOptionsPtr and DatasetJsonOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetJsonOptionsPtrInput` via:
 //
-//          DatasetJsonOptionsArgs{...}
+//	        DatasetJsonOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetJsonOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1752,7 +1752,7 @@ type DatasetMetadata struct {
 // DatasetMetadataInput is an input type that accepts DatasetMetadataArgs and DatasetMetadataOutput values.
 // You can construct a concrete instance of `DatasetMetadataInput` via:
 //
-//          DatasetMetadataArgs{...}
+//	DatasetMetadataArgs{...}
 type DatasetMetadataInput interface {
 	pulumi.Input
 
@@ -1788,11 +1788,11 @@ func (i DatasetMetadataArgs) ToDatasetMetadataPtrOutputWithContext(ctx context.C
 // DatasetMetadataPtrInput is an input type that accepts DatasetMetadataArgs, DatasetMetadataPtr and DatasetMetadataPtrOutput values.
 // You can construct a concrete instance of `DatasetMetadataPtrInput` via:
 //
-//          DatasetMetadataArgs{...}
+//	        DatasetMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1894,7 +1894,7 @@ type DatasetParameter struct {
 // DatasetParameterInput is an input type that accepts DatasetParameterArgs and DatasetParameterOutput values.
 // You can construct a concrete instance of `DatasetParameterInput` via:
 //
-//          DatasetParameterArgs{...}
+//	DatasetParameterArgs{...}
 type DatasetParameterInput interface {
 	pulumi.Input
 
@@ -1970,7 +1970,7 @@ type DatasetPathOptions struct {
 // DatasetPathOptionsInput is an input type that accepts DatasetPathOptionsArgs and DatasetPathOptionsOutput values.
 // You can construct a concrete instance of `DatasetPathOptionsInput` via:
 //
-//          DatasetPathOptionsArgs{...}
+//	DatasetPathOptionsArgs{...}
 type DatasetPathOptionsInput interface {
 	pulumi.Input
 
@@ -2008,11 +2008,11 @@ func (i DatasetPathOptionsArgs) ToDatasetPathOptionsPtrOutputWithContext(ctx con
 // DatasetPathOptionsPtrInput is an input type that accepts DatasetPathOptionsArgs, DatasetPathOptionsPtr and DatasetPathOptionsPtrOutput values.
 // You can construct a concrete instance of `DatasetPathOptionsPtrInput` via:
 //
-//          DatasetPathOptionsArgs{...}
+//	        DatasetPathOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetPathOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2135,7 +2135,7 @@ type DatasetPathParameter struct {
 // DatasetPathParameterInput is an input type that accepts DatasetPathParameterArgs and DatasetPathParameterOutput values.
 // You can construct a concrete instance of `DatasetPathParameterInput` via:
 //
-//          DatasetPathParameterArgs{...}
+//	DatasetPathParameterArgs{...}
 type DatasetPathParameterInput interface {
 	pulumi.Input
 
@@ -2164,7 +2164,7 @@ func (i DatasetPathParameterArgs) ToDatasetPathParameterOutputWithContext(ctx co
 // DatasetPathParameterArrayInput is an input type that accepts DatasetPathParameterArray and DatasetPathParameterArrayOutput values.
 // You can construct a concrete instance of `DatasetPathParameterArrayInput` via:
 //
-//          DatasetPathParameterArray{ DatasetPathParameterArgs{...} }
+//	DatasetPathParameterArray{ DatasetPathParameterArgs{...} }
 type DatasetPathParameterArrayInput interface {
 	pulumi.Input
 
@@ -2238,7 +2238,7 @@ type DatasetS3Location struct {
 // DatasetS3LocationInput is an input type that accepts DatasetS3LocationArgs and DatasetS3LocationOutput values.
 // You can construct a concrete instance of `DatasetS3LocationInput` via:
 //
-//          DatasetS3LocationArgs{...}
+//	DatasetS3LocationArgs{...}
 type DatasetS3LocationInput interface {
 	pulumi.Input
 
@@ -2275,11 +2275,11 @@ func (i DatasetS3LocationArgs) ToDatasetS3LocationPtrOutputWithContext(ctx conte
 // DatasetS3LocationPtrInput is an input type that accepts DatasetS3LocationArgs, DatasetS3LocationPtr and DatasetS3LocationPtrOutput values.
 // You can construct a concrete instance of `DatasetS3LocationPtrInput` via:
 //
-//          DatasetS3LocationArgs{...}
+//	        DatasetS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -2389,7 +2389,7 @@ type DatasetTag struct {
 // DatasetTagInput is an input type that accepts DatasetTagArgs and DatasetTagOutput values.
 // You can construct a concrete instance of `DatasetTagInput` via:
 //
-//          DatasetTagArgs{...}
+//	DatasetTagArgs{...}
 type DatasetTagInput interface {
 	pulumi.Input
 
@@ -2418,7 +2418,7 @@ func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) Datas
 // DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
 // You can construct a concrete instance of `DatasetTagArrayInput` via:
 //
-//          DatasetTagArray{ DatasetTagArgs{...} }
+//	DatasetTagArray{ DatasetTagArgs{...} }
 type DatasetTagArrayInput interface {
 	pulumi.Input
 
@@ -2490,7 +2490,7 @@ type JobAllowedStatistics struct {
 // JobAllowedStatisticsInput is an input type that accepts JobAllowedStatisticsArgs and JobAllowedStatisticsOutput values.
 // You can construct a concrete instance of `JobAllowedStatisticsInput` via:
 //
-//          JobAllowedStatisticsArgs{...}
+//	JobAllowedStatisticsArgs{...}
 type JobAllowedStatisticsInput interface {
 	pulumi.Input
 
@@ -2525,11 +2525,11 @@ func (i JobAllowedStatisticsArgs) ToJobAllowedStatisticsPtrOutputWithContext(ctx
 // JobAllowedStatisticsPtrInput is an input type that accepts JobAllowedStatisticsArgs, JobAllowedStatisticsPtr and JobAllowedStatisticsPtrOutput values.
 // You can construct a concrete instance of `JobAllowedStatisticsPtrInput` via:
 //
-//          JobAllowedStatisticsArgs{...}
+//	        JobAllowedStatisticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobAllowedStatisticsPtrInput interface {
 	pulumi.Input
 
@@ -2624,7 +2624,7 @@ type JobColumnSelector struct {
 // JobColumnSelectorInput is an input type that accepts JobColumnSelectorArgs and JobColumnSelectorOutput values.
 // You can construct a concrete instance of `JobColumnSelectorInput` via:
 //
-//          JobColumnSelectorArgs{...}
+//	JobColumnSelectorArgs{...}
 type JobColumnSelectorInput interface {
 	pulumi.Input
 
@@ -2652,7 +2652,7 @@ func (i JobColumnSelectorArgs) ToJobColumnSelectorOutputWithContext(ctx context.
 // JobColumnSelectorArrayInput is an input type that accepts JobColumnSelectorArray and JobColumnSelectorArrayOutput values.
 // You can construct a concrete instance of `JobColumnSelectorArrayInput` via:
 //
-//          JobColumnSelectorArray{ JobColumnSelectorArgs{...} }
+//	JobColumnSelectorArray{ JobColumnSelectorArgs{...} }
 type JobColumnSelectorArrayInput interface {
 	pulumi.Input
 
@@ -2724,7 +2724,7 @@ type JobColumnStatisticsConfiguration struct {
 // JobColumnStatisticsConfigurationInput is an input type that accepts JobColumnStatisticsConfigurationArgs and JobColumnStatisticsConfigurationOutput values.
 // You can construct a concrete instance of `JobColumnStatisticsConfigurationInput` via:
 //
-//          JobColumnStatisticsConfigurationArgs{...}
+//	JobColumnStatisticsConfigurationArgs{...}
 type JobColumnStatisticsConfigurationInput interface {
 	pulumi.Input
 
@@ -2752,7 +2752,7 @@ func (i JobColumnStatisticsConfigurationArgs) ToJobColumnStatisticsConfiguration
 // JobColumnStatisticsConfigurationArrayInput is an input type that accepts JobColumnStatisticsConfigurationArray and JobColumnStatisticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `JobColumnStatisticsConfigurationArrayInput` via:
 //
-//          JobColumnStatisticsConfigurationArray{ JobColumnStatisticsConfigurationArgs{...} }
+//	JobColumnStatisticsConfigurationArray{ JobColumnStatisticsConfigurationArgs{...} }
 type JobColumnStatisticsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2824,7 +2824,7 @@ type JobCsvOutputOptions struct {
 // JobCsvOutputOptionsInput is an input type that accepts JobCsvOutputOptionsArgs and JobCsvOutputOptionsOutput values.
 // You can construct a concrete instance of `JobCsvOutputOptionsInput` via:
 //
-//          JobCsvOutputOptionsArgs{...}
+//	JobCsvOutputOptionsArgs{...}
 type JobCsvOutputOptionsInput interface {
 	pulumi.Input
 
@@ -2860,11 +2860,11 @@ func (i JobCsvOutputOptionsArgs) ToJobCsvOutputOptionsPtrOutputWithContext(ctx c
 // JobCsvOutputOptionsPtrInput is an input type that accepts JobCsvOutputOptionsArgs, JobCsvOutputOptionsPtr and JobCsvOutputOptionsPtrOutput values.
 // You can construct a concrete instance of `JobCsvOutputOptionsPtrInput` via:
 //
-//          JobCsvOutputOptionsArgs{...}
+//	        JobCsvOutputOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobCsvOutputOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2964,7 +2964,7 @@ type JobDataCatalogOutput struct {
 // JobDataCatalogOutputInput is an input type that accepts JobDataCatalogOutputArgs and JobDataCatalogOutputOutput values.
 // You can construct a concrete instance of `JobDataCatalogOutputInput` via:
 //
-//          JobDataCatalogOutputArgs{...}
+//	JobDataCatalogOutputArgs{...}
 type JobDataCatalogOutputInput interface {
 	pulumi.Input
 
@@ -2996,7 +2996,7 @@ func (i JobDataCatalogOutputArgs) ToJobDataCatalogOutputOutputWithContext(ctx co
 // JobDataCatalogOutputArrayInput is an input type that accepts JobDataCatalogOutputArray and JobDataCatalogOutputArrayOutput values.
 // You can construct a concrete instance of `JobDataCatalogOutputArrayInput` via:
 //
-//          JobDataCatalogOutputArray{ JobDataCatalogOutputArgs{...} }
+//	JobDataCatalogOutputArray{ JobDataCatalogOutputArgs{...} }
 type JobDataCatalogOutputArrayInput interface {
 	pulumi.Input
 
@@ -3087,7 +3087,7 @@ type JobDatabaseOutput struct {
 // JobDatabaseOutputInput is an input type that accepts JobDatabaseOutputArgs and JobDatabaseOutputOutput values.
 // You can construct a concrete instance of `JobDatabaseOutputInput` via:
 //
-//          JobDatabaseOutputArgs{...}
+//	JobDatabaseOutputArgs{...}
 type JobDatabaseOutputInput interface {
 	pulumi.Input
 
@@ -3118,7 +3118,7 @@ func (i JobDatabaseOutputArgs) ToJobDatabaseOutputOutputWithContext(ctx context.
 // JobDatabaseOutputArrayInput is an input type that accepts JobDatabaseOutputArray and JobDatabaseOutputArrayOutput values.
 // You can construct a concrete instance of `JobDatabaseOutputArrayInput` via:
 //
-//          JobDatabaseOutputArray{ JobDatabaseOutputArgs{...} }
+//	JobDatabaseOutputArray{ JobDatabaseOutputArgs{...} }
 type JobDatabaseOutputArrayInput interface {
 	pulumi.Input
 
@@ -3196,7 +3196,7 @@ type JobDatabaseTableOutputOptions struct {
 // JobDatabaseTableOutputOptionsInput is an input type that accepts JobDatabaseTableOutputOptionsArgs and JobDatabaseTableOutputOptionsOutput values.
 // You can construct a concrete instance of `JobDatabaseTableOutputOptionsInput` via:
 //
-//          JobDatabaseTableOutputOptionsArgs{...}
+//	JobDatabaseTableOutputOptionsArgs{...}
 type JobDatabaseTableOutputOptionsInput interface {
 	pulumi.Input
 
@@ -3232,11 +3232,11 @@ func (i JobDatabaseTableOutputOptionsArgs) ToJobDatabaseTableOutputOptionsPtrOut
 // JobDatabaseTableOutputOptionsPtrInput is an input type that accepts JobDatabaseTableOutputOptionsArgs, JobDatabaseTableOutputOptionsPtr and JobDatabaseTableOutputOptionsPtrOutput values.
 // You can construct a concrete instance of `JobDatabaseTableOutputOptionsPtrInput` via:
 //
-//          JobDatabaseTableOutputOptionsArgs{...}
+//	        JobDatabaseTableOutputOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDatabaseTableOutputOptionsPtrInput interface {
 	pulumi.Input
 
@@ -3344,7 +3344,7 @@ type JobEntityDetectorConfiguration struct {
 // JobEntityDetectorConfigurationInput is an input type that accepts JobEntityDetectorConfigurationArgs and JobEntityDetectorConfigurationOutput values.
 // You can construct a concrete instance of `JobEntityDetectorConfigurationInput` via:
 //
-//          JobEntityDetectorConfigurationArgs{...}
+//	JobEntityDetectorConfigurationArgs{...}
 type JobEntityDetectorConfigurationInput interface {
 	pulumi.Input
 
@@ -3380,11 +3380,11 @@ func (i JobEntityDetectorConfigurationArgs) ToJobEntityDetectorConfigurationPtrO
 // JobEntityDetectorConfigurationPtrInput is an input type that accepts JobEntityDetectorConfigurationArgs, JobEntityDetectorConfigurationPtr and JobEntityDetectorConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobEntityDetectorConfigurationPtrInput` via:
 //
-//          JobEntityDetectorConfigurationArgs{...}
+//	        JobEntityDetectorConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobEntityDetectorConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3497,7 +3497,7 @@ type JobOutputType struct {
 // JobOutputTypeInput is an input type that accepts JobOutputTypeArgs and JobOutputTypeOutput values.
 // You can construct a concrete instance of `JobOutputTypeInput` via:
 //
-//          JobOutputTypeArgs{...}
+//	JobOutputTypeArgs{...}
 type JobOutputTypeInput interface {
 	pulumi.Input
 
@@ -3530,7 +3530,7 @@ func (i JobOutputTypeArgs) ToJobOutputTypeOutputWithContext(ctx context.Context)
 // JobOutputTypeArrayInput is an input type that accepts JobOutputTypeArray and JobOutputTypeArrayOutput values.
 // You can construct a concrete instance of `JobOutputTypeArrayInput` via:
 //
-//          JobOutputTypeArray{ JobOutputTypeArgs{...} }
+//	JobOutputTypeArray{ JobOutputTypeArgs{...} }
 type JobOutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -3622,7 +3622,7 @@ type JobOutputFormatOptions struct {
 // JobOutputFormatOptionsInput is an input type that accepts JobOutputFormatOptionsArgs and JobOutputFormatOptionsOutput values.
 // You can construct a concrete instance of `JobOutputFormatOptionsInput` via:
 //
-//          JobOutputFormatOptionsArgs{...}
+//	JobOutputFormatOptionsArgs{...}
 type JobOutputFormatOptionsInput interface {
 	pulumi.Input
 
@@ -3658,11 +3658,11 @@ func (i JobOutputFormatOptionsArgs) ToJobOutputFormatOptionsPtrOutputWithContext
 // JobOutputFormatOptionsPtrInput is an input type that accepts JobOutputFormatOptionsArgs, JobOutputFormatOptionsPtr and JobOutputFormatOptionsPtrOutput values.
 // You can construct a concrete instance of `JobOutputFormatOptionsPtrInput` via:
 //
-//          JobOutputFormatOptionsArgs{...}
+//	        JobOutputFormatOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobOutputFormatOptionsPtrInput interface {
 	pulumi.Input
 
@@ -3760,7 +3760,7 @@ type JobOutputLocation struct {
 // JobOutputLocationInput is an input type that accepts JobOutputLocationArgs and JobOutputLocationOutput values.
 // You can construct a concrete instance of `JobOutputLocationInput` via:
 //
-//          JobOutputLocationArgs{...}
+//	JobOutputLocationArgs{...}
 type JobOutputLocationInput interface {
 	pulumi.Input
 
@@ -3798,11 +3798,11 @@ func (i JobOutputLocationArgs) ToJobOutputLocationPtrOutputWithContext(ctx conte
 // JobOutputLocationPtrInput is an input type that accepts JobOutputLocationArgs, JobOutputLocationPtr and JobOutputLocationPtrOutput values.
 // You can construct a concrete instance of `JobOutputLocationPtrInput` via:
 //
-//          JobOutputLocationArgs{...}
+//	        JobOutputLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobOutputLocationPtrInput interface {
 	pulumi.Input
 
@@ -3922,7 +3922,7 @@ type JobParameterMap struct {
 // JobParameterMapInput is an input type that accepts JobParameterMap and JobParameterMapOutput values.
 // You can construct a concrete instance of `JobParameterMapInput` via:
 //
-//          JobParameterMap{ "key": JobParameterArgs{...} }
+//	JobParameterMap{ "key": JobParameterArgs{...} }
 type JobParameterMapInput interface {
 	pulumi.Input
 
@@ -3969,7 +3969,7 @@ type JobProfileConfiguration struct {
 // JobProfileConfigurationInput is an input type that accepts JobProfileConfigurationArgs and JobProfileConfigurationOutput values.
 // You can construct a concrete instance of `JobProfileConfigurationInput` via:
 //
-//          JobProfileConfigurationArgs{...}
+//	JobProfileConfigurationArgs{...}
 type JobProfileConfigurationInput interface {
 	pulumi.Input
 
@@ -4007,11 +4007,11 @@ func (i JobProfileConfigurationArgs) ToJobProfileConfigurationPtrOutputWithConte
 // JobProfileConfigurationPtrInput is an input type that accepts JobProfileConfigurationArgs, JobProfileConfigurationPtr and JobProfileConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobProfileConfigurationPtrInput` via:
 //
-//          JobProfileConfigurationArgs{...}
+//	        JobProfileConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobProfileConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4149,7 +4149,7 @@ type JobRecipe struct {
 // JobRecipeInput is an input type that accepts JobRecipeArgs and JobRecipeOutput values.
 // You can construct a concrete instance of `JobRecipeInput` via:
 //
-//          JobRecipeArgs{...}
+//	JobRecipeArgs{...}
 type JobRecipeInput interface {
 	pulumi.Input
 
@@ -4187,11 +4187,11 @@ func (i JobRecipeArgs) ToJobRecipePtrOutputWithContext(ctx context.Context) JobR
 // JobRecipePtrInput is an input type that accepts JobRecipeArgs, JobRecipePtr and JobRecipePtrOutput values.
 // You can construct a concrete instance of `JobRecipePtrInput` via:
 //
-//          JobRecipeArgs{...}
+//	        JobRecipeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobRecipePtrInput interface {
 	pulumi.Input
 
@@ -4305,7 +4305,7 @@ type JobS3Location struct {
 // JobS3LocationInput is an input type that accepts JobS3LocationArgs and JobS3LocationOutput values.
 // You can construct a concrete instance of `JobS3LocationInput` via:
 //
-//          JobS3LocationArgs{...}
+//	JobS3LocationArgs{...}
 type JobS3LocationInput interface {
 	pulumi.Input
 
@@ -4343,11 +4343,11 @@ func (i JobS3LocationArgs) ToJobS3LocationPtrOutputWithContext(ctx context.Conte
 // JobS3LocationPtrInput is an input type that accepts JobS3LocationArgs, JobS3LocationPtr and JobS3LocationPtrOutput values.
 // You can construct a concrete instance of `JobS3LocationPtrInput` via:
 //
-//          JobS3LocationArgs{...}
+//	        JobS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -4468,7 +4468,7 @@ type JobS3TableOutputOptions struct {
 // JobS3TableOutputOptionsInput is an input type that accepts JobS3TableOutputOptionsArgs and JobS3TableOutputOptionsOutput values.
 // You can construct a concrete instance of `JobS3TableOutputOptionsInput` via:
 //
-//          JobS3TableOutputOptionsArgs{...}
+//	JobS3TableOutputOptionsArgs{...}
 type JobS3TableOutputOptionsInput interface {
 	pulumi.Input
 
@@ -4503,11 +4503,11 @@ func (i JobS3TableOutputOptionsArgs) ToJobS3TableOutputOptionsPtrOutputWithConte
 // JobS3TableOutputOptionsPtrInput is an input type that accepts JobS3TableOutputOptionsArgs, JobS3TableOutputOptionsPtr and JobS3TableOutputOptionsPtrOutput values.
 // You can construct a concrete instance of `JobS3TableOutputOptionsPtrInput` via:
 //
-//          JobS3TableOutputOptionsArgs{...}
+//	        JobS3TableOutputOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobS3TableOutputOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4603,7 +4603,7 @@ type JobSample struct {
 // JobSampleInput is an input type that accepts JobSampleArgs and JobSampleOutput values.
 // You can construct a concrete instance of `JobSampleInput` via:
 //
-//          JobSampleArgs{...}
+//	JobSampleArgs{...}
 type JobSampleInput interface {
 	pulumi.Input
 
@@ -4640,11 +4640,11 @@ func (i JobSampleArgs) ToJobSamplePtrOutputWithContext(ctx context.Context) JobS
 // JobSamplePtrInput is an input type that accepts JobSampleArgs, JobSamplePtr and JobSamplePtrOutput values.
 // You can construct a concrete instance of `JobSamplePtrInput` via:
 //
-//          JobSampleArgs{...}
+//	        JobSampleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobSamplePtrInput interface {
 	pulumi.Input
 
@@ -4753,7 +4753,7 @@ type JobStatisticOverride struct {
 // JobStatisticOverrideInput is an input type that accepts JobStatisticOverrideArgs and JobStatisticOverrideOutput values.
 // You can construct a concrete instance of `JobStatisticOverrideInput` via:
 //
-//          JobStatisticOverrideArgs{...}
+//	JobStatisticOverrideArgs{...}
 type JobStatisticOverrideInput interface {
 	pulumi.Input
 
@@ -4781,7 +4781,7 @@ func (i JobStatisticOverrideArgs) ToJobStatisticOverrideOutputWithContext(ctx co
 // JobStatisticOverrideArrayInput is an input type that accepts JobStatisticOverrideArray and JobStatisticOverrideArrayOutput values.
 // You can construct a concrete instance of `JobStatisticOverrideArrayInput` via:
 //
-//          JobStatisticOverrideArray{ JobStatisticOverrideArgs{...} }
+//	JobStatisticOverrideArray{ JobStatisticOverrideArgs{...} }
 type JobStatisticOverrideArrayInput interface {
 	pulumi.Input
 
@@ -4853,7 +4853,7 @@ type JobStatisticsConfiguration struct {
 // JobStatisticsConfigurationInput is an input type that accepts JobStatisticsConfigurationArgs and JobStatisticsConfigurationOutput values.
 // You can construct a concrete instance of `JobStatisticsConfigurationInput` via:
 //
-//          JobStatisticsConfigurationArgs{...}
+//	JobStatisticsConfigurationArgs{...}
 type JobStatisticsConfigurationInput interface {
 	pulumi.Input
 
@@ -4889,11 +4889,11 @@ func (i JobStatisticsConfigurationArgs) ToJobStatisticsConfigurationPtrOutputWit
 // JobStatisticsConfigurationPtrInput is an input type that accepts JobStatisticsConfigurationArgs, JobStatisticsConfigurationPtr and JobStatisticsConfigurationPtrOutput values.
 // You can construct a concrete instance of `JobStatisticsConfigurationPtrInput` via:
 //
-//          JobStatisticsConfigurationArgs{...}
+//	        JobStatisticsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobStatisticsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5002,7 +5002,7 @@ type JobTag struct {
 // JobTagInput is an input type that accepts JobTagArgs and JobTagOutput values.
 // You can construct a concrete instance of `JobTagInput` via:
 //
-//          JobTagArgs{...}
+//	JobTagArgs{...}
 type JobTagInput interface {
 	pulumi.Input
 
@@ -5031,7 +5031,7 @@ func (i JobTagArgs) ToJobTagOutputWithContext(ctx context.Context) JobTagOutput 
 // JobTagArrayInput is an input type that accepts JobTagArray and JobTagArrayOutput values.
 // You can construct a concrete instance of `JobTagArrayInput` via:
 //
-//          JobTagArray{ JobTagArgs{...} }
+//	JobTagArray{ JobTagArgs{...} }
 type JobTagArrayInput interface {
 	pulumi.Input
 
@@ -5106,7 +5106,7 @@ type JobValidationConfiguration struct {
 // JobValidationConfigurationInput is an input type that accepts JobValidationConfigurationArgs and JobValidationConfigurationOutput values.
 // You can construct a concrete instance of `JobValidationConfigurationInput` via:
 //
-//          JobValidationConfigurationArgs{...}
+//	JobValidationConfigurationArgs{...}
 type JobValidationConfigurationInput interface {
 	pulumi.Input
 
@@ -5136,7 +5136,7 @@ func (i JobValidationConfigurationArgs) ToJobValidationConfigurationOutputWithCo
 // JobValidationConfigurationArrayInput is an input type that accepts JobValidationConfigurationArray and JobValidationConfigurationArrayOutput values.
 // You can construct a concrete instance of `JobValidationConfigurationArrayInput` via:
 //
-//          JobValidationConfigurationArray{ JobValidationConfigurationArgs{...} }
+//	JobValidationConfigurationArray{ JobValidationConfigurationArgs{...} }
 type JobValidationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5212,7 +5212,7 @@ type ProjectSample struct {
 // ProjectSampleInput is an input type that accepts ProjectSampleArgs and ProjectSampleOutput values.
 // You can construct a concrete instance of `ProjectSampleInput` via:
 //
-//          ProjectSampleArgs{...}
+//	ProjectSampleArgs{...}
 type ProjectSampleInput interface {
 	pulumi.Input
 
@@ -5250,11 +5250,11 @@ func (i ProjectSampleArgs) ToProjectSamplePtrOutputWithContext(ctx context.Conte
 // ProjectSamplePtrInput is an input type that accepts ProjectSampleArgs, ProjectSamplePtr and ProjectSamplePtrOutput values.
 // You can construct a concrete instance of `ProjectSamplePtrInput` via:
 //
-//          ProjectSampleArgs{...}
+//	        ProjectSampleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProjectSamplePtrInput interface {
 	pulumi.Input
 
@@ -5367,7 +5367,7 @@ type ProjectTag struct {
 // ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
 // You can construct a concrete instance of `ProjectTagInput` via:
 //
-//          ProjectTagArgs{...}
+//	ProjectTagArgs{...}
 type ProjectTagInput interface {
 	pulumi.Input
 
@@ -5396,7 +5396,7 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
-//          ProjectTagArray{ ProjectTagArgs{...} }
+//	ProjectTagArray{ ProjectTagArgs{...} }
 type ProjectTagArrayInput interface {
 	pulumi.Input
 
@@ -5470,7 +5470,7 @@ type RecipeAction struct {
 // RecipeActionInput is an input type that accepts RecipeActionArgs and RecipeActionOutput values.
 // You can construct a concrete instance of `RecipeActionInput` via:
 //
-//          RecipeActionArgs{...}
+//	RecipeActionArgs{...}
 type RecipeActionInput interface {
 	pulumi.Input
 
@@ -5532,7 +5532,7 @@ type RecipeConditionExpression struct {
 // RecipeConditionExpressionInput is an input type that accepts RecipeConditionExpressionArgs and RecipeConditionExpressionOutput values.
 // You can construct a concrete instance of `RecipeConditionExpressionInput` via:
 //
-//          RecipeConditionExpressionArgs{...}
+//	RecipeConditionExpressionArgs{...}
 type RecipeConditionExpressionInput interface {
 	pulumi.Input
 
@@ -5565,7 +5565,7 @@ func (i RecipeConditionExpressionArgs) ToRecipeConditionExpressionOutputWithCont
 // RecipeConditionExpressionArrayInput is an input type that accepts RecipeConditionExpressionArray and RecipeConditionExpressionArrayOutput values.
 // You can construct a concrete instance of `RecipeConditionExpressionArrayInput` via:
 //
-//          RecipeConditionExpressionArray{ RecipeConditionExpressionArgs{...} }
+//	RecipeConditionExpressionArray{ RecipeConditionExpressionArgs{...} }
 type RecipeConditionExpressionArrayInput interface {
 	pulumi.Input
 
@@ -5782,7 +5782,7 @@ type RecipeStep struct {
 // RecipeStepInput is an input type that accepts RecipeStepArgs and RecipeStepOutput values.
 // You can construct a concrete instance of `RecipeStepInput` via:
 //
-//          RecipeStepArgs{...}
+//	RecipeStepArgs{...}
 type RecipeStepInput interface {
 	pulumi.Input
 
@@ -5811,7 +5811,7 @@ func (i RecipeStepArgs) ToRecipeStepOutputWithContext(ctx context.Context) Recip
 // RecipeStepArrayInput is an input type that accepts RecipeStepArray and RecipeStepArrayOutput values.
 // You can construct a concrete instance of `RecipeStepArrayInput` via:
 //
-//          RecipeStepArray{ RecipeStepArgs{...} }
+//	RecipeStepArray{ RecipeStepArgs{...} }
 type RecipeStepArrayInput interface {
 	pulumi.Input
 
@@ -5885,7 +5885,7 @@ type RecipeTag struct {
 // RecipeTagInput is an input type that accepts RecipeTagArgs and RecipeTagOutput values.
 // You can construct a concrete instance of `RecipeTagInput` via:
 //
-//          RecipeTagArgs{...}
+//	RecipeTagArgs{...}
 type RecipeTagInput interface {
 	pulumi.Input
 
@@ -5914,7 +5914,7 @@ func (i RecipeTagArgs) ToRecipeTagOutputWithContext(ctx context.Context) RecipeT
 // RecipeTagArrayInput is an input type that accepts RecipeTagArray and RecipeTagArrayOutput values.
 // You can construct a concrete instance of `RecipeTagArrayInput` via:
 //
-//          RecipeTagArray{ RecipeTagArgs{...} }
+//	RecipeTagArray{ RecipeTagArgs{...} }
 type RecipeTagArrayInput interface {
 	pulumi.Input
 
@@ -5990,7 +5990,7 @@ type RulesetColumnSelector struct {
 // RulesetColumnSelectorInput is an input type that accepts RulesetColumnSelectorArgs and RulesetColumnSelectorOutput values.
 // You can construct a concrete instance of `RulesetColumnSelectorInput` via:
 //
-//          RulesetColumnSelectorArgs{...}
+//	RulesetColumnSelectorArgs{...}
 type RulesetColumnSelectorInput interface {
 	pulumi.Input
 
@@ -6021,7 +6021,7 @@ func (i RulesetColumnSelectorArgs) ToRulesetColumnSelectorOutputWithContext(ctx 
 // RulesetColumnSelectorArrayInput is an input type that accepts RulesetColumnSelectorArray and RulesetColumnSelectorArrayOutput values.
 // You can construct a concrete instance of `RulesetColumnSelectorArrayInput` via:
 //
-//          RulesetColumnSelectorArray{ RulesetColumnSelectorArgs{...} }
+//	RulesetColumnSelectorArray{ RulesetColumnSelectorArgs{...} }
 type RulesetColumnSelectorArrayInput interface {
 	pulumi.Input
 
@@ -6102,7 +6102,7 @@ type RulesetRule struct {
 // RulesetRuleInput is an input type that accepts RulesetRuleArgs and RulesetRuleOutput values.
 // You can construct a concrete instance of `RulesetRuleInput` via:
 //
-//          RulesetRuleArgs{...}
+//	RulesetRuleArgs{...}
 type RulesetRuleInput interface {
 	pulumi.Input
 
@@ -6136,7 +6136,7 @@ func (i RulesetRuleArgs) ToRulesetRuleOutputWithContext(ctx context.Context) Rul
 // RulesetRuleArrayInput is an input type that accepts RulesetRuleArray and RulesetRuleArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleArrayInput` via:
 //
-//          RulesetRuleArray{ RulesetRuleArgs{...} }
+//	RulesetRuleArray{ RulesetRuleArgs{...} }
 type RulesetRuleArrayInput interface {
 	pulumi.Input
 
@@ -6229,7 +6229,7 @@ type RulesetSubstitutionValue struct {
 // RulesetSubstitutionValueInput is an input type that accepts RulesetSubstitutionValueArgs and RulesetSubstitutionValueOutput values.
 // You can construct a concrete instance of `RulesetSubstitutionValueInput` via:
 //
-//          RulesetSubstitutionValueArgs{...}
+//	RulesetSubstitutionValueArgs{...}
 type RulesetSubstitutionValueInput interface {
 	pulumi.Input
 
@@ -6260,7 +6260,7 @@ func (i RulesetSubstitutionValueArgs) ToRulesetSubstitutionValueOutputWithContex
 // RulesetSubstitutionValueArrayInput is an input type that accepts RulesetSubstitutionValueArray and RulesetSubstitutionValueArrayOutput values.
 // You can construct a concrete instance of `RulesetSubstitutionValueArrayInput` via:
 //
-//          RulesetSubstitutionValueArray{ RulesetSubstitutionValueArgs{...} }
+//	RulesetSubstitutionValueArray{ RulesetSubstitutionValueArgs{...} }
 type RulesetSubstitutionValueArrayInput interface {
 	pulumi.Input
 
@@ -6336,7 +6336,7 @@ type RulesetTag struct {
 // RulesetTagInput is an input type that accepts RulesetTagArgs and RulesetTagOutput values.
 // You can construct a concrete instance of `RulesetTagInput` via:
 //
-//          RulesetTagArgs{...}
+//	RulesetTagArgs{...}
 type RulesetTagInput interface {
 	pulumi.Input
 
@@ -6365,7 +6365,7 @@ func (i RulesetTagArgs) ToRulesetTagOutputWithContext(ctx context.Context) Rules
 // RulesetTagArrayInput is an input type that accepts RulesetTagArray and RulesetTagArrayOutput values.
 // You can construct a concrete instance of `RulesetTagArrayInput` via:
 //
-//          RulesetTagArray{ RulesetTagArgs{...} }
+//	RulesetTagArray{ RulesetTagArgs{...} }
 type RulesetTagArrayInput interface {
 	pulumi.Input
 
@@ -6439,7 +6439,7 @@ type RulesetThreshold struct {
 // RulesetThresholdInput is an input type that accepts RulesetThresholdArgs and RulesetThresholdOutput values.
 // You can construct a concrete instance of `RulesetThresholdInput` via:
 //
-//          RulesetThresholdArgs{...}
+//	RulesetThresholdArgs{...}
 type RulesetThresholdInput interface {
 	pulumi.Input
 
@@ -6476,11 +6476,11 @@ func (i RulesetThresholdArgs) ToRulesetThresholdPtrOutputWithContext(ctx context
 // RulesetThresholdPtrInput is an input type that accepts RulesetThresholdArgs, RulesetThresholdPtr and RulesetThresholdPtrOutput values.
 // You can construct a concrete instance of `RulesetThresholdPtrInput` via:
 //
-//          RulesetThresholdArgs{...}
+//	        RulesetThresholdArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RulesetThresholdPtrInput interface {
 	pulumi.Input
 
@@ -6602,7 +6602,7 @@ type ScheduleTag struct {
 // ScheduleTagInput is an input type that accepts ScheduleTagArgs and ScheduleTagOutput values.
 // You can construct a concrete instance of `ScheduleTagInput` via:
 //
-//          ScheduleTagArgs{...}
+//	ScheduleTagArgs{...}
 type ScheduleTagInput interface {
 	pulumi.Input
 
@@ -6631,7 +6631,7 @@ func (i ScheduleTagArgs) ToScheduleTagOutputWithContext(ctx context.Context) Sch
 // ScheduleTagArrayInput is an input type that accepts ScheduleTagArray and ScheduleTagArrayOutput values.
 // You can construct a concrete instance of `ScheduleTagArrayInput` via:
 //
-//          ScheduleTagArray{ ScheduleTagArgs{...} }
+//	ScheduleTagArray{ ScheduleTagArgs{...} }
 type ScheduleTagArrayInput interface {
 	pulumi.Input
 

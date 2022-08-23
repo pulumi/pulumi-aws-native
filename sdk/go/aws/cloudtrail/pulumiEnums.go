@@ -141,7 +141,7 @@ func (o TrailEventSelectorReadWriteTypePtrOutput) ToStringPtrOutputWithContext(c
 // TrailEventSelectorReadWriteTypeInput is an input type that accepts TrailEventSelectorReadWriteTypeArgs and TrailEventSelectorReadWriteTypeOutput values.
 // You can construct a concrete instance of `TrailEventSelectorReadWriteTypeInput` via:
 //
-//          TrailEventSelectorReadWriteTypeArgs{...}
+//	TrailEventSelectorReadWriteTypeArgs{...}
 type TrailEventSelectorReadWriteTypeInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToStringPtrOutp
 // CloudFormationProvisionedProductAcceptLanguageInput is an input type that accepts CloudFormationProvisionedProductAcceptLanguageArgs and CloudFormationProvisionedProductAcceptLanguageOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductAcceptLanguageInput` via:
 //
-//          CloudFormationProvisionedProductAcceptLanguageArgs{...}
+//	CloudFormationProvisionedProductAcceptLanguageArgs{...}
 type CloudFormationProvisionedProductAcceptLanguageInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 // CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeArgs and CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput` via:
 //
-//          CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeArgs{...}
+//	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeArgs{...}
 type CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o ServiceActionAcceptLanguagePtrOutput) ToStringPtrOutputWithContext(ctx c
 // ServiceActionAcceptLanguageInput is an input type that accepts ServiceActionAcceptLanguageArgs and ServiceActionAcceptLanguageOutput values.
 // You can construct a concrete instance of `ServiceActionAcceptLanguageInput` via:
 //
-//          ServiceActionAcceptLanguageArgs{...}
+//	ServiceActionAcceptLanguageArgs{...}
 type ServiceActionAcceptLanguageInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (o ServiceActionDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // ServiceActionDefinitionTypeInput is an input type that accepts ServiceActionDefinitionTypeArgs and ServiceActionDefinitionTypeOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionTypeInput` via:
 //
-//          ServiceActionDefinitionTypeArgs{...}
+//	ServiceActionDefinitionTypeArgs{...}
 type ServiceActionDefinitionTypeInput interface {
 	pulumi.Input
 

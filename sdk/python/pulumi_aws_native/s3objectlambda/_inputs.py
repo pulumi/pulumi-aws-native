@@ -10,9 +10,39 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccessPointAwsLambdaArgs',
     'AccessPointObjectLambdaConfigurationArgs',
+    'AccessPointTransformationConfigurationContentTransformationPropertiesArgs',
     'AccessPointTransformationConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AccessPointAwsLambdaArgs:
+    def __init__(__self__, *,
+                 function_arn: pulumi.Input[str],
+                 function_payload: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "function_arn", function_arn)
+        if function_payload is not None:
+            pulumi.set(__self__, "function_payload", function_payload)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "function_arn")
+
+    @function_arn.setter
+    def function_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_arn", value)
+
+    @property
+    @pulumi.getter(name="functionPayload")
+    def function_payload(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "function_payload")
+
+    @function_payload.setter
+    def function_payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_payload", value)
+
 
 @pulumi.input_type
 class AccessPointObjectLambdaConfigurationArgs:
@@ -69,10 +99,26 @@ class AccessPointObjectLambdaConfigurationArgs:
 
 
 @pulumi.input_type
+class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
+    def __init__(__self__, *,
+                 aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs']):
+        pulumi.set(__self__, "aws_lambda", aws_lambda)
+
+    @property
+    @pulumi.getter(name="awsLambda")
+    def aws_lambda(self) -> pulumi.Input['AccessPointAwsLambdaArgs']:
+        return pulumi.get(self, "aws_lambda")
+
+    @aws_lambda.setter
+    def aws_lambda(self, value: pulumi.Input['AccessPointAwsLambdaArgs']):
+        pulumi.set(self, "aws_lambda", value)
+
+
+@pulumi.input_type
 class AccessPointTransformationConfigurationArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 content_transformation: Any):
+                 content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
@@ -90,11 +136,11 @@ class AccessPointTransformationConfigurationArgs:
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> Any:
+    def content_transformation(self) -> pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']:
         return pulumi.get(self, "content_transformation")
 
     @content_transformation.setter
-    def content_transformation(self, value: Any):
+    def content_transformation(self, value: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
         pulumi.set(self, "content_transformation", value)
 
 

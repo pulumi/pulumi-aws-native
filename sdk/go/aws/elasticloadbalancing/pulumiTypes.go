@@ -20,7 +20,7 @@ type LoadBalancerAccessLoggingPolicy struct {
 // LoadBalancerAccessLoggingPolicyInput is an input type that accepts LoadBalancerAccessLoggingPolicyArgs and LoadBalancerAccessLoggingPolicyOutput values.
 // You can construct a concrete instance of `LoadBalancerAccessLoggingPolicyInput` via:
 //
-//          LoadBalancerAccessLoggingPolicyArgs{...}
+//	LoadBalancerAccessLoggingPolicyArgs{...}
 type LoadBalancerAccessLoggingPolicyInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i LoadBalancerAccessLoggingPolicyArgs) ToLoadBalancerAccessLoggingPolicyPt
 // LoadBalancerAccessLoggingPolicyPtrInput is an input type that accepts LoadBalancerAccessLoggingPolicyArgs, LoadBalancerAccessLoggingPolicyPtr and LoadBalancerAccessLoggingPolicyPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerAccessLoggingPolicyPtrInput` via:
 //
-//          LoadBalancerAccessLoggingPolicyArgs{...}
+//	        LoadBalancerAccessLoggingPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerAccessLoggingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -196,7 +196,7 @@ type LoadBalancerAppCookieStickinessPolicy struct {
 // LoadBalancerAppCookieStickinessPolicyInput is an input type that accepts LoadBalancerAppCookieStickinessPolicyArgs and LoadBalancerAppCookieStickinessPolicyOutput values.
 // You can construct a concrete instance of `LoadBalancerAppCookieStickinessPolicyInput` via:
 //
-//          LoadBalancerAppCookieStickinessPolicyArgs{...}
+//	LoadBalancerAppCookieStickinessPolicyArgs{...}
 type LoadBalancerAppCookieStickinessPolicyInput interface {
 	pulumi.Input
 
@@ -224,7 +224,7 @@ func (i LoadBalancerAppCookieStickinessPolicyArgs) ToLoadBalancerAppCookieSticki
 // LoadBalancerAppCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerAppCookieStickinessPolicyArray and LoadBalancerAppCookieStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerAppCookieStickinessPolicyArrayInput` via:
 //
-//          LoadBalancerAppCookieStickinessPolicyArray{ LoadBalancerAppCookieStickinessPolicyArgs{...} }
+//	LoadBalancerAppCookieStickinessPolicyArray{ LoadBalancerAppCookieStickinessPolicyArgs{...} }
 type LoadBalancerAppCookieStickinessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +296,7 @@ type LoadBalancerConnectionDrainingPolicy struct {
 // LoadBalancerConnectionDrainingPolicyInput is an input type that accepts LoadBalancerConnectionDrainingPolicyArgs and LoadBalancerConnectionDrainingPolicyOutput values.
 // You can construct a concrete instance of `LoadBalancerConnectionDrainingPolicyInput` via:
 //
-//          LoadBalancerConnectionDrainingPolicyArgs{...}
+//	LoadBalancerConnectionDrainingPolicyArgs{...}
 type LoadBalancerConnectionDrainingPolicyInput interface {
 	pulumi.Input
 
@@ -332,11 +332,11 @@ func (i LoadBalancerConnectionDrainingPolicyArgs) ToLoadBalancerConnectionDraini
 // LoadBalancerConnectionDrainingPolicyPtrInput is an input type that accepts LoadBalancerConnectionDrainingPolicyArgs, LoadBalancerConnectionDrainingPolicyPtr and LoadBalancerConnectionDrainingPolicyPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerConnectionDrainingPolicyPtrInput` via:
 //
-//          LoadBalancerConnectionDrainingPolicyArgs{...}
+//	        LoadBalancerConnectionDrainingPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerConnectionDrainingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -443,7 +443,7 @@ type LoadBalancerConnectionSettings struct {
 // LoadBalancerConnectionSettingsInput is an input type that accepts LoadBalancerConnectionSettingsArgs and LoadBalancerConnectionSettingsOutput values.
 // You can construct a concrete instance of `LoadBalancerConnectionSettingsInput` via:
 //
-//          LoadBalancerConnectionSettingsArgs{...}
+//	LoadBalancerConnectionSettingsArgs{...}
 type LoadBalancerConnectionSettingsInput interface {
 	pulumi.Input
 
@@ -478,11 +478,11 @@ func (i LoadBalancerConnectionSettingsArgs) ToLoadBalancerConnectionSettingsPtrO
 // LoadBalancerConnectionSettingsPtrInput is an input type that accepts LoadBalancerConnectionSettingsArgs, LoadBalancerConnectionSettingsPtr and LoadBalancerConnectionSettingsPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerConnectionSettingsPtrInput` via:
 //
-//          LoadBalancerConnectionSettingsArgs{...}
+//	        LoadBalancerConnectionSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerConnectionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -580,7 +580,7 @@ type LoadBalancerHealthCheck struct {
 // LoadBalancerHealthCheckInput is an input type that accepts LoadBalancerHealthCheckArgs and LoadBalancerHealthCheckOutput values.
 // You can construct a concrete instance of `LoadBalancerHealthCheckInput` via:
 //
-//          LoadBalancerHealthCheckArgs{...}
+//	LoadBalancerHealthCheckArgs{...}
 type LoadBalancerHealthCheckInput interface {
 	pulumi.Input
 
@@ -619,11 +619,11 @@ func (i LoadBalancerHealthCheckArgs) ToLoadBalancerHealthCheckPtrOutputWithConte
 // LoadBalancerHealthCheckPtrInput is an input type that accepts LoadBalancerHealthCheckArgs, LoadBalancerHealthCheckPtr and LoadBalancerHealthCheckPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerHealthCheckPtrInput` via:
 //
-//          LoadBalancerHealthCheckArgs{...}
+//	        LoadBalancerHealthCheckArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -770,7 +770,7 @@ type LoadBalancerLBCookieStickinessPolicy struct {
 // LoadBalancerLBCookieStickinessPolicyInput is an input type that accepts LoadBalancerLBCookieStickinessPolicyArgs and LoadBalancerLBCookieStickinessPolicyOutput values.
 // You can construct a concrete instance of `LoadBalancerLBCookieStickinessPolicyInput` via:
 //
-//          LoadBalancerLBCookieStickinessPolicyArgs{...}
+//	LoadBalancerLBCookieStickinessPolicyArgs{...}
 type LoadBalancerLBCookieStickinessPolicyInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (i LoadBalancerLBCookieStickinessPolicyArgs) ToLoadBalancerLBCookieStickine
 // LoadBalancerLBCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerLBCookieStickinessPolicyArray and LoadBalancerLBCookieStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerLBCookieStickinessPolicyArrayInput` via:
 //
-//          LoadBalancerLBCookieStickinessPolicyArray{ LoadBalancerLBCookieStickinessPolicyArgs{...} }
+//	LoadBalancerLBCookieStickinessPolicyArray{ LoadBalancerLBCookieStickinessPolicyArgs{...} }
 type LoadBalancerLBCookieStickinessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -874,7 +874,7 @@ type LoadBalancerListeners struct {
 // LoadBalancerListenersInput is an input type that accepts LoadBalancerListenersArgs and LoadBalancerListenersOutput values.
 // You can construct a concrete instance of `LoadBalancerListenersInput` via:
 //
-//          LoadBalancerListenersArgs{...}
+//	LoadBalancerListenersArgs{...}
 type LoadBalancerListenersInput interface {
 	pulumi.Input
 
@@ -906,7 +906,7 @@ func (i LoadBalancerListenersArgs) ToLoadBalancerListenersOutputWithContext(ctx 
 // LoadBalancerListenersArrayInput is an input type that accepts LoadBalancerListenersArray and LoadBalancerListenersArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerListenersArrayInput` via:
 //
-//          LoadBalancerListenersArray{ LoadBalancerListenersArgs{...} }
+//	LoadBalancerListenersArray{ LoadBalancerListenersArgs{...} }
 type LoadBalancerListenersArrayInput interface {
 	pulumi.Input
 
@@ -997,7 +997,7 @@ type LoadBalancerPolicies struct {
 // LoadBalancerPoliciesInput is an input type that accepts LoadBalancerPoliciesArgs and LoadBalancerPoliciesOutput values.
 // You can construct a concrete instance of `LoadBalancerPoliciesInput` via:
 //
-//          LoadBalancerPoliciesArgs{...}
+//	LoadBalancerPoliciesArgs{...}
 type LoadBalancerPoliciesInput interface {
 	pulumi.Input
 
@@ -1028,7 +1028,7 @@ func (i LoadBalancerPoliciesArgs) ToLoadBalancerPoliciesOutputWithContext(ctx co
 // LoadBalancerPoliciesArrayInput is an input type that accepts LoadBalancerPoliciesArray and LoadBalancerPoliciesArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerPoliciesArrayInput` via:
 //
-//          LoadBalancerPoliciesArray{ LoadBalancerPoliciesArgs{...} }
+//	LoadBalancerPoliciesArray{ LoadBalancerPoliciesArgs{...} }
 type LoadBalancerPoliciesArrayInput interface {
 	pulumi.Input
 
@@ -1112,7 +1112,7 @@ type LoadBalancerTag struct {
 // LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
 // You can construct a concrete instance of `LoadBalancerTagInput` via:
 //
-//          LoadBalancerTagArgs{...}
+//	LoadBalancerTagArgs{...}
 type LoadBalancerTagInput interface {
 	pulumi.Input
 
@@ -1140,7 +1140,7 @@ func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Cont
 // LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
 //
-//          LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
+//	LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
 type LoadBalancerTagArrayInput interface {
 	pulumi.Input
 

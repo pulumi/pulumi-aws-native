@@ -20,7 +20,7 @@ type ConnectorApacheKafkaCluster struct {
 // ConnectorApacheKafkaClusterInput is an input type that accepts ConnectorApacheKafkaClusterArgs and ConnectorApacheKafkaClusterOutput values.
 // You can construct a concrete instance of `ConnectorApacheKafkaClusterInput` via:
 //
-//          ConnectorApacheKafkaClusterArgs{...}
+//	ConnectorApacheKafkaClusterArgs{...}
 type ConnectorApacheKafkaClusterInput interface {
 	pulumi.Input
 
@@ -86,7 +86,7 @@ type ConnectorAutoScaling struct {
 // ConnectorAutoScalingInput is an input type that accepts ConnectorAutoScalingArgs and ConnectorAutoScalingOutput values.
 // You can construct a concrete instance of `ConnectorAutoScalingInput` via:
 //
-//          ConnectorAutoScalingArgs{...}
+//	ConnectorAutoScalingArgs{...}
 type ConnectorAutoScalingInput interface {
 	pulumi.Input
 
@@ -129,11 +129,11 @@ func (i ConnectorAutoScalingArgs) ToConnectorAutoScalingPtrOutputWithContext(ctx
 // ConnectorAutoScalingPtrInput is an input type that accepts ConnectorAutoScalingArgs, ConnectorAutoScalingPtr and ConnectorAutoScalingPtrOutput values.
 // You can construct a concrete instance of `ConnectorAutoScalingPtrInput` via:
 //
-//          ConnectorAutoScalingArgs{...}
+//	        ConnectorAutoScalingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorAutoScalingPtrInput interface {
 	pulumi.Input
 
@@ -288,7 +288,7 @@ type ConnectorCapacity struct {
 // ConnectorCapacityInput is an input type that accepts ConnectorCapacityArgs and ConnectorCapacityOutput values.
 // You can construct a concrete instance of `ConnectorCapacityInput` via:
 //
-//          ConnectorCapacityArgs{...}
+//	ConnectorCapacityArgs{...}
 type ConnectorCapacityInput interface {
 	pulumi.Input
 
@@ -390,7 +390,7 @@ type ConnectorCloudWatchLogsLogDelivery struct {
 // ConnectorCloudWatchLogsLogDeliveryInput is an input type that accepts ConnectorCloudWatchLogsLogDeliveryArgs and ConnectorCloudWatchLogsLogDeliveryOutput values.
 // You can construct a concrete instance of `ConnectorCloudWatchLogsLogDeliveryInput` via:
 //
-//          ConnectorCloudWatchLogsLogDeliveryArgs{...}
+//	ConnectorCloudWatchLogsLogDeliveryArgs{...}
 type ConnectorCloudWatchLogsLogDeliveryInput interface {
 	pulumi.Input
 
@@ -429,11 +429,11 @@ func (i ConnectorCloudWatchLogsLogDeliveryArgs) ToConnectorCloudWatchLogsLogDeli
 // ConnectorCloudWatchLogsLogDeliveryPtrInput is an input type that accepts ConnectorCloudWatchLogsLogDeliveryArgs, ConnectorCloudWatchLogsLogDeliveryPtr and ConnectorCloudWatchLogsLogDeliveryPtrOutput values.
 // You can construct a concrete instance of `ConnectorCloudWatchLogsLogDeliveryPtrInput` via:
 //
-//          ConnectorCloudWatchLogsLogDeliveryArgs{...}
+//	        ConnectorCloudWatchLogsLogDeliveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorCloudWatchLogsLogDeliveryPtrInput interface {
 	pulumi.Input
 
@@ -549,7 +549,7 @@ type ConnectorCustomPlugin struct {
 // ConnectorCustomPluginInput is an input type that accepts ConnectorCustomPluginArgs and ConnectorCustomPluginOutput values.
 // You can construct a concrete instance of `ConnectorCustomPluginInput` via:
 //
-//          ConnectorCustomPluginArgs{...}
+//	ConnectorCustomPluginArgs{...}
 type ConnectorCustomPluginInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ type ConnectorFirehoseLogDelivery struct {
 // ConnectorFirehoseLogDeliveryInput is an input type that accepts ConnectorFirehoseLogDeliveryArgs and ConnectorFirehoseLogDeliveryOutput values.
 // You can construct a concrete instance of `ConnectorFirehoseLogDeliveryInput` via:
 //
-//          ConnectorFirehoseLogDeliveryArgs{...}
+//	ConnectorFirehoseLogDeliveryArgs{...}
 type ConnectorFirehoseLogDeliveryInput interface {
 	pulumi.Input
 
@@ -652,11 +652,11 @@ func (i ConnectorFirehoseLogDeliveryArgs) ToConnectorFirehoseLogDeliveryPtrOutpu
 // ConnectorFirehoseLogDeliveryPtrInput is an input type that accepts ConnectorFirehoseLogDeliveryArgs, ConnectorFirehoseLogDeliveryPtr and ConnectorFirehoseLogDeliveryPtrOutput values.
 // You can construct a concrete instance of `ConnectorFirehoseLogDeliveryPtrInput` via:
 //
-//          ConnectorFirehoseLogDeliveryArgs{...}
+//	        ConnectorFirehoseLogDeliveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorFirehoseLogDeliveryPtrInput interface {
 	pulumi.Input
 
@@ -769,7 +769,7 @@ type ConnectorKafkaCluster struct {
 // ConnectorKafkaClusterInput is an input type that accepts ConnectorKafkaClusterArgs and ConnectorKafkaClusterOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterInput` via:
 //
-//          ConnectorKafkaClusterArgs{...}
+//	ConnectorKafkaClusterArgs{...}
 type ConnectorKafkaClusterInput interface {
 	pulumi.Input
 
@@ -821,7 +821,7 @@ type ConnectorKafkaClusterClientAuthentication struct {
 // ConnectorKafkaClusterClientAuthenticationInput is an input type that accepts ConnectorKafkaClusterClientAuthenticationArgs and ConnectorKafkaClusterClientAuthenticationOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterClientAuthenticationInput` via:
 //
-//          ConnectorKafkaClusterClientAuthenticationArgs{...}
+//	ConnectorKafkaClusterClientAuthenticationArgs{...}
 type ConnectorKafkaClusterClientAuthenticationInput interface {
 	pulumi.Input
 
@@ -875,7 +875,7 @@ type ConnectorKafkaClusterEncryptionInTransit struct {
 // ConnectorKafkaClusterEncryptionInTransitInput is an input type that accepts ConnectorKafkaClusterEncryptionInTransitArgs and ConnectorKafkaClusterEncryptionInTransitOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterEncryptionInTransitInput` via:
 //
-//          ConnectorKafkaClusterEncryptionInTransitArgs{...}
+//	ConnectorKafkaClusterEncryptionInTransitArgs{...}
 type ConnectorKafkaClusterEncryptionInTransitInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ type ConnectorLogDelivery struct {
 // ConnectorLogDeliveryInput is an input type that accepts ConnectorLogDeliveryArgs and ConnectorLogDeliveryOutput values.
 // You can construct a concrete instance of `ConnectorLogDeliveryInput` via:
 //
-//          ConnectorLogDeliveryArgs{...}
+//	ConnectorLogDeliveryArgs{...}
 type ConnectorLogDeliveryInput interface {
 	pulumi.Input
 
@@ -965,11 +965,11 @@ func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryPtrOutputWithContext(ctx
 // ConnectorLogDeliveryPtrInput is an input type that accepts ConnectorLogDeliveryArgs, ConnectorLogDeliveryPtr and ConnectorLogDeliveryPtrOutput values.
 // You can construct a concrete instance of `ConnectorLogDeliveryPtrInput` via:
 //
-//          ConnectorLogDeliveryArgs{...}
+//	        ConnectorLogDeliveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorLogDeliveryPtrInput interface {
 	pulumi.Input
 
@@ -1065,7 +1065,7 @@ type ConnectorPlugin struct {
 // ConnectorPluginInput is an input type that accepts ConnectorPluginArgs and ConnectorPluginOutput values.
 // You can construct a concrete instance of `ConnectorPluginInput` via:
 //
-//          ConnectorPluginArgs{...}
+//	ConnectorPluginArgs{...}
 type ConnectorPluginInput interface {
 	pulumi.Input
 
@@ -1093,7 +1093,7 @@ func (i ConnectorPluginArgs) ToConnectorPluginOutputWithContext(ctx context.Cont
 // ConnectorPluginArrayInput is an input type that accepts ConnectorPluginArray and ConnectorPluginArrayOutput values.
 // You can construct a concrete instance of `ConnectorPluginArrayInput` via:
 //
-//          ConnectorPluginArray{ ConnectorPluginArgs{...} }
+//	ConnectorPluginArray{ ConnectorPluginArgs{...} }
 type ConnectorPluginArrayInput interface {
 	pulumi.Input
 
@@ -1165,7 +1165,7 @@ type ConnectorProvisionedCapacity struct {
 // ConnectorProvisionedCapacityInput is an input type that accepts ConnectorProvisionedCapacityArgs and ConnectorProvisionedCapacityOutput values.
 // You can construct a concrete instance of `ConnectorProvisionedCapacityInput` via:
 //
-//          ConnectorProvisionedCapacityArgs{...}
+//	ConnectorProvisionedCapacityArgs{...}
 type ConnectorProvisionedCapacityInput interface {
 	pulumi.Input
 
@@ -1204,11 +1204,11 @@ func (i ConnectorProvisionedCapacityArgs) ToConnectorProvisionedCapacityPtrOutpu
 // ConnectorProvisionedCapacityPtrInput is an input type that accepts ConnectorProvisionedCapacityArgs, ConnectorProvisionedCapacityPtr and ConnectorProvisionedCapacityPtrOutput values.
 // You can construct a concrete instance of `ConnectorProvisionedCapacityPtrInput` via:
 //
-//          ConnectorProvisionedCapacityArgs{...}
+//	        ConnectorProvisionedCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProvisionedCapacityPtrInput interface {
 	pulumi.Input
 
@@ -1326,7 +1326,7 @@ type ConnectorS3LogDelivery struct {
 // ConnectorS3LogDeliveryInput is an input type that accepts ConnectorS3LogDeliveryArgs and ConnectorS3LogDeliveryOutput values.
 // You can construct a concrete instance of `ConnectorS3LogDeliveryInput` via:
 //
-//          ConnectorS3LogDeliveryArgs{...}
+//	ConnectorS3LogDeliveryArgs{...}
 type ConnectorS3LogDeliveryInput interface {
 	pulumi.Input
 
@@ -1367,11 +1367,11 @@ func (i ConnectorS3LogDeliveryArgs) ToConnectorS3LogDeliveryPtrOutputWithContext
 // ConnectorS3LogDeliveryPtrInput is an input type that accepts ConnectorS3LogDeliveryArgs, ConnectorS3LogDeliveryPtr and ConnectorS3LogDeliveryPtrOutput values.
 // You can construct a concrete instance of `ConnectorS3LogDeliveryPtrInput` via:
 //
-//          ConnectorS3LogDeliveryArgs{...}
+//	        ConnectorS3LogDeliveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorS3LogDeliveryPtrInput interface {
 	pulumi.Input
 
@@ -1500,7 +1500,7 @@ type ConnectorScaleInPolicy struct {
 // ConnectorScaleInPolicyInput is an input type that accepts ConnectorScaleInPolicyArgs and ConnectorScaleInPolicyOutput values.
 // You can construct a concrete instance of `ConnectorScaleInPolicyInput` via:
 //
-//          ConnectorScaleInPolicyArgs{...}
+//	ConnectorScaleInPolicyArgs{...}
 type ConnectorScaleInPolicyInput interface {
 	pulumi.Input
 
@@ -1537,11 +1537,11 @@ func (i ConnectorScaleInPolicyArgs) ToConnectorScaleInPolicyPtrOutputWithContext
 // ConnectorScaleInPolicyPtrInput is an input type that accepts ConnectorScaleInPolicyArgs, ConnectorScaleInPolicyPtr and ConnectorScaleInPolicyPtrOutput values.
 // You can construct a concrete instance of `ConnectorScaleInPolicyPtrInput` via:
 //
-//          ConnectorScaleInPolicyArgs{...}
+//	        ConnectorScaleInPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorScaleInPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1640,7 +1640,7 @@ type ConnectorScaleOutPolicy struct {
 // ConnectorScaleOutPolicyInput is an input type that accepts ConnectorScaleOutPolicyArgs and ConnectorScaleOutPolicyOutput values.
 // You can construct a concrete instance of `ConnectorScaleOutPolicyInput` via:
 //
-//          ConnectorScaleOutPolicyArgs{...}
+//	ConnectorScaleOutPolicyArgs{...}
 type ConnectorScaleOutPolicyInput interface {
 	pulumi.Input
 
@@ -1677,11 +1677,11 @@ func (i ConnectorScaleOutPolicyArgs) ToConnectorScaleOutPolicyPtrOutputWithConte
 // ConnectorScaleOutPolicyPtrInput is an input type that accepts ConnectorScaleOutPolicyArgs, ConnectorScaleOutPolicyPtr and ConnectorScaleOutPolicyPtrOutput values.
 // You can construct a concrete instance of `ConnectorScaleOutPolicyPtrInput` via:
 //
-//          ConnectorScaleOutPolicyArgs{...}
+//	        ConnectorScaleOutPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorScaleOutPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1782,7 +1782,7 @@ type ConnectorVpc struct {
 // ConnectorVpcInput is an input type that accepts ConnectorVpcArgs and ConnectorVpcOutput values.
 // You can construct a concrete instance of `ConnectorVpcInput` via:
 //
-//          ConnectorVpcArgs{...}
+//	ConnectorVpcArgs{...}
 type ConnectorVpcInput interface {
 	pulumi.Input
 
@@ -1846,7 +1846,7 @@ type ConnectorWorkerConfiguration struct {
 // ConnectorWorkerConfigurationInput is an input type that accepts ConnectorWorkerConfigurationArgs and ConnectorWorkerConfigurationOutput values.
 // You can construct a concrete instance of `ConnectorWorkerConfigurationInput` via:
 //
-//          ConnectorWorkerConfigurationArgs{...}
+//	ConnectorWorkerConfigurationArgs{...}
 type ConnectorWorkerConfigurationInput interface {
 	pulumi.Input
 
@@ -1885,11 +1885,11 @@ func (i ConnectorWorkerConfigurationArgs) ToConnectorWorkerConfigurationPtrOutpu
 // ConnectorWorkerConfigurationPtrInput is an input type that accepts ConnectorWorkerConfigurationArgs, ConnectorWorkerConfigurationPtr and ConnectorWorkerConfigurationPtrOutput values.
 // You can construct a concrete instance of `ConnectorWorkerConfigurationPtrInput` via:
 //
-//          ConnectorWorkerConfigurationArgs{...}
+//	        ConnectorWorkerConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorWorkerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2004,7 +2004,7 @@ type ConnectorWorkerLogDelivery struct {
 // ConnectorWorkerLogDeliveryInput is an input type that accepts ConnectorWorkerLogDeliveryArgs and ConnectorWorkerLogDeliveryOutput values.
 // You can construct a concrete instance of `ConnectorWorkerLogDeliveryInput` via:
 //
-//          ConnectorWorkerLogDeliveryArgs{...}
+//	ConnectorWorkerLogDeliveryArgs{...}
 type ConnectorWorkerLogDeliveryInput interface {
 	pulumi.Input
 
@@ -2042,11 +2042,11 @@ func (i ConnectorWorkerLogDeliveryArgs) ToConnectorWorkerLogDeliveryPtrOutputWit
 // ConnectorWorkerLogDeliveryPtrInput is an input type that accepts ConnectorWorkerLogDeliveryArgs, ConnectorWorkerLogDeliveryPtr and ConnectorWorkerLogDeliveryPtrOutput values.
 // You can construct a concrete instance of `ConnectorWorkerLogDeliveryPtrInput` via:
 //
-//          ConnectorWorkerLogDeliveryArgs{...}
+//	        ConnectorWorkerLogDeliveryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorWorkerLogDeliveryPtrInput interface {
 	pulumi.Input
 

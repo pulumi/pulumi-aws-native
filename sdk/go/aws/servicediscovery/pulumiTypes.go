@@ -18,7 +18,7 @@ type HttpNamespaceTag struct {
 // HttpNamespaceTagInput is an input type that accepts HttpNamespaceTagArgs and HttpNamespaceTagOutput values.
 // You can construct a concrete instance of `HttpNamespaceTagInput` via:
 //
-//          HttpNamespaceTagArgs{...}
+//	HttpNamespaceTagArgs{...}
 type HttpNamespaceTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i HttpNamespaceTagArgs) ToHttpNamespaceTagOutputWithContext(ctx context.Co
 // HttpNamespaceTagArrayInput is an input type that accepts HttpNamespaceTagArray and HttpNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `HttpNamespaceTagArrayInput` via:
 //
-//          HttpNamespaceTagArray{ HttpNamespaceTagArgs{...} }
+//	HttpNamespaceTagArray{ HttpNamespaceTagArgs{...} }
 type HttpNamespaceTagArrayInput interface {
 	pulumi.Input
 
@@ -117,7 +117,7 @@ type PrivateDnsNamespacePrivateDnsPropertiesMutable struct {
 // PrivateDnsNamespacePrivateDnsPropertiesMutableInput is an input type that accepts PrivateDnsNamespacePrivateDnsPropertiesMutableArgs and PrivateDnsNamespacePrivateDnsPropertiesMutableOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespacePrivateDnsPropertiesMutableInput` via:
 //
-//          PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{...}
+//	PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{...}
 type PrivateDnsNamespacePrivateDnsPropertiesMutableInput interface {
 	pulumi.Input
 
@@ -152,11 +152,11 @@ func (i PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ToPrivateDnsNamespac
 // PrivateDnsNamespacePrivateDnsPropertiesMutablePtrInput is an input type that accepts PrivateDnsNamespacePrivateDnsPropertiesMutableArgs, PrivateDnsNamespacePrivateDnsPropertiesMutablePtr and PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespacePrivateDnsPropertiesMutablePtrInput` via:
 //
-//          PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{...}
+//	        PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateDnsNamespacePrivateDnsPropertiesMutablePtrInput interface {
 	pulumi.Input
 
@@ -250,7 +250,7 @@ type PrivateDnsNamespaceProperties struct {
 // PrivateDnsNamespacePropertiesInput is an input type that accepts PrivateDnsNamespacePropertiesArgs and PrivateDnsNamespacePropertiesOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespacePropertiesInput` via:
 //
-//          PrivateDnsNamespacePropertiesArgs{...}
+//	PrivateDnsNamespacePropertiesArgs{...}
 type PrivateDnsNamespacePropertiesInput interface {
 	pulumi.Input
 
@@ -285,11 +285,11 @@ func (i PrivateDnsNamespacePropertiesArgs) ToPrivateDnsNamespacePropertiesPtrOut
 // PrivateDnsNamespacePropertiesPtrInput is an input type that accepts PrivateDnsNamespacePropertiesArgs, PrivateDnsNamespacePropertiesPtr and PrivateDnsNamespacePropertiesPtrOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespacePropertiesPtrInput` via:
 //
-//          PrivateDnsNamespacePropertiesArgs{...}
+//	        PrivateDnsNamespacePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateDnsNamespacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -385,7 +385,7 @@ type PrivateDnsNamespaceSOA struct {
 // PrivateDnsNamespaceSOAInput is an input type that accepts PrivateDnsNamespaceSOAArgs and PrivateDnsNamespaceSOAOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespaceSOAInput` via:
 //
-//          PrivateDnsNamespaceSOAArgs{...}
+//	PrivateDnsNamespaceSOAArgs{...}
 type PrivateDnsNamespaceSOAInput interface {
 	pulumi.Input
 
@@ -420,11 +420,11 @@ func (i PrivateDnsNamespaceSOAArgs) ToPrivateDnsNamespaceSOAPtrOutputWithContext
 // PrivateDnsNamespaceSOAPtrInput is an input type that accepts PrivateDnsNamespaceSOAArgs, PrivateDnsNamespaceSOAPtr and PrivateDnsNamespaceSOAPtrOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespaceSOAPtrInput` via:
 //
-//          PrivateDnsNamespaceSOAArgs{...}
+//	        PrivateDnsNamespaceSOAArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateDnsNamespaceSOAPtrInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ type PrivateDnsNamespaceTag struct {
 // PrivateDnsNamespaceTagInput is an input type that accepts PrivateDnsNamespaceTagArgs and PrivateDnsNamespaceTagOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespaceTagInput` via:
 //
-//          PrivateDnsNamespaceTagArgs{...}
+//	PrivateDnsNamespaceTagArgs{...}
 type PrivateDnsNamespaceTagInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ func (i PrivateDnsNamespaceTagArgs) ToPrivateDnsNamespaceTagOutputWithContext(ct
 // PrivateDnsNamespaceTagArrayInput is an input type that accepts PrivateDnsNamespaceTagArray and PrivateDnsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespaceTagArrayInput` via:
 //
-//          PrivateDnsNamespaceTagArray{ PrivateDnsNamespaceTagArgs{...} }
+//	PrivateDnsNamespaceTagArray{ PrivateDnsNamespaceTagArgs{...} }
 type PrivateDnsNamespaceTagArrayInput interface {
 	pulumi.Input
 
@@ -618,7 +618,7 @@ type PublicDnsNamespaceProperties struct {
 // PublicDnsNamespacePropertiesInput is an input type that accepts PublicDnsNamespacePropertiesArgs and PublicDnsNamespacePropertiesOutput values.
 // You can construct a concrete instance of `PublicDnsNamespacePropertiesInput` via:
 //
-//          PublicDnsNamespacePropertiesArgs{...}
+//	PublicDnsNamespacePropertiesArgs{...}
 type PublicDnsNamespacePropertiesInput interface {
 	pulumi.Input
 
@@ -653,11 +653,11 @@ func (i PublicDnsNamespacePropertiesArgs) ToPublicDnsNamespacePropertiesPtrOutpu
 // PublicDnsNamespacePropertiesPtrInput is an input type that accepts PublicDnsNamespacePropertiesArgs, PublicDnsNamespacePropertiesPtr and PublicDnsNamespacePropertiesPtrOutput values.
 // You can construct a concrete instance of `PublicDnsNamespacePropertiesPtrInput` via:
 //
-//          PublicDnsNamespacePropertiesArgs{...}
+//	        PublicDnsNamespacePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PublicDnsNamespacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -753,7 +753,7 @@ type PublicDnsNamespacePublicDnsPropertiesMutable struct {
 // PublicDnsNamespacePublicDnsPropertiesMutableInput is an input type that accepts PublicDnsNamespacePublicDnsPropertiesMutableArgs and PublicDnsNamespacePublicDnsPropertiesMutableOutput values.
 // You can construct a concrete instance of `PublicDnsNamespacePublicDnsPropertiesMutableInput` via:
 //
-//          PublicDnsNamespacePublicDnsPropertiesMutableArgs{...}
+//	PublicDnsNamespacePublicDnsPropertiesMutableArgs{...}
 type PublicDnsNamespacePublicDnsPropertiesMutableInput interface {
 	pulumi.Input
 
@@ -788,11 +788,11 @@ func (i PublicDnsNamespacePublicDnsPropertiesMutableArgs) ToPublicDnsNamespacePu
 // PublicDnsNamespacePublicDnsPropertiesMutablePtrInput is an input type that accepts PublicDnsNamespacePublicDnsPropertiesMutableArgs, PublicDnsNamespacePublicDnsPropertiesMutablePtr and PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput values.
 // You can construct a concrete instance of `PublicDnsNamespacePublicDnsPropertiesMutablePtrInput` via:
 //
-//          PublicDnsNamespacePublicDnsPropertiesMutableArgs{...}
+//	        PublicDnsNamespacePublicDnsPropertiesMutableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PublicDnsNamespacePublicDnsPropertiesMutablePtrInput interface {
 	pulumi.Input
 
@@ -886,7 +886,7 @@ type PublicDnsNamespaceSOA struct {
 // PublicDnsNamespaceSOAInput is an input type that accepts PublicDnsNamespaceSOAArgs and PublicDnsNamespaceSOAOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceSOAInput` via:
 //
-//          PublicDnsNamespaceSOAArgs{...}
+//	PublicDnsNamespaceSOAArgs{...}
 type PublicDnsNamespaceSOAInput interface {
 	pulumi.Input
 
@@ -921,11 +921,11 @@ func (i PublicDnsNamespaceSOAArgs) ToPublicDnsNamespaceSOAPtrOutputWithContext(c
 // PublicDnsNamespaceSOAPtrInput is an input type that accepts PublicDnsNamespaceSOAArgs, PublicDnsNamespaceSOAPtr and PublicDnsNamespaceSOAPtrOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceSOAPtrInput` via:
 //
-//          PublicDnsNamespaceSOAArgs{...}
+//	        PublicDnsNamespaceSOAArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PublicDnsNamespaceSOAPtrInput interface {
 	pulumi.Input
 
@@ -1020,7 +1020,7 @@ type PublicDnsNamespaceTag struct {
 // PublicDnsNamespaceTagInput is an input type that accepts PublicDnsNamespaceTagArgs and PublicDnsNamespaceTagOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceTagInput` via:
 //
-//          PublicDnsNamespaceTagArgs{...}
+//	PublicDnsNamespaceTagArgs{...}
 type PublicDnsNamespaceTagInput interface {
 	pulumi.Input
 
@@ -1048,7 +1048,7 @@ func (i PublicDnsNamespaceTagArgs) ToPublicDnsNamespaceTagOutputWithContext(ctx 
 // PublicDnsNamespaceTagArrayInput is an input type that accepts PublicDnsNamespaceTagArray and PublicDnsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceTagArrayInput` via:
 //
-//          PublicDnsNamespaceTagArray{ PublicDnsNamespaceTagArgs{...} }
+//	PublicDnsNamespaceTagArray{ PublicDnsNamespaceTagArgs{...} }
 type PublicDnsNamespaceTagArrayInput interface {
 	pulumi.Input
 
@@ -1121,7 +1121,7 @@ type ServiceDnsConfig struct {
 // ServiceDnsConfigInput is an input type that accepts ServiceDnsConfigArgs and ServiceDnsConfigOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigInput` via:
 //
-//          ServiceDnsConfigArgs{...}
+//	ServiceDnsConfigArgs{...}
 type ServiceDnsConfigInput interface {
 	pulumi.Input
 
@@ -1158,11 +1158,11 @@ func (i ServiceDnsConfigArgs) ToServiceDnsConfigPtrOutputWithContext(ctx context
 // ServiceDnsConfigPtrInput is an input type that accepts ServiceDnsConfigArgs, ServiceDnsConfigPtr and ServiceDnsConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigPtrInput` via:
 //
-//          ServiceDnsConfigArgs{...}
+//	        ServiceDnsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceDnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1283,7 +1283,7 @@ type ServiceDnsRecord struct {
 // ServiceDnsRecordInput is an input type that accepts ServiceDnsRecordArgs and ServiceDnsRecordOutput values.
 // You can construct a concrete instance of `ServiceDnsRecordInput` via:
 //
-//          ServiceDnsRecordArgs{...}
+//	ServiceDnsRecordArgs{...}
 type ServiceDnsRecordInput interface {
 	pulumi.Input
 
@@ -1311,7 +1311,7 @@ func (i ServiceDnsRecordArgs) ToServiceDnsRecordOutputWithContext(ctx context.Co
 // ServiceDnsRecordArrayInput is an input type that accepts ServiceDnsRecordArray and ServiceDnsRecordArrayOutput values.
 // You can construct a concrete instance of `ServiceDnsRecordArrayInput` via:
 //
-//          ServiceDnsRecordArray{ ServiceDnsRecordArgs{...} }
+//	ServiceDnsRecordArray{ ServiceDnsRecordArgs{...} }
 type ServiceDnsRecordArrayInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ type ServiceHealthCheckConfig struct {
 // ServiceHealthCheckConfigInput is an input type that accepts ServiceHealthCheckConfigArgs and ServiceHealthCheckConfigOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigInput` via:
 //
-//          ServiceHealthCheckConfigArgs{...}
+//	ServiceHealthCheckConfigArgs{...}
 type ServiceHealthCheckConfigInput interface {
 	pulumi.Input
 
@@ -1421,11 +1421,11 @@ func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigPtrOutputWithCon
 // ServiceHealthCheckConfigPtrInput is an input type that accepts ServiceHealthCheckConfigArgs, ServiceHealthCheckConfigPtr and ServiceHealthCheckConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigPtrInput` via:
 //
-//          ServiceHealthCheckConfigArgs{...}
+//	        ServiceHealthCheckConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceHealthCheckConfigPtrInput interface {
 	pulumi.Input
 
@@ -1545,7 +1545,7 @@ type ServiceHealthCheckCustomConfig struct {
 // ServiceHealthCheckCustomConfigInput is an input type that accepts ServiceHealthCheckCustomConfigArgs and ServiceHealthCheckCustomConfigOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckCustomConfigInput` via:
 //
-//          ServiceHealthCheckCustomConfigArgs{...}
+//	ServiceHealthCheckCustomConfigArgs{...}
 type ServiceHealthCheckCustomConfigInput interface {
 	pulumi.Input
 
@@ -1580,11 +1580,11 @@ func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigPtrO
 // ServiceHealthCheckCustomConfigPtrInput is an input type that accepts ServiceHealthCheckCustomConfigArgs, ServiceHealthCheckCustomConfigPtr and ServiceHealthCheckCustomConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckCustomConfigPtrInput` via:
 //
-//          ServiceHealthCheckCustomConfigArgs{...}
+//	        ServiceHealthCheckCustomConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceHealthCheckCustomConfigPtrInput interface {
 	pulumi.Input
 
@@ -1679,7 +1679,7 @@ type ServiceTag struct {
 // ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
 // You can construct a concrete instance of `ServiceTagInput` via:
 //
-//          ServiceTagArgs{...}
+//	ServiceTagArgs{...}
 type ServiceTagInput interface {
 	pulumi.Input
 
@@ -1707,7 +1707,7 @@ func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) Servi
 // ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTagArrayInput` via:
 //
-//          ServiceTagArray{ ServiceTagArgs{...} }
+//	ServiceTagArray{ ServiceTagArgs{...} }
 type ServiceTagArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o AcceleratorIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // AcceleratorIpAddressTypeInput is an input type that accepts AcceleratorIpAddressTypeArgs and AcceleratorIpAddressTypeOutput values.
 // You can construct a concrete instance of `AcceleratorIpAddressTypeInput` via:
 //
-//          AcceleratorIpAddressTypeArgs{...}
+//	AcceleratorIpAddressTypeArgs{...}
 type AcceleratorIpAddressTypeInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o EndpointGroupHealthCheckProtocolPtrOutput) ToStringPtrOutputWithContext(
 // EndpointGroupHealthCheckProtocolInput is an input type that accepts EndpointGroupHealthCheckProtocolArgs and EndpointGroupHealthCheckProtocolOutput values.
 // You can construct a concrete instance of `EndpointGroupHealthCheckProtocolInput` via:
 //
-//          EndpointGroupHealthCheckProtocolArgs{...}
+//	EndpointGroupHealthCheckProtocolArgs{...}
 type EndpointGroupHealthCheckProtocolInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o ListenerClientAffinityPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ListenerClientAffinityInput is an input type that accepts ListenerClientAffinityArgs and ListenerClientAffinityOutput values.
 // You can construct a concrete instance of `ListenerClientAffinityInput` via:
 //
-//          ListenerClientAffinityArgs{...}
+//	ListenerClientAffinityArgs{...}
 type ListenerClientAffinityInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ func (o ListenerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // ListenerProtocolInput is an input type that accepts ListenerProtocolArgs and ListenerProtocolOutput values.
 // You can construct a concrete instance of `ListenerProtocolInput` via:
 //
-//          ListenerProtocolArgs{...}
+//	ListenerProtocolArgs{...}
 type ListenerProtocolInput interface {
 	pulumi.Input
 

@@ -18,7 +18,7 @@ type ServerEngineAttribute struct {
 // ServerEngineAttributeInput is an input type that accepts ServerEngineAttributeArgs and ServerEngineAttributeOutput values.
 // You can construct a concrete instance of `ServerEngineAttributeInput` via:
 //
-//          ServerEngineAttributeArgs{...}
+//	ServerEngineAttributeArgs{...}
 type ServerEngineAttributeInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ServerEngineAttributeArgs) ToServerEngineAttributeOutputWithContext(ctx 
 // ServerEngineAttributeArrayInput is an input type that accepts ServerEngineAttributeArray and ServerEngineAttributeArrayOutput values.
 // You can construct a concrete instance of `ServerEngineAttributeArrayInput` via:
 //
-//          ServerEngineAttributeArray{ ServerEngineAttributeArgs{...} }
+//	ServerEngineAttributeArray{ ServerEngineAttributeArgs{...} }
 type ServerEngineAttributeArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type ServerTag struct {
 // ServerTagInput is an input type that accepts ServerTagArgs and ServerTagOutput values.
 // You can construct a concrete instance of `ServerTagInput` via:
 //
-//          ServerTagArgs{...}
+//	ServerTagArgs{...}
 type ServerTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i ServerTagArgs) ToServerTagOutputWithContext(ctx context.Context) ServerT
 // ServerTagArrayInput is an input type that accepts ServerTagArray and ServerTagArrayOutput values.
 // You can construct a concrete instance of `ServerTagArrayInput` via:
 //
-//          ServerTagArray{ ServerTagArgs{...} }
+//	ServerTagArray{ ServerTagArgs{...} }
 type ServerTagArrayInput interface {
 	pulumi.Input
 

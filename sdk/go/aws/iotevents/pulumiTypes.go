@@ -19,7 +19,7 @@ type AlarmModelAcknowledgeFlow struct {
 // AlarmModelAcknowledgeFlowInput is an input type that accepts AlarmModelAcknowledgeFlowArgs and AlarmModelAcknowledgeFlowOutput values.
 // You can construct a concrete instance of `AlarmModelAcknowledgeFlowInput` via:
 //
-//          AlarmModelAcknowledgeFlowArgs{...}
+//	AlarmModelAcknowledgeFlowArgs{...}
 type AlarmModelAcknowledgeFlowInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AlarmModelAcknowledgeFlowArgs) ToAlarmModelAcknowledgeFlowPtrOutputWithC
 // AlarmModelAcknowledgeFlowPtrInput is an input type that accepts AlarmModelAcknowledgeFlowArgs, AlarmModelAcknowledgeFlowPtr and AlarmModelAcknowledgeFlowPtrOutput values.
 // You can construct a concrete instance of `AlarmModelAcknowledgeFlowPtrInput` via:
 //
-//          AlarmModelAcknowledgeFlowArgs{...}
+//	        AlarmModelAcknowledgeFlowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAcknowledgeFlowPtrInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ type AlarmModelAlarmAction struct {
 // AlarmModelAlarmActionInput is an input type that accepts AlarmModelAlarmActionArgs and AlarmModelAlarmActionOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmActionInput` via:
 //
-//          AlarmModelAlarmActionArgs{...}
+//	AlarmModelAlarmActionArgs{...}
 type AlarmModelAlarmActionInput interface {
 	pulumi.Input
 
@@ -202,7 +202,7 @@ func (i AlarmModelAlarmActionArgs) ToAlarmModelAlarmActionOutputWithContext(ctx 
 // AlarmModelAlarmActionArrayInput is an input type that accepts AlarmModelAlarmActionArray and AlarmModelAlarmActionArrayOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmActionArrayInput` via:
 //
-//          AlarmModelAlarmActionArray{ AlarmModelAlarmActionArgs{...} }
+//	AlarmModelAlarmActionArray{ AlarmModelAlarmActionArgs{...} }
 type AlarmModelAlarmActionArrayInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ type AlarmModelAlarmCapabilities struct {
 // AlarmModelAlarmCapabilitiesInput is an input type that accepts AlarmModelAlarmCapabilitiesArgs and AlarmModelAlarmCapabilitiesOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmCapabilitiesInput` via:
 //
-//          AlarmModelAlarmCapabilitiesArgs{...}
+//	AlarmModelAlarmCapabilitiesArgs{...}
 type AlarmModelAlarmCapabilitiesInput interface {
 	pulumi.Input
 
@@ -341,11 +341,11 @@ func (i AlarmModelAlarmCapabilitiesArgs) ToAlarmModelAlarmCapabilitiesPtrOutputW
 // AlarmModelAlarmCapabilitiesPtrInput is an input type that accepts AlarmModelAlarmCapabilitiesArgs, AlarmModelAlarmCapabilitiesPtr and AlarmModelAlarmCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmCapabilitiesPtrInput` via:
 //
-//          AlarmModelAlarmCapabilitiesArgs{...}
+//	        AlarmModelAlarmCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAlarmCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -456,7 +456,7 @@ type AlarmModelAlarmEventActions struct {
 // AlarmModelAlarmEventActionsInput is an input type that accepts AlarmModelAlarmEventActionsArgs and AlarmModelAlarmEventActionsOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmEventActionsInput` via:
 //
-//          AlarmModelAlarmEventActionsArgs{...}
+//	AlarmModelAlarmEventActionsArgs{...}
 type AlarmModelAlarmEventActionsInput interface {
 	pulumi.Input
 
@@ -492,11 +492,11 @@ func (i AlarmModelAlarmEventActionsArgs) ToAlarmModelAlarmEventActionsPtrOutputW
 // AlarmModelAlarmEventActionsPtrInput is an input type that accepts AlarmModelAlarmEventActionsArgs, AlarmModelAlarmEventActionsPtr and AlarmModelAlarmEventActionsPtrOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmEventActionsPtrInput` via:
 //
-//          AlarmModelAlarmEventActionsArgs{...}
+//	        AlarmModelAlarmEventActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAlarmEventActionsPtrInput interface {
 	pulumi.Input
 
@@ -592,7 +592,7 @@ type AlarmModelAlarmRule struct {
 // AlarmModelAlarmRuleInput is an input type that accepts AlarmModelAlarmRuleArgs and AlarmModelAlarmRuleOutput values.
 // You can construct a concrete instance of `AlarmModelAlarmRuleInput` via:
 //
-//          AlarmModelAlarmRuleArgs{...}
+//	AlarmModelAlarmRuleArgs{...}
 type AlarmModelAlarmRuleInput interface {
 	pulumi.Input
 
@@ -680,7 +680,7 @@ type AlarmModelAssetPropertyTimestamp struct {
 // AlarmModelAssetPropertyTimestampInput is an input type that accepts AlarmModelAssetPropertyTimestampArgs and AlarmModelAssetPropertyTimestampOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyTimestampInput` via:
 //
-//          AlarmModelAssetPropertyTimestampArgs{...}
+//	AlarmModelAssetPropertyTimestampArgs{...}
 type AlarmModelAssetPropertyTimestampInput interface {
 	pulumi.Input
 
@@ -719,11 +719,11 @@ func (i AlarmModelAssetPropertyTimestampArgs) ToAlarmModelAssetPropertyTimestamp
 // AlarmModelAssetPropertyTimestampPtrInput is an input type that accepts AlarmModelAssetPropertyTimestampArgs, AlarmModelAssetPropertyTimestampPtr and AlarmModelAssetPropertyTimestampPtrOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyTimestampPtrInput` via:
 //
-//          AlarmModelAssetPropertyTimestampArgs{...}
+//	        AlarmModelAssetPropertyTimestampArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAssetPropertyTimestampPtrInput interface {
 	pulumi.Input
 
@@ -839,7 +839,7 @@ type AlarmModelAssetPropertyValue struct {
 // AlarmModelAssetPropertyValueInput is an input type that accepts AlarmModelAssetPropertyValueArgs and AlarmModelAssetPropertyValueOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyValueInput` via:
 //
-//          AlarmModelAssetPropertyValueArgs{...}
+//	AlarmModelAssetPropertyValueArgs{...}
 type AlarmModelAssetPropertyValueInput interface {
 	pulumi.Input
 
@@ -878,11 +878,11 @@ func (i AlarmModelAssetPropertyValueArgs) ToAlarmModelAssetPropertyValuePtrOutpu
 // AlarmModelAssetPropertyValuePtrInput is an input type that accepts AlarmModelAssetPropertyValueArgs, AlarmModelAssetPropertyValuePtr and AlarmModelAssetPropertyValuePtrOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyValuePtrInput` via:
 //
-//          AlarmModelAssetPropertyValueArgs{...}
+//	        AlarmModelAssetPropertyValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAssetPropertyValuePtrInput interface {
 	pulumi.Input
 
@@ -1013,7 +1013,7 @@ type AlarmModelAssetPropertyVariant struct {
 // AlarmModelAssetPropertyVariantInput is an input type that accepts AlarmModelAssetPropertyVariantArgs and AlarmModelAssetPropertyVariantOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyVariantInput` via:
 //
-//          AlarmModelAssetPropertyVariantArgs{...}
+//	AlarmModelAssetPropertyVariantArgs{...}
 type AlarmModelAssetPropertyVariantInput interface {
 	pulumi.Input
 
@@ -1056,11 +1056,11 @@ func (i AlarmModelAssetPropertyVariantArgs) ToAlarmModelAssetPropertyVariantPtrO
 // AlarmModelAssetPropertyVariantPtrInput is an input type that accepts AlarmModelAssetPropertyVariantArgs, AlarmModelAssetPropertyVariantPtr and AlarmModelAssetPropertyVariantPtrOutput values.
 // You can construct a concrete instance of `AlarmModelAssetPropertyVariantPtrInput` via:
 //
-//          AlarmModelAssetPropertyVariantArgs{...}
+//	        AlarmModelAssetPropertyVariantArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelAssetPropertyVariantPtrInput interface {
 	pulumi.Input
 
@@ -1243,7 +1243,7 @@ type AlarmModelDynamoDB struct {
 // AlarmModelDynamoDBInput is an input type that accepts AlarmModelDynamoDBArgs and AlarmModelDynamoDBOutput values.
 // You can construct a concrete instance of `AlarmModelDynamoDBInput` via:
 //
-//          AlarmModelDynamoDBArgs{...}
+//	AlarmModelDynamoDBArgs{...}
 type AlarmModelDynamoDBInput interface {
 	pulumi.Input
 
@@ -1319,11 +1319,11 @@ func (i AlarmModelDynamoDBArgs) ToAlarmModelDynamoDBPtrOutputWithContext(ctx con
 // AlarmModelDynamoDBPtrInput is an input type that accepts AlarmModelDynamoDBArgs, AlarmModelDynamoDBPtr and AlarmModelDynamoDBPtrOutput values.
 // You can construct a concrete instance of `AlarmModelDynamoDBPtrInput` via:
 //
-//          AlarmModelDynamoDBArgs{...}
+//	        AlarmModelDynamoDBArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelDynamoDBPtrInput interface {
 	pulumi.Input
 
@@ -1602,7 +1602,7 @@ type AlarmModelDynamoDBv2 struct {
 // AlarmModelDynamoDBv2Input is an input type that accepts AlarmModelDynamoDBv2Args and AlarmModelDynamoDBv2Output values.
 // You can construct a concrete instance of `AlarmModelDynamoDBv2Input` via:
 //
-//          AlarmModelDynamoDBv2Args{...}
+//	AlarmModelDynamoDBv2Args{...}
 type AlarmModelDynamoDBv2Input interface {
 	pulumi.Input
 
@@ -1642,11 +1642,11 @@ func (i AlarmModelDynamoDBv2Args) ToAlarmModelDynamoDBv2PtrOutputWithContext(ctx
 // AlarmModelDynamoDBv2PtrInput is an input type that accepts AlarmModelDynamoDBv2Args, AlarmModelDynamoDBv2Ptr and AlarmModelDynamoDBv2PtrOutput values.
 // You can construct a concrete instance of `AlarmModelDynamoDBv2PtrInput` via:
 //
-//          AlarmModelDynamoDBv2Args{...}
+//	        AlarmModelDynamoDBv2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelDynamoDBv2PtrInput interface {
 	pulumi.Input
 
@@ -1763,7 +1763,7 @@ type AlarmModelFirehose struct {
 // AlarmModelFirehoseInput is an input type that accepts AlarmModelFirehoseArgs and AlarmModelFirehoseOutput values.
 // You can construct a concrete instance of `AlarmModelFirehoseInput` via:
 //
-//          AlarmModelFirehoseArgs{...}
+//	AlarmModelFirehoseArgs{...}
 type AlarmModelFirehoseInput interface {
 	pulumi.Input
 
@@ -1803,11 +1803,11 @@ func (i AlarmModelFirehoseArgs) ToAlarmModelFirehosePtrOutputWithContext(ctx con
 // AlarmModelFirehosePtrInput is an input type that accepts AlarmModelFirehoseArgs, AlarmModelFirehosePtr and AlarmModelFirehosePtrOutput values.
 // You can construct a concrete instance of `AlarmModelFirehosePtrInput` via:
 //
-//          AlarmModelFirehoseArgs{...}
+//	        AlarmModelFirehoseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelFirehosePtrInput interface {
 	pulumi.Input
 
@@ -1934,7 +1934,7 @@ type AlarmModelInitializationConfiguration struct {
 // AlarmModelInitializationConfigurationInput is an input type that accepts AlarmModelInitializationConfigurationArgs and AlarmModelInitializationConfigurationOutput values.
 // You can construct a concrete instance of `AlarmModelInitializationConfigurationInput` via:
 //
-//          AlarmModelInitializationConfigurationArgs{...}
+//	AlarmModelInitializationConfigurationArgs{...}
 type AlarmModelInitializationConfigurationInput interface {
 	pulumi.Input
 
@@ -1971,11 +1971,11 @@ func (i AlarmModelInitializationConfigurationArgs) ToAlarmModelInitializationCon
 // AlarmModelInitializationConfigurationPtrInput is an input type that accepts AlarmModelInitializationConfigurationArgs, AlarmModelInitializationConfigurationPtr and AlarmModelInitializationConfigurationPtrOutput values.
 // You can construct a concrete instance of `AlarmModelInitializationConfigurationPtrInput` via:
 //
-//          AlarmModelInitializationConfigurationArgs{...}
+//	        AlarmModelInitializationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelInitializationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2075,7 +2075,7 @@ type AlarmModelIotEvents struct {
 // AlarmModelIotEventsInput is an input type that accepts AlarmModelIotEventsArgs and AlarmModelIotEventsOutput values.
 // You can construct a concrete instance of `AlarmModelIotEventsInput` via:
 //
-//          AlarmModelIotEventsArgs{...}
+//	AlarmModelIotEventsArgs{...}
 type AlarmModelIotEventsInput interface {
 	pulumi.Input
 
@@ -2113,11 +2113,11 @@ func (i AlarmModelIotEventsArgs) ToAlarmModelIotEventsPtrOutputWithContext(ctx c
 // AlarmModelIotEventsPtrInput is an input type that accepts AlarmModelIotEventsArgs, AlarmModelIotEventsPtr and AlarmModelIotEventsPtrOutput values.
 // You can construct a concrete instance of `AlarmModelIotEventsPtrInput` via:
 //
-//          AlarmModelIotEventsArgs{...}
+//	        AlarmModelIotEventsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelIotEventsPtrInput interface {
 	pulumi.Input
 
@@ -2236,7 +2236,7 @@ type AlarmModelIotSiteWise struct {
 // AlarmModelIotSiteWiseInput is an input type that accepts AlarmModelIotSiteWiseArgs and AlarmModelIotSiteWiseOutput values.
 // You can construct a concrete instance of `AlarmModelIotSiteWiseInput` via:
 //
-//          AlarmModelIotSiteWiseArgs{...}
+//	AlarmModelIotSiteWiseArgs{...}
 type AlarmModelIotSiteWiseInput interface {
 	pulumi.Input
 
@@ -2280,11 +2280,11 @@ func (i AlarmModelIotSiteWiseArgs) ToAlarmModelIotSiteWisePtrOutputWithContext(c
 // AlarmModelIotSiteWisePtrInput is an input type that accepts AlarmModelIotSiteWiseArgs, AlarmModelIotSiteWisePtr and AlarmModelIotSiteWisePtrOutput values.
 // You can construct a concrete instance of `AlarmModelIotSiteWisePtrInput` via:
 //
-//          AlarmModelIotSiteWiseArgs{...}
+//	        AlarmModelIotSiteWiseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelIotSiteWisePtrInput interface {
 	pulumi.Input
 
@@ -2442,7 +2442,7 @@ type AlarmModelIotTopicPublish struct {
 // AlarmModelIotTopicPublishInput is an input type that accepts AlarmModelIotTopicPublishArgs and AlarmModelIotTopicPublishOutput values.
 // You can construct a concrete instance of `AlarmModelIotTopicPublishInput` via:
 //
-//          AlarmModelIotTopicPublishArgs{...}
+//	AlarmModelIotTopicPublishArgs{...}
 type AlarmModelIotTopicPublishInput interface {
 	pulumi.Input
 
@@ -2480,11 +2480,11 @@ func (i AlarmModelIotTopicPublishArgs) ToAlarmModelIotTopicPublishPtrOutputWithC
 // AlarmModelIotTopicPublishPtrInput is an input type that accepts AlarmModelIotTopicPublishArgs, AlarmModelIotTopicPublishPtr and AlarmModelIotTopicPublishPtrOutput values.
 // You can construct a concrete instance of `AlarmModelIotTopicPublishPtrInput` via:
 //
-//          AlarmModelIotTopicPublishArgs{...}
+//	        AlarmModelIotTopicPublishArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelIotTopicPublishPtrInput interface {
 	pulumi.Input
 
@@ -2596,7 +2596,7 @@ type AlarmModelLambda struct {
 // AlarmModelLambdaInput is an input type that accepts AlarmModelLambdaArgs and AlarmModelLambdaOutput values.
 // You can construct a concrete instance of `AlarmModelLambdaInput` via:
 //
-//          AlarmModelLambdaArgs{...}
+//	AlarmModelLambdaArgs{...}
 type AlarmModelLambdaInput interface {
 	pulumi.Input
 
@@ -2633,11 +2633,11 @@ func (i AlarmModelLambdaArgs) ToAlarmModelLambdaPtrOutputWithContext(ctx context
 // AlarmModelLambdaPtrInput is an input type that accepts AlarmModelLambdaArgs, AlarmModelLambdaPtr and AlarmModelLambdaPtrOutput values.
 // You can construct a concrete instance of `AlarmModelLambdaPtrInput` via:
 //
-//          AlarmModelLambdaArgs{...}
+//	        AlarmModelLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelLambdaPtrInput interface {
 	pulumi.Input
 
@@ -2752,7 +2752,7 @@ type AlarmModelPayload struct {
 // AlarmModelPayloadInput is an input type that accepts AlarmModelPayloadArgs and AlarmModelPayloadOutput values.
 // You can construct a concrete instance of `AlarmModelPayloadInput` via:
 //
-//          AlarmModelPayloadArgs{...}
+//	AlarmModelPayloadArgs{...}
 type AlarmModelPayloadInput interface {
 	pulumi.Input
 
@@ -2793,11 +2793,11 @@ func (i AlarmModelPayloadArgs) ToAlarmModelPayloadPtrOutputWithContext(ctx conte
 // AlarmModelPayloadPtrInput is an input type that accepts AlarmModelPayloadArgs, AlarmModelPayloadPtr and AlarmModelPayloadPtrOutput values.
 // You can construct a concrete instance of `AlarmModelPayloadPtrInput` via:
 //
-//          AlarmModelPayloadArgs{...}
+//	        AlarmModelPayloadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelPayloadPtrInput interface {
 	pulumi.Input
 
@@ -2917,7 +2917,7 @@ type AlarmModelSimpleRule struct {
 // AlarmModelSimpleRuleInput is an input type that accepts AlarmModelSimpleRuleArgs and AlarmModelSimpleRuleOutput values.
 // You can construct a concrete instance of `AlarmModelSimpleRuleInput` via:
 //
-//          AlarmModelSimpleRuleArgs{...}
+//	AlarmModelSimpleRuleArgs{...}
 type AlarmModelSimpleRuleInput interface {
 	pulumi.Input
 
@@ -2958,11 +2958,11 @@ func (i AlarmModelSimpleRuleArgs) ToAlarmModelSimpleRulePtrOutputWithContext(ctx
 // AlarmModelSimpleRulePtrInput is an input type that accepts AlarmModelSimpleRuleArgs, AlarmModelSimpleRulePtr and AlarmModelSimpleRulePtrOutput values.
 // You can construct a concrete instance of `AlarmModelSimpleRulePtrInput` via:
 //
-//          AlarmModelSimpleRuleArgs{...}
+//	        AlarmModelSimpleRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelSimpleRulePtrInput interface {
 	pulumi.Input
 
@@ -3092,7 +3092,7 @@ type AlarmModelSns struct {
 // AlarmModelSnsInput is an input type that accepts AlarmModelSnsArgs and AlarmModelSnsOutput values.
 // You can construct a concrete instance of `AlarmModelSnsInput` via:
 //
-//          AlarmModelSnsArgs{...}
+//	AlarmModelSnsArgs{...}
 type AlarmModelSnsInput interface {
 	pulumi.Input
 
@@ -3130,11 +3130,11 @@ func (i AlarmModelSnsArgs) ToAlarmModelSnsPtrOutputWithContext(ctx context.Conte
 // AlarmModelSnsPtrInput is an input type that accepts AlarmModelSnsArgs, AlarmModelSnsPtr and AlarmModelSnsPtrOutput values.
 // You can construct a concrete instance of `AlarmModelSnsPtrInput` via:
 //
-//          AlarmModelSnsArgs{...}
+//	        AlarmModelSnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelSnsPtrInput interface {
 	pulumi.Input
 
@@ -3248,7 +3248,7 @@ type AlarmModelSqs struct {
 // AlarmModelSqsInput is an input type that accepts AlarmModelSqsArgs and AlarmModelSqsOutput values.
 // You can construct a concrete instance of `AlarmModelSqsInput` via:
 //
-//          AlarmModelSqsArgs{...}
+//	AlarmModelSqsArgs{...}
 type AlarmModelSqsInput interface {
 	pulumi.Input
 
@@ -3287,11 +3287,11 @@ func (i AlarmModelSqsArgs) ToAlarmModelSqsPtrOutputWithContext(ctx context.Conte
 // AlarmModelSqsPtrInput is an input type that accepts AlarmModelSqsArgs, AlarmModelSqsPtr and AlarmModelSqsPtrOutput values.
 // You can construct a concrete instance of `AlarmModelSqsPtrInput` via:
 //
-//          AlarmModelSqsArgs{...}
+//	        AlarmModelSqsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmModelSqsPtrInput interface {
 	pulumi.Input
 
@@ -3419,7 +3419,7 @@ type AlarmModelTag struct {
 // AlarmModelTagInput is an input type that accepts AlarmModelTagArgs and AlarmModelTagOutput values.
 // You can construct a concrete instance of `AlarmModelTagInput` via:
 //
-//          AlarmModelTagArgs{...}
+//	AlarmModelTagArgs{...}
 type AlarmModelTagInput interface {
 	pulumi.Input
 
@@ -3450,7 +3450,7 @@ func (i AlarmModelTagArgs) ToAlarmModelTagOutputWithContext(ctx context.Context)
 // AlarmModelTagArrayInput is an input type that accepts AlarmModelTagArray and AlarmModelTagArrayOutput values.
 // You can construct a concrete instance of `AlarmModelTagArrayInput` via:
 //
-//          AlarmModelTagArray{ AlarmModelTagArgs{...} }
+//	AlarmModelTagArray{ AlarmModelTagArgs{...} }
 type AlarmModelTagArrayInput interface {
 	pulumi.Input
 
@@ -3537,7 +3537,7 @@ type DetectorModelAction struct {
 // DetectorModelActionInput is an input type that accepts DetectorModelActionArgs and DetectorModelActionOutput values.
 // You can construct a concrete instance of `DetectorModelActionInput` via:
 //
-//          DetectorModelActionArgs{...}
+//	DetectorModelActionArgs{...}
 type DetectorModelActionInput interface {
 	pulumi.Input
 
@@ -3577,7 +3577,7 @@ func (i DetectorModelActionArgs) ToDetectorModelActionOutputWithContext(ctx cont
 // DetectorModelActionArrayInput is an input type that accepts DetectorModelActionArray and DetectorModelActionArrayOutput values.
 // You can construct a concrete instance of `DetectorModelActionArrayInput` via:
 //
-//          DetectorModelActionArray{ DetectorModelActionArgs{...} }
+//	DetectorModelActionArray{ DetectorModelActionArgs{...} }
 type DetectorModelActionArrayInput interface {
 	pulumi.Input
 
@@ -3697,7 +3697,7 @@ type DetectorModelAssetPropertyTimestamp struct {
 // DetectorModelAssetPropertyTimestampInput is an input type that accepts DetectorModelAssetPropertyTimestampArgs and DetectorModelAssetPropertyTimestampOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyTimestampInput` via:
 //
-//          DetectorModelAssetPropertyTimestampArgs{...}
+//	DetectorModelAssetPropertyTimestampArgs{...}
 type DetectorModelAssetPropertyTimestampInput interface {
 	pulumi.Input
 
@@ -3736,11 +3736,11 @@ func (i DetectorModelAssetPropertyTimestampArgs) ToDetectorModelAssetPropertyTim
 // DetectorModelAssetPropertyTimestampPtrInput is an input type that accepts DetectorModelAssetPropertyTimestampArgs, DetectorModelAssetPropertyTimestampPtr and DetectorModelAssetPropertyTimestampPtrOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyTimestampPtrInput` via:
 //
-//          DetectorModelAssetPropertyTimestampArgs{...}
+//	        DetectorModelAssetPropertyTimestampArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelAssetPropertyTimestampPtrInput interface {
 	pulumi.Input
 
@@ -3856,7 +3856,7 @@ type DetectorModelAssetPropertyValue struct {
 // DetectorModelAssetPropertyValueInput is an input type that accepts DetectorModelAssetPropertyValueArgs and DetectorModelAssetPropertyValueOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyValueInput` via:
 //
-//          DetectorModelAssetPropertyValueArgs{...}
+//	DetectorModelAssetPropertyValueArgs{...}
 type DetectorModelAssetPropertyValueInput interface {
 	pulumi.Input
 
@@ -3895,11 +3895,11 @@ func (i DetectorModelAssetPropertyValueArgs) ToDetectorModelAssetPropertyValuePt
 // DetectorModelAssetPropertyValuePtrInput is an input type that accepts DetectorModelAssetPropertyValueArgs, DetectorModelAssetPropertyValuePtr and DetectorModelAssetPropertyValuePtrOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyValuePtrInput` via:
 //
-//          DetectorModelAssetPropertyValueArgs{...}
+//	        DetectorModelAssetPropertyValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelAssetPropertyValuePtrInput interface {
 	pulumi.Input
 
@@ -4030,7 +4030,7 @@ type DetectorModelAssetPropertyVariant struct {
 // DetectorModelAssetPropertyVariantInput is an input type that accepts DetectorModelAssetPropertyVariantArgs and DetectorModelAssetPropertyVariantOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyVariantInput` via:
 //
-//          DetectorModelAssetPropertyVariantArgs{...}
+//	DetectorModelAssetPropertyVariantArgs{...}
 type DetectorModelAssetPropertyVariantInput interface {
 	pulumi.Input
 
@@ -4073,11 +4073,11 @@ func (i DetectorModelAssetPropertyVariantArgs) ToDetectorModelAssetPropertyVaria
 // DetectorModelAssetPropertyVariantPtrInput is an input type that accepts DetectorModelAssetPropertyVariantArgs, DetectorModelAssetPropertyVariantPtr and DetectorModelAssetPropertyVariantPtrOutput values.
 // You can construct a concrete instance of `DetectorModelAssetPropertyVariantPtrInput` via:
 //
-//          DetectorModelAssetPropertyVariantArgs{...}
+//	        DetectorModelAssetPropertyVariantArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelAssetPropertyVariantPtrInput interface {
 	pulumi.Input
 
@@ -4220,7 +4220,7 @@ type DetectorModelClearTimer struct {
 // DetectorModelClearTimerInput is an input type that accepts DetectorModelClearTimerArgs and DetectorModelClearTimerOutput values.
 // You can construct a concrete instance of `DetectorModelClearTimerInput` via:
 //
-//          DetectorModelClearTimerArgs{...}
+//	DetectorModelClearTimerArgs{...}
 type DetectorModelClearTimerInput interface {
 	pulumi.Input
 
@@ -4256,11 +4256,11 @@ func (i DetectorModelClearTimerArgs) ToDetectorModelClearTimerPtrOutputWithConte
 // DetectorModelClearTimerPtrInput is an input type that accepts DetectorModelClearTimerArgs, DetectorModelClearTimerPtr and DetectorModelClearTimerPtrOutput values.
 // You can construct a concrete instance of `DetectorModelClearTimerPtrInput` via:
 //
-//          DetectorModelClearTimerArgs{...}
+//	        DetectorModelClearTimerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelClearTimerPtrInput interface {
 	pulumi.Input
 
@@ -4359,7 +4359,7 @@ type DetectorModelDefinition struct {
 // DetectorModelDefinitionInput is an input type that accepts DetectorModelDefinitionArgs and DetectorModelDefinitionOutput values.
 // You can construct a concrete instance of `DetectorModelDefinitionInput` via:
 //
-//          DetectorModelDefinitionArgs{...}
+//	DetectorModelDefinitionArgs{...}
 type DetectorModelDefinitionInput interface {
 	pulumi.Input
 
@@ -4504,7 +4504,7 @@ type DetectorModelDynamoDB struct {
 // DetectorModelDynamoDBInput is an input type that accepts DetectorModelDynamoDBArgs and DetectorModelDynamoDBOutput values.
 // You can construct a concrete instance of `DetectorModelDynamoDBInput` via:
 //
-//          DetectorModelDynamoDBArgs{...}
+//	DetectorModelDynamoDBArgs{...}
 type DetectorModelDynamoDBInput interface {
 	pulumi.Input
 
@@ -4580,11 +4580,11 @@ func (i DetectorModelDynamoDBArgs) ToDetectorModelDynamoDBPtrOutputWithContext(c
 // DetectorModelDynamoDBPtrInput is an input type that accepts DetectorModelDynamoDBArgs, DetectorModelDynamoDBPtr and DetectorModelDynamoDBPtrOutput values.
 // You can construct a concrete instance of `DetectorModelDynamoDBPtrInput` via:
 //
-//          DetectorModelDynamoDBArgs{...}
+//	        DetectorModelDynamoDBArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelDynamoDBPtrInput interface {
 	pulumi.Input
 
@@ -4863,7 +4863,7 @@ type DetectorModelDynamoDBv2 struct {
 // DetectorModelDynamoDBv2Input is an input type that accepts DetectorModelDynamoDBv2Args and DetectorModelDynamoDBv2Output values.
 // You can construct a concrete instance of `DetectorModelDynamoDBv2Input` via:
 //
-//          DetectorModelDynamoDBv2Args{...}
+//	DetectorModelDynamoDBv2Args{...}
 type DetectorModelDynamoDBv2Input interface {
 	pulumi.Input
 
@@ -4903,11 +4903,11 @@ func (i DetectorModelDynamoDBv2Args) ToDetectorModelDynamoDBv2PtrOutputWithConte
 // DetectorModelDynamoDBv2PtrInput is an input type that accepts DetectorModelDynamoDBv2Args, DetectorModelDynamoDBv2Ptr and DetectorModelDynamoDBv2PtrOutput values.
 // You can construct a concrete instance of `DetectorModelDynamoDBv2PtrInput` via:
 //
-//          DetectorModelDynamoDBv2Args{...}
+//	        DetectorModelDynamoDBv2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelDynamoDBv2PtrInput interface {
 	pulumi.Input
 
@@ -5025,7 +5025,7 @@ type DetectorModelEvent struct {
 // DetectorModelEventInput is an input type that accepts DetectorModelEventArgs and DetectorModelEventOutput values.
 // You can construct a concrete instance of `DetectorModelEventInput` via:
 //
-//          DetectorModelEventArgs{...}
+//	DetectorModelEventArgs{...}
 type DetectorModelEventInput interface {
 	pulumi.Input
 
@@ -5058,7 +5058,7 @@ func (i DetectorModelEventArgs) ToDetectorModelEventOutputWithContext(ctx contex
 // DetectorModelEventArrayInput is an input type that accepts DetectorModelEventArray and DetectorModelEventArrayOutput values.
 // You can construct a concrete instance of `DetectorModelEventArrayInput` via:
 //
-//          DetectorModelEventArray{ DetectorModelEventArgs{...} }
+//	DetectorModelEventArray{ DetectorModelEventArgs{...} }
 type DetectorModelEventArrayInput interface {
 	pulumi.Input
 
@@ -5142,7 +5142,7 @@ type DetectorModelFirehose struct {
 // DetectorModelFirehoseInput is an input type that accepts DetectorModelFirehoseArgs and DetectorModelFirehoseOutput values.
 // You can construct a concrete instance of `DetectorModelFirehoseInput` via:
 //
-//          DetectorModelFirehoseArgs{...}
+//	DetectorModelFirehoseArgs{...}
 type DetectorModelFirehoseInput interface {
 	pulumi.Input
 
@@ -5182,11 +5182,11 @@ func (i DetectorModelFirehoseArgs) ToDetectorModelFirehosePtrOutputWithContext(c
 // DetectorModelFirehosePtrInput is an input type that accepts DetectorModelFirehoseArgs, DetectorModelFirehosePtr and DetectorModelFirehosePtrOutput values.
 // You can construct a concrete instance of `DetectorModelFirehosePtrInput` via:
 //
-//          DetectorModelFirehoseArgs{...}
+//	        DetectorModelFirehoseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelFirehosePtrInput interface {
 	pulumi.Input
 
@@ -5314,7 +5314,7 @@ type DetectorModelIotEvents struct {
 // DetectorModelIotEventsInput is an input type that accepts DetectorModelIotEventsArgs and DetectorModelIotEventsOutput values.
 // You can construct a concrete instance of `DetectorModelIotEventsInput` via:
 //
-//          DetectorModelIotEventsArgs{...}
+//	DetectorModelIotEventsArgs{...}
 type DetectorModelIotEventsInput interface {
 	pulumi.Input
 
@@ -5352,11 +5352,11 @@ func (i DetectorModelIotEventsArgs) ToDetectorModelIotEventsPtrOutputWithContext
 // DetectorModelIotEventsPtrInput is an input type that accepts DetectorModelIotEventsArgs, DetectorModelIotEventsPtr and DetectorModelIotEventsPtrOutput values.
 // You can construct a concrete instance of `DetectorModelIotEventsPtrInput` via:
 //
-//          DetectorModelIotEventsArgs{...}
+//	        DetectorModelIotEventsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelIotEventsPtrInput interface {
 	pulumi.Input
 
@@ -5475,7 +5475,7 @@ type DetectorModelIotSiteWise struct {
 // DetectorModelIotSiteWiseInput is an input type that accepts DetectorModelIotSiteWiseArgs and DetectorModelIotSiteWiseOutput values.
 // You can construct a concrete instance of `DetectorModelIotSiteWiseInput` via:
 //
-//          DetectorModelIotSiteWiseArgs{...}
+//	DetectorModelIotSiteWiseArgs{...}
 type DetectorModelIotSiteWiseInput interface {
 	pulumi.Input
 
@@ -5519,11 +5519,11 @@ func (i DetectorModelIotSiteWiseArgs) ToDetectorModelIotSiteWisePtrOutputWithCon
 // DetectorModelIotSiteWisePtrInput is an input type that accepts DetectorModelIotSiteWiseArgs, DetectorModelIotSiteWisePtr and DetectorModelIotSiteWisePtrOutput values.
 // You can construct a concrete instance of `DetectorModelIotSiteWisePtrInput` via:
 //
-//          DetectorModelIotSiteWiseArgs{...}
+//	        DetectorModelIotSiteWiseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelIotSiteWisePtrInput interface {
 	pulumi.Input
 
@@ -5681,7 +5681,7 @@ type DetectorModelIotTopicPublish struct {
 // DetectorModelIotTopicPublishInput is an input type that accepts DetectorModelIotTopicPublishArgs and DetectorModelIotTopicPublishOutput values.
 // You can construct a concrete instance of `DetectorModelIotTopicPublishInput` via:
 //
-//          DetectorModelIotTopicPublishArgs{...}
+//	DetectorModelIotTopicPublishArgs{...}
 type DetectorModelIotTopicPublishInput interface {
 	pulumi.Input
 
@@ -5719,11 +5719,11 @@ func (i DetectorModelIotTopicPublishArgs) ToDetectorModelIotTopicPublishPtrOutpu
 // DetectorModelIotTopicPublishPtrInput is an input type that accepts DetectorModelIotTopicPublishArgs, DetectorModelIotTopicPublishPtr and DetectorModelIotTopicPublishPtrOutput values.
 // You can construct a concrete instance of `DetectorModelIotTopicPublishPtrInput` via:
 //
-//          DetectorModelIotTopicPublishArgs{...}
+//	        DetectorModelIotTopicPublishArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelIotTopicPublishPtrInput interface {
 	pulumi.Input
 
@@ -5835,7 +5835,7 @@ type DetectorModelLambda struct {
 // DetectorModelLambdaInput is an input type that accepts DetectorModelLambdaArgs and DetectorModelLambdaOutput values.
 // You can construct a concrete instance of `DetectorModelLambdaInput` via:
 //
-//          DetectorModelLambdaArgs{...}
+//	DetectorModelLambdaArgs{...}
 type DetectorModelLambdaInput interface {
 	pulumi.Input
 
@@ -5872,11 +5872,11 @@ func (i DetectorModelLambdaArgs) ToDetectorModelLambdaPtrOutputWithContext(ctx c
 // DetectorModelLambdaPtrInput is an input type that accepts DetectorModelLambdaArgs, DetectorModelLambdaPtr and DetectorModelLambdaPtrOutput values.
 // You can construct a concrete instance of `DetectorModelLambdaPtrInput` via:
 //
-//          DetectorModelLambdaArgs{...}
+//	        DetectorModelLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelLambdaPtrInput interface {
 	pulumi.Input
 
@@ -5987,7 +5987,7 @@ type DetectorModelOnEnter struct {
 // DetectorModelOnEnterInput is an input type that accepts DetectorModelOnEnterArgs and DetectorModelOnEnterOutput values.
 // You can construct a concrete instance of `DetectorModelOnEnterInput` via:
 //
-//          DetectorModelOnEnterArgs{...}
+//	DetectorModelOnEnterArgs{...}
 type DetectorModelOnEnterInput interface {
 	pulumi.Input
 
@@ -6024,11 +6024,11 @@ func (i DetectorModelOnEnterArgs) ToDetectorModelOnEnterPtrOutputWithContext(ctx
 // DetectorModelOnEnterPtrInput is an input type that accepts DetectorModelOnEnterArgs, DetectorModelOnEnterPtr and DetectorModelOnEnterPtrOutput values.
 // You can construct a concrete instance of `DetectorModelOnEnterPtrInput` via:
 //
-//          DetectorModelOnEnterArgs{...}
+//	        DetectorModelOnEnterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelOnEnterPtrInput interface {
 	pulumi.Input
 
@@ -6127,7 +6127,7 @@ type DetectorModelOnExit struct {
 // DetectorModelOnExitInput is an input type that accepts DetectorModelOnExitArgs and DetectorModelOnExitOutput values.
 // You can construct a concrete instance of `DetectorModelOnExitInput` via:
 //
-//          DetectorModelOnExitArgs{...}
+//	DetectorModelOnExitArgs{...}
 type DetectorModelOnExitInput interface {
 	pulumi.Input
 
@@ -6164,11 +6164,11 @@ func (i DetectorModelOnExitArgs) ToDetectorModelOnExitPtrOutputWithContext(ctx c
 // DetectorModelOnExitPtrInput is an input type that accepts DetectorModelOnExitArgs, DetectorModelOnExitPtr and DetectorModelOnExitPtrOutput values.
 // You can construct a concrete instance of `DetectorModelOnExitPtrInput` via:
 //
-//          DetectorModelOnExitArgs{...}
+//	        DetectorModelOnExitArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelOnExitPtrInput interface {
 	pulumi.Input
 
@@ -6269,7 +6269,7 @@ type DetectorModelOnInput struct {
 // DetectorModelOnInputInput is an input type that accepts DetectorModelOnInputArgs and DetectorModelOnInputOutput values.
 // You can construct a concrete instance of `DetectorModelOnInputInput` via:
 //
-//          DetectorModelOnInputArgs{...}
+//	DetectorModelOnInputArgs{...}
 type DetectorModelOnInputInput interface {
 	pulumi.Input
 
@@ -6308,11 +6308,11 @@ func (i DetectorModelOnInputArgs) ToDetectorModelOnInputPtrOutputWithContext(ctx
 // DetectorModelOnInputPtrInput is an input type that accepts DetectorModelOnInputArgs, DetectorModelOnInputPtr and DetectorModelOnInputPtrOutput values.
 // You can construct a concrete instance of `DetectorModelOnInputPtrInput` via:
 //
-//          DetectorModelOnInputArgs{...}
+//	        DetectorModelOnInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelOnInputPtrInput interface {
 	pulumi.Input
 
@@ -6430,7 +6430,7 @@ type DetectorModelPayload struct {
 // DetectorModelPayloadInput is an input type that accepts DetectorModelPayloadArgs and DetectorModelPayloadOutput values.
 // You can construct a concrete instance of `DetectorModelPayloadInput` via:
 //
-//          DetectorModelPayloadArgs{...}
+//	DetectorModelPayloadArgs{...}
 type DetectorModelPayloadInput interface {
 	pulumi.Input
 
@@ -6471,11 +6471,11 @@ func (i DetectorModelPayloadArgs) ToDetectorModelPayloadPtrOutputWithContext(ctx
 // DetectorModelPayloadPtrInput is an input type that accepts DetectorModelPayloadArgs, DetectorModelPayloadPtr and DetectorModelPayloadPtrOutput values.
 // You can construct a concrete instance of `DetectorModelPayloadPtrInput` via:
 //
-//          DetectorModelPayloadArgs{...}
+//	        DetectorModelPayloadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelPayloadPtrInput interface {
 	pulumi.Input
 
@@ -6591,7 +6591,7 @@ type DetectorModelResetTimer struct {
 // DetectorModelResetTimerInput is an input type that accepts DetectorModelResetTimerArgs and DetectorModelResetTimerOutput values.
 // You can construct a concrete instance of `DetectorModelResetTimerInput` via:
 //
-//          DetectorModelResetTimerArgs{...}
+//	DetectorModelResetTimerArgs{...}
 type DetectorModelResetTimerInput interface {
 	pulumi.Input
 
@@ -6628,11 +6628,11 @@ func (i DetectorModelResetTimerArgs) ToDetectorModelResetTimerPtrOutputWithConte
 // DetectorModelResetTimerPtrInput is an input type that accepts DetectorModelResetTimerArgs, DetectorModelResetTimerPtr and DetectorModelResetTimerPtrOutput values.
 // You can construct a concrete instance of `DetectorModelResetTimerPtrInput` via:
 //
-//          DetectorModelResetTimerArgs{...}
+//	        DetectorModelResetTimerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelResetTimerPtrInput interface {
 	pulumi.Input
 
@@ -6735,7 +6735,7 @@ type DetectorModelSetTimer struct {
 // DetectorModelSetTimerInput is an input type that accepts DetectorModelSetTimerArgs and DetectorModelSetTimerOutput values.
 // You can construct a concrete instance of `DetectorModelSetTimerInput` via:
 //
-//          DetectorModelSetTimerArgs{...}
+//	DetectorModelSetTimerArgs{...}
 type DetectorModelSetTimerInput interface {
 	pulumi.Input
 
@@ -6776,11 +6776,11 @@ func (i DetectorModelSetTimerArgs) ToDetectorModelSetTimerPtrOutputWithContext(c
 // DetectorModelSetTimerPtrInput is an input type that accepts DetectorModelSetTimerArgs, DetectorModelSetTimerPtr and DetectorModelSetTimerPtrOutput values.
 // You can construct a concrete instance of `DetectorModelSetTimerPtrInput` via:
 //
-//          DetectorModelSetTimerArgs{...}
+//	        DetectorModelSetTimerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelSetTimerPtrInput interface {
 	pulumi.Input
 
@@ -6911,7 +6911,7 @@ type DetectorModelSetVariable struct {
 // DetectorModelSetVariableInput is an input type that accepts DetectorModelSetVariableArgs and DetectorModelSetVariableOutput values.
 // You can construct a concrete instance of `DetectorModelSetVariableInput` via:
 //
-//          DetectorModelSetVariableArgs{...}
+//	DetectorModelSetVariableArgs{...}
 type DetectorModelSetVariableInput interface {
 	pulumi.Input
 
@@ -6950,11 +6950,11 @@ func (i DetectorModelSetVariableArgs) ToDetectorModelSetVariablePtrOutputWithCon
 // DetectorModelSetVariablePtrInput is an input type that accepts DetectorModelSetVariableArgs, DetectorModelSetVariablePtr and DetectorModelSetVariablePtrOutput values.
 // You can construct a concrete instance of `DetectorModelSetVariablePtrInput` via:
 //
-//          DetectorModelSetVariableArgs{...}
+//	        DetectorModelSetVariableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelSetVariablePtrInput interface {
 	pulumi.Input
 
@@ -7069,7 +7069,7 @@ type DetectorModelSns struct {
 // DetectorModelSnsInput is an input type that accepts DetectorModelSnsArgs and DetectorModelSnsOutput values.
 // You can construct a concrete instance of `DetectorModelSnsInput` via:
 //
-//          DetectorModelSnsArgs{...}
+//	DetectorModelSnsArgs{...}
 type DetectorModelSnsInput interface {
 	pulumi.Input
 
@@ -7107,11 +7107,11 @@ func (i DetectorModelSnsArgs) ToDetectorModelSnsPtrOutputWithContext(ctx context
 // DetectorModelSnsPtrInput is an input type that accepts DetectorModelSnsArgs, DetectorModelSnsPtr and DetectorModelSnsPtrOutput values.
 // You can construct a concrete instance of `DetectorModelSnsPtrInput` via:
 //
-//          DetectorModelSnsArgs{...}
+//	        DetectorModelSnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelSnsPtrInput interface {
 	pulumi.Input
 
@@ -7225,7 +7225,7 @@ type DetectorModelSqs struct {
 // DetectorModelSqsInput is an input type that accepts DetectorModelSqsArgs and DetectorModelSqsOutput values.
 // You can construct a concrete instance of `DetectorModelSqsInput` via:
 //
-//          DetectorModelSqsArgs{...}
+//	DetectorModelSqsArgs{...}
 type DetectorModelSqsInput interface {
 	pulumi.Input
 
@@ -7264,11 +7264,11 @@ func (i DetectorModelSqsArgs) ToDetectorModelSqsPtrOutputWithContext(ctx context
 // DetectorModelSqsPtrInput is an input type that accepts DetectorModelSqsArgs, DetectorModelSqsPtr and DetectorModelSqsPtrOutput values.
 // You can construct a concrete instance of `DetectorModelSqsPtrInput` via:
 //
-//          DetectorModelSqsArgs{...}
+//	        DetectorModelSqsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorModelSqsPtrInput interface {
 	pulumi.Input
 
@@ -7397,7 +7397,7 @@ type DetectorModelStateType struct {
 // DetectorModelStateTypeInput is an input type that accepts DetectorModelStateTypeArgs and DetectorModelStateTypeOutput values.
 // You can construct a concrete instance of `DetectorModelStateTypeInput` via:
 //
-//          DetectorModelStateTypeArgs{...}
+//	DetectorModelStateTypeArgs{...}
 type DetectorModelStateTypeInput interface {
 	pulumi.Input
 
@@ -7429,7 +7429,7 @@ func (i DetectorModelStateTypeArgs) ToDetectorModelStateTypeOutputWithContext(ct
 // DetectorModelStateTypeArrayInput is an input type that accepts DetectorModelStateTypeArray and DetectorModelStateTypeArrayOutput values.
 // You can construct a concrete instance of `DetectorModelStateTypeArrayInput` via:
 //
-//          DetectorModelStateTypeArray{ DetectorModelStateTypeArgs{...} }
+//	DetectorModelStateTypeArray{ DetectorModelStateTypeArgs{...} }
 type DetectorModelStateTypeArrayInput interface {
 	pulumi.Input
 
@@ -7514,7 +7514,7 @@ type DetectorModelTag struct {
 // DetectorModelTagInput is an input type that accepts DetectorModelTagArgs and DetectorModelTagOutput values.
 // You can construct a concrete instance of `DetectorModelTagInput` via:
 //
-//          DetectorModelTagArgs{...}
+//	DetectorModelTagArgs{...}
 type DetectorModelTagInput interface {
 	pulumi.Input
 
@@ -7545,7 +7545,7 @@ func (i DetectorModelTagArgs) ToDetectorModelTagOutputWithContext(ctx context.Co
 // DetectorModelTagArrayInput is an input type that accepts DetectorModelTagArray and DetectorModelTagArrayOutput values.
 // You can construct a concrete instance of `DetectorModelTagArrayInput` via:
 //
-//          DetectorModelTagArray{ DetectorModelTagArgs{...} }
+//	DetectorModelTagArray{ DetectorModelTagArgs{...} }
 type DetectorModelTagArrayInput interface {
 	pulumi.Input
 
@@ -7627,7 +7627,7 @@ type DetectorModelTransitionEvent struct {
 // DetectorModelTransitionEventInput is an input type that accepts DetectorModelTransitionEventArgs and DetectorModelTransitionEventOutput values.
 // You can construct a concrete instance of `DetectorModelTransitionEventInput` via:
 //
-//          DetectorModelTransitionEventArgs{...}
+//	DetectorModelTransitionEventArgs{...}
 type DetectorModelTransitionEventInput interface {
 	pulumi.Input
 
@@ -7662,7 +7662,7 @@ func (i DetectorModelTransitionEventArgs) ToDetectorModelTransitionEventOutputWi
 // DetectorModelTransitionEventArrayInput is an input type that accepts DetectorModelTransitionEventArray and DetectorModelTransitionEventArrayOutput values.
 // You can construct a concrete instance of `DetectorModelTransitionEventArrayInput` via:
 //
-//          DetectorModelTransitionEventArray{ DetectorModelTransitionEventArgs{...} }
+//	DetectorModelTransitionEventArray{ DetectorModelTransitionEventArgs{...} }
 type DetectorModelTransitionEventArrayInput interface {
 	pulumi.Input
 
@@ -7750,7 +7750,7 @@ type InputAttribute struct {
 // InputAttributeInput is an input type that accepts InputAttributeArgs and InputAttributeOutput values.
 // You can construct a concrete instance of `InputAttributeInput` via:
 //
-//          InputAttributeArgs{...}
+//	InputAttributeArgs{...}
 type InputAttributeInput interface {
 	pulumi.Input
 
@@ -7781,7 +7781,7 @@ func (i InputAttributeArgs) ToInputAttributeOutputWithContext(ctx context.Contex
 // InputAttributeArrayInput is an input type that accepts InputAttributeArray and InputAttributeArrayOutput values.
 // You can construct a concrete instance of `InputAttributeArrayInput` via:
 //
-//          InputAttributeArray{ InputAttributeArgs{...} }
+//	InputAttributeArray{ InputAttributeArgs{...} }
 type InputAttributeArrayInput interface {
 	pulumi.Input
 
@@ -7854,7 +7854,7 @@ type InputDefinition struct {
 // InputDefinitionInput is an input type that accepts InputDefinitionArgs and InputDefinitionOutput values.
 // You can construct a concrete instance of `InputDefinitionInput` via:
 //
-//          InputDefinitionArgs{...}
+//	InputDefinitionArgs{...}
 type InputDefinitionInput interface {
 	pulumi.Input
 
@@ -7945,7 +7945,7 @@ type InputTag struct {
 // InputTagInput is an input type that accepts InputTagArgs and InputTagOutput values.
 // You can construct a concrete instance of `InputTagInput` via:
 //
-//          InputTagArgs{...}
+//	InputTagArgs{...}
 type InputTagInput interface {
 	pulumi.Input
 
@@ -7976,7 +7976,7 @@ func (i InputTagArgs) ToInputTagOutputWithContext(ctx context.Context) InputTagO
 // InputTagArrayInput is an input type that accepts InputTagArray and InputTagArrayOutput values.
 // You can construct a concrete instance of `InputTagArrayInput` via:
 //
-//          InputTagArray{ InputTagArgs{...} }
+//	InputTagArray{ InputTagArgs{...} }
 type InputTagArrayInput interface {
 	pulumi.Input
 

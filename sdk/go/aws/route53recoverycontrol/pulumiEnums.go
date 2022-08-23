@@ -417,7 +417,7 @@ func (o SafetyRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // SafetyRuleRuleTypeInput is an input type that accepts SafetyRuleRuleTypeArgs and SafetyRuleRuleTypeOutput values.
 // You can construct a concrete instance of `SafetyRuleRuleTypeInput` via:
 //
-//          SafetyRuleRuleTypeArgs{...}
+//	SafetyRuleRuleTypeArgs{...}
 type SafetyRuleRuleTypeInput interface {
 	pulumi.Input
 

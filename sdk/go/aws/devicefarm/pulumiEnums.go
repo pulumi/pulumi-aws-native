@@ -151,7 +151,7 @@ func (o DevicePoolRuleAttributePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // DevicePoolRuleAttributeInput is an input type that accepts DevicePoolRuleAttributeArgs and DevicePoolRuleAttributeOutput values.
 // You can construct a concrete instance of `DevicePoolRuleAttributeInput` via:
 //
-//          DevicePoolRuleAttributeArgs{...}
+//	DevicePoolRuleAttributeArgs{...}
 type DevicePoolRuleAttributeInput interface {
 	pulumi.Input
 
@@ -322,7 +322,7 @@ func (o DevicePoolRuleOperatorPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // DevicePoolRuleOperatorInput is an input type that accepts DevicePoolRuleOperatorArgs and DevicePoolRuleOperatorOutput values.
 // You can construct a concrete instance of `DevicePoolRuleOperatorInput` via:
 //
-//          DevicePoolRuleOperatorArgs{...}
+//	DevicePoolRuleOperatorArgs{...}
 type DevicePoolRuleOperatorInput interface {
 	pulumi.Input
 

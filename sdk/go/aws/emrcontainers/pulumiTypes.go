@@ -17,7 +17,7 @@ type VirtualClusterContainerInfo struct {
 // VirtualClusterContainerInfoInput is an input type that accepts VirtualClusterContainerInfoArgs and VirtualClusterContainerInfoOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerInfoInput` via:
 //
-//          VirtualClusterContainerInfoArgs{...}
+//	VirtualClusterContainerInfoArgs{...}
 type VirtualClusterContainerInfoInput interface {
 	pulumi.Input
 
@@ -70,7 +70,7 @@ type VirtualClusterContainerProvider struct {
 // VirtualClusterContainerProviderInput is an input type that accepts VirtualClusterContainerProviderArgs and VirtualClusterContainerProviderOutput values.
 // You can construct a concrete instance of `VirtualClusterContainerProviderInput` via:
 //
-//          VirtualClusterContainerProviderArgs{...}
+//	VirtualClusterContainerProviderArgs{...}
 type VirtualClusterContainerProviderInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ type VirtualClusterEksInfo struct {
 // VirtualClusterEksInfoInput is an input type that accepts VirtualClusterEksInfoArgs and VirtualClusterEksInfoOutput values.
 // You can construct a concrete instance of `VirtualClusterEksInfoInput` via:
 //
-//          VirtualClusterEksInfoArgs{...}
+//	VirtualClusterEksInfoArgs{...}
 type VirtualClusterEksInfoInput interface {
 	pulumi.Input
 
@@ -186,7 +186,7 @@ type VirtualClusterTag struct {
 // VirtualClusterTagInput is an input type that accepts VirtualClusterTagArgs and VirtualClusterTagOutput values.
 // You can construct a concrete instance of `VirtualClusterTagInput` via:
 //
-//          VirtualClusterTagArgs{...}
+//	VirtualClusterTagArgs{...}
 type VirtualClusterTagInput interface {
 	pulumi.Input
 
@@ -217,7 +217,7 @@ func (i VirtualClusterTagArgs) ToVirtualClusterTagOutputWithContext(ctx context.
 // VirtualClusterTagArrayInput is an input type that accepts VirtualClusterTagArray and VirtualClusterTagArrayOutput values.
 // You can construct a concrete instance of `VirtualClusterTagArrayInput` via:
 //
-//          VirtualClusterTagArray{ VirtualClusterTagArgs{...} }
+//	VirtualClusterTagArray{ VirtualClusterTagArgs{...} }
 type VirtualClusterTagArrayInput interface {
 	pulumi.Input
 

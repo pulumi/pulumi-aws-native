@@ -139,7 +139,7 @@ func (o ComponentVersionLambdaEventSourceTypePtrOutput) ToStringPtrOutputWithCon
 // ComponentVersionLambdaEventSourceTypeInput is an input type that accepts ComponentVersionLambdaEventSourceTypeArgs and ComponentVersionLambdaEventSourceTypeOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaEventSourceTypeInput` via:
 //
-//          ComponentVersionLambdaEventSourceTypeArgs{...}
+//	ComponentVersionLambdaEventSourceTypeArgs{...}
 type ComponentVersionLambdaEventSourceTypeInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutp
 // ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput is an input type that accepts ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeArgs and ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput` via:
 //
-//          ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeArgs{...}
+//	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeArgs{...}
 type ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ func (o ComponentVersionLambdaFilesystemPermissionPtrOutput) ToStringPtrOutputWi
 // ComponentVersionLambdaFilesystemPermissionInput is an input type that accepts ComponentVersionLambdaFilesystemPermissionArgs and ComponentVersionLambdaFilesystemPermissionOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaFilesystemPermissionInput` via:
 //
-//          ComponentVersionLambdaFilesystemPermissionArgs{...}
+//	ComponentVersionLambdaFilesystemPermissionArgs{...}
 type ComponentVersionLambdaFilesystemPermissionInput interface {
 	pulumi.Input
 
@@ -631,7 +631,7 @@ func (o ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput) ToString
 // ComponentVersionLambdaLinuxProcessParamsIsolationModeInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsIsolationModeArgs and ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaLinuxProcessParamsIsolationModeInput` via:
 //
-//          ComponentVersionLambdaLinuxProcessParamsIsolationModeArgs{...}
+//	ComponentVersionLambdaLinuxProcessParamsIsolationModeArgs{...}
 type ComponentVersionLambdaLinuxProcessParamsIsolationModeInput interface {
 	pulumi.Input
 

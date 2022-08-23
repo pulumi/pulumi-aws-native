@@ -140,7 +140,7 @@ func (o GlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutputWithContext(
 // GlobalReplicationGroupMemberRoleInput is an input type that accepts GlobalReplicationGroupMemberRoleArgs and GlobalReplicationGroupMemberRoleOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupMemberRoleInput` via:
 //
-//          GlobalReplicationGroupMemberRoleArgs{...}
+//	GlobalReplicationGroupMemberRoleArgs{...}
 type GlobalReplicationGroupMemberRoleInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o UserEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // UserEngineInput is an input type that accepts UserEngineArgs and UserEngineOutput values.
 // You can construct a concrete instance of `UserEngineInput` via:
 //
-//          UserEngineArgs{...}
+//	UserEngineArgs{...}
 type UserEngineInput interface {
 	pulumi.Input
 
@@ -468,7 +468,7 @@ func (o UserGroupEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // UserGroupEngineInput is an input type that accepts UserGroupEngineArgs and UserGroupEngineOutput values.
 // You can construct a concrete instance of `UserGroupEngineInput` via:
 //
-//          UserGroupEngineArgs{...}
+//	UserGroupEngineArgs{...}
 type UserGroupEngineInput interface {
 	pulumi.Input
 

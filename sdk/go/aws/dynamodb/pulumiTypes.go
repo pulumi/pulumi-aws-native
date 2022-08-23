@@ -18,7 +18,7 @@ type GlobalTableAttributeDefinition struct {
 // GlobalTableAttributeDefinitionInput is an input type that accepts GlobalTableAttributeDefinitionArgs and GlobalTableAttributeDefinitionOutput values.
 // You can construct a concrete instance of `GlobalTableAttributeDefinitionInput` via:
 //
-//          GlobalTableAttributeDefinitionArgs{...}
+//	GlobalTableAttributeDefinitionArgs{...}
 type GlobalTableAttributeDefinitionInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i GlobalTableAttributeDefinitionArgs) ToGlobalTableAttributeDefinitionOutp
 // GlobalTableAttributeDefinitionArrayInput is an input type that accepts GlobalTableAttributeDefinitionArray and GlobalTableAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `GlobalTableAttributeDefinitionArrayInput` via:
 //
-//          GlobalTableAttributeDefinitionArray{ GlobalTableAttributeDefinitionArgs{...} }
+//	GlobalTableAttributeDefinitionArray{ GlobalTableAttributeDefinitionArgs{...} }
 type GlobalTableAttributeDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -120,7 +120,7 @@ type GlobalTableCapacityAutoScalingSettings struct {
 // GlobalTableCapacityAutoScalingSettingsInput is an input type that accepts GlobalTableCapacityAutoScalingSettingsArgs and GlobalTableCapacityAutoScalingSettingsOutput values.
 // You can construct a concrete instance of `GlobalTableCapacityAutoScalingSettingsInput` via:
 //
-//          GlobalTableCapacityAutoScalingSettingsArgs{...}
+//	GlobalTableCapacityAutoScalingSettingsArgs{...}
 type GlobalTableCapacityAutoScalingSettingsInput interface {
 	pulumi.Input
 
@@ -158,11 +158,11 @@ func (i GlobalTableCapacityAutoScalingSettingsArgs) ToGlobalTableCapacityAutoSca
 // GlobalTableCapacityAutoScalingSettingsPtrInput is an input type that accepts GlobalTableCapacityAutoScalingSettingsArgs, GlobalTableCapacityAutoScalingSettingsPtr and GlobalTableCapacityAutoScalingSettingsPtrOutput values.
 // You can construct a concrete instance of `GlobalTableCapacityAutoScalingSettingsPtrInput` via:
 //
-//          GlobalTableCapacityAutoScalingSettingsArgs{...}
+//	        GlobalTableCapacityAutoScalingSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableCapacityAutoScalingSettingsPtrInput interface {
 	pulumi.Input
 
@@ -297,7 +297,7 @@ type GlobalTableContributorInsightsSpecification struct {
 // GlobalTableContributorInsightsSpecificationInput is an input type that accepts GlobalTableContributorInsightsSpecificationArgs and GlobalTableContributorInsightsSpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableContributorInsightsSpecificationInput` via:
 //
-//          GlobalTableContributorInsightsSpecificationArgs{...}
+//	GlobalTableContributorInsightsSpecificationArgs{...}
 type GlobalTableContributorInsightsSpecificationInput interface {
 	pulumi.Input
 
@@ -332,11 +332,11 @@ func (i GlobalTableContributorInsightsSpecificationArgs) ToGlobalTableContributo
 // GlobalTableContributorInsightsSpecificationPtrInput is an input type that accepts GlobalTableContributorInsightsSpecificationArgs, GlobalTableContributorInsightsSpecificationPtr and GlobalTableContributorInsightsSpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableContributorInsightsSpecificationPtrInput` via:
 //
-//          GlobalTableContributorInsightsSpecificationArgs{...}
+//	        GlobalTableContributorInsightsSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableContributorInsightsSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type GlobalTableGlobalSecondaryIndex struct {
 // GlobalTableGlobalSecondaryIndexInput is an input type that accepts GlobalTableGlobalSecondaryIndexArgs and GlobalTableGlobalSecondaryIndexOutput values.
 // You can construct a concrete instance of `GlobalTableGlobalSecondaryIndexInput` via:
 //
-//          GlobalTableGlobalSecondaryIndexArgs{...}
+//	GlobalTableGlobalSecondaryIndexArgs{...}
 type GlobalTableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -463,7 +463,7 @@ func (i GlobalTableGlobalSecondaryIndexArgs) ToGlobalTableGlobalSecondaryIndexOu
 // GlobalTableGlobalSecondaryIndexArrayInput is an input type that accepts GlobalTableGlobalSecondaryIndexArray and GlobalTableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GlobalTableGlobalSecondaryIndexArrayInput` via:
 //
-//          GlobalTableGlobalSecondaryIndexArray{ GlobalTableGlobalSecondaryIndexArgs{...} }
+//	GlobalTableGlobalSecondaryIndexArray{ GlobalTableGlobalSecondaryIndexArgs{...} }
 type GlobalTableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -545,7 +545,7 @@ type GlobalTableKeySchema struct {
 // GlobalTableKeySchemaInput is an input type that accepts GlobalTableKeySchemaArgs and GlobalTableKeySchemaOutput values.
 // You can construct a concrete instance of `GlobalTableKeySchemaInput` via:
 //
-//          GlobalTableKeySchemaArgs{...}
+//	GlobalTableKeySchemaArgs{...}
 type GlobalTableKeySchemaInput interface {
 	pulumi.Input
 
@@ -573,7 +573,7 @@ func (i GlobalTableKeySchemaArgs) ToGlobalTableKeySchemaOutputWithContext(ctx co
 // GlobalTableKeySchemaArrayInput is an input type that accepts GlobalTableKeySchemaArray and GlobalTableKeySchemaArrayOutput values.
 // You can construct a concrete instance of `GlobalTableKeySchemaArrayInput` via:
 //
-//          GlobalTableKeySchemaArray{ GlobalTableKeySchemaArgs{...} }
+//	GlobalTableKeySchemaArray{ GlobalTableKeySchemaArgs{...} }
 type GlobalTableKeySchemaArrayInput interface {
 	pulumi.Input
 
@@ -646,7 +646,7 @@ type GlobalTableLocalSecondaryIndex struct {
 // GlobalTableLocalSecondaryIndexInput is an input type that accepts GlobalTableLocalSecondaryIndexArgs and GlobalTableLocalSecondaryIndexOutput values.
 // You can construct a concrete instance of `GlobalTableLocalSecondaryIndexInput` via:
 //
-//          GlobalTableLocalSecondaryIndexArgs{...}
+//	GlobalTableLocalSecondaryIndexArgs{...}
 type GlobalTableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -675,7 +675,7 @@ func (i GlobalTableLocalSecondaryIndexArgs) ToGlobalTableLocalSecondaryIndexOutp
 // GlobalTableLocalSecondaryIndexArrayInput is an input type that accepts GlobalTableLocalSecondaryIndexArray and GlobalTableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GlobalTableLocalSecondaryIndexArrayInput` via:
 //
-//          GlobalTableLocalSecondaryIndexArray{ GlobalTableLocalSecondaryIndexArgs{...} }
+//	GlobalTableLocalSecondaryIndexArray{ GlobalTableLocalSecondaryIndexArgs{...} }
 type GlobalTableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -750,7 +750,7 @@ type GlobalTablePointInTimeRecoverySpecification struct {
 // GlobalTablePointInTimeRecoverySpecificationInput is an input type that accepts GlobalTablePointInTimeRecoverySpecificationArgs and GlobalTablePointInTimeRecoverySpecificationOutput values.
 // You can construct a concrete instance of `GlobalTablePointInTimeRecoverySpecificationInput` via:
 //
-//          GlobalTablePointInTimeRecoverySpecificationArgs{...}
+//	GlobalTablePointInTimeRecoverySpecificationArgs{...}
 type GlobalTablePointInTimeRecoverySpecificationInput interface {
 	pulumi.Input
 
@@ -785,11 +785,11 @@ func (i GlobalTablePointInTimeRecoverySpecificationArgs) ToGlobalTablePointInTim
 // GlobalTablePointInTimeRecoverySpecificationPtrInput is an input type that accepts GlobalTablePointInTimeRecoverySpecificationArgs, GlobalTablePointInTimeRecoverySpecificationPtr and GlobalTablePointInTimeRecoverySpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTablePointInTimeRecoverySpecificationPtrInput` via:
 //
-//          GlobalTablePointInTimeRecoverySpecificationArgs{...}
+//	        GlobalTablePointInTimeRecoverySpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTablePointInTimeRecoverySpecificationPtrInput interface {
 	pulumi.Input
 
@@ -884,7 +884,7 @@ type GlobalTableProjection struct {
 // GlobalTableProjectionInput is an input type that accepts GlobalTableProjectionArgs and GlobalTableProjectionOutput values.
 // You can construct a concrete instance of `GlobalTableProjectionInput` via:
 //
-//          GlobalTableProjectionArgs{...}
+//	GlobalTableProjectionArgs{...}
 type GlobalTableProjectionInput interface {
 	pulumi.Input
 
@@ -939,7 +939,7 @@ type GlobalTableReadProvisionedThroughputSettings struct {
 // GlobalTableReadProvisionedThroughputSettingsInput is an input type that accepts GlobalTableReadProvisionedThroughputSettingsArgs and GlobalTableReadProvisionedThroughputSettingsOutput values.
 // You can construct a concrete instance of `GlobalTableReadProvisionedThroughputSettingsInput` via:
 //
-//          GlobalTableReadProvisionedThroughputSettingsArgs{...}
+//	GlobalTableReadProvisionedThroughputSettingsArgs{...}
 type GlobalTableReadProvisionedThroughputSettingsInput interface {
 	pulumi.Input
 
@@ -975,11 +975,11 @@ func (i GlobalTableReadProvisionedThroughputSettingsArgs) ToGlobalTableReadProvi
 // GlobalTableReadProvisionedThroughputSettingsPtrInput is an input type that accepts GlobalTableReadProvisionedThroughputSettingsArgs, GlobalTableReadProvisionedThroughputSettingsPtr and GlobalTableReadProvisionedThroughputSettingsPtrOutput values.
 // You can construct a concrete instance of `GlobalTableReadProvisionedThroughputSettingsPtrInput` via:
 //
-//          GlobalTableReadProvisionedThroughputSettingsArgs{...}
+//	        GlobalTableReadProvisionedThroughputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableReadProvisionedThroughputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1090,7 +1090,7 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
 // GlobalTableReplicaGlobalSecondaryIndexSpecificationInput is an input type that accepts GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs and GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaGlobalSecondaryIndexSpecificationInput` via:
 //
-//          GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs{...}
+//	GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs{...}
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationInput interface {
 	pulumi.Input
 
@@ -1119,7 +1119,7 @@ func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs) ToGlobalTableRe
 // GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput is an input type that accepts GlobalTableReplicaGlobalSecondaryIndexSpecificationArray and GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput` via:
 //
-//          GlobalTableReplicaGlobalSecondaryIndexSpecificationArray{ GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs{...} }
+//	GlobalTableReplicaGlobalSecondaryIndexSpecificationArray{ GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs{...} }
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -1198,7 +1198,7 @@ type GlobalTableReplicaSSESpecification struct {
 // GlobalTableReplicaSSESpecificationInput is an input type that accepts GlobalTableReplicaSSESpecificationArgs and GlobalTableReplicaSSESpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaSSESpecificationInput` via:
 //
-//          GlobalTableReplicaSSESpecificationArgs{...}
+//	GlobalTableReplicaSSESpecificationArgs{...}
 type GlobalTableReplicaSSESpecificationInput interface {
 	pulumi.Input
 
@@ -1233,11 +1233,11 @@ func (i GlobalTableReplicaSSESpecificationArgs) ToGlobalTableReplicaSSESpecifica
 // GlobalTableReplicaSSESpecificationPtrInput is an input type that accepts GlobalTableReplicaSSESpecificationArgs, GlobalTableReplicaSSESpecificationPtr and GlobalTableReplicaSSESpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaSSESpecificationPtrInput` via:
 //
-//          GlobalTableReplicaSSESpecificationArgs{...}
+//	        GlobalTableReplicaSSESpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableReplicaSSESpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1338,7 +1338,7 @@ type GlobalTableReplicaSpecification struct {
 // GlobalTableReplicaSpecificationInput is an input type that accepts GlobalTableReplicaSpecificationArgs and GlobalTableReplicaSpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaSpecificationInput` via:
 //
-//          GlobalTableReplicaSpecificationArgs{...}
+//	GlobalTableReplicaSpecificationArgs{...}
 type GlobalTableReplicaSpecificationInput interface {
 	pulumi.Input
 
@@ -1372,7 +1372,7 @@ func (i GlobalTableReplicaSpecificationArgs) ToGlobalTableReplicaSpecificationOu
 // GlobalTableReplicaSpecificationArrayInput is an input type that accepts GlobalTableReplicaSpecificationArray and GlobalTableReplicaSpecificationArrayOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaSpecificationArrayInput` via:
 //
-//          GlobalTableReplicaSpecificationArray{ GlobalTableReplicaSpecificationArgs{...} }
+//	GlobalTableReplicaSpecificationArray{ GlobalTableReplicaSpecificationArgs{...} }
 type GlobalTableReplicaSpecificationArrayInput interface {
 	pulumi.Input
 
@@ -1476,7 +1476,7 @@ type GlobalTableSSESpecification struct {
 // GlobalTableSSESpecificationInput is an input type that accepts GlobalTableSSESpecificationArgs and GlobalTableSSESpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableSSESpecificationInput` via:
 //
-//          GlobalTableSSESpecificationArgs{...}
+//	GlobalTableSSESpecificationArgs{...}
 type GlobalTableSSESpecificationInput interface {
 	pulumi.Input
 
@@ -1512,11 +1512,11 @@ func (i GlobalTableSSESpecificationArgs) ToGlobalTableSSESpecificationPtrOutputW
 // GlobalTableSSESpecificationPtrInput is an input type that accepts GlobalTableSSESpecificationArgs, GlobalTableSSESpecificationPtr and GlobalTableSSESpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableSSESpecificationPtrInput` via:
 //
-//          GlobalTableSSESpecificationArgs{...}
+//	        GlobalTableSSESpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableSSESpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1623,7 +1623,7 @@ type GlobalTableStreamSpecification struct {
 // GlobalTableStreamSpecificationInput is an input type that accepts GlobalTableStreamSpecificationArgs and GlobalTableStreamSpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableStreamSpecificationInput` via:
 //
-//          GlobalTableStreamSpecificationArgs{...}
+//	GlobalTableStreamSpecificationArgs{...}
 type GlobalTableStreamSpecificationInput interface {
 	pulumi.Input
 
@@ -1658,11 +1658,11 @@ func (i GlobalTableStreamSpecificationArgs) ToGlobalTableStreamSpecificationPtrO
 // GlobalTableStreamSpecificationPtrInput is an input type that accepts GlobalTableStreamSpecificationArgs, GlobalTableStreamSpecificationPtr and GlobalTableStreamSpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableStreamSpecificationPtrInput` via:
 //
-//          GlobalTableStreamSpecificationArgs{...}
+//	        GlobalTableStreamSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableStreamSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1757,7 +1757,7 @@ type GlobalTableTag struct {
 // GlobalTableTagInput is an input type that accepts GlobalTableTagArgs and GlobalTableTagOutput values.
 // You can construct a concrete instance of `GlobalTableTagInput` via:
 //
-//          GlobalTableTagArgs{...}
+//	GlobalTableTagArgs{...}
 type GlobalTableTagInput interface {
 	pulumi.Input
 
@@ -1785,7 +1785,7 @@ func (i GlobalTableTagArgs) ToGlobalTableTagOutputWithContext(ctx context.Contex
 // GlobalTableTagArrayInput is an input type that accepts GlobalTableTagArray and GlobalTableTagArrayOutput values.
 // You can construct a concrete instance of `GlobalTableTagArrayInput` via:
 //
-//          GlobalTableTagArray{ GlobalTableTagArgs{...} }
+//	GlobalTableTagArray{ GlobalTableTagArgs{...} }
 type GlobalTableTagArrayInput interface {
 	pulumi.Input
 
@@ -1859,7 +1859,7 @@ type GlobalTableTargetTrackingScalingPolicyConfiguration struct {
 // GlobalTableTargetTrackingScalingPolicyConfigurationInput is an input type that accepts GlobalTableTargetTrackingScalingPolicyConfigurationArgs and GlobalTableTargetTrackingScalingPolicyConfigurationOutput values.
 // You can construct a concrete instance of `GlobalTableTargetTrackingScalingPolicyConfigurationInput` via:
 //
-//          GlobalTableTargetTrackingScalingPolicyConfigurationArgs{...}
+//	GlobalTableTargetTrackingScalingPolicyConfigurationArgs{...}
 type GlobalTableTargetTrackingScalingPolicyConfigurationInput interface {
 	pulumi.Input
 
@@ -1897,11 +1897,11 @@ func (i GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ToGlobalTableTa
 // GlobalTableTargetTrackingScalingPolicyConfigurationPtrInput is an input type that accepts GlobalTableTargetTrackingScalingPolicyConfigurationArgs, GlobalTableTargetTrackingScalingPolicyConfigurationPtr and GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableTargetTrackingScalingPolicyConfigurationPtrInput` via:
 //
-//          GlobalTableTargetTrackingScalingPolicyConfigurationArgs{...}
+//	        GlobalTableTargetTrackingScalingPolicyConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableTargetTrackingScalingPolicyConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2035,7 +2035,7 @@ type GlobalTableTimeToLiveSpecification struct {
 // GlobalTableTimeToLiveSpecificationInput is an input type that accepts GlobalTableTimeToLiveSpecificationArgs and GlobalTableTimeToLiveSpecificationOutput values.
 // You can construct a concrete instance of `GlobalTableTimeToLiveSpecificationInput` via:
 //
-//          GlobalTableTimeToLiveSpecificationArgs{...}
+//	GlobalTableTimeToLiveSpecificationArgs{...}
 type GlobalTableTimeToLiveSpecificationInput interface {
 	pulumi.Input
 
@@ -2071,11 +2071,11 @@ func (i GlobalTableTimeToLiveSpecificationArgs) ToGlobalTableTimeToLiveSpecifica
 // GlobalTableTimeToLiveSpecificationPtrInput is an input type that accepts GlobalTableTimeToLiveSpecificationArgs, GlobalTableTimeToLiveSpecificationPtr and GlobalTableTimeToLiveSpecificationPtrOutput values.
 // You can construct a concrete instance of `GlobalTableTimeToLiveSpecificationPtrInput` via:
 //
-//          GlobalTableTimeToLiveSpecificationArgs{...}
+//	        GlobalTableTimeToLiveSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableTimeToLiveSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2182,7 +2182,7 @@ type GlobalTableWriteProvisionedThroughputSettings struct {
 // GlobalTableWriteProvisionedThroughputSettingsInput is an input type that accepts GlobalTableWriteProvisionedThroughputSettingsArgs and GlobalTableWriteProvisionedThroughputSettingsOutput values.
 // You can construct a concrete instance of `GlobalTableWriteProvisionedThroughputSettingsInput` via:
 //
-//          GlobalTableWriteProvisionedThroughputSettingsArgs{...}
+//	GlobalTableWriteProvisionedThroughputSettingsArgs{...}
 type GlobalTableWriteProvisionedThroughputSettingsInput interface {
 	pulumi.Input
 
@@ -2217,11 +2217,11 @@ func (i GlobalTableWriteProvisionedThroughputSettingsArgs) ToGlobalTableWritePro
 // GlobalTableWriteProvisionedThroughputSettingsPtrInput is an input type that accepts GlobalTableWriteProvisionedThroughputSettingsArgs, GlobalTableWriteProvisionedThroughputSettingsPtr and GlobalTableWriteProvisionedThroughputSettingsPtrOutput values.
 // You can construct a concrete instance of `GlobalTableWriteProvisionedThroughputSettingsPtrInput` via:
 //
-//          GlobalTableWriteProvisionedThroughputSettingsArgs{...}
+//	        GlobalTableWriteProvisionedThroughputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GlobalTableWriteProvisionedThroughputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2318,7 +2318,7 @@ type TableAttributeDefinition struct {
 // TableAttributeDefinitionInput is an input type that accepts TableAttributeDefinitionArgs and TableAttributeDefinitionOutput values.
 // You can construct a concrete instance of `TableAttributeDefinitionInput` via:
 //
-//          TableAttributeDefinitionArgs{...}
+//	TableAttributeDefinitionArgs{...}
 type TableAttributeDefinitionInput interface {
 	pulumi.Input
 
@@ -2346,7 +2346,7 @@ func (i TableAttributeDefinitionArgs) ToTableAttributeDefinitionOutputWithContex
 // TableAttributeDefinitionArrayInput is an input type that accepts TableAttributeDefinitionArray and TableAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `TableAttributeDefinitionArrayInput` via:
 //
-//          TableAttributeDefinitionArray{ TableAttributeDefinitionArgs{...} }
+//	TableAttributeDefinitionArray{ TableAttributeDefinitionArgs{...} }
 type TableAttributeDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -2417,7 +2417,7 @@ type TableContributorInsightsSpecification struct {
 // TableContributorInsightsSpecificationInput is an input type that accepts TableContributorInsightsSpecificationArgs and TableContributorInsightsSpecificationOutput values.
 // You can construct a concrete instance of `TableContributorInsightsSpecificationInput` via:
 //
-//          TableContributorInsightsSpecificationArgs{...}
+//	TableContributorInsightsSpecificationArgs{...}
 type TableContributorInsightsSpecificationInput interface {
 	pulumi.Input
 
@@ -2452,11 +2452,11 @@ func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpe
 // TableContributorInsightsSpecificationPtrInput is an input type that accepts TableContributorInsightsSpecificationArgs, TableContributorInsightsSpecificationPtr and TableContributorInsightsSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableContributorInsightsSpecificationPtrInput` via:
 //
-//          TableContributorInsightsSpecificationArgs{...}
+//	        TableContributorInsightsSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableContributorInsightsSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2554,7 +2554,7 @@ type TableGlobalSecondaryIndex struct {
 // TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
 // You can construct a concrete instance of `TableGlobalSecondaryIndexInput` via:
 //
-//          TableGlobalSecondaryIndexArgs{...}
+//	TableGlobalSecondaryIndexArgs{...}
 type TableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -2585,7 +2585,7 @@ func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithCont
 // TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
 //
-//          TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
+//	TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
 type TableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -2671,7 +2671,7 @@ type TableKeySchema struct {
 // TableKeySchemaInput is an input type that accepts TableKeySchemaArgs and TableKeySchemaOutput values.
 // You can construct a concrete instance of `TableKeySchemaInput` via:
 //
-//          TableKeySchemaArgs{...}
+//	TableKeySchemaArgs{...}
 type TableKeySchemaInput interface {
 	pulumi.Input
 
@@ -2699,7 +2699,7 @@ func (i TableKeySchemaArgs) ToTableKeySchemaOutputWithContext(ctx context.Contex
 // TableKeySchemaArrayInput is an input type that accepts TableKeySchemaArray and TableKeySchemaArrayOutput values.
 // You can construct a concrete instance of `TableKeySchemaArrayInput` via:
 //
-//          TableKeySchemaArray{ TableKeySchemaArgs{...} }
+//	TableKeySchemaArray{ TableKeySchemaArgs{...} }
 type TableKeySchemaArrayInput interface {
 	pulumi.Input
 
@@ -2770,7 +2770,7 @@ type TableKinesisStreamSpecification struct {
 // TableKinesisStreamSpecificationInput is an input type that accepts TableKinesisStreamSpecificationArgs and TableKinesisStreamSpecificationOutput values.
 // You can construct a concrete instance of `TableKinesisStreamSpecificationInput` via:
 //
-//          TableKinesisStreamSpecificationArgs{...}
+//	TableKinesisStreamSpecificationArgs{...}
 type TableKinesisStreamSpecificationInput interface {
 	pulumi.Input
 
@@ -2805,11 +2805,11 @@ func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationPt
 // TableKinesisStreamSpecificationPtrInput is an input type that accepts TableKinesisStreamSpecificationArgs, TableKinesisStreamSpecificationPtr and TableKinesisStreamSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableKinesisStreamSpecificationPtrInput` via:
 //
-//          TableKinesisStreamSpecificationArgs{...}
+//	        TableKinesisStreamSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableKinesisStreamSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -2905,7 +2905,7 @@ type TableLocalSecondaryIndex struct {
 // TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
 // You can construct a concrete instance of `TableLocalSecondaryIndexInput` via:
 //
-//          TableLocalSecondaryIndexArgs{...}
+//	TableLocalSecondaryIndexArgs{...}
 type TableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -2934,7 +2934,7 @@ func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContex
 // TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
 //
-//          TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
+//	TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
 type TableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -3009,7 +3009,7 @@ type TablePointInTimeRecoverySpecification struct {
 // TablePointInTimeRecoverySpecificationInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs and TablePointInTimeRecoverySpecificationOutput values.
 // You can construct a concrete instance of `TablePointInTimeRecoverySpecificationInput` via:
 //
-//          TablePointInTimeRecoverySpecificationArgs{...}
+//	TablePointInTimeRecoverySpecificationArgs{...}
 type TablePointInTimeRecoverySpecificationInput interface {
 	pulumi.Input
 
@@ -3044,11 +3044,11 @@ func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpe
 // TablePointInTimeRecoverySpecificationPtrInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs, TablePointInTimeRecoverySpecificationPtr and TablePointInTimeRecoverySpecificationPtrOutput values.
 // You can construct a concrete instance of `TablePointInTimeRecoverySpecificationPtrInput` via:
 //
-//          TablePointInTimeRecoverySpecificationArgs{...}
+//	        TablePointInTimeRecoverySpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TablePointInTimeRecoverySpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3143,7 +3143,7 @@ type TableProjection struct {
 // TableProjectionInput is an input type that accepts TableProjectionArgs and TableProjectionOutput values.
 // You can construct a concrete instance of `TableProjectionInput` via:
 //
-//          TableProjectionArgs{...}
+//	TableProjectionArgs{...}
 type TableProjectionInput interface {
 	pulumi.Input
 
@@ -3198,7 +3198,7 @@ type TableProvisionedThroughput struct {
 // TableProvisionedThroughputInput is an input type that accepts TableProvisionedThroughputArgs and TableProvisionedThroughputOutput values.
 // You can construct a concrete instance of `TableProvisionedThroughputInput` via:
 //
-//          TableProvisionedThroughputArgs{...}
+//	TableProvisionedThroughputArgs{...}
 type TableProvisionedThroughputInput interface {
 	pulumi.Input
 
@@ -3234,11 +3234,11 @@ func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputPtrOutputWit
 // TableProvisionedThroughputPtrInput is an input type that accepts TableProvisionedThroughputArgs, TableProvisionedThroughputPtr and TableProvisionedThroughputPtrOutput values.
 // You can construct a concrete instance of `TableProvisionedThroughputPtrInput` via:
 //
-//          TableProvisionedThroughputArgs{...}
+//	        TableProvisionedThroughputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableProvisionedThroughputPtrInput interface {
 	pulumi.Input
 
@@ -3347,7 +3347,7 @@ type TableSSESpecification struct {
 // TableSSESpecificationInput is an input type that accepts TableSSESpecificationArgs and TableSSESpecificationOutput values.
 // You can construct a concrete instance of `TableSSESpecificationInput` via:
 //
-//          TableSSESpecificationArgs{...}
+//	TableSSESpecificationArgs{...}
 type TableSSESpecificationInput interface {
 	pulumi.Input
 
@@ -3384,11 +3384,11 @@ func (i TableSSESpecificationArgs) ToTableSSESpecificationPtrOutputWithContext(c
 // TableSSESpecificationPtrInput is an input type that accepts TableSSESpecificationArgs, TableSSESpecificationPtr and TableSSESpecificationPtrOutput values.
 // You can construct a concrete instance of `TableSSESpecificationPtrInput` via:
 //
-//          TableSSESpecificationArgs{...}
+//	        TableSSESpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableSSESpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3508,7 +3508,7 @@ type TableStreamSpecification struct {
 // TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
 // You can construct a concrete instance of `TableStreamSpecificationInput` via:
 //
-//          TableStreamSpecificationArgs{...}
+//	TableStreamSpecificationArgs{...}
 type TableStreamSpecificationInput interface {
 	pulumi.Input
 
@@ -3543,11 +3543,11 @@ func (i TableStreamSpecificationArgs) ToTableStreamSpecificationPtrOutputWithCon
 // TableStreamSpecificationPtrInput is an input type that accepts TableStreamSpecificationArgs, TableStreamSpecificationPtr and TableStreamSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableStreamSpecificationPtrInput` via:
 //
-//          TableStreamSpecificationArgs{...}
+//	        TableStreamSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableStreamSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -3642,7 +3642,7 @@ type TableTag struct {
 // TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
 // You can construct a concrete instance of `TableTagInput` via:
 //
-//          TableTagArgs{...}
+//	TableTagArgs{...}
 type TableTagInput interface {
 	pulumi.Input
 
@@ -3670,7 +3670,7 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
-//          TableTagArray{ TableTagArgs{...} }
+//	TableTagArray{ TableTagArgs{...} }
 type TableTagArrayInput interface {
 	pulumi.Input
 
@@ -3742,7 +3742,7 @@ type TableTimeToLiveSpecification struct {
 // TableTimeToLiveSpecificationInput is an input type that accepts TableTimeToLiveSpecificationArgs and TableTimeToLiveSpecificationOutput values.
 // You can construct a concrete instance of `TableTimeToLiveSpecificationInput` via:
 //
-//          TableTimeToLiveSpecificationArgs{...}
+//	TableTimeToLiveSpecificationArgs{...}
 type TableTimeToLiveSpecificationInput interface {
 	pulumi.Input
 
@@ -3778,11 +3778,11 @@ func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationPtrOutpu
 // TableTimeToLiveSpecificationPtrInput is an input type that accepts TableTimeToLiveSpecificationArgs, TableTimeToLiveSpecificationPtr and TableTimeToLiveSpecificationPtrOutput values.
 // You can construct a concrete instance of `TableTimeToLiveSpecificationPtrInput` via:
 //
-//          TableTimeToLiveSpecificationArgs{...}
+//	        TableTimeToLiveSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableTimeToLiveSpecificationPtrInput interface {
 	pulumi.Input
 

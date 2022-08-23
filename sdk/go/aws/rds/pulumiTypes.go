@@ -21,7 +21,7 @@ type DBClusterParameterGroupTag struct {
 // DBClusterParameterGroupTagInput is an input type that accepts DBClusterParameterGroupTagArgs and DBClusterParameterGroupTagOutput values.
 // You can construct a concrete instance of `DBClusterParameterGroupTagInput` via:
 //
-//          DBClusterParameterGroupTagArgs{...}
+//	DBClusterParameterGroupTagArgs{...}
 type DBClusterParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i DBClusterParameterGroupTagArgs) ToDBClusterParameterGroupTagOutputWithCo
 // DBClusterParameterGroupTagArrayInput is an input type that accepts DBClusterParameterGroupTagArray and DBClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterParameterGroupTagArrayInput` via:
 //
-//          DBClusterParameterGroupTagArray{ DBClusterParameterGroupTagArgs{...} }
+//	DBClusterParameterGroupTagArray{ DBClusterParameterGroupTagArgs{...} }
 type DBClusterParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -127,7 +127,7 @@ type DBClusterRole struct {
 // DBClusterRoleInput is an input type that accepts DBClusterRoleArgs and DBClusterRoleOutput values.
 // You can construct a concrete instance of `DBClusterRoleInput` via:
 //
-//          DBClusterRoleArgs{...}
+//	DBClusterRoleArgs{...}
 type DBClusterRoleInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ func (i DBClusterRoleArgs) ToDBClusterRoleOutputWithContext(ctx context.Context)
 // DBClusterRoleArrayInput is an input type that accepts DBClusterRoleArray and DBClusterRoleArrayOutput values.
 // You can construct a concrete instance of `DBClusterRoleArrayInput` via:
 //
-//          DBClusterRoleArray{ DBClusterRoleArgs{...} }
+//	DBClusterRoleArray{ DBClusterRoleArgs{...} }
 type DBClusterRoleArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ type DBClusterScalingConfiguration struct {
 // DBClusterScalingConfigurationInput is an input type that accepts DBClusterScalingConfigurationArgs and DBClusterScalingConfigurationOutput values.
 // You can construct a concrete instance of `DBClusterScalingConfigurationInput` via:
 //
-//          DBClusterScalingConfigurationArgs{...}
+//	DBClusterScalingConfigurationArgs{...}
 type DBClusterScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -267,11 +267,11 @@ func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOut
 // DBClusterScalingConfigurationPtrInput is an input type that accepts DBClusterScalingConfigurationArgs, DBClusterScalingConfigurationPtr and DBClusterScalingConfigurationPtrOutput values.
 // You can construct a concrete instance of `DBClusterScalingConfigurationPtrInput` via:
 //
-//          DBClusterScalingConfigurationArgs{...}
+//	        DBClusterScalingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DBClusterScalingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -405,7 +405,7 @@ type DBClusterTag struct {
 // DBClusterTagInput is an input type that accepts DBClusterTagArgs and DBClusterTagOutput values.
 // You can construct a concrete instance of `DBClusterTagInput` via:
 //
-//          DBClusterTagArgs{...}
+//	DBClusterTagArgs{...}
 type DBClusterTagInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ func (i DBClusterTagArgs) ToDBClusterTagOutputWithContext(ctx context.Context) D
 // DBClusterTagArrayInput is an input type that accepts DBClusterTagArray and DBClusterTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterTagArrayInput` via:
 //
-//          DBClusterTagArray{ DBClusterTagArgs{...} }
+//	DBClusterTagArray{ DBClusterTagArgs{...} }
 type DBClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ type DBInstanceProcessorFeature struct {
 // DBInstanceProcessorFeatureInput is an input type that accepts DBInstanceProcessorFeatureArgs and DBInstanceProcessorFeatureOutput values.
 // You can construct a concrete instance of `DBInstanceProcessorFeatureInput` via:
 //
-//          DBInstanceProcessorFeatureArgs{...}
+//	DBInstanceProcessorFeatureArgs{...}
 type DBInstanceProcessorFeatureInput interface {
 	pulumi.Input
 
@@ -533,7 +533,7 @@ func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutputWithCo
 // DBInstanceProcessorFeatureArrayInput is an input type that accepts DBInstanceProcessorFeatureArray and DBInstanceProcessorFeatureArrayOutput values.
 // You can construct a concrete instance of `DBInstanceProcessorFeatureArrayInput` via:
 //
-//          DBInstanceProcessorFeatureArray{ DBInstanceProcessorFeatureArgs{...} }
+//	DBInstanceProcessorFeatureArray{ DBInstanceProcessorFeatureArgs{...} }
 type DBInstanceProcessorFeatureArrayInput interface {
 	pulumi.Input
 
@@ -605,7 +605,7 @@ type DBInstanceRole struct {
 // DBInstanceRoleInput is an input type that accepts DBInstanceRoleArgs and DBInstanceRoleOutput values.
 // You can construct a concrete instance of `DBInstanceRoleInput` via:
 //
-//          DBInstanceRoleArgs{...}
+//	DBInstanceRoleArgs{...}
 type DBInstanceRoleInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (i DBInstanceRoleArgs) ToDBInstanceRoleOutputWithContext(ctx context.Contex
 // DBInstanceRoleArrayInput is an input type that accepts DBInstanceRoleArray and DBInstanceRoleArrayOutput values.
 // You can construct a concrete instance of `DBInstanceRoleArrayInput` via:
 //
-//          DBInstanceRoleArray{ DBInstanceRoleArgs{...} }
+//	DBInstanceRoleArray{ DBInstanceRoleArgs{...} }
 type DBInstanceRoleArrayInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ type DBInstanceTag struct {
 // DBInstanceTagInput is an input type that accepts DBInstanceTagArgs and DBInstanceTagOutput values.
 // You can construct a concrete instance of `DBInstanceTagInput` via:
 //
-//          DBInstanceTagArgs{...}
+//	DBInstanceTagArgs{...}
 type DBInstanceTagInput interface {
 	pulumi.Input
 
@@ -733,7 +733,7 @@ func (i DBInstanceTagArgs) ToDBInstanceTagOutputWithContext(ctx context.Context)
 // DBInstanceTagArrayInput is an input type that accepts DBInstanceTagArray and DBInstanceTagArrayOutput values.
 // You can construct a concrete instance of `DBInstanceTagArrayInput` via:
 //
-//          DBInstanceTagArray{ DBInstanceTagArgs{...} }
+//	DBInstanceTagArray{ DBInstanceTagArgs{...} }
 type DBInstanceTagArrayInput interface {
 	pulumi.Input
 
@@ -808,7 +808,7 @@ type DBParameterGroupTag struct {
 // DBParameterGroupTagInput is an input type that accepts DBParameterGroupTagArgs and DBParameterGroupTagOutput values.
 // You can construct a concrete instance of `DBParameterGroupTagInput` via:
 //
-//          DBParameterGroupTagArgs{...}
+//	DBParameterGroupTagArgs{...}
 type DBParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -839,7 +839,7 @@ func (i DBParameterGroupTagArgs) ToDBParameterGroupTagOutputWithContext(ctx cont
 // DBParameterGroupTagArrayInput is an input type that accepts DBParameterGroupTagArray and DBParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBParameterGroupTagArrayInput` via:
 //
-//          DBParameterGroupTagArray{ DBParameterGroupTagArgs{...} }
+//	DBParameterGroupTagArray{ DBParameterGroupTagArgs{...} }
 type DBParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -922,7 +922,7 @@ type DBProxyAuthFormat struct {
 // DBProxyAuthFormatInput is an input type that accepts DBProxyAuthFormatArgs and DBProxyAuthFormatOutput values.
 // You can construct a concrete instance of `DBProxyAuthFormatInput` via:
 //
-//          DBProxyAuthFormatArgs{...}
+//	DBProxyAuthFormatArgs{...}
 type DBProxyAuthFormatInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ func (i DBProxyAuthFormatArgs) ToDBProxyAuthFormatOutputWithContext(ctx context.
 // DBProxyAuthFormatArrayInput is an input type that accepts DBProxyAuthFormatArray and DBProxyAuthFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyAuthFormatArrayInput` via:
 //
-//          DBProxyAuthFormatArray{ DBProxyAuthFormatArgs{...} }
+//	DBProxyAuthFormatArray{ DBProxyAuthFormatArgs{...} }
 type DBProxyAuthFormatArrayInput interface {
 	pulumi.Input
 
@@ -1047,7 +1047,7 @@ type DBProxyEndpointTagFormat struct {
 // DBProxyEndpointTagFormatInput is an input type that accepts DBProxyEndpointTagFormatArgs and DBProxyEndpointTagFormatOutput values.
 // You can construct a concrete instance of `DBProxyEndpointTagFormatInput` via:
 //
-//          DBProxyEndpointTagFormatArgs{...}
+//	DBProxyEndpointTagFormatArgs{...}
 type DBProxyEndpointTagFormatInput interface {
 	pulumi.Input
 
@@ -1075,7 +1075,7 @@ func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutputWithContex
 // DBProxyEndpointTagFormatArrayInput is an input type that accepts DBProxyEndpointTagFormatArray and DBProxyEndpointTagFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyEndpointTagFormatArrayInput` via:
 //
-//          DBProxyEndpointTagFormatArray{ DBProxyEndpointTagFormatArgs{...} }
+//	DBProxyEndpointTagFormatArray{ DBProxyEndpointTagFormatArgs{...} }
 type DBProxyEndpointTagFormatArrayInput interface {
 	pulumi.Input
 
@@ -1147,7 +1147,7 @@ type DBProxyTagFormat struct {
 // DBProxyTagFormatInput is an input type that accepts DBProxyTagFormatArgs and DBProxyTagFormatOutput values.
 // You can construct a concrete instance of `DBProxyTagFormatInput` via:
 //
-//          DBProxyTagFormatArgs{...}
+//	DBProxyTagFormatArgs{...}
 type DBProxyTagFormatInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ func (i DBProxyTagFormatArgs) ToDBProxyTagFormatOutputWithContext(ctx context.Co
 // DBProxyTagFormatArrayInput is an input type that accepts DBProxyTagFormatArray and DBProxyTagFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyTagFormatArrayInput` via:
 //
-//          DBProxyTagFormatArray{ DBProxyTagFormatArgs{...} }
+//	DBProxyTagFormatArray{ DBProxyTagFormatArgs{...} }
 type DBProxyTagFormatArrayInput interface {
 	pulumi.Input
 
@@ -1255,7 +1255,7 @@ type DBProxyTargetGroupConnectionPoolConfigurationInfoFormat struct {
 // DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput is an input type that accepts DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs and DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput values.
 // You can construct a concrete instance of `DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput` via:
 //
-//          DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
+//	DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput interface {
 	pulumi.Input
 
@@ -1299,11 +1299,11 @@ func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTa
 // DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput is an input type that accepts DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs, DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtr and DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput values.
 // You can construct a concrete instance of `DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput` via:
 //
-//          DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
+//	        DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput interface {
 	pulumi.Input
 
@@ -1466,7 +1466,7 @@ type DBSecurityGroupIngressType struct {
 // DBSecurityGroupIngressTypeInput is an input type that accepts DBSecurityGroupIngressTypeArgs and DBSecurityGroupIngressTypeOutput values.
 // You can construct a concrete instance of `DBSecurityGroupIngressTypeInput` via:
 //
-//          DBSecurityGroupIngressTypeArgs{...}
+//	DBSecurityGroupIngressTypeArgs{...}
 type DBSecurityGroupIngressTypeInput interface {
 	pulumi.Input
 
@@ -1496,7 +1496,7 @@ func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutputWithCo
 // DBSecurityGroupIngressTypeArrayInput is an input type that accepts DBSecurityGroupIngressTypeArray and DBSecurityGroupIngressTypeArrayOutput values.
 // You can construct a concrete instance of `DBSecurityGroupIngressTypeArrayInput` via:
 //
-//          DBSecurityGroupIngressTypeArray{ DBSecurityGroupIngressTypeArgs{...} }
+//	DBSecurityGroupIngressTypeArray{ DBSecurityGroupIngressTypeArgs{...} }
 type DBSecurityGroupIngressTypeArrayInput interface {
 	pulumi.Input
 
@@ -1576,7 +1576,7 @@ type DBSecurityGroupTag struct {
 // DBSecurityGroupTagInput is an input type that accepts DBSecurityGroupTagArgs and DBSecurityGroupTagOutput values.
 // You can construct a concrete instance of `DBSecurityGroupTagInput` via:
 //
-//          DBSecurityGroupTagArgs{...}
+//	DBSecurityGroupTagArgs{...}
 type DBSecurityGroupTagInput interface {
 	pulumi.Input
 
@@ -1604,7 +1604,7 @@ func (i DBSecurityGroupTagArgs) ToDBSecurityGroupTagOutputWithContext(ctx contex
 // DBSecurityGroupTagArrayInput is an input type that accepts DBSecurityGroupTagArray and DBSecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBSecurityGroupTagArrayInput` via:
 //
-//          DBSecurityGroupTagArray{ DBSecurityGroupTagArgs{...} }
+//	DBSecurityGroupTagArray{ DBSecurityGroupTagArgs{...} }
 type DBSecurityGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -1679,7 +1679,7 @@ type DBSubnetGroupTag struct {
 // DBSubnetGroupTagInput is an input type that accepts DBSubnetGroupTagArgs and DBSubnetGroupTagOutput values.
 // You can construct a concrete instance of `DBSubnetGroupTagInput` via:
 //
-//          DBSubnetGroupTagArgs{...}
+//	DBSubnetGroupTagArgs{...}
 type DBSubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -1710,7 +1710,7 @@ func (i DBSubnetGroupTagArgs) ToDBSubnetGroupTagOutputWithContext(ctx context.Co
 // DBSubnetGroupTagArrayInput is an input type that accepts DBSubnetGroupTagArray and DBSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBSubnetGroupTagArrayInput` via:
 //
-//          DBSubnetGroupTagArray{ DBSubnetGroupTagArgs{...} }
+//	DBSubnetGroupTagArray{ DBSubnetGroupTagArgs{...} }
 type DBSubnetGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -1788,7 +1788,7 @@ type EventSubscriptionTag struct {
 // EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagInput` via:
 //
-//          EventSubscriptionTagArgs{...}
+//	EventSubscriptionTagArgs{...}
 type EventSubscriptionTagInput interface {
 	pulumi.Input
 
@@ -1819,7 +1819,7 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
-//          EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
+//	EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
 type EventSubscriptionTagArrayInput interface {
 	pulumi.Input
 
@@ -1898,7 +1898,7 @@ type OptionGroupOptionConfiguration struct {
 // OptionGroupOptionConfigurationInput is an input type that accepts OptionGroupOptionConfigurationArgs and OptionGroupOptionConfigurationOutput values.
 // You can construct a concrete instance of `OptionGroupOptionConfigurationInput` via:
 //
-//          OptionGroupOptionConfigurationArgs{...}
+//	OptionGroupOptionConfigurationArgs{...}
 type OptionGroupOptionConfigurationInput interface {
 	pulumi.Input
 
@@ -1930,7 +1930,7 @@ func (i OptionGroupOptionConfigurationArgs) ToOptionGroupOptionConfigurationOutp
 // OptionGroupOptionConfigurationArrayInput is an input type that accepts OptionGroupOptionConfigurationArray and OptionGroupOptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionConfigurationArrayInput` via:
 //
-//          OptionGroupOptionConfigurationArray{ OptionGroupOptionConfigurationArgs{...} }
+//	OptionGroupOptionConfigurationArray{ OptionGroupOptionConfigurationArgs{...} }
 type OptionGroupOptionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2018,7 +2018,7 @@ type OptionGroupOptionSetting struct {
 // OptionGroupOptionSettingInput is an input type that accepts OptionGroupOptionSettingArgs and OptionGroupOptionSettingOutput values.
 // You can construct a concrete instance of `OptionGroupOptionSettingInput` via:
 //
-//          OptionGroupOptionSettingArgs{...}
+//	OptionGroupOptionSettingArgs{...}
 type OptionGroupOptionSettingInput interface {
 	pulumi.Input
 
@@ -2046,7 +2046,7 @@ func (i OptionGroupOptionSettingArgs) ToOptionGroupOptionSettingOutputWithContex
 // OptionGroupOptionSettingArrayInput is an input type that accepts OptionGroupOptionSettingArray and OptionGroupOptionSettingArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionSettingArrayInput` via:
 //
-//          OptionGroupOptionSettingArray{ OptionGroupOptionSettingArgs{...} }
+//	OptionGroupOptionSettingArray{ OptionGroupOptionSettingArgs{...} }
 type OptionGroupOptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -2118,7 +2118,7 @@ type OptionGroupTag struct {
 // OptionGroupTagInput is an input type that accepts OptionGroupTagArgs and OptionGroupTagOutput values.
 // You can construct a concrete instance of `OptionGroupTagInput` via:
 //
-//          OptionGroupTagArgs{...}
+//	OptionGroupTagArgs{...}
 type OptionGroupTagInput interface {
 	pulumi.Input
 
@@ -2146,7 +2146,7 @@ func (i OptionGroupTagArgs) ToOptionGroupTagOutputWithContext(ctx context.Contex
 // OptionGroupTagArrayInput is an input type that accepts OptionGroupTagArray and OptionGroupTagArrayOutput values.
 // You can construct a concrete instance of `OptionGroupTagArrayInput` via:
 //
-//          OptionGroupTagArray{ OptionGroupTagArgs{...} }
+//	OptionGroupTagArray{ OptionGroupTagArgs{...} }
 type OptionGroupTagArrayInput interface {
 	pulumi.Input
 

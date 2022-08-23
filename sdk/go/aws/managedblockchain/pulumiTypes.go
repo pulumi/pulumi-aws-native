@@ -19,7 +19,7 @@ type MemberApprovalThresholdPolicy struct {
 // MemberApprovalThresholdPolicyInput is an input type that accepts MemberApprovalThresholdPolicyArgs and MemberApprovalThresholdPolicyOutput values.
 // You can construct a concrete instance of `MemberApprovalThresholdPolicyInput` via:
 //
-//          MemberApprovalThresholdPolicyArgs{...}
+//	MemberApprovalThresholdPolicyArgs{...}
 type MemberApprovalThresholdPolicyInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i MemberApprovalThresholdPolicyArgs) ToMemberApprovalThresholdPolicyPtrOut
 // MemberApprovalThresholdPolicyPtrInput is an input type that accepts MemberApprovalThresholdPolicyArgs, MemberApprovalThresholdPolicyPtr and MemberApprovalThresholdPolicyPtrOutput values.
 // You can construct a concrete instance of `MemberApprovalThresholdPolicyPtrInput` via:
 //
-//          MemberApprovalThresholdPolicyArgs{...}
+//	        MemberApprovalThresholdPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberApprovalThresholdPolicyPtrInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ type MemberConfiguration struct {
 // MemberConfigurationInput is an input type that accepts MemberConfigurationArgs and MemberConfigurationOutput values.
 // You can construct a concrete instance of `MemberConfigurationInput` via:
 //
-//          MemberConfigurationArgs{...}
+//	MemberConfigurationArgs{...}
 type MemberConfigurationInput interface {
 	pulumi.Input
 
@@ -293,7 +293,7 @@ type MemberFabricConfiguration struct {
 // MemberFabricConfigurationInput is an input type that accepts MemberFabricConfigurationArgs and MemberFabricConfigurationOutput values.
 // You can construct a concrete instance of `MemberFabricConfigurationInput` via:
 //
-//          MemberFabricConfigurationArgs{...}
+//	MemberFabricConfigurationArgs{...}
 type MemberFabricConfigurationInput interface {
 	pulumi.Input
 
@@ -329,11 +329,11 @@ func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationPtrOutputWithC
 // MemberFabricConfigurationPtrInput is an input type that accepts MemberFabricConfigurationArgs, MemberFabricConfigurationPtr and MemberFabricConfigurationPtrOutput values.
 // You can construct a concrete instance of `MemberFabricConfigurationPtrInput` via:
 //
-//          MemberFabricConfigurationArgs{...}
+//	        MemberFabricConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberFabricConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -440,7 +440,7 @@ type MemberFrameworkConfiguration struct {
 // MemberFrameworkConfigurationInput is an input type that accepts MemberFrameworkConfigurationArgs and MemberFrameworkConfigurationOutput values.
 // You can construct a concrete instance of `MemberFrameworkConfigurationInput` via:
 //
-//          MemberFrameworkConfigurationArgs{...}
+//	MemberFrameworkConfigurationArgs{...}
 type MemberFrameworkConfigurationInput interface {
 	pulumi.Input
 
@@ -475,11 +475,11 @@ func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationPtrOutpu
 // MemberFrameworkConfigurationPtrInput is an input type that accepts MemberFrameworkConfigurationArgs, MemberFrameworkConfigurationPtr and MemberFrameworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `MemberFrameworkConfigurationPtrInput` via:
 //
-//          MemberFrameworkConfigurationArgs{...}
+//	        MemberFrameworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberFrameworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -578,7 +578,7 @@ type MemberNetworkConfiguration struct {
 // MemberNetworkConfigurationInput is an input type that accepts MemberNetworkConfigurationArgs and MemberNetworkConfigurationOutput values.
 // You can construct a concrete instance of `MemberNetworkConfigurationInput` via:
 //
-//          MemberNetworkConfigurationArgs{...}
+//	MemberNetworkConfigurationArgs{...}
 type MemberNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -618,11 +618,11 @@ func (i MemberNetworkConfigurationArgs) ToMemberNetworkConfigurationPtrOutputWit
 // MemberNetworkConfigurationPtrInput is an input type that accepts MemberNetworkConfigurationArgs, MemberNetworkConfigurationPtr and MemberNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `MemberNetworkConfigurationPtrInput` via:
 //
-//          MemberNetworkConfigurationArgs{...}
+//	        MemberNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -783,7 +783,7 @@ type MemberNetworkFabricConfiguration struct {
 // MemberNetworkFabricConfigurationInput is an input type that accepts MemberNetworkFabricConfigurationArgs and MemberNetworkFabricConfigurationOutput values.
 // You can construct a concrete instance of `MemberNetworkFabricConfigurationInput` via:
 //
-//          MemberNetworkFabricConfigurationArgs{...}
+//	MemberNetworkFabricConfigurationArgs{...}
 type MemberNetworkFabricConfigurationInput interface {
 	pulumi.Input
 
@@ -818,11 +818,11 @@ func (i MemberNetworkFabricConfigurationArgs) ToMemberNetworkFabricConfiguration
 // MemberNetworkFabricConfigurationPtrInput is an input type that accepts MemberNetworkFabricConfigurationArgs, MemberNetworkFabricConfigurationPtr and MemberNetworkFabricConfigurationPtrOutput values.
 // You can construct a concrete instance of `MemberNetworkFabricConfigurationPtrInput` via:
 //
-//          MemberNetworkFabricConfigurationArgs{...}
+//	        MemberNetworkFabricConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberNetworkFabricConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -916,7 +916,7 @@ type MemberNetworkFrameworkConfiguration struct {
 // MemberNetworkFrameworkConfigurationInput is an input type that accepts MemberNetworkFrameworkConfigurationArgs and MemberNetworkFrameworkConfigurationOutput values.
 // You can construct a concrete instance of `MemberNetworkFrameworkConfigurationInput` via:
 //
-//          MemberNetworkFrameworkConfigurationArgs{...}
+//	MemberNetworkFrameworkConfigurationArgs{...}
 type MemberNetworkFrameworkConfigurationInput interface {
 	pulumi.Input
 
@@ -951,11 +951,11 @@ func (i MemberNetworkFrameworkConfigurationArgs) ToMemberNetworkFrameworkConfigu
 // MemberNetworkFrameworkConfigurationPtrInput is an input type that accepts MemberNetworkFrameworkConfigurationArgs, MemberNetworkFrameworkConfigurationPtr and MemberNetworkFrameworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `MemberNetworkFrameworkConfigurationPtrInput` via:
 //
-//          MemberNetworkFrameworkConfigurationArgs{...}
+//	        MemberNetworkFrameworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberNetworkFrameworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1051,7 +1051,7 @@ type MemberVotingPolicy struct {
 // MemberVotingPolicyInput is an input type that accepts MemberVotingPolicyArgs and MemberVotingPolicyOutput values.
 // You can construct a concrete instance of `MemberVotingPolicyInput` via:
 //
-//          MemberVotingPolicyArgs{...}
+//	MemberVotingPolicyArgs{...}
 type MemberVotingPolicyInput interface {
 	pulumi.Input
 
@@ -1086,11 +1086,11 @@ func (i MemberVotingPolicyArgs) ToMemberVotingPolicyPtrOutputWithContext(ctx con
 // MemberVotingPolicyPtrInput is an input type that accepts MemberVotingPolicyArgs, MemberVotingPolicyPtr and MemberVotingPolicyPtrOutput values.
 // You can construct a concrete instance of `MemberVotingPolicyPtrInput` via:
 //
-//          MemberVotingPolicyArgs{...}
+//	        MemberVotingPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MemberVotingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1185,7 +1185,7 @@ type NodeConfiguration struct {
 // NodeConfigurationInput is an input type that accepts NodeConfigurationArgs and NodeConfigurationOutput values.
 // You can construct a concrete instance of `NodeConfigurationInput` via:
 //
-//          NodeConfigurationArgs{...}
+//	NodeConfigurationArgs{...}
 type NodeConfigurationInput interface {
 	pulumi.Input
 
