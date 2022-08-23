@@ -108,10 +108,25 @@
         "AclRule" : {
           "$ref" : "#/definitions/AnalysisAclRule"
         },
+        "AdditionalDetails" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AdditionalDetail"
+          }
+        },
         "Component" : {
           "$ref" : "#/definitions/AnalysisComponent"
         },
         "DestinationVpc" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "Explanations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Explanation"
+          }
+        },
+        "ElasticLoadBalancerListener" : {
           "$ref" : "#/definitions/AnalysisComponent"
         },
         "OutboundHeader" : {
@@ -219,6 +234,9 @@
         "Origin" : {
           "type" : "string"
         },
+        "State" : {
+          "type" : "string"
+        },
         "TransitGatewayId" : {
           "type" : "string"
         },
@@ -278,6 +296,18 @@
         }
       }
     },
+    "AdditionalDetail" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AdditionalDetailType" : {
+          "type" : "string"
+        },
+        "Component" : {
+          "$ref" : "#/definitions/AnalysisComponent"
+        }
+      }
+    },
     "Explanation" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -314,6 +344,12 @@
         },
         "Component" : {
           "$ref" : "#/definitions/AnalysisComponent"
+        },
+        "ComponentAccount" : {
+          "type" : "string"
+        },
+        "ComponentRegion" : {
+          "type" : "string"
         },
         "CustomerGateway" : {
           "$ref" : "#/definitions/AnalysisComponent"

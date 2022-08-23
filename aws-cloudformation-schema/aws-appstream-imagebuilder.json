@@ -30,9 +30,6 @@
     "IamRoleArn" : {
       "type" : "string"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "InstanceType" : {
       "type" : "string"
     },
@@ -118,6 +115,27 @@
     }
   },
   "required" : [ "InstanceType", "Name" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/StreamingUrl", "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/Name" ],
+  "readOnlyProperties" : [ "/properties/StreamingUrl" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "appstream:*", "iam:*" ]
+    },
+    "read" : {
+      "permissions" : [ "appstream:*", "iam:*" ]
+    },
+    "delete" : {
+      "permissions" : [ "appstream:*", "iam:*" ]
+    },
+    "list" : {
+      "permissions" : [ "appstream:*", "iam:*" ]
+    }
+  }
 }
