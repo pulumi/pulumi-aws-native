@@ -77,7 +77,7 @@
       }
     }
   },
-  "required" : [ "InstanceArn", "Content", "Name" ],
+  "required" : [ "InstanceArn", "Content", "Name", "Type" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "connect:CreateContactFlow", "connect:TagResource" ]

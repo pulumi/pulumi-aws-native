@@ -6,18 +6,8 @@
     "StorageEncrypted" : {
       "type" : "boolean"
     },
-    "EngineVersion" : {
+    "RestoreToTime" : {
       "type" : "string"
-    },
-    "KmsKeyId" : {
-      "type" : "string"
-    },
-    "AvailabilityZones" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
     },
     "SnapshotIdentifier" : {
       "type" : "string"
@@ -28,19 +18,7 @@
     "DBClusterIdentifier" : {
       "type" : "string"
     },
-    "PreferredMaintenanceWindow" : {
-      "type" : "string"
-    },
-    "DBSubnetGroupName" : {
-      "type" : "string"
-    },
-    "DeletionProtection" : {
-      "type" : "boolean"
-    },
     "PreferredBackupWindow" : {
-      "type" : "string"
-    },
-    "MasterUserPassword" : {
       "type" : "string"
     },
     "ClusterResourceId" : {
@@ -56,6 +34,50 @@
         "type" : "string"
       }
     },
+    "CopyTagsToSnapshot" : {
+      "type" : "boolean"
+    },
+    "RestoreType" : {
+      "type" : "string"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "EngineVersion" : {
+      "type" : "string"
+    },
+    "KmsKeyId" : {
+      "type" : "string"
+    },
+    "AvailabilityZones" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "PreferredMaintenanceWindow" : {
+      "type" : "string"
+    },
+    "DBSubnetGroupName" : {
+      "type" : "string"
+    },
+    "DeletionProtection" : {
+      "type" : "boolean"
+    },
+    "UseLatestRestorableTime" : {
+      "type" : "boolean"
+    },
+    "MasterUserPassword" : {
+      "type" : "string"
+    },
+    "SourceDBClusterIdentifier" : {
+      "type" : "string"
+    },
     "MasterUsername" : {
       "type" : "string"
     },
@@ -65,21 +87,11 @@
     "DBClusterParameterGroupName" : {
       "type" : "string"
     },
-    "CopyTagsToSnapshot" : {
-      "type" : "boolean"
-    },
     "BackupRetentionPeriod" : {
       "type" : "integer"
     },
     "Id" : {
       "type" : "string"
-    },
-    "Tags" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
     },
     "EnableCloudwatchLogsExports" : {
       "type" : "array",
@@ -104,7 +116,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SnapshotIdentifier", "/properties/MasterUsername", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/EngineVersion", "/properties/StorageEncrypted" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SnapshotIdentifier", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/EngineVersion", "/properties/StorageEncrypted" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ReadEndpoint", "/properties/Id", "/properties/Endpoint", "/properties/ClusterResourceId" ]
 }

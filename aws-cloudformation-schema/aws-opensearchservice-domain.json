@@ -182,6 +182,9 @@
         },
         "VolumeSize" : {
           "type" : "integer"
+        },
+        "Throughput" : {
+          "type" : "integer"
         }
       }
     },
@@ -336,7 +339,8 @@
     }
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/AdvancedSecurityOptions", "/properties/DomainName" ],
+  "createOnlyProperties" : [ "/properties/DomainName" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/EncryptionAtRestOptions/properties", "/properties/AdvancedSecurityOptions/properties/Enabled" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/DomainEndpoints", "/properties/ServiceSoftwareOptions" ],
   "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],

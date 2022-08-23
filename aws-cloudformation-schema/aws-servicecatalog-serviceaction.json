@@ -52,6 +52,7 @@
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id" ],
+  "writeOnlyProperties" : [ "/properties/AcceptLanguage" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "required" : [ "Name", "DefinitionType", "Definition" ],
   "handlers" : {

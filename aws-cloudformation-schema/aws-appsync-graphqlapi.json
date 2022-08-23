@@ -10,7 +10,11 @@
       "type" : "string"
     },
     "AdditionalAuthenticationProviders" : {
-      "$ref" : "#/definitions/AdditionalAuthenticationProviders"
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/AdditionalAuthenticationProvider"
+      }
     },
     "GraphQLUrl" : {
       "type" : "string"
@@ -34,7 +38,11 @@
       "type" : "string"
     },
     "Tags" : {
-      "$ref" : "#/definitions/Tags"
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     },
     "AuthenticationType" : {
       "type" : "string"
@@ -62,6 +70,21 @@
         }
       }
     },
+    "CognitoUserPoolConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AppIdClientRegex" : {
+          "type" : "string"
+        },
+        "UserPoolId" : {
+          "type" : "string"
+        },
+        "AwsRegion" : {
+          "type" : "string"
+        }
+      }
+    },
     "LambdaAuthorizerConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -76,6 +99,19 @@
           "type" : "number"
         }
       }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "UserPoolConfig" : {
       "type" : "object",
@@ -95,13 +131,24 @@
         }
       }
     },
-    "Tags" : {
+    "AdditionalAuthenticationProvider" : {
       "type" : "object",
-      "additionalProperties" : false
-    },
-    "AdditionalAuthenticationProviders" : {
-      "type" : "object",
-      "additionalProperties" : false
+      "additionalProperties" : false,
+      "properties" : {
+        "LambdaAuthorizerConfig" : {
+          "$ref" : "#/definitions/LambdaAuthorizerConfig"
+        },
+        "OpenIDConnectConfig" : {
+          "$ref" : "#/definitions/OpenIDConnectConfig"
+        },
+        "UserPoolConfig" : {
+          "$ref" : "#/definitions/CognitoUserPoolConfig"
+        },
+        "AuthenticationType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "AuthenticationType" ]
     },
     "LogConfig" : {
       "type" : "object",

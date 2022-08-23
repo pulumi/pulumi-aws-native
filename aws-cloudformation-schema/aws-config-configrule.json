@@ -54,6 +54,21 @@
         }
       }
     },
+    "CustomPolicyDetails" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EnableDebugLogDelivery" : {
+          "type" : "boolean"
+        },
+        "PolicyText" : {
+          "type" : "string"
+        },
+        "PolicyRuntime" : {
+          "type" : "string"
+        }
+      }
+    },
     "SourceDetail" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -74,6 +89,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "CustomPolicyDetails" : {
+          "$ref" : "#/definitions/CustomPolicyDetails"
+        },
         "SourceIdentifier" : {
           "type" : "string"
         },
@@ -88,7 +106,7 @@
           }
         }
       },
-      "required" : [ "Owner", "SourceIdentifier" ]
+      "required" : [ "Owner" ]
     }
   },
   "required" : [ "Source" ],
