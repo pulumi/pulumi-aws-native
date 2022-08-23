@@ -377,6 +377,12 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	csharpNamespaces := map[string]string{
 		"aws-native": "AwsNative",
 	}
+	javaPackages := map[string]string{
+		"aws-native": "awsnative",
+	}
+	p.Language["java"] = rawMessage(map[string]interface{}{
+		"packages": javaPackages,
+	})
 	p.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath": "github.com/pulumi/pulumi-aws-native/sdk/go/aws",
 		"packageImportAliases": map[string]string{
