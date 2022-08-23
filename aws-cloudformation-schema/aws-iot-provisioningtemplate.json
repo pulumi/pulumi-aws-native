@@ -51,6 +51,10 @@
     "TemplateBody" : {
       "type" : "string"
     },
+    "TemplateType" : {
+      "type" : "string",
+      "enum" : [ "FLEET_PROVISIONING", "JITP" ]
+    },
     "PreProvisioningHook" : {
       "$ref" : "#/definitions/ProvisioningHook"
     },
@@ -64,7 +68,7 @@
   "taggable" : true,
   "additionalProperties" : false,
   "required" : [ "ProvisioningRoleArn", "TemplateBody" ],
-  "createOnlyProperties" : [ "/properties/TemplateName" ],
+  "createOnlyProperties" : [ "/properties/TemplateName", "/properties/TemplateType" ],
   "readOnlyProperties" : [ "/properties/TemplateArn" ],
   "primaryIdentifier" : [ "/properties/TemplateName" ],
   "handlers" : {

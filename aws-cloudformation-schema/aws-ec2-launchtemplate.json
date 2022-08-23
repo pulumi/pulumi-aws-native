@@ -9,10 +9,7 @@
     "LaunchTemplateData" : {
       "$ref" : "#/definitions/LaunchTemplateData"
     },
-    "Id" : {
-      "type" : "string"
-    },
-    "DefaultVersionNumber" : {
+    "VersionDescription" : {
       "type" : "string"
     },
     "TagSpecifications" : {
@@ -23,6 +20,12 @@
       }
     },
     "LatestVersionNumber" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "DefaultVersionNumber" : {
       "type" : "string"
     }
   },
@@ -789,6 +792,7 @@
       }
     }
   },
+  "required" : [ "LaunchTemplateData" ],
   "createOnlyProperties" : [ "/properties/LaunchTemplateName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/DefaultVersionNumber", "/properties/Id", "/properties/LatestVersionNumber" ]

@@ -25,6 +25,9 @@
       "items" : {
         "type" : "string"
       }
+    },
+    "ContributorInsightsEnabled" : {
+      "type" : "boolean"
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],

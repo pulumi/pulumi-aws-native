@@ -16,6 +16,7 @@ AWS::ApiGateway::Authorizer
 AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::Deployment
+AWS::ApiGateway::DocumentationPart
 AWS::ApiGateway::DocumentationVersion
 AWS::ApiGateway::DomainName
 AWS::ApiGateway::Method
@@ -37,7 +38,9 @@ AWS::AppStream::AppBlock
 AWS::AppStream::Application
 AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
+AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::ApplicationInsights::Application
@@ -48,6 +51,7 @@ AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
 AWS::AutoScaling::LaunchConfiguration
 AWS::AutoScaling::LifecycleHook
+AWS::AutoScaling::ScalingPolicy
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
@@ -83,6 +87,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -100,6 +105,7 @@ AWS::Config::StoredQuery
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
+AWS::Connect::Instance
 AWS::Connect::PhoneNumber
 AWS::Connect::QuickConnect
 AWS::Connect::TaskTemplate
@@ -118,6 +124,7 @@ AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
+AWS::DataSync::LocationFSxONTAP
 AWS::DataSync::LocationFSxOpenZFS
 AWS::DataSync::LocationFSxWindows
 AWS::DataSync::LocationHDFS
@@ -137,6 +144,8 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
+AWS::DynamoDB::Table
+AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::CustomerGateway
@@ -208,6 +217,7 @@ AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
+AWS::ElasticBeanstalk::Application
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::EventSchemas::RegistryPolicy
@@ -219,6 +229,7 @@ AWS::Evidently::Experiment
 AWS::Evidently::Feature
 AWS::Evidently::Launch
 AWS::Evidently::Project
+AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
@@ -269,6 +280,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
@@ -277,6 +289,7 @@ AWS::IoT::FleetMetric
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
 AWS::IoT::MitigationAction
+AWS::IoT::Policy
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ResourceSpecificLogging
 AWS::IoT::RoleAlias
@@ -325,6 +338,10 @@ AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
+AWS::LakeFormation::DataCellsFilter
+AWS::LakeFormation::PrincipalPermissions
+AWS::LakeFormation::Tag
+AWS::LakeFormation::TagAssociation
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
@@ -352,14 +369,17 @@ AWS::Location::RouteCalculator
 AWS::Location::Tracker
 AWS::Location::TrackerConsumer
 AWS::Logs::LogGroup
+AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy
+AWS::Logs::SubscriptionFilter
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
 AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
 AWS::MSK::Configuration
+AWS::MSK::ServerlessCluster
 AWS::MWAA::Environment
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
@@ -384,13 +404,18 @@ AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
 AWS::NetworkFirewall::RuleGroup
+AWS::NetworkManager::ConnectAttachment
+AWS::NetworkManager::ConnectPeer
+AWS::NetworkManager::CoreNetwork
 AWS::NetworkManager::CustomerGatewayAssociation
 AWS::NetworkManager::Device
 AWS::NetworkManager::GlobalNetwork
 AWS::NetworkManager::Link
 AWS::NetworkManager::LinkAssociation
 AWS::NetworkManager::Site
+AWS::NetworkManager::SiteToSiteVpnAttachment
 AWS::NetworkManager::TransitGatewayRegistration
+AWS::NetworkManager::VpcAttachment
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
@@ -412,14 +437,16 @@ AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
+AWS::RDS::DBCluster
 AWS::RDS::DBClusterParameterGroup
-AWS::RDS::DBParameterGroup
+AWS::RDS::DBInstance
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
 AWS::RDS::DBSubnetGroup
 AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
+AWS::RDS::OptionGroup
 AWS::RUM::AppMonitor
 AWS::Redshift::Cluster
 AWS::Redshift::EndpointAccess
@@ -427,6 +454,7 @@ AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::ScheduledAction
 AWS::RedshiftServerless::Namespace
+AWS::RedshiftServerless::Workgroup
 AWS::RefactorSpaces::Application
 AWS::RefactorSpaces::Environment
 AWS::RefactorSpaces::Route
@@ -443,6 +471,9 @@ AWS::RoboMaker::RobotApplication
 AWS::RoboMaker::RobotApplicationVersion
 AWS::RoboMaker::SimulationApplication
 AWS::RoboMaker::SimulationApplicationVersion
+AWS::RolesAnywhere::CRL
+AWS::RolesAnywhere::Profile
+AWS::RolesAnywhere::TrustAnchor
 AWS::Route53::CidrCollection
 AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
@@ -479,7 +510,10 @@ AWS::S3Outposts::Endpoint
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
+AWS::SES::DedicatedIpPool
+AWS::SES::EmailIdentity
 AWS::SES::Template
+AWS::SNS::Topic
 AWS::SQS::Queue
 AWS::SSM::Association
 AWS::SSM::Document
@@ -520,7 +554,10 @@ AWS::Signer::ProfilePermission
 AWS::Signer::SigningProfile
 AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
+AWS::SupportApp::AccountAlias
+AWS::SupportApp::SlackChannelConfiguration
 AWS::Synthetics::Canary
+AWS::Synthetics::Group
 AWS::Timestream::Database
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table

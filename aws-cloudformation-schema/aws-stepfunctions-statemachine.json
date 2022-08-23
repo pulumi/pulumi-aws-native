@@ -91,7 +91,13 @@
       "additionalProperties" : false,
       "patternProperties" : {
         ".*" : {
-          "type" : "string"
+          "oneOf" : [ {
+            "type" : "string"
+          }, {
+            "type" : "integer"
+          }, {
+            "type" : "boolean"
+          } ]
         }
       },
       "minProperties" : 1
