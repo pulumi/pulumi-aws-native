@@ -23,6 +23,11 @@ __all__ = [
     'ConfigurationSetTrackingOptions',
     'ContactListTag',
     'ContactListTopic',
+    'EmailIdentityConfigurationSetAttributes',
+    'EmailIdentityDkimAttributes',
+    'EmailIdentityDkimSigningAttributes',
+    'EmailIdentityFeedbackAttributes',
+    'EmailIdentityMailFromAttributes',
     'ReceiptFilterFilter',
     'ReceiptFilterIpFilter',
     'ReceiptRuleAction',
@@ -626,6 +631,248 @@ class ContactListTopic(dict):
         The description of the topic.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class EmailIdentityConfigurationSetAttributes(dict):
+    """
+    Used to associate a configuration set with an email identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationSetName":
+            suggest = "configuration_set_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailIdentityConfigurationSetAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailIdentityConfigurationSetAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailIdentityConfigurationSetAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_set_name: Optional[str] = None):
+        """
+        Used to associate a configuration set with an email identity.
+        :param str configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
+        if configuration_set_name is not None:
+            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+
+    @property
+    @pulumi.getter(name="configurationSetName")
+    def configuration_set_name(self) -> Optional[str]:
+        """
+        The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
+        return pulumi.get(self, "configuration_set_name")
+
+
+@pulumi.output_type
+class EmailIdentityDkimAttributes(dict):
+    """
+    Used to enable or disable DKIM authentication for an email identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingEnabled":
+            suggest = "signing_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailIdentityDkimAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailIdentityDkimAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailIdentityDkimAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 signing_enabled: Optional[bool] = None):
+        """
+        Used to enable or disable DKIM authentication for an email identity.
+        :param bool signing_enabled: Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+        """
+        if signing_enabled is not None:
+            pulumi.set(__self__, "signing_enabled", signing_enabled)
+
+    @property
+    @pulumi.getter(name="signingEnabled")
+    def signing_enabled(self) -> Optional[bool]:
+        """
+        Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+        """
+        return pulumi.get(self, "signing_enabled")
+
+
+@pulumi.output_type
+class EmailIdentityDkimSigningAttributes(dict):
+    """
+    If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainSigningPrivateKey":
+            suggest = "domain_signing_private_key"
+        elif key == "domainSigningSelector":
+            suggest = "domain_signing_selector"
+        elif key == "nextSigningKeyLength":
+            suggest = "next_signing_key_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailIdentityDkimSigningAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailIdentityDkimSigningAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailIdentityDkimSigningAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_signing_private_key: Optional[str] = None,
+                 domain_signing_selector: Optional[str] = None,
+                 next_signing_key_length: Optional[str] = None):
+        """
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+        :param str domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        :param str domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        :param str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+        """
+        if domain_signing_private_key is not None:
+            pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+        if domain_signing_selector is not None:
+            pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+        if next_signing_key_length is not None:
+            pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+
+    @property
+    @pulumi.getter(name="domainSigningPrivateKey")
+    def domain_signing_private_key(self) -> Optional[str]:
+        """
+        [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        """
+        return pulumi.get(self, "domain_signing_private_key")
+
+    @property
+    @pulumi.getter(name="domainSigningSelector")
+    def domain_signing_selector(self) -> Optional[str]:
+        """
+        [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        """
+        return pulumi.get(self, "domain_signing_selector")
+
+    @property
+    @pulumi.getter(name="nextSigningKeyLength")
+    def next_signing_key_length(self) -> Optional[str]:
+        """
+        [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+        """
+        return pulumi.get(self, "next_signing_key_length")
+
+
+@pulumi.output_type
+class EmailIdentityFeedbackAttributes(dict):
+    """
+    Used to enable or disable feedback forwarding for an identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailForwardingEnabled":
+            suggest = "email_forwarding_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailIdentityFeedbackAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailIdentityFeedbackAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailIdentityFeedbackAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_forwarding_enabled: Optional[bool] = None):
+        """
+        Used to enable or disable feedback forwarding for an identity.
+        :param bool email_forwarding_enabled: If the value is true, you receive email notifications when bounce or complaint events occur
+        """
+        if email_forwarding_enabled is not None:
+            pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
+
+    @property
+    @pulumi.getter(name="emailForwardingEnabled")
+    def email_forwarding_enabled(self) -> Optional[bool]:
+        """
+        If the value is true, you receive email notifications when bounce or complaint events occur
+        """
+        return pulumi.get(self, "email_forwarding_enabled")
+
+
+@pulumi.output_type
+class EmailIdentityMailFromAttributes(dict):
+    """
+    Used to enable or disable the custom Mail-From domain configuration for an email identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "behaviorOnMxFailure":
+            suggest = "behavior_on_mx_failure"
+        elif key == "mailFromDomain":
+            suggest = "mail_from_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailIdentityMailFromAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailIdentityMailFromAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailIdentityMailFromAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior_on_mx_failure: Optional[str] = None,
+                 mail_from_domain: Optional[str] = None):
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        :param str behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+        :param str mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use
+        """
+        if behavior_on_mx_failure is not None:
+            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+        if mail_from_domain is not None:
+            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+
+    @property
+    @pulumi.getter(name="behaviorOnMxFailure")
+    def behavior_on_mx_failure(self) -> Optional[str]:
+        """
+        The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+        """
+        return pulumi.get(self, "behavior_on_mx_failure")
+
+    @property
+    @pulumi.getter(name="mailFromDomain")
+    def mail_from_domain(self) -> Optional[str]:
+        """
+        The custom MAIL FROM domain that you want the verified identity to use
+        """
+        return pulumi.get(self, "mail_from_domain")
 
 
 @pulumi.output_type

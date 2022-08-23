@@ -41,6 +41,7 @@ export class EIP extends pulumi.CustomResource {
     public /*out*/ readonly allocationId!: pulumi.Output<string>;
     public readonly domain!: pulumi.Output<string | undefined>;
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    public readonly networkBorderGroup!: pulumi.Output<string | undefined>;
     public readonly publicIpv4Pool!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.EIPTag[] | undefined>;
 
@@ -59,6 +60,7 @@ export class EIP extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
@@ -66,6 +68,7 @@ export class EIP extends pulumi.CustomResource {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["networkBorderGroup"] = undefined /*out*/;
             resourceInputs["publicIpv4Pool"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -80,6 +83,7 @@ export class EIP extends pulumi.CustomResource {
 export interface EIPArgs {
     domain?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;
+    networkBorderGroup?: pulumi.Input<string>;
     publicIpv4Pool?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.EIPTagArgs>[]>;
 }

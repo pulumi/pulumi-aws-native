@@ -8,11 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'Namespace',
     'NamespaceTag',
+    'Workgroup',
+    'WorkgroupConfigParameter',
+    'WorkgroupEndpoint',
+    'WorkgroupNetworkInterface',
+    'WorkgroupTag',
+    'WorkgroupVpcEndpoint',
 ]
 
 @pulumi.output_type
@@ -160,5 +167,366 @@ class NamespaceTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Workgroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseCapacity":
+            suggest = "base_capacity"
+        elif key == "configParameters":
+            suggest = "config_parameters"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "enhancedVpcRouting":
+            suggest = "enhanced_vpc_routing"
+        elif key == "namespaceName":
+            suggest = "namespace_name"
+        elif key == "publiclyAccessible":
+            suggest = "publicly_accessible"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "workgroupArn":
+            suggest = "workgroup_arn"
+        elif key == "workgroupId":
+            suggest = "workgroup_id"
+        elif key == "workgroupName":
+            suggest = "workgroup_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Workgroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Workgroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Workgroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_capacity: Optional[int] = None,
+                 config_parameters: Optional[Sequence['outputs.WorkgroupConfigParameter']] = None,
+                 creation_date: Optional[str] = None,
+                 endpoint: Optional['outputs.WorkgroupEndpoint'] = None,
+                 enhanced_vpc_routing: Optional[bool] = None,
+                 namespace_name: Optional[str] = None,
+                 publicly_accessible: Optional[bool] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 status: Optional['WorkgroupStatus'] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 workgroup_arn: Optional[str] = None,
+                 workgroup_id: Optional[str] = None,
+                 workgroup_name: Optional[str] = None):
+        if base_capacity is not None:
+            pulumi.set(__self__, "base_capacity", base_capacity)
+        if config_parameters is not None:
+            pulumi.set(__self__, "config_parameters", config_parameters)
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if enhanced_vpc_routing is not None:
+            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if workgroup_arn is not None:
+            pulumi.set(__self__, "workgroup_arn", workgroup_arn)
+        if workgroup_id is not None:
+            pulumi.set(__self__, "workgroup_id", workgroup_id)
+        if workgroup_name is not None:
+            pulumi.set(__self__, "workgroup_name", workgroup_name)
+
+    @property
+    @pulumi.getter(name="baseCapacity")
+    def base_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "base_capacity")
+
+    @property
+    @pulumi.getter(name="configParameters")
+    def config_parameters(self) -> Optional[Sequence['outputs.WorkgroupConfigParameter']]:
+        return pulumi.get(self, "config_parameters")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[str]:
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional['outputs.WorkgroupEndpoint']:
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="enhancedVpcRouting")
+    def enhanced_vpc_routing(self) -> Optional[bool]:
+        return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[str]:
+        return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[bool]:
+        return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['WorkgroupStatus']:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="workgroupArn")
+    def workgroup_arn(self) -> Optional[str]:
+        return pulumi.get(self, "workgroup_arn")
+
+    @property
+    @pulumi.getter(name="workgroupId")
+    def workgroup_id(self) -> Optional[str]:
+        return pulumi.get(self, "workgroup_id")
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> Optional[str]:
+        return pulumi.get(self, "workgroup_name")
+
+
+@pulumi.output_type
+class WorkgroupConfigParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterKey":
+            suggest = "parameter_key"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_key: Optional[str] = None,
+                 parameter_value: Optional[str] = None):
+        if parameter_key is not None:
+            pulumi.set(__self__, "parameter_key", parameter_key)
+        if parameter_value is not None:
+            pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterKey")
+    def parameter_key(self) -> Optional[str]:
+        return pulumi.get(self, "parameter_key")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> Optional[str]:
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class WorkgroupEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpoints":
+            suggest = "vpc_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 port: Optional[int] = None,
+                 vpc_endpoints: Optional[Sequence['outputs.WorkgroupVpcEndpoint']] = None):
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if vpc_endpoints is not None:
+            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="vpcEndpoints")
+    def vpc_endpoints(self) -> Optional[Sequence['outputs.WorkgroupVpcEndpoint']]:
+        return pulumi.get(self, "vpc_endpoints")
+
+
+@pulumi.output_type
+class WorkgroupNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class WorkgroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkgroupVpcEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupVpcEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupVpcEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupVpcEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interfaces: Optional[Sequence['outputs.WorkgroupNetworkInterface']] = None,
+                 vpc_endpoint_id: Optional[str] = None,
+                 vpc_id: Optional[str] = None):
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.WorkgroupNetworkInterface']]:
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_id")
 
 

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFilterResult:
-    def __init__(__self__, action=None, description=None, finding_criteria=None, id=None, rank=None):
+    def __init__(__self__, action=None, description=None, finding_criteria=None, id=None, rank=None, tags=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -35,6 +35,9 @@ class GetFilterResult:
         if rank and not isinstance(rank, int):
             raise TypeError("Expected argument 'rank' to be a int")
         pulumi.set(__self__, "rank", rank)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -61,6 +64,11 @@ class GetFilterResult:
     def rank(self) -> Optional[int]:
         return pulumi.get(self, "rank")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FilterTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFilterResult(GetFilterResult):
     # pylint: disable=using-constant-test
@@ -72,7 +80,8 @@ class AwaitableGetFilterResult(GetFilterResult):
             description=self.description,
             finding_criteria=self.finding_criteria,
             id=self.id,
-            rank=self.rank)
+            rank=self.rank,
+            tags=self.tags)
 
 
 def get_filter(id: Optional[str] = None,
@@ -90,7 +99,8 @@ def get_filter(id: Optional[str] = None,
         description=__ret__.description,
         finding_criteria=__ret__.finding_criteria,
         id=__ret__.id,
-        rank=__ret__.rank)
+        rank=__ret__.rank,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_filter)

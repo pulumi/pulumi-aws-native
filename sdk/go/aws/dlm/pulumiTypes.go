@@ -1551,8 +1551,9 @@ func (o LifecyclePolicyFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtr
 }
 
 type LifecyclePolicyParameters struct {
-	ExcludeBootVolume *bool `pulumi:"excludeBootVolume"`
-	NoReboot          *bool `pulumi:"noReboot"`
+	ExcludeBootVolume     *bool                `pulumi:"excludeBootVolume"`
+	ExcludeDataVolumeTags []LifecyclePolicyTag `pulumi:"excludeDataVolumeTags"`
+	NoReboot              *bool                `pulumi:"noReboot"`
 }
 
 // LifecyclePolicyParametersInput is an input type that accepts LifecyclePolicyParametersArgs and LifecyclePolicyParametersOutput values.
@@ -1567,8 +1568,9 @@ type LifecyclePolicyParametersInput interface {
 }
 
 type LifecyclePolicyParametersArgs struct {
-	ExcludeBootVolume pulumi.BoolPtrInput `pulumi:"excludeBootVolume"`
-	NoReboot          pulumi.BoolPtrInput `pulumi:"noReboot"`
+	ExcludeBootVolume     pulumi.BoolPtrInput          `pulumi:"excludeBootVolume"`
+	ExcludeDataVolumeTags LifecyclePolicyTagArrayInput `pulumi:"excludeDataVolumeTags"`
+	NoReboot              pulumi.BoolPtrInput          `pulumi:"noReboot"`
 }
 
 func (LifecyclePolicyParametersArgs) ElementType() reflect.Type {
@@ -1652,6 +1654,10 @@ func (o LifecyclePolicyParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v LifecyclePolicyParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
 }
 
+func (o LifecyclePolicyParametersOutput) ExcludeDataVolumeTags() LifecyclePolicyTagArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyParameters) []LifecyclePolicyTag { return v.ExcludeDataVolumeTags }).(LifecyclePolicyTagArrayOutput)
+}
+
 func (o LifecyclePolicyParametersOutput) NoReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyParameters) *bool { return v.NoReboot }).(pulumi.BoolPtrOutput)
 }
@@ -1687,6 +1693,15 @@ func (o LifecyclePolicyParametersPtrOutput) ExcludeBootVolume() pulumi.BoolPtrOu
 		}
 		return v.ExcludeBootVolume
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyParametersPtrOutput) ExcludeDataVolumeTags() LifecyclePolicyTagArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyParameters) []LifecyclePolicyTag {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeDataVolumeTags
+	}).(LifecyclePolicyTagArrayOutput)
 }
 
 func (o LifecyclePolicyParametersPtrOutput) NoReboot() pulumi.BoolPtrOutput {

@@ -60,10 +60,12 @@ import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kinesisfirehose from "./kinesisfirehose";
 import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
+import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as lex from "./lex";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
+import * as logs from "./logs";
 import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as macie from "./macie";
@@ -86,6 +88,7 @@ import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
+import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
@@ -101,6 +104,7 @@ import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as supportapp from "./supportapp";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as wafv2 from "./wafv2";
@@ -166,10 +170,12 @@ export {
     kinesisfirehose,
     kinesisvideo,
     kms,
+    lakeformation,
     lambda,
     lex,
     lightsail,
     location,
+    logs,
     lookoutequipment,
     lookoutmetrics,
     macie,
@@ -192,6 +198,7 @@ export {
     resiliencehub,
     resourcegroups,
     robomaker,
+    rolesanywhere,
     route53,
     route53recoverycontrol,
     route53resolver,
@@ -207,6 +214,7 @@ export {
     ssmincidents,
     sso,
     stepfunctions,
+    supportapp,
     timestream,
     transfer,
     wafv2,

@@ -25,7 +25,6 @@ type LookupServiceActionArgs struct {
 }
 
 type LookupServiceActionResult struct {
-	AcceptLanguage *ServiceActionAcceptLanguage       `pulumi:"acceptLanguage"`
 	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
 	DefinitionType *ServiceActionDefinitionType       `pulumi:"definitionType"`
 	Description    *string                            `pulumi:"description"`
@@ -66,10 +65,6 @@ func (o LookupServiceActionResultOutput) ToLookupServiceActionResultOutput() Loo
 
 func (o LookupServiceActionResultOutput) ToLookupServiceActionResultOutputWithContext(ctx context.Context) LookupServiceActionResultOutput {
 	return o
-}
-
-func (o LookupServiceActionResultOutput) AcceptLanguage() ServiceActionAcceptLanguagePtrOutput {
-	return o.ApplyT(func(v LookupServiceActionResult) *ServiceActionAcceptLanguage { return v.AcceptLanguage }).(ServiceActionAcceptLanguagePtrOutput)
 }
 
 func (o LookupServiceActionResultOutput) Definition() ServiceActionDefinitionParameterArrayOutput {

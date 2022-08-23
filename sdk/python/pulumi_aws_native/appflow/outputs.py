@@ -13,9 +13,15 @@ from ._enums import *
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentials',
+    'ConnectorProfileApiKeyCredentials',
+    'ConnectorProfileBasicAuthCredentials',
     'ConnectorProfileConfig',
     'ConnectorProfileConnectorOAuthRequest',
     'ConnectorProfileCredentials',
+    'ConnectorProfileCredentialsMap',
+    'ConnectorProfileCustomAuthCredentials',
+    'ConnectorProfileCustomConnectorProfileCredentials',
+    'ConnectorProfileCustomConnectorProfileProperties',
     'ConnectorProfileDatadogConnectorProfileCredentials',
     'ConnectorProfileDatadogConnectorProfileProperties',
     'ConnectorProfileDynatraceConnectorProfileCredentials',
@@ -25,12 +31,14 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfileProperties',
     'ConnectorProfileMarketoConnectorProfileCredentials',
     'ConnectorProfileMarketoConnectorProfileProperties',
+    'ConnectorProfileOAuth2Credentials',
+    'ConnectorProfileOAuth2Properties',
     'ConnectorProfileOAuthProperties',
+    'ConnectorProfileProfileProperties',
     'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
     'ConnectorProfileSAPODataConnectorProfileCredentials',
-    'ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties',
     'ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties',
     'ConnectorProfileSAPODataConnectorProfileProperties',
     'ConnectorProfileSalesforceConnectorProfileCredentials',
@@ -42,6 +50,7 @@ __all__ = [
     'ConnectorProfileSlackConnectorProfileProperties',
     'ConnectorProfileSnowflakeConnectorProfileCredentials',
     'ConnectorProfileSnowflakeConnectorProfileProperties',
+    'ConnectorProfileTokenUrlCustomProperties',
     'ConnectorProfileTrendmicroConnectorProfileCredentials',
     'ConnectorProfileVeevaConnectorProfileCredentials',
     'ConnectorProfileVeevaConnectorProfileProperties',
@@ -50,6 +59,9 @@ __all__ = [
     'FlowAggregationConfig',
     'FlowAmplitudeSourceProperties',
     'FlowConnectorOperator',
+    'FlowCustomConnectorDestinationProperties',
+    'FlowCustomConnectorSourceProperties',
+    'FlowCustomProperties',
     'FlowDatadogSourceProperties',
     'FlowDestinationConnectorProperties',
     'FlowDestinationFlowConfig',
@@ -134,6 +146,64 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> str:
         return pulumi.get(self, "secret_key")
+
+
+@pulumi.output_type
+class ConnectorProfileApiKeyCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecretKey":
+            suggest = "api_secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileApiKeyCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileApiKeyCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileApiKeyCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: str,
+                 api_secret_key: Optional[str] = None):
+        pulumi.set(__self__, "api_key", api_key)
+        if api_secret_key is not None:
+            pulumi.set(__self__, "api_secret_key", api_secret_key)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> str:
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecretKey")
+    def api_secret_key(self) -> Optional[str]:
+        return pulumi.get(self, "api_secret_key")
+
+
+@pulumi.output_type
+class ConnectorProfileBasicAuthCredentials(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -241,7 +311,9 @@ class ConnectorProfileCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "googleAnalytics":
+        if key == "customConnector":
+            suggest = "custom_connector"
+        elif key == "googleAnalytics":
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
@@ -263,6 +335,7 @@ class ConnectorProfileCredentials(dict):
 
     def __init__(__self__, *,
                  amplitude: Optional['outputs.ConnectorProfileAmplitudeConnectorProfileCredentials'] = None,
+                 custom_connector: Optional['outputs.ConnectorProfileCustomConnectorProfileCredentials'] = None,
                  datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileCredentials'] = None,
                  dynatrace: Optional['outputs.ConnectorProfileDynatraceConnectorProfileCredentials'] = None,
                  google_analytics: Optional['outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials'] = None,
@@ -283,6 +356,8 @@ class ConnectorProfileCredentials(dict):
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
+        if custom_connector is not None:
+            pulumi.set(__self__, "custom_connector", custom_connector)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
         if dynatrace is not None:
@@ -318,6 +393,11 @@ class ConnectorProfileCredentials(dict):
     @pulumi.getter
     def amplitude(self) -> Optional['outputs.ConnectorProfileAmplitudeConnectorProfileCredentials']:
         return pulumi.get(self, "amplitude")
+
+    @property
+    @pulumi.getter(name="customConnector")
+    def custom_connector(self) -> Optional['outputs.ConnectorProfileCustomConnectorProfileCredentials']:
+        return pulumi.get(self, "custom_connector")
 
     @property
     @pulumi.getter
@@ -393,6 +473,160 @@ class ConnectorProfileCredentials(dict):
     @pulumi.getter
     def zendesk(self) -> Optional['outputs.ConnectorProfileZendeskConnectorProfileCredentials']:
         return pulumi.get(self, "zendesk")
+
+
+@pulumi.output_type
+class ConnectorProfileCredentialsMap(dict):
+    """
+    A map for properties for custom authentication.
+    """
+    def __init__(__self__):
+        """
+        A map for properties for custom authentication.
+        """
+        pass
+
+
+@pulumi.output_type
+class ConnectorProfileCustomAuthCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customAuthenticationType":
+            suggest = "custom_authentication_type"
+        elif key == "credentialsMap":
+            suggest = "credentials_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileCustomAuthCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileCustomAuthCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileCustomAuthCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_authentication_type: str,
+                 credentials_map: Optional['outputs.ConnectorProfileCredentialsMap'] = None):
+        pulumi.set(__self__, "custom_authentication_type", custom_authentication_type)
+        if credentials_map is not None:
+            pulumi.set(__self__, "credentials_map", credentials_map)
+
+    @property
+    @pulumi.getter(name="customAuthenticationType")
+    def custom_authentication_type(self) -> str:
+        return pulumi.get(self, "custom_authentication_type")
+
+    @property
+    @pulumi.getter(name="credentialsMap")
+    def credentials_map(self) -> Optional['outputs.ConnectorProfileCredentialsMap']:
+        return pulumi.get(self, "credentials_map")
+
+
+@pulumi.output_type
+class ConnectorProfileCustomConnectorProfileCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileCustomConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileCustomConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileCustomConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: 'ConnectorProfileAuthenticationType',
+                 api_key: Optional['outputs.ConnectorProfileApiKeyCredentials'] = None,
+                 basic: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
+                 custom: Optional['outputs.ConnectorProfileCustomAuthCredentials'] = None,
+                 oauth2: Optional['outputs.ConnectorProfileOAuth2Credentials'] = None):
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if basic is not None:
+            pulumi.set(__self__, "basic", basic)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if oauth2 is not None:
+            pulumi.set(__self__, "oauth2", oauth2)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> 'ConnectorProfileAuthenticationType':
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ConnectorProfileApiKeyCredentials']:
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter
+    def basic(self) -> Optional['outputs.ConnectorProfileBasicAuthCredentials']:
+        return pulumi.get(self, "basic")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.ConnectorProfileCustomAuthCredentials']:
+        return pulumi.get(self, "custom")
+
+    @property
+    @pulumi.getter
+    def oauth2(self) -> Optional['outputs.ConnectorProfileOAuth2Credentials']:
+        return pulumi.get(self, "oauth2")
+
+
+@pulumi.output_type
+class ConnectorProfileCustomConnectorProfileProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuth2Properties":
+            suggest = "o_auth2_properties"
+        elif key == "profileProperties":
+            suggest = "profile_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileCustomConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileCustomConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileCustomConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth2_properties: Optional['outputs.ConnectorProfileOAuth2Properties'] = None,
+                 profile_properties: Optional['outputs.ConnectorProfileProfileProperties'] = None):
+        if o_auth2_properties is not None:
+            pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
+        if profile_properties is not None:
+            pulumi.set(__self__, "profile_properties", profile_properties)
+
+    @property
+    @pulumi.getter(name="oAuth2Properties")
+    def o_auth2_properties(self) -> Optional['outputs.ConnectorProfileOAuth2Properties']:
+        return pulumi.get(self, "o_auth2_properties")
+
+    @property
+    @pulumi.getter(name="profileProperties")
+    def profile_properties(self) -> Optional['outputs.ConnectorProfileProfileProperties']:
+        return pulumi.get(self, "profile_properties")
 
 
 @pulumi.output_type
@@ -857,6 +1091,126 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
+class ConnectorProfileOAuth2Credentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oAuthRequest":
+            suggest = "o_auth_request"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileOAuth2Credentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileOAuth2Credentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileOAuth2Credentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
+                 refresh_token: Optional[str] = None):
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if o_auth_request is not None:
+            pulumi.set(__self__, "o_auth_request", o_auth_request)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="oAuthRequest")
+    def o_auth_request(self) -> Optional['outputs.ConnectorProfileConnectorOAuthRequest']:
+        return pulumi.get(self, "o_auth_request")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class ConnectorProfileOAuth2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuth2GrantType":
+            suggest = "o_auth2_grant_type"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+        elif key == "tokenUrlCustomProperties":
+            suggest = "token_url_custom_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileOAuth2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileOAuth2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileOAuth2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth2_grant_type: Optional['ConnectorProfileOAuth2GrantType'] = None,
+                 token_url: Optional[str] = None,
+                 token_url_custom_properties: Optional['outputs.ConnectorProfileTokenUrlCustomProperties'] = None):
+        if o_auth2_grant_type is not None:
+            pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_custom_properties is not None:
+            pulumi.set(__self__, "token_url_custom_properties", token_url_custom_properties)
+
+    @property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> Optional['ConnectorProfileOAuth2GrantType']:
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[str]:
+        return pulumi.get(self, "token_url")
+
+    @property
+    @pulumi.getter(name="tokenUrlCustomProperties")
+    def token_url_custom_properties(self) -> Optional['outputs.ConnectorProfileTokenUrlCustomProperties']:
+        return pulumi.get(self, "token_url_custom_properties")
+
+
+@pulumi.output_type
 class ConnectorProfileOAuthProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -907,6 +1261,18 @@ class ConnectorProfileOAuthProperties(dict):
 
 
 @pulumi.output_type
+class ConnectorProfileProfileProperties(dict):
+    """
+    A map for properties for custom connector.
+    """
+    def __init__(__self__):
+        """
+        A map for properties for custom connector.
+        """
+        pass
+
+
+@pulumi.output_type
 class ConnectorProfileProperties(dict):
     """
     Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
@@ -914,7 +1280,9 @@ class ConnectorProfileProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "inforNexus":
+        if key == "customConnector":
+            suggest = "custom_connector"
+        elif key == "inforNexus":
             suggest = "infor_nexus"
         elif key == "sAPOData":
             suggest = "s_apo_data"
@@ -933,6 +1301,7 @@ class ConnectorProfileProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_connector: Optional['outputs.ConnectorProfileCustomConnectorProfileProperties'] = None,
                  datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties'] = None,
                  dynatrace: Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties'] = None,
                  infor_nexus: Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties'] = None,
@@ -948,6 +1317,8 @@ class ConnectorProfileProperties(dict):
         """
         Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
         """
+        if custom_connector is not None:
+            pulumi.set(__self__, "custom_connector", custom_connector)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
         if dynatrace is not None:
@@ -972,6 +1343,11 @@ class ConnectorProfileProperties(dict):
             pulumi.set(__self__, "veeva", veeva)
         if zendesk is not None:
             pulumi.set(__self__, "zendesk", zendesk)
+
+    @property
+    @pulumi.getter(name="customConnector")
+    def custom_connector(self) -> Optional['outputs.ConnectorProfileCustomConnectorProfileProperties']:
+        return pulumi.get(self, "custom_connector")
 
     @property
     @pulumi.getter
@@ -1160,7 +1536,7 @@ class ConnectorProfileSAPODataConnectorProfileCredentials(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 basic_auth_credentials: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties'] = None,
+                 basic_auth_credentials: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
                  o_auth_credentials: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties'] = None):
         if basic_auth_credentials is not None:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
@@ -1169,44 +1545,13 @@ class ConnectorProfileSAPODataConnectorProfileCredentials(dict):
 
     @property
     @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties']:
+    def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileBasicAuthCredentials']:
         return pulumi.get(self, "basic_auth_credentials")
 
     @property
     @pulumi.getter(name="oAuthCredentials")
     def o_auth_credentials(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties']:
         return pulumi.get(self, "o_auth_credentials")
-
-
-@pulumi.output_type
-class ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties(dict):
-    def __init__(__self__, *,
-                 password: Optional[str] = None,
-                 username: Optional[str] = None):
-        """
-        :param str password: The password that corresponds to the username.
-        :param str username: The name of the user.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The password that corresponds to the username.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        """
-        The name of the user.
-        """
-        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -1846,6 +2191,18 @@ class ConnectorProfileSnowflakeConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
+class ConnectorProfileTokenUrlCustomProperties(dict):
+    """
+    A map for properties for custom connector Token Url.
+    """
+    def __init__(__self__):
+        """
+        A map for properties for custom connector Token Url.
+        """
+        pass
+
+
+@pulumi.output_type
 class ConnectorProfileTrendmicroConnectorProfileCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2105,7 +2462,9 @@ class FlowConnectorOperator(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "googleAnalytics":
+        if key == "customConnector":
+            suggest = "custom_connector"
+        elif key == "googleAnalytics":
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
@@ -2127,6 +2486,7 @@ class FlowConnectorOperator(dict):
 
     def __init__(__self__, *,
                  amplitude: Optional['FlowAmplitudeConnectorOperator'] = None,
+                 custom_connector: Optional['FlowOperator'] = None,
                  datadog: Optional['FlowDatadogConnectorOperator'] = None,
                  dynatrace: Optional['FlowDynatraceConnectorOperator'] = None,
                  google_analytics: Optional['FlowGoogleAnalyticsConnectorOperator'] = None,
@@ -2146,6 +2506,8 @@ class FlowConnectorOperator(dict):
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
+        if custom_connector is not None:
+            pulumi.set(__self__, "custom_connector", custom_connector)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
         if dynatrace is not None:
@@ -2179,6 +2541,11 @@ class FlowConnectorOperator(dict):
     @pulumi.getter
     def amplitude(self) -> Optional['FlowAmplitudeConnectorOperator']:
         return pulumi.get(self, "amplitude")
+
+    @property
+    @pulumi.getter(name="customConnector")
+    def custom_connector(self) -> Optional['FlowOperator']:
+        return pulumi.get(self, "custom_connector")
 
     @property
     @pulumi.getter
@@ -2252,6 +2619,132 @@ class FlowConnectorOperator(dict):
 
 
 @pulumi.output_type
+class FlowCustomConnectorDestinationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityName":
+            suggest = "entity_name"
+        elif key == "customProperties":
+            suggest = "custom_properties"
+        elif key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+        elif key == "idFieldNames":
+            suggest = "id_field_names"
+        elif key == "writeOperationType":
+            suggest = "write_operation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowCustomConnectorDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowCustomConnectorDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowCustomConnectorDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_name: str,
+                 custom_properties: Optional['outputs.FlowCustomProperties'] = None,
+                 error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
+                 id_field_names: Optional[Sequence[str]] = None,
+                 write_operation_type: Optional['FlowWriteOperationType'] = None):
+        """
+        :param Sequence[str] id_field_names: List of fields used as ID when performing a write operation.
+        """
+        pulumi.set(__self__, "entity_name", entity_name)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if error_handling_config is not None:
+            pulumi.set(__self__, "error_handling_config", error_handling_config)
+        if id_field_names is not None:
+            pulumi.set(__self__, "id_field_names", id_field_names)
+        if write_operation_type is not None:
+            pulumi.set(__self__, "write_operation_type", write_operation_type)
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> str:
+        return pulumi.get(self, "entity_name")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional['outputs.FlowCustomProperties']:
+        return pulumi.get(self, "custom_properties")
+
+    @property
+    @pulumi.getter(name="errorHandlingConfig")
+    def error_handling_config(self) -> Optional['outputs.FlowErrorHandlingConfig']:
+        return pulumi.get(self, "error_handling_config")
+
+    @property
+    @pulumi.getter(name="idFieldNames")
+    def id_field_names(self) -> Optional[Sequence[str]]:
+        """
+        List of fields used as ID when performing a write operation.
+        """
+        return pulumi.get(self, "id_field_names")
+
+    @property
+    @pulumi.getter(name="writeOperationType")
+    def write_operation_type(self) -> Optional['FlowWriteOperationType']:
+        return pulumi.get(self, "write_operation_type")
+
+
+@pulumi.output_type
+class FlowCustomConnectorSourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityName":
+            suggest = "entity_name"
+        elif key == "customProperties":
+            suggest = "custom_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowCustomConnectorSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowCustomConnectorSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowCustomConnectorSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_name: str,
+                 custom_properties: Optional['outputs.FlowCustomProperties'] = None):
+        pulumi.set(__self__, "entity_name", entity_name)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> str:
+        return pulumi.get(self, "entity_name")
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional['outputs.FlowCustomProperties']:
+        return pulumi.get(self, "custom_properties")
+
+
+@pulumi.output_type
+class FlowCustomProperties(dict):
+    """
+    A map for properties for custom connector.
+    """
+    def __init__(__self__):
+        """
+        A map for properties for custom connector.
+        """
+        pass
+
+
+@pulumi.output_type
 class FlowDatadogSourceProperties(dict):
     def __init__(__self__, *,
                  object: str):
@@ -2271,7 +2764,9 @@ class FlowDestinationConnectorProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eventBridge":
+        if key == "customConnector":
+            suggest = "custom_connector"
+        elif key == "eventBridge":
             suggest = "event_bridge"
         elif key == "lookoutMetrics":
             suggest = "lookout_metrics"
@@ -2290,6 +2785,7 @@ class FlowDestinationConnectorProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_connector: Optional['outputs.FlowCustomConnectorDestinationProperties'] = None,
                  event_bridge: Optional['outputs.FlowEventBridgeDestinationProperties'] = None,
                  lookout_metrics: Optional['outputs.FlowLookoutMetricsDestinationProperties'] = None,
                  marketo: Optional['outputs.FlowMarketoDestinationProperties'] = None,
@@ -2303,6 +2799,8 @@ class FlowDestinationConnectorProperties(dict):
         """
         Destination connector details
         """
+        if custom_connector is not None:
+            pulumi.set(__self__, "custom_connector", custom_connector)
         if event_bridge is not None:
             pulumi.set(__self__, "event_bridge", event_bridge)
         if lookout_metrics is not None:
@@ -2323,6 +2821,11 @@ class FlowDestinationConnectorProperties(dict):
             pulumi.set(__self__, "upsolver", upsolver)
         if zendesk is not None:
             pulumi.set(__self__, "zendesk", zendesk)
+
+    @property
+    @pulumi.getter(name="customConnector")
+    def custom_connector(self) -> Optional['outputs.FlowCustomConnectorDestinationProperties']:
+        return pulumi.get(self, "custom_connector")
 
     @property
     @pulumi.getter(name="eventBridge")
@@ -2387,6 +2890,8 @@ class FlowDestinationFlowConfig(dict):
             suggest = "connector_type"
         elif key == "destinationConnectorProperties":
             suggest = "destination_connector_properties"
+        elif key == "apiVersion":
+            suggest = "api_version"
         elif key == "connectorProfileName":
             suggest = "connector_profile_name"
 
@@ -2404,15 +2909,19 @@ class FlowDestinationFlowConfig(dict):
     def __init__(__self__, *,
                  connector_type: 'FlowConnectorType',
                  destination_connector_properties: 'outputs.FlowDestinationConnectorProperties',
+                 api_version: Optional[str] = None,
                  connector_profile_name: Optional[str] = None):
         """
         Configurations of destination connector.
         :param 'FlowConnectorType' connector_type: Destination connector type
         :param 'FlowDestinationConnectorProperties' destination_connector_properties: Destination connector details
+        :param str api_version: The API version that the destination connector uses.
         :param str connector_profile_name: Name of destination connector profile
         """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "destination_connector_properties", destination_connector_properties)
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
         if connector_profile_name is not None:
             pulumi.set(__self__, "connector_profile_name", connector_profile_name)
 
@@ -2431,6 +2940,14 @@ class FlowDestinationFlowConfig(dict):
         Destination connector details
         """
         return pulumi.get(self, "destination_connector_properties")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[str]:
+        """
+        The API version that the destination connector uses.
+        """
+        return pulumi.get(self, "api_version")
 
     @property
     @pulumi.getter(name="connectorProfileName")
@@ -2848,6 +3365,8 @@ class FlowS3OutputFormatConfig(dict):
             suggest = "file_type"
         elif key == "prefixConfig":
             suggest = "prefix_config"
+        elif key == "preserveSourceDataTyping":
+            suggest = "preserve_source_data_typing"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowS3OutputFormatConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2863,13 +3382,16 @@ class FlowS3OutputFormatConfig(dict):
     def __init__(__self__, *,
                  aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
                  file_type: Optional['FlowFileType'] = None,
-                 prefix_config: Optional['outputs.FlowPrefixConfig'] = None):
+                 prefix_config: Optional['outputs.FlowPrefixConfig'] = None,
+                 preserve_source_data_typing: Optional[bool] = None):
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
         if file_type is not None:
             pulumi.set(__self__, "file_type", file_type)
         if prefix_config is not None:
             pulumi.set(__self__, "prefix_config", prefix_config)
+        if preserve_source_data_typing is not None:
+            pulumi.set(__self__, "preserve_source_data_typing", preserve_source_data_typing)
 
     @property
     @pulumi.getter(name="aggregationConfig")
@@ -2885,6 +3407,11 @@ class FlowS3OutputFormatConfig(dict):
     @pulumi.getter(name="prefixConfig")
     def prefix_config(self) -> Optional['outputs.FlowPrefixConfig']:
         return pulumi.get(self, "prefix_config")
+
+    @property
+    @pulumi.getter(name="preserveSourceDataTyping")
+    def preserve_source_data_typing(self) -> Optional[bool]:
+        return pulumi.get(self, "preserve_source_data_typing")
 
 
 @pulumi.output_type
@@ -3161,6 +3688,10 @@ class FlowScheduledTriggerProperties(dict):
             suggest = "schedule_expression"
         elif key == "dataPullMode":
             suggest = "data_pull_mode"
+        elif key == "firstExecutionFrom":
+            suggest = "first_execution_from"
+        elif key == "flowErrorDeactivationThreshold":
+            suggest = "flow_error_deactivation_threshold"
         elif key == "scheduleEndTime":
             suggest = "schedule_end_time"
         elif key == "scheduleOffset":
@@ -3184,6 +3715,8 @@ class FlowScheduledTriggerProperties(dict):
     def __init__(__self__, *,
                  schedule_expression: str,
                  data_pull_mode: Optional['FlowScheduledTriggerPropertiesDataPullMode'] = None,
+                 first_execution_from: Optional[float] = None,
+                 flow_error_deactivation_threshold: Optional[int] = None,
                  schedule_end_time: Optional[float] = None,
                  schedule_offset: Optional[float] = None,
                  schedule_start_time: Optional[float] = None,
@@ -3194,6 +3727,10 @@ class FlowScheduledTriggerProperties(dict):
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             pulumi.set(__self__, "data_pull_mode", data_pull_mode)
+        if first_execution_from is not None:
+            pulumi.set(__self__, "first_execution_from", first_execution_from)
+        if flow_error_deactivation_threshold is not None:
+            pulumi.set(__self__, "flow_error_deactivation_threshold", flow_error_deactivation_threshold)
         if schedule_end_time is not None:
             pulumi.set(__self__, "schedule_end_time", schedule_end_time)
         if schedule_offset is not None:
@@ -3212,6 +3749,16 @@ class FlowScheduledTriggerProperties(dict):
     @pulumi.getter(name="dataPullMode")
     def data_pull_mode(self) -> Optional['FlowScheduledTriggerPropertiesDataPullMode']:
         return pulumi.get(self, "data_pull_mode")
+
+    @property
+    @pulumi.getter(name="firstExecutionFrom")
+    def first_execution_from(self) -> Optional[float]:
+        return pulumi.get(self, "first_execution_from")
+
+    @property
+    @pulumi.getter(name="flowErrorDeactivationThreshold")
+    def flow_error_deactivation_threshold(self) -> Optional[int]:
+        return pulumi.get(self, "flow_error_deactivation_threshold")
 
     @property
     @pulumi.getter(name="scheduleEndTime")
@@ -3334,7 +3881,9 @@ class FlowSourceConnectorProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "googleAnalytics":
+        if key == "customConnector":
+            suggest = "custom_connector"
+        elif key == "googleAnalytics":
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
@@ -3356,6 +3905,7 @@ class FlowSourceConnectorProperties(dict):
 
     def __init__(__self__, *,
                  amplitude: Optional['outputs.FlowAmplitudeSourceProperties'] = None,
+                 custom_connector: Optional['outputs.FlowCustomConnectorSourceProperties'] = None,
                  datadog: Optional['outputs.FlowDatadogSourceProperties'] = None,
                  dynatrace: Optional['outputs.FlowDynatraceSourceProperties'] = None,
                  google_analytics: Optional['outputs.FlowGoogleAnalyticsSourceProperties'] = None,
@@ -3375,6 +3925,8 @@ class FlowSourceConnectorProperties(dict):
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
+        if custom_connector is not None:
+            pulumi.set(__self__, "custom_connector", custom_connector)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
         if dynatrace is not None:
@@ -3408,6 +3960,11 @@ class FlowSourceConnectorProperties(dict):
     @pulumi.getter
     def amplitude(self) -> Optional['outputs.FlowAmplitudeSourceProperties']:
         return pulumi.get(self, "amplitude")
+
+    @property
+    @pulumi.getter(name="customConnector")
+    def custom_connector(self) -> Optional['outputs.FlowCustomConnectorSourceProperties']:
+        return pulumi.get(self, "custom_connector")
 
     @property
     @pulumi.getter
@@ -3492,6 +4049,8 @@ class FlowSourceFlowConfig(dict):
             suggest = "connector_type"
         elif key == "sourceConnectorProperties":
             suggest = "source_connector_properties"
+        elif key == "apiVersion":
+            suggest = "api_version"
         elif key == "connectorProfileName":
             suggest = "connector_profile_name"
         elif key == "incrementalPullConfig":
@@ -3511,17 +4070,21 @@ class FlowSourceFlowConfig(dict):
     def __init__(__self__, *,
                  connector_type: 'FlowConnectorType',
                  source_connector_properties: 'outputs.FlowSourceConnectorProperties',
+                 api_version: Optional[str] = None,
                  connector_profile_name: Optional[str] = None,
                  incremental_pull_config: Optional['outputs.FlowIncrementalPullConfig'] = None):
         """
         Configurations of Source connector of the flow.
         :param 'FlowConnectorType' connector_type: Type of source connector
         :param 'FlowSourceConnectorProperties' source_connector_properties: Source connector details required to query a connector
+        :param str api_version: The API version that the destination connector uses.
         :param str connector_profile_name: Name of source connector profile
         :param 'FlowIncrementalPullConfig' incremental_pull_config: Configuration for scheduled incremental data pull
         """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
         if connector_profile_name is not None:
             pulumi.set(__self__, "connector_profile_name", connector_profile_name)
         if incremental_pull_config is not None:
@@ -3542,6 +4105,14 @@ class FlowSourceFlowConfig(dict):
         Source connector details required to query a connector
         """
         return pulumi.get(self, "source_connector_properties")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[str]:
+        """
+        The API version that the destination connector uses.
+        """
+        return pulumi.get(self, "api_version")
 
     @property
     @pulumi.getter(name="connectorProfileName")

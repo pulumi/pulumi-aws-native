@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.DLM.Inputs
         [Input("excludeBootVolume")]
         public Input<bool>? ExcludeBootVolume { get; set; }
 
+        [Input("excludeDataVolumeTags")]
+        private InputList<Inputs.LifecyclePolicyTagArgs>? _excludeDataVolumeTags;
+        public InputList<Inputs.LifecyclePolicyTagArgs> ExcludeDataVolumeTags
+        {
+            get => _excludeDataVolumeTags ?? (_excludeDataVolumeTags = new InputList<Inputs.LifecyclePolicyTagArgs>());
+            set => _excludeDataVolumeTags = value;
+        }
+
         [Input("noReboot")]
         public Input<bool>? NoReboot { get; set; }
 

@@ -30,6 +30,7 @@ type LookupLaunchTemplateResult struct {
 	LatestVersionNumber  *string                          `pulumi:"latestVersionNumber"`
 	LaunchTemplateData   *LaunchTemplateData              `pulumi:"launchTemplateData"`
 	TagSpecifications    []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	VersionDescription   *string                          `pulumi:"versionDescription"`
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
@@ -85,6 +86,10 @@ func (o LookupLaunchTemplateResultOutput) LaunchTemplateData() LaunchTemplateDat
 
 func (o LookupLaunchTemplateResultOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 func init() {

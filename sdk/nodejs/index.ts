@@ -181,6 +181,7 @@ import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
+import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
@@ -205,6 +206,7 @@ import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
@@ -378,6 +380,7 @@ export {
     resiliencehub,
     resourcegroups,
     robomaker,
+    rolesanywhere,
     route53,
     route53recoverycontrol,
     route53recoveryreadiness,
@@ -402,6 +405,7 @@ export {
     ssmincidents,
     sso,
     stepfunctions,
+    supportapp,
     synthetics,
     timestream,
     transfer,

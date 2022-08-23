@@ -25,10 +25,11 @@ type LookupTrackerArgs struct {
 }
 
 type LookupTrackerResult struct {
-	Arn        *string `pulumi:"arn"`
-	CreateTime *string `pulumi:"createTime"`
-	TrackerArn *string `pulumi:"trackerArn"`
-	UpdateTime *string `pulumi:"updateTime"`
+	Arn                   *string `pulumi:"arn"`
+	CreateTime            *string `pulumi:"createTime"`
+	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
+	TrackerArn            *string `pulumi:"trackerArn"`
+	UpdateTime            *string `pulumi:"updateTime"`
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
@@ -72,6 +73,10 @@ func (o LookupTrackerResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupTrackerResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTrackerResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTrackerResult) *string { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTrackerResultOutput) TrackerArn() pulumi.StringPtrOutput {

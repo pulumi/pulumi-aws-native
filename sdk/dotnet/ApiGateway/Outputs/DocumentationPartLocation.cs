@@ -13,11 +13,26 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class DocumentationPartLocation
     {
+        /// <summary>
+        /// The HTTP verb of a method.
+        /// </summary>
         public readonly string? Method;
+        /// <summary>
+        /// The name of the targeted API entity.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The URL path of the target.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The HTTP status code of a response.
+        /// </summary>
         public readonly string? StatusCode;
-        public readonly string? Type;
+        /// <summary>
+        /// The type of API entity that the documentation content applies to.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.DocumentationPartLocationType? Type;
 
         [OutputConstructor]
         private DocumentationPartLocation(
@@ -29,7 +44,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             string? statusCode,
 
-            string? type)
+            Pulumi.AwsNative.ApiGateway.DocumentationPartLocationType? type)
         {
             Method = method;
             Name = name;

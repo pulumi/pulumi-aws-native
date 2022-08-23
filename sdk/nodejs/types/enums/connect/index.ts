@@ -64,6 +64,28 @@ export const HoursOfOperationConfigDay = {
  */
 export type HoursOfOperationConfigDay = (typeof HoursOfOperationConfigDay)[keyof typeof HoursOfOperationConfigDay];
 
+export const InstanceIdentityManagementType = {
+    Saml: "SAML",
+    ConnectManaged: "CONNECT_MANAGED",
+    ExistingDirectory: "EXISTING_DIRECTORY",
+} as const;
+
+/**
+ * Specifies the type of directory integration for new instance.
+ */
+export type InstanceIdentityManagementType = (typeof InstanceIdentityManagementType)[keyof typeof InstanceIdentityManagementType];
+
+export const InstanceStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    CreationFailed: "CREATION_FAILED",
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * Specifies the creation status of new instance.
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
+
 export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",

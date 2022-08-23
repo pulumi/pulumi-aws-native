@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DBInstanceArgs', 'DBInstance']
@@ -16,7 +17,6 @@ __all__ = ['DBInstanceArgs', 'DBInstance']
 @pulumi.input_type
 class DBInstanceArgs:
     def __init__(__self__, *,
-                 d_b_instance_class: pulumi.Input[str],
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]] = None,
@@ -27,6 +27,7 @@ class DBInstanceArgs:
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
                  d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,8 +41,7 @@ class DBInstanceArgs:
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint_address: Optional[pulumi.Input[str]] = None,
-                 endpoint_port: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input['DBInstanceEndpointArgs']] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -67,13 +67,69 @@ class DBInstanceArgs:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None,
+                 tde_credential_arn: Optional[pulumi.Input[str]] = None,
+                 tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBInstance resource.
+        :param pulumi.Input[str] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the database instance.
+        :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+        :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
+        :param pulumi.Input[str] d_b_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        :param pulumi.Input[str] d_b_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
+        :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
+        :param pulumi.Input['DBInstanceEndpointArgs'] endpoint: Specifies the connection endpoint.
+        :param pulumi.Input[str] engine: The name of the database engine that you want to use for this DB instance.
+        :param pulumi.Input[str] engine_version: The version number of the database engine to use.
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the database provisions.
+        :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) master key that's used to encrypt the DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance.
+        :param pulumi.Input[str] master_user_password: The password for the master user.
+        :param pulumi.Input[str] master_username: The master user name for the DB instance.
+        :param pulumi.Input[int] max_allocated_storage: The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
+        :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
+        :param pulumi.Input[bool] multi_az: Specifies whether the database instance is a multiple Availability Zone deployment.
+        :param pulumi.Input[str] option_group_name: Indicates that the DB instance should be associated with the specified option group.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+        :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+        :param pulumi.Input[str] port: The port number on which the database accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
+        :param pulumi.Input[str] preferred_maintenance_window: he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+        :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
+        :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
+        :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
+        :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
+        :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
-        pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
@@ -94,6 +150,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if d_b_cluster_identifier is not None:
             pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
+        if d_b_instance_class is not None:
+            pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
         if d_b_instance_identifier is not None:
             pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
         if d_b_name is not None:
@@ -120,10 +178,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
         if enable_performance_insights is not None:
             pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
-        if endpoint_address is not None:
-            pulumi.set(__self__, "endpoint_address", endpoint_address)
-        if endpoint_port is not None:
-            pulumi.set(__self__, "endpoint_port", endpoint_port)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
@@ -174,6 +230,10 @@ class DBInstanceArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tde_credential_arn is not None:
+            pulumi.set(__self__, "tde_credential_arn", tde_credential_arn)
+        if tde_credential_password is not None:
+            pulumi.set(__self__, "tde_credential_password", tde_credential_password)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if use_default_processor_features is not None:
@@ -182,17 +242,11 @@ class DBInstanceArgs:
             pulumi.set(__self__, "v_pc_security_groups", v_pc_security_groups)
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_b_instance_class")
-
-    @d_b_instance_class.setter
-    def d_b_instance_class(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_instance_class", value)
-
-    @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[str]]:
+        """
+        The amount of storage (in gigabytes) to be initially allocated for the database instance.
+        """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
@@ -202,6 +256,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
@@ -211,6 +268,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="associatedRoles")
     def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]]:
+        """
+        The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        """
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
@@ -220,6 +280,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -229,6 +292,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -238,6 +304,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -247,6 +316,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="cACertificateIdentifier")
     def c_a_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the CA certificate for this DB instance.
+        """
         return pulumi.get(self, "c_a_certificate_identifier")
 
     @c_a_certificate_identifier.setter
@@ -256,6 +328,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="characterSetName")
     def character_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        For supported engines, indicates that the DB instance should be associated with the specified character set.
+        """
         return pulumi.get(self, "character_set_name")
 
     @character_set_name.setter
@@ -265,6 +340,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
@@ -274,6 +352,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the DB cluster that the instance will belong to.
+        """
         return pulumi.get(self, "d_b_cluster_identifier")
 
     @d_b_cluster_identifier.setter
@@ -281,8 +362,23 @@ class DBInstanceArgs:
         pulumi.set(self, "d_b_cluster_identifier", value)
 
     @property
+    @pulumi.getter(name="dBInstanceClass")
+    def d_b_instance_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        """
+        return pulumi.get(self, "d_b_instance_class")
+
+    @d_b_instance_class.setter
+    def d_b_instance_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_instance_class", value)
+
+    @property
     @pulumi.getter(name="dBInstanceIdentifier")
     def d_b_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        """
         return pulumi.get(self, "d_b_instance_identifier")
 
     @d_b_instance_identifier.setter
@@ -292,6 +388,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBName")
     def d_b_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The meaning of this parameter differs according to the database engine you use.
+        """
         return pulumi.get(self, "d_b_name")
 
     @d_b_name.setter
@@ -301,6 +400,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBParameterGroupName")
     def d_b_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        """
         return pulumi.get(self, "d_b_parameter_group_name")
 
     @d_b_parameter_group_name.setter
@@ -310,6 +412,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBSecurityGroups")
     def d_b_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        """
         return pulumi.get(self, "d_b_security_groups")
 
     @d_b_security_groups.setter
@@ -319,6 +424,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBSnapshotIdentifier")
     def d_b_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        """
         return pulumi.get(self, "d_b_snapshot_identifier")
 
     @d_b_snapshot_identifier.setter
@@ -328,6 +436,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        """
         return pulumi.get(self, "d_b_subnet_group_name")
 
     @d_b_subnet_group_name.setter
@@ -337,6 +448,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
     def delete_automated_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+        """
         return pulumi.get(self, "delete_automated_backups")
 
     @delete_automated_backups.setter
@@ -346,6 +460,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -355,6 +472,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -364,6 +484,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="domainIAMRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        """
         return pulumi.get(self, "domain_iam_role_name")
 
     @domain_iam_role_name.setter
@@ -373,6 +496,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
+        """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @enable_cloudwatch_logs_exports.setter
@@ -382,6 +508,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="enableIAMDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        """
         return pulumi.get(self, "enable_iam_database_authentication")
 
     @enable_iam_database_authentication.setter
@@ -391,6 +520,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="enablePerformanceInsights")
     def enable_performance_insights(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to enable Performance Insights for the DB instance.
+        """
         return pulumi.get(self, "enable_performance_insights")
 
     @enable_performance_insights.setter
@@ -398,26 +530,23 @@ class DBInstanceArgs:
         pulumi.set(self, "enable_performance_insights", value)
 
     @property
-    @pulumi.getter(name="endpointAddress")
-    def endpoint_address(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "endpoint_address")
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input['DBInstanceEndpointArgs']]:
+        """
+        Specifies the connection endpoint.
+        """
+        return pulumi.get(self, "endpoint")
 
-    @endpoint_address.setter
-    def endpoint_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint_address", value)
-
-    @property
-    @pulumi.getter(name="endpointPort")
-    def endpoint_port(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "endpoint_port")
-
-    @endpoint_port.setter
-    def endpoint_port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint_port", value)
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input['DBInstanceEndpointArgs']]):
+        pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database engine that you want to use for this DB instance.
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -427,6 +556,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version number of the database engine to use.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -436,6 +568,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of I/O operations per second (IOPS) that the database provisions.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -445,6 +580,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Key Management Service (AWS KMS) master key that's used to encrypt the DB instance.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -454,6 +592,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        License model information for this DB instance.
+        """
         return pulumi.get(self, "license_model")
 
     @license_model.setter
@@ -463,6 +604,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the master user.
+        """
         return pulumi.get(self, "master_user_password")
 
     @master_user_password.setter
@@ -472,6 +616,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The master user name for the DB instance.
+        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -481,6 +628,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        """
         return pulumi.get(self, "max_allocated_storage")
 
     @max_allocated_storage.setter
@@ -490,6 +640,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
+        """
         return pulumi.get(self, "monitoring_interval")
 
     @monitoring_interval.setter
@@ -499,6 +652,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="monitoringRoleArn")
     def monitoring_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "monitoring_role_arn")
 
     @monitoring_role_arn.setter
@@ -508,6 +664,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="multiAZ")
     def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the database instance is a multiple Availability Zone deployment.
+        """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
@@ -517,6 +676,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates that the DB instance should be associated with the specified option group.
+        """
         return pulumi.get(self, "option_group_name")
 
     @option_group_name.setter
@@ -526,6 +688,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="performanceInsightsKMSKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+        """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
@@ -535,6 +700,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+        """
         return pulumi.get(self, "performance_insights_retention_period")
 
     @performance_insights_retention_period.setter
@@ -544,6 +712,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The port number on which the database accepts connections.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -553,6 +724,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -562,6 +736,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -571,6 +748,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="processorFeatures")
     def processor_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]]]:
+        """
+        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        """
         return pulumi.get(self, "processor_features")
 
     @processor_features.setter
@@ -580,6 +760,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> Optional[pulumi.Input[int]]:
+        """
+        A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+        """
         return pulumi.get(self, "promotion_tier")
 
     @promotion_tier.setter
@@ -589,6 +772,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -598,6 +784,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")
     def source_db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        """
         return pulumi.get(self, "source_db_instance_identifier")
 
     @source_db_instance_identifier.setter
@@ -607,6 +796,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the region that contains the source DB instance for the Read Replica.
+        """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
@@ -616,6 +808,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -625,6 +820,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage type to be associated with the DB instance.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -634,6 +832,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]]:
+        """
+        Tags to assign to the DB instance.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -641,8 +842,35 @@ class DBInstanceArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tdeCredentialArn")
+    def tde_credential_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN from the key store with which to associate the instance for TDE encryption.
+        """
+        return pulumi.get(self, "tde_credential_arn")
+
+    @tde_credential_arn.setter
+    def tde_credential_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tde_credential_arn", value)
+
+    @property
+    @pulumi.getter(name="tdeCredentialPassword")
+    def tde_credential_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the given ARN from the key store in order to access the device.
+        """
+        return pulumi.get(self, "tde_credential_password")
+
+    @tde_credential_password.setter
+    def tde_credential_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tde_credential_password", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
+        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -652,6 +880,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="useDefaultProcessorFeatures")
     def use_default_processor_features(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        """
         return pulumi.get(self, "use_default_processor_features")
 
     @use_default_processor_features.setter
@@ -661,6 +892,9 @@ class DBInstanceArgs:
     @property
     @pulumi.getter(name="vPCSecurityGroups")
     def v_pc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
+        """
         return pulumi.get(self, "v_pc_security_groups")
 
     @v_pc_security_groups.setter
@@ -668,12 +902,7 @@ class DBInstanceArgs:
         pulumi.set(self, "v_pc_security_groups", value)
 
 
-warnings.warn("""DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DBInstance(pulumi.CustomResource):
-    warnings.warn("""DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -702,8 +931,7 @@ class DBInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint_address: Optional[pulumi.Input[str]] = None,
-                 endpoint_port: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -729,24 +957,81 @@ class DBInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tde_credential_arn: Optional[pulumi.Input[str]] = None,
+                 tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::RDS::DBInstance
+        The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the database instance.
+        :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]] associated_roles: The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+        :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
+        :param pulumi.Input[str] d_b_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        :param pulumi.Input[str] d_b_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
+        :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB instance.
+        :param pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']] endpoint: Specifies the connection endpoint.
+        :param pulumi.Input[str] engine: The name of the database engine that you want to use for this DB instance.
+        :param pulumi.Input[str] engine_version: The version number of the database engine to use.
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the database provisions.
+        :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) master key that's used to encrypt the DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance.
+        :param pulumi.Input[str] master_user_password: The password for the master user.
+        :param pulumi.Input[str] master_username: The master user name for the DB instance.
+        :param pulumi.Input[int] max_allocated_storage: The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
+        :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
+        :param pulumi.Input[bool] multi_az: Specifies whether the database instance is a multiple Availability Zone deployment.
+        :param pulumi.Input[str] option_group_name: Indicates that the DB instance should be associated with the specified option group.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+        :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+        :param pulumi.Input[str] port: The port number on which the database accepts connections.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
+        :param pulumi.Input[str] preferred_maintenance_window: he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+        :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
+        :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
+        :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
+        :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
+        :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DBInstanceArgs,
+                 args: Optional[DBInstanceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::RDS::DBInstance
+        The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
         :param str resource_name: The name of the resource.
         :param DBInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -787,8 +1072,7 @@ class DBInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint_address: Optional[pulumi.Input[str]] = None,
-                 endpoint_port: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['DBInstanceEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -814,11 +1098,12 @@ class DBInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
+                 tde_credential_arn: Optional[pulumi.Input[str]] = None,
+                 tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBInstance is deprecated: DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -837,8 +1122,6 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            if d_b_instance_class is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_instance_class'")
             __props__.__dict__["d_b_instance_class"] = d_b_instance_class
             __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
             __props__.__dict__["d_b_name"] = d_b_name
@@ -853,8 +1136,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
-            __props__.__dict__["endpoint_address"] = endpoint_address
-            __props__.__dict__["endpoint_port"] = endpoint_port
+            __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["iops"] = iops
@@ -880,6 +1162,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tde_credential_arn"] = tde_credential_arn
+            __props__.__dict__["tde_credential_password"] = tde_credential_password
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["v_pc_security_groups"] = v_pc_security_groups
@@ -929,8 +1213,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["enable_iam_database_authentication"] = None
         __props__.__dict__["enable_performance_insights"] = None
-        __props__.__dict__["endpoint_address"] = None
-        __props__.__dict__["endpoint_port"] = None
+        __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["iops"] = None
@@ -956,6 +1239,8 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["storage_encrypted"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tde_credential_arn"] = None
+        __props__.__dict__["tde_credential_password"] = None
         __props__.__dict__["timezone"] = None
         __props__.__dict__["use_default_processor_features"] = None
         __props__.__dict__["v_pc_security_groups"] = None
@@ -964,270 +1249,440 @@ class DBInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[Optional[str]]:
+        """
+        The amount of storage (in gigabytes) to be initially allocated for the database instance.
+        """
         return pulumi.get(self, "allocated_storage")
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @property
     @pulumi.getter(name="associatedRoles")
     def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceRole']]]:
+        """
+        The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+        """
         return pulumi.get(self, "associated_roles")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="cACertificateIdentifier")
     def c_a_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the CA certificate for this DB instance.
+        """
         return pulumi.get(self, "c_a_certificate_identifier")
 
     @property
     @pulumi.getter(name="characterSetName")
     def character_set_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        For supported engines, indicates that the DB instance should be associated with the specified character set.
+        """
         return pulumi.get(self, "character_set_name")
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the DB cluster that the instance will belong to.
+        """
         return pulumi.get(self, "d_b_cluster_identifier")
 
     @property
     @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> pulumi.Output[str]:
+    def d_b_instance_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        """
         return pulumi.get(self, "d_b_instance_class")
 
     @property
     @pulumi.getter(name="dBInstanceIdentifier")
     def d_b_instance_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        """
         return pulumi.get(self, "d_b_instance_identifier")
 
     @property
     @pulumi.getter(name="dBName")
     def d_b_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The meaning of this parameter differs according to the database engine you use.
+        """
         return pulumi.get(self, "d_b_name")
 
     @property
     @pulumi.getter(name="dBParameterGroupName")
     def d_b_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        """
         return pulumi.get(self, "d_b_parameter_group_name")
 
     @property
     @pulumi.getter(name="dBSecurityGroups")
     def d_b_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        """
         return pulumi.get(self, "d_b_security_groups")
 
     @property
     @pulumi.getter(name="dBSnapshotIdentifier")
     def d_b_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        """
         return pulumi.get(self, "d_b_snapshot_identifier")
 
     @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        """
         return pulumi.get(self, "d_b_subnet_group_name")
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
     def delete_automated_backups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+        """
         return pulumi.get(self, "delete_automated_backups")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="domainIAMRoleName")
     def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        """
         return pulumi.get(self, "domain_iam_role_name")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
+        """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter(name="enableIAMDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        """
         return pulumi.get(self, "enable_iam_database_authentication")
 
     @property
     @pulumi.getter(name="enablePerformanceInsights")
     def enable_performance_insights(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to enable Performance Insights for the DB instance.
+        """
         return pulumi.get(self, "enable_performance_insights")
 
     @property
-    @pulumi.getter(name="endpointAddress")
-    def endpoint_address(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "endpoint_address")
-
-    @property
-    @pulumi.getter(name="endpointPort")
-    def endpoint_port(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "endpoint_port")
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[Optional['outputs.DBInstanceEndpoint']]:
+        """
+        Specifies the connection endpoint.
+        """
+        return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the database engine that you want to use for this DB instance.
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version number of the database engine to use.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter
     def iops(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of I/O operations per second (IOPS) that the database provisions.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the AWS Key Management Service (AWS KMS) master key that's used to encrypt the DB instance.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> pulumi.Output[Optional[str]]:
+        """
+        License model information for this DB instance.
+        """
         return pulumi.get(self, "license_model")
 
     @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for the master user.
+        """
         return pulumi.get(self, "master_user_password")
 
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[Optional[str]]:
+        """
+        The master user name for the DB instance.
+        """
         return pulumi.get(self, "master_username")
 
     @property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> pulumi.Output[Optional[int]]:
+        """
+        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        """
         return pulumi.get(self, "max_allocated_storage")
 
     @property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> pulumi.Output[Optional[int]]:
+        """
+        The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
+        """
         return pulumi.get(self, "monitoring_interval")
 
     @property
     @pulumi.getter(name="monitoringRoleArn")
     def monitoring_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
     @pulumi.getter(name="multiAZ")
     def multi_az(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the database instance is a multiple Availability Zone deployment.
+        """
         return pulumi.get(self, "multi_az")
 
     @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates that the DB instance should be associated with the specified option group.
+        """
         return pulumi.get(self, "option_group_name")
 
     @property
     @pulumi.getter(name="performanceInsightsKMSKeyId")
     def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+        """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+        """
         return pulumi.get(self, "performance_insights_retention_period")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[str]]:
+        """
+        The port number on which the database accepts connections.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        he weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="processorFeatures")
     def processor_features(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceProcessorFeature']]]:
+        """
+        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        """
         return pulumi.get(self, "processor_features")
 
     @property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> pulumi.Output[Optional[int]]:
+        """
+        A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+        """
         return pulumi.get(self, "promotion_tier")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")
     def source_db_instance_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        """
         return pulumi.get(self, "source_db_instance_identifier")
 
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the region that contains the source DB instance for the Read Replica.
+        """
         return pulumi.get(self, "source_region")
 
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the storage type to be associated with the DB instance.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceTag']]]:
+        """
+        Tags to assign to the DB instance.
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tdeCredentialArn")
+    def tde_credential_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN from the key store with which to associate the instance for TDE encryption.
+        """
+        return pulumi.get(self, "tde_credential_arn")
+
+    @property
+    @pulumi.getter(name="tdeCredentialPassword")
+    def tde_credential_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for the given ARN from the key store in order to access the device.
+        """
+        return pulumi.get(self, "tde_credential_password")
 
     @property
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
+        """
+        The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
+        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter(name="useDefaultProcessorFeatures")
     def use_default_processor_features(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        """
         return pulumi.get(self, "use_default_processor_features")
 
     @property
     @pulumi.getter(name="vPCSecurityGroups")
     def v_pc_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
+        """
         return pulumi.get(self, "v_pc_security_groups")
 

@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("topicArn", required: true)]
+        public string TopicArn { get; set; } = null!;
 
         public GetTopicArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("topicArn", required: true)]
+        public Input<string> TopicArn { get; set; } = null!;
 
         public GetTopicInvokeArgs()
         {
@@ -51,12 +51,30 @@ namespace Pulumi.AwsNative.SNS
     [OutputType]
     public sealed class GetTopicResult
     {
+        /// <summary>
+        /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+        /// 
+        /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+        /// 
+        /// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        /// </summary>
         public readonly bool? ContentBasedDeduplication;
+        /// <summary>
+        /// The display name to use for an Amazon SNS topic with SMS subscriptions.
+        /// </summary>
         public readonly string? DisplayName;
-        public readonly string? Id;
+        /// <summary>
+        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+        /// 
+        /// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        /// </summary>
         public readonly string? KmsMasterKeyId;
+        /// <summary>
+        /// The SNS subscriptions (endpoints) for this topic.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicSubscription> Subscription;
         public readonly ImmutableArray<Outputs.TopicTag> Tags;
+        public readonly string? TopicArn;
 
         [OutputConstructor]
         private GetTopicResult(
@@ -64,20 +82,20 @@ namespace Pulumi.AwsNative.SNS
 
             string? displayName,
 
-            string? id,
-
             string? kmsMasterKeyId,
 
             ImmutableArray<Outputs.TopicSubscription> subscription,
 
-            ImmutableArray<Outputs.TopicTag> tags)
+            ImmutableArray<Outputs.TopicTag> tags,
+
+            string? topicArn)
         {
             ContentBasedDeduplication = contentBasedDeduplication;
             DisplayName = displayName;
-            Id = id;
             KmsMasterKeyId = kmsMasterKeyId;
             Subscription = subscription;
             Tags = tags;
+            TopicArn = topicArn;
         }
     }
 }

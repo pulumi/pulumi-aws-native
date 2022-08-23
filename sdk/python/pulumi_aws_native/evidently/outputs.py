@@ -25,11 +25,13 @@ __all__ = [
     'LaunchGroupObject',
     'LaunchGroupToWeight',
     'LaunchMetricDefinitionObject',
+    'LaunchSegmentOverride',
     'LaunchStepConfig',
     'LaunchTag',
     'ProjectDataDeliveryObject',
     'ProjectS3Destination',
     'ProjectTag',
+    'SegmentTag',
 ]
 
 @pulumi.output_type
@@ -725,6 +727,49 @@ class LaunchMetricDefinitionObject(dict):
 
 
 @pulumi.output_type
+class LaunchSegmentOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationOrder":
+            suggest = "evaluation_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchSegmentOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchSegmentOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchSegmentOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 evaluation_order: int,
+                 segment: str,
+                 weights: Sequence['outputs.LaunchGroupToWeight']):
+        pulumi.set(__self__, "evaluation_order", evaluation_order)
+        pulumi.set(__self__, "segment", segment)
+        pulumi.set(__self__, "weights", weights)
+
+    @property
+    @pulumi.getter(name="evaluationOrder")
+    def evaluation_order(self) -> int:
+        return pulumi.get(self, "evaluation_order")
+
+    @property
+    @pulumi.getter
+    def segment(self) -> str:
+        return pulumi.get(self, "segment")
+
+    @property
+    @pulumi.getter
+    def weights(self) -> Sequence['outputs.LaunchGroupToWeight']:
+        return pulumi.get(self, "weights")
+
+
+@pulumi.output_type
 class LaunchStepConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -733,6 +778,8 @@ class LaunchStepConfig(dict):
             suggest = "group_weights"
         elif key == "startTime":
             suggest = "start_time"
+        elif key == "segmentOverrides":
+            suggest = "segment_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchStepConfig. Access the value via the '{suggest}' property getter instead.")
@@ -747,9 +794,12 @@ class LaunchStepConfig(dict):
 
     def __init__(__self__, *,
                  group_weights: Sequence['outputs.LaunchGroupToWeight'],
-                 start_time: str):
+                 start_time: str,
+                 segment_overrides: Optional[Sequence['outputs.LaunchSegmentOverride']] = None):
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
+        if segment_overrides is not None:
+            pulumi.set(__self__, "segment_overrides", segment_overrides)
 
     @property
     @pulumi.getter(name="groupWeights")
@@ -760,6 +810,11 @@ class LaunchStepConfig(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="segmentOverrides")
+    def segment_overrides(self) -> Optional[Sequence['outputs.LaunchSegmentOverride']]:
+        return pulumi.get(self, "segment_overrides")
 
 
 @pulumi.output_type
@@ -878,6 +933,39 @@ class ProjectS3Destination(dict):
 
 @pulumi.output_type
 class ProjectTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SegmentTag(dict):
     """
     A key-value pair to associate with a resource.
     """

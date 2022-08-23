@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     public sealed class LaunchStepConfig
     {
         public readonly ImmutableArray<Outputs.LaunchGroupToWeight> GroupWeights;
+        public readonly ImmutableArray<Outputs.LaunchSegmentOverride> SegmentOverrides;
         public readonly string StartTime;
 
         [OutputConstructor]
         private LaunchStepConfig(
             ImmutableArray<Outputs.LaunchGroupToWeight> groupWeights,
 
+            ImmutableArray<Outputs.LaunchSegmentOverride> segmentOverrides,
+
             string startTime)
         {
             GroupWeights = groupWeights;
+            SegmentOverrides = segmentOverrides;
             StartTime = startTime;
         }
     }

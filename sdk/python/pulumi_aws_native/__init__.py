@@ -341,6 +341,8 @@ if typing.TYPE_CHECKING:
     resourcegroups = __resourcegroups
     import pulumi_aws_native.robomaker as __robomaker
     robomaker = __robomaker
+    import pulumi_aws_native.rolesanywhere as __rolesanywhere
+    rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
     route53 = __route53
     import pulumi_aws_native.route53recoverycontrol as __route53recoverycontrol
@@ -389,6 +391,8 @@ if typing.TYPE_CHECKING:
     sso = __sso
     import pulumi_aws_native.stepfunctions as __stepfunctions
     stepfunctions = __stepfunctions
+    import pulumi_aws_native.supportapp as __supportapp
+    supportapp = __supportapp
     import pulumi_aws_native.synthetics as __synthetics
     synthetics = __synthetics
     import pulumi_aws_native.timestream as __timestream
@@ -570,6 +574,7 @@ else:
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
+    rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
@@ -594,6 +599,7 @@ else:
     ssmincidents = _utilities.lazy_import('pulumi_aws_native.ssmincidents')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
+    supportapp = _utilities.lazy_import('pulumi_aws_native.supportapp')
     synthetics = _utilities.lazy_import('pulumi_aws_native.synthetics')
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
@@ -998,6 +1004,7 @@ _utilities.register(
   "mod": "cloudtrail",
   "fqn": "pulumi_aws_native.cloudtrail",
   "classes": {
+   "aws-native:cloudtrail:EventDataStore": "EventDataStore",
    "aws-native:cloudtrail:Trail": "Trail"
   }
  },
@@ -1145,6 +1152,7 @@ _utilities.register(
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
+   "aws-native:connect:Instance": "Instance",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:QuickConnect": "QuickConnect",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
@@ -1207,6 +1215,7 @@ _utilities.register(
    "aws-native:datasync:Agent": "Agent",
    "aws-native:datasync:LocationEFS": "LocationEFS",
    "aws-native:datasync:LocationFSxLustre": "LocationFSxLustre",
+   "aws-native:datasync:LocationFSxONTAP": "LocationFSxONTAP",
    "aws-native:datasync:LocationFSxOpenZFS": "LocationFSxOpenZFS",
    "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
    "aws-native:datasync:LocationHDFS": "LocationHDFS",
@@ -1562,7 +1571,8 @@ _utilities.register(
    "aws-native:evidently:Experiment": "Experiment",
    "aws-native:evidently:Feature": "Feature",
    "aws-native:evidently:Launch": "Launch",
-   "aws-native:evidently:Project": "Project"
+   "aws-native:evidently:Project": "Project",
+   "aws-native:evidently:Segment": "Segment"
   }
  },
  {
@@ -1801,6 +1811,7 @@ _utilities.register(
   "classes": {
    "aws-native:iot:AccountAuditConfiguration": "AccountAuditConfiguration",
    "aws-native:iot:Authorizer": "Authorizer",
+   "aws-native:iot:CACertificate": "CACertificate",
    "aws-native:iot:Certificate": "Certificate",
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
@@ -2010,9 +2021,13 @@ _utilities.register(
   "mod": "lakeformation",
   "fqn": "pulumi_aws_native.lakeformation",
   "classes": {
+   "aws-native:lakeformation:DataCellsFilter": "DataCellsFilter",
    "aws-native:lakeformation:DataLakeSettings": "DataLakeSettings",
    "aws-native:lakeformation:Permissions": "Permissions",
-   "aws-native:lakeformation:Resource": "Resource"
+   "aws-native:lakeformation:PrincipalPermissions": "PrincipalPermissions",
+   "aws-native:lakeformation:Resource": "Resource",
+   "aws-native:lakeformation:Tag": "Tag",
+   "aws-native:lakeformation:TagAssociation": "TagAssociation"
   }
  },
  {
@@ -2220,7 +2235,8 @@ _utilities.register(
   "classes": {
    "aws-native:msk:BatchScramSecret": "BatchScramSecret",
    "aws-native:msk:Cluster": "Cluster",
-   "aws-native:msk:Configuration": "Configuration"
+   "aws-native:msk:Configuration": "Configuration",
+   "aws-native:msk:ServerlessCluster": "ServerlessCluster"
   }
  },
  {
@@ -2443,7 +2459,8 @@ _utilities.register(
   "mod": "redshiftserverless",
   "fqn": "pulumi_aws_native.redshiftserverless",
   "classes": {
-   "aws-native:redshiftserverless:Namespace": "Namespace"
+   "aws-native:redshiftserverless:Namespace": "Namespace",
+   "aws-native:redshiftserverless:Workgroup": "Workgroup"
   }
  },
  {
@@ -2495,6 +2512,16 @@ _utilities.register(
    "aws-native:robomaker:RobotApplicationVersion": "RobotApplicationVersion",
    "aws-native:robomaker:SimulationApplication": "SimulationApplication",
    "aws-native:robomaker:SimulationApplicationVersion": "SimulationApplicationVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "rolesanywhere",
+  "fqn": "pulumi_aws_native.rolesanywhere",
+  "classes": {
+   "aws-native:rolesanywhere:CRL": "CRL",
+   "aws-native:rolesanywhere:Profile": "Profile",
+   "aws-native:rolesanywhere:TrustAnchor": "TrustAnchor"
   }
  },
  {
@@ -2704,6 +2731,8 @@ _utilities.register(
    "aws-native:ses:ConfigurationSet": "ConfigurationSet",
    "aws-native:ses:ConfigurationSetEventDestination": "ConfigurationSetEventDestination",
    "aws-native:ses:ContactList": "ContactList",
+   "aws-native:ses:DedicatedIpPool": "DedicatedIpPool",
+   "aws-native:ses:EmailIdentity": "EmailIdentity",
    "aws-native:ses:ReceiptFilter": "ReceiptFilter",
    "aws-native:ses:ReceiptRule": "ReceiptRule",
    "aws-native:ses:ReceiptRuleSet": "ReceiptRuleSet",
@@ -2792,10 +2821,20 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "supportapp",
+  "fqn": "pulumi_aws_native.supportapp",
+  "classes": {
+   "aws-native:supportapp:AccountAlias": "AccountAlias",
+   "aws-native:supportapp:SlackChannelConfiguration": "SlackChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "synthetics",
   "fqn": "pulumi_aws_native.synthetics",
   "classes": {
-   "aws-native:synthetics:Canary": "Canary"
+   "aws-native:synthetics:Canary": "Canary",
+   "aws-native:synthetics:Group": "Group"
   }
  },
  {

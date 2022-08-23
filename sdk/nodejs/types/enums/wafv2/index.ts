@@ -200,6 +200,16 @@ export const RuleGroupScope = {
  */
 export type RuleGroupScope = (typeof RuleGroupScope)[keyof typeof RuleGroupScope];
 
+export const RuleGroupSensitivityLevel = {
+    Low: "LOW",
+    High: "HIGH",
+} as const;
+
+/**
+ * Sensitivity Level current only used for sqli match statements.
+ */
+export type RuleGroupSensitivityLevel = (typeof RuleGroupSensitivityLevel)[keyof typeof RuleGroupSensitivityLevel];
+
 export const RuleGroupSizeConstraintStatementComparisonOperator = {
     Eq: "EQ",
     Ne: "NE",
@@ -349,6 +359,16 @@ export const WebACLScope = {
  * Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
  */
 export type WebACLScope = (typeof WebACLScope)[keyof typeof WebACLScope];
+
+export const WebACLSensitivityLevel = {
+    Low: "LOW",
+    High: "HIGH",
+} as const;
+
+/**
+ * Sensitivity Level current only used for sqli match statements.
+ */
+export type WebACLSensitivityLevel = (typeof WebACLSensitivityLevel)[keyof typeof WebACLSensitivityLevel];
 
 export const WebACLSizeConstraintStatementComparisonOperator = {
     Eq: "EQ",

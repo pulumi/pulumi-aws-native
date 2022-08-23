@@ -10,18 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticBeanstalk
 {
     /// <summary>
-    /// Resource Type definition for AWS::ElasticBeanstalk::Application
+    /// The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
     /// </summary>
-    [Obsolete(@"Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
         [Output("applicationName")]
         public Output<string?> ApplicationName { get; private set; } = null!;
 
+        /// <summary>
+        /// Your description of the application.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+        /// </summary>
         [Output("resourceLifecycleConfig")]
         public Output<Outputs.ApplicationResourceLifecycleConfig?> ResourceLifecycleConfig { get; private set; } = null!;
 
@@ -70,12 +78,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
 
+        /// <summary>
+        /// Your description of the application.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+        /// </summary>
         [Input("resourceLifecycleConfig")]
         public Input<Inputs.ApplicationResourceLifecycleConfigArgs>? ResourceLifecycleConfig { get; set; }
 

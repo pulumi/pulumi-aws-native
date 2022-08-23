@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::DynamoDB::Table
-//
-// Deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Version: None. Resource Type definition for AWS::DynamoDB::Table
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +20,8 @@ type Table struct {
 	BillingMode                      pulumi.StringPtrOutput                         `pulumi:"billingMode"`
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrOutput `pulumi:"contributorInsightsSpecification"`
 	GlobalSecondaryIndexes           TableGlobalSecondaryIndexArrayOutput           `pulumi:"globalSecondaryIndexes"`
-	KeySchema                        TableKeySchemaArrayOutput                      `pulumi:"keySchema"`
+	ImportSourceSpecification        TableImportSourceSpecificationPtrOutput        `pulumi:"importSourceSpecification"`
+	KeySchema                        pulumi.AnyOutput                               `pulumi:"keySchema"`
 	KinesisStreamSpecification       TableKinesisStreamSpecificationPtrOutput       `pulumi:"kinesisStreamSpecification"`
 	LocalSecondaryIndexes            TableLocalSecondaryIndexArrayOutput            `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification TablePointInTimeRecoverySpecificationPtrOutput `pulumi:"pointInTimeRecoverySpecification"`
@@ -82,7 +81,8 @@ type tableArgs struct {
 	BillingMode                      *string                                `pulumi:"billingMode"`
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	GlobalSecondaryIndexes           []TableGlobalSecondaryIndex            `pulumi:"globalSecondaryIndexes"`
-	KeySchema                        []TableKeySchema                       `pulumi:"keySchema"`
+	ImportSourceSpecification        *TableImportSourceSpecification        `pulumi:"importSourceSpecification"`
+	KeySchema                        interface{}                            `pulumi:"keySchema"`
 	KinesisStreamSpecification       *TableKinesisStreamSpecification       `pulumi:"kinesisStreamSpecification"`
 	LocalSecondaryIndexes            []TableLocalSecondaryIndex             `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification *TablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
@@ -101,7 +101,8 @@ type TableArgs struct {
 	BillingMode                      pulumi.StringPtrInput
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput
 	GlobalSecondaryIndexes           TableGlobalSecondaryIndexArrayInput
-	KeySchema                        TableKeySchemaArrayInput
+	ImportSourceSpecification        TableImportSourceSpecificationPtrInput
+	KeySchema                        pulumi.Input
 	KinesisStreamSpecification       TableKinesisStreamSpecificationPtrInput
 	LocalSecondaryIndexes            TableLocalSecondaryIndexArrayInput
 	PointInTimeRecoverySpecification TablePointInTimeRecoverySpecificationPtrInput
@@ -173,8 +174,12 @@ func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutp
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
 }
 
-func (o TableOutput) KeySchema() TableKeySchemaArrayOutput {
-	return o.ApplyT(func(v *Table) TableKeySchemaArrayOutput { return v.KeySchema }).(TableKeySchemaArrayOutput)
+func (o TableOutput) ImportSourceSpecification() TableImportSourceSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableImportSourceSpecificationPtrOutput { return v.ImportSourceSpecification }).(TableImportSourceSpecificationPtrOutput)
+}
+
+func (o TableOutput) KeySchema() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Table) pulumi.AnyOutput { return v.KeySchema }).(pulumi.AnyOutput)
 }
 
 func (o TableOutput) KinesisStreamSpecification() TableKinesisStreamSpecificationPtrOutput {

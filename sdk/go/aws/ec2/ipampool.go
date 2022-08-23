@@ -28,8 +28,10 @@ type IPAMPool struct {
 	// The Amazon Resource Name (ARN) of the IPAM Pool.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
-	AutoImport  pulumi.BoolPtrOutput   `pulumi:"autoImport"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	AutoImport pulumi.BoolPtrOutput `pulumi:"autoImport"`
+	// Limits which service in Amazon Web Services that the pool can be used in.
+	AwsService  IPAMPoolAwsServicePtrOutput `pulumi:"awsService"`
+	Description pulumi.StringPtrOutput      `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
 	// Id of the IPAM Pool.
@@ -114,8 +116,10 @@ type ipampoolArgs struct {
 	// When specified, an allocation will not be allowed unless a resource has a matching set of tags.
 	AllocationResourceTags []IPAMPoolTag `pulumi:"allocationResourceTags"`
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
-	AutoImport  *bool   `pulumi:"autoImport"`
-	Description *string `pulumi:"description"`
+	AutoImport *bool `pulumi:"autoImport"`
+	// Limits which service in Amazon Web Services that the pool can be used in.
+	AwsService  *IPAMPoolAwsService `pulumi:"awsService"`
+	Description *string             `pulumi:"description"`
 	// The Id of the scope this pool is a part of.
 	IpamScopeId string `pulumi:"ipamScopeId"`
 	// The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
@@ -143,7 +147,9 @@ type IPAMPoolArgs struct {
 	// When specified, an allocation will not be allowed unless a resource has a matching set of tags.
 	AllocationResourceTags IPAMPoolTagArrayInput
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
-	AutoImport  pulumi.BoolPtrInput
+	AutoImport pulumi.BoolPtrInput
+	// Limits which service in Amazon Web Services that the pool can be used in.
+	AwsService  IPAMPoolAwsServicePtrInput
 	Description pulumi.StringPtrInput
 	// The Id of the scope this pool is a part of.
 	IpamScopeId pulumi.StringInput
@@ -229,6 +235,11 @@ func (o IPAMPoolOutput) Arn() pulumi.StringOutput {
 // Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
 func (o IPAMPoolOutput) AutoImport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IPAMPool) pulumi.BoolPtrOutput { return v.AutoImport }).(pulumi.BoolPtrOutput)
+}
+
+// Limits which service in Amazon Web Services that the pool can be used in.
+func (o IPAMPoolOutput) AwsService() IPAMPoolAwsServicePtrOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolAwsServicePtrOutput { return v.AwsService }).(IPAMPoolAwsServicePtrOutput)
 }
 
 func (o IPAMPoolOutput) Description() pulumi.StringPtrOutput {

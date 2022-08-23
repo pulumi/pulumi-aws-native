@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ProvisioningTemplateArgs', 'ProvisioningTemplate']
@@ -22,7 +23,8 @@ class ProvisioningTemplateArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningTemplateTagArgs']]]] = None,
-                 template_name: Optional[pulumi.Input[str]] = None):
+                 template_name: Optional[pulumi.Input[str]] = None,
+                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
         """
@@ -38,6 +40,8 @@ class ProvisioningTemplateArgs:
             pulumi.set(__self__, "tags", tags)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
+        if template_type is not None:
+            pulumi.set(__self__, "template_type", template_type)
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
@@ -102,6 +106,15 @@ class ProvisioningTemplateArgs:
     def template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_name", value)
 
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> Optional[pulumi.Input['ProvisioningTemplateTemplateType']]:
+        return pulumi.get(self, "template_type")
+
+    @template_type.setter
+    def template_type(self, value: Optional[pulumi.Input['ProvisioningTemplateTemplateType']]):
+        pulumi.set(self, "template_type", value)
+
 
 class ProvisioningTemplate(pulumi.CustomResource):
     @overload
@@ -115,6 +128,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisioningTemplateTagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
+                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
                  __props__=None):
         """
         Creates a fleet provisioning template.
@@ -153,6 +167,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisioningTemplateTagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
+                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -173,6 +188,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'template_body'")
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_name"] = template_name
+            __props__.__dict__["template_type"] = template_type
             __props__.__dict__["template_arn"] = None
         super(ProvisioningTemplate, __self__).__init__(
             'aws-native:iot:ProvisioningTemplate',
@@ -204,6 +220,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         __props__.__dict__["template_arn"] = None
         __props__.__dict__["template_body"] = None
         __props__.__dict__["template_name"] = None
+        __props__.__dict__["template_type"] = None
         return ProvisioningTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -245,4 +262,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "template_name")
+
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> pulumi.Output[Optional['ProvisioningTemplateTemplateType']]:
+        return pulumi.get(self, "template_type")
 

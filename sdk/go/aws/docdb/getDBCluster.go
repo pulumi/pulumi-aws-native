@@ -38,7 +38,10 @@ type LookupDBClusterResult struct {
 	PreferredBackupWindow       *string        `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  *string        `pulumi:"preferredMaintenanceWindow"`
 	ReadEndpoint                *string        `pulumi:"readEndpoint"`
+	RestoreToTime               *string        `pulumi:"restoreToTime"`
+	RestoreType                 *string        `pulumi:"restoreType"`
 	Tags                        []DBClusterTag `pulumi:"tags"`
+	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         []string       `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -129,8 +132,20 @@ func (o LookupDBClusterResultOutput) ReadEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ReadEndpoint }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDBClusterResultOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDBClusterResultOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDBClusterResultOutput) Tags() DBClusterTagArrayOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) []DBClusterTag { return v.Tags }).(DBClusterTagArrayOutput)
+}
+
+func (o LookupDBClusterResultOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDBClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

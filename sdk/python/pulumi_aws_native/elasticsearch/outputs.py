@@ -31,7 +31,9 @@ class DomainAdvancedSecurityOptionsInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "internalUserDatabaseEnabled":
+        if key == "anonymousAuthEnabled":
+            suggest = "anonymous_auth_enabled"
+        elif key == "internalUserDatabaseEnabled":
             suggest = "internal_user_database_enabled"
         elif key == "masterUserOptions":
             suggest = "master_user_options"
@@ -48,15 +50,23 @@ class DomainAdvancedSecurityOptionsInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 anonymous_auth_enabled: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None):
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
+
+    @property
+    @pulumi.getter(name="anonymousAuthEnabled")
+    def anonymous_auth_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "anonymous_auth_enabled")
 
     @property
     @pulumi.getter

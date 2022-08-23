@@ -20,6 +20,7 @@ type Cluster struct {
 	AdditionalInfo        pulumi.AnyOutput                        `pulumi:"additionalInfo"`
 	Applications          ClusterApplicationArrayOutput           `pulumi:"applications"`
 	AutoScalingRole       pulumi.StringPtrOutput                  `pulumi:"autoScalingRole"`
+	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrOutput   `pulumi:"autoTerminationPolicy"`
 	BootstrapActions      ClusterBootstrapActionConfigArrayOutput `pulumi:"bootstrapActions"`
 	Configurations        ClusterConfigurationArrayOutput         `pulumi:"configurations"`
 	CustomAmiId           pulumi.StringPtrOutput                  `pulumi:"customAmiId"`
@@ -93,6 +94,7 @@ type clusterArgs struct {
 	AdditionalInfo        interface{}                    `pulumi:"additionalInfo"`
 	Applications          []ClusterApplication           `pulumi:"applications"`
 	AutoScalingRole       *string                        `pulumi:"autoScalingRole"`
+	AutoTerminationPolicy *ClusterAutoTerminationPolicy  `pulumi:"autoTerminationPolicy"`
 	BootstrapActions      []ClusterBootstrapActionConfig `pulumi:"bootstrapActions"`
 	Configurations        []ClusterConfiguration         `pulumi:"configurations"`
 	CustomAmiId           *string                        `pulumi:"customAmiId"`
@@ -119,6 +121,7 @@ type ClusterArgs struct {
 	AdditionalInfo        pulumi.Input
 	Applications          ClusterApplicationArrayInput
 	AutoScalingRole       pulumi.StringPtrInput
+	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrInput
 	BootstrapActions      ClusterBootstrapActionConfigArrayInput
 	Configurations        ClusterConfigurationArrayInput
 	CustomAmiId           pulumi.StringPtrInput
@@ -187,6 +190,10 @@ func (o ClusterOutput) Applications() ClusterApplicationArrayOutput {
 
 func (o ClusterOutput) AutoScalingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AutoScalingRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) AutoTerminationPolicy() ClusterAutoTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAutoTerminationPolicyPtrOutput { return v.AutoTerminationPolicy }).(ClusterAutoTerminationPolicyPtrOutput)
 }
 
 func (o ClusterOutput) BootstrapActions() ClusterBootstrapActionConfigArrayOutput {

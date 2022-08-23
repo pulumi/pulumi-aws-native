@@ -11,9 +11,12 @@ import (
 )
 
 type ApplicationMaxAgeRule struct {
+	// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
-	Enabled            *bool `pulumi:"enabled"`
-	MaxAgeInDays       *int  `pulumi:"maxAgeInDays"`
+	// Specify true to apply the rule, or false to disable it.
+	Enabled *bool `pulumi:"enabled"`
+	// Specify the number of days to retain an application versions.
+	MaxAgeInDays *int `pulumi:"maxAgeInDays"`
 }
 
 // ApplicationMaxAgeRuleInput is an input type that accepts ApplicationMaxAgeRuleArgs and ApplicationMaxAgeRuleOutput values.
@@ -28,9 +31,12 @@ type ApplicationMaxAgeRuleInput interface {
 }
 
 type ApplicationMaxAgeRuleArgs struct {
+	// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 	DeleteSourceFromS3 pulumi.BoolPtrInput `pulumi:"deleteSourceFromS3"`
-	Enabled            pulumi.BoolPtrInput `pulumi:"enabled"`
-	MaxAgeInDays       pulumi.IntPtrInput  `pulumi:"maxAgeInDays"`
+	// Specify true to apply the rule, or false to disable it.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specify the number of days to retain an application versions.
+	MaxAgeInDays pulumi.IntPtrInput `pulumi:"maxAgeInDays"`
 }
 
 func (ApplicationMaxAgeRuleArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o ApplicationMaxAgeRuleOutput) ToApplicationMaxAgeRulePtrOutputWithContext
 	}).(ApplicationMaxAgeRulePtrOutput)
 }
 
+// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 func (o ApplicationMaxAgeRuleOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxAgeRule) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
+// Specify true to apply the rule, or false to disable it.
 func (o ApplicationMaxAgeRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxAgeRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specify the number of days to retain an application versions.
 func (o ApplicationMaxAgeRuleOutput) MaxAgeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxAgeRule) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
@@ -146,6 +155,7 @@ func (o ApplicationMaxAgeRulePtrOutput) Elem() ApplicationMaxAgeRuleOutput {
 	}).(ApplicationMaxAgeRuleOutput)
 }
 
+// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 func (o ApplicationMaxAgeRulePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxAgeRule) *bool {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o ApplicationMaxAgeRulePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specify true to apply the rule, or false to disable it.
 func (o ApplicationMaxAgeRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxAgeRule) *bool {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o ApplicationMaxAgeRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specify the number of days to retain an application versions.
 func (o ApplicationMaxAgeRulePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxAgeRule) *int {
 		if v == nil {
@@ -174,9 +186,12 @@ func (o ApplicationMaxAgeRulePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
 }
 
 type ApplicationMaxCountRule struct {
+	// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
-	Enabled            *bool `pulumi:"enabled"`
-	MaxCount           *int  `pulumi:"maxCount"`
+	// Specify true to apply the rule, or false to disable it.
+	Enabled *bool `pulumi:"enabled"`
+	// Specify the maximum number of application versions to retain.
+	MaxCount *int `pulumi:"maxCount"`
 }
 
 // ApplicationMaxCountRuleInput is an input type that accepts ApplicationMaxCountRuleArgs and ApplicationMaxCountRuleOutput values.
@@ -191,9 +206,12 @@ type ApplicationMaxCountRuleInput interface {
 }
 
 type ApplicationMaxCountRuleArgs struct {
+	// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 	DeleteSourceFromS3 pulumi.BoolPtrInput `pulumi:"deleteSourceFromS3"`
-	Enabled            pulumi.BoolPtrInput `pulumi:"enabled"`
-	MaxCount           pulumi.IntPtrInput  `pulumi:"maxCount"`
+	// Specify true to apply the rule, or false to disable it.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specify the maximum number of application versions to retain.
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 }
 
 func (ApplicationMaxCountRuleArgs) ElementType() reflect.Type {
@@ -273,14 +291,17 @@ func (o ApplicationMaxCountRuleOutput) ToApplicationMaxCountRulePtrOutputWithCon
 	}).(ApplicationMaxCountRulePtrOutput)
 }
 
+// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 func (o ApplicationMaxCountRuleOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxCountRule) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
+// Specify true to apply the rule, or false to disable it.
 func (o ApplicationMaxCountRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxCountRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specify the maximum number of application versions to retain.
 func (o ApplicationMaxCountRuleOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationMaxCountRule) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
@@ -309,6 +330,7 @@ func (o ApplicationMaxCountRulePtrOutput) Elem() ApplicationMaxCountRuleOutput {
 	}).(ApplicationMaxCountRuleOutput)
 }
 
+// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 func (o ApplicationMaxCountRulePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxCountRule) *bool {
 		if v == nil {
@@ -318,6 +340,7 @@ func (o ApplicationMaxCountRulePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specify true to apply the rule, or false to disable it.
 func (o ApplicationMaxCountRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxCountRule) *bool {
 		if v == nil {
@@ -327,6 +350,7 @@ func (o ApplicationMaxCountRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specify the maximum number of application versions to retain.
 func (o ApplicationMaxCountRulePtrOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaxCountRule) *int {
 		if v == nil {
@@ -337,7 +361,9 @@ func (o ApplicationMaxCountRulePtrOutput) MaxCount() pulumi.IntPtrOutput {
 }
 
 type ApplicationResourceLifecycleConfig struct {
-	ServiceRole            *string                            `pulumi:"serviceRole"`
+	// The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+	ServiceRole *string `pulumi:"serviceRole"`
+	// Defines lifecycle settings for application versions.
 	VersionLifecycleConfig *ApplicationVersionLifecycleConfig `pulumi:"versionLifecycleConfig"`
 }
 
@@ -353,7 +379,9 @@ type ApplicationResourceLifecycleConfigInput interface {
 }
 
 type ApplicationResourceLifecycleConfigArgs struct {
-	ServiceRole            pulumi.StringPtrInput                     `pulumi:"serviceRole"`
+	// The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+	ServiceRole pulumi.StringPtrInput `pulumi:"serviceRole"`
+	// Defines lifecycle settings for application versions.
 	VersionLifecycleConfig ApplicationVersionLifecycleConfigPtrInput `pulumi:"versionLifecycleConfig"`
 }
 
@@ -434,10 +462,12 @@ func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycle
 	}).(ApplicationResourceLifecycleConfigPtrOutput)
 }
 
+// The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
 func (o ApplicationResourceLifecycleConfigOutput) ServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationResourceLifecycleConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
+// Defines lifecycle settings for application versions.
 func (o ApplicationResourceLifecycleConfigOutput) VersionLifecycleConfig() ApplicationVersionLifecycleConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationResourceLifecycleConfig) *ApplicationVersionLifecycleConfig {
 		return v.VersionLifecycleConfig
@@ -468,6 +498,7 @@ func (o ApplicationResourceLifecycleConfigPtrOutput) Elem() ApplicationResourceL
 	}).(ApplicationResourceLifecycleConfigOutput)
 }
 
+// The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
 func (o ApplicationResourceLifecycleConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationResourceLifecycleConfig) *string {
 		if v == nil {
@@ -477,6 +508,7 @@ func (o ApplicationResourceLifecycleConfigPtrOutput) ServiceRole() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines lifecycle settings for application versions.
 func (o ApplicationResourceLifecycleConfigPtrOutput) VersionLifecycleConfig() ApplicationVersionLifecycleConfigPtrOutput {
 	return o.ApplyT(func(v *ApplicationResourceLifecycleConfig) *ApplicationVersionLifecycleConfig {
 		if v == nil {
@@ -487,7 +519,9 @@ func (o ApplicationResourceLifecycleConfigPtrOutput) VersionLifecycleConfig() Ap
 }
 
 type ApplicationVersionLifecycleConfig struct {
-	MaxAgeRule   *ApplicationMaxAgeRule   `pulumi:"maxAgeRule"`
+	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
+	MaxAgeRule *ApplicationMaxAgeRule `pulumi:"maxAgeRule"`
+	// Specify a max count rule to restrict the number of application versions that are retained for an application.
 	MaxCountRule *ApplicationMaxCountRule `pulumi:"maxCountRule"`
 }
 
@@ -503,7 +537,9 @@ type ApplicationVersionLifecycleConfigInput interface {
 }
 
 type ApplicationVersionLifecycleConfigArgs struct {
-	MaxAgeRule   ApplicationMaxAgeRulePtrInput   `pulumi:"maxAgeRule"`
+	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
+	MaxAgeRule ApplicationMaxAgeRulePtrInput `pulumi:"maxAgeRule"`
+	// Specify a max count rule to restrict the number of application versions that are retained for an application.
 	MaxCountRule ApplicationMaxCountRulePtrInput `pulumi:"maxCountRule"`
 }
 
@@ -584,10 +620,12 @@ func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleCo
 	}).(ApplicationVersionLifecycleConfigPtrOutput)
 }
 
+// Specify a max age rule to restrict the length of time that application versions are retained for an application.
 func (o ApplicationVersionLifecycleConfigOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
 	return o.ApplyT(func(v ApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule { return v.MaxAgeRule }).(ApplicationMaxAgeRulePtrOutput)
 }
 
+// Specify a max count rule to restrict the number of application versions that are retained for an application.
 func (o ApplicationVersionLifecycleConfigOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
 	return o.ApplyT(func(v ApplicationVersionLifecycleConfig) *ApplicationMaxCountRule { return v.MaxCountRule }).(ApplicationMaxCountRulePtrOutput)
 }
@@ -616,6 +654,7 @@ func (o ApplicationVersionLifecycleConfigPtrOutput) Elem() ApplicationVersionLif
 	}).(ApplicationVersionLifecycleConfigOutput)
 }
 
+// Specify a max age rule to restrict the length of time that application versions are retained for an application.
 func (o ApplicationVersionLifecycleConfigPtrOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
 	return o.ApplyT(func(v *ApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule {
 		if v == nil {
@@ -625,6 +664,7 @@ func (o ApplicationVersionLifecycleConfigPtrOutput) MaxAgeRule() ApplicationMaxA
 	}).(ApplicationMaxAgeRulePtrOutput)
 }
 
+// Specify a max count rule to restrict the number of application versions that are retained for an application.
 func (o ApplicationVersionLifecycleConfigPtrOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
 	return o.ApplyT(func(v *ApplicationVersionLifecycleConfig) *ApplicationMaxCountRule {
 		if v == nil {

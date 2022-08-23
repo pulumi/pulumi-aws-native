@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Logs::MetricFilter
+// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
 func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts ...pulumi.InvokeOption) (*LookupMetricFilterResult, error) {
 	var rv LookupMetricFilterResult
 	err := ctx.Invoke("aws-native:logs:getMetricFilter", args, &rv, opts...)
@@ -21,12 +21,16 @@ func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts 
 }
 
 type LookupMetricFilterArgs struct {
-	Id string `pulumi:"id"`
+	// A name for the metric filter.
+	FilterName string `pulumi:"filterName"`
+	// Existing log group that you want to associate with this filter.
+	LogGroupName string `pulumi:"logGroupName"`
 }
 
 type LookupMetricFilterResult struct {
-	FilterPattern         *string                            `pulumi:"filterPattern"`
-	Id                    *string                            `pulumi:"id"`
+	// Pattern that Logs follows to interpret each entry in a log.
+	FilterPattern *string `pulumi:"filterPattern"`
+	// A collection of information that defines how metric data gets emitted.
 	MetricTransformations []MetricFilterMetricTransformation `pulumi:"metricTransformations"`
 }
 
@@ -44,7 +48,10 @@ func LookupMetricFilterOutput(ctx *pulumi.Context, args LookupMetricFilterOutput
 }
 
 type LookupMetricFilterOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A name for the metric filter.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// Existing log group that you want to associate with this filter.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
 func (LookupMetricFilterOutputArgs) ElementType() reflect.Type {
@@ -65,14 +72,12 @@ func (o LookupMetricFilterResultOutput) ToLookupMetricFilterResultOutputWithCont
 	return o
 }
 
+// Pattern that Logs follows to interpret each entry in a log.
 func (o LookupMetricFilterResultOutput) FilterPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) *string { return v.FilterPattern }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMetricFilterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMetricFilterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// A collection of information that defines how metric data gets emitted.
 func (o LookupMetricFilterResultOutput) MetricTransformations() MetricFilterMetricTransformationArrayOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) []MetricFilterMetricTransformation { return v.MetricTransformations }).(MetricFilterMetricTransformationArrayOutput)
 }

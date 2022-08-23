@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<Inputs.OriginEndpointDashEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// When enabled, an I-Frame only stream will be included in the output.
+        /// </summary>
+        [Input("includeIframeOnlyStream")]
+        public Input<bool>? IncludeIframeOnlyStream { get; set; }
+
+        /// <summary>
         /// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         /// </summary>
         [Input("manifestLayout")]
@@ -103,7 +109,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageUtcTiming>? UtcTiming { get; set; }
 
         /// <summary>
-        /// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+        /// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
         /// </summary>
         [Input("utcTimingUri")]
         public Input<string>? UtcTimingUri { get; set; }

@@ -26,6 +26,7 @@ export interface GetDomainArgs {
 export interface GetDomainResult {
     readonly accessPolicies?: any;
     readonly advancedOptions?: any;
+    readonly advancedSecurityOptions?: outputs.opensearchservice.DomainAdvancedSecurityOptionsInput;
     readonly arn?: string;
     readonly clusterConfig?: outputs.opensearchservice.DomainClusterConfig;
     readonly cognitoOptions?: outputs.opensearchservice.DomainCognitoOptions;

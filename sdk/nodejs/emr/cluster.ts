@@ -41,6 +41,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly additionalInfo!: pulumi.Output<any | undefined>;
     public readonly applications!: pulumi.Output<outputs.emr.ClusterApplication[] | undefined>;
     public readonly autoScalingRole!: pulumi.Output<string | undefined>;
+    public readonly autoTerminationPolicy!: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapActionConfig[] | undefined>;
     public readonly configurations!: pulumi.Output<outputs.emr.ClusterConfiguration[] | undefined>;
     public readonly customAmiId!: pulumi.Output<string | undefined>;
@@ -87,6 +88,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["additionalInfo"] = args ? args.additionalInfo : undefined;
             resourceInputs["applications"] = args ? args.applications : undefined;
             resourceInputs["autoScalingRole"] = args ? args.autoScalingRole : undefined;
+            resourceInputs["autoTerminationPolicy"] = args ? args.autoTerminationPolicy : undefined;
             resourceInputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
             resourceInputs["configurations"] = args ? args.configurations : undefined;
             resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
@@ -111,6 +113,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["additionalInfo"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
             resourceInputs["autoScalingRole"] = undefined /*out*/;
+            resourceInputs["autoTerminationPolicy"] = undefined /*out*/;
             resourceInputs["bootstrapActions"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["customAmiId"] = undefined /*out*/;
@@ -144,6 +147,7 @@ export interface ClusterArgs {
     additionalInfo?: any;
     applications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterApplicationArgs>[]>;
     autoScalingRole?: pulumi.Input<string>;
+    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicyArgs>;
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapActionConfigArgs>[]>;
     configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterConfigurationArgs>[]>;
     customAmiId?: pulumi.Input<string>;

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("templateName")]
         public Output<string?> TemplateName { get; private set; } = null!;
 
+        [Output("templateType")]
+        public Output<Pulumi.AwsNative.IoT.ProvisioningTemplateTemplateType?> TemplateType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -109,6 +112,9 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
+
+        [Input("templateType")]
+        public Input<Pulumi.AwsNative.IoT.ProvisioningTemplateTemplateType>? TemplateType { get; set; }
 
         public ProvisioningTemplateArgs()
         {

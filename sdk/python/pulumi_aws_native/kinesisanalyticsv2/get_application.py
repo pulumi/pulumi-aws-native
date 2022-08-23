@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_configuration=None, application_description=None, service_execution_role=None, tags=None):
+    def __init__(__self__, application_configuration=None, application_description=None, application_maintenance_configuration=None, service_execution_role=None, tags=None):
         if application_configuration and not isinstance(application_configuration, dict):
             raise TypeError("Expected argument 'application_configuration' to be a dict")
         pulumi.set(__self__, "application_configuration", application_configuration)
         if application_description and not isinstance(application_description, str):
             raise TypeError("Expected argument 'application_description' to be a str")
         pulumi.set(__self__, "application_description", application_description)
+        if application_maintenance_configuration and not isinstance(application_maintenance_configuration, dict):
+            raise TypeError("Expected argument 'application_maintenance_configuration' to be a dict")
+        pulumi.set(__self__, "application_maintenance_configuration", application_maintenance_configuration)
         if service_execution_role and not isinstance(service_execution_role, str):
             raise TypeError("Expected argument 'service_execution_role' to be a str")
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -49,6 +52,14 @@ class GetApplicationResult:
         The description of the application.
         """
         return pulumi.get(self, "application_description")
+
+    @property
+    @pulumi.getter(name="applicationMaintenanceConfiguration")
+    def application_maintenance_configuration(self) -> Optional['outputs.ApplicationMaintenanceConfiguration']:
+        """
+        Used to configure start of maintenance window.
+        """
+        return pulumi.get(self, "application_maintenance_configuration")
 
     @property
     @pulumi.getter(name="serviceExecutionRole")
@@ -75,6 +86,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         return GetApplicationResult(
             application_configuration=self.application_configuration,
             application_description=self.application_description,
+            application_maintenance_configuration=self.application_maintenance_configuration,
             service_execution_role=self.service_execution_role,
             tags=self.tags)
 
@@ -95,6 +107,7 @@ def get_application(application_name: Optional[str] = None,
     return AwaitableGetApplicationResult(
         application_configuration=__ret__.application_configuration,
         application_description=__ret__.application_description,
+        application_maintenance_configuration=__ret__.application_maintenance_configuration,
         service_execution_role=__ret__.service_execution_role,
         tags=__ret__.tags)
 

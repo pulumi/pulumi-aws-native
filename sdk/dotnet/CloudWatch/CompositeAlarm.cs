@@ -22,6 +22,24 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        /// </summary>
+        [Output("actionsSuppressor")]
+        public Output<string?> ActionsSuppressor { get; private set; } = null!;
+
+        /// <summary>
+        /// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        [Output("actionsSuppressorExtensionPeriod")]
+        public Output<int?> ActionsSuppressorExtensionPeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        [Output("actionsSuppressorWaitPeriod")]
+        public Output<int?> ActionsSuppressorWaitPeriod { get; private set; } = null!;
+
+        /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         /// </summary>
         [Output("alarmActions")]
@@ -113,6 +131,24 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
+
+        /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        /// </summary>
+        [Input("actionsSuppressor")]
+        public Input<string>? ActionsSuppressor { get; set; }
+
+        /// <summary>
+        /// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        [Input("actionsSuppressorExtensionPeriod")]
+        public Input<int>? ActionsSuppressorExtensionPeriod { get; set; }
+
+        /// <summary>
+        /// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        [Input("actionsSuppressorWaitPeriod")]
+        public Input<int>? ActionsSuppressorWaitPeriod { get; set; }
 
         [Input("alarmActions")]
         private InputList<string>? _alarmActions;

@@ -1378,6 +1378,154 @@ func (o RecordSetAliasTargetPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetCidrRoutingConfig struct {
+	CollectionId string `pulumi:"collectionId"`
+	LocationName string `pulumi:"locationName"`
+}
+
+// RecordSetCidrRoutingConfigInput is an input type that accepts RecordSetCidrRoutingConfigArgs and RecordSetCidrRoutingConfigOutput values.
+// You can construct a concrete instance of `RecordSetCidrRoutingConfigInput` via:
+//
+//	RecordSetCidrRoutingConfigArgs{...}
+type RecordSetCidrRoutingConfigInput interface {
+	pulumi.Input
+
+	ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput
+	ToRecordSetCidrRoutingConfigOutputWithContext(context.Context) RecordSetCidrRoutingConfigOutput
+}
+
+type RecordSetCidrRoutingConfigArgs struct {
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (RecordSetCidrRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput {
+	return i.ToRecordSetCidrRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigOutput)
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigOutput).ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// RecordSetCidrRoutingConfigPtrInput is an input type that accepts RecordSetCidrRoutingConfigArgs, RecordSetCidrRoutingConfigPtr and RecordSetCidrRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `RecordSetCidrRoutingConfigPtrInput` via:
+//
+//	        RecordSetCidrRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetCidrRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput
+	ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Context) RecordSetCidrRoutingConfigPtrOutput
+}
+
+type recordSetCidrRoutingConfigPtrType RecordSetCidrRoutingConfigArgs
+
+func RecordSetCidrRoutingConfigPtr(v *RecordSetCidrRoutingConfigArgs) RecordSetCidrRoutingConfigPtrInput {
+	return (*recordSetCidrRoutingConfigPtrType)(v)
+}
+
+func (*recordSetCidrRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i *recordSetCidrRoutingConfigPtrType) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetCidrRoutingConfigPtrType) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigPtrOutput)
+}
+
+type RecordSetCidrRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCidrRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return o.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetCidrRoutingConfig) *RecordSetCidrRoutingConfig {
+		return &v
+	}).(RecordSetCidrRoutingConfigPtrOutput)
+}
+
+func (o RecordSetCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+func (o RecordSetCidrRoutingConfigOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCidrRoutingConfig) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type RecordSetCidrRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCidrRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) Elem() RecordSetCidrRoutingConfigOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) RecordSetCidrRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetCidrRoutingConfig
+		return ret
+	}).(RecordSetCidrRoutingConfigOutput)
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationName
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordSetGeoLocation struct {
 	ContinentCode   *string `pulumi:"continentCode"`
 	CountryCode     *string `pulumi:"countryCode"`
@@ -1704,6 +1852,154 @@ func (o RecordSetGroupAliasTargetPtrOutput) HostedZoneId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetGroupCidrRoutingConfig struct {
+	CollectionId string `pulumi:"collectionId"`
+	LocationName string `pulumi:"locationName"`
+}
+
+// RecordSetGroupCidrRoutingConfigInput is an input type that accepts RecordSetGroupCidrRoutingConfigArgs and RecordSetGroupCidrRoutingConfigOutput values.
+// You can construct a concrete instance of `RecordSetGroupCidrRoutingConfigInput` via:
+//
+//	RecordSetGroupCidrRoutingConfigArgs{...}
+type RecordSetGroupCidrRoutingConfigInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupCidrRoutingConfigOutput() RecordSetGroupCidrRoutingConfigOutput
+	ToRecordSetGroupCidrRoutingConfigOutputWithContext(context.Context) RecordSetGroupCidrRoutingConfigOutput
+}
+
+type RecordSetGroupCidrRoutingConfigArgs struct {
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (RecordSetGroupCidrRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigOutput() RecordSetGroupCidrRoutingConfigOutput {
+	return i.ToRecordSetGroupCidrRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCidrRoutingConfigOutput)
+}
+
+func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCidrRoutingConfigOutput).ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// RecordSetGroupCidrRoutingConfigPtrInput is an input type that accepts RecordSetGroupCidrRoutingConfigArgs, RecordSetGroupCidrRoutingConfigPtr and RecordSetGroupCidrRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `RecordSetGroupCidrRoutingConfigPtrInput` via:
+//
+//	        RecordSetGroupCidrRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetGroupCidrRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput
+	ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(context.Context) RecordSetGroupCidrRoutingConfigPtrOutput
+}
+
+type recordSetGroupCidrRoutingConfigPtrType RecordSetGroupCidrRoutingConfigArgs
+
+func RecordSetGroupCidrRoutingConfigPtr(v *RecordSetGroupCidrRoutingConfigArgs) RecordSetGroupCidrRoutingConfigPtrInput {
+	return (*recordSetGroupCidrRoutingConfigPtrType)(v)
+}
+
+func (*recordSetGroupCidrRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i *recordSetGroupCidrRoutingConfigPtrType) ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetGroupCidrRoutingConfigPtrType) ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCidrRoutingConfigPtrOutput)
+}
+
+type RecordSetGroupCidrRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupCidrRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) ToRecordSetGroupCidrRoutingConfigOutput() RecordSetGroupCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) ToRecordSetGroupCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput {
+	return o.ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGroupCidrRoutingConfig) *RecordSetGroupCidrRoutingConfig {
+		return &v
+	}).(RecordSetGroupCidrRoutingConfigPtrOutput)
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetGroupCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+func (o RecordSetGroupCidrRoutingConfigOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetGroupCidrRoutingConfig) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type RecordSetGroupCidrRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupCidrRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetGroupCidrRoutingConfigPtrOutput) ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupCidrRoutingConfigPtrOutput) ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupCidrRoutingConfigPtrOutput) Elem() RecordSetGroupCidrRoutingConfigOutput {
+	return o.ApplyT(func(v *RecordSetGroupCidrRoutingConfig) RecordSetGroupCidrRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetGroupCidrRoutingConfig
+		return ret
+	}).(RecordSetGroupCidrRoutingConfigOutput)
+}
+
+func (o RecordSetGroupCidrRoutingConfigPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationName
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordSetGroupGeoLocation struct {
 	ContinentCode   *string `pulumi:"continentCode"`
 	CountryCode     *string `pulumi:"countryCode"`
@@ -1868,20 +2164,21 @@ func (o RecordSetGroupGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOu
 }
 
 type RecordSetGroupRecordSet struct {
-	AliasTarget      *RecordSetGroupAliasTarget `pulumi:"aliasTarget"`
-	Failover         *string                    `pulumi:"failover"`
-	GeoLocation      *RecordSetGroupGeoLocation `pulumi:"geoLocation"`
-	HealthCheckId    *string                    `pulumi:"healthCheckId"`
-	HostedZoneId     *string                    `pulumi:"hostedZoneId"`
-	HostedZoneName   *string                    `pulumi:"hostedZoneName"`
-	MultiValueAnswer *bool                      `pulumi:"multiValueAnswer"`
-	Name             string                     `pulumi:"name"`
-	Region           *string                    `pulumi:"region"`
-	ResourceRecords  []string                   `pulumi:"resourceRecords"`
-	SetIdentifier    *string                    `pulumi:"setIdentifier"`
-	TTL              *string                    `pulumi:"tTL"`
-	Type             string                     `pulumi:"type"`
-	Weight           *int                       `pulumi:"weight"`
+	AliasTarget       *RecordSetGroupAliasTarget       `pulumi:"aliasTarget"`
+	CidrRoutingConfig *RecordSetGroupCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
+	Failover          *string                          `pulumi:"failover"`
+	GeoLocation       *RecordSetGroupGeoLocation       `pulumi:"geoLocation"`
+	HealthCheckId     *string                          `pulumi:"healthCheckId"`
+	HostedZoneId      *string                          `pulumi:"hostedZoneId"`
+	HostedZoneName    *string                          `pulumi:"hostedZoneName"`
+	MultiValueAnswer  *bool                            `pulumi:"multiValueAnswer"`
+	Name              string                           `pulumi:"name"`
+	Region            *string                          `pulumi:"region"`
+	ResourceRecords   []string                         `pulumi:"resourceRecords"`
+	SetIdentifier     *string                          `pulumi:"setIdentifier"`
+	TTL               *string                          `pulumi:"tTL"`
+	Type              string                           `pulumi:"type"`
+	Weight            *int                             `pulumi:"weight"`
 }
 
 // RecordSetGroupRecordSetInput is an input type that accepts RecordSetGroupRecordSetArgs and RecordSetGroupRecordSetOutput values.
@@ -1896,20 +2193,21 @@ type RecordSetGroupRecordSetInput interface {
 }
 
 type RecordSetGroupRecordSetArgs struct {
-	AliasTarget      RecordSetGroupAliasTargetPtrInput `pulumi:"aliasTarget"`
-	Failover         pulumi.StringPtrInput             `pulumi:"failover"`
-	GeoLocation      RecordSetGroupGeoLocationPtrInput `pulumi:"geoLocation"`
-	HealthCheckId    pulumi.StringPtrInput             `pulumi:"healthCheckId"`
-	HostedZoneId     pulumi.StringPtrInput             `pulumi:"hostedZoneId"`
-	HostedZoneName   pulumi.StringPtrInput             `pulumi:"hostedZoneName"`
-	MultiValueAnswer pulumi.BoolPtrInput               `pulumi:"multiValueAnswer"`
-	Name             pulumi.StringInput                `pulumi:"name"`
-	Region           pulumi.StringPtrInput             `pulumi:"region"`
-	ResourceRecords  pulumi.StringArrayInput           `pulumi:"resourceRecords"`
-	SetIdentifier    pulumi.StringPtrInput             `pulumi:"setIdentifier"`
-	TTL              pulumi.StringPtrInput             `pulumi:"tTL"`
-	Type             pulumi.StringInput                `pulumi:"type"`
-	Weight           pulumi.IntPtrInput                `pulumi:"weight"`
+	AliasTarget       RecordSetGroupAliasTargetPtrInput       `pulumi:"aliasTarget"`
+	CidrRoutingConfig RecordSetGroupCidrRoutingConfigPtrInput `pulumi:"cidrRoutingConfig"`
+	Failover          pulumi.StringPtrInput                   `pulumi:"failover"`
+	GeoLocation       RecordSetGroupGeoLocationPtrInput       `pulumi:"geoLocation"`
+	HealthCheckId     pulumi.StringPtrInput                   `pulumi:"healthCheckId"`
+	HostedZoneId      pulumi.StringPtrInput                   `pulumi:"hostedZoneId"`
+	HostedZoneName    pulumi.StringPtrInput                   `pulumi:"hostedZoneName"`
+	MultiValueAnswer  pulumi.BoolPtrInput                     `pulumi:"multiValueAnswer"`
+	Name              pulumi.StringInput                      `pulumi:"name"`
+	Region            pulumi.StringPtrInput                   `pulumi:"region"`
+	ResourceRecords   pulumi.StringArrayInput                 `pulumi:"resourceRecords"`
+	SetIdentifier     pulumi.StringPtrInput                   `pulumi:"setIdentifier"`
+	TTL               pulumi.StringPtrInput                   `pulumi:"tTL"`
+	Type              pulumi.StringInput                      `pulumi:"type"`
+	Weight            pulumi.IntPtrInput                      `pulumi:"weight"`
 }
 
 func (RecordSetGroupRecordSetArgs) ElementType() reflect.Type {
@@ -1965,6 +2263,10 @@ func (o RecordSetGroupRecordSetOutput) ToRecordSetGroupRecordSetOutputWithContex
 
 func (o RecordSetGroupRecordSetOutput) AliasTarget() RecordSetGroupAliasTargetPtrOutput {
 	return o.ApplyT(func(v RecordSetGroupRecordSet) *RecordSetGroupAliasTarget { return v.AliasTarget }).(RecordSetGroupAliasTargetPtrOutput)
+}
+
+func (o RecordSetGroupRecordSetOutput) CidrRoutingConfig() RecordSetGroupCidrRoutingConfigPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupRecordSet) *RecordSetGroupCidrRoutingConfig { return v.CidrRoutingConfig }).(RecordSetGroupCidrRoutingConfigPtrOutput)
 }
 
 func (o RecordSetGroupRecordSetOutput) Failover() pulumi.StringPtrOutput {
@@ -2057,10 +2359,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVPCArrayInput)(nil)).Elem(), HostedZoneVPCArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetPtrInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationPtrInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupAliasTargetInput)(nil)).Elem(), RecordSetGroupAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupAliasTargetPtrInput)(nil)).Elem(), RecordSetGroupAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCidrRoutingConfigInput)(nil)).Elem(), RecordSetGroupCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetGroupCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoLocationInput)(nil)).Elem(), RecordSetGroupGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoLocationPtrInput)(nil)).Elem(), RecordSetGroupGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupRecordSetInput)(nil)).Elem(), RecordSetGroupRecordSetArgs{})
@@ -2083,10 +2389,14 @@ func init() {
 	pulumi.RegisterOutputType(HostedZoneVPCArrayOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigOutput{})
+	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGeoLocationOutput{})
 	pulumi.RegisterOutputType(RecordSetGeoLocationPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupAliasTargetOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupAliasTargetPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupCidrRoutingConfigOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupCidrRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupGeoLocationOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupGeoLocationPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupRecordSetOutput{})

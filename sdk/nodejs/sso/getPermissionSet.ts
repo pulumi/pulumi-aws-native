@@ -32,6 +32,7 @@ export interface GetPermissionSetArgs {
 }
 
 export interface GetPermissionSetResult {
+    readonly customerManagedPolicyReferences?: outputs.sso.PermissionSetCustomerManagedPolicyReference[];
     /**
      * The permission set description.
      */
@@ -45,6 +46,7 @@ export interface GetPermissionSetResult {
      * The permission set that the policy will be attached to
      */
     readonly permissionSetArn?: string;
+    readonly permissionsBoundary?: outputs.sso.PermissionSetPermissionsBoundary;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
      */

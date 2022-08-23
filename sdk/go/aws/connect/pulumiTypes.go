@@ -685,6 +685,178 @@ func (o HoursOfOperationTimeSliceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v HoursOfOperationTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
+type InstanceAttributes struct {
+	AutoResolveBestVoices *bool `pulumi:"autoResolveBestVoices"`
+	ContactLens           *bool `pulumi:"contactLens"`
+	ContactflowLogs       *bool `pulumi:"contactflowLogs"`
+	EarlyMedia            *bool `pulumi:"earlyMedia"`
+	InboundCalls          bool  `pulumi:"inboundCalls"`
+	OutboundCalls         bool  `pulumi:"outboundCalls"`
+	UseCustomTTSVoices    *bool `pulumi:"useCustomTTSVoices"`
+}
+
+// InstanceAttributesInput is an input type that accepts InstanceAttributesArgs and InstanceAttributesOutput values.
+// You can construct a concrete instance of `InstanceAttributesInput` via:
+//
+//	InstanceAttributesArgs{...}
+type InstanceAttributesInput interface {
+	pulumi.Input
+
+	ToInstanceAttributesOutput() InstanceAttributesOutput
+	ToInstanceAttributesOutputWithContext(context.Context) InstanceAttributesOutput
+}
+
+type InstanceAttributesArgs struct {
+	AutoResolveBestVoices pulumi.BoolPtrInput `pulumi:"autoResolveBestVoices"`
+	ContactLens           pulumi.BoolPtrInput `pulumi:"contactLens"`
+	ContactflowLogs       pulumi.BoolPtrInput `pulumi:"contactflowLogs"`
+	EarlyMedia            pulumi.BoolPtrInput `pulumi:"earlyMedia"`
+	InboundCalls          pulumi.BoolInput    `pulumi:"inboundCalls"`
+	OutboundCalls         pulumi.BoolInput    `pulumi:"outboundCalls"`
+	UseCustomTTSVoices    pulumi.BoolPtrInput `pulumi:"useCustomTTSVoices"`
+}
+
+func (InstanceAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAttributes)(nil)).Elem()
+}
+
+func (i InstanceAttributesArgs) ToInstanceAttributesOutput() InstanceAttributesOutput {
+	return i.ToInstanceAttributesOutputWithContext(context.Background())
+}
+
+func (i InstanceAttributesArgs) ToInstanceAttributesOutputWithContext(ctx context.Context) InstanceAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAttributesOutput)
+}
+
+type InstanceAttributesOutput struct{ *pulumi.OutputState }
+
+func (InstanceAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAttributes)(nil)).Elem()
+}
+
+func (o InstanceAttributesOutput) ToInstanceAttributesOutput() InstanceAttributesOutput {
+	return o
+}
+
+func (o InstanceAttributesOutput) ToInstanceAttributesOutputWithContext(ctx context.Context) InstanceAttributesOutput {
+	return o
+}
+
+func (o InstanceAttributesOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.AutoResolveBestVoices }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) ContactLens() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.ContactLens }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) ContactflowLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.ContactflowLogs }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) EarlyMedia() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.EarlyMedia }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) InboundCalls() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstanceAttributes) bool { return v.InboundCalls }).(pulumi.BoolOutput)
+}
+
+func (o InstanceAttributesOutput) OutboundCalls() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstanceAttributes) bool { return v.OutboundCalls }).(pulumi.BoolOutput)
+}
+
+func (o InstanceAttributesOutput) UseCustomTTSVoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.UseCustomTTSVoices }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAttributes)(nil)).Elem()
+}
+
+func (o InstanceAttributesPtrOutput) ToInstanceAttributesPtrOutput() InstanceAttributesPtrOutput {
+	return o
+}
+
+func (o InstanceAttributesPtrOutput) ToInstanceAttributesPtrOutputWithContext(ctx context.Context) InstanceAttributesPtrOutput {
+	return o
+}
+
+func (o InstanceAttributesPtrOutput) Elem() InstanceAttributesOutput {
+	return o.ApplyT(func(v *InstanceAttributes) InstanceAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceAttributes
+		return ret
+	}).(InstanceAttributesOutput)
+}
+
+func (o InstanceAttributesPtrOutput) AutoResolveBestVoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoResolveBestVoices
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) ContactLens() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ContactLens
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) ContactflowLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ContactflowLogs
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) EarlyMedia() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EarlyMedia
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) InboundCalls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.InboundCalls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) OutboundCalls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OutboundCalls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) UseCustomTTSVoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseCustomTTSVoices
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type PhoneNumberTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2567,6 +2739,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagInput)(nil)).Elem(), HoursOfOperationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagArrayInput)(nil)).Elem(), HoursOfOperationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAttributesInput)(nil)).Elem(), InstanceAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagInput)(nil)).Elem(), PhoneNumberTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
@@ -2607,6 +2780,8 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationTagOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
+	pulumi.RegisterOutputType(InstanceAttributesOutput{})
+	pulumi.RegisterOutputType(InstanceAttributesPtrOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})

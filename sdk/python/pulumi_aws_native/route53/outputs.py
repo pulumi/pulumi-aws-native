@@ -21,8 +21,10 @@ __all__ = [
     'HostedZoneTag',
     'HostedZoneVPC',
     'RecordSetAliasTarget',
+    'RecordSetCidrRoutingConfig',
     'RecordSetGeoLocation',
     'RecordSetGroupAliasTarget',
+    'RecordSetGroupCidrRoutingConfig',
     'RecordSetGroupGeoLocation',
     'RecordSetGroupRecordSet',
 ]
@@ -528,6 +530,44 @@ class RecordSetAliasTarget(dict):
 
 
 @pulumi.output_type
+class RecordSetCidrRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionId":
+            suggest = "collection_id"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetCidrRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetCidrRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetCidrRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
 class RecordSetGeoLocation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -626,6 +666,44 @@ class RecordSetGroupAliasTarget(dict):
 
 
 @pulumi.output_type
+class RecordSetGroupCidrRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionId":
+            suggest = "collection_id"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupCidrRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGroupCidrRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGroupCidrRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
 class RecordSetGroupGeoLocation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -682,6 +760,8 @@ class RecordSetGroupRecordSet(dict):
         suggest = None
         if key == "aliasTarget":
             suggest = "alias_target"
+        elif key == "cidrRoutingConfig":
+            suggest = "cidr_routing_config"
         elif key == "geoLocation":
             suggest = "geo_location"
         elif key == "healthCheckId":
@@ -714,6 +794,7 @@ class RecordSetGroupRecordSet(dict):
                  name: str,
                  type: str,
                  alias_target: Optional['outputs.RecordSetGroupAliasTarget'] = None,
+                 cidr_routing_config: Optional['outputs.RecordSetGroupCidrRoutingConfig'] = None,
                  failover: Optional[str] = None,
                  geo_location: Optional['outputs.RecordSetGroupGeoLocation'] = None,
                  health_check_id: Optional[str] = None,
@@ -729,6 +810,8 @@ class RecordSetGroupRecordSet(dict):
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
+        if cidr_routing_config is not None:
+            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         if failover is not None:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
@@ -766,6 +849,11 @@ class RecordSetGroupRecordSet(dict):
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> Optional['outputs.RecordSetGroupAliasTarget']:
         return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> Optional['outputs.RecordSetGroupCidrRoutingConfig']:
+        return pulumi.get(self, "cidr_routing_config")
 
     @property
     @pulumi.getter

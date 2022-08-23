@@ -44,6 +44,7 @@ export interface GetDataSetResult {
      * <p>The time that this dataset was created.</p>
      */
     readonly createdTime?: string;
+    readonly dataSetUsageConfiguration?: outputs.quicksight.DataSetUsageConfiguration;
     readonly importMode?: enums.quicksight.DataSetImportMode;
     /**
      * <p>The last time that this dataset was updated.</p>

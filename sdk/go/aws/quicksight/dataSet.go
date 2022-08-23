@@ -24,11 +24,12 @@ type DataSet struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes pulumi.Float64Output `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime         pulumi.StringOutput                 `pulumi:"createdTime"`
-	DataSetId           pulumi.StringPtrOutput              `pulumi:"dataSetId"`
-	FieldFolders        DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
-	ImportMode          DataSetImportModePtrOutput          `pulumi:"importMode"`
-	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
+	CreatedTime               pulumi.StringOutput                 `pulumi:"createdTime"`
+	DataSetId                 pulumi.StringPtrOutput              `pulumi:"dataSetId"`
+	DataSetUsageConfiguration DataSetUsageConfigurationPtrOutput  `pulumi:"dataSetUsageConfiguration"`
+	FieldFolders              DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
+	ImportMode                DataSetImportModePtrOutput          `pulumi:"importMode"`
+	IngestionWaitPolicy       DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
 	// <p>The last time that this dataset was updated.</p>
 	LastUpdatedTime pulumi.StringOutput             `pulumi:"lastUpdatedTime"`
 	LogicalTableMap DataSetLogicalTableMapPtrOutput `pulumi:"logicalTableMap"`
@@ -89,6 +90,7 @@ type dataSetArgs struct {
 	ColumnGroups               []DataSetColumnGroup               `pulumi:"columnGroups"`
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	DataSetId                  *string                            `pulumi:"dataSetId"`
+	DataSetUsageConfiguration  *DataSetUsageConfiguration         `pulumi:"dataSetUsageConfiguration"`
 	FieldFolders               *DataSetFieldFolderMap             `pulumi:"fieldFolders"`
 	ImportMode                 *DataSetImportMode                 `pulumi:"importMode"`
 	IngestionWaitPolicy        *DataSetIngestionWaitPolicy        `pulumi:"ingestionWaitPolicy"`
@@ -110,6 +112,7 @@ type DataSetArgs struct {
 	ColumnGroups               DataSetColumnGroupArrayInput
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
 	DataSetId                  pulumi.StringPtrInput
+	DataSetUsageConfiguration  DataSetUsageConfigurationPtrInput
 	FieldFolders               DataSetFieldFolderMapPtrInput
 	ImportMode                 DataSetImportModePtrInput
 	IngestionWaitPolicy        DataSetIngestionWaitPolicyPtrInput
@@ -193,6 +196,10 @@ func (o DataSetOutput) CreatedTime() pulumi.StringOutput {
 
 func (o DataSetOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSetOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetUsageConfigurationPtrOutput { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
 }
 
 func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapPtrOutput {

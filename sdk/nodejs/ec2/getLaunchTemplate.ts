@@ -29,6 +29,7 @@ export interface GetLaunchTemplateResult {
     readonly latestVersionNumber?: string;
     readonly launchTemplateData?: outputs.ec2.LaunchTemplateData;
     readonly tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
+    readonly versionDescription?: string;
 }
 
 export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {

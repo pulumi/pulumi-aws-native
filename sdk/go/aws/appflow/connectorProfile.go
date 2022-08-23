@@ -17,6 +17,8 @@ type ConnectorProfile struct {
 
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionModeOutput `pulumi:"connectionMode"`
+	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+	ConnectorLabel pulumi.StringPtrOutput `pulumi:"connectorLabel"`
 	// Unique identifier for connector profile resources
 	ConnectorProfileArn pulumi.StringOutput `pulumi:"connectorProfileArn"`
 	// Connector specific configurations needed to create connector profile
@@ -78,6 +80,8 @@ func (ConnectorProfileState) ElementType() reflect.Type {
 type connectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionMode `pulumi:"connectionMode"`
+	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+	ConnectorLabel *string `pulumi:"connectorLabel"`
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig *ConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The maximum number of items to retrieve in a single batch.
@@ -92,6 +96,8 @@ type connectorProfileArgs struct {
 type ConnectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionModeInput
+	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+	ConnectorLabel pulumi.StringPtrInput
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig ConnectorProfileConfigPtrInput
 	// The maximum number of items to retrieve in a single batch.
@@ -142,6 +148,11 @@ func (o ConnectorProfileOutput) ToConnectorProfileOutputWithContext(ctx context.
 // Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 func (o ConnectorProfileOutput) ConnectionMode() ConnectorProfileConnectionModeOutput {
 	return o.ApplyT(func(v *ConnectorProfile) ConnectorProfileConnectionModeOutput { return v.ConnectionMode }).(ConnectorProfileConnectionModeOutput)
+}
+
+// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+func (o ConnectorProfileOutput) ConnectorLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringPtrOutput { return v.ConnectorLabel }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier for connector profile resources

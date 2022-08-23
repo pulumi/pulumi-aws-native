@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ElasticBeanstalk::Application
+ * The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -15,17 +15,25 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getApplication", {
-        "id": args.id,
+        "applicationName": args.applicationName,
     }, opts);
 }
 
 export interface GetApplicationArgs {
-    id: string;
+    /**
+     * A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
+    applicationName: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * Your description of the application.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+     */
     readonly resourceLifecycleConfig?: outputs.elasticbeanstalk.ApplicationResourceLifecycleConfig;
 }
 
@@ -34,5 +42,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
+    applicationName: pulumi.Input<string>;
 }

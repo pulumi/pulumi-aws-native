@@ -105,6 +105,17 @@ export const ApplicationRecordFormatRecordFormatType = {
  */
 export type ApplicationRecordFormatRecordFormatType = (typeof ApplicationRecordFormatRecordFormatType)[keyof typeof ApplicationRecordFormatRecordFormatType];
 
+export const ApplicationRestoreConfigurationApplicationRestoreType = {
+    SkipRestoreFromSnapshot: "SKIP_RESTORE_FROM_SNAPSHOT",
+    RestoreFromLatestSnapshot: "RESTORE_FROM_LATEST_SNAPSHOT",
+    RestoreFromCustomSnapshot: "RESTORE_FROM_CUSTOM_SNAPSHOT",
+} as const;
+
+/**
+ * Specifies how the application should be restored.
+ */
+export type ApplicationRestoreConfigurationApplicationRestoreType = (typeof ApplicationRestoreConfigurationApplicationRestoreType)[keyof typeof ApplicationRestoreConfigurationApplicationRestoreType];
+
 export const ApplicationZeppelinMonitoringConfigurationLogLevel = {
     Debug: "DEBUG",
     Info: "INFO",

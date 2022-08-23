@@ -6,9 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::DynamoDB::Table
- *
- * @deprecated Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Version: None. Resource Type definition for AWS::DynamoDB::Table
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Table extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Table {
-        pulumi.log.warn("Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Table(name, undefined as any, { ...opts, id: id });
     }
 
@@ -43,7 +40,8 @@ export class Table extends pulumi.CustomResource {
     public readonly billingMode!: pulumi.Output<string | undefined>;
     public readonly contributorInsightsSpecification!: pulumi.Output<outputs.dynamodb.TableContributorInsightsSpecification | undefined>;
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
-    public readonly keySchema!: pulumi.Output<outputs.dynamodb.TableKeySchema[]>;
+    public readonly importSourceSpecification!: pulumi.Output<outputs.dynamodb.TableImportSourceSpecification | undefined>;
+    public readonly keySchema!: pulumi.Output<outputs.dynamodb.TableKeySchema[] | any>;
     public readonly kinesisStreamSpecification!: pulumi.Output<outputs.dynamodb.TableKinesisStreamSpecification | undefined>;
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     public readonly pointInTimeRecoverySpecification!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecoverySpecification | undefined>;
@@ -63,9 +61,7 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -76,6 +72,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["importSourceSpecification"] = args ? args.importSourceSpecification : undefined;
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
             resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
@@ -95,6 +92,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["contributorInsightsSpecification"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["importSourceSpecification"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["kinesisStreamSpecification"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
@@ -121,7 +119,8 @@ export interface TableArgs {
     billingMode?: pulumi.Input<string>;
     contributorInsightsSpecification?: pulumi.Input<inputs.dynamodb.TableContributorInsightsSpecificationArgs>;
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexArgs>[]>;
-    keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.TableKeySchemaArgs>[]>;
+    importSourceSpecification?: pulumi.Input<inputs.dynamodb.TableImportSourceSpecificationArgs>;
+    keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.TableKeySchemaArgs>[] | any>;
     kinesisStreamSpecification?: pulumi.Input<inputs.dynamodb.TableKinesisStreamSpecificationArgs>;
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndexArgs>[]>;
     pointInTimeRecoverySpecification?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecoverySpecificationArgs>;

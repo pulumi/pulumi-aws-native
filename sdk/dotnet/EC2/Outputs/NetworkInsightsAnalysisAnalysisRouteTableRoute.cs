@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? NatGatewayId;
         public readonly string? NetworkInterfaceId;
         public readonly string? Origin;
+        public readonly string? State;
         public readonly string? TransitGatewayId;
         public readonly string? VpcPeeringConnectionId;
 
@@ -42,6 +43,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? origin,
 
+            string? state,
+
             string? transitGatewayId,
 
             string? vpcPeeringConnectionId)
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
             Origin = origin;
+            State = state;
             TransitGatewayId = transitGatewayId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;
         }

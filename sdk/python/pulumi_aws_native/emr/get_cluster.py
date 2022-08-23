@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, id=None, instances=None, managed_scaling_policy=None, master_public_dns=None, step_concurrency_level=None, tags=None, visible_to_all_users=None):
+    def __init__(__self__, auto_termination_policy=None, id=None, instances=None, managed_scaling_policy=None, master_public_dns=None, step_concurrency_level=None, tags=None, visible_to_all_users=None):
+        if auto_termination_policy and not isinstance(auto_termination_policy, dict):
+            raise TypeError("Expected argument 'auto_termination_policy' to be a dict")
+        pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,11 @@ class GetClusterResult:
         if visible_to_all_users and not isinstance(visible_to_all_users, bool):
             raise TypeError("Expected argument 'visible_to_all_users' to be a bool")
         pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> Optional['outputs.ClusterAutoTerminationPolicy']:
+        return pulumi.get(self, "auto_termination_policy")
 
     @property
     @pulumi.getter
@@ -84,6 +92,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            auto_termination_policy=self.auto_termination_policy,
             id=self.id,
             instances=self.instances,
             managed_scaling_policy=self.managed_scaling_policy,
@@ -104,6 +113,7 @@ def get_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        auto_termination_policy=__ret__.auto_termination_policy,
         id=__ret__.id,
         instances=__ret__.instances,
         managed_scaling_policy=__ret__.managed_scaling_policy,

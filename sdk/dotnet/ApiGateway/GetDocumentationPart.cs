@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDocumentationPartArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The identifier of the documentation Part.
+        /// </summary>
+        [Input("documentationPartId", required: true)]
+        public string DocumentationPartId { get; set; } = null!;
+
+        /// <summary>
+        /// Identifier of the targeted API entity
+        /// </summary>
+        [Input("restApiId", required: true)]
+        public string RestApiId { get; set; } = null!;
 
         public GetDocumentationPartArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDocumentationPartInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The identifier of the documentation Part.
+        /// </summary>
+        [Input("documentationPartId", required: true)]
+        public Input<string> DocumentationPartId { get; set; } = null!;
+
+        /// <summary>
+        /// Identifier of the targeted API entity
+        /// </summary>
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
 
         public GetDocumentationPartInvokeArgs()
         {
@@ -51,16 +69,22 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetDocumentationPartResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// The identifier of the documentation Part.
+        /// </summary>
+        public readonly string? DocumentationPartId;
+        /// <summary>
+        /// The documentation content map of the targeted API entity.
+        /// </summary>
         public readonly string? Properties;
 
         [OutputConstructor]
         private GetDocumentationPartResult(
-            string? id,
+            string? documentationPartId,
 
             string? properties)
         {
-            Id = id;
+            DocumentationPartId = documentationPartId;
             Properties = properties;
         }
     }

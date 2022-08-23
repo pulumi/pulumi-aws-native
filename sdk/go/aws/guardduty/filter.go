@@ -23,6 +23,7 @@ type Filter struct {
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
 	Name            pulumi.StringOutput         `pulumi:"name"`
 	Rank            pulumi.IntOutput            `pulumi:"rank"`
+	Tags            FilterTagArrayOutput        `pulumi:"tags"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -85,6 +86,7 @@ type filterArgs struct {
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
 	Name            *string               `pulumi:"name"`
 	Rank            int                   `pulumi:"rank"`
+	Tags            []FilterTag           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Filter resource.
@@ -95,6 +97,7 @@ type FilterArgs struct {
 	FindingCriteria FilterFindingCriteriaInput
 	Name            pulumi.StringPtrInput
 	Rank            pulumi.IntInput
+	Tags            FilterTagArrayInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {
@@ -156,6 +159,10 @@ func (o FilterOutput) Name() pulumi.StringOutput {
 
 func (o FilterOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v *Filter) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
+}
+
+func (o FilterOutput) Tags() FilterTagArrayOutput {
+	return o.ApplyT(func(v *Filter) FilterTagArrayOutput { return v.Tags }).(FilterTagArrayOutput)
 }
 
 func init() {

@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         /// <summary>
         /// The image used to start a container. This string is passed directly to the Docker daemon.
         /// </summary>
-        public readonly string? Image;
+        public readonly string Image;
         public readonly bool? Interactive;
         public readonly ImmutableArray<string> Links;
         public readonly Outputs.TaskDefinitionLinuxParameters? LinuxParameters;
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         /// <summary>
         /// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             string? hostname,
 
-            string? image,
+            string image,
 
             bool? interactive,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             ImmutableArray<Outputs.TaskDefinitionMountPoint> mountPoints,
 
-            string? name,
+            string name,
 
             ImmutableArray<Outputs.TaskDefinitionPortMapping> portMappings,
 

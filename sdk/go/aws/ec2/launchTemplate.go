@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,18 +19,22 @@ type LaunchTemplate struct {
 
 	DefaultVersionNumber pulumi.StringOutput                       `pulumi:"defaultVersionNumber"`
 	LatestVersionNumber  pulumi.StringOutput                       `pulumi:"latestVersionNumber"`
-	LaunchTemplateData   LaunchTemplateDataPtrOutput               `pulumi:"launchTemplateData"`
+	LaunchTemplateData   LaunchTemplateDataOutput                  `pulumi:"launchTemplateData"`
 	LaunchTemplateName   pulumi.StringPtrOutput                    `pulumi:"launchTemplateName"`
 	TagSpecifications    LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
+	VersionDescription   pulumi.StringPtrOutput                    `pulumi:"versionDescription"`
 }
 
 // NewLaunchTemplate registers a new resource with the given unique name, arguments, and options.
 func NewLaunchTemplate(ctx *pulumi.Context,
 	name string, args *LaunchTemplateArgs, opts ...pulumi.ResourceOption) (*LaunchTemplate, error) {
 	if args == nil {
-		args = &LaunchTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LaunchTemplateData == nil {
+		return nil, errors.New("invalid value for required argument 'LaunchTemplateData'")
+	}
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("aws-native:ec2:LaunchTemplate", name, args, &resource, opts...)
 	if err != nil {
@@ -62,16 +67,18 @@ func (LaunchTemplateState) ElementType() reflect.Type {
 }
 
 type launchTemplateArgs struct {
-	LaunchTemplateData *LaunchTemplateData              `pulumi:"launchTemplateData"`
+	LaunchTemplateData LaunchTemplateData               `pulumi:"launchTemplateData"`
 	LaunchTemplateName *string                          `pulumi:"launchTemplateName"`
 	TagSpecifications  []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	VersionDescription *string                          `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a LaunchTemplate resource.
 type LaunchTemplateArgs struct {
-	LaunchTemplateData LaunchTemplateDataPtrInput
+	LaunchTemplateData LaunchTemplateDataInput
 	LaunchTemplateName pulumi.StringPtrInput
 	TagSpecifications  LaunchTemplateTagSpecificationArrayInput
+	VersionDescription pulumi.StringPtrInput
 }
 
 func (LaunchTemplateArgs) ElementType() reflect.Type {
@@ -119,8 +126,8 @@ func (o LaunchTemplateOutput) LatestVersionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.LatestVersionNumber }).(pulumi.StringOutput)
 }
 
-func (o LaunchTemplateOutput) LaunchTemplateData() LaunchTemplateDataPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateDataPtrOutput { return v.LaunchTemplateData }).(LaunchTemplateDataPtrOutput)
+func (o LaunchTemplateOutput) LaunchTemplateData() LaunchTemplateDataOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateDataOutput { return v.LaunchTemplateData }).(LaunchTemplateDataOutput)
 }
 
 func (o LaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
@@ -129,6 +136,10 @@ func (o LaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 
 func (o LaunchTemplateOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateTagSpecificationArrayOutput { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 func init() {

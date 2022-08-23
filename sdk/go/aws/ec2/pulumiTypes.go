@@ -7905,6 +7905,7 @@ func (o InstanceLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceNetworkInterface struct {
+	AssociateCarrierIpAddress      *bool                                   `pulumi:"associateCarrierIpAddress"`
 	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
 	DeleteOnTermination            *bool                                   `pulumi:"deleteOnTermination"`
 	Description                    *string                                 `pulumi:"description"`
@@ -7931,6 +7932,7 @@ type InstanceNetworkInterfaceInput interface {
 }
 
 type InstanceNetworkInterfaceArgs struct {
+	AssociateCarrierIpAddress      pulumi.BoolPtrInput                             `pulumi:"associateCarrierIpAddress"`
 	AssociatePublicIpAddress       pulumi.BoolPtrInput                             `pulumi:"associatePublicIpAddress"`
 	DeleteOnTermination            pulumi.BoolPtrInput                             `pulumi:"deleteOnTermination"`
 	Description                    pulumi.StringPtrInput                           `pulumi:"description"`
@@ -7994,6 +7996,10 @@ func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutput() Insta
 
 func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutputWithContext(ctx context.Context) InstanceNetworkInterfaceOutput {
 	return o
+}
+
+func (o InstanceNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
@@ -10180,47 +10186,6 @@ func (i LaunchTemplateDataArgs) ToLaunchTemplateDataOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput)
 }
 
-func (i LaunchTemplateDataArgs) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
-	return i.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateDataArgs) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput).ToLaunchTemplateDataPtrOutputWithContext(ctx)
-}
-
-// LaunchTemplateDataPtrInput is an input type that accepts LaunchTemplateDataArgs, LaunchTemplateDataPtr and LaunchTemplateDataPtrOutput values.
-// You can construct a concrete instance of `LaunchTemplateDataPtrInput` via:
-//
-//	        LaunchTemplateDataArgs{...}
-//
-//	or:
-//
-//	        nil
-type LaunchTemplateDataPtrInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput
-	ToLaunchTemplateDataPtrOutputWithContext(context.Context) LaunchTemplateDataPtrOutput
-}
-
-type launchTemplateDataPtrType LaunchTemplateDataArgs
-
-func LaunchTemplateDataPtr(v *LaunchTemplateDataArgs) LaunchTemplateDataPtrInput {
-	return (*launchTemplateDataPtrType)(v)
-}
-
-func (*launchTemplateDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateData)(nil)).Elem()
-}
-
-func (i *launchTemplateDataPtrType) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
-	return i.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (i *launchTemplateDataPtrType) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataPtrOutput)
-}
-
 type LaunchTemplateDataOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateDataOutput) ElementType() reflect.Type {
@@ -10233,16 +10198,6 @@ func (o LaunchTemplateDataOutput) ToLaunchTemplateDataOutput() LaunchTemplateDat
 
 func (o LaunchTemplateDataOutput) ToLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateDataOutput {
 	return o
-}
-
-func (o LaunchTemplateDataOutput) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
-	return o.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (o LaunchTemplateDataOutput) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateData) *LaunchTemplateData {
-		return &v
-	}).(LaunchTemplateDataPtrOutput)
 }
 
 func (o LaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
@@ -16313,6 +16268,55 @@ func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) I
 	}).(NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput)
 }
 
+type NetworkInsightsAnalysisAdditionalDetail struct {
+	AdditionalDetailType *string                                   `pulumi:"additionalDetailType"`
+	Component            *NetworkInsightsAnalysisAnalysisComponent `pulumi:"component"`
+}
+
+type NetworkInsightsAnalysisAdditionalDetailOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAdditionalDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAnalysisAdditionalDetail)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) ToNetworkInsightsAnalysisAdditionalDetailOutput() NetworkInsightsAnalysisAdditionalDetailOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) ToNetworkInsightsAnalysisAdditionalDetailOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAdditionalDetailOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) AdditionalDetailType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *string { return v.AdditionalDetailType }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.Component
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+type NetworkInsightsAnalysisAdditionalDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAnalysisAdditionalDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAnalysisAdditionalDetail)(nil)).Elem()
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailArrayOutput) ToNetworkInsightsAnalysisAdditionalDetailArrayOutput() NetworkInsightsAnalysisAdditionalDetailArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailArrayOutput) ToNetworkInsightsAnalysisAdditionalDetailArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAdditionalDetailArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAnalysisAdditionalDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAnalysisAdditionalDetail {
+		return vs[0].([]NetworkInsightsAnalysisAdditionalDetail)[vs[1].(int)]
+	}).(NetworkInsightsAnalysisAdditionalDetailOutput)
+}
+
 type NetworkInsightsAnalysisAlternatePathHint struct {
 	ComponentArn *string `pulumi:"componentArn"`
 	ComponentId  *string `pulumi:"componentId"`
@@ -16866,6 +16870,7 @@ type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
 	NatGatewayId                *string `pulumi:"natGatewayId"`
 	NetworkInterfaceId          *string `pulumi:"networkInterfaceId"`
 	Origin                      *string `pulumi:"origin"`
+	State                       *string `pulumi:"state"`
 	TransitGatewayId            *string `pulumi:"transitGatewayId"`
 	VpcPeeringConnectionId      *string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -16914,6 +16919,10 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) NetworkInterfaceId
 
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) Origin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
@@ -17017,6 +17026,15 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) Origin() pulumi
 			return nil
 		}
 		return v.Origin
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17175,6 +17193,8 @@ type NetworkInsightsAnalysisExplanation struct {
 	Cidrs                         []string                                              `pulumi:"cidrs"`
 	ClassicLoadBalancerListener   *NetworkInsightsAnalysisAnalysisLoadBalancerListener  `pulumi:"classicLoadBalancerListener"`
 	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
+	ComponentAccount              *string                                               `pulumi:"componentAccount"`
+	ComponentRegion               *string                                               `pulumi:"componentRegion"`
 	CustomerGateway               *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"customerGateway"`
 	Destination                   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destination"`
 	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
@@ -17271,6 +17291,14 @@ func (o NetworkInsightsAnalysisExplanationOutput) Component() NetworkInsightsAna
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) ComponentAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ComponentAccount }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) ComponentRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *string { return v.ComponentRegion }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisExplanationOutput) CustomerGateway() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
@@ -17509,8 +17537,11 @@ func (o NetworkInsightsAnalysisExplanationArrayOutput) Index(i pulumi.IntInput) 
 
 type NetworkInsightsAnalysisPathComponent struct {
 	AclRule                       *NetworkInsightsAnalysisAnalysisAclRule               `pulumi:"aclRule"`
+	AdditionalDetails             []NetworkInsightsAnalysisAdditionalDetail             `pulumi:"additionalDetails"`
 	Component                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"component"`
 	DestinationVpc                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"destinationVpc"`
+	ElasticLoadBalancerListener   *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"elasticLoadBalancerListener"`
+	Explanations                  []NetworkInsightsAnalysisExplanation                  `pulumi:"explanations"`
 	InboundHeader                 *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"inboundHeader"`
 	OutboundHeader                *NetworkInsightsAnalysisAnalysisPacketHeader          `pulumi:"outboundHeader"`
 	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
@@ -17541,6 +17572,12 @@ func (o NetworkInsightsAnalysisPathComponentOutput) AclRule() NetworkInsightsAna
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisAclRule { return v.AclRule }).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
 }
 
+func (o NetworkInsightsAnalysisPathComponentOutput) AdditionalDetails() NetworkInsightsAnalysisAdditionalDetailArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) []NetworkInsightsAnalysisAdditionalDetail {
+		return v.AdditionalDetails
+	}).(NetworkInsightsAnalysisAdditionalDetailArrayOutput)
+}
+
 func (o NetworkInsightsAnalysisPathComponentOutput) Component() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
@@ -17551,6 +17588,18 @@ func (o NetworkInsightsAnalysisPathComponentOutput) DestinationVpc() NetworkInsi
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.DestinationVpc
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) ElasticLoadBalancerListener() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *NetworkInsightsAnalysisAnalysisComponent {
+		return v.ElasticLoadBalancerListener
+	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) []NetworkInsightsAnalysisExplanation {
+		return v.Explanations
+	}).(NetworkInsightsAnalysisExplanationArrayOutput)
 }
 
 func (o NetworkInsightsAnalysisPathComponentOutput) InboundHeader() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
@@ -26465,7 +26514,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationPtrInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateDataInput)(nil)).Elem(), LaunchTemplateDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateDataPtrInput)(nil)).Elem(), LaunchTemplateDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEbsInput)(nil)).Elem(), LaunchTemplateEbsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEbsPtrInput)(nil)).Elem(), LaunchTemplateEbsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArgs{})
@@ -26900,6 +26948,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAdditionalDetailOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAnalysisAdditionalDetailArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})

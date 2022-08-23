@@ -20,12 +20,14 @@ __all__ = [
     'EventInvokeConfigDestinationConfig',
     'EventInvokeConfigOnFailure',
     'EventInvokeConfigOnSuccess',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingEndpoints',
     'EventSourceMappingFilter',
     'EventSourceMappingFilterCriteria',
     'EventSourceMappingOnFailure',
     'EventSourceMappingSelfManagedEventSource',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
     'FunctionCode',
     'FunctionDeadLetterConfig',
@@ -280,6 +282,46 @@ class EventInvokeConfigOnSuccess(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
+    """
+    Specific configuration settings for an MSK event source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupId":
+            suggest = "consumer_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingAmazonManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[str] = None):
+        """
+        Specific configuration settings for an MSK event source.
+        :param str consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[str]:
+        """
+        The identifier for the Kafka Consumer Group to join.
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+
+@pulumi.output_type
 class EventSourceMappingDestinationConfig(dict):
     """
     (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
@@ -449,6 +491,46 @@ class EventSourceMappingSelfManagedEventSource(dict):
         The endpoints for a self-managed event source.
         """
         return pulumi.get(self, "endpoints")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
+    """
+    Specific configuration settings for a Self-Managed Apache Kafka event source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupId":
+            suggest = "consumer_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSelfManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[str] = None):
+        """
+        Specific configuration settings for a Self-Managed Apache Kafka event source.
+        :param str consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[str]:
+        """
+        The identifier for the Kafka Consumer Group to join.
+        """
+        return pulumi.get(self, "consumer_group_id")
 
 
 @pulumi.output_type

@@ -6,13 +6,16 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getNamespace";
+export * from "./getWorkgroup";
 export * from "./namespace";
+export * from "./workgroup";
 
 // Export enums:
 export * from "../types/enums/redshiftserverless";
 
 // Import resources to register:
 import { Namespace } from "./namespace";
+import { Workgroup } from "./workgroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "aws-native:redshiftserverless:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws-native:redshiftserverless:Workgroup":
+                return new Workgroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

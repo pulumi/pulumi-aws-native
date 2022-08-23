@@ -25,7 +25,7 @@ type LookupGraphQLApiArgs struct {
 }
 
 type LookupGraphQLApiResult struct {
-	AdditionalAuthenticationProviders *GraphQLApiAdditionalAuthenticationProviders `pulumi:"additionalAuthenticationProviders"`
+	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	ApiId                             *string                                      `pulumi:"apiId"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
@@ -35,7 +35,7 @@ type LookupGraphQLApiResult struct {
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
-	Tags                              *GraphQLApiTags                              `pulumi:"tags"`
+	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
@@ -75,10 +75,10 @@ func (o LookupGraphQLApiResultOutput) ToLookupGraphQLApiResultOutputWithContext(
 	return o
 }
 
-func (o LookupGraphQLApiResultOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiAdditionalAuthenticationProviders {
+func (o LookupGraphQLApiResultOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) []GraphQLApiAdditionalAuthenticationProvider {
 		return v.AdditionalAuthenticationProviders
-	}).(GraphQLApiAdditionalAuthenticationProvidersPtrOutput)
+	}).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) ApiId() pulumi.StringPtrOutput {
@@ -117,8 +117,8 @@ func (o LookupGraphQLApiResultOutput) OpenIDConnectConfig() GraphQLApiOpenIDConn
 	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiOpenIDConnectConfig { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
-func (o LookupGraphQLApiResultOutput) Tags() GraphQLApiTagsPtrOutput {
-	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiTags { return v.Tags }).(GraphQLApiTagsPtrOutput)
+func (o LookupGraphQLApiResultOutput) Tags() GraphQLApiTagArrayOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) []GraphQLApiTag { return v.Tags }).(GraphQLApiTagArrayOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {

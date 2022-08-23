@@ -10,14 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Outputs
 {
 
+    /// <summary>
+    /// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+    /// </summary>
     [OutputType]
     public sealed class OptionGroupOptionConfiguration
     {
+        /// <summary>
+        /// A list of DBSecurityGroupMembership name strings used for this option.
+        /// </summary>
         public readonly ImmutableArray<string> DBSecurityGroupMemberships;
+        /// <summary>
+        /// The configuration of options to include in a group.
+        /// </summary>
         public readonly string OptionName;
+        /// <summary>
+        /// The option settings to include in an option group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionSetting> OptionSettings;
+        /// <summary>
+        /// The version for the option.
+        /// </summary>
         public readonly string? OptionVersion;
+        /// <summary>
+        /// The optional port for the option.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// A list of VpcSecurityGroupMembership name strings used for this option.
+        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupMemberships;
 
         [OutputConstructor]

@@ -19,7 +19,6 @@ export * from "./getApp";
 export * from "./getAppImageConfig";
 export * from "./getCodeRepository";
 export * from "./getDataQualityJobDefinition";
-export * from "./getDevice";
 export * from "./getDeviceFleet";
 export * from "./getDomain";
 export * from "./getEndpoint";

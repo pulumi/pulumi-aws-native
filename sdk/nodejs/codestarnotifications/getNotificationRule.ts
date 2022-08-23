@@ -27,11 +27,9 @@ export interface GetNotificationRuleResult {
     readonly arn?: string;
     readonly createdBy?: string;
     readonly detailType?: enums.codestarnotifications.NotificationRuleDetailType;
-    readonly eventTypeId?: string;
     readonly eventTypeIds?: string[];
     readonly name?: string;
     readonly status?: enums.codestarnotifications.NotificationRuleStatus;
-    readonly targetAddress?: string;
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }
 

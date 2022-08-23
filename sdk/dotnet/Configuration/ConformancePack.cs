@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Configuration
         [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
 
+        /// <summary>
+        /// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        /// </summary>
+        [Output("templateSSMDocumentDetails")]
+        public Output<Outputs.TemplateSSMDocumentDetailsProperties?> TemplateSSMDocumentDetails { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }
+
+        /// <summary>
+        /// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        /// </summary>
+        [Input("templateSSMDocumentDetails")]
+        public Input<Inputs.TemplateSSMDocumentDetailsPropertiesArgs>? TemplateSSMDocumentDetails { get; set; }
 
         public ConformancePackArgs()
         {

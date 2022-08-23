@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.ConnectorProfileConnectionMode? ConnectionMode;
         /// <summary>
+        /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+        /// </summary>
+        public readonly string? ConnectorLabel;
+        /// <summary>
         /// Unique identifier for connector profile resources
         /// </summary>
         public readonly string? ConnectorProfileArn;
@@ -74,11 +78,14 @@ namespace Pulumi.AwsNative.AppFlow
         private GetConnectorProfileResult(
             Pulumi.AwsNative.AppFlow.ConnectorProfileConnectionMode? connectionMode,
 
+            string? connectorLabel,
+
             string? connectorProfileArn,
 
             string? credentialsArn)
         {
             ConnectionMode = connectionMode;
+            ConnectorLabel = connectorLabel;
             ConnectorProfileArn = connectorProfileArn;
             CredentialsArn = credentialsArn;
         }

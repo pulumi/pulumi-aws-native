@@ -17,10 +17,12 @@ __all__ = ['PermissionSetArgs', 'PermissionSet']
 class PermissionSetArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
+                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  inline_policy: Optional[Any] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permissions_boundary: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None):
@@ -34,6 +36,8 @@ class PermissionSetArgs:
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if customer_managed_policy_references is not None:
+            pulumi.set(__self__, "customer_managed_policy_references", customer_managed_policy_references)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if inline_policy is not None:
@@ -42,6 +46,8 @@ class PermissionSetArgs:
             pulumi.set(__self__, "managed_policies", managed_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if permissions_boundary is not None:
+            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
         if relay_state_type is not None:
             pulumi.set(__self__, "relay_state_type", relay_state_type)
         if session_duration is not None:
@@ -60,6 +66,15 @@ class PermissionSetArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="customerManagedPolicyReferences")
+    def customer_managed_policy_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]:
+        return pulumi.get(self, "customer_managed_policy_references")
+
+    @customer_managed_policy_references.setter
+    def customer_managed_policy_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]):
+        pulumi.set(self, "customer_managed_policy_references", value)
 
     @property
     @pulumi.getter
@@ -107,6 +122,15 @@ class PermissionSetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="permissionsBoundary")
+    def permissions_boundary(self) -> Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']]:
+        return pulumi.get(self, "permissions_boundary")
+
+    @permissions_boundary.setter
+    def permissions_boundary(self, value: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']]):
+        pulumi.set(self, "permissions_boundary", value)
+
+    @property
     @pulumi.getter(name="relayStateType")
     def relay_state_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -145,11 +169,13 @@ class PermissionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetCustomerManagedPolicyReferenceArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  inline_policy: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionSetPermissionsBoundaryArgs']]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
@@ -190,11 +216,13 @@ class PermissionSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetCustomerManagedPolicyReferenceArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  inline_policy: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionSetPermissionsBoundaryArgs']]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
@@ -207,6 +235,7 @@ class PermissionSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PermissionSetArgs.__new__(PermissionSetArgs)
 
+            __props__.__dict__["customer_managed_policy_references"] = customer_managed_policy_references
             __props__.__dict__["description"] = description
             __props__.__dict__["inline_policy"] = inline_policy
             if instance_arn is None and not opts.urn:
@@ -214,6 +243,7 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["managed_policies"] = managed_policies
             __props__.__dict__["name"] = name
+            __props__.__dict__["permissions_boundary"] = permissions_boundary
             __props__.__dict__["relay_state_type"] = relay_state_type
             __props__.__dict__["session_duration"] = session_duration
             __props__.__dict__["tags"] = tags
@@ -240,16 +270,23 @@ class PermissionSet(pulumi.CustomResource):
 
         __props__ = PermissionSetArgs.__new__(PermissionSetArgs)
 
+        __props__.__dict__["customer_managed_policy_references"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["inline_policy"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["managed_policies"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permission_set_arn"] = None
+        __props__.__dict__["permissions_boundary"] = None
         __props__.__dict__["relay_state_type"] = None
         __props__.__dict__["session_duration"] = None
         __props__.__dict__["tags"] = None
         return PermissionSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customerManagedPolicyReferences")
+    def customer_managed_policy_references(self) -> pulumi.Output[Optional[Sequence['outputs.PermissionSetCustomerManagedPolicyReference']]]:
+        return pulumi.get(self, "customer_managed_policy_references")
 
     @property
     @pulumi.getter
@@ -295,6 +332,11 @@ class PermissionSet(pulumi.CustomResource):
         The permission set that the policy will be attached to
         """
         return pulumi.get(self, "permission_set_arn")
+
+    @property
+    @pulumi.getter(name="permissionsBoundary")
+    def permissions_boundary(self) -> pulumi.Output[Optional['outputs.PermissionSetPermissionsBoundary']]:
+        return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter(name="relayStateType")

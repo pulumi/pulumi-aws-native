@@ -12,20 +12,35 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
     public sealed class DocumentationPartLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP verb of a method.
+        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
+        /// <summary>
+        /// The name of the targeted API entity.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The URL path of the target.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The HTTP status code of a response.
+        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 
+        /// <summary>
+        /// The type of API entity that the documentation content applies to.
+        /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.ApiGateway.DocumentationPartLocationType>? Type { get; set; }
 
         public DocumentationPartLocationArgs()
         {

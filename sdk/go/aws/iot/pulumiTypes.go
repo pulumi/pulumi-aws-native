@@ -1007,6 +1007,278 @@ func (o AuthorizerTagArrayOutput) Index(i pulumi.IntInput) AuthorizerTagOutput {
 	}).(AuthorizerTagOutput)
 }
 
+type CACertificateRegistrationConfig struct {
+	RoleArn      *string `pulumi:"roleArn"`
+	TemplateBody *string `pulumi:"templateBody"`
+	TemplateName *string `pulumi:"templateName"`
+}
+
+// CACertificateRegistrationConfigInput is an input type that accepts CACertificateRegistrationConfigArgs and CACertificateRegistrationConfigOutput values.
+// You can construct a concrete instance of `CACertificateRegistrationConfigInput` via:
+//
+//	CACertificateRegistrationConfigArgs{...}
+type CACertificateRegistrationConfigInput interface {
+	pulumi.Input
+
+	ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput
+	ToCACertificateRegistrationConfigOutputWithContext(context.Context) CACertificateRegistrationConfigOutput
+}
+
+type CACertificateRegistrationConfigArgs struct {
+	RoleArn      pulumi.StringPtrInput `pulumi:"roleArn"`
+	TemplateBody pulumi.StringPtrInput `pulumi:"templateBody"`
+	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
+}
+
+func (CACertificateRegistrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CACertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput {
+	return i.ToCACertificateRegistrationConfigOutputWithContext(context.Background())
+}
+
+func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigOutputWithContext(ctx context.Context) CACertificateRegistrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigOutput)
+}
+
+func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
+	return i.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CACertificateRegistrationConfigArgs) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigOutput).ToCACertificateRegistrationConfigPtrOutputWithContext(ctx)
+}
+
+// CACertificateRegistrationConfigPtrInput is an input type that accepts CACertificateRegistrationConfigArgs, CACertificateRegistrationConfigPtr and CACertificateRegistrationConfigPtrOutput values.
+// You can construct a concrete instance of `CACertificateRegistrationConfigPtrInput` via:
+//
+//	        CACertificateRegistrationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CACertificateRegistrationConfigPtrInput interface {
+	pulumi.Input
+
+	ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput
+	ToCACertificateRegistrationConfigPtrOutputWithContext(context.Context) CACertificateRegistrationConfigPtrOutput
+}
+
+type cacertificateRegistrationConfigPtrType CACertificateRegistrationConfigArgs
+
+func CACertificateRegistrationConfigPtr(v *CACertificateRegistrationConfigArgs) CACertificateRegistrationConfigPtrInput {
+	return (*cacertificateRegistrationConfigPtrType)(v)
+}
+
+func (*cacertificateRegistrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CACertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (i *cacertificateRegistrationConfigPtrType) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
+	return i.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cacertificateRegistrationConfigPtrType) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CACertificateRegistrationConfigPtrOutput)
+}
+
+type CACertificateRegistrationConfigOutput struct{ *pulumi.OutputState }
+
+func (CACertificateRegistrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CACertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigOutput() CACertificateRegistrationConfigOutput {
+	return o
+}
+
+func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigOutputWithContext(ctx context.Context) CACertificateRegistrationConfigOutput {
+	return o
+}
+
+func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
+	return o.ToCACertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CACertificateRegistrationConfigOutput) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CACertificateRegistrationConfig) *CACertificateRegistrationConfig {
+		return &v
+	}).(CACertificateRegistrationConfigPtrOutput)
+}
+
+func (o CACertificateRegistrationConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CACertificateRegistrationConfigOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+func (o CACertificateRegistrationConfigOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CACertificateRegistrationConfig) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+type CACertificateRegistrationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CACertificateRegistrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CACertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) ToCACertificateRegistrationConfigPtrOutput() CACertificateRegistrationConfigPtrOutput {
+	return o
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) ToCACertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CACertificateRegistrationConfigPtrOutput {
+	return o
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) Elem() CACertificateRegistrationConfigOutput {
+	return o.ApplyT(func(v *CACertificateRegistrationConfig) CACertificateRegistrationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CACertificateRegistrationConfig
+		return ret
+	}).(CACertificateRegistrationConfigOutput)
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateBody
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CACertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CACertificateRegistrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CACertificateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CACertificateTagInput is an input type that accepts CACertificateTagArgs and CACertificateTagOutput values.
+// You can construct a concrete instance of `CACertificateTagInput` via:
+//
+//	CACertificateTagArgs{...}
+type CACertificateTagInput interface {
+	pulumi.Input
+
+	ToCACertificateTagOutput() CACertificateTagOutput
+	ToCACertificateTagOutputWithContext(context.Context) CACertificateTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CACertificateTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CACertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CACertificateTag)(nil)).Elem()
+}
+
+func (i CACertificateTagArgs) ToCACertificateTagOutput() CACertificateTagOutput {
+	return i.ToCACertificateTagOutputWithContext(context.Background())
+}
+
+func (i CACertificateTagArgs) ToCACertificateTagOutputWithContext(ctx context.Context) CACertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CACertificateTagOutput)
+}
+
+// CACertificateTagArrayInput is an input type that accepts CACertificateTagArray and CACertificateTagArrayOutput values.
+// You can construct a concrete instance of `CACertificateTagArrayInput` via:
+//
+//	CACertificateTagArray{ CACertificateTagArgs{...} }
+type CACertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToCACertificateTagArrayOutput() CACertificateTagArrayOutput
+	ToCACertificateTagArrayOutputWithContext(context.Context) CACertificateTagArrayOutput
+}
+
+type CACertificateTagArray []CACertificateTagInput
+
+func (CACertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CACertificateTag)(nil)).Elem()
+}
+
+func (i CACertificateTagArray) ToCACertificateTagArrayOutput() CACertificateTagArrayOutput {
+	return i.ToCACertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i CACertificateTagArray) ToCACertificateTagArrayOutputWithContext(ctx context.Context) CACertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CACertificateTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CACertificateTagOutput struct{ *pulumi.OutputState }
+
+func (CACertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CACertificateTag)(nil)).Elem()
+}
+
+func (o CACertificateTagOutput) ToCACertificateTagOutput() CACertificateTagOutput {
+	return o
+}
+
+func (o CACertificateTagOutput) ToCACertificateTagOutputWithContext(ctx context.Context) CACertificateTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CACertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CACertificateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CACertificateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CACertificateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CACertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CACertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CACertificateTag)(nil)).Elem()
+}
+
+func (o CACertificateTagArrayOutput) ToCACertificateTagArrayOutput() CACertificateTagArrayOutput {
+	return o
+}
+
+func (o CACertificateTagArrayOutput) ToCACertificateTagArrayOutputWithContext(ctx context.Context) CACertificateTagArrayOutput {
+	return o
+}
+
+func (o CACertificateTagArrayOutput) Index(i pulumi.IntInput) CACertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CACertificateTag {
+		return vs[0].([]CACertificateTag)[vs[1].(int)]
+	}).(CACertificateTagOutput)
+}
+
 // A key-value pair to associate with a resource.
 type CustomMetricTag struct {
 	// The tag's key.
@@ -11929,6 +12201,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerTagInput)(nil)).Elem(), AuthorizerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerTagArrayInput)(nil)).Elem(), AuthorizerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigPtrInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateTagInput)(nil)).Elem(), CACertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateTagArrayInput)(nil)).Elem(), CACertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagInput)(nil)).Elem(), CustomMetricTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagArrayInput)(nil)).Elem(), CustomMetricTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTagInput)(nil)).Elem(), DimensionTagArgs{})
@@ -12082,6 +12358,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerTagOutput{})
 	pulumi.RegisterOutputType(AuthorizerTagArrayOutput{})
+	pulumi.RegisterOutputType(CACertificateRegistrationConfigOutput{})
+	pulumi.RegisterOutputType(CACertificateRegistrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(CACertificateTagOutput{})
+	pulumi.RegisterOutputType(CACertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagArrayOutput{})
 	pulumi.RegisterOutputType(DimensionTagOutput{})

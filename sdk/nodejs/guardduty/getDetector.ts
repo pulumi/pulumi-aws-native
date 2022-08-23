@@ -28,6 +28,7 @@ export interface GetDetectorResult {
     readonly enable?: boolean;
     readonly findingPublishingFrequency?: string;
     readonly id?: string;
+    readonly tags?: outputs.guardduty.DetectorTag[];
 }
 
 export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {

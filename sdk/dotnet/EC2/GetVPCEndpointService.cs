@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetVPCEndpointServiceResult
     {
         public readonly bool? AcceptanceRequired;
+        public readonly bool? ContributorInsightsEnabled;
         public readonly ImmutableArray<string> GatewayLoadBalancerArns;
         public readonly string? Id;
         public readonly ImmutableArray<string> NetworkLoadBalancerArns;
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.EC2
         [OutputConstructor]
         private GetVPCEndpointServiceResult(
             bool? acceptanceRequired,
+
+            bool? contributorInsightsEnabled,
 
             ImmutableArray<string> gatewayLoadBalancerArns,
 
@@ -70,6 +73,7 @@ namespace Pulumi.AwsNative.EC2
             string? payerResponsibility)
         {
             AcceptanceRequired = acceptanceRequired;
+            ContributorInsightsEnabled = contributorInsightsEnabled;
             GatewayLoadBalancerArns = gatewayLoadBalancerArns;
             Id = id;
             NetworkLoadBalancerArns = networkLoadBalancerArns;

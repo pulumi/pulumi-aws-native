@@ -51,11 +51,18 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ExcludeBootVolume" : {
+          "type" : "boolean"
+        },
         "NoReboot" : {
           "type" : "boolean"
         },
-        "ExcludeBootVolume" : {
-          "type" : "boolean"
+        "ExcludeDataVolumeTags" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Tag"
+          }
         }
       }
     },

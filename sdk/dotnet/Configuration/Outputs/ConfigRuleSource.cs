@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     [OutputType]
     public sealed class ConfigRuleSource
     {
+        public readonly Outputs.ConfigRuleCustomPolicyDetails? CustomPolicyDetails;
         public readonly string Owner;
         public readonly ImmutableArray<Outputs.ConfigRuleSourceDetail> SourceDetails;
-        public readonly string SourceIdentifier;
+        public readonly string? SourceIdentifier;
 
         [OutputConstructor]
         private ConfigRuleSource(
+            Outputs.ConfigRuleCustomPolicyDetails? customPolicyDetails,
+
             string owner,
 
             ImmutableArray<Outputs.ConfigRuleSourceDetail> sourceDetails,
 
-            string sourceIdentifier)
+            string? sourceIdentifier)
         {
+            CustomPolicyDetails = customPolicyDetails;
             Owner = owner;
             SourceDetails = sourceDetails;
             SourceIdentifier = sourceIdentifier;

@@ -20,6 +20,7 @@ type Workteam struct {
 	MemberDefinitions         WorkteamMemberDefinitionArrayOutput        `pulumi:"memberDefinitions"`
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
 	Tags                      WorkteamTagArrayOutput                     `pulumi:"tags"`
+	WorkforceName             pulumi.StringPtrOutput                     `pulumi:"workforceName"`
 	WorkteamName              pulumi.StringPtrOutput                     `pulumi:"workteamName"`
 }
 
@@ -66,6 +67,7 @@ type workteamArgs struct {
 	MemberDefinitions         []WorkteamMemberDefinition         `pulumi:"memberDefinitions"`
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
 	Tags                      []WorkteamTag                      `pulumi:"tags"`
+	WorkforceName             *string                            `pulumi:"workforceName"`
 	WorkteamName              *string                            `pulumi:"workteamName"`
 }
 
@@ -75,6 +77,7 @@ type WorkteamArgs struct {
 	MemberDefinitions         WorkteamMemberDefinitionArrayInput
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
 	Tags                      WorkteamTagArrayInput
+	WorkforceName             pulumi.StringPtrInput
 	WorkteamName              pulumi.StringPtrInput
 }
 
@@ -129,6 +132,10 @@ func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigur
 
 func (o WorkteamOutput) Tags() WorkteamTagArrayOutput {
 	return o.ApplyT(func(v *Workteam) WorkteamTagArrayOutput { return v.Tags }).(WorkteamTagArrayOutput)
+}
+
+func (o WorkteamOutput) WorkforceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringPtrOutput { return v.WorkforceName }).(pulumi.StringPtrOutput)
 }
 
 func (o WorkteamOutput) WorkteamName() pulumi.StringPtrOutput {

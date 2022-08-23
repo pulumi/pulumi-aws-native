@@ -10,12 +10,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DBClusterEndpoint struct {
+	// The connection endpoint for the DB cluster.
+	Address *string `pulumi:"address"`
+	// The port number that will accept connections on this DB cluster.
+	Port *string `pulumi:"port"`
+}
+
+type DBClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (DBClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterEndpoint)(nil)).Elem()
+}
+
+func (o DBClusterEndpointOutput) ToDBClusterEndpointOutput() DBClusterEndpointOutput {
+	return o
+}
+
+func (o DBClusterEndpointOutput) ToDBClusterEndpointOutputWithContext(ctx context.Context) DBClusterEndpointOutput {
+	return o
+}
+
+// The connection endpoint for the DB cluster.
+func (o DBClusterEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The port number that will accept connections on this DB cluster.
+func (o DBClusterEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type DBClusterEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterEndpoint)(nil)).Elem()
+}
+
+func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutput() DBClusterEndpointPtrOutput {
+	return o
+}
+
+func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutputWithContext(ctx context.Context) DBClusterEndpointPtrOutput {
+	return o
+}
+
+func (o DBClusterEndpointPtrOutput) Elem() DBClusterEndpointOutput {
+	return o.ApplyT(func(v *DBClusterEndpoint) DBClusterEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterEndpoint
+		return ret
+	}).(DBClusterEndpointOutput)
+}
+
+// The connection endpoint for the DB cluster.
+func (o DBClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port number that will accept connections on this DB cluster.
+func (o DBClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterParameterGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // DBClusterParameterGroupTagInput is an input type that accepts DBClusterParameterGroupTagArgs and DBClusterParameterGroupTagOutput values.
@@ -34,7 +109,7 @@ type DBClusterParameterGroupTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DBClusterParameterGroupTagArgs) ElementType() reflect.Type {
@@ -95,8 +170,8 @@ func (o DBClusterParameterGroupTagOutput) Key() pulumi.StringOutput {
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBClusterParameterGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterParameterGroupTag) string { return v.Value }).(pulumi.StringOutput)
+func (o DBClusterParameterGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterParameterGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type DBClusterParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
@@ -119,9 +194,149 @@ func (o DBClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBCluste
 	}).(DBClusterParameterGroupTagOutput)
 }
 
+type DBClusterReadEndpoint struct {
+	// The reader endpoint for the DB cluster.
+	Address *string `pulumi:"address"`
+}
+
+// DBClusterReadEndpointInput is an input type that accepts DBClusterReadEndpointArgs and DBClusterReadEndpointOutput values.
+// You can construct a concrete instance of `DBClusterReadEndpointInput` via:
+//
+//	DBClusterReadEndpointArgs{...}
+type DBClusterReadEndpointInput interface {
+	pulumi.Input
+
+	ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput
+	ToDBClusterReadEndpointOutputWithContext(context.Context) DBClusterReadEndpointOutput
+}
+
+type DBClusterReadEndpointArgs struct {
+	// The reader endpoint for the DB cluster.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+}
+
+func (DBClusterReadEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterReadEndpoint)(nil)).Elem()
+}
+
+func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput {
+	return i.ToDBClusterReadEndpointOutputWithContext(context.Background())
+}
+
+func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutputWithContext(ctx context.Context) DBClusterReadEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointOutput)
+}
+
+func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
+	return i.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointOutput).ToDBClusterReadEndpointPtrOutputWithContext(ctx)
+}
+
+// DBClusterReadEndpointPtrInput is an input type that accepts DBClusterReadEndpointArgs, DBClusterReadEndpointPtr and DBClusterReadEndpointPtrOutput values.
+// You can construct a concrete instance of `DBClusterReadEndpointPtrInput` via:
+//
+//	        DBClusterReadEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBClusterReadEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput
+	ToDBClusterReadEndpointPtrOutputWithContext(context.Context) DBClusterReadEndpointPtrOutput
+}
+
+type dbclusterReadEndpointPtrType DBClusterReadEndpointArgs
+
+func DBClusterReadEndpointPtr(v *DBClusterReadEndpointArgs) DBClusterReadEndpointPtrInput {
+	return (*dbclusterReadEndpointPtrType)(v)
+}
+
+func (*dbclusterReadEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterReadEndpoint)(nil)).Elem()
+}
+
+func (i *dbclusterReadEndpointPtrType) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
+	return i.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *dbclusterReadEndpointPtrType) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointPtrOutput)
+}
+
+type DBClusterReadEndpointOutput struct{ *pulumi.OutputState }
+
+func (DBClusterReadEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterReadEndpoint)(nil)).Elem()
+}
+
+func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointOutput() DBClusterReadEndpointOutput {
+	return o
+}
+
+func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointOutputWithContext(ctx context.Context) DBClusterReadEndpointOutput {
+	return o
+}
+
+func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
+	return o.ToDBClusterReadEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterReadEndpoint) *DBClusterReadEndpoint {
+		return &v
+	}).(DBClusterReadEndpointPtrOutput)
+}
+
+// The reader endpoint for the DB cluster.
+func (o DBClusterReadEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterReadEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+type DBClusterReadEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterReadEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterReadEndpoint)(nil)).Elem()
+}
+
+func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
+	return o
+}
+
+func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
+	return o
+}
+
+func (o DBClusterReadEndpointPtrOutput) Elem() DBClusterReadEndpointOutput {
+	return o.ApplyT(func(v *DBClusterReadEndpoint) DBClusterReadEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterReadEndpoint
+		return ret
+	}).(DBClusterReadEndpointOutput)
+}
+
+// The reader endpoint for the DB cluster.
+func (o DBClusterReadEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterReadEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRole struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
 	FeatureName *string `pulumi:"featureName"`
-	RoleArn     string  `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DBClusterRoleInput is an input type that accepts DBClusterRoleArgs and DBClusterRoleOutput values.
@@ -135,9 +350,12 @@ type DBClusterRoleInput interface {
 	ToDBClusterRoleOutputWithContext(context.Context) DBClusterRoleOutput
 }
 
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRoleArgs struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
 	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
-	RoleArn     pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DBClusterRoleArgs) ElementType() reflect.Type {
@@ -177,6 +395,7 @@ func (i DBClusterRoleArray) ToDBClusterRoleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleArrayOutput)
 }
 
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRoleOutput struct{ *pulumi.OutputState }
 
 func (DBClusterRoleOutput) ElementType() reflect.Type {
@@ -191,10 +410,12 @@ func (o DBClusterRoleOutput) ToDBClusterRoleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
 func (o DBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 func (o DBClusterRoleOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -219,11 +440,22 @@ func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
 	}).(DBClusterRoleOutput)
 }
 
+// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 type DBClusterScalingConfiguration struct {
-	AutoPause             *bool `pulumi:"autoPause"`
-	MaxCapacity           *int  `pulumi:"maxCapacity"`
-	MinCapacity           *int  `pulumi:"minCapacity"`
-	SecondsUntilAutoPause *int  `pulumi:"secondsUntilAutoPause"`
+	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	AutoPause *bool `pulumi:"autoPause"`
+	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+	// The maximum capacity must be greater than or equal to the minimum capacity.
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+	// The minimum capacity must be less than or equal to the maximum capacity.
+	MinCapacity *int `pulumi:"minCapacity"`
+	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 }
 
 // DBClusterScalingConfigurationInput is an input type that accepts DBClusterScalingConfigurationArgs and DBClusterScalingConfigurationOutput values.
@@ -237,11 +469,22 @@ type DBClusterScalingConfigurationInput interface {
 	ToDBClusterScalingConfigurationOutputWithContext(context.Context) DBClusterScalingConfigurationOutput
 }
 
+// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 type DBClusterScalingConfigurationArgs struct {
-	AutoPause             pulumi.BoolPtrInput `pulumi:"autoPause"`
-	MaxCapacity           pulumi.IntPtrInput  `pulumi:"maxCapacity"`
-	MinCapacity           pulumi.IntPtrInput  `pulumi:"minCapacity"`
-	SecondsUntilAutoPause pulumi.IntPtrInput  `pulumi:"secondsUntilAutoPause"`
+	// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
+	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+	// The maximum capacity must be greater than or equal to the minimum capacity.
+	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+	// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+	// The minimum capacity must be less than or equal to the maximum capacity.
+	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
+	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 }
 
 func (DBClusterScalingConfigurationArgs) ElementType() reflect.Type {
@@ -297,6 +540,7 @@ func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationPtrOutput)
 }
 
+// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 type DBClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DBClusterScalingConfigurationOutput) ElementType() reflect.Type {
@@ -321,18 +565,28 @@ func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrO
 	}).(DBClusterScalingConfigurationPtrOutput)
 }
 
+// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
 func (o DBClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+// The maximum capacity must be greater than or equal to the minimum capacity.
 func (o DBClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+// The minimum capacity must be less than or equal to the maximum capacity.
 func (o DBClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
@@ -361,6 +615,7 @@ func (o DBClusterScalingConfigurationPtrOutput) Elem() DBClusterScalingConfigura
 	}).(DBClusterScalingConfigurationOutput)
 }
 
+// A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
 func (o DBClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBClusterScalingConfiguration) *bool {
 		if v == nil {
@@ -370,6 +625,10 @@ func (o DBClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+// The maximum capacity must be greater than or equal to the minimum capacity.
 func (o DBClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
 		if v == nil {
@@ -379,6 +638,10 @@ func (o DBClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+// For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+// The minimum capacity must be less than or equal to the maximum capacity.
 func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
 		if v == nil {
@@ -388,6 +651,7 @@ func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
 		if v == nil {
@@ -397,9 +661,12 @@ func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // DBClusterTagInput is an input type that accepts DBClusterTagArgs and DBClusterTagOutput values.
@@ -413,9 +680,12 @@ type DBClusterTagInput interface {
 	ToDBClusterTagOutputWithContext(context.Context) DBClusterTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DBClusterTagArgs) ElementType() reflect.Type {
@@ -455,6 +725,7 @@ func (i DBClusterTagArray) ToDBClusterTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTagOutput struct{ *pulumi.OutputState }
 
 func (DBClusterTagOutput) ElementType() reflect.Type {
@@ -469,12 +740,14 @@ func (o DBClusterTagOutput) ToDBClusterTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBClusterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DBClusterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DBClusterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DBClusterTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type DBClusterTagArrayOutput struct{ *pulumi.OutputState }
@@ -497,8 +770,185 @@ func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
 	}).(DBClusterTagOutput)
 }
 
+type DBInstanceEndpoint struct {
+	// Specifies the DNS address of the DB instance.
+	Address *string `pulumi:"address"`
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// Specifies the port that the database engine is listening on.
+	Port *string `pulumi:"port"`
+}
+
+// DBInstanceEndpointInput is an input type that accepts DBInstanceEndpointArgs and DBInstanceEndpointOutput values.
+// You can construct a concrete instance of `DBInstanceEndpointInput` via:
+//
+//	DBInstanceEndpointArgs{...}
+type DBInstanceEndpointInput interface {
+	pulumi.Input
+
+	ToDBInstanceEndpointOutput() DBInstanceEndpointOutput
+	ToDBInstanceEndpointOutputWithContext(context.Context) DBInstanceEndpointOutput
+}
+
+type DBInstanceEndpointArgs struct {
+	// Specifies the DNS address of the DB instance.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// Specifies the port that the database engine is listening on.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (DBInstanceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceEndpoint)(nil)).Elem()
+}
+
+func (i DBInstanceEndpointArgs) ToDBInstanceEndpointOutput() DBInstanceEndpointOutput {
+	return i.ToDBInstanceEndpointOutputWithContext(context.Background())
+}
+
+func (i DBInstanceEndpointArgs) ToDBInstanceEndpointOutputWithContext(ctx context.Context) DBInstanceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointOutput)
+}
+
+func (i DBInstanceEndpointArgs) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
+	return i.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i DBInstanceEndpointArgs) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointOutput).ToDBInstanceEndpointPtrOutputWithContext(ctx)
+}
+
+// DBInstanceEndpointPtrInput is an input type that accepts DBInstanceEndpointArgs, DBInstanceEndpointPtr and DBInstanceEndpointPtrOutput values.
+// You can construct a concrete instance of `DBInstanceEndpointPtrInput` via:
+//
+//	        DBInstanceEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBInstanceEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput
+	ToDBInstanceEndpointPtrOutputWithContext(context.Context) DBInstanceEndpointPtrOutput
+}
+
+type dbinstanceEndpointPtrType DBInstanceEndpointArgs
+
+func DBInstanceEndpointPtr(v *DBInstanceEndpointArgs) DBInstanceEndpointPtrInput {
+	return (*dbinstanceEndpointPtrType)(v)
+}
+
+func (*dbinstanceEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceEndpoint)(nil)).Elem()
+}
+
+func (i *dbinstanceEndpointPtrType) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
+	return i.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *dbinstanceEndpointPtrType) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointPtrOutput)
+}
+
+type DBInstanceEndpointOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceEndpoint)(nil)).Elem()
+}
+
+func (o DBInstanceEndpointOutput) ToDBInstanceEndpointOutput() DBInstanceEndpointOutput {
+	return o
+}
+
+func (o DBInstanceEndpointOutput) ToDBInstanceEndpointOutputWithContext(ctx context.Context) DBInstanceEndpointOutput {
+	return o
+}
+
+func (o DBInstanceEndpointOutput) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
+	return o.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceEndpointOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceEndpoint) *DBInstanceEndpoint {
+		return &v
+	}).(DBInstanceEndpointPtrOutput)
+}
+
+// Specifies the DNS address of the DB instance.
+func (o DBInstanceEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+func (o DBInstanceEndpointOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the port that the database engine is listening on.
+func (o DBInstanceEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type DBInstanceEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceEndpoint)(nil)).Elem()
+}
+
+func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
+	return o
+}
+
+func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
+	return o
+}
+
+func (o DBInstanceEndpointPtrOutput) Elem() DBInstanceEndpointOutput {
+	return o.ApplyT(func(v *DBInstanceEndpoint) DBInstanceEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DBInstanceEndpoint
+		return ret
+	}).(DBInstanceEndpointOutput)
+}
+
+// Specifies the DNS address of the DB instance.
+func (o DBInstanceEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+func (o DBInstanceEndpointPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the port that the database engine is listening on.
+func (o DBInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
 type DBInstanceProcessorFeature struct {
-	Name  *string `pulumi:"name"`
+	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+	Name *DBInstanceProcessorFeatureName `pulumi:"name"`
+	// The value of a processor feature name.
 	Value *string `pulumi:"value"`
 }
 
@@ -514,7 +964,9 @@ type DBInstanceProcessorFeatureInput interface {
 }
 
 type DBInstanceProcessorFeatureArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+	Name DBInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
+	// The value of a processor feature name.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -569,10 +1021,12 @@ func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutputWith
 	return o
 }
 
-func (o DBInstanceProcessorFeatureOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceProcessorFeature) *string { return v.Name }).(pulumi.StringPtrOutput)
+// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+func (o DBInstanceProcessorFeatureOutput) Name() DBInstanceProcessorFeatureNamePtrOutput {
+	return o.ApplyT(func(v DBInstanceProcessorFeature) *DBInstanceProcessorFeatureName { return v.Name }).(DBInstanceProcessorFeatureNamePtrOutput)
 }
 
+// The value of a processor feature name.
 func (o DBInstanceProcessorFeatureOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBInstanceProcessorFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -598,8 +1052,10 @@ func (o DBInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DBInstan
 }
 
 type DBInstanceRole struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
 	FeatureName string `pulumi:"featureName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DBInstanceRoleInput is an input type that accepts DBInstanceRoleArgs and DBInstanceRoleOutput values.
@@ -614,8 +1070,10 @@ type DBInstanceRoleInput interface {
 }
 
 type DBInstanceRoleArgs struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
 	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DBInstanceRoleArgs) ElementType() reflect.Type {
@@ -669,10 +1127,12 @@ func (o DBInstanceRoleOutput) ToDBInstanceRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
 func (o DBInstanceRoleOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v DBInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
 func (o DBInstanceRoleOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DBInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -697,9 +1157,12 @@ func (o DBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceRoleOutput
 	}).(DBInstanceRoleOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBInstanceTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // DBInstanceTagInput is an input type that accepts DBInstanceTagArgs and DBInstanceTagOutput values.
@@ -713,9 +1176,12 @@ type DBInstanceTagInput interface {
 	ToDBInstanceTagOutputWithContext(context.Context) DBInstanceTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type DBInstanceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DBInstanceTagArgs) ElementType() reflect.Type {
@@ -755,6 +1221,7 @@ func (i DBInstanceTagArray) ToDBInstanceTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceTagOutput) ElementType() reflect.Type {
@@ -769,12 +1236,14 @@ func (o DBInstanceTagOutput) ToDBInstanceTagOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBInstanceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DBInstanceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DBInstanceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DBInstanceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type DBInstanceTagArrayOutput struct{ *pulumi.OutputState }
@@ -797,11 +1266,8 @@ func (o DBInstanceTagArrayOutput) Index(i pulumi.IntInput) DBInstanceTagOutput {
 	}).(DBInstanceTagOutput)
 }
 
-// A key-value pair to associate with a resource.
 type DBParameterGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -816,11 +1282,8 @@ type DBParameterGroupTagInput interface {
 	ToDBParameterGroupTagOutputWithContext(context.Context) DBParameterGroupTagOutput
 }
 
-// A key-value pair to associate with a resource.
 type DBParameterGroupTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -861,7 +1324,6 @@ func (i DBParameterGroupTagArray) ToDBParameterGroupTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupTagArrayOutput)
 }
 
-// A key-value pair to associate with a resource.
 type DBParameterGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DBParameterGroupTagOutput) ElementType() reflect.Type {
@@ -876,12 +1338,10 @@ func (o DBParameterGroupTagOutput) ToDBParameterGroupTagOutputWithContext(ctx co
 	return o
 }
 
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBParameterGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DBParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBParameterGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DBParameterGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1673,7 +2133,7 @@ type DBSubnetGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // DBSubnetGroupTagInput is an input type that accepts DBSubnetGroupTagArgs and DBSubnetGroupTagOutput values.
@@ -1692,7 +2152,7 @@ type DBSubnetGroupTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DBSubnetGroupTagArgs) ElementType() reflect.Type {
@@ -1753,8 +2213,8 @@ func (o DBSubnetGroupTagOutput) Key() pulumi.StringOutput {
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DBSubnetGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBSubnetGroupTag) string { return v.Value }).(pulumi.StringOutput)
+func (o DBSubnetGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSubnetGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type DBSubnetGroupTagArrayOutput struct{ *pulumi.OutputState }
@@ -1782,7 +2242,7 @@ type EventSubscriptionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
@@ -1801,7 +2261,7 @@ type EventSubscriptionTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventSubscriptionTagArgs) ElementType() reflect.Type {
@@ -1862,8 +2322,8 @@ func (o EventSubscriptionTagOutput) Key() pulumi.StringOutput {
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o EventSubscriptionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionTag) string { return v.Value }).(pulumi.StringOutput)
+func (o EventSubscriptionTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionTagArrayOutput struct{ *pulumi.OutputState }
@@ -1886,13 +2346,20 @@ func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscript
 	}).(EventSubscriptionTagOutput)
 }
 
+// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfiguration struct {
-	DBSecurityGroupMemberships  []string                   `pulumi:"dBSecurityGroupMemberships"`
-	OptionName                  string                     `pulumi:"optionName"`
-	OptionSettings              []OptionGroupOptionSetting `pulumi:"optionSettings"`
-	OptionVersion               *string                    `pulumi:"optionVersion"`
-	Port                        *int                       `pulumi:"port"`
-	VpcSecurityGroupMemberships []string                   `pulumi:"vpcSecurityGroupMemberships"`
+	// A list of DBSecurityGroupMembership name strings used for this option.
+	DBSecurityGroupMemberships []string `pulumi:"dBSecurityGroupMemberships"`
+	// The configuration of options to include in a group.
+	OptionName string `pulumi:"optionName"`
+	// The option settings to include in an option group.
+	OptionSettings []OptionGroupOptionSetting `pulumi:"optionSettings"`
+	// The version for the option.
+	OptionVersion *string `pulumi:"optionVersion"`
+	// The optional port for the option.
+	Port *int `pulumi:"port"`
+	// A list of VpcSecurityGroupMembership name strings used for this option.
+	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
 }
 
 // OptionGroupOptionConfigurationInput is an input type that accepts OptionGroupOptionConfigurationArgs and OptionGroupOptionConfigurationOutput values.
@@ -1906,13 +2373,20 @@ type OptionGroupOptionConfigurationInput interface {
 	ToOptionGroupOptionConfigurationOutputWithContext(context.Context) OptionGroupOptionConfigurationOutput
 }
 
+// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfigurationArgs struct {
-	DBSecurityGroupMemberships  pulumi.StringArrayInput            `pulumi:"dBSecurityGroupMemberships"`
-	OptionName                  pulumi.StringInput                 `pulumi:"optionName"`
-	OptionSettings              OptionGroupOptionSettingArrayInput `pulumi:"optionSettings"`
-	OptionVersion               pulumi.StringPtrInput              `pulumi:"optionVersion"`
-	Port                        pulumi.IntPtrInput                 `pulumi:"port"`
-	VpcSecurityGroupMemberships pulumi.StringArrayInput            `pulumi:"vpcSecurityGroupMemberships"`
+	// A list of DBSecurityGroupMembership name strings used for this option.
+	DBSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dBSecurityGroupMemberships"`
+	// The configuration of options to include in a group.
+	OptionName pulumi.StringInput `pulumi:"optionName"`
+	// The option settings to include in an option group.
+	OptionSettings OptionGroupOptionSettingArrayInput `pulumi:"optionSettings"`
+	// The version for the option.
+	OptionVersion pulumi.StringPtrInput `pulumi:"optionVersion"`
+	// The optional port for the option.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// A list of VpcSecurityGroupMembership name strings used for this option.
+	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
 }
 
 func (OptionGroupOptionConfigurationArgs) ElementType() reflect.Type {
@@ -1952,6 +2426,7 @@ func (i OptionGroupOptionConfigurationArray) ToOptionGroupOptionConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationArrayOutput)
 }
 
+// The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionConfigurationOutput) ElementType() reflect.Type {
@@ -1966,26 +2441,32 @@ func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOu
 	return o
 }
 
+// A list of DBSecurityGroupMembership name strings used for this option.
 func (o OptionGroupOptionConfigurationOutput) DBSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.DBSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
+// The configuration of options to include in a group.
 func (o OptionGroupOptionConfigurationOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
+// The option settings to include in an option group.
 func (o OptionGroupOptionConfigurationOutput) OptionSettings() OptionGroupOptionSettingArrayOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) []OptionGroupOptionSetting { return v.OptionSettings }).(OptionGroupOptionSettingArrayOutput)
 }
 
+// The version for the option.
 func (o OptionGroupOptionConfigurationOutput) OptionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) *string { return v.OptionVersion }).(pulumi.StringPtrOutput)
 }
 
+// The optional port for the option.
 func (o OptionGroupOptionConfigurationOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// A list of VpcSecurityGroupMembership name strings used for this option.
 func (o OptionGroupOptionConfigurationOutput) VpcSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.VpcSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
@@ -2010,8 +2491,11 @@ func (o OptionGroupOptionConfigurationArrayOutput) Index(i pulumi.IntInput) Opti
 	}).(OptionGroupOptionConfigurationOutput)
 }
 
+// The OptionSetting property type specifies the value for an option within an OptionSetting property.
 type OptionGroupOptionSetting struct {
-	Name  *string `pulumi:"name"`
+	// The name of the option that has settings that you can set.
+	Name *string `pulumi:"name"`
+	// The current value of the option setting.
 	Value *string `pulumi:"value"`
 }
 
@@ -2026,8 +2510,11 @@ type OptionGroupOptionSettingInput interface {
 	ToOptionGroupOptionSettingOutputWithContext(context.Context) OptionGroupOptionSettingOutput
 }
 
+// The OptionSetting property type specifies the value for an option within an OptionSetting property.
 type OptionGroupOptionSettingArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the option that has settings that you can set.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The current value of the option setting.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2068,6 +2555,7 @@ func (i OptionGroupOptionSettingArray) ToOptionGroupOptionSettingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingArrayOutput)
 }
 
+// The OptionSetting property type specifies the value for an option within an OptionSetting property.
 type OptionGroupOptionSettingOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOptionSettingOutput) ElementType() reflect.Type {
@@ -2082,10 +2570,12 @@ func (o OptionGroupOptionSettingOutput) ToOptionGroupOptionSettingOutputWithCont
 	return o
 }
 
+// The name of the option that has settings that you can set.
 func (o OptionGroupOptionSettingOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionGroupOptionSetting) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The current value of the option setting.
 func (o OptionGroupOptionSettingOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionGroupOptionSetting) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2110,9 +2600,12 @@ func (o OptionGroupOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGrou
 	}).(OptionGroupOptionSettingOutput)
 }
 
+// A key-value pair to associate with a resource.
 type OptionGroupTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // OptionGroupTagInput is an input type that accepts OptionGroupTagArgs and OptionGroupTagOutput values.
@@ -2126,9 +2619,12 @@ type OptionGroupTagInput interface {
 	ToOptionGroupTagOutputWithContext(context.Context) OptionGroupTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type OptionGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (OptionGroupTagArgs) ElementType() reflect.Type {
@@ -2168,6 +2664,7 @@ func (i OptionGroupTagArray) ToOptionGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type OptionGroupTagOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupTagOutput) ElementType() reflect.Type {
@@ -2182,12 +2679,14 @@ func (o OptionGroupTagOutput) ToOptionGroupTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o OptionGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o OptionGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v OptionGroupTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o OptionGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type OptionGroupTagArrayOutput struct{ *pulumi.OutputState }
@@ -2213,12 +2712,16 @@ func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagInput)(nil)).Elem(), DBClusterParameterGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagArrayInput)(nil)).Elem(), DBClusterParameterGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterReadEndpointInput)(nil)).Elem(), DBClusterReadEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterReadEndpointPtrInput)(nil)).Elem(), DBClusterReadEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleInput)(nil)).Elem(), DBClusterRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleArrayInput)(nil)).Elem(), DBClusterRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationPtrInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagInput)(nil)).Elem(), DBClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointInput)(nil)).Elem(), DBInstanceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointPtrInput)(nil)).Elem(), DBInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureInput)(nil)).Elem(), DBInstanceProcessorFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureArrayInput)(nil)).Elem(), DBInstanceProcessorFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceRoleInput)(nil)).Elem(), DBInstanceRoleArgs{})
@@ -2249,14 +2752,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingArrayInput)(nil)).Elem(), OptionGroupOptionSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagInput)(nil)).Elem(), OptionGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagArrayInput)(nil)).Elem(), OptionGroupTagArray{})
+	pulumi.RegisterOutputType(DBClusterEndpointOutput{})
+	pulumi.RegisterOutputType(DBClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(DBClusterReadEndpointOutput{})
+	pulumi.RegisterOutputType(DBClusterReadEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterRoleOutput{})
 	pulumi.RegisterOutputType(DBClusterRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterTagOutput{})
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(DBInstanceEndpointOutput{})
+	pulumi.RegisterOutputType(DBInstanceEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceRoleOutput{})

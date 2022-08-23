@@ -17,12 +17,12 @@ __all__ = ['GraphQLApiArgs', 'GraphQLApi']
 class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 additional_authentication_providers: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProvidersArgs']] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
-                 tags: Optional[pulumi.Input['GraphQLApiTagsArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -57,11 +57,11 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProvidersArgs']]:
+    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
-    def additional_authentication_providers(self, value: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProvidersArgs']]):
+    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
@@ -102,11 +102,11 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['GraphQLApiTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['GraphQLApiTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -138,13 +138,13 @@ class GraphQLApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProvidersArgs']]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['GraphQLApiTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -178,13 +178,13 @@ class GraphQLApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProvidersArgs']]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['GraphQLApiTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -249,7 +249,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> pulumi.Output[Optional['outputs.GraphQLApiAdditionalAuthenticationProviders']]:
+    def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @property
@@ -294,7 +294,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.GraphQLApiTags']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiTag']]]:
         return pulumi.get(self, "tags")
 
     @property

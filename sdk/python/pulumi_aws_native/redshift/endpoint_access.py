@@ -15,27 +15,37 @@ __all__ = ['EndpointAccessArgs', 'EndpointAccess']
 @pulumi.input_type
 class EndpointAccessArgs:
     def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str],
                  endpoint_name: pulumi.Input[str],
+                 subnet_group_name: pulumi.Input[str],
                  vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 resource_owner: Optional[pulumi.Input[str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
-        :param pulumi.Input[str] endpoint_name: The name of the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of vpc security group ids to apply to the created endpoint access.
         :param pulumi.Input[str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-        :param pulumi.Input[str] resource_owner: The AWS account ID of the owner of the cluster.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[str] subnet_group_name: The subnet group name where Amazon Redshift chooses to deploy the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of vpc security group ids to apply to the created endpoint access.
+        :param pulumi.Input[str] resource_owner: The AWS account ID of the owner of the cluster.
         """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
-        if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if resource_owner is not None:
             pulumi.set(__self__, "resource_owner", resource_owner)
-        if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -50,6 +60,18 @@ class EndpointAccessArgs:
         pulumi.set(self, "endpoint_name", value)
 
     @property
+    @pulumi.getter(name="subnetGroupName")
+    def subnet_group_name(self) -> pulumi.Input[str]:
+        """
+        The subnet group name where Amazon Redshift chooses to deploy the endpoint.
+        """
+        return pulumi.get(self, "subnet_group_name")
+
+    @subnet_group_name.setter
+    def subnet_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_group_name", value)
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
@@ -62,18 +84,6 @@ class EndpointAccessArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
     @property
-    @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-        """
-        return pulumi.get(self, "cluster_identifier")
-
-    @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cluster_identifier", value)
-
-    @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[str]]:
         """
@@ -84,18 +94,6 @@ class EndpointAccessArgs:
     @resource_owner.setter
     def resource_owner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_owner", value)
-
-    @property
-    @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-        """
-        return pulumi.get(self, "subnet_group_name")
-
-    @subnet_group_name.setter
-    def subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_group_name", value)
 
 
 class EndpointAccess(pulumi.CustomResource):
@@ -158,11 +156,15 @@ class EndpointAccess(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointAccessArgs.__new__(EndpointAccessArgs)
 
+            if cluster_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["resource_owner"] = resource_owner
+            if subnet_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_group_name'")
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             if vpc_security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_security_group_ids'")
@@ -218,7 +220,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+    def cluster_identifier(self) -> pulumi.Output[str]:
         """
         A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         """
@@ -266,7 +268,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+    def subnet_group_name(self) -> pulumi.Output[str]:
         """
         The subnet group name where Amazon Redshift chooses to deploy the endpoint.
         """

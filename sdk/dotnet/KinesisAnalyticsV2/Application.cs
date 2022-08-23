@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public Output<string?> ApplicationDescription { get; private set; } = null!;
 
         /// <summary>
+        /// Used to configure start of maintenance window.
+        /// </summary>
+        [Output("applicationMaintenanceConfiguration")]
+        public Output<Outputs.ApplicationMaintenanceConfiguration?> ApplicationMaintenanceConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         /// </summary>
         [Output("applicationMode")]
@@ -38,6 +44,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// </summary>
         [Output("applicationName")]
         public Output<string?> ApplicationName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+        /// </summary>
+        [Output("runConfiguration")]
+        public Output<Outputs.ApplicationRunConfiguration?> RunConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The runtime environment for the application.
@@ -115,6 +127,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         public Input<string>? ApplicationDescription { get; set; }
 
         /// <summary>
+        /// Used to configure start of maintenance window.
+        /// </summary>
+        [Input("applicationMaintenanceConfiguration")]
+        public Input<Inputs.ApplicationMaintenanceConfigurationArgs>? ApplicationMaintenanceConfiguration { get; set; }
+
+        /// <summary>
         /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         /// </summary>
         [Input("applicationMode")]
@@ -125,6 +143,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
+
+        /// <summary>
+        /// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+        /// </summary>
+        [Input("runConfiguration")]
+        public Input<Inputs.ApplicationRunConfigurationArgs>? RunConfiguration { get; set; }
 
         /// <summary>
         /// The runtime environment for the application.

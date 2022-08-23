@@ -22,6 +22,7 @@ class ClusterArgs:
                  additional_info: Optional[Any] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterApplicationArgs']]]] = None,
                  auto_scaling_role: Optional[pulumi.Input[str]] = None,
+                 auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionConfigArgs']]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,8 @@ class ClusterArgs:
             pulumi.set(__self__, "applications", applications)
         if auto_scaling_role is not None:
             pulumi.set(__self__, "auto_scaling_role", auto_scaling_role)
+        if auto_termination_policy is not None:
+            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if bootstrap_actions is not None:
             pulumi.set(__self__, "bootstrap_actions", bootstrap_actions)
         if configurations is not None:
@@ -136,6 +139,15 @@ class ClusterArgs:
     @auto_scaling_role.setter
     def auto_scaling_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_scaling_role", value)
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]:
+        return pulumi.get(self, "auto_termination_policy")
+
+    @auto_termination_policy.setter
+    def auto_termination_policy(self, value: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]):
+        pulumi.set(self, "auto_termination_policy", value)
 
     @property
     @pulumi.getter(name="bootstrapActions")
@@ -295,6 +307,7 @@ class Cluster(pulumi.CustomResource):
                  additional_info: Optional[Any] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterApplicationArgs']]]]] = None,
                  auto_scaling_role: Optional[pulumi.Input[str]] = None,
+                 auto_termination_policy: Optional[pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionConfigArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
@@ -348,6 +361,7 @@ class Cluster(pulumi.CustomResource):
                  additional_info: Optional[Any] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterApplicationArgs']]]]] = None,
                  auto_scaling_role: Optional[pulumi.Input[str]] = None,
+                 auto_termination_policy: Optional[pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionConfigArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
@@ -380,6 +394,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["additional_info"] = additional_info
             __props__.__dict__["applications"] = applications
             __props__.__dict__["auto_scaling_role"] = auto_scaling_role
+            __props__.__dict__["auto_termination_policy"] = auto_termination_policy
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
@@ -431,6 +446,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["additional_info"] = None
         __props__.__dict__["applications"] = None
         __props__.__dict__["auto_scaling_role"] = None
+        __props__.__dict__["auto_termination_policy"] = None
         __props__.__dict__["bootstrap_actions"] = None
         __props__.__dict__["configurations"] = None
         __props__.__dict__["custom_ami_id"] = None
@@ -467,6 +483,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingRole")
     def auto_scaling_role(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "auto_scaling_role")
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> pulumi.Output[Optional['outputs.ClusterAutoTerminationPolicy']]:
+        return pulumi.get(self, "auto_termination_policy")
 
     @property
     @pulumi.getter(name="bootstrapActions")

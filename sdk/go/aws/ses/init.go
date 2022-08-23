@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationSetEventDestination{}
 	case "aws-native:ses:ContactList":
 		r = &ContactList{}
+	case "aws-native:ses:DedicatedIpPool":
+		r = &DedicatedIpPool{}
+	case "aws-native:ses:EmailIdentity":
+		r = &EmailIdentity{}
 	case "aws-native:ses:ReceiptFilter":
 		r = &ReceiptFilter{}
 	case "aws-native:ses:ReceiptRule":

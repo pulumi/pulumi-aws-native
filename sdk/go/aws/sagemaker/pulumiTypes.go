@@ -21953,6 +21953,141 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+type NotebookInstanceInstanceMetadataServiceConfiguration struct {
+	MinimumInstanceMetadataServiceVersion string `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs and NotebookInstanceInstanceMetadataServiceConfigurationOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationInput` via:
+//
+//	NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+type NotebookInstanceInstanceMetadataServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationArgs struct {
+	MinimumInstanceMetadataServiceVersion pulumi.StringInput `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput).ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationPtrInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs, NotebookInstanceInstanceMetadataServiceConfigurationPtr and NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationPtrInput` via:
+//
+//	        NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+}
+
+type notebookInstanceInstanceMetadataServiceConfigurationPtrType NotebookInstanceInstanceMetadataServiceConfigurationArgs
+
+func NotebookInstanceInstanceMetadataServiceConfigurationPtr(v *NotebookInstanceInstanceMetadataServiceConfigurationArgs) NotebookInstanceInstanceMetadataServiceConfigurationPtrInput {
+	return (*notebookInstanceInstanceMetadataServiceConfigurationPtrType)(v)
+}
+
+func (*notebookInstanceInstanceMetadataServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookInstanceInstanceMetadataServiceConfiguration) *NotebookInstanceInstanceMetadataServiceConfiguration {
+		return &v
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v NotebookInstanceInstanceMetadataServiceConfiguration) string {
+		return v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) Elem() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) NotebookInstanceInstanceMetadataServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookInstanceInstanceMetadataServiceConfiguration
+		return ret
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook struct {
 	Content *string `pulumi:"content"`
 }
@@ -24384,6 +24519,47 @@ func (i WorkteamCognitoMemberDefinitionArgs) ToWorkteamCognitoMemberDefinitionOu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamCognitoMemberDefinitionOutput)
 }
 
+func (i WorkteamCognitoMemberDefinitionArgs) ToWorkteamCognitoMemberDefinitionPtrOutput() WorkteamCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkteamCognitoMemberDefinitionArgs) ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamCognitoMemberDefinitionOutput).ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(ctx)
+}
+
+// WorkteamCognitoMemberDefinitionPtrInput is an input type that accepts WorkteamCognitoMemberDefinitionArgs, WorkteamCognitoMemberDefinitionPtr and WorkteamCognitoMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkteamCognitoMemberDefinitionPtrInput` via:
+//
+//	        WorkteamCognitoMemberDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkteamCognitoMemberDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToWorkteamCognitoMemberDefinitionPtrOutput() WorkteamCognitoMemberDefinitionPtrOutput
+	ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(context.Context) WorkteamCognitoMemberDefinitionPtrOutput
+}
+
+type workteamCognitoMemberDefinitionPtrType WorkteamCognitoMemberDefinitionArgs
+
+func WorkteamCognitoMemberDefinitionPtr(v *WorkteamCognitoMemberDefinitionArgs) WorkteamCognitoMemberDefinitionPtrInput {
+	return (*workteamCognitoMemberDefinitionPtrType)(v)
+}
+
+func (*workteamCognitoMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (i *workteamCognitoMemberDefinitionPtrType) ToWorkteamCognitoMemberDefinitionPtrOutput() WorkteamCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *workteamCognitoMemberDefinitionPtrType) ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamCognitoMemberDefinitionPtrOutput)
+}
+
 type WorkteamCognitoMemberDefinitionOutput struct{ *pulumi.OutputState }
 
 func (WorkteamCognitoMemberDefinitionOutput) ElementType() reflect.Type {
@@ -24398,6 +24574,16 @@ func (o WorkteamCognitoMemberDefinitionOutput) ToWorkteamCognitoMemberDefinition
 	return o
 }
 
+func (o WorkteamCognitoMemberDefinitionOutput) ToWorkteamCognitoMemberDefinitionPtrOutput() WorkteamCognitoMemberDefinitionPtrOutput {
+	return o.ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkteamCognitoMemberDefinitionOutput) ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamCognitoMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamCognitoMemberDefinition) *WorkteamCognitoMemberDefinition {
+		return &v
+	}).(WorkteamCognitoMemberDefinitionPtrOutput)
+}
+
 func (o WorkteamCognitoMemberDefinitionOutput) CognitoClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkteamCognitoMemberDefinition) string { return v.CognitoClientId }).(pulumi.StringOutput)
 }
@@ -24410,8 +24596,60 @@ func (o WorkteamCognitoMemberDefinitionOutput) CognitoUserPool() pulumi.StringOu
 	return o.ApplyT(func(v WorkteamCognitoMemberDefinition) string { return v.CognitoUserPool }).(pulumi.StringOutput)
 }
 
+type WorkteamCognitoMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkteamCognitoMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) ToWorkteamCognitoMemberDefinitionPtrOutput() WorkteamCognitoMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) ToWorkteamCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamCognitoMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) Elem() WorkteamCognitoMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkteamCognitoMemberDefinition) WorkteamCognitoMemberDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WorkteamCognitoMemberDefinition
+		return ret
+	}).(WorkteamCognitoMemberDefinitionOutput)
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) CognitoClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CognitoClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) CognitoUserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CognitoUserGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkteamCognitoMemberDefinitionPtrOutput) CognitoUserPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CognitoUserPool
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkteamMemberDefinition struct {
-	CognitoMemberDefinition WorkteamCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
+	CognitoMemberDefinition *WorkteamCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
+	OidcMemberDefinition    *WorkteamOidcMemberDefinition    `pulumi:"oidcMemberDefinition"`
 }
 
 // WorkteamMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionArgs and WorkteamMemberDefinitionOutput values.
@@ -24426,7 +24664,8 @@ type WorkteamMemberDefinitionInput interface {
 }
 
 type WorkteamMemberDefinitionArgs struct {
-	CognitoMemberDefinition WorkteamCognitoMemberDefinitionInput `pulumi:"cognitoMemberDefinition"`
+	CognitoMemberDefinition WorkteamCognitoMemberDefinitionPtrInput `pulumi:"cognitoMemberDefinition"`
+	OidcMemberDefinition    WorkteamOidcMemberDefinitionPtrInput    `pulumi:"oidcMemberDefinition"`
 }
 
 func (WorkteamMemberDefinitionArgs) ElementType() reflect.Type {
@@ -24480,8 +24719,12 @@ func (o WorkteamMemberDefinitionOutput) ToWorkteamMemberDefinitionOutputWithCont
 	return o
 }
 
-func (o WorkteamMemberDefinitionOutput) CognitoMemberDefinition() WorkteamCognitoMemberDefinitionOutput {
-	return o.ApplyT(func(v WorkteamMemberDefinition) WorkteamCognitoMemberDefinition { return v.CognitoMemberDefinition }).(WorkteamCognitoMemberDefinitionOutput)
+func (o WorkteamMemberDefinitionOutput) CognitoMemberDefinition() WorkteamCognitoMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamCognitoMemberDefinition { return v.CognitoMemberDefinition }).(WorkteamCognitoMemberDefinitionPtrOutput)
+}
+
+func (o WorkteamMemberDefinitionOutput) OidcMemberDefinition() WorkteamOidcMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamOidcMemberDefinition { return v.OidcMemberDefinition }).(WorkteamOidcMemberDefinitionPtrOutput)
 }
 
 type WorkteamMemberDefinitionArrayOutput struct{ *pulumi.OutputState }
@@ -24635,6 +24878,139 @@ func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulum
 		}
 		return &v.NotificationTopicArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type WorkteamOidcMemberDefinition struct {
+	OidcGroups []string `pulumi:"oidcGroups"`
+}
+
+// WorkteamOidcMemberDefinitionInput is an input type that accepts WorkteamOidcMemberDefinitionArgs and WorkteamOidcMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkteamOidcMemberDefinitionInput` via:
+//
+//	WorkteamOidcMemberDefinitionArgs{...}
+type WorkteamOidcMemberDefinitionInput interface {
+	pulumi.Input
+
+	ToWorkteamOidcMemberDefinitionOutput() WorkteamOidcMemberDefinitionOutput
+	ToWorkteamOidcMemberDefinitionOutputWithContext(context.Context) WorkteamOidcMemberDefinitionOutput
+}
+
+type WorkteamOidcMemberDefinitionArgs struct {
+	OidcGroups pulumi.StringArrayInput `pulumi:"oidcGroups"`
+}
+
+func (WorkteamOidcMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamOidcMemberDefinition)(nil)).Elem()
+}
+
+func (i WorkteamOidcMemberDefinitionArgs) ToWorkteamOidcMemberDefinitionOutput() WorkteamOidcMemberDefinitionOutput {
+	return i.ToWorkteamOidcMemberDefinitionOutputWithContext(context.Background())
+}
+
+func (i WorkteamOidcMemberDefinitionArgs) ToWorkteamOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOidcMemberDefinitionOutput)
+}
+
+func (i WorkteamOidcMemberDefinitionArgs) ToWorkteamOidcMemberDefinitionPtrOutput() WorkteamOidcMemberDefinitionPtrOutput {
+	return i.ToWorkteamOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkteamOidcMemberDefinitionArgs) ToWorkteamOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOidcMemberDefinitionOutput).ToWorkteamOidcMemberDefinitionPtrOutputWithContext(ctx)
+}
+
+// WorkteamOidcMemberDefinitionPtrInput is an input type that accepts WorkteamOidcMemberDefinitionArgs, WorkteamOidcMemberDefinitionPtr and WorkteamOidcMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkteamOidcMemberDefinitionPtrInput` via:
+//
+//	        WorkteamOidcMemberDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkteamOidcMemberDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToWorkteamOidcMemberDefinitionPtrOutput() WorkteamOidcMemberDefinitionPtrOutput
+	ToWorkteamOidcMemberDefinitionPtrOutputWithContext(context.Context) WorkteamOidcMemberDefinitionPtrOutput
+}
+
+type workteamOidcMemberDefinitionPtrType WorkteamOidcMemberDefinitionArgs
+
+func WorkteamOidcMemberDefinitionPtr(v *WorkteamOidcMemberDefinitionArgs) WorkteamOidcMemberDefinitionPtrInput {
+	return (*workteamOidcMemberDefinitionPtrType)(v)
+}
+
+func (*workteamOidcMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamOidcMemberDefinition)(nil)).Elem()
+}
+
+func (i *workteamOidcMemberDefinitionPtrType) ToWorkteamOidcMemberDefinitionPtrOutput() WorkteamOidcMemberDefinitionPtrOutput {
+	return i.ToWorkteamOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *workteamOidcMemberDefinitionPtrType) ToWorkteamOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOidcMemberDefinitionPtrOutput)
+}
+
+type WorkteamOidcMemberDefinitionOutput struct{ *pulumi.OutputState }
+
+func (WorkteamOidcMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamOidcMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkteamOidcMemberDefinitionOutput) ToWorkteamOidcMemberDefinitionOutput() WorkteamOidcMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkteamOidcMemberDefinitionOutput) ToWorkteamOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkteamOidcMemberDefinitionOutput) ToWorkteamOidcMemberDefinitionPtrOutput() WorkteamOidcMemberDefinitionPtrOutput {
+	return o.ToWorkteamOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkteamOidcMemberDefinitionOutput) ToWorkteamOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamOidcMemberDefinition) *WorkteamOidcMemberDefinition {
+		return &v
+	}).(WorkteamOidcMemberDefinitionPtrOutput)
+}
+
+func (o WorkteamOidcMemberDefinitionOutput) OidcGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkteamOidcMemberDefinition) []string { return v.OidcGroups }).(pulumi.StringArrayOutput)
+}
+
+type WorkteamOidcMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkteamOidcMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamOidcMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkteamOidcMemberDefinitionPtrOutput) ToWorkteamOidcMemberDefinitionPtrOutput() WorkteamOidcMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkteamOidcMemberDefinitionPtrOutput) ToWorkteamOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamOidcMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkteamOidcMemberDefinitionPtrOutput) Elem() WorkteamOidcMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkteamOidcMemberDefinition) WorkteamOidcMemberDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WorkteamOidcMemberDefinition
+		return ret
+	}).(WorkteamOidcMemberDefinitionOutput)
+}
+
+func (o WorkteamOidcMemberDefinitionPtrOutput) OidcGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkteamOidcMemberDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OidcGroups
+	}).(pulumi.StringArrayOutput)
 }
 
 type WorkteamTag struct {
@@ -25034,6 +25410,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleTagArrayInput)(nil)).Elem(), MonitoringScheduleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleVpcConfigInput)(nil)).Elem(), MonitoringScheduleVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleVpcConfigPtrInput)(nil)).Elem(), MonitoringScheduleVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationPtrInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput)(nil)).Elem(), NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayInput)(nil)).Elem(), NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceTagInput)(nil)).Elem(), NotebookInstanceTagArgs{})
@@ -25068,10 +25446,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamCognitoMemberDefinitionInput)(nil)).Elem(), WorkteamCognitoMemberDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamCognitoMemberDefinitionPtrInput)(nil)).Elem(), WorkteamCognitoMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionInput)(nil)).Elem(), WorkteamMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionArrayInput)(nil)).Elem(), WorkteamMemberDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationPtrInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamOidcMemberDefinitionInput)(nil)).Elem(), WorkteamOidcMemberDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamOidcMemberDefinitionPtrInput)(nil)).Elem(), WorkteamOidcMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamTagInput)(nil)).Elem(), WorkteamTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamTagArrayInput)(nil)).Elem(), WorkteamTagArray{})
 	pulumi.RegisterOutputType(AppImageConfigFileSystemConfigOutput{})
@@ -25374,6 +25755,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleTagArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceTagOutput{})
@@ -25410,10 +25793,13 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamCognitoMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkteamCognitoMemberDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionOutput{})
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(WorkteamNotificationConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkteamNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamOidcMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkteamOidcMemberDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamTagOutput{})
 	pulumi.RegisterOutputType(WorkteamTagArrayOutput{})
 }

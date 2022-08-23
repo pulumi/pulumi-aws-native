@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRecordSetResult:
-    def __init__(__self__, alias_target=None, comment=None, failover=None, geo_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, t_tl=None, type=None, weight=None):
+    def __init__(__self__, alias_target=None, cidr_routing_config=None, comment=None, failover=None, geo_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, t_tl=None, type=None, weight=None):
         if alias_target and not isinstance(alias_target, dict):
             raise TypeError("Expected argument 'alias_target' to be a dict")
         pulumi.set(__self__, "alias_target", alias_target)
+        if cidr_routing_config and not isinstance(cidr_routing_config, dict):
+            raise TypeError("Expected argument 'cidr_routing_config' to be a dict")
+        pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -64,6 +67,11 @@ class GetRecordSetResult:
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> Optional['outputs.RecordSetAliasTarget']:
         return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> Optional['outputs.RecordSetCidrRoutingConfig']:
+        return pulumi.get(self, "cidr_routing_config")
 
     @property
     @pulumi.getter
@@ -133,6 +141,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             yield self
         return GetRecordSetResult(
             alias_target=self.alias_target,
+            cidr_routing_config=self.cidr_routing_config,
             comment=self.comment,
             failover=self.failover,
             geo_location=self.geo_location,
@@ -159,6 +168,7 @@ def get_record_set(id: Optional[str] = None,
 
     return AwaitableGetRecordSetResult(
         alias_target=__ret__.alias_target,
+        cidr_routing_config=__ret__.cidr_routing_config,
         comment=__ret__.comment,
         failover=__ret__.failover,
         geo_location=__ret__.geo_location,

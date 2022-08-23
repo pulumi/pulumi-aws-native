@@ -11,17 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::OptionGroup
-//
-// Deprecated: OptionGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
-	EngineName             pulumi.StringOutput                       `pulumi:"engineName"`
-	MajorEngineVersion     pulumi.StringOutput                       `pulumi:"majorEngineVersion"`
-	OptionConfigurations   OptionGroupOptionConfigurationArrayOutput `pulumi:"optionConfigurations"`
-	OptionGroupDescription pulumi.StringOutput                       `pulumi:"optionGroupDescription"`
-	Tags                   OptionGroupTagArrayOutput                 `pulumi:"tags"`
+	// Indicates the name of the engine that this option group can be applied to.
+	EngineName pulumi.StringOutput `pulumi:"engineName"`
+	// Indicates the major engine version associated with this option group.
+	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
+	// Indicates what options are available in the option group.
+	OptionConfigurations OptionGroupOptionConfigurationArrayOutput `pulumi:"optionConfigurations"`
+	// Provides a description of the option group.
+	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
+	// Specifies the name of the option group.
+	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags OptionGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -36,9 +41,6 @@ func NewOptionGroup(ctx *pulumi.Context,
 	}
 	if args.MajorEngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'MajorEngineVersion'")
-	}
-	if args.OptionConfigurations == nil {
-		return nil, errors.New("invalid value for required argument 'OptionConfigurations'")
 	}
 	if args.OptionGroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'OptionGroupDescription'")
@@ -75,20 +77,30 @@ func (OptionGroupState) ElementType() reflect.Type {
 }
 
 type optionGroupArgs struct {
-	EngineName             string                           `pulumi:"engineName"`
-	MajorEngineVersion     string                           `pulumi:"majorEngineVersion"`
-	OptionConfigurations   []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
-	OptionGroupDescription string                           `pulumi:"optionGroupDescription"`
-	Tags                   []OptionGroupTag                 `pulumi:"tags"`
+	// Indicates the name of the engine that this option group can be applied to.
+	EngineName string `pulumi:"engineName"`
+	// Indicates the major engine version associated with this option group.
+	MajorEngineVersion string `pulumi:"majorEngineVersion"`
+	// Indicates what options are available in the option group.
+	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
+	// Provides a description of the option group.
+	OptionGroupDescription string `pulumi:"optionGroupDescription"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []OptionGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
 type OptionGroupArgs struct {
-	EngineName             pulumi.StringInput
-	MajorEngineVersion     pulumi.StringInput
-	OptionConfigurations   OptionGroupOptionConfigurationArrayInput
+	// Indicates the name of the engine that this option group can be applied to.
+	EngineName pulumi.StringInput
+	// Indicates the major engine version associated with this option group.
+	MajorEngineVersion pulumi.StringInput
+	// Indicates what options are available in the option group.
+	OptionConfigurations OptionGroupOptionConfigurationArrayInput
+	// Provides a description of the option group.
 	OptionGroupDescription pulumi.StringInput
-	Tags                   OptionGroupTagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags OptionGroupTagArrayInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {
@@ -128,22 +140,32 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
+// Indicates the name of the engine that this option group can be applied to.
 func (o OptionGroupOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
 
+// Indicates the major engine version associated with this option group.
 func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
+// Indicates what options are available in the option group.
 func (o OptionGroupOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionConfigurationArrayOutput { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }
 
+// Provides a description of the option group.
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the option group.
+func (o OptionGroupOutput) OptionGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
 func (o OptionGroupOutput) Tags() OptionGroupTagArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupTagArrayOutput { return v.Tags }).(OptionGroupTagArrayOutput)
 }

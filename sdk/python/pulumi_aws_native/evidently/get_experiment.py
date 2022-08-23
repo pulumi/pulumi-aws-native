@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentResult:
-    def __init__(__self__, arn=None, description=None, metric_goals=None, online_ab_config=None, randomization_salt=None, running_status=None, sampling_rate=None, tags=None, treatments=None):
+    def __init__(__self__, arn=None, description=None, metric_goals=None, online_ab_config=None, randomization_salt=None, remove_segment=None, running_status=None, sampling_rate=None, segment=None, tags=None, treatments=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,12 +36,18 @@ class GetExperimentResult:
         if randomization_salt and not isinstance(randomization_salt, str):
             raise TypeError("Expected argument 'randomization_salt' to be a str")
         pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if remove_segment and not isinstance(remove_segment, bool):
+            raise TypeError("Expected argument 'remove_segment' to be a bool")
+        pulumi.set(__self__, "remove_segment", remove_segment)
         if running_status and not isinstance(running_status, dict):
             raise TypeError("Expected argument 'running_status' to be a dict")
         pulumi.set(__self__, "running_status", running_status)
         if sampling_rate and not isinstance(sampling_rate, int):
             raise TypeError("Expected argument 'sampling_rate' to be a int")
         pulumi.set(__self__, "sampling_rate", sampling_rate)
+        if segment and not isinstance(segment, str):
+            raise TypeError("Expected argument 'segment' to be a str")
+        pulumi.set(__self__, "segment", segment)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -75,6 +81,11 @@ class GetExperimentResult:
         return pulumi.get(self, "randomization_salt")
 
     @property
+    @pulumi.getter(name="removeSegment")
+    def remove_segment(self) -> Optional[bool]:
+        return pulumi.get(self, "remove_segment")
+
+    @property
     @pulumi.getter(name="runningStatus")
     def running_status(self) -> Optional['outputs.ExperimentRunningStatusObject']:
         """
@@ -86,6 +97,11 @@ class GetExperimentResult:
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[int]:
         return pulumi.get(self, "sampling_rate")
+
+    @property
+    @pulumi.getter
+    def segment(self) -> Optional[str]:
+        return pulumi.get(self, "segment")
 
     @property
     @pulumi.getter
@@ -112,8 +128,10 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             metric_goals=self.metric_goals,
             online_ab_config=self.online_ab_config,
             randomization_salt=self.randomization_salt,
+            remove_segment=self.remove_segment,
             running_status=self.running_status,
             sampling_rate=self.sampling_rate,
+            segment=self.segment,
             tags=self.tags,
             treatments=self.treatments)
 
@@ -134,8 +152,10 @@ def get_experiment(arn: Optional[str] = None,
         metric_goals=__ret__.metric_goals,
         online_ab_config=__ret__.online_ab_config,
         randomization_salt=__ret__.randomization_salt,
+        remove_segment=__ret__.remove_segment,
         running_status=__ret__.running_status,
         sampling_rate=__ret__.sampling_rate,
+        segment=__ret__.segment,
         tags=__ret__.tags,
         treatments=__ret__.treatments)
 

@@ -37,6 +37,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationSqlApplicationConfiguration? SqlApplicationConfiguration;
         /// <summary>
+        /// The array of descriptions of VPC configurations available to the application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationVpcConfiguration> VpcConfigurations;
+        /// <summary>
         /// The configuration parameters for a Kinesis Data Analytics Studio notebook.
         /// </summary>
         public readonly Outputs.ApplicationZeppelinApplicationConfiguration? ZeppelinApplicationConfiguration;
@@ -53,6 +57,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 
             Outputs.ApplicationSqlApplicationConfiguration? sqlApplicationConfiguration,
 
+            ImmutableArray<Outputs.ApplicationVpcConfiguration> vpcConfigurations,
+
             Outputs.ApplicationZeppelinApplicationConfiguration? zeppelinApplicationConfiguration)
         {
             ApplicationCodeConfiguration = applicationCodeConfiguration;
@@ -60,6 +66,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
             EnvironmentProperties = environmentProperties;
             FlinkApplicationConfiguration = flinkApplicationConfiguration;
             SqlApplicationConfiguration = sqlApplicationConfiguration;
+            VpcConfigurations = vpcConfigurations;
             ZeppelinApplicationConfiguration = zeppelinApplicationConfiguration;
         }
     }

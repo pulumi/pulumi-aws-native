@@ -70,14 +70,26 @@ namespace Pulumi.AwsNative.DocDB
         [Output("readEndpoint")]
         public Output<string> ReadEndpoint { get; private set; } = null!;
 
+        [Output("restoreToTime")]
+        public Output<string?> RestoreToTime { get; private set; } = null!;
+
+        [Output("restoreType")]
+        public Output<string?> RestoreType { get; private set; } = null!;
+
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
+
+        [Output("sourceDBClusterIdentifier")]
+        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
 
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DBClusterTag>> Tags { get; private set; } = null!;
+
+        [Output("useLatestRestorableTime")]
+        public Output<bool?> UseLatestRestorableTime { get; private set; } = null!;
 
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -182,8 +194,17 @@ namespace Pulumi.AwsNative.DocDB
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
+        [Input("restoreToTime")]
+        public Input<string>? RestoreToTime { get; set; }
+
+        [Input("restoreType")]
+        public Input<string>? RestoreType { get; set; }
+
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
+
+        [Input("sourceDBClusterIdentifier")]
+        public Input<string>? SourceDBClusterIdentifier { get; set; }
 
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -195,6 +216,9 @@ namespace Pulumi.AwsNative.DocDB
             get => _tags ?? (_tags = new InputList<Inputs.DBClusterTagArgs>());
             set => _tags = value;
         }
+
+        [Input("useLatestRestorableTime")]
+        public Input<bool>? UseLatestRestorableTime { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

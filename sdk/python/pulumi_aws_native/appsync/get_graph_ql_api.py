@@ -20,8 +20,8 @@ __all__ = [
 @pulumi.output_type
 class GetGraphQLApiResult:
     def __init__(__self__, additional_authentication_providers=None, api_id=None, arn=None, authentication_type=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, name=None, open_id_connect_config=None, tags=None, user_pool_config=None, xray_enabled=None):
-        if additional_authentication_providers and not isinstance(additional_authentication_providers, dict):
-            raise TypeError("Expected argument 'additional_authentication_providers' to be a dict")
+        if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
+            raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
@@ -50,8 +50,8 @@ class GetGraphQLApiResult:
         if open_id_connect_config and not isinstance(open_id_connect_config, dict):
             raise TypeError("Expected argument 'open_id_connect_config' to be a dict")
         pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if user_pool_config and not isinstance(user_pool_config, dict):
             raise TypeError("Expected argument 'user_pool_config' to be a dict")
@@ -62,7 +62,7 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional['outputs.GraphQLApiAdditionalAuthenticationProviders']:
+    def additional_authentication_providers(self) -> Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]:
         return pulumi.get(self, "additional_authentication_providers")
 
     @property
@@ -112,7 +112,7 @@ class GetGraphQLApiResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.GraphQLApiTags']:
+    def tags(self) -> Optional[Sequence['outputs.GraphQLApiTag']]:
         return pulumi.get(self, "tags")
 
     @property

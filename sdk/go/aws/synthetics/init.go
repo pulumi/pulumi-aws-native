@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:synthetics:Canary":
 		r = &Canary{}
+	case "aws-native:synthetics:Group":
+		r = &Group{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

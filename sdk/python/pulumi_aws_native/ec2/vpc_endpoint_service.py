@@ -15,6 +15,7 @@ __all__ = ['VPCEndpointServiceArgs', 'VPCEndpointService']
 class VPCEndpointServiceArgs:
     def __init__(__self__, *,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
+                 contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None):
@@ -23,6 +24,8 @@ class VPCEndpointServiceArgs:
         """
         if acceptance_required is not None:
             pulumi.set(__self__, "acceptance_required", acceptance_required)
+        if contributor_insights_enabled is not None:
+            pulumi.set(__self__, "contributor_insights_enabled", contributor_insights_enabled)
         if gateway_load_balancer_arns is not None:
             pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
         if network_load_balancer_arns is not None:
@@ -38,6 +41,15 @@ class VPCEndpointServiceArgs:
     @acceptance_required.setter
     def acceptance_required(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "acceptance_required", value)
+
+    @property
+    @pulumi.getter(name="contributorInsightsEnabled")
+    def contributor_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "contributor_insights_enabled")
+
+    @contributor_insights_enabled.setter
+    def contributor_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "contributor_insights_enabled", value)
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerArns")
@@ -78,6 +90,7 @@ class VPCEndpointService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
+                 contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
@@ -113,6 +126,7 @@ class VPCEndpointService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
+                 contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
@@ -127,6 +141,7 @@ class VPCEndpointService(pulumi.CustomResource):
             __props__ = VPCEndpointServiceArgs.__new__(VPCEndpointServiceArgs)
 
             __props__.__dict__["acceptance_required"] = acceptance_required
+            __props__.__dict__["contributor_insights_enabled"] = contributor_insights_enabled
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
@@ -153,6 +168,7 @@ class VPCEndpointService(pulumi.CustomResource):
         __props__ = VPCEndpointServiceArgs.__new__(VPCEndpointServiceArgs)
 
         __props__.__dict__["acceptance_required"] = None
+        __props__.__dict__["contributor_insights_enabled"] = None
         __props__.__dict__["gateway_load_balancer_arns"] = None
         __props__.__dict__["network_load_balancer_arns"] = None
         __props__.__dict__["payer_responsibility"] = None
@@ -162,6 +178,11 @@ class VPCEndpointService(pulumi.CustomResource):
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "acceptance_required")
+
+    @property
+    @pulumi.getter(name="contributorInsightsEnabled")
+    def contributor_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "contributor_insights_enabled")
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerArns")

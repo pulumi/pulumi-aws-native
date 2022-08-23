@@ -38,6 +38,7 @@ export class VPCEndpointService extends pulumi.CustomResource {
     }
 
     public readonly acceptanceRequired!: pulumi.Output<boolean | undefined>;
+    public readonly contributorInsightsEnabled!: pulumi.Output<boolean | undefined>;
     public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     public readonly payerResponsibility!: pulumi.Output<string | undefined>;
@@ -56,11 +57,13 @@ export class VPCEndpointService extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
+            resourceInputs["contributorInsightsEnabled"] = args ? args.contributorInsightsEnabled : undefined;
             resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;
+            resourceInputs["contributorInsightsEnabled"] = undefined /*out*/;
             resourceInputs["gatewayLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["payerResponsibility"] = undefined /*out*/;
@@ -75,6 +78,7 @@ export class VPCEndpointService extends pulumi.CustomResource {
  */
 export interface VPCEndpointServiceArgs {
     acceptanceRequired?: pulumi.Input<boolean>;
+    contributorInsightsEnabled?: pulumi.Input<boolean>;
     gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     payerResponsibility?: pulumi.Input<string>;

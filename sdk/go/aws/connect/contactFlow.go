@@ -30,7 +30,7 @@ type ContactFlow struct {
 	// One or more tags.
 	Tags ContactFlowTagArrayOutput `pulumi:"tags"`
 	// The type of the contact flow.
-	Type ContactFlowTypePtrOutput `pulumi:"type"`
+	Type ContactFlowTypeOutput `pulumi:"type"`
 }
 
 // NewContactFlow registers a new resource with the given unique name, arguments, and options.
@@ -45,6 +45,9 @@ func NewContactFlow(ctx *pulumi.Context,
 	}
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource ContactFlow
 	err := ctx.RegisterResource("aws-native:connect:ContactFlow", name, args, &resource, opts...)
@@ -91,7 +94,7 @@ type contactFlowArgs struct {
 	// One or more tags.
 	Tags []ContactFlowTag `pulumi:"tags"`
 	// The type of the contact flow.
-	Type *ContactFlowType `pulumi:"type"`
+	Type ContactFlowType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ContactFlow resource.
@@ -109,7 +112,7 @@ type ContactFlowArgs struct {
 	// One or more tags.
 	Tags ContactFlowTagArrayInput
 	// The type of the contact flow.
-	Type ContactFlowTypePtrInput
+	Type ContactFlowTypeInput
 }
 
 func (ContactFlowArgs) ElementType() reflect.Type {
@@ -185,8 +188,8 @@ func (o ContactFlowOutput) Tags() ContactFlowTagArrayOutput {
 }
 
 // The type of the contact flow.
-func (o ContactFlowOutput) Type() ContactFlowTypePtrOutput {
-	return o.ApplyT(func(v *ContactFlow) ContactFlowTypePtrOutput { return v.Type }).(ContactFlowTypePtrOutput)
+func (o ContactFlowOutput) Type() ContactFlowTypeOutput {
+	return o.ApplyT(func(v *ContactFlow) ContactFlowTypeOutput { return v.Type }).(ContactFlowTypeOutput)
 }
 
 func init() {

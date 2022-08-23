@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::RDS::OptionGroup
+ * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
  */
 export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOptionGroupResult> {
     if (!opts) {
@@ -15,16 +15,29 @@ export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:rds:getOptionGroup", {
-        "id": args.id,
+        "optionGroupName": args.optionGroupName,
     }, opts);
 }
 
 export interface GetOptionGroupArgs {
-    id: string;
+    /**
+     * Specifies the name of the option group.
+     */
+    optionGroupName: string;
 }
 
 export interface GetOptionGroupResult {
-    readonly id?: string;
+    /**
+     * Indicates what options are available in the option group.
+     */
+    readonly optionConfigurations?: outputs.rds.OptionGroupOptionConfiguration[];
+    /**
+     * Specifies the name of the option group.
+     */
+    readonly optionGroupName?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.rds.OptionGroupTag[];
 }
 
@@ -33,5 +46,8 @@ export function getOptionGroupOutput(args: GetOptionGroupOutputArgs, opts?: pulu
 }
 
 export interface GetOptionGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * Specifies the name of the option group.
+     */
+    optionGroupName: pulumi.Input<string>;
 }

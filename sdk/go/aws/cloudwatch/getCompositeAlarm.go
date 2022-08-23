@@ -28,6 +28,12 @@ type LookupCompositeAlarmArgs struct {
 type LookupCompositeAlarmResult struct {
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	ActionsSuppressor *string `pulumi:"actionsSuppressor"`
+	// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorExtensionPeriod *int `pulumi:"actionsSuppressorExtensionPeriod"`
+	// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorWaitPeriod *int `pulumi:"actionsSuppressorWaitPeriod"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description of the alarm
@@ -81,6 +87,21 @@ func (o LookupCompositeAlarmResultOutput) ToLookupCompositeAlarmResultOutputWith
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 func (o LookupCompositeAlarmResultOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupCompositeAlarmResult) *bool { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o LookupCompositeAlarmResultOutput) ActionsSuppressor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) *string { return v.ActionsSuppressor }).(pulumi.StringPtrOutput)
+}
+
+// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+func (o LookupCompositeAlarmResultOutput) ActionsSuppressorExtensionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) *int { return v.ActionsSuppressorExtensionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+func (o LookupCompositeAlarmResultOutput) ActionsSuppressorWaitPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) *int { return v.ActionsSuppressorWaitPeriod }).(pulumi.IntPtrOutput)
 }
 
 // The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).

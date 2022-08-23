@@ -31,6 +31,18 @@ export interface GetCompositeAlarmResult {
      */
     readonly actionsEnabled?: boolean;
     /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+     */
+    readonly actionsSuppressor?: string;
+    /**
+     * Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    readonly actionsSuppressorExtensionPeriod?: number;
+    /**
+     * Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    readonly actionsSuppressorWaitPeriod?: number;
+    /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
      */
     readonly alarmActions?: string[];

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageBuilderResult:
-    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, id=None, image_arn=None, image_name=None, instance_type=None, name=None, streaming_url=None, tags=None, vpc_config=None):
+    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, image_arn=None, image_name=None, instance_type=None, name=None, streaming_url=None, tags=None, vpc_config=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -41,9 +41,6 @@ class GetImageBuilderResult:
         if iam_role_arn and not isinstance(iam_role_arn, str):
             raise TypeError("Expected argument 'iam_role_arn' to be a str")
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if image_arn and not isinstance(image_arn, str):
             raise TypeError("Expected argument 'image_arn' to be a str")
         pulumi.set(__self__, "image_arn", image_arn)
@@ -102,11 +99,6 @@ class GetImageBuilderResult:
         return pulumi.get(self, "iam_role_arn")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[str]:
         return pulumi.get(self, "image_arn")
@@ -155,7 +147,6 @@ class AwaitableGetImageBuilderResult(GetImageBuilderResult):
             domain_join_info=self.domain_join_info,
             enable_default_internet_access=self.enable_default_internet_access,
             iam_role_arn=self.iam_role_arn,
-            id=self.id,
             image_arn=self.image_arn,
             image_name=self.image_name,
             instance_type=self.instance_type,
@@ -165,13 +156,13 @@ class AwaitableGetImageBuilderResult(GetImageBuilderResult):
             vpc_config=self.vpc_config)
 
 
-def get_image_builder(id: Optional[str] = None,
+def get_image_builder(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageBuilderResult:
     """
     Resource Type definition for AWS::AppStream::ImageBuilder
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getImageBuilder', __args__, opts=opts, typ=GetImageBuilderResult).value
 
@@ -183,7 +174,6 @@ def get_image_builder(id: Optional[str] = None,
         domain_join_info=__ret__.domain_join_info,
         enable_default_internet_access=__ret__.enable_default_internet_access,
         iam_role_arn=__ret__.iam_role_arn,
-        id=__ret__.id,
         image_arn=__ret__.image_arn,
         image_name=__ret__.image_name,
         instance_type=__ret__.instance_type,
@@ -194,7 +184,7 @@ def get_image_builder(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image_builder)
-def get_image_builder_output(id: Optional[pulumi.Input[str]] = None,
+def get_image_builder_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::ImageBuilder

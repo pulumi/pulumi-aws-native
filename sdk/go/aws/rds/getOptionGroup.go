@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::RDS::OptionGroup
+// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
 func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ...pulumi.InvokeOption) (*LookupOptionGroupResult, error) {
 	var rv LookupOptionGroupResult
 	err := ctx.Invoke("aws-native:rds:getOptionGroup", args, &rv, opts...)
@@ -21,11 +21,16 @@ func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ..
 }
 
 type LookupOptionGroupArgs struct {
-	Id string `pulumi:"id"`
+	// Specifies the name of the option group.
+	OptionGroupName string `pulumi:"optionGroupName"`
 }
 
 type LookupOptionGroupResult struct {
-	Id   *string          `pulumi:"id"`
+	// Indicates what options are available in the option group.
+	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
+	// Specifies the name of the option group.
+	OptionGroupName *string `pulumi:"optionGroupName"`
+	// An array of key-value pairs to apply to this resource.
 	Tags []OptionGroupTag `pulumi:"tags"`
 }
 
@@ -43,7 +48,8 @@ func LookupOptionGroupOutput(ctx *pulumi.Context, args LookupOptionGroupOutputAr
 }
 
 type LookupOptionGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the name of the option group.
+	OptionGroupName pulumi.StringInput `pulumi:"optionGroupName"`
 }
 
 func (LookupOptionGroupOutputArgs) ElementType() reflect.Type {
@@ -64,10 +70,17 @@ func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutputWithContex
 	return o
 }
 
-func (o LookupOptionGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupOptionGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Indicates what options are available in the option group.
+func (o LookupOptionGroupResultOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupOptionConfiguration { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
 }
 
+// Specifies the name of the option group.
+func (o LookupOptionGroupResultOutput) OptionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOptionGroupResult) *string { return v.OptionGroupName }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
 func (o LookupOptionGroupResultOutput) Tags() OptionGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupTag { return v.Tags }).(OptionGroupTagArrayOutput)
 }

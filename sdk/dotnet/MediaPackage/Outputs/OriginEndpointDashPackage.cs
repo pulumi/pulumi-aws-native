@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         public readonly Outputs.OriginEndpointDashEncryption? Encryption;
         /// <summary>
+        /// When enabled, an I-Frame only stream will be included in the output.
+        /// </summary>
+        public readonly bool? IncludeIframeOnlyStream;
+        /// <summary>
         /// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageManifestLayout? ManifestLayout;
@@ -64,7 +68,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageUtcTiming? UtcTiming;
         /// <summary>
-        /// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+        /// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
         /// </summary>
         public readonly string? UtcTimingUri;
 
@@ -75,6 +79,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? adsOnDeliveryRestrictions,
 
             Outputs.OriginEndpointDashEncryption? encryption,
+
+            bool? includeIframeOnlyStream,
 
             Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageManifestLayout? manifestLayout,
 
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             AdTriggers = adTriggers;
             AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
             Encryption = encryption;
+            IncludeIframeOnlyStream = includeIframeOnlyStream;
             ManifestLayout = manifestLayout;
             ManifestWindowSeconds = manifestWindowSeconds;
             MinBufferTimeSeconds = minBufferTimeSeconds;

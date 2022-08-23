@@ -22,6 +22,7 @@ type IPSet struct {
 	Format     pulumi.StringOutput    `pulumi:"format"`
 	Location   pulumi.StringOutput    `pulumi:"location"`
 	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Tags       IPSetTagArrayOutput    `pulumi:"tags"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -75,11 +76,12 @@ func (IPSetState) ElementType() reflect.Type {
 }
 
 type ipsetArgs struct {
-	Activate   bool    `pulumi:"activate"`
-	DetectorId string  `pulumi:"detectorId"`
-	Format     string  `pulumi:"format"`
-	Location   string  `pulumi:"location"`
-	Name       *string `pulumi:"name"`
+	Activate   bool       `pulumi:"activate"`
+	DetectorId string     `pulumi:"detectorId"`
+	Format     string     `pulumi:"format"`
+	Location   string     `pulumi:"location"`
+	Name       *string    `pulumi:"name"`
+	Tags       []IPSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPSet resource.
@@ -89,6 +91,7 @@ type IPSetArgs struct {
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
+	Tags       IPSetTagArrayInput
 }
 
 func (IPSetArgs) ElementType() reflect.Type {
@@ -146,6 +149,10 @@ func (o IPSetOutput) Location() pulumi.StringOutput {
 
 func (o IPSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o IPSetOutput) Tags() IPSetTagArrayOutput {
+	return o.ApplyT(func(v *IPSet) IPSetTagArrayOutput { return v.Tags }).(IPSetTagArrayOutput)
 }
 
 func init() {

@@ -10,6 +10,8 @@ __all__ = [
     'ContactFlowState',
     'ContactFlowType',
     'HoursOfOperationConfigDay',
+    'InstanceIdentityManagementType',
+    'InstanceStatus',
     'QuickConnectType',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
@@ -67,6 +69,24 @@ class HoursOfOperationConfigDay(str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+class InstanceIdentityManagementType(str, Enum):
+    """
+    Specifies the type of directory integration for new instance.
+    """
+    SAML = "SAML"
+    CONNECT_MANAGED = "CONNECT_MANAGED"
+    EXISTING_DIRECTORY = "EXISTING_DIRECTORY"
+
+
+class InstanceStatus(str, Enum):
+    """
+    Specifies the creation status of new instance.
+    """
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    CREATION_FAILED = "CREATION_FAILED"
+    ACTIVE = "ACTIVE"
 
 
 class QuickConnectType(str, Enum):

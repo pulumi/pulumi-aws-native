@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// AWS::NetworkManager::ConnectAttachment Resource Type Definition
     /// </summary>
-    [Obsolete(@"ConnectAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:ConnectAttachment")]
     public partial class ConnectAttachment : global::Pulumi.CustomResource
     {

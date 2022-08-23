@@ -5,11 +5,23 @@
 from enum import Enum
 
 __all__ = [
-    'PolicySecurityServicePolicyDataPropertiesType',
+    'PolicyFirewallDeploymentModel',
+    'PolicyType',
 ]
 
 
-class PolicySecurityServicePolicyDataPropertiesType(str, Enum):
+class PolicyFirewallDeploymentModel(str, Enum):
+    """
+    Firewall deployment mode.
+    """
+    DISTRIBUTED = "DISTRIBUTED"
+    CENTRALIZED = "CENTRALIZED"
+
+
+class PolicyType(str, Enum):
+    """
+    Firewall policy type.
+    """
     WAF = "WAF"
     WAFV2 = "WAFV2"
     SHIELD_ADVANCED = "SHIELD_ADVANCED"
@@ -17,4 +29,5 @@ class PolicySecurityServicePolicyDataPropertiesType(str, Enum):
     SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT"
     SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT"
     NETWORK_FIREWALL = "NETWORK_FIREWALL"
+    THIRD_PARTY_FIREWALL = "THIRD_PARTY_FIREWALL"
     DNS_FIREWALL = "DNS_FIREWALL"

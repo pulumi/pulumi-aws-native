@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetDirectoryConfigArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("directoryName", required: true)]
+        public string DirectoryName { get; set; } = null!;
 
         public GetDirectoryConfigArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetDirectoryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("directoryName", required: true)]
+        public Input<string> DirectoryName { get; set; } = null!;
 
         public GetDirectoryConfigInvokeArgs()
         {
@@ -51,19 +51,15 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetDirectoryConfigResult
     {
-        public readonly string? Id;
         public readonly ImmutableArray<string> OrganizationalUnitDistinguishedNames;
         public readonly Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials;
 
         [OutputConstructor]
         private GetDirectoryConfigResult(
-            string? id,
-
             ImmutableArray<string> organizationalUnitDistinguishedNames,
 
             Outputs.DirectoryConfigServiceAccountCredentials? serviceAccountCredentials)
         {
-            Id = id;
             OrganizationalUnitDistinguishedNames = organizationalUnitDistinguishedNames;
             ServiceAccountCredentials = serviceAccountCredentials;
         }

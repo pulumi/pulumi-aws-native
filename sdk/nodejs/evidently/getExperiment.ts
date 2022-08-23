@@ -29,11 +29,13 @@ export interface GetExperimentResult {
     readonly metricGoals?: outputs.evidently.ExperimentMetricGoalObject[];
     readonly onlineAbConfig?: outputs.evidently.ExperimentOnlineAbConfigObject;
     readonly randomizationSalt?: string;
+    readonly removeSegment?: boolean;
     /**
      * Start Experiment. Default is False
      */
     readonly runningStatus?: outputs.evidently.ExperimentRunningStatusObject;
     readonly samplingRate?: number;
+    readonly segment?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

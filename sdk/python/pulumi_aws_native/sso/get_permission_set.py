@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPermissionSetResult:
-    def __init__(__self__, description=None, inline_policy=None, managed_policies=None, permission_set_arn=None, relay_state_type=None, session_duration=None, tags=None):
+    def __init__(__self__, customer_managed_policy_references=None, description=None, inline_policy=None, managed_policies=None, permission_set_arn=None, permissions_boundary=None, relay_state_type=None, session_duration=None, tags=None):
+        if customer_managed_policy_references and not isinstance(customer_managed_policy_references, list):
+            raise TypeError("Expected argument 'customer_managed_policy_references' to be a list")
+        pulumi.set(__self__, "customer_managed_policy_references", customer_managed_policy_references)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -32,6 +35,9 @@ class GetPermissionSetResult:
         if permission_set_arn and not isinstance(permission_set_arn, str):
             raise TypeError("Expected argument 'permission_set_arn' to be a str")
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        if permissions_boundary and not isinstance(permissions_boundary, dict):
+            raise TypeError("Expected argument 'permissions_boundary' to be a dict")
+        pulumi.set(__self__, "permissions_boundary", permissions_boundary)
         if relay_state_type and not isinstance(relay_state_type, str):
             raise TypeError("Expected argument 'relay_state_type' to be a str")
         pulumi.set(__self__, "relay_state_type", relay_state_type)
@@ -41,6 +47,11 @@ class GetPermissionSetResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="customerManagedPolicyReferences")
+    def customer_managed_policy_references(self) -> Optional[Sequence['outputs.PermissionSetCustomerManagedPolicyReference']]:
+        return pulumi.get(self, "customer_managed_policy_references")
 
     @property
     @pulumi.getter
@@ -72,6 +83,11 @@ class GetPermissionSetResult:
         return pulumi.get(self, "permission_set_arn")
 
     @property
+    @pulumi.getter(name="permissionsBoundary")
+    def permissions_boundary(self) -> Optional['outputs.PermissionSetPermissionsBoundary']:
+        return pulumi.get(self, "permissions_boundary")
+
+    @property
     @pulumi.getter(name="relayStateType")
     def relay_state_type(self) -> Optional[str]:
         """
@@ -99,10 +115,12 @@ class AwaitableGetPermissionSetResult(GetPermissionSetResult):
         if False:
             yield self
         return GetPermissionSetResult(
+            customer_managed_policy_references=self.customer_managed_policy_references,
             description=self.description,
             inline_policy=self.inline_policy,
             managed_policies=self.managed_policies,
             permission_set_arn=self.permission_set_arn,
+            permissions_boundary=self.permissions_boundary,
             relay_state_type=self.relay_state_type,
             session_duration=self.session_duration,
             tags=self.tags)
@@ -125,10 +143,12 @@ def get_permission_set(instance_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sso:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult).value
 
     return AwaitableGetPermissionSetResult(
+        customer_managed_policy_references=__ret__.customer_managed_policy_references,
         description=__ret__.description,
         inline_policy=__ret__.inline_policy,
         managed_policies=__ret__.managed_policies,
         permission_set_arn=__ret__.permission_set_arn,
+        permissions_boundary=__ret__.permissions_boundary,
         relay_state_type=__ret__.relay_state_type,
         session_duration=__ret__.session_duration,
         tags=__ret__.tags)

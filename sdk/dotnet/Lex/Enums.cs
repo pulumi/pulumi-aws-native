@@ -68,6 +68,37 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
+    /// Indicates how a message is selected from a message group among retries.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotMessageSelectionStrategy : IEquatable<BotMessageSelectionStrategy>
+    {
+        private readonly string _value;
+
+        private BotMessageSelectionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotMessageSelectionStrategy Random { get; } = new BotMessageSelectionStrategy("Random");
+        public static BotMessageSelectionStrategy Ordered { get; } = new BotMessageSelectionStrategy("Ordered");
+
+        public static bool operator ==(BotMessageSelectionStrategy left, BotMessageSelectionStrategy right) => left.Equals(right);
+        public static bool operator !=(BotMessageSelectionStrategy left, BotMessageSelectionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(BotMessageSelectionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotMessageSelectionStrategy other && Equals(other);
+        public bool Equals(BotMessageSelectionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
     /// </summary>
     [EnumType]

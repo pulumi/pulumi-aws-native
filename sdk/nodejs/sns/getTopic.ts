@@ -15,21 +15,39 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:sns:getTopic", {
-        "id": args.id,
+        "topicArn": args.topicArn,
     }, opts);
 }
 
 export interface GetTopicArgs {
-    id: string;
+    topicArn: string;
 }
 
 export interface GetTopicResult {
+    /**
+     * Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+     *
+     * When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+     *
+     * (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+     */
     readonly contentBasedDeduplication?: boolean;
+    /**
+     * The display name to use for an Amazon SNS topic with SMS subscriptions.
+     */
     readonly displayName?: string;
-    readonly id?: string;
+    /**
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+     *
+     * This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+     */
     readonly kmsMasterKeyId?: string;
+    /**
+     * The SNS subscriptions (endpoints) for this topic.
+     */
     readonly subscription?: outputs.sns.TopicSubscription[];
     readonly tags?: outputs.sns.TopicTag[];
+    readonly topicArn?: string;
 }
 
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
@@ -37,5 +55,5 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTopicOutputArgs {
-    id: pulumi.Input<string>;
+    topicArn: pulumi.Input<string>;
 }

@@ -25,19 +25,20 @@ type LookupRecordSetArgs struct {
 }
 
 type LookupRecordSetResult struct {
-	AliasTarget      *RecordSetAliasTarget `pulumi:"aliasTarget"`
-	Comment          *string               `pulumi:"comment"`
-	Failover         *string               `pulumi:"failover"`
-	GeoLocation      *RecordSetGeoLocation `pulumi:"geoLocation"`
-	HealthCheckId    *string               `pulumi:"healthCheckId"`
-	Id               *string               `pulumi:"id"`
-	MultiValueAnswer *bool                 `pulumi:"multiValueAnswer"`
-	Region           *string               `pulumi:"region"`
-	ResourceRecords  []string              `pulumi:"resourceRecords"`
-	SetIdentifier    *string               `pulumi:"setIdentifier"`
-	TTL              *string               `pulumi:"tTL"`
-	Type             *string               `pulumi:"type"`
-	Weight           *int                  `pulumi:"weight"`
+	AliasTarget       *RecordSetAliasTarget       `pulumi:"aliasTarget"`
+	CidrRoutingConfig *RecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
+	Comment           *string                     `pulumi:"comment"`
+	Failover          *string                     `pulumi:"failover"`
+	GeoLocation       *RecordSetGeoLocation       `pulumi:"geoLocation"`
+	HealthCheckId     *string                     `pulumi:"healthCheckId"`
+	Id                *string                     `pulumi:"id"`
+	MultiValueAnswer  *bool                       `pulumi:"multiValueAnswer"`
+	Region            *string                     `pulumi:"region"`
+	ResourceRecords   []string                    `pulumi:"resourceRecords"`
+	SetIdentifier     *string                     `pulumi:"setIdentifier"`
+	TTL               *string                     `pulumi:"tTL"`
+	Type              *string                     `pulumi:"type"`
+	Weight            *int                        `pulumi:"weight"`
 }
 
 func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, opts ...pulumi.InvokeOption) LookupRecordSetResultOutput {
@@ -77,6 +78,10 @@ func (o LookupRecordSetResultOutput) ToLookupRecordSetResultOutputWithContext(ct
 
 func (o LookupRecordSetResultOutput) AliasTarget() RecordSetAliasTargetPtrOutput {
 	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetAliasTarget { return v.AliasTarget }).(RecordSetAliasTargetPtrOutput)
+}
+
+func (o LookupRecordSetResultOutput) CidrRoutingConfig() RecordSetCidrRoutingConfigPtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetCidrRoutingConfig { return v.CidrRoutingConfig }).(RecordSetCidrRoutingConfigPtrOutput)
 }
 
 func (o LookupRecordSetResultOutput) Comment() pulumi.StringPtrOutput {

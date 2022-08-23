@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGateway::DocumentationPart
- *
- * @deprecated DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class DocumentationPart extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class DocumentationPart extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DocumentationPart {
-        pulumi.log.warn("DocumentationPart is deprecated: DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DocumentationPart(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,8 +35,21 @@ export class DocumentationPart extends pulumi.CustomResource {
         return obj['__pulumiType'] === DocumentationPart.__pulumiType;
     }
 
+    /**
+     * The identifier of the documentation Part.
+     */
+    public /*out*/ readonly documentationPartId!: pulumi.Output<string>;
+    /**
+     * The location of the API entity that the documentation applies to.
+     */
     public readonly location!: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
+    /**
+     * The documentation content map of the targeted API entity.
+     */
     public readonly properties!: pulumi.Output<string>;
+    /**
+     * Identifier of the targeted API entity
+     */
     public readonly restApiId!: pulumi.Output<string>;
 
     /**
@@ -49,9 +59,7 @@ export class DocumentationPart extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DocumentationPart is deprecated: DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -67,7 +75,9 @@ export class DocumentationPart extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["documentationPartId"] = undefined /*out*/;
         } else {
+            resourceInputs["documentationPartId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["restApiId"] = undefined /*out*/;
@@ -81,7 +91,16 @@ export class DocumentationPart extends pulumi.CustomResource {
  * The set of arguments for constructing a DocumentationPart resource.
  */
 export interface DocumentationPartArgs {
+    /**
+     * The location of the API entity that the documentation applies to.
+     */
     location: pulumi.Input<inputs.apigateway.DocumentationPartLocationArgs>;
+    /**
+     * The documentation content map of the targeted API entity.
+     */
     properties: pulumi.Input<string>;
+    /**
+     * Identifier of the targeted API entity
+     */
     restApiId: pulumi.Input<string>;
 }

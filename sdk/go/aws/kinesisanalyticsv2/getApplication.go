@@ -30,6 +30,8 @@ type LookupApplicationResult struct {
 	ApplicationConfiguration *ApplicationConfiguration `pulumi:"applicationConfiguration"`
 	// The description of the application.
 	ApplicationDescription *string `pulumi:"applicationDescription"`
+	// Used to configure start of maintenance window.
+	ApplicationMaintenanceConfiguration *ApplicationMaintenanceConfiguration `pulumi:"applicationMaintenanceConfiguration"`
 	// Specifies the IAM role that the application uses to access external resources.
 	ServiceExecutionRole *string `pulumi:"serviceExecutionRole"`
 	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
@@ -80,6 +82,13 @@ func (o LookupApplicationResultOutput) ApplicationConfiguration() ApplicationCon
 // The description of the application.
 func (o LookupApplicationResultOutput) ApplicationDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
+}
+
+// Used to configure start of maintenance window.
+func (o LookupApplicationResultOutput) ApplicationMaintenanceConfiguration() ApplicationMaintenanceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMaintenanceConfiguration {
+		return v.ApplicationMaintenanceConfiguration
+	}).(ApplicationMaintenanceConfigurationPtrOutput)
 }
 
 // Specifies the IAM role that the application uses to access external resources.

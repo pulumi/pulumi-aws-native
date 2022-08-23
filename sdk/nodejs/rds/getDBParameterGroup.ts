@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+ * Resource Type definition for AWS::RDS::DBParameterGroup
  */
 export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBParameterGroupResult> {
     if (!opts) {
@@ -15,25 +15,19 @@ export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:rds:getDBParameterGroup", {
-        "dBParameterGroupName": args.dBParameterGroupName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetDBParameterGroupArgs {
-    /**
-     * Specifies the name of the DB parameter group
-     */
-    dBParameterGroupName: string;
+    id: string;
 }
 
 export interface GetDBParameterGroupResult {
-    /**
-     * Specifies the name of the DB parameter group
-     */
-    readonly dBParameterGroupName?: string;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
+    readonly description?: string;
+    readonly family?: string;
+    readonly id?: string;
+    readonly parameters?: any;
     readonly tags?: outputs.rds.DBParameterGroupTag[];
 }
 
@@ -42,8 +36,5 @@ export function getDBParameterGroupOutput(args: GetDBParameterGroupOutputArgs, o
 }
 
 export interface GetDBParameterGroupOutputArgs {
-    /**
-     * Specifies the name of the DB parameter group
-     */
-    dBParameterGroupName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

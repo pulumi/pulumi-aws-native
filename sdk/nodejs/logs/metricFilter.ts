@@ -6,9 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::MetricFilter
- *
- * @deprecated MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
  */
 export class MetricFilter extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class MetricFilter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MetricFilter {
-        pulumi.log.warn("MetricFilter is deprecated: MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new MetricFilter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,8 +35,21 @@ export class MetricFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === MetricFilter.__pulumiType;
     }
 
+    /**
+     * A name for the metric filter.
+     */
+    public readonly filterName!: pulumi.Output<string | undefined>;
+    /**
+     * Pattern that Logs follows to interpret each entry in a log.
+     */
     public readonly filterPattern!: pulumi.Output<string>;
+    /**
+     * Existing log group that you want to associate with this filter.
+     */
     public readonly logGroupName!: pulumi.Output<string>;
+    /**
+     * A collection of information that defines how metric data gets emitted.
+     */
     public readonly metricTransformations!: pulumi.Output<outputs.logs.MetricFilterMetricTransformation[]>;
 
     /**
@@ -49,9 +59,7 @@ export class MetricFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MetricFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MetricFilter is deprecated: MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -64,10 +72,12 @@ export class MetricFilter extends pulumi.CustomResource {
             if ((!args || args.metricTransformations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformations'");
             }
+            resourceInputs["filterName"] = args ? args.filterName : undefined;
             resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["metricTransformations"] = args ? args.metricTransformations : undefined;
         } else {
+            resourceInputs["filterName"] = undefined /*out*/;
             resourceInputs["filterPattern"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["metricTransformations"] = undefined /*out*/;
@@ -81,7 +91,20 @@ export class MetricFilter extends pulumi.CustomResource {
  * The set of arguments for constructing a MetricFilter resource.
  */
 export interface MetricFilterArgs {
+    /**
+     * A name for the metric filter.
+     */
+    filterName?: pulumi.Input<string>;
+    /**
+     * Pattern that Logs follows to interpret each entry in a log.
+     */
     filterPattern: pulumi.Input<string>;
+    /**
+     * Existing log group that you want to associate with this filter.
+     */
     logGroupName: pulumi.Input<string>;
+    /**
+     * A collection of information that defines how metric data gets emitted.
+     */
     metricTransformations: pulumi.Input<pulumi.Input<inputs.logs.MetricFilterMetricTransformationArgs>[]>;
 }

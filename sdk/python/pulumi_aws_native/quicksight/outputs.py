@@ -52,6 +52,7 @@ __all__ = [
     'DataSetResourcePermission',
     'DataSetRowLevelPermissionDataSet',
     'DataSetTag',
+    'DataSetUsageConfiguration',
     'DataSourceAmazonElasticsearchParameters',
     'DataSourceAmazonOpenSearchParameters',
     'DataSourceAthenaParameters',
@@ -1926,6 +1927,52 @@ class DataSetTag(dict):
         <p>Tag value.</p>
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataSetUsageConfiguration(dict):
+    """
+    <p>The dataset usage configuration for the dataset.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableUseAsDirectQuerySource":
+            suggest = "disable_use_as_direct_query_source"
+        elif key == "disableUseAsImportedSource":
+            suggest = "disable_use_as_imported_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetUsageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetUsageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetUsageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_use_as_direct_query_source: Optional[bool] = None,
+                 disable_use_as_imported_source: Optional[bool] = None):
+        """
+        <p>The dataset usage configuration for the dataset.</p>
+        """
+        if disable_use_as_direct_query_source is not None:
+            pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        if disable_use_as_imported_source is not None:
+            pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+
+    @property
+    @pulumi.getter(name="disableUseAsDirectQuerySource")
+    def disable_use_as_direct_query_source(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_use_as_direct_query_source")
+
+    @property
+    @pulumi.getter(name="disableUseAsImportedSource")
+    def disable_use_as_imported_source(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_use_as_imported_source")
 
 
 @pulumi.output_type

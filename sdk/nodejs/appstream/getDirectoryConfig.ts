@@ -15,16 +15,15 @@ export function getDirectoryConfig(args: GetDirectoryConfigArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:appstream:getDirectoryConfig", {
-        "id": args.id,
+        "directoryName": args.directoryName,
     }, opts);
 }
 
 export interface GetDirectoryConfigArgs {
-    id: string;
+    directoryName: string;
 }
 
 export interface GetDirectoryConfigResult {
-    readonly id?: string;
     readonly organizationalUnitDistinguishedNames?: string[];
     readonly serviceAccountCredentials?: outputs.appstream.DirectoryConfigServiceAccountCredentials;
 }
@@ -34,5 +33,5 @@ export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opt
 }
 
 export interface GetDirectoryConfigOutputArgs {
-    id: pulumi.Input<string>;
+    directoryName: pulumi.Input<string>;
 }

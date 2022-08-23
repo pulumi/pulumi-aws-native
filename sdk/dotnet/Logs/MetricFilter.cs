@@ -10,18 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// Resource Type definition for AWS::Logs::MetricFilter
+    /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
     /// </summary>
-    [Obsolete(@"MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:MetricFilter")]
     public partial class MetricFilter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A name for the metric filter.
+        /// </summary>
+        [Output("filterName")]
+        public Output<string?> FilterName { get; private set; } = null!;
+
+        /// <summary>
+        /// Pattern that Logs follows to interpret each entry in a log.
+        /// </summary>
         [Output("filterPattern")]
         public Output<string> FilterPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// Existing log group that you want to associate with this filter.
+        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of information that defines how metric data gets emitted.
+        /// </summary>
         [Output("metricTransformations")]
         public Output<ImmutableArray<Outputs.MetricFilterMetricTransformation>> MetricTransformations { get; private set; } = null!;
 
@@ -70,14 +84,30 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class MetricFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the metric filter.
+        /// </summary>
+        [Input("filterName")]
+        public Input<string>? FilterName { get; set; }
+
+        /// <summary>
+        /// Pattern that Logs follows to interpret each entry in a log.
+        /// </summary>
         [Input("filterPattern", required: true)]
         public Input<string> FilterPattern { get; set; } = null!;
 
+        /// <summary>
+        /// Existing log group that you want to associate with this filter.
+        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
         [Input("metricTransformations", required: true)]
         private InputList<Inputs.MetricFilterMetricTransformationArgs>? _metricTransformations;
+
+        /// <summary>
+        /// A collection of information that defines how metric data gets emitted.
+        /// </summary>
         public InputList<Inputs.MetricFilterMetricTransformationArgs> MetricTransformations
         {
             get => _metricTransformations ?? (_metricTransformations = new InputList<Inputs.MetricFilterMetricTransformationArgs>());

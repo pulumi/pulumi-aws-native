@@ -14,16 +14,30 @@ export function getDocumentationPart(args: GetDocumentationPartArgs, opts?: pulu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigateway:getDocumentationPart", {
-        "id": args.id,
+        "documentationPartId": args.documentationPartId,
+        "restApiId": args.restApiId,
     }, opts);
 }
 
 export interface GetDocumentationPartArgs {
-    id: string;
+    /**
+     * The identifier of the documentation Part.
+     */
+    documentationPartId: string;
+    /**
+     * Identifier of the targeted API entity
+     */
+    restApiId: string;
 }
 
 export interface GetDocumentationPartResult {
-    readonly id?: string;
+    /**
+     * The identifier of the documentation Part.
+     */
+    readonly documentationPartId?: string;
+    /**
+     * The documentation content map of the targeted API entity.
+     */
     readonly properties?: string;
 }
 
@@ -32,5 +46,12 @@ export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs,
 }
 
 export interface GetDocumentationPartOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The identifier of the documentation Part.
+     */
+    documentationPartId: pulumi.Input<string>;
+    /**
+     * Identifier of the targeted API entity
+     */
+    restApiId: pulumi.Input<string>;
 }

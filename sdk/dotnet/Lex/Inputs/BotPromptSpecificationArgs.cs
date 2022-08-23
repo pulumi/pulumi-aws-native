@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
             set => _messageGroupsList = value;
         }
 
+        [Input("messageSelectionStrategy")]
+        public Input<Pulumi.AwsNative.Lex.BotMessageSelectionStrategy>? MessageSelectionStrategy { get; set; }
+
         public BotPromptSpecificationArgs()
         {
         }

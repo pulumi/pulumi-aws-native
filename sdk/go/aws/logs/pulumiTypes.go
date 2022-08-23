@@ -119,11 +119,128 @@ func (o LogGroupTagArrayOutput) Index(i pulumi.IntInput) LogGroupTagOutput {
 	}).(LogGroupTagOutput)
 }
 
+// the key-value pairs that further define a metric.
+type MetricFilterDimension struct {
+	// The key of the dimension. Maximum length of 255.
+	Key string `pulumi:"key"`
+	// The value of the dimension. Maximum length of 255.
+	Value string `pulumi:"value"`
+}
+
+// MetricFilterDimensionInput is an input type that accepts MetricFilterDimensionArgs and MetricFilterDimensionOutput values.
+// You can construct a concrete instance of `MetricFilterDimensionInput` via:
+//
+//	MetricFilterDimensionArgs{...}
+type MetricFilterDimensionInput interface {
+	pulumi.Input
+
+	ToMetricFilterDimensionOutput() MetricFilterDimensionOutput
+	ToMetricFilterDimensionOutputWithContext(context.Context) MetricFilterDimensionOutput
+}
+
+// the key-value pairs that further define a metric.
+type MetricFilterDimensionArgs struct {
+	// The key of the dimension. Maximum length of 255.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the dimension. Maximum length of 255.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MetricFilterDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterDimension)(nil)).Elem()
+}
+
+func (i MetricFilterDimensionArgs) ToMetricFilterDimensionOutput() MetricFilterDimensionOutput {
+	return i.ToMetricFilterDimensionOutputWithContext(context.Background())
+}
+
+func (i MetricFilterDimensionArgs) ToMetricFilterDimensionOutputWithContext(ctx context.Context) MetricFilterDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterDimensionOutput)
+}
+
+// MetricFilterDimensionArrayInput is an input type that accepts MetricFilterDimensionArray and MetricFilterDimensionArrayOutput values.
+// You can construct a concrete instance of `MetricFilterDimensionArrayInput` via:
+//
+//	MetricFilterDimensionArray{ MetricFilterDimensionArgs{...} }
+type MetricFilterDimensionArrayInput interface {
+	pulumi.Input
+
+	ToMetricFilterDimensionArrayOutput() MetricFilterDimensionArrayOutput
+	ToMetricFilterDimensionArrayOutputWithContext(context.Context) MetricFilterDimensionArrayOutput
+}
+
+type MetricFilterDimensionArray []MetricFilterDimensionInput
+
+func (MetricFilterDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricFilterDimension)(nil)).Elem()
+}
+
+func (i MetricFilterDimensionArray) ToMetricFilterDimensionArrayOutput() MetricFilterDimensionArrayOutput {
+	return i.ToMetricFilterDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i MetricFilterDimensionArray) ToMetricFilterDimensionArrayOutputWithContext(ctx context.Context) MetricFilterDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterDimensionArrayOutput)
+}
+
+// the key-value pairs that further define a metric.
+type MetricFilterDimensionOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterDimension)(nil)).Elem()
+}
+
+func (o MetricFilterDimensionOutput) ToMetricFilterDimensionOutput() MetricFilterDimensionOutput {
+	return o
+}
+
+func (o MetricFilterDimensionOutput) ToMetricFilterDimensionOutputWithContext(ctx context.Context) MetricFilterDimensionOutput {
+	return o
+}
+
+// The key of the dimension. Maximum length of 255.
+func (o MetricFilterDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricFilterDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the dimension. Maximum length of 255.
+func (o MetricFilterDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricFilterDimension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MetricFilterDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricFilterDimension)(nil)).Elem()
+}
+
+func (o MetricFilterDimensionArrayOutput) ToMetricFilterDimensionArrayOutput() MetricFilterDimensionArrayOutput {
+	return o
+}
+
+func (o MetricFilterDimensionArrayOutput) ToMetricFilterDimensionArrayOutputWithContext(ctx context.Context) MetricFilterDimensionArrayOutput {
+	return o
+}
+
+func (o MetricFilterDimensionArrayOutput) Index(i pulumi.IntInput) MetricFilterDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricFilterDimension {
+		return vs[0].([]MetricFilterDimension)[vs[1].(int)]
+	}).(MetricFilterDimensionOutput)
+}
+
 type MetricFilterMetricTransformation struct {
-	DefaultValue    *float64 `pulumi:"defaultValue"`
-	MetricName      string   `pulumi:"metricName"`
-	MetricNamespace string   `pulumi:"metricNamespace"`
-	MetricValue     string   `pulumi:"metricValue"`
+	// The value to emit when a filter pattern does not match a log event. This value can be null.
+	DefaultValue *float64 `pulumi:"defaultValue"`
+	// Dimensions are the key-value pairs that further define a metric
+	Dimensions []MetricFilterDimension `pulumi:"dimensions"`
+	// The name of the CloudWatch metric. Metric name must be in ASCII format.
+	MetricName string `pulumi:"metricName"`
+	// The namespace of the CloudWatch metric.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+	MetricValue string `pulumi:"metricValue"`
+	// The unit to assign to the metric. If you omit this, the unit is set as None.
+	Unit *MetricFilterMetricTransformationUnit `pulumi:"unit"`
 }
 
 // MetricFilterMetricTransformationInput is an input type that accepts MetricFilterMetricTransformationArgs and MetricFilterMetricTransformationOutput values.
@@ -138,10 +255,18 @@ type MetricFilterMetricTransformationInput interface {
 }
 
 type MetricFilterMetricTransformationArgs struct {
-	DefaultValue    pulumi.Float64PtrInput `pulumi:"defaultValue"`
-	MetricName      pulumi.StringInput     `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput     `pulumi:"metricNamespace"`
-	MetricValue     pulumi.StringInput     `pulumi:"metricValue"`
+	// The value to emit when a filter pattern does not match a log event. This value can be null.
+	DefaultValue pulumi.Float64PtrInput `pulumi:"defaultValue"`
+	// Dimensions are the key-value pairs that further define a metric
+	Dimensions MetricFilterDimensionArrayInput `pulumi:"dimensions"`
+	// The name of the CloudWatch metric. Metric name must be in ASCII format.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace of the CloudWatch metric.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+	MetricValue pulumi.StringInput `pulumi:"metricValue"`
+	// The unit to assign to the metric. If you omit this, the unit is set as None.
+	Unit MetricFilterMetricTransformationUnitPtrInput `pulumi:"unit"`
 }
 
 func (MetricFilterMetricTransformationArgs) ElementType() reflect.Type {
@@ -195,20 +320,34 @@ func (o MetricFilterMetricTransformationOutput) ToMetricFilterMetricTransformati
 	return o
 }
 
+// The value to emit when a filter pattern does not match a log event. This value can be null.
 func (o MetricFilterMetricTransformationOutput) DefaultValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MetricFilterMetricTransformation) *float64 { return v.DefaultValue }).(pulumi.Float64PtrOutput)
 }
 
+// Dimensions are the key-value pairs that further define a metric
+func (o MetricFilterMetricTransformationOutput) Dimensions() MetricFilterDimensionArrayOutput {
+	return o.ApplyT(func(v MetricFilterMetricTransformation) []MetricFilterDimension { return v.Dimensions }).(MetricFilterDimensionArrayOutput)
+}
+
+// The name of the CloudWatch metric. Metric name must be in ASCII format.
 func (o MetricFilterMetricTransformationOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricFilterMetricTransformation) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The namespace of the CloudWatch metric.
 func (o MetricFilterMetricTransformationOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricFilterMetricTransformation) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
+// The value to publish to the CloudWatch metric when a filter pattern matches a log event.
 func (o MetricFilterMetricTransformationOutput) MetricValue() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricFilterMetricTransformation) string { return v.MetricValue }).(pulumi.StringOutput)
+}
+
+// The unit to assign to the metric. If you omit this, the unit is set as None.
+func (o MetricFilterMetricTransformationOutput) Unit() MetricFilterMetricTransformationUnitPtrOutput {
+	return o.ApplyT(func(v MetricFilterMetricTransformation) *MetricFilterMetricTransformationUnit { return v.Unit }).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
 type MetricFilterMetricTransformationArrayOutput struct{ *pulumi.OutputState }
@@ -234,10 +373,14 @@ func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) Me
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupTagInput)(nil)).Elem(), LogGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupTagArrayInput)(nil)).Elem(), LogGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionInput)(nil)).Elem(), MetricFilterDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionArrayInput)(nil)).Elem(), MetricFilterDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
 	pulumi.RegisterOutputType(LogGroupTagOutput{})
 	pulumi.RegisterOutputType(LogGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(MetricFilterDimensionOutput{})
+	pulumi.RegisterOutputType(MetricFilterDimensionArrayOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationArrayOutput{})
 }

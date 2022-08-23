@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public readonly string? Id;
         public readonly string? Location;
         public readonly string? Name;
+        public readonly ImmutableArray<Outputs.IPSetTag> Tags;
 
         [OutputConstructor]
         private GetIPSetResult(
@@ -64,12 +65,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
             string? location,
 
-            string? name)
+            string? name,
+
+            ImmutableArray<Outputs.IPSetTag> tags)
         {
             Activate = activate;
             Id = id;
             Location = location;
             Name = name;
+            Tags = tags;
         }
     }
 }

@@ -39,6 +39,7 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     public readonly aliasTarget!: pulumi.Output<outputs.route53.RecordSetAliasTarget | undefined>;
+    public readonly cidrRoutingConfig!: pulumi.Output<outputs.route53.RecordSetCidrRoutingConfig | undefined>;
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly failover!: pulumi.Output<string | undefined>;
     public readonly geoLocation!: pulumi.Output<outputs.route53.RecordSetGeoLocation | undefined>;
@@ -71,6 +72,7 @@ export class RecordSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["aliasTarget"] = args ? args.aliasTarget : undefined;
+            resourceInputs["cidrRoutingConfig"] = args ? args.cidrRoutingConfig : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["failover"] = args ? args.failover : undefined;
             resourceInputs["geoLocation"] = args ? args.geoLocation : undefined;
@@ -87,6 +89,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
             resourceInputs["aliasTarget"] = undefined /*out*/;
+            resourceInputs["cidrRoutingConfig"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["failover"] = undefined /*out*/;
             resourceInputs["geoLocation"] = undefined /*out*/;
@@ -112,6 +115,7 @@ export class RecordSet extends pulumi.CustomResource {
  */
 export interface RecordSetArgs {
     aliasTarget?: pulumi.Input<inputs.route53.RecordSetAliasTargetArgs>;
+    cidrRoutingConfig?: pulumi.Input<inputs.route53.RecordSetCidrRoutingConfigArgs>;
     comment?: pulumi.Input<string>;
     failover?: pulumi.Input<string>;
     geoLocation?: pulumi.Input<inputs.route53.RecordSetGeoLocationArgs>;

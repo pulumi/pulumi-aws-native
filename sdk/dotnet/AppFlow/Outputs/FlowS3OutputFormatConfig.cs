@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowAggregationConfig? AggregationConfig;
         public readonly Pulumi.AwsNative.AppFlow.FlowFileType? FileType;
         public readonly Outputs.FlowPrefixConfig? PrefixConfig;
+        public readonly bool? PreserveSourceDataTyping;
 
         [OutputConstructor]
         private FlowS3OutputFormatConfig(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowFileType? fileType,
 
-            Outputs.FlowPrefixConfig? prefixConfig)
+            Outputs.FlowPrefixConfig? prefixConfig,
+
+            bool? preserveSourceDataTyping)
         {
             AggregationConfig = aggregationConfig;
             FileType = fileType;
             PrefixConfig = prefixConfig;
+            PreserveSourceDataTyping = preserveSourceDataTyping;
         }
     }
 }

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetIPSetResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIPSetResult:
-    def __init__(__self__, activate=None, id=None, location=None, name=None):
+    def __init__(__self__, activate=None, id=None, location=None, name=None, tags=None):
         if activate and not isinstance(activate, bool):
             raise TypeError("Expected argument 'activate' to be a bool")
         pulumi.set(__self__, "activate", activate)
@@ -31,6 +32,9 @@ class GetIPSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -52,6 +56,11 @@ class GetIPSetResult:
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.IPSetTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetIPSetResult(GetIPSetResult):
     # pylint: disable=using-constant-test
@@ -62,7 +71,8 @@ class AwaitableGetIPSetResult(GetIPSetResult):
             activate=self.activate,
             id=self.id,
             location=self.location,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_ip_set(id: Optional[str] = None,
@@ -79,7 +89,8 @@ def get_ip_set(id: Optional[str] = None,
         activate=__ret__.activate,
         id=__ret__.id,
         location=__ret__.location,
-        name=__ret__.name)
+        name=__ret__.name,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_ip_set)

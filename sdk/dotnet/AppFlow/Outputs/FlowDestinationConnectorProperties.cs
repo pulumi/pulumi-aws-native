@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationConnectorProperties
     {
+        public readonly Outputs.FlowCustomConnectorDestinationProperties? CustomConnector;
         public readonly Outputs.FlowEventBridgeDestinationProperties? EventBridge;
         public readonly Outputs.FlowLookoutMetricsDestinationProperties? LookoutMetrics;
         public readonly Outputs.FlowMarketoDestinationProperties? Marketo;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowDestinationConnectorProperties(
+            Outputs.FlowCustomConnectorDestinationProperties? customConnector,
+
             Outputs.FlowEventBridgeDestinationProperties? eventBridge,
 
             Outputs.FlowLookoutMetricsDestinationProperties? lookoutMetrics,
@@ -49,6 +52,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowZendeskDestinationProperties? zendesk)
         {
+            CustomConnector = customConnector;
             EventBridge = eventBridge;
             LookoutMetrics = lookoutMetrics;
             Marketo = marketo;

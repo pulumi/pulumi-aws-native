@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::DynamoDB::Table
+ * Version: None. Resource Type definition for AWS::DynamoDB::Table
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {
@@ -15,12 +15,12 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:dynamodb:getTable", {
-        "id": args.id,
+        "tableName": args.tableName,
     }, opts);
 }
 
 export interface GetTableArgs {
-    id: string;
+    tableName: string;
 }
 
 export interface GetTableResult {
@@ -29,8 +29,9 @@ export interface GetTableResult {
     readonly billingMode?: string;
     readonly contributorInsightsSpecification?: outputs.dynamodb.TableContributorInsightsSpecification;
     readonly globalSecondaryIndexes?: outputs.dynamodb.TableGlobalSecondaryIndex[];
-    readonly id?: string;
+    readonly keySchema?: outputs.dynamodb.TableKeySchema[] | any;
     readonly kinesisStreamSpecification?: outputs.dynamodb.TableKinesisStreamSpecification;
+    readonly localSecondaryIndexes?: outputs.dynamodb.TableLocalSecondaryIndex[];
     readonly pointInTimeRecoverySpecification?: outputs.dynamodb.TablePointInTimeRecoverySpecification;
     readonly provisionedThroughput?: outputs.dynamodb.TableProvisionedThroughput;
     readonly sSESpecification?: outputs.dynamodb.TableSSESpecification;
@@ -46,5 +47,5 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTableOutputArgs {
-    id: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

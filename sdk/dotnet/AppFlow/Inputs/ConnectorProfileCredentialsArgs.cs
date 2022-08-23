@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("amplitude")]
         public Input<Inputs.ConnectorProfileAmplitudeConnectorProfileCredentialsArgs>? Amplitude { get; set; }
 
+        [Input("customConnector")]
+        public Input<Inputs.ConnectorProfileCustomConnectorProfileCredentialsArgs>? CustomConnector { get; set; }
+
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfileCredentialsArgs>? Datadog { get; set; }
 

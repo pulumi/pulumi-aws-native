@@ -50,8 +50,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("customOrigin")]
         public Input<Inputs.DistributionLegacyCustomOriginArgs>? CustomOrigin { get; set; }
 
-        [Input("defaultCacheBehavior")]
-        public Input<Inputs.DistributionDefaultCacheBehaviorArgs>? DefaultCacheBehavior { get; set; }
+        [Input("defaultCacheBehavior", required: true)]
+        public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
 
         [Input("defaultRootObject")]
         public Input<string>? DefaultRootObject { get; set; }

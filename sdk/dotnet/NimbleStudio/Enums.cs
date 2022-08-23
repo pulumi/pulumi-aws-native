@@ -51,6 +51,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         public static LaunchProfileStreamingInstanceType G4dn8xlarge { get; } = new LaunchProfileStreamingInstanceType("g4dn.8xlarge");
         public static LaunchProfileStreamingInstanceType G4dn12xlarge { get; } = new LaunchProfileStreamingInstanceType("g4dn.12xlarge");
         public static LaunchProfileStreamingInstanceType G4dn16xlarge { get; } = new LaunchProfileStreamingInstanceType("g4dn.16xlarge");
+        public static LaunchProfileStreamingInstanceType G34xlarge { get; } = new LaunchProfileStreamingInstanceType("g3.4xlarge");
+        public static LaunchProfileStreamingInstanceType G3sXlarge { get; } = new LaunchProfileStreamingInstanceType("g3s.xlarge");
+        public static LaunchProfileStreamingInstanceType G5Xlarge { get; } = new LaunchProfileStreamingInstanceType("g5.xlarge");
+        public static LaunchProfileStreamingInstanceType G52xlarge { get; } = new LaunchProfileStreamingInstanceType("g5.2xlarge");
+        public static LaunchProfileStreamingInstanceType G54xlarge { get; } = new LaunchProfileStreamingInstanceType("g5.4xlarge");
+        public static LaunchProfileStreamingInstanceType G58xlarge { get; } = new LaunchProfileStreamingInstanceType("g5.8xlarge");
+        public static LaunchProfileStreamingInstanceType G516xlarge { get; } = new LaunchProfileStreamingInstanceType("g5.16xlarge");
 
         public static bool operator ==(LaunchProfileStreamingInstanceType left, LaunchProfileStreamingInstanceType right) => left.Equals(right);
         public static bool operator !=(LaunchProfileStreamingInstanceType left, LaunchProfileStreamingInstanceType right) => !left.Equals(right);

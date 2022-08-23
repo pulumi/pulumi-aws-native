@@ -25,10 +25,11 @@ type LookupIPSetArgs struct {
 }
 
 type LookupIPSetResult struct {
-	Activate *bool   `pulumi:"activate"`
-	Id       *string `pulumi:"id"`
-	Location *string `pulumi:"location"`
-	Name     *string `pulumi:"name"`
+	Activate *bool      `pulumi:"activate"`
+	Id       *string    `pulumi:"id"`
+	Location *string    `pulumi:"location"`
+	Name     *string    `pulumi:"name"`
+	Tags     []IPSetTag `pulumi:"tags"`
 }
 
 func LookupIPSetOutput(ctx *pulumi.Context, args LookupIPSetOutputArgs, opts ...pulumi.InvokeOption) LookupIPSetResultOutput {
@@ -80,6 +81,10 @@ func (o LookupIPSetResultOutput) Location() pulumi.StringPtrOutput {
 
 func (o LookupIPSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIPSetResultOutput) Tags() IPSetTagArrayOutput {
+	return o.ApplyT(func(v LookupIPSetResult) []IPSetTag { return v.Tags }).(IPSetTagArrayOutput)
 }
 
 func init() {

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+ * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
  */
 export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioComponentResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.I
 export interface GetStudioComponentArgs {
     studioComponentId: string;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     studioId: string;
 }
@@ -46,10 +46,12 @@ export interface GetStudioComponentResult {
      * <p>The name for the studio component.</p>
      */
     readonly name?: string;
+    readonly runtimeRoleArn?: string;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     readonly scriptParameters?: outputs.nimblestudio.StudioComponentScriptParameterKeyValue[];
+    readonly secureInitializationRoleArn?: string;
     readonly studioComponentId?: string;
     readonly type?: enums.nimblestudio.StudioComponentType;
 }
@@ -61,7 +63,7 @@ export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opt
 export interface GetStudioComponentOutputArgs {
     studioComponentId: pulumi.Input<string>;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
 }

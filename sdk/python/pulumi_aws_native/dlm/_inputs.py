@@ -495,9 +495,12 @@ class LifecyclePolicyFastRestoreRuleArgs:
 class LifecyclePolicyParametersArgs:
     def __init__(__self__, *,
                  exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
+                 exclude_data_volume_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
                  no_reboot: Optional[pulumi.Input[bool]] = None):
         if exclude_boot_volume is not None:
             pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
+        if exclude_data_volume_tags is not None:
+            pulumi.set(__self__, "exclude_data_volume_tags", exclude_data_volume_tags)
         if no_reboot is not None:
             pulumi.set(__self__, "no_reboot", no_reboot)
 
@@ -509,6 +512,15 @@ class LifecyclePolicyParametersArgs:
     @exclude_boot_volume.setter
     def exclude_boot_volume(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "exclude_boot_volume", value)
+
+    @property
+    @pulumi.getter(name="excludeDataVolumeTags")
+    def exclude_data_volume_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]]:
+        return pulumi.get(self, "exclude_data_volume_tags")
+
+    @exclude_data_volume_tags.setter
+    def exclude_data_volume_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]]):
+        pulumi.set(self, "exclude_data_volume_tags", value)
 
     @property
     @pulumi.getter(name="noReboot")

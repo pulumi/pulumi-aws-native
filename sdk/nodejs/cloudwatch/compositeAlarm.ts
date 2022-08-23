@@ -39,6 +39,18 @@ export class CompositeAlarm extends pulumi.CustomResource {
      */
     public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+     */
+    public readonly actionsSuppressor!: pulumi.Output<string | undefined>;
+    /**
+     * Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    public readonly actionsSuppressorExtensionPeriod!: pulumi.Output<number | undefined>;
+    /**
+     * Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    public readonly actionsSuppressorWaitPeriod!: pulumi.Output<number | undefined>;
+    /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
      */
     public readonly alarmActions!: pulumi.Output<string[] | undefined>;
@@ -85,6 +97,9 @@ export class CompositeAlarm extends pulumi.CustomResource {
                 throw new Error("Missing required property 'alarmRule'");
             }
             resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            resourceInputs["actionsSuppressor"] = args ? args.actionsSuppressor : undefined;
+            resourceInputs["actionsSuppressorExtensionPeriod"] = args ? args.actionsSuppressorExtensionPeriod : undefined;
+            resourceInputs["actionsSuppressorWaitPeriod"] = args ? args.actionsSuppressorWaitPeriod : undefined;
             resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
             resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
             resourceInputs["alarmName"] = args ? args.alarmName : undefined;
@@ -94,6 +109,9 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;
+            resourceInputs["actionsSuppressor"] = undefined /*out*/;
+            resourceInputs["actionsSuppressorExtensionPeriod"] = undefined /*out*/;
+            resourceInputs["actionsSuppressorWaitPeriod"] = undefined /*out*/;
             resourceInputs["alarmActions"] = undefined /*out*/;
             resourceInputs["alarmDescription"] = undefined /*out*/;
             resourceInputs["alarmName"] = undefined /*out*/;
@@ -115,6 +133,18 @@ export interface CompositeAlarmArgs {
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
     actionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+     */
+    actionsSuppressor?: pulumi.Input<string>;
+    /**
+     * Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    actionsSuppressorExtensionPeriod?: pulumi.Input<number>;
+    /**
+     * Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+     */
+    actionsSuppressorWaitPeriod?: pulumi.Input<number>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
      */

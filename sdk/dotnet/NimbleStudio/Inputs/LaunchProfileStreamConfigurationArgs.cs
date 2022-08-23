@@ -44,13 +44,14 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         /// &lt;p&gt;Integer that determines if you can start and stop your sessions and how long a session
         ///             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.&lt;/p&gt;
         ///         &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-        ///             StopStreamingSession, the session fails. If the time that a session stays in the READY
-        ///             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-        ///             terminated by AWS (instead of stopped).&lt;/p&gt;
+        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
+        ///             stays in the READY state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the
+        ///             session will automatically be terminated (instead of stopped).&lt;/p&gt;
         ///         &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
-        ///             StopStreamingSession to stop sessions in the READY state. If the time that a session
-        ///             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-        ///             automatically be stopped by AWS (instead of terminated).&lt;/p&gt;
+        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the READY state. If the time
+        ///             that a session stays in the READY state exceeds the
+        ///                 &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the session will automatically be
+        ///             stopped (instead of terminated).&lt;/p&gt;
         /// </summary>
         [Input("maxStoppedSessionLengthInMinutes")]
         public Input<double>? MaxStoppedSessionLengthInMinutes { get; set; }

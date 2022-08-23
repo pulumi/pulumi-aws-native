@@ -36,6 +36,10 @@ __all__ = [
     'ClusterStorageInfoArgs',
     'ClusterTlsArgs',
     'ClusterUnauthenticatedArgs',
+    'ServerlessClusterClientAuthenticationArgs',
+    'ServerlessClusterIamArgs',
+    'ServerlessClusterSaslArgs',
+    'ServerlessClusterVpcConfigArgs',
 ]
 
 @pulumi.input_type
@@ -698,5 +702,81 @@ class ClusterUnauthenticatedArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ServerlessClusterClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 sasl: pulumi.Input['ServerlessClusterSaslArgs']):
+        pulumi.set(__self__, "sasl", sasl)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> pulumi.Input['ServerlessClusterSaslArgs']:
+        return pulumi.get(self, "sasl")
+
+    @sasl.setter
+    def sasl(self, value: pulumi.Input['ServerlessClusterSaslArgs']):
+        pulumi.set(self, "sasl", value)
+
+
+@pulumi.input_type
+class ServerlessClusterIamArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ServerlessClusterSaslArgs:
+    def __init__(__self__, *,
+                 iam: pulumi.Input['ServerlessClusterIamArgs']):
+        pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> pulumi.Input['ServerlessClusterIamArgs']:
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: pulumi.Input['ServerlessClusterIamArgs']):
+        pulumi.set(self, "iam", value)
+
+
+@pulumi.input_type
+class ServerlessClusterVpcConfigArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
 
 

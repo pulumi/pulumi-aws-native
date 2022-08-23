@@ -29,6 +29,7 @@ export interface GetFilterResult {
     readonly findingCriteria?: outputs.guardduty.FilterFindingCriteria;
     readonly id?: string;
     readonly rank?: number;
+    readonly tags?: outputs.guardduty.FilterTag[];
 }
 
 export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {

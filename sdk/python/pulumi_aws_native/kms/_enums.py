@@ -26,6 +26,7 @@ class KeySpec(str, Enum):
     HMAC256 = "HMAC_256"
     HMAC384 = "HMAC_384"
     HMAC512 = "HMAC_512"
+    SM2 = "SM2"
 
 
 class KeyUsage(str, Enum):

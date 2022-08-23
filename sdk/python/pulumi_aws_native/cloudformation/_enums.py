@@ -15,6 +15,7 @@ __all__ = [
     'ResourceVersionVisibility',
     'StackSetCallAs',
     'StackSetCapability',
+    'StackSetDeploymentTargetsAccountFilterType',
     'StackSetPermissionModel',
     'StackSetRegionConcurrencyType',
     'TypeActivationType',
@@ -115,6 +116,16 @@ class StackSetCapability(str, Enum):
     CAPABILITY_IAM = "CAPABILITY_IAM"
     CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
     CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND"
+
+
+class StackSetDeploymentTargetsAccountFilterType(str, Enum):
+    """
+    The filter type you want to apply on organizational units and accounts.
+    """
+    NONE = "NONE"
+    UNION = "UNION"
+    INTERSECTION = "INTERSECTION"
+    DIFFERENCE = "DIFFERENCE"
 
 
 class StackSetPermissionModel(str, Enum):

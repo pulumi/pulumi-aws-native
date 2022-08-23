@@ -12,17 +12,47 @@ namespace Pulumi.AwsNative.Logs.Inputs
 
     public sealed class MetricFilterMetricTransformationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value to emit when a filter pattern does not match a log event. This value can be null.
+        /// </summary>
         [Input("defaultValue")]
         public Input<double>? DefaultValue { get; set; }
 
+        [Input("dimensions")]
+        private InputList<Inputs.MetricFilterDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// Dimensions are the key-value pairs that further define a metric
+        /// </summary>
+        public InputList<Inputs.MetricFilterDimensionArgs> Dimensions
+        {
+            get => _dimensions ?? (_dimensions = new InputList<Inputs.MetricFilterDimensionArgs>());
+            set => _dimensions = value;
+        }
+
+        /// <summary>
+        /// The name of the CloudWatch metric. Metric name must be in ASCII format.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The namespace of the CloudWatch metric.
+        /// </summary>
         [Input("metricNamespace", required: true)]
         public Input<string> MetricNamespace { get; set; } = null!;
 
+        /// <summary>
+        /// The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+        /// </summary>
         [Input("metricValue", required: true)]
         public Input<string> MetricValue { get; set; } = null!;
+
+        /// <summary>
+        /// The unit to assign to the metric. If you omit this, the unit is set as None.
+        /// </summary>
+        [Input("unit")]
+        public Input<Pulumi.AwsNative.Logs.MetricFilterMetricTransformationUnit>? Unit { get; set; }
 
         public MetricFilterMetricTransformationArgs()
         {

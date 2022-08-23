@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetListenerCertificateResult',
@@ -18,10 +19,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetListenerCertificateResult:
-    def __init__(__self__, id=None):
+    def __init__(__self__, certificates=None, id=None):
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        pulumi.set(__self__, "certificates", certificates)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence['outputs.ListenerCertificateCertificate']]:
+        return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
@@ -35,6 +44,7 @@ class AwaitableGetListenerCertificateResult(GetListenerCertificateResult):
         if False:
             yield self
         return GetListenerCertificateResult(
+            certificates=self.certificates,
             id=self.id)
 
 
@@ -49,6 +59,7 @@ def get_listener_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getListenerCertificate', __args__, opts=opts, typ=GetListenerCertificateResult).value
 
     return AwaitableGetListenerCertificateResult(
+        certificates=__ret__.certificates,
         id=__ret__.id)
 
 

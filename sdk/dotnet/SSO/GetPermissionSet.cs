@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.SSO
     [OutputType]
     public sealed class GetPermissionSetResult
     {
+        public readonly ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference> CustomerManagedPolicyReferences;
         /// <summary>
         /// The permission set description.
         /// </summary>
@@ -82,6 +83,7 @@ namespace Pulumi.AwsNative.SSO
         /// The permission set that the policy will be attached to
         /// </summary>
         public readonly string? PermissionSetArn;
+        public readonly Outputs.PermissionSetPermissionsBoundary? PermissionsBoundary;
         /// <summary>
         /// The relay state URL that redirect links to any service in the AWS Management Console.
         /// </summary>
@@ -94,6 +96,8 @@ namespace Pulumi.AwsNative.SSO
 
         [OutputConstructor]
         private GetPermissionSetResult(
+            ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference> customerManagedPolicyReferences,
+
             string? description,
 
             object? inlinePolicy,
@@ -102,16 +106,20 @@ namespace Pulumi.AwsNative.SSO
 
             string? permissionSetArn,
 
+            Outputs.PermissionSetPermissionsBoundary? permissionsBoundary,
+
             string? relayStateType,
 
             string? sessionDuration,
 
             ImmutableArray<Outputs.PermissionSetTag> tags)
         {
+            CustomerManagedPolicyReferences = customerManagedPolicyReferences;
             Description = description;
             InlinePolicy = inlinePolicy;
             ManagedPolicies = managedPolicies;
             PermissionSetArn = permissionSetArn;
+            PermissionsBoundary = permissionsBoundary;
             RelayStateType = relayStateType;
             SessionDuration = sessionDuration;
             Tags = tags;

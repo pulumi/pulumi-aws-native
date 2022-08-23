@@ -10,130 +10,125 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type PolicySecurityServicePolicyDataPropertiesType string
+// Firewall deployment mode.
+type PolicyFirewallDeploymentModel string
 
 const (
-	PolicySecurityServicePolicyDataPropertiesTypeWaf                        = PolicySecurityServicePolicyDataPropertiesType("WAF")
-	PolicySecurityServicePolicyDataPropertiesTypeWafv2                      = PolicySecurityServicePolicyDataPropertiesType("WAFV2")
-	PolicySecurityServicePolicyDataPropertiesTypeShieldAdvanced             = PolicySecurityServicePolicyDataPropertiesType("SHIELD_ADVANCED")
-	PolicySecurityServicePolicyDataPropertiesTypeSecurityGroupsCommon       = PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_COMMON")
-	PolicySecurityServicePolicyDataPropertiesTypeSecurityGroupsContentAudit = PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_CONTENT_AUDIT")
-	PolicySecurityServicePolicyDataPropertiesTypeSecurityGroupsUsageAudit   = PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_USAGE_AUDIT")
-	PolicySecurityServicePolicyDataPropertiesTypeNetworkFirewall            = PolicySecurityServicePolicyDataPropertiesType("NETWORK_FIREWALL")
-	PolicySecurityServicePolicyDataPropertiesTypeDnsFirewall                = PolicySecurityServicePolicyDataPropertiesType("DNS_FIREWALL")
+	PolicyFirewallDeploymentModelDistributed = PolicyFirewallDeploymentModel("DISTRIBUTED")
+	PolicyFirewallDeploymentModelCentralized = PolicyFirewallDeploymentModel("CENTRALIZED")
 )
 
-func (PolicySecurityServicePolicyDataPropertiesType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesType)(nil)).Elem()
+func (PolicyFirewallDeploymentModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFirewallDeploymentModel)(nil)).Elem()
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToPolicySecurityServicePolicyDataPropertiesTypeOutput() PolicySecurityServicePolicyDataPropertiesTypeOutput {
-	return pulumi.ToOutput(e).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
+func (e PolicyFirewallDeploymentModel) ToPolicyFirewallDeploymentModelOutput() PolicyFirewallDeploymentModelOutput {
+	return pulumi.ToOutput(e).(PolicyFirewallDeploymentModelOutput)
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToPolicySecurityServicePolicyDataPropertiesTypeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
+func (e PolicyFirewallDeploymentModel) ToPolicyFirewallDeploymentModelOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyFirewallDeploymentModelOutput)
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutput() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return e.ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(context.Background())
+func (e PolicyFirewallDeploymentModel) ToPolicyFirewallDeploymentModelPtrOutput() PolicyFirewallDeploymentModelPtrOutput {
+	return e.ToPolicyFirewallDeploymentModelPtrOutputWithContext(context.Background())
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return PolicySecurityServicePolicyDataPropertiesType(e).ToPolicySecurityServicePolicyDataPropertiesTypeOutputWithContext(ctx).ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(ctx)
+func (e PolicyFirewallDeploymentModel) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
+	return PolicyFirewallDeploymentModel(e).ToPolicyFirewallDeploymentModelOutputWithContext(ctx).ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx)
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToStringOutput() pulumi.StringOutput {
+func (e PolicyFirewallDeploymentModel) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PolicyFirewallDeploymentModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PolicyFirewallDeploymentModel) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PolicySecurityServicePolicyDataPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PolicyFirewallDeploymentModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PolicySecurityServicePolicyDataPropertiesTypeOutput struct{ *pulumi.OutputState }
+type PolicyFirewallDeploymentModelOutput struct{ *pulumi.OutputState }
 
-func (PolicySecurityServicePolicyDataPropertiesTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesType)(nil)).Elem()
+func (PolicyFirewallDeploymentModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFirewallDeploymentModel)(nil)).Elem()
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToPolicySecurityServicePolicyDataPropertiesTypeOutput() PolicySecurityServicePolicyDataPropertiesTypeOutput {
+func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelOutput() PolicyFirewallDeploymentModelOutput {
 	return o
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToPolicySecurityServicePolicyDataPropertiesTypeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypeOutput {
+func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelOutput {
 	return o
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutput() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return o.ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(context.Background())
+func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelPtrOutput() PolicyFirewallDeploymentModelPtrOutput {
+	return o.ToPolicyFirewallDeploymentModelPtrOutputWithContext(context.Background())
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPropertiesType) *PolicySecurityServicePolicyDataPropertiesType {
+func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFirewallDeploymentModel) *PolicyFirewallDeploymentModel {
 		return &v
-	}).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
+	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o PolicyFirewallDeploymentModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicySecurityServicePolicyDataPropertiesType) string {
+func (o PolicyFirewallDeploymentModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyFirewallDeploymentModel) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PolicyFirewallDeploymentModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicySecurityServicePolicyDataPropertiesType) *string {
+func (o PolicyFirewallDeploymentModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyFirewallDeploymentModel) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PolicySecurityServicePolicyDataPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+type PolicyFirewallDeploymentModelPtrOutput struct{ *pulumi.OutputState }
 
-func (PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySecurityServicePolicyDataPropertiesType)(nil)).Elem()
+func (PolicyFirewallDeploymentModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyFirewallDeploymentModel)(nil)).Elem()
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutput() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
+func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelPtrOutput() PolicyFirewallDeploymentModelPtrOutput {
 	return o
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
+func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
 	return o
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) Elem() PolicySecurityServicePolicyDataPropertiesTypeOutput {
-	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPropertiesType) PolicySecurityServicePolicyDataPropertiesType {
+func (o PolicyFirewallDeploymentModelPtrOutput) Elem() PolicyFirewallDeploymentModelOutput {
+	return o.ApplyT(func(v *PolicyFirewallDeploymentModel) PolicyFirewallDeploymentModel {
 		if v != nil {
 			return *v
 		}
-		var ret PolicySecurityServicePolicyDataPropertiesType
+		var ret PolicyFirewallDeploymentModel
 		return ret
-	}).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
+	}).(PolicyFirewallDeploymentModelOutput)
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PolicyFirewallDeploymentModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicySecurityServicePolicyDataPropertiesType) *string {
+func (o PolicyFirewallDeploymentModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyFirewallDeploymentModel) *string {
 		if e == nil {
 			return nil
 		}
@@ -142,47 +137,223 @@ func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicySecurityServicePolicyDataPropertiesTypeInput is an input type that accepts PolicySecurityServicePolicyDataPropertiesTypeArgs and PolicySecurityServicePolicyDataPropertiesTypeOutput values.
-// You can construct a concrete instance of `PolicySecurityServicePolicyDataPropertiesTypeInput` via:
+// PolicyFirewallDeploymentModelInput is an input type that accepts PolicyFirewallDeploymentModelArgs and PolicyFirewallDeploymentModelOutput values.
+// You can construct a concrete instance of `PolicyFirewallDeploymentModelInput` via:
 //
-//	PolicySecurityServicePolicyDataPropertiesTypeArgs{...}
-type PolicySecurityServicePolicyDataPropertiesTypeInput interface {
+//	PolicyFirewallDeploymentModelArgs{...}
+type PolicyFirewallDeploymentModelInput interface {
 	pulumi.Input
 
-	ToPolicySecurityServicePolicyDataPropertiesTypeOutput() PolicySecurityServicePolicyDataPropertiesTypeOutput
-	ToPolicySecurityServicePolicyDataPropertiesTypeOutputWithContext(context.Context) PolicySecurityServicePolicyDataPropertiesTypeOutput
+	ToPolicyFirewallDeploymentModelOutput() PolicyFirewallDeploymentModelOutput
+	ToPolicyFirewallDeploymentModelOutputWithContext(context.Context) PolicyFirewallDeploymentModelOutput
 }
 
-var policySecurityServicePolicyDataPropertiesTypePtrType = reflect.TypeOf((**PolicySecurityServicePolicyDataPropertiesType)(nil)).Elem()
+var policyFirewallDeploymentModelPtrType = reflect.TypeOf((**PolicyFirewallDeploymentModel)(nil)).Elem()
 
-type PolicySecurityServicePolicyDataPropertiesTypePtrInput interface {
+type PolicyFirewallDeploymentModelPtrInput interface {
 	pulumi.Input
 
-	ToPolicySecurityServicePolicyDataPropertiesTypePtrOutput() PolicySecurityServicePolicyDataPropertiesTypePtrOutput
-	ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPropertiesTypePtrOutput
+	ToPolicyFirewallDeploymentModelPtrOutput() PolicyFirewallDeploymentModelPtrOutput
+	ToPolicyFirewallDeploymentModelPtrOutputWithContext(context.Context) PolicyFirewallDeploymentModelPtrOutput
 }
 
-type policySecurityServicePolicyDataPropertiesTypePtr string
+type policyFirewallDeploymentModelPtr string
 
-func PolicySecurityServicePolicyDataPropertiesTypePtr(v string) PolicySecurityServicePolicyDataPropertiesTypePtrInput {
-	return (*policySecurityServicePolicyDataPropertiesTypePtr)(&v)
+func PolicyFirewallDeploymentModelPtr(v string) PolicyFirewallDeploymentModelPtrInput {
+	return (*policyFirewallDeploymentModelPtr)(&v)
 }
 
-func (*policySecurityServicePolicyDataPropertiesTypePtr) ElementType() reflect.Type {
-	return policySecurityServicePolicyDataPropertiesTypePtrType
+func (*policyFirewallDeploymentModelPtr) ElementType() reflect.Type {
+	return policyFirewallDeploymentModelPtrType
 }
 
-func (in *policySecurityServicePolicyDataPropertiesTypePtr) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutput() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return pulumi.ToOutput(in).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
+func (in *policyFirewallDeploymentModelPtr) ToPolicyFirewallDeploymentModelPtrOutput() PolicyFirewallDeploymentModelPtrOutput {
+	return pulumi.ToOutput(in).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
-func (in *policySecurityServicePolicyDataPropertiesTypePtr) ToPolicySecurityServicePolicyDataPropertiesTypePtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
+func (in *policyFirewallDeploymentModelPtr) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyFirewallDeploymentModelPtrOutput)
+}
+
+// Firewall policy type.
+type PolicyType string
+
+const (
+	PolicyTypeWaf                        = PolicyType("WAF")
+	PolicyTypeWafv2                      = PolicyType("WAFV2")
+	PolicyTypeShieldAdvanced             = PolicyType("SHIELD_ADVANCED")
+	PolicyTypeSecurityGroupsCommon       = PolicyType("SECURITY_GROUPS_COMMON")
+	PolicyTypeSecurityGroupsContentAudit = PolicyType("SECURITY_GROUPS_CONTENT_AUDIT")
+	PolicyTypeSecurityGroupsUsageAudit   = PolicyType("SECURITY_GROUPS_USAGE_AUDIT")
+	PolicyTypeNetworkFirewall            = PolicyType("NETWORK_FIREWALL")
+	PolicyTypeThirdPartyFirewall         = PolicyType("THIRD_PARTY_FIREWALL")
+	PolicyTypeDnsFirewall                = PolicyType("DNS_FIREWALL")
+)
+
+func (PolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (e PolicyType) ToPolicyTypeOutput() PolicyTypeOutput {
+	return pulumi.ToOutput(e).(PolicyTypeOutput)
+}
+
+func (e PolicyType) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyTypeOutput)
+}
+
+func (e PolicyType) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return e.ToPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyType) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return PolicyType(e).ToPolicyTypeOutputWithContext(ctx).ToPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e PolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return o.ToPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyType) *PolicyType {
+		return &v
+	}).(PolicyTypePtrOutput)
+}
+
+func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
+	return o.ApplyT(func(v *PolicyType) PolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyType
+		return ret
+	}).(PolicyTypeOutput)
+}
+
+func (o PolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
+// You can construct a concrete instance of `PolicyTypeInput` via:
+//
+//	PolicyTypeArgs{...}
+type PolicyTypeInput interface {
+	pulumi.Input
+
+	ToPolicyTypeOutput() PolicyTypeOutput
+	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
+}
+
+var policyTypePtrType = reflect.TypeOf((**PolicyType)(nil)).Elem()
+
+type PolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyTypePtrOutput() PolicyTypePtrOutput
+	ToPolicyTypePtrOutputWithContext(context.Context) PolicyTypePtrOutput
+}
+
+type policyTypePtr string
+
+func PolicyTypePtr(v string) PolicyTypePtrInput {
+	return (*policyTypePtr)(&v)
+}
+
+func (*policyTypePtr) ElementType() reflect.Type {
+	return policyTypePtrType
+}
+
+func (in *policyTypePtr) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicyTypePtrOutput)
+}
+
+func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesTypeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPropertiesType("WAF"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesTypePtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPropertiesType("WAF"))
-	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPropertiesTypeOutput{})
-	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPropertiesTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallDeploymentModelInput)(nil)).Elem(), PolicyFirewallDeploymentModel("DISTRIBUTED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallDeploymentModelPtrInput)(nil)).Elem(), PolicyFirewallDeploymentModel("DISTRIBUTED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("WAF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("WAF"))
+	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelOutput{})
+	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelPtrOutput{})
+	pulumi.RegisterOutputType(PolicyTypeOutput{})
+	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+    /// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StudioComponent")]
     public partial class StudioComponent : global::Pulumi.CustomResource
@@ -42,17 +42,23 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("runtimeRoleArn")]
+        public Output<string?> RuntimeRoleArn { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;Parameters for the studio component scripts.&lt;/p&gt;
         /// </summary>
         [Output("scriptParameters")]
         public Output<ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue>> ScriptParameters { get; private set; } = null!;
 
+        [Output("secureInitializationRoleArn")]
+        public Output<string?> SecureInitializationRoleArn { get; private set; } = null!;
+
         [Output("studioComponentId")]
         public Output<string> StudioComponentId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -150,6 +156,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("runtimeRoleArn")]
+        public Input<string>? RuntimeRoleArn { get; set; }
+
         [Input("scriptParameters")]
         private InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>? _scriptParameters;
 
@@ -162,8 +171,11 @@ namespace Pulumi.AwsNative.NimbleStudio
             set => _scriptParameters = value;
         }
 
+        [Input("secureInitializationRoleArn")]
+        public Input<string>? SecureInitializationRoleArn { get; set; }
+
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;

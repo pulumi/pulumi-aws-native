@@ -30,13 +30,17 @@ __all__ = [
     'GlobalTableWriteProvisionedThroughputSettingsArgs',
     'TableAttributeDefinitionArgs',
     'TableContributorInsightsSpecificationArgs',
+    'TableCsvArgs',
     'TableGlobalSecondaryIndexArgs',
+    'TableImportSourceSpecificationArgs',
+    'TableInputFormatOptionsArgs',
     'TableKeySchemaArgs',
     'TableKinesisStreamSpecificationArgs',
     'TableLocalSecondaryIndexArgs',
     'TablePointInTimeRecoverySpecificationArgs',
     'TableProjectionArgs',
     'TableProvisionedThroughputArgs',
+    'TableS3BucketSourceArgs',
     'TableSSESpecificationArgs',
     'TableStreamSpecificationArgs',
     'TableTagArgs',
@@ -694,6 +698,35 @@ class TableContributorInsightsSpecificationArgs:
 
 
 @pulumi.input_type
+class TableCsvArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if header_list is not None:
+            pulumi.set(__self__, "header_list", header_list)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="headerList")
+    def header_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "header_list")
+
+    @header_list.setter
+    def header_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "header_list", value)
+
+
+@pulumi.input_type
 class TableGlobalSecondaryIndexArgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[str],
@@ -753,6 +786,74 @@ class TableGlobalSecondaryIndexArgs:
     @provisioned_throughput.setter
     def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
+
+
+@pulumi.input_type
+class TableImportSourceSpecificationArgs:
+    def __init__(__self__, *,
+                 input_format: pulumi.Input[str],
+                 s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
+                 input_compression_type: Optional[pulumi.Input[str]] = None,
+                 input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None):
+        pulumi.set(__self__, "input_format", input_format)
+        pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
+        if input_compression_type is not None:
+            pulumi.set(__self__, "input_compression_type", input_compression_type)
+        if input_format_options is not None:
+            pulumi.set(__self__, "input_format_options", input_format_options)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "input_format", value)
+
+    @property
+    @pulumi.getter(name="s3BucketSource")
+    def s3_bucket_source(self) -> pulumi.Input['TableS3BucketSourceArgs']:
+        return pulumi.get(self, "s3_bucket_source")
+
+    @s3_bucket_source.setter
+    def s3_bucket_source(self, value: pulumi.Input['TableS3BucketSourceArgs']):
+        pulumi.set(self, "s3_bucket_source", value)
+
+    @property
+    @pulumi.getter(name="inputCompressionType")
+    def input_compression_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "input_compression_type")
+
+    @input_compression_type.setter
+    def input_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_compression_type", value)
+
+    @property
+    @pulumi.getter(name="inputFormatOptions")
+    def input_format_options(self) -> Optional[pulumi.Input['TableInputFormatOptionsArgs']]:
+        return pulumi.get(self, "input_format_options")
+
+    @input_format_options.setter
+    def input_format_options(self, value: Optional[pulumi.Input['TableInputFormatOptionsArgs']]):
+        pulumi.set(self, "input_format_options", value)
+
+
+@pulumi.input_type
+class TableInputFormatOptionsArgs:
+    def __init__(__self__, *,
+                 csv: Optional[pulumi.Input['TableCsvArgs']] = None):
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional[pulumi.Input['TableCsvArgs']]:
+        return pulumi.get(self, "csv")
+
+    @csv.setter
+    def csv(self, value: Optional[pulumi.Input['TableCsvArgs']]):
+        pulumi.set(self, "csv", value)
 
 
 @pulumi.input_type
@@ -907,6 +1008,46 @@ class TableProvisionedThroughputArgs:
     @write_capacity_units.setter
     def write_capacity_units(self, value: pulumi.Input[int]):
         pulumi.set(self, "write_capacity_units", value)
+
+
+@pulumi.input_type
+class TableS3BucketSourceArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[str],
+                 s3_bucket_owner: Optional[pulumi.Input[str]] = None,
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_bucket_owner")
+
+    @s3_bucket_owner.setter
+    def s3_bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_owner", value)
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_key_prefix")
+
+    @s3_key_prefix.setter
+    def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key_prefix", value)
 
 
 @pulumi.input_type

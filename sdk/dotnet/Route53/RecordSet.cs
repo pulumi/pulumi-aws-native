@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("aliasTarget")]
         public Output<Outputs.RecordSetAliasTarget?> AliasTarget { get; private set; } = null!;
 
+        [Output("cidrRoutingConfig")]
+        public Output<Outputs.RecordSetCidrRoutingConfig?> CidrRoutingConfig { get; private set; } = null!;
+
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.Route53
     {
         [Input("aliasTarget")]
         public Input<Inputs.RecordSetAliasTargetArgs>? AliasTarget { get; set; }
+
+        [Input("cidrRoutingConfig")]
+        public Input<Inputs.RecordSetCidrRoutingConfigArgs>? CidrRoutingConfig { get; set; }
 
         [Input("comment")]
         public Input<string>? Comment { get; set; }

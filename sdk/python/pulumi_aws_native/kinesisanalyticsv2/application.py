@@ -21,8 +21,10 @@ class ApplicationArgs:
                  service_execution_role: pulumi.Input[str],
                  application_configuration: Optional[pulumi.Input['ApplicationConfigurationArgs']] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
+                 application_maintenance_configuration: Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']] = None,
                  application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
+                 run_configuration: Optional[pulumi.Input['ApplicationRunConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -30,8 +32,10 @@ class ApplicationArgs:
         :param pulumi.Input[str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
         :param pulumi.Input['ApplicationConfigurationArgs'] application_configuration: Use this parameter to configure the application.
         :param pulumi.Input[str] application_description: The description of the application.
+        :param pulumi.Input['ApplicationMaintenanceConfigurationArgs'] application_maintenance_configuration: Used to configure start of maintenance window.
         :param pulumi.Input['ApplicationMode'] application_mode: To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         :param pulumi.Input[str] application_name: The name of the application.
+        :param pulumi.Input['ApplicationRunConfigurationArgs'] run_configuration: Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
         pulumi.set(__self__, "runtime_environment", runtime_environment)
@@ -40,10 +44,14 @@ class ApplicationArgs:
             pulumi.set(__self__, "application_configuration", application_configuration)
         if application_description is not None:
             pulumi.set(__self__, "application_description", application_description)
+        if application_maintenance_configuration is not None:
+            pulumi.set(__self__, "application_maintenance_configuration", application_maintenance_configuration)
         if application_mode is not None:
             pulumi.set(__self__, "application_mode", application_mode)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
+        if run_configuration is not None:
+            pulumi.set(__self__, "run_configuration", run_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -96,6 +104,18 @@ class ApplicationArgs:
         pulumi.set(self, "application_description", value)
 
     @property
+    @pulumi.getter(name="applicationMaintenanceConfiguration")
+    def application_maintenance_configuration(self) -> Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']]:
+        """
+        Used to configure start of maintenance window.
+        """
+        return pulumi.get(self, "application_maintenance_configuration")
+
+    @application_maintenance_configuration.setter
+    def application_maintenance_configuration(self, value: Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']]):
+        pulumi.set(self, "application_maintenance_configuration", value)
+
+    @property
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> Optional[pulumi.Input['ApplicationMode']]:
         """
@@ -120,6 +140,18 @@ class ApplicationArgs:
         pulumi.set(self, "application_name", value)
 
     @property
+    @pulumi.getter(name="runConfiguration")
+    def run_configuration(self) -> Optional[pulumi.Input['ApplicationRunConfigurationArgs']]:
+        """
+        Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+        """
+        return pulumi.get(self, "run_configuration")
+
+    @run_configuration.setter
+    def run_configuration(self, value: Optional[pulumi.Input['ApplicationRunConfigurationArgs']]):
+        pulumi.set(self, "run_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
         """
@@ -139,8 +171,10 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
+                 application_maintenance_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']]] = None,
                  application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
+                 run_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
@@ -152,8 +186,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']] application_configuration: Use this parameter to configure the application.
         :param pulumi.Input[str] application_description: The description of the application.
+        :param pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']] application_maintenance_configuration: Used to configure start of maintenance window.
         :param pulumi.Input['ApplicationMode'] application_mode: To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         :param pulumi.Input[str] application_name: The name of the application.
+        :param pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']] run_configuration: Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application.
         :param pulumi.Input[str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
@@ -184,8 +220,10 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
+                 application_maintenance_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMaintenanceConfigurationArgs']]] = None,
                  application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
+                 run_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationRunConfigurationArgs']]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
@@ -200,8 +238,10 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["application_configuration"] = application_configuration
             __props__.__dict__["application_description"] = application_description
+            __props__.__dict__["application_maintenance_configuration"] = application_maintenance_configuration
             __props__.__dict__["application_mode"] = application_mode
             __props__.__dict__["application_name"] = application_name
+            __props__.__dict__["run_configuration"] = run_configuration
             if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")
             __props__.__dict__["runtime_environment"] = runtime_environment
@@ -233,8 +273,10 @@ class Application(pulumi.CustomResource):
 
         __props__.__dict__["application_configuration"] = None
         __props__.__dict__["application_description"] = None
+        __props__.__dict__["application_maintenance_configuration"] = None
         __props__.__dict__["application_mode"] = None
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["run_configuration"] = None
         __props__.__dict__["runtime_environment"] = None
         __props__.__dict__["service_execution_role"] = None
         __props__.__dict__["tags"] = None
@@ -257,6 +299,14 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "application_description")
 
     @property
+    @pulumi.getter(name="applicationMaintenanceConfiguration")
+    def application_maintenance_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationMaintenanceConfiguration']]:
+        """
+        Used to configure start of maintenance window.
+        """
+        return pulumi.get(self, "application_maintenance_configuration")
+
+    @property
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> pulumi.Output[Optional['ApplicationMode']]:
         """
@@ -271,6 +321,14 @@ class Application(pulumi.CustomResource):
         The name of the application.
         """
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="runConfiguration")
+    def run_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationRunConfiguration']]:
+        """
+        Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+        """
+        return pulumi.get(self, "run_configuration")
 
     @property
     @pulumi.getter(name="runtimeEnvironment")

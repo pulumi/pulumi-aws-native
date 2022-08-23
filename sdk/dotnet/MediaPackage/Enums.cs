@@ -148,6 +148,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public static OriginEndpointDashPackageProfile None { get; } = new OriginEndpointDashPackageProfile("NONE");
         public static OriginEndpointDashPackageProfile Hbbtv15 { get; } = new OriginEndpointDashPackageProfile("HBBTV_1_5");
         public static OriginEndpointDashPackageProfile Hybridcast { get; } = new OriginEndpointDashPackageProfile("HYBRIDCAST");
+        public static OriginEndpointDashPackageProfile DvbDash2014 { get; } = new OriginEndpointDashPackageProfile("DVB_DASH_2014");
 
         public static bool operator ==(OriginEndpointDashPackageProfile left, OriginEndpointDashPackageProfile right) => left.Equals(right);
         public static bool operator !=(OriginEndpointDashPackageProfile left, OriginEndpointDashPackageProfile right) => !left.Equals(right);
@@ -209,6 +210,7 @@ namespace Pulumi.AwsNative.MediaPackage
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static OriginEndpointDashPackageUtcTiming HttpXsdate { get; } = new OriginEndpointDashPackageUtcTiming("HTTP-XSDATE");
         public static OriginEndpointDashPackageUtcTiming HttpIso { get; } = new OriginEndpointDashPackageUtcTiming("HTTP-ISO");
         public static OriginEndpointDashPackageUtcTiming HttpHead { get; } = new OriginEndpointDashPackageUtcTiming("HTTP-HEAD");
         public static OriginEndpointDashPackageUtcTiming None { get; } = new OriginEndpointDashPackageUtcTiming("NONE");
@@ -242,6 +244,10 @@ namespace Pulumi.AwsNative.MediaPackage
         }
 
         public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio PresetAudio1 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio PresetAudio2 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-2");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio PresetAudio3 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-3");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio Shared { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("SHARED");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio Unencrypted { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("UNENCRYPTED");
 
         public static bool operator ==(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio right) => left.Equals(right);
         public static bool operator !=(OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio right) => !left.Equals(right);
@@ -272,6 +278,15 @@ namespace Pulumi.AwsNative.MediaPackage
         }
 
         public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo1 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo2 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-2");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo3 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-3");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo4 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-4");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo5 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-5");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo6 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-6");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo7 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-7");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video PresetVideo8 { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-8");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video Shared { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("SHARED");
+        public static OriginEndpointEncryptionContractConfigurationPresetSpeke20Video Unencrypted { get; } = new OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("UNENCRYPTED");
 
         public static bool operator ==(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Video right) => left.Equals(right);
         public static bool operator !=(OriginEndpointEncryptionContractConfigurationPresetSpeke20Video left, OriginEndpointEncryptionContractConfigurationPresetSpeke20Video right) => !left.Equals(right);

@@ -232,6 +232,8 @@ class ResponsePlanIncidentTemplate(dict):
         suggest = None
         if key == "dedupeString":
             suggest = "dedupe_string"
+        elif key == "incidentTags":
+            suggest = "incident_tags"
         elif key == "notificationTargets":
             suggest = "notification_targets"
 
@@ -250,6 +252,7 @@ class ResponsePlanIncidentTemplate(dict):
                  impact: int,
                  title: str,
                  dedupe_string: Optional[str] = None,
+                 incident_tags: Optional[Sequence['outputs.ResponsePlanTag']] = None,
                  notification_targets: Optional[Sequence['outputs.ResponsePlanNotificationTargetItem']] = None,
                  summary: Optional[str] = None):
         """
@@ -257,6 +260,7 @@ class ResponsePlanIncidentTemplate(dict):
         :param int impact: The impact value.
         :param str title: The title string.
         :param str dedupe_string: The deduplication string.
+        :param Sequence['ResponsePlanTag'] incident_tags: Tags that get applied to incidents created by the StartIncident API action.
         :param Sequence['ResponsePlanNotificationTargetItem'] notification_targets: The list of notification targets.
         :param str summary: The summary string.
         """
@@ -264,6 +268,8 @@ class ResponsePlanIncidentTemplate(dict):
         pulumi.set(__self__, "title", title)
         if dedupe_string is not None:
             pulumi.set(__self__, "dedupe_string", dedupe_string)
+        if incident_tags is not None:
+            pulumi.set(__self__, "incident_tags", incident_tags)
         if notification_targets is not None:
             pulumi.set(__self__, "notification_targets", notification_targets)
         if summary is not None:
@@ -292,6 +298,14 @@ class ResponsePlanIncidentTemplate(dict):
         The deduplication string.
         """
         return pulumi.get(self, "dedupe_string")
+
+    @property
+    @pulumi.getter(name="incidentTags")
+    def incident_tags(self) -> Optional[Sequence['outputs.ResponsePlanTag']]:
+        """
+        Tags that get applied to incidents created by the StartIncident API action.
+        """
+        return pulumi.get(self, "incident_tags")
 
     @property
     @pulumi.getter(name="notificationTargets")

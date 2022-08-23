@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         public readonly bool? AllowInterrupt;
         public readonly int MaxRetries;
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroupsList;
+        public readonly Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? MessageSelectionStrategy;
 
         [OutputConstructor]
         private BotPromptSpecification(
@@ -29,11 +30,14 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             int maxRetries,
 
-            ImmutableArray<Outputs.BotMessageGroup> messageGroupsList)
+            ImmutableArray<Outputs.BotMessageGroup> messageGroupsList,
+
+            Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? messageSelectionStrategy)
         {
             AllowInterrupt = allowInterrupt;
             MaxRetries = maxRetries;
             MessageGroupsList = messageGroupsList;
+            MessageSelectionStrategy = messageSelectionStrategy;
         }
     }
 }

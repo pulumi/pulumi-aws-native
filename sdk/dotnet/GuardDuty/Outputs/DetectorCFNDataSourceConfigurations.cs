@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     public sealed class DetectorCFNDataSourceConfigurations
     {
         public readonly Outputs.DetectorCFNKubernetesConfiguration? Kubernetes;
+        public readonly Outputs.DetectorCFNMalwareProtectionConfiguration? MalwareProtection;
         public readonly Outputs.DetectorCFNS3LogsConfiguration? S3Logs;
 
         [OutputConstructor]
         private DetectorCFNDataSourceConfigurations(
             Outputs.DetectorCFNKubernetesConfiguration? kubernetes,
 
+            Outputs.DetectorCFNMalwareProtectionConfiguration? malwareProtection,
+
             Outputs.DetectorCFNS3LogsConfiguration? s3Logs)
         {
             Kubernetes = kubernetes;
+            MalwareProtection = malwareProtection;
             S3Logs = s3Logs;
         }
     }

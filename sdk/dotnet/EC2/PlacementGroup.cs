@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
+        /// </summary>
+        [Output("spreadLevel")]
+        public Output<string?> SpreadLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The placement strategy.
         /// </summary>
         [Output("strategy")]
@@ -72,6 +78,12 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
+        /// </summary>
+        [Input("spreadLevel")]
+        public Input<string>? SpreadLevel { get; set; }
+
         /// <summary>
         /// The placement strategy.
         /// </summary>

@@ -769,9 +769,10 @@ func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.I
 type OriginEndpointDashPackageProfile string
 
 const (
-	OriginEndpointDashPackageProfileNone       = OriginEndpointDashPackageProfile("NONE")
-	OriginEndpointDashPackageProfileHbbtv15    = OriginEndpointDashPackageProfile("HBBTV_1_5")
-	OriginEndpointDashPackageProfileHybridcast = OriginEndpointDashPackageProfile("HYBRIDCAST")
+	OriginEndpointDashPackageProfileNone        = OriginEndpointDashPackageProfile("NONE")
+	OriginEndpointDashPackageProfileHbbtv15     = OriginEndpointDashPackageProfile("HBBTV_1_5")
+	OriginEndpointDashPackageProfileHybridcast  = OriginEndpointDashPackageProfile("HYBRIDCAST")
+	OriginEndpointDashPackageProfileDvbDash2014 = OriginEndpointDashPackageProfile("DVB_DASH_2014")
 )
 
 func (OriginEndpointDashPackageProfile) ElementType() reflect.Type {
@@ -1101,9 +1102,10 @@ func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDas
 type OriginEndpointDashPackageUtcTiming string
 
 const (
-	OriginEndpointDashPackageUtcTimingHttpIso  = OriginEndpointDashPackageUtcTiming("HTTP-ISO")
-	OriginEndpointDashPackageUtcTimingHttpHead = OriginEndpointDashPackageUtcTiming("HTTP-HEAD")
-	OriginEndpointDashPackageUtcTimingNone     = OriginEndpointDashPackageUtcTiming("NONE")
+	OriginEndpointDashPackageUtcTimingHttpXsdate = OriginEndpointDashPackageUtcTiming("HTTP-XSDATE")
+	OriginEndpointDashPackageUtcTimingHttpIso    = OriginEndpointDashPackageUtcTiming("HTTP-ISO")
+	OriginEndpointDashPackageUtcTimingHttpHead   = OriginEndpointDashPackageUtcTiming("HTTP-HEAD")
+	OriginEndpointDashPackageUtcTimingNone       = OriginEndpointDashPackageUtcTiming("NONE")
 )
 
 func (OriginEndpointDashPackageUtcTiming) ElementType() reflect.Type {
@@ -1268,6 +1270,10 @@ type OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio string
 
 const (
 	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio1 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio2 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-2")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio3 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-3")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioShared       = OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("SHARED")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioUnencrypted  = OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("UNENCRYPTED")
 )
 
 func (OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio) ElementType() reflect.Type {
@@ -1432,6 +1438,15 @@ type OriginEndpointEncryptionContractConfigurationPresetSpeke20Video string
 
 const (
 	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo1 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo2 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-2")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo3 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-3")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo4 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-4")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo5 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-5")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo6 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-6")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo7 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-7")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo8 = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-8")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoShared       = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("SHARED")
+	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoUnencrypted  = OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("UNENCRYPTED")
 )
 
 func (OriginEndpointEncryptionContractConfigurationPresetSpeke20Video) ElementType() reflect.Type {
@@ -4564,8 +4579,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageProfilePtrInput)(nil)).Elem(), OriginEndpointDashPackageProfile("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageSegmentTemplateFormatInput)(nil)).Elem(), OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageSegmentTemplateFormatPtrInput)(nil)).Elem(), OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageUtcTimingInput)(nil)).Elem(), OriginEndpointDashPackageUtcTiming("HTTP-ISO"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageUtcTimingPtrInput)(nil)).Elem(), OriginEndpointDashPackageUtcTiming("HTTP-ISO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageUtcTimingInput)(nil)).Elem(), OriginEndpointDashPackageUtcTiming("HTTP-XSDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageUtcTimingPtrInput)(nil)).Elem(), OriginEndpointDashPackageUtcTiming("HTTP-XSDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1"))

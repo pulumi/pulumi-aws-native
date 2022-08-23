@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly string? Comment;
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
         public readonly Outputs.DistributionLegacyCustomOrigin? CustomOrigin;
-        public readonly Outputs.DistributionDefaultCacheBehavior? DefaultCacheBehavior;
+        public readonly Outputs.DistributionDefaultCacheBehavior DefaultCacheBehavior;
         public readonly string? DefaultRootObject;
         public readonly bool Enabled;
         public readonly string? HttpVersion;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionLegacyCustomOrigin? customOrigin,
 
-            Outputs.DistributionDefaultCacheBehavior? defaultCacheBehavior,
+            Outputs.DistributionDefaultCacheBehavior defaultCacheBehavior,
 
             string? defaultRootObject,
 

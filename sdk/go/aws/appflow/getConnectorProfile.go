@@ -28,6 +28,8 @@ type LookupConnectorProfileArgs struct {
 type LookupConnectorProfileResult struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode *ConnectorProfileConnectionMode `pulumi:"connectionMode"`
+	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+	ConnectorLabel *string `pulumi:"connectorLabel"`
 	// Unique identifier for connector profile resources
 	ConnectorProfileArn *string `pulumi:"connectorProfileArn"`
 	// A unique Arn for Connector-Profile resource
@@ -73,6 +75,11 @@ func (o LookupConnectorProfileResultOutput) ToLookupConnectorProfileResultOutput
 // Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 func (o LookupConnectorProfileResultOutput) ConnectionMode() ConnectorProfileConnectionModePtrOutput {
 	return o.ApplyT(func(v LookupConnectorProfileResult) *ConnectorProfileConnectionMode { return v.ConnectionMode }).(ConnectorProfileConnectionModePtrOutput)
+}
+
+// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+func (o LookupConnectorProfileResultOutput) ConnectorLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorProfileResult) *string { return v.ConnectorLabel }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier for connector profile resources

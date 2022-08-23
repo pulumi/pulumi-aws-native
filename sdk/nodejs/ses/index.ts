@@ -8,9 +8,12 @@ import * as utilities from "../utilities";
 export * from "./configurationSet";
 export * from "./configurationSetEventDestination";
 export * from "./contactList";
+export * from "./dedicatedIpPool";
+export * from "./emailIdentity";
 export * from "./getConfigurationSet";
 export * from "./getConfigurationSetEventDestination";
 export * from "./getContactList";
+export * from "./getEmailIdentity";
 export * from "./getReceiptFilter";
 export * from "./getReceiptRule";
 export * from "./getReceiptRuleSet";
@@ -24,6 +27,8 @@ export * from "./template";
 import { ConfigurationSet } from "./configurationSet";
 import { ConfigurationSetEventDestination } from "./configurationSetEventDestination";
 import { ContactList } from "./contactList";
+import { DedicatedIpPool } from "./dedicatedIpPool";
+import { EmailIdentity } from "./emailIdentity";
 import { ReceiptFilter } from "./receiptFilter";
 import { ReceiptRule } from "./receiptRule";
 import { ReceiptRuleSet } from "./receiptRuleSet";
@@ -39,6 +44,10 @@ const _module = {
                 return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
             case "aws-native:ses:ContactList":
                 return new ContactList(name, <any>undefined, { urn })
+            case "aws-native:ses:DedicatedIpPool":
+                return new DedicatedIpPool(name, <any>undefined, { urn })
+            case "aws-native:ses:EmailIdentity":
+                return new EmailIdentity(name, <any>undefined, { urn })
             case "aws-native:ses:ReceiptFilter":
                 return new ReceiptFilter(name, <any>undefined, { urn })
             case "aws-native:ses:ReceiptRule":

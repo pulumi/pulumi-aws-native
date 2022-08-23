@@ -19,23 +19,24 @@ class ContactFlowArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  instance_arn: pulumi.Input[str],
+                 type: pulumi.Input['ContactFlowType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['ContactFlowState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]]] = None,
-                 type: Optional[pulumi.Input['ContactFlowType']] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]]] = None):
         """
         The set of arguments for constructing a ContactFlow resource.
         :param pulumi.Input[str] content: The content of the contact flow in JSON format.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance (ARN).
+        :param pulumi.Input['ContactFlowType'] type: The type of the contact flow.
         :param pulumi.Input[str] description: The description of the contact flow.
         :param pulumi.Input[str] name: The name of the contact flow.
         :param pulumi.Input['ContactFlowState'] state: The state of the contact flow.
         :param pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]] tags: One or more tags.
-        :param pulumi.Input['ContactFlowType'] type: The type of the contact flow.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -44,8 +45,6 @@ class ContactFlowArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -70,6 +69,18 @@ class ContactFlowArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ContactFlowType']:
+        """
+        The type of the contact flow.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ContactFlowType']):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -118,18 +129,6 @@ class ContactFlowArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ContactFlowType']]:
-        """
-        The type of the contact flow.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ContactFlowType']]):
-        pulumi.set(self, "type", value)
 
 
 class ContactFlow(pulumi.CustomResource):
@@ -208,6 +207,8 @@ class ContactFlow(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["contact_flow_arn"] = None
         super(ContactFlow, __self__).__init__(
@@ -300,7 +301,7 @@ class ContactFlow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['ContactFlowType']]:
+    def type(self) -> pulumi.Output['ContactFlowType']:
         """
         The type of the contact flow.
         """

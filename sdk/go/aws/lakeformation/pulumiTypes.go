@@ -10,6 +10,305 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+type DataCellsFilterColumnWildcard struct {
+	// A list of column names to be excluded from the Data Cells Filter.
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+}
+
+// DataCellsFilterColumnWildcardInput is an input type that accepts DataCellsFilterColumnWildcardArgs and DataCellsFilterColumnWildcardOutput values.
+// You can construct a concrete instance of `DataCellsFilterColumnWildcardInput` via:
+//
+//	DataCellsFilterColumnWildcardArgs{...}
+type DataCellsFilterColumnWildcardInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterColumnWildcardOutput() DataCellsFilterColumnWildcardOutput
+	ToDataCellsFilterColumnWildcardOutputWithContext(context.Context) DataCellsFilterColumnWildcardOutput
+}
+
+// An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+type DataCellsFilterColumnWildcardArgs struct {
+	// A list of column names to be excluded from the Data Cells Filter.
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+}
+
+func (DataCellsFilterColumnWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterColumnWildcard)(nil)).Elem()
+}
+
+func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardOutput() DataCellsFilterColumnWildcardOutput {
+	return i.ToDataCellsFilterColumnWildcardOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterColumnWildcardOutput)
+}
+
+func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput {
+	return i.ToDataCellsFilterColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterColumnWildcardOutput).ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterColumnWildcardPtrInput is an input type that accepts DataCellsFilterColumnWildcardArgs, DataCellsFilterColumnWildcardPtr and DataCellsFilterColumnWildcardPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterColumnWildcardPtrInput` via:
+//
+//	        DataCellsFilterColumnWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterColumnWildcardPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput
+	ToDataCellsFilterColumnWildcardPtrOutputWithContext(context.Context) DataCellsFilterColumnWildcardPtrOutput
+}
+
+type dataCellsFilterColumnWildcardPtrType DataCellsFilterColumnWildcardArgs
+
+func DataCellsFilterColumnWildcardPtr(v *DataCellsFilterColumnWildcardArgs) DataCellsFilterColumnWildcardPtrInput {
+	return (*dataCellsFilterColumnWildcardPtrType)(v)
+}
+
+func (*dataCellsFilterColumnWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterColumnWildcard)(nil)).Elem()
+}
+
+func (i *dataCellsFilterColumnWildcardPtrType) ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput {
+	return i.ToDataCellsFilterColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterColumnWildcardPtrType) ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterColumnWildcardPtrOutput)
+}
+
+// An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+type DataCellsFilterColumnWildcardOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterColumnWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterColumnWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterColumnWildcardOutput) ToDataCellsFilterColumnWildcardOutput() DataCellsFilterColumnWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterColumnWildcardOutput) ToDataCellsFilterColumnWildcardOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardOutput {
+	return o
+}
+
+func (o DataCellsFilterColumnWildcardOutput) ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput {
+	return o.ToDataCellsFilterColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterColumnWildcardOutput) ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterColumnWildcard) *DataCellsFilterColumnWildcard {
+		return &v
+	}).(DataCellsFilterColumnWildcardPtrOutput)
+}
+
+// A list of column names to be excluded from the Data Cells Filter.
+func (o DataCellsFilterColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCellsFilterColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type DataCellsFilterColumnWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterColumnWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterColumnWildcard)(nil)).Elem()
+}
+
+func (o DataCellsFilterColumnWildcardPtrOutput) ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterColumnWildcardPtrOutput) ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterColumnWildcardPtrOutput) Elem() DataCellsFilterColumnWildcardOutput {
+	return o.ApplyT(func(v *DataCellsFilterColumnWildcard) DataCellsFilterColumnWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterColumnWildcard
+		return ret
+	}).(DataCellsFilterColumnWildcardOutput)
+}
+
+// A list of column names to be excluded from the Data Cells Filter.
+func (o DataCellsFilterColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataCellsFilterColumnWildcard) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+type DataCellsFilterRowFilter struct {
+	// An empty object representing a row wildcard.
+	AllRowsWildcard interface{} `pulumi:"allRowsWildcard"`
+	// A PartiQL predicate.
+	FilterExpression *string `pulumi:"filterExpression"`
+}
+
+// DataCellsFilterRowFilterInput is an input type that accepts DataCellsFilterRowFilterArgs and DataCellsFilterRowFilterOutput values.
+// You can construct a concrete instance of `DataCellsFilterRowFilterInput` via:
+//
+//	DataCellsFilterRowFilterArgs{...}
+type DataCellsFilterRowFilterInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterRowFilterOutput() DataCellsFilterRowFilterOutput
+	ToDataCellsFilterRowFilterOutputWithContext(context.Context) DataCellsFilterRowFilterOutput
+}
+
+// An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+type DataCellsFilterRowFilterArgs struct {
+	// An empty object representing a row wildcard.
+	AllRowsWildcard pulumi.Input `pulumi:"allRowsWildcard"`
+	// A PartiQL predicate.
+	FilterExpression pulumi.StringPtrInput `pulumi:"filterExpression"`
+}
+
+func (DataCellsFilterRowFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterRowFilter)(nil)).Elem()
+}
+
+func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterOutput() DataCellsFilterRowFilterOutput {
+	return i.ToDataCellsFilterRowFilterOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterOutputWithContext(ctx context.Context) DataCellsFilterRowFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterRowFilterOutput)
+}
+
+func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput {
+	return i.ToDataCellsFilterRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterRowFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterRowFilterOutput).ToDataCellsFilterRowFilterPtrOutputWithContext(ctx)
+}
+
+// DataCellsFilterRowFilterPtrInput is an input type that accepts DataCellsFilterRowFilterArgs, DataCellsFilterRowFilterPtr and DataCellsFilterRowFilterPtrOutput values.
+// You can construct a concrete instance of `DataCellsFilterRowFilterPtrInput` via:
+//
+//	        DataCellsFilterRowFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCellsFilterRowFilterPtrInput interface {
+	pulumi.Input
+
+	ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput
+	ToDataCellsFilterRowFilterPtrOutputWithContext(context.Context) DataCellsFilterRowFilterPtrOutput
+}
+
+type dataCellsFilterRowFilterPtrType DataCellsFilterRowFilterArgs
+
+func DataCellsFilterRowFilterPtr(v *DataCellsFilterRowFilterArgs) DataCellsFilterRowFilterPtrInput {
+	return (*dataCellsFilterRowFilterPtrType)(v)
+}
+
+func (*dataCellsFilterRowFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterRowFilter)(nil)).Elem()
+}
+
+func (i *dataCellsFilterRowFilterPtrType) ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput {
+	return i.ToDataCellsFilterRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCellsFilterRowFilterPtrType) ToDataCellsFilterRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterRowFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterRowFilterPtrOutput)
+}
+
+// An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+type DataCellsFilterRowFilterOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterRowFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCellsFilterRowFilter)(nil)).Elem()
+}
+
+func (o DataCellsFilterRowFilterOutput) ToDataCellsFilterRowFilterOutput() DataCellsFilterRowFilterOutput {
+	return o
+}
+
+func (o DataCellsFilterRowFilterOutput) ToDataCellsFilterRowFilterOutputWithContext(ctx context.Context) DataCellsFilterRowFilterOutput {
+	return o
+}
+
+func (o DataCellsFilterRowFilterOutput) ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput {
+	return o.ToDataCellsFilterRowFilterPtrOutputWithContext(context.Background())
+}
+
+func (o DataCellsFilterRowFilterOutput) ToDataCellsFilterRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterRowFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCellsFilterRowFilter) *DataCellsFilterRowFilter {
+		return &v
+	}).(DataCellsFilterRowFilterPtrOutput)
+}
+
+// An empty object representing a row wildcard.
+func (o DataCellsFilterRowFilterOutput) AllRowsWildcard() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataCellsFilterRowFilter) interface{} { return v.AllRowsWildcard }).(pulumi.AnyOutput)
+}
+
+// A PartiQL predicate.
+func (o DataCellsFilterRowFilterOutput) FilterExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCellsFilterRowFilter) *string { return v.FilterExpression }).(pulumi.StringPtrOutput)
+}
+
+type DataCellsFilterRowFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCellsFilterRowFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCellsFilterRowFilter)(nil)).Elem()
+}
+
+func (o DataCellsFilterRowFilterPtrOutput) ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterRowFilterPtrOutput) ToDataCellsFilterRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterRowFilterPtrOutput {
+	return o
+}
+
+func (o DataCellsFilterRowFilterPtrOutput) Elem() DataCellsFilterRowFilterOutput {
+	return o.ApplyT(func(v *DataCellsFilterRowFilter) DataCellsFilterRowFilter {
+		if v != nil {
+			return *v
+		}
+		var ret DataCellsFilterRowFilter
+		return ret
+	}).(DataCellsFilterRowFilterOutput)
+}
+
+// An empty object representing a row wildcard.
+func (o DataCellsFilterRowFilterPtrOutput) AllRowsWildcard() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataCellsFilterRowFilter) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AllRowsWildcard
+	}).(pulumi.AnyOutput)
+}
+
+// A PartiQL predicate.
+func (o DataCellsFilterRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCellsFilterRowFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataLakeSettingsAdmins struct {
 }
 
@@ -1255,7 +1554,2712 @@ func (o PermissionsTableWithColumnsResourcePtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrincipalPermissionsCatalogResource struct {
+}
+
+// PrincipalPermissionsCatalogResourceInput is an input type that accepts PrincipalPermissionsCatalogResourceArgs and PrincipalPermissionsCatalogResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsCatalogResourceInput` via:
+//
+//	PrincipalPermissionsCatalogResourceArgs{...}
+type PrincipalPermissionsCatalogResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsCatalogResourceOutput() PrincipalPermissionsCatalogResourceOutput
+	ToPrincipalPermissionsCatalogResourceOutputWithContext(context.Context) PrincipalPermissionsCatalogResourceOutput
+}
+
+type PrincipalPermissionsCatalogResourceArgs struct {
+}
+
+func (PrincipalPermissionsCatalogResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsCatalogResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogResourceOutput() PrincipalPermissionsCatalogResourceOutput {
+	return i.ToPrincipalPermissionsCatalogResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogResourceOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourceOutput)
+}
+
+func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput {
+	return i.ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourceOutput).ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsCatalogResourcePtrInput is an input type that accepts PrincipalPermissionsCatalogResourceArgs, PrincipalPermissionsCatalogResourcePtr and PrincipalPermissionsCatalogResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsCatalogResourcePtrInput` via:
+//
+//	        PrincipalPermissionsCatalogResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsCatalogResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput
+	ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(context.Context) PrincipalPermissionsCatalogResourcePtrOutput
+}
+
+type principalPermissionsCatalogResourcePtrType PrincipalPermissionsCatalogResourceArgs
+
+func PrincipalPermissionsCatalogResourcePtr(v *PrincipalPermissionsCatalogResourceArgs) PrincipalPermissionsCatalogResourcePtrInput {
+	return (*principalPermissionsCatalogResourcePtrType)(v)
+}
+
+func (*principalPermissionsCatalogResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsCatalogResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsCatalogResourcePtrType) ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput {
+	return i.ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsCatalogResourcePtrType) ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourcePtrOutput)
+}
+
+type PrincipalPermissionsCatalogResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsCatalogResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsCatalogResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalogResourceOutput() PrincipalPermissionsCatalogResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalogResourceOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput {
+	return o.ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsCatalogResource) *PrincipalPermissionsCatalogResource {
+		return &v
+	}).(PrincipalPermissionsCatalogResourcePtrOutput)
+}
+
+type PrincipalPermissionsCatalogResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsCatalogResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsCatalogResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsCatalogResourcePtrOutput) ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsCatalogResourcePtrOutput) ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsCatalogResourcePtrOutput) Elem() PrincipalPermissionsCatalogResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsCatalogResource) PrincipalPermissionsCatalogResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsCatalogResource
+		return ret
+	}).(PrincipalPermissionsCatalogResourceOutput)
+}
+
+type PrincipalPermissionsColumnWildcard struct {
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+}
+
+// PrincipalPermissionsColumnWildcardInput is an input type that accepts PrincipalPermissionsColumnWildcardArgs and PrincipalPermissionsColumnWildcardOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsColumnWildcardInput` via:
+//
+//	PrincipalPermissionsColumnWildcardArgs{...}
+type PrincipalPermissionsColumnWildcardInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsColumnWildcardOutput() PrincipalPermissionsColumnWildcardOutput
+	ToPrincipalPermissionsColumnWildcardOutputWithContext(context.Context) PrincipalPermissionsColumnWildcardOutput
+}
+
+type PrincipalPermissionsColumnWildcardArgs struct {
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+}
+
+func (PrincipalPermissionsColumnWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsColumnWildcard)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWildcardOutput() PrincipalPermissionsColumnWildcardOutput {
+	return i.ToPrincipalPermissionsColumnWildcardOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWildcardOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardOutput)
+}
+
+func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput {
+	return i.ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardOutput).ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsColumnWildcardPtrInput is an input type that accepts PrincipalPermissionsColumnWildcardArgs, PrincipalPermissionsColumnWildcardPtr and PrincipalPermissionsColumnWildcardPtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsColumnWildcardPtrInput` via:
+//
+//	        PrincipalPermissionsColumnWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsColumnWildcardPtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput
+	ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(context.Context) PrincipalPermissionsColumnWildcardPtrOutput
+}
+
+type principalPermissionsColumnWildcardPtrType PrincipalPermissionsColumnWildcardArgs
+
+func PrincipalPermissionsColumnWildcardPtr(v *PrincipalPermissionsColumnWildcardArgs) PrincipalPermissionsColumnWildcardPtrInput {
+	return (*principalPermissionsColumnWildcardPtrType)(v)
+}
+
+func (*principalPermissionsColumnWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsColumnWildcard)(nil)).Elem()
+}
+
+func (i *principalPermissionsColumnWildcardPtrType) ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput {
+	return i.ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsColumnWildcardPtrType) ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardPtrOutput)
+}
+
+type PrincipalPermissionsColumnWildcardOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsColumnWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsColumnWildcard)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWildcardOutput() PrincipalPermissionsColumnWildcardOutput {
+	return o
+}
+
+func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWildcardOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardOutput {
+	return o
+}
+
+func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput {
+	return o.ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsColumnWildcard) *PrincipalPermissionsColumnWildcard {
+		return &v
+	}).(PrincipalPermissionsColumnWildcardPtrOutput)
+}
+
+func (o PrincipalPermissionsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type PrincipalPermissionsColumnWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsColumnWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsColumnWildcard)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsColumnWildcardPtrOutput) ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsColumnWildcardPtrOutput) ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsColumnWildcardPtrOutput) Elem() PrincipalPermissionsColumnWildcardOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsColumnWildcard) PrincipalPermissionsColumnWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsColumnWildcard
+		return ret
+	}).(PrincipalPermissionsColumnWildcardOutput)
+}
+
+func (o PrincipalPermissionsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsColumnWildcard) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type PrincipalPermissionsDataCellsFilterResource struct {
+	DatabaseName   string `pulumi:"databaseName"`
+	Name           string `pulumi:"name"`
+	TableCatalogId string `pulumi:"tableCatalogId"`
+	TableName      string `pulumi:"tableName"`
+}
+
+// PrincipalPermissionsDataCellsFilterResourceInput is an input type that accepts PrincipalPermissionsDataCellsFilterResourceArgs and PrincipalPermissionsDataCellsFilterResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDataCellsFilterResourceInput` via:
+//
+//	PrincipalPermissionsDataCellsFilterResourceArgs{...}
+type PrincipalPermissionsDataCellsFilterResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDataCellsFilterResourceOutput() PrincipalPermissionsDataCellsFilterResourceOutput
+	ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(context.Context) PrincipalPermissionsDataCellsFilterResourceOutput
+}
+
+type PrincipalPermissionsDataCellsFilterResourceArgs struct {
+	DatabaseName   pulumi.StringInput `pulumi:"databaseName"`
+	Name           pulumi.StringInput `pulumi:"name"`
+	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
+	TableName      pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (PrincipalPermissionsDataCellsFilterResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataCellsFilterResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsDataCellsFilterResourceOutput() PrincipalPermissionsDataCellsFilterResourceOutput {
+	return i.ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourceOutput)
+}
+
+func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return i.ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourceOutput).ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsDataCellsFilterResourcePtrInput is an input type that accepts PrincipalPermissionsDataCellsFilterResourceArgs, PrincipalPermissionsDataCellsFilterResourcePtr and PrincipalPermissionsDataCellsFilterResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDataCellsFilterResourcePtrInput` via:
+//
+//	        PrincipalPermissionsDataCellsFilterResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsDataCellsFilterResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput
+	ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput
+}
+
+type principalPermissionsDataCellsFilterResourcePtrType PrincipalPermissionsDataCellsFilterResourceArgs
+
+func PrincipalPermissionsDataCellsFilterResourcePtr(v *PrincipalPermissionsDataCellsFilterResourceArgs) PrincipalPermissionsDataCellsFilterResourcePtrInput {
+	return (*principalPermissionsDataCellsFilterResourcePtrType)(v)
+}
+
+func (*principalPermissionsDataCellsFilterResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDataCellsFilterResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsDataCellsFilterResourcePtrType) ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return i.ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsDataCellsFilterResourcePtrType) ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
+}
+
+type PrincipalPermissionsDataCellsFilterResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDataCellsFilterResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataCellsFilterResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermissionsDataCellsFilterResourceOutput() PrincipalPermissionsDataCellsFilterResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return o.ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsDataCellsFilterResource) *PrincipalPermissionsDataCellsFilterResource {
+		return &v
+	}).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) TableCatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.TableCatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourceOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type PrincipalPermissionsDataCellsFilterResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDataCellsFilterResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDataCellsFilterResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Elem() PrincipalPermissionsDataCellsFilterResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) PrincipalPermissionsDataCellsFilterResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsDataCellsFilterResource
+		return ret
+	}).(PrincipalPermissionsDataCellsFilterResourceOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableCatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrincipalPermissionsDataLakePrincipal struct {
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// PrincipalPermissionsDataLakePrincipalInput is an input type that accepts PrincipalPermissionsDataLakePrincipalArgs and PrincipalPermissionsDataLakePrincipalOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDataLakePrincipalInput` via:
+//
+//	PrincipalPermissionsDataLakePrincipalArgs{...}
+type PrincipalPermissionsDataLakePrincipalInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDataLakePrincipalOutput() PrincipalPermissionsDataLakePrincipalOutput
+	ToPrincipalPermissionsDataLakePrincipalOutputWithContext(context.Context) PrincipalPermissionsDataLakePrincipalOutput
+}
+
+type PrincipalPermissionsDataLakePrincipalArgs struct {
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (PrincipalPermissionsDataLakePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataLakePrincipal)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsDataLakePrincipalArgs) ToPrincipalPermissionsDataLakePrincipalOutput() PrincipalPermissionsDataLakePrincipalOutput {
+	return i.ToPrincipalPermissionsDataLakePrincipalOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDataLakePrincipalArgs) ToPrincipalPermissionsDataLakePrincipalOutputWithContext(ctx context.Context) PrincipalPermissionsDataLakePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLakePrincipalOutput)
+}
+
+type PrincipalPermissionsDataLakePrincipalOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDataLakePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataLakePrincipal)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDataLakePrincipalOutput) ToPrincipalPermissionsDataLakePrincipalOutput() PrincipalPermissionsDataLakePrincipalOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLakePrincipalOutput) ToPrincipalPermissionsDataLakePrincipalOutputWithContext(ctx context.Context) PrincipalPermissionsDataLakePrincipalOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type PrincipalPermissionsDataLocationResource struct {
+	CatalogId   string `pulumi:"catalogId"`
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// PrincipalPermissionsDataLocationResourceInput is an input type that accepts PrincipalPermissionsDataLocationResourceArgs and PrincipalPermissionsDataLocationResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDataLocationResourceInput` via:
+//
+//	PrincipalPermissionsDataLocationResourceArgs{...}
+type PrincipalPermissionsDataLocationResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDataLocationResourceOutput() PrincipalPermissionsDataLocationResourceOutput
+	ToPrincipalPermissionsDataLocationResourceOutputWithContext(context.Context) PrincipalPermissionsDataLocationResourceOutput
+}
+
+type PrincipalPermissionsDataLocationResourceArgs struct {
+	CatalogId   pulumi.StringInput `pulumi:"catalogId"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (PrincipalPermissionsDataLocationResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataLocationResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourceOutput() PrincipalPermissionsDataLocationResourceOutput {
+	return i.ToPrincipalPermissionsDataLocationResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourceOutput)
+}
+
+func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput {
+	return i.ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourceOutput).ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsDataLocationResourcePtrInput is an input type that accepts PrincipalPermissionsDataLocationResourceArgs, PrincipalPermissionsDataLocationResourcePtr and PrincipalPermissionsDataLocationResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDataLocationResourcePtrInput` via:
+//
+//	        PrincipalPermissionsDataLocationResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsDataLocationResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput
+	ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(context.Context) PrincipalPermissionsDataLocationResourcePtrOutput
+}
+
+type principalPermissionsDataLocationResourcePtrType PrincipalPermissionsDataLocationResourceArgs
+
+func PrincipalPermissionsDataLocationResourcePtr(v *PrincipalPermissionsDataLocationResourceArgs) PrincipalPermissionsDataLocationResourcePtrInput {
+	return (*principalPermissionsDataLocationResourcePtrType)(v)
+}
+
+func (*principalPermissionsDataLocationResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDataLocationResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsDataLocationResourcePtrType) ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput {
+	return i.ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsDataLocationResourcePtrType) ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourcePtrOutput)
+}
+
+type PrincipalPermissionsDataLocationResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDataLocationResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDataLocationResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDataLocationResourceOutput() PrincipalPermissionsDataLocationResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDataLocationResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput {
+	return o.ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsDataLocationResource) *PrincipalPermissionsDataLocationResource {
+		return &v
+	}).(PrincipalPermissionsDataLocationResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataLocationResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsDataLocationResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDataLocationResource) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type PrincipalPermissionsDataLocationResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDataLocationResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDataLocationResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDataLocationResourcePtrOutput) ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLocationResourcePtrOutput) ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDataLocationResourcePtrOutput) Elem() PrincipalPermissionsDataLocationResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataLocationResource) PrincipalPermissionsDataLocationResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsDataLocationResource
+		return ret
+	}).(PrincipalPermissionsDataLocationResourceOutput)
+}
+
+func (o PrincipalPermissionsDataLocationResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataLocationResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsDataLocationResourcePtrOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDataLocationResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrincipalPermissionsDatabaseResource struct {
+	CatalogId string `pulumi:"catalogId"`
+	Name      string `pulumi:"name"`
+}
+
+// PrincipalPermissionsDatabaseResourceInput is an input type that accepts PrincipalPermissionsDatabaseResourceArgs and PrincipalPermissionsDatabaseResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDatabaseResourceInput` via:
+//
+//	PrincipalPermissionsDatabaseResourceArgs{...}
+type PrincipalPermissionsDatabaseResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDatabaseResourceOutput() PrincipalPermissionsDatabaseResourceOutput
+	ToPrincipalPermissionsDatabaseResourceOutputWithContext(context.Context) PrincipalPermissionsDatabaseResourceOutput
+}
+
+type PrincipalPermissionsDatabaseResourceArgs struct {
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	Name      pulumi.StringInput `pulumi:"name"`
+}
+
+func (PrincipalPermissionsDatabaseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDatabaseResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabaseResourceOutput() PrincipalPermissionsDatabaseResourceOutput {
+	return i.ToPrincipalPermissionsDatabaseResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabaseResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourceOutput)
+}
+
+func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput {
+	return i.ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourceOutput).ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsDatabaseResourcePtrInput is an input type that accepts PrincipalPermissionsDatabaseResourceArgs, PrincipalPermissionsDatabaseResourcePtr and PrincipalPermissionsDatabaseResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsDatabaseResourcePtrInput` via:
+//
+//	        PrincipalPermissionsDatabaseResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsDatabaseResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput
+	ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(context.Context) PrincipalPermissionsDatabaseResourcePtrOutput
+}
+
+type principalPermissionsDatabaseResourcePtrType PrincipalPermissionsDatabaseResourceArgs
+
+func PrincipalPermissionsDatabaseResourcePtr(v *PrincipalPermissionsDatabaseResourceArgs) PrincipalPermissionsDatabaseResourcePtrInput {
+	return (*principalPermissionsDatabaseResourcePtrType)(v)
+}
+
+func (*principalPermissionsDatabaseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDatabaseResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsDatabaseResourcePtrType) ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput {
+	return i.ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsDatabaseResourcePtrType) ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourcePtrOutput)
+}
+
+type PrincipalPermissionsDatabaseResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDatabaseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsDatabaseResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDatabaseResourceOutput() PrincipalPermissionsDatabaseResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDatabaseResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput {
+	return o.ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsDatabaseResource) *PrincipalPermissionsDatabaseResource {
+		return &v
+	}).(PrincipalPermissionsDatabaseResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsDatabaseResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsDatabaseResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PrincipalPermissionsDatabaseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsDatabaseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsDatabaseResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsDatabaseResourcePtrOutput) ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDatabaseResourcePtrOutput) ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsDatabaseResourcePtrOutput) Elem() PrincipalPermissionsDatabaseResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDatabaseResource) PrincipalPermissionsDatabaseResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsDatabaseResource
+		return ret
+	}).(PrincipalPermissionsDatabaseResourceOutput)
+}
+
+func (o PrincipalPermissionsDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDatabaseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsDatabaseResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsDatabaseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrincipalPermissionsLFTag struct {
+	TagKey    *string  `pulumi:"tagKey"`
+	TagValues []string `pulumi:"tagValues"`
+}
+
+// PrincipalPermissionsLFTagInput is an input type that accepts PrincipalPermissionsLFTagArgs and PrincipalPermissionsLFTagOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagInput` via:
+//
+//	PrincipalPermissionsLFTagArgs{...}
+type PrincipalPermissionsLFTagInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput
+	ToPrincipalPermissionsLFTagOutputWithContext(context.Context) PrincipalPermissionsLFTagOutput
+}
+
+type PrincipalPermissionsLFTagArgs struct {
+	TagKey    pulumi.StringPtrInput   `pulumi:"tagKey"`
+	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+}
+
+func (PrincipalPermissionsLFTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTag)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsLFTagArgs) ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput {
+	return i.ToPrincipalPermissionsLFTagOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagArgs) ToPrincipalPermissionsLFTagOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagOutput)
+}
+
+// PrincipalPermissionsLFTagArrayInput is an input type that accepts PrincipalPermissionsLFTagArray and PrincipalPermissionsLFTagArrayOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagArrayInput` via:
+//
+//	PrincipalPermissionsLFTagArray{ PrincipalPermissionsLFTagArgs{...} }
+type PrincipalPermissionsLFTagArrayInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput
+	ToPrincipalPermissionsLFTagArrayOutputWithContext(context.Context) PrincipalPermissionsLFTagArrayOutput
+}
+
+type PrincipalPermissionsLFTagArray []PrincipalPermissionsLFTagInput
+
+func (PrincipalPermissionsLFTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalPermissionsLFTag)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsLFTagArray) ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput {
+	return i.ToPrincipalPermissionsLFTagArrayOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagArray) ToPrincipalPermissionsLFTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagArrayOutput)
+}
+
+type PrincipalPermissionsLFTagOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTag)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagOutput) ToPrincipalPermissionsLFTagOutput() PrincipalPermissionsLFTagOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagOutput) ToPrincipalPermissionsLFTagOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTag) *string { return v.TagKey }).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTag) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+}
+
+type PrincipalPermissionsLFTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalPermissionsLFTag)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagArrayOutput) ToPrincipalPermissionsLFTagArrayOutput() PrincipalPermissionsLFTagArrayOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagArrayOutput) ToPrincipalPermissionsLFTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagArrayOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagArrayOutput) Index(i pulumi.IntInput) PrincipalPermissionsLFTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalPermissionsLFTag {
+		return vs[0].([]PrincipalPermissionsLFTag)[vs[1].(int)]
+	}).(PrincipalPermissionsLFTagOutput)
+}
+
+type PrincipalPermissionsLFTagKeyResource struct {
+	CatalogId string   `pulumi:"catalogId"`
+	TagKey    string   `pulumi:"tagKey"`
+	TagValues []string `pulumi:"tagValues"`
+}
+
+// PrincipalPermissionsLFTagKeyResourceInput is an input type that accepts PrincipalPermissionsLFTagKeyResourceArgs and PrincipalPermissionsLFTagKeyResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagKeyResourceInput` via:
+//
+//	PrincipalPermissionsLFTagKeyResourceArgs{...}
+type PrincipalPermissionsLFTagKeyResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput
+	ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(context.Context) PrincipalPermissionsLFTagKeyResourceOutput
+}
+
+type PrincipalPermissionsLFTagKeyResourceArgs struct {
+	CatalogId pulumi.StringInput      `pulumi:"catalogId"`
+	TagKey    pulumi.StringInput      `pulumi:"tagKey"`
+	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+}
+
+func (PrincipalPermissionsLFTagKeyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput {
+	return i.ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourceOutput)
+}
+
+func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagKeyResourceArgs) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourceOutput).ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsLFTagKeyResourcePtrInput is an input type that accepts PrincipalPermissionsLFTagKeyResourceArgs, PrincipalPermissionsLFTagKeyResourcePtr and PrincipalPermissionsLFTagKeyResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagKeyResourcePtrInput` via:
+//
+//	        PrincipalPermissionsLFTagKeyResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsLFTagKeyResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput
+	ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput
+}
+
+type principalPermissionsLFTagKeyResourcePtrType PrincipalPermissionsLFTagKeyResourceArgs
+
+func PrincipalPermissionsLFTagKeyResourcePtr(v *PrincipalPermissionsLFTagKeyResourceArgs) PrincipalPermissionsLFTagKeyResourcePtrInput {
+	return (*principalPermissionsLFTagKeyResourcePtrType)(v)
+}
+
+func (*principalPermissionsLFTagKeyResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsLFTagKeyResourcePtrType) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsLFTagKeyResourcePtrType) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+}
+
+type PrincipalPermissionsLFTagKeyResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagKeyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourceOutput() PrincipalPermissionsLFTagKeyResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o.ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLFTagKeyResource) *PrincipalPermissionsLFTagKeyResource {
+		return &v
+	}).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourceOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagKeyResource) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+}
+
+type PrincipalPermissionsLFTagKeyResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagKeyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLFTagKeyResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutput() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) ToPrincipalPermissionsLFTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) Elem() PrincipalPermissionsLFTagKeyResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) PrincipalPermissionsLFTagKeyResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsLFTagKeyResource
+		return ret
+	}).(PrincipalPermissionsLFTagKeyResourceOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TagKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagKeyResourcePtrOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagKeyResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type PrincipalPermissionsLFTagPolicyResource struct {
+	CatalogId    string                           `pulumi:"catalogId"`
+	Expression   []PrincipalPermissionsLFTag      `pulumi:"expression"`
+	ResourceType PrincipalPermissionsResourceType `pulumi:"resourceType"`
+}
+
+// PrincipalPermissionsLFTagPolicyResourceInput is an input type that accepts PrincipalPermissionsLFTagPolicyResourceArgs and PrincipalPermissionsLFTagPolicyResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagPolicyResourceInput` via:
+//
+//	PrincipalPermissionsLFTagPolicyResourceArgs{...}
+type PrincipalPermissionsLFTagPolicyResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput
+	ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(context.Context) PrincipalPermissionsLFTagPolicyResourceOutput
+}
+
+type PrincipalPermissionsLFTagPolicyResourceArgs struct {
+	CatalogId    pulumi.StringInput                    `pulumi:"catalogId"`
+	Expression   PrincipalPermissionsLFTagArrayInput   `pulumi:"expression"`
+	ResourceType PrincipalPermissionsResourceTypeInput `pulumi:"resourceType"`
+}
+
+func (PrincipalPermissionsLFTagPolicyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput {
+	return i.ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourceOutput)
+}
+
+func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsLFTagPolicyResourceArgs) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourceOutput).ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsLFTagPolicyResourcePtrInput is an input type that accepts PrincipalPermissionsLFTagPolicyResourceArgs, PrincipalPermissionsLFTagPolicyResourcePtr and PrincipalPermissionsLFTagPolicyResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsLFTagPolicyResourcePtrInput` via:
+//
+//	        PrincipalPermissionsLFTagPolicyResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsLFTagPolicyResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput
+	ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput
+}
+
+type principalPermissionsLFTagPolicyResourcePtrType PrincipalPermissionsLFTagPolicyResourceArgs
+
+func PrincipalPermissionsLFTagPolicyResourcePtr(v *PrincipalPermissionsLFTagPolicyResourceArgs) PrincipalPermissionsLFTagPolicyResourcePtrInput {
+	return (*principalPermissionsLFTagPolicyResourcePtrType)(v)
+}
+
+func (*principalPermissionsLFTagPolicyResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsLFTagPolicyResourcePtrType) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return i.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsLFTagPolicyResourcePtrType) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+}
+
+type PrincipalPermissionsLFTagPolicyResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagPolicyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourceOutput() PrincipalPermissionsLFTagPolicyResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourceOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o.ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLFTagPolicyResource) *PrincipalPermissionsLFTagPolicyResource {
+		return &v
+	}).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) Expression() PrincipalPermissionsLFTagArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) []PrincipalPermissionsLFTag { return v.Expression }).(PrincipalPermissionsLFTagArrayOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourceOutput) ResourceType() PrincipalPermissionsResourceTypeOutput {
+	return o.ApplyT(func(v PrincipalPermissionsLFTagPolicyResource) PrincipalPermissionsResourceType {
+		return v.ResourceType
+	}).(PrincipalPermissionsResourceTypeOutput)
+}
+
+type PrincipalPermissionsLFTagPolicyResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsLFTagPolicyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsLFTagPolicyResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutput() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ToPrincipalPermissionsLFTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) Elem() PrincipalPermissionsLFTagPolicyResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) PrincipalPermissionsLFTagPolicyResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsLFTagPolicyResource
+		return ret
+	}).(PrincipalPermissionsLFTagPolicyResourceOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) Expression() PrincipalPermissionsLFTagArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) []PrincipalPermissionsLFTag {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(PrincipalPermissionsLFTagArrayOutput)
+}
+
+func (o PrincipalPermissionsLFTagPolicyResourcePtrOutput) ResourceType() PrincipalPermissionsResourceTypePtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsLFTagPolicyResource) *PrincipalPermissionsResourceType {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(PrincipalPermissionsResourceTypePtrOutput)
+}
+
+type PrincipalPermissionsResource struct {
+	Catalog          *PrincipalPermissionsCatalogResource          `pulumi:"catalog"`
+	DataCellsFilter  *PrincipalPermissionsDataCellsFilterResource  `pulumi:"dataCellsFilter"`
+	DataLocation     *PrincipalPermissionsDataLocationResource     `pulumi:"dataLocation"`
+	Database         *PrincipalPermissionsDatabaseResource         `pulumi:"database"`
+	LFTag            *PrincipalPermissionsLFTagKeyResource         `pulumi:"lFTag"`
+	LFTagPolicy      *PrincipalPermissionsLFTagPolicyResource      `pulumi:"lFTagPolicy"`
+	Table            *PrincipalPermissionsTableResource            `pulumi:"table"`
+	TableWithColumns *PrincipalPermissionsTableWithColumnsResource `pulumi:"tableWithColumns"`
+}
+
+// PrincipalPermissionsResourceInput is an input type that accepts PrincipalPermissionsResourceArgs and PrincipalPermissionsResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsResourceInput` via:
+//
+//	PrincipalPermissionsResourceArgs{...}
+type PrincipalPermissionsResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsResourceOutput() PrincipalPermissionsResourceOutput
+	ToPrincipalPermissionsResourceOutputWithContext(context.Context) PrincipalPermissionsResourceOutput
+}
+
+type PrincipalPermissionsResourceArgs struct {
+	Catalog          PrincipalPermissionsCatalogResourcePtrInput          `pulumi:"catalog"`
+	DataCellsFilter  PrincipalPermissionsDataCellsFilterResourcePtrInput  `pulumi:"dataCellsFilter"`
+	DataLocation     PrincipalPermissionsDataLocationResourcePtrInput     `pulumi:"dataLocation"`
+	Database         PrincipalPermissionsDatabaseResourcePtrInput         `pulumi:"database"`
+	LFTag            PrincipalPermissionsLFTagKeyResourcePtrInput         `pulumi:"lFTag"`
+	LFTagPolicy      PrincipalPermissionsLFTagPolicyResourcePtrInput      `pulumi:"lFTagPolicy"`
+	Table            PrincipalPermissionsTableResourcePtrInput            `pulumi:"table"`
+	TableWithColumns PrincipalPermissionsTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
+}
+
+func (PrincipalPermissionsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsResourceArgs) ToPrincipalPermissionsResourceOutput() PrincipalPermissionsResourceOutput {
+	return i.ToPrincipalPermissionsResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsResourceArgs) ToPrincipalPermissionsResourceOutputWithContext(ctx context.Context) PrincipalPermissionsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsResourceOutput)
+}
+
+type PrincipalPermissionsResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsResourceOutput) ToPrincipalPermissionsResourceOutput() PrincipalPermissionsResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsResourceOutput) ToPrincipalPermissionsResourceOutputWithContext(ctx context.Context) PrincipalPermissionsResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsResourceOutput) Catalog() PrincipalPermissionsCatalogResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsCatalogResource { return v.Catalog }).(PrincipalPermissionsCatalogResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) DataCellsFilter() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDataCellsFilterResource {
+		return v.DataCellsFilter
+	}).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) DataLocation() PrincipalPermissionsDataLocationResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDataLocationResource { return v.DataLocation }).(PrincipalPermissionsDataLocationResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) Database() PrincipalPermissionsDatabaseResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDatabaseResource { return v.Database }).(PrincipalPermissionsDatabaseResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) LFTag() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagKeyResource { return v.LFTag }).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) LFTagPolicy() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagPolicyResource { return v.LFTagPolicy }).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) Table() PrincipalPermissionsTableResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsTableResource { return v.Table }).(PrincipalPermissionsTableResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsResourceOutput) TableWithColumns() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsTableWithColumnsResource {
+		return v.TableWithColumns
+	}).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
+}
+
+type PrincipalPermissionsTableResource struct {
+	CatalogId     string                             `pulumi:"catalogId"`
+	DatabaseName  string                             `pulumi:"databaseName"`
+	Name          *string                            `pulumi:"name"`
+	TableWildcard *PrincipalPermissionsTableWildcard `pulumi:"tableWildcard"`
+}
+
+// PrincipalPermissionsTableResourceInput is an input type that accepts PrincipalPermissionsTableResourceArgs and PrincipalPermissionsTableResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableResourceInput` via:
+//
+//	PrincipalPermissionsTableResourceArgs{...}
+type PrincipalPermissionsTableResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableResourceOutput() PrincipalPermissionsTableResourceOutput
+	ToPrincipalPermissionsTableResourceOutputWithContext(context.Context) PrincipalPermissionsTableResourceOutput
+}
+
+type PrincipalPermissionsTableResourceArgs struct {
+	CatalogId     pulumi.StringInput                        `pulumi:"catalogId"`
+	DatabaseName  pulumi.StringInput                        `pulumi:"databaseName"`
+	Name          pulumi.StringPtrInput                     `pulumi:"name"`
+	TableWildcard PrincipalPermissionsTableWildcardPtrInput `pulumi:"tableWildcard"`
+}
+
+func (PrincipalPermissionsTableResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResourceOutput() PrincipalPermissionsTableResourceOutput {
+	return i.ToPrincipalPermissionsTableResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResourceOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourceOutput)
+}
+
+func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput {
+	return i.ToPrincipalPermissionsTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourceOutput).ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsTableResourcePtrInput is an input type that accepts PrincipalPermissionsTableResourceArgs, PrincipalPermissionsTableResourcePtr and PrincipalPermissionsTableResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableResourcePtrInput` via:
+//
+//	        PrincipalPermissionsTableResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsTableResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput
+	ToPrincipalPermissionsTableResourcePtrOutputWithContext(context.Context) PrincipalPermissionsTableResourcePtrOutput
+}
+
+type principalPermissionsTableResourcePtrType PrincipalPermissionsTableResourceArgs
+
+func PrincipalPermissionsTableResourcePtr(v *PrincipalPermissionsTableResourceArgs) PrincipalPermissionsTableResourcePtrInput {
+	return (*principalPermissionsTableResourcePtrType)(v)
+}
+
+func (*principalPermissionsTableResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsTableResourcePtrType) ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput {
+	return i.ToPrincipalPermissionsTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsTableResourcePtrType) ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourcePtrOutput)
+}
+
+type PrincipalPermissionsTableResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableResourceOutput() PrincipalPermissionsTableResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableResourceOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput {
+	return o.ToPrincipalPermissionsTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsTableResource) *PrincipalPermissionsTableResource {
+		return &v
+	}).(PrincipalPermissionsTableResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsTableResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsTableResourceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableResource) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsTableResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableResourceOutput) TableWildcard() PrincipalPermissionsTableWildcardPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableResource) *PrincipalPermissionsTableWildcard { return v.TableWildcard }).(PrincipalPermissionsTableWildcardPtrOutput)
+}
+
+type PrincipalPermissionsTableResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) Elem() PrincipalPermissionsTableResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableResource) PrincipalPermissionsTableResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsTableResource
+		return ret
+	}).(PrincipalPermissionsTableResourceOutput)
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableResourcePtrOutput) TableWildcard() PrincipalPermissionsTableWildcardPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *PrincipalPermissionsTableWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.TableWildcard
+	}).(PrincipalPermissionsTableWildcardPtrOutput)
+}
+
+type PrincipalPermissionsTableWildcard struct {
+}
+
+// PrincipalPermissionsTableWildcardInput is an input type that accepts PrincipalPermissionsTableWildcardArgs and PrincipalPermissionsTableWildcardOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableWildcardInput` via:
+//
+//	PrincipalPermissionsTableWildcardArgs{...}
+type PrincipalPermissionsTableWildcardInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableWildcardOutput() PrincipalPermissionsTableWildcardOutput
+	ToPrincipalPermissionsTableWildcardOutputWithContext(context.Context) PrincipalPermissionsTableWildcardOutput
+}
+
+type PrincipalPermissionsTableWildcardArgs struct {
+}
+
+func (PrincipalPermissionsTableWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableWildcard)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildcardOutput() PrincipalPermissionsTableWildcardOutput {
+	return i.ToPrincipalPermissionsTableWildcardOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildcardOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWildcardOutput)
+}
+
+func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput {
+	return i.ToPrincipalPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWildcardOutput).ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsTableWildcardPtrInput is an input type that accepts PrincipalPermissionsTableWildcardArgs, PrincipalPermissionsTableWildcardPtr and PrincipalPermissionsTableWildcardPtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableWildcardPtrInput` via:
+//
+//	        PrincipalPermissionsTableWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsTableWildcardPtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput
+	ToPrincipalPermissionsTableWildcardPtrOutputWithContext(context.Context) PrincipalPermissionsTableWildcardPtrOutput
+}
+
+type principalPermissionsTableWildcardPtrType PrincipalPermissionsTableWildcardArgs
+
+func PrincipalPermissionsTableWildcardPtr(v *PrincipalPermissionsTableWildcardArgs) PrincipalPermissionsTableWildcardPtrInput {
+	return (*principalPermissionsTableWildcardPtrType)(v)
+}
+
+func (*principalPermissionsTableWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableWildcard)(nil)).Elem()
+}
+
+func (i *principalPermissionsTableWildcardPtrType) ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput {
+	return i.ToPrincipalPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsTableWildcardPtrType) ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWildcardPtrOutput)
+}
+
+type PrincipalPermissionsTableWildcardOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableWildcard)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableWildcardOutput) ToPrincipalPermissionsTableWildcardOutput() PrincipalPermissionsTableWildcardOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWildcardOutput) ToPrincipalPermissionsTableWildcardOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWildcardOutput) ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput {
+	return o.ToPrincipalPermissionsTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsTableWildcardOutput) ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsTableWildcard) *PrincipalPermissionsTableWildcard {
+		return &v
+	}).(PrincipalPermissionsTableWildcardPtrOutput)
+}
+
+type PrincipalPermissionsTableWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableWildcard)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableWildcardPtrOutput) ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWildcardPtrOutput) ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardPtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWildcardPtrOutput) Elem() PrincipalPermissionsTableWildcardOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWildcard) PrincipalPermissionsTableWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsTableWildcard
+		return ret
+	}).(PrincipalPermissionsTableWildcardOutput)
+}
+
+type PrincipalPermissionsTableWithColumnsResource struct {
+	CatalogId      string                              `pulumi:"catalogId"`
+	ColumnNames    []string                            `pulumi:"columnNames"`
+	ColumnWildcard *PrincipalPermissionsColumnWildcard `pulumi:"columnWildcard"`
+	DatabaseName   string                              `pulumi:"databaseName"`
+	Name           string                              `pulumi:"name"`
+}
+
+// PrincipalPermissionsTableWithColumnsResourceInput is an input type that accepts PrincipalPermissionsTableWithColumnsResourceArgs and PrincipalPermissionsTableWithColumnsResourceOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableWithColumnsResourceInput` via:
+//
+//	PrincipalPermissionsTableWithColumnsResourceArgs{...}
+type PrincipalPermissionsTableWithColumnsResourceInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableWithColumnsResourceOutput() PrincipalPermissionsTableWithColumnsResourceOutput
+	ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(context.Context) PrincipalPermissionsTableWithColumnsResourceOutput
+}
+
+type PrincipalPermissionsTableWithColumnsResourceArgs struct {
+	CatalogId      pulumi.StringInput                         `pulumi:"catalogId"`
+	ColumnNames    pulumi.StringArrayInput                    `pulumi:"columnNames"`
+	ColumnWildcard PrincipalPermissionsColumnWildcardPtrInput `pulumi:"columnWildcard"`
+	DatabaseName   pulumi.StringInput                         `pulumi:"databaseName"`
+	Name           pulumi.StringInput                         `pulumi:"name"`
+}
+
+func (PrincipalPermissionsTableWithColumnsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableWithColumnsResource)(nil)).Elem()
+}
+
+func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissionsTableWithColumnsResourceOutput() PrincipalPermissionsTableWithColumnsResourceOutput {
+	return i.ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourceOutput)
+}
+
+func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return i.ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourceOutput).ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx)
+}
+
+// PrincipalPermissionsTableWithColumnsResourcePtrInput is an input type that accepts PrincipalPermissionsTableWithColumnsResourceArgs, PrincipalPermissionsTableWithColumnsResourcePtr and PrincipalPermissionsTableWithColumnsResourcePtrOutput values.
+// You can construct a concrete instance of `PrincipalPermissionsTableWithColumnsResourcePtrInput` via:
+//
+//	        PrincipalPermissionsTableWithColumnsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrincipalPermissionsTableWithColumnsResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput
+	ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput
+}
+
+type principalPermissionsTableWithColumnsResourcePtrType PrincipalPermissionsTableWithColumnsResourceArgs
+
+func PrincipalPermissionsTableWithColumnsResourcePtr(v *PrincipalPermissionsTableWithColumnsResourceArgs) PrincipalPermissionsTableWithColumnsResourcePtrInput {
+	return (*principalPermissionsTableWithColumnsResourcePtrType)(v)
+}
+
+func (*principalPermissionsTableWithColumnsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableWithColumnsResource)(nil)).Elem()
+}
+
+func (i *principalPermissionsTableWithColumnsResourcePtrType) ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return i.ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *principalPermissionsTableWithColumnsResourcePtrType) ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
+}
+
+type PrincipalPermissionsTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableWithColumnsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalPermissionsTableWithColumnsResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissionsTableWithColumnsResourceOutput() PrincipalPermissionsTableWithColumnsResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourceOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return o.ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsTableWithColumnsResource {
+		return &v
+	}).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) ColumnWildcard() PrincipalPermissionsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsColumnWildcard {
+		return v.ColumnWildcard
+	}).(PrincipalPermissionsColumnWildcardPtrOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PrincipalPermissionsTableWithColumnsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalPermissionsTableWithColumnsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalPermissionsTableWithColumnsResource)(nil)).Elem()
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput {
+	return o
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) Elem() PrincipalPermissionsTableWithColumnsResourceOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) PrincipalPermissionsTableWithColumnsResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPermissionsTableWithColumnsResource
+		return ret
+	}).(PrincipalPermissionsTableWithColumnsResourceOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnWildcard() PrincipalPermissionsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsColumnWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnWildcard
+	}).(PrincipalPermissionsColumnWildcardPtrOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagAssociationCatalogResource struct {
+}
+
+// TagAssociationCatalogResourceInput is an input type that accepts TagAssociationCatalogResourceArgs and TagAssociationCatalogResourceOutput values.
+// You can construct a concrete instance of `TagAssociationCatalogResourceInput` via:
+//
+//	TagAssociationCatalogResourceArgs{...}
+type TagAssociationCatalogResourceInput interface {
+	pulumi.Input
+
+	ToTagAssociationCatalogResourceOutput() TagAssociationCatalogResourceOutput
+	ToTagAssociationCatalogResourceOutputWithContext(context.Context) TagAssociationCatalogResourceOutput
+}
+
+type TagAssociationCatalogResourceArgs struct {
+}
+
+func (TagAssociationCatalogResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationCatalogResource)(nil)).Elem()
+}
+
+func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourceOutput() TagAssociationCatalogResourceOutput {
+	return i.ToTagAssociationCatalogResourceOutputWithContext(context.Background())
+}
+
+func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourceOutputWithContext(ctx context.Context) TagAssociationCatalogResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationCatalogResourceOutput)
+}
+
+func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput {
+	return i.ToTagAssociationCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourcePtrOutputWithContext(ctx context.Context) TagAssociationCatalogResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationCatalogResourceOutput).ToTagAssociationCatalogResourcePtrOutputWithContext(ctx)
+}
+
+// TagAssociationCatalogResourcePtrInput is an input type that accepts TagAssociationCatalogResourceArgs, TagAssociationCatalogResourcePtr and TagAssociationCatalogResourcePtrOutput values.
+// You can construct a concrete instance of `TagAssociationCatalogResourcePtrInput` via:
+//
+//	        TagAssociationCatalogResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagAssociationCatalogResourcePtrInput interface {
+	pulumi.Input
+
+	ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput
+	ToTagAssociationCatalogResourcePtrOutputWithContext(context.Context) TagAssociationCatalogResourcePtrOutput
+}
+
+type tagAssociationCatalogResourcePtrType TagAssociationCatalogResourceArgs
+
+func TagAssociationCatalogResourcePtr(v *TagAssociationCatalogResourceArgs) TagAssociationCatalogResourcePtrInput {
+	return (*tagAssociationCatalogResourcePtrType)(v)
+}
+
+func (*tagAssociationCatalogResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationCatalogResource)(nil)).Elem()
+}
+
+func (i *tagAssociationCatalogResourcePtrType) ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput {
+	return i.ToTagAssociationCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tagAssociationCatalogResourcePtrType) ToTagAssociationCatalogResourcePtrOutputWithContext(ctx context.Context) TagAssociationCatalogResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationCatalogResourcePtrOutput)
+}
+
+type TagAssociationCatalogResourceOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationCatalogResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationCatalogResource)(nil)).Elem()
+}
+
+func (o TagAssociationCatalogResourceOutput) ToTagAssociationCatalogResourceOutput() TagAssociationCatalogResourceOutput {
+	return o
+}
+
+func (o TagAssociationCatalogResourceOutput) ToTagAssociationCatalogResourceOutputWithContext(ctx context.Context) TagAssociationCatalogResourceOutput {
+	return o
+}
+
+func (o TagAssociationCatalogResourceOutput) ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput {
+	return o.ToTagAssociationCatalogResourcePtrOutputWithContext(context.Background())
+}
+
+func (o TagAssociationCatalogResourceOutput) ToTagAssociationCatalogResourcePtrOutputWithContext(ctx context.Context) TagAssociationCatalogResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationCatalogResource) *TagAssociationCatalogResource {
+		return &v
+	}).(TagAssociationCatalogResourcePtrOutput)
+}
+
+type TagAssociationCatalogResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationCatalogResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationCatalogResource)(nil)).Elem()
+}
+
+func (o TagAssociationCatalogResourcePtrOutput) ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationCatalogResourcePtrOutput) ToTagAssociationCatalogResourcePtrOutputWithContext(ctx context.Context) TagAssociationCatalogResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationCatalogResourcePtrOutput) Elem() TagAssociationCatalogResourceOutput {
+	return o.ApplyT(func(v *TagAssociationCatalogResource) TagAssociationCatalogResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssociationCatalogResource
+		return ret
+	}).(TagAssociationCatalogResourceOutput)
+}
+
+type TagAssociationDatabaseResource struct {
+	CatalogId string `pulumi:"catalogId"`
+	Name      string `pulumi:"name"`
+}
+
+// TagAssociationDatabaseResourceInput is an input type that accepts TagAssociationDatabaseResourceArgs and TagAssociationDatabaseResourceOutput values.
+// You can construct a concrete instance of `TagAssociationDatabaseResourceInput` via:
+//
+//	TagAssociationDatabaseResourceArgs{...}
+type TagAssociationDatabaseResourceInput interface {
+	pulumi.Input
+
+	ToTagAssociationDatabaseResourceOutput() TagAssociationDatabaseResourceOutput
+	ToTagAssociationDatabaseResourceOutputWithContext(context.Context) TagAssociationDatabaseResourceOutput
+}
+
+type TagAssociationDatabaseResourceArgs struct {
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	Name      pulumi.StringInput `pulumi:"name"`
+}
+
+func (TagAssociationDatabaseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationDatabaseResource)(nil)).Elem()
+}
+
+func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourceOutput() TagAssociationDatabaseResourceOutput {
+	return i.ToTagAssociationDatabaseResourceOutputWithContext(context.Background())
+}
+
+func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourceOutputWithContext(ctx context.Context) TagAssociationDatabaseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationDatabaseResourceOutput)
+}
+
+func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput {
+	return i.ToTagAssociationDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx context.Context) TagAssociationDatabaseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationDatabaseResourceOutput).ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx)
+}
+
+// TagAssociationDatabaseResourcePtrInput is an input type that accepts TagAssociationDatabaseResourceArgs, TagAssociationDatabaseResourcePtr and TagAssociationDatabaseResourcePtrOutput values.
+// You can construct a concrete instance of `TagAssociationDatabaseResourcePtrInput` via:
+//
+//	        TagAssociationDatabaseResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagAssociationDatabaseResourcePtrInput interface {
+	pulumi.Input
+
+	ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput
+	ToTagAssociationDatabaseResourcePtrOutputWithContext(context.Context) TagAssociationDatabaseResourcePtrOutput
+}
+
+type tagAssociationDatabaseResourcePtrType TagAssociationDatabaseResourceArgs
+
+func TagAssociationDatabaseResourcePtr(v *TagAssociationDatabaseResourceArgs) TagAssociationDatabaseResourcePtrInput {
+	return (*tagAssociationDatabaseResourcePtrType)(v)
+}
+
+func (*tagAssociationDatabaseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationDatabaseResource)(nil)).Elem()
+}
+
+func (i *tagAssociationDatabaseResourcePtrType) ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput {
+	return i.ToTagAssociationDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tagAssociationDatabaseResourcePtrType) ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx context.Context) TagAssociationDatabaseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationDatabaseResourcePtrOutput)
+}
+
+type TagAssociationDatabaseResourceOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationDatabaseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationDatabaseResource)(nil)).Elem()
+}
+
+func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourceOutput() TagAssociationDatabaseResourceOutput {
+	return o
+}
+
+func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourceOutputWithContext(ctx context.Context) TagAssociationDatabaseResourceOutput {
+	return o
+}
+
+func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput {
+	return o.ToTagAssociationDatabaseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx context.Context) TagAssociationDatabaseResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationDatabaseResource) *TagAssociationDatabaseResource {
+		return &v
+	}).(TagAssociationDatabaseResourcePtrOutput)
+}
+
+func (o TagAssociationDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationDatabaseResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationDatabaseResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type TagAssociationDatabaseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationDatabaseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationDatabaseResource)(nil)).Elem()
+}
+
+func (o TagAssociationDatabaseResourcePtrOutput) ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationDatabaseResourcePtrOutput) ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx context.Context) TagAssociationDatabaseResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationDatabaseResourcePtrOutput) Elem() TagAssociationDatabaseResourceOutput {
+	return o.ApplyT(func(v *TagAssociationDatabaseResource) TagAssociationDatabaseResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssociationDatabaseResource
+		return ret
+	}).(TagAssociationDatabaseResourceOutput)
+}
+
+func (o TagAssociationDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationDatabaseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationDatabaseResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationDatabaseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagAssociationLFTagPair struct {
+	CatalogId string   `pulumi:"catalogId"`
+	TagKey    string   `pulumi:"tagKey"`
+	TagValues []string `pulumi:"tagValues"`
+}
+
+// TagAssociationLFTagPairInput is an input type that accepts TagAssociationLFTagPairArgs and TagAssociationLFTagPairOutput values.
+// You can construct a concrete instance of `TagAssociationLFTagPairInput` via:
+//
+//	TagAssociationLFTagPairArgs{...}
+type TagAssociationLFTagPairInput interface {
+	pulumi.Input
+
+	ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput
+	ToTagAssociationLFTagPairOutputWithContext(context.Context) TagAssociationLFTagPairOutput
+}
+
+type TagAssociationLFTagPairArgs struct {
+	CatalogId pulumi.StringInput      `pulumi:"catalogId"`
+	TagKey    pulumi.StringInput      `pulumi:"tagKey"`
+	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+}
+
+func (TagAssociationLFTagPairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationLFTagPair)(nil)).Elem()
+}
+
+func (i TagAssociationLFTagPairArgs) ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput {
+	return i.ToTagAssociationLFTagPairOutputWithContext(context.Background())
+}
+
+func (i TagAssociationLFTagPairArgs) ToTagAssociationLFTagPairOutputWithContext(ctx context.Context) TagAssociationLFTagPairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLFTagPairOutput)
+}
+
+// TagAssociationLFTagPairArrayInput is an input type that accepts TagAssociationLFTagPairArray and TagAssociationLFTagPairArrayOutput values.
+// You can construct a concrete instance of `TagAssociationLFTagPairArrayInput` via:
+//
+//	TagAssociationLFTagPairArray{ TagAssociationLFTagPairArgs{...} }
+type TagAssociationLFTagPairArrayInput interface {
+	pulumi.Input
+
+	ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput
+	ToTagAssociationLFTagPairArrayOutputWithContext(context.Context) TagAssociationLFTagPairArrayOutput
+}
+
+type TagAssociationLFTagPairArray []TagAssociationLFTagPairInput
+
+func (TagAssociationLFTagPairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationLFTagPair)(nil)).Elem()
+}
+
+func (i TagAssociationLFTagPairArray) ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput {
+	return i.ToTagAssociationLFTagPairArrayOutputWithContext(context.Background())
+}
+
+func (i TagAssociationLFTagPairArray) ToTagAssociationLFTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLFTagPairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLFTagPairArrayOutput)
+}
+
+type TagAssociationLFTagPairOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationLFTagPairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationLFTagPair)(nil)).Elem()
+}
+
+func (o TagAssociationLFTagPairOutput) ToTagAssociationLFTagPairOutput() TagAssociationLFTagPairOutput {
+	return o
+}
+
+func (o TagAssociationLFTagPairOutput) ToTagAssociationLFTagPairOutputWithContext(ctx context.Context) TagAssociationLFTagPairOutput {
+	return o
+}
+
+func (o TagAssociationLFTagPairOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationLFTagPair) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationLFTagPairOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationLFTagPair) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationLFTagPairOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TagAssociationLFTagPair) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+}
+
+type TagAssociationLFTagPairArrayOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationLFTagPairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationLFTagPair)(nil)).Elem()
+}
+
+func (o TagAssociationLFTagPairArrayOutput) ToTagAssociationLFTagPairArrayOutput() TagAssociationLFTagPairArrayOutput {
+	return o
+}
+
+func (o TagAssociationLFTagPairArrayOutput) ToTagAssociationLFTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLFTagPairArrayOutput {
+	return o
+}
+
+func (o TagAssociationLFTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociationLFTagPairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagAssociationLFTagPair {
+		return vs[0].([]TagAssociationLFTagPair)[vs[1].(int)]
+	}).(TagAssociationLFTagPairOutput)
+}
+
+type TagAssociationResource struct {
+	Catalog          *TagAssociationCatalogResource          `pulumi:"catalog"`
+	Database         *TagAssociationDatabaseResource         `pulumi:"database"`
+	Table            *TagAssociationTableResource            `pulumi:"table"`
+	TableWithColumns *TagAssociationTableWithColumnsResource `pulumi:"tableWithColumns"`
+}
+
+// TagAssociationResourceInput is an input type that accepts TagAssociationResourceArgs and TagAssociationResourceOutput values.
+// You can construct a concrete instance of `TagAssociationResourceInput` via:
+//
+//	TagAssociationResourceArgs{...}
+type TagAssociationResourceInput interface {
+	pulumi.Input
+
+	ToTagAssociationResourceOutput() TagAssociationResourceOutput
+	ToTagAssociationResourceOutputWithContext(context.Context) TagAssociationResourceOutput
+}
+
+type TagAssociationResourceArgs struct {
+	Catalog          TagAssociationCatalogResourcePtrInput          `pulumi:"catalog"`
+	Database         TagAssociationDatabaseResourcePtrInput         `pulumi:"database"`
+	Table            TagAssociationTableResourcePtrInput            `pulumi:"table"`
+	TableWithColumns TagAssociationTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
+}
+
+func (TagAssociationResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationResource)(nil)).Elem()
+}
+
+func (i TagAssociationResourceArgs) ToTagAssociationResourceOutput() TagAssociationResourceOutput {
+	return i.ToTagAssociationResourceOutputWithContext(context.Background())
+}
+
+func (i TagAssociationResourceArgs) ToTagAssociationResourceOutputWithContext(ctx context.Context) TagAssociationResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationResourceOutput)
+}
+
+type TagAssociationResourceOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationResource)(nil)).Elem()
+}
+
+func (o TagAssociationResourceOutput) ToTagAssociationResourceOutput() TagAssociationResourceOutput {
+	return o
+}
+
+func (o TagAssociationResourceOutput) ToTagAssociationResourceOutputWithContext(ctx context.Context) TagAssociationResourceOutput {
+	return o
+}
+
+func (o TagAssociationResourceOutput) Catalog() TagAssociationCatalogResourcePtrOutput {
+	return o.ApplyT(func(v TagAssociationResource) *TagAssociationCatalogResource { return v.Catalog }).(TagAssociationCatalogResourcePtrOutput)
+}
+
+func (o TagAssociationResourceOutput) Database() TagAssociationDatabaseResourcePtrOutput {
+	return o.ApplyT(func(v TagAssociationResource) *TagAssociationDatabaseResource { return v.Database }).(TagAssociationDatabaseResourcePtrOutput)
+}
+
+func (o TagAssociationResourceOutput) Table() TagAssociationTableResourcePtrOutput {
+	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableResource { return v.Table }).(TagAssociationTableResourcePtrOutput)
+}
+
+func (o TagAssociationResourceOutput) TableWithColumns() TagAssociationTableWithColumnsResourcePtrOutput {
+	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableWithColumnsResource { return v.TableWithColumns }).(TagAssociationTableWithColumnsResourcePtrOutput)
+}
+
+type TagAssociationTableResource struct {
+	CatalogId     string                       `pulumi:"catalogId"`
+	DatabaseName  string                       `pulumi:"databaseName"`
+	Name          *string                      `pulumi:"name"`
+	TableWildcard *TagAssociationTableWildcard `pulumi:"tableWildcard"`
+}
+
+// TagAssociationTableResourceInput is an input type that accepts TagAssociationTableResourceArgs and TagAssociationTableResourceOutput values.
+// You can construct a concrete instance of `TagAssociationTableResourceInput` via:
+//
+//	TagAssociationTableResourceArgs{...}
+type TagAssociationTableResourceInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableResourceOutput() TagAssociationTableResourceOutput
+	ToTagAssociationTableResourceOutputWithContext(context.Context) TagAssociationTableResourceOutput
+}
+
+type TagAssociationTableResourceArgs struct {
+	CatalogId     pulumi.StringInput                  `pulumi:"catalogId"`
+	DatabaseName  pulumi.StringInput                  `pulumi:"databaseName"`
+	Name          pulumi.StringPtrInput               `pulumi:"name"`
+	TableWildcard TagAssociationTableWildcardPtrInput `pulumi:"tableWildcard"`
+}
+
+func (TagAssociationTableResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableResource)(nil)).Elem()
+}
+
+func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourceOutput() TagAssociationTableResourceOutput {
+	return i.ToTagAssociationTableResourceOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourceOutputWithContext(ctx context.Context) TagAssociationTableResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableResourceOutput)
+}
+
+func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput {
+	return i.ToTagAssociationTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableResourceOutput).ToTagAssociationTableResourcePtrOutputWithContext(ctx)
+}
+
+// TagAssociationTableResourcePtrInput is an input type that accepts TagAssociationTableResourceArgs, TagAssociationTableResourcePtr and TagAssociationTableResourcePtrOutput values.
+// You can construct a concrete instance of `TagAssociationTableResourcePtrInput` via:
+//
+//	        TagAssociationTableResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagAssociationTableResourcePtrInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput
+	ToTagAssociationTableResourcePtrOutputWithContext(context.Context) TagAssociationTableResourcePtrOutput
+}
+
+type tagAssociationTableResourcePtrType TagAssociationTableResourceArgs
+
+func TagAssociationTableResourcePtr(v *TagAssociationTableResourceArgs) TagAssociationTableResourcePtrInput {
+	return (*tagAssociationTableResourcePtrType)(v)
+}
+
+func (*tagAssociationTableResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableResource)(nil)).Elem()
+}
+
+func (i *tagAssociationTableResourcePtrType) ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput {
+	return i.ToTagAssociationTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tagAssociationTableResourcePtrType) ToTagAssociationTableResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableResourcePtrOutput)
+}
+
+type TagAssociationTableResourceOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableResource)(nil)).Elem()
+}
+
+func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourceOutput() TagAssociationTableResourceOutput {
+	return o
+}
+
+func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourceOutputWithContext(ctx context.Context) TagAssociationTableResourceOutput {
+	return o
+}
+
+func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput {
+	return o.ToTagAssociationTableResourcePtrOutputWithContext(context.Background())
+}
+
+func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationTableResource) *TagAssociationTableResource {
+		return &v
+	}).(TagAssociationTableResourcePtrOutput)
+}
+
+func (o TagAssociationTableResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationTableResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationTableResourceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationTableResource) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationTableResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagAssociationTableResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableResourceOutput) TableWildcard() TagAssociationTableWildcardPtrOutput {
+	return o.ApplyT(func(v TagAssociationTableResource) *TagAssociationTableWildcard { return v.TableWildcard }).(TagAssociationTableWildcardPtrOutput)
+}
+
+type TagAssociationTableResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableResource)(nil)).Elem()
+}
+
+func (o TagAssociationTableResourcePtrOutput) ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationTableResourcePtrOutput) ToTagAssociationTableResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationTableResourcePtrOutput) Elem() TagAssociationTableResourceOutput {
+	return o.ApplyT(func(v *TagAssociationTableResource) TagAssociationTableResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssociationTableResource
+		return ret
+	}).(TagAssociationTableResourceOutput)
+}
+
+func (o TagAssociationTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableResourcePtrOutput) TableWildcard() TagAssociationTableWildcardPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableResource) *TagAssociationTableWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.TableWildcard
+	}).(TagAssociationTableWildcardPtrOutput)
+}
+
+type TagAssociationTableWildcard struct {
+}
+
+// TagAssociationTableWildcardInput is an input type that accepts TagAssociationTableWildcardArgs and TagAssociationTableWildcardOutput values.
+// You can construct a concrete instance of `TagAssociationTableWildcardInput` via:
+//
+//	TagAssociationTableWildcardArgs{...}
+type TagAssociationTableWildcardInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableWildcardOutput() TagAssociationTableWildcardOutput
+	ToTagAssociationTableWildcardOutputWithContext(context.Context) TagAssociationTableWildcardOutput
+}
+
+type TagAssociationTableWildcardArgs struct {
+}
+
+func (TagAssociationTableWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableWildcard)(nil)).Elem()
+}
+
+func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardOutput() TagAssociationTableWildcardOutput {
+	return i.ToTagAssociationTableWildcardOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardOutputWithContext(ctx context.Context) TagAssociationTableWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWildcardOutput)
+}
+
+func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput {
+	return i.ToTagAssociationTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardPtrOutputWithContext(ctx context.Context) TagAssociationTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWildcardOutput).ToTagAssociationTableWildcardPtrOutputWithContext(ctx)
+}
+
+// TagAssociationTableWildcardPtrInput is an input type that accepts TagAssociationTableWildcardArgs, TagAssociationTableWildcardPtr and TagAssociationTableWildcardPtrOutput values.
+// You can construct a concrete instance of `TagAssociationTableWildcardPtrInput` via:
+//
+//	        TagAssociationTableWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagAssociationTableWildcardPtrInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput
+	ToTagAssociationTableWildcardPtrOutputWithContext(context.Context) TagAssociationTableWildcardPtrOutput
+}
+
+type tagAssociationTableWildcardPtrType TagAssociationTableWildcardArgs
+
+func TagAssociationTableWildcardPtr(v *TagAssociationTableWildcardArgs) TagAssociationTableWildcardPtrInput {
+	return (*tagAssociationTableWildcardPtrType)(v)
+}
+
+func (*tagAssociationTableWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableWildcard)(nil)).Elem()
+}
+
+func (i *tagAssociationTableWildcardPtrType) ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput {
+	return i.ToTagAssociationTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *tagAssociationTableWildcardPtrType) ToTagAssociationTableWildcardPtrOutputWithContext(ctx context.Context) TagAssociationTableWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWildcardPtrOutput)
+}
+
+type TagAssociationTableWildcardOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableWildcard)(nil)).Elem()
+}
+
+func (o TagAssociationTableWildcardOutput) ToTagAssociationTableWildcardOutput() TagAssociationTableWildcardOutput {
+	return o
+}
+
+func (o TagAssociationTableWildcardOutput) ToTagAssociationTableWildcardOutputWithContext(ctx context.Context) TagAssociationTableWildcardOutput {
+	return o
+}
+
+func (o TagAssociationTableWildcardOutput) ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput {
+	return o.ToTagAssociationTableWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o TagAssociationTableWildcardOutput) ToTagAssociationTableWildcardPtrOutputWithContext(ctx context.Context) TagAssociationTableWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationTableWildcard) *TagAssociationTableWildcard {
+		return &v
+	}).(TagAssociationTableWildcardPtrOutput)
+}
+
+type TagAssociationTableWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableWildcard)(nil)).Elem()
+}
+
+func (o TagAssociationTableWildcardPtrOutput) ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput {
+	return o
+}
+
+func (o TagAssociationTableWildcardPtrOutput) ToTagAssociationTableWildcardPtrOutputWithContext(ctx context.Context) TagAssociationTableWildcardPtrOutput {
+	return o
+}
+
+func (o TagAssociationTableWildcardPtrOutput) Elem() TagAssociationTableWildcardOutput {
+	return o.ApplyT(func(v *TagAssociationTableWildcard) TagAssociationTableWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssociationTableWildcard
+		return ret
+	}).(TagAssociationTableWildcardOutput)
+}
+
+type TagAssociationTableWithColumnsResource struct {
+	CatalogId    string   `pulumi:"catalogId"`
+	ColumnNames  []string `pulumi:"columnNames"`
+	DatabaseName string   `pulumi:"databaseName"`
+	Name         string   `pulumi:"name"`
+}
+
+// TagAssociationTableWithColumnsResourceInput is an input type that accepts TagAssociationTableWithColumnsResourceArgs and TagAssociationTableWithColumnsResourceOutput values.
+// You can construct a concrete instance of `TagAssociationTableWithColumnsResourceInput` via:
+//
+//	TagAssociationTableWithColumnsResourceArgs{...}
+type TagAssociationTableWithColumnsResourceInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableWithColumnsResourceOutput() TagAssociationTableWithColumnsResourceOutput
+	ToTagAssociationTableWithColumnsResourceOutputWithContext(context.Context) TagAssociationTableWithColumnsResourceOutput
+}
+
+type TagAssociationTableWithColumnsResourceArgs struct {
+	CatalogId    pulumi.StringInput      `pulumi:"catalogId"`
+	ColumnNames  pulumi.StringArrayInput `pulumi:"columnNames"`
+	DatabaseName pulumi.StringInput      `pulumi:"databaseName"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+}
+
+func (TagAssociationTableWithColumnsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableWithColumnsResource)(nil)).Elem()
+}
+
+func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithColumnsResourceOutput() TagAssociationTableWithColumnsResourceOutput {
+	return i.ToTagAssociationTableWithColumnsResourceOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithColumnsResourceOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWithColumnsResourceOutput)
+}
+
+func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput {
+	return i.ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWithColumnsResourceOutput).ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx)
+}
+
+// TagAssociationTableWithColumnsResourcePtrInput is an input type that accepts TagAssociationTableWithColumnsResourceArgs, TagAssociationTableWithColumnsResourcePtr and TagAssociationTableWithColumnsResourcePtrOutput values.
+// You can construct a concrete instance of `TagAssociationTableWithColumnsResourcePtrInput` via:
+//
+//	        TagAssociationTableWithColumnsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagAssociationTableWithColumnsResourcePtrInput interface {
+	pulumi.Input
+
+	ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput
+	ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(context.Context) TagAssociationTableWithColumnsResourcePtrOutput
+}
+
+type tagAssociationTableWithColumnsResourcePtrType TagAssociationTableWithColumnsResourceArgs
+
+func TagAssociationTableWithColumnsResourcePtr(v *TagAssociationTableWithColumnsResourceArgs) TagAssociationTableWithColumnsResourcePtrInput {
+	return (*tagAssociationTableWithColumnsResourcePtrType)(v)
+}
+
+func (*tagAssociationTableWithColumnsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableWithColumnsResource)(nil)).Elem()
+}
+
+func (i *tagAssociationTableWithColumnsResourcePtrType) ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput {
+	return i.ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tagAssociationTableWithColumnsResourcePtrType) ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWithColumnsResourcePtrOutput)
+}
+
+type TagAssociationTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableWithColumnsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationTableWithColumnsResource)(nil)).Elem()
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithColumnsResourceOutput() TagAssociationTableWithColumnsResourceOutput {
+	return o
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithColumnsResourceOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourceOutput {
+	return o
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput {
+	return o.ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationTableWithColumnsResource) *TagAssociationTableWithColumnsResource {
+		return &v
+	}).(TagAssociationTableWithColumnsResourcePtrOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type TagAssociationTableWithColumnsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationTableWithColumnsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagAssociationTableWithColumnsResource)(nil)).Elem()
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourcePtrOutput {
+	return o
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) Elem() TagAssociationTableWithColumnsResourceOutput {
+	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) TagAssociationTableWithColumnsResource {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssociationTableWithColumnsResource
+		return ret
+	}).(TagAssociationTableWithColumnsResourceOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TagAssociationTableWithColumnsResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterColumnWildcardInput)(nil)).Elem(), DataCellsFilterColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterColumnWildcardPtrInput)(nil)).Elem(), DataCellsFilterColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterRowFilterInput)(nil)).Elem(), DataCellsFilterRowFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterRowFilterPtrInput)(nil)).Elem(), DataCellsFilterRowFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsAdminsInput)(nil)).Elem(), DataLakeSettingsAdminsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsAdminsPtrInput)(nil)).Elem(), DataLakeSettingsAdminsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsColumnWildcardInput)(nil)).Elem(), PermissionsColumnWildcardArgs{})
@@ -1272,6 +4276,47 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWildcardPtrInput)(nil)).Elem(), PermissionsTableWildcardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsResourceInput)(nil)).Elem(), PermissionsTableWithColumnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsResourcePtrInput)(nil)).Elem(), PermissionsTableWithColumnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsCatalogResourceInput)(nil)).Elem(), PrincipalPermissionsCatalogResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsCatalogResourcePtrInput)(nil)).Elem(), PrincipalPermissionsCatalogResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsColumnWildcardInput)(nil)).Elem(), PrincipalPermissionsColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsColumnWildcardPtrInput)(nil)).Elem(), PrincipalPermissionsColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataCellsFilterResourceInput)(nil)).Elem(), PrincipalPermissionsDataCellsFilterResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataCellsFilterResourcePtrInput)(nil)).Elem(), PrincipalPermissionsDataCellsFilterResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataLakePrincipalInput)(nil)).Elem(), PrincipalPermissionsDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataLocationResourceInput)(nil)).Elem(), PrincipalPermissionsDataLocationResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDataLocationResourcePtrInput)(nil)).Elem(), PrincipalPermissionsDataLocationResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDatabaseResourceInput)(nil)).Elem(), PrincipalPermissionsDatabaseResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsDatabaseResourcePtrInput)(nil)).Elem(), PrincipalPermissionsDatabaseResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagInput)(nil)).Elem(), PrincipalPermissionsLFTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagArrayInput)(nil)).Elem(), PrincipalPermissionsLFTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagKeyResourceInput)(nil)).Elem(), PrincipalPermissionsLFTagKeyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagKeyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLFTagKeyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResourceInput)(nil)).Elem(), PrincipalPermissionsLFTagPolicyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsLFTagPolicyResourcePtrInput)(nil)).Elem(), PrincipalPermissionsLFTagPolicyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsResourceInput)(nil)).Elem(), PrincipalPermissionsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableResourceInput)(nil)).Elem(), PrincipalPermissionsTableResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableResourcePtrInput)(nil)).Elem(), PrincipalPermissionsTableResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableWildcardInput)(nil)).Elem(), PrincipalPermissionsTableWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableWildcardPtrInput)(nil)).Elem(), PrincipalPermissionsTableWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableWithColumnsResourceInput)(nil)).Elem(), PrincipalPermissionsTableWithColumnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsTableWithColumnsResourcePtrInput)(nil)).Elem(), PrincipalPermissionsTableWithColumnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationCatalogResourceInput)(nil)).Elem(), TagAssociationCatalogResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationCatalogResourcePtrInput)(nil)).Elem(), TagAssociationCatalogResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationDatabaseResourceInput)(nil)).Elem(), TagAssociationDatabaseResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationDatabaseResourcePtrInput)(nil)).Elem(), TagAssociationDatabaseResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLFTagPairInput)(nil)).Elem(), TagAssociationLFTagPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationLFTagPairArrayInput)(nil)).Elem(), TagAssociationLFTagPairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationResourceInput)(nil)).Elem(), TagAssociationResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableResourceInput)(nil)).Elem(), TagAssociationTableResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableResourcePtrInput)(nil)).Elem(), TagAssociationTableResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableWildcardInput)(nil)).Elem(), TagAssociationTableWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableWildcardPtrInput)(nil)).Elem(), TagAssociationTableWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableWithColumnsResourceInput)(nil)).Elem(), TagAssociationTableWithColumnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationTableWithColumnsResourcePtrInput)(nil)).Elem(), TagAssociationTableWithColumnsResourceArgs{})
+	pulumi.RegisterOutputType(DataCellsFilterColumnWildcardOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterColumnWildcardPtrOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterRowFilterOutput{})
+	pulumi.RegisterOutputType(DataCellsFilterRowFilterPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsAdminsOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsAdminsPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsColumnWildcardOutput{})
@@ -1290,4 +4335,41 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsTableWildcardPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsCatalogResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsCatalogResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsColumnWildcardOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsColumnWildcardPtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDataCellsFilterResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDataCellsFilterResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDataLakePrincipalOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDataLocationResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDataLocationResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDatabaseResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsDatabaseResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagKeyResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagKeyResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagPolicyResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsLFTagPolicyResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableWildcardOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableWildcardPtrOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableWithColumnsResourceOutput{})
+	pulumi.RegisterOutputType(PrincipalPermissionsTableWithColumnsResourcePtrOutput{})
+	pulumi.RegisterOutputType(TagAssociationCatalogResourceOutput{})
+	pulumi.RegisterOutputType(TagAssociationCatalogResourcePtrOutput{})
+	pulumi.RegisterOutputType(TagAssociationDatabaseResourceOutput{})
+	pulumi.RegisterOutputType(TagAssociationDatabaseResourcePtrOutput{})
+	pulumi.RegisterOutputType(TagAssociationLFTagPairOutput{})
+	pulumi.RegisterOutputType(TagAssociationLFTagPairArrayOutput{})
+	pulumi.RegisterOutputType(TagAssociationResourceOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableResourceOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableResourcePtrOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableWildcardOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableWildcardPtrOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableWithColumnsResourceOutput{})
+	pulumi.RegisterOutputType(TagAssociationTableWithColumnsResourcePtrOutput{})
 }

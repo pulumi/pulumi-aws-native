@@ -119,6 +119,169 @@ func (o AggregationAuthorizationTagArrayOutput) Index(i pulumi.IntInput) Aggrega
 	}).(AggregationAuthorizationTagOutput)
 }
 
+type ConfigRuleCustomPolicyDetails struct {
+	EnableDebugLogDelivery *bool   `pulumi:"enableDebugLogDelivery"`
+	PolicyRuntime          *string `pulumi:"policyRuntime"`
+	PolicyText             *string `pulumi:"policyText"`
+}
+
+// ConfigRuleCustomPolicyDetailsInput is an input type that accepts ConfigRuleCustomPolicyDetailsArgs and ConfigRuleCustomPolicyDetailsOutput values.
+// You can construct a concrete instance of `ConfigRuleCustomPolicyDetailsInput` via:
+//
+//	ConfigRuleCustomPolicyDetailsArgs{...}
+type ConfigRuleCustomPolicyDetailsInput interface {
+	pulumi.Input
+
+	ToConfigRuleCustomPolicyDetailsOutput() ConfigRuleCustomPolicyDetailsOutput
+	ToConfigRuleCustomPolicyDetailsOutputWithContext(context.Context) ConfigRuleCustomPolicyDetailsOutput
+}
+
+type ConfigRuleCustomPolicyDetailsArgs struct {
+	EnableDebugLogDelivery pulumi.BoolPtrInput   `pulumi:"enableDebugLogDelivery"`
+	PolicyRuntime          pulumi.StringPtrInput `pulumi:"policyRuntime"`
+	PolicyText             pulumi.StringPtrInput `pulumi:"policyText"`
+}
+
+func (ConfigRuleCustomPolicyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleCustomPolicyDetails)(nil)).Elem()
+}
+
+func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsOutput() ConfigRuleCustomPolicyDetailsOutput {
+	return i.ToConfigRuleCustomPolicyDetailsOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsOutput)
+}
+
+func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return i.ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsOutput).ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx)
+}
+
+// ConfigRuleCustomPolicyDetailsPtrInput is an input type that accepts ConfigRuleCustomPolicyDetailsArgs, ConfigRuleCustomPolicyDetailsPtr and ConfigRuleCustomPolicyDetailsPtrOutput values.
+// You can construct a concrete instance of `ConfigRuleCustomPolicyDetailsPtrInput` via:
+//
+//	        ConfigRuleCustomPolicyDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigRuleCustomPolicyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput
+	ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(context.Context) ConfigRuleCustomPolicyDetailsPtrOutput
+}
+
+type configRuleCustomPolicyDetailsPtrType ConfigRuleCustomPolicyDetailsArgs
+
+func ConfigRuleCustomPolicyDetailsPtr(v *ConfigRuleCustomPolicyDetailsArgs) ConfigRuleCustomPolicyDetailsPtrInput {
+	return (*configRuleCustomPolicyDetailsPtrType)(v)
+}
+
+func (*configRuleCustomPolicyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleCustomPolicyDetails)(nil)).Elem()
+}
+
+func (i *configRuleCustomPolicyDetailsPtrType) ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return i.ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *configRuleCustomPolicyDetailsPtrType) ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsPtrOutput)
+}
+
+type ConfigRuleCustomPolicyDetailsOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleCustomPolicyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleCustomPolicyDetails)(nil)).Elem()
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsOutput() ConfigRuleCustomPolicyDetailsOutput {
+	return o
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsOutput {
+	return o
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o.ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleCustomPolicyDetails) *ConfigRuleCustomPolicyDetails {
+		return &v
+	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *bool { return v.EnableDebugLogDelivery }).(pulumi.BoolPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) PolicyRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyRuntime }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) PolicyText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyText }).(pulumi.StringPtrOutput)
+}
+
+type ConfigRuleCustomPolicyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleCustomPolicyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleCustomPolicyDetails)(nil)).Elem()
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) Elem() ConfigRuleCustomPolicyDetailsOutput {
+	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) ConfigRuleCustomPolicyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigRuleCustomPolicyDetails
+		return ret
+	}).(ConfigRuleCustomPolicyDetailsOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDebugLogDelivery
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyRuntime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyText
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigRuleScope struct {
 	ComplianceResourceId    *string  `pulumi:"complianceResourceId"`
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
@@ -298,9 +461,10 @@ func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 }
 
 type ConfigRuleSource struct {
-	Owner            string                   `pulumi:"owner"`
-	SourceDetails    []ConfigRuleSourceDetail `pulumi:"sourceDetails"`
-	SourceIdentifier string                   `pulumi:"sourceIdentifier"`
+	CustomPolicyDetails *ConfigRuleCustomPolicyDetails `pulumi:"customPolicyDetails"`
+	Owner               string                         `pulumi:"owner"`
+	SourceDetails       []ConfigRuleSourceDetail       `pulumi:"sourceDetails"`
+	SourceIdentifier    *string                        `pulumi:"sourceIdentifier"`
 }
 
 // ConfigRuleSourceInput is an input type that accepts ConfigRuleSourceArgs and ConfigRuleSourceOutput values.
@@ -315,9 +479,10 @@ type ConfigRuleSourceInput interface {
 }
 
 type ConfigRuleSourceArgs struct {
-	Owner            pulumi.StringInput               `pulumi:"owner"`
-	SourceDetails    ConfigRuleSourceDetailArrayInput `pulumi:"sourceDetails"`
-	SourceIdentifier pulumi.StringInput               `pulumi:"sourceIdentifier"`
+	CustomPolicyDetails ConfigRuleCustomPolicyDetailsPtrInput `pulumi:"customPolicyDetails"`
+	Owner               pulumi.StringInput                    `pulumi:"owner"`
+	SourceDetails       ConfigRuleSourceDetailArrayInput      `pulumi:"sourceDetails"`
+	SourceIdentifier    pulumi.StringPtrInput                 `pulumi:"sourceIdentifier"`
 }
 
 func (ConfigRuleSourceArgs) ElementType() reflect.Type {
@@ -346,6 +511,10 @@ func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConfigRuleSourceOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o.ApplyT(func(v ConfigRuleSource) *ConfigRuleCustomPolicyDetails { return v.CustomPolicyDetails }).(ConfigRuleCustomPolicyDetailsPtrOutput)
+}
+
 func (o ConfigRuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -354,8 +523,8 @@ func (o ConfigRuleSourceOutput) SourceDetails() ConfigRuleSourceDetailArrayOutpu
 	return o.ApplyT(func(v ConfigRuleSource) []ConfigRuleSourceDetail { return v.SourceDetails }).(ConfigRuleSourceDetailArrayOutput)
 }
 
-func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigRuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type ConfigRuleSourcePtrOutput struct{ *pulumi.OutputState }
@@ -382,6 +551,15 @@ func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
 	}).(ConfigRuleSourceOutput)
 }
 
+func (o ConfigRuleSourcePtrOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) *ConfigRuleCustomPolicyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPolicyDetails
+	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
+}
+
 func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *string {
 		if v == nil {
@@ -405,7 +583,7 @@ func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.SourceIdentifier
+		return v.SourceIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2284,9 +2462,162 @@ func (o StoredQueryTagArrayOutput) Index(i pulumi.IntInput) StoredQueryTagOutput
 	}).(StoredQueryTagOutput)
 }
 
+// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+type TemplateSSMDocumentDetailsProperties struct {
+	DocumentName    *string `pulumi:"documentName"`
+	DocumentVersion *string `pulumi:"documentVersion"`
+}
+
+// TemplateSSMDocumentDetailsPropertiesInput is an input type that accepts TemplateSSMDocumentDetailsPropertiesArgs and TemplateSSMDocumentDetailsPropertiesOutput values.
+// You can construct a concrete instance of `TemplateSSMDocumentDetailsPropertiesInput` via:
+//
+//	TemplateSSMDocumentDetailsPropertiesArgs{...}
+type TemplateSSMDocumentDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput
+	ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(context.Context) TemplateSSMDocumentDetailsPropertiesOutput
+}
+
+// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+type TemplateSSMDocumentDetailsPropertiesArgs struct {
+	DocumentName    pulumi.StringPtrInput `pulumi:"documentName"`
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+}
+
+func (TemplateSSMDocumentDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+}
+
+func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput {
+	return i.ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesOutput)
+}
+
+func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return i.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateSSMDocumentDetailsPropertiesArgs) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesOutput).ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// TemplateSSMDocumentDetailsPropertiesPtrInput is an input type that accepts TemplateSSMDocumentDetailsPropertiesArgs, TemplateSSMDocumentDetailsPropertiesPtr and TemplateSSMDocumentDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `TemplateSSMDocumentDetailsPropertiesPtrInput` via:
+//
+//	        TemplateSSMDocumentDetailsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateSSMDocumentDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput
+	ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput
+}
+
+type templateSSMDocumentDetailsPropertiesPtrType TemplateSSMDocumentDetailsPropertiesArgs
+
+func TemplateSSMDocumentDetailsPropertiesPtr(v *TemplateSSMDocumentDetailsPropertiesArgs) TemplateSSMDocumentDetailsPropertiesPtrInput {
+	return (*templateSSMDocumentDetailsPropertiesPtrType)(v)
+}
+
+func (*templateSSMDocumentDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+}
+
+func (i *templateSSMDocumentDetailsPropertiesPtrType) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return i.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *templateSSMDocumentDetailsPropertiesPtrType) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
+}
+
+// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+type TemplateSSMDocumentDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TemplateSSMDocumentDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesOutput() TemplateSSMDocumentDetailsPropertiesOutput {
+	return o
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesOutput {
+	return o
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return o.ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSSMDocumentDetailsProperties) *TemplateSSMDocumentDetailsProperties {
+		return &v
+	}).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSSMDocumentDetailsProperties) *string { return v.DocumentName }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSSMDocumentDetailsProperties) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
+}
+
+type TemplateSSMDocumentDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSSMDocumentDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSSMDocumentDetailsProperties)(nil)).Elem()
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutput() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) ToTemplateSSMDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) Elem() TemplateSSMDocumentDetailsPropertiesOutput {
+	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) TemplateSSMDocumentDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSSMDocumentDetailsProperties
+		return ret
+	}).(TemplateSSMDocumentDetailsPropertiesOutput)
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSSMDocumentDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagInput)(nil)).Elem(), AggregationAuthorizationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagArrayInput)(nil)).Elem(), AggregationAuthorizationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleCustomPolicyDetailsInput)(nil)).Elem(), ConfigRuleCustomPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleCustomPolicyDetailsPtrInput)(nil)).Elem(), ConfigRuleCustomPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopeInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopePtrInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourceInput)(nil)).Elem(), ConfigRuleSourceArgs{})
@@ -2316,8 +2647,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsPtrInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagInput)(nil)).Elem(), StoredQueryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagArrayInput)(nil)).Elem(), StoredQueryTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSSMDocumentDetailsPropertiesInput)(nil)).Elem(), TemplateSSMDocumentDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSSMDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSSMDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagOutput{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagArrayOutput{})
+	pulumi.RegisterOutputType(ConfigRuleCustomPolicyDetailsOutput{})
+	pulumi.RegisterOutputType(ConfigRuleCustomPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopeOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceOutput{})
@@ -2348,4 +2683,6 @@ func init() {
 	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsPtrOutput{})
 	pulumi.RegisterOutputType(StoredQueryTagOutput{})
 	pulumi.RegisterOutputType(StoredQueryTagArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSSMDocumentDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(TemplateSSMDocumentDetailsPropertiesPtrOutput{})
 }

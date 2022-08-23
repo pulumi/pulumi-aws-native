@@ -547,6 +547,8 @@ class LifecyclePolicyParameters(dict):
         suggest = None
         if key == "excludeBootVolume":
             suggest = "exclude_boot_volume"
+        elif key == "excludeDataVolumeTags":
+            suggest = "exclude_data_volume_tags"
         elif key == "noReboot":
             suggest = "no_reboot"
 
@@ -563,9 +565,12 @@ class LifecyclePolicyParameters(dict):
 
     def __init__(__self__, *,
                  exclude_boot_volume: Optional[bool] = None,
+                 exclude_data_volume_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
                  no_reboot: Optional[bool] = None):
         if exclude_boot_volume is not None:
             pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
+        if exclude_data_volume_tags is not None:
+            pulumi.set(__self__, "exclude_data_volume_tags", exclude_data_volume_tags)
         if no_reboot is not None:
             pulumi.set(__self__, "no_reboot", no_reboot)
 
@@ -573,6 +578,11 @@ class LifecyclePolicyParameters(dict):
     @pulumi.getter(name="excludeBootVolume")
     def exclude_boot_volume(self) -> Optional[bool]:
         return pulumi.get(self, "exclude_boot_volume")
+
+    @property
+    @pulumi.getter(name="excludeDataVolumeTags")
+    def exclude_data_volume_tags(self) -> Optional[Sequence['outputs.LifecyclePolicyTag']]:
+        return pulumi.get(self, "exclude_data_volume_tags")
 
     @property
     @pulumi.getter(name="noReboot")

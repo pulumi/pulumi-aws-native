@@ -111,7 +111,9 @@ func (o TopicSubscriptionArrayOutput) Index(i pulumi.IntInput) TopicSubscription
 }
 
 type TopicTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -127,7 +129,9 @@ type TopicTagInput interface {
 }
 
 type TopicTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -182,10 +186,12 @@ func (o TopicTagOutput) ToTopicTagOutputWithContext(ctx context.Context) TopicTa
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
 func (o TopicTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 characters in length.
 func (o TopicTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicTag) string { return v.Value }).(pulumi.StringOutput)
 }

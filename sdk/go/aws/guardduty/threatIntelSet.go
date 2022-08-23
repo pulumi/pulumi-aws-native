@@ -17,11 +17,12 @@ import (
 type ThreatIntelSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolOutput      `pulumi:"activate"`
-	DetectorId pulumi.StringOutput    `pulumi:"detectorId"`
-	Format     pulumi.StringOutput    `pulumi:"format"`
-	Location   pulumi.StringOutput    `pulumi:"location"`
-	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Activate   pulumi.BoolOutput            `pulumi:"activate"`
+	DetectorId pulumi.StringOutput          `pulumi:"detectorId"`
+	Format     pulumi.StringOutput          `pulumi:"format"`
+	Location   pulumi.StringOutput          `pulumi:"location"`
+	Name       pulumi.StringPtrOutput       `pulumi:"name"`
+	Tags       ThreatIntelSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -75,11 +76,12 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 }
 
 type threatIntelSetArgs struct {
-	Activate   bool    `pulumi:"activate"`
-	DetectorId string  `pulumi:"detectorId"`
-	Format     string  `pulumi:"format"`
-	Location   string  `pulumi:"location"`
-	Name       *string `pulumi:"name"`
+	Activate   bool                `pulumi:"activate"`
+	DetectorId string              `pulumi:"detectorId"`
+	Format     string              `pulumi:"format"`
+	Location   string              `pulumi:"location"`
+	Name       *string             `pulumi:"name"`
+	Tags       []ThreatIntelSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThreatIntelSet resource.
@@ -89,6 +91,7 @@ type ThreatIntelSetArgs struct {
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
+	Tags       ThreatIntelSetTagArrayInput
 }
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
@@ -146,6 +149,10 @@ func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
 
 func (o ThreatIntelSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ThreatIntelSetOutput) Tags() ThreatIntelSetTagArrayOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) ThreatIntelSetTagArrayOutput { return v.Tags }).(ThreatIntelSetTagArrayOutput)
 }
 
 func init() {

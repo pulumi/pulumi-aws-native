@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConnectorProfileAuthenticationType = {
+    Oauth2: "OAUTH2",
+    Apikey: "APIKEY",
+    Basic: "BASIC",
+    Custom: "CUSTOM",
+} as const;
+
+export type ConnectorProfileAuthenticationType = (typeof ConnectorProfileAuthenticationType)[keyof typeof ConnectorProfileAuthenticationType];
+
 export const ConnectorProfileConnectionMode = {
     Public: "Public",
     Private: "Private",
@@ -29,9 +38,17 @@ export const ConnectorProfileConnectorType = {
     Infornexus: "Infornexus",
     Amplitude: "Amplitude",
     Veeva: "Veeva",
+    CustomConnector: "CustomConnector",
 } as const;
 
 export type ConnectorProfileConnectorType = (typeof ConnectorProfileConnectorType)[keyof typeof ConnectorProfileConnectorType];
+
+export const ConnectorProfileOAuth2GrantType = {
+    ClientCredentials: "CLIENT_CREDENTIALS",
+    AuthorizationCode: "AUTHORIZATION_CODE",
+} as const;
+
+export type ConnectorProfileOAuth2GrantType = (typeof ConnectorProfileOAuth2GrantType)[keyof typeof ConnectorProfileOAuth2GrantType];
 
 export const FlowAggregationType = {
     None: "None",
@@ -64,6 +81,7 @@ export const FlowConnectorType = {
     Infornexus: "Infornexus",
     Amplitude: "Amplitude",
     Veeva: "Veeva",
+    CustomConnector: "CustomConnector",
     EventBridge: "EventBridge",
     Upsolver: "Upsolver",
     LookoutMetrics: "LookoutMetrics",
@@ -166,6 +184,32 @@ export const FlowMarketoConnectorOperator = {
 } as const;
 
 export type FlowMarketoConnectorOperator = (typeof FlowMarketoConnectorOperator)[keyof typeof FlowMarketoConnectorOperator];
+
+export const FlowOperator = {
+    Projection: "PROJECTION",
+    LessThan: "LESS_THAN",
+    GreaterThan: "GREATER_THAN",
+    Contains: "CONTAINS",
+    Between: "BETWEEN",
+    LessThanOrEqualTo: "LESS_THAN_OR_EQUAL_TO",
+    GreaterThanOrEqualTo: "GREATER_THAN_OR_EQUAL_TO",
+    EqualTo: "EQUAL_TO",
+    NotEqualTo: "NOT_EQUAL_TO",
+    Addition: "ADDITION",
+    Multiplication: "MULTIPLICATION",
+    Division: "DIVISION",
+    Subtraction: "SUBTRACTION",
+    MaskAll: "MASK_ALL",
+    MaskFirstN: "MASK_FIRST_N",
+    MaskLastN: "MASK_LAST_N",
+    ValidateNonNull: "VALIDATE_NON_NULL",
+    ValidateNonZero: "VALIDATE_NON_ZERO",
+    ValidateNonNegative: "VALIDATE_NON_NEGATIVE",
+    ValidateNumeric: "VALIDATE_NUMERIC",
+    NoOp: "NO_OP",
+} as const;
+
+export type FlowOperator = (typeof FlowOperator)[keyof typeof FlowOperator];
 
 export const FlowOperatorPropertiesKeys = {
     Value: "VALUE",
@@ -431,6 +475,7 @@ export const FlowWriteOperationType = {
     Insert: "INSERT",
     Upsert: "UPSERT",
     Update: "UPDATE",
+    Delete: "DELETE",
 } as const;
 
 export type FlowWriteOperationType = (typeof FlowWriteOperationType)[keyof typeof FlowWriteOperationType];

@@ -25,15 +25,13 @@ type LookupNotificationRuleArgs struct {
 }
 
 type LookupNotificationRuleResult struct {
-	Arn           *string                     `pulumi:"arn"`
-	CreatedBy     *string                     `pulumi:"createdBy"`
-	DetailType    *NotificationRuleDetailType `pulumi:"detailType"`
-	EventTypeId   *string                     `pulumi:"eventTypeId"`
-	EventTypeIds  []string                    `pulumi:"eventTypeIds"`
-	Name          *string                     `pulumi:"name"`
-	Status        *NotificationRuleStatus     `pulumi:"status"`
-	TargetAddress *string                     `pulumi:"targetAddress"`
-	Targets       []NotificationRuleTarget    `pulumi:"targets"`
+	Arn          *string                     `pulumi:"arn"`
+	CreatedBy    *string                     `pulumi:"createdBy"`
+	DetailType   *NotificationRuleDetailType `pulumi:"detailType"`
+	EventTypeIds []string                    `pulumi:"eventTypeIds"`
+	Name         *string                     `pulumi:"name"`
+	Status       *NotificationRuleStatus     `pulumi:"status"`
+	Targets      []NotificationRuleTarget    `pulumi:"targets"`
 }
 
 func LookupNotificationRuleOutput(ctx *pulumi.Context, args LookupNotificationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationRuleResultOutput {
@@ -83,10 +81,6 @@ func (o LookupNotificationRuleResultOutput) DetailType() NotificationRuleDetailT
 	return o.ApplyT(func(v LookupNotificationRuleResult) *NotificationRuleDetailType { return v.DetailType }).(NotificationRuleDetailTypePtrOutput)
 }
 
-func (o LookupNotificationRuleResultOutput) EventTypeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNotificationRuleResult) *string { return v.EventTypeId }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupNotificationRuleResultOutput) EventTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) []string { return v.EventTypeIds }).(pulumi.StringArrayOutput)
 }
@@ -97,10 +91,6 @@ func (o LookupNotificationRuleResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupNotificationRuleResultOutput) Status() NotificationRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *NotificationRuleStatus { return v.Status }).(NotificationRuleStatusPtrOutput)
-}
-
-func (o LookupNotificationRuleResultOutput) TargetAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNotificationRuleResult) *string { return v.TargetAddress }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNotificationRuleResultOutput) Targets() NotificationRuleTargetArrayOutput {

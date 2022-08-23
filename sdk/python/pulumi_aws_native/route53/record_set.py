@@ -18,6 +18,7 @@ class RecordSetArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  alias_target: Optional[pulumi.Input['RecordSetAliasTargetArgs']] = None,
+                 cidr_routing_config: Optional[pulumi.Input['RecordSetCidrRoutingConfigArgs']] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input['RecordSetGeoLocationArgs']] = None,
@@ -37,6 +38,8 @@ class RecordSetArgs:
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
+        if cidr_routing_config is not None:
+            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if failover is not None:
@@ -81,6 +84,15 @@ class RecordSetArgs:
     @alias_target.setter
     def alias_target(self, value: Optional[pulumi.Input['RecordSetAliasTargetArgs']]):
         pulumi.set(self, "alias_target", value)
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> Optional[pulumi.Input['RecordSetCidrRoutingConfigArgs']]:
+        return pulumi.get(self, "cidr_routing_config")
+
+    @cidr_routing_config.setter
+    def cidr_routing_config(self, value: Optional[pulumi.Input['RecordSetCidrRoutingConfigArgs']]):
+        pulumi.set(self, "cidr_routing_config", value)
 
     @property
     @pulumi.getter
@@ -211,6 +223,7 @@ class RecordSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_target: Optional[pulumi.Input[pulumi.InputType['RecordSetAliasTargetArgs']]] = None,
+                 cidr_routing_config: Optional[pulumi.Input[pulumi.InputType['RecordSetCidrRoutingConfigArgs']]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoLocationArgs']]] = None,
@@ -257,6 +270,7 @@ class RecordSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_target: Optional[pulumi.Input[pulumi.InputType['RecordSetAliasTargetArgs']]] = None,
+                 cidr_routing_config: Optional[pulumi.Input[pulumi.InputType['RecordSetCidrRoutingConfigArgs']]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoLocationArgs']]] = None,
@@ -282,6 +296,7 @@ class RecordSet(pulumi.CustomResource):
             __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
             __props__.__dict__["alias_target"] = alias_target
+            __props__.__dict__["cidr_routing_config"] = cidr_routing_config
             __props__.__dict__["comment"] = comment
             __props__.__dict__["failover"] = failover
             __props__.__dict__["geo_location"] = geo_location
@@ -321,6 +336,7 @@ class RecordSet(pulumi.CustomResource):
         __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
         __props__.__dict__["alias_target"] = None
+        __props__.__dict__["cidr_routing_config"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["failover"] = None
         __props__.__dict__["geo_location"] = None
@@ -341,6 +357,11 @@ class RecordSet(pulumi.CustomResource):
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> pulumi.Output[Optional['outputs.RecordSetAliasTarget']]:
         return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> pulumi.Output[Optional['outputs.RecordSetCidrRoutingConfig']]:
+        return pulumi.get(self, "cidr_routing_config")
 
     @property
     @pulumi.getter

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MetricFilterArgs', 'MetricFilter']
@@ -18,17 +19,27 @@ class MetricFilterArgs:
     def __init__(__self__, *,
                  filter_pattern: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
-                 metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]]):
+                 metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
+                 filter_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MetricFilter resource.
+        :param pulumi.Input[str] filter_pattern: Pattern that Logs follows to interpret each entry in a log.
+        :param pulumi.Input[str] log_group_name: Existing log group that you want to associate with this filter.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]] metric_transformations: A collection of information that defines how metric data gets emitted.
+        :param pulumi.Input[str] filter_name: A name for the metric filter.
         """
         pulumi.set(__self__, "filter_pattern", filter_pattern)
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "metric_transformations", metric_transformations)
+        if filter_name is not None:
+            pulumi.set(__self__, "filter_name", filter_name)
 
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Input[str]:
+        """
+        Pattern that Logs follows to interpret each entry in a log.
+        """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
@@ -38,6 +49,9 @@ class MetricFilterArgs:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Existing log group that you want to associate with this filter.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -47,32 +61,47 @@ class MetricFilterArgs:
     @property
     @pulumi.getter(name="metricTransformations")
     def metric_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]]:
+        """
+        A collection of information that defines how metric data gets emitted.
+        """
         return pulumi.get(self, "metric_transformations")
 
     @metric_transformations.setter
     def metric_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]]):
         pulumi.set(self, "metric_transformations", value)
 
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the metric filter.
+        """
+        return pulumi.get(self, "filter_name")
 
-warnings.warn("""MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    @filter_name.setter
+    def filter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_name", value)
 
 
 class MetricFilter(pulumi.CustomResource):
-    warnings.warn("""MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 filter_name: Optional[pulumi.Input[str]] = None,
                  filter_pattern: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricFilterMetricTransformationArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::MetricFilter
+        Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] filter_name: A name for the metric filter.
+        :param pulumi.Input[str] filter_pattern: Pattern that Logs follows to interpret each entry in a log.
+        :param pulumi.Input[str] log_group_name: Existing log group that you want to associate with this filter.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricFilterMetricTransformationArgs']]]] metric_transformations: A collection of information that defines how metric data gets emitted.
         """
         ...
     @overload
@@ -81,7 +110,7 @@ class MetricFilter(pulumi.CustomResource):
                  args: MetricFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::MetricFilter
+        Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
 
         :param str resource_name: The name of the resource.
         :param MetricFilterArgs args: The arguments to use to populate this resource's properties.
@@ -98,11 +127,11 @@ class MetricFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 filter_name: Optional[pulumi.Input[str]] = None,
                  filter_pattern: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricFilterMetricTransformationArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""MetricFilter is deprecated: MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -111,6 +140,7 @@ class MetricFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
+            __props__.__dict__["filter_name"] = filter_name
             if filter_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_pattern'")
             __props__.__dict__["filter_pattern"] = filter_pattern
@@ -142,23 +172,41 @@ class MetricFilter(pulumi.CustomResource):
 
         __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
+        __props__.__dict__["filter_name"] = None
         __props__.__dict__["filter_pattern"] = None
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["metric_transformations"] = None
         return MetricFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the metric filter.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Output[str]:
+        """
+        Pattern that Logs follows to interpret each entry in a log.
+        """
         return pulumi.get(self, "filter_pattern")
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
+        """
+        Existing log group that you want to associate with this filter.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="metricTransformations")
     def metric_transformations(self) -> pulumi.Output[Sequence['outputs.MetricFilterMetricTransformation']]:
+        """
+        A collection of information that defines how metric data gets emitted.
+        """
         return pulumi.get(self, "metric_transformations")
 

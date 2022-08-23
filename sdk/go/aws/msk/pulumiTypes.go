@@ -3599,6 +3599,253 @@ func (o ClusterUnauthenticatedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ServerlessClusterClientAuthentication struct {
+	Sasl ServerlessClusterSasl `pulumi:"sasl"`
+}
+
+// ServerlessClusterClientAuthenticationInput is an input type that accepts ServerlessClusterClientAuthenticationArgs and ServerlessClusterClientAuthenticationOutput values.
+// You can construct a concrete instance of `ServerlessClusterClientAuthenticationInput` via:
+//
+//	ServerlessClusterClientAuthenticationArgs{...}
+type ServerlessClusterClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput
+	ToServerlessClusterClientAuthenticationOutputWithContext(context.Context) ServerlessClusterClientAuthenticationOutput
+}
+
+type ServerlessClusterClientAuthenticationArgs struct {
+	Sasl ServerlessClusterSaslInput `pulumi:"sasl"`
+}
+
+func (ServerlessClusterClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput {
+	return i.ToServerlessClusterClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationOutput)
+}
+
+type ServerlessClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationOutput() ServerlessClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAuthenticationOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ServerlessClusterClientAuthenticationOutput) Sasl() ServerlessClusterSaslOutput {
+	return o.ApplyT(func(v ServerlessClusterClientAuthentication) ServerlessClusterSasl { return v.Sasl }).(ServerlessClusterSaslOutput)
+}
+
+type ServerlessClusterIam struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ServerlessClusterIamInput is an input type that accepts ServerlessClusterIamArgs and ServerlessClusterIamOutput values.
+// You can construct a concrete instance of `ServerlessClusterIamInput` via:
+//
+//	ServerlessClusterIamArgs{...}
+type ServerlessClusterIamInput interface {
+	pulumi.Input
+
+	ToServerlessClusterIamOutput() ServerlessClusterIamOutput
+	ToServerlessClusterIamOutputWithContext(context.Context) ServerlessClusterIamOutput
+}
+
+type ServerlessClusterIamArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ServerlessClusterIamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterIam)(nil)).Elem()
+}
+
+func (i ServerlessClusterIamArgs) ToServerlessClusterIamOutput() ServerlessClusterIamOutput {
+	return i.ToServerlessClusterIamOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterIamArgs) ToServerlessClusterIamOutputWithContext(ctx context.Context) ServerlessClusterIamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterIamOutput)
+}
+
+type ServerlessClusterIamOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterIamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterIam)(nil)).Elem()
+}
+
+func (o ServerlessClusterIamOutput) ToServerlessClusterIamOutput() ServerlessClusterIamOutput {
+	return o
+}
+
+func (o ServerlessClusterIamOutput) ToServerlessClusterIamOutputWithContext(ctx context.Context) ServerlessClusterIamOutput {
+	return o
+}
+
+func (o ServerlessClusterIamOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServerlessClusterIam) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ServerlessClusterSasl struct {
+	Iam ServerlessClusterIam `pulumi:"iam"`
+}
+
+// ServerlessClusterSaslInput is an input type that accepts ServerlessClusterSaslArgs and ServerlessClusterSaslOutput values.
+// You can construct a concrete instance of `ServerlessClusterSaslInput` via:
+//
+//	ServerlessClusterSaslArgs{...}
+type ServerlessClusterSaslInput interface {
+	pulumi.Input
+
+	ToServerlessClusterSaslOutput() ServerlessClusterSaslOutput
+	ToServerlessClusterSaslOutputWithContext(context.Context) ServerlessClusterSaslOutput
+}
+
+type ServerlessClusterSaslArgs struct {
+	Iam ServerlessClusterIamInput `pulumi:"iam"`
+}
+
+func (ServerlessClusterSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterSasl)(nil)).Elem()
+}
+
+func (i ServerlessClusterSaslArgs) ToServerlessClusterSaslOutput() ServerlessClusterSaslOutput {
+	return i.ToServerlessClusterSaslOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterSaslArgs) ToServerlessClusterSaslOutputWithContext(ctx context.Context) ServerlessClusterSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterSaslOutput)
+}
+
+type ServerlessClusterSaslOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterSasl)(nil)).Elem()
+}
+
+func (o ServerlessClusterSaslOutput) ToServerlessClusterSaslOutput() ServerlessClusterSaslOutput {
+	return o
+}
+
+func (o ServerlessClusterSaslOutput) ToServerlessClusterSaslOutputWithContext(ctx context.Context) ServerlessClusterSaslOutput {
+	return o
+}
+
+func (o ServerlessClusterSaslOutput) Iam() ServerlessClusterIamOutput {
+	return o.ApplyT(func(v ServerlessClusterSasl) ServerlessClusterIam { return v.Iam }).(ServerlessClusterIamOutput)
+}
+
+type ServerlessClusterVpcConfig struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	SubnetIds      []string `pulumi:"subnetIds"`
+}
+
+// ServerlessClusterVpcConfigInput is an input type that accepts ServerlessClusterVpcConfigArgs and ServerlessClusterVpcConfigOutput values.
+// You can construct a concrete instance of `ServerlessClusterVpcConfigInput` via:
+//
+//	ServerlessClusterVpcConfigArgs{...}
+type ServerlessClusterVpcConfigInput interface {
+	pulumi.Input
+
+	ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput
+	ToServerlessClusterVpcConfigOutputWithContext(context.Context) ServerlessClusterVpcConfigOutput
+}
+
+type ServerlessClusterVpcConfigArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	SubnetIds      pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ServerlessClusterVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (i ServerlessClusterVpcConfigArgs) ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput {
+	return i.ToServerlessClusterVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterVpcConfigArgs) ToServerlessClusterVpcConfigOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigOutput)
+}
+
+// ServerlessClusterVpcConfigArrayInput is an input type that accepts ServerlessClusterVpcConfigArray and ServerlessClusterVpcConfigArrayOutput values.
+// You can construct a concrete instance of `ServerlessClusterVpcConfigArrayInput` via:
+//
+//	ServerlessClusterVpcConfigArray{ ServerlessClusterVpcConfigArgs{...} }
+type ServerlessClusterVpcConfigArrayInput interface {
+	pulumi.Input
+
+	ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput
+	ToServerlessClusterVpcConfigArrayOutputWithContext(context.Context) ServerlessClusterVpcConfigArrayOutput
+}
+
+type ServerlessClusterVpcConfigArray []ServerlessClusterVpcConfigInput
+
+func (ServerlessClusterVpcConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (i ServerlessClusterVpcConfigArray) ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput {
+	return i.ToServerlessClusterVpcConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessClusterVpcConfigArray) ToServerlessClusterVpcConfigArrayOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigArrayOutput)
+}
+
+type ServerlessClusterVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutput() ServerlessClusterVpcConfigOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o ServerlessClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ServerlessClusterVpcConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessClusterVpcConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArrayOutput() ServerlessClusterVpcConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArrayOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) ServerlessClusterVpcConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessClusterVpcConfig {
+		return vs[0].([]ServerlessClusterVpcConfig)[vs[1].(int)]
+	}).(ServerlessClusterVpcConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsPtrInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
@@ -3649,6 +3896,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTlsPtrInput)(nil)).Elem(), ClusterTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUnauthenticatedInput)(nil)).Elem(), ClusterUnauthenticatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUnauthenticatedPtrInput)(nil)).Elem(), ClusterUnauthenticatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterSaslInput)(nil)).Elem(), ServerlessClusterSaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigInput)(nil)).Elem(), ServerlessClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigArrayInput)(nil)).Elem(), ServerlessClusterVpcConfigArray{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
@@ -3699,4 +3951,9 @@ func init() {
 	pulumi.RegisterOutputType(ClusterTlsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUnauthenticatedOutput{})
 	pulumi.RegisterOutputType(ClusterUnauthenticatedPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterSaslOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(ServerlessClusterVpcConfigArrayOutput{})
 }

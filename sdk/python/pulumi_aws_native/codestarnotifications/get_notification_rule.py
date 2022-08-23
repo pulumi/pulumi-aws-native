@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNotificationRuleResult:
-    def __init__(__self__, arn=None, created_by=None, detail_type=None, event_type_id=None, event_type_ids=None, name=None, status=None, target_address=None, targets=None):
+    def __init__(__self__, arn=None, created_by=None, detail_type=None, event_type_ids=None, name=None, status=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,9 +30,6 @@ class GetNotificationRuleResult:
         if detail_type and not isinstance(detail_type, str):
             raise TypeError("Expected argument 'detail_type' to be a str")
         pulumi.set(__self__, "detail_type", detail_type)
-        if event_type_id and not isinstance(event_type_id, str):
-            raise TypeError("Expected argument 'event_type_id' to be a str")
-        pulumi.set(__self__, "event_type_id", event_type_id)
         if event_type_ids and not isinstance(event_type_ids, list):
             raise TypeError("Expected argument 'event_type_ids' to be a list")
         pulumi.set(__self__, "event_type_ids", event_type_ids)
@@ -42,9 +39,6 @@ class GetNotificationRuleResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if target_address and not isinstance(target_address, str):
-            raise TypeError("Expected argument 'target_address' to be a str")
-        pulumi.set(__self__, "target_address", target_address)
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
         pulumi.set(__self__, "targets", targets)
@@ -65,11 +59,6 @@ class GetNotificationRuleResult:
         return pulumi.get(self, "detail_type")
 
     @property
-    @pulumi.getter(name="eventTypeId")
-    def event_type_id(self) -> Optional[str]:
-        return pulumi.get(self, "event_type_id")
-
-    @property
     @pulumi.getter(name="eventTypeIds")
     def event_type_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "event_type_ids")
@@ -83,11 +72,6 @@ class GetNotificationRuleResult:
     @pulumi.getter
     def status(self) -> Optional['NotificationRuleStatus']:
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="targetAddress")
-    def target_address(self) -> Optional[str]:
-        return pulumi.get(self, "target_address")
 
     @property
     @pulumi.getter
@@ -104,11 +88,9 @@ class AwaitableGetNotificationRuleResult(GetNotificationRuleResult):
             arn=self.arn,
             created_by=self.created_by,
             detail_type=self.detail_type,
-            event_type_id=self.event_type_id,
             event_type_ids=self.event_type_ids,
             name=self.name,
             status=self.status,
-            target_address=self.target_address,
             targets=self.targets)
 
 
@@ -126,11 +108,9 @@ def get_notification_rule(arn: Optional[str] = None,
         arn=__ret__.arn,
         created_by=__ret__.created_by,
         detail_type=__ret__.detail_type,
-        event_type_id=__ret__.event_type_id,
         event_type_ids=__ret__.event_type_ids,
         name=__ret__.name,
         status=__ret__.status,
-        target_address=__ret__.target_address,
         targets=__ret__.targets)
 
 

@@ -22,9 +22,11 @@ type Experiment struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObjectOutput  `pulumi:"onlineAbConfig"`
 	Project           pulumi.StringOutput                   `pulumi:"project"`
 	RandomizationSalt pulumi.StringPtrOutput                `pulumi:"randomizationSalt"`
+	RemoveSegment     pulumi.BoolPtrOutput                  `pulumi:"removeSegment"`
 	// Start Experiment. Default is False
 	RunningStatus ExperimentRunningStatusObjectPtrOutput `pulumi:"runningStatus"`
 	SamplingRate  pulumi.IntPtrOutput                    `pulumi:"samplingRate"`
+	Segment       pulumi.StringPtrOutput                 `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       ExperimentTagArrayOutput             `pulumi:"tags"`
 	Treatments ExperimentTreatmentObjectArrayOutput `pulumi:"treatments"`
@@ -87,9 +89,11 @@ type experimentArgs struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
 	Project           string                         `pulumi:"project"`
 	RandomizationSalt *string                        `pulumi:"randomizationSalt"`
+	RemoveSegment     *bool                          `pulumi:"removeSegment"`
 	// Start Experiment. Default is False
 	RunningStatus *ExperimentRunningStatusObject `pulumi:"runningStatus"`
 	SamplingRate  *int                           `pulumi:"samplingRate"`
+	Segment       *string                        `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       []ExperimentTag             `pulumi:"tags"`
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
@@ -103,9 +107,11 @@ type ExperimentArgs struct {
 	OnlineAbConfig    ExperimentOnlineAbConfigObjectInput
 	Project           pulumi.StringInput
 	RandomizationSalt pulumi.StringPtrInput
+	RemoveSegment     pulumi.BoolPtrInput
 	// Start Experiment. Default is False
 	RunningStatus ExperimentRunningStatusObjectPtrInput
 	SamplingRate  pulumi.IntPtrInput
+	Segment       pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags       ExperimentTagArrayInput
 	Treatments ExperimentTreatmentObjectArrayInput
@@ -176,6 +182,10 @@ func (o ExperimentOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
+func (o ExperimentOutput) RemoveSegment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.BoolPtrOutput { return v.RemoveSegment }).(pulumi.BoolPtrOutput)
+}
+
 // Start Experiment. Default is False
 func (o ExperimentOutput) RunningStatus() ExperimentRunningStatusObjectPtrOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentRunningStatusObjectPtrOutput { return v.RunningStatus }).(ExperimentRunningStatusObjectPtrOutput)
@@ -183,6 +193,10 @@ func (o ExperimentOutput) RunningStatus() ExperimentRunningStatusObjectPtrOutput
 
 func (o ExperimentOutput) SamplingRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.IntPtrOutput { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+func (o ExperimentOutput) Segment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Segment }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

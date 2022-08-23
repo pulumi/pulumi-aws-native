@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("dataSetId")]
         public Output<string?> DataSetId { get; private set; } = null!;
 
+        [Output("dataSetUsageConfiguration")]
+        public Output<Outputs.DataSetUsageConfiguration?> DataSetUsageConfiguration { get; private set; } = null!;
+
         [Output("fieldFolders")]
         public Output<Outputs.DataSetFieldFolderMap?> FieldFolders { get; private set; } = null!;
 
@@ -168,6 +171,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
+
+        [Input("dataSetUsageConfiguration")]
+        public Input<Inputs.DataSetUsageConfigurationArgs>? DataSetUsageConfiguration { get; set; }
 
         [Input("fieldFolders")]
         public Input<Inputs.DataSetFieldFolderMapArgs>? FieldFolders { get; set; }

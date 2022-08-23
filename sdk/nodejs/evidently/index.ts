@@ -11,8 +11,10 @@ export * from "./getExperiment";
 export * from "./getFeature";
 export * from "./getLaunch";
 export * from "./getProject";
+export * from "./getSegment";
 export * from "./launch";
 export * from "./project";
+export * from "./segment";
 
 // Export enums:
 export * from "../types/enums/evidently";
@@ -22,6 +24,7 @@ import { Experiment } from "./experiment";
 import { Feature } from "./feature";
 import { Launch } from "./launch";
 import { Project } from "./project";
+import { Segment } from "./segment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,6 +38,8 @@ const _module = {
                 return new Launch(name, <any>undefined, { urn })
             case "aws-native:evidently:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws-native:evidently:Segment":
+                return new Segment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

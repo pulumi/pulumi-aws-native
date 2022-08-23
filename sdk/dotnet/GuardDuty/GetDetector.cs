@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public readonly bool? Enable;
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
+        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
 
         [OutputConstructor]
         private GetDetectorResult(
@@ -64,12 +65,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
             string? findingPublishingFrequency,
 
-            string? id)
+            string? id,
+
+            ImmutableArray<Outputs.DetectorTag> tags)
         {
             DataSources = dataSources;
             Enable = enable;
             FindingPublishingFrequency = findingPublishingFrequency;
             Id = id;
+            Tags = tags;
         }
     }
 }

@@ -2884,7 +2884,7 @@ type TaskDefinitionContainerDefinition struct {
 	HealthCheck           *TaskDefinitionHealthCheck           `pulumi:"healthCheck"`
 	Hostname              *string                              `pulumi:"hostname"`
 	// The image used to start a container. This string is passed directly to the Docker daemon.
-	Image            *string                         `pulumi:"image"`
+	Image            string                          `pulumi:"image"`
 	Interactive      *bool                           `pulumi:"interactive"`
 	Links            []string                        `pulumi:"links"`
 	LinuxParameters  *TaskDefinitionLinuxParameters  `pulumi:"linuxParameters"`
@@ -2894,7 +2894,7 @@ type TaskDefinitionContainerDefinition struct {
 	MemoryReservation *int                       `pulumi:"memoryReservation"`
 	MountPoints       []TaskDefinitionMountPoint `pulumi:"mountPoints"`
 	// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 	PortMappings           []TaskDefinitionPortMapping          `pulumi:"portMappings"`
 	Privileged             *bool                                `pulumi:"privileged"`
@@ -2944,7 +2944,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	HealthCheck           TaskDefinitionHealthCheckPtrInput           `pulumi:"healthCheck"`
 	Hostname              pulumi.StringPtrInput                       `pulumi:"hostname"`
 	// The image used to start a container. This string is passed directly to the Docker daemon.
-	Image            pulumi.StringPtrInput                  `pulumi:"image"`
+	Image            pulumi.StringInput                     `pulumi:"image"`
 	Interactive      pulumi.BoolPtrInput                    `pulumi:"interactive"`
 	Links            pulumi.StringArrayInput                `pulumi:"links"`
 	LinuxParameters  TaskDefinitionLinuxParametersPtrInput  `pulumi:"linuxParameters"`
@@ -2954,7 +2954,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	MemoryReservation pulumi.IntPtrInput                 `pulumi:"memoryReservation"`
 	MountPoints       TaskDefinitionMountPointArrayInput `pulumi:"mountPoints"`
 	// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 	PortMappings           TaskDefinitionPortMappingArrayInput         `pulumi:"portMappings"`
 	Privileged             pulumi.BoolPtrInput                         `pulumi:"privileged"`
@@ -3093,8 +3093,8 @@ func (o TaskDefinitionContainerDefinitionOutput) Hostname() pulumi.StringPtrOutp
 }
 
 // The image used to start a container. This string is passed directly to the Docker daemon.
-func (o TaskDefinitionContainerDefinitionOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Image }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionContainerDefinitionOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionContainerDefinition) string { return v.Image }).(pulumi.StringOutput)
 }
 
 func (o TaskDefinitionContainerDefinitionOutput) Interactive() pulumi.BoolPtrOutput {
@@ -3127,8 +3127,8 @@ func (o TaskDefinitionContainerDefinitionOutput) MountPoints() TaskDefinitionMou
 }
 
 // The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
-func (o TaskDefinitionContainerDefinitionOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionContainerDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionContainerDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Port mappings allow containers to access ports on the host container instance to send or receive traffic.

@@ -23,6 +23,29 @@ export const LocationEFSInTransitEncryption = {
  */
 export type LocationEFSInTransitEncryption = (typeof LocationEFSInTransitEncryption)[keyof typeof LocationEFSInTransitEncryption];
 
+export const LocationFSxONTAPNfsMountOptionsVersion = {
+    Automatic: "AUTOMATIC",
+    Nfs3: "NFS3",
+    Nfs40: "NFS4_0",
+    Nfs41: "NFS4_1",
+} as const;
+
+/**
+ * The specific NFS version that you want DataSync to use to mount your NFS share.
+ */
+export type LocationFSxONTAPNfsMountOptionsVersion = (typeof LocationFSxONTAPNfsMountOptionsVersion)[keyof typeof LocationFSxONTAPNfsMountOptionsVersion];
+
+export const LocationFSxONTAPSmbMountOptionsVersion = {
+    Automatic: "AUTOMATIC",
+    Smb2: "SMB2",
+    Smb3: "SMB3",
+} as const;
+
+/**
+ * The specific SMB version that you want DataSync to use to mount your SMB share.
+ */
+export type LocationFSxONTAPSmbMountOptionsVersion = (typeof LocationFSxONTAPSmbMountOptionsVersion)[keyof typeof LocationFSxONTAPSmbMountOptionsVersion];
+
 export const LocationFSxOpenZFSMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",

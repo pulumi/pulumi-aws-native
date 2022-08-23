@@ -12,7 +12,9 @@ from .get_experiment import *
 from .get_feature import *
 from .get_launch import *
 from .get_project import *
+from .get_segment import *
 from .launch import *
 from .project import *
+from .segment import *
 from ._inputs import *
 from . import outputs

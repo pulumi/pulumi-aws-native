@@ -16,10 +16,11 @@ import (
 type VPCEndpointService struct {
 	pulumi.CustomResourceState
 
-	AcceptanceRequired      pulumi.BoolPtrOutput     `pulumi:"acceptanceRequired"`
-	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
-	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     pulumi.StringPtrOutput   `pulumi:"payerResponsibility"`
+	AcceptanceRequired         pulumi.BoolPtrOutput     `pulumi:"acceptanceRequired"`
+	ContributorInsightsEnabled pulumi.BoolPtrOutput     `pulumi:"contributorInsightsEnabled"`
+	GatewayLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
+	NetworkLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
+	PayerResponsibility        pulumi.StringPtrOutput   `pulumi:"payerResponsibility"`
 }
 
 // NewVPCEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -61,18 +62,20 @@ func (VPCEndpointServiceState) ElementType() reflect.Type {
 }
 
 type vpcendpointServiceArgs struct {
-	AcceptanceRequired      *bool    `pulumi:"acceptanceRequired"`
-	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
-	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     *string  `pulumi:"payerResponsibility"`
+	AcceptanceRequired         *bool    `pulumi:"acceptanceRequired"`
+	ContributorInsightsEnabled *bool    `pulumi:"contributorInsightsEnabled"`
+	GatewayLoadBalancerArns    []string `pulumi:"gatewayLoadBalancerArns"`
+	NetworkLoadBalancerArns    []string `pulumi:"networkLoadBalancerArns"`
+	PayerResponsibility        *string  `pulumi:"payerResponsibility"`
 }
 
 // The set of arguments for constructing a VPCEndpointService resource.
 type VPCEndpointServiceArgs struct {
-	AcceptanceRequired      pulumi.BoolPtrInput
-	GatewayLoadBalancerArns pulumi.StringArrayInput
-	NetworkLoadBalancerArns pulumi.StringArrayInput
-	PayerResponsibility     pulumi.StringPtrInput
+	AcceptanceRequired         pulumi.BoolPtrInput
+	ContributorInsightsEnabled pulumi.BoolPtrInput
+	GatewayLoadBalancerArns    pulumi.StringArrayInput
+	NetworkLoadBalancerArns    pulumi.StringArrayInput
+	PayerResponsibility        pulumi.StringPtrInput
 }
 
 func (VPCEndpointServiceArgs) ElementType() reflect.Type {
@@ -114,6 +117,10 @@ func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutputWithContext(ctx cont
 
 func (o VPCEndpointServiceOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VPCEndpointService) pulumi.BoolPtrOutput { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o VPCEndpointServiceOutput) ContributorInsightsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.BoolPtrOutput { return v.ContributorInsightsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o VPCEndpointServiceOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {

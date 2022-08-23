@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.EMR
         [Output("autoScalingRole")]
         public Output<string?> AutoScalingRole { get; private set; } = null!;
 
+        [Output("autoTerminationPolicy")]
+        public Output<Outputs.ClusterAutoTerminationPolicy?> AutoTerminationPolicy { get; private set; } = null!;
+
         [Output("bootstrapActions")]
         public Output<ImmutableArray<Outputs.ClusterBootstrapActionConfig>> BootstrapActions { get; private set; } = null!;
 
@@ -143,6 +146,9 @@ namespace Pulumi.AwsNative.EMR
 
         [Input("autoScalingRole")]
         public Input<string>? AutoScalingRole { get; set; }
+
+        [Input("autoTerminationPolicy")]
+        public Input<Inputs.ClusterAutoTerminationPolicyArgs>? AutoTerminationPolicy { get; set; }
 
         [Input("bootstrapActions")]
         private InputList<Inputs.ClusterBootstrapActionConfigArgs>? _bootstrapActions;

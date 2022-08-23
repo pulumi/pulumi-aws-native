@@ -301,6 +301,349 @@ func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) AccessCo
 	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
 }
 
+type PermissionSetCustomerManagedPolicyReference struct {
+	Name string  `pulumi:"name"`
+	Path *string `pulumi:"path"`
+}
+
+// PermissionSetCustomerManagedPolicyReferenceInput is an input type that accepts PermissionSetCustomerManagedPolicyReferenceArgs and PermissionSetCustomerManagedPolicyReferenceOutput values.
+// You can construct a concrete instance of `PermissionSetCustomerManagedPolicyReferenceInput` via:
+//
+//	PermissionSetCustomerManagedPolicyReferenceArgs{...}
+type PermissionSetCustomerManagedPolicyReferenceInput interface {
+	pulumi.Input
+
+	ToPermissionSetCustomerManagedPolicyReferenceOutput() PermissionSetCustomerManagedPolicyReferenceOutput
+	ToPermissionSetCustomerManagedPolicyReferenceOutputWithContext(context.Context) PermissionSetCustomerManagedPolicyReferenceOutput
+}
+
+type PermissionSetCustomerManagedPolicyReferenceArgs struct {
+	Name pulumi.StringInput    `pulumi:"name"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (PermissionSetCustomerManagedPolicyReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomerManagedPolicyReferenceOutput() PermissionSetCustomerManagedPolicyReferenceOutput {
+	return i.ToPermissionSetCustomerManagedPolicyReferenceOutputWithContext(context.Background())
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferenceOutput)
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return i.ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferenceOutput).ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx)
+}
+
+// PermissionSetCustomerManagedPolicyReferencePtrInput is an input type that accepts PermissionSetCustomerManagedPolicyReferenceArgs, PermissionSetCustomerManagedPolicyReferencePtr and PermissionSetCustomerManagedPolicyReferencePtrOutput values.
+// You can construct a concrete instance of `PermissionSetCustomerManagedPolicyReferencePtrInput` via:
+//
+//	        PermissionSetCustomerManagedPolicyReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionSetCustomerManagedPolicyReferencePtrInput interface {
+	pulumi.Input
+
+	ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput
+	ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput
+}
+
+type permissionSetCustomerManagedPolicyReferencePtrType PermissionSetCustomerManagedPolicyReferenceArgs
+
+func PermissionSetCustomerManagedPolicyReferencePtr(v *PermissionSetCustomerManagedPolicyReferenceArgs) PermissionSetCustomerManagedPolicyReferencePtrInput {
+	return (*permissionSetCustomerManagedPolicyReferencePtrType)(v)
+}
+
+func (*permissionSetCustomerManagedPolicyReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i *permissionSetCustomerManagedPolicyReferencePtrType) ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return i.ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *permissionSetCustomerManagedPolicyReferencePtrType) ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
+}
+
+// PermissionSetCustomerManagedPolicyReferenceArrayInput is an input type that accepts PermissionSetCustomerManagedPolicyReferenceArray and PermissionSetCustomerManagedPolicyReferenceArrayOutput values.
+// You can construct a concrete instance of `PermissionSetCustomerManagedPolicyReferenceArrayInput` via:
+//
+//	PermissionSetCustomerManagedPolicyReferenceArray{ PermissionSetCustomerManagedPolicyReferenceArgs{...} }
+type PermissionSetCustomerManagedPolicyReferenceArrayInput interface {
+	pulumi.Input
+
+	ToPermissionSetCustomerManagedPolicyReferenceArrayOutput() PermissionSetCustomerManagedPolicyReferenceArrayOutput
+	ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(context.Context) PermissionSetCustomerManagedPolicyReferenceArrayOutput
+}
+
+type PermissionSetCustomerManagedPolicyReferenceArray []PermissionSetCustomerManagedPolicyReferenceInput
+
+func (PermissionSetCustomerManagedPolicyReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArray) ToPermissionSetCustomerManagedPolicyReferenceArrayOutput() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
+	return i.ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArray) ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferenceArrayOutput)
+}
+
+type PermissionSetCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetCustomerManagedPolicyReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustomerManagedPolicyReferenceOutput() PermissionSetCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o.ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionSetCustomerManagedPolicyReference) *PermissionSetCustomerManagedPolicyReference {
+		return &v
+	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionSetCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionSetCustomerManagedPolicyReference) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type PermissionSetCustomerManagedPolicyReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetCustomerManagedPolicyReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Elem() PermissionSetCustomerManagedPolicyReferenceOutput {
+	return o.ApplyT(func(v *PermissionSetCustomerManagedPolicyReference) PermissionSetCustomerManagedPolicyReference {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionSetCustomerManagedPolicyReference
+		return ret
+	}).(PermissionSetCustomerManagedPolicyReferenceOutput)
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSetCustomerManagedPolicyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSetCustomerManagedPolicyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionSetCustomerManagedPolicyReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetCustomerManagedPolicyReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSetCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) ToPermissionSetCustomerManagedPolicyReferenceArrayOutput() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferenceArrayOutput {
+	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) Index(i pulumi.IntInput) PermissionSetCustomerManagedPolicyReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetCustomerManagedPolicyReference {
+		return vs[0].([]PermissionSetCustomerManagedPolicyReference)[vs[1].(int)]
+	}).(PermissionSetCustomerManagedPolicyReferenceOutput)
+}
+
+type PermissionSetPermissionsBoundary struct {
+	CustomerManagedPolicyReference *PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
+	ManagedPolicyArn               *string                                      `pulumi:"managedPolicyArn"`
+}
+
+// PermissionSetPermissionsBoundaryInput is an input type that accepts PermissionSetPermissionsBoundaryArgs and PermissionSetPermissionsBoundaryOutput values.
+// You can construct a concrete instance of `PermissionSetPermissionsBoundaryInput` via:
+//
+//	PermissionSetPermissionsBoundaryArgs{...}
+type PermissionSetPermissionsBoundaryInput interface {
+	pulumi.Input
+
+	ToPermissionSetPermissionsBoundaryOutput() PermissionSetPermissionsBoundaryOutput
+	ToPermissionSetPermissionsBoundaryOutputWithContext(context.Context) PermissionSetPermissionsBoundaryOutput
+}
+
+type PermissionSetPermissionsBoundaryArgs struct {
+	CustomerManagedPolicyReference PermissionSetCustomerManagedPolicyReferencePtrInput `pulumi:"customerManagedPolicyReference"`
+	ManagedPolicyArn               pulumi.StringPtrInput                               `pulumi:"managedPolicyArn"`
+}
+
+func (PermissionSetPermissionsBoundaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetPermissionsBoundary)(nil)).Elem()
+}
+
+func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryOutput() PermissionSetPermissionsBoundaryOutput {
+	return i.ToPermissionSetPermissionsBoundaryOutputWithContext(context.Background())
+}
+
+func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPermissionsBoundaryOutput)
+}
+
+func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput {
+	return i.ToPermissionSetPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPermissionsBoundaryOutput).ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx)
+}
+
+// PermissionSetPermissionsBoundaryPtrInput is an input type that accepts PermissionSetPermissionsBoundaryArgs, PermissionSetPermissionsBoundaryPtr and PermissionSetPermissionsBoundaryPtrOutput values.
+// You can construct a concrete instance of `PermissionSetPermissionsBoundaryPtrInput` via:
+//
+//	        PermissionSetPermissionsBoundaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionSetPermissionsBoundaryPtrInput interface {
+	pulumi.Input
+
+	ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput
+	ToPermissionSetPermissionsBoundaryPtrOutputWithContext(context.Context) PermissionSetPermissionsBoundaryPtrOutput
+}
+
+type permissionSetPermissionsBoundaryPtrType PermissionSetPermissionsBoundaryArgs
+
+func PermissionSetPermissionsBoundaryPtr(v *PermissionSetPermissionsBoundaryArgs) PermissionSetPermissionsBoundaryPtrInput {
+	return (*permissionSetPermissionsBoundaryPtrType)(v)
+}
+
+func (*permissionSetPermissionsBoundaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetPermissionsBoundary)(nil)).Elem()
+}
+
+func (i *permissionSetPermissionsBoundaryPtrType) ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput {
+	return i.ToPermissionSetPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionSetPermissionsBoundaryPtrType) ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPermissionsBoundaryPtrOutput)
+}
+
+type PermissionSetPermissionsBoundaryOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetPermissionsBoundaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetPermissionsBoundary)(nil)).Elem()
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBoundaryOutput() PermissionSetPermissionsBoundaryOutput {
+	return o
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBoundaryOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryOutput {
+	return o
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput {
+	return o.ToPermissionSetPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionSetPermissionsBoundary) *PermissionSetPermissionsBoundary {
+		return &v
+	}).(PermissionSetPermissionsBoundaryPtrOutput)
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyT(func(v PermissionSetPermissionsBoundary) *PermissionSetCustomerManagedPolicyReference {
+		return v.CustomerManagedPolicyReference
+	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
+}
+
+func (o PermissionSetPermissionsBoundaryOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionSetPermissionsBoundary) *string { return v.ManagedPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+type PermissionSetPermissionsBoundaryPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetPermissionsBoundaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionSetPermissionsBoundary)(nil)).Elem()
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput {
+	return o
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryPtrOutput {
+	return o
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) Elem() PermissionSetPermissionsBoundaryOutput {
+	return o.ApplyT(func(v *PermissionSetPermissionsBoundary) PermissionSetPermissionsBoundary {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionSetPermissionsBoundary
+		return ret
+	}).(PermissionSetPermissionsBoundaryOutput)
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) CustomerManagedPolicyReference() PermissionSetCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyT(func(v *PermissionSetPermissionsBoundary) *PermissionSetCustomerManagedPolicyReference {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedPolicyReference
+	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionSetPermissionsBoundary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedPolicyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The metadata that you apply to the permission set to help you categorize and organize them.
 type PermissionSetTag struct {
 	Key   string `pulumi:"key"`
@@ -410,6 +753,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationPropertiesInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationPropertiesPtrInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionSetCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionSetCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetCustomerManagedPolicyReferenceArrayInput)(nil)).Elem(), PermissionSetCustomerManagedPolicyReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagInput)(nil)).Elem(), PermissionSetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagArrayInput)(nil)).Elem(), PermissionSetTagArray{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
@@ -417,6 +765,11 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PermissionSetCustomerManagedPolicyReferenceOutput{})
+	pulumi.RegisterOutputType(PermissionSetCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(PermissionSetCustomerManagedPolicyReferenceArrayOutput{})
+	pulumi.RegisterOutputType(PermissionSetPermissionsBoundaryOutput{})
+	pulumi.RegisterOutputType(PermissionSetPermissionsBoundaryPtrOutput{})
 	pulumi.RegisterOutputType(PermissionSetTagOutput{})
 	pulumi.RegisterOutputType(PermissionSetTagArrayOutput{})
 }

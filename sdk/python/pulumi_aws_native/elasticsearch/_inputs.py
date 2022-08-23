@@ -28,15 +28,27 @@ __all__ = [
 @pulumi.input_type
 class DomainAdvancedSecurityOptionsInputArgs:
     def __init__(__self__, *,
+                 anonymous_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainMasterUserOptionsArgs']] = None):
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
+
+    @property
+    @pulumi.getter(name="anonymousAuthEnabled")
+    def anonymous_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "anonymous_auth_enabled")
+
+    @anonymous_auth_enabled.setter
+    def anonymous_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_auth_enabled", value)
 
     @property
     @pulumi.getter

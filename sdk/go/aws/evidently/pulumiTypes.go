@@ -1596,9 +1596,116 @@ func (o LaunchMetricDefinitionObjectArrayOutput) Index(i pulumi.IntInput) Launch
 	}).(LaunchMetricDefinitionObjectOutput)
 }
 
+type LaunchSegmentOverride struct {
+	EvaluationOrder int                   `pulumi:"evaluationOrder"`
+	Segment         string                `pulumi:"segment"`
+	Weights         []LaunchGroupToWeight `pulumi:"weights"`
+}
+
+// LaunchSegmentOverrideInput is an input type that accepts LaunchSegmentOverrideArgs and LaunchSegmentOverrideOutput values.
+// You can construct a concrete instance of `LaunchSegmentOverrideInput` via:
+//
+//	LaunchSegmentOverrideArgs{...}
+type LaunchSegmentOverrideInput interface {
+	pulumi.Input
+
+	ToLaunchSegmentOverrideOutput() LaunchSegmentOverrideOutput
+	ToLaunchSegmentOverrideOutputWithContext(context.Context) LaunchSegmentOverrideOutput
+}
+
+type LaunchSegmentOverrideArgs struct {
+	EvaluationOrder pulumi.IntInput               `pulumi:"evaluationOrder"`
+	Segment         pulumi.StringInput            `pulumi:"segment"`
+	Weights         LaunchGroupToWeightArrayInput `pulumi:"weights"`
+}
+
+func (LaunchSegmentOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchSegmentOverride)(nil)).Elem()
+}
+
+func (i LaunchSegmentOverrideArgs) ToLaunchSegmentOverrideOutput() LaunchSegmentOverrideOutput {
+	return i.ToLaunchSegmentOverrideOutputWithContext(context.Background())
+}
+
+func (i LaunchSegmentOverrideArgs) ToLaunchSegmentOverrideOutputWithContext(ctx context.Context) LaunchSegmentOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchSegmentOverrideOutput)
+}
+
+// LaunchSegmentOverrideArrayInput is an input type that accepts LaunchSegmentOverrideArray and LaunchSegmentOverrideArrayOutput values.
+// You can construct a concrete instance of `LaunchSegmentOverrideArrayInput` via:
+//
+//	LaunchSegmentOverrideArray{ LaunchSegmentOverrideArgs{...} }
+type LaunchSegmentOverrideArrayInput interface {
+	pulumi.Input
+
+	ToLaunchSegmentOverrideArrayOutput() LaunchSegmentOverrideArrayOutput
+	ToLaunchSegmentOverrideArrayOutputWithContext(context.Context) LaunchSegmentOverrideArrayOutput
+}
+
+type LaunchSegmentOverrideArray []LaunchSegmentOverrideInput
+
+func (LaunchSegmentOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchSegmentOverride)(nil)).Elem()
+}
+
+func (i LaunchSegmentOverrideArray) ToLaunchSegmentOverrideArrayOutput() LaunchSegmentOverrideArrayOutput {
+	return i.ToLaunchSegmentOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchSegmentOverrideArray) ToLaunchSegmentOverrideArrayOutputWithContext(ctx context.Context) LaunchSegmentOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchSegmentOverrideArrayOutput)
+}
+
+type LaunchSegmentOverrideOutput struct{ *pulumi.OutputState }
+
+func (LaunchSegmentOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchSegmentOverride)(nil)).Elem()
+}
+
+func (o LaunchSegmentOverrideOutput) ToLaunchSegmentOverrideOutput() LaunchSegmentOverrideOutput {
+	return o
+}
+
+func (o LaunchSegmentOverrideOutput) ToLaunchSegmentOverrideOutputWithContext(ctx context.Context) LaunchSegmentOverrideOutput {
+	return o
+}
+
+func (o LaunchSegmentOverrideOutput) EvaluationOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v LaunchSegmentOverride) int { return v.EvaluationOrder }).(pulumi.IntOutput)
+}
+
+func (o LaunchSegmentOverrideOutput) Segment() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchSegmentOverride) string { return v.Segment }).(pulumi.StringOutput)
+}
+
+func (o LaunchSegmentOverrideOutput) Weights() LaunchGroupToWeightArrayOutput {
+	return o.ApplyT(func(v LaunchSegmentOverride) []LaunchGroupToWeight { return v.Weights }).(LaunchGroupToWeightArrayOutput)
+}
+
+type LaunchSegmentOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchSegmentOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchSegmentOverride)(nil)).Elem()
+}
+
+func (o LaunchSegmentOverrideArrayOutput) ToLaunchSegmentOverrideArrayOutput() LaunchSegmentOverrideArrayOutput {
+	return o
+}
+
+func (o LaunchSegmentOverrideArrayOutput) ToLaunchSegmentOverrideArrayOutputWithContext(ctx context.Context) LaunchSegmentOverrideArrayOutput {
+	return o
+}
+
+func (o LaunchSegmentOverrideArrayOutput) Index(i pulumi.IntInput) LaunchSegmentOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchSegmentOverride {
+		return vs[0].([]LaunchSegmentOverride)[vs[1].(int)]
+	}).(LaunchSegmentOverrideOutput)
+}
+
 type LaunchStepConfig struct {
-	GroupWeights []LaunchGroupToWeight `pulumi:"groupWeights"`
-	StartTime    string                `pulumi:"startTime"`
+	GroupWeights     []LaunchGroupToWeight   `pulumi:"groupWeights"`
+	SegmentOverrides []LaunchSegmentOverride `pulumi:"segmentOverrides"`
+	StartTime        string                  `pulumi:"startTime"`
 }
 
 // LaunchStepConfigInput is an input type that accepts LaunchStepConfigArgs and LaunchStepConfigOutput values.
@@ -1613,8 +1720,9 @@ type LaunchStepConfigInput interface {
 }
 
 type LaunchStepConfigArgs struct {
-	GroupWeights LaunchGroupToWeightArrayInput `pulumi:"groupWeights"`
-	StartTime    pulumi.StringInput            `pulumi:"startTime"`
+	GroupWeights     LaunchGroupToWeightArrayInput   `pulumi:"groupWeights"`
+	SegmentOverrides LaunchSegmentOverrideArrayInput `pulumi:"segmentOverrides"`
+	StartTime        pulumi.StringInput              `pulumi:"startTime"`
 }
 
 func (LaunchStepConfigArgs) ElementType() reflect.Type {
@@ -1670,6 +1778,10 @@ func (o LaunchStepConfigOutput) ToLaunchStepConfigOutputWithContext(ctx context.
 
 func (o LaunchStepConfigOutput) GroupWeights() LaunchGroupToWeightArrayOutput {
 	return o.ApplyT(func(v LaunchStepConfig) []LaunchGroupToWeight { return v.GroupWeights }).(LaunchGroupToWeightArrayOutput)
+}
+
+func (o LaunchStepConfigOutput) SegmentOverrides() LaunchSegmentOverrideArrayOutput {
+	return o.ApplyT(func(v LaunchStepConfig) []LaunchSegmentOverride { return v.SegmentOverrides }).(LaunchSegmentOverrideArrayOutput)
 }
 
 func (o LaunchStepConfigOutput) StartTime() pulumi.StringOutput {
@@ -2213,6 +2325,115 @@ func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
 	}).(ProjectTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type SegmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// SegmentTagInput is an input type that accepts SegmentTagArgs and SegmentTagOutput values.
+// You can construct a concrete instance of `SegmentTagInput` via:
+//
+//	SegmentTagArgs{...}
+type SegmentTagInput interface {
+	pulumi.Input
+
+	ToSegmentTagOutput() SegmentTagOutput
+	ToSegmentTagOutputWithContext(context.Context) SegmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SegmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SegmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentTag)(nil)).Elem()
+}
+
+func (i SegmentTagArgs) ToSegmentTagOutput() SegmentTagOutput {
+	return i.ToSegmentTagOutputWithContext(context.Background())
+}
+
+func (i SegmentTagArgs) ToSegmentTagOutputWithContext(ctx context.Context) SegmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentTagOutput)
+}
+
+// SegmentTagArrayInput is an input type that accepts SegmentTagArray and SegmentTagArrayOutput values.
+// You can construct a concrete instance of `SegmentTagArrayInput` via:
+//
+//	SegmentTagArray{ SegmentTagArgs{...} }
+type SegmentTagArrayInput interface {
+	pulumi.Input
+
+	ToSegmentTagArrayOutput() SegmentTagArrayOutput
+	ToSegmentTagArrayOutputWithContext(context.Context) SegmentTagArrayOutput
+}
+
+type SegmentTagArray []SegmentTagInput
+
+func (SegmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentTag)(nil)).Elem()
+}
+
+func (i SegmentTagArray) ToSegmentTagArrayOutput() SegmentTagArrayOutput {
+	return i.ToSegmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i SegmentTagArray) ToSegmentTagArrayOutputWithContext(ctx context.Context) SegmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SegmentTagOutput struct{ *pulumi.OutputState }
+
+func (SegmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentTag)(nil)).Elem()
+}
+
+func (o SegmentTagOutput) ToSegmentTagOutput() SegmentTagOutput {
+	return o
+}
+
+func (o SegmentTagOutput) ToSegmentTagOutputWithContext(ctx context.Context) SegmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SegmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SegmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SegmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SegmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SegmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SegmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentTag)(nil)).Elem()
+}
+
+func (o SegmentTagArrayOutput) ToSegmentTagArrayOutput() SegmentTagArrayOutput {
+	return o
+}
+
+func (o SegmentTagArrayOutput) ToSegmentTagArrayOutputWithContext(ctx context.Context) SegmentTagArrayOutput {
+	return o
+}
+
+func (o SegmentTagArrayOutput) Index(i pulumi.IntInput) SegmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentTag {
+		return vs[0].([]SegmentTag)[vs[1].(int)]
+	}).(SegmentTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectInput)(nil)).Elem(), ExperimentMetricGoalObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectArrayInput)(nil)).Elem(), ExperimentMetricGoalObjectArray{})
@@ -2239,6 +2460,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupToWeightArrayInput)(nil)).Elem(), LaunchGroupToWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchMetricDefinitionObjectInput)(nil)).Elem(), LaunchMetricDefinitionObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchMetricDefinitionObjectArrayInput)(nil)).Elem(), LaunchMetricDefinitionObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchSegmentOverrideInput)(nil)).Elem(), LaunchSegmentOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchSegmentOverrideArrayInput)(nil)).Elem(), LaunchSegmentOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchStepConfigInput)(nil)).Elem(), LaunchStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchStepConfigArrayInput)(nil)).Elem(), LaunchStepConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTagInput)(nil)).Elem(), LaunchTagArgs{})
@@ -2249,6 +2472,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3DestinationPtrInput)(nil)).Elem(), ProjectS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentTagInput)(nil)).Elem(), SegmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentTagArrayInput)(nil)).Elem(), SegmentTagArray{})
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectOutput{})
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectOutput{})
@@ -2275,6 +2500,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchGroupToWeightArrayOutput{})
 	pulumi.RegisterOutputType(LaunchMetricDefinitionObjectOutput{})
 	pulumi.RegisterOutputType(LaunchMetricDefinitionObjectArrayOutput{})
+	pulumi.RegisterOutputType(LaunchSegmentOverrideOutput{})
+	pulumi.RegisterOutputType(LaunchSegmentOverrideArrayOutput{})
 	pulumi.RegisterOutputType(LaunchStepConfigOutput{})
 	pulumi.RegisterOutputType(LaunchStepConfigArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTagOutput{})
@@ -2285,4 +2512,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectS3DestinationPtrOutput{})
 	pulumi.RegisterOutputType(ProjectTagOutput{})
 	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
+	pulumi.RegisterOutputType(SegmentTagOutput{})
+	pulumi.RegisterOutputType(SegmentTagArrayOutput{})
 }

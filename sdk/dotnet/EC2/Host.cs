@@ -40,10 +40,22 @@ namespace Pulumi.AwsNative.EC2
         public Output<string?> HostRecovery { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+        /// </summary>
+        [Output("instanceFamily")]
+        public Output<string?> InstanceFamily { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         /// </summary>
         [Output("instanceType")]
-        public Output<string> InstanceType { get; private set; } = null!;
+        public Output<string?> InstanceType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,10 +121,22 @@ namespace Pulumi.AwsNative.EC2
         public Input<string>? HostRecovery { get; set; }
 
         /// <summary>
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+        /// </summary>
+        [Input("instanceFamily")]
+        public Input<string>? InstanceFamily { get; set; }
+
+        /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         public HostArgs()
         {

@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.AutoScaling
     public static class GetScalingPolicy
     {
         /// <summary>
-        /// Resource Type definition for AWS::AutoScaling::ScalingPolicy
+        /// The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
         /// </summary>
         public static Task<GetScalingPolicyResult> InvokeAsync(GetScalingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPolicyResult>("aws-native:autoscaling:getScalingPolicy", args ?? new GetScalingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::AutoScaling::ScalingPolicy
+        /// The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
         /// </summary>
         public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:autoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetScalingPolicyArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the AutoScaling scaling policy
+        /// </summary>
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetScalingPolicyArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetScalingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the AutoScaling scaling policy
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetScalingPolicyInvokeArgs()
         {
@@ -51,34 +57,67 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetScalingPolicyResult
     {
+        /// <summary>
+        /// Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+        /// </summary>
         public readonly string? AdjustmentType;
-        public readonly string? AutoScalingGroupName;
+        /// <summary>
+        /// The ARN of the AutoScaling scaling policy
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
+        /// The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+        /// </summary>
         public readonly string? Cooldown;
+        /// <summary>
+        /// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
+        /// </summary>
         public readonly int? EstimatedInstanceWarmup;
-        public readonly string? Id;
+        /// <summary>
+        /// The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
+        /// </summary>
         public readonly string? MetricAggregationType;
+        /// <summary>
+        /// The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+        /// </summary>
         public readonly int? MinAdjustmentMagnitude;
+        public readonly string? PolicyName;
+        /// <summary>
+        /// One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
+        /// </summary>
         public readonly string? PolicyType;
+        /// <summary>
+        /// A predictive scaling policy. Includes support for predefined metrics only.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingConfiguration? PredictiveScalingConfiguration;
+        /// <summary>
+        /// The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
+        /// </summary>
         public readonly int? ScalingAdjustment;
+        /// <summary>
+        /// A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyStepAdjustment> StepAdjustments;
+        /// <summary>
+        /// A target tracking scaling policy. Includes support for predefined or customized metrics.
+        /// </summary>
         public readonly Outputs.ScalingPolicyTargetTrackingConfiguration? TargetTrackingConfiguration;
 
         [OutputConstructor]
         private GetScalingPolicyResult(
             string? adjustmentType,
 
-            string? autoScalingGroupName,
+            string? arn,
 
             string? cooldown,
 
             int? estimatedInstanceWarmup,
 
-            string? id,
-
             string? metricAggregationType,
 
             int? minAdjustmentMagnitude,
+
+            string? policyName,
 
             string? policyType,
 
@@ -91,12 +130,12 @@ namespace Pulumi.AwsNative.AutoScaling
             Outputs.ScalingPolicyTargetTrackingConfiguration? targetTrackingConfiguration)
         {
             AdjustmentType = adjustmentType;
-            AutoScalingGroupName = autoScalingGroupName;
+            Arn = arn;
             Cooldown = cooldown;
             EstimatedInstanceWarmup = estimatedInstanceWarmup;
-            Id = id;
             MetricAggregationType = metricAggregationType;
             MinAdjustmentMagnitude = minAdjustmentMagnitude;
+            PolicyName = policyName;
             PolicyType = policyType;
             PredictiveScalingConfiguration = predictiveScalingConfiguration;
             ScalingAdjustment = scalingAdjustment;

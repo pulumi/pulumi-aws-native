@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Connect
         /// The type of the contact flow.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.AwsNative.Connect.ContactFlowType?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.ContactFlowType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The type of the contact flow.
         /// </summary>
-        [Input("type")]
-        public Input<Pulumi.AwsNative.Connect.ContactFlowType>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<Pulumi.AwsNative.Connect.ContactFlowType> Type { get; set; } = null!;
 
         public ContactFlowArgs()
         {

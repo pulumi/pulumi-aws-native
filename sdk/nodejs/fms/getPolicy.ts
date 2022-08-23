@@ -35,7 +35,7 @@ export interface GetPolicyResult {
     readonly resourceType?: string;
     readonly resourceTypeList?: string[];
     readonly resourcesCleanUp?: boolean;
-    readonly securityServicePolicyData?: outputs.fms.SecurityServicePolicyDataProperties;
+    readonly securityServicePolicyData?: outputs.fms.PolicySecurityServicePolicyData;
     readonly tags?: outputs.fms.PolicyTag[];
 }
 

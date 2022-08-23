@@ -25,7 +25,8 @@ type LookupListenerCertificateArgs struct {
 }
 
 type LookupListenerCertificateResult struct {
-	Id *string `pulumi:"id"`
+	Certificates []ListenerCertificateCertificate `pulumi:"certificates"`
+	Id           *string                          `pulumi:"id"`
 }
 
 func LookupListenerCertificateOutput(ctx *pulumi.Context, args LookupListenerCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupListenerCertificateResultOutput {
@@ -61,6 +62,10 @@ func (o LookupListenerCertificateResultOutput) ToLookupListenerCertificateResult
 
 func (o LookupListenerCertificateResultOutput) ToLookupListenerCertificateResultOutputWithContext(ctx context.Context) LookupListenerCertificateResultOutput {
 	return o
+}
+
+func (o LookupListenerCertificateResultOutput) Certificates() ListenerCertificateCertificateArrayOutput {
+	return o.ApplyT(func(v LookupListenerCertificateResult) []ListenerCertificateCertificate { return v.Certificates }).(ListenerCertificateCertificateArrayOutput)
 }
 
 func (o LookupListenerCertificateResultOutput) Id() pulumi.StringPtrOutput {

@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.EMR
     [OutputType]
     public sealed class GetClusterResult
     {
+        public readonly Outputs.ClusterAutoTerminationPolicy? AutoTerminationPolicy;
         public readonly string? Id;
         public readonly Outputs.ClusterJobFlowInstancesConfig? Instances;
         public readonly Outputs.ClusterManagedScalingPolicy? ManagedScalingPolicy;
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.EMR
 
         [OutputConstructor]
         private GetClusterResult(
+            Outputs.ClusterAutoTerminationPolicy? autoTerminationPolicy,
+
             string? id,
 
             Outputs.ClusterJobFlowInstancesConfig? instances,
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.EMR
 
             bool? visibleToAllUsers)
         {
+            AutoTerminationPolicy = autoTerminationPolicy;
             Id = id;
             Instances = instances;
             ManagedScalingPolicy = managedScalingPolicy;

@@ -24,6 +24,7 @@ class IPAMPoolArgs:
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMPoolTagArgs']]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
+                 aws_service: Optional[pulumi.Input['IPAMPoolAwsService']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMPoolProvisionedCidrArgs']]]] = None,
@@ -39,6 +40,7 @@ class IPAMPoolArgs:
         :param pulumi.Input[int] allocation_min_netmask_length: The minimum allowed netmask length for allocations made from this pool.
         :param pulumi.Input[Sequence[pulumi.Input['IPAMPoolTagArgs']]] allocation_resource_tags: When specified, an allocation will not be allowed unless a resource has a matching set of tags.
         :param pulumi.Input[bool] auto_import: Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
+        :param pulumi.Input['IPAMPoolAwsService'] aws_service: Limits which service in Amazon Web Services that the pool can be used in.
         :param pulumi.Input[str] locale: The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
         :param pulumi.Input[Sequence[pulumi.Input['IPAMPoolProvisionedCidrArgs']]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
@@ -57,6 +59,8 @@ class IPAMPoolArgs:
             pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
         if auto_import is not None:
             pulumi.set(__self__, "auto_import", auto_import)
+        if aws_service is not None:
+            pulumi.set(__self__, "aws_service", aws_service)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if locale is not None:
@@ -155,6 +159,18 @@ class IPAMPoolArgs:
         pulumi.set(self, "auto_import", value)
 
     @property
+    @pulumi.getter(name="awsService")
+    def aws_service(self) -> Optional[pulumi.Input['IPAMPoolAwsService']]:
+        """
+        Limits which service in Amazon Web Services that the pool can be used in.
+        """
+        return pulumi.get(self, "aws_service")
+
+    @aws_service.setter
+    def aws_service(self, value: Optional[pulumi.Input['IPAMPoolAwsService']]):
+        pulumi.set(self, "aws_service", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -235,6 +251,7 @@ class IPAMPool(pulumi.CustomResource):
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
+                 aws_service: Optional[pulumi.Input['IPAMPoolAwsService']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
@@ -254,6 +271,7 @@ class IPAMPool(pulumi.CustomResource):
         :param pulumi.Input[int] allocation_min_netmask_length: The minimum allowed netmask length for allocations made from this pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]] allocation_resource_tags: When specified, an allocation will not be allowed unless a resource has a matching set of tags.
         :param pulumi.Input[bool] auto_import: Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
+        :param pulumi.Input['IPAMPoolAwsService'] aws_service: Limits which service in Amazon Web Services that the pool can be used in.
         :param pulumi.Input[str] ipam_scope_id: The Id of the scope this pool is a part of.
         :param pulumi.Input[str] locale: The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolProvisionedCidrArgs']]]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
@@ -291,6 +309,7 @@ class IPAMPool(pulumi.CustomResource):
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
+                 aws_service: Optional[pulumi.Input['IPAMPoolAwsService']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
@@ -315,6 +334,7 @@ class IPAMPool(pulumi.CustomResource):
             __props__.__dict__["allocation_min_netmask_length"] = allocation_min_netmask_length
             __props__.__dict__["allocation_resource_tags"] = allocation_resource_tags
             __props__.__dict__["auto_import"] = auto_import
+            __props__.__dict__["aws_service"] = aws_service
             __props__.__dict__["description"] = description
             if ipam_scope_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_scope_id'")
@@ -361,6 +381,7 @@ class IPAMPool(pulumi.CustomResource):
         __props__.__dict__["allocation_resource_tags"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_import"] = None
+        __props__.__dict__["aws_service"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["ipam_arn"] = None
         __props__.__dict__["ipam_pool_id"] = None
@@ -432,6 +453,14 @@ class IPAMPool(pulumi.CustomResource):
         Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
         """
         return pulumi.get(self, "auto_import")
+
+    @property
+    @pulumi.getter(name="awsService")
+    def aws_service(self) -> pulumi.Output[Optional['IPAMPoolAwsService']]:
+        """
+        Limits which service in Amazon Web Services that the pool can be used in.
+        """
+        return pulumi.get(self, "aws_service")
 
     @property
     @pulumi.getter

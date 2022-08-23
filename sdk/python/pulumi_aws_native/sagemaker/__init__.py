@@ -20,7 +20,6 @@ from .get_app import *
 from .get_app_image_config import *
 from .get_code_repository import *
 from .get_data_quality_job_definition import *
-from .get_device import *
 from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *

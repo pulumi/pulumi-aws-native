@@ -29,6 +29,7 @@ type LookupDetectorResult struct {
 	Enable                     *bool                                `pulumi:"enable"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
 	Id                         *string                              `pulumi:"id"`
+	Tags                       []DetectorTag                        `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -80,6 +81,10 @@ func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringPt
 
 func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDetectorResultOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 func init() {

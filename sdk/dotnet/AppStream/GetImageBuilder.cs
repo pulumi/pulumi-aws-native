@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetImageBuilderArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetImageBuilderArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetImageBuilderInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetImageBuilderInvokeArgs()
         {
@@ -58,7 +58,6 @@ namespace Pulumi.AwsNative.AppStream
         public readonly Outputs.ImageBuilderDomainJoinInfo? DomainJoinInfo;
         public readonly bool? EnableDefaultInternetAccess;
         public readonly string? IamRoleArn;
-        public readonly string? Id;
         public readonly string? ImageArn;
         public readonly string? ImageName;
         public readonly string? InstanceType;
@@ -83,8 +82,6 @@ namespace Pulumi.AwsNative.AppStream
 
             string? iamRoleArn,
 
-            string? id,
-
             string? imageArn,
 
             string? imageName,
@@ -106,7 +103,6 @@ namespace Pulumi.AwsNative.AppStream
             DomainJoinInfo = domainJoinInfo;
             EnableDefaultInternetAccess = enableDefaultInternetAccess;
             IamRoleArn = iamRoleArn;
-            Id = id;
             ImageArn = imageArn;
             ImageName = imageName;
             InstanceType = instanceType;

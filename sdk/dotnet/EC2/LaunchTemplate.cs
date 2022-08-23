@@ -23,13 +23,16 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> LatestVersionNumber { get; private set; } = null!;
 
         [Output("launchTemplateData")]
-        public Output<Outputs.LaunchTemplateData?> LaunchTemplateData { get; private set; } = null!;
+        public Output<Outputs.LaunchTemplateData> LaunchTemplateData { get; private set; } = null!;
 
         [Output("launchTemplateName")]
         public Output<string?> LaunchTemplateName { get; private set; } = null!;
 
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
+
+        [Output("versionDescription")]
+        public Output<string?> VersionDescription { get; private set; } = null!;
 
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LaunchTemplate(string name, LaunchTemplateArgs? args = null, CustomResourceOptions? options = null)
+        public LaunchTemplate(string name, LaunchTemplateArgs args, CustomResourceOptions? options = null)
             : base("aws-native:ec2:LaunchTemplate", name, args ?? new LaunchTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -76,8 +79,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class LaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
-        [Input("launchTemplateData")]
-        public Input<Inputs.LaunchTemplateDataArgs>? LaunchTemplateData { get; set; }
+        [Input("launchTemplateData", required: true)]
+        public Input<Inputs.LaunchTemplateDataArgs> LaunchTemplateData { get; set; } = null!;
 
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.EC2
             get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
+
+        [Input("versionDescription")]
+        public Input<string>? VersionDescription { get; set; }
 
         public LaunchTemplateArgs()
         {

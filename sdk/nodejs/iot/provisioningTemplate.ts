@@ -43,6 +43,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     public /*out*/ readonly templateArn!: pulumi.Output<string>;
     public readonly templateBody!: pulumi.Output<string>;
     public readonly templateName!: pulumi.Output<string | undefined>;
+    public readonly templateType!: pulumi.Output<enums.iot.ProvisioningTemplateTemplateType | undefined>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -68,6 +69,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["templateType"] = args ? args.templateType : undefined;
             resourceInputs["templateArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -78,6 +80,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["templateArn"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateName"] = undefined /*out*/;
+            resourceInputs["templateType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts);
@@ -95,4 +98,5 @@ export interface ProvisioningTemplateArgs {
     tags?: pulumi.Input<pulumi.Input<inputs.iot.ProvisioningTemplateTagArgs>[]>;
     templateBody: pulumi.Input<string>;
     templateName?: pulumi.Input<string>;
+    templateType?: pulumi.Input<enums.iot.ProvisioningTemplateTemplateType>;
 }

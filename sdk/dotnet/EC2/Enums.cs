@@ -704,6 +704,8 @@ namespace Pulumi.AwsNative.EC2
         public static FlowLogResourceType NetworkInterface { get; } = new FlowLogResourceType("NetworkInterface");
         public static FlowLogResourceType Subnet { get; } = new FlowLogResourceType("Subnet");
         public static FlowLogResourceType Vpc { get; } = new FlowLogResourceType("VPC");
+        public static FlowLogResourceType TransitGateway { get; } = new FlowLogResourceType("TransitGateway");
+        public static FlowLogResourceType TransitGatewayAttachment { get; } = new FlowLogResourceType("TransitGatewayAttachment");
 
         public static bool operator ==(FlowLogResourceType left, FlowLogResourceType right) => left.Equals(right);
         public static bool operator !=(FlowLogResourceType left, FlowLogResourceType right) => !left.Equals(right);
@@ -745,6 +747,36 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowLogTrafficType other && Equals(other);
         public bool Equals(FlowLogTrafficType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Limits which service in Amazon Web Services that the pool can be used in.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMPoolAwsService : IEquatable<IPAMPoolAwsService>
+    {
+        private readonly string _value;
+
+        private IPAMPoolAwsService(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMPoolAwsService Ec2 { get; } = new IPAMPoolAwsService("ec2");
+
+        public static bool operator ==(IPAMPoolAwsService left, IPAMPoolAwsService right) => left.Equals(right);
+        public static bool operator !=(IPAMPoolAwsService left, IPAMPoolAwsService right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMPoolAwsService value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMPoolAwsService other && Equals(other);
+        public bool Equals(IPAMPoolAwsService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public static class GetStudioComponent
     {
         /// <summary>
-        /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+        /// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
         /// </summary>
         public static Task<GetStudioComponentResult> InvokeAsync(GetStudioComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+        /// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
         /// </summary>
         public static Output<GetStudioComponentResult> Invoke(GetStudioComponentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentInvokeArgs(), options.WithDefaults());
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public string StudioComponentId { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Input("studioId", required: true)]
         public string StudioId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<string> StudioComponentId { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
@@ -80,10 +80,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;The name for the studio component.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
+        public readonly string? RuntimeRoleArn;
         /// <summary>
         /// &lt;p&gt;Parameters for the studio component scripts.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue> ScriptParameters;
+        public readonly string? SecureInitializationRoleArn;
         public readonly string? StudioComponentId;
         public readonly Pulumi.AwsNative.NimbleStudio.StudioComponentType? Type;
 
@@ -99,7 +101,11 @@ namespace Pulumi.AwsNative.NimbleStudio
 
             string? name,
 
+            string? runtimeRoleArn,
+
             ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue> scriptParameters,
+
+            string? secureInitializationRoleArn,
 
             string? studioComponentId,
 
@@ -110,7 +116,9 @@ namespace Pulumi.AwsNative.NimbleStudio
             Ec2SecurityGroupIds = ec2SecurityGroupIds;
             InitializationScripts = initializationScripts;
             Name = name;
+            RuntimeRoleArn = runtimeRoleArn;
             ScriptParameters = scriptParameters;
+            SecureInitializationRoleArn = secureInitializationRoleArn;
             StudioComponentId = studioComponentId;
             Type = type;
         }

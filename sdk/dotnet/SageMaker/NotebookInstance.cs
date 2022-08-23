@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("directInternetAccess")]
         public Output<string?> DirectInternetAccess { get; private set; } = null!;
 
+        [Output("instanceMetadataServiceConfiguration")]
+        public Output<Outputs.NotebookInstanceInstanceMetadataServiceConfiguration?> InstanceMetadataServiceConfiguration { get; private set; } = null!;
+
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("directInternetAccess")]
         public Input<string>? DirectInternetAccess { get; set; }
+
+        [Input("instanceMetadataServiceConfiguration")]
+        public Input<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs>? InstanceMetadataServiceConfiguration { get; set; }
 
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;

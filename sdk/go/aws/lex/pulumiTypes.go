@@ -5495,9 +5495,10 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) TimeoutResponse() BotRes
 // Prompts the user to confirm the intent.
 type BotPromptSpecification struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
-	AllowInterrupt    *bool             `pulumi:"allowInterrupt"`
-	MaxRetries        int               `pulumi:"maxRetries"`
-	MessageGroupsList []BotMessageGroup `pulumi:"messageGroupsList"`
+	AllowInterrupt           *bool                        `pulumi:"allowInterrupt"`
+	MaxRetries               int                          `pulumi:"maxRetries"`
+	MessageGroupsList        []BotMessageGroup            `pulumi:"messageGroupsList"`
+	MessageSelectionStrategy *BotMessageSelectionStrategy `pulumi:"messageSelectionStrategy"`
 }
 
 // BotPromptSpecificationInput is an input type that accepts BotPromptSpecificationArgs and BotPromptSpecificationOutput values.
@@ -5514,9 +5515,10 @@ type BotPromptSpecificationInput interface {
 // Prompts the user to confirm the intent.
 type BotPromptSpecificationArgs struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
-	AllowInterrupt    pulumi.BoolPtrInput       `pulumi:"allowInterrupt"`
-	MaxRetries        pulumi.IntInput           `pulumi:"maxRetries"`
-	MessageGroupsList BotMessageGroupArrayInput `pulumi:"messageGroupsList"`
+	AllowInterrupt           pulumi.BoolPtrInput                 `pulumi:"allowInterrupt"`
+	MaxRetries               pulumi.IntInput                     `pulumi:"maxRetries"`
+	MessageGroupsList        BotMessageGroupArrayInput           `pulumi:"messageGroupsList"`
+	MessageSelectionStrategy BotMessageSelectionStrategyPtrInput `pulumi:"messageSelectionStrategy"`
 }
 
 func (BotPromptSpecificationArgs) ElementType() reflect.Type {
@@ -5610,6 +5612,10 @@ func (o BotPromptSpecificationOutput) MessageGroupsList() BotMessageGroupArrayOu
 	return o.ApplyT(func(v BotPromptSpecification) []BotMessageGroup { return v.MessageGroupsList }).(BotMessageGroupArrayOutput)
 }
 
+func (o BotPromptSpecificationOutput) MessageSelectionStrategy() BotMessageSelectionStrategyPtrOutput {
+	return o.ApplyT(func(v BotPromptSpecification) *BotMessageSelectionStrategy { return v.MessageSelectionStrategy }).(BotMessageSelectionStrategyPtrOutput)
+}
+
 type BotPromptSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (BotPromptSpecificationPtrOutput) ElementType() reflect.Type {
@@ -5660,6 +5666,15 @@ func (o BotPromptSpecificationPtrOutput) MessageGroupsList() BotMessageGroupArra
 		}
 		return v.MessageGroupsList
 	}).(BotMessageGroupArrayOutput)
+}
+
+func (o BotPromptSpecificationPtrOutput) MessageSelectionStrategy() BotMessageSelectionStrategyPtrOutput {
+	return o.ApplyT(func(v *BotPromptSpecification) *BotMessageSelectionStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.MessageSelectionStrategy
+	}).(BotMessageSelectionStrategyPtrOutput)
 }
 
 // A list of message groups that Amazon Lex uses to respond the user input.

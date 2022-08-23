@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.DynamoDB
     public static class GetTable
     {
         /// <summary>
-        /// Resource Type definition for AWS::DynamoDB::Table
+        /// Version: None. Resource Type definition for AWS::DynamoDB::Table
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::DynamoDB::Table
+        /// Version: None. Resource Type definition for AWS::DynamoDB::Table
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.DynamoDB
 
     public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.DynamoDB
 
     public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {
@@ -56,8 +56,9 @@ namespace Pulumi.AwsNative.DynamoDB
         public readonly string? BillingMode;
         public readonly Outputs.TableContributorInsightsSpecification? ContributorInsightsSpecification;
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndex> GlobalSecondaryIndexes;
-        public readonly string? Id;
+        public readonly Union<ImmutableArray<Outputs.TableKeySchema>, object>? KeySchema;
         public readonly Outputs.TableKinesisStreamSpecification? KinesisStreamSpecification;
+        public readonly ImmutableArray<Outputs.TableLocalSecondaryIndex> LocalSecondaryIndexes;
         public readonly Outputs.TablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
         public readonly Outputs.TableSSESpecification? SSESpecification;
@@ -79,9 +80,11 @@ namespace Pulumi.AwsNative.DynamoDB
 
             ImmutableArray<Outputs.TableGlobalSecondaryIndex> globalSecondaryIndexes,
 
-            string? id,
+            Union<ImmutableArray<Outputs.TableKeySchema>, object>? keySchema,
 
             Outputs.TableKinesisStreamSpecification? kinesisStreamSpecification,
+
+            ImmutableArray<Outputs.TableLocalSecondaryIndex> localSecondaryIndexes,
 
             Outputs.TablePointInTimeRecoverySpecification? pointInTimeRecoverySpecification,
 
@@ -104,8 +107,9 @@ namespace Pulumi.AwsNative.DynamoDB
             BillingMode = billingMode;
             ContributorInsightsSpecification = contributorInsightsSpecification;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
-            Id = id;
+            KeySchema = keySchema;
             KinesisStreamSpecification = kinesisStreamSpecification;
+            LocalSecondaryIndexes = localSecondaryIndexes;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ProvisionedThroughput = provisionedThroughput;
             SSESpecification = sSESpecification;

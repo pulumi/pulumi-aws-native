@@ -20,6 +20,9 @@ export * from "./queryDefinition";
 export * from "./resourcePolicy";
 export * from "./subscriptionFilter";
 
+// Export enums:
+export * from "../types/enums/logs";
+
 // Import resources to register:
 import { Destination } from "./destination";
 import { LogGroup } from "./logGroup";

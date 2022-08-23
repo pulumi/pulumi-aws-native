@@ -22,6 +22,7 @@ class NotebookInstanceArgs:
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  notebook_instance_name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,8 @@ class NotebookInstanceArgs:
             pulumi.set(__self__, "default_code_repository", default_code_repository)
         if direct_internet_access is not None:
             pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+        if instance_metadata_service_configuration is not None:
+            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lifecycle_config_name is not None:
@@ -116,6 +119,15 @@ class NotebookInstanceArgs:
     @direct_internet_access.setter
     def direct_internet_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "direct_internet_access", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]:
+        return pulumi.get(self, "instance_metadata_service_configuration")
+
+    @instance_metadata_service_configuration.setter
+    def instance_metadata_service_configuration(self, value: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]):
+        pulumi.set(self, "instance_metadata_service_configuration", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -213,6 +225,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -259,6 +272,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -284,6 +298,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
+            __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
@@ -325,6 +340,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["additional_code_repositories"] = None
         __props__.__dict__["default_code_repository"] = None
         __props__.__dict__["direct_internet_access"] = None
+        __props__.__dict__["instance_metadata_service_configuration"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["lifecycle_config_name"] = None
@@ -357,6 +373,11 @@ class NotebookInstance(pulumi.CustomResource):
     @pulumi.getter(name="directInternetAccess")
     def direct_internet_access(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "direct_internet_access")
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> pulumi.Output[Optional['outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]:
+        return pulumi.get(self, "instance_metadata_service_configuration")
 
     @property
     @pulumi.getter(name="instanceType")

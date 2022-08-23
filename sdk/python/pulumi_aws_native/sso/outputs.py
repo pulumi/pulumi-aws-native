@@ -15,6 +15,8 @@ __all__ = [
     'InstanceAccessControlAttributeConfigurationAccessControlAttribute',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValue',
     'InstanceAccessControlAttributeConfigurationProperties',
+    'PermissionSetCustomerManagedPolicyReference',
+    'PermissionSetPermissionsBoundary',
     'PermissionSetTag',
 ]
 
@@ -82,6 +84,66 @@ class InstanceAccessControlAttributeConfigurationProperties(dict):
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']:
         return pulumi.get(self, "access_control_attributes")
+
+
+@pulumi.output_type
+class PermissionSetCustomerManagedPolicyReference(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class PermissionSetPermissionsBoundary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedPolicyReference":
+            suggest = "customer_managed_policy_reference"
+        elif key == "managedPolicyArn":
+            suggest = "managed_policy_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionSetPermissionsBoundary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionSetPermissionsBoundary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionSetPermissionsBoundary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_policy_reference: Optional['outputs.PermissionSetCustomerManagedPolicyReference'] = None,
+                 managed_policy_arn: Optional[str] = None):
+        if customer_managed_policy_reference is not None:
+            pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
+        if managed_policy_arn is not None:
+            pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedPolicyReference")
+    def customer_managed_policy_reference(self) -> Optional['outputs.PermissionSetCustomerManagedPolicyReference']:
+        return pulumi.get(self, "customer_managed_policy_reference")
+
+    @property
+    @pulumi.getter(name="managedPolicyArn")
+    def managed_policy_arn(self) -> Optional[str]:
+        return pulumi.get(self, "managed_policy_arn")
 
 
 @pulumi.output_type

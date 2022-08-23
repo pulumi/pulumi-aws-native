@@ -66,7 +66,7 @@ export class ContactFlow extends pulumi.CustomResource {
     /**
      * The type of the contact flow.
      */
-    public readonly type!: pulumi.Output<enums.connect.ContactFlowType | undefined>;
+    public readonly type!: pulumi.Output<enums.connect.ContactFlowType>;
 
     /**
      * Create a ContactFlow resource with the given unique name, arguments, and options.
@@ -84,6 +84,9 @@ export class ContactFlow extends pulumi.CustomResource {
             }
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
+            }
+            if ((!args || args.type === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'type'");
             }
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -139,5 +142,5 @@ export interface ContactFlowArgs {
     /**
      * The type of the contact flow.
      */
-    type?: pulumi.Input<enums.connect.ContactFlowType>;
+    type: pulumi.Input<enums.connect.ContactFlowType>;
 }

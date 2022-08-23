@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.DetectorTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Detector resource with the given unique name, arguments, and options.
@@ -78,6 +81,14 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.DetectorTagArgs>? _tags;
+        public InputList<Inputs.DetectorTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.DetectorTagArgs>());
+            set => _tags = value;
+        }
 
         public DetectorArgs()
         {

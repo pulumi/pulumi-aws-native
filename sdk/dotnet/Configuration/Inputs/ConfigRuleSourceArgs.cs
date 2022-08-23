@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 
     public sealed class ConfigRuleSourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customPolicyDetails")]
+        public Input<Inputs.ConfigRuleCustomPolicyDetailsArgs>? CustomPolicyDetails { get; set; }
+
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
@@ -23,8 +26,8 @@ namespace Pulumi.AwsNative.Configuration.Inputs
             set => _sourceDetails = value;
         }
 
-        [Input("sourceIdentifier", required: true)]
-        public Input<string> SourceIdentifier { get; set; } = null!;
+        [Input("sourceIdentifier")]
+        public Input<string>? SourceIdentifier { get; set; }
 
         public ConfigRuleSourceArgs()
         {

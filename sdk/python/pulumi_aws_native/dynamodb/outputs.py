@@ -31,13 +31,17 @@ __all__ = [
     'GlobalTableWriteProvisionedThroughputSettings',
     'TableAttributeDefinition',
     'TableContributorInsightsSpecification',
+    'TableCsv',
     'TableGlobalSecondaryIndex',
+    'TableImportSourceSpecification',
+    'TableInputFormatOptions',
     'TableKeySchema',
     'TableKinesisStreamSpecification',
     'TableLocalSecondaryIndex',
     'TablePointInTimeRecoverySpecification',
     'TableProjection',
     'TableProvisionedThroughput',
+    'TableS3BucketSource',
     'TableSSESpecification',
     'TableStreamSpecification',
     'TableTag',
@@ -836,6 +840,44 @@ class TableContributorInsightsSpecification(dict):
 
 
 @pulumi.output_type
+class TableCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerList":
+            suggest = "header_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: Optional[str] = None,
+                 header_list: Optional[Sequence[str]] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if header_list is not None:
+            pulumi.set(__self__, "header_list", header_list)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter(name="headerList")
+    def header_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "header_list")
+
+
+@pulumi.output_type
 class TableGlobalSecondaryIndex(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -898,6 +940,77 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional['outputs.TableProvisionedThroughput']:
         return pulumi.get(self, "provisioned_throughput")
+
+
+@pulumi.output_type
+class TableImportSourceSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputFormat":
+            suggest = "input_format"
+        elif key == "s3BucketSource":
+            suggest = "s3_bucket_source"
+        elif key == "inputCompressionType":
+            suggest = "input_compression_type"
+        elif key == "inputFormatOptions":
+            suggest = "input_format_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableImportSourceSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableImportSourceSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableImportSourceSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_format: str,
+                 s3_bucket_source: 'outputs.TableS3BucketSource',
+                 input_compression_type: Optional[str] = None,
+                 input_format_options: Optional['outputs.TableInputFormatOptions'] = None):
+        pulumi.set(__self__, "input_format", input_format)
+        pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
+        if input_compression_type is not None:
+            pulumi.set(__self__, "input_compression_type", input_compression_type)
+        if input_format_options is not None:
+            pulumi.set(__self__, "input_format_options", input_format_options)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> str:
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="s3BucketSource")
+    def s3_bucket_source(self) -> 'outputs.TableS3BucketSource':
+        return pulumi.get(self, "s3_bucket_source")
+
+    @property
+    @pulumi.getter(name="inputCompressionType")
+    def input_compression_type(self) -> Optional[str]:
+        return pulumi.get(self, "input_compression_type")
+
+    @property
+    @pulumi.getter(name="inputFormatOptions")
+    def input_format_options(self) -> Optional['outputs.TableInputFormatOptions']:
+        return pulumi.get(self, "input_format_options")
+
+
+@pulumi.output_type
+class TableInputFormatOptions(dict):
+    def __init__(__self__, *,
+                 csv: Optional['outputs.TableCsv'] = None):
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.TableCsv']:
+        return pulumi.get(self, "csv")
 
 
 @pulumi.output_type
@@ -1118,6 +1231,55 @@ class TableProvisionedThroughput(dict):
     @pulumi.getter(name="writeCapacityUnits")
     def write_capacity_units(self) -> int:
         return pulumi.get(self, "write_capacity_units")
+
+
+@pulumi.output_type
+class TableS3BucketSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3BucketOwner":
+            suggest = "s3_bucket_owner"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableS3BucketSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableS3BucketSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableS3BucketSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_bucket_owner: Optional[str] = None,
+                 s3_key_prefix: Optional[str] = None):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "s3_bucket_owner")
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "s3_key_prefix")
 
 
 @pulumi.output_type

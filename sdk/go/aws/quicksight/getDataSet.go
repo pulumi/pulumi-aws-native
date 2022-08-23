@@ -35,8 +35,9 @@ type LookupDataSetResult struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes *float64 `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime *string            `pulumi:"createdTime"`
-	ImportMode  *DataSetImportMode `pulumi:"importMode"`
+	CreatedTime               *string                    `pulumi:"createdTime"`
+	DataSetUsageConfiguration *DataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
+	ImportMode                *DataSetImportMode         `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
 	LastUpdatedTime *string                 `pulumi:"lastUpdatedTime"`
 	LogicalTableMap *DataSetLogicalTableMap `pulumi:"logicalTableMap"`
@@ -113,6 +114,10 @@ func (o LookupDataSetResultOutput) ConsumedSpiceCapacityInBytes() pulumi.Float64
 // <p>The time that this dataset was created.</p>
 func (o LookupDataSetResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataSetResultOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetUsageConfiguration { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
 }
 
 func (o LookupDataSetResultOutput) ImportMode() DataSetImportModePtrOutput {

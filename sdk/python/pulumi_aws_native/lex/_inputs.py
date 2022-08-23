@@ -1772,7 +1772,8 @@ class BotPromptSpecificationArgs:
     def __init__(__self__, *,
                  max_retries: pulumi.Input[int],
                  message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
-                 allow_interrupt: Optional[pulumi.Input[bool]] = None):
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None):
         """
         Prompts the user to confirm the intent.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
@@ -1781,6 +1782,8 @@ class BotPromptSpecificationArgs:
         pulumi.set(__self__, "message_groups_list", message_groups_list)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_selection_strategy is not None:
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -1811,6 +1814,15 @@ class BotPromptSpecificationArgs:
     @allow_interrupt.setter
     def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageSelectionStrategy")
+    def message_selection_strategy(self) -> Optional[pulumi.Input['BotMessageSelectionStrategy']]:
+        return pulumi.get(self, "message_selection_strategy")
+
+    @message_selection_strategy.setter
+    def message_selection_strategy(self, value: Optional[pulumi.Input['BotMessageSelectionStrategy']]):
+        pulumi.set(self, "message_selection_strategy", value)
 
 
 @pulumi.input_type

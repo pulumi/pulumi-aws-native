@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// </summary>
     public sealed class StackSetDeploymentTargetsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The filter type you want to apply on organizational units and accounts.
+        /// </summary>
+        [Input("accountFilterType")]
+        public Input<Pulumi.AwsNative.CloudFormation.StackSetDeploymentTargetsAccountFilterType>? AccountFilterType { get; set; }
+
         [Input("accounts")]
         private InputList<string>? _accounts;
 

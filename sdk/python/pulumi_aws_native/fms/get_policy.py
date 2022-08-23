@@ -118,7 +118,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="securityServicePolicyData")
-    def security_service_policy_data(self) -> Optional['outputs.SecurityServicePolicyDataProperties']:
+    def security_service_policy_data(self) -> Optional['outputs.PolicySecurityServicePolicyData']:
         return pulumi.get(self, "security_service_policy_data")
 
     @property

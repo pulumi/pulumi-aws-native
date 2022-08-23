@@ -17,6 +17,8 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs',
     'AccountAuditConfigurationAuditNotificationTargetArgs',
     'AuthorizerTagArgs',
+    'CACertificateRegistrationConfigArgs',
+    'CACertificateTagArgs',
     'CustomMetricTagArgs',
     'DimensionTagArgs',
     'DomainConfigurationAuthorizerConfigArgs',
@@ -405,6 +407,85 @@ class AuthorizerTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CACertificateRegistrationConfigArgs:
+    def __init__(__self__, *,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 template_body: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None):
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "template_body")
+
+    @template_body.setter
+    def template_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_body", value)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_name", value)
+
+
+@pulumi.input_type
+class CACertificateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

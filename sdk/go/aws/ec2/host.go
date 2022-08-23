@@ -23,8 +23,12 @@ type Host struct {
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery pulumi.StringPtrOutput `pulumi:"hostRecovery"`
+	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+	InstanceFamily pulumi.StringPtrOutput `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 }
 
 // NewHost registers a new resource with the given unique name, arguments, and options.
@@ -36,9 +40,6 @@ func NewHost(ctx *pulumi.Context,
 
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
-	}
-	if args.InstanceType == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	var resource Host
 	err := ctx.RegisterResource("aws-native:ec2:Host", name, args, &resource, opts...)
@@ -78,8 +79,12 @@ type hostArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery *string `pulumi:"hostRecovery"`
+	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+	InstanceFamily *string `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+	OutpostArn *string `pulumi:"outpostArn"`
 }
 
 // The set of arguments for constructing a Host resource.
@@ -90,8 +95,12 @@ type HostArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery pulumi.StringPtrInput
+	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+	InstanceFamily pulumi.StringPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
-	InstanceType pulumi.StringInput
+	InstanceType pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+	OutpostArn pulumi.StringPtrInput
 }
 
 func (HostArgs) ElementType() reflect.Type {
@@ -151,9 +160,19 @@ func (o HostOutput) HostRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.HostRecovery }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+func (o HostOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
-func (o HostOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+func (o HostOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+func (o HostOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

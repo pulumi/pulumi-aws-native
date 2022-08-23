@@ -15,12 +15,12 @@ export function getImageBuilder(args: GetImageBuilderArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:appstream:getImageBuilder", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetImageBuilderArgs {
-    id: string;
+    name: string;
 }
 
 export interface GetImageBuilderResult {
@@ -31,7 +31,6 @@ export interface GetImageBuilderResult {
     readonly domainJoinInfo?: outputs.appstream.ImageBuilderDomainJoinInfo;
     readonly enableDefaultInternetAccess?: boolean;
     readonly iamRoleArn?: string;
-    readonly id?: string;
     readonly imageArn?: string;
     readonly imageName?: string;
     readonly instanceType?: string;
@@ -46,5 +45,5 @@ export function getImageBuilderOutput(args: GetImageBuilderOutputArgs, opts?: pu
 }
 
 export interface GetImageBuilderOutputArgs {
-    id: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

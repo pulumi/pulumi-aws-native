@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNotebookInstanceResult:
-    def __init__(__self__, accelerator_types=None, additional_code_repositories=None, default_code_repository=None, id=None, instance_type=None, lifecycle_config_name=None, role_arn=None, root_access=None, tags=None, volume_size_in_gb=None):
+    def __init__(__self__, accelerator_types=None, additional_code_repositories=None, default_code_repository=None, id=None, instance_metadata_service_configuration=None, instance_type=None, lifecycle_config_name=None, role_arn=None, root_access=None, tags=None, volume_size_in_gb=None):
         if accelerator_types and not isinstance(accelerator_types, list):
             raise TypeError("Expected argument 'accelerator_types' to be a list")
         pulumi.set(__self__, "accelerator_types", accelerator_types)
@@ -32,6 +32,9 @@ class GetNotebookInstanceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_metadata_service_configuration and not isinstance(instance_metadata_service_configuration, dict):
+            raise TypeError("Expected argument 'instance_metadata_service_configuration' to be a dict")
+        pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
@@ -70,6 +73,11 @@ class GetNotebookInstanceResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> Optional['outputs.NotebookInstanceInstanceMetadataServiceConfiguration']:
+        return pulumi.get(self, "instance_metadata_service_configuration")
 
     @property
     @pulumi.getter(name="instanceType")
@@ -112,6 +120,7 @@ class AwaitableGetNotebookInstanceResult(GetNotebookInstanceResult):
             additional_code_repositories=self.additional_code_repositories,
             default_code_repository=self.default_code_repository,
             id=self.id,
+            instance_metadata_service_configuration=self.instance_metadata_service_configuration,
             instance_type=self.instance_type,
             lifecycle_config_name=self.lifecycle_config_name,
             role_arn=self.role_arn,
@@ -135,6 +144,7 @@ def get_notebook_instance(id: Optional[str] = None,
         additional_code_repositories=__ret__.additional_code_repositories,
         default_code_repository=__ret__.default_code_repository,
         id=__ret__.id,
+        instance_metadata_service_configuration=__ret__.instance_metadata_service_configuration,
         instance_type=__ret__.instance_type,
         lifecycle_config_name=__ret__.lifecycle_config_name,
         role_arn=__ret__.role_arn,

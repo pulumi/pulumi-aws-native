@@ -225,6 +225,8 @@ export const FlowLogResourceType = {
     NetworkInterface: "NetworkInterface",
     Subnet: "Subnet",
     Vpc: "VPC",
+    TransitGateway: "TransitGateway",
+    TransitGatewayAttachment: "TransitGatewayAttachment",
 } as const;
 
 /**
@@ -242,6 +244,15 @@ export const FlowLogTrafficType = {
  * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
+
+export const IPAMPoolAwsService = {
+    Ec2: "ec2",
+} as const;
+
+/**
+ * Limits which service in Amazon Web Services that the pool can be used in.
+ */
+export type IPAMPoolAwsService = (typeof IPAMPoolAwsService)[keyof typeof IPAMPoolAwsService];
 
 export const IPAMPoolIpamScopeType = {
     Public: "public",

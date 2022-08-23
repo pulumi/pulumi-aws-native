@@ -3955,9 +3955,11 @@ func (in *flowLogLogDestinationTypePtr) ToFlowLogLogDestinationTypePtrOutputWith
 type FlowLogResourceType string
 
 const (
-	FlowLogResourceTypeNetworkInterface = FlowLogResourceType("NetworkInterface")
-	FlowLogResourceTypeSubnet           = FlowLogResourceType("Subnet")
-	FlowLogResourceTypeVpc              = FlowLogResourceType("VPC")
+	FlowLogResourceTypeNetworkInterface         = FlowLogResourceType("NetworkInterface")
+	FlowLogResourceTypeSubnet                   = FlowLogResourceType("Subnet")
+	FlowLogResourceTypeVpc                      = FlowLogResourceType("VPC")
+	FlowLogResourceTypeTransitGateway           = FlowLogResourceType("TransitGateway")
+	FlowLogResourceTypeTransitGatewayAttachment = FlowLogResourceType("TransitGatewayAttachment")
 )
 
 func (FlowLogResourceType) ElementType() reflect.Type {
@@ -4281,6 +4283,170 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutput() FlowLogTrafficT
 
 func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx context.Context) FlowLogTrafficTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogTrafficTypePtrOutput)
+}
+
+// Limits which service in Amazon Web Services that the pool can be used in.
+type IPAMPoolAwsService string
+
+const (
+	IPAMPoolAwsServiceEc2 = IPAMPoolAwsService("ec2")
+)
+
+func (IPAMPoolAwsService) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolAwsService)(nil)).Elem()
+}
+
+func (e IPAMPoolAwsService) ToIPAMPoolAwsServiceOutput() IPAMPoolAwsServiceOutput {
+	return pulumi.ToOutput(e).(IPAMPoolAwsServiceOutput)
+}
+
+func (e IPAMPoolAwsService) ToIPAMPoolAwsServiceOutputWithContext(ctx context.Context) IPAMPoolAwsServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IPAMPoolAwsServiceOutput)
+}
+
+func (e IPAMPoolAwsService) ToIPAMPoolAwsServicePtrOutput() IPAMPoolAwsServicePtrOutput {
+	return e.ToIPAMPoolAwsServicePtrOutputWithContext(context.Background())
+}
+
+func (e IPAMPoolAwsService) ToIPAMPoolAwsServicePtrOutputWithContext(ctx context.Context) IPAMPoolAwsServicePtrOutput {
+	return IPAMPoolAwsService(e).ToIPAMPoolAwsServiceOutputWithContext(ctx).ToIPAMPoolAwsServicePtrOutputWithContext(ctx)
+}
+
+func (e IPAMPoolAwsService) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IPAMPoolAwsService) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IPAMPoolAwsService) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IPAMPoolAwsService) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IPAMPoolAwsServiceOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolAwsServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolAwsService)(nil)).Elem()
+}
+
+func (o IPAMPoolAwsServiceOutput) ToIPAMPoolAwsServiceOutput() IPAMPoolAwsServiceOutput {
+	return o
+}
+
+func (o IPAMPoolAwsServiceOutput) ToIPAMPoolAwsServiceOutputWithContext(ctx context.Context) IPAMPoolAwsServiceOutput {
+	return o
+}
+
+func (o IPAMPoolAwsServiceOutput) ToIPAMPoolAwsServicePtrOutput() IPAMPoolAwsServicePtrOutput {
+	return o.ToIPAMPoolAwsServicePtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolAwsServiceOutput) ToIPAMPoolAwsServicePtrOutputWithContext(ctx context.Context) IPAMPoolAwsServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAMPoolAwsService) *IPAMPoolAwsService {
+		return &v
+	}).(IPAMPoolAwsServicePtrOutput)
+}
+
+func (o IPAMPoolAwsServiceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolAwsServiceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolAwsService) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IPAMPoolAwsServiceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolAwsServiceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolAwsService) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IPAMPoolAwsServicePtrOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolAwsServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAMPoolAwsService)(nil)).Elem()
+}
+
+func (o IPAMPoolAwsServicePtrOutput) ToIPAMPoolAwsServicePtrOutput() IPAMPoolAwsServicePtrOutput {
+	return o
+}
+
+func (o IPAMPoolAwsServicePtrOutput) ToIPAMPoolAwsServicePtrOutputWithContext(ctx context.Context) IPAMPoolAwsServicePtrOutput {
+	return o
+}
+
+func (o IPAMPoolAwsServicePtrOutput) Elem() IPAMPoolAwsServiceOutput {
+	return o.ApplyT(func(v *IPAMPoolAwsService) IPAMPoolAwsService {
+		if v != nil {
+			return *v
+		}
+		var ret IPAMPoolAwsService
+		return ret
+	}).(IPAMPoolAwsServiceOutput)
+}
+
+func (o IPAMPoolAwsServicePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolAwsServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IPAMPoolAwsService) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IPAMPoolAwsServiceInput is an input type that accepts IPAMPoolAwsServiceArgs and IPAMPoolAwsServiceOutput values.
+// You can construct a concrete instance of `IPAMPoolAwsServiceInput` via:
+//
+//	IPAMPoolAwsServiceArgs{...}
+type IPAMPoolAwsServiceInput interface {
+	pulumi.Input
+
+	ToIPAMPoolAwsServiceOutput() IPAMPoolAwsServiceOutput
+	ToIPAMPoolAwsServiceOutputWithContext(context.Context) IPAMPoolAwsServiceOutput
+}
+
+var ipampoolAwsServicePtrType = reflect.TypeOf((**IPAMPoolAwsService)(nil)).Elem()
+
+type IPAMPoolAwsServicePtrInput interface {
+	pulumi.Input
+
+	ToIPAMPoolAwsServicePtrOutput() IPAMPoolAwsServicePtrOutput
+	ToIPAMPoolAwsServicePtrOutputWithContext(context.Context) IPAMPoolAwsServicePtrOutput
+}
+
+type ipampoolAwsServicePtr string
+
+func IPAMPoolAwsServicePtr(v string) IPAMPoolAwsServicePtrInput {
+	return (*ipampoolAwsServicePtr)(&v)
+}
+
+func (*ipampoolAwsServicePtr) ElementType() reflect.Type {
+	return ipampoolAwsServicePtrType
+}
+
+func (in *ipampoolAwsServicePtr) ToIPAMPoolAwsServicePtrOutput() IPAMPoolAwsServicePtrOutput {
+	return pulumi.ToOutput(in).(IPAMPoolAwsServicePtrOutput)
+}
+
+func (in *ipampoolAwsServicePtr) ToIPAMPoolAwsServicePtrOutputWithContext(ctx context.Context) IPAMPoolAwsServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IPAMPoolAwsServicePtrOutput)
 }
 
 // Determines whether this scope contains publicly routable space or space for a private network
@@ -8882,6 +9048,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogResourceTypePtrInput)(nil)).Elem(), FlowLogResourceType("NetworkInterface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypeInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAwsServiceInput)(nil)).Elem(), IPAMPoolAwsService("ec2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAwsServicePtrInput)(nil)).Elem(), IPAMPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypeInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypePtrInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
@@ -8987,6 +9155,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowLogResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
+	pulumi.RegisterOutputType(IPAMPoolAwsServiceOutput{})
+	pulumi.RegisterOutputType(IPAMPoolAwsServicePtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolStateEnumOutput{})

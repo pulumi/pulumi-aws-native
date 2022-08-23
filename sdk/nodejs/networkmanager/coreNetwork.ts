@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * AWS::NetworkManager::CoreNetwork Resource Type Definition.
- *
- * @deprecated CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class CoreNetwork extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class CoreNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CoreNetwork {
-        pulumi.log.warn("CoreNetwork is deprecated: CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new CoreNetwork(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,9 +87,7 @@ export class CoreNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CoreNetworkArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CoreNetwork is deprecated: CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

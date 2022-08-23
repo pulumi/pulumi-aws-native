@@ -270,6 +270,139 @@ func (o ClusterAutoScalingPolicyPtrOutput) Rules() ClusterScalingRuleArrayOutput
 	}).(ClusterScalingRuleArrayOutput)
 }
 
+type ClusterAutoTerminationPolicy struct {
+	IdleTimeout *int `pulumi:"idleTimeout"`
+}
+
+// ClusterAutoTerminationPolicyInput is an input type that accepts ClusterAutoTerminationPolicyArgs and ClusterAutoTerminationPolicyOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyInput` via:
+//
+//	ClusterAutoTerminationPolicyArgs{...}
+type ClusterAutoTerminationPolicyInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput
+	ToClusterAutoTerminationPolicyOutputWithContext(context.Context) ClusterAutoTerminationPolicyOutput
+}
+
+type ClusterAutoTerminationPolicyArgs struct {
+	IdleTimeout pulumi.IntPtrInput `pulumi:"idleTimeout"`
+}
+
+func (ClusterAutoTerminationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return i.ToClusterAutoTerminationPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput)
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput).ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoTerminationPolicyPtrInput is an input type that accepts ClusterAutoTerminationPolicyArgs, ClusterAutoTerminationPolicyPtr and ClusterAutoTerminationPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyPtrInput` via:
+//
+//	        ClusterAutoTerminationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAutoTerminationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput
+	ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Context) ClusterAutoTerminationPolicyPtrOutput
+}
+
+type clusterAutoTerminationPolicyPtrType ClusterAutoTerminationPolicyArgs
+
+func ClusterAutoTerminationPolicyPtr(v *ClusterAutoTerminationPolicyArgs) ClusterAutoTerminationPolicyPtrInput {
+	return (*clusterAutoTerminationPolicyPtrType)(v)
+}
+
+func (*clusterAutoTerminationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoTerminationPolicy) *ClusterAutoTerminationPolicy {
+		return &v
+	}).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+func (o ClusterAutoTerminationPolicyOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAutoTerminationPolicy) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) Elem() ClusterAutoTerminationPolicyOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) ClusterAutoTerminationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoTerminationPolicy
+		return ret
+	}).(ClusterAutoTerminationPolicyOutput)
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type ClusterBootstrapActionConfig struct {
 	Name                  string                             `pulumi:"name"`
 	ScriptBootstrapAction ClusterScriptBootstrapActionConfig `pulumi:"scriptBootstrapAction"`
@@ -1163,6 +1296,31 @@ func (i *clusterInstanceFleetConfigPtrType) ToClusterInstanceFleetConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigPtrOutput)
 }
 
+// ClusterInstanceFleetConfigArrayInput is an input type that accepts ClusterInstanceFleetConfigArray and ClusterInstanceFleetConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetConfigArrayInput` via:
+//
+//	ClusterInstanceFleetConfigArray{ ClusterInstanceFleetConfigArgs{...} }
+type ClusterInstanceFleetConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput
+	ToClusterInstanceFleetConfigArrayOutputWithContext(context.Context) ClusterInstanceFleetConfigArrayOutput
+}
+
+type ClusterInstanceFleetConfigArray []ClusterInstanceFleetConfigInput
+
+func (ClusterInstanceFleetConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceFleetConfigArray) ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput {
+	return i.ToClusterInstanceFleetConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetConfigArray) ToClusterInstanceFleetConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigArrayOutput)
+}
+
 type ClusterInstanceFleetConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceFleetConfigOutput) ElementType() reflect.Type {
@@ -1276,6 +1434,26 @@ func (o ClusterInstanceFleetConfigPtrOutput) TargetSpotCapacity() pulumi.IntPtrO
 		}
 		return v.TargetSpotCapacity
 	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterInstanceFleetConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) ToClusterInstanceFleetConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceFleetConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceFleetConfig {
+		return vs[0].([]ClusterInstanceFleetConfig)[vs[1].(int)]
+	}).(ClusterInstanceFleetConfigOutput)
 }
 
 type ClusterInstanceFleetProvisioningSpecifications struct {
@@ -1518,6 +1696,31 @@ func (i *clusterInstanceGroupConfigPtrType) ToClusterInstanceGroupConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigPtrOutput)
 }
 
+// ClusterInstanceGroupConfigArrayInput is an input type that accepts ClusterInstanceGroupConfigArray and ClusterInstanceGroupConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupConfigArrayInput` via:
+//
+//	ClusterInstanceGroupConfigArray{ ClusterInstanceGroupConfigArgs{...} }
+type ClusterInstanceGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput
+	ToClusterInstanceGroupConfigArrayOutputWithContext(context.Context) ClusterInstanceGroupConfigArrayOutput
+}
+
+type ClusterInstanceGroupConfigArray []ClusterInstanceGroupConfigInput
+
+func (ClusterInstanceGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceGroupConfigArray) ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput {
+	return i.ToClusterInstanceGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupConfigArray) ToClusterInstanceGroupConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigArrayOutput)
+}
+
 type ClusterInstanceGroupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceGroupConfigOutput) ElementType() reflect.Type {
@@ -1683,6 +1886,26 @@ func (o ClusterInstanceGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterInstanceGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) ToClusterInstanceGroupConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroupConfig {
+		return vs[0].([]ClusterInstanceGroupConfig)[vs[1].(int)]
+	}).(ClusterInstanceGroupConfigOutput)
+}
+
 type ClusterInstanceTypeConfig struct {
 	BidPrice                            *string                  `pulumi:"bidPrice"`
 	BidPriceAsPercentageOfOnDemandPrice *float64                 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
@@ -1814,22 +2037,24 @@ func (o ClusterInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterIn
 }
 
 type ClusterJobFlowInstancesConfig struct {
-	AdditionalMasterSecurityGroups []string                    `pulumi:"additionalMasterSecurityGroups"`
-	AdditionalSlaveSecurityGroups  []string                    `pulumi:"additionalSlaveSecurityGroups"`
-	CoreInstanceFleet              *ClusterInstanceFleetConfig `pulumi:"coreInstanceFleet"`
-	CoreInstanceGroup              *ClusterInstanceGroupConfig `pulumi:"coreInstanceGroup"`
-	Ec2KeyName                     *string                     `pulumi:"ec2KeyName"`
-	Ec2SubnetId                    *string                     `pulumi:"ec2SubnetId"`
-	Ec2SubnetIds                   []string                    `pulumi:"ec2SubnetIds"`
-	EmrManagedMasterSecurityGroup  *string                     `pulumi:"emrManagedMasterSecurityGroup"`
-	EmrManagedSlaveSecurityGroup   *string                     `pulumi:"emrManagedSlaveSecurityGroup"`
-	HadoopVersion                  *string                     `pulumi:"hadoopVersion"`
-	KeepJobFlowAliveWhenNoSteps    *bool                       `pulumi:"keepJobFlowAliveWhenNoSteps"`
-	MasterInstanceFleet            *ClusterInstanceFleetConfig `pulumi:"masterInstanceFleet"`
-	MasterInstanceGroup            *ClusterInstanceGroupConfig `pulumi:"masterInstanceGroup"`
-	Placement                      *ClusterPlacementType       `pulumi:"placement"`
-	ServiceAccessSecurityGroup     *string                     `pulumi:"serviceAccessSecurityGroup"`
-	TerminationProtected           *bool                       `pulumi:"terminationProtected"`
+	AdditionalMasterSecurityGroups []string                     `pulumi:"additionalMasterSecurityGroups"`
+	AdditionalSlaveSecurityGroups  []string                     `pulumi:"additionalSlaveSecurityGroups"`
+	CoreInstanceFleet              *ClusterInstanceFleetConfig  `pulumi:"coreInstanceFleet"`
+	CoreInstanceGroup              *ClusterInstanceGroupConfig  `pulumi:"coreInstanceGroup"`
+	Ec2KeyName                     *string                      `pulumi:"ec2KeyName"`
+	Ec2SubnetId                    *string                      `pulumi:"ec2SubnetId"`
+	Ec2SubnetIds                   []string                     `pulumi:"ec2SubnetIds"`
+	EmrManagedMasterSecurityGroup  *string                      `pulumi:"emrManagedMasterSecurityGroup"`
+	EmrManagedSlaveSecurityGroup   *string                      `pulumi:"emrManagedSlaveSecurityGroup"`
+	HadoopVersion                  *string                      `pulumi:"hadoopVersion"`
+	KeepJobFlowAliveWhenNoSteps    *bool                        `pulumi:"keepJobFlowAliveWhenNoSteps"`
+	MasterInstanceFleet            *ClusterInstanceFleetConfig  `pulumi:"masterInstanceFleet"`
+	MasterInstanceGroup            *ClusterInstanceGroupConfig  `pulumi:"masterInstanceGroup"`
+	Placement                      *ClusterPlacementType        `pulumi:"placement"`
+	ServiceAccessSecurityGroup     *string                      `pulumi:"serviceAccessSecurityGroup"`
+	TaskInstanceFleets             []ClusterInstanceFleetConfig `pulumi:"taskInstanceFleets"`
+	TaskInstanceGroups             []ClusterInstanceGroupConfig `pulumi:"taskInstanceGroups"`
+	TerminationProtected           *bool                        `pulumi:"terminationProtected"`
 }
 
 // ClusterJobFlowInstancesConfigInput is an input type that accepts ClusterJobFlowInstancesConfigArgs and ClusterJobFlowInstancesConfigOutput values.
@@ -1844,22 +2069,24 @@ type ClusterJobFlowInstancesConfigInput interface {
 }
 
 type ClusterJobFlowInstancesConfigArgs struct {
-	AdditionalMasterSecurityGroups pulumi.StringArrayInput            `pulumi:"additionalMasterSecurityGroups"`
-	AdditionalSlaveSecurityGroups  pulumi.StringArrayInput            `pulumi:"additionalSlaveSecurityGroups"`
-	CoreInstanceFleet              ClusterInstanceFleetConfigPtrInput `pulumi:"coreInstanceFleet"`
-	CoreInstanceGroup              ClusterInstanceGroupConfigPtrInput `pulumi:"coreInstanceGroup"`
-	Ec2KeyName                     pulumi.StringPtrInput              `pulumi:"ec2KeyName"`
-	Ec2SubnetId                    pulumi.StringPtrInput              `pulumi:"ec2SubnetId"`
-	Ec2SubnetIds                   pulumi.StringArrayInput            `pulumi:"ec2SubnetIds"`
-	EmrManagedMasterSecurityGroup  pulumi.StringPtrInput              `pulumi:"emrManagedMasterSecurityGroup"`
-	EmrManagedSlaveSecurityGroup   pulumi.StringPtrInput              `pulumi:"emrManagedSlaveSecurityGroup"`
-	HadoopVersion                  pulumi.StringPtrInput              `pulumi:"hadoopVersion"`
-	KeepJobFlowAliveWhenNoSteps    pulumi.BoolPtrInput                `pulumi:"keepJobFlowAliveWhenNoSteps"`
-	MasterInstanceFleet            ClusterInstanceFleetConfigPtrInput `pulumi:"masterInstanceFleet"`
-	MasterInstanceGroup            ClusterInstanceGroupConfigPtrInput `pulumi:"masterInstanceGroup"`
-	Placement                      ClusterPlacementTypePtrInput       `pulumi:"placement"`
-	ServiceAccessSecurityGroup     pulumi.StringPtrInput              `pulumi:"serviceAccessSecurityGroup"`
-	TerminationProtected           pulumi.BoolPtrInput                `pulumi:"terminationProtected"`
+	AdditionalMasterSecurityGroups pulumi.StringArrayInput              `pulumi:"additionalMasterSecurityGroups"`
+	AdditionalSlaveSecurityGroups  pulumi.StringArrayInput              `pulumi:"additionalSlaveSecurityGroups"`
+	CoreInstanceFleet              ClusterInstanceFleetConfigPtrInput   `pulumi:"coreInstanceFleet"`
+	CoreInstanceGroup              ClusterInstanceGroupConfigPtrInput   `pulumi:"coreInstanceGroup"`
+	Ec2KeyName                     pulumi.StringPtrInput                `pulumi:"ec2KeyName"`
+	Ec2SubnetId                    pulumi.StringPtrInput                `pulumi:"ec2SubnetId"`
+	Ec2SubnetIds                   pulumi.StringArrayInput              `pulumi:"ec2SubnetIds"`
+	EmrManagedMasterSecurityGroup  pulumi.StringPtrInput                `pulumi:"emrManagedMasterSecurityGroup"`
+	EmrManagedSlaveSecurityGroup   pulumi.StringPtrInput                `pulumi:"emrManagedSlaveSecurityGroup"`
+	HadoopVersion                  pulumi.StringPtrInput                `pulumi:"hadoopVersion"`
+	KeepJobFlowAliveWhenNoSteps    pulumi.BoolPtrInput                  `pulumi:"keepJobFlowAliveWhenNoSteps"`
+	MasterInstanceFleet            ClusterInstanceFleetConfigPtrInput   `pulumi:"masterInstanceFleet"`
+	MasterInstanceGroup            ClusterInstanceGroupConfigPtrInput   `pulumi:"masterInstanceGroup"`
+	Placement                      ClusterPlacementTypePtrInput         `pulumi:"placement"`
+	ServiceAccessSecurityGroup     pulumi.StringPtrInput                `pulumi:"serviceAccessSecurityGroup"`
+	TaskInstanceFleets             ClusterInstanceFleetConfigArrayInput `pulumi:"taskInstanceFleets"`
+	TaskInstanceGroups             ClusterInstanceGroupConfigArrayInput `pulumi:"taskInstanceGroups"`
+	TerminationProtected           pulumi.BoolPtrInput                  `pulumi:"terminationProtected"`
 }
 
 func (ClusterJobFlowInstancesConfigArgs) ElementType() reflect.Type {
@@ -1946,6 +2173,14 @@ func (o ClusterJobFlowInstancesConfigOutput) Placement() ClusterPlacementTypePtr
 
 func (o ClusterJobFlowInstancesConfigOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.ServiceAccessSecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigOutput) TaskInstanceFleets() ClusterInstanceFleetConfigArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []ClusterInstanceFleetConfig { return v.TaskInstanceFleets }).(ClusterInstanceFleetConfigArrayOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigOutput) TaskInstanceGroups() ClusterInstanceGroupConfigArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []ClusterInstanceGroupConfig { return v.TaskInstanceGroups }).(ClusterInstanceGroupConfigArrayOutput)
 }
 
 func (o ClusterJobFlowInstancesConfigOutput) TerminationProtected() pulumi.BoolPtrOutput {
@@ -2109,6 +2344,24 @@ func (o ClusterJobFlowInstancesConfigPtrOutput) ServiceAccessSecurityGroup() pul
 		}
 		return v.ServiceAccessSecurityGroup
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) TaskInstanceFleets() ClusterInstanceFleetConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TaskInstanceFleets
+	}).(ClusterInstanceFleetConfigArrayOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) TaskInstanceGroups() ClusterInstanceGroupConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TaskInstanceGroups
+	}).(ClusterInstanceGroupConfigArrayOutput)
 }
 
 func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.BoolPtrOutput {
@@ -6333,6 +6586,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApplicationArrayInput)(nil)).Elem(), ClusterApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingPolicyInput)(nil)).Elem(), ClusterAutoScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingPolicyPtrInput)(nil)).Elem(), ClusterAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyPtrInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionConfigInput)(nil)).Elem(), ClusterBootstrapActionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionConfigArrayInput)(nil)).Elem(), ClusterBootstrapActionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionArgs{})
@@ -6347,10 +6602,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHadoopJarStepConfigInput)(nil)).Elem(), ClusterHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigInput)(nil)).Elem(), ClusterInstanceFleetConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigPtrInput)(nil)).Elem(), ClusterInstanceFleetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigArrayInput)(nil)).Elem(), ClusterInstanceFleetConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecificationsInput)(nil)).Elem(), ClusterInstanceFleetProvisioningSpecificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecificationsPtrInput)(nil)).Elem(), ClusterInstanceFleetProvisioningSpecificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigInput)(nil)).Elem(), ClusterInstanceGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigPtrInput)(nil)).Elem(), ClusterInstanceGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigArrayInput)(nil)).Elem(), ClusterInstanceGroupConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigInput)(nil)).Elem(), ClusterInstanceTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigArrayInput)(nil)).Elem(), ClusterInstanceTypeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterJobFlowInstancesConfigInput)(nil)).Elem(), ClusterJobFlowInstancesConfigArgs{})
@@ -6424,6 +6681,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterApplicationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionOutput{})
@@ -6438,10 +6697,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterHadoopJarStepConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceFleetConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceFleetConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceFleetProvisioningSpecificationsOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceFleetProvisioningSpecificationsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigOutput{})

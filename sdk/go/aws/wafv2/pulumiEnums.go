@@ -3318,6 +3318,171 @@ func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupScopePtrOutput)
 }
 
+// Sensitivity Level current only used for sqli match statements.
+type RuleGroupSensitivityLevel string
+
+const (
+	RuleGroupSensitivityLevelLow  = RuleGroupSensitivityLevel("LOW")
+	RuleGroupSensitivityLevelHigh = RuleGroupSensitivityLevel("HIGH")
+)
+
+func (RuleGroupSensitivityLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupSensitivityLevel)(nil)).Elem()
+}
+
+func (e RuleGroupSensitivityLevel) ToRuleGroupSensitivityLevelOutput() RuleGroupSensitivityLevelOutput {
+	return pulumi.ToOutput(e).(RuleGroupSensitivityLevelOutput)
+}
+
+func (e RuleGroupSensitivityLevel) ToRuleGroupSensitivityLevelOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupSensitivityLevelOutput)
+}
+
+func (e RuleGroupSensitivityLevel) ToRuleGroupSensitivityLevelPtrOutput() RuleGroupSensitivityLevelPtrOutput {
+	return e.ToRuleGroupSensitivityLevelPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupSensitivityLevel) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
+	return RuleGroupSensitivityLevel(e).ToRuleGroupSensitivityLevelOutputWithContext(ctx).ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupSensitivityLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupSensitivityLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupSensitivityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupSensitivityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupSensitivityLevelOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupSensitivityLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupSensitivityLevel)(nil)).Elem()
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelOutput() RuleGroupSensitivityLevelOutput {
+	return o
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelOutput {
+	return o
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelPtrOutput() RuleGroupSensitivityLevelPtrOutput {
+	return o.ToRuleGroupSensitivityLevelPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupSensitivityLevel) *RuleGroupSensitivityLevel {
+		return &v
+	}).(RuleGroupSensitivityLevelPtrOutput)
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupSensitivityLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSensitivityLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupSensitivityLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupSensitivityLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupSensitivityLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupSensitivityLevel)(nil)).Elem()
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) ToRuleGroupSensitivityLevelPtrOutput() RuleGroupSensitivityLevelPtrOutput {
+	return o
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
+	return o
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) Elem() RuleGroupSensitivityLevelOutput {
+	return o.ApplyT(func(v *RuleGroupSensitivityLevel) RuleGroupSensitivityLevel {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupSensitivityLevel
+		return ret
+	}).(RuleGroupSensitivityLevelOutput)
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupSensitivityLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupSensitivityLevelInput is an input type that accepts RuleGroupSensitivityLevelArgs and RuleGroupSensitivityLevelOutput values.
+// You can construct a concrete instance of `RuleGroupSensitivityLevelInput` via:
+//
+//	RuleGroupSensitivityLevelArgs{...}
+type RuleGroupSensitivityLevelInput interface {
+	pulumi.Input
+
+	ToRuleGroupSensitivityLevelOutput() RuleGroupSensitivityLevelOutput
+	ToRuleGroupSensitivityLevelOutputWithContext(context.Context) RuleGroupSensitivityLevelOutput
+}
+
+var ruleGroupSensitivityLevelPtrType = reflect.TypeOf((**RuleGroupSensitivityLevel)(nil)).Elem()
+
+type RuleGroupSensitivityLevelPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupSensitivityLevelPtrOutput() RuleGroupSensitivityLevelPtrOutput
+	ToRuleGroupSensitivityLevelPtrOutputWithContext(context.Context) RuleGroupSensitivityLevelPtrOutput
+}
+
+type ruleGroupSensitivityLevelPtr string
+
+func RuleGroupSensitivityLevelPtr(v string) RuleGroupSensitivityLevelPtrInput {
+	return (*ruleGroupSensitivityLevelPtr)(&v)
+}
+
+func (*ruleGroupSensitivityLevelPtr) ElementType() reflect.Type {
+	return ruleGroupSensitivityLevelPtrType
+}
+
+func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutput() RuleGroupSensitivityLevelPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupSensitivityLevelPtrOutput)
+}
+
+func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSensitivityLevelPtrOutput)
+}
+
 type RuleGroupSizeConstraintStatementComparisonOperator string
 
 const (
@@ -5652,6 +5817,171 @@ func (in *webACLScopePtr) ToWebACLScopePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLScopePtrOutput)
 }
 
+// Sensitivity Level current only used for sqli match statements.
+type WebACLSensitivityLevel string
+
+const (
+	WebACLSensitivityLevelLow  = WebACLSensitivityLevel("LOW")
+	WebACLSensitivityLevelHigh = WebACLSensitivityLevel("HIGH")
+)
+
+func (WebACLSensitivityLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLSensitivityLevel)(nil)).Elem()
+}
+
+func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput {
+	return pulumi.ToOutput(e).(WebACLSensitivityLevelOutput)
+}
+
+func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelOutputWithContext(ctx context.Context) WebACLSensitivityLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLSensitivityLevelOutput)
+}
+
+func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
+	return e.ToWebACLSensitivityLevelPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLSensitivityLevel) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
+	return WebACLSensitivityLevel(e).ToWebACLSensitivityLevelOutputWithContext(ctx).ToWebACLSensitivityLevelPtrOutputWithContext(ctx)
+}
+
+func (e WebACLSensitivityLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLSensitivityLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLSensitivityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLSensitivityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLSensitivityLevelOutput struct{ *pulumi.OutputState }
+
+func (WebACLSensitivityLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLSensitivityLevel)(nil)).Elem()
+}
+
+func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput {
+	return o
+}
+
+func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelOutputWithContext(ctx context.Context) WebACLSensitivityLevelOutput {
+	return o
+}
+
+func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
+	return o.ToWebACLSensitivityLevelPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLSensitivityLevel) *WebACLSensitivityLevel {
+		return &v
+	}).(WebACLSensitivityLevelPtrOutput)
+}
+
+func (o WebACLSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLSensitivityLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSensitivityLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLSensitivityLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLSensitivityLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLSensitivityLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLSensitivityLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLSensitivityLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLSensitivityLevel)(nil)).Elem()
+}
+
+func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
+	return o
+}
+
+func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
+	return o
+}
+
+func (o WebACLSensitivityLevelPtrOutput) Elem() WebACLSensitivityLevelOutput {
+	return o.ApplyT(func(v *WebACLSensitivityLevel) WebACLSensitivityLevel {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLSensitivityLevel
+		return ret
+	}).(WebACLSensitivityLevelOutput)
+}
+
+func (o WebACLSensitivityLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLSensitivityLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLSensitivityLevelInput is an input type that accepts WebACLSensitivityLevelArgs and WebACLSensitivityLevelOutput values.
+// You can construct a concrete instance of `WebACLSensitivityLevelInput` via:
+//
+//	WebACLSensitivityLevelArgs{...}
+type WebACLSensitivityLevelInput interface {
+	pulumi.Input
+
+	ToWebACLSensitivityLevelOutput() WebACLSensitivityLevelOutput
+	ToWebACLSensitivityLevelOutputWithContext(context.Context) WebACLSensitivityLevelOutput
+}
+
+var webACLSensitivityLevelPtrType = reflect.TypeOf((**WebACLSensitivityLevel)(nil)).Elem()
+
+type WebACLSensitivityLevelPtrInput interface {
+	pulumi.Input
+
+	ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput
+	ToWebACLSensitivityLevelPtrOutputWithContext(context.Context) WebACLSensitivityLevelPtrOutput
+}
+
+type webACLSensitivityLevelPtr string
+
+func WebACLSensitivityLevelPtr(v string) WebACLSensitivityLevelPtrInput {
+	return (*webACLSensitivityLevelPtr)(&v)
+}
+
+func (*webACLSensitivityLevelPtr) ElementType() reflect.Type {
+	return webACLSensitivityLevelPtrType
+}
+
+func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutput() WebACLSensitivityLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebACLSensitivityLevelPtrOutput)
+}
+
+func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLSensitivityLevelPtrOutput)
+}
+
 type WebACLSizeConstraintStatementComparisonOperator string
 
 const (
@@ -6045,6 +6375,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopeInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopePtrInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSensitivityLevelInput)(nil)).Elem(), RuleGroupSensitivityLevel("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSensitivityLevelPtrInput)(nil)).Elem(), RuleGroupSensitivityLevel("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), RuleGroupSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), RuleGroupSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypeInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
@@ -6073,6 +6405,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopeInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopePtrInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSensitivityLevelInput)(nil)).Elem(), WebACLSensitivityLevel("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSensitivityLevelPtrInput)(nil)).Elem(), WebACLSensitivityLevel("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebACLSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebACLSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLTextTransformationTypeInput)(nil)).Elem(), WebACLTextTransformationType("NONE"))
@@ -6117,6 +6451,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupScopeOutput{})
 	pulumi.RegisterOutputType(RuleGroupScopePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupSensitivityLevelOutput{})
+	pulumi.RegisterOutputType(RuleGroupSensitivityLevelPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypeOutput{})
@@ -6145,6 +6481,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(WebACLScopeOutput{})
 	pulumi.RegisterOutputType(WebACLScopePtrOutput{})
+	pulumi.RegisterOutputType(WebACLSensitivityLevelOutput{})
+	pulumi.RegisterOutputType(WebACLSensitivityLevelPtrOutput{})
 	pulumi.RegisterOutputType(WebACLSizeConstraintStatementComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(WebACLSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationTypeOutput{})

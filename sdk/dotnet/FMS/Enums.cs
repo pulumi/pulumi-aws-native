@@ -7,33 +7,68 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.FMS
 {
+    /// <summary>
+    /// Firewall deployment mode.
+    /// </summary>
     [EnumType]
-    public readonly struct PolicySecurityServicePolicyDataPropertiesType : IEquatable<PolicySecurityServicePolicyDataPropertiesType>
+    public readonly struct PolicyFirewallDeploymentModel : IEquatable<PolicyFirewallDeploymentModel>
     {
         private readonly string _value;
 
-        private PolicySecurityServicePolicyDataPropertiesType(string value)
+        private PolicyFirewallDeploymentModel(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PolicySecurityServicePolicyDataPropertiesType Waf { get; } = new PolicySecurityServicePolicyDataPropertiesType("WAF");
-        public static PolicySecurityServicePolicyDataPropertiesType Wafv2 { get; } = new PolicySecurityServicePolicyDataPropertiesType("WAFV2");
-        public static PolicySecurityServicePolicyDataPropertiesType ShieldAdvanced { get; } = new PolicySecurityServicePolicyDataPropertiesType("SHIELD_ADVANCED");
-        public static PolicySecurityServicePolicyDataPropertiesType SecurityGroupsCommon { get; } = new PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_COMMON");
-        public static PolicySecurityServicePolicyDataPropertiesType SecurityGroupsContentAudit { get; } = new PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_CONTENT_AUDIT");
-        public static PolicySecurityServicePolicyDataPropertiesType SecurityGroupsUsageAudit { get; } = new PolicySecurityServicePolicyDataPropertiesType("SECURITY_GROUPS_USAGE_AUDIT");
-        public static PolicySecurityServicePolicyDataPropertiesType NetworkFirewall { get; } = new PolicySecurityServicePolicyDataPropertiesType("NETWORK_FIREWALL");
-        public static PolicySecurityServicePolicyDataPropertiesType DnsFirewall { get; } = new PolicySecurityServicePolicyDataPropertiesType("DNS_FIREWALL");
+        public static PolicyFirewallDeploymentModel Distributed { get; } = new PolicyFirewallDeploymentModel("DISTRIBUTED");
+        public static PolicyFirewallDeploymentModel Centralized { get; } = new PolicyFirewallDeploymentModel("CENTRALIZED");
 
-        public static bool operator ==(PolicySecurityServicePolicyDataPropertiesType left, PolicySecurityServicePolicyDataPropertiesType right) => left.Equals(right);
-        public static bool operator !=(PolicySecurityServicePolicyDataPropertiesType left, PolicySecurityServicePolicyDataPropertiesType right) => !left.Equals(right);
+        public static bool operator ==(PolicyFirewallDeploymentModel left, PolicyFirewallDeploymentModel right) => left.Equals(right);
+        public static bool operator !=(PolicyFirewallDeploymentModel left, PolicyFirewallDeploymentModel right) => !left.Equals(right);
 
-        public static explicit operator string(PolicySecurityServicePolicyDataPropertiesType value) => value._value;
+        public static explicit operator string(PolicyFirewallDeploymentModel value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PolicySecurityServicePolicyDataPropertiesType other && Equals(other);
-        public bool Equals(PolicySecurityServicePolicyDataPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PolicyFirewallDeploymentModel other && Equals(other);
+        public bool Equals(PolicyFirewallDeploymentModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Firewall policy type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyType : IEquatable<PolicyType>
+    {
+        private readonly string _value;
+
+        private PolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyType Waf { get; } = new PolicyType("WAF");
+        public static PolicyType Wafv2 { get; } = new PolicyType("WAFV2");
+        public static PolicyType ShieldAdvanced { get; } = new PolicyType("SHIELD_ADVANCED");
+        public static PolicyType SecurityGroupsCommon { get; } = new PolicyType("SECURITY_GROUPS_COMMON");
+        public static PolicyType SecurityGroupsContentAudit { get; } = new PolicyType("SECURITY_GROUPS_CONTENT_AUDIT");
+        public static PolicyType SecurityGroupsUsageAudit { get; } = new PolicyType("SECURITY_GROUPS_USAGE_AUDIT");
+        public static PolicyType NetworkFirewall { get; } = new PolicyType("NETWORK_FIREWALL");
+        public static PolicyType ThirdPartyFirewall { get; } = new PolicyType("THIRD_PARTY_FIREWALL");
+        public static PolicyType DnsFirewall { get; } = new PolicyType("DNS_FIREWALL");
+
+        public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
+        public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyType other && Equals(other);
+        public bool Equals(PolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

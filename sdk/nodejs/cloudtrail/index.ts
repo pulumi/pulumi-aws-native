@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./eventDataStore";
+export * from "./getEventDataStore";
 export * from "./getTrail";
 export * from "./trail";
 
@@ -12,12 +14,15 @@ export * from "./trail";
 export * from "../types/enums/cloudtrail";
 
 // Import resources to register:
+import { EventDataStore } from "./eventDataStore";
 import { Trail } from "./trail";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudtrail:EventDataStore":
+                return new EventDataStore(name, <any>undefined, { urn })
             case "aws-native:cloudtrail:Trail":
                 return new Trail(name, <any>undefined, { urn })
             default:

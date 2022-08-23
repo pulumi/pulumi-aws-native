@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.Elasticsearch.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptionsInput
     {
+        public readonly bool? AnonymousAuthEnabled;
         public readonly bool? Enabled;
         public readonly bool? InternalUserDatabaseEnabled;
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
 
         [OutputConstructor]
         private DomainAdvancedSecurityOptionsInput(
+            bool? anonymousAuthEnabled,
+
             bool? enabled,
 
             bool? internalUserDatabaseEnabled,
 
             Outputs.DomainMasterUserOptions? masterUserOptions)
         {
+            AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
             MasterUserOptions = masterUserOptions;

@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.EC2
         [Output("autoImport")]
         public Output<bool?> AutoImport { get; private set; } = null!;
 
+        /// <summary>
+        /// Limits which service in Amazon Web Services that the pool can be used in.
+        /// </summary>
+        [Output("awsService")]
+        public Output<Pulumi.AwsNative.EC2.IPAMPoolAwsService?> AwsService { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -224,6 +230,12 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("autoImport")]
         public Input<bool>? AutoImport { get; set; }
+
+        /// <summary>
+        /// Limits which service in Amazon Web Services that the pool can be used in.
+        /// </summary>
+        [Input("awsService")]
+        public Input<Pulumi.AwsNative.EC2.IPAMPoolAwsService>? AwsService { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

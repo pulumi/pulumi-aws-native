@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileSAPODataConnectorProfileCredentials
     {
-        public readonly Outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties? BasicAuthCredentials;
+        public readonly Outputs.ConnectorProfileBasicAuthCredentials? BasicAuthCredentials;
         public readonly Outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties? OAuthCredentials;
 
         [OutputConstructor]
         private ConnectorProfileSAPODataConnectorProfileCredentials(
-            Outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties? basicAuthCredentials,
+            Outputs.ConnectorProfileBasicAuthCredentials? basicAuthCredentials,
 
             Outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties? oAuthCredentials)
         {

@@ -22,6 +22,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly ImmutableArray<string> Cidrs;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? ClassicLoadBalancerListener;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
+        public readonly string? ComponentAccount;
+        public readonly string? ComponentRegion;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? CustomerGateway;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Destination;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
@@ -82,6 +84,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? classicLoadBalancerListener,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? component,
+
+            string? componentAccount,
+
+            string? componentRegion,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? customerGateway,
 
@@ -172,6 +178,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Cidrs = cidrs;
             ClassicLoadBalancerListener = classicLoadBalancerListener;
             Component = component;
+            ComponentAccount = componentAccount;
+            ComponentRegion = componentRegion;
             CustomerGateway = customerGateway;
             Destination = destination;
             DestinationVpc = destinationVpc;

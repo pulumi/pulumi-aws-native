@@ -334,6 +334,7 @@ class OriginEndpointDashPackageArgs:
                  ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]] = None,
                  ads_on_delivery_restrictions: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']] = None,
                  encryption: Optional[pulumi.Input['OriginEndpointDashEncryptionArgs']] = None,
+                 include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
                  manifest_layout: Optional[pulumi.Input['OriginEndpointDashPackageManifestLayout']] = None,
                  manifest_window_seconds: Optional[pulumi.Input[int]] = None,
                  min_buffer_time_seconds: Optional[pulumi.Input[int]] = None,
@@ -349,6 +350,7 @@ class OriginEndpointDashPackageArgs:
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input['OriginEndpointDashPackageManifestLayout'] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param pulumi.Input[int] manifest_window_seconds: Time window (in seconds) contained in each manifest.
         :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -359,7 +361,7 @@ class OriginEndpointDashPackageArgs:
         :param pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat'] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         :param pulumi.Input[int] suggested_presentation_delay_seconds: Duration (in seconds) to delay live content before presentation.
         :param pulumi.Input['OriginEndpointDashPackageUtcTiming'] utc_timing: Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-        :param pulumi.Input[str] utc_timing_uri: Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+        :param pulumi.Input[str] utc_timing_uri: Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
         """
         if ad_triggers is not None:
             pulumi.set(__self__, "ad_triggers", ad_triggers)
@@ -367,6 +369,8 @@ class OriginEndpointDashPackageArgs:
             pulumi.set(__self__, "ads_on_delivery_restrictions", ads_on_delivery_restrictions)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if include_iframe_only_stream is not None:
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
         if manifest_window_seconds is not None:
@@ -421,6 +425,18 @@ class OriginEndpointDashPackageArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['OriginEndpointDashEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="includeIframeOnlyStream")
+    def include_iframe_only_stream(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, an I-Frame only stream will be included in the output.
+        """
+        return pulumi.get(self, "include_iframe_only_stream")
+
+    @include_iframe_only_stream.setter
+    def include_iframe_only_stream(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_iframe_only_stream", value)
 
     @property
     @pulumi.getter(name="manifestLayout")
@@ -555,7 +571,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="utcTimingUri")
     def utc_timing_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+        Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
         """
         return pulumi.get(self, "utc_timing_uri")
 

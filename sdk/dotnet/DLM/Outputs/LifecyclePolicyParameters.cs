@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.DLM.Outputs
     public sealed class LifecyclePolicyParameters
     {
         public readonly bool? ExcludeBootVolume;
+        public readonly ImmutableArray<Outputs.LifecyclePolicyTag> ExcludeDataVolumeTags;
         public readonly bool? NoReboot;
 
         [OutputConstructor]
         private LifecyclePolicyParameters(
             bool? excludeBootVolume,
 
+            ImmutableArray<Outputs.LifecyclePolicyTag> excludeDataVolumeTags,
+
             bool? noReboot)
         {
             ExcludeBootVolume = excludeBootVolume;
+            ExcludeDataVolumeTags = excludeDataVolumeTags;
             NoReboot = noReboot;
         }
     }

@@ -53,15 +53,19 @@ namespace Pulumi.AwsNative.IoT
     {
         public readonly string? Arn;
         public readonly string? Id;
+        public readonly object? PolicyDocument;
 
         [OutputConstructor]
         private GetPolicyResult(
             string? arn,
 
-            string? id)
+            string? id,
+
+            object? policyDocument)
         {
             Arn = arn;
             Id = id;
+            PolicyDocument = policyDocument;
         }
     }
 }

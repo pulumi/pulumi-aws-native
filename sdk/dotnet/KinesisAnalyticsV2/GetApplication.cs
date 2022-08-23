@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// </summary>
         public readonly string? ApplicationDescription;
         /// <summary>
+        /// Used to configure start of maintenance window.
+        /// </summary>
+        public readonly Outputs.ApplicationMaintenanceConfiguration? ApplicationMaintenanceConfiguration;
+        /// <summary>
         /// Specifies the IAM role that the application uses to access external resources.
         /// </summary>
         public readonly string? ServiceExecutionRole;
@@ -80,12 +84,15 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
             string? applicationDescription,
 
+            Outputs.ApplicationMaintenanceConfiguration? applicationMaintenanceConfiguration,
+
             string? serviceExecutionRole,
 
             ImmutableArray<Outputs.ApplicationTag> tags)
         {
             ApplicationConfiguration = applicationConfiguration;
             ApplicationDescription = applicationDescription;
+            ApplicationMaintenanceConfiguration = applicationMaintenanceConfiguration;
             ServiceExecutionRole = serviceExecutionRole;
             Tags = tags;
         }

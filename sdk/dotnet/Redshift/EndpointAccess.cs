@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Redshift
         /// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         /// </summary>
         [Output("clusterIdentifier")]
-        public Output<string?> ClusterIdentifier { get; private set; } = null!;
+        public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The time (UTC) that the endpoint was created.
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Redshift
         /// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
         /// </summary>
         [Output("subnetGroupName")]
-        public Output<string?> SubnetGroupName { get; private set; } = null!;
+        public Output<string> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         /// </summary>
-        [Input("clusterIdentifier")]
-        public Input<string>? ClusterIdentifier { get; set; }
+        [Input("clusterIdentifier", required: true)]
+        public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
         /// The name of the endpoint.
@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
         /// </summary>
-        [Input("subnetGroupName")]
-        public Input<string>? SubnetGroupName { get; set; }
+        [Input("subnetGroupName", required: true)]
+        public Input<string> SubnetGroupName { get; set; } = null!;
 
         [Input("vpcSecurityGroupIds", required: true)]
         private InputList<string>? _vpcSecurityGroupIds;

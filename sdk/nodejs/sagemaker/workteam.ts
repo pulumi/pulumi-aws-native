@@ -42,6 +42,7 @@ export class Workteam extends pulumi.CustomResource {
     public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[] | undefined>;
     public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.WorkteamTag[] | undefined>;
+    public readonly workforceName!: pulumi.Output<string | undefined>;
     public readonly workteamName!: pulumi.Output<string | undefined>;
 
     /**
@@ -61,12 +62,14 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workforceName"] = args ? args.workforceName : undefined;
             resourceInputs["workteamName"] = args ? args.workteamName : undefined;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["memberDefinitions"] = undefined /*out*/;
             resourceInputs["notificationConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workforceName"] = undefined /*out*/;
             resourceInputs["workteamName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -82,5 +85,6 @@ export interface WorkteamArgs {
     memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionArgs>[]>;
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamTagArgs>[]>;
+    workforceName?: pulumi.Input<string>;
     workteamName?: pulumi.Input<string>;
 }

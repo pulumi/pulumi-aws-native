@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.RDS.Inputs
 
     public sealed class DBInstanceRoleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        /// </summary>
         [Input("featureName", required: true)]
         public Input<string> FeatureName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

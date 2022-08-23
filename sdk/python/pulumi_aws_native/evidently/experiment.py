@@ -24,8 +24,10 @@ class ExperimentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 remove_segment: Optional[pulumi.Input[bool]] = None,
                  running_status: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
+                 segment: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
@@ -42,10 +44,14 @@ class ExperimentArgs:
             pulumi.set(__self__, "name", name)
         if randomization_salt is not None:
             pulumi.set(__self__, "randomization_salt", randomization_salt)
+        if remove_segment is not None:
+            pulumi.set(__self__, "remove_segment", remove_segment)
         if running_status is not None:
             pulumi.set(__self__, "running_status", running_status)
         if sampling_rate is not None:
             pulumi.set(__self__, "sampling_rate", sampling_rate)
+        if segment is not None:
+            pulumi.set(__self__, "segment", segment)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -113,6 +119,15 @@ class ExperimentArgs:
         pulumi.set(self, "randomization_salt", value)
 
     @property
+    @pulumi.getter(name="removeSegment")
+    def remove_segment(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remove_segment")
+
+    @remove_segment.setter
+    def remove_segment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remove_segment", value)
+
+    @property
     @pulumi.getter(name="runningStatus")
     def running_status(self) -> Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']]:
         """
@@ -132,6 +147,15 @@ class ExperimentArgs:
     @sampling_rate.setter
     def sampling_rate(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "sampling_rate", value)
+
+    @property
+    @pulumi.getter
+    def segment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "segment")
+
+    @segment.setter
+    def segment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment", value)
 
     @property
     @pulumi.getter
@@ -157,8 +181,10 @@ class Experiment(pulumi.CustomResource):
                  online_ab_config: Optional[pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 remove_segment: Optional[pulumi.Input[bool]] = None,
                  running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
+                 segment: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
                  __props__=None):
@@ -200,8 +226,10 @@ class Experiment(pulumi.CustomResource):
                  online_ab_config: Optional[pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
+                 remove_segment: Optional[pulumi.Input[bool]] = None,
                  running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
+                 segment: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
                  __props__=None):
@@ -225,8 +253,10 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
+            __props__.__dict__["remove_segment"] = remove_segment
             __props__.__dict__["running_status"] = running_status
             __props__.__dict__["sampling_rate"] = sampling_rate
+            __props__.__dict__["segment"] = segment
             __props__.__dict__["tags"] = tags
             if treatments is None and not opts.urn:
                 raise TypeError("Missing required property 'treatments'")
@@ -261,8 +291,10 @@ class Experiment(pulumi.CustomResource):
         __props__.__dict__["online_ab_config"] = None
         __props__.__dict__["project"] = None
         __props__.__dict__["randomization_salt"] = None
+        __props__.__dict__["remove_segment"] = None
         __props__.__dict__["running_status"] = None
         __props__.__dict__["sampling_rate"] = None
+        __props__.__dict__["segment"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["treatments"] = None
         return Experiment(resource_name, opts=opts, __props__=__props__)
@@ -303,6 +335,11 @@ class Experiment(pulumi.CustomResource):
         return pulumi.get(self, "randomization_salt")
 
     @property
+    @pulumi.getter(name="removeSegment")
+    def remove_segment(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "remove_segment")
+
+    @property
     @pulumi.getter(name="runningStatus")
     def running_status(self) -> pulumi.Output[Optional['outputs.ExperimentRunningStatusObject']]:
         """
@@ -314,6 +351,11 @@ class Experiment(pulumi.CustomResource):
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "sampling_rate")
+
+    @property
+    @pulumi.getter
+    def segment(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "segment")
 
     @property
     @pulumi.getter

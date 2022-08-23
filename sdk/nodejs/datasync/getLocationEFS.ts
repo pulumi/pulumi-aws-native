@@ -28,18 +28,6 @@ export interface GetLocationEFSArgs {
 
 export interface GetLocationEFSResult {
     /**
-     * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
-     */
-    readonly accessPointArn?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
-     */
-    readonly fileSystemAccessRoleArn?: string;
-    /**
-     * Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
-     */
-    readonly inTransitEncryption?: enums.datasync.LocationEFSInTransitEncryption;
-    /**
      * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
      */
     readonly locationArn?: string;

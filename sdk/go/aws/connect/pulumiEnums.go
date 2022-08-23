@@ -773,6 +773,264 @@ func (in *hoursOfOperationConfigDayPtr) ToHoursOfOperationConfigDayPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationConfigDayPtrOutput)
 }
 
+// Specifies the type of directory integration for new instance.
+type InstanceIdentityManagementType string
+
+const (
+	InstanceIdentityManagementTypeSaml              = InstanceIdentityManagementType("SAML")
+	InstanceIdentityManagementTypeConnectManaged    = InstanceIdentityManagementType("CONNECT_MANAGED")
+	InstanceIdentityManagementTypeExistingDirectory = InstanceIdentityManagementType("EXISTING_DIRECTORY")
+)
+
+func (InstanceIdentityManagementType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIdentityManagementType)(nil)).Elem()
+}
+
+func (e InstanceIdentityManagementType) ToInstanceIdentityManagementTypeOutput() InstanceIdentityManagementTypeOutput {
+	return pulumi.ToOutput(e).(InstanceIdentityManagementTypeOutput)
+}
+
+func (e InstanceIdentityManagementType) ToInstanceIdentityManagementTypeOutputWithContext(ctx context.Context) InstanceIdentityManagementTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceIdentityManagementTypeOutput)
+}
+
+func (e InstanceIdentityManagementType) ToInstanceIdentityManagementTypePtrOutput() InstanceIdentityManagementTypePtrOutput {
+	return e.ToInstanceIdentityManagementTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceIdentityManagementType) ToInstanceIdentityManagementTypePtrOutputWithContext(ctx context.Context) InstanceIdentityManagementTypePtrOutput {
+	return InstanceIdentityManagementType(e).ToInstanceIdentityManagementTypeOutputWithContext(ctx).ToInstanceIdentityManagementTypePtrOutputWithContext(ctx)
+}
+
+func (e InstanceIdentityManagementType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceIdentityManagementType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceIdentityManagementType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceIdentityManagementType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceIdentityManagementTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceIdentityManagementTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIdentityManagementType)(nil)).Elem()
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypeOutput() InstanceIdentityManagementTypeOutput {
+	return o
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypeOutputWithContext(ctx context.Context) InstanceIdentityManagementTypeOutput {
+	return o
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypePtrOutput() InstanceIdentityManagementTypePtrOutput {
+	return o.ToInstanceIdentityManagementTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypePtrOutputWithContext(ctx context.Context) InstanceIdentityManagementTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceIdentityManagementType) *InstanceIdentityManagementType {
+		return &v
+	}).(InstanceIdentityManagementTypePtrOutput)
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceIdentityManagementType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceIdentityManagementTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceIdentityManagementType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceIdentityManagementTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceIdentityManagementTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceIdentityManagementType)(nil)).Elem()
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) ToInstanceIdentityManagementTypePtrOutput() InstanceIdentityManagementTypePtrOutput {
+	return o
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) ToInstanceIdentityManagementTypePtrOutputWithContext(ctx context.Context) InstanceIdentityManagementTypePtrOutput {
+	return o
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) Elem() InstanceIdentityManagementTypeOutput {
+	return o.ApplyT(func(v *InstanceIdentityManagementType) InstanceIdentityManagementType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceIdentityManagementType
+		return ret
+	}).(InstanceIdentityManagementTypeOutput)
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceIdentityManagementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceIdentityManagementType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceIdentityManagementTypeInput is an input type that accepts InstanceIdentityManagementTypeArgs and InstanceIdentityManagementTypeOutput values.
+// You can construct a concrete instance of `InstanceIdentityManagementTypeInput` via:
+//
+//	InstanceIdentityManagementTypeArgs{...}
+type InstanceIdentityManagementTypeInput interface {
+	pulumi.Input
+
+	ToInstanceIdentityManagementTypeOutput() InstanceIdentityManagementTypeOutput
+	ToInstanceIdentityManagementTypeOutputWithContext(context.Context) InstanceIdentityManagementTypeOutput
+}
+
+var instanceIdentityManagementTypePtrType = reflect.TypeOf((**InstanceIdentityManagementType)(nil)).Elem()
+
+type InstanceIdentityManagementTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceIdentityManagementTypePtrOutput() InstanceIdentityManagementTypePtrOutput
+	ToInstanceIdentityManagementTypePtrOutputWithContext(context.Context) InstanceIdentityManagementTypePtrOutput
+}
+
+type instanceIdentityManagementTypePtr string
+
+func InstanceIdentityManagementTypePtr(v string) InstanceIdentityManagementTypePtrInput {
+	return (*instanceIdentityManagementTypePtr)(&v)
+}
+
+func (*instanceIdentityManagementTypePtr) ElementType() reflect.Type {
+	return instanceIdentityManagementTypePtrType
+}
+
+func (in *instanceIdentityManagementTypePtr) ToInstanceIdentityManagementTypePtrOutput() InstanceIdentityManagementTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceIdentityManagementTypePtrOutput)
+}
+
+func (in *instanceIdentityManagementTypePtr) ToInstanceIdentityManagementTypePtrOutputWithContext(ctx context.Context) InstanceIdentityManagementTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceIdentityManagementTypePtrOutput)
+}
+
+// Specifies the creation status of new instance.
+type InstanceStatus string
+
+const (
+	InstanceStatusCreationInProgress = InstanceStatus("CREATION_IN_PROGRESS")
+	InstanceStatusCreationFailed     = InstanceStatus("CREATION_FAILED")
+	InstanceStatusActive             = InstanceStatus("ACTIVE")
+)
+
+type InstanceStatusOutput struct{ *pulumi.OutputState }
+
+func (InstanceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStatus)(nil)).Elem()
+}
+
+func (o InstanceStatusOutput) ToInstanceStatusOutput() InstanceStatusOutput {
+	return o
+}
+
+func (o InstanceStatusOutput) ToInstanceStatusOutputWithContext(ctx context.Context) InstanceStatusOutput {
+	return o
+}
+
+func (o InstanceStatusOutput) ToInstanceStatusPtrOutput() InstanceStatusPtrOutput {
+	return o.ToInstanceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStatusOutput) ToInstanceStatusPtrOutputWithContext(ctx context.Context) InstanceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStatus) *InstanceStatus {
+		return &v
+	}).(InstanceStatusPtrOutput)
+}
+
+func (o InstanceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStatus)(nil)).Elem()
+}
+
+func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutput() InstanceStatusPtrOutput {
+	return o
+}
+
+func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutputWithContext(ctx context.Context) InstanceStatusPtrOutput {
+	return o
+}
+
+func (o InstanceStatusPtrOutput) Elem() InstanceStatusOutput {
+	return o.ApplyT(func(v *InstanceStatus) InstanceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStatus
+		return ret
+	}).(InstanceStatusOutput)
+}
+
+func (o InstanceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 type QuickConnectType string
 
@@ -1453,6 +1711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypePtrInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypeInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypePtrInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
@@ -1471,6 +1731,10 @@ func init() {
 	pulumi.RegisterOutputType(ContactFlowTypePtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
+	pulumi.RegisterOutputType(InstanceIdentityManagementTypeOutput{})
+	pulumi.RegisterOutputType(InstanceIdentityManagementTypePtrOutput{})
+	pulumi.RegisterOutputType(InstanceStatusOutput{})
+	pulumi.RegisterOutputType(InstanceStatusPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})

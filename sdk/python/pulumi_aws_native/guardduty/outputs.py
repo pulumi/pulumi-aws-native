@@ -14,9 +14,15 @@ __all__ = [
     'DetectorCFNDataSourceConfigurations',
     'DetectorCFNKubernetesAuditLogsConfiguration',
     'DetectorCFNKubernetesConfiguration',
+    'DetectorCFNMalwareProtectionConfiguration',
     'DetectorCFNS3LogsConfiguration',
+    'DetectorCFNScanEc2InstanceWithFindingsConfiguration',
+    'DetectorTag',
     'FilterCondition',
     'FilterFindingCriteria',
+    'FilterTag',
+    'IPSetTag',
+    'ThreatIntelSetTag',
 ]
 
 @pulumi.output_type
@@ -24,7 +30,9 @@ class DetectorCFNDataSourceConfigurations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3Logs":
+        if key == "malwareProtection":
+            suggest = "malware_protection"
+        elif key == "s3Logs":
             suggest = "s3_logs"
 
         if suggest:
@@ -40,9 +48,12 @@ class DetectorCFNDataSourceConfigurations(dict):
 
     def __init__(__self__, *,
                  kubernetes: Optional['outputs.DetectorCFNKubernetesConfiguration'] = None,
+                 malware_protection: Optional['outputs.DetectorCFNMalwareProtectionConfiguration'] = None,
                  s3_logs: Optional['outputs.DetectorCFNS3LogsConfiguration'] = None):
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
+        if malware_protection is not None:
+            pulumi.set(__self__, "malware_protection", malware_protection)
         if s3_logs is not None:
             pulumi.set(__self__, "s3_logs", s3_logs)
 
@@ -50,6 +61,11 @@ class DetectorCFNDataSourceConfigurations(dict):
     @pulumi.getter
     def kubernetes(self) -> Optional['outputs.DetectorCFNKubernetesConfiguration']:
         return pulumi.get(self, "kubernetes")
+
+    @property
+    @pulumi.getter(name="malwareProtection")
+    def malware_protection(self) -> Optional['outputs.DetectorCFNMalwareProtectionConfiguration']:
+        return pulumi.get(self, "malware_protection")
 
     @property
     @pulumi.getter(name="s3Logs")
@@ -101,6 +117,36 @@ class DetectorCFNKubernetesConfiguration(dict):
 
 
 @pulumi.output_type
+class DetectorCFNMalwareProtectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scanEc2InstanceWithFindings":
+            suggest = "scan_ec2_instance_with_findings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorCFNMalwareProtectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorCFNMalwareProtectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorCFNMalwareProtectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scan_ec2_instance_with_findings: Optional['outputs.DetectorCFNScanEc2InstanceWithFindingsConfiguration'] = None):
+        if scan_ec2_instance_with_findings is not None:
+            pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
+
+    @property
+    @pulumi.getter(name="scanEc2InstanceWithFindings")
+    def scan_ec2_instance_with_findings(self) -> Optional['outputs.DetectorCFNScanEc2InstanceWithFindingsConfiguration']:
+        return pulumi.get(self, "scan_ec2_instance_with_findings")
+
+
+@pulumi.output_type
 class DetectorCFNS3LogsConfiguration(dict):
     def __init__(__self__, *,
                  enable: Optional[bool] = None):
@@ -111,6 +157,55 @@ class DetectorCFNS3LogsConfiguration(dict):
     @pulumi.getter
     def enable(self) -> Optional[bool]:
         return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DetectorCFNScanEc2InstanceWithFindingsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsVolumes":
+            suggest = "ebs_volumes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorCFNScanEc2InstanceWithFindingsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorCFNScanEc2InstanceWithFindingsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorCFNScanEc2InstanceWithFindingsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_volumes: Optional[bool] = None):
+        if ebs_volumes is not None:
+            pulumi.set(__self__, "ebs_volumes", ebs_volumes)
+
+    @property
+    @pulumi.getter(name="ebsVolumes")
+    def ebs_volumes(self) -> Optional[bool]:
+        return pulumi.get(self, "ebs_volumes")
+
+
+@pulumi.output_type
+class DetectorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -275,5 +370,62 @@ class FilterFindingCriteria(dict):
     @pulumi.getter(name="itemType")
     def item_type(self) -> Optional['outputs.FilterCondition']:
         return pulumi.get(self, "item_type")
+
+
+@pulumi.output_type
+class FilterTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IPSetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ThreatIntelSetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

@@ -25,13 +25,14 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	Id                   *string                        `pulumi:"id"`
-	Instances            *ClusterJobFlowInstancesConfig `pulumi:"instances"`
-	ManagedScalingPolicy *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
-	MasterPublicDNS      *string                        `pulumi:"masterPublicDNS"`
-	StepConcurrencyLevel *int                           `pulumi:"stepConcurrencyLevel"`
-	Tags                 []ClusterTag                   `pulumi:"tags"`
-	VisibleToAllUsers    *bool                          `pulumi:"visibleToAllUsers"`
+	AutoTerminationPolicy *ClusterAutoTerminationPolicy  `pulumi:"autoTerminationPolicy"`
+	Id                    *string                        `pulumi:"id"`
+	Instances             *ClusterJobFlowInstancesConfig `pulumi:"instances"`
+	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
+	MasterPublicDNS       *string                        `pulumi:"masterPublicDNS"`
+	StepConcurrencyLevel  *int                           `pulumi:"stepConcurrencyLevel"`
+	Tags                  []ClusterTag                   `pulumi:"tags"`
+	VisibleToAllUsers     *bool                          `pulumi:"visibleToAllUsers"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -67,6 +68,10 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterRe
 
 func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
 	return o
+}
+
+func (o LookupClusterResultOutput) AutoTerminationPolicy() ClusterAutoTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterAutoTerminationPolicy { return v.AutoTerminationPolicy }).(ClusterAutoTerminationPolicyPtrOutput)
 }
 
 func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {

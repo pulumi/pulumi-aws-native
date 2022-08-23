@@ -12,16 +12,30 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// Resource Type definition for AWS::ApiGateway::DocumentationPart
     /// </summary>
-    [Obsolete(@"DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:DocumentationPart")]
     public partial class DocumentationPart : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the documentation Part.
+        /// </summary>
+        [Output("documentationPartId")]
+        public Output<string> DocumentationPartId { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the API entity that the documentation applies to.
+        /// </summary>
         [Output("location")]
         public Output<Outputs.DocumentationPartLocation> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The documentation content map of the targeted API entity.
+        /// </summary>
         [Output("properties")]
         public Output<string> Properties { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of the targeted API entity
+        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
@@ -70,12 +84,21 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class DocumentationPartArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The location of the API entity that the documentation applies to.
+        /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.DocumentationPartLocationArgs> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The documentation content map of the targeted API entity.
+        /// </summary>
         [Input("properties", required: true)]
         public Input<string> Properties { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of the targeted API entity
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 

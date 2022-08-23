@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.RDS.Outputs
     [OutputType]
     public sealed class DBInstanceRole
     {
+        /// <summary>
+        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        /// </summary>
         public readonly string FeatureName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

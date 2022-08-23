@@ -36,6 +36,90 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
+    public readonly struct CACertificateAutoRegistrationStatus : IEquatable<CACertificateAutoRegistrationStatus>
+    {
+        private readonly string _value;
+
+        private CACertificateAutoRegistrationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CACertificateAutoRegistrationStatus Enable { get; } = new CACertificateAutoRegistrationStatus("ENABLE");
+        public static CACertificateAutoRegistrationStatus Disable { get; } = new CACertificateAutoRegistrationStatus("DISABLE");
+
+        public static bool operator ==(CACertificateAutoRegistrationStatus left, CACertificateAutoRegistrationStatus right) => left.Equals(right);
+        public static bool operator !=(CACertificateAutoRegistrationStatus left, CACertificateAutoRegistrationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CACertificateAutoRegistrationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CACertificateAutoRegistrationStatus other && Equals(other);
+        public bool Equals(CACertificateAutoRegistrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CACertificateCertificateMode : IEquatable<CACertificateCertificateMode>
+    {
+        private readonly string _value;
+
+        private CACertificateCertificateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CACertificateCertificateMode Default { get; } = new CACertificateCertificateMode("DEFAULT");
+        public static CACertificateCertificateMode SniOnly { get; } = new CACertificateCertificateMode("SNI_ONLY");
+
+        public static bool operator ==(CACertificateCertificateMode left, CACertificateCertificateMode right) => left.Equals(right);
+        public static bool operator !=(CACertificateCertificateMode left, CACertificateCertificateMode right) => !left.Equals(right);
+
+        public static explicit operator string(CACertificateCertificateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CACertificateCertificateMode other && Equals(other);
+        public bool Equals(CACertificateCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CACertificateStatus : IEquatable<CACertificateStatus>
+    {
+        private readonly string _value;
+
+        private CACertificateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CACertificateStatus Active { get; } = new CACertificateStatus("ACTIVE");
+        public static CACertificateStatus Inactive { get; } = new CACertificateStatus("INACTIVE");
+
+        public static bool operator ==(CACertificateStatus left, CACertificateStatus right) => left.Equals(right);
+        public static bool operator !=(CACertificateStatus left, CACertificateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CACertificateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CACertificateStatus other && Equals(other);
+        public bool Equals(CACertificateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CertificateMode : IEquatable<CertificateMode>
     {
         private readonly string _value;
@@ -498,6 +582,34 @@ namespace Pulumi.AwsNative.IoT
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MitigationActionUpdateDeviceCertificateParamsAction other && Equals(other);
         public bool Equals(MitigationActionUpdateDeviceCertificateParamsAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ProvisioningTemplateTemplateType : IEquatable<ProvisioningTemplateTemplateType>
+    {
+        private readonly string _value;
+
+        private ProvisioningTemplateTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisioningTemplateTemplateType FleetProvisioning { get; } = new ProvisioningTemplateTemplateType("FLEET_PROVISIONING");
+        public static ProvisioningTemplateTemplateType Jitp { get; } = new ProvisioningTemplateTemplateType("JITP");
+
+        public static bool operator ==(ProvisioningTemplateTemplateType left, ProvisioningTemplateTemplateType right) => left.Equals(right);
+        public static bool operator !=(ProvisioningTemplateTemplateType left, ProvisioningTemplateTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisioningTemplateTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisioningTemplateTemplateType other && Equals(other);
+        public bool Equals(ProvisioningTemplateTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

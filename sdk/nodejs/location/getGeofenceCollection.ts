@@ -26,7 +26,7 @@ export interface GetGeofenceCollectionResult {
     readonly arn?: string;
     readonly collectionArn?: string;
     readonly createTime?: string;
-    readonly kmsKeyId?: string;
+    readonly pricingPlanDataSource?: string;
     readonly updateTime?: string;
 }
 

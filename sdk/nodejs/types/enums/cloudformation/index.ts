@@ -117,6 +117,18 @@ export const StackSetCapability = {
 
 export type StackSetCapability = (typeof StackSetCapability)[keyof typeof StackSetCapability];
 
+export const StackSetDeploymentTargetsAccountFilterType = {
+    None: "NONE",
+    Union: "UNION",
+    Intersection: "INTERSECTION",
+    Difference: "DIFFERENCE",
+} as const;
+
+/**
+ * The filter type you want to apply on organizational units and accounts.
+ */
+export type StackSetDeploymentTargetsAccountFilterType = (typeof StackSetDeploymentTargetsAccountFilterType)[keyof typeof StackSetDeploymentTargetsAccountFilterType];
+
 export const StackSetPermissionModel = {
     ServiceManaged: "SERVICE_MANAGED",
     SelfManaged: "SELF_MANAGED",

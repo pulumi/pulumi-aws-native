@@ -24,6 +24,7 @@ export interface GetVPCEndpointServiceArgs {
 
 export interface GetVPCEndpointServiceResult {
     readonly acceptanceRequired?: boolean;
+    readonly contributorInsightsEnabled?: boolean;
     readonly gatewayLoadBalancerArns?: string[];
     readonly id?: string;
     readonly networkLoadBalancerArns?: string[];

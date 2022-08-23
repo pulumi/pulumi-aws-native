@@ -25,16 +25,17 @@ type LookupNotebookInstanceArgs struct {
 }
 
 type LookupNotebookInstanceResult struct {
-	AcceleratorTypes           []string              `pulumi:"acceleratorTypes"`
-	AdditionalCodeRepositories []string              `pulumi:"additionalCodeRepositories"`
-	DefaultCodeRepository      *string               `pulumi:"defaultCodeRepository"`
-	Id                         *string               `pulumi:"id"`
-	InstanceType               *string               `pulumi:"instanceType"`
-	LifecycleConfigName        *string               `pulumi:"lifecycleConfigName"`
-	RoleArn                    *string               `pulumi:"roleArn"`
-	RootAccess                 *string               `pulumi:"rootAccess"`
-	Tags                       []NotebookInstanceTag `pulumi:"tags"`
-	VolumeSizeInGB             *int                  `pulumi:"volumeSizeInGB"`
+	AcceleratorTypes                     []string                                              `pulumi:"acceleratorTypes"`
+	AdditionalCodeRepositories           []string                                              `pulumi:"additionalCodeRepositories"`
+	DefaultCodeRepository                *string                                               `pulumi:"defaultCodeRepository"`
+	Id                                   *string                                               `pulumi:"id"`
+	InstanceMetadataServiceConfiguration *NotebookInstanceInstanceMetadataServiceConfiguration `pulumi:"instanceMetadataServiceConfiguration"`
+	InstanceType                         *string                                               `pulumi:"instanceType"`
+	LifecycleConfigName                  *string                                               `pulumi:"lifecycleConfigName"`
+	RoleArn                              *string                                               `pulumi:"roleArn"`
+	RootAccess                           *string                                               `pulumi:"rootAccess"`
+	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
+	VolumeSizeInGB                       *int                                                  `pulumi:"volumeSizeInGB"`
 }
 
 func LookupNotebookInstanceOutput(ctx *pulumi.Context, args LookupNotebookInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupNotebookInstanceResultOutput {
@@ -86,6 +87,12 @@ func (o LookupNotebookInstanceResultOutput) DefaultCodeRepository() pulumi.Strin
 
 func (o LookupNotebookInstanceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNotebookInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNotebookInstanceResultOutput) InstanceMetadataServiceConfiguration() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupNotebookInstanceResult) *NotebookInstanceInstanceMetadataServiceConfiguration {
+		return v.InstanceMetadataServiceConfiguration
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
 }
 
 func (o LookupNotebookInstanceResultOutput) InstanceType() pulumi.StringPtrOutput {

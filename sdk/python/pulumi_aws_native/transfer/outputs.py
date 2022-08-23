@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ServerAs2Transport',
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
     'ServerProtocol',
@@ -33,6 +34,12 @@ __all__ = [
     'WorkflowStepTagStepDetailsProperties',
     'WorkflowTag',
 ]
+
+@pulumi.output_type
+class ServerAs2Transport(dict):
+    def __init__(__self__):
+        pass
+
 
 @pulumi.output_type
 class ServerEndpointDetails(dict):
@@ -171,7 +178,9 @@ class ServerProtocolDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "passiveIp":
+        if key == "as2Transports":
+            suggest = "as2_transports"
+        elif key == "passiveIp":
             suggest = "passive_ip"
         elif key == "setStatOption":
             suggest = "set_stat_option"
@@ -190,15 +199,23 @@ class ServerProtocolDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 as2_transports: Optional[Sequence['outputs.ServerAs2Transport']] = None,
                  passive_ip: Optional[str] = None,
                  set_stat_option: Optional[str] = None,
                  tls_session_resumption_mode: Optional[str] = None):
+        if as2_transports is not None:
+            pulumi.set(__self__, "as2_transports", as2_transports)
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
         if set_stat_option is not None:
             pulumi.set(__self__, "set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
             pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
+
+    @property
+    @pulumi.getter(name="as2Transports")
+    def as2_transports(self) -> Optional[Sequence['outputs.ServerAs2Transport']]:
+        return pulumi.get(self, "as2_transports")
 
     @property
     @pulumi.getter(name="passiveIp")

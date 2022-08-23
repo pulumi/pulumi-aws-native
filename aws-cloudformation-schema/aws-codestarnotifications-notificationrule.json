@@ -80,6 +80,7 @@
   "createOnlyProperties" : [ "/properties/Resource", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/EventTypeId", "/properties/TargetAddress" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "codestar-notifications:createNotificationRule" ]

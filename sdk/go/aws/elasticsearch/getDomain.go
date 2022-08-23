@@ -25,23 +25,24 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
-	AccessPolicies              interface{}                        `pulumi:"accessPolicies"`
-	AdvancedOptions             interface{}                        `pulumi:"advancedOptions"`
-	Arn                         *string                            `pulumi:"arn"`
-	CognitoOptions              *DomainCognitoOptions              `pulumi:"cognitoOptions"`
-	DomainArn                   *string                            `pulumi:"domainArn"`
-	DomainEndpoint              *string                            `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       *DomainEndpointOptions             `pulumi:"domainEndpointOptions"`
-	EBSOptions                  *DomainEBSOptions                  `pulumi:"eBSOptions"`
-	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig  `pulumi:"elasticsearchClusterConfig"`
-	ElasticsearchVersion        *string                            `pulumi:"elasticsearchVersion"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions     `pulumi:"encryptionAtRestOptions"`
-	Id                          *string                            `pulumi:"id"`
-	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
-	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
-	Tags                        []DomainTag                        `pulumi:"tags"`
-	VPCOptions                  *DomainVPCOptions                  `pulumi:"vPCOptions"`
+	AccessPolicies              interface{}                         `pulumi:"accessPolicies"`
+	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
+	Arn                         *string                             `pulumi:"arn"`
+	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
+	DomainArn                   *string                             `pulumi:"domainArn"`
+	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
+	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
+	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
+	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
+	ElasticsearchVersion        *string                             `pulumi:"elasticsearchVersion"`
+	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
+	Id                          *string                             `pulumi:"id"`
+	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
+	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
+	Tags                        []DomainTag                         `pulumi:"tags"`
+	VPCOptions                  *DomainVPCOptions                   `pulumi:"vPCOptions"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -85,6 +86,10 @@ func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 
 func (o LookupDomainResultOutput) AdvancedOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AdvancedOptions }).(pulumi.AnyOutput)
+}
+
+func (o LookupDomainResultOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainAdvancedSecurityOptionsInput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {

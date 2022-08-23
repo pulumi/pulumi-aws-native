@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConnectorProfileAuthenticationType string
+
+const (
+	ConnectorProfileAuthenticationTypeOauth2 = ConnectorProfileAuthenticationType("OAUTH2")
+	ConnectorProfileAuthenticationTypeApikey = ConnectorProfileAuthenticationType("APIKEY")
+	ConnectorProfileAuthenticationTypeBasic  = ConnectorProfileAuthenticationType("BASIC")
+	ConnectorProfileAuthenticationTypeCustom = ConnectorProfileAuthenticationType("CUSTOM")
+)
+
+func (ConnectorProfileAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileAuthenticationType)(nil)).Elem()
+}
+
+func (e ConnectorProfileAuthenticationType) ToConnectorProfileAuthenticationTypeOutput() ConnectorProfileAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorProfileAuthenticationTypeOutput)
+}
+
+func (e ConnectorProfileAuthenticationType) ToConnectorProfileAuthenticationTypeOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorProfileAuthenticationTypeOutput)
+}
+
+func (e ConnectorProfileAuthenticationType) ToConnectorProfileAuthenticationTypePtrOutput() ConnectorProfileAuthenticationTypePtrOutput {
+	return e.ToConnectorProfileAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorProfileAuthenticationType) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
+	return ConnectorProfileAuthenticationType(e).ToConnectorProfileAuthenticationTypeOutputWithContext(ctx).ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorProfileAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorProfileAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorProfileAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorProfileAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorProfileAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileAuthenticationType)(nil)).Elem()
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToConnectorProfileAuthenticationTypeOutput() ConnectorProfileAuthenticationTypeOutput {
+	return o
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToConnectorProfileAuthenticationTypeOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypeOutput {
+	return o
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToConnectorProfileAuthenticationTypePtrOutput() ConnectorProfileAuthenticationTypePtrOutput {
+	return o.ToConnectorProfileAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileAuthenticationType) *ConnectorProfileAuthenticationType {
+		return &v
+	}).(ConnectorProfileAuthenticationTypePtrOutput)
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorProfileAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorProfileAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfileAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileAuthenticationType)(nil)).Elem()
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) ToConnectorProfileAuthenticationTypePtrOutput() ConnectorProfileAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) Elem() ConnectorProfileAuthenticationTypeOutput {
+	return o.ApplyT(func(v *ConnectorProfileAuthenticationType) ConnectorProfileAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileAuthenticationType
+		return ret
+	}).(ConnectorProfileAuthenticationTypeOutput)
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorProfileAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorProfileAuthenticationTypeInput is an input type that accepts ConnectorProfileAuthenticationTypeArgs and ConnectorProfileAuthenticationTypeOutput values.
+// You can construct a concrete instance of `ConnectorProfileAuthenticationTypeInput` via:
+//
+//	ConnectorProfileAuthenticationTypeArgs{...}
+type ConnectorProfileAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToConnectorProfileAuthenticationTypeOutput() ConnectorProfileAuthenticationTypeOutput
+	ToConnectorProfileAuthenticationTypeOutputWithContext(context.Context) ConnectorProfileAuthenticationTypeOutput
+}
+
+var connectorProfileAuthenticationTypePtrType = reflect.TypeOf((**ConnectorProfileAuthenticationType)(nil)).Elem()
+
+type ConnectorProfileAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileAuthenticationTypePtrOutput() ConnectorProfileAuthenticationTypePtrOutput
+	ToConnectorProfileAuthenticationTypePtrOutputWithContext(context.Context) ConnectorProfileAuthenticationTypePtrOutput
+}
+
+type connectorProfileAuthenticationTypePtr string
+
+func ConnectorProfileAuthenticationTypePtr(v string) ConnectorProfileAuthenticationTypePtrInput {
+	return (*connectorProfileAuthenticationTypePtr)(&v)
+}
+
+func (*connectorProfileAuthenticationTypePtr) ElementType() reflect.Type {
+	return connectorProfileAuthenticationTypePtrType
+}
+
+func (in *connectorProfileAuthenticationTypePtr) ToConnectorProfileAuthenticationTypePtrOutput() ConnectorProfileAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorProfileAuthenticationTypePtrOutput)
+}
+
+func (in *connectorProfileAuthenticationTypePtr) ToConnectorProfileAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorProfileAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileAuthenticationTypePtrOutput)
+}
+
 // Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 type ConnectorProfileConnectionMode string
 
@@ -194,6 +360,7 @@ const (
 	ConnectorProfileConnectorTypeInfornexus      = ConnectorProfileConnectorType("Infornexus")
 	ConnectorProfileConnectorTypeAmplitude       = ConnectorProfileConnectorType("Amplitude")
 	ConnectorProfileConnectorTypeVeeva           = ConnectorProfileConnectorType("Veeva")
+	ConnectorProfileConnectorTypeCustomConnector = ConnectorProfileConnectorType("CustomConnector")
 )
 
 func (ConnectorProfileConnectorType) ElementType() reflect.Type {
@@ -351,6 +518,170 @@ func (in *connectorProfileConnectorTypePtr) ToConnectorProfileConnectorTypePtrOu
 
 func (in *connectorProfileConnectorTypePtr) ToConnectorProfileConnectorTypePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileConnectorTypePtrOutput)
+}
+
+type ConnectorProfileOAuth2GrantType string
+
+const (
+	ConnectorProfileOAuth2GrantTypeClientCredentials = ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS")
+	ConnectorProfileOAuth2GrantTypeAuthorizationCode = ConnectorProfileOAuth2GrantType("AUTHORIZATION_CODE")
+)
+
+func (ConnectorProfileOAuth2GrantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileOAuth2GrantType)(nil)).Elem()
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToConnectorProfileOAuth2GrantTypeOutput() ConnectorProfileOAuth2GrantTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorProfileOAuth2GrantTypeOutput)
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToConnectorProfileOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorProfileOAuth2GrantTypeOutput)
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToConnectorProfileOAuth2GrantTypePtrOutput() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return e.ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
+	return ConnectorProfileOAuth2GrantType(e).ToConnectorProfileOAuth2GrantTypeOutputWithContext(ctx).ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorProfileOAuth2GrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorProfileOAuth2GrantTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileOAuth2GrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToConnectorProfileOAuth2GrantTypeOutput() ConnectorProfileOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToConnectorProfileOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToConnectorProfileOAuth2GrantTypePtrOutput() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o.ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileOAuth2GrantType) *ConnectorProfileOAuth2GrantType {
+		return &v
+	}).(ConnectorProfileOAuth2GrantTypePtrOutput)
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorProfileOAuth2GrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileOAuth2GrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorProfileOAuth2GrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfileOAuth2GrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileOAuth2GrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToConnectorProfileOAuth2GrantTypePtrOutput() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) Elem() ConnectorProfileOAuth2GrantTypeOutput {
+	return o.ApplyT(func(v *ConnectorProfileOAuth2GrantType) ConnectorProfileOAuth2GrantType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileOAuth2GrantType
+		return ret
+	}).(ConnectorProfileOAuth2GrantTypeOutput)
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileOAuth2GrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorProfileOAuth2GrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorProfileOAuth2GrantTypeInput is an input type that accepts ConnectorProfileOAuth2GrantTypeArgs and ConnectorProfileOAuth2GrantTypeOutput values.
+// You can construct a concrete instance of `ConnectorProfileOAuth2GrantTypeInput` via:
+//
+//	ConnectorProfileOAuth2GrantTypeArgs{...}
+type ConnectorProfileOAuth2GrantTypeInput interface {
+	pulumi.Input
+
+	ToConnectorProfileOAuth2GrantTypeOutput() ConnectorProfileOAuth2GrantTypeOutput
+	ToConnectorProfileOAuth2GrantTypeOutputWithContext(context.Context) ConnectorProfileOAuth2GrantTypeOutput
+}
+
+var connectorProfileOAuth2GrantTypePtrType = reflect.TypeOf((**ConnectorProfileOAuth2GrantType)(nil)).Elem()
+
+type ConnectorProfileOAuth2GrantTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileOAuth2GrantTypePtrOutput() ConnectorProfileOAuth2GrantTypePtrOutput
+	ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(context.Context) ConnectorProfileOAuth2GrantTypePtrOutput
+}
+
+type connectorProfileOAuth2GrantTypePtr string
+
+func ConnectorProfileOAuth2GrantTypePtr(v string) ConnectorProfileOAuth2GrantTypePtrInput {
+	return (*connectorProfileOAuth2GrantTypePtr)(&v)
+}
+
+func (*connectorProfileOAuth2GrantTypePtr) ElementType() reflect.Type {
+	return connectorProfileOAuth2GrantTypePtrType
+}
+
+func (in *connectorProfileOAuth2GrantTypePtr) ToConnectorProfileOAuth2GrantTypePtrOutput() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorProfileOAuth2GrantTypePtrOutput)
+}
+
+func (in *connectorProfileOAuth2GrantTypePtr) ToConnectorProfileOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectorProfileOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorProfileOAuth2GrantTypePtrOutput)
 }
 
 type FlowAggregationType string
@@ -700,6 +1031,7 @@ const (
 	FlowConnectorTypeInfornexus      = FlowConnectorType("Infornexus")
 	FlowConnectorTypeAmplitude       = FlowConnectorType("Amplitude")
 	FlowConnectorTypeVeeva           = FlowConnectorType("Veeva")
+	FlowConnectorTypeCustomConnector = FlowConnectorType("CustomConnector")
 	FlowConnectorTypeEventBridge     = FlowConnectorType("EventBridge")
 	FlowConnectorTypeUpsolver        = FlowConnectorType("Upsolver")
 	FlowConnectorTypeLookoutMetrics  = FlowConnectorType("LookoutMetrics")
@@ -1898,6 +2230,189 @@ func (in *flowMarketoConnectorOperatorPtr) ToFlowMarketoConnectorOperatorPtrOutp
 
 func (in *flowMarketoConnectorOperatorPtr) ToFlowMarketoConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowMarketoConnectorOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowMarketoConnectorOperatorPtrOutput)
+}
+
+type FlowOperator string
+
+const (
+	FlowOperatorProjection           = FlowOperator("PROJECTION")
+	FlowOperatorLessThan             = FlowOperator("LESS_THAN")
+	FlowOperatorGreaterThan          = FlowOperator("GREATER_THAN")
+	FlowOperatorContains             = FlowOperator("CONTAINS")
+	FlowOperatorBetween              = FlowOperator("BETWEEN")
+	FlowOperatorLessThanOrEqualTo    = FlowOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowOperatorGreaterThanOrEqualTo = FlowOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowOperatorEqualTo              = FlowOperator("EQUAL_TO")
+	FlowOperatorNotEqualTo           = FlowOperator("NOT_EQUAL_TO")
+	FlowOperatorAddition             = FlowOperator("ADDITION")
+	FlowOperatorMultiplication       = FlowOperator("MULTIPLICATION")
+	FlowOperatorDivision             = FlowOperator("DIVISION")
+	FlowOperatorSubtraction          = FlowOperator("SUBTRACTION")
+	FlowOperatorMaskAll              = FlowOperator("MASK_ALL")
+	FlowOperatorMaskFirstN           = FlowOperator("MASK_FIRST_N")
+	FlowOperatorMaskLastN            = FlowOperator("MASK_LAST_N")
+	FlowOperatorValidateNonNull      = FlowOperator("VALIDATE_NON_NULL")
+	FlowOperatorValidateNonZero      = FlowOperator("VALIDATE_NON_ZERO")
+	FlowOperatorValidateNonNegative  = FlowOperator("VALIDATE_NON_NEGATIVE")
+	FlowOperatorValidateNumeric      = FlowOperator("VALIDATE_NUMERIC")
+	FlowOperatorNoOp                 = FlowOperator("NO_OP")
+)
+
+func (FlowOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOperator)(nil)).Elem()
+}
+
+func (e FlowOperator) ToFlowOperatorOutput() FlowOperatorOutput {
+	return pulumi.ToOutput(e).(FlowOperatorOutput)
+}
+
+func (e FlowOperator) ToFlowOperatorOutputWithContext(ctx context.Context) FlowOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowOperatorOutput)
+}
+
+func (e FlowOperator) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
+	return e.ToFlowOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOperator) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
+	return FlowOperator(e).ToFlowOperatorOutputWithContext(ctx).ToFlowOperatorPtrOutputWithContext(ctx)
+}
+
+func (e FlowOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowOperatorOutput struct{ *pulumi.OutputState }
+
+func (FlowOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOperator)(nil)).Elem()
+}
+
+func (o FlowOperatorOutput) ToFlowOperatorOutput() FlowOperatorOutput {
+	return o
+}
+
+func (o FlowOperatorOutput) ToFlowOperatorOutputWithContext(ctx context.Context) FlowOperatorOutput {
+	return o
+}
+
+func (o FlowOperatorOutput) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
+	return o.ToFlowOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOperatorOutput) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOperator) *FlowOperator {
+		return &v
+	}).(FlowOperatorPtrOutput)
+}
+
+func (o FlowOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOperator)(nil)).Elem()
+}
+
+func (o FlowOperatorPtrOutput) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
+	return o
+}
+
+func (o FlowOperatorPtrOutput) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
+	return o
+}
+
+func (o FlowOperatorPtrOutput) Elem() FlowOperatorOutput {
+	return o.ApplyT(func(v *FlowOperator) FlowOperator {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOperator
+		return ret
+	}).(FlowOperatorOutput)
+}
+
+func (o FlowOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowOperatorInput is an input type that accepts FlowOperatorArgs and FlowOperatorOutput values.
+// You can construct a concrete instance of `FlowOperatorInput` via:
+//
+//	FlowOperatorArgs{...}
+type FlowOperatorInput interface {
+	pulumi.Input
+
+	ToFlowOperatorOutput() FlowOperatorOutput
+	ToFlowOperatorOutputWithContext(context.Context) FlowOperatorOutput
+}
+
+var flowOperatorPtrType = reflect.TypeOf((**FlowOperator)(nil)).Elem()
+
+type FlowOperatorPtrInput interface {
+	pulumi.Input
+
+	ToFlowOperatorPtrOutput() FlowOperatorPtrOutput
+	ToFlowOperatorPtrOutputWithContext(context.Context) FlowOperatorPtrOutput
+}
+
+type flowOperatorPtr string
+
+func FlowOperatorPtr(v string) FlowOperatorPtrInput {
+	return (*flowOperatorPtr)(&v)
+}
+
+func (*flowOperatorPtr) ElementType() reflect.Type {
+	return flowOperatorPtrType
+}
+
+func (in *flowOperatorPtr) ToFlowOperatorPtrOutput() FlowOperatorPtrOutput {
+	return pulumi.ToOutput(in).(FlowOperatorPtrOutput)
+}
+
+func (in *flowOperatorPtr) ToFlowOperatorPtrOutputWithContext(ctx context.Context) FlowOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowOperatorPtrOutput)
 }
 
 type FlowOperatorPropertiesKeys string
@@ -4521,6 +5036,7 @@ const (
 	FlowWriteOperationTypeInsert = FlowWriteOperationType("INSERT")
 	FlowWriteOperationTypeUpsert = FlowWriteOperationType("UPSERT")
 	FlowWriteOperationTypeUpdate = FlowWriteOperationType("UPDATE")
+	FlowWriteOperationTypeDelete = FlowWriteOperationType("DELETE")
 )
 
 func (FlowWriteOperationType) ElementType() reflect.Type {
@@ -4857,10 +5373,14 @@ func (in *flowZendeskConnectorOperatorPtr) ToFlowZendeskConnectorOperatorPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileAuthenticationTypeInput)(nil)).Elem(), ConnectorProfileAuthenticationType("OAUTH2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileAuthenticationTypePtrInput)(nil)).Elem(), ConnectorProfileAuthenticationType("OAUTH2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileConnectionModeInput)(nil)).Elem(), ConnectorProfileConnectionMode("Public"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileConnectionModePtrInput)(nil)).Elem(), ConnectorProfileConnectionMode("Public"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileConnectorTypeInput)(nil)).Elem(), ConnectorProfileConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileConnectorTypePtrInput)(nil)).Elem(), ConnectorProfileConnectorType("Salesforce"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileOAuth2GrantTypeInput)(nil)).Elem(), ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileOAuth2GrantTypePtrInput)(nil)).Elem(), ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAggregationTypeInput)(nil)).Elem(), FlowAggregationType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAggregationTypePtrInput)(nil)).Elem(), FlowAggregationType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAmplitudeConnectorOperatorInput)(nil)).Elem(), FlowAmplitudeConnectorOperator("BETWEEN"))
@@ -4879,6 +5399,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInforNexusConnectorOperatorPtrInput)(nil)).Elem(), FlowInforNexusConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoConnectorOperatorInput)(nil)).Elem(), FlowMarketoConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoConnectorOperatorPtrInput)(nil)).Elem(), FlowMarketoConnectorOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorInput)(nil)).Elem(), FlowOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPtrInput)(nil)).Elem(), FlowOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysPtrInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixFormatInput)(nil)).Elem(), FlowPrefixFormat("YEAR"))
@@ -4913,10 +5435,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowWriteOperationTypePtrInput)(nil)).Elem(), FlowWriteOperationType("INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowZendeskConnectorOperatorInput)(nil)).Elem(), FlowZendeskConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowZendeskConnectorOperatorPtrInput)(nil)).Elem(), FlowZendeskConnectorOperator("PROJECTION"))
+	pulumi.RegisterOutputType(ConnectorProfileAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectionModeOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectionModePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectorTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectorTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileOAuth2GrantTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileOAuth2GrantTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowAggregationTypeOutput{})
 	pulumi.RegisterOutputType(FlowAggregationTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowAmplitudeConnectorOperatorOutput{})
@@ -4935,6 +5461,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowInforNexusConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowMarketoConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(FlowMarketoConnectorOperatorPtrOutput{})
+	pulumi.RegisterOutputType(FlowOperatorOutput{})
+	pulumi.RegisterOutputType(FlowOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixFormatOutput{})

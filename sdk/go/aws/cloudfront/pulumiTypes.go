@@ -907,7 +907,7 @@ type DistributionConfig struct {
 	Comment              *string                           `pulumi:"comment"`
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
-	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
+	DefaultCacheBehavior DistributionDefaultCacheBehavior  `pulumi:"defaultCacheBehavior"`
 	DefaultRootObject    *string                           `pulumi:"defaultRootObject"`
 	Enabled              bool                              `pulumi:"enabled"`
 	HttpVersion          *string                           `pulumi:"httpVersion"`
@@ -940,7 +940,7 @@ type DistributionConfigArgs struct {
 	Comment              pulumi.StringPtrInput                     `pulumi:"comment"`
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
 	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
-	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput  `pulumi:"defaultCacheBehavior"`
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput     `pulumi:"defaultCacheBehavior"`
 	DefaultRootObject    pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
 	Enabled              pulumi.BoolInput                          `pulumi:"enabled"`
 	HttpVersion          pulumi.StringPtrInput                     `pulumi:"httpVersion"`
@@ -1005,8 +1005,8 @@ func (o DistributionConfigOutput) CustomOrigin() DistributionLegacyCustomOriginP
 	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyCustomOrigin { return v.CustomOrigin }).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-func (o DistributionConfigOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyT(func(v DistributionConfig) *DistributionDefaultCacheBehavior { return v.DefaultCacheBehavior }).(DistributionDefaultCacheBehaviorPtrOutput)
+func (o DistributionConfigOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorOutput {
+	return o.ApplyT(func(v DistributionConfig) DistributionDefaultCacheBehavior { return v.DefaultCacheBehavior }).(DistributionDefaultCacheBehaviorOutput)
 }
 
 func (o DistributionConfigOutput) DefaultRootObject() pulumi.StringPtrOutput {
@@ -1140,7 +1140,7 @@ func (o DistributionConfigPtrOutput) DefaultCacheBehavior() DistributionDefaultC
 		if v == nil {
 			return nil
 		}
-		return v.DefaultCacheBehavior
+		return &v.DefaultCacheBehavior
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
@@ -1787,47 +1787,6 @@ func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehavior
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput)
 }
 
-func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput).ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx)
-}
-
-// DistributionDefaultCacheBehaviorPtrInput is an input type that accepts DistributionDefaultCacheBehaviorArgs, DistributionDefaultCacheBehaviorPtr and DistributionDefaultCacheBehaviorPtrOutput values.
-// You can construct a concrete instance of `DistributionDefaultCacheBehaviorPtrInput` via:
-//
-//	        DistributionDefaultCacheBehaviorArgs{...}
-//
-//	or:
-//
-//	        nil
-type DistributionDefaultCacheBehaviorPtrInput interface {
-	pulumi.Input
-
-	ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput
-	ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Context) DistributionDefaultCacheBehaviorPtrOutput
-}
-
-type distributionDefaultCacheBehaviorPtrType DistributionDefaultCacheBehaviorArgs
-
-func DistributionDefaultCacheBehaviorPtr(v *DistributionDefaultCacheBehaviorArgs) DistributionDefaultCacheBehaviorPtrInput {
-	return (*distributionDefaultCacheBehaviorPtrType)(v)
-}
-
-func (*distributionDefaultCacheBehaviorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
-}
-
-func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
-}
-
 type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
@@ -1840,16 +1799,6 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 
 func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorOutput {
 	return o
-}
-
-func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehavior {
-		return &v
-	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
 func (o DistributionDefaultCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutput {
@@ -8674,7 +8623,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigInput)(nil)).Elem(), DistributionCustomOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigPtrInput)(nil)).Elem(), DistributionCustomOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionForwardedValuesInput)(nil)).Elem(), DistributionForwardedValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionForwardedValuesPtrInput)(nil)).Elem(), DistributionForwardedValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionFunctionAssociationInput)(nil)).Elem(), DistributionFunctionAssociationArgs{})

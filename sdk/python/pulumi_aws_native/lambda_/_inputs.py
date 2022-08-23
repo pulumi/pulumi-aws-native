@@ -19,12 +19,14 @@ __all__ = [
     'EventInvokeConfigDestinationConfigArgs',
     'EventInvokeConfigOnFailureArgs',
     'EventInvokeConfigOnSuccessArgs',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingEndpointsArgs',
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingOnFailureArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
     'FunctionCodeArgs',
     'FunctionDeadLetterConfigArgs',
@@ -207,6 +209,30 @@ class EventInvokeConfigOnSuccessArgs:
 
 
 @pulumi.input_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Specific configuration settings for an MSK event source.
+        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the Kafka Consumer Group to join.
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+    @consumer_group_id.setter
+    def consumer_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group_id", value)
+
+
+@pulumi.input_type
 class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']] = None):
@@ -348,6 +374,30 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     @endpoints.setter
     def endpoints(self, value: Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]):
         pulumi.set(self, "endpoints", value)
+
+
+@pulumi.input_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Specific configuration settings for a Self-Managed Apache Kafka event source.
+        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the Kafka Consumer Group to join.
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+    @consumer_group_id.setter
+    def consumer_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group_id", value)
 
 
 @pulumi.input_type

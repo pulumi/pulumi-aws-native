@@ -20,7 +20,7 @@
           "maxLength" : 256
         }
       },
-      "required" : [ "Value", "Key" ],
+      "required" : [ "Key" ],
       "additionalProperties" : false
     }
   },
@@ -52,6 +52,9 @@
     }
   },
   "additionalProperties" : false,
+  "propertyTransform" : {
+    "/properties/DBClusterParameterGroupName" : "$lowercase(DBClusterParameterGroupName)"
+  },
   "required" : [ "Description", "Family", "Parameters" ],
   "createOnlyProperties" : [ "/properties/Description", "/properties/Family" ],
   "writeOnlyProperties" : [ "/properties/Parameters" ],

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileProperties
     {
+        public readonly Outputs.ConnectorProfileCustomConnectorProfileProperties? CustomConnector;
         public readonly Outputs.ConnectorProfileDatadogConnectorProfileProperties? Datadog;
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileProperties? Dynatrace;
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileProperties? InforNexus;
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileProperties(
+            Outputs.ConnectorProfileCustomConnectorProfileProperties? customConnector,
+
             Outputs.ConnectorProfileDatadogConnectorProfileProperties? datadog,
 
             Outputs.ConnectorProfileDynatraceConnectorProfileProperties? dynatrace,
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.ConnectorProfileZendeskConnectorProfileProperties? zendesk)
         {
+            CustomConnector = customConnector;
             Datadog = datadog;
             Dynatrace = dynatrace;
             InforNexus = inforNexus;

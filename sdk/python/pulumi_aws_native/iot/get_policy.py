@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None, id=None, policy_document=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if policy_document and not isinstance(policy_document, dict):
+            raise TypeError("Expected argument 'policy_document' to be a dict")
+        pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter
@@ -36,6 +39,11 @@ class GetPolicyResult:
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Optional[Any]:
+        return pulumi.get(self, "policy_document")
+
 
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
@@ -44,7 +52,8 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             yield self
         return GetPolicyResult(
             arn=self.arn,
-            id=self.id)
+            id=self.id,
+            policy_document=self.policy_document)
 
 
 def get_policy(id: Optional[str] = None,
@@ -59,7 +68,8 @@ def get_policy(id: Optional[str] = None,
 
     return AwaitableGetPolicyResult(
         arn=__ret__.arn,
-        id=__ret__.id)
+        id=__ret__.id,
+        policy_document=__ret__.policy_document)
 
 
 @_utilities.lift_output_func(get_policy)

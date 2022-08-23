@@ -11,8 +11,6 @@ import (
 )
 
 // AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
-//
-// Deprecated: SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SiteToSiteVpnAttachment struct {
 	pulumi.CustomResourceState
 

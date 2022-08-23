@@ -55,6 +55,7 @@ export class DataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dataSetId!: pulumi.Output<string | undefined>;
+    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetUsageConfiguration | undefined>;
     public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolderMap | undefined>;
     public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
     public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
@@ -98,6 +99,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
             resourceInputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
             resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetUsageConfiguration"] = args ? args.dataSetUsageConfiguration : undefined;
             resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
             resourceInputs["importMode"] = args ? args.importMode : undefined;
             resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
@@ -120,6 +122,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetUsageConfiguration"] = undefined /*out*/;
             resourceInputs["fieldFolders"] = undefined /*out*/;
             resourceInputs["importMode"] = undefined /*out*/;
             resourceInputs["ingestionWaitPolicy"] = undefined /*out*/;
@@ -148,6 +151,7 @@ export interface DataSetArgs {
     columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     dataSetId?: pulumi.Input<string>;
+    dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetUsageConfigurationArgs>;
     fieldFolders?: pulumi.Input<inputs.quicksight.DataSetFieldFolderMapArgs>;
     importMode?: pulumi.Input<enums.quicksight.DataSetImportMode>;
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;

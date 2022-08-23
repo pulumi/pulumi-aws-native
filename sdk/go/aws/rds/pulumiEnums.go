@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+type DBInstanceProcessorFeatureName string
+
+const (
+	DBInstanceProcessorFeatureNameCoreCount      = DBInstanceProcessorFeatureName("coreCount")
+	DBInstanceProcessorFeatureNameThreadsPerCore = DBInstanceProcessorFeatureName("threadsPerCore")
+)
+
+func (DBInstanceProcessorFeatureName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceProcessorFeatureName)(nil)).Elem()
+}
+
+func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput {
+	return pulumi.ToOutput(e).(DBInstanceProcessorFeatureNameOutput)
+}
+
+func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DBInstanceProcessorFeatureNameOutput)
+}
+
+func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
+	return e.ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
+}
+
+func (e DBInstanceProcessorFeatureName) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
+	return DBInstanceProcessorFeatureName(e).ToDBInstanceProcessorFeatureNameOutputWithContext(ctx).ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx)
+}
+
+func (e DBInstanceProcessorFeatureName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DBInstanceProcessorFeatureName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DBInstanceProcessorFeatureName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DBInstanceProcessorFeatureName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DBInstanceProcessorFeatureNameOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceProcessorFeatureNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceProcessorFeatureName)(nil)).Elem()
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNameOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNameOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
+	return o.ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceProcessorFeatureName) *DBInstanceProcessorFeatureName {
+		return &v
+	}).(DBInstanceProcessorFeatureNamePtrOutput)
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBInstanceProcessorFeatureName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceProcessorFeatureNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBInstanceProcessorFeatureName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DBInstanceProcessorFeatureNamePtrOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceProcessorFeatureNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceProcessorFeatureName)(nil)).Elem()
+}
+
+func (o DBInstanceProcessorFeatureNamePtrOutput) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureNamePtrOutput) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureNamePtrOutput) Elem() DBInstanceProcessorFeatureNameOutput {
+	return o.ApplyT(func(v *DBInstanceProcessorFeatureName) DBInstanceProcessorFeatureName {
+		if v != nil {
+			return *v
+		}
+		var ret DBInstanceProcessorFeatureName
+		return ret
+	}).(DBInstanceProcessorFeatureNameOutput)
+}
+
+func (o DBInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBInstanceProcessorFeatureName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DBInstanceProcessorFeatureNameInput is an input type that accepts DBInstanceProcessorFeatureNameArgs and DBInstanceProcessorFeatureNameOutput values.
+// You can construct a concrete instance of `DBInstanceProcessorFeatureNameInput` via:
+//
+//	DBInstanceProcessorFeatureNameArgs{...}
+type DBInstanceProcessorFeatureNameInput interface {
+	pulumi.Input
+
+	ToDBInstanceProcessorFeatureNameOutput() DBInstanceProcessorFeatureNameOutput
+	ToDBInstanceProcessorFeatureNameOutputWithContext(context.Context) DBInstanceProcessorFeatureNameOutput
+}
+
+var dbinstanceProcessorFeatureNamePtrType = reflect.TypeOf((**DBInstanceProcessorFeatureName)(nil)).Elem()
+
+type DBInstanceProcessorFeatureNamePtrInput interface {
+	pulumi.Input
+
+	ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput
+	ToDBInstanceProcessorFeatureNamePtrOutputWithContext(context.Context) DBInstanceProcessorFeatureNamePtrOutput
+}
+
+type dbinstanceProcessorFeatureNamePtr string
+
+func DBInstanceProcessorFeatureNamePtr(v string) DBInstanceProcessorFeatureNamePtrInput {
+	return (*dbinstanceProcessorFeatureNamePtr)(&v)
+}
+
+func (*dbinstanceProcessorFeatureNamePtr) ElementType() reflect.Type {
+	return dbinstanceProcessorFeatureNamePtrType
+}
+
+func (in *dbinstanceProcessorFeatureNamePtr) ToDBInstanceProcessorFeatureNamePtrOutput() DBInstanceProcessorFeatureNamePtrOutput {
+	return pulumi.ToOutput(in).(DBInstanceProcessorFeatureNamePtrOutput)
+}
+
+func (in *dbinstanceProcessorFeatureNamePtr) ToDBInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DBInstanceProcessorFeatureNamePtrOutput)
+}
+
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 type DBProxyAuthFormatAuthScheme string
 
@@ -833,177 +998,6 @@ func (in *dbproxyTargetGroupTargetGroupNamePtr) ToDBProxyTargetGroupTargetGroupN
 	return pulumi.ToOutputWithContext(ctx, in).(DBProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
-// The type of source that will be generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. if this value is not specified, all events are returned.
-type EventSubscriptionSourceType string
-
-const (
-	EventSubscriptionSourceTypeCustomEngineVersion = EventSubscriptionSourceType("custom-engine-version")
-	EventSubscriptionSourceTypeDbCluster           = EventSubscriptionSourceType("db-cluster")
-	EventSubscriptionSourceTypeDbClusterSnapshot   = EventSubscriptionSourceType("db-cluster-snapshot")
-	EventSubscriptionSourceTypeDbInstance          = EventSubscriptionSourceType("db-instance")
-	EventSubscriptionSourceTypeDbProxy             = EventSubscriptionSourceType("db-proxy")
-	EventSubscriptionSourceTypeDbParameterGroup    = EventSubscriptionSourceType("db-parameter-group")
-	EventSubscriptionSourceTypeDbSecurityGroup     = EventSubscriptionSourceType("db-security-group")
-	EventSubscriptionSourceTypeDbSnapshot          = EventSubscriptionSourceType("db-snapshot")
-)
-
-func (EventSubscriptionSourceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionSourceType)(nil)).Elem()
-}
-
-func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput {
-	return pulumi.ToOutput(e).(EventSubscriptionSourceTypeOutput)
-}
-
-func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypeOutputWithContext(ctx context.Context) EventSubscriptionSourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EventSubscriptionSourceTypeOutput)
-}
-
-func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
-	return e.ToEventSubscriptionSourceTypePtrOutputWithContext(context.Background())
-}
-
-func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
-	return EventSubscriptionSourceType(e).ToEventSubscriptionSourceTypeOutputWithContext(ctx).ToEventSubscriptionSourceTypePtrOutputWithContext(ctx)
-}
-
-func (e EventSubscriptionSourceType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EventSubscriptionSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EventSubscriptionSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EventSubscriptionSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type EventSubscriptionSourceTypeOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionSourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionSourceType)(nil)).Elem()
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput {
-	return o
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypeOutputWithContext(ctx context.Context) EventSubscriptionSourceTypeOutput {
-	return o
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
-	return o.ToEventSubscriptionSourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionSourceType) *EventSubscriptionSourceType {
-		return &v
-	}).(EventSubscriptionSourceTypePtrOutput)
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionSourceType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionSourceType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EventSubscriptionSourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionSourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionSourceType)(nil)).Elem()
-}
-
-func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionSourceTypePtrOutput) Elem() EventSubscriptionSourceTypeOutput {
-	return o.ApplyT(func(v *EventSubscriptionSourceType) EventSubscriptionSourceType {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscriptionSourceType
-		return ret
-	}).(EventSubscriptionSourceTypeOutput)
-}
-
-func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSubscriptionSourceType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// EventSubscriptionSourceTypeInput is an input type that accepts EventSubscriptionSourceTypeArgs and EventSubscriptionSourceTypeOutput values.
-// You can construct a concrete instance of `EventSubscriptionSourceTypeInput` via:
-//
-//	EventSubscriptionSourceTypeArgs{...}
-type EventSubscriptionSourceTypeInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput
-	ToEventSubscriptionSourceTypeOutputWithContext(context.Context) EventSubscriptionSourceTypeOutput
-}
-
-var eventSubscriptionSourceTypePtrType = reflect.TypeOf((**EventSubscriptionSourceType)(nil)).Elem()
-
-type EventSubscriptionSourceTypePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput
-	ToEventSubscriptionSourceTypePtrOutputWithContext(context.Context) EventSubscriptionSourceTypePtrOutput
-}
-
-type eventSubscriptionSourceTypePtr string
-
-func EventSubscriptionSourceTypePtr(v string) EventSubscriptionSourceTypePtrInput {
-	return (*eventSubscriptionSourceTypePtr)(&v)
-}
-
-func (*eventSubscriptionSourceTypePtr) ElementType() reflect.Type {
-	return eventSubscriptionSourceTypePtrType
-}
-
-func (in *eventSubscriptionSourceTypePtr) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
-	return pulumi.ToOutput(in).(EventSubscriptionSourceTypePtrOutput)
-}
-
-func (in *eventSubscriptionSourceTypePtr) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionSourceTypePtrOutput)
-}
-
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 // If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 type GlobalClusterEngine string
@@ -1172,6 +1166,8 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNameInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemePtrInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
@@ -1182,10 +1178,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyPtrInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypeInput)(nil)).Elem(), EventSubscriptionSourceType("custom-engine-version"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypePtrInput)(nil)).Elem(), EventSubscriptionSourceType("custom-engine-version"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
+	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNameOutput{})
+	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNamePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemeOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthOutput{})
@@ -1196,8 +1192,6 @@ func init() {
 	pulumi.RegisterOutputType(DBProxyEngineFamilyPtrOutput{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupTargetGroupNameOutput{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupTargetGroupNamePtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionSourceTypeOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEngineOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEnginePtrOutput{})
 }

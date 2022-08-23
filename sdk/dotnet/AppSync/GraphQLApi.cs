@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AppSync
     public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         [Output("additionalAuthenticationProviders")]
-        public Output<Outputs.GraphQLApiAdditionalAuthenticationProviders?> AdditionalAuthenticationProviders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider>> AdditionalAuthenticationProviders { get; private set; } = null!;
 
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<Outputs.GraphQLApiOpenIDConnectConfig?> OpenIDConnectConfig { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.GraphQLApiTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GraphQLApiTag>> Tags { get; private set; } = null!;
 
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
@@ -98,7 +98,12 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class GraphQLApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalAuthenticationProviders")]
-        public Input<Inputs.GraphQLApiAdditionalAuthenticationProvidersArgs>? AdditionalAuthenticationProviders { get; set; }
+        private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _additionalAuthenticationProviders;
+        public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs> AdditionalAuthenticationProviders
+        {
+            get => _additionalAuthenticationProviders ?? (_additionalAuthenticationProviders = new InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>());
+            set => _additionalAuthenticationProviders = value;
+        }
 
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
@@ -116,7 +121,12 @@ namespace Pulumi.AwsNative.AppSync
         public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIDConnectConfig { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.GraphQLApiTagsArgs>? Tags { get; set; }
+        private InputList<Inputs.GraphQLApiTagArgs>? _tags;
+        public InputList<Inputs.GraphQLApiTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.GraphQLApiTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }

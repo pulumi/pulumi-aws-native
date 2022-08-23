@@ -122,7 +122,7 @@
     "taggable" : false
   },
   "additionalProperties" : false,
-  "required" : [ "EndpointName", "VpcSecurityGroupIds" ],
+  "required" : [ "ClusterIdentifier", "SubnetGroupName", "EndpointName", "VpcSecurityGroupIds" ],
   "primaryIdentifier" : [ "/properties/EndpointName" ],
   "createOnlyProperties" : [ "/properties/EndpointName", "/properties/ClusterIdentifier", "/properties/ResourceOwner", "/properties/SubnetGroupName" ],
   "readOnlyProperties" : [ "/properties/Address", "/properties/EndpointStatus", "/properties/EndpointCreateTime", "/properties/Port", "/properties/VpcSecurityGroups", "/properties/VpcEndpoint" ],

@@ -40,9 +40,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
 
     public /*out*/ readonly defaultVersionNumber!: pulumi.Output<string>;
     public /*out*/ readonly latestVersionNumber!: pulumi.Output<string>;
-    public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateData | undefined>;
+    public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateData>;
     public readonly launchTemplateName!: pulumi.Output<string | undefined>;
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
+    public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LaunchTemplate resource with the given unique name, arguments, and options.
@@ -52,14 +53,18 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LaunchTemplate is deprecated: LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.launchTemplateData === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'launchTemplateData'");
+            }
             resourceInputs["launchTemplateData"] = args ? args.launchTemplateData : undefined;
             resourceInputs["launchTemplateName"] = args ? args.launchTemplateName : undefined;
             resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["defaultVersionNumber"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
         } else {
@@ -68,6 +73,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["launchTemplateData"] = undefined /*out*/;
             resourceInputs["launchTemplateName"] = undefined /*out*/;
             resourceInputs["tagSpecifications"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LaunchTemplate.__pulumiType, name, resourceInputs, opts);
@@ -78,7 +84,8 @@ export class LaunchTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a LaunchTemplate resource.
  */
 export interface LaunchTemplateArgs {
-    launchTemplateData?: pulumi.Input<inputs.ec2.LaunchTemplateDataArgs>;
+    launchTemplateData: pulumi.Input<inputs.ec2.LaunchTemplateDataArgs>;
     launchTemplateName?: pulumi.Input<string>;
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecificationArgs>[]>;
+    versionDescription?: pulumi.Input<string>;
 }

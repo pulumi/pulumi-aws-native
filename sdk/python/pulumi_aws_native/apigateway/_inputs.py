@@ -815,7 +815,14 @@ class DocumentationPartLocationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['DocumentationPartLocationType']] = None):
+        """
+        :param pulumi.Input[str] method: The HTTP verb of a method.
+        :param pulumi.Input[str] name: The name of the targeted API entity.
+        :param pulumi.Input[str] path: The URL path of the target.
+        :param pulumi.Input[str] status_code: The HTTP status code of a response.
+        :param pulumi.Input['DocumentationPartLocationType'] type: The type of API entity that the documentation content applies to.
+        """
         if method is not None:
             pulumi.set(__self__, "method", method)
         if name is not None:
@@ -830,6 +837,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP verb of a method.
+        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -839,6 +849,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the targeted API entity.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -848,6 +861,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL path of the target.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -857,6 +873,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP status code of a response.
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -865,11 +884,14 @@ class DocumentationPartLocationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['DocumentationPartLocationType']]:
+        """
+        The type of API entity that the documentation content applies to.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['DocumentationPartLocationType']]):
         pulumi.set(self, "type", value)
 
 

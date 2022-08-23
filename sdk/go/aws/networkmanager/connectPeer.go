@@ -11,8 +11,6 @@ import (
 )
 
 // AWS::NetworkManager::ConnectPeer Resource Type Definition.
-//
-// Deprecated: ConnectPeer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 

@@ -47,6 +47,7 @@ export const OriginEndpointDashPackageProfile = {
     None: "NONE",
     Hbbtv15: "HBBTV_1_5",
     Hybridcast: "HYBRIDCAST",
+    DvbDash2014: "DVB_DASH_2014",
 } as const;
 
 /**
@@ -66,6 +67,7 @@ export const OriginEndpointDashPackageSegmentTemplateFormat = {
 export type OriginEndpointDashPackageSegmentTemplateFormat = (typeof OriginEndpointDashPackageSegmentTemplateFormat)[keyof typeof OriginEndpointDashPackageSegmentTemplateFormat];
 
 export const OriginEndpointDashPackageUtcTiming = {
+    HttpXsdate: "HTTP-XSDATE",
     HttpIso: "HTTP-ISO",
     HttpHead: "HTTP-HEAD",
     None: "NONE",
@@ -78,6 +80,10 @@ export type OriginEndpointDashPackageUtcTiming = (typeof OriginEndpointDashPacka
 
 export const OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio = {
     PresetAudio1: "PRESET-AUDIO-1",
+    PresetAudio2: "PRESET-AUDIO-2",
+    PresetAudio3: "PRESET-AUDIO-3",
+    Shared: "SHARED",
+    Unencrypted: "UNENCRYPTED",
 } as const;
 
 /**
@@ -87,6 +93,15 @@ export type OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio = (t
 
 export const OriginEndpointEncryptionContractConfigurationPresetSpeke20Video = {
     PresetVideo1: "PRESET-VIDEO-1",
+    PresetVideo2: "PRESET-VIDEO-2",
+    PresetVideo3: "PRESET-VIDEO-3",
+    PresetVideo4: "PRESET-VIDEO-4",
+    PresetVideo5: "PRESET-VIDEO-5",
+    PresetVideo6: "PRESET-VIDEO-6",
+    PresetVideo7: "PRESET-VIDEO-7",
+    PresetVideo8: "PRESET-VIDEO-8",
+    Shared: "SHARED",
+    Unencrypted: "UNENCRYPTED",
 } as const;
 
 /**

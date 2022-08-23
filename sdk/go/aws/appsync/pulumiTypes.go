@@ -1880,122 +1880,285 @@ func (o FunctionConfigurationSyncConfigPtrOutput) LambdaConflictHandlerConfig() 
 	}).(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput)
 }
 
-type GraphQLApiAdditionalAuthenticationProviders struct {
+type GraphQLApiAdditionalAuthenticationProvider struct {
+	AuthenticationType     string                            `pulumi:"authenticationType"`
+	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
+	OpenIDConnectConfig    *GraphQLApiOpenIDConnectConfig    `pulumi:"openIDConnectConfig"`
+	UserPoolConfig         *GraphQLApiCognitoUserPoolConfig  `pulumi:"userPoolConfig"`
 }
 
-// GraphQLApiAdditionalAuthenticationProvidersInput is an input type that accepts GraphQLApiAdditionalAuthenticationProvidersArgs and GraphQLApiAdditionalAuthenticationProvidersOutput values.
-// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProvidersInput` via:
+// GraphQLApiAdditionalAuthenticationProviderInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArgs and GraphQLApiAdditionalAuthenticationProviderOutput values.
+// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderInput` via:
 //
-//	GraphQLApiAdditionalAuthenticationProvidersArgs{...}
-type GraphQLApiAdditionalAuthenticationProvidersInput interface {
+//	GraphQLApiAdditionalAuthenticationProviderArgs{...}
+type GraphQLApiAdditionalAuthenticationProviderInput interface {
 	pulumi.Input
 
-	ToGraphQLApiAdditionalAuthenticationProvidersOutput() GraphQLApiAdditionalAuthenticationProvidersOutput
-	ToGraphQLApiAdditionalAuthenticationProvidersOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProvidersOutput
+	ToGraphQLApiAdditionalAuthenticationProviderOutput() GraphQLApiAdditionalAuthenticationProviderOutput
+	ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProviderOutput
 }
 
-type GraphQLApiAdditionalAuthenticationProvidersArgs struct {
+type GraphQLApiAdditionalAuthenticationProviderArgs struct {
+	AuthenticationType     pulumi.StringInput                       `pulumi:"authenticationType"`
+	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
+	OpenIDConnectConfig    GraphQLApiOpenIDConnectConfigPtrInput    `pulumi:"openIDConnectConfig"`
+	UserPoolConfig         GraphQLApiCognitoUserPoolConfigPtrInput  `pulumi:"userPoolConfig"`
 }
 
-func (GraphQLApiAdditionalAuthenticationProvidersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviders)(nil)).Elem()
+func (GraphQLApiAdditionalAuthenticationProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProvider)(nil)).Elem()
 }
 
-func (i GraphQLApiAdditionalAuthenticationProvidersArgs) ToGraphQLApiAdditionalAuthenticationProvidersOutput() GraphQLApiAdditionalAuthenticationProvidersOutput {
-	return i.ToGraphQLApiAdditionalAuthenticationProvidersOutputWithContext(context.Background())
+func (i GraphQLApiAdditionalAuthenticationProviderArgs) ToGraphQLApiAdditionalAuthenticationProviderOutput() GraphQLApiAdditionalAuthenticationProviderOutput {
+	return i.ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(context.Background())
 }
 
-func (i GraphQLApiAdditionalAuthenticationProvidersArgs) ToGraphQLApiAdditionalAuthenticationProvidersOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProvidersOutput)
+func (i GraphQLApiAdditionalAuthenticationProviderArgs) ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderOutput)
 }
 
-func (i GraphQLApiAdditionalAuthenticationProvidersArgs) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutput() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return i.ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(context.Background())
-}
-
-func (i GraphQLApiAdditionalAuthenticationProvidersArgs) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProvidersOutput).ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(ctx)
-}
-
-// GraphQLApiAdditionalAuthenticationProvidersPtrInput is an input type that accepts GraphQLApiAdditionalAuthenticationProvidersArgs, GraphQLApiAdditionalAuthenticationProvidersPtr and GraphQLApiAdditionalAuthenticationProvidersPtrOutput values.
-// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProvidersPtrInput` via:
+// GraphQLApiAdditionalAuthenticationProviderArrayInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArray and GraphQLApiAdditionalAuthenticationProviderArrayOutput values.
+// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderArrayInput` via:
 //
-//	        GraphQLApiAdditionalAuthenticationProvidersArgs{...}
+//	GraphQLApiAdditionalAuthenticationProviderArray{ GraphQLApiAdditionalAuthenticationProviderArgs{...} }
+type GraphQLApiAdditionalAuthenticationProviderArrayInput interface {
+	pulumi.Input
+
+	ToGraphQLApiAdditionalAuthenticationProviderArrayOutput() GraphQLApiAdditionalAuthenticationProviderArrayOutput
+	ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProviderArrayOutput
+}
+
+type GraphQLApiAdditionalAuthenticationProviderArray []GraphQLApiAdditionalAuthenticationProviderInput
+
+func (GraphQLApiAdditionalAuthenticationProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphQLApiAdditionalAuthenticationProvider)(nil)).Elem()
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderArray) ToGraphQLApiAdditionalAuthenticationProviderArrayOutput() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return i.ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderArray) ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
+}
+
+type GraphQLApiAdditionalAuthenticationProviderOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiAdditionalAuthenticationProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProvider)(nil)).Elem()
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditionalAuthenticationProviderOutput() GraphQLApiAdditionalAuthenticationProviderOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditionalAuthenticationProviderOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) LambdaAuthorizerConfig() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiLambdaAuthorizerConfig {
+		return v.LambdaAuthorizerConfig
+	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiOpenIDConnectConfig {
+		return v.OpenIDConnectConfig
+	}).(GraphQLApiOpenIDConnectConfigPtrOutput)
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) UserPoolConfig() GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiCognitoUserPoolConfig {
+		return v.UserPoolConfig
+	}).(GraphQLApiCognitoUserPoolConfigPtrOutput)
+}
+
+type GraphQLApiAdditionalAuthenticationProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiAdditionalAuthenticationProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphQLApiAdditionalAuthenticationProvider)(nil)).Elem()
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) ToGraphQLApiAdditionalAuthenticationProviderArrayOutput() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) ToGraphQLApiAdditionalAuthenticationProviderArrayOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) Index(i pulumi.IntInput) GraphQLApiAdditionalAuthenticationProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphQLApiAdditionalAuthenticationProvider {
+		return vs[0].([]GraphQLApiAdditionalAuthenticationProvider)[vs[1].(int)]
+	}).(GraphQLApiAdditionalAuthenticationProviderOutput)
+}
+
+type GraphQLApiCognitoUserPoolConfig struct {
+	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
+	AwsRegion        *string `pulumi:"awsRegion"`
+	UserPoolId       *string `pulumi:"userPoolId"`
+}
+
+// GraphQLApiCognitoUserPoolConfigInput is an input type that accepts GraphQLApiCognitoUserPoolConfigArgs and GraphQLApiCognitoUserPoolConfigOutput values.
+// You can construct a concrete instance of `GraphQLApiCognitoUserPoolConfigInput` via:
+//
+//	GraphQLApiCognitoUserPoolConfigArgs{...}
+type GraphQLApiCognitoUserPoolConfigInput interface {
+	pulumi.Input
+
+	ToGraphQLApiCognitoUserPoolConfigOutput() GraphQLApiCognitoUserPoolConfigOutput
+	ToGraphQLApiCognitoUserPoolConfigOutputWithContext(context.Context) GraphQLApiCognitoUserPoolConfigOutput
+}
+
+type GraphQLApiCognitoUserPoolConfigArgs struct {
+	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
+	AwsRegion        pulumi.StringPtrInput `pulumi:"awsRegion"`
+	UserPoolId       pulumi.StringPtrInput `pulumi:"userPoolId"`
+}
+
+func (GraphQLApiCognitoUserPoolConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiCognitoUserPoolConfig)(nil)).Elem()
+}
+
+func (i GraphQLApiCognitoUserPoolConfigArgs) ToGraphQLApiCognitoUserPoolConfigOutput() GraphQLApiCognitoUserPoolConfigOutput {
+	return i.ToGraphQLApiCognitoUserPoolConfigOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiCognitoUserPoolConfigArgs) ToGraphQLApiCognitoUserPoolConfigOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiCognitoUserPoolConfigOutput)
+}
+
+func (i GraphQLApiCognitoUserPoolConfigArgs) ToGraphQLApiCognitoUserPoolConfigPtrOutput() GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return i.ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiCognitoUserPoolConfigArgs) ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiCognitoUserPoolConfigOutput).ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(ctx)
+}
+
+// GraphQLApiCognitoUserPoolConfigPtrInput is an input type that accepts GraphQLApiCognitoUserPoolConfigArgs, GraphQLApiCognitoUserPoolConfigPtr and GraphQLApiCognitoUserPoolConfigPtrOutput values.
+// You can construct a concrete instance of `GraphQLApiCognitoUserPoolConfigPtrInput` via:
+//
+//	        GraphQLApiCognitoUserPoolConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type GraphQLApiAdditionalAuthenticationProvidersPtrInput interface {
+type GraphQLApiCognitoUserPoolConfigPtrInput interface {
 	pulumi.Input
 
-	ToGraphQLApiAdditionalAuthenticationProvidersPtrOutput() GraphQLApiAdditionalAuthenticationProvidersPtrOutput
-	ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProvidersPtrOutput
+	ToGraphQLApiCognitoUserPoolConfigPtrOutput() GraphQLApiCognitoUserPoolConfigPtrOutput
+	ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(context.Context) GraphQLApiCognitoUserPoolConfigPtrOutput
 }
 
-type graphQLApiAdditionalAuthenticationProvidersPtrType GraphQLApiAdditionalAuthenticationProvidersArgs
+type graphQLApiCognitoUserPoolConfigPtrType GraphQLApiCognitoUserPoolConfigArgs
 
-func GraphQLApiAdditionalAuthenticationProvidersPtr(v *GraphQLApiAdditionalAuthenticationProvidersArgs) GraphQLApiAdditionalAuthenticationProvidersPtrInput {
-	return (*graphQLApiAdditionalAuthenticationProvidersPtrType)(v)
+func GraphQLApiCognitoUserPoolConfigPtr(v *GraphQLApiCognitoUserPoolConfigArgs) GraphQLApiCognitoUserPoolConfigPtrInput {
+	return (*graphQLApiCognitoUserPoolConfigPtrType)(v)
 }
 
-func (*graphQLApiAdditionalAuthenticationProvidersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApiAdditionalAuthenticationProviders)(nil)).Elem()
+func (*graphQLApiCognitoUserPoolConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiCognitoUserPoolConfig)(nil)).Elem()
 }
 
-func (i *graphQLApiAdditionalAuthenticationProvidersPtrType) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutput() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return i.ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(context.Background())
+func (i *graphQLApiCognitoUserPoolConfigPtrType) ToGraphQLApiCognitoUserPoolConfigPtrOutput() GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return i.ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *graphQLApiAdditionalAuthenticationProvidersPtrType) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProvidersPtrOutput)
+func (i *graphQLApiCognitoUserPoolConfigPtrType) ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiCognitoUserPoolConfigPtrOutput)
 }
 
-type GraphQLApiAdditionalAuthenticationProvidersOutput struct{ *pulumi.OutputState }
+type GraphQLApiCognitoUserPoolConfigOutput struct{ *pulumi.OutputState }
 
-func (GraphQLApiAdditionalAuthenticationProvidersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviders)(nil)).Elem()
+func (GraphQLApiCognitoUserPoolConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiCognitoUserPoolConfig)(nil)).Elem()
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersOutput) ToGraphQLApiAdditionalAuthenticationProvidersOutput() GraphQLApiAdditionalAuthenticationProvidersOutput {
+func (o GraphQLApiCognitoUserPoolConfigOutput) ToGraphQLApiCognitoUserPoolConfigOutput() GraphQLApiCognitoUserPoolConfigOutput {
 	return o
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersOutput) ToGraphQLApiAdditionalAuthenticationProvidersOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersOutput {
+func (o GraphQLApiCognitoUserPoolConfigOutput) ToGraphQLApiCognitoUserPoolConfigOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigOutput {
 	return o
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersOutput) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutput() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return o.ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(context.Background())
+func (o GraphQLApiCognitoUserPoolConfigOutput) ToGraphQLApiCognitoUserPoolConfigPtrOutput() GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return o.ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(context.Background())
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersOutput) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviders) *GraphQLApiAdditionalAuthenticationProviders {
+func (o GraphQLApiCognitoUserPoolConfigOutput) ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiCognitoUserPoolConfig) *GraphQLApiCognitoUserPoolConfig {
 		return &v
-	}).(GraphQLApiAdditionalAuthenticationProvidersPtrOutput)
+	}).(GraphQLApiCognitoUserPoolConfigPtrOutput)
 }
 
-type GraphQLApiAdditionalAuthenticationProvidersPtrOutput struct{ *pulumi.OutputState }
-
-func (GraphQLApiAdditionalAuthenticationProvidersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApiAdditionalAuthenticationProviders)(nil)).Elem()
+func (o GraphQLApiCognitoUserPoolConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphQLApiCognitoUserPoolConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersPtrOutput) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutput() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
+func (o GraphQLApiCognitoUserPoolConfigOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphQLApiCognitoUserPoolConfig) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQLApiCognitoUserPoolConfigOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphQLApiCognitoUserPoolConfig) *string { return v.UserPoolId }).(pulumi.StringPtrOutput)
+}
+
+type GraphQLApiCognitoUserPoolConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiCognitoUserPoolConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiCognitoUserPoolConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) ToGraphQLApiCognitoUserPoolConfigPtrOutput() GraphQLApiCognitoUserPoolConfigPtrOutput {
 	return o
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersPtrOutput) ToGraphQLApiAdditionalAuthenticationProvidersPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) ToGraphQLApiCognitoUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiCognitoUserPoolConfigPtrOutput {
 	return o
 }
 
-func (o GraphQLApiAdditionalAuthenticationProvidersPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProvidersOutput {
-	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviders) GraphQLApiAdditionalAuthenticationProviders {
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) Elem() GraphQLApiCognitoUserPoolConfigOutput {
+	return o.ApplyT(func(v *GraphQLApiCognitoUserPoolConfig) GraphQLApiCognitoUserPoolConfig {
 		if v != nil {
 			return *v
 		}
-		var ret GraphQLApiAdditionalAuthenticationProviders
+		var ret GraphQLApiCognitoUserPoolConfig
 		return ret
-	}).(GraphQLApiAdditionalAuthenticationProvidersOutput)
+	}).(GraphQLApiCognitoUserPoolConfigOutput)
+}
+
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiCognitoUserPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppIdClientRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiCognitoUserPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQLApiCognitoUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiCognitoUserPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPoolId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GraphQLApiLambdaAuthorizerConfig struct {
@@ -2502,122 +2665,104 @@ func (o GraphQLApiOpenIDConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type GraphQLApiTags struct {
+type GraphQLApiTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
-// GraphQLApiTagsInput is an input type that accepts GraphQLApiTagsArgs and GraphQLApiTagsOutput values.
-// You can construct a concrete instance of `GraphQLApiTagsInput` via:
+// GraphQLApiTagInput is an input type that accepts GraphQLApiTagArgs and GraphQLApiTagOutput values.
+// You can construct a concrete instance of `GraphQLApiTagInput` via:
 //
-//	GraphQLApiTagsArgs{...}
-type GraphQLApiTagsInput interface {
+//	GraphQLApiTagArgs{...}
+type GraphQLApiTagInput interface {
 	pulumi.Input
 
-	ToGraphQLApiTagsOutput() GraphQLApiTagsOutput
-	ToGraphQLApiTagsOutputWithContext(context.Context) GraphQLApiTagsOutput
+	ToGraphQLApiTagOutput() GraphQLApiTagOutput
+	ToGraphQLApiTagOutputWithContext(context.Context) GraphQLApiTagOutput
 }
 
-type GraphQLApiTagsArgs struct {
+type GraphQLApiTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (GraphQLApiTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApiTags)(nil)).Elem()
+func (GraphQLApiTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiTag)(nil)).Elem()
 }
 
-func (i GraphQLApiTagsArgs) ToGraphQLApiTagsOutput() GraphQLApiTagsOutput {
-	return i.ToGraphQLApiTagsOutputWithContext(context.Background())
+func (i GraphQLApiTagArgs) ToGraphQLApiTagOutput() GraphQLApiTagOutput {
+	return i.ToGraphQLApiTagOutputWithContext(context.Background())
 }
 
-func (i GraphQLApiTagsArgs) ToGraphQLApiTagsOutputWithContext(ctx context.Context) GraphQLApiTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiTagsOutput)
+func (i GraphQLApiTagArgs) ToGraphQLApiTagOutputWithContext(ctx context.Context) GraphQLApiTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiTagOutput)
 }
 
-func (i GraphQLApiTagsArgs) ToGraphQLApiTagsPtrOutput() GraphQLApiTagsPtrOutput {
-	return i.ToGraphQLApiTagsPtrOutputWithContext(context.Background())
-}
-
-func (i GraphQLApiTagsArgs) ToGraphQLApiTagsPtrOutputWithContext(ctx context.Context) GraphQLApiTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiTagsOutput).ToGraphQLApiTagsPtrOutputWithContext(ctx)
-}
-
-// GraphQLApiTagsPtrInput is an input type that accepts GraphQLApiTagsArgs, GraphQLApiTagsPtr and GraphQLApiTagsPtrOutput values.
-// You can construct a concrete instance of `GraphQLApiTagsPtrInput` via:
+// GraphQLApiTagArrayInput is an input type that accepts GraphQLApiTagArray and GraphQLApiTagArrayOutput values.
+// You can construct a concrete instance of `GraphQLApiTagArrayInput` via:
 //
-//	        GraphQLApiTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type GraphQLApiTagsPtrInput interface {
+//	GraphQLApiTagArray{ GraphQLApiTagArgs{...} }
+type GraphQLApiTagArrayInput interface {
 	pulumi.Input
 
-	ToGraphQLApiTagsPtrOutput() GraphQLApiTagsPtrOutput
-	ToGraphQLApiTagsPtrOutputWithContext(context.Context) GraphQLApiTagsPtrOutput
+	ToGraphQLApiTagArrayOutput() GraphQLApiTagArrayOutput
+	ToGraphQLApiTagArrayOutputWithContext(context.Context) GraphQLApiTagArrayOutput
 }
 
-type graphQLApiTagsPtrType GraphQLApiTagsArgs
+type GraphQLApiTagArray []GraphQLApiTagInput
 
-func GraphQLApiTagsPtr(v *GraphQLApiTagsArgs) GraphQLApiTagsPtrInput {
-	return (*graphQLApiTagsPtrType)(v)
+func (GraphQLApiTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphQLApiTag)(nil)).Elem()
 }
 
-func (*graphQLApiTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApiTags)(nil)).Elem()
+func (i GraphQLApiTagArray) ToGraphQLApiTagArrayOutput() GraphQLApiTagArrayOutput {
+	return i.ToGraphQLApiTagArrayOutputWithContext(context.Background())
 }
 
-func (i *graphQLApiTagsPtrType) ToGraphQLApiTagsPtrOutput() GraphQLApiTagsPtrOutput {
-	return i.ToGraphQLApiTagsPtrOutputWithContext(context.Background())
+func (i GraphQLApiTagArray) ToGraphQLApiTagArrayOutputWithContext(ctx context.Context) GraphQLApiTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiTagArrayOutput)
 }
 
-func (i *graphQLApiTagsPtrType) ToGraphQLApiTagsPtrOutputWithContext(ctx context.Context) GraphQLApiTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiTagsPtrOutput)
+type GraphQLApiTagOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiTag)(nil)).Elem()
 }
 
-type GraphQLApiTagsOutput struct{ *pulumi.OutputState }
-
-func (GraphQLApiTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApiTags)(nil)).Elem()
-}
-
-func (o GraphQLApiTagsOutput) ToGraphQLApiTagsOutput() GraphQLApiTagsOutput {
+func (o GraphQLApiTagOutput) ToGraphQLApiTagOutput() GraphQLApiTagOutput {
 	return o
 }
 
-func (o GraphQLApiTagsOutput) ToGraphQLApiTagsOutputWithContext(ctx context.Context) GraphQLApiTagsOutput {
+func (o GraphQLApiTagOutput) ToGraphQLApiTagOutputWithContext(ctx context.Context) GraphQLApiTagOutput {
 	return o
 }
 
-func (o GraphQLApiTagsOutput) ToGraphQLApiTagsPtrOutput() GraphQLApiTagsPtrOutput {
-	return o.ToGraphQLApiTagsPtrOutputWithContext(context.Background())
+func (o GraphQLApiTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GraphQLApiTagsOutput) ToGraphQLApiTagsPtrOutputWithContext(ctx context.Context) GraphQLApiTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiTags) *GraphQLApiTags {
-		return &v
-	}).(GraphQLApiTagsPtrOutput)
+func (o GraphQLApiTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GraphQLApiTagsPtrOutput struct{ *pulumi.OutputState }
+type GraphQLApiTagArrayOutput struct{ *pulumi.OutputState }
 
-func (GraphQLApiTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphQLApiTags)(nil)).Elem()
+func (GraphQLApiTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphQLApiTag)(nil)).Elem()
 }
 
-func (o GraphQLApiTagsPtrOutput) ToGraphQLApiTagsPtrOutput() GraphQLApiTagsPtrOutput {
+func (o GraphQLApiTagArrayOutput) ToGraphQLApiTagArrayOutput() GraphQLApiTagArrayOutput {
 	return o
 }
 
-func (o GraphQLApiTagsPtrOutput) ToGraphQLApiTagsPtrOutputWithContext(ctx context.Context) GraphQLApiTagsPtrOutput {
+func (o GraphQLApiTagArrayOutput) ToGraphQLApiTagArrayOutputWithContext(ctx context.Context) GraphQLApiTagArrayOutput {
 	return o
 }
 
-func (o GraphQLApiTagsPtrOutput) Elem() GraphQLApiTagsOutput {
-	return o.ApplyT(func(v *GraphQLApiTags) GraphQLApiTags {
-		if v != nil {
-			return *v
-		}
-		var ret GraphQLApiTags
-		return ret
-	}).(GraphQLApiTagsOutput)
+func (o GraphQLApiTagArrayOutput) Index(i pulumi.IntInput) GraphQLApiTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphQLApiTag {
+		return vs[0].([]GraphQLApiTag)[vs[1].(int)]
+	}).(GraphQLApiTagOutput)
 }
 
 type GraphQLApiUserPoolConfig struct {
@@ -3400,16 +3545,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfigPtrInput)(nil)).Elem(), FunctionConfigurationLambdaConflictHandlerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationSyncConfigInput)(nil)).Elem(), FunctionConfigurationSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationSyncConfigPtrInput)(nil)).Elem(), FunctionConfigurationSyncConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProvidersInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProvidersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProvidersPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProvidersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderArrayInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiCognitoUserPoolConfigInput)(nil)).Elem(), GraphQLApiCognitoUserPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiCognitoUserPoolConfigPtrInput)(nil)).Elem(), GraphQLApiCognitoUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLogConfigInput)(nil)).Elem(), GraphQLApiLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLogConfigPtrInput)(nil)).Elem(), GraphQLApiLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiOpenIDConnectConfigInput)(nil)).Elem(), GraphQLApiOpenIDConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiOpenIDConnectConfigPtrInput)(nil)).Elem(), GraphQLApiOpenIDConnectConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiTagsInput)(nil)).Elem(), GraphQLApiTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiTagsPtrInput)(nil)).Elem(), GraphQLApiTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiTagInput)(nil)).Elem(), GraphQLApiTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiTagArrayInput)(nil)).Elem(), GraphQLApiTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiUserPoolConfigInput)(nil)).Elem(), GraphQLApiUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiUserPoolConfigPtrInput)(nil)).Elem(), GraphQLApiUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverCachingConfigInput)(nil)).Elem(), ResolverCachingConfigArgs{})
@@ -3444,16 +3591,18 @@ func init() {
 	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationSyncConfigOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationSyncConfigPtrOutput{})
-	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProvidersOutput{})
-	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProvidersPtrOutput{})
+	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOutput{})
+	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderArrayOutput{})
+	pulumi.RegisterOutputType(GraphQLApiCognitoUserPoolConfigOutput{})
+	pulumi.RegisterOutputType(GraphQLApiCognitoUserPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLogConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLogConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiOpenIDConnectConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiOpenIDConnectConfigPtrOutput{})
-	pulumi.RegisterOutputType(GraphQLApiTagsOutput{})
-	pulumi.RegisterOutputType(GraphQLApiTagsPtrOutput{})
+	pulumi.RegisterOutputType(GraphQLApiTagOutput{})
+	pulumi.RegisterOutputType(GraphQLApiTagArrayOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverCachingConfigOutput{})

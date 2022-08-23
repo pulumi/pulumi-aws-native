@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.AppSync
     [OutputType]
     public sealed class GetGraphQLApiResult
     {
-        public readonly Outputs.GraphQLApiAdditionalAuthenticationProviders? AdditionalAuthenticationProviders;
+        public readonly ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider> AdditionalAuthenticationProviders;
         public readonly string? ApiId;
         public readonly string? Arn;
         public readonly string? AuthenticationType;
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.AppSync
         public readonly Outputs.GraphQLApiLogConfig? LogConfig;
         public readonly string? Name;
         public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIDConnectConfig;
-        public readonly Outputs.GraphQLApiTags? Tags;
+        public readonly ImmutableArray<Outputs.GraphQLApiTag> Tags;
         public readonly Outputs.GraphQLApiUserPoolConfig? UserPoolConfig;
         public readonly bool? XrayEnabled;
 
         [OutputConstructor]
         private GetGraphQLApiResult(
-            Outputs.GraphQLApiAdditionalAuthenticationProviders? additionalAuthenticationProviders,
+            ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider> additionalAuthenticationProviders,
 
             string? apiId,
 
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.AppSync
 
             Outputs.GraphQLApiOpenIDConnectConfig? openIDConnectConfig,
 
-            Outputs.GraphQLApiTags? tags,
+            ImmutableArray<Outputs.GraphQLApiTag> tags,
 
             Outputs.GraphQLApiUserPoolConfig? userPoolConfig,
 

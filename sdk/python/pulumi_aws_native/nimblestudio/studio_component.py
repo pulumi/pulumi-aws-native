@@ -24,12 +24,14 @@ class StudioComponentArgs:
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
+                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
                  tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: <p>Initialization scripts for studio components.</p>
@@ -48,8 +50,12 @@ class StudioComponentArgs:
             pulumi.set(__self__, "initialization_scripts", initialization_scripts)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if runtime_role_arn is not None:
+            pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
         if script_parameters is not None:
             pulumi.set(__self__, "script_parameters", script_parameters)
+        if secure_initialization_role_arn is not None:
+            pulumi.set(__self__, "secure_initialization_role_arn", secure_initialization_role_arn)
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
         if tags is not None:
@@ -59,7 +65,7 @@ class StudioComponentArgs:
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
         """
-        <p>The studioId. </p>
+        <p>The studio ID. </p>
         """
         return pulumi.get(self, "studio_id")
 
@@ -134,6 +140,15 @@ class StudioComponentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="runtimeRoleArn")
+    def runtime_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "runtime_role_arn")
+
+    @runtime_role_arn.setter
+    def runtime_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_role_arn", value)
+
+    @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]]:
         """
@@ -144,6 +159,15 @@ class StudioComponentArgs:
     @script_parameters.setter
     def script_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]]):
         pulumi.set(self, "script_parameters", value)
+
+    @property
+    @pulumi.getter(name="secureInitializationRoleArn")
+    def secure_initialization_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secure_initialization_role_arn")
+
+    @secure_initialization_role_arn.setter
+    def secure_initialization_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_initialization_role_arn", value)
 
     @property
     @pulumi.getter
@@ -174,14 +198,16 @@ class StudioComponent(pulumi.CustomResource):
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
+                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
                  type: Optional[pulumi.Input['StudioComponentType']] = None,
                  __props__=None):
         """
-        Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+        Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +216,7 @@ class StudioComponent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
         :param pulumi.Input[str] name: <p>The name for the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         """
         ...
     @overload
@@ -199,7 +225,7 @@ class StudioComponent(pulumi.CustomResource):
                  args: StudioComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+        Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 
         :param str resource_name: The name of the resource.
         :param StudioComponentArgs args: The arguments to use to populate this resource's properties.
@@ -221,7 +247,9 @@ class StudioComponent(pulumi.CustomResource):
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
+                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
@@ -240,7 +268,9 @@ class StudioComponent(pulumi.CustomResource):
             __props__.__dict__["ec2_security_group_ids"] = ec2_security_group_ids
             __props__.__dict__["initialization_scripts"] = initialization_scripts
             __props__.__dict__["name"] = name
+            __props__.__dict__["runtime_role_arn"] = runtime_role_arn
             __props__.__dict__["script_parameters"] = script_parameters
+            __props__.__dict__["secure_initialization_role_arn"] = secure_initialization_role_arn
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
@@ -277,7 +307,9 @@ class StudioComponent(pulumi.CustomResource):
         __props__.__dict__["ec2_security_group_ids"] = None
         __props__.__dict__["initialization_scripts"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["runtime_role_arn"] = None
         __props__.__dict__["script_parameters"] = None
+        __props__.__dict__["secure_initialization_role_arn"] = None
         __props__.__dict__["studio_component_id"] = None
         __props__.__dict__["studio_id"] = None
         __props__.__dict__["subtype"] = None
@@ -323,12 +355,22 @@ class StudioComponent(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="runtimeRoleArn")
+    def runtime_role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "runtime_role_arn")
+
+    @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]]:
         """
         <p>Parameters for the studio component scripts.</p>
         """
         return pulumi.get(self, "script_parameters")
+
+    @property
+    @pulumi.getter(name="secureInitializationRoleArn")
+    def secure_initialization_role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "secure_initialization_role_arn")
 
     @property
     @pulumi.getter(name="studioComponentId")
@@ -339,7 +381,7 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
         """
-        <p>The studioId. </p>
+        <p>The studio ID. </p>
         """
         return pulumi.get(self, "studio_id")
 

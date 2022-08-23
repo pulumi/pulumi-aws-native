@@ -72,6 +72,22 @@ namespace Pulumi.AwsNative.EMR.Inputs
         [Input("serviceAccessSecurityGroup")]
         public Input<string>? ServiceAccessSecurityGroup { get; set; }
 
+        [Input("taskInstanceFleets")]
+        private InputList<Inputs.ClusterInstanceFleetConfigArgs>? _taskInstanceFleets;
+        public InputList<Inputs.ClusterInstanceFleetConfigArgs> TaskInstanceFleets
+        {
+            get => _taskInstanceFleets ?? (_taskInstanceFleets = new InputList<Inputs.ClusterInstanceFleetConfigArgs>());
+            set => _taskInstanceFleets = value;
+        }
+
+        [Input("taskInstanceGroups")]
+        private InputList<Inputs.ClusterInstanceGroupConfigArgs>? _taskInstanceGroups;
+        public InputList<Inputs.ClusterInstanceGroupConfigArgs> TaskInstanceGroups
+        {
+            get => _taskInstanceGroups ?? (_taskInstanceGroups = new InputList<Inputs.ClusterInstanceGroupConfigArgs>());
+            set => _taskInstanceGroups = value;
+        }
+
         [Input("terminationProtected")]
         public Input<bool>? TerminationProtected { get; set; }
 

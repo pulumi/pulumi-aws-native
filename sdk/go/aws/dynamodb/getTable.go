@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::DynamoDB::Table
+// Version: None. Resource Type definition for AWS::DynamoDB::Table
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
 	err := ctx.Invoke("aws-native:dynamodb:getTable", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 }
 
 type LookupTableArgs struct {
-	Id string `pulumi:"id"`
+	TableName string `pulumi:"tableName"`
 }
 
 type LookupTableResult struct {
@@ -30,8 +30,9 @@ type LookupTableResult struct {
 	BillingMode                      *string                                `pulumi:"billingMode"`
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	GlobalSecondaryIndexes           []TableGlobalSecondaryIndex            `pulumi:"globalSecondaryIndexes"`
-	Id                               *string                                `pulumi:"id"`
+	KeySchema                        interface{}                            `pulumi:"keySchema"`
 	KinesisStreamSpecification       *TableKinesisStreamSpecification       `pulumi:"kinesisStreamSpecification"`
+	LocalSecondaryIndexes            []TableLocalSecondaryIndex             `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification *TablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	ProvisionedThroughput            *TableProvisionedThroughput            `pulumi:"provisionedThroughput"`
 	SSESpecification                 *TableSSESpecification                 `pulumi:"sSESpecification"`
@@ -56,7 +57,7 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 }
 
 type LookupTableOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {
@@ -99,12 +100,16 @@ func (o LookupTableResultOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIn
 	return o.ApplyT(func(v LookupTableResult) []TableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
 }
 
-func (o LookupTableResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupTableResultOutput) KeySchema() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTableResult) interface{} { return v.KeySchema }).(pulumi.AnyOutput)
 }
 
 func (o LookupTableResultOutput) KinesisStreamSpecification() TableKinesisStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableKinesisStreamSpecification { return v.KinesisStreamSpecification }).(TableKinesisStreamSpecificationPtrOutput)
+}
+
+func (o LookupTableResultOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []TableLocalSecondaryIndex { return v.LocalSecondaryIndexes }).(TableLocalSecondaryIndexArrayOutput)
 }
 
 func (o LookupTableResultOutput) PointInTimeRecoverySpecification() TablePointInTimeRecoverySpecificationPtrOutput {

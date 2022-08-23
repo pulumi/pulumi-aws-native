@@ -26,6 +26,7 @@ export interface GetDomainArgs {
 export interface GetDomainResult {
     readonly accessPolicies?: any;
     readonly advancedOptions?: any;
+    readonly advancedSecurityOptions?: outputs.elasticsearch.DomainAdvancedSecurityOptionsInput;
     readonly arn?: string;
     readonly cognitoOptions?: outputs.elasticsearch.DomainCognitoOptions;
     readonly domainArn?: string;

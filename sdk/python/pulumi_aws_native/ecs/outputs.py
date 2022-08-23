@@ -1028,6 +1028,8 @@ class TaskDefinitionContainerDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 image: str,
+                 name: str,
                  command: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
                  depends_on: Optional[Sequence['outputs.TaskDefinitionContainerDependency']] = None,
@@ -1044,7 +1046,6 @@ class TaskDefinitionContainerDefinition(dict):
                  firelens_configuration: Optional['outputs.TaskDefinitionFirelensConfiguration'] = None,
                  health_check: Optional['outputs.TaskDefinitionHealthCheck'] = None,
                  hostname: Optional[str] = None,
-                 image: Optional[str] = None,
                  interactive: Optional[bool] = None,
                  links: Optional[Sequence[str]] = None,
                  linux_parameters: Optional['outputs.TaskDefinitionLinuxParameters'] = None,
@@ -1052,7 +1053,6 @@ class TaskDefinitionContainerDefinition(dict):
                  memory: Optional[int] = None,
                  memory_reservation: Optional[int] = None,
                  mount_points: Optional[Sequence['outputs.TaskDefinitionMountPoint']] = None,
-                 name: Optional[str] = None,
                  port_mappings: Optional[Sequence['outputs.TaskDefinitionPortMapping']] = None,
                  privileged: Optional[bool] = None,
                  pseudo_terminal: Optional[bool] = None,
@@ -1069,13 +1069,15 @@ class TaskDefinitionContainerDefinition(dict):
                  working_directory: Optional[str] = None):
         """
         List of container definitions that are passed to the Docker daemon on a container instance
+        :param str image: The image used to start a container. This string is passed directly to the Docker daemon.
+        :param str name: The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
         :param Sequence['TaskDefinitionKeyValuePair'] environment: The environment variables to pass to a container
         :param Sequence['TaskDefinitionEnvironmentFile'] environment_files: The list of one or more files that contain the environment variables to pass to a container
-        :param str image: The image used to start a container. This string is passed directly to the Docker daemon.
         :param int memory: The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
-        :param str name: The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
         :param Sequence['TaskDefinitionPortMapping'] port_mappings: Port mappings allow containers to access ports on the host container instance to send or receive traffic.
         """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
         if command is not None:
             pulumi.set(__self__, "command", command)
         if cpu is not None:
@@ -1108,8 +1110,6 @@ class TaskDefinitionContainerDefinition(dict):
             pulumi.set(__self__, "health_check", health_check)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
         if interactive is not None:
             pulumi.set(__self__, "interactive", interactive)
         if links is not None:
@@ -1124,8 +1124,6 @@ class TaskDefinitionContainerDefinition(dict):
             pulumi.set(__self__, "memory_reservation", memory_reservation)
         if mount_points is not None:
             pulumi.set(__self__, "mount_points", mount_points)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if port_mappings is not None:
             pulumi.set(__self__, "port_mappings", port_mappings)
         if privileged is not None:
@@ -1154,6 +1152,22 @@ class TaskDefinitionContainerDefinition(dict):
             pulumi.set(__self__, "volumes_from", volumes_from)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image used to start a container. This string is passed directly to the Docker daemon.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
@@ -1243,14 +1257,6 @@ class TaskDefinitionContainerDefinition(dict):
 
     @property
     @pulumi.getter
-    def image(self) -> Optional[str]:
-        """
-        The image used to start a container. This string is passed directly to the Docker daemon.
-        """
-        return pulumi.get(self, "image")
-
-    @property
-    @pulumi.getter
     def interactive(self) -> Optional[bool]:
         return pulumi.get(self, "interactive")
 
@@ -1286,14 +1292,6 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="mountPoints")
     def mount_points(self) -> Optional[Sequence['outputs.TaskDefinitionMountPoint']]:
         return pulumi.get(self, "mount_points")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="portMappings")

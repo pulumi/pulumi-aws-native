@@ -56,11 +56,13 @@ namespace Pulumi.AwsNative.Evidently
         public readonly ImmutableArray<Outputs.ExperimentMetricGoalObject> MetricGoals;
         public readonly Outputs.ExperimentOnlineAbConfigObject? OnlineAbConfig;
         public readonly string? RandomizationSalt;
+        public readonly bool? RemoveSegment;
         /// <summary>
         /// Start Experiment. Default is False
         /// </summary>
         public readonly Outputs.ExperimentRunningStatusObject? RunningStatus;
         public readonly int? SamplingRate;
+        public readonly string? Segment;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -79,9 +81,13 @@ namespace Pulumi.AwsNative.Evidently
 
             string? randomizationSalt,
 
+            bool? removeSegment,
+
             Outputs.ExperimentRunningStatusObject? runningStatus,
 
             int? samplingRate,
+
+            string? segment,
 
             ImmutableArray<Outputs.ExperimentTag> tags,
 
@@ -92,8 +98,10 @@ namespace Pulumi.AwsNative.Evidently
             MetricGoals = metricGoals;
             OnlineAbConfig = onlineAbConfig;
             RandomizationSalt = randomizationSalt;
+            RemoveSegment = removeSegment;
             RunningStatus = runningStatus;
             SamplingRate = samplingRate;
+            Segment = segment;
             Tags = tags;
             Treatments = treatments;
         }

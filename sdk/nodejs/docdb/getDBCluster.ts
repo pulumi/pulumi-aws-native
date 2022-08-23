@@ -37,7 +37,10 @@ export interface GetDBClusterResult {
     readonly preferredBackupWindow?: string;
     readonly preferredMaintenanceWindow?: string;
     readonly readEndpoint?: string;
+    readonly restoreToTime?: string;
+    readonly restoreType?: string;
     readonly tags?: outputs.docdb.DBClusterTag[];
+    readonly useLatestRestorableTime?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }
 

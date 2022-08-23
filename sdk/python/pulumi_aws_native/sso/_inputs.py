@@ -14,6 +14,8 @@ __all__ = [
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs',
     'InstanceAccessControlAttributeConfigurationPropertiesArgs',
+    'PermissionSetCustomerManagedPolicyReferenceArgs',
+    'PermissionSetPermissionsBoundaryArgs',
     'PermissionSetTagArgs',
 ]
 
@@ -77,6 +79,63 @@ class InstanceAccessControlAttributeConfigurationPropertiesArgs:
     @access_control_attributes.setter
     def access_control_attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]):
         pulumi.set(self, "access_control_attributes", value)
+
+
+@pulumi.input_type
+class PermissionSetCustomerManagedPolicyReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class PermissionSetPermissionsBoundaryArgs:
+    def __init__(__self__, *,
+                 customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
+                 managed_policy_arn: Optional[pulumi.Input[str]] = None):
+        if customer_managed_policy_reference is not None:
+            pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
+        if managed_policy_arn is not None:
+            pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedPolicyReference")
+    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]:
+        return pulumi.get(self, "customer_managed_policy_reference")
+
+    @customer_managed_policy_reference.setter
+    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]):
+        pulumi.set(self, "customer_managed_policy_reference", value)
+
+    @property
+    @pulumi.getter(name="managedPolicyArn")
+    def managed_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_policy_arn")
+
+    @managed_policy_arn.setter
+    def managed_policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_policy_arn", value)
 
 
 @pulumi.input_type

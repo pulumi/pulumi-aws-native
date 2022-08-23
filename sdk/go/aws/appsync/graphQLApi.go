@@ -17,18 +17,18 @@ import (
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
-	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProvidersPtrOutput `pulumi:"additionalAuthenticationProviders"`
-	ApiId                             pulumi.StringOutput                                  `pulumi:"apiId"`
-	Arn                               pulumi.StringOutput                                  `pulumi:"arn"`
-	AuthenticationType                pulumi.StringOutput                                  `pulumi:"authenticationType"`
-	GraphQLUrl                        pulumi.StringOutput                                  `pulumi:"graphQLUrl"`
-	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrOutput            `pulumi:"lambdaAuthorizerConfig"`
-	LogConfig                         GraphQLApiLogConfigPtrOutput                         `pulumi:"logConfig"`
-	Name                              pulumi.StringOutput                                  `pulumi:"name"`
-	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrOutput               `pulumi:"openIDConnectConfig"`
-	Tags                              GraphQLApiTagsPtrOutput                              `pulumi:"tags"`
-	UserPoolConfig                    GraphQLApiUserPoolConfigPtrOutput                    `pulumi:"userPoolConfig"`
-	XrayEnabled                       pulumi.BoolPtrOutput                                 `pulumi:"xrayEnabled"`
+	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
+	ApiId                             pulumi.StringOutput                                   `pulumi:"apiId"`
+	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
+	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
+	GraphQLUrl                        pulumi.StringOutput                                   `pulumi:"graphQLUrl"`
+	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
+	LogConfig                         GraphQLApiLogConfigPtrOutput                          `pulumi:"logConfig"`
+	Name                              pulumi.StringOutput                                   `pulumi:"name"`
+	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrOutput                `pulumi:"openIDConnectConfig"`
+	Tags                              GraphQLApiTagArrayOutput                              `pulumi:"tags"`
+	UserPoolConfig                    GraphQLApiUserPoolConfigPtrOutput                     `pulumi:"userPoolConfig"`
+	XrayEnabled                       pulumi.BoolPtrOutput                                  `pulumi:"xrayEnabled"`
 }
 
 // NewGraphQLApi registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +73,26 @@ func (GraphQLApiState) ElementType() reflect.Type {
 }
 
 type graphQLApiArgs struct {
-	AdditionalAuthenticationProviders *GraphQLApiAdditionalAuthenticationProviders `pulumi:"additionalAuthenticationProviders"`
+	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	AuthenticationType                string                                       `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
-	Tags                              *GraphQLApiTags                              `pulumi:"tags"`
+	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
-	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProvidersPtrInput
+	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
 	AuthenticationType                pulumi.StringInput
 	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrInput
 	LogConfig                         GraphQLApiLogConfigPtrInput
 	Name                              pulumi.StringPtrInput
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrInput
-	Tags                              GraphQLApiTagsPtrInput
+	Tags                              GraphQLApiTagArrayInput
 	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput
 	XrayEnabled                       pulumi.BoolPtrInput
 }
@@ -134,10 +134,10 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
-	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProvidersPtrOutput {
+func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 		return v.AdditionalAuthenticationProviders
-	}).(GraphQLApiAdditionalAuthenticationProvidersPtrOutput)
+	}).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
 }
 
 func (o GraphQLApiOutput) ApiId() pulumi.StringOutput {
@@ -172,8 +172,8 @@ func (o GraphQLApiOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtr
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenIDConnectConfigPtrOutput { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
-func (o GraphQLApiOutput) Tags() GraphQLApiTagsPtrOutput {
-	return o.ApplyT(func(v *GraphQLApi) GraphQLApiTagsPtrOutput { return v.Tags }).(GraphQLApiTagsPtrOutput)
+func (o GraphQLApiOutput) Tags() GraphQLApiTagArrayOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiTagArrayOutput { return v.Tags }).(GraphQLApiTagArrayOutput)
 }
 
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {

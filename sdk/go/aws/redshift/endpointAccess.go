@@ -18,7 +18,7 @@ type EndpointAccess struct {
 	// The DNS address of the endpoint.
 	Address pulumi.StringOutput `pulumi:"address"`
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The time (UTC) that the endpoint was created.
 	EndpointCreateTime pulumi.StringOutput `pulumi:"endpointCreateTime"`
 	// The name of the endpoint.
@@ -30,7 +30,7 @@ type EndpointAccess struct {
 	// The AWS account ID of the owner of the cluster.
 	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
 	VpcEndpoint VpcEndpointPropertiesOutput `pulumi:"vpcEndpoint"`
 	// A list of vpc security group ids to apply to the created endpoint access.
@@ -46,8 +46,14 @@ func NewEndpointAccess(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
+	}
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.SubnetGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetGroupName'")
 	}
 	if args.VpcSecurityGroupIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSecurityGroupIds'")
@@ -85,13 +91,13 @@ func (EndpointAccessState) ElementType() reflect.Type {
 
 type endpointAccessArgs struct {
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the endpoint.
 	EndpointName string `pulumi:"endpointName"`
 	// The AWS account ID of the owner of the cluster.
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// A list of vpc security group ids to apply to the created endpoint access.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -99,13 +105,13 @@ type endpointAccessArgs struct {
 // The set of arguments for constructing a EndpointAccess resource.
 type EndpointAccessArgs struct {
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-	ClusterIdentifier pulumi.StringPtrInput
+	ClusterIdentifier pulumi.StringInput
 	// The name of the endpoint.
 	EndpointName pulumi.StringInput
 	// The AWS account ID of the owner of the cluster.
 	ResourceOwner pulumi.StringPtrInput
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-	SubnetGroupName pulumi.StringPtrInput
+	SubnetGroupName pulumi.StringInput
 	// A list of vpc security group ids to apply to the created endpoint access.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -153,8 +159,8 @@ func (o EndpointAccessOutput) Address() pulumi.StringOutput {
 }
 
 // A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
-func (o EndpointAccessOutput) ClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o EndpointAccessOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
 // The time (UTC) that the endpoint was created.
@@ -183,8 +189,8 @@ func (o EndpointAccessOutput) ResourceOwner() pulumi.StringPtrOutput {
 }
 
 // The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-func (o EndpointAccessOutput) SubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
+func (o EndpointAccessOutput) SubnetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
 // The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.

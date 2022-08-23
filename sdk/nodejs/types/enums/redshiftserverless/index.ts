@@ -17,3 +17,12 @@ export const NamespaceStatus = {
 } as const;
 
 export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
+
+export const WorkgroupStatus = {
+    Creating: "CREATING",
+    Available: "AVAILABLE",
+    Modifying: "MODIFYING",
+    Deleting: "DELETING",
+} as const;
+
+export type WorkgroupStatus = (typeof WorkgroupStatus)[keyof typeof WorkgroupStatus];

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("acceptanceRequired")]
         public Output<bool?> AcceptanceRequired { get; private set; } = null!;
 
+        [Output("contributorInsightsEnabled")]
+        public Output<bool?> ContributorInsightsEnabled { get; private set; } = null!;
+
         [Output("gatewayLoadBalancerArns")]
         public Output<ImmutableArray<string>> GatewayLoadBalancerArns { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("acceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
+
+        [Input("contributorInsightsEnabled")]
+        public Input<bool>? ContributorInsightsEnabled { get; set; }
 
         [Input("gatewayLoadBalancerArns")]
         private InputList<string>? _gatewayLoadBalancerArns;

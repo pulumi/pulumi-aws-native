@@ -21,7 +21,7 @@ func LookupImageBuilder(ctx *pulumi.Context, args *LookupImageBuilderArgs, opts 
 }
 
 type LookupImageBuilderArgs struct {
-	Id string `pulumi:"id"`
+	Name string `pulumi:"name"`
 }
 
 type LookupImageBuilderResult struct {
@@ -32,7 +32,6 @@ type LookupImageBuilderResult struct {
 	DomainJoinInfo              *ImageBuilderDomainJoinInfo  `pulumi:"domainJoinInfo"`
 	EnableDefaultInternetAccess *bool                        `pulumi:"enableDefaultInternetAccess"`
 	IamRoleArn                  *string                      `pulumi:"iamRoleArn"`
-	Id                          *string                      `pulumi:"id"`
 	ImageArn                    *string                      `pulumi:"imageArn"`
 	ImageName                   *string                      `pulumi:"imageName"`
 	InstanceType                *string                      `pulumi:"instanceType"`
@@ -56,7 +55,7 @@ func LookupImageBuilderOutput(ctx *pulumi.Context, args LookupImageBuilderOutput
 }
 
 type LookupImageBuilderOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupImageBuilderOutputArgs) ElementType() reflect.Type {
@@ -103,10 +102,6 @@ func (o LookupImageBuilderResultOutput) EnableDefaultInternetAccess() pulumi.Boo
 
 func (o LookupImageBuilderResultOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupImageBuilderResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupImageBuilderResultOutput) ImageArn() pulumi.StringPtrOutput {

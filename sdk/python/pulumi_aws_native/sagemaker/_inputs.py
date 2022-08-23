@@ -178,6 +178,7 @@ __all__ = [
     'MonitoringScheduleStoppingConditionArgs',
     'MonitoringScheduleTagArgs',
     'MonitoringScheduleVpcConfigArgs',
+    'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
     'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
     'NotebookInstanceTagArgs',
     'OfflineStoreConfigPropertiesArgs',
@@ -201,6 +202,7 @@ __all__ = [
     'WorkteamCognitoMemberDefinitionArgs',
     'WorkteamMemberDefinitionArgs',
     'WorkteamNotificationConfigurationArgs',
+    'WorkteamOidcMemberDefinitionArgs',
     'WorkteamTagArgs',
 ]
 
@@ -7416,6 +7418,22 @@ class MonitoringScheduleVpcConfigArgs:
 
 
 @pulumi.input_type
+class NotebookInstanceInstanceMetadataServiceConfigurationArgs:
+    def __init__(__self__, *,
+                 minimum_instance_metadata_service_version: pulumi.Input[str]):
+        pulumi.set(__self__, "minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
+
+    @property
+    @pulumi.getter(name="minimumInstanceMetadataServiceVersion")
+    def minimum_instance_metadata_service_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "minimum_instance_metadata_service_version")
+
+    @minimum_instance_metadata_service_version.setter
+    def minimum_instance_metadata_service_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "minimum_instance_metadata_service_version", value)
+
+
+@pulumi.input_type
 class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None):
@@ -8252,17 +8270,30 @@ class WorkteamCognitoMemberDefinitionArgs:
 @pulumi.input_type
 class WorkteamMemberDefinitionArgs:
     def __init__(__self__, *,
-                 cognito_member_definition: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
-        pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+                 cognito_member_definition: Optional[pulumi.Input['WorkteamCognitoMemberDefinitionArgs']] = None,
+                 oidc_member_definition: Optional[pulumi.Input['WorkteamOidcMemberDefinitionArgs']] = None):
+        if cognito_member_definition is not None:
+            pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+        if oidc_member_definition is not None:
+            pulumi.set(__self__, "oidc_member_definition", oidc_member_definition)
 
     @property
     @pulumi.getter(name="cognitoMemberDefinition")
-    def cognito_member_definition(self) -> pulumi.Input['WorkteamCognitoMemberDefinitionArgs']:
+    def cognito_member_definition(self) -> Optional[pulumi.Input['WorkteamCognitoMemberDefinitionArgs']]:
         return pulumi.get(self, "cognito_member_definition")
 
     @cognito_member_definition.setter
-    def cognito_member_definition(self, value: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
+    def cognito_member_definition(self, value: Optional[pulumi.Input['WorkteamCognitoMemberDefinitionArgs']]):
         pulumi.set(self, "cognito_member_definition", value)
+
+    @property
+    @pulumi.getter(name="oidcMemberDefinition")
+    def oidc_member_definition(self) -> Optional[pulumi.Input['WorkteamOidcMemberDefinitionArgs']]:
+        return pulumi.get(self, "oidc_member_definition")
+
+    @oidc_member_definition.setter
+    def oidc_member_definition(self, value: Optional[pulumi.Input['WorkteamOidcMemberDefinitionArgs']]):
+        pulumi.set(self, "oidc_member_definition", value)
 
 
 @pulumi.input_type
@@ -8279,6 +8310,22 @@ class WorkteamNotificationConfigurationArgs:
     @notification_topic_arn.setter
     def notification_topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "notification_topic_arn", value)
+
+
+@pulumi.input_type
+class WorkteamOidcMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 oidc_groups: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "oidc_groups", oidc_groups)
+
+    @property
+    @pulumi.getter(name="oidcGroups")
+    def oidc_groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "oidc_groups")
+
+    @oidc_groups.setter
+    def oidc_groups(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "oidc_groups", value)
 
 
 @pulumi.input_type

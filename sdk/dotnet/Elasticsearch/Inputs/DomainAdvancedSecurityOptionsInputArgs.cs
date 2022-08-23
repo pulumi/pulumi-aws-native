@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
 
     public sealed class DomainAdvancedSecurityOptionsInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("anonymousAuthEnabled")]
+        public Input<bool>? AnonymousAuthEnabled { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

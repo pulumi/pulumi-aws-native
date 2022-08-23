@@ -42,11 +42,13 @@ export class Experiment extends pulumi.CustomResource {
     public readonly onlineAbConfig!: pulumi.Output<outputs.evidently.ExperimentOnlineAbConfigObject>;
     public readonly project!: pulumi.Output<string>;
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
+    public readonly removeSegment!: pulumi.Output<boolean | undefined>;
     /**
      * Start Experiment. Default is False
      */
     public readonly runningStatus!: pulumi.Output<outputs.evidently.ExperimentRunningStatusObject | undefined>;
     public readonly samplingRate!: pulumi.Output<number | undefined>;
+    public readonly segment!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -82,8 +84,10 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["onlineAbConfig"] = args ? args.onlineAbConfig : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["removeSegment"] = args ? args.removeSegment : undefined;
             resourceInputs["runningStatus"] = args ? args.runningStatus : undefined;
             resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["segment"] = args ? args.segment : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["treatments"] = args ? args.treatments : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -95,8 +99,10 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["onlineAbConfig"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["randomizationSalt"] = undefined /*out*/;
+            resourceInputs["removeSegment"] = undefined /*out*/;
             resourceInputs["runningStatus"] = undefined /*out*/;
             resourceInputs["samplingRate"] = undefined /*out*/;
+            resourceInputs["segment"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["treatments"] = undefined /*out*/;
         }
@@ -115,11 +121,13 @@ export interface ExperimentArgs {
     onlineAbConfig: pulumi.Input<inputs.evidently.ExperimentOnlineAbConfigObjectArgs>;
     project: pulumi.Input<string>;
     randomizationSalt?: pulumi.Input<string>;
+    removeSegment?: pulumi.Input<boolean>;
     /**
      * Start Experiment. Default is False
      */
     runningStatus?: pulumi.Input<inputs.evidently.ExperimentRunningStatusObjectArgs>;
     samplingRate?: pulumi.Input<number>;
+    segment?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

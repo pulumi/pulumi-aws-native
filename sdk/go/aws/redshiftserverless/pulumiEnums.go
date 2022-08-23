@@ -311,6 +311,98 @@ func (o NamespaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkgroupStatus string
+
+const (
+	WorkgroupStatusCreating  = WorkgroupStatus("CREATING")
+	WorkgroupStatusAvailable = WorkgroupStatus("AVAILABLE")
+	WorkgroupStatusModifying = WorkgroupStatus("MODIFYING")
+	WorkgroupStatusDeleting  = WorkgroupStatus("DELETING")
+)
+
+type WorkgroupStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupStatus)(nil)).Elem()
+}
+
+func (o WorkgroupStatusOutput) ToWorkgroupStatusOutput() WorkgroupStatusOutput {
+	return o
+}
+
+func (o WorkgroupStatusOutput) ToWorkgroupStatusOutputWithContext(ctx context.Context) WorkgroupStatusOutput {
+	return o
+}
+
+func (o WorkgroupStatusOutput) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
+	return o.ToWorkgroupStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupStatusOutput) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupStatus) *WorkgroupStatus {
+		return &v
+	}).(WorkgroupStatusPtrOutput)
+}
+
+func (o WorkgroupStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkgroupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkgroupStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkgroupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkgroupStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupStatus)(nil)).Elem()
+}
+
+func (o WorkgroupStatusPtrOutput) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
+	return o
+}
+
+func (o WorkgroupStatusPtrOutput) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
+	return o
+}
+
+func (o WorkgroupStatusPtrOutput) Elem() WorkgroupStatusOutput {
+	return o.ApplyT(func(v *WorkgroupStatus) WorkgroupStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupStatus
+		return ret
+	}).(WorkgroupStatusOutput)
+}
+
+func (o WorkgroupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkgroupStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportPtrInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
@@ -320,4 +412,6 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceLogExportArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupStatusOutput{})
+	pulumi.RegisterOutputType(WorkgroupStatusPtrOutput{})
 }

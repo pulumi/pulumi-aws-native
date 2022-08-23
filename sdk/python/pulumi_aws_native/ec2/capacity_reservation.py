@@ -173,12 +173,7 @@ class CapacityReservationArgs:
         pulumi.set(self, "tenancy", value)
 
 
-warnings.warn("""CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class CapacityReservation(pulumi.CustomResource):
-    warnings.warn("""CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,7 +236,6 @@ class CapacityReservation(pulumi.CustomResource):
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CapacityReservation is deprecated: CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

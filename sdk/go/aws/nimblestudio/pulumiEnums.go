@@ -183,6 +183,13 @@ const (
 	LaunchProfileStreamingInstanceTypeG4dn8xlarge  = LaunchProfileStreamingInstanceType("g4dn.8xlarge")
 	LaunchProfileStreamingInstanceTypeG4dn12xlarge = LaunchProfileStreamingInstanceType("g4dn.12xlarge")
 	LaunchProfileStreamingInstanceTypeG4dn16xlarge = LaunchProfileStreamingInstanceType("g4dn.16xlarge")
+	LaunchProfileStreamingInstanceTypeG34xlarge    = LaunchProfileStreamingInstanceType("g3.4xlarge")
+	LaunchProfileStreamingInstanceTypeG3sXlarge    = LaunchProfileStreamingInstanceType("g3s.xlarge")
+	LaunchProfileStreamingInstanceTypeG5Xlarge     = LaunchProfileStreamingInstanceType("g5.xlarge")
+	LaunchProfileStreamingInstanceTypeG52xlarge    = LaunchProfileStreamingInstanceType("g5.2xlarge")
+	LaunchProfileStreamingInstanceTypeG54xlarge    = LaunchProfileStreamingInstanceType("g5.4xlarge")
+	LaunchProfileStreamingInstanceTypeG58xlarge    = LaunchProfileStreamingInstanceType("g5.8xlarge")
+	LaunchProfileStreamingInstanceTypeG516xlarge   = LaunchProfileStreamingInstanceType("g5.16xlarge")
 )
 
 func (LaunchProfileStreamingInstanceType) ElementType() reflect.Type {

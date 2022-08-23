@@ -15,6 +15,7 @@ __all__ = [
     'ApplicationMonitoringConfigurationMetricsLevel',
     'ApplicationParallelismConfigurationConfigurationType',
     'ApplicationRecordFormatRecordFormatType',
+    'ApplicationRestoreConfigurationApplicationRestoreType',
     'ApplicationZeppelinMonitoringConfigurationLogLevel',
 ]
 
@@ -100,6 +101,15 @@ class ApplicationRecordFormatRecordFormatType(str, Enum):
     """
     CSV = "CSV"
     JSON = "JSON"
+
+
+class ApplicationRestoreConfigurationApplicationRestoreType(str, Enum):
+    """
+    Specifies how the application should be restored.
+    """
+    SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
+    RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT"
+    RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT"
 
 
 class ApplicationZeppelinMonitoringConfigurationLogLevel(str, Enum):

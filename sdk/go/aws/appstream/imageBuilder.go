@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::AppStream::ImageBuilder
-//
-// Deprecated: ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ImageBuilder struct {
 	pulumi.CustomResourceState
 

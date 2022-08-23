@@ -266,6 +266,171 @@ func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
 }
 
+// Indicates how a message is selected from a message group among retries.
+type BotMessageSelectionStrategy string
+
+const (
+	BotMessageSelectionStrategyRandom  = BotMessageSelectionStrategy("Random")
+	BotMessageSelectionStrategyOrdered = BotMessageSelectionStrategy("Ordered")
+)
+
+func (BotMessageSelectionStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotMessageSelectionStrategy)(nil)).Elem()
+}
+
+func (e BotMessageSelectionStrategy) ToBotMessageSelectionStrategyOutput() BotMessageSelectionStrategyOutput {
+	return pulumi.ToOutput(e).(BotMessageSelectionStrategyOutput)
+}
+
+func (e BotMessageSelectionStrategy) ToBotMessageSelectionStrategyOutputWithContext(ctx context.Context) BotMessageSelectionStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotMessageSelectionStrategyOutput)
+}
+
+func (e BotMessageSelectionStrategy) ToBotMessageSelectionStrategyPtrOutput() BotMessageSelectionStrategyPtrOutput {
+	return e.ToBotMessageSelectionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e BotMessageSelectionStrategy) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
+	return BotMessageSelectionStrategy(e).ToBotMessageSelectionStrategyOutputWithContext(ctx).ToBotMessageSelectionStrategyPtrOutputWithContext(ctx)
+}
+
+func (e BotMessageSelectionStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotMessageSelectionStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotMessageSelectionStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotMessageSelectionStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotMessageSelectionStrategyOutput struct{ *pulumi.OutputState }
+
+func (BotMessageSelectionStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotMessageSelectionStrategy)(nil)).Elem()
+}
+
+func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyOutput() BotMessageSelectionStrategyOutput {
+	return o
+}
+
+func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyOutputWithContext(ctx context.Context) BotMessageSelectionStrategyOutput {
+	return o
+}
+
+func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyPtrOutput() BotMessageSelectionStrategyPtrOutput {
+	return o.ToBotMessageSelectionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotMessageSelectionStrategy) *BotMessageSelectionStrategy {
+		return &v
+	}).(BotMessageSelectionStrategyPtrOutput)
+}
+
+func (o BotMessageSelectionStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotMessageSelectionStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotMessageSelectionStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotMessageSelectionStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotMessageSelectionStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotMessageSelectionStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotMessageSelectionStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (BotMessageSelectionStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotMessageSelectionStrategy)(nil)).Elem()
+}
+
+func (o BotMessageSelectionStrategyPtrOutput) ToBotMessageSelectionStrategyPtrOutput() BotMessageSelectionStrategyPtrOutput {
+	return o
+}
+
+func (o BotMessageSelectionStrategyPtrOutput) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
+	return o
+}
+
+func (o BotMessageSelectionStrategyPtrOutput) Elem() BotMessageSelectionStrategyOutput {
+	return o.ApplyT(func(v *BotMessageSelectionStrategy) BotMessageSelectionStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret BotMessageSelectionStrategy
+		return ret
+	}).(BotMessageSelectionStrategyOutput)
+}
+
+func (o BotMessageSelectionStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotMessageSelectionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotMessageSelectionStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotMessageSelectionStrategyInput is an input type that accepts BotMessageSelectionStrategyArgs and BotMessageSelectionStrategyOutput values.
+// You can construct a concrete instance of `BotMessageSelectionStrategyInput` via:
+//
+//	BotMessageSelectionStrategyArgs{...}
+type BotMessageSelectionStrategyInput interface {
+	pulumi.Input
+
+	ToBotMessageSelectionStrategyOutput() BotMessageSelectionStrategyOutput
+	ToBotMessageSelectionStrategyOutputWithContext(context.Context) BotMessageSelectionStrategyOutput
+}
+
+var botMessageSelectionStrategyPtrType = reflect.TypeOf((**BotMessageSelectionStrategy)(nil)).Elem()
+
+type BotMessageSelectionStrategyPtrInput interface {
+	pulumi.Input
+
+	ToBotMessageSelectionStrategyPtrOutput() BotMessageSelectionStrategyPtrOutput
+	ToBotMessageSelectionStrategyPtrOutputWithContext(context.Context) BotMessageSelectionStrategyPtrOutput
+}
+
+type botMessageSelectionStrategyPtr string
+
+func BotMessageSelectionStrategyPtr(v string) BotMessageSelectionStrategyPtrInput {
+	return (*botMessageSelectionStrategyPtr)(&v)
+}
+
+func (*botMessageSelectionStrategyPtr) ElementType() reflect.Type {
+	return botMessageSelectionStrategyPtrType
+}
+
+func (in *botMessageSelectionStrategyPtr) ToBotMessageSelectionStrategyPtrOutput() BotMessageSelectionStrategyPtrOutput {
+	return pulumi.ToOutput(in).(BotMessageSelectionStrategyPtrOutput)
+}
+
+func (in *botMessageSelectionStrategyPtr) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotMessageSelectionStrategyPtrOutput)
+}
+
 // Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
 type BotObfuscationSettingObfuscationSettingType string
 
@@ -762,6 +927,8 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyPtrInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyPtrInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypeInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypePtrInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotConstraintInput)(nil)).Elem(), BotSlotConstraint("Required"))
@@ -772,6 +939,8 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasStatusPtrOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(BotMessageSelectionStrategyOutput{})
+	pulumi.RegisterOutputType(BotMessageSelectionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypeOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypePtrOutput{})
 	pulumi.RegisterOutputType(BotSlotConstraintOutput{})

@@ -18,22 +18,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetDocumentationPartResult:
-    def __init__(__self__, id=None, properties=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, documentation_part_id=None, properties=None):
+        if documentation_part_id and not isinstance(documentation_part_id, str):
+            raise TypeError("Expected argument 'documentation_part_id' to be a str")
+        pulumi.set(__self__, "documentation_part_id", documentation_part_id)
         if properties and not isinstance(properties, str):
             raise TypeError("Expected argument 'properties' to be a str")
         pulumi.set(__self__, "properties", properties)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="documentationPartId")
+    def documentation_part_id(self) -> Optional[str]:
+        """
+        The identifier of the documentation Part.
+        """
+        return pulumi.get(self, "documentation_part_id")
 
     @property
     @pulumi.getter
     def properties(self) -> Optional[str]:
+        """
+        The documentation content map of the targeted API entity.
+        """
         return pulumi.get(self, "properties")
 
 
@@ -43,29 +49,40 @@ class AwaitableGetDocumentationPartResult(GetDocumentationPartResult):
         if False:
             yield self
         return GetDocumentationPartResult(
-            id=self.id,
+            documentation_part_id=self.documentation_part_id,
             properties=self.properties)
 
 
-def get_documentation_part(id: Optional[str] = None,
+def get_documentation_part(documentation_part_id: Optional[str] = None,
+                           rest_api_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationPartResult:
     """
     Resource Type definition for AWS::ApiGateway::DocumentationPart
+
+
+    :param str documentation_part_id: The identifier of the documentation Part.
+    :param str rest_api_id: Identifier of the targeted API entity
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['documentationPartId'] = documentation_part_id
+    __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getDocumentationPart', __args__, opts=opts, typ=GetDocumentationPartResult).value
 
     return AwaitableGetDocumentationPartResult(
-        id=__ret__.id,
+        documentation_part_id=__ret__.documentation_part_id,
         properties=__ret__.properties)
 
 
 @_utilities.lift_output_func(get_documentation_part)
-def get_documentation_part_output(id: Optional[pulumi.Input[str]] = None,
+def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[str]] = None,
+                                  rest_api_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationPartResult]:
     """
     Resource Type definition for AWS::ApiGateway::DocumentationPart
+
+
+    :param str documentation_part_id: The identifier of the documentation Part.
+    :param str rest_api_id: Identifier of the targeted API entity
     """
     ...

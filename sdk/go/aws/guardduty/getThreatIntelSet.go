@@ -25,10 +25,11 @@ type LookupThreatIntelSetArgs struct {
 }
 
 type LookupThreatIntelSetResult struct {
-	Activate *bool   `pulumi:"activate"`
-	Id       *string `pulumi:"id"`
-	Location *string `pulumi:"location"`
-	Name     *string `pulumi:"name"`
+	Activate *bool               `pulumi:"activate"`
+	Id       *string             `pulumi:"id"`
+	Location *string             `pulumi:"location"`
+	Name     *string             `pulumi:"name"`
+	Tags     []ThreatIntelSetTag `pulumi:"tags"`
 }
 
 func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOutputArgs, opts ...pulumi.InvokeOption) LookupThreatIntelSetResultOutput {
@@ -80,6 +81,10 @@ func (o LookupThreatIntelSetResultOutput) Location() pulumi.StringPtrOutput {
 
 func (o LookupThreatIntelSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupThreatIntelSetResultOutput) Tags() ThreatIntelSetTagArrayOutput {
+	return o.ApplyT(func(v LookupThreatIntelSetResult) []ThreatIntelSetTag { return v.Tags }).(ThreatIntelSetTagArrayOutput)
 }
 
 func init() {

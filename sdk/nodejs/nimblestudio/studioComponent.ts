@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+ * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
  */
 export class StudioComponent extends pulumi.CustomResource {
     /**
@@ -52,13 +52,15 @@ export class StudioComponent extends pulumi.CustomResource {
      * <p>The name for the studio component.</p>
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
+    public readonly secureInitializationRoleArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
     public readonly subtype!: pulumi.Output<enums.nimblestudio.StudioComponentSubtype | undefined>;
@@ -87,7 +89,9 @@ export class StudioComponent extends pulumi.CustomResource {
             resourceInputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
             resourceInputs["initializationScripts"] = args ? args.initializationScripts : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
             resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
+            resourceInputs["secureInitializationRoleArn"] = args ? args.secureInitializationRoleArn : undefined;
             resourceInputs["studioId"] = args ? args.studioId : undefined;
             resourceInputs["subtype"] = args ? args.subtype : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -99,7 +103,9 @@ export class StudioComponent extends pulumi.CustomResource {
             resourceInputs["ec2SecurityGroupIds"] = undefined /*out*/;
             resourceInputs["initializationScripts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["runtimeRoleArn"] = undefined /*out*/;
             resourceInputs["scriptParameters"] = undefined /*out*/;
+            resourceInputs["secureInitializationRoleArn"] = undefined /*out*/;
             resourceInputs["studioComponentId"] = undefined /*out*/;
             resourceInputs["studioId"] = undefined /*out*/;
             resourceInputs["subtype"] = undefined /*out*/;
@@ -132,12 +138,14 @@ export interface StudioComponentArgs {
      * <p>The name for the studio component.</p>
      */
     name?: pulumi.Input<string>;
+    runtimeRoleArn?: pulumi.Input<string>;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
+    secureInitializationRoleArn?: pulumi.Input<string>;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
     subtype?: pulumi.Input<enums.nimblestudio.StudioComponentSubtype>;

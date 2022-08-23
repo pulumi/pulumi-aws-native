@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RDS
     public static class GetOptionGroup
     {
         /// <summary>
-        /// Resource Type definition for AWS::RDS::OptionGroup
+        /// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
         /// </summary>
         public static Task<GetOptionGroupResult> InvokeAsync(GetOptionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::RDS::OptionGroup
+        /// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
         /// </summary>
         public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetOptionGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// Specifies the name of the option group.
+        /// </summary>
+        [Input("optionGroupName", required: true)]
+        public string OptionGroupName { get; set; } = null!;
 
         public GetOptionGroupArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetOptionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// Specifies the name of the option group.
+        /// </summary>
+        [Input("optionGroupName", required: true)]
+        public Input<string> OptionGroupName { get; set; } = null!;
 
         public GetOptionGroupInvokeArgs()
         {
@@ -51,16 +57,29 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetOptionGroupResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// Indicates what options are available in the option group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OptionGroupOptionConfiguration> OptionConfigurations;
+        /// <summary>
+        /// Specifies the name of the option group.
+        /// </summary>
+        public readonly string? OptionGroupName;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupTag> Tags;
 
         [OutputConstructor]
         private GetOptionGroupResult(
-            string? id,
+            ImmutableArray<Outputs.OptionGroupOptionConfiguration> optionConfigurations,
+
+            string? optionGroupName,
 
             ImmutableArray<Outputs.OptionGroupTag> tags)
         {
-            Id = id;
+            OptionConfigurations = optionConfigurations;
+            OptionGroupName = optionGroupName;
             Tags = tags;
         }
     }

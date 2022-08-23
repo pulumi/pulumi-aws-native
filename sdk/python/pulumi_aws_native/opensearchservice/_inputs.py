@@ -248,12 +248,15 @@ class DomainEBSOptionsArgs:
     def __init__(__self__, *,
                  e_bs_enabled: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         if e_bs_enabled is not None:
             pulumi.set(__self__, "e_bs_enabled", e_bs_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -276,6 +279,15 @@ class DomainEBSOptionsArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
     @property
     @pulumi.getter(name="volumeSize")

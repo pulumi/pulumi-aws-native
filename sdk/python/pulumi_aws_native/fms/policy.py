@@ -20,7 +20,7 @@ class PolicyArgs:
                  exclude_resource_tags: pulumi.Input[bool],
                  remediation_enabled: pulumi.Input[bool],
                  resource_type: pulumi.Input[str],
-                 security_service_policy_data: pulumi.Input['SecurityServicePolicyDataPropertiesArgs'],
+                 security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  exclude_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
                  include_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
@@ -82,11 +82,11 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="securityServicePolicyData")
-    def security_service_policy_data(self) -> pulumi.Input['SecurityServicePolicyDataPropertiesArgs']:
+    def security_service_policy_data(self) -> pulumi.Input['PolicySecurityServicePolicyDataArgs']:
         return pulumi.get(self, "security_service_policy_data")
 
     @security_service_policy_data.setter
-    def security_service_policy_data(self, value: pulumi.Input['SecurityServicePolicyDataPropertiesArgs']):
+    def security_service_policy_data(self, value: pulumi.Input['PolicySecurityServicePolicyDataArgs']):
         pulumi.set(self, "security_service_policy_data", value)
 
     @property
@@ -177,7 +177,7 @@ class Policy(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_clean_up: Optional[pulumi.Input[bool]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['SecurityServicePolicyDataPropertiesArgs']]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -220,7 +220,7 @@ class Policy(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_clean_up: Optional[pulumi.Input[bool]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['SecurityServicePolicyDataPropertiesArgs']]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -346,7 +346,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityServicePolicyData")
-    def security_service_policy_data(self) -> pulumi.Output['outputs.SecurityServicePolicyDataProperties']:
+    def security_service_policy_data(self) -> pulumi.Output['outputs.PolicySecurityServicePolicyData']:
         return pulumi.get(self, "security_service_policy_data")
 
     @property

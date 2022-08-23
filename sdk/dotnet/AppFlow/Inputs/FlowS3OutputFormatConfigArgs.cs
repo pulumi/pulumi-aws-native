@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("prefixConfig")]
         public Input<Inputs.FlowPrefixConfigArgs>? PrefixConfig { get; set; }
 
+        [Input("preserveSourceDataTyping")]
+        public Input<bool>? PreserveSourceDataTyping { get; set; }
+
         public FlowS3OutputFormatConfigArgs()
         {
         }

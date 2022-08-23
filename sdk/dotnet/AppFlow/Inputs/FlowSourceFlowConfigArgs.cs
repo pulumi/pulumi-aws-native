@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The API version that the destination connector uses.
+        /// </summary>
+        [Input("apiVersion")]
+        public Input<string>? ApiVersion { get; set; }
+
+        /// <summary>
         /// Name of source connector profile
         /// </summary>
         [Input("connectorProfileName")]

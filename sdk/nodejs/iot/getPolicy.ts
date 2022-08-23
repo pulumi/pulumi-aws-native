@@ -25,6 +25,7 @@ export interface GetPolicyArgs {
 export interface GetPolicyResult {
     readonly arn?: string;
     readonly id?: string;
+    readonly policyDocument?: any;
 }
 
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {

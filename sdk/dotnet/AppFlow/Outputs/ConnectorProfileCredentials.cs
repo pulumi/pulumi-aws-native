@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class ConnectorProfileCredentials
     {
         public readonly Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? Amplitude;
+        public readonly Outputs.ConnectorProfileCustomConnectorProfileCredentials? CustomConnector;
         public readonly Outputs.ConnectorProfileDatadogConnectorProfileCredentials? Datadog;
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileCredentials? Dynatrace;
         public readonly Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? GoogleAnalytics;
@@ -36,6 +37,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         [OutputConstructor]
         private ConnectorProfileCredentials(
             Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? amplitude,
+
+            Outputs.ConnectorProfileCustomConnectorProfileCredentials? customConnector,
 
             Outputs.ConnectorProfileDatadogConnectorProfileCredentials? datadog,
 
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Outputs.ConnectorProfileZendeskConnectorProfileCredentials? zendesk)
         {
             Amplitude = amplitude;
+            CustomConnector = customConnector;
             Datadog = datadog;
             Dynatrace = dynatrace;
             GoogleAnalytics = googleAnalytics;

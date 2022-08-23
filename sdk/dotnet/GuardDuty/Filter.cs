@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("rank")]
         public Output<int> Rank { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.FilterTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Filter resource with the given unique name, arguments, and options.
@@ -96,6 +99,14 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [Input("rank", required: true)]
         public Input<int> Rank { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.FilterTagArgs>? _tags;
+        public InputList<Inputs.FilterTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.FilterTagArgs>());
+            set => _tags = value;
+        }
 
         public FilterArgs()
         {

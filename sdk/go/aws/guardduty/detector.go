@@ -20,6 +20,7 @@ type Detector struct {
 	DataSources                DetectorCFNDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
 	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
+	Tags                       DetectorTagArrayOutput                       `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -67,6 +68,7 @@ type detectorArgs struct {
 	DataSources                *DetectorCFNDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     bool                                 `pulumi:"enable"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
+	Tags                       []DetectorTag                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
@@ -74,6 +76,7 @@ type DetectorArgs struct {
 	DataSources                DetectorCFNDataSourceConfigurationsPtrInput
 	Enable                     pulumi.BoolInput
 	FindingPublishingFrequency pulumi.StringPtrInput
+	Tags                       DetectorTagArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o DetectorOutput) Enable() pulumi.BoolOutput {
 
 func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
+}
+
+func (o DetectorOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorTagArrayOutput { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 func init() {

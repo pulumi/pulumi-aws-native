@@ -25,6 +25,7 @@ export interface GetRecordSetArgs {
 
 export interface GetRecordSetResult {
     readonly aliasTarget?: outputs.route53.RecordSetAliasTarget;
+    readonly cidrRoutingConfig?: outputs.route53.RecordSetCidrRoutingConfig;
     readonly comment?: string;
     readonly failover?: string;
     readonly geoLocation?: outputs.route53.RecordSetGeoLocation;

@@ -1875,12 +1875,15 @@ class RuleGroupSizeConstraintStatementArgs:
 class RuleGroupSqliMatchStatementArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
+                 sensitivity_level: Optional[pulumi.Input['RuleGroupSensitivityLevel']] = None):
         """
         Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -1899,6 +1902,15 @@ class RuleGroupSqliMatchStatementArgs:
     @text_transformations.setter
     def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input['RuleGroupSensitivityLevel']]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input['RuleGroupSensitivityLevel']]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 @pulumi.input_type
@@ -3785,12 +3797,15 @@ class WebACLSizeConstraintStatementArgs:
 class WebACLSqliMatchStatementArgs:
     def __init__(__self__, *,
                  field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
-                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]],
+                 sensitivity_level: Optional[pulumi.Input['WebACLSensitivityLevel']] = None):
         """
         Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -3809,6 +3824,15 @@ class WebACLSqliMatchStatementArgs:
     @text_transformations.setter
     def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input['WebACLSensitivityLevel']]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input['WebACLSensitivityLevel']]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 @pulumi.input_type

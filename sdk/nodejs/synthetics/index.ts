@@ -7,9 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./canary";
 export * from "./getCanary";
+export * from "./getGroup";
+export * from "./group";
 
 // Import resources to register:
 import { Canary } from "./canary";
+import { Group } from "./group";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,6 +20,8 @@ const _module = {
         switch (type) {
             case "aws-native:synthetics:Canary":
                 return new Canary(name, <any>undefined, { urn })
+            case "aws-native:synthetics:Group":
+                return new Group(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

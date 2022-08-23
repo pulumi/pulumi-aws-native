@@ -23,6 +23,7 @@ __all__ = [
     'ApplicationDeployAsApplicationConfiguration',
     'ApplicationEnvironmentProperties',
     'ApplicationFlinkApplicationConfiguration',
+    'ApplicationFlinkRunConfiguration',
     'ApplicationGlueDataCatalogConfiguration',
     'ApplicationInput',
     'ApplicationInputLambdaProcessor',
@@ -32,6 +33,7 @@ __all__ = [
     'ApplicationJSONMappingParameters',
     'ApplicationKinesisFirehoseInput',
     'ApplicationKinesisStreamsInput',
+    'ApplicationMaintenanceConfiguration',
     'ApplicationMappingParameters',
     'ApplicationMavenReference',
     'ApplicationMonitoringConfiguration',
@@ -52,11 +54,14 @@ __all__ = [
     'ApplicationReferenceDataSourceReferenceDataSource',
     'ApplicationReferenceDataSourceReferenceSchema',
     'ApplicationReferenceDataSourceS3ReferenceDataSource',
+    'ApplicationRestoreConfiguration',
+    'ApplicationRunConfiguration',
     'ApplicationS3ContentBaseLocation',
     'ApplicationS3ContentLocation',
     'ApplicationSnapshotConfiguration',
     'ApplicationSqlApplicationConfiguration',
     'ApplicationTag',
+    'ApplicationVpcConfiguration',
     'ApplicationZeppelinApplicationConfiguration',
     'ApplicationZeppelinMonitoringConfiguration',
 ]
@@ -405,6 +410,8 @@ class ApplicationConfiguration(dict):
             suggest = "flink_application_configuration"
         elif key == "sqlApplicationConfiguration":
             suggest = "sql_application_configuration"
+        elif key == "vpcConfigurations":
+            suggest = "vpc_configurations"
         elif key == "zeppelinApplicationConfiguration":
             suggest = "zeppelin_application_configuration"
 
@@ -425,6 +432,7 @@ class ApplicationConfiguration(dict):
                  environment_properties: Optional['outputs.ApplicationEnvironmentProperties'] = None,
                  flink_application_configuration: Optional['outputs.ApplicationFlinkApplicationConfiguration'] = None,
                  sql_application_configuration: Optional['outputs.ApplicationSqlApplicationConfiguration'] = None,
+                 vpc_configurations: Optional[Sequence['outputs.ApplicationVpcConfiguration']] = None,
                  zeppelin_application_configuration: Optional['outputs.ApplicationZeppelinApplicationConfiguration'] = None):
         """
         Specifies the creation parameters for a Kinesis Data Analytics application.
@@ -433,6 +441,7 @@ class ApplicationConfiguration(dict):
         :param 'ApplicationEnvironmentProperties' environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationFlinkApplicationConfiguration' flink_application_configuration: The creation and update parameters for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationSqlApplicationConfiguration' sql_application_configuration: The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+        :param Sequence['ApplicationVpcConfiguration'] vpc_configurations: The array of descriptions of VPC configurations available to the application.
         :param 'ApplicationZeppelinApplicationConfiguration' zeppelin_application_configuration: The configuration parameters for a Kinesis Data Analytics Studio notebook.
         """
         if application_code_configuration is not None:
@@ -445,6 +454,8 @@ class ApplicationConfiguration(dict):
             pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
         if sql_application_configuration is not None:
             pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
+        if vpc_configurations is not None:
+            pulumi.set(__self__, "vpc_configurations", vpc_configurations)
         if zeppelin_application_configuration is not None:
             pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
 
@@ -487,6 +498,14 @@ class ApplicationConfiguration(dict):
         The creation and update parameters for a SQL-based Kinesis Data Analytics application.
         """
         return pulumi.get(self, "sql_application_configuration")
+
+    @property
+    @pulumi.getter(name="vpcConfigurations")
+    def vpc_configurations(self) -> Optional[Sequence['outputs.ApplicationVpcConfiguration']]:
+        """
+        The array of descriptions of VPC configurations available to the application.
+        """
+        return pulumi.get(self, "vpc_configurations")
 
     @property
     @pulumi.getter(name="zeppelinApplicationConfiguration")
@@ -709,6 +728,46 @@ class ApplicationFlinkApplicationConfiguration(dict):
         Describes parameters for how an application executes multiple tasks simultaneously.
         """
         return pulumi.get(self, "parallelism_configuration")
+
+
+@pulumi.output_type
+class ApplicationFlinkRunConfiguration(dict):
+    """
+    Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowNonRestoredState":
+            suggest = "allow_non_restored_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationFlinkRunConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationFlinkRunConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationFlinkRunConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_non_restored_state: Optional[bool] = None):
+        """
+        Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+        :param bool allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+        """
+        if allow_non_restored_state is not None:
+            pulumi.set(__self__, "allow_non_restored_state", allow_non_restored_state)
+
+    @property
+    @pulumi.getter(name="allowNonRestoredState")
+    def allow_non_restored_state(self) -> Optional[bool]:
+        """
+        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+        """
+        return pulumi.get(self, "allow_non_restored_state")
 
 
 @pulumi.output_type
@@ -1142,6 +1201,45 @@ class ApplicationKinesisStreamsInput(dict):
         The ARN of the input Kinesis data stream to read.
         """
         return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class ApplicationMaintenanceConfiguration(dict):
+    """
+    Describes the maintenance configuration for the application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationMaintenanceWindowStartTime":
+            suggest = "application_maintenance_window_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMaintenanceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMaintenanceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMaintenanceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_maintenance_window_start_time: str):
+        """
+        Describes the maintenance configuration for the application.
+        :param str application_maintenance_window_start_time: The start time for the maintenance window.
+        """
+        pulumi.set(__self__, "application_maintenance_window_start_time", application_maintenance_window_start_time)
+
+    @property
+    @pulumi.getter(name="applicationMaintenanceWindowStartTime")
+    def application_maintenance_window_start_time(self) -> str:
+        """
+        The start time for the maintenance window.
+        """
+        return pulumi.get(self, "application_maintenance_window_start_time")
 
 
 @pulumi.output_type
@@ -2088,6 +2186,113 @@ class ApplicationReferenceDataSourceS3ReferenceDataSource(dict):
 
 
 @pulumi.output_type
+class ApplicationRestoreConfiguration(dict):
+    """
+    Describes the restore behavior of a restarting application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationRestoreType":
+            suggest = "application_restore_type"
+        elif key == "snapshotName":
+            suggest = "snapshot_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationRestoreConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationRestoreConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationRestoreConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_restore_type: 'ApplicationRestoreConfigurationApplicationRestoreType',
+                 snapshot_name: Optional[str] = None):
+        """
+        Describes the restore behavior of a restarting application.
+        :param 'ApplicationRestoreConfigurationApplicationRestoreType' application_restore_type: Specifies how the application should be restored.
+        :param str snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        """
+        pulumi.set(__self__, "application_restore_type", application_restore_type)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
+
+    @property
+    @pulumi.getter(name="applicationRestoreType")
+    def application_restore_type(self) -> 'ApplicationRestoreConfigurationApplicationRestoreType':
+        """
+        Specifies how the application should be restored.
+        """
+        return pulumi.get(self, "application_restore_type")
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[str]:
+        """
+        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+
+@pulumi.output_type
+class ApplicationRunConfiguration(dict):
+    """
+    Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationRestoreConfiguration":
+            suggest = "application_restore_configuration"
+        elif key == "flinkRunConfiguration":
+            suggest = "flink_run_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationRunConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationRunConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationRunConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_restore_configuration: Optional['outputs.ApplicationRestoreConfiguration'] = None,
+                 flink_run_configuration: Optional['outputs.ApplicationFlinkRunConfiguration'] = None):
+        """
+        Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+        :param 'ApplicationRestoreConfiguration' application_restore_configuration: Describes the restore behavior of a restarting application.
+        :param 'ApplicationFlinkRunConfiguration' flink_run_configuration: Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+        """
+        if application_restore_configuration is not None:
+            pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
+        if flink_run_configuration is not None:
+            pulumi.set(__self__, "flink_run_configuration", flink_run_configuration)
+
+    @property
+    @pulumi.getter(name="applicationRestoreConfiguration")
+    def application_restore_configuration(self) -> Optional['outputs.ApplicationRestoreConfiguration']:
+        """
+        Describes the restore behavior of a restarting application.
+        """
+        return pulumi.get(self, "application_restore_configuration")
+
+    @property
+    @pulumi.getter(name="flinkRunConfiguration")
+    def flink_run_configuration(self) -> Optional['outputs.ApplicationFlinkRunConfiguration']:
+        """
+        Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "flink_run_configuration")
+
+
+@pulumi.output_type
 class ApplicationS3ContentBaseLocation(dict):
     """
     The base location of the Amazon Data Analytics application.
@@ -2299,6 +2504,58 @@ class ApplicationTag(dict):
         The value for the tag. You can specify a value that's 0 to 256 characters in length.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationVpcConfiguration(dict):
+    """
+    Describes the parameters of a VPC used by the application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str]):
+        """
+        Describes the parameters of a VPC used by the application.
+        :param Sequence[str] security_group_ids: The array of SecurityGroup IDs used by the VPC configuration.
+        :param Sequence[str] subnet_ids: The array of Subnet IDs used by the VPC configuration.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        The array of SecurityGroup IDs used by the VPC configuration.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The array of Subnet IDs used by the VPC configuration.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

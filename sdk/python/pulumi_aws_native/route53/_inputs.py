@@ -20,8 +20,10 @@ __all__ = [
     'HostedZoneTagArgs',
     'HostedZoneVPCArgs',
     'RecordSetAliasTargetArgs',
+    'RecordSetCidrRoutingConfigArgs',
     'RecordSetGeoLocationArgs',
     'RecordSetGroupAliasTargetArgs',
+    'RecordSetGroupCidrRoutingConfigArgs',
     'RecordSetGroupGeoLocationArgs',
     'RecordSetGroupRecordSetArgs',
 ]
@@ -515,6 +517,33 @@ class RecordSetAliasTargetArgs:
 
 
 @pulumi.input_type
+class RecordSetCidrRoutingConfigArgs:
+    def __init__(__self__, *,
+                 collection_id: pulumi.Input[str],
+                 location_name: pulumi.Input[str]):
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "collection_id")
+
+    @collection_id.setter
+    def collection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_id", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location_name", value)
+
+
+@pulumi.input_type
 class RecordSetGeoLocationArgs:
     def __init__(__self__, *,
                  continent_code: Optional[pulumi.Input[str]] = None,
@@ -595,6 +624,33 @@ class RecordSetGroupAliasTargetArgs:
 
 
 @pulumi.input_type
+class RecordSetGroupCidrRoutingConfigArgs:
+    def __init__(__self__, *,
+                 collection_id: pulumi.Input[str],
+                 location_name: pulumi.Input[str]):
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "collection_id")
+
+    @collection_id.setter
+    def collection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_id", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location_name", value)
+
+
+@pulumi.input_type
 class RecordSetGroupGeoLocationArgs:
     def __init__(__self__, *,
                  continent_code: Optional[pulumi.Input[str]] = None,
@@ -641,6 +697,7 @@ class RecordSetGroupRecordSetArgs:
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  alias_target: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']] = None,
+                 cidr_routing_config: Optional[pulumi.Input['RecordSetGroupCidrRoutingConfigArgs']] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
@@ -656,6 +713,8 @@ class RecordSetGroupRecordSetArgs:
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
+        if cidr_routing_config is not None:
+            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         if failover is not None:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
@@ -705,6 +764,15 @@ class RecordSetGroupRecordSetArgs:
     @alias_target.setter
     def alias_target(self, value: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']]):
         pulumi.set(self, "alias_target", value)
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> Optional[pulumi.Input['RecordSetGroupCidrRoutingConfigArgs']]:
+        return pulumi.get(self, "cidr_routing_config")
+
+    @cidr_routing_config.setter
+    def cidr_routing_config(self, value: Optional[pulumi.Input['RecordSetGroupCidrRoutingConfigArgs']]):
+        pulumi.set(self, "cidr_routing_config", value)
 
     @property
     @pulumi.getter

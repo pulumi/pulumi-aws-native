@@ -20,6 +20,16 @@ export const BotAudioRecognitionStrategy = {
  */
 export type BotAudioRecognitionStrategy = (typeof BotAudioRecognitionStrategy)[keyof typeof BotAudioRecognitionStrategy];
 
+export const BotMessageSelectionStrategy = {
+    Random: "Random",
+    Ordered: "Ordered",
+} as const;
+
+/**
+ * Indicates how a message is selected from a message group among retries.
+ */
+export type BotMessageSelectionStrategy = (typeof BotMessageSelectionStrategy)[keyof typeof BotMessageSelectionStrategy];
+
 export const BotObfuscationSettingObfuscationSettingType = {
     None: "None",
     DefaultObfuscation: "DefaultObfuscation",

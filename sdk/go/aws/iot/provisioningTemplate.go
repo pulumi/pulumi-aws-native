@@ -23,6 +23,7 @@ type ProvisioningTemplate struct {
 	TemplateArn         pulumi.StringOutput                           `pulumi:"templateArn"`
 	TemplateBody        pulumi.StringOutput                           `pulumi:"templateBody"`
 	TemplateName        pulumi.StringPtrOutput                        `pulumi:"templateName"`
+	TemplateType        ProvisioningTemplateTemplateTypePtrOutput     `pulumi:"templateType"`
 }
 
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
@@ -77,6 +78,7 @@ type provisioningTemplateArgs struct {
 	Tags                []ProvisioningTemplateTag             `pulumi:"tags"`
 	TemplateBody        string                                `pulumi:"templateBody"`
 	TemplateName        *string                               `pulumi:"templateName"`
+	TemplateType        *ProvisioningTemplateTemplateType     `pulumi:"templateType"`
 }
 
 // The set of arguments for constructing a ProvisioningTemplate resource.
@@ -88,6 +90,7 @@ type ProvisioningTemplateArgs struct {
 	Tags                ProvisioningTemplateTagArrayInput
 	TemplateBody        pulumi.StringInput
 	TemplateName        pulumi.StringPtrInput
+	TemplateType        ProvisioningTemplateTemplateTypePtrInput
 }
 
 func (ProvisioningTemplateArgs) ElementType() reflect.Type {
@@ -159,6 +162,10 @@ func (o ProvisioningTemplateOutput) TemplateBody() pulumi.StringOutput {
 
 func (o ProvisioningTemplateOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningTemplateOutput) TemplateType() ProvisioningTemplateTemplateTypePtrOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplateTemplateTypePtrOutput { return v.TemplateType }).(ProvisioningTemplateTemplateTypePtrOutput)
 }
 
 func init() {

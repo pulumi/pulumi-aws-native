@@ -8,6 +8,47 @@ using Pulumi;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
+    /// The type of API entity that the documentation content applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct DocumentationPartLocationType : IEquatable<DocumentationPartLocationType>
+    {
+        private readonly string _value;
+
+        private DocumentationPartLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DocumentationPartLocationType Api { get; } = new DocumentationPartLocationType("API");
+        public static DocumentationPartLocationType Authorizer { get; } = new DocumentationPartLocationType("AUTHORIZER");
+        public static DocumentationPartLocationType Model { get; } = new DocumentationPartLocationType("MODEL");
+        public static DocumentationPartLocationType Resource { get; } = new DocumentationPartLocationType("RESOURCE");
+        public static DocumentationPartLocationType Method { get; } = new DocumentationPartLocationType("METHOD");
+        public static DocumentationPartLocationType PathParameter { get; } = new DocumentationPartLocationType("PATH_PARAMETER");
+        public static DocumentationPartLocationType QueryParameter { get; } = new DocumentationPartLocationType("QUERY_PARAMETER");
+        public static DocumentationPartLocationType RequestHeader { get; } = new DocumentationPartLocationType("REQUEST_HEADER");
+        public static DocumentationPartLocationType RequestBody { get; } = new DocumentationPartLocationType("REQUEST_BODY");
+        public static DocumentationPartLocationType Response { get; } = new DocumentationPartLocationType("RESPONSE");
+        public static DocumentationPartLocationType ResponseHeader { get; } = new DocumentationPartLocationType("RESPONSE_HEADER");
+        public static DocumentationPartLocationType ResponseBody { get; } = new DocumentationPartLocationType("RESPONSE_BODY");
+
+        public static bool operator ==(DocumentationPartLocationType left, DocumentationPartLocationType right) => left.Equals(right);
+        public static bool operator !=(DocumentationPartLocationType left, DocumentationPartLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(DocumentationPartLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DocumentationPartLocationType other && Equals(other);
+        public bool Equals(DocumentationPartLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The method's authorization type.
     /// </summary>
     [EnumType]

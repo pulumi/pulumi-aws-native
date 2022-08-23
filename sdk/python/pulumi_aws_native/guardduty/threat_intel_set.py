@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ThreatIntelSetArgs', 'ThreatIntelSet']
 
@@ -18,7 +20,8 @@ class ThreatIntelSetArgs:
                  detector_id: pulumi.Input[str],
                  format: pulumi.Input[str],
                  location: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a ThreatIntelSet resource.
         """
@@ -28,6 +31,8 @@ class ThreatIntelSetArgs:
         pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -74,6 +79,15 @@ class ThreatIntelSetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelSetTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelSetTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -90,6 +104,7 @@ class ThreatIntelSet(pulumi.CustomResource):
                  format: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelSetTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::ThreatIntelSet
@@ -126,6 +141,7 @@ class ThreatIntelSet(pulumi.CustomResource):
                  format: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelSetTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ThreatIntelSet is deprecated: ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -149,6 +165,7 @@ class ThreatIntelSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
         super(ThreatIntelSet, __self__).__init__(
             'aws-native:guardduty:ThreatIntelSet',
             resource_name,
@@ -176,6 +193,7 @@ class ThreatIntelSet(pulumi.CustomResource):
         __props__.__dict__["format"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         return ThreatIntelSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -202,4 +220,9 @@ class ThreatIntelSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ThreatIntelSetTag']]]:
+        return pulumi.get(self, "tags")
 

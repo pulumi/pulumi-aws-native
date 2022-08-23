@@ -1229,6 +1229,8 @@ type OriginEndpointDashPackage struct {
 	AdTriggers                []OriginEndpointDashPackageAdTriggersItem `pulumi:"adTriggers"`
 	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions  `pulumi:"adsOnDeliveryRestrictions"`
 	Encryption                *OriginEndpointDashEncryption             `pulumi:"encryption"`
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout *OriginEndpointDashPackageManifestLayout `pulumi:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
@@ -1250,7 +1252,7 @@ type OriginEndpointDashPackage struct {
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 	UtcTiming *OriginEndpointDashPackageUtcTiming `pulumi:"utcTiming"`
-	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 	UtcTimingUri *string `pulumi:"utcTimingUri"`
 }
 
@@ -1271,6 +1273,8 @@ type OriginEndpointDashPackageArgs struct {
 	AdTriggers                OriginEndpointDashPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
 	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
 	Encryption                OriginEndpointDashEncryptionPtrInput              `pulumi:"encryption"`
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout OriginEndpointDashPackageManifestLayoutPtrInput `pulumi:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
@@ -1292,7 +1296,7 @@ type OriginEndpointDashPackageArgs struct {
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 	UtcTiming OriginEndpointDashPackageUtcTimingPtrInput `pulumi:"utcTiming"`
-	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 	UtcTimingUri pulumi.StringPtrInput `pulumi:"utcTimingUri"`
 }
 
@@ -1389,6 +1393,11 @@ func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncrypti
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashEncryption { return v.Encryption }).(OriginEndpointDashEncryptionPtrOutput)
 }
 
+// When enabled, an I-Frame only stream will be included in the output.
+func (o OriginEndpointDashPackageOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
+}
+
 // Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 func (o OriginEndpointDashPackageOutput) ManifestLayout() OriginEndpointDashPackageManifestLayoutPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageManifestLayout { return v.ManifestLayout }).(OriginEndpointDashPackageManifestLayoutPtrOutput)
@@ -1447,7 +1456,7 @@ func (o OriginEndpointDashPackageOutput) UtcTiming() OriginEndpointDashPackageUt
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageUtcTiming { return v.UtcTiming }).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
-// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 func (o OriginEndpointDashPackageOutput) UtcTimingUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTimingUri }).(pulumi.StringPtrOutput)
 }
@@ -1502,6 +1511,16 @@ func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncry
 		}
 		return v.Encryption
 	}).(OriginEndpointDashEncryptionPtrOutput)
+}
+
+// When enabled, an I-Frame only stream will be included in the output.
+func (o OriginEndpointDashPackagePtrOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeIframeOnlyStream
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -1613,7 +1632,7 @@ func (o OriginEndpointDashPackagePtrOutput) UtcTiming() OriginEndpointDashPackag
 	}).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
-// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 func (o OriginEndpointDashPackagePtrOutput) UtcTimingUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {

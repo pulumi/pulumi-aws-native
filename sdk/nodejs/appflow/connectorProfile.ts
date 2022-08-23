@@ -40,6 +40,10 @@ export class ConnectorProfile extends pulumi.CustomResource {
      */
     public readonly connectionMode!: pulumi.Output<enums.appflow.ConnectorProfileConnectionMode>;
     /**
+     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+     */
+    public readonly connectorLabel!: pulumi.Output<string | undefined>;
+    /**
      * Unique identifier for connector profile resources
      */
     public /*out*/ readonly connectorProfileArn!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'connectorType'");
             }
             resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
+            resourceInputs["connectorLabel"] = args ? args.connectorLabel : undefined;
             resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
             resourceInputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
             resourceInputs["connectorType"] = args ? args.connectorType : undefined;
@@ -90,6 +95,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["credentialsArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectionMode"] = undefined /*out*/;
+            resourceInputs["connectorLabel"] = undefined /*out*/;
             resourceInputs["connectorProfileArn"] = undefined /*out*/;
             resourceInputs["connectorProfileConfig"] = undefined /*out*/;
             resourceInputs["connectorProfileName"] = undefined /*out*/;
@@ -110,6 +116,10 @@ export interface ConnectorProfileArgs {
      * Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
      */
     connectionMode: pulumi.Input<enums.appflow.ConnectorProfileConnectionMode>;
+    /**
+     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+     */
+    connectorLabel?: pulumi.Input<string>;
     /**
      * Connector specific configurations needed to create connector profile
      */

@@ -69,12 +69,7 @@ class SiteToSiteVpnAttachmentArgs:
         pulumi.set(self, "vpn_connection_arn", value)
 
 
-warnings.warn("""SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SiteToSiteVpnAttachment(pulumi.CustomResource):
-    warnings.warn("""SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -120,7 +115,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SiteToSiteVpnAttachment is deprecated: SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

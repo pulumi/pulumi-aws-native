@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of API entity that the documentation content applies to.
+type DocumentationPartLocationType string
+
+const (
+	DocumentationPartLocationTypeApi            = DocumentationPartLocationType("API")
+	DocumentationPartLocationTypeAuthorizer     = DocumentationPartLocationType("AUTHORIZER")
+	DocumentationPartLocationTypeModel          = DocumentationPartLocationType("MODEL")
+	DocumentationPartLocationTypeResource       = DocumentationPartLocationType("RESOURCE")
+	DocumentationPartLocationTypeMethod         = DocumentationPartLocationType("METHOD")
+	DocumentationPartLocationTypePathParameter  = DocumentationPartLocationType("PATH_PARAMETER")
+	DocumentationPartLocationTypeQueryParameter = DocumentationPartLocationType("QUERY_PARAMETER")
+	DocumentationPartLocationTypeRequestHeader  = DocumentationPartLocationType("REQUEST_HEADER")
+	DocumentationPartLocationTypeRequestBody    = DocumentationPartLocationType("REQUEST_BODY")
+	DocumentationPartLocationTypeResponse       = DocumentationPartLocationType("RESPONSE")
+	DocumentationPartLocationTypeResponseHeader = DocumentationPartLocationType("RESPONSE_HEADER")
+	DocumentationPartLocationTypeResponseBody   = DocumentationPartLocationType("RESPONSE_BODY")
+)
+
+func (DocumentationPartLocationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocationType)(nil)).Elem()
+}
+
+func (e DocumentationPartLocationType) ToDocumentationPartLocationTypeOutput() DocumentationPartLocationTypeOutput {
+	return pulumi.ToOutput(e).(DocumentationPartLocationTypeOutput)
+}
+
+func (e DocumentationPartLocationType) ToDocumentationPartLocationTypeOutputWithContext(ctx context.Context) DocumentationPartLocationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentationPartLocationTypeOutput)
+}
+
+func (e DocumentationPartLocationType) ToDocumentationPartLocationTypePtrOutput() DocumentationPartLocationTypePtrOutput {
+	return e.ToDocumentationPartLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DocumentationPartLocationType) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
+	return DocumentationPartLocationType(e).ToDocumentationPartLocationTypeOutputWithContext(ctx).ToDocumentationPartLocationTypePtrOutputWithContext(ctx)
+}
+
+func (e DocumentationPartLocationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentationPartLocationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentationPartLocationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentationPartLocationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentationPartLocationTypeOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocationType)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypeOutput() DocumentationPartLocationTypeOutput {
+	return o
+}
+
+func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypeOutputWithContext(ctx context.Context) DocumentationPartLocationTypeOutput {
+	return o
+}
+
+func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypePtrOutput() DocumentationPartLocationTypePtrOutput {
+	return o.ToDocumentationPartLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocationType) *DocumentationPartLocationType {
+		return &v
+	}).(DocumentationPartLocationTypePtrOutput)
+}
+
+func (o DocumentationPartLocationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentationPartLocationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentationPartLocationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentationPartLocationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentationPartLocationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPartLocationType)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationTypePtrOutput) ToDocumentationPartLocationTypePtrOutput() DocumentationPartLocationTypePtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationTypePtrOutput) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationTypePtrOutput) Elem() DocumentationPartLocationTypeOutput {
+	return o.ApplyT(func(v *DocumentationPartLocationType) DocumentationPartLocationType {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentationPartLocationType
+		return ret
+	}).(DocumentationPartLocationTypeOutput)
+}
+
+func (o DocumentationPartLocationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentationPartLocationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentationPartLocationTypeInput is an input type that accepts DocumentationPartLocationTypeArgs and DocumentationPartLocationTypeOutput values.
+// You can construct a concrete instance of `DocumentationPartLocationTypeInput` via:
+//
+//	DocumentationPartLocationTypeArgs{...}
+type DocumentationPartLocationTypeInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationTypeOutput() DocumentationPartLocationTypeOutput
+	ToDocumentationPartLocationTypeOutputWithContext(context.Context) DocumentationPartLocationTypeOutput
+}
+
+var documentationPartLocationTypePtrType = reflect.TypeOf((**DocumentationPartLocationType)(nil)).Elem()
+
+type DocumentationPartLocationTypePtrInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationTypePtrOutput() DocumentationPartLocationTypePtrOutput
+	ToDocumentationPartLocationTypePtrOutputWithContext(context.Context) DocumentationPartLocationTypePtrOutput
+}
+
+type documentationPartLocationTypePtr string
+
+func DocumentationPartLocationTypePtr(v string) DocumentationPartLocationTypePtrInput {
+	return (*documentationPartLocationTypePtr)(&v)
+}
+
+func (*documentationPartLocationTypePtr) ElementType() reflect.Type {
+	return documentationPartLocationTypePtrType
+}
+
+func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOutput() DocumentationPartLocationTypePtrOutput {
+	return pulumi.ToOutput(in).(DocumentationPartLocationTypePtrOutput)
+}
+
+func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentationPartLocationTypePtrOutput)
+}
+
 // The method's authorization type.
 type MethodAuthorizationType string
 
@@ -1171,6 +1346,8 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypeInput)(nil)).Elem(), DocumentationPartLocationType("API"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypePtrInput)(nil)).Elem(), DocumentationPartLocationType("API"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypeInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypePtrInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypeInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
@@ -1185,6 +1362,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationTypePtrInput)(nil)).Elem(), MethodIntegrationType("AWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypeInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypePtrInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
+	pulumi.RegisterOutputType(DocumentationPartLocationTypeOutput{})
+	pulumi.RegisterOutputType(DocumentationPartLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodAuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(MethodAuthorizationTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypeOutput{})

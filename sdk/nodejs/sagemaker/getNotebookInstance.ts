@@ -28,6 +28,7 @@ export interface GetNotebookInstanceResult {
     readonly additionalCodeRepositories?: string[];
     readonly defaultCodeRepository?: string;
     readonly id?: string;
+    readonly instanceMetadataServiceConfiguration?: outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration;
     readonly instanceType?: string;
     readonly lifecycleConfigName?: string;
     readonly roleArn?: string;

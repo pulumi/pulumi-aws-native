@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.FMS
         public Output<bool?> ResourcesCleanUp { get; private set; } = null!;
 
         [Output("securityServicePolicyData")]
-        public Output<Outputs.SecurityServicePolicyDataProperties> SecurityServicePolicyData { get; private set; } = null!;
+        public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PolicyTag>> Tags { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.FMS
         public Input<bool>? ResourcesCleanUp { get; set; }
 
         [Input("securityServicePolicyData", required: true)]
-        public Input<Inputs.SecurityServicePolicyDataPropertiesArgs> SecurityServicePolicyData { get; set; } = null!;
+        public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.PolicyTagArgs>? _tags;

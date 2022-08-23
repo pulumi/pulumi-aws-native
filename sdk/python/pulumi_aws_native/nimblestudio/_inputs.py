@@ -16,14 +16,9 @@ __all__ = [
     'LaunchProfileStreamingSessionStorageRootArgs',
     'LaunchProfileTagsArgs',
     'StreamingImageTagsArgs',
-    'StudioComponentActiveDirectoryComputerAttributeArgs',
-    'StudioComponentActiveDirectoryConfigurationArgs',
-    'StudioComponentComputeFarmConfigurationArgs',
     'StudioComponentConfigurationArgs',
     'StudioComponentInitializationScriptArgs',
-    'StudioComponentLicenseServiceConfigurationArgs',
     'StudioComponentScriptParameterKeyValueArgs',
-    'StudioComponentSharedFileSystemConfigurationArgs',
     'StudioComponentTagsArgs',
     'StudioEncryptionConfigurationArgs',
     'StudioTagsArgs',
@@ -32,21 +27,20 @@ __all__ = [
 @pulumi.input_type
 class LaunchProfileStreamConfigurationSessionStorageArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]] = None,
+                 mode: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]],
                  root: Optional[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs']] = None):
         """
         <p>The configuration for a streaming session’s upload storage.</p>
         :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
         """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if root is not None:
             pulumi.set(__self__, "root", root)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]]:
+    def mode(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]:
         """
         <p>Allows artists to upload files to their workstations. The only valid option is
                         <code>UPLOAD</code>.</p>
@@ -54,7 +48,7 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]]):
+    def mode(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]):
         pulumi.set(self, "mode", value)
 
     @property
@@ -89,13 +83,14 @@ class LaunchProfileStreamConfigurationArgs:
         :param pulumi.Input[float] max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
                            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
                        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                           StopStreamingSession, the session fails. If the time that a session stays in the READY
-                           state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-                           terminated by AWS (instead of stopped).</p>
+                               <code>StopStreamingSession</code>, the session fails. If the time that a session
+                           stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+                           session will automatically be terminated (instead of stopped).</p>
                        <p>If the value is set to a positive number, the session can be stopped. You can call
-                           StopStreamingSession to stop sessions in the READY state. If the time that a session
-                           stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-                           automatically be stopped by AWS (instead of terminated).</p>
+                               <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+                           that a session stays in the READY state exceeds the
+                               <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+                           stopped (instead of terminated).</p>
         """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
@@ -164,13 +159,14 @@ class LaunchProfileStreamConfigurationArgs:
         <p>Integer that determines if you can start and stop your sessions and how long a session
                     can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
                 <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                    StopStreamingSession, the session fails. If the time that a session stays in the READY
-                    state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-                    terminated by AWS (instead of stopped).</p>
+                        <code>StopStreamingSession</code>, the session fails. If the time that a session
+                    stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+                    session will automatically be terminated (instead of stopped).</p>
                 <p>If the value is set to a positive number, the session can be stopped. You can call
-                    StopStreamingSession to stop sessions in the READY state. If the time that a session
-                    stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-                    automatically be stopped by AWS (instead of terminated).</p>
+                        <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+                    that a session stays in the READY state exceeds the
+                        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+                    stopped (instead of terminated).</p>
         """
         return pulumi.get(self, "max_stopped_session_length_in_minutes")
 
@@ -242,195 +238,12 @@ class StreamingImageTagsArgs:
 
 
 @pulumi.input_type
-class StudioComponentActiveDirectoryComputerAttributeArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
-        :param pulumi.Input[str] name: <p>The name for the LDAP attribute.</p>
-        :param pulumi.Input[str] value: <p>The value for the LDAP attribute.</p>
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The name for the LDAP attribute.</p>
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The value for the LDAP attribute.</p>
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class StudioComponentActiveDirectoryConfigurationArgs:
-    def __init__(__self__, *,
-                 computer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]] = None,
-                 directory_id: Optional[pulumi.Input[str]] = None,
-                 organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
-        """
-        <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]] computer_attributes: <p>A collection of custom attributes for an Active Directory computer.</p>
-        :param pulumi.Input[str] directory_id: <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
-        :param pulumi.Input[str] organizational_unit_distinguished_name: <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
-        """
-        if computer_attributes is not None:
-            pulumi.set(__self__, "computer_attributes", computer_attributes)
-        if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
-        if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
-
-    @property
-    @pulumi.getter(name="computerAttributes")
-    def computer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]]:
-        """
-        <p>A collection of custom attributes for an Active Directory computer.</p>
-        """
-        return pulumi.get(self, "computer_attributes")
-
-    @computer_attributes.setter
-    def computer_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]]):
-        pulumi.set(self, "computer_attributes", value)
-
-    @property
-    @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
-        """
-        return pulumi.get(self, "directory_id")
-
-    @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "directory_id", value)
-
-    @property
-    @pulumi.getter(name="organizationalUnitDistinguishedName")
-    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
-        """
-        return pulumi.get(self, "organizational_unit_distinguished_name")
-
-    @organizational_unit_distinguished_name.setter
-    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "organizational_unit_distinguished_name", value)
-
-
-@pulumi.input_type
-class StudioComponentComputeFarmConfigurationArgs:
-    def __init__(__self__, *,
-                 active_directory_user: Optional[pulumi.Input[str]] = None,
-                 endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        <p>The configuration for a render farm that is associated with a studio resource.</p>
-        :param pulumi.Input[str] active_directory_user: <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
-        """
-        if active_directory_user is not None:
-            pulumi.set(__self__, "active_directory_user", active_directory_user)
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-
-    @property
-    @pulumi.getter(name="activeDirectoryUser")
-    def active_directory_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
-        """
-        return pulumi.get(self, "active_directory_user")
-
-    @active_directory_user.setter
-    def active_directory_user(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "active_directory_user", value)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint", value)
-
-
-@pulumi.input_type
 class StudioComponentConfigurationArgs:
-    def __init__(__self__, *,
-                 active_directory_configuration: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']] = None,
-                 compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
-                 license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
-                 shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None):
+    def __init__(__self__):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        if active_directory_configuration is not None:
-            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
-        if compute_farm_configuration is not None:
-            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
-        if license_service_configuration is not None:
-            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
-        if shared_file_system_configuration is not None:
-            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
-
-    @property
-    @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]:
-        return pulumi.get(self, "active_directory_configuration")
-
-    @active_directory_configuration.setter
-    def active_directory_configuration(self, value: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]):
-        pulumi.set(self, "active_directory_configuration", value)
-
-    @property
-    @pulumi.getter(name="computeFarmConfiguration")
-    def compute_farm_configuration(self) -> Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]:
-        return pulumi.get(self, "compute_farm_configuration")
-
-    @compute_farm_configuration.setter
-    def compute_farm_configuration(self, value: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]):
-        pulumi.set(self, "compute_farm_configuration", value)
-
-    @property
-    @pulumi.getter(name="licenseServiceConfiguration")
-    def license_service_configuration(self) -> Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]:
-        return pulumi.get(self, "license_service_configuration")
-
-    @license_service_configuration.setter
-    def license_service_configuration(self, value: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]):
-        pulumi.set(self, "license_service_configuration", value)
-
-    @property
-    @pulumi.getter(name="sharedFileSystemConfiguration")
-    def shared_file_system_configuration(self) -> Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]:
-        return pulumi.get(self, "shared_file_system_configuration")
-
-    @shared_file_system_configuration.setter
-    def shared_file_system_configuration(self, value: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]):
-        pulumi.set(self, "shared_file_system_configuration", value)
+        pass
 
 
 @pulumi.input_type
@@ -442,7 +255,8 @@ class StudioComponentInitializationScriptArgs:
                  script: Optional[pulumi.Input[str]] = None):
         """
         <p>Initialization scripts for studio components.</p>
-        :param pulumi.Input[str] launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param pulumi.Input[str] launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid
+                           version is "2021-03-31".</p>
         :param pulumi.Input[str] script: <p>The initialization script.</p>
         """
         if launch_profile_protocol_version is not None:
@@ -458,7 +272,8 @@ class StudioComponentInitializationScriptArgs:
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        <p>The version number of the protocol that is used by the launch profile. The only valid
+                    version is "2021-03-31".</p>
         """
         return pulumi.get(self, "launch_profile_protocol_version")
 
@@ -495,30 +310,6 @@ class StudioComponentInitializationScriptArgs:
     @script.setter
     def script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script", value)
-
-
-@pulumi.input_type
-class StudioComponentLicenseServiceConfigurationArgs:
-    def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        <p>The configuration for a license service that is associated with a studio resource.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the license service that is accessed by the studio component resource.</p>
-        """
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The endpoint of the license service that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint", value)
 
 
 @pulumi.input_type
@@ -559,94 +350,6 @@ class StudioComponentScriptParameterKeyValueArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class StudioComponentSharedFileSystemConfigurationArgs:
-    def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[str]] = None,
-                 file_system_id: Optional[pulumi.Input[str]] = None,
-                 linux_mount_point: Optional[pulumi.Input[str]] = None,
-                 share_name: Optional[pulumi.Input[str]] = None,
-                 windows_mount_drive: Optional[pulumi.Input[str]] = None):
-        """
-        <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
-        :param pulumi.Input[str] file_system_id: <p>The unique identifier for a file system.</p>
-        :param pulumi.Input[str] linux_mount_point: <p>The mount location for a shared file system on a Linux virtual workstation.</p>
-        :param pulumi.Input[str] share_name: <p>The name of the file share.</p>
-        :param pulumi.Input[str] windows_mount_drive: <p>The mount location for a shared file system on a Windows virtual workstation.</p>
-        """
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-        if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
-        if linux_mount_point is not None:
-            pulumi.set(__self__, "linux_mount_point", linux_mount_point)
-        if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
-        if windows_mount_drive is not None:
-            pulumi.set(__self__, "windows_mount_drive", windows_mount_drive)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint", value)
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The unique identifier for a file system.</p>
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
-    @pulumi.getter(name="linuxMountPoint")
-    def linux_mount_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The mount location for a shared file system on a Linux virtual workstation.</p>
-        """
-        return pulumi.get(self, "linux_mount_point")
-
-    @linux_mount_point.setter
-    def linux_mount_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "linux_mount_point", value)
-
-    @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The name of the file share.</p>
-        """
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "share_name", value)
-
-    @property
-    @pulumi.getter(name="windowsMountDrive")
-    def windows_mount_drive(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The mount location for a shared file system on a Windows virtual workstation.</p>
-        """
-        return pulumi.get(self, "windows_mount_drive")
-
-    @windows_mount_drive.setter
-    def windows_mount_drive(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "windows_mount_drive", value)
 
 
 @pulumi.input_type

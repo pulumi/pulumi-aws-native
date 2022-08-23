@@ -24,6 +24,7 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
+    readonly autoTerminationPolicy?: outputs.emr.ClusterAutoTerminationPolicy;
     readonly id?: string;
     readonly instances?: outputs.emr.ClusterJobFlowInstancesConfig;
     readonly managedScalingPolicy?: outputs.emr.ClusterManagedScalingPolicy;

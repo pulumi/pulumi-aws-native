@@ -7,6 +7,36 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.AppFlow
 {
+    [EnumType]
+    public readonly struct ConnectorProfileAuthenticationType : IEquatable<ConnectorProfileAuthenticationType>
+    {
+        private readonly string _value;
+
+        private ConnectorProfileAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorProfileAuthenticationType Oauth2 { get; } = new ConnectorProfileAuthenticationType("OAUTH2");
+        public static ConnectorProfileAuthenticationType Apikey { get; } = new ConnectorProfileAuthenticationType("APIKEY");
+        public static ConnectorProfileAuthenticationType Basic { get; } = new ConnectorProfileAuthenticationType("BASIC");
+        public static ConnectorProfileAuthenticationType Custom { get; } = new ConnectorProfileAuthenticationType("CUSTOM");
+
+        public static bool operator ==(ConnectorProfileAuthenticationType left, ConnectorProfileAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(ConnectorProfileAuthenticationType left, ConnectorProfileAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorProfileAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorProfileAuthenticationType other && Equals(other);
+        public bool Equals(ConnectorProfileAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
     /// </summary>
@@ -64,6 +94,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static ConnectorProfileConnectorType Infornexus { get; } = new ConnectorProfileConnectorType("Infornexus");
         public static ConnectorProfileConnectorType Amplitude { get; } = new ConnectorProfileConnectorType("Amplitude");
         public static ConnectorProfileConnectorType Veeva { get; } = new ConnectorProfileConnectorType("Veeva");
+        public static ConnectorProfileConnectorType CustomConnector { get; } = new ConnectorProfileConnectorType("CustomConnector");
 
         public static bool operator ==(ConnectorProfileConnectorType left, ConnectorProfileConnectorType right) => left.Equals(right);
         public static bool operator !=(ConnectorProfileConnectorType left, ConnectorProfileConnectorType right) => !left.Equals(right);
@@ -73,6 +104,34 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectorProfileConnectorType other && Equals(other);
         public bool Equals(ConnectorProfileConnectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorProfileOAuth2GrantType : IEquatable<ConnectorProfileOAuth2GrantType>
+    {
+        private readonly string _value;
+
+        private ConnectorProfileOAuth2GrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorProfileOAuth2GrantType ClientCredentials { get; } = new ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS");
+        public static ConnectorProfileOAuth2GrantType AuthorizationCode { get; } = new ConnectorProfileOAuth2GrantType("AUTHORIZATION_CODE");
+
+        public static bool operator ==(ConnectorProfileOAuth2GrantType left, ConnectorProfileOAuth2GrantType right) => left.Equals(right);
+        public static bool operator !=(ConnectorProfileOAuth2GrantType left, ConnectorProfileOAuth2GrantType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorProfileOAuth2GrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorProfileOAuth2GrantType other && Equals(other);
+        public bool Equals(ConnectorProfileOAuth2GrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -162,6 +221,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowConnectorType Infornexus { get; } = new FlowConnectorType("Infornexus");
         public static FlowConnectorType Amplitude { get; } = new FlowConnectorType("Amplitude");
         public static FlowConnectorType Veeva { get; } = new FlowConnectorType("Veeva");
+        public static FlowConnectorType CustomConnector { get; } = new FlowConnectorType("CustomConnector");
         public static FlowConnectorType EventBridge { get; } = new FlowConnectorType("EventBridge");
         public static FlowConnectorType Upsolver { get; } = new FlowConnectorType("Upsolver");
         public static FlowConnectorType LookoutMetrics { get; } = new FlowConnectorType("LookoutMetrics");
@@ -396,6 +456,53 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowMarketoConnectorOperator other && Equals(other);
         public bool Equals(FlowMarketoConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowOperator : IEquatable<FlowOperator>
+    {
+        private readonly string _value;
+
+        private FlowOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOperator Projection { get; } = new FlowOperator("PROJECTION");
+        public static FlowOperator LessThan { get; } = new FlowOperator("LESS_THAN");
+        public static FlowOperator GreaterThan { get; } = new FlowOperator("GREATER_THAN");
+        public static FlowOperator Contains { get; } = new FlowOperator("CONTAINS");
+        public static FlowOperator Between { get; } = new FlowOperator("BETWEEN");
+        public static FlowOperator LessThanOrEqualTo { get; } = new FlowOperator("LESS_THAN_OR_EQUAL_TO");
+        public static FlowOperator GreaterThanOrEqualTo { get; } = new FlowOperator("GREATER_THAN_OR_EQUAL_TO");
+        public static FlowOperator EqualTo { get; } = new FlowOperator("EQUAL_TO");
+        public static FlowOperator NotEqualTo { get; } = new FlowOperator("NOT_EQUAL_TO");
+        public static FlowOperator Addition { get; } = new FlowOperator("ADDITION");
+        public static FlowOperator Multiplication { get; } = new FlowOperator("MULTIPLICATION");
+        public static FlowOperator Division { get; } = new FlowOperator("DIVISION");
+        public static FlowOperator Subtraction { get; } = new FlowOperator("SUBTRACTION");
+        public static FlowOperator MaskAll { get; } = new FlowOperator("MASK_ALL");
+        public static FlowOperator MaskFirstN { get; } = new FlowOperator("MASK_FIRST_N");
+        public static FlowOperator MaskLastN { get; } = new FlowOperator("MASK_LAST_N");
+        public static FlowOperator ValidateNonNull { get; } = new FlowOperator("VALIDATE_NON_NULL");
+        public static FlowOperator ValidateNonZero { get; } = new FlowOperator("VALIDATE_NON_ZERO");
+        public static FlowOperator ValidateNonNegative { get; } = new FlowOperator("VALIDATE_NON_NEGATIVE");
+        public static FlowOperator ValidateNumeric { get; } = new FlowOperator("VALIDATE_NUMERIC");
+        public static FlowOperator NoOp { get; } = new FlowOperator("NO_OP");
+
+        public static bool operator ==(FlowOperator left, FlowOperator right) => left.Equals(right);
+        public static bool operator !=(FlowOperator left, FlowOperator right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOperator other && Equals(other);
+        public bool Equals(FlowOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -991,6 +1098,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowWriteOperationType Insert { get; } = new FlowWriteOperationType("INSERT");
         public static FlowWriteOperationType Upsert { get; } = new FlowWriteOperationType("UPSERT");
         public static FlowWriteOperationType Update { get; } = new FlowWriteOperationType("UPDATE");
+        public static FlowWriteOperationType Delete { get; } = new FlowWriteOperationType("DELETE");
 
         public static bool operator ==(FlowWriteOperationType left, FlowWriteOperationType right) => left.Equals(right);
         public static bool operator !=(FlowWriteOperationType left, FlowWriteOperationType right) => !left.Equals(right);

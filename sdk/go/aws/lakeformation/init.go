@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:lakeformation:DataCellsFilter":
+		r = &DataCellsFilter{}
 	case "aws-native:lakeformation:DataLakeSettings":
 		r = &DataLakeSettings{}
 	case "aws-native:lakeformation:Permissions":
 		r = &Permissions{}
+	case "aws-native:lakeformation:PrincipalPermissions":
+		r = &PrincipalPermissions{}
 	case "aws-native:lakeformation:Resource":
 		r = &Resource{}
+	case "aws-native:lakeformation:Tag":
+		r = &Tag{}
+	case "aws-native:lakeformation:TagAssociation":
+		r = &TagAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

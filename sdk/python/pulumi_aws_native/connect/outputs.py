@@ -18,6 +18,7 @@ __all__ = [
     'HoursOfOperationConfig',
     'HoursOfOperationTag',
     'HoursOfOperationTimeSlice',
+    'InstanceAttributes',
     'PhoneNumberTag',
     'QuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
@@ -285,6 +286,94 @@ class HoursOfOperationTimeSlice(dict):
         The minutes.
         """
         return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class InstanceAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundCalls":
+            suggest = "inbound_calls"
+        elif key == "outboundCalls":
+            suggest = "outbound_calls"
+        elif key == "autoResolveBestVoices":
+            suggest = "auto_resolve_best_voices"
+        elif key == "contactLens":
+            suggest = "contact_lens"
+        elif key == "contactflowLogs":
+            suggest = "contactflow_logs"
+        elif key == "earlyMedia":
+            suggest = "early_media"
+        elif key == "useCustomTTSVoices":
+            suggest = "use_custom_tts_voices"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inbound_calls: bool,
+                 outbound_calls: bool,
+                 auto_resolve_best_voices: Optional[bool] = None,
+                 contact_lens: Optional[bool] = None,
+                 contactflow_logs: Optional[bool] = None,
+                 early_media: Optional[bool] = None,
+                 use_custom_tts_voices: Optional[bool] = None):
+        pulumi.set(__self__, "inbound_calls", inbound_calls)
+        pulumi.set(__self__, "outbound_calls", outbound_calls)
+        if auto_resolve_best_voices is not None:
+            pulumi.set(__self__, "auto_resolve_best_voices", auto_resolve_best_voices)
+        if contact_lens is not None:
+            pulumi.set(__self__, "contact_lens", contact_lens)
+        if contactflow_logs is not None:
+            pulumi.set(__self__, "contactflow_logs", contactflow_logs)
+        if early_media is not None:
+            pulumi.set(__self__, "early_media", early_media)
+        if use_custom_tts_voices is not None:
+            pulumi.set(__self__, "use_custom_tts_voices", use_custom_tts_voices)
+
+    @property
+    @pulumi.getter(name="inboundCalls")
+    def inbound_calls(self) -> bool:
+        return pulumi.get(self, "inbound_calls")
+
+    @property
+    @pulumi.getter(name="outboundCalls")
+    def outbound_calls(self) -> bool:
+        return pulumi.get(self, "outbound_calls")
+
+    @property
+    @pulumi.getter(name="autoResolveBestVoices")
+    def auto_resolve_best_voices(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_resolve_best_voices")
+
+    @property
+    @pulumi.getter(name="contactLens")
+    def contact_lens(self) -> Optional[bool]:
+        return pulumi.get(self, "contact_lens")
+
+    @property
+    @pulumi.getter(name="contactflowLogs")
+    def contactflow_logs(self) -> Optional[bool]:
+        return pulumi.get(self, "contactflow_logs")
+
+    @property
+    @pulumi.getter(name="earlyMedia")
+    def early_media(self) -> Optional[bool]:
+        return pulumi.get(self, "early_media")
+
+    @property
+    @pulumi.getter(name="useCustomTTSVoices")
+    def use_custom_tts_voices(self) -> Optional[bool]:
+        return pulumi.get(self, "use_custom_tts_voices")
 
 
 @pulumi.output_type

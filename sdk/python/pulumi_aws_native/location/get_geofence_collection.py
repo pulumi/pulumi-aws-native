@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGeofenceCollectionResult:
-    def __init__(__self__, arn=None, collection_arn=None, create_time=None, kms_key_id=None, update_time=None):
+    def __init__(__self__, arn=None, collection_arn=None, create_time=None, pricing_plan_data_source=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,9 +28,9 @@ class GetGeofenceCollectionResult:
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
-        if kms_key_id and not isinstance(kms_key_id, str):
-            raise TypeError("Expected argument 'kms_key_id' to be a str")
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if pricing_plan_data_source and not isinstance(pricing_plan_data_source, str):
+            raise TypeError("Expected argument 'pricing_plan_data_source' to be a str")
+        pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
@@ -51,9 +51,9 @@ class GetGeofenceCollectionResult:
         return pulumi.get(self, "create_time")
 
     @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
-        return pulumi.get(self, "kms_key_id")
+    @pulumi.getter(name="pricingPlanDataSource")
+    def pricing_plan_data_source(self) -> Optional[str]:
+        return pulumi.get(self, "pricing_plan_data_source")
 
     @property
     @pulumi.getter(name="updateTime")
@@ -70,7 +70,7 @@ class AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
             arn=self.arn,
             collection_arn=self.collection_arn,
             create_time=self.create_time,
-            kms_key_id=self.kms_key_id,
+            pricing_plan_data_source=self.pricing_plan_data_source,
             update_time=self.update_time)
 
 
@@ -88,7 +88,7 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         arn=__ret__.arn,
         collection_arn=__ret__.collection_arn,
         create_time=__ret__.create_time,
-        kms_key_id=__ret__.kms_key_id,
+        pricing_plan_data_source=__ret__.pricing_plan_data_source,
         update_time=__ret__.update_time)
 
 

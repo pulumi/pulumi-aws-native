@@ -17,15 +17,19 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLSqliMatchStatement
     {
         public readonly Outputs.WebACLFieldToMatch FieldToMatch;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLSensitivityLevel? SensitivityLevel;
         public readonly ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations;
 
         [OutputConstructor]
         private WebACLSqliMatchStatement(
             Outputs.WebACLFieldToMatch fieldToMatch,
 
+            Pulumi.AwsNative.WAFv2.WebACLSensitivityLevel? sensitivityLevel,
+
             ImmutableArray<Outputs.WebACLTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            SensitivityLevel = sensitivityLevel;
             TextTransformations = textTransformations;
         }
     }

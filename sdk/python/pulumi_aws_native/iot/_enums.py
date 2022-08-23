@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AuthorizerStatus',
+    'CACertificateAutoRegistrationStatus',
+    'CACertificateCertificateMode',
+    'CACertificateStatus',
     'CertificateMode',
     'CertificateStatus',
     'CustomMetricMetricType',
@@ -22,6 +25,7 @@ __all__ = [
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCACertificateParamsAction',
     'MitigationActionUpdateDeviceCertificateParamsAction',
+    'ProvisioningTemplateTemplateType',
     'ResourceSpecificLoggingLogLevel',
     'ResourceSpecificLoggingTargetType',
     'ScheduledAuditDayOfWeek',
@@ -36,6 +40,21 @@ __all__ = [
 
 
 class AuthorizerStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class CACertificateAutoRegistrationStatus(str, Enum):
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
+
+
+class CACertificateCertificateMode(str, Enum):
+    DEFAULT = "DEFAULT"
+    SNI_ONLY = "SNI_ONLY"
+
+
+class CACertificateStatus(str, Enum):
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
 
@@ -140,6 +159,11 @@ class MitigationActionUpdateCACertificateParamsAction(str, Enum):
 
 class MitigationActionUpdateDeviceCertificateParamsAction(str, Enum):
     DEACTIVATE = "DEACTIVATE"
+
+
+class ProvisioningTemplateTemplateType(str, Enum):
+    FLEET_PROVISIONING = "FLEET_PROVISIONING"
+    JITP = "JITP"
 
 
 class ResourceSpecificLoggingLogLevel(str, Enum):

@@ -25,6 +25,7 @@ __all__ = [
     'RuleGroupPositionalConstraint',
     'RuleGroupRateBasedStatementAggregateKeyType',
     'RuleGroupScope',
+    'RuleGroupSensitivityLevel',
     'RuleGroupSizeConstraintStatementComparisonOperator',
     'RuleGroupTextTransformationType',
     'WebACLBodyParsingFallbackBehavior',
@@ -39,6 +40,7 @@ __all__ = [
     'WebACLPositionalConstraint',
     'WebACLRateBasedStatementAggregateKeyType',
     'WebACLScope',
+    'WebACLSensitivityLevel',
     'WebACLSizeConstraintStatementComparisonOperator',
     'WebACLTextTransformationType',
 ]
@@ -202,6 +204,14 @@ class RuleGroupScope(str, Enum):
     REGIONAL = "REGIONAL"
 
 
+class RuleGroupSensitivityLevel(str, Enum):
+    """
+    Sensitivity Level current only used for sqli match statements.
+    """
+    LOW = "LOW"
+    HIGH = "HIGH"
+
+
 class RuleGroupSizeConstraintStatementComparisonOperator(str, Enum):
     EQ = "EQ"
     NE = "NE"
@@ -322,6 +332,14 @@ class WebACLScope(str, Enum):
     """
     CLOUDFRONT = "CLOUDFRONT"
     REGIONAL = "REGIONAL"
+
+
+class WebACLSensitivityLevel(str, Enum):
+    """
+    Sensitivity Level current only used for sqli match statements.
+    """
+    LOW = "LOW"
+    HIGH = "HIGH"
 
 
 class WebACLSizeConstraintStatementComparisonOperator(str, Enum):

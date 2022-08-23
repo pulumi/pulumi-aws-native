@@ -625,6 +625,37 @@ namespace Pulumi.AwsNative.WAFv2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Sensitivity Level current only used for sqli match statements.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupSensitivityLevel : IEquatable<RuleGroupSensitivityLevel>
+    {
+        private readonly string _value;
+
+        private RuleGroupSensitivityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupSensitivityLevel Low { get; } = new RuleGroupSensitivityLevel("LOW");
+        public static RuleGroupSensitivityLevel High { get; } = new RuleGroupSensitivityLevel("HIGH");
+
+        public static bool operator ==(RuleGroupSensitivityLevel left, RuleGroupSensitivityLevel right) => left.Equals(right);
+        public static bool operator !=(RuleGroupSensitivityLevel left, RuleGroupSensitivityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupSensitivityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupSensitivityLevel other && Equals(other);
+        public bool Equals(RuleGroupSensitivityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RuleGroupSizeConstraintStatementComparisonOperator : IEquatable<RuleGroupSizeConstraintStatementComparisonOperator>
     {
@@ -1062,6 +1093,37 @@ namespace Pulumi.AwsNative.WAFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebACLScope other && Equals(other);
         public bool Equals(WebACLScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sensitivity Level current only used for sqli match statements.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebACLSensitivityLevel : IEquatable<WebACLSensitivityLevel>
+    {
+        private readonly string _value;
+
+        private WebACLSensitivityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLSensitivityLevel Low { get; } = new WebACLSensitivityLevel("LOW");
+        public static WebACLSensitivityLevel High { get; } = new WebACLSensitivityLevel("HIGH");
+
+        public static bool operator ==(WebACLSensitivityLevel left, WebACLSensitivityLevel right) => left.Equals(right);
+        public static bool operator !=(WebACLSensitivityLevel left, WebACLSensitivityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLSensitivityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLSensitivityLevel other && Equals(other);
+        public bool Equals(WebACLSensitivityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

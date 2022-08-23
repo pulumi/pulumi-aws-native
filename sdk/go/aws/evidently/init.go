@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Launch{}
 	case "aws-native:evidently:Project":
 		r = &Project{}
+	case "aws-native:evidently:Segment":
+		r = &Segment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

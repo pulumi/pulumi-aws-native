@@ -10,24 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
-    /// Resource Type definition for AWS::RDS::OptionGroup
+    /// The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
     /// </summary>
-    [Obsolete(@"OptionGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:OptionGroup")]
     public partial class OptionGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates the name of the engine that this option group can be applied to.
+        /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the major engine version associated with this option group.
+        /// </summary>
         [Output("majorEngineVersion")]
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates what options are available in the option group.
+        /// </summary>
         [Output("optionConfigurations")]
         public Output<ImmutableArray<Outputs.OptionGroupOptionConfiguration>> OptionConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides a description of the option group.
+        /// </summary>
         [Output("optionGroupDescription")]
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the option group.
+        /// </summary>
+        [Output("optionGroupName")]
+        public Output<string> OptionGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.OptionGroupTag>> Tags { get; private set; } = null!;
 
@@ -76,25 +96,42 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class OptionGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the name of the engine that this option group can be applied to.
+        /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates the major engine version associated with this option group.
+        /// </summary>
         [Input("majorEngineVersion", required: true)]
         public Input<string> MajorEngineVersion { get; set; } = null!;
 
-        [Input("optionConfigurations", required: true)]
+        [Input("optionConfigurations")]
         private InputList<Inputs.OptionGroupOptionConfigurationArgs>? _optionConfigurations;
+
+        /// <summary>
+        /// Indicates what options are available in the option group.
+        /// </summary>
         public InputList<Inputs.OptionGroupOptionConfigurationArgs> OptionConfigurations
         {
             get => _optionConfigurations ?? (_optionConfigurations = new InputList<Inputs.OptionGroupOptionConfigurationArgs>());
             set => _optionConfigurations = value;
         }
 
+        /// <summary>
+        /// Provides a description of the option group.
+        /// </summary>
         [Input("optionGroupDescription", required: true)]
         public Input<string> OptionGroupDescription { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.OptionGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.OptionGroupTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.OptionGroupTagArgs>());

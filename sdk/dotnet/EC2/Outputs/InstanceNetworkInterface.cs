@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class InstanceNetworkInterface
     {
+        public readonly bool? AssociateCarrierIpAddress;
         public readonly bool? AssociatePublicIpAddress;
         public readonly bool? DeleteOnTermination;
         public readonly string? Description;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private InstanceNetworkInterface(
+            bool? associateCarrierIpAddress,
+
             bool? associatePublicIpAddress,
 
             bool? deleteOnTermination,
@@ -52,6 +55,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? subnetId)
         {
+            AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
             DeleteOnTermination = deleteOnTermination;
             Description = description;

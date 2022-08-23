@@ -1663,6 +1663,172 @@ func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatR
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRecordFormatRecordFormatTypePtrOutput)
 }
 
+// Specifies how the application should be restored.
+type ApplicationRestoreConfigurationApplicationRestoreType string
+
+const (
+	ApplicationRestoreConfigurationApplicationRestoreTypeSkipRestoreFromSnapshot   = ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT")
+	ApplicationRestoreConfigurationApplicationRestoreTypeRestoreFromLatestSnapshot = ApplicationRestoreConfigurationApplicationRestoreType("RESTORE_FROM_LATEST_SNAPSHOT")
+	ApplicationRestoreConfigurationApplicationRestoreTypeRestoreFromCustomSnapshot = ApplicationRestoreConfigurationApplicationRestoreType("RESTORE_FROM_CUSTOM_SNAPSHOT")
+)
+
+func (ApplicationRestoreConfigurationApplicationRestoreType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreType)(nil)).Elem()
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToApplicationRestoreConfigurationApplicationRestoreTypeOutput() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationRestoreConfigurationApplicationRestoreTypeOutput)
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToApplicationRestoreConfigurationApplicationRestoreTypeOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationRestoreConfigurationApplicationRestoreTypeOutput)
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutput() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return e.ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return ApplicationRestoreConfigurationApplicationRestoreType(e).ToApplicationRestoreConfigurationApplicationRestoreTypeOutputWithContext(ctx).ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationRestoreConfigurationApplicationRestoreType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationRestoreConfigurationApplicationRestoreTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreType)(nil)).Elem()
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicationRestoreConfigurationApplicationRestoreTypeOutput() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicationRestoreConfigurationApplicationRestoreTypeOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutput() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return o.ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRestoreConfigurationApplicationRestoreType) *ApplicationRestoreConfigurationApplicationRestoreType {
+		return &v
+	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRestoreConfigurationApplicationRestoreType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRestoreConfigurationApplicationRestoreType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRestoreConfigurationApplicationRestoreType)(nil)).Elem()
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutput() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) Elem() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return o.ApplyT(func(v *ApplicationRestoreConfigurationApplicationRestoreType) ApplicationRestoreConfigurationApplicationRestoreType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationRestoreConfigurationApplicationRestoreType
+		return ret
+	}).(ApplicationRestoreConfigurationApplicationRestoreTypeOutput)
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationRestoreConfigurationApplicationRestoreType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationRestoreConfigurationApplicationRestoreTypeInput is an input type that accepts ApplicationRestoreConfigurationApplicationRestoreTypeArgs and ApplicationRestoreConfigurationApplicationRestoreTypeOutput values.
+// You can construct a concrete instance of `ApplicationRestoreConfigurationApplicationRestoreTypeInput` via:
+//
+//	ApplicationRestoreConfigurationApplicationRestoreTypeArgs{...}
+type ApplicationRestoreConfigurationApplicationRestoreTypeInput interface {
+	pulumi.Input
+
+	ToApplicationRestoreConfigurationApplicationRestoreTypeOutput() ApplicationRestoreConfigurationApplicationRestoreTypeOutput
+	ToApplicationRestoreConfigurationApplicationRestoreTypeOutputWithContext(context.Context) ApplicationRestoreConfigurationApplicationRestoreTypeOutput
+}
+
+var applicationRestoreConfigurationApplicationRestoreTypePtrType = reflect.TypeOf((**ApplicationRestoreConfigurationApplicationRestoreType)(nil)).Elem()
+
+type ApplicationRestoreConfigurationApplicationRestoreTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutput() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput
+	ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput
+}
+
+type applicationRestoreConfigurationApplicationRestoreTypePtr string
+
+func ApplicationRestoreConfigurationApplicationRestoreTypePtr(v string) ApplicationRestoreConfigurationApplicationRestoreTypePtrInput {
+	return (*applicationRestoreConfigurationApplicationRestoreTypePtr)(&v)
+}
+
+func (*applicationRestoreConfigurationApplicationRestoreTypePtr) ElementType() reflect.Type {
+	return applicationRestoreConfigurationApplicationRestoreTypePtrType
+}
+
+func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutput() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
+func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
 // The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
 type ApplicationZeppelinMonitoringConfigurationLogLevel string
 
@@ -1851,6 +2017,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationConfigurationTypePtrInput)(nil)).Elem(), ApplicationParallelismConfigurationConfigurationType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatRecordFormatTypeInput)(nil)).Elem(), ApplicationRecordFormatRecordFormatType("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRecordFormatRecordFormatTypePtrInput)(nil)).Elem(), ApplicationRecordFormatRecordFormatType("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreTypeInput)(nil)).Elem(), ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationApplicationRestoreTypePtrInput)(nil)).Elem(), ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelPtrInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationConfigurationTypeOutput{})
@@ -1873,6 +2041,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordFormatRecordFormatTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordFormatRecordFormatTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationRestoreConfigurationApplicationRestoreTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput{})
 }

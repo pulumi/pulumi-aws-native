@@ -1592,11 +1592,16 @@ func (o DeploymentTagArrayOutput) Index(i pulumi.IntInput) DeploymentTagOutput {
 }
 
 type DocumentationPartLocation struct {
-	Method     *string `pulumi:"method"`
-	Name       *string `pulumi:"name"`
-	Path       *string `pulumi:"path"`
+	// The HTTP verb of a method.
+	Method *string `pulumi:"method"`
+	// The name of the targeted API entity.
+	Name *string `pulumi:"name"`
+	// The URL path of the target.
+	Path *string `pulumi:"path"`
+	// The HTTP status code of a response.
 	StatusCode *string `pulumi:"statusCode"`
-	Type       *string `pulumi:"type"`
+	// The type of API entity that the documentation content applies to.
+	Type *DocumentationPartLocationType `pulumi:"type"`
 }
 
 // DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
@@ -1611,11 +1616,16 @@ type DocumentationPartLocationInput interface {
 }
 
 type DocumentationPartLocationArgs struct {
-	Method     pulumi.StringPtrInput `pulumi:"method"`
-	Name       pulumi.StringPtrInput `pulumi:"name"`
-	Path       pulumi.StringPtrInput `pulumi:"path"`
+	// The HTTP verb of a method.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The name of the targeted API entity.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The URL path of the target.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The HTTP status code of a response.
 	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
-	Type       pulumi.StringPtrInput `pulumi:"type"`
+	// The type of API entity that the documentation content applies to.
+	Type DocumentationPartLocationTypePtrInput `pulumi:"type"`
 }
 
 func (DocumentationPartLocationArgs) ElementType() reflect.Type {
@@ -1644,24 +1654,29 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithCo
 	return o
 }
 
+// The HTTP verb of a method.
 func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
+// The name of the targeted API entity.
 func (o DocumentationPartLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The URL path of the target.
 func (o DocumentationPartLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP status code of a response.
 func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
-func (o DocumentationPartLocationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The type of API entity that the documentation content applies to.
+func (o DocumentationPartLocationOutput) Type() DocumentationPartLocationTypePtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *DocumentationPartLocationType { return v.Type }).(DocumentationPartLocationTypePtrOutput)
 }
 
 type DomainNameEndpointConfiguration struct {

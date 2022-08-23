@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     {
         public readonly bool? EBSEnabled;
         public readonly int? Iops;
+        public readonly int? Throughput;
         public readonly int? VolumeSize;
         public readonly string? VolumeType;
 
@@ -24,12 +25,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             int? iops,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
         {
             EBSEnabled = eBSEnabled;
             Iops = iops;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

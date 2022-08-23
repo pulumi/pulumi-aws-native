@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVPCEndpointServiceResult:
-    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, id=None, network_load_balancer_arns=None, payer_responsibility=None):
+    def __init__(__self__, acceptance_required=None, contributor_insights_enabled=None, gateway_load_balancer_arns=None, id=None, network_load_balancer_arns=None, payer_responsibility=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
+        if contributor_insights_enabled and not isinstance(contributor_insights_enabled, bool):
+            raise TypeError("Expected argument 'contributor_insights_enabled' to be a bool")
+        pulumi.set(__self__, "contributor_insights_enabled", contributor_insights_enabled)
         if gateway_load_balancer_arns and not isinstance(gateway_load_balancer_arns, list):
             raise TypeError("Expected argument 'gateway_load_balancer_arns' to be a list")
         pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
@@ -39,6 +42,11 @@ class GetVPCEndpointServiceResult:
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> Optional[bool]:
         return pulumi.get(self, "acceptance_required")
+
+    @property
+    @pulumi.getter(name="contributorInsightsEnabled")
+    def contributor_insights_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "contributor_insights_enabled")
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerArns")
@@ -68,6 +76,7 @@ class AwaitableGetVPCEndpointServiceResult(GetVPCEndpointServiceResult):
             yield self
         return GetVPCEndpointServiceResult(
             acceptance_required=self.acceptance_required,
+            contributor_insights_enabled=self.contributor_insights_enabled,
             gateway_load_balancer_arns=self.gateway_load_balancer_arns,
             id=self.id,
             network_load_balancer_arns=self.network_load_balancer_arns,
@@ -86,6 +95,7 @@ def get_vpc_endpoint_service(id: Optional[str] = None,
 
     return AwaitableGetVPCEndpointServiceResult(
         acceptance_required=__ret__.acceptance_required,
+        contributor_insights_enabled=__ret__.contributor_insights_enabled,
         gateway_load_balancer_arns=__ret__.gateway_load_balancer_arns,
         id=__ret__.id,
         network_load_balancer_arns=__ret__.network_load_balancer_arns,

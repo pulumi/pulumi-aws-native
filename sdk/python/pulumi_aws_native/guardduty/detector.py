@@ -18,7 +18,8 @@ class DetectorArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  data_sources: Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None):
+                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
         """
@@ -27,6 +28,8 @@ class DetectorArgs:
             pulumi.set(__self__, "data_sources", data_sources)
         if finding_publishing_frequency is not None:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -55,6 +58,15 @@ class DetectorArgs:
     def finding_publishing_frequency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "finding_publishing_frequency", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -69,6 +81,7 @@ class Detector(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Detector
@@ -103,6 +116,7 @@ class Detector(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Detector is deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -118,6 +132,7 @@ class Detector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enable'")
             __props__.__dict__["enable"] = enable
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
+            __props__.__dict__["tags"] = tags
         super(Detector, __self__).__init__(
             'aws-native:guardduty:Detector',
             resource_name,
@@ -143,6 +158,7 @@ class Detector(pulumi.CustomResource):
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["enable"] = None
         __props__.__dict__["finding_publishing_frequency"] = None
+        __props__.__dict__["tags"] = None
         return Detector(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -159,4 +175,9 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "finding_publishing_frequency")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorTag']]]:
+        return pulumi.get(self, "tags")
 

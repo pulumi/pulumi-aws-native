@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'ClusterApplicationArgs',
     'ClusterAutoScalingPolicyArgs',
+    'ClusterAutoTerminationPolicyArgs',
     'ClusterBootstrapActionConfigArgs',
     'ClusterCloudWatchAlarmDefinitionArgs',
     'ClusterComputeLimitsArgs',
@@ -144,6 +145,23 @@ class ClusterAutoScalingPolicyArgs:
     @rules.setter
     def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterScalingRuleArgs']]]):
         pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class ClusterAutoTerminationPolicyArgs:
+    def __init__(__self__, *,
+                 idle_timeout: Optional[pulumi.Input[int]] = None):
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "idle_timeout")
+
+    @idle_timeout.setter
+    def idle_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout", value)
 
 
 @pulumi.input_type
@@ -805,6 +823,8 @@ class ClusterJobFlowInstancesConfigArgs:
                  master_instance_group: Optional[pulumi.Input['ClusterInstanceGroupConfigArgs']] = None,
                  placement: Optional[pulumi.Input['ClusterPlacementTypeArgs']] = None,
                  service_access_security_group: Optional[pulumi.Input[str]] = None,
+                 task_instance_fleets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceFleetConfigArgs']]]] = None,
+                 task_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupConfigArgs']]]] = None,
                  termination_protected: Optional[pulumi.Input[bool]] = None):
         if additional_master_security_groups is not None:
             pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
@@ -836,6 +856,10 @@ class ClusterJobFlowInstancesConfigArgs:
             pulumi.set(__self__, "placement", placement)
         if service_access_security_group is not None:
             pulumi.set(__self__, "service_access_security_group", service_access_security_group)
+        if task_instance_fleets is not None:
+            pulumi.set(__self__, "task_instance_fleets", task_instance_fleets)
+        if task_instance_groups is not None:
+            pulumi.set(__self__, "task_instance_groups", task_instance_groups)
         if termination_protected is not None:
             pulumi.set(__self__, "termination_protected", termination_protected)
 
@@ -973,6 +997,24 @@ class ClusterJobFlowInstancesConfigArgs:
     @service_access_security_group.setter
     def service_access_security_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_access_security_group", value)
+
+    @property
+    @pulumi.getter(name="taskInstanceFleets")
+    def task_instance_fleets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceFleetConfigArgs']]]]:
+        return pulumi.get(self, "task_instance_fleets")
+
+    @task_instance_fleets.setter
+    def task_instance_fleets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceFleetConfigArgs']]]]):
+        pulumi.set(self, "task_instance_fleets", value)
+
+    @property
+    @pulumi.getter(name="taskInstanceGroups")
+    def task_instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupConfigArgs']]]]:
+        return pulumi.get(self, "task_instance_groups")
+
+    @task_instance_groups.setter
+    def task_instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupConfigArgs']]]]):
+        pulumi.set(self, "task_instance_groups", value)
 
     @property
     @pulumi.getter(name="terminationProtected")

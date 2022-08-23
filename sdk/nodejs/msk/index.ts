@@ -11,6 +11,8 @@ export * from "./configuration";
 export * from "./getBatchScramSecret";
 export * from "./getCluster";
 export * from "./getConfiguration";
+export * from "./getServerlessCluster";
+export * from "./serverlessCluster";
 
 // Export enums:
 export * from "../types/enums/msk";
@@ -19,6 +21,7 @@ export * from "../types/enums/msk";
 import { BatchScramSecret } from "./batchScramSecret";
 import { Cluster } from "./cluster";
 import { Configuration } from "./configuration";
+import { ServerlessCluster } from "./serverlessCluster";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,6 +33,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:msk:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
+            case "aws-native:msk:ServerlessCluster":
+                return new ServerlessCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

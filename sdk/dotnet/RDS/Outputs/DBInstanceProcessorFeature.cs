@@ -13,12 +13,18 @@ namespace Pulumi.AwsNative.RDS.Outputs
     [OutputType]
     public sealed class DBInstanceProcessorFeature
     {
-        public readonly string? Name;
+        /// <summary>
+        /// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RDS.DBInstanceProcessorFeatureName? Name;
+        /// <summary>
+        /// The value of a processor feature name.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]
         private DBInstanceProcessorFeature(
-            string? name,
+            Pulumi.AwsNative.RDS.DBInstanceProcessorFeatureName? name,
 
             string? value)
         {

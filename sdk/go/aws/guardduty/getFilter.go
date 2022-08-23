@@ -30,6 +30,7 @@ type LookupFilterResult struct {
 	FindingCriteria *FilterFindingCriteria `pulumi:"findingCriteria"`
 	Id              *string                `pulumi:"id"`
 	Rank            *int                   `pulumi:"rank"`
+	Tags            []FilterTag            `pulumi:"tags"`
 }
 
 func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFilterResultOutput {
@@ -85,6 +86,10 @@ func (o LookupFilterResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupFilterResultOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *int { return v.Rank }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupFilterResultOutput) Tags() FilterTagArrayOutput {
+	return o.ApplyT(func(v LookupFilterResult) []FilterTag { return v.Tags }).(FilterTagArrayOutput)
 }
 
 func init() {

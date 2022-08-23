@@ -74,6 +74,7 @@ class OriginEndpointDashPackageProfile(str, Enum):
     NONE = "NONE"
     HBBTV15 = "HBBTV_1_5"
     HYBRIDCAST = "HYBRIDCAST"
+    DVB_DASH2014 = "DVB_DASH_2014"
 
 
 class OriginEndpointDashPackageSegmentTemplateFormat(str, Enum):
@@ -89,6 +90,7 @@ class OriginEndpointDashPackageUtcTiming(str, Enum):
     """
     Determines the type of UTCTiming included in the Media Presentation Description (MPD)
     """
+    HTTP_XSDATE = "HTTP-XSDATE"
     HTTP_ISO = "HTTP-ISO"
     HTTP_HEAD = "HTTP-HEAD"
     NONE = "NONE"
@@ -99,6 +101,10 @@ class OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio(str, Enum)
     A collection of audio encryption presets.
     """
     PRESET_AUDIO1 = "PRESET-AUDIO-1"
+    PRESET_AUDIO2 = "PRESET-AUDIO-2"
+    PRESET_AUDIO3 = "PRESET-AUDIO-3"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
 
 
 class OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(str, Enum):
@@ -106,6 +112,15 @@ class OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(str, Enum)
     A collection of video encryption presets.
     """
     PRESET_VIDEO1 = "PRESET-VIDEO-1"
+    PRESET_VIDEO2 = "PRESET-VIDEO-2"
+    PRESET_VIDEO3 = "PRESET-VIDEO-3"
+    PRESET_VIDEO4 = "PRESET-VIDEO-4"
+    PRESET_VIDEO5 = "PRESET-VIDEO-5"
+    PRESET_VIDEO6 = "PRESET-VIDEO-6"
+    PRESET_VIDEO7 = "PRESET-VIDEO-7"
+    PRESET_VIDEO8 = "PRESET-VIDEO-8"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
 
 
 class OriginEndpointHlsEncryptionEncryptionMethod(str, Enum):

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ElasticBeanstalk::Application
+// The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("aws-native:elasticbeanstalk:getApplication", args, &rv, opts...)
@@ -21,12 +21,14 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	Id string `pulumi:"id"`
+	// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName string `pulumi:"applicationName"`
 }
 
 type LookupApplicationResult struct {
-	Description             *string                             `pulumi:"description"`
-	Id                      *string                             `pulumi:"id"`
+	// Your description of the application.
+	Description *string `pulumi:"description"`
+	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `pulumi:"resourceLifecycleConfig"`
 }
 
@@ -44,7 +46,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -65,14 +68,12 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// Your description of the application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 func (o LookupApplicationResultOutput) ResourceLifecycleConfig() ApplicationResourceLifecycleConfigPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationResourceLifecycleConfig { return v.ResourceLifecycleConfig }).(ApplicationResourceLifecycleConfigPtrOutput)
 }

@@ -18,14 +18,9 @@ __all__ = [
     'LaunchProfileTags',
     'StreamingImageEncryptionConfiguration',
     'StreamingImageTags',
-    'StudioComponentActiveDirectoryComputerAttribute',
-    'StudioComponentActiveDirectoryConfiguration',
-    'StudioComponentComputeFarmConfiguration',
     'StudioComponentConfiguration',
     'StudioComponentInitializationScript',
-    'StudioComponentLicenseServiceConfiguration',
     'StudioComponentScriptParameterKeyValue',
-    'StudioComponentSharedFileSystemConfiguration',
     'StudioComponentTags',
     'StudioEncryptionConfiguration',
     'StudioTags',
@@ -83,13 +78,14 @@ class LaunchProfileStreamConfiguration(dict):
         :param float max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
                            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
                        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                           StopStreamingSession, the session fails. If the time that a session stays in the READY
-                           state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-                           terminated by AWS (instead of stopped).</p>
+                               <code>StopStreamingSession</code>, the session fails. If the time that a session
+                           stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+                           session will automatically be terminated (instead of stopped).</p>
                        <p>If the value is set to a positive number, the session can be stopped. You can call
-                           StopStreamingSession to stop sessions in the READY state. If the time that a session
-                           stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-                           automatically be stopped by AWS (instead of terminated).</p>
+                               <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+                           that a session stays in the READY state exceeds the
+                               <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+                           stopped (instead of terminated).</p>
         """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
@@ -142,13 +138,14 @@ class LaunchProfileStreamConfiguration(dict):
         <p>Integer that determines if you can start and stop your sessions and how long a session
                     can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
                 <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                    StopStreamingSession, the session fails. If the time that a session stays in the READY
-                    state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-                    terminated by AWS (instead of stopped).</p>
+                        <code>StopStreamingSession</code>, the session fails. If the time that a session
+                    stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+                    session will automatically be terminated (instead of stopped).</p>
                 <p>If the value is set to a positive number, the session can be stopped. You can call
-                    StopStreamingSession to stop sessions in the READY state. If the time that a session
-                    stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-                    automatically be stopped by AWS (instead of terminated).</p>
+                        <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+                    that a session stays in the READY state exceeds the
+                        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+                    stopped (instead of terminated).</p>
         """
         return pulumi.get(self, "max_stopped_session_length_in_minutes")
 
@@ -164,21 +161,20 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
     <p>The configuration for a streaming session’s upload storage.</p>
     """
     def __init__(__self__, *,
-                 mode: Optional[Sequence['LaunchProfileStreamingSessionStorageMode']] = None,
+                 mode: Sequence['LaunchProfileStreamingSessionStorageMode'],
                  root: Optional['outputs.LaunchProfileStreamingSessionStorageRoot'] = None):
         """
         <p>The configuration for a streaming session’s upload storage.</p>
         :param Sequence['LaunchProfileStreamingSessionStorageMode'] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
         """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if root is not None:
             pulumi.set(__self__, "root", root)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[Sequence['LaunchProfileStreamingSessionStorageMode']]:
+    def mode(self) -> Sequence['LaunchProfileStreamingSessionStorageMode']:
         """
         <p>Allows artists to upload files to their workstations. The only valid option is
                         <code>UPLOAD</code>.</p>
@@ -290,224 +286,15 @@ class StreamingImageTags(dict):
 
 
 @pulumi.output_type
-class StudioComponentActiveDirectoryComputerAttribute(dict):
-    """
-    <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
-        :param str name: <p>The name for the LDAP attribute.</p>
-        :param str value: <p>The value for the LDAP attribute.</p>
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        <p>The name for the LDAP attribute.</p>
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        <p>The value for the LDAP attribute.</p>
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class StudioComponentActiveDirectoryConfiguration(dict):
-    """
-    <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computerAttributes":
-            suggest = "computer_attributes"
-        elif key == "directoryId":
-            suggest = "directory_id"
-        elif key == "organizationalUnitDistinguishedName":
-            suggest = "organizational_unit_distinguished_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentActiveDirectoryConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentActiveDirectoryConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 computer_attributes: Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']] = None,
-                 directory_id: Optional[str] = None,
-                 organizational_unit_distinguished_name: Optional[str] = None):
-        """
-        <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
-        :param Sequence['StudioComponentActiveDirectoryComputerAttribute'] computer_attributes: <p>A collection of custom attributes for an Active Directory computer.</p>
-        :param str directory_id: <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
-        :param str organizational_unit_distinguished_name: <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
-        """
-        if computer_attributes is not None:
-            pulumi.set(__self__, "computer_attributes", computer_attributes)
-        if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
-        if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
-
-    @property
-    @pulumi.getter(name="computerAttributes")
-    def computer_attributes(self) -> Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']]:
-        """
-        <p>A collection of custom attributes for an Active Directory computer.</p>
-        """
-        return pulumi.get(self, "computer_attributes")
-
-    @property
-    @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[str]:
-        """
-        <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
-        """
-        return pulumi.get(self, "directory_id")
-
-    @property
-    @pulumi.getter(name="organizationalUnitDistinguishedName")
-    def organizational_unit_distinguished_name(self) -> Optional[str]:
-        """
-        <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
-        """
-        return pulumi.get(self, "organizational_unit_distinguished_name")
-
-
-@pulumi.output_type
-class StudioComponentComputeFarmConfiguration(dict):
-    """
-    <p>The configuration for a render farm that is associated with a studio resource.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "activeDirectoryUser":
-            suggest = "active_directory_user"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentComputeFarmConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentComputeFarmConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentComputeFarmConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 active_directory_user: Optional[str] = None,
-                 endpoint: Optional[str] = None):
-        """
-        <p>The configuration for a render farm that is associated with a studio resource.</p>
-        :param str active_directory_user: <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
-        :param str endpoint: <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
-        """
-        if active_directory_user is not None:
-            pulumi.set(__self__, "active_directory_user", active_directory_user)
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-
-    @property
-    @pulumi.getter(name="activeDirectoryUser")
-    def active_directory_user(self) -> Optional[str]:
-        """
-        <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
-        """
-        return pulumi.get(self, "active_directory_user")
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[str]:
-        """
-        <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
-
-
-@pulumi.output_type
 class StudioComponentConfiguration(dict):
     """
     <p>The configuration of the studio component, based on component type.</p>
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "activeDirectoryConfiguration":
-            suggest = "active_directory_configuration"
-        elif key == "computeFarmConfiguration":
-            suggest = "compute_farm_configuration"
-        elif key == "licenseServiceConfiguration":
-            suggest = "license_service_configuration"
-        elif key == "sharedFileSystemConfiguration":
-            suggest = "shared_file_system_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 active_directory_configuration: Optional['outputs.StudioComponentActiveDirectoryConfiguration'] = None,
-                 compute_farm_configuration: Optional['outputs.StudioComponentComputeFarmConfiguration'] = None,
-                 license_service_configuration: Optional['outputs.StudioComponentLicenseServiceConfiguration'] = None,
-                 shared_file_system_configuration: Optional['outputs.StudioComponentSharedFileSystemConfiguration'] = None):
+    def __init__(__self__):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        if active_directory_configuration is not None:
-            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
-        if compute_farm_configuration is not None:
-            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
-        if license_service_configuration is not None:
-            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
-        if shared_file_system_configuration is not None:
-            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
-
-    @property
-    @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional['outputs.StudioComponentActiveDirectoryConfiguration']:
-        return pulumi.get(self, "active_directory_configuration")
-
-    @property
-    @pulumi.getter(name="computeFarmConfiguration")
-    def compute_farm_configuration(self) -> Optional['outputs.StudioComponentComputeFarmConfiguration']:
-        return pulumi.get(self, "compute_farm_configuration")
-
-    @property
-    @pulumi.getter(name="licenseServiceConfiguration")
-    def license_service_configuration(self) -> Optional['outputs.StudioComponentLicenseServiceConfiguration']:
-        return pulumi.get(self, "license_service_configuration")
-
-    @property
-    @pulumi.getter(name="sharedFileSystemConfiguration")
-    def shared_file_system_configuration(self) -> Optional['outputs.StudioComponentSharedFileSystemConfiguration']:
-        return pulumi.get(self, "shared_file_system_configuration")
+        pass
 
 
 @pulumi.output_type
@@ -541,7 +328,8 @@ class StudioComponentInitializationScript(dict):
                  script: Optional[str] = None):
         """
         <p>Initialization scripts for studio components.</p>
-        :param str launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param str launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid
+                           version is "2021-03-31".</p>
         :param str script: <p>The initialization script.</p>
         """
         if launch_profile_protocol_version is not None:
@@ -557,7 +345,8 @@ class StudioComponentInitializationScript(dict):
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[str]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        <p>The version number of the protocol that is used by the launch profile. The only valid
+                    version is "2021-03-31".</p>
         """
         return pulumi.get(self, "launch_profile_protocol_version")
 
@@ -578,29 +367,6 @@ class StudioComponentInitializationScript(dict):
         <p>The initialization script.</p>
         """
         return pulumi.get(self, "script")
-
-
-@pulumi.output_type
-class StudioComponentLicenseServiceConfiguration(dict):
-    """
-    <p>The configuration for a license service that is associated with a studio resource.</p>
-    """
-    def __init__(__self__, *,
-                 endpoint: Optional[str] = None):
-        """
-        <p>The configuration for a license service that is associated with a studio resource.</p>
-        :param str endpoint: <p>The endpoint of the license service that is accessed by the studio component resource.</p>
-        """
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[str]:
-        """
-        <p>The endpoint of the license service that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type
@@ -636,100 +402,6 @@ class StudioComponentScriptParameterKeyValue(dict):
         <p>A script parameter value.</p>
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class StudioComponentSharedFileSystemConfiguration(dict):
-    """
-    <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fileSystemId":
-            suggest = "file_system_id"
-        elif key == "linuxMountPoint":
-            suggest = "linux_mount_point"
-        elif key == "shareName":
-            suggest = "share_name"
-        elif key == "windowsMountDrive":
-            suggest = "windows_mount_drive"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentSharedFileSystemConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentSharedFileSystemConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentSharedFileSystemConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 endpoint: Optional[str] = None,
-                 file_system_id: Optional[str] = None,
-                 linux_mount_point: Optional[str] = None,
-                 share_name: Optional[str] = None,
-                 windows_mount_drive: Optional[str] = None):
-        """
-        <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
-        :param str endpoint: <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
-        :param str file_system_id: <p>The unique identifier for a file system.</p>
-        :param str linux_mount_point: <p>The mount location for a shared file system on a Linux virtual workstation.</p>
-        :param str share_name: <p>The name of the file share.</p>
-        :param str windows_mount_drive: <p>The mount location for a shared file system on a Windows virtual workstation.</p>
-        """
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-        if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
-        if linux_mount_point is not None:
-            pulumi.set(__self__, "linux_mount_point", linux_mount_point)
-        if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
-        if windows_mount_drive is not None:
-            pulumi.set(__self__, "windows_mount_drive", windows_mount_drive)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[str]:
-        """
-        <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
-        """
-        return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[str]:
-        """
-        <p>The unique identifier for a file system.</p>
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @property
-    @pulumi.getter(name="linuxMountPoint")
-    def linux_mount_point(self) -> Optional[str]:
-        """
-        <p>The mount location for a shared file system on a Linux virtual workstation.</p>
-        """
-        return pulumi.get(self, "linux_mount_point")
-
-    @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[str]:
-        """
-        <p>The name of the file share.</p>
-        """
-        return pulumi.get(self, "share_name")
-
-    @property
-    @pulumi.getter(name="windowsMountDrive")
-    def windows_mount_drive(self) -> Optional[str]:
-        """
-        <p>The mount location for a shared file system on a Windows virtual workstation.</p>
-        """
-        return pulumi.get(self, "windows_mount_drive")
 
 
 @pulumi.output_type

@@ -41,6 +41,7 @@ export class Detector extends pulumi.CustomResource {
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCFNDataSourceConfigurations | undefined>;
     public readonly enable!: pulumi.Output<boolean>;
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.DetectorTag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -61,10 +62,12 @@ export class Detector extends pulumi.CustomResource {
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["enable"] = undefined /*out*/;
             resourceInputs["findingPublishingFrequency"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Detector.__pulumiType, name, resourceInputs, opts);
@@ -78,4 +81,5 @@ export interface DetectorArgs {
     dataSources?: pulumi.Input<inputs.guardduty.DetectorCFNDataSourceConfigurationsArgs>;
     enable: pulumi.Input<boolean>;
     findingPublishingFrequency?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorTagArgs>[]>;
 }

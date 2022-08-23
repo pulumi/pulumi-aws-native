@@ -11,18 +11,31 @@ import (
 )
 
 // Resource Type definition for AWS::SNS::Topic
-//
-// Deprecated: Topic is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Topic struct {
 	pulumi.CustomResourceState
 
-	ContentBasedDeduplication pulumi.BoolPtrOutput         `pulumi:"contentBasedDeduplication"`
-	DisplayName               pulumi.StringPtrOutput       `pulumi:"displayName"`
-	FifoTopic                 pulumi.BoolPtrOutput         `pulumi:"fifoTopic"`
-	KmsMasterKeyId            pulumi.StringPtrOutput       `pulumi:"kmsMasterKeyId"`
-	Subscription              TopicSubscriptionArrayOutput `pulumi:"subscription"`
-	Tags                      TopicTagArrayOutput          `pulumi:"tags"`
-	TopicName                 pulumi.StringPtrOutput       `pulumi:"topicName"`
+	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+	//
+	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+	//
+	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
+	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Set to true to create a FIFO topic.
+	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+	//
+	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	// The SNS subscriptions (endpoints) for this topic.
+	Subscription TopicSubscriptionArrayOutput `pulumi:"subscription"`
+	Tags         TopicTagArrayOutput          `pulumi:"tags"`
+	TopicArn     pulumi.StringOutput          `pulumi:"topicArn"`
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	TopicName pulumi.StringPtrOutput `pulumi:"topicName"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -64,24 +77,52 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	ContentBasedDeduplication *bool               `pulumi:"contentBasedDeduplication"`
-	DisplayName               *string             `pulumi:"displayName"`
-	FifoTopic                 *bool               `pulumi:"fifoTopic"`
-	KmsMasterKeyId            *string             `pulumi:"kmsMasterKeyId"`
-	Subscription              []TopicSubscription `pulumi:"subscription"`
-	Tags                      []TopicTag          `pulumi:"tags"`
-	TopicName                 *string             `pulumi:"topicName"`
+	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+	//
+	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+	//
+	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
+	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	DisplayName *string `pulumi:"displayName"`
+	// Set to true to create a FIFO topic.
+	FifoTopic *bool `pulumi:"fifoTopic"`
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+	//
+	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The SNS subscriptions (endpoints) for this topic.
+	Subscription []TopicSubscription `pulumi:"subscription"`
+	Tags         []TopicTag          `pulumi:"tags"`
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	TopicName *string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+	//
+	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+	//
+	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 	ContentBasedDeduplication pulumi.BoolPtrInput
-	DisplayName               pulumi.StringPtrInput
-	FifoTopic                 pulumi.BoolPtrInput
-	KmsMasterKeyId            pulumi.StringPtrInput
-	Subscription              TopicSubscriptionArrayInput
-	Tags                      TopicTagArrayInput
-	TopicName                 pulumi.StringPtrInput
+	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	DisplayName pulumi.StringPtrInput
+	// Set to true to create a FIFO topic.
+	FifoTopic pulumi.BoolPtrInput
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+	//
+	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	KmsMasterKeyId pulumi.StringPtrInput
+	// The SNS subscriptions (endpoints) for this topic.
+	Subscription TopicSubscriptionArrayInput
+	Tags         TopicTagArrayInput
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	TopicName pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {
@@ -121,22 +162,33 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+//
+// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+//
+// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
 }
 
+// The display name to use for an Amazon SNS topic with SMS subscriptions.
 func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Set to true to create a FIFO topic.
 func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.FifoTopic }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+//
+// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o TopicOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The SNS subscriptions (endpoints) for this topic.
 func (o TopicOutput) Subscription() TopicSubscriptionArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicSubscriptionArrayOutput { return v.Subscription }).(TopicSubscriptionArrayOutput)
 }
@@ -145,6 +197,13 @@ func (o TopicOutput) Tags() TopicTagArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicTagArrayOutput { return v.Tags }).(TopicTagArrayOutput)
 }
 
+func (o TopicOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+//
+// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
 func (o TopicOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicName }).(pulumi.StringPtrOutput)
 }

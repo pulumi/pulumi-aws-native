@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./accountAuditConfiguration";
 export * from "./authorizer";
+export * from "./cacertificate";
 export * from "./certificate";
 export * from "./customMetric";
 export * from "./dimension";
@@ -14,6 +15,7 @@ export * from "./domainConfiguration";
 export * from "./fleetMetric";
 export * from "./getAccountAuditConfiguration";
 export * from "./getAuthorizer";
+export * from "./getCACertificate";
 export * from "./getCertificate";
 export * from "./getCustomMetric";
 export * from "./getDimension";
@@ -54,6 +56,7 @@ export * from "../types/enums/iot";
 // Import resources to register:
 import { AccountAuditConfiguration } from "./accountAuditConfiguration";
 import { Authorizer } from "./authorizer";
+import { CACertificate } from "./cacertificate";
 import { Certificate } from "./certificate";
 import { CustomMetric } from "./customMetric";
 import { Dimension } from "./dimension";
@@ -82,6 +85,8 @@ const _module = {
                 return new AccountAuditConfiguration(name, <any>undefined, { urn })
             case "aws-native:iot:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
+            case "aws-native:iot:CACertificate":
+                return new CACertificate(name, <any>undefined, { urn })
             case "aws-native:iot:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws-native:iot:CustomMetric":

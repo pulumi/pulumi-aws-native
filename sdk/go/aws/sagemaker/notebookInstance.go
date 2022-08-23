@@ -17,21 +17,22 @@ import (
 type NotebookInstance struct {
 	pulumi.CustomResourceState
 
-	AcceleratorTypes           pulumi.StringArrayOutput       `pulumi:"acceleratorTypes"`
-	AdditionalCodeRepositories pulumi.StringArrayOutput       `pulumi:"additionalCodeRepositories"`
-	DefaultCodeRepository      pulumi.StringPtrOutput         `pulumi:"defaultCodeRepository"`
-	DirectInternetAccess       pulumi.StringPtrOutput         `pulumi:"directInternetAccess"`
-	InstanceType               pulumi.StringOutput            `pulumi:"instanceType"`
-	KmsKeyId                   pulumi.StringPtrOutput         `pulumi:"kmsKeyId"`
-	LifecycleConfigName        pulumi.StringPtrOutput         `pulumi:"lifecycleConfigName"`
-	NotebookInstanceName       pulumi.StringPtrOutput         `pulumi:"notebookInstanceName"`
-	PlatformIdentifier         pulumi.StringPtrOutput         `pulumi:"platformIdentifier"`
-	RoleArn                    pulumi.StringOutput            `pulumi:"roleArn"`
-	RootAccess                 pulumi.StringPtrOutput         `pulumi:"rootAccess"`
-	SecurityGroupIds           pulumi.StringArrayOutput       `pulumi:"securityGroupIds"`
-	SubnetId                   pulumi.StringPtrOutput         `pulumi:"subnetId"`
-	Tags                       NotebookInstanceTagArrayOutput `pulumi:"tags"`
-	VolumeSizeInGB             pulumi.IntPtrOutput            `pulumi:"volumeSizeInGB"`
+	AcceleratorTypes                     pulumi.StringArrayOutput                                      `pulumi:"acceleratorTypes"`
+	AdditionalCodeRepositories           pulumi.StringArrayOutput                                      `pulumi:"additionalCodeRepositories"`
+	DefaultCodeRepository                pulumi.StringPtrOutput                                        `pulumi:"defaultCodeRepository"`
+	DirectInternetAccess                 pulumi.StringPtrOutput                                        `pulumi:"directInternetAccess"`
+	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput `pulumi:"instanceMetadataServiceConfiguration"`
+	InstanceType                         pulumi.StringOutput                                           `pulumi:"instanceType"`
+	KmsKeyId                             pulumi.StringPtrOutput                                        `pulumi:"kmsKeyId"`
+	LifecycleConfigName                  pulumi.StringPtrOutput                                        `pulumi:"lifecycleConfigName"`
+	NotebookInstanceName                 pulumi.StringPtrOutput                                        `pulumi:"notebookInstanceName"`
+	PlatformIdentifier                   pulumi.StringPtrOutput                                        `pulumi:"platformIdentifier"`
+	RoleArn                              pulumi.StringOutput                                           `pulumi:"roleArn"`
+	RootAccess                           pulumi.StringPtrOutput                                        `pulumi:"rootAccess"`
+	SecurityGroupIds                     pulumi.StringArrayOutput                                      `pulumi:"securityGroupIds"`
+	SubnetId                             pulumi.StringPtrOutput                                        `pulumi:"subnetId"`
+	Tags                                 NotebookInstanceTagArrayOutput                                `pulumi:"tags"`
+	VolumeSizeInGB                       pulumi.IntPtrOutput                                           `pulumi:"volumeSizeInGB"`
 }
 
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
@@ -79,40 +80,42 @@ func (NotebookInstanceState) ElementType() reflect.Type {
 }
 
 type notebookInstanceArgs struct {
-	AcceleratorTypes           []string              `pulumi:"acceleratorTypes"`
-	AdditionalCodeRepositories []string              `pulumi:"additionalCodeRepositories"`
-	DefaultCodeRepository      *string               `pulumi:"defaultCodeRepository"`
-	DirectInternetAccess       *string               `pulumi:"directInternetAccess"`
-	InstanceType               string                `pulumi:"instanceType"`
-	KmsKeyId                   *string               `pulumi:"kmsKeyId"`
-	LifecycleConfigName        *string               `pulumi:"lifecycleConfigName"`
-	NotebookInstanceName       *string               `pulumi:"notebookInstanceName"`
-	PlatformIdentifier         *string               `pulumi:"platformIdentifier"`
-	RoleArn                    string                `pulumi:"roleArn"`
-	RootAccess                 *string               `pulumi:"rootAccess"`
-	SecurityGroupIds           []string              `pulumi:"securityGroupIds"`
-	SubnetId                   *string               `pulumi:"subnetId"`
-	Tags                       []NotebookInstanceTag `pulumi:"tags"`
-	VolumeSizeInGB             *int                  `pulumi:"volumeSizeInGB"`
+	AcceleratorTypes                     []string                                              `pulumi:"acceleratorTypes"`
+	AdditionalCodeRepositories           []string                                              `pulumi:"additionalCodeRepositories"`
+	DefaultCodeRepository                *string                                               `pulumi:"defaultCodeRepository"`
+	DirectInternetAccess                 *string                                               `pulumi:"directInternetAccess"`
+	InstanceMetadataServiceConfiguration *NotebookInstanceInstanceMetadataServiceConfiguration `pulumi:"instanceMetadataServiceConfiguration"`
+	InstanceType                         string                                                `pulumi:"instanceType"`
+	KmsKeyId                             *string                                               `pulumi:"kmsKeyId"`
+	LifecycleConfigName                  *string                                               `pulumi:"lifecycleConfigName"`
+	NotebookInstanceName                 *string                                               `pulumi:"notebookInstanceName"`
+	PlatformIdentifier                   *string                                               `pulumi:"platformIdentifier"`
+	RoleArn                              string                                                `pulumi:"roleArn"`
+	RootAccess                           *string                                               `pulumi:"rootAccess"`
+	SecurityGroupIds                     []string                                              `pulumi:"securityGroupIds"`
+	SubnetId                             *string                                               `pulumi:"subnetId"`
+	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
+	VolumeSizeInGB                       *int                                                  `pulumi:"volumeSizeInGB"`
 }
 
 // The set of arguments for constructing a NotebookInstance resource.
 type NotebookInstanceArgs struct {
-	AcceleratorTypes           pulumi.StringArrayInput
-	AdditionalCodeRepositories pulumi.StringArrayInput
-	DefaultCodeRepository      pulumi.StringPtrInput
-	DirectInternetAccess       pulumi.StringPtrInput
-	InstanceType               pulumi.StringInput
-	KmsKeyId                   pulumi.StringPtrInput
-	LifecycleConfigName        pulumi.StringPtrInput
-	NotebookInstanceName       pulumi.StringPtrInput
-	PlatformIdentifier         pulumi.StringPtrInput
-	RoleArn                    pulumi.StringInput
-	RootAccess                 pulumi.StringPtrInput
-	SecurityGroupIds           pulumi.StringArrayInput
-	SubnetId                   pulumi.StringPtrInput
-	Tags                       NotebookInstanceTagArrayInput
-	VolumeSizeInGB             pulumi.IntPtrInput
+	AcceleratorTypes                     pulumi.StringArrayInput
+	AdditionalCodeRepositories           pulumi.StringArrayInput
+	DefaultCodeRepository                pulumi.StringPtrInput
+	DirectInternetAccess                 pulumi.StringPtrInput
+	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrInput
+	InstanceType                         pulumi.StringInput
+	KmsKeyId                             pulumi.StringPtrInput
+	LifecycleConfigName                  pulumi.StringPtrInput
+	NotebookInstanceName                 pulumi.StringPtrInput
+	PlatformIdentifier                   pulumi.StringPtrInput
+	RoleArn                              pulumi.StringInput
+	RootAccess                           pulumi.StringPtrInput
+	SecurityGroupIds                     pulumi.StringArrayInput
+	SubnetId                             pulumi.StringPtrInput
+	Tags                                 NotebookInstanceTagArrayInput
+	VolumeSizeInGB                       pulumi.IntPtrInput
 }
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {
@@ -166,6 +169,12 @@ func (o NotebookInstanceOutput) DefaultCodeRepository() pulumi.StringPtrOutput {
 
 func (o NotebookInstanceOutput) DirectInternetAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.DirectInternetAccess }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookInstanceOutput) InstanceMetadataServiceConfiguration() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+		return v.InstanceMetadataServiceConfiguration
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
 }
 
 func (o NotebookInstanceOutput) InstanceType() pulumi.StringOutput {

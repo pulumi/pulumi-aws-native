@@ -14,8 +14,11 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class NetworkInsightsAnalysisPathComponent
     {
         public readonly Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule;
+        public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAdditionalDetail> AdditionalDetails;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener;
+        public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? InboundHeader;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? OutboundHeader;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
@@ -31,9 +34,15 @@ namespace Pulumi.AwsNative.EC2.Outputs
         private NetworkInsightsAnalysisPathComponent(
             Outputs.NetworkInsightsAnalysisAnalysisAclRule? aclRule,
 
+            ImmutableArray<Outputs.NetworkInsightsAnalysisAdditionalDetail> additionalDetails,
+
             Outputs.NetworkInsightsAnalysisAnalysisComponent? component,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? destinationVpc,
+
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? elasticLoadBalancerListener,
+
+            ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> explanations,
 
             Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? inboundHeader,
 
@@ -56,8 +65,11 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc)
         {
             AclRule = aclRule;
+            AdditionalDetails = additionalDetails;
             Component = component;
             DestinationVpc = destinationVpc;
+            ElasticLoadBalancerListener = elasticLoadBalancerListener;
+            Explanations = explanations;
             InboundHeader = inboundHeader;
             OutboundHeader = outboundHeader;
             RouteTableRoute = routeTableRoute;

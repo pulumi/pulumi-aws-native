@@ -21,16 +21,26 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	Id string `pulumi:"id"`
+	TopicArn string `pulumi:"topicArn"`
 }
 
 type LookupTopicResult struct {
-	ContentBasedDeduplication *bool               `pulumi:"contentBasedDeduplication"`
-	DisplayName               *string             `pulumi:"displayName"`
-	Id                        *string             `pulumi:"id"`
-	KmsMasterKeyId            *string             `pulumi:"kmsMasterKeyId"`
-	Subscription              []TopicSubscription `pulumi:"subscription"`
-	Tags                      []TopicTag          `pulumi:"tags"`
+	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+	//
+	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+	//
+	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
+	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	DisplayName *string `pulumi:"displayName"`
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+	//
+	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The SNS subscriptions (endpoints) for this topic.
+	Subscription []TopicSubscription `pulumi:"subscription"`
+	Tags         []TopicTag          `pulumi:"tags"`
+	TopicArn     *string             `pulumi:"topicArn"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -47,7 +57,7 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 }
 
 type LookupTopicOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -68,28 +78,38 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
+// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+//
+// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+//
+// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 func (o LookupTopicResultOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *bool { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
 }
 
+// The display name to use for an Amazon SNS topic with SMS subscriptions.
 func (o LookupTopicResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTopicResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTopicResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+//
+// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o LookupTopicResultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The SNS subscriptions (endpoints) for this topic.
 func (o LookupTopicResultOutput) Subscription() TopicSubscriptionArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicSubscription { return v.Subscription }).(TopicSubscriptionArrayOutput)
 }
 
 func (o LookupTopicResultOutput) Tags() TopicTagArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicTag { return v.Tags }).(TopicTagArrayOutput)
+}
+
+func (o LookupTopicResultOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

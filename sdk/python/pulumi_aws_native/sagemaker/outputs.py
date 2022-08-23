@@ -179,6 +179,7 @@ __all__ = [
     'MonitoringScheduleStoppingCondition',
     'MonitoringScheduleTag',
     'MonitoringScheduleVpcConfig',
+    'NotebookInstanceInstanceMetadataServiceConfiguration',
     'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook',
     'NotebookInstanceTag',
     'OfflineStoreConfigProperties',
@@ -203,6 +204,7 @@ __all__ = [
     'WorkteamCognitoMemberDefinition',
     'WorkteamMemberDefinition',
     'WorkteamNotificationConfiguration',
+    'WorkteamOidcMemberDefinition',
     'WorkteamTag',
 ]
 
@@ -8812,6 +8814,35 @@ class MonitoringScheduleVpcConfig(dict):
 
 
 @pulumi.output_type
+class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumInstanceMetadataServiceVersion":
+            suggest = "minimum_instance_metadata_service_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookInstanceInstanceMetadataServiceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookInstanceInstanceMetadataServiceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookInstanceInstanceMetadataServiceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_instance_metadata_service_version: str):
+        pulumi.set(__self__, "minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
+
+    @property
+    @pulumi.getter(name="minimumInstanceMetadataServiceVersion")
+    def minimum_instance_metadata_service_version(self) -> str:
+        return pulumi.get(self, "minimum_instance_metadata_service_version")
+
+
+@pulumi.output_type
 class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook(dict):
     def __init__(__self__, *,
                  content: Optional[str] = None):
@@ -9822,6 +9853,8 @@ class WorkteamMemberDefinition(dict):
         suggest = None
         if key == "cognitoMemberDefinition":
             suggest = "cognito_member_definition"
+        elif key == "oidcMemberDefinition":
+            suggest = "oidc_member_definition"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkteamMemberDefinition. Access the value via the '{suggest}' property getter instead.")
@@ -9835,13 +9868,22 @@ class WorkteamMemberDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cognito_member_definition: 'outputs.WorkteamCognitoMemberDefinition'):
-        pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+                 cognito_member_definition: Optional['outputs.WorkteamCognitoMemberDefinition'] = None,
+                 oidc_member_definition: Optional['outputs.WorkteamOidcMemberDefinition'] = None):
+        if cognito_member_definition is not None:
+            pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+        if oidc_member_definition is not None:
+            pulumi.set(__self__, "oidc_member_definition", oidc_member_definition)
 
     @property
     @pulumi.getter(name="cognitoMemberDefinition")
-    def cognito_member_definition(self) -> 'outputs.WorkteamCognitoMemberDefinition':
+    def cognito_member_definition(self) -> Optional['outputs.WorkteamCognitoMemberDefinition']:
         return pulumi.get(self, "cognito_member_definition")
+
+    @property
+    @pulumi.getter(name="oidcMemberDefinition")
+    def oidc_member_definition(self) -> Optional['outputs.WorkteamOidcMemberDefinition']:
+        return pulumi.get(self, "oidc_member_definition")
 
 
 @pulumi.output_type
@@ -9871,6 +9913,35 @@ class WorkteamNotificationConfiguration(dict):
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> str:
         return pulumi.get(self, "notification_topic_arn")
+
+
+@pulumi.output_type
+class WorkteamOidcMemberDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oidcGroups":
+            suggest = "oidc_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamOidcMemberDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamOidcMemberDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamOidcMemberDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oidc_groups: Sequence[str]):
+        pulumi.set(__self__, "oidc_groups", oidc_groups)
+
+    @property
+    @pulumi.getter(name="oidcGroups")
+    def oidc_groups(self) -> Sequence[str]:
+        return pulumi.get(self, "oidc_groups")
 
 
 @pulumi.output_type

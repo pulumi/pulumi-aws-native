@@ -23,11 +23,12 @@ __all__ = [
     'DataSourceRelationalDatabaseConfig',
     'FunctionConfigurationLambdaConflictHandlerConfig',
     'FunctionConfigurationSyncConfig',
-    'GraphQLApiAdditionalAuthenticationProviders',
+    'GraphQLApiAdditionalAuthenticationProvider',
+    'GraphQLApiCognitoUserPoolConfig',
     'GraphQLApiLambdaAuthorizerConfig',
     'GraphQLApiLogConfig',
     'GraphQLApiOpenIDConnectConfig',
-    'GraphQLApiTags',
+    'GraphQLApiTag',
     'GraphQLApiUserPoolConfig',
     'ResolverCachingConfig',
     'ResolverLambdaConflictHandlerConfig',
@@ -549,9 +550,112 @@ class FunctionConfigurationSyncConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiAdditionalAuthenticationProviders(dict):
-    def __init__(__self__):
-        pass
+class GraphQLApiAdditionalAuthenticationProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "lambdaAuthorizerConfig":
+            suggest = "lambda_authorizer_config"
+        elif key == "openIDConnectConfig":
+            suggest = "open_id_connect_config"
+        elif key == "userPoolConfig":
+            suggest = "user_pool_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiAdditionalAuthenticationProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: str,
+                 lambda_authorizer_config: Optional['outputs.GraphQLApiLambdaAuthorizerConfig'] = None,
+                 open_id_connect_config: Optional['outputs.GraphQLApiOpenIDConnectConfig'] = None,
+                 user_pool_config: Optional['outputs.GraphQLApiCognitoUserPoolConfig'] = None):
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if user_pool_config is not None:
+            pulumi.set(__self__, "user_pool_config", user_pool_config)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional['outputs.GraphQLApiLambdaAuthorizerConfig']:
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @property
+    @pulumi.getter(name="openIDConnectConfig")
+    def open_id_connect_config(self) -> Optional['outputs.GraphQLApiOpenIDConnectConfig']:
+        return pulumi.get(self, "open_id_connect_config")
+
+    @property
+    @pulumi.getter(name="userPoolConfig")
+    def user_pool_config(self) -> Optional['outputs.GraphQLApiCognitoUserPoolConfig']:
+        return pulumi.get(self, "user_pool_config")
+
+
+@pulumi.output_type
+class GraphQLApiCognitoUserPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiCognitoUserPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiCognitoUserPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiCognitoUserPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[str] = None,
+                 aws_region: Optional[str] = None,
+                 user_pool_id: Optional[str] = None):
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[str]:
+        return pulumi.get(self, "app_id_client_regex")
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[str]:
+        return pulumi.get(self, "user_pool_id")
 
 
 @pulumi.output_type
@@ -713,9 +817,22 @@ class GraphQLApiOpenIDConnectConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiTags(dict):
-    def __init__(__self__):
-        pass
+class GraphQLApiTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

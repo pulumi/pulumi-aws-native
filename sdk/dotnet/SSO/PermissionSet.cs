@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SSO
     [AwsNativeResourceType("aws-native:sso:PermissionSet")]
     public partial class PermissionSet : global::Pulumi.CustomResource
     {
+        [Output("customerManagedPolicyReferences")]
+        public Output<ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference>> CustomerManagedPolicyReferences { get; private set; } = null!;
+
         /// <summary>
         /// The permission set description.
         /// </summary>
@@ -47,6 +50,9 @@ namespace Pulumi.AwsNative.SSO
         /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
+
+        [Output("permissionsBoundary")]
+        public Output<Outputs.PermissionSetPermissionsBoundary?> PermissionsBoundary { get; private set; } = null!;
 
         /// <summary>
         /// The relay state URL that redirect links to any service in the AWS Management Console.
@@ -108,6 +114,14 @@ namespace Pulumi.AwsNative.SSO
 
     public sealed class PermissionSetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customerManagedPolicyReferences")]
+        private InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs>? _customerManagedPolicyReferences;
+        public InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs> CustomerManagedPolicyReferences
+        {
+            get => _customerManagedPolicyReferences ?? (_customerManagedPolicyReferences = new InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs>());
+            set => _customerManagedPolicyReferences = value;
+        }
+
         /// <summary>
         /// The permission set description.
         /// </summary>
@@ -139,6 +153,9 @@ namespace Pulumi.AwsNative.SSO
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("permissionsBoundary")]
+        public Input<Inputs.PermissionSetPermissionsBoundaryArgs>? PermissionsBoundary { get; set; }
 
         /// <summary>
         /// The relay state URL that redirect links to any service in the AWS Management Console.

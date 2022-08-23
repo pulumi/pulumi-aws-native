@@ -63,6 +63,10 @@ export class IPAMPool extends pulumi.CustomResource {
      * Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
      */
     public readonly autoImport!: pulumi.Output<boolean | undefined>;
+    /**
+     * Limits which service in Amazon Web Services that the pool can be used in.
+     */
+    public readonly awsService!: pulumi.Output<enums.ec2.IPAMPoolAwsService | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
@@ -140,6 +144,7 @@ export class IPAMPool extends pulumi.CustomResource {
             resourceInputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
             resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
             resourceInputs["autoImport"] = args ? args.autoImport : undefined;
+            resourceInputs["awsService"] = args ? args.awsService : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
             resourceInputs["locale"] = args ? args.locale : undefined;
@@ -163,6 +168,7 @@ export class IPAMPool extends pulumi.CustomResource {
             resourceInputs["allocationResourceTags"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoImport"] = undefined /*out*/;
+            resourceInputs["awsService"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamPoolId"] = undefined /*out*/;
@@ -211,6 +217,10 @@ export interface IPAMPoolArgs {
      * Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
      */
     autoImport?: pulumi.Input<boolean>;
+    /**
+     * Limits which service in Amazon Web Services that the pool can be used in.
+     */
+    awsService?: pulumi.Input<enums.ec2.IPAMPoolAwsService>;
     description?: pulumi.Input<string>;
     /**
      * The Id of the scope this pool is a part of.

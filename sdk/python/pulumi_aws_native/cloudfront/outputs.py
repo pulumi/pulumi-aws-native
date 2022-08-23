@@ -557,7 +557,9 @@ class DistributionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cNAMEs":
+        if key == "defaultCacheBehavior":
+            suggest = "default_cache_behavior"
+        elif key == "cNAMEs":
             suggest = "c_names"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
@@ -565,8 +567,6 @@ class DistributionConfig(dict):
             suggest = "custom_error_responses"
         elif key == "customOrigin":
             suggest = "custom_origin"
-        elif key == "defaultCacheBehavior":
-            suggest = "default_cache_behavior"
         elif key == "defaultRootObject":
             suggest = "default_root_object"
         elif key == "httpVersion":
@@ -596,6 +596,7 @@ class DistributionConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 default_cache_behavior: 'outputs.DistributionDefaultCacheBehavior',
                  enabled: bool,
                  aliases: Optional[Sequence[str]] = None,
                  c_names: Optional[Sequence[str]] = None,
@@ -603,7 +604,6 @@ class DistributionConfig(dict):
                  comment: Optional[str] = None,
                  custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
                  custom_origin: Optional['outputs.DistributionLegacyCustomOrigin'] = None,
-                 default_cache_behavior: Optional['outputs.DistributionDefaultCacheBehavior'] = None,
                  default_root_object: Optional[str] = None,
                  http_version: Optional[str] = None,
                  i_pv6_enabled: Optional[bool] = None,
@@ -615,6 +615,7 @@ class DistributionConfig(dict):
                  s3_origin: Optional['outputs.DistributionLegacyS3Origin'] = None,
                  viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
                  web_acl_id: Optional[str] = None):
+        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
@@ -628,8 +629,6 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if custom_origin is not None:
             pulumi.set(__self__, "custom_origin", custom_origin)
-        if default_cache_behavior is not None:
-            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         if default_root_object is not None:
             pulumi.set(__self__, "default_root_object", default_root_object)
         if http_version is not None:
@@ -652,6 +651,11 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
             pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter(name="defaultCacheBehavior")
+    def default_cache_behavior(self) -> 'outputs.DistributionDefaultCacheBehavior':
+        return pulumi.get(self, "default_cache_behavior")
 
     @property
     @pulumi.getter
@@ -687,11 +691,6 @@ class DistributionConfig(dict):
     @pulumi.getter(name="customOrigin")
     def custom_origin(self) -> Optional['outputs.DistributionLegacyCustomOrigin']:
         return pulumi.get(self, "custom_origin")
-
-    @property
-    @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> Optional['outputs.DistributionDefaultCacheBehavior']:
-        return pulumi.get(self, "default_cache_behavior")
 
     @property
     @pulumi.getter(name="defaultRootObject")

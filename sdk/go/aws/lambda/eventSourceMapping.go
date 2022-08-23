@@ -15,6 +15,8 @@ import (
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 
+	// Specific configuration settings for an MSK event source.
+	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput `pulumi:"amazonManagedKafkaEventSourceConfig"`
 	// The maximum number of items to retrieve in a single batch.
 	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
 	// (Streams) If the function returns an error, split the batch in two and retry.
@@ -43,6 +45,8 @@ type EventSourceMapping struct {
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
 	// Self-managed event source endpoints.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrOutput `pulumi:"selfManagedEventSource"`
+	// Specific configuration settings for a Self-Managed Apache Kafka event source.
+	SelfManagedKafkaEventSourceConfig EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput `pulumi:"selfManagedKafkaEventSourceConfig"`
 	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayOutput `pulumi:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
@@ -97,6 +101,8 @@ func (EventSourceMappingState) ElementType() reflect.Type {
 }
 
 type eventSourceMappingArgs struct {
+	// Specific configuration settings for an MSK event source.
+	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`
 	// The maximum number of items to retrieve in a single batch.
 	BatchSize *int `pulumi:"batchSize"`
 	// (Streams) If the function returns an error, split the batch in two and retry.
@@ -125,6 +131,8 @@ type eventSourceMappingArgs struct {
 	Queues []string `pulumi:"queues"`
 	// Self-managed event source endpoints.
 	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
+	// Specific configuration settings for a Self-Managed Apache Kafka event source.
+	SelfManagedKafkaEventSourceConfig *EventSourceMappingSelfManagedKafkaEventSourceConfig `pulumi:"selfManagedKafkaEventSourceConfig"`
 	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
@@ -139,6 +147,8 @@ type eventSourceMappingArgs struct {
 
 // The set of arguments for constructing a EventSourceMapping resource.
 type EventSourceMappingArgs struct {
+	// Specific configuration settings for an MSK event source.
+	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput
 	// The maximum number of items to retrieve in a single batch.
 	BatchSize pulumi.IntPtrInput
 	// (Streams) If the function returns an error, split the batch in two and retry.
@@ -167,6 +177,8 @@ type EventSourceMappingArgs struct {
 	Queues pulumi.StringArrayInput
 	// Self-managed event source endpoints.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
+	// Specific configuration settings for a Self-Managed Apache Kafka event source.
+	SelfManagedKafkaEventSourceConfig EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput
 	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayInput
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
@@ -214,6 +226,13 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappin
 
 func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
 	return o
+}
+
+// Specific configuration settings for an MSK event source.
+func (o EventSourceMappingOutput) AmazonManagedKafkaEventSourceConfig() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+		return v.AmazonManagedKafkaEventSourceConfig
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
 // The maximum number of items to retrieve in a single batch.
@@ -288,6 +307,13 @@ func (o EventSourceMappingOutput) SelfManagedEventSource() EventSourceMappingSel
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSelfManagedEventSourcePtrOutput {
 		return v.SelfManagedEventSource
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// Specific configuration settings for a Self-Managed Apache Kafka event source.
+func (o EventSourceMappingOutput) SelfManagedKafkaEventSourceConfig() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+		return v.SelfManagedKafkaEventSourceConfig
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
 // A list of SourceAccessConfiguration.

@@ -28,6 +28,11 @@ class ApplicationMaxAgeRuleArgs:
                  delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  max_age_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        :param pulumi.Input[bool] enabled: Specify true to apply the rule, or false to disable it.
+        :param pulumi.Input[int] max_age_in_days: Specify the number of days to retain an application versions.
+        """
         if delete_source_from_s3 is not None:
             pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -38,6 +43,9 @@ class ApplicationMaxAgeRuleArgs:
     @property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
@@ -47,6 +55,9 @@ class ApplicationMaxAgeRuleArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to apply the rule, or false to disable it.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -56,6 +67,9 @@ class ApplicationMaxAgeRuleArgs:
     @property
     @pulumi.getter(name="maxAgeInDays")
     def max_age_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify the number of days to retain an application versions.
+        """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
@@ -69,6 +83,11 @@ class ApplicationMaxCountRuleArgs:
                  delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  max_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        :param pulumi.Input[bool] enabled: Specify true to apply the rule, or false to disable it.
+        :param pulumi.Input[int] max_count: Specify the maximum number of application versions to retain.
+        """
         if delete_source_from_s3 is not None:
             pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -79,6 +98,9 @@ class ApplicationMaxCountRuleArgs:
     @property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
@@ -88,6 +110,9 @@ class ApplicationMaxCountRuleArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to apply the rule, or false to disable it.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -97,6 +122,9 @@ class ApplicationMaxCountRuleArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify the maximum number of application versions to retain.
+        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -109,6 +137,10 @@ class ApplicationResourceLifecycleConfigArgs:
     def __init__(__self__, *,
                  service_role: Optional[pulumi.Input[str]] = None,
                  version_lifecycle_config: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] service_role: The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+        :param pulumi.Input['ApplicationVersionLifecycleConfigArgs'] version_lifecycle_config: Defines lifecycle settings for application versions.
+        """
         if service_role is not None:
             pulumi.set(__self__, "service_role", service_role)
         if version_lifecycle_config is not None:
@@ -117,6 +149,9 @@ class ApplicationResourceLifecycleConfigArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -126,6 +161,9 @@ class ApplicationResourceLifecycleConfigArgs:
     @property
     @pulumi.getter(name="versionLifecycleConfig")
     def version_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']]:
+        """
+        Defines lifecycle settings for application versions.
+        """
         return pulumi.get(self, "version_lifecycle_config")
 
     @version_lifecycle_config.setter
@@ -138,6 +176,10 @@ class ApplicationVersionLifecycleConfigArgs:
     def __init__(__self__, *,
                  max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
                  max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationMaxAgeRuleArgs'] max_age_rule: Specify a max age rule to restrict the length of time that application versions are retained for an application.
+        :param pulumi.Input['ApplicationMaxCountRuleArgs'] max_count_rule: Specify a max count rule to restrict the number of application versions that are retained for an application.
+        """
         if max_age_rule is not None:
             pulumi.set(__self__, "max_age_rule", max_age_rule)
         if max_count_rule is not None:
@@ -146,6 +188,9 @@ class ApplicationVersionLifecycleConfigArgs:
     @property
     @pulumi.getter(name="maxAgeRule")
     def max_age_rule(self) -> Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]:
+        """
+        Specify a max age rule to restrict the length of time that application versions are retained for an application.
+        """
         return pulumi.get(self, "max_age_rule")
 
     @max_age_rule.setter
@@ -155,6 +200,9 @@ class ApplicationVersionLifecycleConfigArgs:
     @property
     @pulumi.getter(name="maxCountRule")
     def max_count_rule(self) -> Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]:
+        """
+        Specify a max count rule to restrict the number of application versions that are retained for an application.
+        """
         return pulumi.get(self, "max_count_rule")
 
     @max_count_rule.setter

@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_namespace import *
+from .get_workgroup import *
 from .namespace import *
+from .workgroup import *
 from ._inputs import *
 from . import outputs

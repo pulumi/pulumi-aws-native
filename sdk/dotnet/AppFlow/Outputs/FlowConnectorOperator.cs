@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowConnectorOperator
     {
         public readonly Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator? Amplitude;
+        public readonly Pulumi.AwsNative.AppFlow.FlowOperator? CustomConnector;
         public readonly Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator? Datadog;
         public readonly Pulumi.AwsNative.AppFlow.FlowDynatraceConnectorOperator? Dynatrace;
         public readonly Pulumi.AwsNative.AppFlow.FlowGoogleAnalyticsConnectorOperator? GoogleAnalytics;
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         [OutputConstructor]
         private FlowConnectorOperator(
             Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator? amplitude,
+
+            Pulumi.AwsNative.AppFlow.FlowOperator? customConnector,
 
             Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator? datadog,
 
@@ -65,6 +68,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Pulumi.AwsNative.AppFlow.FlowZendeskConnectorOperator? zendesk)
         {
             Amplitude = amplitude;
+            CustomConnector = customConnector;
             Datadog = datadog;
             Dynatrace = dynatrace;
             GoogleAnalytics = googleAnalytics;

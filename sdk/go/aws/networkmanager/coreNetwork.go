@@ -12,8 +12,6 @@ import (
 )
 
 // AWS::NetworkManager::CoreNetwork Resource Type Definition.
-//
-// Deprecated: CoreNetwork is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type CoreNetwork struct {
 	pulumi.CustomResourceState
 

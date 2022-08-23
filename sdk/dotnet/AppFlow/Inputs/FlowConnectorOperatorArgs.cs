@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("amplitude")]
         public Input<Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator>? Amplitude { get; set; }
 
+        [Input("customConnector")]
+        public Input<Pulumi.AwsNative.AppFlow.FlowOperator>? CustomConnector { get; set; }
+
         [Input("datadog")]
         public Input<Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator>? Datadog { get; set; }
 

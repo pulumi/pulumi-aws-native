@@ -17,6 +17,9 @@ class CompositeAlarmArgs:
                  alarm_name: pulumi.Input[str],
                  alarm_rule: pulumi.Input[str],
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input[str]] = None,
+                 actions_suppressor_extension_period: Optional[pulumi.Input[int]] = None,
+                 actions_suppressor_wait_period: Optional[pulumi.Input[int]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -26,6 +29,9 @@ class CompositeAlarmArgs:
         :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
         :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        :param pulumi.Input[int] actions_suppressor_extension_period: Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        :param pulumi.Input[int] actions_suppressor_wait_period: Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] alarm_description: The description of the alarm
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -35,6 +41,12 @@ class CompositeAlarmArgs:
         pulumi.set(__self__, "alarm_rule", alarm_rule)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
+        if actions_suppressor is not None:
+            pulumi.set(__self__, "actions_suppressor", actions_suppressor)
+        if actions_suppressor_extension_period is not None:
+            pulumi.set(__self__, "actions_suppressor_extension_period", actions_suppressor_extension_period)
+        if actions_suppressor_wait_period is not None:
+            pulumi.set(__self__, "actions_suppressor_wait_period", actions_suppressor_wait_period)
         if alarm_actions is not None:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
@@ -79,6 +91,42 @@ class CompositeAlarmArgs:
     @actions_enabled.setter
     def actions_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "actions_enabled", value)
+
+    @property
+    @pulumi.getter(name="actionsSuppressor")
+    def actions_suppressor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        """
+        return pulumi.get(self, "actions_suppressor")
+
+    @actions_suppressor.setter
+    def actions_suppressor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_suppressor", value)
+
+    @property
+    @pulumi.getter(name="actionsSuppressorExtensionPeriod")
+    def actions_suppressor_extension_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        """
+        return pulumi.get(self, "actions_suppressor_extension_period")
+
+    @actions_suppressor_extension_period.setter
+    def actions_suppressor_extension_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "actions_suppressor_extension_period", value)
+
+    @property
+    @pulumi.getter(name="actionsSuppressorWaitPeriod")
+    def actions_suppressor_wait_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+        """
+        return pulumi.get(self, "actions_suppressor_wait_period")
+
+    @actions_suppressor_wait_period.setter
+    def actions_suppressor_wait_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "actions_suppressor_wait_period", value)
 
     @property
     @pulumi.getter(name="alarmActions")
@@ -135,6 +183,9 @@ class CompositeAlarm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input[str]] = None,
+                 actions_suppressor_extension_period: Optional[pulumi.Input[int]] = None,
+                 actions_suppressor_wait_period: Optional[pulumi.Input[int]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
@@ -148,6 +199,9 @@ class CompositeAlarm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        :param pulumi.Input[int] actions_suppressor_extension_period: Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        :param pulumi.Input[int] actions_suppressor_wait_period: Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] alarm_description: The description of the alarm
         :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
@@ -180,6 +234,9 @@ class CompositeAlarm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input[str]] = None,
+                 actions_suppressor_extension_period: Optional[pulumi.Input[int]] = None,
+                 actions_suppressor_wait_period: Optional[pulumi.Input[int]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
@@ -196,6 +253,9 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
             __props__.__dict__["actions_enabled"] = actions_enabled
+            __props__.__dict__["actions_suppressor"] = actions_suppressor
+            __props__.__dict__["actions_suppressor_extension_period"] = actions_suppressor_extension_period
+            __props__.__dict__["actions_suppressor_wait_period"] = actions_suppressor_wait_period
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
             if alarm_name is None and not opts.urn:
@@ -230,6 +290,9 @@ class CompositeAlarm(pulumi.CustomResource):
         __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
         __props__.__dict__["actions_enabled"] = None
+        __props__.__dict__["actions_suppressor"] = None
+        __props__.__dict__["actions_suppressor_extension_period"] = None
+        __props__.__dict__["actions_suppressor_wait_period"] = None
         __props__.__dict__["alarm_actions"] = None
         __props__.__dict__["alarm_description"] = None
         __props__.__dict__["alarm_name"] = None
@@ -246,6 +309,30 @@ class CompositeAlarm(pulumi.CustomResource):
         Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         """
         return pulumi.get(self, "actions_enabled")
+
+    @property
+    @pulumi.getter(name="actionsSuppressor")
+    def actions_suppressor(self) -> pulumi.Output[Optional[str]]:
+        """
+        Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        """
+        return pulumi.get(self, "actions_suppressor")
+
+    @property
+    @pulumi.getter(name="actionsSuppressorExtensionPeriod")
+    def actions_suppressor_extension_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        """
+        return pulumi.get(self, "actions_suppressor_extension_period")
+
+    @property
+    @pulumi.getter(name="actionsSuppressorWaitPeriod")
+    def actions_suppressor_wait_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+        """
+        return pulumi.get(self, "actions_suppressor_wait_period")
 
     @property
     @pulumi.getter(name="alarmActions")

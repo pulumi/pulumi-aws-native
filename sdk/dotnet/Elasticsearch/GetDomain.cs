@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Elasticsearch
     {
         public readonly object? AccessPolicies;
         public readonly object? AdvancedOptions;
+        public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
         public readonly string? Arn;
         public readonly Outputs.DomainCognitoOptions? CognitoOptions;
         public readonly string? DomainArn;
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.Elasticsearch
             object? accessPolicies,
 
             object? advancedOptions,
+
+            Outputs.DomainAdvancedSecurityOptionsInput? advancedSecurityOptions,
 
             string? arn,
 
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
+            AdvancedSecurityOptions = advancedSecurityOptions;
             Arn = arn;
             CognitoOptions = cognitoOptions;
             DomainArn = domainArn;

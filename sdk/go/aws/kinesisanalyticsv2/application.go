@@ -19,10 +19,14 @@ type Application struct {
 	ApplicationConfiguration ApplicationConfigurationPtrOutput `pulumi:"applicationConfiguration"`
 	// The description of the application.
 	ApplicationDescription pulumi.StringPtrOutput `pulumi:"applicationDescription"`
+	// Used to configure start of maintenance window.
+	ApplicationMaintenanceConfiguration ApplicationMaintenanceConfigurationPtrOutput `pulumi:"applicationMaintenanceConfiguration"`
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode ApplicationModePtrOutput `pulumi:"applicationMode"`
 	// The name of the application.
 	ApplicationName pulumi.StringPtrOutput `pulumi:"applicationName"`
+	// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+	RunConfiguration ApplicationRunConfigurationPtrOutput `pulumi:"runConfiguration"`
 	// The runtime environment for the application.
 	RuntimeEnvironment pulumi.StringOutput `pulumi:"runtimeEnvironment"`
 	// Specifies the IAM role that the application uses to access external resources.
@@ -80,10 +84,14 @@ type applicationArgs struct {
 	ApplicationConfiguration *ApplicationConfiguration `pulumi:"applicationConfiguration"`
 	// The description of the application.
 	ApplicationDescription *string `pulumi:"applicationDescription"`
+	// Used to configure start of maintenance window.
+	ApplicationMaintenanceConfiguration *ApplicationMaintenanceConfiguration `pulumi:"applicationMaintenanceConfiguration"`
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode *ApplicationMode `pulumi:"applicationMode"`
 	// The name of the application.
 	ApplicationName *string `pulumi:"applicationName"`
+	// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+	RunConfiguration *ApplicationRunConfiguration `pulumi:"runConfiguration"`
 	// The runtime environment for the application.
 	RuntimeEnvironment string `pulumi:"runtimeEnvironment"`
 	// Specifies the IAM role that the application uses to access external resources.
@@ -98,10 +106,14 @@ type ApplicationArgs struct {
 	ApplicationConfiguration ApplicationConfigurationPtrInput
 	// The description of the application.
 	ApplicationDescription pulumi.StringPtrInput
+	// Used to configure start of maintenance window.
+	ApplicationMaintenanceConfiguration ApplicationMaintenanceConfigurationPtrInput
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode ApplicationModePtrInput
 	// The name of the application.
 	ApplicationName pulumi.StringPtrInput
+	// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+	RunConfiguration ApplicationRunConfigurationPtrInput
 	// The runtime environment for the application.
 	RuntimeEnvironment pulumi.StringInput
 	// Specifies the IAM role that the application uses to access external resources.
@@ -157,6 +169,13 @@ func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
 }
 
+// Used to configure start of maintenance window.
+func (o ApplicationOutput) ApplicationMaintenanceConfiguration() ApplicationMaintenanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationMaintenanceConfigurationPtrOutput {
+		return v.ApplicationMaintenanceConfiguration
+	}).(ApplicationMaintenanceConfigurationPtrOutput)
+}
+
 // To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 func (o ApplicationOutput) ApplicationMode() ApplicationModePtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationModePtrOutput { return v.ApplicationMode }).(ApplicationModePtrOutput)
@@ -165,6 +184,11 @@ func (o ApplicationOutput) ApplicationMode() ApplicationModePtrOutput {
 // The name of the application.
 func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+func (o ApplicationOutput) RunConfiguration() ApplicationRunConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationRunConfigurationPtrOutput { return v.RunConfiguration }).(ApplicationRunConfigurationPtrOutput)
 }
 
 // The runtime environment for the application.

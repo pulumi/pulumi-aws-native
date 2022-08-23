@@ -13,12 +13,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class WorkteamMemberDefinition
     {
-        public readonly Outputs.WorkteamCognitoMemberDefinition CognitoMemberDefinition;
+        public readonly Outputs.WorkteamCognitoMemberDefinition? CognitoMemberDefinition;
+        public readonly Outputs.WorkteamOidcMemberDefinition? OidcMemberDefinition;
 
         [OutputConstructor]
-        private WorkteamMemberDefinition(Outputs.WorkteamCognitoMemberDefinition cognitoMemberDefinition)
+        private WorkteamMemberDefinition(
+            Outputs.WorkteamCognitoMemberDefinition? cognitoMemberDefinition,
+
+            Outputs.WorkteamOidcMemberDefinition? oidcMemberDefinition)
         {
             CognitoMemberDefinition = cognitoMemberDefinition;
+            OidcMemberDefinition = oidcMemberDefinition;
         }
     }
 }

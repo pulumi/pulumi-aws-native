@@ -45,6 +45,18 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         [Input("sqlApplicationConfiguration")]
         public Input<Inputs.ApplicationSqlApplicationConfigurationArgs>? SqlApplicationConfiguration { get; set; }
 
+        [Input("vpcConfigurations")]
+        private InputList<Inputs.ApplicationVpcConfigurationArgs>? _vpcConfigurations;
+
+        /// <summary>
+        /// The array of descriptions of VPC configurations available to the application.
+        /// </summary>
+        public InputList<Inputs.ApplicationVpcConfigurationArgs> VpcConfigurations
+        {
+            get => _vpcConfigurations ?? (_vpcConfigurations = new InputList<Inputs.ApplicationVpcConfigurationArgs>());
+            set => _vpcConfigurations = value;
+        }
+
         /// <summary>
         /// The configuration parameters for a Kinesis Data Analytics Studio notebook.
         /// </summary>

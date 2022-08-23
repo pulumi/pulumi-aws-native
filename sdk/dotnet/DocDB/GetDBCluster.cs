@@ -64,7 +64,10 @@ namespace Pulumi.AwsNative.DocDB
         public readonly string? PreferredBackupWindow;
         public readonly string? PreferredMaintenanceWindow;
         public readonly string? ReadEndpoint;
+        public readonly string? RestoreToTime;
+        public readonly string? RestoreType;
         public readonly ImmutableArray<Outputs.DBClusterTag> Tags;
+        public readonly bool? UseLatestRestorableTime;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -95,7 +98,13 @@ namespace Pulumi.AwsNative.DocDB
 
             string? readEndpoint,
 
+            string? restoreToTime,
+
+            string? restoreType,
+
             ImmutableArray<Outputs.DBClusterTag> tags,
+
+            bool? useLatestRestorableTime,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {
@@ -112,7 +121,10 @@ namespace Pulumi.AwsNative.DocDB
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReadEndpoint = readEndpoint;
+            RestoreToTime = restoreToTime;
+            RestoreType = restoreType;
             Tags = tags;
+            UseLatestRestorableTime = useLatestRestorableTime;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }
     }

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// </summary>
     public sealed class LaunchProfileStreamConfigurationSessionStorageArgs : global::Pulumi.ResourceArgs
     {
-        [Input("mode")]
+        [Input("mode", required: true)]
         private InputList<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode>? _mode;
 
         /// <summary>

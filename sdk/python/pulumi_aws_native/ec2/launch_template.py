@@ -16,26 +16,28 @@ __all__ = ['LaunchTemplateArgs', 'LaunchTemplate']
 @pulumi.input_type
 class LaunchTemplateArgs:
     def __init__(__self__, *,
-                 launch_template_data: Optional[pulumi.Input['LaunchTemplateDataArgs']] = None,
+                 launch_template_data: pulumi.Input['LaunchTemplateDataArgs'],
                  launch_template_name: Optional[pulumi.Input[str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None):
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LaunchTemplate resource.
         """
-        if launch_template_data is not None:
-            pulumi.set(__self__, "launch_template_data", launch_template_data)
+        pulumi.set(__self__, "launch_template_data", launch_template_data)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
         if tag_specifications is not None:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if version_description is not None:
+            pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter(name="launchTemplateData")
-    def launch_template_data(self) -> Optional[pulumi.Input['LaunchTemplateDataArgs']]:
+    def launch_template_data(self) -> pulumi.Input['LaunchTemplateDataArgs']:
         return pulumi.get(self, "launch_template_data")
 
     @launch_template_data.setter
-    def launch_template_data(self, value: Optional[pulumi.Input['LaunchTemplateDataArgs']]):
+    def launch_template_data(self, value: pulumi.Input['LaunchTemplateDataArgs']):
         pulumi.set(self, "launch_template_data", value)
 
     @property
@@ -56,6 +58,15 @@ class LaunchTemplateArgs:
     def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version_description")
+
+    @version_description.setter
+    def version_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_description", value)
+
 
 warnings.warn("""LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -70,6 +81,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  launch_template_data: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateDataArgs']]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::LaunchTemplate
@@ -81,7 +93,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[LaunchTemplateArgs] = None,
+                 args: LaunchTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::LaunchTemplate
@@ -104,6 +116,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  launch_template_data: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateDataArgs']]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""LaunchTemplate is deprecated: LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -114,9 +127,12 @@ class LaunchTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LaunchTemplateArgs.__new__(LaunchTemplateArgs)
 
+            if launch_template_data is None and not opts.urn:
+                raise TypeError("Missing required property 'launch_template_data'")
             __props__.__dict__["launch_template_data"] = launch_template_data
             __props__.__dict__["launch_template_name"] = launch_template_name
             __props__.__dict__["tag_specifications"] = tag_specifications
+            __props__.__dict__["version_description"] = version_description
             __props__.__dict__["default_version_number"] = None
             __props__.__dict__["latest_version_number"] = None
         super(LaunchTemplate, __self__).__init__(
@@ -146,6 +162,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["launch_template_data"] = None
         __props__.__dict__["launch_template_name"] = None
         __props__.__dict__["tag_specifications"] = None
+        __props__.__dict__["version_description"] = None
         return LaunchTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -160,7 +177,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchTemplateData")
-    def launch_template_data(self) -> pulumi.Output[Optional['outputs.LaunchTemplateData']]:
+    def launch_template_data(self) -> pulumi.Output['outputs.LaunchTemplateData']:
         return pulumi.get(self, "launch_template_data")
 
     @property
@@ -172,4 +189,9 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTemplateTagSpecification']]]:
         return pulumi.get(self, "tag_specifications")
+
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "version_description")
 

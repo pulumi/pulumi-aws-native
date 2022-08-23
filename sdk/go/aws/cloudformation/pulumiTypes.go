@@ -616,6 +616,8 @@ func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.B
 
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargets struct {
+	// The filter type you want to apply on organizational units and accounts.
+	AccountFilterType *StackSetDeploymentTargetsAccountFilterType `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts []string `pulumi:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
@@ -635,6 +637,8 @@ type StackSetDeploymentTargetsInput interface {
 
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsArgs struct {
+	// The filter type you want to apply on organizational units and accounts.
+	AccountFilterType StackSetDeploymentTargetsAccountFilterTypePtrInput `pulumi:"accountFilterType"`
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
@@ -666,6 +670,13 @@ func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutput() Sta
 
 func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutputWithContext(ctx context.Context) StackSetDeploymentTargetsOutput {
 	return o
+}
+
+// The filter type you want to apply on organizational units and accounts.
+func (o StackSetDeploymentTargetsOutput) AccountFilterType() StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return o.ApplyT(func(v StackSetDeploymentTargets) *StackSetDeploymentTargetsAccountFilterType {
+		return v.AccountFilterType
+	}).(StackSetDeploymentTargetsAccountFilterTypePtrOutput)
 }
 
 // AWS accounts that you want to create stack instances in the specified Region(s) for.

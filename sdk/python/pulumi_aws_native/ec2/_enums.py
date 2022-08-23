@@ -29,6 +29,7 @@ __all__ = [
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
+    'IPAMPoolAwsService',
     'IPAMPoolIpamScopeType',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
@@ -242,6 +243,8 @@ class FlowLogResourceType(str, Enum):
     NETWORK_INTERFACE = "NetworkInterface"
     SUBNET = "Subnet"
     VPC = "VPC"
+    TRANSIT_GATEWAY = "TransitGateway"
+    TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
 
 
 class FlowLogTrafficType(str, Enum):
@@ -251,6 +254,13 @@ class FlowLogTrafficType(str, Enum):
     ACCEPT = "ACCEPT"
     ALL = "ALL"
     REJECT = "REJECT"
+
+
+class IPAMPoolAwsService(str, Enum):
+    """
+    Limits which service in Amazon Web Services that the pool can be used in.
+    """
+    EC2 = "ec2"
 
 
 class IPAMPoolIpamScopeType(str, Enum):

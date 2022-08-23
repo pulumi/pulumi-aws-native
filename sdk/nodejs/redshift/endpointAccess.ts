@@ -42,7 +42,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
      */
-    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The time (UTC) that the endpoint was created.
      */
@@ -66,7 +66,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The subnet group name where Amazon Redshift chooses to deploy the endpoint.
      */
-    public readonly subnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly subnetGroupName!: pulumi.Output<string>;
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
      */
@@ -91,8 +91,14 @@ export class EndpointAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'clusterIdentifier'");
+            }
             if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
+            }
+            if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetGroupName'");
             }
             if ((!args || args.vpcSecurityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSecurityGroupIds'");
@@ -133,7 +139,7 @@ export interface EndpointAccessArgs {
     /**
      * A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier: pulumi.Input<string>;
     /**
      * The name of the endpoint.
      */
@@ -145,7 +151,7 @@ export interface EndpointAccessArgs {
     /**
      * The subnet group name where Amazon Redshift chooses to deploy the endpoint.
      */
-    subnetGroupName?: pulumi.Input<string>;
+    subnetGroupName: pulumi.Input<string>;
     /**
      * A list of vpc security group ids to apply to the created endpoint access.
      */

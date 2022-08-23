@@ -11,8 +11,6 @@ import (
 )
 
 // AWS::NetworkManager::VpcAttachment Resoruce Type
-//
-// Deprecated: VpcAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VpcAttachment struct {
 	pulumi.CustomResourceState
 

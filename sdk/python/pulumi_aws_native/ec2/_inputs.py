@@ -2476,6 +2476,7 @@ class InstanceLicenseSpecificationArgs:
 class InstanceNetworkInterfaceArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[str],
+                 associate_carrier_ip_address: Optional[pulumi.Input[bool]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -2488,6 +2489,8 @@ class InstanceNetworkInterfaceArgs:
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_index", device_index)
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
@@ -2519,6 +2522,15 @@ class InstanceNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: pulumi.Input[str]):
         pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "associate_carrier_ip_address")
+
+    @associate_carrier_ip_address.setter
+    def associate_carrier_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "associate_carrier_ip_address", value)
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")

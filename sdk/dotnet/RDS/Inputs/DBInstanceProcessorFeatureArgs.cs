@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.RDS.Inputs
 
     public sealed class DBInstanceProcessorFeatureArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<Pulumi.AwsNative.RDS.DBInstanceProcessorFeatureName>? Name { get; set; }
 
+        /// <summary>
+        /// The value of a processor feature name.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

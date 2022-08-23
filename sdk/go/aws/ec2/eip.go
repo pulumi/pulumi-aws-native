@@ -16,11 +16,12 @@ import (
 type EIP struct {
 	pulumi.CustomResourceState
 
-	AllocationId   pulumi.StringOutput    `pulumi:"allocationId"`
-	Domain         pulumi.StringPtrOutput `pulumi:"domain"`
-	InstanceId     pulumi.StringPtrOutput `pulumi:"instanceId"`
-	PublicIpv4Pool pulumi.StringPtrOutput `pulumi:"publicIpv4Pool"`
-	Tags           EIPTagArrayOutput      `pulumi:"tags"`
+	AllocationId       pulumi.StringOutput    `pulumi:"allocationId"`
+	Domain             pulumi.StringPtrOutput `pulumi:"domain"`
+	InstanceId         pulumi.StringPtrOutput `pulumi:"instanceId"`
+	NetworkBorderGroup pulumi.StringPtrOutput `pulumi:"networkBorderGroup"`
+	PublicIpv4Pool     pulumi.StringPtrOutput `pulumi:"publicIpv4Pool"`
+	Tags               EIPTagArrayOutput      `pulumi:"tags"`
 }
 
 // NewEIP registers a new resource with the given unique name, arguments, and options.
@@ -62,18 +63,20 @@ func (EIPState) ElementType() reflect.Type {
 }
 
 type eipArgs struct {
-	Domain         *string  `pulumi:"domain"`
-	InstanceId     *string  `pulumi:"instanceId"`
-	PublicIpv4Pool *string  `pulumi:"publicIpv4Pool"`
-	Tags           []EIPTag `pulumi:"tags"`
+	Domain             *string  `pulumi:"domain"`
+	InstanceId         *string  `pulumi:"instanceId"`
+	NetworkBorderGroup *string  `pulumi:"networkBorderGroup"`
+	PublicIpv4Pool     *string  `pulumi:"publicIpv4Pool"`
+	Tags               []EIPTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EIP resource.
 type EIPArgs struct {
-	Domain         pulumi.StringPtrInput
-	InstanceId     pulumi.StringPtrInput
-	PublicIpv4Pool pulumi.StringPtrInput
-	Tags           EIPTagArrayInput
+	Domain             pulumi.StringPtrInput
+	InstanceId         pulumi.StringPtrInput
+	NetworkBorderGroup pulumi.StringPtrInput
+	PublicIpv4Pool     pulumi.StringPtrInput
+	Tags               EIPTagArrayInput
 }
 
 func (EIPArgs) ElementType() reflect.Type {
@@ -123,6 +126,10 @@ func (o EIPOutput) Domain() pulumi.StringPtrOutput {
 
 func (o EIPOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EIP) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EIPOutput) NetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIP) pulumi.StringPtrOutput { return v.NetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o EIPOutput) PublicIpv4Pool() pulumi.StringPtrOutput {

@@ -19,16 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, content_based_deduplication=None, display_name=None, id=None, kms_master_key_id=None, subscription=None, tags=None):
+    def __init__(__self__, content_based_deduplication=None, display_name=None, kms_master_key_id=None, subscription=None, tags=None, topic_arn=None):
         if content_based_deduplication and not isinstance(content_based_deduplication, bool):
             raise TypeError("Expected argument 'content_based_deduplication' to be a bool")
         pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if kms_master_key_id and not isinstance(kms_master_key_id, str):
             raise TypeError("Expected argument 'kms_master_key_id' to be a str")
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
@@ -38,36 +35,57 @@ class GetTopicResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if topic_arn and not isinstance(topic_arn, str):
+            raise TypeError("Expected argument 'topic_arn' to be a str")
+        pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
     def content_based_deduplication(self) -> Optional[bool]:
+        """
+        Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+
+        When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+
+        (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        """
         return pulumi.get(self, "content_based_deduplication")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name to use for an Amazon SNS topic with SMS subscriptions.
+        """
         return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[str]:
+        """
+        The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+
+        This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        """
         return pulumi.get(self, "kms_master_key_id")
 
     @property
     @pulumi.getter
     def subscription(self) -> Optional[Sequence['outputs.TopicSubscription']]:
+        """
+        The SNS subscriptions (endpoints) for this topic.
+        """
         return pulumi.get(self, "subscription")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.TopicTag']]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[str]:
+        return pulumi.get(self, "topic_arn")
 
 
 class AwaitableGetTopicResult(GetTopicResult):
@@ -78,33 +96,33 @@ class AwaitableGetTopicResult(GetTopicResult):
         return GetTopicResult(
             content_based_deduplication=self.content_based_deduplication,
             display_name=self.display_name,
-            id=self.id,
             kms_master_key_id=self.kms_master_key_id,
             subscription=self.subscription,
-            tags=self.tags)
+            tags=self.tags,
+            topic_arn=self.topic_arn)
 
 
-def get_topic(id: Optional[str] = None,
+def get_topic(topic_arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Resource Type definition for AWS::SNS::Topic
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['topicArn'] = topic_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:sns:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
         content_based_deduplication=__ret__.content_based_deduplication,
         display_name=__ret__.display_name,
-        id=__ret__.id,
         kms_master_key_id=__ret__.kms_master_key_id,
         subscription=__ret__.subscription,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        topic_arn=__ret__.topic_arn)
 
 
 @_utilities.lift_output_func(get_topic)
-def get_topic_output(id: Optional[pulumi.Input[str]] = None,
+def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Resource Type definition for AWS::SNS::Topic

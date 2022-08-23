@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         [Input("kubernetes")]
         public Input<Inputs.DetectorCFNKubernetesConfigurationArgs>? Kubernetes { get; set; }
 
+        [Input("malwareProtection")]
+        public Input<Inputs.DetectorCFNMalwareProtectionConfigurationArgs>? MalwareProtection { get; set; }
+
         [Input("s3Logs")]
         public Input<Inputs.DetectorCFNS3LogsConfigurationArgs>? S3Logs { get; set; }
 

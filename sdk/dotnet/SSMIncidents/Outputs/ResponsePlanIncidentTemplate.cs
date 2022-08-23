@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
         /// </summary>
         public readonly int Impact;
         /// <summary>
+        /// Tags that get applied to incidents created by the StartIncident API action.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResponsePlanTag> IncidentTags;
+        /// <summary>
         /// The list of notification targets.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanNotificationTargetItem> NotificationTargets;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 
             int impact,
 
+            ImmutableArray<Outputs.ResponsePlanTag> incidentTags,
+
             ImmutableArray<Outputs.ResponsePlanNotificationTargetItem> notificationTargets,
 
             string? summary,
@@ -51,6 +57,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
         {
             DedupeString = dedupeString;
             Impact = impact;
+            IncidentTags = incidentTags;
             NotificationTargets = notificationTargets;
             Summary = summary;
             Title = title;

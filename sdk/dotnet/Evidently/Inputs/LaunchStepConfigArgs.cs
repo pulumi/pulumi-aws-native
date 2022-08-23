@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Evidently.Inputs
             set => _groupWeights = value;
         }
 
+        [Input("segmentOverrides")]
+        private InputList<Inputs.LaunchSegmentOverrideArgs>? _segmentOverrides;
+        public InputList<Inputs.LaunchSegmentOverrideArgs> SegmentOverrides
+        {
+            get => _segmentOverrides ?? (_segmentOverrides = new InputList<Inputs.LaunchSegmentOverrideArgs>());
+            set => _segmentOverrides = value;
+        }
+
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 

@@ -1278,6 +1278,173 @@ func (o StackSetCapabilityArrayOutput) Index(i pulumi.IntInput) StackSetCapabili
 	}).(StackSetCapabilityOutput)
 }
 
+// The filter type you want to apply on organizational units and accounts.
+type StackSetDeploymentTargetsAccountFilterType string
+
+const (
+	StackSetDeploymentTargetsAccountFilterTypeNone         = StackSetDeploymentTargetsAccountFilterType("NONE")
+	StackSetDeploymentTargetsAccountFilterTypeUnion        = StackSetDeploymentTargetsAccountFilterType("UNION")
+	StackSetDeploymentTargetsAccountFilterTypeIntersection = StackSetDeploymentTargetsAccountFilterType("INTERSECTION")
+	StackSetDeploymentTargetsAccountFilterTypeDifference   = StackSetDeploymentTargetsAccountFilterType("DIFFERENCE")
+)
+
+func (StackSetDeploymentTargetsAccountFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterType)(nil)).Elem()
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStackSetDeploymentTargetsAccountFilterTypeOutput() StackSetDeploymentTargetsAccountFilterTypeOutput {
+	return pulumi.ToOutput(e).(StackSetDeploymentTargetsAccountFilterTypeOutput)
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStackSetDeploymentTargetsAccountFilterTypeOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StackSetDeploymentTargetsAccountFilterTypeOutput)
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStackSetDeploymentTargetsAccountFilterTypePtrOutput() StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return e.ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return StackSetDeploymentTargetsAccountFilterType(e).ToStackSetDeploymentTargetsAccountFilterTypeOutputWithContext(ctx).ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StackSetDeploymentTargetsAccountFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StackSetDeploymentTargetsAccountFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (StackSetDeploymentTargetsAccountFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterType)(nil)).Elem()
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStackSetDeploymentTargetsAccountFilterTypeOutput() StackSetDeploymentTargetsAccountFilterTypeOutput {
+	return o
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStackSetDeploymentTargetsAccountFilterTypeOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypeOutput {
+	return o
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStackSetDeploymentTargetsAccountFilterTypePtrOutput() StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return o.ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetDeploymentTargetsAccountFilterType) *StackSetDeploymentTargetsAccountFilterType {
+		return &v
+	}).(StackSetDeploymentTargetsAccountFilterTypePtrOutput)
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackSetDeploymentTargetsAccountFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StackSetDeploymentTargetsAccountFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StackSetDeploymentTargetsAccountFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetDeploymentTargetsAccountFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetDeploymentTargetsAccountFilterType)(nil)).Elem()
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStackSetDeploymentTargetsAccountFilterTypePtrOutput() StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return o
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return o
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) Elem() StackSetDeploymentTargetsAccountFilterTypeOutput {
+	return o.ApplyT(func(v *StackSetDeploymentTargetsAccountFilterType) StackSetDeploymentTargetsAccountFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetDeploymentTargetsAccountFilterType
+		return ret
+	}).(StackSetDeploymentTargetsAccountFilterTypeOutput)
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StackSetDeploymentTargetsAccountFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StackSetDeploymentTargetsAccountFilterTypeInput is an input type that accepts StackSetDeploymentTargetsAccountFilterTypeArgs and StackSetDeploymentTargetsAccountFilterTypeOutput values.
+// You can construct a concrete instance of `StackSetDeploymentTargetsAccountFilterTypeInput` via:
+//
+//	StackSetDeploymentTargetsAccountFilterTypeArgs{...}
+type StackSetDeploymentTargetsAccountFilterTypeInput interface {
+	pulumi.Input
+
+	ToStackSetDeploymentTargetsAccountFilterTypeOutput() StackSetDeploymentTargetsAccountFilterTypeOutput
+	ToStackSetDeploymentTargetsAccountFilterTypeOutputWithContext(context.Context) StackSetDeploymentTargetsAccountFilterTypeOutput
+}
+
+var stackSetDeploymentTargetsAccountFilterTypePtrType = reflect.TypeOf((**StackSetDeploymentTargetsAccountFilterType)(nil)).Elem()
+
+type StackSetDeploymentTargetsAccountFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToStackSetDeploymentTargetsAccountFilterTypePtrOutput() StackSetDeploymentTargetsAccountFilterTypePtrOutput
+	ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(context.Context) StackSetDeploymentTargetsAccountFilterTypePtrOutput
+}
+
+type stackSetDeploymentTargetsAccountFilterTypePtr string
+
+func StackSetDeploymentTargetsAccountFilterTypePtr(v string) StackSetDeploymentTargetsAccountFilterTypePtrInput {
+	return (*stackSetDeploymentTargetsAccountFilterTypePtr)(&v)
+}
+
+func (*stackSetDeploymentTargetsAccountFilterTypePtr) ElementType() reflect.Type {
+	return stackSetDeploymentTargetsAccountFilterTypePtrType
+}
+
+func (in *stackSetDeploymentTargetsAccountFilterTypePtr) ToStackSetDeploymentTargetsAccountFilterTypePtrOutput() StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(StackSetDeploymentTargetsAccountFilterTypePtrOutput)
+}
+
+func (in *stackSetDeploymentTargetsAccountFilterTypePtr) ToStackSetDeploymentTargetsAccountFilterTypePtrOutputWithContext(ctx context.Context) StackSetDeploymentTargetsAccountFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StackSetDeploymentTargetsAccountFilterTypePtrOutput)
+}
+
 // Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
 type StackSetPermissionModel string
 
@@ -1949,6 +2116,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityPtrInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityArrayInput)(nil)).Elem(), StackSetCapabilityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterTypeInput)(nil)).Elem(), StackSetDeploymentTargetsAccountFilterType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsAccountFilterTypePtrInput)(nil)).Elem(), StackSetDeploymentTargetsAccountFilterType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetPermissionModelInput)(nil)).Elem(), StackSetPermissionModel("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetPermissionModelPtrInput)(nil)).Elem(), StackSetPermissionModel("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetRegionConcurrencyTypeInput)(nil)).Elem(), StackSetRegionConcurrencyType("SEQUENTIAL"))
@@ -1978,6 +2147,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetCapabilityOutput{})
 	pulumi.RegisterOutputType(StackSetCapabilityPtrOutput{})
 	pulumi.RegisterOutputType(StackSetCapabilityArrayOutput{})
+	pulumi.RegisterOutputType(StackSetDeploymentTargetsAccountFilterTypeOutput{})
+	pulumi.RegisterOutputType(StackSetDeploymentTargetsAccountFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(StackSetPermissionModelOutput{})
 	pulumi.RegisterOutputType(StackSetPermissionModelPtrOutput{})
 	pulumi.RegisterOutputType(StackSetRegionConcurrencyTypeOutput{})

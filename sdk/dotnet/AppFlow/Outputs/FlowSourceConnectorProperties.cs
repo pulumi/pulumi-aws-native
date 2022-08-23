@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowSourceConnectorProperties
     {
         public readonly Outputs.FlowAmplitudeSourceProperties? Amplitude;
+        public readonly Outputs.FlowCustomConnectorSourceProperties? CustomConnector;
         public readonly Outputs.FlowDatadogSourceProperties? Datadog;
         public readonly Outputs.FlowDynatraceSourceProperties? Dynatrace;
         public readonly Outputs.FlowGoogleAnalyticsSourceProperties? GoogleAnalytics;
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         [OutputConstructor]
         private FlowSourceConnectorProperties(
             Outputs.FlowAmplitudeSourceProperties? amplitude,
+
+            Outputs.FlowCustomConnectorSourceProperties? customConnector,
 
             Outputs.FlowDatadogSourceProperties? datadog,
 
@@ -65,6 +68,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Outputs.FlowZendeskSourceProperties? zendesk)
         {
             Amplitude = amplitude;
+            CustomConnector = customConnector;
             Datadog = datadog;
             Dynatrace = dynatrace;
             GoogleAnalytics = googleAnalytics;

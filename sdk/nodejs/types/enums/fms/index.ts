@@ -2,7 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const PolicySecurityServicePolicyDataPropertiesType = {
+export const PolicyFirewallDeploymentModel = {
+    Distributed: "DISTRIBUTED",
+    Centralized: "CENTRALIZED",
+} as const;
+
+/**
+ * Firewall deployment mode.
+ */
+export type PolicyFirewallDeploymentModel = (typeof PolicyFirewallDeploymentModel)[keyof typeof PolicyFirewallDeploymentModel];
+
+export const PolicyType = {
     Waf: "WAF",
     Wafv2: "WAFV2",
     ShieldAdvanced: "SHIELD_ADVANCED",
@@ -10,7 +20,11 @@ export const PolicySecurityServicePolicyDataPropertiesType = {
     SecurityGroupsContentAudit: "SECURITY_GROUPS_CONTENT_AUDIT",
     SecurityGroupsUsageAudit: "SECURITY_GROUPS_USAGE_AUDIT",
     NetworkFirewall: "NETWORK_FIREWALL",
+    ThirdPartyFirewall: "THIRD_PARTY_FIREWALL",
     DnsFirewall: "DNS_FIREWALL",
 } as const;
 
-export type PolicySecurityServicePolicyDataPropertiesType = (typeof PolicySecurityServicePolicyDataPropertiesType)[keyof typeof PolicySecurityServicePolicyDataPropertiesType];
+/**
+ * Firewall policy type.
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];

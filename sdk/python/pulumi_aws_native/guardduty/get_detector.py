@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDetectorResult:
-    def __init__(__self__, data_sources=None, enable=None, finding_publishing_frequency=None, id=None):
+    def __init__(__self__, data_sources=None, enable=None, finding_publishing_frequency=None, id=None, tags=None):
         if data_sources and not isinstance(data_sources, dict):
             raise TypeError("Expected argument 'data_sources' to be a dict")
         pulumi.set(__self__, "data_sources", data_sources)
@@ -32,6 +32,9 @@ class GetDetectorResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataSources")
@@ -53,6 +56,11 @@ class GetDetectorResult:
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDetectorResult(GetDetectorResult):
     # pylint: disable=using-constant-test
@@ -63,7 +71,8 @@ class AwaitableGetDetectorResult(GetDetectorResult):
             data_sources=self.data_sources,
             enable=self.enable,
             finding_publishing_frequency=self.finding_publishing_frequency,
-            id=self.id)
+            id=self.id,
+            tags=self.tags)
 
 
 def get_detector(id: Optional[str] = None,
@@ -80,7 +89,8 @@ def get_detector(id: Optional[str] = None,
         data_sources=__ret__.data_sources,
         enable=__ret__.enable,
         finding_publishing_frequency=__ret__.finding_publishing_frequency,
-        id=__ret__.id)
+        id=__ret__.id,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_detector)

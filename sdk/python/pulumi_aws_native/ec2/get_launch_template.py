@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLaunchTemplateResult:
-    def __init__(__self__, default_version_number=None, id=None, latest_version_number=None, launch_template_data=None, tag_specifications=None):
+    def __init__(__self__, default_version_number=None, id=None, latest_version_number=None, launch_template_data=None, tag_specifications=None, version_description=None):
         if default_version_number and not isinstance(default_version_number, str):
             raise TypeError("Expected argument 'default_version_number' to be a str")
         pulumi.set(__self__, "default_version_number", default_version_number)
@@ -35,6 +35,9 @@ class GetLaunchTemplateResult:
         if tag_specifications and not isinstance(tag_specifications, list):
             raise TypeError("Expected argument 'tag_specifications' to be a list")
         pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if version_description and not isinstance(version_description, str):
+            raise TypeError("Expected argument 'version_description' to be a str")
+        pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter(name="defaultVersionNumber")
@@ -61,6 +64,11 @@ class GetLaunchTemplateResult:
     def tag_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateTagSpecification']]:
         return pulumi.get(self, "tag_specifications")
 
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[str]:
+        return pulumi.get(self, "version_description")
+
 
 class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
     # pylint: disable=using-constant-test
@@ -72,7 +80,8 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             id=self.id,
             latest_version_number=self.latest_version_number,
             launch_template_data=self.launch_template_data,
-            tag_specifications=self.tag_specifications)
+            tag_specifications=self.tag_specifications,
+            version_description=self.version_description)
 
 
 def get_launch_template(id: Optional[str] = None,
@@ -90,7 +99,8 @@ def get_launch_template(id: Optional[str] = None,
         id=__ret__.id,
         latest_version_number=__ret__.latest_version_number,
         launch_template_data=__ret__.launch_template_data,
-        tag_specifications=__ret__.tag_specifications)
+        tag_specifications=__ret__.tag_specifications,
+        version_description=__ret__.version_description)
 
 
 @_utilities.lift_output_func(get_launch_template)

@@ -51,11 +51,16 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetListenerCertificateResult
     {
+        public readonly ImmutableArray<Outputs.ListenerCertificateCertificate> Certificates;
         public readonly string? Id;
 
         [OutputConstructor]
-        private GetListenerCertificateResult(string? id)
+        private GetListenerCertificateResult(
+            ImmutableArray<Outputs.ListenerCertificateCertificate> certificates,
+
+            string? id)
         {
+            Certificates = certificates;
             Id = id;
         }
     }

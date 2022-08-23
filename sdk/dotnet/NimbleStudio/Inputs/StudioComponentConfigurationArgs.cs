@@ -15,18 +15,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// </summary>
     public sealed class StudioComponentConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activeDirectoryConfiguration")]
-        public Input<Inputs.StudioComponentActiveDirectoryConfigurationArgs>? ActiveDirectoryConfiguration { get; set; }
-
-        [Input("computeFarmConfiguration")]
-        public Input<Inputs.StudioComponentComputeFarmConfigurationArgs>? ComputeFarmConfiguration { get; set; }
-
-        [Input("licenseServiceConfiguration")]
-        public Input<Inputs.StudioComponentLicenseServiceConfigurationArgs>? LicenseServiceConfiguration { get; set; }
-
-        [Input("sharedFileSystemConfiguration")]
-        public Input<Inputs.StudioComponentSharedFileSystemConfigurationArgs>? SharedFileSystemConfiguration { get; set; }
-
         public StudioComponentConfigurationArgs()
         {
         }

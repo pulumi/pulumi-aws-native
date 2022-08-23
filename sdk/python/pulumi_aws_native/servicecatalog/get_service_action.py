@@ -20,10 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceActionResult:
-    def __init__(__self__, accept_language=None, definition=None, definition_type=None, description=None, id=None, name=None):
-        if accept_language and not isinstance(accept_language, str):
-            raise TypeError("Expected argument 'accept_language' to be a str")
-        pulumi.set(__self__, "accept_language", accept_language)
+    def __init__(__self__, definition=None, definition_type=None, description=None, id=None, name=None):
         if definition and not isinstance(definition, list):
             raise TypeError("Expected argument 'definition' to be a list")
         pulumi.set(__self__, "definition", definition)
@@ -39,11 +36,6 @@ class GetServiceActionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional['ServiceActionAcceptLanguage']:
-        return pulumi.get(self, "accept_language")
 
     @property
     @pulumi.getter
@@ -77,7 +69,6 @@ class AwaitableGetServiceActionResult(GetServiceActionResult):
         if False:
             yield self
         return GetServiceActionResult(
-            accept_language=self.accept_language,
             definition=self.definition,
             definition_type=self.definition_type,
             description=self.description,
@@ -96,7 +87,6 @@ def get_service_action(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getServiceAction', __args__, opts=opts, typ=GetServiceActionResult).value
 
     return AwaitableGetServiceActionResult(
-        accept_language=__ret__.accept_language,
         definition=__ret__.definition,
         definition_type=__ret__.definition_type,
         description=__ret__.description,

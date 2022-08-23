@@ -28,13 +28,15 @@ type LookupPermissionSetArgs struct {
 }
 
 type LookupPermissionSetResult struct {
+	CustomerManagedPolicyReferences []PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`
 	// The permission set description.
 	Description *string `pulumi:"description"`
 	// The inline policy to put in permission set.
 	InlinePolicy    interface{} `pulumi:"inlinePolicy"`
 	ManagedPolicies []string    `pulumi:"managedPolicies"`
 	// The permission set that the policy will be attached to
-	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	PermissionSetArn    *string                           `pulumi:"permissionSetArn"`
+	PermissionsBoundary *PermissionSetPermissionsBoundary `pulumi:"permissionsBoundary"`
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
@@ -80,6 +82,12 @@ func (o LookupPermissionSetResultOutput) ToLookupPermissionSetResultOutputWithCo
 	return o
 }
 
+func (o LookupPermissionSetResultOutput) CustomerManagedPolicyReferences() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
+	return o.ApplyT(func(v LookupPermissionSetResult) []PermissionSetCustomerManagedPolicyReference {
+		return v.CustomerManagedPolicyReferences
+	}).(PermissionSetCustomerManagedPolicyReferenceArrayOutput)
+}
+
 // The permission set description.
 func (o LookupPermissionSetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -97,6 +105,10 @@ func (o LookupPermissionSetResultOutput) ManagedPolicies() pulumi.StringArrayOut
 // The permission set that the policy will be attached to
 func (o LookupPermissionSetResultOutput) PermissionSetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.PermissionSetArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPermissionSetResultOutput) PermissionsBoundary() PermissionSetPermissionsBoundaryPtrOutput {
+	return o.ApplyT(func(v LookupPermissionSetResult) *PermissionSetPermissionsBoundary { return v.PermissionsBoundary }).(PermissionSetPermissionsBoundaryPtrOutput)
 }
 
 // The relay state URL that redirect links to any service in the AWS Management Console.

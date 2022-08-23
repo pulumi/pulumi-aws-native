@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("dataPullMode")]
         public Input<Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
 
+        [Input("firstExecutionFrom")]
+        public Input<double>? FirstExecutionFrom { get; set; }
+
+        [Input("flowErrorDeactivationThreshold")]
+        public Input<int>? FlowErrorDeactivationThreshold { get; set; }
+
         [Input("scheduleEndTime")]
         public Input<double>? ScheduleEndTime { get; set; }
 

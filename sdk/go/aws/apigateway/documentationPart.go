@@ -12,14 +12,17 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGateway::DocumentationPart
-//
-// Deprecated: DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 
-	Location   DocumentationPartLocationOutput `pulumi:"location"`
-	Properties pulumi.StringOutput             `pulumi:"properties"`
-	RestApiId  pulumi.StringOutput             `pulumi:"restApiId"`
+	// The identifier of the documentation Part.
+	DocumentationPartId pulumi.StringOutput `pulumi:"documentationPartId"`
+	// The location of the API entity that the documentation applies to.
+	Location DocumentationPartLocationOutput `pulumi:"location"`
+	// The documentation content map of the targeted API entity.
+	Properties pulumi.StringOutput `pulumi:"properties"`
+	// Identifier of the targeted API entity
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
 // NewDocumentationPart registers a new resource with the given unique name, arguments, and options.
@@ -70,16 +73,22 @@ func (DocumentationPartState) ElementType() reflect.Type {
 }
 
 type documentationPartArgs struct {
-	Location   DocumentationPartLocation `pulumi:"location"`
-	Properties string                    `pulumi:"properties"`
-	RestApiId  string                    `pulumi:"restApiId"`
+	// The location of the API entity that the documentation applies to.
+	Location DocumentationPartLocation `pulumi:"location"`
+	// The documentation content map of the targeted API entity.
+	Properties string `pulumi:"properties"`
+	// Identifier of the targeted API entity
+	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a DocumentationPart resource.
 type DocumentationPartArgs struct {
-	Location   DocumentationPartLocationInput
+	// The location of the API entity that the documentation applies to.
+	Location DocumentationPartLocationInput
+	// The documentation content map of the targeted API entity.
 	Properties pulumi.StringInput
-	RestApiId  pulumi.StringInput
+	// Identifier of the targeted API entity
+	RestApiId pulumi.StringInput
 }
 
 func (DocumentationPartArgs) ElementType() reflect.Type {
@@ -119,14 +128,22 @@ func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx contex
 	return o
 }
 
+// The identifier of the documentation Part.
+func (o DocumentationPartOutput) DocumentationPartId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.DocumentationPartId }).(pulumi.StringOutput)
+}
+
+// The location of the API entity that the documentation applies to.
 func (o DocumentationPartOutput) Location() DocumentationPartLocationOutput {
 	return o.ApplyT(func(v *DocumentationPart) DocumentationPartLocationOutput { return v.Location }).(DocumentationPartLocationOutput)
 }
 
+// The documentation content map of the targeted API entity.
 func (o DocumentationPartOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
 }
 
+// Identifier of the targeted API entity
 func (o DocumentationPartOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

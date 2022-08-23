@@ -11,8 +11,6 @@ import (
 )
 
 // AWS::NetworkManager::ConnectAttachment Resource Type Definition
-//
-// Deprecated: ConnectAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConnectAttachment struct {
 	pulumi.CustomResourceState
 

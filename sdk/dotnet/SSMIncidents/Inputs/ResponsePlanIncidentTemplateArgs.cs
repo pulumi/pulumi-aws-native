@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         [Input("impact", required: true)]
         public Input<int> Impact { get; set; } = null!;
 
+        [Input("incidentTags")]
+        private InputList<Inputs.ResponsePlanTagArgs>? _incidentTags;
+
+        /// <summary>
+        /// Tags that get applied to incidents created by the StartIncident API action.
+        /// </summary>
+        public InputList<Inputs.ResponsePlanTagArgs> IncidentTags
+        {
+            get => _incidentTags ?? (_incidentTags = new InputList<Inputs.ResponsePlanTagArgs>());
+            set => _incidentTags = value;
+        }
+
         [Input("notificationTargets")]
         private InputList<Inputs.ResponsePlanNotificationTargetItemArgs>? _notificationTargets;
 

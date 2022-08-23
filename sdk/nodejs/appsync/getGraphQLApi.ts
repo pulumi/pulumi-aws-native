@@ -24,7 +24,7 @@ export interface GetGraphQLApiArgs {
 }
 
 export interface GetGraphQLApiResult {
-    readonly additionalAuthenticationProviders?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviders;
+    readonly additionalAuthenticationProviders?: outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[];
     readonly apiId?: string;
     readonly arn?: string;
     readonly authenticationType?: string;
@@ -34,7 +34,7 @@ export interface GetGraphQLApiResult {
     readonly logConfig?: outputs.appsync.GraphQLApiLogConfig;
     readonly name?: string;
     readonly openIDConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
-    readonly tags?: outputs.appsync.GraphQLApiTags;
+    readonly tags?: outputs.appsync.GraphQLApiTag[];
     readonly userPoolConfig?: outputs.appsync.GraphQLApiUserPoolConfig;
     readonly xrayEnabled?: boolean;
 }

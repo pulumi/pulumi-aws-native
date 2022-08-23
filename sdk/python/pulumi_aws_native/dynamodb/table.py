@@ -16,11 +16,12 @@ __all__ = ['TableArgs', 'Table']
 @pulumi.input_type
 class TableArgs:
     def __init__(__self__, *,
-                 key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
+                 key_schema: pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]],
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
@@ -43,6 +44,8 @@ class TableArgs:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if import_source_specification is not None:
+            pulumi.set(__self__, "import_source_specification", import_source_specification)
         if kinesis_stream_specification is not None:
             pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if local_secondary_indexes is not None:
@@ -66,11 +69,11 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="keySchema")
-    def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
+    def key_schema(self) -> pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]]:
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
-    def key_schema(self, value: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]):
+    def key_schema(self, value: pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]]):
         pulumi.set(self, "key_schema", value)
 
     @property
@@ -108,6 +111,15 @@ class TableArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="importSourceSpecification")
+    def import_source_specification(self) -> Optional[pulumi.Input['TableImportSourceSpecificationArgs']]:
+        return pulumi.get(self, "import_source_specification")
+
+    @import_source_specification.setter
+    def import_source_specification(self, value: Optional[pulumi.Input['TableImportSourceSpecificationArgs']]):
+        pulumi.set(self, "import_source_specification", value)
 
     @property
     @pulumi.getter(name="kinesisStreamSpecification")
@@ -200,12 +212,7 @@ class TableArgs:
         pulumi.set(self, "time_to_live_specification", value)
 
 
-warnings.warn("""Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Table(pulumi.CustomResource):
-    warnings.warn("""Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,7 +221,8 @@ class Table(pulumi.CustomResource):
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
-                 key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]]]] = None,
+                 import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
+                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
@@ -227,7 +235,7 @@ class Table(pulumi.CustomResource):
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::DynamoDB::Table
+        Version: None. Resource Type definition for AWS::DynamoDB::Table
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,7 +247,7 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::DynamoDB::Table
+        Version: None. Resource Type definition for AWS::DynamoDB::Table
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +268,8 @@ class Table(pulumi.CustomResource):
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
-                 key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]]]] = None,
+                 import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
+                 key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
@@ -272,7 +281,6 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -285,6 +293,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["contributor_insights_specification"] = contributor_insights_specification
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["import_source_specification"] = import_source_specification
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
@@ -327,6 +336,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["contributor_insights_specification"] = None
         __props__.__dict__["global_secondary_indexes"] = None
+        __props__.__dict__["import_source_specification"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["kinesis_stream_specification"] = None
         __props__.__dict__["local_secondary_indexes"] = None
@@ -367,8 +377,13 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
+    @pulumi.getter(name="importSourceSpecification")
+    def import_source_specification(self) -> pulumi.Output[Optional['outputs.TableImportSourceSpecification']]:
+        return pulumi.get(self, "import_source_specification")
+
+    @property
     @pulumi.getter(name="keySchema")
-    def key_schema(self) -> pulumi.Output[Sequence['outputs.TableKeySchema']]:
+    def key_schema(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "key_schema")
 
     @property

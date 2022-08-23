@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Logs
     public static class GetMetricFilter
     {
         /// <summary>
-        /// Resource Type definition for AWS::Logs::MetricFilter
+        /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
         /// </summary>
         public static Task<GetMetricFilterResult> InvokeAsync(GetMetricFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Logs::MetricFilter
+        /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
         /// </summary>
         public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetMetricFilterArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the metric filter.
+        /// </summary>
+        [Input("filterName", required: true)]
+        public string FilterName { get; set; } = null!;
+
+        /// <summary>
+        /// Existing log group that you want to associate with this filter.
+        /// </summary>
+        [Input("logGroupName", required: true)]
+        public string LogGroupName { get; set; } = null!;
 
         public GetMetricFilterArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetMetricFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the metric filter.
+        /// </summary>
+        [Input("filterName", required: true)]
+        public Input<string> FilterName { get; set; } = null!;
+
+        /// <summary>
+        /// Existing log group that you want to associate with this filter.
+        /// </summary>
+        [Input("logGroupName", required: true)]
+        public Input<string> LogGroupName { get; set; } = null!;
 
         public GetMetricFilterInvokeArgs()
         {
@@ -51,20 +69,22 @@ namespace Pulumi.AwsNative.Logs
     [OutputType]
     public sealed class GetMetricFilterResult
     {
+        /// <summary>
+        /// Pattern that Logs follows to interpret each entry in a log.
+        /// </summary>
         public readonly string? FilterPattern;
-        public readonly string? Id;
+        /// <summary>
+        /// A collection of information that defines how metric data gets emitted.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MetricFilterMetricTransformation> MetricTransformations;
 
         [OutputConstructor]
         private GetMetricFilterResult(
             string? filterPattern,
 
-            string? id,
-
             ImmutableArray<Outputs.MetricFilterMetricTransformation> metricTransformations)
         {
             FilterPattern = filterPattern;
-            Id = id;
             MetricTransformations = metricTransformations;
         }
     }

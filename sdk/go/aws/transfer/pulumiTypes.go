@@ -10,6 +10,94 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ServerAs2Transport struct {
+}
+
+// ServerAs2TransportInput is an input type that accepts ServerAs2TransportArgs and ServerAs2TransportOutput values.
+// You can construct a concrete instance of `ServerAs2TransportInput` via:
+//
+//	ServerAs2TransportArgs{...}
+type ServerAs2TransportInput interface {
+	pulumi.Input
+
+	ToServerAs2TransportOutput() ServerAs2TransportOutput
+	ToServerAs2TransportOutputWithContext(context.Context) ServerAs2TransportOutput
+}
+
+type ServerAs2TransportArgs struct {
+}
+
+func (ServerAs2TransportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAs2Transport)(nil)).Elem()
+}
+
+func (i ServerAs2TransportArgs) ToServerAs2TransportOutput() ServerAs2TransportOutput {
+	return i.ToServerAs2TransportOutputWithContext(context.Background())
+}
+
+func (i ServerAs2TransportArgs) ToServerAs2TransportOutputWithContext(ctx context.Context) ServerAs2TransportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAs2TransportOutput)
+}
+
+// ServerAs2TransportArrayInput is an input type that accepts ServerAs2TransportArray and ServerAs2TransportArrayOutput values.
+// You can construct a concrete instance of `ServerAs2TransportArrayInput` via:
+//
+//	ServerAs2TransportArray{ ServerAs2TransportArgs{...} }
+type ServerAs2TransportArrayInput interface {
+	pulumi.Input
+
+	ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput
+	ToServerAs2TransportArrayOutputWithContext(context.Context) ServerAs2TransportArrayOutput
+}
+
+type ServerAs2TransportArray []ServerAs2TransportInput
+
+func (ServerAs2TransportArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerAs2Transport)(nil)).Elem()
+}
+
+func (i ServerAs2TransportArray) ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput {
+	return i.ToServerAs2TransportArrayOutputWithContext(context.Background())
+}
+
+func (i ServerAs2TransportArray) ToServerAs2TransportArrayOutputWithContext(ctx context.Context) ServerAs2TransportArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAs2TransportArrayOutput)
+}
+
+type ServerAs2TransportOutput struct{ *pulumi.OutputState }
+
+func (ServerAs2TransportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAs2Transport)(nil)).Elem()
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportOutput() ServerAs2TransportOutput {
+	return o
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportOutputWithContext(ctx context.Context) ServerAs2TransportOutput {
+	return o
+}
+
+type ServerAs2TransportArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerAs2TransportArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerAs2Transport)(nil)).Elem()
+}
+
+func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput {
+	return o
+}
+
+func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutputWithContext(ctx context.Context) ServerAs2TransportArrayOutput {
+	return o
+}
+
+func (o ServerAs2TransportArrayOutput) Index(i pulumi.IntInput) ServerAs2TransportOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerAs2Transport {
+		return vs[0].([]ServerAs2Transport)[vs[1].(int)]
+	}).(ServerAs2TransportOutput)
+}
+
 type ServerEndpointDetails struct {
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
 	SecurityGroupIds     []string `pulumi:"securityGroupIds"`
@@ -470,9 +558,10 @@ func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput
 }
 
 type ServerProtocolDetails struct {
-	PassiveIp                *string `pulumi:"passiveIp"`
-	SetStatOption            *string `pulumi:"setStatOption"`
-	TlsSessionResumptionMode *string `pulumi:"tlsSessionResumptionMode"`
+	As2Transports            []ServerAs2Transport `pulumi:"as2Transports"`
+	PassiveIp                *string              `pulumi:"passiveIp"`
+	SetStatOption            *string              `pulumi:"setStatOption"`
+	TlsSessionResumptionMode *string              `pulumi:"tlsSessionResumptionMode"`
 }
 
 // ServerProtocolDetailsInput is an input type that accepts ServerProtocolDetailsArgs and ServerProtocolDetailsOutput values.
@@ -487,9 +576,10 @@ type ServerProtocolDetailsInput interface {
 }
 
 type ServerProtocolDetailsArgs struct {
-	PassiveIp                pulumi.StringPtrInput `pulumi:"passiveIp"`
-	SetStatOption            pulumi.StringPtrInput `pulumi:"setStatOption"`
-	TlsSessionResumptionMode pulumi.StringPtrInput `pulumi:"tlsSessionResumptionMode"`
+	As2Transports            ServerAs2TransportArrayInput `pulumi:"as2Transports"`
+	PassiveIp                pulumi.StringPtrInput        `pulumi:"passiveIp"`
+	SetStatOption            pulumi.StringPtrInput        `pulumi:"setStatOption"`
+	TlsSessionResumptionMode pulumi.StringPtrInput        `pulumi:"tlsSessionResumptionMode"`
 }
 
 func (ServerProtocolDetailsArgs) ElementType() reflect.Type {
@@ -569,6 +659,10 @@ func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutputWithContext
 	}).(ServerProtocolDetailsPtrOutput)
 }
 
+func (o ServerProtocolDetailsOutput) As2Transports() ServerAs2TransportArrayOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) []ServerAs2Transport { return v.As2Transports }).(ServerAs2TransportArrayOutput)
+}
+
 func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
 }
@@ -603,6 +697,15 @@ func (o ServerProtocolDetailsPtrOutput) Elem() ServerProtocolDetailsOutput {
 		var ret ServerProtocolDetails
 		return ret
 	}).(ServerProtocolDetailsOutput)
+}
+
+func (o ServerProtocolDetailsPtrOutput) As2Transports() ServerAs2TransportArrayOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) []ServerAs2Transport {
+		if v == nil {
+			return nil
+		}
+		return v.As2Transports
+	}).(ServerAs2TransportArrayOutput)
 }
 
 func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
@@ -2794,6 +2897,8 @@ func (o WorkflowTagArrayOutput) Index(i pulumi.IntInput) WorkflowTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2TransportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportArrayInput)(nil)).Elem(), ServerAs2TransportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderDetailsInput)(nil)).Elem(), ServerIdentityProviderDetailsArgs{})
@@ -2834,6 +2939,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagInput)(nil)).Elem(), WorkflowTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagArrayInput)(nil)).Elem(), WorkflowTagArray{})
+	pulumi.RegisterOutputType(ServerAs2TransportOutput{})
+	pulumi.RegisterOutputType(ServerAs2TransportArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityProviderDetailsOutput{})

@@ -32,6 +32,10 @@ export interface GetConnectorProfileResult {
      */
     readonly connectionMode?: enums.appflow.ConnectorProfileConnectionMode;
     /**
+     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
+     */
+    readonly connectorLabel?: string;
+    /**
      * Unique identifier for connector profile resources
      */
     readonly connectorProfileArn?: string;

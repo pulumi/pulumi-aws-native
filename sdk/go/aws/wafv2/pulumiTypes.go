@@ -7086,6 +7086,7 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) TextTransformations() RuleGro
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatement struct {
 	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
+	SensitivityLevel    *RuleGroupSensitivityLevel    `pulumi:"sensitivityLevel"`
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -7103,6 +7104,7 @@ type RuleGroupSqliMatchStatementInput interface {
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatementArgs struct {
 	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
+	SensitivityLevel    RuleGroupSensitivityLevelPtrInput     `pulumi:"sensitivityLevel"`
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -7188,6 +7190,10 @@ func (o RuleGroupSqliMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchO
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupSqliMatchStatementOutput) SensitivityLevel() RuleGroupSensitivityLevelPtrOutput {
+	return o.ApplyT(func(v RuleGroupSqliMatchStatement) *RuleGroupSensitivityLevel { return v.SensitivityLevel }).(RuleGroupSensitivityLevelPtrOutput)
+}
+
 func (o RuleGroupSqliMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -7223,6 +7229,15 @@ func (o RuleGroupSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMat
 		}
 		return &v.FieldToMatch
 	}).(RuleGroupFieldToMatchPtrOutput)
+}
+
+func (o RuleGroupSqliMatchStatementPtrOutput) SensitivityLevel() RuleGroupSensitivityLevelPtrOutput {
+	return o.ApplyT(func(v *RuleGroupSqliMatchStatement) *RuleGroupSensitivityLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SensitivityLevel
+	}).(RuleGroupSensitivityLevelPtrOutput)
 }
 
 func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
@@ -14553,6 +14568,7 @@ func (o WebACLSizeConstraintStatementPtrOutput) TextTransformations() WebACLText
 // Sqli Match Statement.
 type WebACLSqliMatchStatement struct {
 	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
+	SensitivityLevel    *WebACLSensitivityLevel    `pulumi:"sensitivityLevel"`
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -14570,6 +14586,7 @@ type WebACLSqliMatchStatementInput interface {
 // Sqli Match Statement.
 type WebACLSqliMatchStatementArgs struct {
 	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
+	SensitivityLevel    WebACLSensitivityLevelPtrInput     `pulumi:"sensitivityLevel"`
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -14655,6 +14672,10 @@ func (o WebACLSqliMatchStatementOutput) FieldToMatch() WebACLFieldToMatchOutput 
 	return o.ApplyT(func(v WebACLSqliMatchStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
+func (o WebACLSqliMatchStatementOutput) SensitivityLevel() WebACLSensitivityLevelPtrOutput {
+	return o.ApplyT(func(v WebACLSqliMatchStatement) *WebACLSensitivityLevel { return v.SensitivityLevel }).(WebACLSensitivityLevelPtrOutput)
+}
+
 func (o WebACLSqliMatchStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLSqliMatchStatement) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
 }
@@ -14690,6 +14711,15 @@ func (o WebACLSqliMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrO
 		}
 		return &v.FieldToMatch
 	}).(WebACLFieldToMatchPtrOutput)
+}
+
+func (o WebACLSqliMatchStatementPtrOutput) SensitivityLevel() WebACLSensitivityLevelPtrOutput {
+	return o.ApplyT(func(v *WebACLSqliMatchStatement) *WebACLSensitivityLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SensitivityLevel
+	}).(WebACLSensitivityLevelPtrOutput)
 }
 
 func (o WebACLSqliMatchStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {

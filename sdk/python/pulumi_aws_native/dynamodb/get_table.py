@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, global_secondary_indexes=None, id=None, kinesis_stream_specification=None, point_in_time_recovery_specification=None, provisioned_throughput=None, s_se_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, s_se_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,12 +35,15 @@ class GetTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if key_schema and not isinstance(key_schema, dict):
+            raise TypeError("Expected argument 'key_schema' to be a dict")
+        pulumi.set(__self__, "key_schema", key_schema)
         if kinesis_stream_specification and not isinstance(kinesis_stream_specification, dict):
             raise TypeError("Expected argument 'kinesis_stream_specification' to be a dict")
         pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
+        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
+            raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
+        pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if point_in_time_recovery_specification and not isinstance(point_in_time_recovery_specification, dict):
             raise TypeError("Expected argument 'point_in_time_recovery_specification' to be a dict")
         pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
@@ -92,14 +95,19 @@ class GetTableResult:
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> Optional[Any]:
+        return pulumi.get(self, "key_schema")
 
     @property
     @pulumi.getter(name="kinesisStreamSpecification")
     def kinesis_stream_specification(self) -> Optional['outputs.TableKinesisStreamSpecification']:
         return pulumi.get(self, "kinesis_stream_specification")
+
+    @property
+    @pulumi.getter(name="localSecondaryIndexes")
+    def local_secondary_indexes(self) -> Optional[Sequence['outputs.TableLocalSecondaryIndex']]:
+        return pulumi.get(self, "local_secondary_indexes")
 
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
@@ -153,8 +161,9 @@ class AwaitableGetTableResult(GetTableResult):
             billing_mode=self.billing_mode,
             contributor_insights_specification=self.contributor_insights_specification,
             global_secondary_indexes=self.global_secondary_indexes,
-            id=self.id,
+            key_schema=self.key_schema,
             kinesis_stream_specification=self.kinesis_stream_specification,
+            local_secondary_indexes=self.local_secondary_indexes,
             point_in_time_recovery_specification=self.point_in_time_recovery_specification,
             provisioned_throughput=self.provisioned_throughput,
             s_se_specification=self.s_se_specification,
@@ -165,13 +174,13 @@ class AwaitableGetTableResult(GetTableResult):
             time_to_live_specification=self.time_to_live_specification)
 
 
-def get_table(id: Optional[str] = None,
+def get_table(table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Resource Type definition for AWS::DynamoDB::Table
+    Version: None. Resource Type definition for AWS::DynamoDB::Table
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['tableName'] = table_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:dynamodb:getTable', __args__, opts=opts, typ=GetTableResult).value
 
@@ -181,8 +190,9 @@ def get_table(id: Optional[str] = None,
         billing_mode=__ret__.billing_mode,
         contributor_insights_specification=__ret__.contributor_insights_specification,
         global_secondary_indexes=__ret__.global_secondary_indexes,
-        id=__ret__.id,
+        key_schema=__ret__.key_schema,
         kinesis_stream_specification=__ret__.kinesis_stream_specification,
+        local_secondary_indexes=__ret__.local_secondary_indexes,
         point_in_time_recovery_specification=__ret__.point_in_time_recovery_specification,
         provisioned_throughput=__ret__.provisioned_throughput,
         s_se_specification=__ret__.s_se_specification,
@@ -194,9 +204,9 @@ def get_table(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_table)
-def get_table_output(id: Optional[pulumi.Input[str]] = None,
+def get_table_output(table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
-    Resource Type definition for AWS::DynamoDB::Table
+    Version: None. Resource Type definition for AWS::DynamoDB::Table
     """
     ...

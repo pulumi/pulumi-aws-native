@@ -25,6 +25,7 @@ export interface GetTrackerArgs {
 export interface GetTrackerResult {
     readonly arn?: string;
     readonly createTime?: string;
+    readonly pricingPlanDataSource?: string;
     readonly trackerArn?: string;
     readonly updateTime?: string;
 }

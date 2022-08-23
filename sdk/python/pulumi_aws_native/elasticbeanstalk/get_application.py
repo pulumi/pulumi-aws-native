@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, description=None, id=None, resource_lifecycle_config=None):
+    def __init__(__self__, description=None, resource_lifecycle_config=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if resource_lifecycle_config and not isinstance(resource_lifecycle_config, dict):
             raise TypeError("Expected argument 'resource_lifecycle_config' to be a dict")
         pulumi.set(__self__, "resource_lifecycle_config", resource_lifecycle_config)
@@ -33,16 +30,17 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Your description of the application.
+        """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="resourceLifecycleConfig")
     def resource_lifecycle_config(self) -> Optional['outputs.ApplicationResourceLifecycleConfig']:
+        """
+        Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+        """
         return pulumi.get(self, "resource_lifecycle_config")
 
 
@@ -53,30 +51,34 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             description=self.description,
-            id=self.id,
             resource_lifecycle_config=self.resource_lifecycle_config)
 
 
-def get_application(id: Optional[str] = None,
+def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Resource Type definition for AWS::ElasticBeanstalk::Application
+    The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
+
+
+    :param str application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['applicationName'] = application_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
         description=__ret__.description,
-        id=__ret__.id,
         resource_lifecycle_config=__ret__.resource_lifecycle_config)
 
 
 @_utilities.lift_output_func(get_application)
-def get_application_output(id: Optional[pulumi.Input[str]] = None,
+def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Resource Type definition for AWS::ElasticBeanstalk::Application
+    The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
+
+
+    :param str application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     ...

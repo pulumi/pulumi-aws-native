@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'ClusterApplication',
     'ClusterAutoScalingPolicy',
+    'ClusterAutoTerminationPolicy',
     'ClusterBootstrapActionConfig',
     'ClusterCloudWatchAlarmDefinition',
     'ClusterComputeLimits',
@@ -138,6 +139,36 @@ class ClusterAutoScalingPolicy(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.ClusterScalingRule']:
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ClusterAutoTerminationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeout":
+            suggest = "idle_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoTerminationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout: Optional[int] = None):
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "idle_timeout")
 
 
 @pulumi.output_type
@@ -847,6 +878,10 @@ class ClusterJobFlowInstancesConfig(dict):
             suggest = "master_instance_group"
         elif key == "serviceAccessSecurityGroup":
             suggest = "service_access_security_group"
+        elif key == "taskInstanceFleets":
+            suggest = "task_instance_fleets"
+        elif key == "taskInstanceGroups":
+            suggest = "task_instance_groups"
         elif key == "terminationProtected":
             suggest = "termination_protected"
 
@@ -877,6 +912,8 @@ class ClusterJobFlowInstancesConfig(dict):
                  master_instance_group: Optional['outputs.ClusterInstanceGroupConfig'] = None,
                  placement: Optional['outputs.ClusterPlacementType'] = None,
                  service_access_security_group: Optional[str] = None,
+                 task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
+                 task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
                  termination_protected: Optional[bool] = None):
         if additional_master_security_groups is not None:
             pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
@@ -908,6 +945,10 @@ class ClusterJobFlowInstancesConfig(dict):
             pulumi.set(__self__, "placement", placement)
         if service_access_security_group is not None:
             pulumi.set(__self__, "service_access_security_group", service_access_security_group)
+        if task_instance_fleets is not None:
+            pulumi.set(__self__, "task_instance_fleets", task_instance_fleets)
+        if task_instance_groups is not None:
+            pulumi.set(__self__, "task_instance_groups", task_instance_groups)
         if termination_protected is not None:
             pulumi.set(__self__, "termination_protected", termination_protected)
 
@@ -985,6 +1026,16 @@ class ClusterJobFlowInstancesConfig(dict):
     @pulumi.getter(name="serviceAccessSecurityGroup")
     def service_access_security_group(self) -> Optional[str]:
         return pulumi.get(self, "service_access_security_group")
+
+    @property
+    @pulumi.getter(name="taskInstanceFleets")
+    def task_instance_fleets(self) -> Optional[Sequence['outputs.ClusterInstanceFleetConfig']]:
+        return pulumi.get(self, "task_instance_fleets")
+
+    @property
+    @pulumi.getter(name="taskInstanceGroups")
+    def task_instance_groups(self) -> Optional[Sequence['outputs.ClusterInstanceGroupConfig']]:
+        return pulumi.get(self, "task_instance_groups")
 
     @property
     @pulumi.getter(name="terminationProtected")

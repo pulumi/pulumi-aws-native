@@ -813,7 +813,14 @@ class DocumentationPartLocation(dict):
                  name: Optional[str] = None,
                  path: Optional[str] = None,
                  status_code: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['DocumentationPartLocationType'] = None):
+        """
+        :param str method: The HTTP verb of a method.
+        :param str name: The name of the targeted API entity.
+        :param str path: The URL path of the target.
+        :param str status_code: The HTTP status code of a response.
+        :param 'DocumentationPartLocationType' type: The type of API entity that the documentation content applies to.
+        """
         if method is not None:
             pulumi.set(__self__, "method", method)
         if name is not None:
@@ -828,26 +835,41 @@ class DocumentationPartLocation(dict):
     @property
     @pulumi.getter
     def method(self) -> Optional[str]:
+        """
+        The HTTP verb of a method.
+        """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the targeted API entity.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The URL path of the target.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[str]:
+        """
+        The HTTP status code of a response.
+        """
         return pulumi.get(self, "status_code")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['DocumentationPartLocationType']:
+        """
+        The type of API entity that the documentation content applies to.
+        """
         return pulumi.get(self, "type")
 
 

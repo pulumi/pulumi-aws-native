@@ -949,6 +949,8 @@ type ApplicationConfiguration struct {
 	FlinkApplicationConfiguration *ApplicationFlinkApplicationConfiguration `pulumi:"flinkApplicationConfiguration"`
 	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 	SqlApplicationConfiguration *ApplicationSqlApplicationConfiguration `pulumi:"sqlApplicationConfiguration"`
+	// The array of descriptions of VPC configurations available to the application.
+	VpcConfigurations []ApplicationVpcConfiguration `pulumi:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration *ApplicationZeppelinApplicationConfiguration `pulumi:"zeppelinApplicationConfiguration"`
 }
@@ -976,6 +978,8 @@ type ApplicationConfigurationArgs struct {
 	FlinkApplicationConfiguration ApplicationFlinkApplicationConfigurationPtrInput `pulumi:"flinkApplicationConfiguration"`
 	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 	SqlApplicationConfiguration ApplicationSqlApplicationConfigurationPtrInput `pulumi:"sqlApplicationConfiguration"`
+	// The array of descriptions of VPC configurations available to the application.
+	VpcConfigurations ApplicationVpcConfigurationArrayInput `pulumi:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration ApplicationZeppelinApplicationConfigurationPtrInput `pulumi:"zeppelinApplicationConfiguration"`
 }
@@ -1089,6 +1093,11 @@ func (o ApplicationConfigurationOutput) SqlApplicationConfiguration() Applicatio
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
 }
 
+// The array of descriptions of VPC configurations available to the application.
+func (o ApplicationConfigurationOutput) VpcConfigurations() ApplicationVpcConfigurationArrayOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) []ApplicationVpcConfiguration { return v.VpcConfigurations }).(ApplicationVpcConfigurationArrayOutput)
+}
+
 // The configuration parameters for a Kinesis Data Analytics Studio notebook.
 func (o ApplicationConfigurationOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
@@ -1168,6 +1177,16 @@ func (o ApplicationConfigurationPtrOutput) SqlApplicationConfiguration() Applica
 		}
 		return v.SqlApplicationConfiguration
 	}).(ApplicationSqlApplicationConfigurationPtrOutput)
+}
+
+// The array of descriptions of VPC configurations available to the application.
+func (o ApplicationConfigurationPtrOutput) VpcConfigurations() ApplicationVpcConfigurationArrayOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) []ApplicationVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfigurations
+	}).(ApplicationVpcConfigurationArrayOutput)
 }
 
 // The configuration parameters for a Kinesis Data Analytics Studio notebook.
@@ -1766,6 +1785,146 @@ func (o ApplicationFlinkApplicationConfigurationPtrOutput) ParallelismConfigurat
 		}
 		return v.ParallelismConfiguration
 	}).(ApplicationParallelismConfigurationPtrOutput)
+}
+
+// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+type ApplicationFlinkRunConfiguration struct {
+	// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+	AllowNonRestoredState *bool `pulumi:"allowNonRestoredState"`
+}
+
+// ApplicationFlinkRunConfigurationInput is an input type that accepts ApplicationFlinkRunConfigurationArgs and ApplicationFlinkRunConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationFlinkRunConfigurationInput` via:
+//
+//	ApplicationFlinkRunConfigurationArgs{...}
+type ApplicationFlinkRunConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationFlinkRunConfigurationOutput() ApplicationFlinkRunConfigurationOutput
+	ToApplicationFlinkRunConfigurationOutputWithContext(context.Context) ApplicationFlinkRunConfigurationOutput
+}
+
+// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+type ApplicationFlinkRunConfigurationArgs struct {
+	// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+	AllowNonRestoredState pulumi.BoolPtrInput `pulumi:"allowNonRestoredState"`
+}
+
+func (ApplicationFlinkRunConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationFlinkRunConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfigurationOutput() ApplicationFlinkRunConfigurationOutput {
+	return i.ToApplicationFlinkRunConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfigurationOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkRunConfigurationOutput)
+}
+
+func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput {
+	return i.ToApplicationFlinkRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationFlinkRunConfigurationArgs) ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkRunConfigurationOutput).ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationFlinkRunConfigurationPtrInput is an input type that accepts ApplicationFlinkRunConfigurationArgs, ApplicationFlinkRunConfigurationPtr and ApplicationFlinkRunConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationFlinkRunConfigurationPtrInput` via:
+//
+//	        ApplicationFlinkRunConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationFlinkRunConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput
+	ToApplicationFlinkRunConfigurationPtrOutputWithContext(context.Context) ApplicationFlinkRunConfigurationPtrOutput
+}
+
+type applicationFlinkRunConfigurationPtrType ApplicationFlinkRunConfigurationArgs
+
+func ApplicationFlinkRunConfigurationPtr(v *ApplicationFlinkRunConfigurationArgs) ApplicationFlinkRunConfigurationPtrInput {
+	return (*applicationFlinkRunConfigurationPtrType)(v)
+}
+
+func (*applicationFlinkRunConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationFlinkRunConfiguration)(nil)).Elem()
+}
+
+func (i *applicationFlinkRunConfigurationPtrType) ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput {
+	return i.ToApplicationFlinkRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationFlinkRunConfigurationPtrType) ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationFlinkRunConfigurationPtrOutput)
+}
+
+// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+type ApplicationFlinkRunConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationFlinkRunConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationFlinkRunConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationFlinkRunConfigurationOutput) ToApplicationFlinkRunConfigurationOutput() ApplicationFlinkRunConfigurationOutput {
+	return o
+}
+
+func (o ApplicationFlinkRunConfigurationOutput) ToApplicationFlinkRunConfigurationOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationOutput {
+	return o
+}
+
+func (o ApplicationFlinkRunConfigurationOutput) ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput {
+	return o.ToApplicationFlinkRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationFlinkRunConfigurationOutput) ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationFlinkRunConfiguration) *ApplicationFlinkRunConfiguration {
+		return &v
+	}).(ApplicationFlinkRunConfigurationPtrOutput)
+}
+
+// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+func (o ApplicationFlinkRunConfigurationOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationFlinkRunConfiguration) *bool { return v.AllowNonRestoredState }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationFlinkRunConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationFlinkRunConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationFlinkRunConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationFlinkRunConfigurationPtrOutput) ToApplicationFlinkRunConfigurationPtrOutput() ApplicationFlinkRunConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationFlinkRunConfigurationPtrOutput) ToApplicationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationFlinkRunConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationFlinkRunConfigurationPtrOutput) Elem() ApplicationFlinkRunConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationFlinkRunConfiguration) ApplicationFlinkRunConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationFlinkRunConfiguration
+		return ret
+	}).(ApplicationFlinkRunConfigurationOutput)
+}
+
+// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+func (o ApplicationFlinkRunConfigurationPtrOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationFlinkRunConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowNonRestoredState
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
@@ -2967,6 +3126,146 @@ func (o ApplicationKinesisStreamsInputPtrOutput) ResourceARN() pulumi.StringPtrO
 			return nil
 		}
 		return &v.ResourceARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the maintenance configuration for the application.
+type ApplicationMaintenanceConfiguration struct {
+	// The start time for the maintenance window.
+	ApplicationMaintenanceWindowStartTime string `pulumi:"applicationMaintenanceWindowStartTime"`
+}
+
+// ApplicationMaintenanceConfigurationInput is an input type that accepts ApplicationMaintenanceConfigurationArgs and ApplicationMaintenanceConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMaintenanceConfigurationInput` via:
+//
+//	ApplicationMaintenanceConfigurationArgs{...}
+type ApplicationMaintenanceConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMaintenanceConfigurationOutput() ApplicationMaintenanceConfigurationOutput
+	ToApplicationMaintenanceConfigurationOutputWithContext(context.Context) ApplicationMaintenanceConfigurationOutput
+}
+
+// Describes the maintenance configuration for the application.
+type ApplicationMaintenanceConfigurationArgs struct {
+	// The start time for the maintenance window.
+	ApplicationMaintenanceWindowStartTime pulumi.StringInput `pulumi:"applicationMaintenanceWindowStartTime"`
+}
+
+func (ApplicationMaintenanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigurationOutput() ApplicationMaintenanceConfigurationOutput {
+	return i.ToApplicationMaintenanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigurationOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaintenanceConfigurationOutput)
+}
+
+func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput {
+	return i.ToApplicationMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMaintenanceConfigurationArgs) ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaintenanceConfigurationOutput).ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMaintenanceConfigurationPtrInput is an input type that accepts ApplicationMaintenanceConfigurationArgs, ApplicationMaintenanceConfigurationPtr and ApplicationMaintenanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMaintenanceConfigurationPtrInput` via:
+//
+//	        ApplicationMaintenanceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMaintenanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput
+	ToApplicationMaintenanceConfigurationPtrOutputWithContext(context.Context) ApplicationMaintenanceConfigurationPtrOutput
+}
+
+type applicationMaintenanceConfigurationPtrType ApplicationMaintenanceConfigurationArgs
+
+func ApplicationMaintenanceConfigurationPtr(v *ApplicationMaintenanceConfigurationArgs) ApplicationMaintenanceConfigurationPtrInput {
+	return (*applicationMaintenanceConfigurationPtrType)(v)
+}
+
+func (*applicationMaintenanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMaintenanceConfigurationPtrType) ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput {
+	return i.ToApplicationMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMaintenanceConfigurationPtrType) ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaintenanceConfigurationPtrOutput)
+}
+
+// Describes the maintenance configuration for the application.
+type ApplicationMaintenanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMaintenanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMaintenanceConfigurationOutput) ToApplicationMaintenanceConfigurationOutput() ApplicationMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMaintenanceConfigurationOutput) ToApplicationMaintenanceConfigurationOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMaintenanceConfigurationOutput) ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput {
+	return o.ToApplicationMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMaintenanceConfigurationOutput) ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMaintenanceConfiguration) *ApplicationMaintenanceConfiguration {
+		return &v
+	}).(ApplicationMaintenanceConfigurationPtrOutput)
+}
+
+// The start time for the maintenance window.
+func (o ApplicationMaintenanceConfigurationOutput) ApplicationMaintenanceWindowStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationMaintenanceConfiguration) string { return v.ApplicationMaintenanceWindowStartTime }).(pulumi.StringOutput)
+}
+
+type ApplicationMaintenanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMaintenanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMaintenanceConfigurationPtrOutput) ToApplicationMaintenanceConfigurationPtrOutput() ApplicationMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMaintenanceConfigurationPtrOutput) ToApplicationMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMaintenanceConfigurationPtrOutput) Elem() ApplicationMaintenanceConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMaintenanceConfiguration) ApplicationMaintenanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMaintenanceConfiguration
+		return ret
+	}).(ApplicationMaintenanceConfigurationOutput)
+}
+
+// The start time for the maintenance window.
+func (o ApplicationMaintenanceConfigurationPtrOutput) ApplicationMaintenanceWindowStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMaintenanceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationMaintenanceWindowStartTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5633,6 +5932,328 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) FileKey() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the restore behavior of a restarting application.
+type ApplicationRestoreConfiguration struct {
+	// Specifies how the application should be restored.
+	ApplicationRestoreType ApplicationRestoreConfigurationApplicationRestoreType `pulumi:"applicationRestoreType"`
+	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+	SnapshotName *string `pulumi:"snapshotName"`
+}
+
+// ApplicationRestoreConfigurationInput is an input type that accepts ApplicationRestoreConfigurationArgs and ApplicationRestoreConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationRestoreConfigurationInput` via:
+//
+//	ApplicationRestoreConfigurationArgs{...}
+type ApplicationRestoreConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationRestoreConfigurationOutput() ApplicationRestoreConfigurationOutput
+	ToApplicationRestoreConfigurationOutputWithContext(context.Context) ApplicationRestoreConfigurationOutput
+}
+
+// Describes the restore behavior of a restarting application.
+type ApplicationRestoreConfigurationArgs struct {
+	// Specifies how the application should be restored.
+	ApplicationRestoreType ApplicationRestoreConfigurationApplicationRestoreTypeInput `pulumi:"applicationRestoreType"`
+	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+	SnapshotName pulumi.StringPtrInput `pulumi:"snapshotName"`
+}
+
+func (ApplicationRestoreConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRestoreConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationOutput() ApplicationRestoreConfigurationOutput {
+	return i.ToApplicationRestoreConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRestoreConfigurationOutput)
+}
+
+func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput {
+	return i.ToApplicationRestoreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationRestoreConfigurationArgs) ToApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRestoreConfigurationOutput).ToApplicationRestoreConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationRestoreConfigurationPtrInput is an input type that accepts ApplicationRestoreConfigurationArgs, ApplicationRestoreConfigurationPtr and ApplicationRestoreConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationRestoreConfigurationPtrInput` via:
+//
+//	        ApplicationRestoreConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationRestoreConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput
+	ToApplicationRestoreConfigurationPtrOutputWithContext(context.Context) ApplicationRestoreConfigurationPtrOutput
+}
+
+type applicationRestoreConfigurationPtrType ApplicationRestoreConfigurationArgs
+
+func ApplicationRestoreConfigurationPtr(v *ApplicationRestoreConfigurationArgs) ApplicationRestoreConfigurationPtrInput {
+	return (*applicationRestoreConfigurationPtrType)(v)
+}
+
+func (*applicationRestoreConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRestoreConfiguration)(nil)).Elem()
+}
+
+func (i *applicationRestoreConfigurationPtrType) ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput {
+	return i.ToApplicationRestoreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationRestoreConfigurationPtrType) ToApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRestoreConfigurationPtrOutput)
+}
+
+// Describes the restore behavior of a restarting application.
+type ApplicationRestoreConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRestoreConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRestoreConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRestoreConfigurationOutput) ToApplicationRestoreConfigurationOutput() ApplicationRestoreConfigurationOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationOutput) ToApplicationRestoreConfigurationOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationOutput) ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput {
+	return o.ToApplicationRestoreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRestoreConfigurationOutput) ToApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRestoreConfiguration) *ApplicationRestoreConfiguration {
+		return &v
+	}).(ApplicationRestoreConfigurationPtrOutput)
+}
+
+// Specifies how the application should be restored.
+func (o ApplicationRestoreConfigurationOutput) ApplicationRestoreType() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
+	return o.ApplyT(func(v ApplicationRestoreConfiguration) ApplicationRestoreConfigurationApplicationRestoreType {
+		return v.ApplicationRestoreType
+	}).(ApplicationRestoreConfigurationApplicationRestoreTypeOutput)
+}
+
+// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+func (o ApplicationRestoreConfigurationOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRestoreConfiguration) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationRestoreConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRestoreConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRestoreConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRestoreConfigurationPtrOutput) ToApplicationRestoreConfigurationPtrOutput() ApplicationRestoreConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationPtrOutput) ToApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationRestoreConfigurationPtrOutput) Elem() ApplicationRestoreConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationRestoreConfiguration) ApplicationRestoreConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationRestoreConfiguration
+		return ret
+	}).(ApplicationRestoreConfigurationOutput)
+}
+
+// Specifies how the application should be restored.
+func (o ApplicationRestoreConfigurationPtrOutput) ApplicationRestoreType() ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationRestoreConfiguration) *ApplicationRestoreConfigurationApplicationRestoreType {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationRestoreType
+	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
+}
+
+// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+func (o ApplicationRestoreConfigurationPtrOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationRestoreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+type ApplicationRunConfiguration struct {
+	// Describes the restore behavior of a restarting application.
+	ApplicationRestoreConfiguration *ApplicationRestoreConfiguration `pulumi:"applicationRestoreConfiguration"`
+	// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+	FlinkRunConfiguration *ApplicationFlinkRunConfiguration `pulumi:"flinkRunConfiguration"`
+}
+
+// ApplicationRunConfigurationInput is an input type that accepts ApplicationRunConfigurationArgs and ApplicationRunConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationRunConfigurationInput` via:
+//
+//	ApplicationRunConfigurationArgs{...}
+type ApplicationRunConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationRunConfigurationOutput() ApplicationRunConfigurationOutput
+	ToApplicationRunConfigurationOutputWithContext(context.Context) ApplicationRunConfigurationOutput
+}
+
+// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+type ApplicationRunConfigurationArgs struct {
+	// Describes the restore behavior of a restarting application.
+	ApplicationRestoreConfiguration ApplicationRestoreConfigurationPtrInput `pulumi:"applicationRestoreConfiguration"`
+	// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+	FlinkRunConfiguration ApplicationFlinkRunConfigurationPtrInput `pulumi:"flinkRunConfiguration"`
+}
+
+func (ApplicationRunConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRunConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationOutput() ApplicationRunConfigurationOutput {
+	return i.ToApplicationRunConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationOutputWithContext(ctx context.Context) ApplicationRunConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRunConfigurationOutput)
+}
+
+func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput {
+	return i.ToApplicationRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationRunConfigurationArgs) ToApplicationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRunConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRunConfigurationOutput).ToApplicationRunConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationRunConfigurationPtrInput is an input type that accepts ApplicationRunConfigurationArgs, ApplicationRunConfigurationPtr and ApplicationRunConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationRunConfigurationPtrInput` via:
+//
+//	        ApplicationRunConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationRunConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput
+	ToApplicationRunConfigurationPtrOutputWithContext(context.Context) ApplicationRunConfigurationPtrOutput
+}
+
+type applicationRunConfigurationPtrType ApplicationRunConfigurationArgs
+
+func ApplicationRunConfigurationPtr(v *ApplicationRunConfigurationArgs) ApplicationRunConfigurationPtrInput {
+	return (*applicationRunConfigurationPtrType)(v)
+}
+
+func (*applicationRunConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRunConfiguration)(nil)).Elem()
+}
+
+func (i *applicationRunConfigurationPtrType) ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput {
+	return i.ToApplicationRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationRunConfigurationPtrType) ToApplicationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRunConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRunConfigurationPtrOutput)
+}
+
+// Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+type ApplicationRunConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRunConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRunConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRunConfigurationOutput) ToApplicationRunConfigurationOutput() ApplicationRunConfigurationOutput {
+	return o
+}
+
+func (o ApplicationRunConfigurationOutput) ToApplicationRunConfigurationOutputWithContext(ctx context.Context) ApplicationRunConfigurationOutput {
+	return o
+}
+
+func (o ApplicationRunConfigurationOutput) ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput {
+	return o.ToApplicationRunConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRunConfigurationOutput) ToApplicationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRunConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRunConfiguration) *ApplicationRunConfiguration {
+		return &v
+	}).(ApplicationRunConfigurationPtrOutput)
+}
+
+// Describes the restore behavior of a restarting application.
+func (o ApplicationRunConfigurationOutput) ApplicationRestoreConfiguration() ApplicationRestoreConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationRunConfiguration) *ApplicationRestoreConfiguration {
+		return v.ApplicationRestoreConfiguration
+	}).(ApplicationRestoreConfigurationPtrOutput)
+}
+
+// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationRunConfigurationOutput) FlinkRunConfiguration() ApplicationFlinkRunConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationRunConfiguration) *ApplicationFlinkRunConfiguration { return v.FlinkRunConfiguration }).(ApplicationFlinkRunConfigurationPtrOutput)
+}
+
+type ApplicationRunConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRunConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRunConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRunConfigurationPtrOutput) ToApplicationRunConfigurationPtrOutput() ApplicationRunConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationRunConfigurationPtrOutput) ToApplicationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationRunConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationRunConfigurationPtrOutput) Elem() ApplicationRunConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationRunConfiguration) ApplicationRunConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationRunConfiguration
+		return ret
+	}).(ApplicationRunConfigurationOutput)
+}
+
+// Describes the restore behavior of a restarting application.
+func (o ApplicationRunConfigurationPtrOutput) ApplicationRestoreConfiguration() ApplicationRestoreConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationRunConfiguration) *ApplicationRestoreConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationRestoreConfiguration
+	}).(ApplicationRestoreConfigurationPtrOutput)
+}
+
+// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+func (o ApplicationRunConfigurationPtrOutput) FlinkRunConfiguration() ApplicationFlinkRunConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationRunConfiguration) *ApplicationFlinkRunConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FlinkRunConfiguration
+	}).(ApplicationFlinkRunConfigurationPtrOutput)
+}
+
 // The base location of the Amazon Data Analytics application.
 type ApplicationS3ContentBaseLocation struct {
 	// The base path for the S3 bucket.
@@ -6359,6 +6980,115 @@ func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput
 	}).(ApplicationTagOutput)
 }
 
+// Describes the parameters of a VPC used by the application.
+type ApplicationVpcConfiguration struct {
+	// The array of SecurityGroup IDs used by the VPC configuration.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The array of Subnet IDs used by the VPC configuration.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ApplicationVpcConfigurationInput is an input type that accepts ApplicationVpcConfigurationArgs and ApplicationVpcConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationVpcConfigurationInput` via:
+//
+//	ApplicationVpcConfigurationArgs{...}
+type ApplicationVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationVpcConfigurationOutput() ApplicationVpcConfigurationOutput
+	ToApplicationVpcConfigurationOutputWithContext(context.Context) ApplicationVpcConfigurationOutput
+}
+
+// Describes the parameters of a VPC used by the application.
+type ApplicationVpcConfigurationArgs struct {
+	// The array of SecurityGroup IDs used by the VPC configuration.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The array of Subnet IDs used by the VPC configuration.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ApplicationVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVpcConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationVpcConfigurationArgs) ToApplicationVpcConfigurationOutput() ApplicationVpcConfigurationOutput {
+	return i.ToApplicationVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationVpcConfigurationArgs) ToApplicationVpcConfigurationOutputWithContext(ctx context.Context) ApplicationVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVpcConfigurationOutput)
+}
+
+// ApplicationVpcConfigurationArrayInput is an input type that accepts ApplicationVpcConfigurationArray and ApplicationVpcConfigurationArrayOutput values.
+// You can construct a concrete instance of `ApplicationVpcConfigurationArrayInput` via:
+//
+//	ApplicationVpcConfigurationArray{ ApplicationVpcConfigurationArgs{...} }
+type ApplicationVpcConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToApplicationVpcConfigurationArrayOutput() ApplicationVpcConfigurationArrayOutput
+	ToApplicationVpcConfigurationArrayOutputWithContext(context.Context) ApplicationVpcConfigurationArrayOutput
+}
+
+type ApplicationVpcConfigurationArray []ApplicationVpcConfigurationInput
+
+func (ApplicationVpcConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationVpcConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationVpcConfigurationArray) ToApplicationVpcConfigurationArrayOutput() ApplicationVpcConfigurationArrayOutput {
+	return i.ToApplicationVpcConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationVpcConfigurationArray) ToApplicationVpcConfigurationArrayOutputWithContext(ctx context.Context) ApplicationVpcConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVpcConfigurationArrayOutput)
+}
+
+// Describes the parameters of a VPC used by the application.
+type ApplicationVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVpcConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVpcConfigurationOutput) ToApplicationVpcConfigurationOutput() ApplicationVpcConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVpcConfigurationOutput) ToApplicationVpcConfigurationOutputWithContext(ctx context.Context) ApplicationVpcConfigurationOutput {
+	return o
+}
+
+// The array of SecurityGroup IDs used by the VPC configuration.
+func (o ApplicationVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The array of Subnet IDs used by the VPC configuration.
+func (o ApplicationVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationVpcConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVpcConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationVpcConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVpcConfigurationArrayOutput) ToApplicationVpcConfigurationArrayOutput() ApplicationVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationVpcConfigurationArrayOutput) ToApplicationVpcConfigurationArrayOutputWithContext(ctx context.Context) ApplicationVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationVpcConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationVpcConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationVpcConfiguration {
+		return vs[0].([]ApplicationVpcConfiguration)[vs[1].(int)]
+	}).(ApplicationVpcConfigurationOutput)
+}
+
 // The configuration of a Kinesis Data Analytics Studio notebook.
 type ApplicationZeppelinApplicationConfiguration struct {
 	// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
@@ -6728,6 +7458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentPropertiesPtrInput)(nil)).Elem(), ApplicationEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkApplicationConfigurationInput)(nil)).Elem(), ApplicationFlinkApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationFlinkApplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkRunConfigurationInput)(nil)).Elem(), ApplicationFlinkRunConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkRunConfigurationPtrInput)(nil)).Elem(), ApplicationFlinkRunConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGlueDataCatalogConfigurationInput)(nil)).Elem(), ApplicationGlueDataCatalogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGlueDataCatalogConfigurationPtrInput)(nil)).Elem(), ApplicationGlueDataCatalogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputTypeInput)(nil)).Elem(), ApplicationInputTypeArgs{})
@@ -6745,6 +7477,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisFirehoseInputPtrInput)(nil)).Elem(), ApplicationKinesisFirehoseInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputPtrInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaintenanceConfigurationInput)(nil)).Elem(), ApplicationMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaintenanceConfigurationPtrInput)(nil)).Elem(), ApplicationMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersPtrInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMavenReferenceInput)(nil)).Elem(), ApplicationMavenReferenceArgs{})
@@ -6779,6 +7513,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceSchemaInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourceInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationInput)(nil)).Elem(), ApplicationRestoreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRestoreConfigurationPtrInput)(nil)).Elem(), ApplicationRestoreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRunConfigurationInput)(nil)).Elem(), ApplicationRunConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRunConfigurationPtrInput)(nil)).Elem(), ApplicationRunConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3ContentBaseLocationInput)(nil)).Elem(), ApplicationS3ContentBaseLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3ContentBaseLocationPtrInput)(nil)).Elem(), ApplicationS3ContentBaseLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3ContentLocationInput)(nil)).Elem(), ApplicationS3ContentLocationArgs{})
@@ -6789,6 +7527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationSqlApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVpcConfigurationInput)(nil)).Elem(), ApplicationVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVpcConfigurationArrayInput)(nil)).Elem(), ApplicationVpcConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinApplicationConfigurationInput)(nil)).Elem(), ApplicationZeppelinApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationZeppelinApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationArgs{})
@@ -6815,6 +7555,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationEnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationFlinkApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationFlinkApplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationFlinkRunConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationFlinkRunConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGlueDataCatalogConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGlueDataCatalogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInputTypeOutput{})
@@ -6832,6 +7574,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationKinesisFirehoseInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputOutput{})
 	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMaintenanceConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMavenReferenceOutput{})
@@ -6871,6 +7615,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationRestoreConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationRestoreConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationRunConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationRunConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentBaseLocationOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentBaseLocationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentLocationOutput{})
@@ -6881,6 +7629,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationVpcConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationOutput{})

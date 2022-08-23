@@ -47,11 +47,14 @@
           "maxLength" : 256
         }
       },
-      "required" : [ "Key", "Value" ]
+      "required" : [ "Key" ]
     }
   },
   "additionalProperties" : false,
   "required" : [ "DBSubnetGroupDescription", "SubnetIds" ],
+  "propertyTransform" : {
+    "/properties/DBSubnetGroupName" : "$lowercase(DBSubnetGroupName)"
+  },
   "createOnlyProperties" : [ "/properties/DBSubnetGroupName" ],
   "primaryIdentifier" : [ "/properties/DBSubnetGroupName" ],
   "writeOnlyProperties" : [ "/properties/SubnetIds" ],

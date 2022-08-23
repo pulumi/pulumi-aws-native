@@ -46,6 +46,7 @@ __all__ = [
     'DataSetResourcePermissionArgs',
     'DataSetRowLevelPermissionDataSetArgs',
     'DataSetTagArgs',
+    'DataSetUsageConfigurationArgs',
     'DataSourceAmazonElasticsearchParametersArgs',
     'DataSourceAmazonOpenSearchParametersArgs',
     'DataSourceAthenaParametersArgs',
@@ -1411,6 +1412,38 @@ class DataSetTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DataSetUsageConfigurationArgs:
+    def __init__(__self__, *,
+                 disable_use_as_direct_query_source: Optional[pulumi.Input[bool]] = None,
+                 disable_use_as_imported_source: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The dataset usage configuration for the dataset.</p>
+        """
+        if disable_use_as_direct_query_source is not None:
+            pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        if disable_use_as_imported_source is not None:
+            pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+
+    @property
+    @pulumi.getter(name="disableUseAsDirectQuerySource")
+    def disable_use_as_direct_query_source(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_use_as_direct_query_source")
+
+    @disable_use_as_direct_query_source.setter
+    def disable_use_as_direct_query_source(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_use_as_direct_query_source", value)
+
+    @property
+    @pulumi.getter(name="disableUseAsImportedSource")
+    def disable_use_as_imported_source(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_use_as_imported_source")
+
+    @disable_use_as_imported_source.setter
+    def disable_use_as_imported_source(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_use_as_imported_source", value)
 
 
 @pulumi.input_type

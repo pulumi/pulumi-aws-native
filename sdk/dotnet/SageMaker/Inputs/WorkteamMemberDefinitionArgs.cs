@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class WorkteamMemberDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cognitoMemberDefinition", required: true)]
-        public Input<Inputs.WorkteamCognitoMemberDefinitionArgs> CognitoMemberDefinition { get; set; } = null!;
+        [Input("cognitoMemberDefinition")]
+        public Input<Inputs.WorkteamCognitoMemberDefinitionArgs>? CognitoMemberDefinition { get; set; }
+
+        [Input("oidcMemberDefinition")]
+        public Input<Inputs.WorkteamOidcMemberDefinitionArgs>? OidcMemberDefinition { get; set; }
 
         public WorkteamMemberDefinitionArgs()
         {

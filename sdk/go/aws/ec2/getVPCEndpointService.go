@@ -25,11 +25,12 @@ type LookupVPCEndpointServiceArgs struct {
 }
 
 type LookupVPCEndpointServiceResult struct {
-	AcceptanceRequired      *bool    `pulumi:"acceptanceRequired"`
-	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
-	Id                      *string  `pulumi:"id"`
-	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     *string  `pulumi:"payerResponsibility"`
+	AcceptanceRequired         *bool    `pulumi:"acceptanceRequired"`
+	ContributorInsightsEnabled *bool    `pulumi:"contributorInsightsEnabled"`
+	GatewayLoadBalancerArns    []string `pulumi:"gatewayLoadBalancerArns"`
+	Id                         *string  `pulumi:"id"`
+	NetworkLoadBalancerArns    []string `pulumi:"networkLoadBalancerArns"`
+	PayerResponsibility        *string  `pulumi:"payerResponsibility"`
 }
 
 func LookupVPCEndpointServiceOutput(ctx *pulumi.Context, args LookupVPCEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVPCEndpointServiceResultOutput {
@@ -69,6 +70,10 @@ func (o LookupVPCEndpointServiceResultOutput) ToLookupVPCEndpointServiceResultOu
 
 func (o LookupVPCEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *bool { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVPCEndpointServiceResultOutput) ContributorInsightsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *bool { return v.ContributorInsightsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupVPCEndpointServiceResultOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {

@@ -291,6 +291,9 @@
         "NetworkInterfaceId" : {
           "type" : "string"
         },
+        "AssociateCarrierIpAddress" : {
+          "type" : "boolean"
+        },
         "Ipv6AddressCount" : {
           "type" : "integer"
         },

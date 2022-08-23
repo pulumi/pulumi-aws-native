@@ -51,9 +51,17 @@ export class Host extends pulumi.CustomResource {
      */
     public readonly hostRecovery!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+     */
+    public readonly instanceFamily!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -69,20 +77,21 @@ export class Host extends pulumi.CustomResource {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceType'");
-            }
             resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
+            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["hostId"] = undefined /*out*/;
         } else {
             resourceInputs["autoPlacement"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
             resourceInputs["hostRecovery"] = undefined /*out*/;
+            resourceInputs["instanceFamily"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Host.__pulumiType, name, resourceInputs, opts);
@@ -106,7 +115,15 @@ export interface HostArgs {
      */
     hostRecovery?: pulumi.Input<string>;
     /**
+     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+     */
+    instanceFamily?: pulumi.Input<string>;
+    /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */
-    instanceType: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+     */
+    outpostArn?: pulumi.Input<string>;
 }

@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.Transfer.Inputs
 
     public sealed class ServerProtocolDetailsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("as2Transports")]
+        private InputList<Inputs.ServerAs2TransportArgs>? _as2Transports;
+        public InputList<Inputs.ServerAs2TransportArgs> As2Transports
+        {
+            get => _as2Transports ?? (_as2Transports = new InputList<Inputs.ServerAs2TransportArgs>());
+            set => _as2Transports = value;
+        }
+
         [Input("passiveIp")]
         public Input<string>? PassiveIp { get; set; }
 

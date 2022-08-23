@@ -42,6 +42,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     public readonly additionalCodeRepositories!: pulumi.Output<string[] | undefined>;
     public readonly defaultCodeRepository!: pulumi.Output<string | undefined>;
     public readonly directInternetAccess!: pulumi.Output<string | undefined>;
+    public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
     public readonly instanceType!: pulumi.Output<string>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly lifecycleConfigName!: pulumi.Output<string | undefined>;
@@ -77,6 +78,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
             resourceInputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
             resourceInputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
+            resourceInputs["instanceMetadataServiceConfiguration"] = args ? args.instanceMetadataServiceConfiguration : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
@@ -93,6 +95,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["additionalCodeRepositories"] = undefined /*out*/;
             resourceInputs["defaultCodeRepository"] = undefined /*out*/;
             resourceInputs["directInternetAccess"] = undefined /*out*/;
+            resourceInputs["instanceMetadataServiceConfiguration"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["lifecycleConfigName"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export interface NotebookInstanceArgs {
     additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     defaultCodeRepository?: pulumi.Input<string>;
     directInternetAccess?: pulumi.Input<string>;
+    instanceMetadataServiceConfiguration?: pulumi.Input<inputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfigurationArgs>;
     instanceType: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     lifecycleConfigName?: pulumi.Input<string>;

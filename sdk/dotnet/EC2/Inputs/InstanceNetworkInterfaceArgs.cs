@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class InstanceNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("associateCarrierIpAddress")]
+        public Input<bool>? AssociateCarrierIpAddress { get; set; }
+
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 

@@ -44,6 +44,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly applicationDescription!: pulumi.Output<string | undefined>;
     /**
+     * Used to configure start of maintenance window.
+     */
+    public readonly applicationMaintenanceConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationMaintenanceConfiguration | undefined>;
+    /**
      * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
      */
     public readonly applicationMode!: pulumi.Output<enums.kinesisanalyticsv2.ApplicationMode | undefined>;
@@ -51,6 +55,10 @@ export class Application extends pulumi.CustomResource {
      * The name of the application.
      */
     public readonly applicationName!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+     */
+    public readonly runConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationRunConfiguration | undefined>;
     /**
      * The runtime environment for the application.
      */
@@ -83,16 +91,20 @@ export class Application extends pulumi.CustomResource {
             }
             resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
             resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
+            resourceInputs["applicationMaintenanceConfiguration"] = args ? args.applicationMaintenanceConfiguration : undefined;
             resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["runConfiguration"] = args ? args.runConfiguration : undefined;
             resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
             resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["applicationConfiguration"] = undefined /*out*/;
             resourceInputs["applicationDescription"] = undefined /*out*/;
+            resourceInputs["applicationMaintenanceConfiguration"] = undefined /*out*/;
             resourceInputs["applicationMode"] = undefined /*out*/;
             resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["runConfiguration"] = undefined /*out*/;
             resourceInputs["runtimeEnvironment"] = undefined /*out*/;
             resourceInputs["serviceExecutionRole"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -115,6 +127,10 @@ export interface ApplicationArgs {
      */
     applicationDescription?: pulumi.Input<string>;
     /**
+     * Used to configure start of maintenance window.
+     */
+    applicationMaintenanceConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationMaintenanceConfigurationArgs>;
+    /**
      * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
      */
     applicationMode?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationMode>;
@@ -122,6 +138,10 @@ export interface ApplicationArgs {
      * The name of the application.
      */
     applicationName?: pulumi.Input<string>;
+    /**
+     * Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
+     */
+    runConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationRunConfigurationArgs>;
     /**
      * The runtime environment for the application.
      */

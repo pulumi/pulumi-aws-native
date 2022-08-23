@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .account_audit_configuration import *
 from .authorizer import *
+from .ca_certificate import *
 from .certificate import *
 from .custom_metric import *
 from .dimension import *
@@ -15,6 +16,7 @@ from .domain_configuration import *
 from .fleet_metric import *
 from .get_account_audit_configuration import *
 from .get_authorizer import *
+from .get_ca_certificate import *
 from .get_certificate import *
 from .get_custom_metric import *
 from .get_dimension import *

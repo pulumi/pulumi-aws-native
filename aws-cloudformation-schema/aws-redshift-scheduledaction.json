@@ -50,18 +50,28 @@
     },
     "ScheduledActionType" : {
       "type" : "object",
-      "properties" : {
-        "ResizeCluster" : {
-          "$ref" : "#/definitions/ResizeClusterMessage"
+      "oneOf" : [ {
+        "properties" : {
+          "ResizeCluster" : {
+            "$ref" : "#/definitions/ResizeClusterMessage"
+          }
         },
-        "PauseCluster" : {
-          "$ref" : "#/definitions/PauseClusterMessage"
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "PauseCluster" : {
+            "$ref" : "#/definitions/PauseClusterMessage"
+          }
         },
-        "ResumeCluster" : {
-          "$ref" : "#/definitions/ResumeClusterMessage"
-        }
-      },
-      "additionalProperties" : false
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "ResumeCluster" : {
+            "$ref" : "#/definitions/ResumeClusterMessage"
+          }
+        },
+        "additionalProperties" : false
+      } ]
     },
     "timestamp" : {
       "type" : "string"

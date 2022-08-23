@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
@@ -23,11 +23,13 @@ type StudioComponent struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	RuntimeRoleArn pulumi.StringPtrOutput `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters  StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	StudioComponentId pulumi.StringOutput                               `pulumi:"studioComponentId"`
-	// <p>The studioId. </p>
+	ScriptParameters            StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
+	SecureInitializationRoleArn pulumi.StringPtrOutput                            `pulumi:"secureInitializationRoleArn"`
+	StudioComponentId           pulumi.StringOutput                               `pulumi:"studioComponentId"`
+	// <p>The studio ID. </p>
 	StudioId pulumi.StringOutput             `pulumi:"studioId"`
 	Subtype  StudioComponentSubtypePtrOutput `pulumi:"subtype"`
 	Tags     StudioComponentTagsPtrOutput    `pulumi:"tags"`
@@ -87,10 +89,12 @@ type studioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name *string `pulumi:"name"`
+	Name           *string `pulumi:"name"`
+	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	// <p>The studioId. </p>
+	ScriptParameters            []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	SecureInitializationRoleArn *string                                  `pulumi:"secureInitializationRoleArn"`
+	// <p>The studio ID. </p>
 	StudioId string                  `pulumi:"studioId"`
 	Subtype  *StudioComponentSubtype `pulumi:"subtype"`
 	Tags     *StudioComponentTags    `pulumi:"tags"`
@@ -107,10 +111,12 @@ type StudioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayInput
 	// <p>The name for the studio component.</p>
-	Name pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	RuntimeRoleArn pulumi.StringPtrInput
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
-	// <p>The studioId. </p>
+	ScriptParameters            StudioComponentScriptParameterKeyValueArrayInput
+	SecureInitializationRoleArn pulumi.StringPtrInput
+	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput
 	Subtype  StudioComponentSubtypePtrInput
 	Tags     StudioComponentTagsPtrInput
@@ -180,16 +186,24 @@ func (o StudioComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o StudioComponentOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // <p>Parameters for the studio component scripts.</p>
 func (o StudioComponentOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentScriptParameterKeyValueArrayOutput { return v.ScriptParameters }).(StudioComponentScriptParameterKeyValueArrayOutput)
+}
+
+func (o StudioComponentOutput) SecureInitializationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.SecureInitializationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o StudioComponentOutput) StudioComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioComponentId }).(pulumi.StringOutput)
 }
 
-// <p>The studioId. </p>
+// <p>The studio ID. </p>
 func (o StudioComponentOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }

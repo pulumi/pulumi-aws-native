@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.FMS
         public readonly string? ResourceType;
         public readonly ImmutableArray<string> ResourceTypeList;
         public readonly bool? ResourcesCleanUp;
-        public readonly Outputs.SecurityServicePolicyDataProperties? SecurityServicePolicyData;
+        public readonly Outputs.PolicySecurityServicePolicyData? SecurityServicePolicyData;
         public readonly ImmutableArray<Outputs.PolicyTag> Tags;
 
         [OutputConstructor]
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.FMS
 
             bool? resourcesCleanUp,
 
-            Outputs.SecurityServicePolicyDataProperties? securityServicePolicyData,
+            Outputs.PolicySecurityServicePolicyData? securityServicePolicyData,
 
             ImmutableArray<Outputs.PolicyTag> tags)
         {

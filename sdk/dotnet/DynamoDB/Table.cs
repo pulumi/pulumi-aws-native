@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDB
 {
     /// <summary>
-    /// Resource Type definition for AWS::DynamoDB::Table
+    /// Version: None. Resource Type definition for AWS::DynamoDB::Table
     /// </summary>
-    [Obsolete(@"Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dynamodb:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
@@ -31,8 +30,11 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("importSourceSpecification")]
+        public Output<Outputs.TableImportSourceSpecification?> ImportSourceSpecification { get; private set; } = null!;
+
         [Output("keySchema")]
-        public Output<ImmutableArray<Outputs.TableKeySchema>> KeySchema { get; private set; } = null!;
+        public Output<Union<ImmutableArray<Outputs.TableKeySchema>, object>> KeySchema { get; private set; } = null!;
 
         [Output("kinesisStreamSpecification")]
         public Output<Outputs.TableKinesisStreamSpecification?> KinesisStreamSpecification { get; private set; } = null!;
@@ -134,13 +136,11 @@ namespace Pulumi.AwsNative.DynamoDB
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("importSourceSpecification")]
+        public Input<Inputs.TableImportSourceSpecificationArgs>? ImportSourceSpecification { get; set; }
+
         [Input("keySchema", required: true)]
-        private InputList<Inputs.TableKeySchemaArgs>? _keySchema;
-        public InputList<Inputs.TableKeySchemaArgs> KeySchema
-        {
-            get => _keySchema ?? (_keySchema = new InputList<Inputs.TableKeySchemaArgs>());
-            set => _keySchema = value;
-        }
+        public InputUnion<ImmutableArray<Inputs.TableKeySchemaArgs>, object> KeySchema { get; set; } = null!;
 
         [Input("kinesisStreamSpecification")]
         public Input<Inputs.TableKinesisStreamSpecificationArgs>? KinesisStreamSpecification { get; set; }

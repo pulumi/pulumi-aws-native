@@ -31,9 +31,13 @@ class DBClusterArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
+                 restore_type: Optional[pulumi.Input[str]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBCluster resource.
@@ -68,12 +72,20 @@ class DBClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if restore_to_time is not None:
+            pulumi.set(__self__, "restore_to_time", restore_to_time)
+        if restore_type is not None:
+            pulumi.set(__self__, "restore_type", restore_type)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+        if source_db_cluster_identifier is not None:
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_latest_restorable_time is not None:
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -213,6 +225,24 @@ class DBClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "restore_to_time")
+
+    @restore_to_time.setter
+    def restore_to_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_to_time", value)
+
+    @property
+    @pulumi.getter(name="restoreType")
+    def restore_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "restore_type")
+
+    @restore_type.setter
+    def restore_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_type", value)
+
+    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "snapshot_identifier")
@@ -220,6 +250,15 @@ class DBClusterArgs:
     @snapshot_identifier.setter
     def snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="sourceDBClusterIdentifier")
+    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_db_cluster_identifier")
+
+    @source_db_cluster_identifier.setter
+    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_db_cluster_identifier", value)
 
     @property
     @pulumi.getter(name="storageEncrypted")
@@ -238,6 +277,15 @@ class DBClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_latest_restorable_time")
+
+    @use_latest_restorable_time.setter
+    def use_latest_restorable_time(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_latest_restorable_time", value)
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
@@ -274,9 +322,13 @@ class DBCluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
+                 restore_type: Optional[pulumi.Input[str]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -324,9 +376,13 @@ class DBCluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
+                 restore_type: Optional[pulumi.Input[str]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DBCluster is deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -353,9 +409,13 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["restore_to_time"] = restore_to_time
+            __props__.__dict__["restore_type"] = restore_type
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
+            __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
@@ -400,9 +460,13 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["preferred_backup_window"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["read_endpoint"] = None
+        __props__.__dict__["restore_to_time"] = None
+        __props__.__dict__["restore_type"] = None
         __props__.__dict__["snapshot_identifier"] = None
+        __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["storage_encrypted"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
         return DBCluster(resource_name, opts=opts, __props__=__props__)
 
@@ -497,9 +561,24 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "read_endpoint")
 
     @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "restore_to_time")
+
+    @property
+    @pulumi.getter(name="restoreType")
+    def restore_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "restore_type")
+
+    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "snapshot_identifier")
+
+    @property
+    @pulumi.getter(name="sourceDBClusterIdentifier")
+    def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
     @pulumi.getter(name="storageEncrypted")
@@ -510,6 +589,11 @@ class DBCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "use_latest_restorable_time")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")

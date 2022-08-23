@@ -15,13 +15,14 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
-	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
-	Arn                   pulumi.StringOutput `pulumi:"arn"`
-	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
-	PathResourceToId      pulumi.StringOutput `pulumi:"pathResourceToId"`
-	RouteIdentifier       pulumi.StringOutput `pulumi:"routeIdentifier"`
-	RouteType             RouteTypePtrOutput  `pulumi:"routeType"`
-	ServiceIdentifier     pulumi.StringOutput `pulumi:"serviceIdentifier"`
+	ApplicationIdentifier pulumi.StringOutput             `pulumi:"applicationIdentifier"`
+	Arn                   pulumi.StringOutput             `pulumi:"arn"`
+	DefaultRoute          RouteDefaultRouteInputPtrOutput `pulumi:"defaultRoute"`
+	EnvironmentIdentifier pulumi.StringOutput             `pulumi:"environmentIdentifier"`
+	PathResourceToId      pulumi.StringOutput             `pulumi:"pathResourceToId"`
+	RouteIdentifier       pulumi.StringOutput             `pulumi:"routeIdentifier"`
+	RouteType             RouteTypePtrOutput              `pulumi:"routeType"`
+	ServiceIdentifier     pulumi.StringOutput             `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags         RouteTagArrayOutput             `pulumi:"tags"`
 	UriPathRoute RouteUriPathRouteInputPtrOutput `pulumi:"uriPathRoute"`
@@ -75,10 +76,11 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	ApplicationIdentifier string     `pulumi:"applicationIdentifier"`
-	EnvironmentIdentifier string     `pulumi:"environmentIdentifier"`
-	RouteType             *RouteType `pulumi:"routeType"`
-	ServiceIdentifier     string     `pulumi:"serviceIdentifier"`
+	ApplicationIdentifier string                  `pulumi:"applicationIdentifier"`
+	DefaultRoute          *RouteDefaultRouteInput `pulumi:"defaultRoute"`
+	EnvironmentIdentifier string                  `pulumi:"environmentIdentifier"`
+	RouteType             *RouteType              `pulumi:"routeType"`
+	ServiceIdentifier     string                  `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags         []RouteTag              `pulumi:"tags"`
 	UriPathRoute *RouteUriPathRouteInput `pulumi:"uriPathRoute"`
@@ -87,6 +89,7 @@ type routeArgs struct {
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	ApplicationIdentifier pulumi.StringInput
+	DefaultRoute          RouteDefaultRouteInputPtrInput
 	EnvironmentIdentifier pulumi.StringInput
 	RouteType             RouteTypePtrInput
 	ServiceIdentifier     pulumi.StringInput
@@ -138,6 +141,10 @@ func (o RouteOutput) ApplicationIdentifier() pulumi.StringOutput {
 
 func (o RouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) DefaultRoute() RouteDefaultRouteInputPtrOutput {
+	return o.ApplyT(func(v *Route) RouteDefaultRouteInputPtrOutput { return v.DefaultRoute }).(RouteDefaultRouteInputPtrOutput)
 }
 
 func (o RouteOutput) EnvironmentIdentifier() pulumi.StringOutput {

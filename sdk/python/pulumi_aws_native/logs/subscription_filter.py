@@ -20,6 +20,10 @@ class SubscriptionFilterArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubscriptionFilter resource.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination.
+        :param pulumi.Input[str] filter_pattern: The filtering expressions that restrict what gets delivered to the destination AWS resource.
+        :param pulumi.Input[str] log_group_name: Existing log group that you want to associate with this filter.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "filter_pattern", filter_pattern)
@@ -30,6 +34,9 @@ class SubscriptionFilterArgs:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination.
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -39,6 +46,9 @@ class SubscriptionFilterArgs:
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Input[str]:
+        """
+        The filtering expressions that restrict what gets delivered to the destination AWS resource.
+        """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
@@ -48,6 +58,9 @@ class SubscriptionFilterArgs:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Existing log group that you want to associate with this filter.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -57,6 +70,9 @@ class SubscriptionFilterArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -64,12 +80,7 @@ class SubscriptionFilterArgs:
         pulumi.set(self, "role_arn", value)
 
 
-warnings.warn("""SubscriptionFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SubscriptionFilter(pulumi.CustomResource):
-    warnings.warn("""SubscriptionFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -80,10 +91,14 @@ class SubscriptionFilter(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::SubscriptionFilter
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination.
+        :param pulumi.Input[str] filter_pattern: The filtering expressions that restrict what gets delivered to the destination AWS resource.
+        :param pulumi.Input[str] log_group_name: Existing log group that you want to associate with this filter.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
         """
         ...
     @overload
@@ -92,7 +107,7 @@ class SubscriptionFilter(pulumi.CustomResource):
                  args: SubscriptionFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::SubscriptionFilter
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionFilterArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +129,6 @@ class SubscriptionFilter(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubscriptionFilter is deprecated: SubscriptionFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,6 +147,7 @@ class SubscriptionFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_group_name'")
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["filter_name"] = None
         super(SubscriptionFilter, __self__).__init__(
             'aws-native:logs:SubscriptionFilter',
             resource_name,
@@ -156,6 +171,7 @@ class SubscriptionFilter(pulumi.CustomResource):
         __props__ = SubscriptionFilterArgs.__new__(SubscriptionFilterArgs)
 
         __props__.__dict__["destination_arn"] = None
+        __props__.__dict__["filter_name"] = None
         __props__.__dict__["filter_pattern"] = None
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["role_arn"] = None
@@ -164,20 +180,40 @@ class SubscriptionFilter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination.
+        """
         return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> pulumi.Output[str]:
+        """
+        The name of the filter generated by resource.
+        """
+        return pulumi.get(self, "filter_name")
 
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Output[str]:
+        """
+        The filtering expressions that restrict what gets delivered to the destination AWS resource.
+        """
         return pulumi.get(self, "filter_pattern")
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
+        """
+        Existing log group that you want to associate with this filter.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
+        """
         return pulumi.get(self, "role_arn")
 

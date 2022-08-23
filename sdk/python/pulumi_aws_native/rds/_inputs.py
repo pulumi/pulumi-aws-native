@@ -12,9 +12,11 @@ from ._enums import *
 
 __all__ = [
     'DBClusterParameterGroupTagArgs',
+    'DBClusterReadEndpointArgs',
     'DBClusterRoleArgs',
     'DBClusterScalingConfigurationArgs',
     'DBClusterTagArgs',
+    'DBInstanceEndpointArgs',
     'DBInstanceProcessorFeatureArgs',
     'DBInstanceRoleArgs',
     'DBInstanceTagArgs',
@@ -36,14 +38,15 @@ __all__ = [
 class DBClusterParameterGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
         """
         A key-value pair to associate with a resource.
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -59,15 +62,38 @@ class DBClusterParameterGroupTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DBClusterReadEndpointArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: The reader endpoint for the DB cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reader endpoint for the DB cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
 
 
 @pulumi.input_type
@@ -75,6 +101,11 @@ class DBClusterRoleArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  feature_name: Optional[pulumi.Input[str]] = None):
+        """
+        Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         if feature_name is not None:
             pulumi.set(__self__, "feature_name", feature_name)
@@ -82,6 +113,9 @@ class DBClusterRoleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -91,6 +125,9 @@ class DBClusterRoleArgs:
     @property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
@@ -105,6 +142,19 @@ class DBClusterScalingConfigurationArgs:
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None,
                  seconds_until_auto_pause: Optional[pulumi.Input[int]] = None):
+        """
+        The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+        :param pulumi.Input[bool] auto_pause: A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+        :param pulumi.Input[int] max_capacity: The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+               For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+               For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+               The maximum capacity must be greater than or equal to the minimum capacity.
+        :param pulumi.Input[int] min_capacity: The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+               For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+               For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+               The minimum capacity must be less than or equal to the maximum capacity.
+        :param pulumi.Input[int] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+        """
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
         if max_capacity is not None:
@@ -117,6 +167,9 @@ class DBClusterScalingConfigurationArgs:
     @property
     @pulumi.getter(name="autoPause")
     def auto_pause(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+        """
         return pulumi.get(self, "auto_pause")
 
     @auto_pause.setter
@@ -126,6 +179,12 @@ class DBClusterScalingConfigurationArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+        For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+        For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+        The maximum capacity must be greater than or equal to the minimum capacity.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -135,6 +194,12 @@ class DBClusterScalingConfigurationArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+        For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
+        For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
+        The minimum capacity must be less than or equal to the maximum capacity.
+        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -144,6 +209,9 @@ class DBClusterScalingConfigurationArgs:
     @property
     @pulumi.getter(name="secondsUntilAutoPause")
     def seconds_until_auto_pause(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+        """
         return pulumi.get(self, "seconds_until_auto_pause")
 
     @seconds_until_auto_pause.setter
@@ -155,13 +223,22 @@ class DBClusterScalingConfigurationArgs:
 class DBClusterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -170,19 +247,81 @@ class DBClusterTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DBInstanceEndpointArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
+        :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        :param pulumi.Input[str] port: Specifies the port that the database engine is listening on.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the DNS address of the DB instance.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the port that the database engine is listening on.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
 class DBInstanceProcessorFeatureArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input['DBInstanceProcessorFeatureName']] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DBInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        :param pulumi.Input[str] value: The value of a processor feature name.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -190,16 +329,22 @@ class DBInstanceProcessorFeatureArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['DBInstanceProcessorFeatureName']]:
+        """
+        The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['DBInstanceProcessorFeatureName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of a processor feature name.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -212,12 +357,19 @@ class DBInstanceRoleArgs:
     def __init__(__self__, *,
                  feature_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
         pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> pulumi.Input[str]:
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
@@ -227,6 +379,9 @@ class DBInstanceRoleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -238,13 +393,22 @@ class DBInstanceRoleArgs:
 class DBInstanceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -253,11 +417,14 @@ class DBInstanceTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -266,20 +433,12 @@ class DBParameterGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -289,9 +448,6 @@ class DBParameterGroupTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -615,14 +771,15 @@ class DBSecurityGroupTagArgs:
 class DBSubnetGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
         """
         A key-value pair to associate with a resource.
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -638,14 +795,14 @@ class DBSubnetGroupTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -653,14 +810,15 @@ class DBSubnetGroupTagArgs:
 class EventSubscriptionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
         """
         A key-value pair to associate with a resource.
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -676,14 +834,14 @@ class EventSubscriptionTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -696,6 +854,15 @@ class OptionGroupOptionConfigurationArgs:
                  option_version: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
+        :param pulumi.Input[str] option_name: The configuration of options to include in a group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]] option_settings: The option settings to include in an option group.
+        :param pulumi.Input[str] option_version: The version for the option.
+        :param pulumi.Input[int] port: The optional port for the option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: A list of VpcSecurityGroupMembership name strings used for this option.
+        """
         pulumi.set(__self__, "option_name", option_name)
         if d_b_security_group_memberships is not None:
             pulumi.set(__self__, "d_b_security_group_memberships", d_b_security_group_memberships)
@@ -711,6 +878,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter(name="optionName")
     def option_name(self) -> pulumi.Input[str]:
+        """
+        The configuration of options to include in a group.
+        """
         return pulumi.get(self, "option_name")
 
     @option_name.setter
@@ -720,6 +890,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter(name="dBSecurityGroupMemberships")
     def d_b_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of DBSecurityGroupMembership name strings used for this option.
+        """
         return pulumi.get(self, "d_b_security_group_memberships")
 
     @d_b_security_group_memberships.setter
@@ -729,6 +902,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]]:
+        """
+        The option settings to include in an option group.
+        """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
@@ -738,6 +914,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter(name="optionVersion")
     def option_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version for the option.
+        """
         return pulumi.get(self, "option_version")
 
     @option_version.setter
@@ -747,6 +926,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional port for the option.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -756,6 +938,9 @@ class OptionGroupOptionConfigurationArgs:
     @property
     @pulumi.getter(name="vpcSecurityGroupMemberships")
     def vpc_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of VpcSecurityGroupMembership name strings used for this option.
+        """
         return pulumi.get(self, "vpc_security_group_memberships")
 
     @vpc_security_group_memberships.setter
@@ -768,6 +953,11 @@ class OptionGroupOptionSettingArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        The OptionSetting property type specifies the value for an option within an OptionSetting property.
+        :param pulumi.Input[str] name: The name of the option that has settings that you can set.
+        :param pulumi.Input[str] value: The current value of the option setting.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -776,6 +966,9 @@ class OptionGroupOptionSettingArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the option that has settings that you can set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -785,6 +978,9 @@ class OptionGroupOptionSettingArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current value of the option setting.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -796,13 +992,22 @@ class OptionGroupOptionSettingArgs:
 class OptionGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -811,11 +1016,14 @@ class OptionGroupTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 

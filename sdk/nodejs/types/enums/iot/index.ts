@@ -9,6 +9,27 @@ export const AuthorizerStatus = {
 
 export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
 
+export const CACertificateAutoRegistrationStatus = {
+    Enable: "ENABLE",
+    Disable: "DISABLE",
+} as const;
+
+export type CACertificateAutoRegistrationStatus = (typeof CACertificateAutoRegistrationStatus)[keyof typeof CACertificateAutoRegistrationStatus];
+
+export const CACertificateCertificateMode = {
+    Default: "DEFAULT",
+    SniOnly: "SNI_ONLY",
+} as const;
+
+export type CACertificateCertificateMode = (typeof CACertificateCertificateMode)[keyof typeof CACertificateCertificateMode];
+
+export const CACertificateStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+export type CACertificateStatus = (typeof CACertificateStatus)[keyof typeof CACertificateStatus];
+
 export const CertificateMode = {
     Default: "DEFAULT",
     SniOnly: "SNI_ONLY",
@@ -142,6 +163,13 @@ export const MitigationActionUpdateDeviceCertificateParamsAction = {
 } as const;
 
 export type MitigationActionUpdateDeviceCertificateParamsAction = (typeof MitigationActionUpdateDeviceCertificateParamsAction)[keyof typeof MitigationActionUpdateDeviceCertificateParamsAction];
+
+export const ProvisioningTemplateTemplateType = {
+    FleetProvisioning: "FLEET_PROVISIONING",
+    Jitp: "JITP",
+} as const;
+
+export type ProvisioningTemplateTemplateType = (typeof ProvisioningTemplateTemplateType)[keyof typeof ProvisioningTemplateTemplateType];
 
 export const ResourceSpecificLoggingLogLevel = {
     Error: "ERROR",

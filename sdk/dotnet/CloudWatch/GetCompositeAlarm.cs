@@ -62,6 +62,18 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly bool? ActionsEnabled;
         /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        /// </summary>
+        public readonly string? ActionsSuppressor;
+        /// <summary>
+        /// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        public readonly int? ActionsSuppressorExtensionPeriod;
+        /// <summary>
+        /// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+        /// </summary>
+        public readonly int? ActionsSuppressorWaitPeriod;
+        /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         /// </summary>
         public readonly ImmutableArray<string> AlarmActions;
@@ -90,6 +102,12 @@ namespace Pulumi.AwsNative.CloudWatch
         private GetCompositeAlarmResult(
             bool? actionsEnabled,
 
+            string? actionsSuppressor,
+
+            int? actionsSuppressorExtensionPeriod,
+
+            int? actionsSuppressorWaitPeriod,
+
             ImmutableArray<string> alarmActions,
 
             string? alarmDescription,
@@ -103,6 +121,9 @@ namespace Pulumi.AwsNative.CloudWatch
             ImmutableArray<string> oKActions)
         {
             ActionsEnabled = actionsEnabled;
+            ActionsSuppressor = actionsSuppressor;
+            ActionsSuppressorExtensionPeriod = actionsSuppressorExtensionPeriod;
+            ActionsSuppressorWaitPeriod = actionsSuppressorWaitPeriod;
             AlarmActions = alarmActions;
             AlarmDescription = alarmDescription;
             AlarmRule = alarmRule;

@@ -25,19 +25,19 @@ type LookupPolicyArgs struct {
 }
 
 type LookupPolicyResult struct {
-	Arn                       *string                              `pulumi:"arn"`
-	ExcludeMap                *PolicyIEMap                         `pulumi:"excludeMap"`
-	ExcludeResourceTags       *bool                                `pulumi:"excludeResourceTags"`
-	Id                        *string                              `pulumi:"id"`
-	IncludeMap                *PolicyIEMap                         `pulumi:"includeMap"`
-	PolicyName                *string                              `pulumi:"policyName"`
-	RemediationEnabled        *bool                                `pulumi:"remediationEnabled"`
-	ResourceTags              []PolicyResourceTag                  `pulumi:"resourceTags"`
-	ResourceType              *string                              `pulumi:"resourceType"`
-	ResourceTypeList          []string                             `pulumi:"resourceTypeList"`
-	ResourcesCleanUp          *bool                                `pulumi:"resourcesCleanUp"`
-	SecurityServicePolicyData *SecurityServicePolicyDataProperties `pulumi:"securityServicePolicyData"`
-	Tags                      []PolicyTag                          `pulumi:"tags"`
+	Arn                       *string                          `pulumi:"arn"`
+	ExcludeMap                *PolicyIEMap                     `pulumi:"excludeMap"`
+	ExcludeResourceTags       *bool                            `pulumi:"excludeResourceTags"`
+	Id                        *string                          `pulumi:"id"`
+	IncludeMap                *PolicyIEMap                     `pulumi:"includeMap"`
+	PolicyName                *string                          `pulumi:"policyName"`
+	RemediationEnabled        *bool                            `pulumi:"remediationEnabled"`
+	ResourceTags              []PolicyResourceTag              `pulumi:"resourceTags"`
+	ResourceType              *string                          `pulumi:"resourceType"`
+	ResourceTypeList          []string                         `pulumi:"resourceTypeList"`
+	ResourcesCleanUp          *bool                            `pulumi:"resourcesCleanUp"`
+	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
+	Tags                      []PolicyTag                      `pulumi:"tags"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -119,8 +119,8 @@ func (o LookupPolicyResultOutput) ResourcesCleanUp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.ResourcesCleanUp }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupPolicyResultOutput) SecurityServicePolicyData() SecurityServicePolicyDataPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupPolicyResult) *SecurityServicePolicyDataProperties { return v.SecurityServicePolicyData }).(SecurityServicePolicyDataPropertiesPtrOutput)
+func (o LookupPolicyResultOutput) SecurityServicePolicyData() PolicySecurityServicePolicyDataPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *PolicySecurityServicePolicyData { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
 func (o LookupPolicyResultOutput) Tags() PolicyTagArrayOutput {

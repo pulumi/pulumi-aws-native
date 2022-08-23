@@ -16,25 +16,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentConfiguration
     {
-        public readonly Outputs.StudioComponentActiveDirectoryConfiguration? ActiveDirectoryConfiguration;
-        public readonly Outputs.StudioComponentComputeFarmConfiguration? ComputeFarmConfiguration;
-        public readonly Outputs.StudioComponentLicenseServiceConfiguration? LicenseServiceConfiguration;
-        public readonly Outputs.StudioComponentSharedFileSystemConfiguration? SharedFileSystemConfiguration;
-
         [OutputConstructor]
-        private StudioComponentConfiguration(
-            Outputs.StudioComponentActiveDirectoryConfiguration? activeDirectoryConfiguration,
-
-            Outputs.StudioComponentComputeFarmConfiguration? computeFarmConfiguration,
-
-            Outputs.StudioComponentLicenseServiceConfiguration? licenseServiceConfiguration,
-
-            Outputs.StudioComponentSharedFileSystemConfiguration? sharedFileSystemConfiguration)
+        private StudioComponentConfiguration()
         {
-            ActiveDirectoryConfiguration = activeDirectoryConfiguration;
-            ComputeFarmConfiguration = computeFarmConfiguration;
-            LicenseServiceConfiguration = licenseServiceConfiguration;
-            SharedFileSystemConfiguration = sharedFileSystemConfiguration;
         }
     }
 }

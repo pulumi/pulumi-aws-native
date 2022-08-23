@@ -56,9 +56,13 @@ export class DBCluster extends pulumi.CustomResource {
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     public /*out*/ readonly readEndpoint!: pulumi.Output<string>;
+    public readonly restoreToTime!: pulumi.Output<string | undefined>;
+    public readonly restoreType!: pulumi.Output<string | undefined>;
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<outputs.docdb.DBClusterTag[] | undefined>;
+    public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -89,9 +93,13 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
+            resourceInputs["restoreType"] = args ? args.restoreType : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
+            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -115,9 +123,13 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
             resourceInputs["readEndpoint"] = undefined /*out*/;
+            resourceInputs["restoreToTime"] = undefined /*out*/;
+            resourceInputs["restoreType"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -144,8 +156,12 @@ export interface DBClusterArgs {
     port?: pulumi.Input<number>;
     preferredBackupWindow?: pulumi.Input<string>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    restoreToTime?: pulumi.Input<string>;
+    restoreType?: pulumi.Input<string>;
     snapshotIdentifier?: pulumi.Input<string>;
+    sourceDBClusterIdentifier?: pulumi.Input<string>;
     storageEncrypted?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.docdb.DBClusterTagArgs>[]>;
+    useLatestRestorableTime?: pulumi.Input<boolean>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

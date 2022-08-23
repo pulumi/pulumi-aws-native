@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
+// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs, opts ...pulumi.InvokeOption) (*LookupStudioComponentResult, error) {
 	var rv LookupStudioComponentResult
 	err := ctx.Invoke("aws-native:nimblestudio:getStudioComponent", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs,
 
 type LookupStudioComponentArgs struct {
 	StudioComponentId string `pulumi:"studioComponentId"`
-	// <p>The studioId. </p>
+	// <p>The studio ID. </p>
 	StudioId string `pulumi:"studioId"`
 }
 
@@ -35,11 +35,13 @@ type LookupStudioComponentResult struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name *string `pulumi:"name"`
+	Name           *string `pulumi:"name"`
+	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters  []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	StudioComponentId *string                                  `pulumi:"studioComponentId"`
-	Type              *StudioComponentType                     `pulumi:"type"`
+	ScriptParameters            []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	SecureInitializationRoleArn *string                                  `pulumi:"secureInitializationRoleArn"`
+	StudioComponentId           *string                                  `pulumi:"studioComponentId"`
+	Type                        *StudioComponentType                     `pulumi:"type"`
 }
 
 func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponentOutputArgs, opts ...pulumi.InvokeOption) LookupStudioComponentResultOutput {
@@ -57,7 +59,7 @@ func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponent
 
 type LookupStudioComponentOutputArgs struct {
 	StudioComponentId pulumi.StringInput `pulumi:"studioComponentId"`
-	// <p>The studioId. </p>
+	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
@@ -105,11 +107,19 @@ func (o LookupStudioComponentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupStudioComponentResultOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // <p>Parameters for the studio component scripts.</p>
 func (o LookupStudioComponentResultOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) []StudioComponentScriptParameterKeyValue {
 		return v.ScriptParameters
 	}).(StudioComponentScriptParameterKeyValueArrayOutput)
+}
+
+func (o LookupStudioComponentResultOutput) SecureInitializationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.SecureInitializationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStudioComponentResultOutput) StudioComponentId() pulumi.StringPtrOutput {

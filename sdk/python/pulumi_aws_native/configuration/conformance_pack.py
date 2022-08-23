@@ -21,7 +21,8 @@ class ConformancePackArgs:
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
-                 template_s3_uri: Optional[pulumi.Input[str]] = None):
+                 template_s3_uri: Optional[pulumi.Input[str]] = None,
+                 template_ssm_document_details: Optional[pulumi.Input['TemplateSSMDocumentDetailsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
@@ -30,6 +31,7 @@ class ConformancePackArgs:
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
+        :param pulumi.Input['TemplateSSMDocumentDetailsPropertiesArgs'] template_ssm_document_details: The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
         if conformance_pack_input_parameters is not None:
             pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
@@ -43,6 +45,8 @@ class ConformancePackArgs:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
             pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+        if template_ssm_document_details is not None:
+            pulumi.set(__self__, "template_ssm_document_details", template_ssm_document_details)
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -116,6 +120,18 @@ class ConformancePackArgs:
     def template_s3_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_s3_uri", value)
 
+    @property
+    @pulumi.getter(name="templateSSMDocumentDetails")
+    def template_ssm_document_details(self) -> Optional[pulumi.Input['TemplateSSMDocumentDetailsPropertiesArgs']]:
+        """
+        The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        """
+        return pulumi.get(self, "template_ssm_document_details")
+
+    @template_ssm_document_details.setter
+    def template_ssm_document_details(self, value: Optional[pulumi.Input['TemplateSSMDocumentDetailsPropertiesArgs']]):
+        pulumi.set(self, "template_ssm_document_details", value)
+
 
 class ConformancePack(pulumi.CustomResource):
     @overload
@@ -128,6 +144,7 @@ class ConformancePack(pulumi.CustomResource):
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
+                 template_ssm_document_details: Optional[pulumi.Input[pulumi.InputType['TemplateSSMDocumentDetailsPropertiesArgs']]] = None,
                  __props__=None):
         """
         A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -140,6 +157,7 @@ class ConformancePack(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
+        :param pulumi.Input[pulumi.InputType['TemplateSSMDocumentDetailsPropertiesArgs']] template_ssm_document_details: The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
         ...
     @overload
@@ -171,6 +189,7 @@ class ConformancePack(pulumi.CustomResource):
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
+                 template_ssm_document_details: Optional[pulumi.Input[pulumi.InputType['TemplateSSMDocumentDetailsPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,6 +205,7 @@ class ConformancePack(pulumi.CustomResource):
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
+            __props__.__dict__["template_ssm_document_details"] = template_ssm_document_details
         super(ConformancePack, __self__).__init__(
             'aws-native:configuration:ConformancePack',
             resource_name,
@@ -214,6 +234,7 @@ class ConformancePack(pulumi.CustomResource):
         __props__.__dict__["delivery_s3_key_prefix"] = None
         __props__.__dict__["template_body"] = None
         __props__.__dict__["template_s3_uri"] = None
+        __props__.__dict__["template_ssm_document_details"] = None
         return ConformancePack(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -263,4 +284,12 @@ class ConformancePack(pulumi.CustomResource):
         Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_s3_uri")
+
+    @property
+    @pulumi.getter(name="templateSSMDocumentDetails")
+    def template_ssm_document_details(self) -> pulumi.Output[Optional['outputs.TemplateSSMDocumentDetailsProperties']]:
+        """
+        The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        """
+        return pulumi.get(self, "template_ssm_document_details")
 

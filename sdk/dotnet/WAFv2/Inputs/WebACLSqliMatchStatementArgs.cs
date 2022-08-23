@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
+        [Input("sensitivityLevel")]
+        public Input<Pulumi.AwsNative.WAFv2.WebACLSensitivityLevel>? SensitivityLevel { get; set; }
+
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebACLTextTransformationArgs>? _textTransformations;
         public InputList<Inputs.WebACLTextTransformationArgs> TextTransformations

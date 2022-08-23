@@ -622,6 +622,7 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 type DomainEBSOptions struct {
 	EBSEnabled *bool   `pulumi:"eBSEnabled"`
 	Iops       *int    `pulumi:"iops"`
+	Throughput *int    `pulumi:"throughput"`
 	VolumeSize *int    `pulumi:"volumeSize"`
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -640,6 +641,7 @@ type DomainEBSOptionsInput interface {
 type DomainEBSOptionsArgs struct {
 	EBSEnabled pulumi.BoolPtrInput   `pulumi:"eBSEnabled"`
 	Iops       pulumi.IntPtrInput    `pulumi:"iops"`
+	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -729,6 +731,10 @@ func (o DomainEBSOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEBSOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+func (o DomainEBSOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainEBSOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 func (o DomainEBSOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEBSOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
@@ -776,6 +782,15 @@ func (o DomainEBSOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainEBSOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainEBSOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
 	}).(pulumi.IntPtrOutput)
 }
 

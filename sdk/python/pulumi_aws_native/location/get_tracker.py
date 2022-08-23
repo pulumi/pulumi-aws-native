@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrackerResult:
-    def __init__(__self__, arn=None, create_time=None, tracker_arn=None, update_time=None):
+    def __init__(__self__, arn=None, create_time=None, pricing_plan_data_source=None, tracker_arn=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if pricing_plan_data_source and not isinstance(pricing_plan_data_source, str):
+            raise TypeError("Expected argument 'pricing_plan_data_source' to be a str")
+        pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
         if tracker_arn and not isinstance(tracker_arn, str):
             raise TypeError("Expected argument 'tracker_arn' to be a str")
         pulumi.set(__self__, "tracker_arn", tracker_arn)
@@ -41,6 +44,11 @@ class GetTrackerResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
         return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="pricingPlanDataSource")
+    def pricing_plan_data_source(self) -> Optional[str]:
+        return pulumi.get(self, "pricing_plan_data_source")
 
     @property
     @pulumi.getter(name="trackerArn")
@@ -61,6 +69,7 @@ class AwaitableGetTrackerResult(GetTrackerResult):
         return GetTrackerResult(
             arn=self.arn,
             create_time=self.create_time,
+            pricing_plan_data_source=self.pricing_plan_data_source,
             tracker_arn=self.tracker_arn,
             update_time=self.update_time)
 
@@ -78,6 +87,7 @@ def get_tracker(tracker_name: Optional[str] = None,
     return AwaitableGetTrackerResult(
         arn=__ret__.arn,
         create_time=__ret__.create_time,
+        pricing_plan_data_source=__ret__.pricing_plan_data_source,
         tracker_arn=__ret__.tracker_arn,
         update_time=__ret__.update_time)
 

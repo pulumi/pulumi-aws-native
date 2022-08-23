@@ -28,6 +28,8 @@ namespace Pulumi.AwsNative.EMR.Outputs
         public readonly Outputs.ClusterInstanceGroupConfig? MasterInstanceGroup;
         public readonly Outputs.ClusterPlacementType? Placement;
         public readonly string? ServiceAccessSecurityGroup;
+        public readonly ImmutableArray<Outputs.ClusterInstanceFleetConfig> TaskInstanceFleets;
+        public readonly ImmutableArray<Outputs.ClusterInstanceGroupConfig> TaskInstanceGroups;
         public readonly bool? TerminationProtected;
 
         [OutputConstructor]
@@ -62,6 +64,10 @@ namespace Pulumi.AwsNative.EMR.Outputs
 
             string? serviceAccessSecurityGroup,
 
+            ImmutableArray<Outputs.ClusterInstanceFleetConfig> taskInstanceFleets,
+
+            ImmutableArray<Outputs.ClusterInstanceGroupConfig> taskInstanceGroups,
+
             bool? terminationProtected)
         {
             AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
@@ -79,6 +85,8 @@ namespace Pulumi.AwsNative.EMR.Outputs
             MasterInstanceGroup = masterInstanceGroup;
             Placement = placement;
             ServiceAccessSecurityGroup = serviceAccessSecurityGroup;
+            TaskInstanceFleets = taskInstanceFleets;
+            TaskInstanceGroups = taskInstanceGroups;
             TerminationProtected = terminationProtected;
         }
     }

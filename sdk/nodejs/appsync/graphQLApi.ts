@@ -38,7 +38,7 @@ export class GraphQLApi extends pulumi.CustomResource {
         return obj['__pulumiType'] === GraphQLApi.__pulumiType;
     }
 
-    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProviders | undefined>;
+    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
     public /*out*/ readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
@@ -47,7 +47,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly openIDConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenIDConnectConfig | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appsync.GraphQLApiTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.appsync.GraphQLApiTag[] | undefined>;
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -102,13 +102,13 @@ export class GraphQLApi extends pulumi.CustomResource {
  * The set of arguments for constructing a GraphQLApi resource.
  */
 export interface GraphQLApiArgs {
-    additionalAuthenticationProviders?: pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvidersArgs>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderArgs>[]>;
     authenticationType: pulumi.Input<string>;
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfigArgs>;
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfigArgs>;
     name?: pulumi.Input<string>;
     openIDConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
-    tags?: pulumi.Input<inputs.appsync.GraphQLApiTagsArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiTagArgs>[]>;
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfigArgs>;
     xrayEnabled?: pulumi.Input<boolean>;
 }

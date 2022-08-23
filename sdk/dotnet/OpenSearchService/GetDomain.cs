@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     {
         public readonly object? AccessPolicies;
         public readonly object? AdvancedOptions;
+        public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
         public readonly string? Arn;
         public readonly Outputs.DomainClusterConfig? ClusterConfig;
         public readonly Outputs.DomainCognitoOptions? CognitoOptions;
@@ -79,6 +80,8 @@ namespace Pulumi.AwsNative.OpenSearchService
             object? accessPolicies,
 
             object? advancedOptions,
+
+            Outputs.DomainAdvancedSecurityOptionsInput? advancedSecurityOptions,
 
             string? arn,
 
@@ -116,6 +119,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
+            AdvancedSecurityOptions = advancedSecurityOptions;
             Arn = arn;
             ClusterConfig = clusterConfig;
             CognitoOptions = cognitoOptions;

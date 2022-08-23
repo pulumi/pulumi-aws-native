@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetMetricFilterResult',
@@ -19,13 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricFilterResult:
-    def __init__(__self__, filter_pattern=None, id=None, metric_transformations=None):
+    def __init__(__self__, filter_pattern=None, metric_transformations=None):
         if filter_pattern and not isinstance(filter_pattern, str):
             raise TypeError("Expected argument 'filter_pattern' to be a str")
         pulumi.set(__self__, "filter_pattern", filter_pattern)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if metric_transformations and not isinstance(metric_transformations, list):
             raise TypeError("Expected argument 'metric_transformations' to be a list")
         pulumi.set(__self__, "metric_transformations", metric_transformations)
@@ -33,16 +31,17 @@ class GetMetricFilterResult:
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[str]:
+        """
+        Pattern that Logs follows to interpret each entry in a log.
+        """
         return pulumi.get(self, "filter_pattern")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="metricTransformations")
     def metric_transformations(self) -> Optional[Sequence['outputs.MetricFilterMetricTransformation']]:
+        """
+        A collection of information that defines how metric data gets emitted.
+        """
         return pulumi.get(self, "metric_transformations")
 
 
@@ -53,30 +52,39 @@ class AwaitableGetMetricFilterResult(GetMetricFilterResult):
             yield self
         return GetMetricFilterResult(
             filter_pattern=self.filter_pattern,
-            id=self.id,
             metric_transformations=self.metric_transformations)
 
 
-def get_metric_filter(id: Optional[str] = None,
+def get_metric_filter(filter_name: Optional[str] = None,
+                      log_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricFilterResult:
     """
-    Resource Type definition for AWS::Logs::MetricFilter
+    Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+
+
+    :param str filter_name: A name for the metric filter.
+    :param str log_group_name: Existing log group that you want to associate with this filter.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['filterName'] = filter_name
+    __args__['logGroupName'] = log_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult).value
 
     return AwaitableGetMetricFilterResult(
         filter_pattern=__ret__.filter_pattern,
-        id=__ret__.id,
         metric_transformations=__ret__.metric_transformations)
 
 
 @_utilities.lift_output_func(get_metric_filter)
-def get_metric_filter_output(id: Optional[pulumi.Input[str]] = None,
+def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
+                             log_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricFilterResult]:
     """
-    Resource Type definition for AWS::Logs::MetricFilter
+    Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+
+
+    :param str filter_name: A name for the metric filter.
+    :param str log_group_name: Existing log group that you want to associate with this filter.
     """
     ...

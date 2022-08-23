@@ -2543,6 +2543,154 @@ func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TableCsv struct {
+	Delimiter  *string  `pulumi:"delimiter"`
+	HeaderList []string `pulumi:"headerList"`
+}
+
+// TableCsvInput is an input type that accepts TableCsvArgs and TableCsvOutput values.
+// You can construct a concrete instance of `TableCsvInput` via:
+//
+//	TableCsvArgs{...}
+type TableCsvInput interface {
+	pulumi.Input
+
+	ToTableCsvOutput() TableCsvOutput
+	ToTableCsvOutputWithContext(context.Context) TableCsvOutput
+}
+
+type TableCsvArgs struct {
+	Delimiter  pulumi.StringPtrInput   `pulumi:"delimiter"`
+	HeaderList pulumi.StringArrayInput `pulumi:"headerList"`
+}
+
+func (TableCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCsv)(nil)).Elem()
+}
+
+func (i TableCsvArgs) ToTableCsvOutput() TableCsvOutput {
+	return i.ToTableCsvOutputWithContext(context.Background())
+}
+
+func (i TableCsvArgs) ToTableCsvOutputWithContext(ctx context.Context) TableCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCsvOutput)
+}
+
+func (i TableCsvArgs) ToTableCsvPtrOutput() TableCsvPtrOutput {
+	return i.ToTableCsvPtrOutputWithContext(context.Background())
+}
+
+func (i TableCsvArgs) ToTableCsvPtrOutputWithContext(ctx context.Context) TableCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCsvOutput).ToTableCsvPtrOutputWithContext(ctx)
+}
+
+// TableCsvPtrInput is an input type that accepts TableCsvArgs, TableCsvPtr and TableCsvPtrOutput values.
+// You can construct a concrete instance of `TableCsvPtrInput` via:
+//
+//	        TableCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableCsvPtrInput interface {
+	pulumi.Input
+
+	ToTableCsvPtrOutput() TableCsvPtrOutput
+	ToTableCsvPtrOutputWithContext(context.Context) TableCsvPtrOutput
+}
+
+type tableCsvPtrType TableCsvArgs
+
+func TableCsvPtr(v *TableCsvArgs) TableCsvPtrInput {
+	return (*tableCsvPtrType)(v)
+}
+
+func (*tableCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCsv)(nil)).Elem()
+}
+
+func (i *tableCsvPtrType) ToTableCsvPtrOutput() TableCsvPtrOutput {
+	return i.ToTableCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *tableCsvPtrType) ToTableCsvPtrOutputWithContext(ctx context.Context) TableCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCsvPtrOutput)
+}
+
+type TableCsvOutput struct{ *pulumi.OutputState }
+
+func (TableCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCsv)(nil)).Elem()
+}
+
+func (o TableCsvOutput) ToTableCsvOutput() TableCsvOutput {
+	return o
+}
+
+func (o TableCsvOutput) ToTableCsvOutputWithContext(ctx context.Context) TableCsvOutput {
+	return o
+}
+
+func (o TableCsvOutput) ToTableCsvPtrOutput() TableCsvPtrOutput {
+	return o.ToTableCsvPtrOutputWithContext(context.Background())
+}
+
+func (o TableCsvOutput) ToTableCsvPtrOutputWithContext(ctx context.Context) TableCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCsv) *TableCsv {
+		return &v
+	}).(TableCsvPtrOutput)
+}
+
+func (o TableCsvOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+func (o TableCsvOutput) HeaderList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableCsv) []string { return v.HeaderList }).(pulumi.StringArrayOutput)
+}
+
+type TableCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCsv)(nil)).Elem()
+}
+
+func (o TableCsvPtrOutput) ToTableCsvPtrOutput() TableCsvPtrOutput {
+	return o
+}
+
+func (o TableCsvPtrOutput) ToTableCsvPtrOutputWithContext(ctx context.Context) TableCsvPtrOutput {
+	return o
+}
+
+func (o TableCsvPtrOutput) Elem() TableCsvOutput {
+	return o.ApplyT(func(v *TableCsv) TableCsv {
+		if v != nil {
+			return *v
+		}
+		var ret TableCsv
+		return ret
+	}).(TableCsvOutput)
+}
+
+func (o TableCsvPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableCsv) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableCsvPtrOutput) HeaderList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableCsv) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderList
+	}).(pulumi.StringArrayOutput)
+}
+
 type TableGlobalSecondaryIndex struct {
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	IndexName                        string                                 `pulumi:"indexName"`
@@ -2661,6 +2809,317 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGlobalSecondaryIndex {
 		return vs[0].([]TableGlobalSecondaryIndex)[vs[1].(int)]
 	}).(TableGlobalSecondaryIndexOutput)
+}
+
+type TableImportSourceSpecification struct {
+	InputCompressionType *string                  `pulumi:"inputCompressionType"`
+	InputFormat          string                   `pulumi:"inputFormat"`
+	InputFormatOptions   *TableInputFormatOptions `pulumi:"inputFormatOptions"`
+	S3BucketSource       TableS3BucketSource      `pulumi:"s3BucketSource"`
+}
+
+// TableImportSourceSpecificationInput is an input type that accepts TableImportSourceSpecificationArgs and TableImportSourceSpecificationOutput values.
+// You can construct a concrete instance of `TableImportSourceSpecificationInput` via:
+//
+//	TableImportSourceSpecificationArgs{...}
+type TableImportSourceSpecificationInput interface {
+	pulumi.Input
+
+	ToTableImportSourceSpecificationOutput() TableImportSourceSpecificationOutput
+	ToTableImportSourceSpecificationOutputWithContext(context.Context) TableImportSourceSpecificationOutput
+}
+
+type TableImportSourceSpecificationArgs struct {
+	InputCompressionType pulumi.StringPtrInput           `pulumi:"inputCompressionType"`
+	InputFormat          pulumi.StringInput              `pulumi:"inputFormat"`
+	InputFormatOptions   TableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
+	S3BucketSource       TableS3BucketSourceInput        `pulumi:"s3BucketSource"`
+}
+
+func (TableImportSourceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportSourceSpecification)(nil)).Elem()
+}
+
+func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationOutput() TableImportSourceSpecificationOutput {
+	return i.ToTableImportSourceSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationOutputWithContext(ctx context.Context) TableImportSourceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationOutput)
+}
+
+func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput {
+	return i.ToTableImportSourceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationPtrOutputWithContext(ctx context.Context) TableImportSourceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationOutput).ToTableImportSourceSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableImportSourceSpecificationPtrInput is an input type that accepts TableImportSourceSpecificationArgs, TableImportSourceSpecificationPtr and TableImportSourceSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableImportSourceSpecificationPtrInput` via:
+//
+//	        TableImportSourceSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableImportSourceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput
+	ToTableImportSourceSpecificationPtrOutputWithContext(context.Context) TableImportSourceSpecificationPtrOutput
+}
+
+type tableImportSourceSpecificationPtrType TableImportSourceSpecificationArgs
+
+func TableImportSourceSpecificationPtr(v *TableImportSourceSpecificationArgs) TableImportSourceSpecificationPtrInput {
+	return (*tableImportSourceSpecificationPtrType)(v)
+}
+
+func (*tableImportSourceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportSourceSpecification)(nil)).Elem()
+}
+
+func (i *tableImportSourceSpecificationPtrType) ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput {
+	return i.ToTableImportSourceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableImportSourceSpecificationPtrType) ToTableImportSourceSpecificationPtrOutputWithContext(ctx context.Context) TableImportSourceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationPtrOutput)
+}
+
+type TableImportSourceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableImportSourceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportSourceSpecification)(nil)).Elem()
+}
+
+func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationOutput() TableImportSourceSpecificationOutput {
+	return o
+}
+
+func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationOutputWithContext(ctx context.Context) TableImportSourceSpecificationOutput {
+	return o
+}
+
+func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput {
+	return o.ToTableImportSourceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationPtrOutputWithContext(ctx context.Context) TableImportSourceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportSourceSpecification) *TableImportSourceSpecification {
+		return &v
+	}).(TableImportSourceSpecificationPtrOutput)
+}
+
+func (o TableImportSourceSpecificationOutput) InputCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableImportSourceSpecification) *string { return v.InputCompressionType }).(pulumi.StringPtrOutput)
+}
+
+func (o TableImportSourceSpecificationOutput) InputFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v TableImportSourceSpecification) string { return v.InputFormat }).(pulumi.StringOutput)
+}
+
+func (o TableImportSourceSpecificationOutput) InputFormatOptions() TableInputFormatOptionsPtrOutput {
+	return o.ApplyT(func(v TableImportSourceSpecification) *TableInputFormatOptions { return v.InputFormatOptions }).(TableInputFormatOptionsPtrOutput)
+}
+
+func (o TableImportSourceSpecificationOutput) S3BucketSource() TableS3BucketSourceOutput {
+	return o.ApplyT(func(v TableImportSourceSpecification) TableS3BucketSource { return v.S3BucketSource }).(TableS3BucketSourceOutput)
+}
+
+type TableImportSourceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableImportSourceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportSourceSpecification)(nil)).Elem()
+}
+
+func (o TableImportSourceSpecificationPtrOutput) ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput {
+	return o
+}
+
+func (o TableImportSourceSpecificationPtrOutput) ToTableImportSourceSpecificationPtrOutputWithContext(ctx context.Context) TableImportSourceSpecificationPtrOutput {
+	return o
+}
+
+func (o TableImportSourceSpecificationPtrOutput) Elem() TableImportSourceSpecificationOutput {
+	return o.ApplyT(func(v *TableImportSourceSpecification) TableImportSourceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableImportSourceSpecification
+		return ret
+	}).(TableImportSourceSpecificationOutput)
+}
+
+func (o TableImportSourceSpecificationPtrOutput) InputCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportSourceSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableImportSourceSpecificationPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportSourceSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableImportSourceSpecificationPtrOutput) InputFormatOptions() TableInputFormatOptionsPtrOutput {
+	return o.ApplyT(func(v *TableImportSourceSpecification) *TableInputFormatOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormatOptions
+	}).(TableInputFormatOptionsPtrOutput)
+}
+
+func (o TableImportSourceSpecificationPtrOutput) S3BucketSource() TableS3BucketSourcePtrOutput {
+	return o.ApplyT(func(v *TableImportSourceSpecification) *TableS3BucketSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketSource
+	}).(TableS3BucketSourcePtrOutput)
+}
+
+type TableInputFormatOptions struct {
+	Csv *TableCsv `pulumi:"csv"`
+}
+
+// TableInputFormatOptionsInput is an input type that accepts TableInputFormatOptionsArgs and TableInputFormatOptionsOutput values.
+// You can construct a concrete instance of `TableInputFormatOptionsInput` via:
+//
+//	TableInputFormatOptionsArgs{...}
+type TableInputFormatOptionsInput interface {
+	pulumi.Input
+
+	ToTableInputFormatOptionsOutput() TableInputFormatOptionsOutput
+	ToTableInputFormatOptionsOutputWithContext(context.Context) TableInputFormatOptionsOutput
+}
+
+type TableInputFormatOptionsArgs struct {
+	Csv TableCsvPtrInput `pulumi:"csv"`
+}
+
+func (TableInputFormatOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputFormatOptions)(nil)).Elem()
+}
+
+func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsOutput() TableInputFormatOptionsOutput {
+	return i.ToTableInputFormatOptionsOutputWithContext(context.Background())
+}
+
+func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsOutputWithContext(ctx context.Context) TableInputFormatOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsOutput)
+}
+
+func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput {
+	return i.ToTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableInputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsOutput).ToTableInputFormatOptionsPtrOutputWithContext(ctx)
+}
+
+// TableInputFormatOptionsPtrInput is an input type that accepts TableInputFormatOptionsArgs, TableInputFormatOptionsPtr and TableInputFormatOptionsPtrOutput values.
+// You can construct a concrete instance of `TableInputFormatOptionsPtrInput` via:
+//
+//	        TableInputFormatOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableInputFormatOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput
+	ToTableInputFormatOptionsPtrOutputWithContext(context.Context) TableInputFormatOptionsPtrOutput
+}
+
+type tableInputFormatOptionsPtrType TableInputFormatOptionsArgs
+
+func TableInputFormatOptionsPtr(v *TableInputFormatOptionsArgs) TableInputFormatOptionsPtrInput {
+	return (*tableInputFormatOptionsPtrType)(v)
+}
+
+func (*tableInputFormatOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputFormatOptions)(nil)).Elem()
+}
+
+func (i *tableInputFormatOptionsPtrType) ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput {
+	return i.ToTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableInputFormatOptionsPtrType) ToTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableInputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsPtrOutput)
+}
+
+type TableInputFormatOptionsOutput struct{ *pulumi.OutputState }
+
+func (TableInputFormatOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputFormatOptions)(nil)).Elem()
+}
+
+func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsOutput() TableInputFormatOptionsOutput {
+	return o
+}
+
+func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsOutputWithContext(ctx context.Context) TableInputFormatOptionsOutput {
+	return o
+}
+
+func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput {
+	return o.ToTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableInputFormatOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableInputFormatOptions) *TableInputFormatOptions {
+		return &v
+	}).(TableInputFormatOptionsPtrOutput)
+}
+
+func (o TableInputFormatOptionsOutput) Csv() TableCsvPtrOutput {
+	return o.ApplyT(func(v TableInputFormatOptions) *TableCsv { return v.Csv }).(TableCsvPtrOutput)
+}
+
+type TableInputFormatOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableInputFormatOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputFormatOptions)(nil)).Elem()
+}
+
+func (o TableInputFormatOptionsPtrOutput) ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o TableInputFormatOptionsPtrOutput) ToTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableInputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o TableInputFormatOptionsPtrOutput) Elem() TableInputFormatOptionsOutput {
+	return o.ApplyT(func(v *TableInputFormatOptions) TableInputFormatOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TableInputFormatOptions
+		return ret
+	}).(TableInputFormatOptionsOutput)
+}
+
+func (o TableInputFormatOptionsPtrOutput) Csv() TableCsvPtrOutput {
+	return o.ApplyT(func(v *TableInputFormatOptions) *TableCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(TableCsvPtrOutput)
 }
 
 type TableKeySchema struct {
@@ -3338,6 +3797,169 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableS3BucketSource struct {
+	S3Bucket      string  `pulumi:"s3Bucket"`
+	S3BucketOwner *string `pulumi:"s3BucketOwner"`
+	S3KeyPrefix   *string `pulumi:"s3KeyPrefix"`
+}
+
+// TableS3BucketSourceInput is an input type that accepts TableS3BucketSourceArgs and TableS3BucketSourceOutput values.
+// You can construct a concrete instance of `TableS3BucketSourceInput` via:
+//
+//	TableS3BucketSourceArgs{...}
+type TableS3BucketSourceInput interface {
+	pulumi.Input
+
+	ToTableS3BucketSourceOutput() TableS3BucketSourceOutput
+	ToTableS3BucketSourceOutputWithContext(context.Context) TableS3BucketSourceOutput
+}
+
+type TableS3BucketSourceArgs struct {
+	S3Bucket      pulumi.StringInput    `pulumi:"s3Bucket"`
+	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
+	S3KeyPrefix   pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+}
+
+func (TableS3BucketSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableS3BucketSource)(nil)).Elem()
+}
+
+func (i TableS3BucketSourceArgs) ToTableS3BucketSourceOutput() TableS3BucketSourceOutput {
+	return i.ToTableS3BucketSourceOutputWithContext(context.Background())
+}
+
+func (i TableS3BucketSourceArgs) ToTableS3BucketSourceOutputWithContext(ctx context.Context) TableS3BucketSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourceOutput)
+}
+
+func (i TableS3BucketSourceArgs) ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput {
+	return i.ToTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TableS3BucketSourceArgs) ToTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableS3BucketSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourceOutput).ToTableS3BucketSourcePtrOutputWithContext(ctx)
+}
+
+// TableS3BucketSourcePtrInput is an input type that accepts TableS3BucketSourceArgs, TableS3BucketSourcePtr and TableS3BucketSourcePtrOutput values.
+// You can construct a concrete instance of `TableS3BucketSourcePtrInput` via:
+//
+//	        TableS3BucketSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableS3BucketSourcePtrInput interface {
+	pulumi.Input
+
+	ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput
+	ToTableS3BucketSourcePtrOutputWithContext(context.Context) TableS3BucketSourcePtrOutput
+}
+
+type tableS3BucketSourcePtrType TableS3BucketSourceArgs
+
+func TableS3BucketSourcePtr(v *TableS3BucketSourceArgs) TableS3BucketSourcePtrInput {
+	return (*tableS3BucketSourcePtrType)(v)
+}
+
+func (*tableS3BucketSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableS3BucketSource)(nil)).Elem()
+}
+
+func (i *tableS3BucketSourcePtrType) ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput {
+	return i.ToTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tableS3BucketSourcePtrType) ToTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableS3BucketSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourcePtrOutput)
+}
+
+type TableS3BucketSourceOutput struct{ *pulumi.OutputState }
+
+func (TableS3BucketSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableS3BucketSource)(nil)).Elem()
+}
+
+func (o TableS3BucketSourceOutput) ToTableS3BucketSourceOutput() TableS3BucketSourceOutput {
+	return o
+}
+
+func (o TableS3BucketSourceOutput) ToTableS3BucketSourceOutputWithContext(ctx context.Context) TableS3BucketSourceOutput {
+	return o
+}
+
+func (o TableS3BucketSourceOutput) ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput {
+	return o.ToTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TableS3BucketSourceOutput) ToTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableS3BucketSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableS3BucketSource) *TableS3BucketSource {
+		return &v
+	}).(TableS3BucketSourcePtrOutput)
+}
+
+func (o TableS3BucketSourceOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v TableS3BucketSource) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o TableS3BucketSourceOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableS3BucketSource) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o TableS3BucketSourceOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableS3BucketSource) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type TableS3BucketSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TableS3BucketSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableS3BucketSource)(nil)).Elem()
+}
+
+func (o TableS3BucketSourcePtrOutput) ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput {
+	return o
+}
+
+func (o TableS3BucketSourcePtrOutput) ToTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableS3BucketSourcePtrOutput {
+	return o
+}
+
+func (o TableS3BucketSourcePtrOutput) Elem() TableS3BucketSourceOutput {
+	return o.ApplyT(func(v *TableS3BucketSource) TableS3BucketSource {
+		if v != nil {
+			return *v
+		}
+		var ret TableS3BucketSource
+		return ret
+	}).(TableS3BucketSourceOutput)
+}
+
+func (o TableS3BucketSourcePtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableS3BucketSourcePtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableSSESpecification struct {
 	KMSMasterKeyId *string `pulumi:"kMSMasterKeyId"`
 	SSEEnabled     bool    `pulumi:"sSEEnabled"`
@@ -3922,8 +4544,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeDefinitionArrayInput)(nil)).Elem(), TableAttributeDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationInput)(nil)).Elem(), TableContributorInsightsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationPtrInput)(nil)).Elem(), TableContributorInsightsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCsvInput)(nil)).Elem(), TableCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCsvPtrInput)(nil)).Elem(), TableCsvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexInput)(nil)).Elem(), TableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportSourceSpecificationInput)(nil)).Elem(), TableImportSourceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportSourceSpecificationPtrInput)(nil)).Elem(), TableImportSourceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableInputFormatOptionsInput)(nil)).Elem(), TableInputFormatOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableInputFormatOptionsPtrInput)(nil)).Elem(), TableInputFormatOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKeySchemaInput)(nil)).Elem(), TableKeySchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKeySchemaArrayInput)(nil)).Elem(), TableKeySchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationInput)(nil)).Elem(), TableKinesisStreamSpecificationArgs{})
@@ -3935,6 +4563,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProjectionInput)(nil)).Elem(), TableProjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSSESpecificationInput)(nil)).Elem(), TableSSESpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSSESpecificationPtrInput)(nil)).Elem(), TableSSESpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationInput)(nil)).Elem(), TableStreamSpecificationArgs{})
@@ -3982,8 +4612,14 @@ func init() {
 	pulumi.RegisterOutputType(TableAttributeDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TableContributorInsightsSpecificationOutput{})
 	pulumi.RegisterOutputType(TableContributorInsightsSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableCsvOutput{})
+	pulumi.RegisterOutputType(TableCsvPtrOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableImportSourceSpecificationOutput{})
+	pulumi.RegisterOutputType(TableImportSourceSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableInputFormatOptionsOutput{})
+	pulumi.RegisterOutputType(TableInputFormatOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TableKeySchemaOutput{})
 	pulumi.RegisterOutputType(TableKeySchemaArrayOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationOutput{})
@@ -3995,6 +4631,8 @@ func init() {
 	pulumi.RegisterOutputType(TableProjectionOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
+	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableSSESpecificationOutput{})
 	pulumi.RegisterOutputType(TableSSESpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})

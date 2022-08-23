@@ -11,6 +11,7 @@ import (
 )
 
 type DomainAdvancedSecurityOptionsInput struct {
+	AnonymousAuthEnabled        *bool                    `pulumi:"anonymousAuthEnabled"`
 	Enabled                     *bool                    `pulumi:"enabled"`
 	InternalUserDatabaseEnabled *bool                    `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           *DomainMasterUserOptions `pulumi:"masterUserOptions"`
@@ -28,6 +29,7 @@ type DomainAdvancedSecurityOptionsInputInput interface {
 }
 
 type DomainAdvancedSecurityOptionsInputArgs struct {
+	AnonymousAuthEnabled        pulumi.BoolPtrInput             `pulumi:"anonymousAuthEnabled"`
 	Enabled                     pulumi.BoolPtrInput             `pulumi:"enabled"`
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput             `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
@@ -110,6 +112,10 @@ func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOption
 	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
+func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -144,6 +150,15 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Elem() DomainAdvancedSecuri
 		var ret DomainAdvancedSecurityOptionsInput
 		return ret
 	}).(DomainAdvancedSecurityOptionsInputOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousAuthEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOutput {

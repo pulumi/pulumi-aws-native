@@ -59,6 +59,10 @@ export class ConformancePack extends pulumi.CustomResource {
      * Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
      */
     public readonly templateS3Uri!: pulumi.Output<string | undefined>;
+    /**
+     * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+     */
+    public readonly templateSSMDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSSMDocumentDetailsProperties | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -77,6 +81,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["templateSSMDocumentDetails"] = args ? args.templateSSMDocumentDetails : undefined;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;
@@ -84,6 +89,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateS3Uri"] = undefined /*out*/;
+            resourceInputs["templateSSMDocumentDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConformancePack.__pulumiType, name, resourceInputs, opts);
@@ -118,4 +124,8 @@ export interface ConformancePackArgs {
      * Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
      */
     templateS3Uri?: pulumi.Input<string>;
+    /**
+     * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+     */
+    templateSSMDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSSMDocumentDetailsPropertiesArgs>;
 }

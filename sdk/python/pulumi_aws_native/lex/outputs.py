@@ -2102,6 +2102,8 @@ class BotPromptSpecification(dict):
             suggest = "message_groups_list"
         elif key == "allowInterrupt":
             suggest = "allow_interrupt"
+        elif key == "messageSelectionStrategy":
+            suggest = "message_selection_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotPromptSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -2117,7 +2119,8 @@ class BotPromptSpecification(dict):
     def __init__(__self__, *,
                  max_retries: int,
                  message_groups_list: Sequence['outputs.BotMessageGroup'],
-                 allow_interrupt: Optional[bool] = None):
+                 allow_interrupt: Optional[bool] = None,
+                 message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None):
         """
         Prompts the user to confirm the intent.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
@@ -2126,6 +2129,8 @@ class BotPromptSpecification(dict):
         pulumi.set(__self__, "message_groups_list", message_groups_list)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_selection_strategy is not None:
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -2144,6 +2149,11 @@ class BotPromptSpecification(dict):
         Indicates whether the user can interrupt a speech prompt from the bot.
         """
         return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="messageSelectionStrategy")
+    def message_selection_strategy(self) -> Optional['BotMessageSelectionStrategy']:
+        return pulumi.get(self, "message_selection_strategy")
 
 
 @pulumi.output_type

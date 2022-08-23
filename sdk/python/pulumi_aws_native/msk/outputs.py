@@ -37,6 +37,10 @@ __all__ = [
     'ClusterStorageInfo',
     'ClusterTls',
     'ClusterUnauthenticated',
+    'ServerlessClusterClientAuthentication',
+    'ServerlessClusterIam',
+    'ServerlessClusterSasl',
+    'ServerlessClusterVpcConfig',
 ]
 
 @pulumi.output_type
@@ -805,5 +809,80 @@ class ClusterUnauthenticated(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ServerlessClusterClientAuthentication(dict):
+    def __init__(__self__, *,
+                 sasl: 'outputs.ServerlessClusterSasl'):
+        pulumi.set(__self__, "sasl", sasl)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> 'outputs.ServerlessClusterSasl':
+        return pulumi.get(self, "sasl")
+
+
+@pulumi.output_type
+class ServerlessClusterIam(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ServerlessClusterSasl(dict):
+    def __init__(__self__, *,
+                 iam: 'outputs.ServerlessClusterIam'):
+        pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> 'outputs.ServerlessClusterIam':
+        return pulumi.get(self, "iam")
+
+
+@pulumi.output_type
+class ServerlessClusterVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessClusterVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessClusterVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessClusterVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[str],
+                 security_groups: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_groups")
 
 

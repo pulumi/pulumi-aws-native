@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ApplicationResourceLifecycleConfig
     {
+        /// <summary>
+        /// The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+        /// </summary>
         public readonly string? ServiceRole;
+        /// <summary>
+        /// Defines lifecycle settings for application versions.
+        /// </summary>
         public readonly Outputs.ApplicationVersionLifecycleConfig? VersionLifecycleConfig;
 
         [OutputConstructor]

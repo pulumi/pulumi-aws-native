@@ -24,11 +24,13 @@ __all__ = [
     'LaunchGroupObjectArgs',
     'LaunchGroupToWeightArgs',
     'LaunchMetricDefinitionObjectArgs',
+    'LaunchSegmentOverrideArgs',
     'LaunchStepConfigArgs',
     'LaunchTagArgs',
     'ProjectDataDeliveryObjectArgs',
     'ProjectS3DestinationArgs',
     'ProjectTagArgs',
+    'SegmentTagArgs',
 ]
 
 @pulumi.input_type
@@ -671,12 +673,53 @@ class LaunchMetricDefinitionObjectArgs:
 
 
 @pulumi.input_type
+class LaunchSegmentOverrideArgs:
+    def __init__(__self__, *,
+                 evaluation_order: pulumi.Input[int],
+                 segment: pulumi.Input[str],
+                 weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]):
+        pulumi.set(__self__, "evaluation_order", evaluation_order)
+        pulumi.set(__self__, "segment", segment)
+        pulumi.set(__self__, "weights", weights)
+
+    @property
+    @pulumi.getter(name="evaluationOrder")
+    def evaluation_order(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "evaluation_order")
+
+    @evaluation_order.setter
+    def evaluation_order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "evaluation_order", value)
+
+    @property
+    @pulumi.getter
+    def segment(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "segment")
+
+    @segment.setter
+    def segment(self, value: pulumi.Input[str]):
+        pulumi.set(self, "segment", value)
+
+    @property
+    @pulumi.getter
+    def weights(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]:
+        return pulumi.get(self, "weights")
+
+    @weights.setter
+    def weights(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]):
+        pulumi.set(self, "weights", value)
+
+
+@pulumi.input_type
 class LaunchStepConfigArgs:
     def __init__(__self__, *,
                  group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
-                 start_time: pulumi.Input[str]):
+                 start_time: pulumi.Input[str],
+                 segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None):
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
+        if segment_overrides is not None:
+            pulumi.set(__self__, "segment_overrides", segment_overrides)
 
     @property
     @pulumi.getter(name="groupWeights")
@@ -695,6 +738,15 @@ class LaunchStepConfigArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="segmentOverrides")
+    def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]:
+        return pulumi.get(self, "segment_overrides")
+
+    @segment_overrides.setter
+    def segment_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]):
+        pulumi.set(self, "segment_overrides", value)
 
 
 @pulumi.input_type
@@ -797,6 +849,44 @@ class ProjectS3DestinationArgs:
 
 @pulumi.input_type
 class ProjectTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SegmentTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

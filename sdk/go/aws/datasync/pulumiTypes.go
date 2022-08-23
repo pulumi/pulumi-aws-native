@@ -401,6 +401,782 @@ func (o LocationFSxLustreTagArrayOutput) Index(i pulumi.IntInput) LocationFSxLus
 	}).(LocationFSxLustreTagOutput)
 }
 
+// NFS protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPNFS struct {
+	MountOptions LocationFSxONTAPNfsMountOptions `pulumi:"mountOptions"`
+}
+
+// LocationFSxONTAPNFSInput is an input type that accepts LocationFSxONTAPNFSArgs and LocationFSxONTAPNFSOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPNFSInput` via:
+//
+//	LocationFSxONTAPNFSArgs{...}
+type LocationFSxONTAPNFSInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPNFSOutput() LocationFSxONTAPNFSOutput
+	ToLocationFSxONTAPNFSOutputWithContext(context.Context) LocationFSxONTAPNFSOutput
+}
+
+// NFS protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPNFSArgs struct {
+	MountOptions LocationFSxONTAPNfsMountOptionsInput `pulumi:"mountOptions"`
+}
+
+func (LocationFSxONTAPNFSArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPNFS)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPNFSArgs) ToLocationFSxONTAPNFSOutput() LocationFSxONTAPNFSOutput {
+	return i.ToLocationFSxONTAPNFSOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPNFSArgs) ToLocationFSxONTAPNFSOutputWithContext(ctx context.Context) LocationFSxONTAPNFSOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNFSOutput)
+}
+
+func (i LocationFSxONTAPNFSArgs) ToLocationFSxONTAPNFSPtrOutput() LocationFSxONTAPNFSPtrOutput {
+	return i.ToLocationFSxONTAPNFSPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPNFSArgs) ToLocationFSxONTAPNFSPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNFSPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNFSOutput).ToLocationFSxONTAPNFSPtrOutputWithContext(ctx)
+}
+
+// LocationFSxONTAPNFSPtrInput is an input type that accepts LocationFSxONTAPNFSArgs, LocationFSxONTAPNFSPtr and LocationFSxONTAPNFSPtrOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPNFSPtrInput` via:
+//
+//	        LocationFSxONTAPNFSArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFSxONTAPNFSPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPNFSPtrOutput() LocationFSxONTAPNFSPtrOutput
+	ToLocationFSxONTAPNFSPtrOutputWithContext(context.Context) LocationFSxONTAPNFSPtrOutput
+}
+
+type locationFSxONTAPNFSPtrType LocationFSxONTAPNFSArgs
+
+func LocationFSxONTAPNFSPtr(v *LocationFSxONTAPNFSArgs) LocationFSxONTAPNFSPtrInput {
+	return (*locationFSxONTAPNFSPtrType)(v)
+}
+
+func (*locationFSxONTAPNFSPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPNFS)(nil)).Elem()
+}
+
+func (i *locationFSxONTAPNFSPtrType) ToLocationFSxONTAPNFSPtrOutput() LocationFSxONTAPNFSPtrOutput {
+	return i.ToLocationFSxONTAPNFSPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxONTAPNFSPtrType) ToLocationFSxONTAPNFSPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNFSPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNFSPtrOutput)
+}
+
+// NFS protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPNFSOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPNFSOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPNFS)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPNFSOutput) ToLocationFSxONTAPNFSOutput() LocationFSxONTAPNFSOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNFSOutput) ToLocationFSxONTAPNFSOutputWithContext(ctx context.Context) LocationFSxONTAPNFSOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNFSOutput) ToLocationFSxONTAPNFSPtrOutput() LocationFSxONTAPNFSPtrOutput {
+	return o.ToLocationFSxONTAPNFSPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxONTAPNFSOutput) ToLocationFSxONTAPNFSPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNFSPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPNFS) *LocationFSxONTAPNFS {
+		return &v
+	}).(LocationFSxONTAPNFSPtrOutput)
+}
+
+func (o LocationFSxONTAPNFSOutput) MountOptions() LocationFSxONTAPNfsMountOptionsOutput {
+	return o.ApplyT(func(v LocationFSxONTAPNFS) LocationFSxONTAPNfsMountOptions { return v.MountOptions }).(LocationFSxONTAPNfsMountOptionsOutput)
+}
+
+type LocationFSxONTAPNFSPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPNFSPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPNFS)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPNFSPtrOutput) ToLocationFSxONTAPNFSPtrOutput() LocationFSxONTAPNFSPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNFSPtrOutput) ToLocationFSxONTAPNFSPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNFSPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNFSPtrOutput) Elem() LocationFSxONTAPNFSOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPNFS) LocationFSxONTAPNFS {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxONTAPNFS
+		return ret
+	}).(LocationFSxONTAPNFSOutput)
+}
+
+func (o LocationFSxONTAPNFSPtrOutput) MountOptions() LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPNFS) *LocationFSxONTAPNfsMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(LocationFSxONTAPNfsMountOptionsPtrOutput)
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxONTAPNfsMountOptions struct {
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
+	Version *LocationFSxONTAPNfsMountOptionsVersion `pulumi:"version"`
+}
+
+// LocationFSxONTAPNfsMountOptionsInput is an input type that accepts LocationFSxONTAPNfsMountOptionsArgs and LocationFSxONTAPNfsMountOptionsOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPNfsMountOptionsInput` via:
+//
+//	LocationFSxONTAPNfsMountOptionsArgs{...}
+type LocationFSxONTAPNfsMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPNfsMountOptionsOutput() LocationFSxONTAPNfsMountOptionsOutput
+	ToLocationFSxONTAPNfsMountOptionsOutputWithContext(context.Context) LocationFSxONTAPNfsMountOptionsOutput
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxONTAPNfsMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
+	Version LocationFSxONTAPNfsMountOptionsVersionPtrInput `pulumi:"version"`
+}
+
+func (LocationFSxONTAPNfsMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPNfsMountOptions)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPNfsMountOptionsArgs) ToLocationFSxONTAPNfsMountOptionsOutput() LocationFSxONTAPNfsMountOptionsOutput {
+	return i.ToLocationFSxONTAPNfsMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPNfsMountOptionsArgs) ToLocationFSxONTAPNfsMountOptionsOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNfsMountOptionsOutput)
+}
+
+func (i LocationFSxONTAPNfsMountOptionsArgs) ToLocationFSxONTAPNfsMountOptionsPtrOutput() LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return i.ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPNfsMountOptionsArgs) ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNfsMountOptionsOutput).ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(ctx)
+}
+
+// LocationFSxONTAPNfsMountOptionsPtrInput is an input type that accepts LocationFSxONTAPNfsMountOptionsArgs, LocationFSxONTAPNfsMountOptionsPtr and LocationFSxONTAPNfsMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPNfsMountOptionsPtrInput` via:
+//
+//	        LocationFSxONTAPNfsMountOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFSxONTAPNfsMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPNfsMountOptionsPtrOutput() LocationFSxONTAPNfsMountOptionsPtrOutput
+	ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(context.Context) LocationFSxONTAPNfsMountOptionsPtrOutput
+}
+
+type locationFSxONTAPNfsMountOptionsPtrType LocationFSxONTAPNfsMountOptionsArgs
+
+func LocationFSxONTAPNfsMountOptionsPtr(v *LocationFSxONTAPNfsMountOptionsArgs) LocationFSxONTAPNfsMountOptionsPtrInput {
+	return (*locationFSxONTAPNfsMountOptionsPtrType)(v)
+}
+
+func (*locationFSxONTAPNfsMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPNfsMountOptions)(nil)).Elem()
+}
+
+func (i *locationFSxONTAPNfsMountOptionsPtrType) ToLocationFSxONTAPNfsMountOptionsPtrOutput() LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return i.ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxONTAPNfsMountOptionsPtrType) ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPNfsMountOptionsPtrOutput)
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
+type LocationFSxONTAPNfsMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPNfsMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPNfsMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPNfsMountOptionsOutput) ToLocationFSxONTAPNfsMountOptionsOutput() LocationFSxONTAPNfsMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNfsMountOptionsOutput) ToLocationFSxONTAPNfsMountOptionsOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNfsMountOptionsOutput) ToLocationFSxONTAPNfsMountOptionsPtrOutput() LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return o.ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxONTAPNfsMountOptionsOutput) ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPNfsMountOptions) *LocationFSxONTAPNfsMountOptions {
+		return &v
+	}).(LocationFSxONTAPNfsMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use to mount your NFS share.
+func (o LocationFSxONTAPNfsMountOptionsOutput) Version() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPNfsMountOptions) *LocationFSxONTAPNfsMountOptionsVersion { return v.Version }).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+}
+
+type LocationFSxONTAPNfsMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPNfsMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPNfsMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPNfsMountOptionsPtrOutput) ToLocationFSxONTAPNfsMountOptionsPtrOutput() LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNfsMountOptionsPtrOutput) ToLocationFSxONTAPNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPNfsMountOptionsPtrOutput) Elem() LocationFSxONTAPNfsMountOptionsOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPNfsMountOptions) LocationFSxONTAPNfsMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxONTAPNfsMountOptions
+		return ret
+	}).(LocationFSxONTAPNfsMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use to mount your NFS share.
+func (o LocationFSxONTAPNfsMountOptionsPtrOutput) Version() LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPNfsMountOptions) *LocationFSxONTAPNfsMountOptionsVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+}
+
+// Configuration settings for NFS or SMB protocol.
+type LocationFSxONTAPProtocol struct {
+	NFS *LocationFSxONTAPNFS `pulumi:"nFS"`
+	SMB *LocationFSxONTAPSMB `pulumi:"sMB"`
+}
+
+// LocationFSxONTAPProtocolInput is an input type that accepts LocationFSxONTAPProtocolArgs and LocationFSxONTAPProtocolOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPProtocolInput` via:
+//
+//	LocationFSxONTAPProtocolArgs{...}
+type LocationFSxONTAPProtocolInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPProtocolOutput() LocationFSxONTAPProtocolOutput
+	ToLocationFSxONTAPProtocolOutputWithContext(context.Context) LocationFSxONTAPProtocolOutput
+}
+
+// Configuration settings for NFS or SMB protocol.
+type LocationFSxONTAPProtocolArgs struct {
+	NFS LocationFSxONTAPNFSPtrInput `pulumi:"nFS"`
+	SMB LocationFSxONTAPSMBPtrInput `pulumi:"sMB"`
+}
+
+func (LocationFSxONTAPProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPProtocol)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPProtocolArgs) ToLocationFSxONTAPProtocolOutput() LocationFSxONTAPProtocolOutput {
+	return i.ToLocationFSxONTAPProtocolOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPProtocolArgs) ToLocationFSxONTAPProtocolOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPProtocolOutput)
+}
+
+// Configuration settings for NFS or SMB protocol.
+type LocationFSxONTAPProtocolOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPProtocol)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolOutput() LocationFSxONTAPProtocolOutput {
+	return o
+}
+
+func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolOutput {
+	return o
+}
+
+func (o LocationFSxONTAPProtocolOutput) NFS() LocationFSxONTAPNFSPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPNFS { return v.NFS }).(LocationFSxONTAPNFSPtrOutput)
+}
+
+func (o LocationFSxONTAPProtocolOutput) SMB() LocationFSxONTAPSMBPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPSMB { return v.SMB }).(LocationFSxONTAPSMBPtrOutput)
+}
+
+// SMB protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPSMB struct {
+	// The name of the Windows domain that the SMB server belongs to.
+	Domain       *string                         `pulumi:"domain"`
+	MountOptions LocationFSxONTAPSmbMountOptions `pulumi:"mountOptions"`
+	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+	Password string `pulumi:"password"`
+	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
+	User string `pulumi:"user"`
+}
+
+// LocationFSxONTAPSMBInput is an input type that accepts LocationFSxONTAPSMBArgs and LocationFSxONTAPSMBOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPSMBInput` via:
+//
+//	LocationFSxONTAPSMBArgs{...}
+type LocationFSxONTAPSMBInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPSMBOutput() LocationFSxONTAPSMBOutput
+	ToLocationFSxONTAPSMBOutputWithContext(context.Context) LocationFSxONTAPSMBOutput
+}
+
+// SMB protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPSMBArgs struct {
+	// The name of the Windows domain that the SMB server belongs to.
+	Domain       pulumi.StringPtrInput                `pulumi:"domain"`
+	MountOptions LocationFSxONTAPSmbMountOptionsInput `pulumi:"mountOptions"`
+	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
+	User pulumi.StringInput `pulumi:"user"`
+}
+
+func (LocationFSxONTAPSMBArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPSMB)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPSMBArgs) ToLocationFSxONTAPSMBOutput() LocationFSxONTAPSMBOutput {
+	return i.ToLocationFSxONTAPSMBOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPSMBArgs) ToLocationFSxONTAPSMBOutputWithContext(ctx context.Context) LocationFSxONTAPSMBOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSMBOutput)
+}
+
+func (i LocationFSxONTAPSMBArgs) ToLocationFSxONTAPSMBPtrOutput() LocationFSxONTAPSMBPtrOutput {
+	return i.ToLocationFSxONTAPSMBPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPSMBArgs) ToLocationFSxONTAPSMBPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSMBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSMBOutput).ToLocationFSxONTAPSMBPtrOutputWithContext(ctx)
+}
+
+// LocationFSxONTAPSMBPtrInput is an input type that accepts LocationFSxONTAPSMBArgs, LocationFSxONTAPSMBPtr and LocationFSxONTAPSMBPtrOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPSMBPtrInput` via:
+//
+//	        LocationFSxONTAPSMBArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFSxONTAPSMBPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPSMBPtrOutput() LocationFSxONTAPSMBPtrOutput
+	ToLocationFSxONTAPSMBPtrOutputWithContext(context.Context) LocationFSxONTAPSMBPtrOutput
+}
+
+type locationFSxONTAPSMBPtrType LocationFSxONTAPSMBArgs
+
+func LocationFSxONTAPSMBPtr(v *LocationFSxONTAPSMBArgs) LocationFSxONTAPSMBPtrInput {
+	return (*locationFSxONTAPSMBPtrType)(v)
+}
+
+func (*locationFSxONTAPSMBPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPSMB)(nil)).Elem()
+}
+
+func (i *locationFSxONTAPSMBPtrType) ToLocationFSxONTAPSMBPtrOutput() LocationFSxONTAPSMBPtrOutput {
+	return i.ToLocationFSxONTAPSMBPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxONTAPSMBPtrType) ToLocationFSxONTAPSMBPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSMBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSMBPtrOutput)
+}
+
+// SMB protocol configuration for FSx ONTAP file system.
+type LocationFSxONTAPSMBOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPSMBOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPSMB)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPSMBOutput) ToLocationFSxONTAPSMBOutput() LocationFSxONTAPSMBOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSMBOutput) ToLocationFSxONTAPSMBOutputWithContext(ctx context.Context) LocationFSxONTAPSMBOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSMBOutput) ToLocationFSxONTAPSMBPtrOutput() LocationFSxONTAPSMBPtrOutput {
+	return o.ToLocationFSxONTAPSMBPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxONTAPSMBOutput) ToLocationFSxONTAPSMBPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSMBPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPSMB) *LocationFSxONTAPSMB {
+		return &v
+	}).(LocationFSxONTAPSMBPtrOutput)
+}
+
+// The name of the Windows domain that the SMB server belongs to.
+func (o LocationFSxONTAPSMBOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPSMB) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationFSxONTAPSMBOutput) MountOptions() LocationFSxONTAPSmbMountOptionsOutput {
+	return o.ApplyT(func(v LocationFSxONTAPSMB) LocationFSxONTAPSmbMountOptions { return v.MountOptions }).(LocationFSxONTAPSmbMountOptionsOutput)
+}
+
+// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+func (o LocationFSxONTAPSMBOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxONTAPSMB) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The user who can mount the share, has the permissions to access files and folders in the SMB share.
+func (o LocationFSxONTAPSMBOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxONTAPSMB) string { return v.User }).(pulumi.StringOutput)
+}
+
+type LocationFSxONTAPSMBPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPSMBPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPSMB)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPSMBPtrOutput) ToLocationFSxONTAPSMBPtrOutput() LocationFSxONTAPSMBPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSMBPtrOutput) ToLocationFSxONTAPSMBPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSMBPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSMBPtrOutput) Elem() LocationFSxONTAPSMBOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSMB) LocationFSxONTAPSMB {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxONTAPSMB
+		return ret
+	}).(LocationFSxONTAPSMBOutput)
+}
+
+// The name of the Windows domain that the SMB server belongs to.
+func (o LocationFSxONTAPSMBPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSMB) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationFSxONTAPSMBPtrOutput) MountOptions() LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSMB) *LocationFSxONTAPSmbMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(LocationFSxONTAPSmbMountOptionsPtrOutput)
+}
+
+// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+func (o LocationFSxONTAPSMBPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSMB) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user who can mount the share, has the permissions to access files and folders in the SMB share.
+func (o LocationFSxONTAPSMBPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSMB) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mount options used by DataSync to access the SMB server.
+type LocationFSxONTAPSmbMountOptions struct {
+	// The specific SMB version that you want DataSync to use to mount your SMB share.
+	Version *LocationFSxONTAPSmbMountOptionsVersion `pulumi:"version"`
+}
+
+// LocationFSxONTAPSmbMountOptionsInput is an input type that accepts LocationFSxONTAPSmbMountOptionsArgs and LocationFSxONTAPSmbMountOptionsOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPSmbMountOptionsInput` via:
+//
+//	LocationFSxONTAPSmbMountOptionsArgs{...}
+type LocationFSxONTAPSmbMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPSmbMountOptionsOutput() LocationFSxONTAPSmbMountOptionsOutput
+	ToLocationFSxONTAPSmbMountOptionsOutputWithContext(context.Context) LocationFSxONTAPSmbMountOptionsOutput
+}
+
+// The mount options used by DataSync to access the SMB server.
+type LocationFSxONTAPSmbMountOptionsArgs struct {
+	// The specific SMB version that you want DataSync to use to mount your SMB share.
+	Version LocationFSxONTAPSmbMountOptionsVersionPtrInput `pulumi:"version"`
+}
+
+func (LocationFSxONTAPSmbMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPSmbMountOptions)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPSmbMountOptionsArgs) ToLocationFSxONTAPSmbMountOptionsOutput() LocationFSxONTAPSmbMountOptionsOutput {
+	return i.ToLocationFSxONTAPSmbMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPSmbMountOptionsArgs) ToLocationFSxONTAPSmbMountOptionsOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSmbMountOptionsOutput)
+}
+
+func (i LocationFSxONTAPSmbMountOptionsArgs) ToLocationFSxONTAPSmbMountOptionsPtrOutput() LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return i.ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPSmbMountOptionsArgs) ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSmbMountOptionsOutput).ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(ctx)
+}
+
+// LocationFSxONTAPSmbMountOptionsPtrInput is an input type that accepts LocationFSxONTAPSmbMountOptionsArgs, LocationFSxONTAPSmbMountOptionsPtr and LocationFSxONTAPSmbMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPSmbMountOptionsPtrInput` via:
+//
+//	        LocationFSxONTAPSmbMountOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFSxONTAPSmbMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPSmbMountOptionsPtrOutput() LocationFSxONTAPSmbMountOptionsPtrOutput
+	ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(context.Context) LocationFSxONTAPSmbMountOptionsPtrOutput
+}
+
+type locationFSxONTAPSmbMountOptionsPtrType LocationFSxONTAPSmbMountOptionsArgs
+
+func LocationFSxONTAPSmbMountOptionsPtr(v *LocationFSxONTAPSmbMountOptionsArgs) LocationFSxONTAPSmbMountOptionsPtrInput {
+	return (*locationFSxONTAPSmbMountOptionsPtrType)(v)
+}
+
+func (*locationFSxONTAPSmbMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPSmbMountOptions)(nil)).Elem()
+}
+
+func (i *locationFSxONTAPSmbMountOptionsPtrType) ToLocationFSxONTAPSmbMountOptionsPtrOutput() LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return i.ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxONTAPSmbMountOptionsPtrType) ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPSmbMountOptionsPtrOutput)
+}
+
+// The mount options used by DataSync to access the SMB server.
+type LocationFSxONTAPSmbMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPSmbMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPSmbMountOptionsOutput) ToLocationFSxONTAPSmbMountOptionsOutput() LocationFSxONTAPSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSmbMountOptionsOutput) ToLocationFSxONTAPSmbMountOptionsOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSmbMountOptionsOutput) ToLocationFSxONTAPSmbMountOptionsPtrOutput() LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return o.ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxONTAPSmbMountOptionsOutput) ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPSmbMountOptions) *LocationFSxONTAPSmbMountOptions {
+		return &v
+	}).(LocationFSxONTAPSmbMountOptionsPtrOutput)
+}
+
+// The specific SMB version that you want DataSync to use to mount your SMB share.
+func (o LocationFSxONTAPSmbMountOptionsOutput) Version() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPSmbMountOptions) *LocationFSxONTAPSmbMountOptionsVersion { return v.Version }).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+}
+
+type LocationFSxONTAPSmbMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPSmbMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPSmbMountOptionsPtrOutput) ToLocationFSxONTAPSmbMountOptionsPtrOutput() LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSmbMountOptionsPtrOutput) ToLocationFSxONTAPSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPSmbMountOptionsPtrOutput) Elem() LocationFSxONTAPSmbMountOptionsOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSmbMountOptions) LocationFSxONTAPSmbMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxONTAPSmbMountOptions
+		return ret
+	}).(LocationFSxONTAPSmbMountOptionsOutput)
+}
+
+// The specific SMB version that you want DataSync to use to mount your SMB share.
+func (o LocationFSxONTAPSmbMountOptionsPtrOutput) Version() LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPSmbMountOptions) *LocationFSxONTAPSmbMountOptionsVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxONTAPTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationFSxONTAPTagInput is an input type that accepts LocationFSxONTAPTagArgs and LocationFSxONTAPTagOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPTagInput` via:
+//
+//	LocationFSxONTAPTagArgs{...}
+type LocationFSxONTAPTagInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPTagOutput() LocationFSxONTAPTagOutput
+	ToLocationFSxONTAPTagOutputWithContext(context.Context) LocationFSxONTAPTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxONTAPTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationFSxONTAPTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPTag)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPTagArgs) ToLocationFSxONTAPTagOutput() LocationFSxONTAPTagOutput {
+	return i.ToLocationFSxONTAPTagOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPTagArgs) ToLocationFSxONTAPTagOutputWithContext(ctx context.Context) LocationFSxONTAPTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPTagOutput)
+}
+
+// LocationFSxONTAPTagArrayInput is an input type that accepts LocationFSxONTAPTagArray and LocationFSxONTAPTagArrayOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPTagArrayInput` via:
+//
+//	LocationFSxONTAPTagArray{ LocationFSxONTAPTagArgs{...} }
+type LocationFSxONTAPTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPTagArrayOutput() LocationFSxONTAPTagArrayOutput
+	ToLocationFSxONTAPTagArrayOutputWithContext(context.Context) LocationFSxONTAPTagArrayOutput
+}
+
+type LocationFSxONTAPTagArray []LocationFSxONTAPTagInput
+
+func (LocationFSxONTAPTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxONTAPTag)(nil)).Elem()
+}
+
+func (i LocationFSxONTAPTagArray) ToLocationFSxONTAPTagArrayOutput() LocationFSxONTAPTagArrayOutput {
+	return i.ToLocationFSxONTAPTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPTagArray) ToLocationFSxONTAPTagArrayOutputWithContext(ctx context.Context) LocationFSxONTAPTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxONTAPTagOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxONTAPTag)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPTagOutput) ToLocationFSxONTAPTagOutput() LocationFSxONTAPTagOutput {
+	return o
+}
+
+func (o LocationFSxONTAPTagOutput) ToLocationFSxONTAPTagOutputWithContext(ctx context.Context) LocationFSxONTAPTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationFSxONTAPTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxONTAPTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationFSxONTAPTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxONTAPTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationFSxONTAPTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxONTAPTag)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPTagArrayOutput) ToLocationFSxONTAPTagArrayOutput() LocationFSxONTAPTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxONTAPTagArrayOutput) ToLocationFSxONTAPTagArrayOutputWithContext(ctx context.Context) LocationFSxONTAPTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxONTAPTagArrayOutput) Index(i pulumi.IntInput) LocationFSxONTAPTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxONTAPTag {
+		return vs[0].([]LocationFSxONTAPTag)[vs[1].(int)]
+	}).(LocationFSxONTAPTagOutput)
+}
+
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationFSxOpenZFSMountOptions struct {
 	// The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -2960,6 +3736,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagArrayInput)(nil)).Elem(), LocationEFSTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagInput)(nil)).Elem(), LocationFSxLustreTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagArrayInput)(nil)).Elem(), LocationFSxLustreTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNFSInput)(nil)).Elem(), LocationFSxONTAPNFSArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNFSPtrInput)(nil)).Elem(), LocationFSxONTAPNFSArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsPtrInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPProtocolInput)(nil)).Elem(), LocationFSxONTAPProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSMBInput)(nil)).Elem(), LocationFSxONTAPSMBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSMBPtrInput)(nil)).Elem(), LocationFSxONTAPSMBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsInput)(nil)).Elem(), LocationFSxONTAPSmbMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsPtrInput)(nil)).Elem(), LocationFSxONTAPSmbMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPTagInput)(nil)).Elem(), LocationFSxONTAPTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPTagArrayInput)(nil)).Elem(), LocationFSxONTAPTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSMountOptionsPtrInput)(nil)).Elem(), LocationFSxOpenZFSMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZFSNFSInput)(nil)).Elem(), LocationFSxOpenZFSNFSArgs{})
@@ -3004,6 +3791,17 @@ func init() {
 	pulumi.RegisterOutputType(LocationEFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxLustreTagOutput{})
 	pulumi.RegisterOutputType(LocationFSxLustreTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPNFSOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPNFSPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPProtocolOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPSMBOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPSMBPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPSmbMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPSmbMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPTagOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZFSNFSOutput{})

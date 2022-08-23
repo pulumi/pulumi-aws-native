@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     public sealed class StackSetDeploymentTargets
     {
         /// <summary>
+        /// The filter type you want to apply on organizational units and accounts.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CloudFormation.StackSetDeploymentTargetsAccountFilterType? AccountFilterType;
+        /// <summary>
         /// AWS accounts that you want to create stack instances in the specified Region(s) for.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetDeploymentTargets(
+            Pulumi.AwsNative.CloudFormation.StackSetDeploymentTargetsAccountFilterType? accountFilterType,
+
             ImmutableArray<string> accounts,
 
             ImmutableArray<string> organizationalUnitIds)
         {
+            AccountFilterType = accountFilterType;
             Accounts = accounts;
             OrganizationalUnitIds = organizationalUnitIds;
         }

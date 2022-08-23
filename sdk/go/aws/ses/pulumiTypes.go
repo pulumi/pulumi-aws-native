@@ -1688,6 +1688,763 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 	}).(ContactListTopicOutput)
 }
 
+// Used to associate a configuration set with an email identity.
+type EmailIdentityConfigurationSetAttributes struct {
+	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+}
+
+// EmailIdentityConfigurationSetAttributesInput is an input type that accepts EmailIdentityConfigurationSetAttributesArgs and EmailIdentityConfigurationSetAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityConfigurationSetAttributesInput` via:
+//
+//	EmailIdentityConfigurationSetAttributesArgs{...}
+type EmailIdentityConfigurationSetAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityConfigurationSetAttributesOutput() EmailIdentityConfigurationSetAttributesOutput
+	ToEmailIdentityConfigurationSetAttributesOutputWithContext(context.Context) EmailIdentityConfigurationSetAttributesOutput
+}
+
+// Used to associate a configuration set with an email identity.
+type EmailIdentityConfigurationSetAttributesArgs struct {
+	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+	ConfigurationSetName pulumi.StringPtrInput `pulumi:"configurationSetName"`
+}
+
+func (EmailIdentityConfigurationSetAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityConfigurationSetAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityConfigurationSetAttributesArgs) ToEmailIdentityConfigurationSetAttributesOutput() EmailIdentityConfigurationSetAttributesOutput {
+	return i.ToEmailIdentityConfigurationSetAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityConfigurationSetAttributesArgs) ToEmailIdentityConfigurationSetAttributesOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityConfigurationSetAttributesOutput)
+}
+
+func (i EmailIdentityConfigurationSetAttributesArgs) ToEmailIdentityConfigurationSetAttributesPtrOutput() EmailIdentityConfigurationSetAttributesPtrOutput {
+	return i.ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityConfigurationSetAttributesArgs) ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityConfigurationSetAttributesOutput).ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityConfigurationSetAttributesPtrInput is an input type that accepts EmailIdentityConfigurationSetAttributesArgs, EmailIdentityConfigurationSetAttributesPtr and EmailIdentityConfigurationSetAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityConfigurationSetAttributesPtrInput` via:
+//
+//	        EmailIdentityConfigurationSetAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityConfigurationSetAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityConfigurationSetAttributesPtrOutput() EmailIdentityConfigurationSetAttributesPtrOutput
+	ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(context.Context) EmailIdentityConfigurationSetAttributesPtrOutput
+}
+
+type emailIdentityConfigurationSetAttributesPtrType EmailIdentityConfigurationSetAttributesArgs
+
+func EmailIdentityConfigurationSetAttributesPtr(v *EmailIdentityConfigurationSetAttributesArgs) EmailIdentityConfigurationSetAttributesPtrInput {
+	return (*emailIdentityConfigurationSetAttributesPtrType)(v)
+}
+
+func (*emailIdentityConfigurationSetAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityConfigurationSetAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityConfigurationSetAttributesPtrType) ToEmailIdentityConfigurationSetAttributesPtrOutput() EmailIdentityConfigurationSetAttributesPtrOutput {
+	return i.ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityConfigurationSetAttributesPtrType) ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityConfigurationSetAttributesPtrOutput)
+}
+
+// Used to associate a configuration set with an email identity.
+type EmailIdentityConfigurationSetAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityConfigurationSetAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityConfigurationSetAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityConfigurationSetAttributesOutput) ToEmailIdentityConfigurationSetAttributesOutput() EmailIdentityConfigurationSetAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityConfigurationSetAttributesOutput) ToEmailIdentityConfigurationSetAttributesOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityConfigurationSetAttributesOutput) ToEmailIdentityConfigurationSetAttributesPtrOutput() EmailIdentityConfigurationSetAttributesPtrOutput {
+	return o.ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityConfigurationSetAttributesOutput) ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityConfigurationSetAttributes) *EmailIdentityConfigurationSetAttributes {
+		return &v
+	}).(EmailIdentityConfigurationSetAttributesPtrOutput)
+}
+
+// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+func (o EmailIdentityConfigurationSetAttributesOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityConfigurationSetAttributes) *string { return v.ConfigurationSetName }).(pulumi.StringPtrOutput)
+}
+
+type EmailIdentityConfigurationSetAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityConfigurationSetAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityConfigurationSetAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityConfigurationSetAttributesPtrOutput) ToEmailIdentityConfigurationSetAttributesPtrOutput() EmailIdentityConfigurationSetAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityConfigurationSetAttributesPtrOutput) ToEmailIdentityConfigurationSetAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityConfigurationSetAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityConfigurationSetAttributesPtrOutput) Elem() EmailIdentityConfigurationSetAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityConfigurationSetAttributes) EmailIdentityConfigurationSetAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityConfigurationSetAttributes
+		return ret
+	}).(EmailIdentityConfigurationSetAttributesOutput)
+}
+
+// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+func (o EmailIdentityConfigurationSetAttributesPtrOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityConfigurationSetAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to enable or disable DKIM authentication for an email identity.
+type EmailIdentityDkimAttributes struct {
+	// Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+	SigningEnabled *bool `pulumi:"signingEnabled"`
+}
+
+// EmailIdentityDkimAttributesInput is an input type that accepts EmailIdentityDkimAttributesArgs and EmailIdentityDkimAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimAttributesInput` via:
+//
+//	EmailIdentityDkimAttributesArgs{...}
+type EmailIdentityDkimAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimAttributesOutput() EmailIdentityDkimAttributesOutput
+	ToEmailIdentityDkimAttributesOutputWithContext(context.Context) EmailIdentityDkimAttributesOutput
+}
+
+// Used to enable or disable DKIM authentication for an email identity.
+type EmailIdentityDkimAttributesArgs struct {
+	// Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+	SigningEnabled pulumi.BoolPtrInput `pulumi:"signingEnabled"`
+}
+
+func (EmailIdentityDkimAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityDkimAttributesArgs) ToEmailIdentityDkimAttributesOutput() EmailIdentityDkimAttributesOutput {
+	return i.ToEmailIdentityDkimAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimAttributesArgs) ToEmailIdentityDkimAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimAttributesOutput)
+}
+
+func (i EmailIdentityDkimAttributesArgs) ToEmailIdentityDkimAttributesPtrOutput() EmailIdentityDkimAttributesPtrOutput {
+	return i.ToEmailIdentityDkimAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimAttributesArgs) ToEmailIdentityDkimAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimAttributesOutput).ToEmailIdentityDkimAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityDkimAttributesPtrInput is an input type that accepts EmailIdentityDkimAttributesArgs, EmailIdentityDkimAttributesPtr and EmailIdentityDkimAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimAttributesPtrInput` via:
+//
+//	        EmailIdentityDkimAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityDkimAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimAttributesPtrOutput() EmailIdentityDkimAttributesPtrOutput
+	ToEmailIdentityDkimAttributesPtrOutputWithContext(context.Context) EmailIdentityDkimAttributesPtrOutput
+}
+
+type emailIdentityDkimAttributesPtrType EmailIdentityDkimAttributesArgs
+
+func EmailIdentityDkimAttributesPtr(v *EmailIdentityDkimAttributesArgs) EmailIdentityDkimAttributesPtrInput {
+	return (*emailIdentityDkimAttributesPtrType)(v)
+}
+
+func (*emailIdentityDkimAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityDkimAttributesPtrType) ToEmailIdentityDkimAttributesPtrOutput() EmailIdentityDkimAttributesPtrOutput {
+	return i.ToEmailIdentityDkimAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityDkimAttributesPtrType) ToEmailIdentityDkimAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimAttributesPtrOutput)
+}
+
+// Used to enable or disable DKIM authentication for an email identity.
+type EmailIdentityDkimAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimAttributesOutput) ToEmailIdentityDkimAttributesOutput() EmailIdentityDkimAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimAttributesOutput) ToEmailIdentityDkimAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimAttributesOutput) ToEmailIdentityDkimAttributesPtrOutput() EmailIdentityDkimAttributesPtrOutput {
+	return o.ToEmailIdentityDkimAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityDkimAttributesOutput) ToEmailIdentityDkimAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityDkimAttributes) *EmailIdentityDkimAttributes {
+		return &v
+	}).(EmailIdentityDkimAttributesPtrOutput)
+}
+
+// Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+func (o EmailIdentityDkimAttributesOutput) SigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimAttributes) *bool { return v.SigningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type EmailIdentityDkimAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimAttributesPtrOutput) ToEmailIdentityDkimAttributesPtrOutput() EmailIdentityDkimAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimAttributesPtrOutput) ToEmailIdentityDkimAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimAttributesPtrOutput) Elem() EmailIdentityDkimAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimAttributes) EmailIdentityDkimAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityDkimAttributes
+		return ret
+	}).(EmailIdentityDkimAttributesOutput)
+}
+
+// Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+func (o EmailIdentityDkimAttributesPtrOutput) SigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SigningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+type EmailIdentityDkimSigningAttributes struct {
+	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	DomainSigningPrivateKey *string `pulumi:"domainSigningPrivateKey"`
+	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	DomainSigningSelector *string `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+	NextSigningKeyLength *string `pulumi:"nextSigningKeyLength"`
+}
+
+// EmailIdentityDkimSigningAttributesInput is an input type that accepts EmailIdentityDkimSigningAttributesArgs and EmailIdentityDkimSigningAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimSigningAttributesInput` via:
+//
+//	EmailIdentityDkimSigningAttributesArgs{...}
+type EmailIdentityDkimSigningAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput
+	ToEmailIdentityDkimSigningAttributesOutputWithContext(context.Context) EmailIdentityDkimSigningAttributesOutput
+}
+
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+type EmailIdentityDkimSigningAttributesArgs struct {
+	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	DomainSigningPrivateKey pulumi.StringPtrInput `pulumi:"domainSigningPrivateKey"`
+	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	DomainSigningSelector pulumi.StringPtrInput `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+	NextSigningKeyLength pulumi.StringPtrInput `pulumi:"nextSigningKeyLength"`
+}
+
+func (EmailIdentityDkimSigningAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput {
+	return i.ToEmailIdentityDkimSigningAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesOutput)
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesOutput).ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityDkimSigningAttributesPtrInput is an input type that accepts EmailIdentityDkimSigningAttributesArgs, EmailIdentityDkimSigningAttributesPtr and EmailIdentityDkimSigningAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimSigningAttributesPtrInput` via:
+//
+//	        EmailIdentityDkimSigningAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityDkimSigningAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput
+	ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Context) EmailIdentityDkimSigningAttributesPtrOutput
+}
+
+type emailIdentityDkimSigningAttributesPtrType EmailIdentityDkimSigningAttributesArgs
+
+func EmailIdentityDkimSigningAttributesPtr(v *EmailIdentityDkimSigningAttributesArgs) EmailIdentityDkimSigningAttributesPtrInput {
+	return (*emailIdentityDkimSigningAttributesPtrType)(v)
+}
+
+func (*emailIdentityDkimSigningAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityDkimSigningAttributesPtrType) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityDkimSigningAttributesPtrType) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesPtrOutput)
+}
+
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+type EmailIdentityDkimSigningAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimSigningAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityDkimSigningAttributes) *EmailIdentityDkimSigningAttributes {
+		return &v
+	}).(EmailIdentityDkimSigningAttributesPtrOutput)
+}
+
+// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningPrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningSelector }).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+func (o EmailIdentityDkimSigningAttributesOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.NextSigningKeyLength }).(pulumi.StringPtrOutput)
+}
+
+type EmailIdentityDkimSigningAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimSigningAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) Elem() EmailIdentityDkimSigningAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) EmailIdentityDkimSigningAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityDkimSigningAttributes
+		return ret
+	}).(EmailIdentityDkimSigningAttributesOutput)
+}
+
+// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainSigningPrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainSigningSelector
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextSigningKeyLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to enable or disable feedback forwarding for an identity.
+type EmailIdentityFeedbackAttributes struct {
+	// If the value is true, you receive email notifications when bounce or complaint events occur
+	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
+}
+
+// EmailIdentityFeedbackAttributesInput is an input type that accepts EmailIdentityFeedbackAttributesArgs and EmailIdentityFeedbackAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityFeedbackAttributesInput` via:
+//
+//	EmailIdentityFeedbackAttributesArgs{...}
+type EmailIdentityFeedbackAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityFeedbackAttributesOutput() EmailIdentityFeedbackAttributesOutput
+	ToEmailIdentityFeedbackAttributesOutputWithContext(context.Context) EmailIdentityFeedbackAttributesOutput
+}
+
+// Used to enable or disable feedback forwarding for an identity.
+type EmailIdentityFeedbackAttributesArgs struct {
+	// If the value is true, you receive email notifications when bounce or complaint events occur
+	EmailForwardingEnabled pulumi.BoolPtrInput `pulumi:"emailForwardingEnabled"`
+}
+
+func (EmailIdentityFeedbackAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityFeedbackAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityFeedbackAttributesArgs) ToEmailIdentityFeedbackAttributesOutput() EmailIdentityFeedbackAttributesOutput {
+	return i.ToEmailIdentityFeedbackAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityFeedbackAttributesArgs) ToEmailIdentityFeedbackAttributesOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesOutput)
+}
+
+func (i EmailIdentityFeedbackAttributesArgs) ToEmailIdentityFeedbackAttributesPtrOutput() EmailIdentityFeedbackAttributesPtrOutput {
+	return i.ToEmailIdentityFeedbackAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityFeedbackAttributesArgs) ToEmailIdentityFeedbackAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesOutput).ToEmailIdentityFeedbackAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityFeedbackAttributesPtrInput is an input type that accepts EmailIdentityFeedbackAttributesArgs, EmailIdentityFeedbackAttributesPtr and EmailIdentityFeedbackAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityFeedbackAttributesPtrInput` via:
+//
+//	        EmailIdentityFeedbackAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityFeedbackAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityFeedbackAttributesPtrOutput() EmailIdentityFeedbackAttributesPtrOutput
+	ToEmailIdentityFeedbackAttributesPtrOutputWithContext(context.Context) EmailIdentityFeedbackAttributesPtrOutput
+}
+
+type emailIdentityFeedbackAttributesPtrType EmailIdentityFeedbackAttributesArgs
+
+func EmailIdentityFeedbackAttributesPtr(v *EmailIdentityFeedbackAttributesArgs) EmailIdentityFeedbackAttributesPtrInput {
+	return (*emailIdentityFeedbackAttributesPtrType)(v)
+}
+
+func (*emailIdentityFeedbackAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityFeedbackAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityFeedbackAttributesPtrType) ToEmailIdentityFeedbackAttributesPtrOutput() EmailIdentityFeedbackAttributesPtrOutput {
+	return i.ToEmailIdentityFeedbackAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityFeedbackAttributesPtrType) ToEmailIdentityFeedbackAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesPtrOutput)
+}
+
+// Used to enable or disable feedback forwarding for an identity.
+type EmailIdentityFeedbackAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityFeedbackAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityFeedbackAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributesOutput() EmailIdentityFeedbackAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributesOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributesPtrOutput() EmailIdentityFeedbackAttributesPtrOutput {
+	return o.ToEmailIdentityFeedbackAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityFeedbackAttributes) *EmailIdentityFeedbackAttributes {
+		return &v
+	}).(EmailIdentityFeedbackAttributesPtrOutput)
+}
+
+// If the value is true, you receive email notifications when bounce or complaint events occur
+func (o EmailIdentityFeedbackAttributesOutput) EmailForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EmailIdentityFeedbackAttributes) *bool { return v.EmailForwardingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type EmailIdentityFeedbackAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityFeedbackAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityFeedbackAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityFeedbackAttributesPtrOutput) ToEmailIdentityFeedbackAttributesPtrOutput() EmailIdentityFeedbackAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityFeedbackAttributesPtrOutput) ToEmailIdentityFeedbackAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityFeedbackAttributesPtrOutput) Elem() EmailIdentityFeedbackAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) EmailIdentityFeedbackAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityFeedbackAttributes
+		return ret
+	}).(EmailIdentityFeedbackAttributesOutput)
+}
+
+// If the value is true, you receive email notifications when bounce or complaint events occur
+func (o EmailIdentityFeedbackAttributesPtrOutput) EmailForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailForwardingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+type EmailIdentityMailFromAttributes struct {
+	// The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
+	// The custom MAIL FROM domain that you want the verified identity to use
+	MailFromDomain *string `pulumi:"mailFromDomain"`
+}
+
+// EmailIdentityMailFromAttributesInput is an input type that accepts EmailIdentityMailFromAttributesArgs and EmailIdentityMailFromAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityMailFromAttributesInput` via:
+//
+//	EmailIdentityMailFromAttributesArgs{...}
+type EmailIdentityMailFromAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityMailFromAttributesOutput() EmailIdentityMailFromAttributesOutput
+	ToEmailIdentityMailFromAttributesOutputWithContext(context.Context) EmailIdentityMailFromAttributesOutput
+}
+
+// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+type EmailIdentityMailFromAttributesArgs struct {
+	// The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+	BehaviorOnMxFailure pulumi.StringPtrInput `pulumi:"behaviorOnMxFailure"`
+	// The custom MAIL FROM domain that you want the verified identity to use
+	MailFromDomain pulumi.StringPtrInput `pulumi:"mailFromDomain"`
+}
+
+func (EmailIdentityMailFromAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityMailFromAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityMailFromAttributesArgs) ToEmailIdentityMailFromAttributesOutput() EmailIdentityMailFromAttributesOutput {
+	return i.ToEmailIdentityMailFromAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityMailFromAttributesArgs) ToEmailIdentityMailFromAttributesOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesOutput)
+}
+
+func (i EmailIdentityMailFromAttributesArgs) ToEmailIdentityMailFromAttributesPtrOutput() EmailIdentityMailFromAttributesPtrOutput {
+	return i.ToEmailIdentityMailFromAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityMailFromAttributesArgs) ToEmailIdentityMailFromAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesOutput).ToEmailIdentityMailFromAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityMailFromAttributesPtrInput is an input type that accepts EmailIdentityMailFromAttributesArgs, EmailIdentityMailFromAttributesPtr and EmailIdentityMailFromAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityMailFromAttributesPtrInput` via:
+//
+//	        EmailIdentityMailFromAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityMailFromAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityMailFromAttributesPtrOutput() EmailIdentityMailFromAttributesPtrOutput
+	ToEmailIdentityMailFromAttributesPtrOutputWithContext(context.Context) EmailIdentityMailFromAttributesPtrOutput
+}
+
+type emailIdentityMailFromAttributesPtrType EmailIdentityMailFromAttributesArgs
+
+func EmailIdentityMailFromAttributesPtr(v *EmailIdentityMailFromAttributesArgs) EmailIdentityMailFromAttributesPtrInput {
+	return (*emailIdentityMailFromAttributesPtrType)(v)
+}
+
+func (*emailIdentityMailFromAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityMailFromAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityMailFromAttributesPtrType) ToEmailIdentityMailFromAttributesPtrOutput() EmailIdentityMailFromAttributesPtrOutput {
+	return i.ToEmailIdentityMailFromAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityMailFromAttributesPtrType) ToEmailIdentityMailFromAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesPtrOutput)
+}
+
+// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+type EmailIdentityMailFromAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityMailFromAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityMailFromAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributesOutput() EmailIdentityMailFromAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributesOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributesPtrOutput() EmailIdentityMailFromAttributesPtrOutput {
+	return o.ToEmailIdentityMailFromAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityMailFromAttributes) *EmailIdentityMailFromAttributes {
+		return &v
+	}).(EmailIdentityMailFromAttributesPtrOutput)
+}
+
+// The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+func (o EmailIdentityMailFromAttributesOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityMailFromAttributes) *string { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
+}
+
+// The custom MAIL FROM domain that you want the verified identity to use
+func (o EmailIdentityMailFromAttributesOutput) MailFromDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityMailFromAttributes) *string { return v.MailFromDomain }).(pulumi.StringPtrOutput)
+}
+
+type EmailIdentityMailFromAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityMailFromAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityMailFromAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityMailFromAttributesPtrOutput) ToEmailIdentityMailFromAttributesPtrOutput() EmailIdentityMailFromAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityMailFromAttributesPtrOutput) ToEmailIdentityMailFromAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityMailFromAttributesPtrOutput) Elem() EmailIdentityMailFromAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) EmailIdentityMailFromAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityMailFromAttributes
+		return ret
+	}).(EmailIdentityMailFromAttributesOutput)
+}
+
+// The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+func (o EmailIdentityMailFromAttributesPtrOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BehaviorOnMxFailure
+	}).(pulumi.StringPtrOutput)
+}
+
+// The custom MAIL FROM domain that you want the verified identity to use
+func (o EmailIdentityMailFromAttributesPtrOutput) MailFromDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailFromDomain
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReceiptFilterFilter struct {
 	IpFilter ReceiptFilterIpFilter `pulumi:"ipFilter"`
 	Name     *string               `pulumi:"name"`
@@ -3432,6 +4189,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagArrayInput)(nil)).Elem(), ContactListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityConfigurationSetAttributesInput)(nil)).Elem(), EmailIdentityConfigurationSetAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityConfigurationSetAttributesPtrInput)(nil)).Elem(), EmailIdentityConfigurationSetAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimAttributesInput)(nil)).Elem(), EmailIdentityDkimAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityFeedbackAttributesInput)(nil)).Elem(), EmailIdentityFeedbackAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityFeedbackAttributesPtrInput)(nil)).Elem(), EmailIdentityFeedbackAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityMailFromAttributesInput)(nil)).Elem(), EmailIdentityMailFromAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityMailFromAttributesPtrInput)(nil)).Elem(), EmailIdentityMailFromAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterFilterInput)(nil)).Elem(), ReceiptFilterFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterIpFilterInput)(nil)).Elem(), ReceiptFilterIpFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionInput)(nil)).Elem(), ReceiptRuleActionArgs{})
@@ -3477,6 +4244,16 @@ func init() {
 	pulumi.RegisterOutputType(ContactListTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
+	pulumi.RegisterOutputType(EmailIdentityConfigurationSetAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityConfigurationSetAttributesPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimAttributesPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityFeedbackAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityFeedbackAttributesPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityMailFromAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityMailFromAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterFilterOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterIpFilterOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleActionOutput{})

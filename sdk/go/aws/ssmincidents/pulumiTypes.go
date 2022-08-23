@@ -645,6 +645,8 @@ type ResponsePlanIncidentTemplate struct {
 	DedupeString *string `pulumi:"dedupeString"`
 	// The impact value.
 	Impact int `pulumi:"impact"`
+	// Tags that get applied to incidents created by the StartIncident API action.
+	IncidentTags []ResponsePlanTag `pulumi:"incidentTags"`
 	// The list of notification targets.
 	NotificationTargets []ResponsePlanNotificationTargetItem `pulumi:"notificationTargets"`
 	// The summary string.
@@ -670,6 +672,8 @@ type ResponsePlanIncidentTemplateArgs struct {
 	DedupeString pulumi.StringPtrInput `pulumi:"dedupeString"`
 	// The impact value.
 	Impact pulumi.IntInput `pulumi:"impact"`
+	// Tags that get applied to incidents created by the StartIncident API action.
+	IncidentTags ResponsePlanTagArrayInput `pulumi:"incidentTags"`
 	// The list of notification targets.
 	NotificationTargets ResponsePlanNotificationTargetItemArrayInput `pulumi:"notificationTargets"`
 	// The summary string.
@@ -713,6 +717,11 @@ func (o ResponsePlanIncidentTemplateOutput) DedupeString() pulumi.StringPtrOutpu
 // The impact value.
 func (o ResponsePlanIncidentTemplateOutput) Impact() pulumi.IntOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) int { return v.Impact }).(pulumi.IntOutput)
+}
+
+// Tags that get applied to incidents created by the StartIncident API action.
+func (o ResponsePlanIncidentTemplateOutput) IncidentTags() ResponsePlanTagArrayOutput {
+	return o.ApplyT(func(v ResponsePlanIncidentTemplate) []ResponsePlanTag { return v.IncidentTags }).(ResponsePlanTagArrayOutput)
 }
 
 // The list of notification targets.
@@ -774,6 +783,16 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Impact() pulumi.IntPtrOutput {
 		}
 		return &v.Impact
 	}).(pulumi.IntPtrOutput)
+}
+
+// Tags that get applied to incidents created by the StartIncident API action.
+func (o ResponsePlanIncidentTemplatePtrOutput) IncidentTags() ResponsePlanTagArrayOutput {
+	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) []ResponsePlanTag {
+		if v == nil {
+			return nil
+		}
+		return v.IncidentTags
+	}).(ResponsePlanTagArrayOutput)
 }
 
 // The list of notification targets.

@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.IPSetTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IPSet resource with the given unique name, arguments, and options.
@@ -90,6 +93,14 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.IPSetTagArgs>? _tags;
+        public InputList<Inputs.IPSetTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.IPSetTagArgs>());
+            set => _tags = value;
+        }
 
         public IPSetArgs()
         {

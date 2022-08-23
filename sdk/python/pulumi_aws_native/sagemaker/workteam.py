@@ -20,6 +20,7 @@ class WorkteamArgs:
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
                  notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamTagArgs']]]] = None,
+                 workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workteam resource.
@@ -32,6 +33,8 @@ class WorkteamArgs:
             pulumi.set(__self__, "notification_configuration", notification_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workforce_name is not None:
+            pulumi.set(__self__, "workforce_name", workforce_name)
         if workteam_name is not None:
             pulumi.set(__self__, "workteam_name", workteam_name)
 
@@ -72,6 +75,15 @@ class WorkteamArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="workforceName")
+    def workforce_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "workforce_name")
+
+    @workforce_name.setter
+    def workforce_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workforce_name", value)
+
+    @property
     @pulumi.getter(name="workteamName")
     def workteam_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "workteam_name")
@@ -95,6 +107,7 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamTagArgs']]]]] = None,
+                 workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -131,6 +144,7 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamTagArgs']]]]] = None,
+                 workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Workteam is deprecated: Workteam is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -146,6 +160,7 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["member_definitions"] = member_definitions
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workforce_name"] = workforce_name
             __props__.__dict__["workteam_name"] = workteam_name
         super(Workteam, __self__).__init__(
             'aws-native:sagemaker:Workteam',
@@ -173,6 +188,7 @@ class Workteam(pulumi.CustomResource):
         __props__.__dict__["member_definitions"] = None
         __props__.__dict__["notification_configuration"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["workforce_name"] = None
         __props__.__dict__["workteam_name"] = None
         return Workteam(resource_name, opts=opts, __props__=__props__)
 
@@ -195,6 +211,11 @@ class Workteam(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WorkteamTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workforceName")
+    def workforce_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "workforce_name")
 
     @property
     @pulumi.getter(name="workteamName")

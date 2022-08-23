@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoints=None, e_bs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, service_software_options=None, snapshot_options=None, tags=None, v_pc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoints=None, e_bs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, service_software_options=None, snapshot_options=None, tags=None, v_pc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
         if advanced_options and not isinstance(advanced_options, dict):
             raise TypeError("Expected argument 'advanced_options' to be a dict")
         pulumi.set(__self__, "advanced_options", advanced_options)
+        if advanced_security_options and not isinstance(advanced_security_options, dict):
+            raise TypeError("Expected argument 'advanced_security_options' to be a dict")
+        pulumi.set(__self__, "advanced_security_options", advanced_security_options)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -87,6 +90,11 @@ class GetDomainResult:
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[Any]:
         return pulumi.get(self, "advanced_options")
+
+    @property
+    @pulumi.getter(name="advancedSecurityOptions")
+    def advanced_security_options(self) -> Optional['outputs.DomainAdvancedSecurityOptionsInput']:
+        return pulumi.get(self, "advanced_security_options")
 
     @property
     @pulumi.getter
@@ -185,6 +193,7 @@ class AwaitableGetDomainResult(GetDomainResult):
         return GetDomainResult(
             access_policies=self.access_policies,
             advanced_options=self.advanced_options,
+            advanced_security_options=self.advanced_security_options,
             arn=self.arn,
             cluster_config=self.cluster_config,
             cognito_options=self.cognito_options,
@@ -217,6 +226,7 @@ def get_domain(domain_name: Optional[str] = None,
     return AwaitableGetDomainResult(
         access_policies=__ret__.access_policies,
         advanced_options=__ret__.advanced_options,
+        advanced_security_options=__ret__.advanced_security_options,
         arn=__ret__.arn,
         cluster_config=__ret__.cluster_config,
         cognito_options=__ret__.cognito_options,

@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DocumentationPartLocationType = {
+    Api: "API",
+    Authorizer: "AUTHORIZER",
+    Model: "MODEL",
+    Resource: "RESOURCE",
+    Method: "METHOD",
+    PathParameter: "PATH_PARAMETER",
+    QueryParameter: "QUERY_PARAMETER",
+    RequestHeader: "REQUEST_HEADER",
+    RequestBody: "REQUEST_BODY",
+    Response: "RESPONSE",
+    ResponseHeader: "RESPONSE_HEADER",
+    ResponseBody: "RESPONSE_BODY",
+} as const;
+
+/**
+ * The type of API entity that the documentation content applies to.
+ */
+export type DocumentationPartLocationType = (typeof DocumentationPartLocationType)[keyof typeof DocumentationPartLocationType];
+
 export const MethodAuthorizationType = {
     None: "NONE",
     AwsIam: "AWS_IAM",

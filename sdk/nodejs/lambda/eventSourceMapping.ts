@@ -36,6 +36,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
+     * Specific configuration settings for an MSK event source.
+     */
+    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined>;
+    /**
      * The maximum number of items to retrieve in a single batch.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
@@ -92,6 +96,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
+     * Specific configuration settings for a Self-Managed Apache Kafka event source.
+     */
+    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig | undefined>;
+    /**
      * A list of SourceAccessConfiguration.
      */
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
@@ -126,6 +134,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args ? args.amazonManagedKafkaEventSourceConfig : undefined;
             resourceInputs["batchSize"] = args ? args.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
@@ -140,12 +149,14 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
             resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
         } else {
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = undefined /*out*/;
             resourceInputs["batchSize"] = undefined /*out*/;
             resourceInputs["bisectBatchOnFunctionError"] = undefined /*out*/;
             resourceInputs["destinationConfig"] = undefined /*out*/;
@@ -160,6 +171,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = undefined /*out*/;
             resourceInputs["queues"] = undefined /*out*/;
             resourceInputs["selfManagedEventSource"] = undefined /*out*/;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = undefined /*out*/;
             resourceInputs["sourceAccessConfigurations"] = undefined /*out*/;
             resourceInputs["startingPosition"] = undefined /*out*/;
             resourceInputs["startingPositionTimestamp"] = undefined /*out*/;
@@ -175,6 +187,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
  * The set of arguments for constructing a EventSourceMapping resource.
  */
 export interface EventSourceMappingArgs {
+    /**
+     * Specific configuration settings for an MSK event source.
+     */
+    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>;
     /**
      * The maximum number of items to retrieve in a single batch.
      */
@@ -231,6 +247,10 @@ export interface EventSourceMappingArgs {
      * Self-managed event source endpoints.
      */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSourceArgs>;
+    /**
+     * Specific configuration settings for a Self-Managed Apache Kafka event source.
+     */
+    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>;
     /**
      * A list of SourceAccessConfiguration.
      */

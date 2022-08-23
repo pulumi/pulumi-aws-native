@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AgentEndpointType',
     'LocationEFSInTransitEncryption',
+    'LocationFSxONTAPNfsMountOptionsVersion',
+    'LocationFSxONTAPSmbMountOptionsVersion',
     'LocationFSxOpenZFSMountOptionsVersion',
     'LocationHDFSAuthenticationType',
     'LocationHDFSQopConfigurationDataTransferProtection',
@@ -49,6 +51,25 @@ class LocationEFSInTransitEncryption(str, Enum):
     """
     NONE = "NONE"
     TLS12 = "TLS1_2"
+
+
+class LocationFSxONTAPNfsMountOptionsVersion(str, Enum):
+    """
+    The specific NFS version that you want DataSync to use to mount your NFS share.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    NFS3 = "NFS3"
+    NFS40 = "NFS4_0"
+    NFS41 = "NFS4_1"
+
+
+class LocationFSxONTAPSmbMountOptionsVersion(str, Enum):
+    """
+    The specific SMB version that you want DataSync to use to mount your SMB share.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    SMB2 = "SMB2"
+    SMB3 = "SMB3"
 
 
 class LocationFSxOpenZFSMountOptionsVersion(str, Enum):

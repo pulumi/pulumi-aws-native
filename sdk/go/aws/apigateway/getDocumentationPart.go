@@ -21,11 +21,16 @@ func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartA
 }
 
 type LookupDocumentationPartArgs struct {
-	Id string `pulumi:"id"`
+	// The identifier of the documentation Part.
+	DocumentationPartId string `pulumi:"documentationPartId"`
+	// Identifier of the targeted API entity
+	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDocumentationPartResult struct {
-	Id         *string `pulumi:"id"`
+	// The identifier of the documentation Part.
+	DocumentationPartId *string `pulumi:"documentationPartId"`
+	// The documentation content map of the targeted API entity.
 	Properties *string `pulumi:"properties"`
 }
 
@@ -43,7 +48,10 @@ func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentation
 }
 
 type LookupDocumentationPartOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The identifier of the documentation Part.
+	DocumentationPartId pulumi.StringInput `pulumi:"documentationPartId"`
+	// Identifier of the targeted API entity
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 func (LookupDocumentationPartOutputArgs) ElementType() reflect.Type {
@@ -64,10 +72,12 @@ func (o LookupDocumentationPartResultOutput) ToLookupDocumentationPartResultOutp
 	return o
 }
 
-func (o LookupDocumentationPartResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The identifier of the documentation Part.
+func (o LookupDocumentationPartResultOutput) DocumentationPartId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.DocumentationPartId }).(pulumi.StringPtrOutput)
 }
 
+// The documentation content map of the targeted API entity.
 func (o LookupDocumentationPartResultOutput) Properties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.Properties }).(pulumi.StringPtrOutput)
 }

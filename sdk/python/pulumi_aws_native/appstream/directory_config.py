@@ -54,12 +54,7 @@ class DirectoryConfigArgs:
         pulumi.set(self, "service_account_credentials", value)
 
 
-warnings.warn("""DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DirectoryConfig(pulumi.CustomResource):
-    warnings.warn("""DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -102,7 +97,6 @@ class DirectoryConfig(pulumi.CustomResource):
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""DirectoryConfig is deprecated: DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -127,6 +127,7 @@ __all__ = [
     'NetworkInsightsAccessScopeResourceStatementRequest',
     'NetworkInsightsAccessScopeTag',
     'NetworkInsightsAccessScopeThroughResourcesStatementRequest',
+    'NetworkInsightsAnalysisAdditionalDetail',
     'NetworkInsightsAnalysisAlternatePathHint',
     'NetworkInsightsAnalysisAnalysisAclRule',
     'NetworkInsightsAnalysisAnalysisComponent',
@@ -2520,6 +2521,8 @@ class InstanceNetworkInterface(dict):
         suggest = None
         if key == "deviceIndex":
             suggest = "device_index"
+        elif key == "associateCarrierIpAddress":
+            suggest = "associate_carrier_ip_address"
         elif key == "associatePublicIpAddress":
             suggest = "associate_public_ip_address"
         elif key == "deleteOnTermination":
@@ -2554,6 +2557,7 @@ class InstanceNetworkInterface(dict):
 
     def __init__(__self__, *,
                  device_index: str,
+                 associate_carrier_ip_address: Optional[bool] = None,
                  associate_public_ip_address: Optional[bool] = None,
                  delete_on_termination: Optional[bool] = None,
                  description: Optional[str] = None,
@@ -2566,6 +2570,8 @@ class InstanceNetworkInterface(dict):
                  secondary_private_ip_address_count: Optional[int] = None,
                  subnet_id: Optional[str] = None):
         pulumi.set(__self__, "device_index", device_index)
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
@@ -2593,6 +2599,11 @@ class InstanceNetworkInterface(dict):
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> str:
         return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> Optional[bool]:
+        return pulumi.get(self, "associate_carrier_ip_address")
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
@@ -5186,6 +5197,44 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequest(dict):
 
 
 @pulumi.output_type
+class NetworkInsightsAnalysisAdditionalDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalDetailType":
+            suggest = "additional_detail_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAdditionalDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAdditionalDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAdditionalDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_detail_type: Optional[str] = None,
+                 component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
+        if additional_detail_type is not None:
+            pulumi.set(__self__, "additional_detail_type", additional_detail_type)
+        if component is not None:
+            pulumi.set(__self__, "component", component)
+
+    @property
+    @pulumi.getter(name="additionalDetailType")
+    def additional_detail_type(self) -> Optional[str]:
+        return pulumi.get(self, "additional_detail_type")
+
+    @property
+    @pulumi.getter
+    def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "component")
+
+
+@pulumi.output_type
 class NetworkInsightsAnalysisAlternatePathHint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5526,6 +5575,7 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
                  nat_gateway_id: Optional[str] = None,
                  network_interface_id: Optional[str] = None,
                  origin: Optional[str] = None,
+                 state: Optional[str] = None,
                  transit_gateway_id: Optional[str] = None,
                  vpc_peering_connection_id: Optional[str] = None):
         if destination_cidr is not None:
@@ -5544,6 +5594,8 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if origin is not None:
             pulumi.set(__self__, "origin", origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_peering_connection_id is not None:
@@ -5588,6 +5640,11 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
     @pulumi.getter
     def origin(self) -> Optional[str]:
         return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -5687,6 +5744,10 @@ class NetworkInsightsAnalysisExplanation(dict):
             suggest = "availability_zones"
         elif key == "classicLoadBalancerListener":
             suggest = "classic_load_balancer_listener"
+        elif key == "componentAccount":
+            suggest = "component_account"
+        elif key == "componentRegion":
+            suggest = "component_region"
         elif key == "customerGateway":
             suggest = "customer_gateway"
         elif key == "destinationVpc":
@@ -5775,6 +5836,8 @@ class NetworkInsightsAnalysisExplanation(dict):
                  cidrs: Optional[Sequence[str]] = None,
                  classic_load_balancer_listener: Optional['outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener'] = None,
                  component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 component_account: Optional[str] = None,
+                 component_region: Optional[str] = None,
                  customer_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  destination: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  destination_vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
@@ -5833,6 +5896,10 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "classic_load_balancer_listener", classic_load_balancer_listener)
         if component is not None:
             pulumi.set(__self__, "component", component)
+        if component_account is not None:
+            pulumi.set(__self__, "component_account", component_account)
+        if component_region is not None:
+            pulumi.set(__self__, "component_region", component_region)
         if customer_gateway is not None:
             pulumi.set(__self__, "customer_gateway", customer_gateway)
         if destination is not None:
@@ -5958,6 +6025,16 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "component")
+
+    @property
+    @pulumi.getter(name="componentAccount")
+    def component_account(self) -> Optional[str]:
+        return pulumi.get(self, "component_account")
+
+    @property
+    @pulumi.getter(name="componentRegion")
+    def component_region(self) -> Optional[str]:
+        return pulumi.get(self, "component_region")
 
     @property
     @pulumi.getter(name="customerGateway")
@@ -6167,8 +6244,12 @@ class NetworkInsightsAnalysisPathComponent(dict):
         suggest = None
         if key == "aclRule":
             suggest = "acl_rule"
+        elif key == "additionalDetails":
+            suggest = "additional_details"
         elif key == "destinationVpc":
             suggest = "destination_vpc"
+        elif key == "elasticLoadBalancerListener":
+            suggest = "elastic_load_balancer_listener"
         elif key == "inboundHeader":
             suggest = "inbound_header"
         elif key == "outboundHeader":
@@ -6199,8 +6280,11 @@ class NetworkInsightsAnalysisPathComponent(dict):
 
     def __init__(__self__, *,
                  acl_rule: Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule'] = None,
+                 additional_details: Optional[Sequence['outputs.NetworkInsightsAnalysisAdditionalDetail']] = None,
                  component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  destination_vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 elastic_load_balancer_listener: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 explanations: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']] = None,
                  inbound_header: Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader'] = None,
                  outbound_header: Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader'] = None,
                  route_table_route: Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute'] = None,
@@ -6213,10 +6297,16 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         if acl_rule is not None:
             pulumi.set(__self__, "acl_rule", acl_rule)
+        if additional_details is not None:
+            pulumi.set(__self__, "additional_details", additional_details)
         if component is not None:
             pulumi.set(__self__, "component", component)
         if destination_vpc is not None:
             pulumi.set(__self__, "destination_vpc", destination_vpc)
+        if elastic_load_balancer_listener is not None:
+            pulumi.set(__self__, "elastic_load_balancer_listener", elastic_load_balancer_listener)
+        if explanations is not None:
+            pulumi.set(__self__, "explanations", explanations)
         if inbound_header is not None:
             pulumi.set(__self__, "inbound_header", inbound_header)
         if outbound_header is not None:
@@ -6244,6 +6334,11 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "acl_rule")
 
     @property
+    @pulumi.getter(name="additionalDetails")
+    def additional_details(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAdditionalDetail']]:
+        return pulumi.get(self, "additional_details")
+
+    @property
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "component")
@@ -6252,6 +6347,16 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="destinationVpc")
     def destination_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "destination_vpc")
+
+    @property
+    @pulumi.getter(name="elasticLoadBalancerListener")
+    def elastic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        return pulumi.get(self, "elastic_load_balancer_listener")
+
+    @property
+    @pulumi.getter
+    def explanations(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
+        return pulumi.get(self, "explanations")
 
     @property
     @pulumi.getter(name="inboundHeader")

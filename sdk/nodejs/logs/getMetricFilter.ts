@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::MetricFilter
+ * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
  */
 export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
     if (!opts) {
@@ -15,17 +15,30 @@ export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:logs:getMetricFilter", {
-        "id": args.id,
+        "filterName": args.filterName,
+        "logGroupName": args.logGroupName,
     }, opts);
 }
 
 export interface GetMetricFilterArgs {
-    id: string;
+    /**
+     * A name for the metric filter.
+     */
+    filterName: string;
+    /**
+     * Existing log group that you want to associate with this filter.
+     */
+    logGroupName: string;
 }
 
 export interface GetMetricFilterResult {
+    /**
+     * Pattern that Logs follows to interpret each entry in a log.
+     */
     readonly filterPattern?: string;
-    readonly id?: string;
+    /**
+     * A collection of information that defines how metric data gets emitted.
+     */
     readonly metricTransformations?: outputs.logs.MetricFilterMetricTransformation[];
 }
 
@@ -34,5 +47,12 @@ export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pu
 }
 
 export interface GetMetricFilterOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A name for the metric filter.
+     */
+    filterName: pulumi.Input<string>;
+    /**
+     * Existing log group that you want to associate with this filter.
+     */
+    logGroupName: pulumi.Input<string>;
 }

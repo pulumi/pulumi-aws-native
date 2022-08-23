@@ -74,6 +74,71 @@ namespace Pulumi.AwsNative.DataSync
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]
+    public readonly struct LocationFSxONTAPNfsMountOptionsVersion : IEquatable<LocationFSxONTAPNfsMountOptionsVersion>
+    {
+        private readonly string _value;
+
+        private LocationFSxONTAPNfsMountOptionsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationFSxONTAPNfsMountOptionsVersion Automatic { get; } = new LocationFSxONTAPNfsMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxONTAPNfsMountOptionsVersion Nfs3 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS3");
+        public static LocationFSxONTAPNfsMountOptionsVersion Nfs40 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS4_0");
+        public static LocationFSxONTAPNfsMountOptionsVersion Nfs41 { get; } = new LocationFSxONTAPNfsMountOptionsVersion("NFS4_1");
+
+        public static bool operator ==(LocationFSxONTAPNfsMountOptionsVersion left, LocationFSxONTAPNfsMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxONTAPNfsMountOptionsVersion left, LocationFSxONTAPNfsMountOptionsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(LocationFSxONTAPNfsMountOptionsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationFSxONTAPNfsMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxONTAPNfsMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The specific SMB version that you want DataSync to use to mount your SMB share.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationFSxONTAPSmbMountOptionsVersion : IEquatable<LocationFSxONTAPSmbMountOptionsVersion>
+    {
+        private readonly string _value;
+
+        private LocationFSxONTAPSmbMountOptionsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationFSxONTAPSmbMountOptionsVersion Automatic { get; } = new LocationFSxONTAPSmbMountOptionsVersion("AUTOMATIC");
+        public static LocationFSxONTAPSmbMountOptionsVersion Smb2 { get; } = new LocationFSxONTAPSmbMountOptionsVersion("SMB2");
+        public static LocationFSxONTAPSmbMountOptionsVersion Smb3 { get; } = new LocationFSxONTAPSmbMountOptionsVersion("SMB3");
+
+        public static bool operator ==(LocationFSxONTAPSmbMountOptionsVersion left, LocationFSxONTAPSmbMountOptionsVersion right) => left.Equals(right);
+        public static bool operator !=(LocationFSxONTAPSmbMountOptionsVersion left, LocationFSxONTAPSmbMountOptionsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(LocationFSxONTAPSmbMountOptionsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationFSxONTAPSmbMountOptionsVersion other && Equals(other);
+        public bool Equals(LocationFSxONTAPSmbMountOptionsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The specific NFS version that you want DataSync to use to mount your NFS share.
+    /// </summary>
+    [EnumType]
     public readonly struct LocationFSxOpenZFSMountOptionsVersion : IEquatable<LocationFSxOpenZFSMountOptionsVersion>
     {
         private readonly string _value;

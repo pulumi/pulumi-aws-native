@@ -29,6 +29,17 @@ class ScalingPolicyArgs:
                  target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
+        :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group.
+        :param pulumi.Input[str] adjustment_type: Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+        :param pulumi.Input[str] cooldown: The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+        :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
+        :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
+        :param pulumi.Input[int] min_adjustment_magnitude: The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+        :param pulumi.Input[str] policy_type: One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
+        :param pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: A predictive scaling policy. Includes support for predefined metrics only.
+        :param pulumi.Input[int] scaling_adjustment: The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]] step_adjustments: A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        :param pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: A target tracking scaling policy. Includes support for predefined or customized metrics.
         """
         pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if adjustment_type is not None:
@@ -55,6 +66,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Auto Scaling group.
+        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @auto_scaling_group_name.setter
@@ -64,6 +78,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="adjustmentType")
     def adjustment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+        """
         return pulumi.get(self, "adjustment_type")
 
     @adjustment_type.setter
@@ -73,6 +90,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter
     def cooldown(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+        """
         return pulumi.get(self, "cooldown")
 
     @cooldown.setter
@@ -82,6 +102,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[pulumi.Input[int]]:
+        """
+        The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
+        """
         return pulumi.get(self, "estimated_instance_warmup")
 
     @estimated_instance_warmup.setter
@@ -91,6 +114,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="metricAggregationType")
     def metric_aggregation_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
+        """
         return pulumi.get(self, "metric_aggregation_type")
 
     @metric_aggregation_type.setter
@@ -100,6 +126,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="minAdjustmentMagnitude")
     def min_adjustment_magnitude(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+        """
         return pulumi.get(self, "min_adjustment_magnitude")
 
     @min_adjustment_magnitude.setter
@@ -109,6 +138,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
+        """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
@@ -118,6 +150,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="predictiveScalingConfiguration")
     def predictive_scaling_configuration(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs']]:
+        """
+        A predictive scaling policy. Includes support for predefined metrics only.
+        """
         return pulumi.get(self, "predictive_scaling_configuration")
 
     @predictive_scaling_configuration.setter
@@ -127,6 +162,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
+        """
         return pulumi.get(self, "scaling_adjustment")
 
     @scaling_adjustment.setter
@@ -136,6 +174,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="stepAdjustments")
     def step_adjustments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]]:
+        """
+        A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        """
         return pulumi.get(self, "step_adjustments")
 
     @step_adjustments.setter
@@ -145,6 +186,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
     def target_tracking_configuration(self) -> Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']]:
+        """
+        A target tracking scaling policy. Includes support for predefined or customized metrics.
+        """
         return pulumi.get(self, "target_tracking_configuration")
 
     @target_tracking_configuration.setter
@@ -152,12 +196,7 @@ class ScalingPolicyArgs:
         pulumi.set(self, "target_tracking_configuration", value)
 
 
-warnings.warn("""ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ScalingPolicy(pulumi.CustomResource):
-    warnings.warn("""ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,10 +214,21 @@ class ScalingPolicy(pulumi.CustomResource):
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::AutoScaling::ScalingPolicy
+        The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] adjustment_type: Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+        :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group.
+        :param pulumi.Input[str] cooldown: The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+        :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
+        :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
+        :param pulumi.Input[int] min_adjustment_magnitude: The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+        :param pulumi.Input[str] policy_type: One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
+        :param pulumi.Input[pulumi.InputType['ScalingPolicyPredictiveScalingConfigurationArgs']] predictive_scaling_configuration: A predictive scaling policy. Includes support for predefined metrics only.
+        :param pulumi.Input[int] scaling_adjustment: The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPolicyStepAdjustmentArgs']]]] step_adjustments: A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        :param pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: A target tracking scaling policy. Includes support for predefined or customized metrics.
         """
         ...
     @overload
@@ -187,7 +237,7 @@ class ScalingPolicy(pulumi.CustomResource):
                  args: ScalingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::AutoScaling::ScalingPolicy
+        The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
 
         :param str resource_name: The name of the resource.
         :param ScalingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -216,7 +266,6 @@ class ScalingPolicy(pulumi.CustomResource):
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPolicyStepAdjustmentArgs']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ScalingPolicy is deprecated: ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -238,6 +287,8 @@ class ScalingPolicy(pulumi.CustomResource):
             __props__.__dict__["scaling_adjustment"] = scaling_adjustment
             __props__.__dict__["step_adjustments"] = step_adjustments
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["policy_name"] = None
         super(ScalingPolicy, __self__).__init__(
             'aws-native:autoscaling:ScalingPolicy',
             resource_name,
@@ -261,11 +312,13 @@ class ScalingPolicy(pulumi.CustomResource):
         __props__ = ScalingPolicyArgs.__new__(ScalingPolicyArgs)
 
         __props__.__dict__["adjustment_type"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["auto_scaling_group_name"] = None
         __props__.__dict__["cooldown"] = None
         __props__.__dict__["estimated_instance_warmup"] = None
         __props__.__dict__["metric_aggregation_type"] = None
         __props__.__dict__["min_adjustment_magnitude"] = None
+        __props__.__dict__["policy_name"] = None
         __props__.__dict__["policy_type"] = None
         __props__.__dict__["predictive_scaling_configuration"] = None
         __props__.__dict__["scaling_adjustment"] = None
@@ -276,55 +329,101 @@ class ScalingPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adjustmentType")
     def adjustment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
+        """
         return pulumi.get(self, "adjustment_type")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the AutoScaling scaling policy
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Auto Scaling group.
+        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @property
     @pulumi.getter
     def cooldown(self) -> pulumi.Output[Optional[str]]:
+        """
+        The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+        """
         return pulumi.get(self, "cooldown")
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> pulumi.Output[Optional[int]]:
+        """
+        The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
+        """
         return pulumi.get(self, "estimated_instance_warmup")
 
     @property
     @pulumi.getter(name="metricAggregationType")
     def metric_aggregation_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
+        """
         return pulumi.get(self, "metric_aggregation_type")
 
     @property
     @pulumi.getter(name="minAdjustmentMagnitude")
     def min_adjustment_magnitude(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+        """
         return pulumi.get(self, "min_adjustment_magnitude")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
+        """
         return pulumi.get(self, "policy_type")
 
     @property
     @pulumi.getter(name="predictiveScalingConfiguration")
     def predictive_scaling_configuration(self) -> pulumi.Output[Optional['outputs.ScalingPolicyPredictiveScalingConfiguration']]:
+        """
+        A predictive scaling policy. Includes support for predefined metrics only.
+        """
         return pulumi.get(self, "predictive_scaling_configuration")
 
     @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
+        """
         return pulumi.get(self, "scaling_adjustment")
 
     @property
     @pulumi.getter(name="stepAdjustments")
     def step_adjustments(self) -> pulumi.Output[Optional[Sequence['outputs.ScalingPolicyStepAdjustment']]]:
+        """
+        A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        """
         return pulumi.get(self, "step_adjustments")
 
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
     def target_tracking_configuration(self) -> pulumi.Output[Optional['outputs.ScalingPolicyTargetTrackingConfiguration']]:
+        """
+        A target tracking scaling policy. Includes support for predefined or customized metrics.
+        """
         return pulumi.get(self, "target_tracking_configuration")
 

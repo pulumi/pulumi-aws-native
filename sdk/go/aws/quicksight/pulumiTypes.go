@@ -4824,6 +4824,157 @@ func (o DataSetTagArrayOutput) Index(i pulumi.IntInput) DataSetTagOutput {
 	}).(DataSetTagOutput)
 }
 
+// <p>The dataset usage configuration for the dataset.</p>
+type DataSetUsageConfiguration struct {
+	DisableUseAsDirectQuerySource *bool `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    *bool `pulumi:"disableUseAsImportedSource"`
+}
+
+// DataSetUsageConfigurationInput is an input type that accepts DataSetUsageConfigurationArgs and DataSetUsageConfigurationOutput values.
+// You can construct a concrete instance of `DataSetUsageConfigurationInput` via:
+//
+//	DataSetUsageConfigurationArgs{...}
+type DataSetUsageConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSetUsageConfigurationOutput() DataSetUsageConfigurationOutput
+	ToDataSetUsageConfigurationOutputWithContext(context.Context) DataSetUsageConfigurationOutput
+}
+
+// <p>The dataset usage configuration for the dataset.</p>
+type DataSetUsageConfigurationArgs struct {
+	DisableUseAsDirectQuerySource pulumi.BoolPtrInput `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    pulumi.BoolPtrInput `pulumi:"disableUseAsImportedSource"`
+}
+
+func (DataSetUsageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i DataSetUsageConfigurationArgs) ToDataSetUsageConfigurationOutput() DataSetUsageConfigurationOutput {
+	return i.ToDataSetUsageConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSetUsageConfigurationArgs) ToDataSetUsageConfigurationOutputWithContext(ctx context.Context) DataSetUsageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUsageConfigurationOutput)
+}
+
+func (i DataSetUsageConfigurationArgs) ToDataSetUsageConfigurationPtrOutput() DataSetUsageConfigurationPtrOutput {
+	return i.ToDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetUsageConfigurationArgs) ToDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetUsageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUsageConfigurationOutput).ToDataSetUsageConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSetUsageConfigurationPtrInput is an input type that accepts DataSetUsageConfigurationArgs, DataSetUsageConfigurationPtr and DataSetUsageConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSetUsageConfigurationPtrInput` via:
+//
+//	        DataSetUsageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetUsageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetUsageConfigurationPtrOutput() DataSetUsageConfigurationPtrOutput
+	ToDataSetUsageConfigurationPtrOutputWithContext(context.Context) DataSetUsageConfigurationPtrOutput
+}
+
+type dataSetUsageConfigurationPtrType DataSetUsageConfigurationArgs
+
+func DataSetUsageConfigurationPtr(v *DataSetUsageConfigurationArgs) DataSetUsageConfigurationPtrInput {
+	return (*dataSetUsageConfigurationPtrType)(v)
+}
+
+func (*dataSetUsageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i *dataSetUsageConfigurationPtrType) ToDataSetUsageConfigurationPtrOutput() DataSetUsageConfigurationPtrOutput {
+	return i.ToDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetUsageConfigurationPtrType) ToDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetUsageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUsageConfigurationPtrOutput)
+}
+
+// <p>The dataset usage configuration for the dataset.</p>
+type DataSetUsageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSetUsageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o DataSetUsageConfigurationOutput) ToDataSetUsageConfigurationOutput() DataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o DataSetUsageConfigurationOutput) ToDataSetUsageConfigurationOutputWithContext(ctx context.Context) DataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o DataSetUsageConfigurationOutput) ToDataSetUsageConfigurationPtrOutput() DataSetUsageConfigurationPtrOutput {
+	return o.ToDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetUsageConfigurationOutput) ToDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetUsageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetUsageConfiguration) *DataSetUsageConfiguration {
+		return &v
+	}).(DataSetUsageConfigurationPtrOutput)
+}
+
+func (o DataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetUsageConfiguration) *bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolPtrOutput)
+}
+
+func (o DataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetUsageConfiguration) *bool { return v.DisableUseAsImportedSource }).(pulumi.BoolPtrOutput)
+}
+
+type DataSetUsageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetUsageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o DataSetUsageConfigurationPtrOutput) ToDataSetUsageConfigurationPtrOutput() DataSetUsageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetUsageConfigurationPtrOutput) ToDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetUsageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetUsageConfigurationPtrOutput) Elem() DataSetUsageConfigurationOutput {
+	return o.ApplyT(func(v *DataSetUsageConfiguration) DataSetUsageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetUsageConfiguration
+		return ret
+	}).(DataSetUsageConfigurationOutput)
+}
+
+func (o DataSetUsageConfigurationPtrOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetUsageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableUseAsDirectQuerySource
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DataSetUsageConfigurationPtrOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetUsageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableUseAsImportedSource
+	}).(pulumi.BoolPtrOutput)
+}
+
 // <p>Amazon Elasticsearch Service parameters.</p>
 type DataSourceAmazonElasticsearchParameters struct {
 	// <p>The Amazon Elasticsearch Service domain.</p>
@@ -13127,6 +13278,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionDataSetPtrInput)(nil)).Elem(), DataSetRowLevelPermissionDataSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTagInput)(nil)).Elem(), DataSetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTagArrayInput)(nil)).Elem(), DataSetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationPtrInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAmazonElasticsearchParametersInput)(nil)).Elem(), DataSourceAmazonElasticsearchParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAmazonElasticsearchParametersPtrInput)(nil)).Elem(), DataSourceAmazonElasticsearchParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAmazonOpenSearchParametersInput)(nil)).Elem(), DataSourceAmazonOpenSearchParametersArgs{})
@@ -13294,6 +13447,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionDataSetPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTagOutput{})
 	pulumi.RegisterOutputType(DataSetTagArrayOutput{})
+	pulumi.RegisterOutputType(DataSetUsageConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSetUsageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonOpenSearchParametersOutput{})

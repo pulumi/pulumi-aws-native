@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.AppStream
     /// <summary>
     /// Resource Type definition for AWS::AppStream::ImageBuilder
     /// </summary>
-    [Obsolete(@"ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:ImageBuilder")]
     public partial class ImageBuilder : global::Pulumi.CustomResource
     {

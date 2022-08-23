@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowScheduledTriggerProperties
     {
         public readonly Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode? DataPullMode;
+        public readonly double? FirstExecutionFrom;
+        public readonly int? FlowErrorDeactivationThreshold;
         public readonly double? ScheduleEndTime;
         public readonly string ScheduleExpression;
         public readonly double? ScheduleOffset;
@@ -26,6 +28,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         [OutputConstructor]
         private FlowScheduledTriggerProperties(
             Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode? dataPullMode,
+
+            double? firstExecutionFrom,
+
+            int? flowErrorDeactivationThreshold,
 
             double? scheduleEndTime,
 
@@ -38,6 +44,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             string? timeZone)
         {
             DataPullMode = dataPullMode;
+            FirstExecutionFrom = firstExecutionFrom;
+            FlowErrorDeactivationThreshold = flowErrorDeactivationThreshold;
             ScheduleEndTime = scheduleEndTime;
             ScheduleExpression = scheduleExpression;
             ScheduleOffset = scheduleOffset;

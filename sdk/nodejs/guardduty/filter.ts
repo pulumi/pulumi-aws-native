@@ -44,6 +44,7 @@ export class Filter extends pulumi.CustomResource {
     public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     public readonly name!: pulumi.Output<string>;
     public readonly rank!: pulumi.Output<number>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.FilterTag[] | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -79,6 +80,7 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rank"] = args ? args.rank : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["findingCriteria"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rank"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Filter.__pulumiType, name, resourceInputs, opts);
@@ -102,4 +105,5 @@ export interface FilterArgs {
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
     name?: pulumi.Input<string>;
     rank: pulumi.Input<number>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.FilterTagArgs>[]>;
 }

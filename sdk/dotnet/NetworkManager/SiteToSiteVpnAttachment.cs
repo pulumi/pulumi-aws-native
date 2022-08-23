@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
     /// </summary>
-    [Obsolete(@"SiteToSiteVpnAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:SiteToSiteVpnAttachment")]
     public partial class SiteToSiteVpnAttachment : global::Pulumi.CustomResource
     {

@@ -35,6 +35,7 @@ export class PermissionSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === PermissionSet.__pulumiType;
     }
 
+    public readonly customerManagedPolicyReferences!: pulumi.Output<outputs.sso.PermissionSetCustomerManagedPolicyReference[] | undefined>;
     /**
      * The permission set description.
      */
@@ -56,6 +57,7 @@ export class PermissionSet extends pulumi.CustomResource {
      * The permission set that the policy will be attached to
      */
     public /*out*/ readonly permissionSetArn!: pulumi.Output<string>;
+    public readonly permissionsBoundary!: pulumi.Output<outputs.sso.PermissionSetPermissionsBoundary | undefined>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
      */
@@ -80,22 +82,26 @@ export class PermissionSet extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
+            resourceInputs["customerManagedPolicyReferences"] = args ? args.customerManagedPolicyReferences : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["managedPolicies"] = args ? args.managedPolicies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
             resourceInputs["relayStateType"] = args ? args.relayStateType : undefined;
             resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["permissionSetArn"] = undefined /*out*/;
         } else {
+            resourceInputs["customerManagedPolicyReferences"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["inlinePolicy"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["managedPolicies"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["permissionSetArn"] = undefined /*out*/;
+            resourceInputs["permissionsBoundary"] = undefined /*out*/;
             resourceInputs["relayStateType"] = undefined /*out*/;
             resourceInputs["sessionDuration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -109,6 +115,7 @@ export class PermissionSet extends pulumi.CustomResource {
  * The set of arguments for constructing a PermissionSet resource.
  */
 export interface PermissionSetArgs {
+    customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.sso.PermissionSetCustomerManagedPolicyReferenceArgs>[]>;
     /**
      * The permission set description.
      */
@@ -126,6 +133,7 @@ export interface PermissionSetArgs {
      * The name you want to assign to this permission set.
      */
     name?: pulumi.Input<string>;
+    permissionsBoundary?: pulumi.Input<inputs.sso.PermissionSetPermissionsBoundaryArgs>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
      */

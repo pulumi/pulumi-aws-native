@@ -21,6 +21,7 @@ class DataSetArgs:
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_usage_configuration: Optional[pulumi.Input['DataSetUsageConfigurationArgs']] = None,
                  field_folders: Optional[pulumi.Input['DataSetFieldFolderMapArgs']] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
@@ -45,6 +46,8 @@ class DataSetArgs:
             pulumi.set(__self__, "column_level_permission_rules", column_level_permission_rules)
         if data_set_id is not None:
             pulumi.set(__self__, "data_set_id", data_set_id)
+        if data_set_usage_configuration is not None:
+            pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
         if field_folders is not None:
             pulumi.set(__self__, "field_folders", field_folders)
         if import_mode is not None:
@@ -102,6 +105,15 @@ class DataSetArgs:
     @data_set_id.setter
     def data_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_set_id", value)
+
+    @property
+    @pulumi.getter(name="dataSetUsageConfiguration")
+    def data_set_usage_configuration(self) -> Optional[pulumi.Input['DataSetUsageConfigurationArgs']]:
+        return pulumi.get(self, "data_set_usage_configuration")
+
+    @data_set_usage_configuration.setter
+    def data_set_usage_configuration(self, value: Optional[pulumi.Input['DataSetUsageConfigurationArgs']]):
+        pulumi.set(self, "data_set_usage_configuration", value)
 
     @property
     @pulumi.getter(name="fieldFolders")
@@ -203,6 +215,7 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
@@ -251,6 +264,7 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
@@ -273,6 +287,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["column_groups"] = column_groups
             __props__.__dict__["column_level_permission_rules"] = column_level_permission_rules
             __props__.__dict__["data_set_id"] = data_set_id
+            __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
             __props__.__dict__["field_folders"] = field_folders
             __props__.__dict__["import_mode"] = import_mode
             __props__.__dict__["ingestion_wait_policy"] = ingestion_wait_policy
@@ -316,6 +331,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["consumed_spice_capacity_in_bytes"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["data_set_id"] = None
+        __props__.__dict__["data_set_usage_configuration"] = None
         __props__.__dict__["field_folders"] = None
         __props__.__dict__["import_mode"] = None
         __props__.__dict__["ingestion_wait_policy"] = None
@@ -376,6 +392,11 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter(name="dataSetUsageConfiguration")
+    def data_set_usage_configuration(self) -> pulumi.Output[Optional['outputs.DataSetUsageConfiguration']]:
+        return pulumi.get(self, "data_set_usage_configuration")
 
     @property
     @pulumi.getter(name="fieldFolders")

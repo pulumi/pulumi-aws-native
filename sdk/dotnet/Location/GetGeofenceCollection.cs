@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Location
         public readonly string? Arn;
         public readonly string? CollectionArn;
         public readonly string? CreateTime;
-        public readonly string? KmsKeyId;
+        public readonly string? PricingPlanDataSource;
         public readonly string? UpdateTime;
 
         [OutputConstructor]
@@ -65,14 +65,14 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
-            string? kmsKeyId,
+            string? pricingPlanDataSource,
 
             string? updateTime)
         {
             Arn = arn;
             CollectionArn = collectionArn;
             CreateTime = createTime;
-            KmsKeyId = kmsKeyId;
+            PricingPlanDataSource = pricingPlanDataSource;
             UpdateTime = updateTime;
         }
     }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class ConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customConnector")]
+        public Input<Inputs.ConnectorProfileCustomConnectorProfilePropertiesArgs>? CustomConnector { get; set; }
+
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfilePropertiesArgs>? Datadog { get; set; }
 

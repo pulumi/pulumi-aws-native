@@ -5,8 +5,10 @@
 from enum import Enum
 
 __all__ = [
+    'ConnectorProfileAuthenticationType',
     'ConnectorProfileConnectionMode',
     'ConnectorProfileConnectorType',
+    'ConnectorProfileOAuth2GrantType',
     'FlowAggregationType',
     'FlowAmplitudeConnectorOperator',
     'FlowConnectorType',
@@ -16,6 +18,7 @@ __all__ = [
     'FlowGoogleAnalyticsConnectorOperator',
     'FlowInforNexusConnectorOperator',
     'FlowMarketoConnectorOperator',
+    'FlowOperator',
     'FlowOperatorPropertiesKeys',
     'FlowPrefixFormat',
     'FlowPrefixType',
@@ -34,6 +37,13 @@ __all__ = [
     'FlowWriteOperationType',
     'FlowZendeskConnectorOperator',
 ]
+
+
+class ConnectorProfileAuthenticationType(str, Enum):
+    OAUTH2 = "OAUTH2"
+    APIKEY = "APIKEY"
+    BASIC = "BASIC"
+    CUSTOM = "CUSTOM"
 
 
 class ConnectorProfileConnectionMode(str, Enum):
@@ -61,6 +71,12 @@ class ConnectorProfileConnectorType(str, Enum):
     INFORNEXUS = "Infornexus"
     AMPLITUDE = "Amplitude"
     VEEVA = "Veeva"
+    CUSTOM_CONNECTOR = "CustomConnector"
+
+
+class ConnectorProfileOAuth2GrantType(str, Enum):
+    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
 
 
 class FlowAggregationType(str, Enum):
@@ -90,6 +106,7 @@ class FlowConnectorType(str, Enum):
     INFORNEXUS = "Infornexus"
     AMPLITUDE = "Amplitude"
     VEEVA = "Veeva"
+    CUSTOM_CONNECTOR = "CustomConnector"
     EVENT_BRIDGE = "EventBridge"
     UPSOLVER = "Upsolver"
     LOOKOUT_METRICS = "LookoutMetrics"
@@ -165,6 +182,30 @@ class FlowMarketoConnectorOperator(str, Enum):
     LESS_THAN = "LESS_THAN"
     GREATER_THAN = "GREATER_THAN"
     BETWEEN = "BETWEEN"
+    ADDITION = "ADDITION"
+    MULTIPLICATION = "MULTIPLICATION"
+    DIVISION = "DIVISION"
+    SUBTRACTION = "SUBTRACTION"
+    MASK_ALL = "MASK_ALL"
+    MASK_FIRST_N = "MASK_FIRST_N"
+    MASK_LAST_N = "MASK_LAST_N"
+    VALIDATE_NON_NULL = "VALIDATE_NON_NULL"
+    VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO"
+    VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE"
+    VALIDATE_NUMERIC = "VALIDATE_NUMERIC"
+    NO_OP = "NO_OP"
+
+
+class FlowOperator(str, Enum):
+    PROJECTION = "PROJECTION"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN = "GREATER_THAN"
+    CONTAINS = "CONTAINS"
+    BETWEEN = "BETWEEN"
+    LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO"
+    GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO"
+    EQUAL_TO = "EQUAL_TO"
+    NOT_EQUAL_TO = "NOT_EQUAL_TO"
     ADDITION = "ADDITION"
     MULTIPLICATION = "MULTIPLICATION"
     DIVISION = "DIVISION"
@@ -413,6 +454,7 @@ class FlowWriteOperationType(str, Enum):
     INSERT = "INSERT"
     UPSERT = "UPSERT"
     UPDATE = "UPDATE"
+    DELETE = "DELETE"
 
 
 class FlowZendeskConnectorOperator(str, Enum):

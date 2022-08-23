@@ -333,6 +333,39 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
     /// <summary>
+    /// The filter type you want to apply on organizational units and accounts.
+    /// </summary>
+    [EnumType]
+    public readonly struct StackSetDeploymentTargetsAccountFilterType : IEquatable<StackSetDeploymentTargetsAccountFilterType>
+    {
+        private readonly string _value;
+
+        private StackSetDeploymentTargetsAccountFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StackSetDeploymentTargetsAccountFilterType None { get; } = new StackSetDeploymentTargetsAccountFilterType("NONE");
+        public static StackSetDeploymentTargetsAccountFilterType Union { get; } = new StackSetDeploymentTargetsAccountFilterType("UNION");
+        public static StackSetDeploymentTargetsAccountFilterType Intersection { get; } = new StackSetDeploymentTargetsAccountFilterType("INTERSECTION");
+        public static StackSetDeploymentTargetsAccountFilterType Difference { get; } = new StackSetDeploymentTargetsAccountFilterType("DIFFERENCE");
+
+        public static bool operator ==(StackSetDeploymentTargetsAccountFilterType left, StackSetDeploymentTargetsAccountFilterType right) => left.Equals(right);
+        public static bool operator !=(StackSetDeploymentTargetsAccountFilterType left, StackSetDeploymentTargetsAccountFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(StackSetDeploymentTargetsAccountFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StackSetDeploymentTargetsAccountFilterType other && Equals(other);
+        public bool Equals(StackSetDeploymentTargetsAccountFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
     /// </summary>
     [EnumType]

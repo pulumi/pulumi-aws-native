@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.EC2
         public readonly string? LatestVersionNumber;
         public readonly Outputs.LaunchTemplateData? LaunchTemplateData;
         public readonly ImmutableArray<Outputs.LaunchTemplateTagSpecification> TagSpecifications;
+        public readonly string? VersionDescription;
 
         [OutputConstructor]
         private GetLaunchTemplateResult(
@@ -67,13 +68,16 @@ namespace Pulumi.AwsNative.EC2
 
             Outputs.LaunchTemplateData? launchTemplateData,
 
-            ImmutableArray<Outputs.LaunchTemplateTagSpecification> tagSpecifications)
+            ImmutableArray<Outputs.LaunchTemplateTagSpecification> tagSpecifications,
+
+            string? versionDescription)
         {
             DefaultVersionNumber = defaultVersionNumber;
             Id = id;
             LatestVersionNumber = latestVersionNumber;
             LaunchTemplateData = launchTemplateData;
             TagSpecifications = tagSpecifications;
+            VersionDescription = versionDescription;
         }
     }
 }

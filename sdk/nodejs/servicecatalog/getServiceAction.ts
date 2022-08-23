@@ -24,7 +24,6 @@ export interface GetServiceActionArgs {
 }
 
 export interface GetServiceActionResult {
-    readonly acceptLanguage?: enums.servicecatalog.ServiceActionAcceptLanguage;
     readonly definition?: outputs.servicecatalog.ServiceActionDefinitionParameter[];
     readonly definitionType?: enums.servicecatalog.ServiceActionDefinitionType;
     readonly description?: string;

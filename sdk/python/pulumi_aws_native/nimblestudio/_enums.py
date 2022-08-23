@@ -29,6 +29,13 @@ class LaunchProfileStreamingInstanceType(str, Enum):
     G4DN8XLARGE = "g4dn.8xlarge"
     G4DN12XLARGE = "g4dn.12xlarge"
     G4DN16XLARGE = "g4dn.16xlarge"
+    G34XLARGE = "g3.4xlarge"
+    G3S_XLARGE = "g3s.xlarge"
+    G5_XLARGE = "g5.xlarge"
+    G52XLARGE = "g5.2xlarge"
+    G54XLARGE = "g5.4xlarge"
+    G58XLARGE = "g5.8xlarge"
+    G516XLARGE = "g5.16xlarge"
 
 
 class LaunchProfileStreamingSessionStorageMode(str, Enum):

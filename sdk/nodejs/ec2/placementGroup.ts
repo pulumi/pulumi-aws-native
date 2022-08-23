@@ -39,6 +39,10 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly groupName!: pulumi.Output<string>;
     /**
+     * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
+     */
+    public readonly spreadLevel!: pulumi.Output<string | undefined>;
+    /**
      * The placement strategy.
      */
     public readonly strategy!: pulumi.Output<string | undefined>;
@@ -54,10 +58,12 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
             resourceInputs["groupName"] = undefined /*out*/;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["spreadLevel"] = undefined /*out*/;
             resourceInputs["strategy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -69,6 +75,10 @@ export class PlacementGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
+    /**
+     * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
+     */
+    spreadLevel?: pulumi.Input<string>;
     /**
      * The placement strategy.
      */

@@ -26,6 +26,7 @@ const (
 	KeySpecHmac256          = KeySpec("HMAC_256")
 	KeySpecHmac384          = KeySpec("HMAC_384")
 	KeySpecHmac512          = KeySpec("HMAC_512")
+	KeySpecSm2              = KeySpec("SM2")
 )
 
 func (KeySpec) ElementType() reflect.Type {

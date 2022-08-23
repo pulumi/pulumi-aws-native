@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'BotAliasStatus',
     'BotAudioRecognitionStrategy',
+    'BotMessageSelectionStrategy',
     'BotObfuscationSettingObfuscationSettingType',
     'BotSlotConstraint',
     'BotSlotValueResolutionStrategy',
@@ -25,6 +26,14 @@ class BotAudioRecognitionStrategy(str, Enum):
     Enables using slot values as a custom vocabulary when recognizing user utterances.
     """
     USE_SLOT_VALUES_AS_CUSTOM_VOCABULARY = "UseSlotValuesAsCustomVocabulary"
+
+
+class BotMessageSelectionStrategy(str, Enum):
+    """
+    Indicates how a message is selected from a message group among retries.
+    """
+    RANDOM = "Random"
+    ORDERED = "Ordered"
 
 
 class BotObfuscationSettingObfuscationSettingType(str, Enum):

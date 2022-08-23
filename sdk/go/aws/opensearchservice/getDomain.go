@@ -25,23 +25,24 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
-	AccessPolicies              interface{}                        `pulumi:"accessPolicies"`
-	AdvancedOptions             interface{}                        `pulumi:"advancedOptions"`
-	Arn                         *string                            `pulumi:"arn"`
-	ClusterConfig               *DomainClusterConfig               `pulumi:"clusterConfig"`
-	CognitoOptions              *DomainCognitoOptions              `pulumi:"cognitoOptions"`
-	DomainArn                   *string                            `pulumi:"domainArn"`
-	DomainEndpoint              *string                            `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       *DomainEndpointOptions             `pulumi:"domainEndpointOptions"`
-	DomainEndpoints             interface{}                        `pulumi:"domainEndpoints"`
-	EBSOptions                  *DomainEBSOptions                  `pulumi:"eBSOptions"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions     `pulumi:"encryptionAtRestOptions"`
-	EngineVersion               *string                            `pulumi:"engineVersion"`
-	Id                          *string                            `pulumi:"id"`
-	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
-	ServiceSoftwareOptions      *DomainServiceSoftwareOptions      `pulumi:"serviceSoftwareOptions"`
-	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
+	AccessPolicies              interface{}                         `pulumi:"accessPolicies"`
+	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
+	Arn                         *string                             `pulumi:"arn"`
+	ClusterConfig               *DomainClusterConfig                `pulumi:"clusterConfig"`
+	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
+	DomainArn                   *string                             `pulumi:"domainArn"`
+	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
+	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
+	DomainEndpoints             interface{}                         `pulumi:"domainEndpoints"`
+	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
+	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
+	EngineVersion               *string                             `pulumi:"engineVersion"`
+	Id                          *string                             `pulumi:"id"`
+	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
+	ServiceSoftwareOptions      *DomainServiceSoftwareOptions       `pulumi:"serviceSoftwareOptions"`
+	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
 	VPCOptions *DomainVPCOptions `pulumi:"vPCOptions"`
@@ -88,6 +89,10 @@ func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 
 func (o LookupDomainResultOutput) AdvancedOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AdvancedOptions }).(pulumi.AnyOutput)
+}
+
+func (o LookupDomainResultOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainAdvancedSecurityOptionsInput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Outputs
 {
 
+    /// <summary>
+    /// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+    /// </summary>
     [OutputType]
     public sealed class DBClusterRole
     {
+        /// <summary>
+        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
+        /// </summary>
         public readonly string? FeatureName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

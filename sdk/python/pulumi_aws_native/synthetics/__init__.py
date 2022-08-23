@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .canary import *
 from .get_canary import *
+from .get_group import *
+from .group import *
 from ._inputs import *
 from . import outputs

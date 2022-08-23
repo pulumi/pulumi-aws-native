@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+// Resource Type definition for AWS::RDS::DBParameterGroup
 func LookupDBParameterGroup(ctx *pulumi.Context, args *LookupDBParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupDBParameterGroupResult, error) {
 	var rv LookupDBParameterGroupResult
 	err := ctx.Invoke("aws-native:rds:getDBParameterGroup", args, &rv, opts...)
@@ -21,15 +21,15 @@ func LookupDBParameterGroup(ctx *pulumi.Context, args *LookupDBParameterGroupArg
 }
 
 type LookupDBParameterGroupArgs struct {
-	// Specifies the name of the DB parameter group
-	DBParameterGroupName string `pulumi:"dBParameterGroupName"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDBParameterGroupResult struct {
-	// Specifies the name of the DB parameter group
-	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
-	// An array of key-value pairs to apply to this resource.
-	Tags []DBParameterGroupTag `pulumi:"tags"`
+	Description *string               `pulumi:"description"`
+	Family      *string               `pulumi:"family"`
+	Id          *string               `pulumi:"id"`
+	Parameters  interface{}           `pulumi:"parameters"`
+	Tags        []DBParameterGroupTag `pulumi:"tags"`
 }
 
 func LookupDBParameterGroupOutput(ctx *pulumi.Context, args LookupDBParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDBParameterGroupResultOutput {
@@ -46,8 +46,7 @@ func LookupDBParameterGroupOutput(ctx *pulumi.Context, args LookupDBParameterGro
 }
 
 type LookupDBParameterGroupOutputArgs struct {
-	// Specifies the name of the DB parameter group
-	DBParameterGroupName pulumi.StringInput `pulumi:"dBParameterGroupName"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDBParameterGroupOutputArgs) ElementType() reflect.Type {
@@ -68,12 +67,22 @@ func (o LookupDBParameterGroupResultOutput) ToLookupDBParameterGroupResultOutput
 	return o
 }
 
-// Specifies the name of the DB parameter group
-func (o LookupDBParameterGroupResultOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBParameterGroupResult) *string { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBParameterGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBParameterGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+func (o LookupDBParameterGroupResultOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBParameterGroupResult) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDBParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDBParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDBParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
 func (o LookupDBParameterGroupResultOutput) Tags() DBParameterGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupDBParameterGroupResult) []DBParameterGroupTag { return v.Tags }).(DBParameterGroupTagArrayOutput)
 }

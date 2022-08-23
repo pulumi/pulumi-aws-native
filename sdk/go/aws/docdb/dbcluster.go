@@ -34,9 +34,13 @@ type DBCluster struct {
 	PreferredBackupWindow       pulumi.StringPtrOutput   `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
 	ReadEndpoint                pulumi.StringOutput      `pulumi:"readEndpoint"`
+	RestoreToTime               pulumi.StringPtrOutput   `pulumi:"restoreToTime"`
+	RestoreType                 pulumi.StringPtrOutput   `pulumi:"restoreType"`
 	SnapshotIdentifier          pulumi.StringPtrOutput   `pulumi:"snapshotIdentifier"`
+	SourceDBClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDBClusterIdentifier"`
 	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
 	Tags                        DBClusterTagArrayOutput  `pulumi:"tags"`
+	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -94,9 +98,13 @@ type dbclusterArgs struct {
 	Port                        *int           `pulumi:"port"`
 	PreferredBackupWindow       *string        `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  *string        `pulumi:"preferredMaintenanceWindow"`
+	RestoreToTime               *string        `pulumi:"restoreToTime"`
+	RestoreType                 *string        `pulumi:"restoreType"`
 	SnapshotIdentifier          *string        `pulumi:"snapshotIdentifier"`
+	SourceDBClusterIdentifier   *string        `pulumi:"sourceDBClusterIdentifier"`
 	StorageEncrypted            *bool          `pulumi:"storageEncrypted"`
 	Tags                        []DBClusterTag `pulumi:"tags"`
+	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         []string       `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -117,9 +125,13 @@ type DBClusterArgs struct {
 	Port                        pulumi.IntPtrInput
 	PreferredBackupWindow       pulumi.StringPtrInput
 	PreferredMaintenanceWindow  pulumi.StringPtrInput
+	RestoreToTime               pulumi.StringPtrInput
+	RestoreType                 pulumi.StringPtrInput
 	SnapshotIdentifier          pulumi.StringPtrInput
+	SourceDBClusterIdentifier   pulumi.StringPtrInput
 	StorageEncrypted            pulumi.BoolPtrInput
 	Tags                        DBClusterTagArrayInput
+	UseLatestRestorableTime     pulumi.BoolPtrInput
 	VpcSecurityGroupIds         pulumi.StringArrayInput
 }
 
@@ -232,8 +244,20 @@ func (o DBClusterOutput) ReadEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ReadEndpoint }).(pulumi.StringOutput)
 }
 
+func (o DBClusterOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
 func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o DBClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
@@ -242,6 +266,10 @@ func (o DBClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 
 func (o DBClusterOutput) Tags() DBClusterTagArrayOutput {
 	return o.ApplyT(func(v *DBCluster) DBClusterTagArrayOutput { return v.Tags }).(DBClusterTagArrayOutput)
+}
+
+func (o DBClusterOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
 
 func (o DBClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Outputs.WorkteamTag>> Tags { get; private set; } = null!;
 
+        [Output("workforceName")]
+        public Output<string?> WorkforceName { get; private set; } = null!;
+
         [Output("workteamName")]
         public Output<string?> WorkteamName { get; private set; } = null!;
 
@@ -97,6 +100,9 @@ namespace Pulumi.AwsNative.SageMaker
             get => _tags ?? (_tags = new InputList<Inputs.WorkteamTagArgs>());
             set => _tags = value;
         }
+
+        [Input("workforceName")]
+        public Input<string>? WorkforceName { get; set; }
 
         [Input("workteamName")]
         public Input<string>? WorkteamName { get; set; }

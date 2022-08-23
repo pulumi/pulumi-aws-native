@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Outputs
 {
 
+    /// <summary>
+    /// The OptionSetting property type specifies the value for an option within an OptionSetting property.
+    /// </summary>
     [OutputType]
     public sealed class OptionGroupOptionSetting
     {
+        /// <summary>
+        /// The name of the option that has settings that you can set.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The current value of the option setting.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

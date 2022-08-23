@@ -321,6 +321,38 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
     /// <summary>
+    /// Specifies how the application should be restored.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationRestoreConfigurationApplicationRestoreType : IEquatable<ApplicationRestoreConfigurationApplicationRestoreType>
+    {
+        private readonly string _value;
+
+        private ApplicationRestoreConfigurationApplicationRestoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationRestoreConfigurationApplicationRestoreType SkipRestoreFromSnapshot { get; } = new ApplicationRestoreConfigurationApplicationRestoreType("SKIP_RESTORE_FROM_SNAPSHOT");
+        public static ApplicationRestoreConfigurationApplicationRestoreType RestoreFromLatestSnapshot { get; } = new ApplicationRestoreConfigurationApplicationRestoreType("RESTORE_FROM_LATEST_SNAPSHOT");
+        public static ApplicationRestoreConfigurationApplicationRestoreType RestoreFromCustomSnapshot { get; } = new ApplicationRestoreConfigurationApplicationRestoreType("RESTORE_FROM_CUSTOM_SNAPSHOT");
+
+        public static bool operator ==(ApplicationRestoreConfigurationApplicationRestoreType left, ApplicationRestoreConfigurationApplicationRestoreType right) => left.Equals(right);
+        public static bool operator !=(ApplicationRestoreConfigurationApplicationRestoreType left, ApplicationRestoreConfigurationApplicationRestoreType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationRestoreConfigurationApplicationRestoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationRestoreConfigurationApplicationRestoreType other && Equals(other);
+        public bool Equals(ApplicationRestoreConfigurationApplicationRestoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
     /// </summary>
     [EnumType]

@@ -17,6 +17,7 @@ __all__ = [
     'HoursOfOperationConfigArgs',
     'HoursOfOperationTagArgs',
     'HoursOfOperationTimeSliceArgs',
+    'InstanceAttributesArgs',
     'PhoneNumberTagArgs',
     'QuickConnectConfigArgs',
     'QuickConnectPhoneNumberQuickConnectConfigArgs',
@@ -282,6 +283,93 @@ class HoursOfOperationTimeSliceArgs:
     @minutes.setter
     def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
+
+
+@pulumi.input_type
+class InstanceAttributesArgs:
+    def __init__(__self__, *,
+                 inbound_calls: pulumi.Input[bool],
+                 outbound_calls: pulumi.Input[bool],
+                 auto_resolve_best_voices: Optional[pulumi.Input[bool]] = None,
+                 contact_lens: Optional[pulumi.Input[bool]] = None,
+                 contactflow_logs: Optional[pulumi.Input[bool]] = None,
+                 early_media: Optional[pulumi.Input[bool]] = None,
+                 use_custom_tts_voices: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "inbound_calls", inbound_calls)
+        pulumi.set(__self__, "outbound_calls", outbound_calls)
+        if auto_resolve_best_voices is not None:
+            pulumi.set(__self__, "auto_resolve_best_voices", auto_resolve_best_voices)
+        if contact_lens is not None:
+            pulumi.set(__self__, "contact_lens", contact_lens)
+        if contactflow_logs is not None:
+            pulumi.set(__self__, "contactflow_logs", contactflow_logs)
+        if early_media is not None:
+            pulumi.set(__self__, "early_media", early_media)
+        if use_custom_tts_voices is not None:
+            pulumi.set(__self__, "use_custom_tts_voices", use_custom_tts_voices)
+
+    @property
+    @pulumi.getter(name="inboundCalls")
+    def inbound_calls(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "inbound_calls")
+
+    @inbound_calls.setter
+    def inbound_calls(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "inbound_calls", value)
+
+    @property
+    @pulumi.getter(name="outboundCalls")
+    def outbound_calls(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "outbound_calls")
+
+    @outbound_calls.setter
+    def outbound_calls(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "outbound_calls", value)
+
+    @property
+    @pulumi.getter(name="autoResolveBestVoices")
+    def auto_resolve_best_voices(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_resolve_best_voices")
+
+    @auto_resolve_best_voices.setter
+    def auto_resolve_best_voices(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_resolve_best_voices", value)
+
+    @property
+    @pulumi.getter(name="contactLens")
+    def contact_lens(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "contact_lens")
+
+    @contact_lens.setter
+    def contact_lens(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "contact_lens", value)
+
+    @property
+    @pulumi.getter(name="contactflowLogs")
+    def contactflow_logs(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "contactflow_logs")
+
+    @contactflow_logs.setter
+    def contactflow_logs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "contactflow_logs", value)
+
+    @property
+    @pulumi.getter(name="earlyMedia")
+    def early_media(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "early_media")
+
+    @early_media.setter
+    def early_media(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "early_media", value)
+
+    @property
+    @pulumi.getter(name="useCustomTTSVoices")
+    def use_custom_tts_voices(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_custom_tts_voices")
+
+    @use_custom_tts_voices.setter
+    def use_custom_tts_voices(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_custom_tts_voices", value)
 
 
 @pulumi.input_type

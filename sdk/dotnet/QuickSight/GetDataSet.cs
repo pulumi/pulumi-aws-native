@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        public readonly Outputs.DataSetUsageConfiguration? DataSetUsageConfiguration;
         public readonly Pulumi.AwsNative.QuickSight.DataSetImportMode? ImportMode;
         /// <summary>
         /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
@@ -113,6 +114,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             string? createdTime,
 
+            Outputs.DataSetUsageConfiguration? dataSetUsageConfiguration,
+
             Pulumi.AwsNative.QuickSight.DataSetImportMode? importMode,
 
             string? lastUpdatedTime,
@@ -136,6 +139,7 @@ namespace Pulumi.AwsNative.QuickSight
             ColumnLevelPermissionRules = columnLevelPermissionRules;
             ConsumedSpiceCapacityInBytes = consumedSpiceCapacityInBytes;
             CreatedTime = createdTime;
+            DataSetUsageConfiguration = dataSetUsageConfiguration;
             ImportMode = importMode;
             LastUpdatedTime = lastUpdatedTime;
             LogicalTableMap = logicalTableMap;

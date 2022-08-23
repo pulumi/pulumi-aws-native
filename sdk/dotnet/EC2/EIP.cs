@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
+        [Output("networkBorderGroup")]
+        public Output<string?> NetworkBorderGroup { get; private set; } = null!;
+
         [Output("publicIpv4Pool")]
         public Output<string?> PublicIpv4Pool { get; private set; } = null!;
 
@@ -81,6 +84,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("networkBorderGroup")]
+        public Input<string>? NetworkBorderGroup { get; set; }
 
         [Input("publicIpv4Pool")]
         public Input<string>? PublicIpv4Pool { get; set; }

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// AWS::NetworkManager::ConnectPeer Resource Type Definition.
     /// </summary>
-    [Obsolete(@"ConnectPeer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:networkmanager:ConnectPeer")]
     public partial class ConnectPeer : global::Pulumi.CustomResource
     {

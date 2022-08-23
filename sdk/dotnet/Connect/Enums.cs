@@ -175,6 +175,70 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// Specifies the type of directory integration for new instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceIdentityManagementType : IEquatable<InstanceIdentityManagementType>
+    {
+        private readonly string _value;
+
+        private InstanceIdentityManagementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceIdentityManagementType Saml { get; } = new InstanceIdentityManagementType("SAML");
+        public static InstanceIdentityManagementType ConnectManaged { get; } = new InstanceIdentityManagementType("CONNECT_MANAGED");
+        public static InstanceIdentityManagementType ExistingDirectory { get; } = new InstanceIdentityManagementType("EXISTING_DIRECTORY");
+
+        public static bool operator ==(InstanceIdentityManagementType left, InstanceIdentityManagementType right) => left.Equals(right);
+        public static bool operator !=(InstanceIdentityManagementType left, InstanceIdentityManagementType right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceIdentityManagementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceIdentityManagementType other && Equals(other);
+        public bool Equals(InstanceIdentityManagementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the creation status of new instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceStatus : IEquatable<InstanceStatus>
+    {
+        private readonly string _value;
+
+        private InstanceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceStatus CreationInProgress { get; } = new InstanceStatus("CREATION_IN_PROGRESS");
+        public static InstanceStatus CreationFailed { get; } = new InstanceStatus("CREATION_FAILED");
+        public static InstanceStatus Active { get; } = new InstanceStatus("ACTIVE");
+
+        public static bool operator ==(InstanceStatus left, InstanceStatus right) => left.Equals(right);
+        public static bool operator !=(InstanceStatus left, InstanceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceStatus other && Equals(other);
+        public bool Equals(InstanceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     /// </summary>
     [EnumType]

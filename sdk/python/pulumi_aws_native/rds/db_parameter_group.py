@@ -22,10 +22,6 @@ class DBParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBParameterGroup resource.
-        :param pulumi.Input[str] description: Provides the customer-specified description for this DB parameter group.
-        :param pulumi.Input[str] family: The DB parameter group family name.
-        :param Any parameters: An array of parameter names and values for the parameter update.
-        :param pulumi.Input[Sequence[pulumi.Input['DBParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
@@ -37,9 +33,6 @@ class DBParameterGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
-        """
-        Provides the customer-specified description for this DB parameter group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -49,9 +42,6 @@ class DBParameterGroupArgs:
     @property
     @pulumi.getter
     def family(self) -> pulumi.Input[str]:
-        """
-        The DB parameter group family name.
-        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -61,9 +51,6 @@ class DBParameterGroupArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
-        """
-        An array of parameter names and values for the parameter update.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -73,9 +60,6 @@ class DBParameterGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBParameterGroupTagArgs']]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -83,7 +67,12 @@ class DBParameterGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class DBParameterGroup(pulumi.CustomResource):
+    warnings.warn("""DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -94,14 +83,10 @@ class DBParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBParameterGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+        Resource Type definition for AWS::RDS::DBParameterGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Provides the customer-specified description for this DB parameter group.
-        :param pulumi.Input[str] family: The DB parameter group family name.
-        :param Any parameters: An array of parameter names and values for the parameter update.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -110,7 +95,7 @@ class DBParameterGroup(pulumi.CustomResource):
                  args: DBParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+        Resource Type definition for AWS::RDS::DBParameterGroup
 
         :param str resource_name: The name of the resource.
         :param DBParameterGroupArgs args: The arguments to use to populate this resource's properties.
@@ -132,6 +117,7 @@ class DBParameterGroup(pulumi.CustomResource):
                  parameters: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBParameterGroupTagArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DBParameterGroup is deprecated: DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -148,7 +134,6 @@ class DBParameterGroup(pulumi.CustomResource):
             __props__.__dict__["family"] = family
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["d_b_parameter_group_name"] = None
         super(DBParameterGroup, __self__).__init__(
             'aws-native:rds:DBParameterGroup',
             resource_name,
@@ -171,7 +156,6 @@ class DBParameterGroup(pulumi.CustomResource):
 
         __props__ = DBParameterGroupArgs.__new__(DBParameterGroupArgs)
 
-        __props__.__dict__["d_b_parameter_group_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["parameters"] = None
@@ -179,42 +163,22 @@ class DBParameterGroup(pulumi.CustomResource):
         return DBParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the name of the DB parameter group
-        """
-        return pulumi.get(self, "d_b_parameter_group_name")
-
-    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
-        """
-        Provides the customer-specified description for this DB parameter group.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def family(self) -> pulumi.Output[str]:
-        """
-        The DB parameter group family name.
-        """
         return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
-        """
-        An array of parameter names and values for the parameter update.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBParameterGroupTag']]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
         return pulumi.get(self, "tags")
 

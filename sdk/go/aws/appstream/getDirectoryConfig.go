@@ -21,11 +21,10 @@ func LookupDirectoryConfig(ctx *pulumi.Context, args *LookupDirectoryConfigArgs,
 }
 
 type LookupDirectoryConfigArgs struct {
-	Id string `pulumi:"id"`
+	DirectoryName string `pulumi:"directoryName"`
 }
 
 type LookupDirectoryConfigResult struct {
-	Id                                   *string                                   `pulumi:"id"`
 	OrganizationalUnitDistinguishedNames []string                                  `pulumi:"organizationalUnitDistinguishedNames"`
 	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
@@ -44,7 +43,7 @@ func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfig
 }
 
 type LookupDirectoryConfigOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	DirectoryName pulumi.StringInput `pulumi:"directoryName"`
 }
 
 func (LookupDirectoryConfigOutputArgs) ElementType() reflect.Type {
@@ -63,10 +62,6 @@ func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutput()
 
 func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutputWithContext(ctx context.Context) LookupDirectoryConfigResultOutput {
 	return o
-}
-
-func (o LookupDirectoryConfigResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDirectoryConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDirectoryConfigResultOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {

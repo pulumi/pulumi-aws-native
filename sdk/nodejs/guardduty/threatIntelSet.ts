@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +43,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.ThreatIntelSetTag[] | undefined>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -73,12 +75,14 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["activate"] = undefined /*out*/;
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
@@ -94,4 +98,5 @@ export interface ThreatIntelSetArgs {
     format: pulumi.Input<string>;
     location: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.ThreatIntelSetTagArgs>[]>;
 }

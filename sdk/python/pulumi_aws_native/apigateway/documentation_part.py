@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DocumentationPartArgs', 'DocumentationPart']
@@ -21,6 +22,9 @@ class DocumentationPartArgs:
                  rest_api_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a DocumentationPart resource.
+        :param pulumi.Input['DocumentationPartLocationArgs'] location: The location of the API entity that the documentation applies to.
+        :param pulumi.Input[str] properties: The documentation content map of the targeted API entity.
+        :param pulumi.Input[str] rest_api_id: Identifier of the targeted API entity
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "properties", properties)
@@ -29,6 +33,9 @@ class DocumentationPartArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input['DocumentationPartLocationArgs']:
+        """
+        The location of the API entity that the documentation applies to.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -38,6 +45,9 @@ class DocumentationPartArgs:
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Input[str]:
+        """
+        The documentation content map of the targeted API entity.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -47,6 +57,9 @@ class DocumentationPartArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the targeted API entity
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -54,12 +67,7 @@ class DocumentationPartArgs:
         pulumi.set(self, "rest_api_id", value)
 
 
-warnings.warn("""DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DocumentationPart(pulumi.CustomResource):
-    warnings.warn("""DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -73,6 +81,9 @@ class DocumentationPart(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the API entity that the documentation applies to.
+        :param pulumi.Input[str] properties: The documentation content map of the targeted API entity.
+        :param pulumi.Input[str] rest_api_id: Identifier of the targeted API entity
         """
         ...
     @overload
@@ -102,7 +113,6 @@ class DocumentationPart(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DocumentationPart is deprecated: DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -120,6 +130,7 @@ class DocumentationPart(pulumi.CustomResource):
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
+            __props__.__dict__["documentation_part_id"] = None
         super(DocumentationPart, __self__).__init__(
             'aws-native:apigateway:DocumentationPart',
             resource_name,
@@ -142,23 +153,41 @@ class DocumentationPart(pulumi.CustomResource):
 
         __props__ = DocumentationPartArgs.__new__(DocumentationPartArgs)
 
+        __props__.__dict__["documentation_part_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["rest_api_id"] = None
         return DocumentationPart(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="documentationPartId")
+    def documentation_part_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the documentation Part.
+        """
+        return pulumi.get(self, "documentation_part_id")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.DocumentationPartLocation']:
+        """
+        The location of the API entity that the documentation applies to.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Output[str]:
+        """
+        The documentation content map of the targeted API entity.
+        """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of the targeted API entity
+        """
         return pulumi.get(self, "rest_api_id")
 

@@ -21,7 +21,8 @@ class FilterArgs:
                  detector_id: pulumi.Input[str],
                  finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
                  rank: pulumi.Input[int],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
         """
@@ -32,6 +33,8 @@ class FilterArgs:
         pulumi.set(__self__, "rank", rank)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -87,6 +90,15 @@ class FilterArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -104,6 +116,7 @@ class Filter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Filter
@@ -141,6 +154,7 @@ class Filter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Filter is deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -167,6 +181,7 @@ class Filter(pulumi.CustomResource):
             if rank is None and not opts.urn:
                 raise TypeError("Missing required property 'rank'")
             __props__.__dict__["rank"] = rank
+            __props__.__dict__["tags"] = tags
         super(Filter, __self__).__init__(
             'aws-native:guardduty:Filter',
             resource_name,
@@ -195,6 +210,7 @@ class Filter(pulumi.CustomResource):
         __props__.__dict__["finding_criteria"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rank"] = None
+        __props__.__dict__["tags"] = None
         return Filter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -226,4 +242,9 @@ class Filter(pulumi.CustomResource):
     @pulumi.getter
     def rank(self) -> pulumi.Output[int]:
         return pulumi.get(self, "rank")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FilterTag']]]:
+        return pulumi.get(self, "tags")
 

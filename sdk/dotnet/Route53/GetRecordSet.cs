@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.Route53
     public sealed class GetRecordSetResult
     {
         public readonly Outputs.RecordSetAliasTarget? AliasTarget;
+        public readonly Outputs.RecordSetCidrRoutingConfig? CidrRoutingConfig;
         public readonly string? Comment;
         public readonly string? Failover;
         public readonly Outputs.RecordSetGeoLocation? GeoLocation;
@@ -68,6 +69,8 @@ namespace Pulumi.AwsNative.Route53
         [OutputConstructor]
         private GetRecordSetResult(
             Outputs.RecordSetAliasTarget? aliasTarget,
+
+            Outputs.RecordSetCidrRoutingConfig? cidrRoutingConfig,
 
             string? comment,
 
@@ -94,6 +97,7 @@ namespace Pulumi.AwsNative.Route53
             int? weight)
         {
             AliasTarget = aliasTarget;
+            CidrRoutingConfig = cidrRoutingConfig;
             Comment = comment;
             Failover = failover;
             GeoLocation = geoLocation;

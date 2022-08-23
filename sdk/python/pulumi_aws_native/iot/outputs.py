@@ -18,6 +18,8 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTarget',
     'AccountAuditConfigurationAuditNotificationTargetConfigurations',
     'AuthorizerTag',
+    'CACertificateRegistrationConfig',
+    'CACertificateTag',
     'CustomMetricTag',
     'DimensionTag',
     'DomainConfigurationAuthorizerConfig',
@@ -414,6 +416,89 @@ class AuthorizerTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CACertificateRegistrationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "templateBody":
+            suggest = "template_body"
+        elif key == "templateName":
+            suggest = "template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CACertificateRegistrationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CACertificateRegistrationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CACertificateRegistrationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: Optional[str] = None,
+                 template_body: Optional[str] = None,
+                 template_name: Optional[str] = None):
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[str]:
+        return pulumi.get(self, "template_body")
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[str]:
+        return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class CACertificateTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 

@@ -1794,9 +1794,9 @@ func (o FrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) Fram
 // A key-value pair to associate with a resource.
 type FrameworkTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
+	Key *string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // FrameworkTagInput is an input type that accepts FrameworkTagArgs and FrameworkTagOutput values.
@@ -1813,9 +1813,9 @@ type FrameworkTagInput interface {
 // A key-value pair to associate with a resource.
 type FrameworkTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (FrameworkTagArgs) ElementType() reflect.Type {
@@ -1871,13 +1871,13 @@ func (o FrameworkTagOutput) ToFrameworkTagOutputWithContext(ctx context.Context)
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FrameworkTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FrameworkTag) string { return v.Key }).(pulumi.StringOutput)
+func (o FrameworkTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrameworkTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FrameworkTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FrameworkTag) string { return v.Value }).(pulumi.StringOutput)
+func (o FrameworkTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrameworkTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type FrameworkTagArrayOutput struct{ *pulumi.OutputState }

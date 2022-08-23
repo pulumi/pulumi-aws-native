@@ -12,5 +12,7 @@ from .configuration import *
 from .get_batch_scram_secret import *
 from .get_cluster import *
 from .get_configuration import *
+from .get_serverless_cluster import *
+from .serverless_cluster import *
 from ._inputs import *
 from . import outputs

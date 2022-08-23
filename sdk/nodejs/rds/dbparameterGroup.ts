@@ -6,7 +6,9 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+ * Resource Type definition for AWS::RDS::DBParameterGroup
+ *
+ * @deprecated DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class DBParameterGroup extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class DBParameterGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DBParameterGroup {
+        pulumi.log.warn("DBParameterGroup is deprecated: DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DBParameterGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -35,25 +38,9 @@ export class DBParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBParameterGroup.__pulumiType;
     }
 
-    /**
-     * Specifies the name of the DB parameter group
-     */
-    public /*out*/ readonly dBParameterGroupName!: pulumi.Output<string>;
-    /**
-     * Provides the customer-specified description for this DB parameter group.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The DB parameter group family name.
-     */
     public readonly family!: pulumi.Output<string>;
-    /**
-     * An array of parameter names and values for the parameter update.
-     */
     public readonly parameters!: pulumi.Output<any | undefined>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
     public readonly tags!: pulumi.Output<outputs.rds.DBParameterGroupTag[] | undefined>;
 
     /**
@@ -63,7 +50,9 @@ export class DBParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DBParameterGroup is deprecated: DBParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,9 +66,7 @@ export class DBParameterGroup extends pulumi.CustomResource {
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
         } else {
-            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
@@ -94,20 +81,8 @@ export class DBParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBParameterGroup resource.
  */
 export interface DBParameterGroupArgs {
-    /**
-     * Provides the customer-specified description for this DB parameter group.
-     */
     description: pulumi.Input<string>;
-    /**
-     * The DB parameter group family name.
-     */
     family: pulumi.Input<string>;
-    /**
-     * An array of parameter names and values for the parameter update.
-     */
     parameters?: any;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBParameterGroupTagArgs>[]>;
 }

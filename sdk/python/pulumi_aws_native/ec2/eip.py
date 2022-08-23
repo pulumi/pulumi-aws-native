@@ -18,6 +18,7 @@ class EIPArgs:
     def __init__(__self__, *,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EIPTagArgs']]]] = None):
         """
@@ -27,6 +28,8 @@ class EIPArgs:
             pulumi.set(__self__, "domain", domain)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if network_border_group is not None:
+            pulumi.set(__self__, "network_border_group", network_border_group)
         if public_ipv4_pool is not None:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
@@ -49,6 +52,15 @@ class EIPArgs:
     @instance_id.setter
     def instance_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="networkBorderGroup")
+    def network_border_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_border_group")
+
+    @network_border_group.setter
+    def network_border_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_border_group", value)
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
@@ -81,6 +93,7 @@ class EIP(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EIPTagArgs']]]]] = None,
                  __props__=None):
@@ -116,6 +129,7 @@ class EIP(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EIPTagArgs']]]]] = None,
                  __props__=None):
@@ -130,6 +144,7 @@ class EIP(pulumi.CustomResource):
 
             __props__.__dict__["domain"] = domain
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["network_border_group"] = network_border_group
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocation_id"] = None
@@ -158,6 +173,7 @@ class EIP(pulumi.CustomResource):
         __props__.__dict__["allocation_id"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["instance_id"] = None
+        __props__.__dict__["network_border_group"] = None
         __props__.__dict__["public_ipv4_pool"] = None
         __props__.__dict__["tags"] = None
         return EIP(resource_name, opts=opts, __props__=__props__)
@@ -176,6 +192,11 @@ class EIP(pulumi.CustomResource):
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="networkBorderGroup")
+    def network_border_group(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "network_border_group")
 
     @property
     @pulumi.getter(name="publicIpv4Pool")

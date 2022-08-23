@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Lambda
     public partial class EventSourceMapping : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specific configuration settings for an MSK event source.
+        /// </summary>
+        [Output("amazonManagedKafkaEventSourceConfig")]
+        public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig?> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
         [Output("batchSize")]
@@ -100,6 +106,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.EventSourceMappingSelfManagedEventSource?> SelfManagedEventSource { get; private set; } = null!;
 
         /// <summary>
+        /// Specific configuration settings for a Self-Managed Apache Kafka event source.
+        /// </summary>
+        [Output("selfManagedKafkaEventSourceConfig")]
+        public Output<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig?> SelfManagedKafkaEventSourceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// A list of SourceAccessConfiguration.
         /// </summary>
         [Output("sourceAccessConfigurations")]
@@ -174,6 +186,12 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class EventSourceMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specific configuration settings for an MSK event source.
+        /// </summary>
+        [Input("amazonManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
+
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
@@ -269,6 +287,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("selfManagedEventSource")]
         public Input<Inputs.EventSourceMappingSelfManagedEventSourceArgs>? SelfManagedEventSource { get; set; }
+
+        /// <summary>
+        /// Specific configuration settings for a Self-Managed Apache Kafka event source.
+        /// </summary>
+        [Input("selfManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>? SelfManagedKafkaEventSourceConfig { get; set; }
 
         [Input("sourceAccessConfigurations")]
         private InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? _sourceAccessConfigurations;

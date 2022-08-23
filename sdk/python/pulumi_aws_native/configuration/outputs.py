@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'AggregationAuthorizationTag',
+    'ConfigRuleCustomPolicyDetails',
     'ConfigRuleScope',
     'ConfigRuleSource',
     'ConfigRuleSourceDetail',
@@ -27,6 +28,7 @@ __all__ = [
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationSsmControls',
     'StoredQueryTag',
+    'TemplateSSMDocumentDetailsProperties',
 ]
 
 @pulumi.output_type
@@ -60,6 +62,56 @@ class AggregationAuthorizationTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfigRuleCustomPolicyDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDebugLogDelivery":
+            suggest = "enable_debug_log_delivery"
+        elif key == "policyRuntime":
+            suggest = "policy_runtime"
+        elif key == "policyText":
+            suggest = "policy_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigRuleCustomPolicyDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigRuleCustomPolicyDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigRuleCustomPolicyDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_debug_log_delivery: Optional[bool] = None,
+                 policy_runtime: Optional[str] = None,
+                 policy_text: Optional[str] = None):
+        if enable_debug_log_delivery is not None:
+            pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
+        if policy_runtime is not None:
+            pulumi.set(__self__, "policy_runtime", policy_runtime)
+        if policy_text is not None:
+            pulumi.set(__self__, "policy_text", policy_text)
+
+    @property
+    @pulumi.getter(name="enableDebugLogDelivery")
+    def enable_debug_log_delivery(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_debug_log_delivery")
+
+    @property
+    @pulumi.getter(name="policyRuntime")
+    def policy_runtime(self) -> Optional[str]:
+        return pulumi.get(self, "policy_runtime")
+
+    @property
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> Optional[str]:
+        return pulumi.get(self, "policy_text")
 
 
 @pulumi.output_type
@@ -127,10 +179,12 @@ class ConfigRuleSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceIdentifier":
-            suggest = "source_identifier"
+        if key == "customPolicyDetails":
+            suggest = "custom_policy_details"
         elif key == "sourceDetails":
             suggest = "source_details"
+        elif key == "sourceIdentifier":
+            suggest = "source_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigRuleSource. Access the value via the '{suggest}' property getter instead.")
@@ -145,12 +199,16 @@ class ConfigRuleSource(dict):
 
     def __init__(__self__, *,
                  owner: str,
-                 source_identifier: str,
-                 source_details: Optional[Sequence['outputs.ConfigRuleSourceDetail']] = None):
+                 custom_policy_details: Optional['outputs.ConfigRuleCustomPolicyDetails'] = None,
+                 source_details: Optional[Sequence['outputs.ConfigRuleSourceDetail']] = None,
+                 source_identifier: Optional[str] = None):
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "source_identifier", source_identifier)
+        if custom_policy_details is not None:
+            pulumi.set(__self__, "custom_policy_details", custom_policy_details)
         if source_details is not None:
             pulumi.set(__self__, "source_details", source_details)
+        if source_identifier is not None:
+            pulumi.set(__self__, "source_identifier", source_identifier)
 
     @property
     @pulumi.getter
@@ -158,14 +216,19 @@ class ConfigRuleSource(dict):
         return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter(name="sourceIdentifier")
-    def source_identifier(self) -> str:
-        return pulumi.get(self, "source_identifier")
+    @pulumi.getter(name="customPolicyDetails")
+    def custom_policy_details(self) -> Optional['outputs.ConfigRuleCustomPolicyDetails']:
+        return pulumi.get(self, "custom_policy_details")
 
     @property
     @pulumi.getter(name="sourceDetails")
     def source_details(self) -> Optional[Sequence['outputs.ConfigRuleSourceDetail']]:
         return pulumi.get(self, "source_details")
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "source_identifier")
 
 
 @pulumi.output_type
@@ -819,5 +882,51 @@ class StoredQueryTag(dict):
         The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TemplateSSMDocumentDetailsProperties(dict):
+    """
+    The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentName":
+            suggest = "document_name"
+        elif key == "documentVersion":
+            suggest = "document_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSSMDocumentDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSSMDocumentDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSSMDocumentDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_name: Optional[str] = None,
+                 document_version: Optional[str] = None):
+        """
+        The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        """
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[str]:
+        return pulumi.get(self, "document_name")
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        return pulumi.get(self, "document_version")
 
 

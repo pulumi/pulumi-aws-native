@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSetResult:
-    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, tags=None):
+    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_usage_configuration=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetDataSetResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if data_set_usage_configuration and not isinstance(data_set_usage_configuration, dict):
+            raise TypeError("Expected argument 'data_set_usage_configuration' to be a dict")
+        pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
         if import_mode and not isinstance(import_mode, str):
             raise TypeError("Expected argument 'import_mode' to be a str")
         pulumi.set(__self__, "import_mode", import_mode)
@@ -101,6 +104,11 @@ class GetDataSetResult:
         <p>The time that this dataset was created.</p>
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="dataSetUsageConfiguration")
+    def data_set_usage_configuration(self) -> Optional['outputs.DataSetUsageConfiguration']:
+        return pulumi.get(self, "data_set_usage_configuration")
 
     @property
     @pulumi.getter(name="importMode")
@@ -175,6 +183,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             column_level_permission_rules=self.column_level_permission_rules,
             consumed_spice_capacity_in_bytes=self.consumed_spice_capacity_in_bytes,
             created_time=self.created_time,
+            data_set_usage_configuration=self.data_set_usage_configuration,
             import_mode=self.import_mode,
             last_updated_time=self.last_updated_time,
             logical_table_map=self.logical_table_map,
@@ -204,6 +213,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
         column_level_permission_rules=__ret__.column_level_permission_rules,
         consumed_spice_capacity_in_bytes=__ret__.consumed_spice_capacity_in_bytes,
         created_time=__ret__.created_time,
+        data_set_usage_configuration=__ret__.data_set_usage_configuration,
         import_mode=__ret__.import_mode,
         last_updated_time=__ret__.last_updated_time,
         logical_table_map=__ret__.logical_table_map,

@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly ImmutableArray<string> AdditionalCodeRepositories;
         public readonly string? DefaultCodeRepository;
         public readonly string? Id;
+        public readonly Outputs.NotebookInstanceInstanceMetadataServiceConfiguration? InstanceMetadataServiceConfiguration;
         public readonly string? InstanceType;
         public readonly string? LifecycleConfigName;
         public readonly string? RoleArn;
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? id,
 
+            Outputs.NotebookInstanceInstanceMetadataServiceConfiguration? instanceMetadataServiceConfiguration,
+
             string? instanceType,
 
             string? lifecycleConfigName,
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.SageMaker
             AdditionalCodeRepositories = additionalCodeRepositories;
             DefaultCodeRepository = defaultCodeRepository;
             Id = id;
+            InstanceMetadataServiceConfiguration = instanceMetadataServiceConfiguration;
             InstanceType = instanceType;
             LifecycleConfigName = lifecycleConfigName;
             RoleArn = roleArn;

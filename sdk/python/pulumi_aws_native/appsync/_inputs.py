@@ -22,11 +22,12 @@ __all__ = [
     'DataSourceRelationalDatabaseConfigArgs',
     'FunctionConfigurationLambdaConflictHandlerConfigArgs',
     'FunctionConfigurationSyncConfigArgs',
-    'GraphQLApiAdditionalAuthenticationProvidersArgs',
+    'GraphQLApiAdditionalAuthenticationProviderArgs',
+    'GraphQLApiCognitoUserPoolConfigArgs',
     'GraphQLApiLambdaAuthorizerConfigArgs',
     'GraphQLApiLogConfigArgs',
     'GraphQLApiOpenIDConnectConfigArgs',
-    'GraphQLApiTagsArgs',
+    'GraphQLApiTagArgs',
     'GraphQLApiUserPoolConfigArgs',
     'ResolverCachingConfigArgs',
     'ResolverLambdaConflictHandlerConfigArgs',
@@ -438,9 +439,96 @@ class FunctionConfigurationSyncConfigArgs:
 
 
 @pulumi.input_type
-class GraphQLApiAdditionalAuthenticationProvidersArgs:
-    def __init__(__self__):
-        pass
+class GraphQLApiAdditionalAuthenticationProviderArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
+                 open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQLApiCognitoUserPoolConfigArgs']] = None):
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if user_pool_config is not None:
+            pulumi.set(__self__, "user_pool_config", user_pool_config)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
+
+    @property
+    @pulumi.getter(name="openIDConnectConfig")
+    def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]:
+        return pulumi.get(self, "open_id_connect_config")
+
+    @open_id_connect_config.setter
+    def open_id_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]):
+        pulumi.set(self, "open_id_connect_config", value)
+
+    @property
+    @pulumi.getter(name="userPoolConfig")
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiCognitoUserPoolConfigArgs']]:
+        return pulumi.get(self, "user_pool_config")
+
+    @user_pool_config.setter
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiCognitoUserPoolConfigArgs']]):
+        pulumi.set(self, "user_pool_config", value)
+
+
+@pulumi.input_type
+class GraphQLApiCognitoUserPoolConfigArgs:
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[pulumi.Input[str]] = None,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None):
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id_client_regex")
+
+    @app_id_client_regex.setter
+    def app_id_client_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id_client_regex", value)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
 
 
 @pulumi.input_type
@@ -579,9 +667,30 @@ class GraphQLApiOpenIDConnectConfigArgs:
 
 
 @pulumi.input_type
-class GraphQLApiTagsArgs:
-    def __init__(__self__):
-        pass
+class GraphQLApiTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

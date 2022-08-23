@@ -26,6 +26,8 @@ type ConformancePack struct {
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
+	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+	TemplateSSMDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrOutput `pulumi:"templateSSMDocumentDetails"`
 }
 
 // NewConformancePack registers a new resource with the given unique name, arguments, and options.
@@ -79,6 +81,8 @@ type conformancePackArgs struct {
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri *string `pulumi:"templateS3Uri"`
+	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+	TemplateSSMDocumentDetails *TemplateSSMDocumentDetailsProperties `pulumi:"templateSSMDocumentDetails"`
 }
 
 // The set of arguments for constructing a ConformancePack resource.
@@ -95,6 +99,8 @@ type ConformancePackArgs struct {
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri pulumi.StringPtrInput
+	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+	TemplateSSMDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrInput
 }
 
 func (ConformancePackArgs) ElementType() reflect.Type {
@@ -164,6 +170,13 @@ func (o ConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
 // Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 func (o ConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+func (o ConformancePackOutput) TemplateSSMDocumentDetails() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConformancePack) TemplateSSMDocumentDetailsPropertiesPtrOutput {
+		return v.TemplateSSMDocumentDetails
+	}).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
 }
 
 func init() {

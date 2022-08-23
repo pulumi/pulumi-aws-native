@@ -51,7 +51,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [OutputType]
     public sealed class GetServiceActionResult
     {
-        public readonly Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage? AcceptLanguage;
         public readonly ImmutableArray<Outputs.ServiceActionDefinitionParameter> Definition;
         public readonly Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType? DefinitionType;
         public readonly string? Description;
@@ -60,8 +59,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         [OutputConstructor]
         private GetServiceActionResult(
-            Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage? acceptLanguage,
-
             ImmutableArray<Outputs.ServiceActionDefinitionParameter> definition,
 
             Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType? definitionType,
@@ -72,7 +69,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? name)
         {
-            AcceptLanguage = acceptLanguage;
             Definition = definition;
             DefinitionType = definitionType;
             Description = description;

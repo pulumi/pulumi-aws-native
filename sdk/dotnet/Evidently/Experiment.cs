@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Evidently
         [Output("randomizationSalt")]
         public Output<string?> RandomizationSalt { get; private set; } = null!;
 
+        [Output("removeSegment")]
+        public Output<bool?> RemoveSegment { get; private set; } = null!;
+
         /// <summary>
         /// Start Experiment. Default is False
         /// </summary>
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Evidently
 
         [Output("samplingRate")]
         public Output<int?> SamplingRate { get; private set; } = null!;
+
+        [Output("segment")]
+        public Output<string?> Segment { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -122,6 +128,9 @@ namespace Pulumi.AwsNative.Evidently
         [Input("randomizationSalt")]
         public Input<string>? RandomizationSalt { get; set; }
 
+        [Input("removeSegment")]
+        public Input<bool>? RemoveSegment { get; set; }
+
         /// <summary>
         /// Start Experiment. Default is False
         /// </summary>
@@ -130,6 +139,9 @@ namespace Pulumi.AwsNative.Evidently
 
         [Input("samplingRate")]
         public Input<int>? SamplingRate { get; set; }
+
+        [Input("segment")]
+        public Input<string>? Segment { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ExperimentTagArgs>? _tags;

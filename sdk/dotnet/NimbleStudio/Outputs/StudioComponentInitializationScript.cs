@@ -17,7 +17,8 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     public sealed class StudioComponentInitializationScript
     {
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".&lt;/p&gt;
+        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
+        ///             version is "2021-03-31".&lt;/p&gt;
         /// </summary>
         public readonly string? LaunchProfileProtocolVersion;
         public readonly Pulumi.AwsNative.NimbleStudio.StudioComponentLaunchProfilePlatform? Platform;

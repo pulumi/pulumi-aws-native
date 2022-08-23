@@ -2154,6 +2154,8 @@ class RuleGroupSqliMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "sensitivityLevel":
+            suggest = "sensitivity_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -2168,12 +2170,15 @@ class RuleGroupSqliMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
-                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None):
         """
         Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -2184,6 +2189,11 @@ class RuleGroupSqliMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
         return pulumi.get(self, "text_transformations")
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional['RuleGroupSensitivityLevel']:
+        return pulumi.get(self, "sensitivity_level")
 
 
 @pulumi.output_type
@@ -4301,6 +4311,8 @@ class WebACLSqliMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "sensitivityLevel":
+            suggest = "sensitivity_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebACLSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4315,12 +4327,15 @@ class WebACLSqliMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebACLFieldToMatch',
-                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+                 text_transformations: Sequence['outputs.WebACLTextTransformation'],
+                 sensitivity_level: Optional['WebACLSensitivityLevel'] = None):
         """
         Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -4331,6 +4346,11 @@ class WebACLSqliMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
         return pulumi.get(self, "text_transformations")
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional['WebACLSensitivityLevel']:
+        return pulumi.get(self, "sensitivity_level")
 
 
 @pulumi.output_type

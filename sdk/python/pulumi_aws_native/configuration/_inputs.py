@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AggregationAuthorizationTagArgs',
+    'ConfigRuleCustomPolicyDetailsArgs',
     'ConfigRuleScopeArgs',
     'ConfigRuleSourceDetailArgs',
     'ConfigRuleSourceArgs',
@@ -26,6 +27,7 @@ __all__ = [
     'RemediationConfigurationExecutionControlsArgs',
     'RemediationConfigurationSsmControlsArgs',
     'StoredQueryTagArgs',
+    'TemplateSSMDocumentDetailsPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -64,6 +66,47 @@ class AggregationAuthorizationTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigRuleCustomPolicyDetailsArgs:
+    def __init__(__self__, *,
+                 enable_debug_log_delivery: Optional[pulumi.Input[bool]] = None,
+                 policy_runtime: Optional[pulumi.Input[str]] = None,
+                 policy_text: Optional[pulumi.Input[str]] = None):
+        if enable_debug_log_delivery is not None:
+            pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
+        if policy_runtime is not None:
+            pulumi.set(__self__, "policy_runtime", policy_runtime)
+        if policy_text is not None:
+            pulumi.set(__self__, "policy_text", policy_text)
+
+    @property
+    @pulumi.getter(name="enableDebugLogDelivery")
+    def enable_debug_log_delivery(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_debug_log_delivery")
+
+    @enable_debug_log_delivery.setter
+    def enable_debug_log_delivery(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_debug_log_delivery", value)
+
+    @property
+    @pulumi.getter(name="policyRuntime")
+    def policy_runtime(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_runtime")
+
+    @policy_runtime.setter
+    def policy_runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_runtime", value)
+
+    @property
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_text")
+
+    @policy_text.setter
+    def policy_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_text", value)
 
 
 @pulumi.input_type
@@ -162,12 +205,16 @@ class ConfigRuleSourceDetailArgs:
 class ConfigRuleSourceArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
-                 source_identifier: pulumi.Input[str],
-                 source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None):
+                 custom_policy_details: Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']] = None,
+                 source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None,
+                 source_identifier: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "source_identifier", source_identifier)
+        if custom_policy_details is not None:
+            pulumi.set(__self__, "custom_policy_details", custom_policy_details)
         if source_details is not None:
             pulumi.set(__self__, "source_details", source_details)
+        if source_identifier is not None:
+            pulumi.set(__self__, "source_identifier", source_identifier)
 
     @property
     @pulumi.getter
@@ -179,13 +226,13 @@ class ConfigRuleSourceArgs:
         pulumi.set(self, "owner", value)
 
     @property
-    @pulumi.getter(name="sourceIdentifier")
-    def source_identifier(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "source_identifier")
+    @pulumi.getter(name="customPolicyDetails")
+    def custom_policy_details(self) -> Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']]:
+        return pulumi.get(self, "custom_policy_details")
 
-    @source_identifier.setter
-    def source_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_identifier", value)
+    @custom_policy_details.setter
+    def custom_policy_details(self, value: Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']]):
+        pulumi.set(self, "custom_policy_details", value)
 
     @property
     @pulumi.getter(name="sourceDetails")
@@ -195,6 +242,15 @@ class ConfigRuleSourceArgs:
     @source_details.setter
     def source_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]]):
         pulumi.set(self, "source_details", value)
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_identifier")
+
+    @source_identifier.setter
+    def source_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_identifier", value)
 
 
 @pulumi.input_type
@@ -726,5 +782,37 @@ class StoredQueryTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TemplateSSMDocumentDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 document_name: Optional[pulumi.Input[str]] = None,
+                 document_version: Optional[pulumi.Input[str]] = None):
+        """
+        The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        """
+        if document_name is not None:
+            pulumi.set(__self__, "document_name", document_name)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "document_name")
+
+    @document_name.setter
+    def document_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_name", value)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "document_version")
+
+    @document_version.setter
+    def document_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_version", value)
 
 

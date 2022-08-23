@@ -16,7 +16,8 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     public sealed class StudioComponentInitializationScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".&lt;/p&gt;
+        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
+        ///             version is "2021-03-31".&lt;/p&gt;
         /// </summary>
         [Input("launchProfileProtocolVersion")]
         public Input<string>? LaunchProfileProtocolVersion { get; set; }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ApplicationVersionLifecycleConfig
     {
+        /// <summary>
+        /// Specify a max age rule to restrict the length of time that application versions are retained for an application.
+        /// </summary>
         public readonly Outputs.ApplicationMaxAgeRule? MaxAgeRule;
+        /// <summary>
+        /// Specify a max count rule to restrict the number of application versions that are retained for an application.
+        /// </summary>
         public readonly Outputs.ApplicationMaxCountRule? MaxCountRule;
 
         [OutputConstructor]

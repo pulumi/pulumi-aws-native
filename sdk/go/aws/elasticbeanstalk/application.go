@@ -10,14 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ElasticBeanstalk::Application
-//
-// Deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationName         pulumi.StringPtrOutput                      `pulumi:"applicationName"`
-	Description             pulumi.StringPtrOutput                      `pulumi:"description"`
+	// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName pulumi.StringPtrOutput `pulumi:"applicationName"`
+	// Your description of the application.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 	ResourceLifecycleConfig ApplicationResourceLifecycleConfigPtrOutput `pulumi:"resourceLifecycleConfig"`
 }
 
@@ -60,15 +61,21 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApplicationName         *string                             `pulumi:"applicationName"`
-	Description             *string                             `pulumi:"description"`
+	// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName *string `pulumi:"applicationName"`
+	// Your description of the application.
+	Description *string `pulumi:"description"`
+	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `pulumi:"resourceLifecycleConfig"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	ApplicationName         pulumi.StringPtrInput
-	Description             pulumi.StringPtrInput
+	// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName pulumi.StringPtrInput
+	// Your description of the application.
+	Description pulumi.StringPtrInput
+	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 	ResourceLifecycleConfig ApplicationResourceLifecycleConfigPtrInput
 }
 
@@ -109,14 +116,17 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
 func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
+// Your description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 func (o ApplicationOutput) ResourceLifecycleConfig() ApplicationResourceLifecycleConfigPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationResourceLifecycleConfigPtrOutput { return v.ResourceLifecycleConfig }).(ApplicationResourceLifecycleConfigPtrOutput)
 }

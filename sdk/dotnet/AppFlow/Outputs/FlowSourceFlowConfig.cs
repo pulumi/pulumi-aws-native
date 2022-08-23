@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowSourceFlowConfig
     {
         /// <summary>
+        /// The API version that the destination connector uses.
+        /// </summary>
+        public readonly string? ApiVersion;
+        /// <summary>
         /// Name of source connector profile
         /// </summary>
         public readonly string? ConnectorProfileName;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSourceFlowConfig(
+            string? apiVersion,
+
             string? connectorProfileName,
 
             Pulumi.AwsNative.AppFlow.FlowConnectorType connectorType,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowSourceConnectorProperties sourceConnectorProperties)
         {
+            ApiVersion = apiVersion;
             ConnectorProfileName = connectorProfileName;
             ConnectorType = connectorType;
             IncrementalPullConfig = incrementalPullConfig;

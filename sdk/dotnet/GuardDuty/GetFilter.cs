@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public readonly Outputs.FilterFindingCriteria? FindingCriteria;
         public readonly string? Id;
         public readonly int? Rank;
+        public readonly ImmutableArray<Outputs.FilterTag> Tags;
 
         [OutputConstructor]
         private GetFilterResult(
@@ -67,13 +68,16 @@ namespace Pulumi.AwsNative.GuardDuty
 
             string? id,
 
-            int? rank)
+            int? rank,
+
+            ImmutableArray<Outputs.FilterTag> tags)
         {
             Action = action;
             Description = description;
             FindingCriteria = findingCriteria;
             Id = id;
             Rank = rank;
+            Tags = tags;
         }
     }
 }

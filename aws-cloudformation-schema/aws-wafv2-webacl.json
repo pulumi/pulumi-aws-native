@@ -701,6 +701,9 @@
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
           }
+        },
+        "SensitivityLevel" : {
+          "$ref" : "#/definitions/SensitivityLevel"
         }
       },
       "required" : [ "FieldToMatch", "TextTransformations" ],
@@ -1060,6 +1063,11 @@
       "description" : "Handling of requests containing oversize fields",
       "type" : "string",
       "enum" : [ "CONTINUE", "MATCH", "NO_MATCH" ]
+    },
+    "SensitivityLevel" : {
+      "description" : "Sensitivity Level current only used for sqli match statements.",
+      "type" : "string",
+      "enum" : [ "LOW", "HIGH" ]
     }
   },
   "properties" : {

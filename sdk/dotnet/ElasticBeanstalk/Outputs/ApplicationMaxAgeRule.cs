@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ApplicationMaxAgeRule
     {
+        /// <summary>
+        /// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        /// </summary>
         public readonly bool? DeleteSourceFromS3;
+        /// <summary>
+        /// Specify true to apply the rule, or false to disable it.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Specify the number of days to retain an application versions.
+        /// </summary>
         public readonly int? MaxAgeInDays;
 
         [OutputConstructor]

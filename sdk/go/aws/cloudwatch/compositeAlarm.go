@@ -17,6 +17,12 @@ type CompositeAlarm struct {
 
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	ActionsSuppressor pulumi.StringPtrOutput `pulumi:"actionsSuppressor"`
+	// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorExtensionPeriod pulumi.IntPtrOutput `pulumi:"actionsSuppressorExtensionPeriod"`
+	// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorWaitPeriod pulumi.IntPtrOutput `pulumi:"actionsSuppressorWaitPeriod"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
 	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
 	// The description of the alarm
@@ -80,6 +86,12 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 type compositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	ActionsSuppressor *string `pulumi:"actionsSuppressor"`
+	// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorExtensionPeriod *int `pulumi:"actionsSuppressorExtensionPeriod"`
+	// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorWaitPeriod *int `pulumi:"actionsSuppressorWaitPeriod"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description of the alarm
@@ -98,6 +110,12 @@ type compositeAlarmArgs struct {
 type CompositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrInput
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	ActionsSuppressor pulumi.StringPtrInput
+	// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorExtensionPeriod pulumi.IntPtrInput
+	// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+	ActionsSuppressorWaitPeriod pulumi.IntPtrInput
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
 	AlarmActions pulumi.StringArrayInput
 	// The description of the alarm
@@ -152,6 +170,21 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 func (o CompositeAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o CompositeAlarmOutput) ActionsSuppressor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringPtrOutput { return v.ActionsSuppressor }).(pulumi.StringPtrOutput)
+}
+
+// Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+func (o CompositeAlarmOutput) ActionsSuppressorExtensionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.IntPtrOutput { return v.ActionsSuppressorExtensionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+func (o CompositeAlarmOutput) ActionsSuppressorWaitPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.IntPtrOutput { return v.ActionsSuppressorWaitPeriod }).(pulumi.IntPtrOutput)
 }
 
 // The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).

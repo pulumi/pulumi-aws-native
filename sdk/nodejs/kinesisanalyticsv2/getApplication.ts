@@ -36,6 +36,10 @@ export interface GetApplicationResult {
      */
     readonly applicationDescription?: string;
     /**
+     * Used to configure start of maintenance window.
+     */
+    readonly applicationMaintenanceConfiguration?: outputs.kinesisanalyticsv2.ApplicationMaintenanceConfiguration;
+    /**
      * Specifies the IAM role that the application uses to access external resources.
      */
     readonly serviceExecutionRole?: string;

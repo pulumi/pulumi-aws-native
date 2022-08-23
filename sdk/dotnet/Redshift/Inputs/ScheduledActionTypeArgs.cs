@@ -12,15 +12,6 @@ namespace Pulumi.AwsNative.Redshift.Inputs
 
     public sealed class ScheduledActionTypeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("pauseCluster")]
-        public Input<Inputs.ScheduledActionPauseClusterMessageArgs>? PauseCluster { get; set; }
-
-        [Input("resizeCluster")]
-        public Input<Inputs.ScheduledActionResizeClusterMessageArgs>? ResizeCluster { get; set; }
-
-        [Input("resumeCluster")]
-        public Input<Inputs.ScheduledActionResumeClusterMessageArgs>? ResumeCluster { get; set; }
-
         public ScheduledActionTypeArgs()
         {
         }

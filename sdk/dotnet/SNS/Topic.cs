@@ -12,28 +12,56 @@ namespace Pulumi.AwsNative.SNS
     /// <summary>
     /// Resource Type definition for AWS::SNS::Topic
     /// </summary>
-    [Obsolete(@"Topic is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+        /// 
+        /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+        /// 
+        /// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        /// </summary>
         [Output("contentBasedDeduplication")]
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name to use for an Amazon SNS topic with SMS subscriptions.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Set to true to create a FIFO topic.
+        /// </summary>
         [Output("fifoTopic")]
         public Output<bool?> FifoTopic { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+        /// 
+        /// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        /// </summary>
         [Output("kmsMasterKeyId")]
         public Output<string?> KmsMasterKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The SNS subscriptions (endpoints) for this topic.
+        /// </summary>
         [Output("subscription")]
         public Output<ImmutableArray<Outputs.TopicSubscription>> Subscription { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TopicTag>> Tags { get; private set; } = null!;
 
+        [Output("topicArn")]
+        public Output<string> TopicArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+        /// 
+        /// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        /// </summary>
         [Output("topicName")]
         public Output<string?> TopicName { get; private set; } = null!;
 
@@ -82,20 +110,42 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
+        /// 
+        /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
+        /// 
+        /// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        /// </summary>
         [Input("contentBasedDeduplication")]
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
+        /// <summary>
+        /// The display name to use for an Amazon SNS topic with SMS subscriptions.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// Set to true to create a FIFO topic.
+        /// </summary>
         [Input("fifoTopic")]
         public Input<bool>? FifoTopic { get; set; }
 
+        /// <summary>
+        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+        /// 
+        /// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        /// </summary>
         [Input("kmsMasterKeyId")]
         public Input<string>? KmsMasterKeyId { get; set; }
 
         [Input("subscription")]
         private InputList<Inputs.TopicSubscriptionArgs>? _subscription;
+
+        /// <summary>
+        /// The SNS subscriptions (endpoints) for this topic.
+        /// </summary>
         public InputList<Inputs.TopicSubscriptionArgs> Subscription
         {
             get => _subscription ?? (_subscription = new InputList<Inputs.TopicSubscriptionArgs>());
@@ -110,6 +160,11 @@ namespace Pulumi.AwsNative.SNS
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+        /// 
+        /// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 

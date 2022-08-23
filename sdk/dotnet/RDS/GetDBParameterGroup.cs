@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RDS
     public static class GetDBParameterGroup
     {
         /// <summary>
-        /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+        /// Resource Type definition for AWS::RDS::DBParameterGroup
         /// </summary>
         public static Task<GetDBParameterGroupResult> InvokeAsync(GetDBParameterGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+        /// Resource Type definition for AWS::RDS::DBParameterGroup
         /// </summary>
         public static Output<GetDBParameterGroupResult> Invoke(GetDBParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBParameterGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifies the name of the DB parameter group
-        /// </summary>
-        [Input("dBParameterGroupName", required: true)]
-        public string DBParameterGroupName { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDBParameterGroupArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifies the name of the DB parameter group
-        /// </summary>
-        [Input("dBParameterGroupName", required: true)]
-        public Input<string> DBParameterGroupName { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDBParameterGroupInvokeArgs()
         {
@@ -57,22 +51,28 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetDBParameterGroupResult
     {
-        /// <summary>
-        /// Specifies the name of the DB parameter group
-        /// </summary>
-        public readonly string? DBParameterGroupName;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
+        public readonly string? Description;
+        public readonly string? Family;
+        public readonly string? Id;
+        public readonly object? Parameters;
         public readonly ImmutableArray<Outputs.DBParameterGroupTag> Tags;
 
         [OutputConstructor]
         private GetDBParameterGroupResult(
-            string? dBParameterGroupName,
+            string? description,
+
+            string? family,
+
+            string? id,
+
+            object? parameters,
 
             ImmutableArray<Outputs.DBParameterGroupTag> tags)
         {
-            DBParameterGroupName = dBParameterGroupName;
+            Description = description;
+            Family = family;
+            Id = id;
+            Parameters = parameters;
             Tags = tags;
         }
     }

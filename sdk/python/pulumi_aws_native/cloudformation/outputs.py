@@ -200,7 +200,9 @@ class StackSetDeploymentTargets(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "organizationalUnitIds":
+        if key == "accountFilterType":
+            suggest = "account_filter_type"
+        elif key == "organizationalUnitIds":
             suggest = "organizational_unit_ids"
 
         if suggest:
@@ -215,17 +217,29 @@ class StackSetDeploymentTargets(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 account_filter_type: Optional['StackSetDeploymentTargetsAccountFilterType'] = None,
                  accounts: Optional[Sequence[str]] = None,
                  organizational_unit_ids: Optional[Sequence[str]] = None):
         """
          The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        :param 'StackSetDeploymentTargetsAccountFilterType' account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param Sequence[str] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
         :param Sequence[str] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
+        if account_filter_type is not None:
+            pulumi.set(__self__, "account_filter_type", account_filter_type)
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
         if organizational_unit_ids is not None:
             pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
+
+    @property
+    @pulumi.getter(name="accountFilterType")
+    def account_filter_type(self) -> Optional['StackSetDeploymentTargetsAccountFilterType']:
+        """
+        The filter type you want to apply on organizational units and accounts.
+        """
+        return pulumi.get(self, "account_filter_type")
 
     @property
     @pulumi.getter
