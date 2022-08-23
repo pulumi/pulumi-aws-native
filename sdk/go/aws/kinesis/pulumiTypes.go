@@ -21,7 +21,7 @@ type StreamEncryption struct {
 // StreamEncryptionInput is an input type that accepts StreamEncryptionArgs and StreamEncryptionOutput values.
 // You can construct a concrete instance of `StreamEncryptionInput` via:
 //
-//          StreamEncryptionArgs{...}
+//	StreamEncryptionArgs{...}
 type StreamEncryptionInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i StreamEncryptionArgs) ToStreamEncryptionPtrOutputWithContext(ctx context
 // StreamEncryptionPtrInput is an input type that accepts StreamEncryptionArgs, StreamEncryptionPtr and StreamEncryptionPtrOutput values.
 // You can construct a concrete instance of `StreamEncryptionPtrInput` via:
 //
-//          StreamEncryptionArgs{...}
+//	        StreamEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type StreamModeDetails struct {
 // StreamModeDetailsInput is an input type that accepts StreamModeDetailsArgs and StreamModeDetailsOutput values.
 // You can construct a concrete instance of `StreamModeDetailsInput` via:
 //
-//          StreamModeDetailsArgs{...}
+//	StreamModeDetailsArgs{...}
 type StreamModeDetailsInput interface {
 	pulumi.Input
 
@@ -215,11 +215,11 @@ func (i StreamModeDetailsArgs) ToStreamModeDetailsPtrOutputWithContext(ctx conte
 // StreamModeDetailsPtrInput is an input type that accepts StreamModeDetailsArgs, StreamModeDetailsPtr and StreamModeDetailsPtrOutput values.
 // You can construct a concrete instance of `StreamModeDetailsPtrInput` via:
 //
-//          StreamModeDetailsArgs{...}
+//	        StreamModeDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamModeDetailsPtrInput interface {
 	pulumi.Input
 
@@ -320,7 +320,7 @@ type StreamTag struct {
 // StreamTagInput is an input type that accepts StreamTagArgs and StreamTagOutput values.
 // You can construct a concrete instance of `StreamTagInput` via:
 //
-//          StreamTagArgs{...}
+//	StreamTagArgs{...}
 type StreamTagInput interface {
 	pulumi.Input
 
@@ -351,7 +351,7 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
-//          StreamTagArray{ StreamTagArgs{...} }
+//	StreamTagArray{ StreamTagArgs{...} }
 type StreamTagArrayInput interface {
 	pulumi.Input
 

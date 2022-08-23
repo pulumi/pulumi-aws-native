@@ -140,7 +140,7 @@ func (o ConnectorProfileConnectionModePtrOutput) ToStringPtrOutputWithContext(ct
 // ConnectorProfileConnectionModeInput is an input type that accepts ConnectorProfileConnectionModeArgs and ConnectorProfileConnectionModeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectionModeInput` via:
 //
-//          ConnectorProfileConnectionModeArgs{...}
+//	ConnectorProfileConnectionModeArgs{...}
 type ConnectorProfileConnectionModeInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ func (o ConnectorProfileConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx
 // ConnectorProfileConnectorTypeInput is an input type that accepts ConnectorProfileConnectorTypeArgs and ConnectorProfileConnectorTypeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorTypeInput` via:
 //
-//          ConnectorProfileConnectorTypeArgs{...}
+//	ConnectorProfileConnectorTypeArgs{...}
 type ConnectorProfileConnectorTypeInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ func (o FlowAggregationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // FlowAggregationTypeInput is an input type that accepts FlowAggregationTypeArgs and FlowAggregationTypeOutput values.
 // You can construct a concrete instance of `FlowAggregationTypeInput` via:
 //
-//          FlowAggregationTypeArgs{...}
+//	FlowAggregationTypeArgs{...}
 type FlowAggregationTypeInput interface {
 	pulumi.Input
 
@@ -645,7 +645,7 @@ func (o FlowAmplitudeConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ct
 // FlowAmplitudeConnectorOperatorInput is an input type that accepts FlowAmplitudeConnectorOperatorArgs and FlowAmplitudeConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowAmplitudeConnectorOperatorInput` via:
 //
-//          FlowAmplitudeConnectorOperatorArgs{...}
+//	FlowAmplitudeConnectorOperatorArgs{...}
 type FlowAmplitudeConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -827,7 +827,7 @@ func (o FlowConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // FlowConnectorTypeInput is an input type that accepts FlowConnectorTypeArgs and FlowConnectorTypeOutput values.
 // You can construct a concrete instance of `FlowConnectorTypeInput` via:
 //
-//          FlowConnectorTypeArgs{...}
+//	FlowConnectorTypeArgs{...}
 type FlowConnectorTypeInput interface {
 	pulumi.Input
 
@@ -1004,7 +1004,7 @@ func (o FlowDatadogConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx 
 // FlowDatadogConnectorOperatorInput is an input type that accepts FlowDatadogConnectorOperatorArgs and FlowDatadogConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowDatadogConnectorOperatorInput` via:
 //
-//          FlowDatadogConnectorOperatorArgs{...}
+//	FlowDatadogConnectorOperatorArgs{...}
 type FlowDatadogConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1181,7 +1181,7 @@ func (o FlowDynatraceConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ct
 // FlowDynatraceConnectorOperatorInput is an input type that accepts FlowDynatraceConnectorOperatorArgs and FlowDynatraceConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowDynatraceConnectorOperatorInput` via:
 //
-//          FlowDynatraceConnectorOperatorArgs{...}
+//	FlowDynatraceConnectorOperatorArgs{...}
 type FlowDynatraceConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1346,7 +1346,7 @@ func (o FlowFileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // FlowFileTypeInput is an input type that accepts FlowFileTypeArgs and FlowFileTypeOutput values.
 // You can construct a concrete instance of `FlowFileTypeInput` via:
 //
-//          FlowFileTypeArgs{...}
+//	FlowFileTypeArgs{...}
 type FlowFileTypeInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ func (o FlowGoogleAnalyticsConnectorOperatorPtrOutput) ToStringPtrOutputWithCont
 // FlowGoogleAnalyticsConnectorOperatorInput is an input type that accepts FlowGoogleAnalyticsConnectorOperatorArgs and FlowGoogleAnalyticsConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowGoogleAnalyticsConnectorOperatorInput` via:
 //
-//          FlowGoogleAnalyticsConnectorOperatorArgs{...}
+//	FlowGoogleAnalyticsConnectorOperatorArgs{...}
 type FlowGoogleAnalyticsConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1687,7 +1687,7 @@ func (o FlowInforNexusConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(c
 // FlowInforNexusConnectorOperatorInput is an input type that accepts FlowInforNexusConnectorOperatorArgs and FlowInforNexusConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowInforNexusConnectorOperatorInput` via:
 //
-//          FlowInforNexusConnectorOperatorArgs{...}
+//	FlowInforNexusConnectorOperatorArgs{...}
 type FlowInforNexusConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1865,7 +1865,7 @@ func (o FlowMarketoConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx 
 // FlowMarketoConnectorOperatorInput is an input type that accepts FlowMarketoConnectorOperatorArgs and FlowMarketoConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowMarketoConnectorOperatorInput` via:
 //
-//          FlowMarketoConnectorOperatorArgs{...}
+//	FlowMarketoConnectorOperatorArgs{...}
 type FlowMarketoConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -2042,7 +2042,7 @@ func (o FlowOperatorPropertiesKeysPtrOutput) ToStringPtrOutputWithContext(ctx co
 // FlowOperatorPropertiesKeysInput is an input type that accepts FlowOperatorPropertiesKeysArgs and FlowOperatorPropertiesKeysOutput values.
 // You can construct a concrete instance of `FlowOperatorPropertiesKeysInput` via:
 //
-//          FlowOperatorPropertiesKeysArgs{...}
+//	FlowOperatorPropertiesKeysArgs{...}
 type FlowOperatorPropertiesKeysInput interface {
 	pulumi.Input
 
@@ -2209,7 +2209,7 @@ func (o FlowPrefixFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // FlowPrefixFormatInput is an input type that accepts FlowPrefixFormatArgs and FlowPrefixFormatOutput values.
 // You can construct a concrete instance of `FlowPrefixFormatInput` via:
 //
-//          FlowPrefixFormatArgs{...}
+//	FlowPrefixFormatArgs{...}
 type FlowPrefixFormatInput interface {
 	pulumi.Input
 
@@ -2374,7 +2374,7 @@ func (o FlowPrefixTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // FlowPrefixTypeInput is an input type that accepts FlowPrefixTypeArgs and FlowPrefixTypeOutput values.
 // You can construct a concrete instance of `FlowPrefixTypeInput` via:
 //
-//          FlowPrefixTypeArgs{...}
+//	FlowPrefixTypeArgs{...}
 type FlowPrefixTypeInput interface {
 	pulumi.Input
 
@@ -2556,7 +2556,7 @@ func (o FlowS3ConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // FlowS3ConnectorOperatorInput is an input type that accepts FlowS3ConnectorOperatorArgs and FlowS3ConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowS3ConnectorOperatorInput` via:
 //
-//          FlowS3ConnectorOperatorArgs{...}
+//	FlowS3ConnectorOperatorArgs{...}
 type FlowS3ConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -2720,7 +2720,7 @@ func (o FlowS3InputFormatConfigS3InputFileTypePtrOutput) ToStringPtrOutputWithCo
 // FlowS3InputFormatConfigS3InputFileTypeInput is an input type that accepts FlowS3InputFormatConfigS3InputFileTypeArgs and FlowS3InputFormatConfigS3InputFileTypeOutput values.
 // You can construct a concrete instance of `FlowS3InputFormatConfigS3InputFileTypeInput` via:
 //
-//          FlowS3InputFormatConfigS3InputFileTypeArgs{...}
+//	FlowS3InputFormatConfigS3InputFileTypeArgs{...}
 type FlowS3InputFormatConfigS3InputFileTypeInput interface {
 	pulumi.Input
 
@@ -2903,7 +2903,7 @@ func (o FlowSAPODataConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx
 // FlowSAPODataConnectorOperatorInput is an input type that accepts FlowSAPODataConnectorOperatorArgs and FlowSAPODataConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowSAPODataConnectorOperatorInput` via:
 //
-//          FlowSAPODataConnectorOperatorArgs{...}
+//	FlowSAPODataConnectorOperatorArgs{...}
 type FlowSAPODataConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3086,7 +3086,7 @@ func (o FlowSalesforceConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(c
 // FlowSalesforceConnectorOperatorInput is an input type that accepts FlowSalesforceConnectorOperatorArgs and FlowSalesforceConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowSalesforceConnectorOperatorInput` via:
 //
-//          FlowSalesforceConnectorOperatorArgs{...}
+//	FlowSalesforceConnectorOperatorArgs{...}
 type FlowSalesforceConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3250,7 +3250,7 @@ func (o FlowScheduledTriggerPropertiesDataPullModePtrOutput) ToStringPtrOutputWi
 // FlowScheduledTriggerPropertiesDataPullModeInput is an input type that accepts FlowScheduledTriggerPropertiesDataPullModeArgs and FlowScheduledTriggerPropertiesDataPullModeOutput values.
 // You can construct a concrete instance of `FlowScheduledTriggerPropertiesDataPullModeInput` via:
 //
-//          FlowScheduledTriggerPropertiesDataPullModeArgs{...}
+//	FlowScheduledTriggerPropertiesDataPullModeArgs{...}
 type FlowScheduledTriggerPropertiesDataPullModeInput interface {
 	pulumi.Input
 
@@ -3433,7 +3433,7 @@ func (o FlowServiceNowConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(c
 // FlowServiceNowConnectorOperatorInput is an input type that accepts FlowServiceNowConnectorOperatorArgs and FlowServiceNowConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowServiceNowConnectorOperatorInput` via:
 //
-//          FlowServiceNowConnectorOperatorArgs{...}
+//	FlowServiceNowConnectorOperatorArgs{...}
 type FlowServiceNowConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3609,7 +3609,7 @@ func (o FlowSingularConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx
 // FlowSingularConnectorOperatorInput is an input type that accepts FlowSingularConnectorOperatorArgs and FlowSingularConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowSingularConnectorOperatorInput` via:
 //
-//          FlowSingularConnectorOperatorArgs{...}
+//	FlowSingularConnectorOperatorArgs{...}
 type FlowSingularConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3786,7 +3786,7 @@ func (o FlowSlackConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx co
 // FlowSlackConnectorOperatorInput is an input type that accepts FlowSlackConnectorOperatorArgs and FlowSlackConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowSlackConnectorOperatorInput` via:
 //
-//          FlowSlackConnectorOperatorArgs{...}
+//	FlowSlackConnectorOperatorArgs{...}
 type FlowSlackConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3957,7 +3957,7 @@ func (o FlowTaskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // FlowTaskTypeInput is an input type that accepts FlowTaskTypeArgs and FlowTaskTypeOutput values.
 // You can construct a concrete instance of `FlowTaskTypeInput` via:
 //
-//          FlowTaskTypeArgs{...}
+//	FlowTaskTypeArgs{...}
 type FlowTaskTypeInput interface {
 	pulumi.Input
 
@@ -4133,7 +4133,7 @@ func (o FlowTrendmicroConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(c
 // FlowTrendmicroConnectorOperatorInput is an input type that accepts FlowTrendmicroConnectorOperatorArgs and FlowTrendmicroConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowTrendmicroConnectorOperatorInput` via:
 //
-//          FlowTrendmicroConnectorOperatorArgs{...}
+//	FlowTrendmicroConnectorOperatorArgs{...}
 type FlowTrendmicroConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -4298,7 +4298,7 @@ func (o FlowTriggerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // FlowTriggerTypeInput is an input type that accepts FlowTriggerTypeArgs and FlowTriggerTypeOutput values.
 // You can construct a concrete instance of `FlowTriggerTypeInput` via:
 //
-//          FlowTriggerTypeArgs{...}
+//	FlowTriggerTypeArgs{...}
 type FlowTriggerTypeInput interface {
 	pulumi.Input
 
@@ -4480,7 +4480,7 @@ func (o FlowVeevaConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx co
 // FlowVeevaConnectorOperatorInput is an input type that accepts FlowVeevaConnectorOperatorArgs and FlowVeevaConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowVeevaConnectorOperatorInput` via:
 //
-//          FlowVeevaConnectorOperatorArgs{...}
+//	FlowVeevaConnectorOperatorArgs{...}
 type FlowVeevaConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -4645,7 +4645,7 @@ func (o FlowWriteOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // FlowWriteOperationTypeInput is an input type that accepts FlowWriteOperationTypeArgs and FlowWriteOperationTypeOutput values.
 // You can construct a concrete instance of `FlowWriteOperationTypeInput` via:
 //
-//          FlowWriteOperationTypeArgs{...}
+//	FlowWriteOperationTypeArgs{...}
 type FlowWriteOperationTypeInput interface {
 	pulumi.Input
 
@@ -4821,7 +4821,7 @@ func (o FlowZendeskConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx 
 // FlowZendeskConnectorOperatorInput is an input type that accepts FlowZendeskConnectorOperatorArgs and FlowZendeskConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowZendeskConnectorOperatorInput` via:
 //
-//          FlowZendeskConnectorOperatorArgs{...}
+//	FlowZendeskConnectorOperatorArgs{...}
 type FlowZendeskConnectorOperatorInput interface {
 	pulumi.Input
 

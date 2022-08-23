@@ -18,7 +18,7 @@ type LedgerTag struct {
 // LedgerTagInput is an input type that accepts LedgerTagArgs and LedgerTagOutput values.
 // You can construct a concrete instance of `LedgerTagInput` via:
 //
-//          LedgerTagArgs{...}
+//	LedgerTagArgs{...}
 type LedgerTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i LedgerTagArgs) ToLedgerTagOutputWithContext(ctx context.Context) LedgerT
 // LedgerTagArrayInput is an input type that accepts LedgerTagArray and LedgerTagArrayOutput values.
 // You can construct a concrete instance of `LedgerTagArrayInput` via:
 //
-//          LedgerTagArray{ LedgerTagArgs{...} }
+//	LedgerTagArray{ LedgerTagArgs{...} }
 type LedgerTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type StreamKinesisConfiguration struct {
 // StreamKinesisConfigurationInput is an input type that accepts StreamKinesisConfigurationArgs and StreamKinesisConfigurationOutput values.
 // You can construct a concrete instance of `StreamKinesisConfigurationInput` via:
 //
-//          StreamKinesisConfigurationArgs{...}
+//	StreamKinesisConfigurationArgs{...}
 type StreamKinesisConfigurationInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type StreamTag struct {
 // StreamTagInput is an input type that accepts StreamTagArgs and StreamTagOutput values.
 // You can construct a concrete instance of `StreamTagInput` via:
 //
-//          StreamTagArgs{...}
+//	StreamTagArgs{...}
 type StreamTagInput interface {
 	pulumi.Input
 
@@ -207,7 +207,7 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
-//          StreamTagArray{ StreamTagArgs{...} }
+//	StreamTagArray{ StreamTagArgs{...} }
 type StreamTagArrayInput interface {
 	pulumi.Input
 

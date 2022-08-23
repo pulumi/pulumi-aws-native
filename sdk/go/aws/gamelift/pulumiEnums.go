@@ -140,7 +140,7 @@ func (o AliasRoutingStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // AliasRoutingStrategyTypeInput is an input type that accepts AliasRoutingStrategyTypeArgs and AliasRoutingStrategyTypeOutput values.
 // You can construct a concrete instance of `AliasRoutingStrategyTypeInput` via:
 //
-//          AliasRoutingStrategyTypeArgs{...}
+//	AliasRoutingStrategyTypeArgs{...}
 type AliasRoutingStrategyTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToStringPtrOutput
 // FleetCertificateConfigurationCertificateTypeInput is an input type that accepts FleetCertificateConfigurationCertificateTypeArgs and FleetCertificateConfigurationCertificateTypeOutput values.
 // You can construct a concrete instance of `FleetCertificateConfigurationCertificateTypeInput` via:
 //
-//          FleetCertificateConfigurationCertificateTypeArgs{...}
+//	FleetCertificateConfigurationCertificateTypeArgs{...}
 type FleetCertificateConfigurationCertificateTypeInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o FleetIpPermissionProtocolPtrOutput) ToStringPtrOutputWithContext(ctx con
 // FleetIpPermissionProtocolInput is an input type that accepts FleetIpPermissionProtocolArgs and FleetIpPermissionProtocolOutput values.
 // You can construct a concrete instance of `FleetIpPermissionProtocolInput` via:
 //
-//          FleetIpPermissionProtocolArgs{...}
+//	FleetIpPermissionProtocolArgs{...}
 type FleetIpPermissionProtocolInput interface {
 	pulumi.Input
 
@@ -634,7 +634,7 @@ func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToStringPtrOutputWithConte
 // FleetNewGameSessionProtectionPolicyInput is an input type that accepts FleetNewGameSessionProtectionPolicyArgs and FleetNewGameSessionProtectionPolicyOutput values.
 // You can construct a concrete instance of `FleetNewGameSessionProtectionPolicyInput` via:
 //
-//          FleetNewGameSessionProtectionPolicyArgs{...}
+//	FleetNewGameSessionProtectionPolicyArgs{...}
 type FleetNewGameSessionProtectionPolicyInput interface {
 	pulumi.Input
 
@@ -799,7 +799,7 @@ func (o FleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 // FleetTypeInput is an input type that accepts FleetTypeArgs and FleetTypeOutput values.
 // You can construct a concrete instance of `FleetTypeInput` via:
 //
-//          FleetTypeArgs{...}
+//	FleetTypeArgs{...}
 type FleetTypeInput interface {
 	pulumi.Input
 
@@ -965,7 +965,7 @@ func (o GameServerGroupBalancingStrategyPtrOutput) ToStringPtrOutputWithContext(
 // GameServerGroupBalancingStrategyInput is an input type that accepts GameServerGroupBalancingStrategyArgs and GameServerGroupBalancingStrategyOutput values.
 // You can construct a concrete instance of `GameServerGroupBalancingStrategyInput` via:
 //
-//          GameServerGroupBalancingStrategyArgs{...}
+//	GameServerGroupBalancingStrategyArgs{...}
 type GameServerGroupBalancingStrategyInput interface {
 	pulumi.Input
 
@@ -1131,7 +1131,7 @@ func (o GameServerGroupDeleteOptionPtrOutput) ToStringPtrOutputWithContext(ctx c
 // GameServerGroupDeleteOptionInput is an input type that accepts GameServerGroupDeleteOptionArgs and GameServerGroupDeleteOptionOutput values.
 // You can construct a concrete instance of `GameServerGroupDeleteOptionInput` via:
 //
-//          GameServerGroupDeleteOptionArgs{...}
+//	GameServerGroupDeleteOptionArgs{...}
 type GameServerGroupDeleteOptionInput interface {
 	pulumi.Input
 
@@ -1296,7 +1296,7 @@ func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToStringPtrOutputWit
 // GameServerGroupGameServerProtectionPolicyInput is an input type that accepts GameServerGroupGameServerProtectionPolicyArgs and GameServerGroupGameServerProtectionPolicyOutput values.
 // You can construct a concrete instance of `GameServerGroupGameServerProtectionPolicyInput` via:
 //
-//          GameServerGroupGameServerProtectionPolicyArgs{...}
+//	GameServerGroupGameServerProtectionPolicyArgs{...}
 type GameServerGroupGameServerProtectionPolicyInput interface {
 	pulumi.Input
 

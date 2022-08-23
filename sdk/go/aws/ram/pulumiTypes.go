@@ -18,7 +18,7 @@ type ResourceShareTag struct {
 // ResourceShareTagInput is an input type that accepts ResourceShareTagArgs and ResourceShareTagOutput values.
 // You can construct a concrete instance of `ResourceShareTagInput` via:
 //
-//          ResourceShareTagArgs{...}
+//	ResourceShareTagArgs{...}
 type ResourceShareTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ResourceShareTagArgs) ToResourceShareTagOutputWithContext(ctx context.Co
 // ResourceShareTagArrayInput is an input type that accepts ResourceShareTagArray and ResourceShareTagArrayOutput values.
 // You can construct a concrete instance of `ResourceShareTagArrayInput` via:
 //
-//          ResourceShareTagArray{ ResourceShareTagArgs{...} }
+//	ResourceShareTagArray{ ResourceShareTagArgs{...} }
 type ResourceShareTagArrayInput interface {
 	pulumi.Input
 

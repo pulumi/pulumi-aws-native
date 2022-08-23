@@ -138,7 +138,7 @@ func (o GeofenceCollectionPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx
 // GeofenceCollectionPricingPlanInput is an input type that accepts GeofenceCollectionPricingPlanArgs and GeofenceCollectionPricingPlanOutput values.
 // You can construct a concrete instance of `GeofenceCollectionPricingPlanInput` via:
 //
-//          GeofenceCollectionPricingPlanArgs{...}
+//	GeofenceCollectionPricingPlanArgs{...}
 type GeofenceCollectionPricingPlanInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ func (o MapPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // MapPricingPlanInput is an input type that accepts MapPricingPlanArgs and MapPricingPlanOutput values.
 // You can construct a concrete instance of `MapPricingPlanInput` via:
 //
-//          MapPricingPlanArgs{...}
+//	MapPricingPlanArgs{...}
 type MapPricingPlanInput interface {
 	pulumi.Input
 
@@ -465,7 +465,7 @@ func (o PlaceIndexIntendedUsePtrOutput) ToStringPtrOutputWithContext(ctx context
 // PlaceIndexIntendedUseInput is an input type that accepts PlaceIndexIntendedUseArgs and PlaceIndexIntendedUseOutput values.
 // You can construct a concrete instance of `PlaceIndexIntendedUseInput` via:
 //
-//          PlaceIndexIntendedUseArgs{...}
+//	PlaceIndexIntendedUseArgs{...}
 type PlaceIndexIntendedUseInput interface {
 	pulumi.Input
 
@@ -628,7 +628,7 @@ func (o PlaceIndexPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context
 // PlaceIndexPricingPlanInput is an input type that accepts PlaceIndexPricingPlanArgs and PlaceIndexPricingPlanOutput values.
 // You can construct a concrete instance of `PlaceIndexPricingPlanInput` via:
 //
-//          PlaceIndexPricingPlanArgs{...}
+//	PlaceIndexPricingPlanArgs{...}
 type PlaceIndexPricingPlanInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ func (o RouteCalculatorPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx co
 // RouteCalculatorPricingPlanInput is an input type that accepts RouteCalculatorPricingPlanArgs and RouteCalculatorPricingPlanOutput values.
 // You can construct a concrete instance of `RouteCalculatorPricingPlanInput` via:
 //
-//          RouteCalculatorPricingPlanArgs{...}
+//	RouteCalculatorPricingPlanArgs{...}
 type RouteCalculatorPricingPlanInput interface {
 	pulumi.Input
 
@@ -956,7 +956,7 @@ func (o TrackerPositionFilteringPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // TrackerPositionFilteringInput is an input type that accepts TrackerPositionFilteringArgs and TrackerPositionFilteringOutput values.
 // You can construct a concrete instance of `TrackerPositionFilteringInput` via:
 //
-//          TrackerPositionFilteringArgs{...}
+//	TrackerPositionFilteringArgs{...}
 type TrackerPositionFilteringInput interface {
 	pulumi.Input
 
@@ -1119,7 +1119,7 @@ func (o TrackerPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // TrackerPricingPlanInput is an input type that accepts TrackerPricingPlanArgs and TrackerPricingPlanOutput values.
 // You can construct a concrete instance of `TrackerPricingPlanInput` via:
 //
-//          TrackerPricingPlanArgs{...}
+//	TrackerPricingPlanArgs{...}
 type TrackerPricingPlanInput interface {
 	pulumi.Input
 

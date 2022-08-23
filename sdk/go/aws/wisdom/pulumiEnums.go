@@ -138,7 +138,7 @@ func (o AssistantAssociationAssociationTypePtrOutput) ToStringPtrOutputWithConte
 // AssistantAssociationAssociationTypeInput is an input type that accepts AssistantAssociationAssociationTypeArgs and AssistantAssociationAssociationTypeOutput values.
 // You can construct a concrete instance of `AssistantAssociationAssociationTypeInput` via:
 //
-//          AssistantAssociationAssociationTypeArgs{...}
+//	AssistantAssociationAssociationTypeArgs{...}
 type AssistantAssociationAssociationTypeInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ func (o AssistantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // AssistantTypeInput is an input type that accepts AssistantTypeArgs and AssistantTypeOutput values.
 // You can construct a concrete instance of `AssistantTypeInput` via:
 //
-//          AssistantTypeArgs{...}
+//	AssistantTypeArgs{...}
 type AssistantTypeInput interface {
 	pulumi.Input
 
@@ -465,7 +465,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // KnowledgeBaseTypeInput is an input type that accepts KnowledgeBaseTypeArgs and KnowledgeBaseTypeOutput values.
 // You can construct a concrete instance of `KnowledgeBaseTypeInput` via:
 //
-//          KnowledgeBaseTypeArgs{...}
+//	KnowledgeBaseTypeArgs{...}
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 

@@ -18,7 +18,7 @@ type AccessPointVpcConfiguration struct {
 // AccessPointVpcConfigurationInput is an input type that accepts AccessPointVpcConfigurationArgs and AccessPointVpcConfigurationOutput values.
 // You can construct a concrete instance of `AccessPointVpcConfigurationInput` via:
 //
-//          AccessPointVpcConfigurationArgs{...}
+//	AccessPointVpcConfigurationArgs{...}
 type AccessPointVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -71,7 +71,7 @@ type BucketAbortIncompleteMultipartUpload struct {
 // BucketAbortIncompleteMultipartUploadInput is an input type that accepts BucketAbortIncompleteMultipartUploadArgs and BucketAbortIncompleteMultipartUploadOutput values.
 // You can construct a concrete instance of `BucketAbortIncompleteMultipartUploadInput` via:
 //
-//          BucketAbortIncompleteMultipartUploadArgs{...}
+//	BucketAbortIncompleteMultipartUploadArgs{...}
 type BucketAbortIncompleteMultipartUploadInput interface {
 	pulumi.Input
 
@@ -108,11 +108,11 @@ func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipa
 // BucketAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketAbortIncompleteMultipartUploadArgs, BucketAbortIncompleteMultipartUploadPtr and BucketAbortIncompleteMultipartUploadPtrOutput values.
 // You can construct a concrete instance of `BucketAbortIncompleteMultipartUploadPtrInput` via:
 //
-//          BucketAbortIncompleteMultipartUploadArgs{...}
+//	        BucketAbortIncompleteMultipartUploadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketAbortIncompleteMultipartUploadPtrInput interface {
 	pulumi.Input
 
@@ -208,7 +208,7 @@ type BucketFilterAndOperator struct {
 // BucketFilterAndOperatorInput is an input type that accepts BucketFilterAndOperatorArgs and BucketFilterAndOperatorOutput values.
 // You can construct a concrete instance of `BucketFilterAndOperatorInput` via:
 //
-//          BucketFilterAndOperatorArgs{...}
+//	BucketFilterAndOperatorArgs{...}
 type BucketFilterAndOperatorInput interface {
 	pulumi.Input
 
@@ -242,11 +242,11 @@ func (i BucketFilterAndOperatorArgs) ToBucketFilterAndOperatorPtrOutputWithConte
 // BucketFilterAndOperatorPtrInput is an input type that accepts BucketFilterAndOperatorArgs, BucketFilterAndOperatorPtr and BucketFilterAndOperatorPtrOutput values.
 // You can construct a concrete instance of `BucketFilterAndOperatorPtrInput` via:
 //
-//          BucketFilterAndOperatorArgs{...}
+//	        BucketFilterAndOperatorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketFilterAndOperatorPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type BucketFilterTag struct {
 // BucketFilterTagInput is an input type that accepts BucketFilterTagArgs and BucketFilterTagOutput values.
 // You can construct a concrete instance of `BucketFilterTagInput` via:
 //
-//          BucketFilterTagArgs{...}
+//	BucketFilterTagArgs{...}
 type BucketFilterTagInput interface {
 	pulumi.Input
 
@@ -366,11 +366,11 @@ func (i BucketFilterTagArgs) ToBucketFilterTagPtrOutputWithContext(ctx context.C
 // BucketFilterTagPtrInput is an input type that accepts BucketFilterTagArgs, BucketFilterTagPtr and BucketFilterTagPtrOutput values.
 // You can construct a concrete instance of `BucketFilterTagPtrInput` via:
 //
-//          BucketFilterTagArgs{...}
+//	        BucketFilterTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketFilterTagPtrInput interface {
 	pulumi.Input
 
@@ -479,7 +479,7 @@ type BucketLifecycleConfiguration struct {
 // BucketLifecycleConfigurationInput is an input type that accepts BucketLifecycleConfigurationArgs and BucketLifecycleConfigurationOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationInput` via:
 //
-//          BucketLifecycleConfigurationArgs{...}
+//	BucketLifecycleConfigurationArgs{...}
 type BucketLifecycleConfigurationInput interface {
 	pulumi.Input
 
@@ -515,11 +515,11 @@ func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationPtrOutpu
 // BucketLifecycleConfigurationPtrInput is an input type that accepts BucketLifecycleConfigurationArgs, BucketLifecycleConfigurationPtr and BucketLifecycleConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationPtrInput` via:
 //
-//          BucketLifecycleConfigurationArgs{...}
+//	        BucketLifecycleConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -626,7 +626,7 @@ type BucketRule struct {
 // BucketRuleInput is an input type that accepts BucketRuleArgs and BucketRuleOutput values.
 // You can construct a concrete instance of `BucketRuleInput` via:
 //
-//          BucketRuleArgs{...}
+//	BucketRuleArgs{...}
 type BucketRuleInput interface {
 	pulumi.Input
 
@@ -664,7 +664,7 @@ func (i BucketRuleArgs) ToBucketRuleOutputWithContext(ctx context.Context) Bucke
 // BucketRuleArrayInput is an input type that accepts BucketRuleArray and BucketRuleArrayOutput values.
 // You can construct a concrete instance of `BucketRuleArrayInput` via:
 //
-//          BucketRuleArray{ BucketRuleArgs{...} }
+//	BucketRuleArray{ BucketRuleArgs{...} }
 type BucketRuleArrayInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ type BucketRuleFilterProperties struct {
 // BucketRuleFilterPropertiesInput is an input type that accepts BucketRuleFilterPropertiesArgs and BucketRuleFilterPropertiesOutput values.
 // You can construct a concrete instance of `BucketRuleFilterPropertiesInput` via:
 //
-//          BucketRuleFilterPropertiesArgs{...}
+//	BucketRuleFilterPropertiesArgs{...}
 type BucketRuleFilterPropertiesInput interface {
 	pulumi.Input
 
@@ -804,11 +804,11 @@ func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesPtrOutputWit
 // BucketRuleFilterPropertiesPtrInput is an input type that accepts BucketRuleFilterPropertiesArgs, BucketRuleFilterPropertiesPtr and BucketRuleFilterPropertiesPtrOutput values.
 // You can construct a concrete instance of `BucketRuleFilterPropertiesPtrInput` via:
 //
-//          BucketRuleFilterPropertiesArgs{...}
+//	        BucketRuleFilterPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketRuleFilterPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -936,7 +936,7 @@ type BucketTag struct {
 // BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
 // You can construct a concrete instance of `BucketTagInput` via:
 //
-//          BucketTagArgs{...}
+//	BucketTagArgs{...}
 type BucketTagInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketT
 // BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
 // You can construct a concrete instance of `BucketTagArrayInput` via:
 //
-//          BucketTagArray{ BucketTagArgs{...} }
+//	BucketTagArray{ BucketTagArgs{...} }
 type BucketTagArrayInput interface {
 	pulumi.Input
 

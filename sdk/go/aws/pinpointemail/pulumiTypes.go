@@ -17,7 +17,7 @@ type ConfigurationSetDeliveryOptions struct {
 // ConfigurationSetDeliveryOptionsInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs and ConfigurationSetDeliveryOptionsOutput values.
 // You can construct a concrete instance of `ConfigurationSetDeliveryOptionsInput` via:
 //
-//          ConfigurationSetDeliveryOptionsArgs{...}
+//	ConfigurationSetDeliveryOptionsArgs{...}
 type ConfigurationSetDeliveryOptionsInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPt
 // ConfigurationSetDeliveryOptionsPtrInput is an input type that accepts ConfigurationSetDeliveryOptionsArgs, ConfigurationSetDeliveryOptionsPtr and ConfigurationSetDeliveryOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetDeliveryOptionsPtrInput` via:
 //
-//          ConfigurationSetDeliveryOptionsArgs{...}
+//	        ConfigurationSetDeliveryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetDeliveryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -150,7 +150,7 @@ type ConfigurationSetEventDestinationCloudWatchDestination struct {
 // ConfigurationSetEventDestinationCloudWatchDestinationInput is an input type that accepts ConfigurationSetEventDestinationCloudWatchDestinationArgs and ConfigurationSetEventDestinationCloudWatchDestinationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationCloudWatchDestinationInput` via:
 //
-//          ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
+//	ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
 type ConfigurationSetEventDestinationCloudWatchDestinationInput interface {
 	pulumi.Input
 
@@ -185,11 +185,11 @@ func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurati
 // ConfigurationSetEventDestinationCloudWatchDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationCloudWatchDestinationArgs, ConfigurationSetEventDestinationCloudWatchDestinationPtr and ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationCloudWatchDestinationPtrInput` via:
 //
-//          ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
+//	        ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetEventDestinationCloudWatchDestinationPtrInput interface {
 	pulumi.Input
 
@@ -287,7 +287,7 @@ type ConfigurationSetEventDestinationDimensionConfiguration struct {
 // ConfigurationSetEventDestinationDimensionConfigurationInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArgs and ConfigurationSetEventDestinationDimensionConfigurationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationDimensionConfigurationInput` via:
 //
-//          ConfigurationSetEventDestinationDimensionConfigurationArgs{...}
+//	ConfigurationSetEventDestinationDimensionConfigurationArgs{...}
 type ConfigurationSetEventDestinationDimensionConfigurationInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (i ConfigurationSetEventDestinationDimensionConfigurationArgs) ToConfigurat
 // ConfigurationSetEventDestinationDimensionConfigurationArrayInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArray and ConfigurationSetEventDestinationDimensionConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationDimensionConfigurationArrayInput` via:
 //
-//          ConfigurationSetEventDestinationDimensionConfigurationArray{ ConfigurationSetEventDestinationDimensionConfigurationArgs{...} }
+//	ConfigurationSetEventDestinationDimensionConfigurationArray{ ConfigurationSetEventDestinationDimensionConfigurationArgs{...} }
 type ConfigurationSetEventDestinationDimensionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ type ConfigurationSetEventDestinationEventDestination struct {
 // ConfigurationSetEventDestinationEventDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs and ConfigurationSetEventDestinationEventDestinationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationInput` via:
 //
-//          ConfigurationSetEventDestinationEventDestinationArgs{...}
+//	ConfigurationSetEventDestinationEventDestinationArgs{...}
 type ConfigurationSetEventDestinationEventDestinationInput interface {
 	pulumi.Input
 
@@ -436,11 +436,11 @@ func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSet
 // ConfigurationSetEventDestinationEventDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs, ConfigurationSetEventDestinationEventDestinationPtr and ConfigurationSetEventDestinationEventDestinationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPtrInput` via:
 //
-//          ConfigurationSetEventDestinationEventDestinationArgs{...}
+//	        ConfigurationSetEventDestinationEventDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetEventDestinationEventDestinationPtrInput interface {
 	pulumi.Input
 
@@ -608,7 +608,7 @@ type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
 // ConfigurationSetEventDestinationKinesisFirehoseDestinationInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs and ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationKinesisFirehoseDestinationInput` via:
 //
-//          ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
+//	ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationInput interface {
 	pulumi.Input
 
@@ -644,11 +644,11 @@ func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfig
 // ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs, ConfigurationSetEventDestinationKinesisFirehoseDestinationPtr and ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput` via:
 //
-//          ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
+//	        ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput interface {
 	pulumi.Input
 
@@ -755,7 +755,7 @@ type ConfigurationSetEventDestinationPinpointDestination struct {
 // ConfigurationSetEventDestinationPinpointDestinationInput is an input type that accepts ConfigurationSetEventDestinationPinpointDestinationArgs and ConfigurationSetEventDestinationPinpointDestinationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationPinpointDestinationInput` via:
 //
-//          ConfigurationSetEventDestinationPinpointDestinationArgs{...}
+//	ConfigurationSetEventDestinationPinpointDestinationArgs{...}
 type ConfigurationSetEventDestinationPinpointDestinationInput interface {
 	pulumi.Input
 
@@ -790,11 +790,11 @@ func (i ConfigurationSetEventDestinationPinpointDestinationArgs) ToConfiguration
 // ConfigurationSetEventDestinationPinpointDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationPinpointDestinationArgs, ConfigurationSetEventDestinationPinpointDestinationPtr and ConfigurationSetEventDestinationPinpointDestinationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationPinpointDestinationPtrInput` via:
 //
-//          ConfigurationSetEventDestinationPinpointDestinationArgs{...}
+//	        ConfigurationSetEventDestinationPinpointDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetEventDestinationPinpointDestinationPtrInput interface {
 	pulumi.Input
 
@@ -888,7 +888,7 @@ type ConfigurationSetEventDestinationSnsDestination struct {
 // ConfigurationSetEventDestinationSnsDestinationInput is an input type that accepts ConfigurationSetEventDestinationSnsDestinationArgs and ConfigurationSetEventDestinationSnsDestinationOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationSnsDestinationInput` via:
 //
-//          ConfigurationSetEventDestinationSnsDestinationArgs{...}
+//	ConfigurationSetEventDestinationSnsDestinationArgs{...}
 type ConfigurationSetEventDestinationSnsDestinationInput interface {
 	pulumi.Input
 
@@ -923,11 +923,11 @@ func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEv
 // ConfigurationSetEventDestinationSnsDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationSnsDestinationArgs, ConfigurationSetEventDestinationSnsDestinationPtr and ConfigurationSetEventDestinationSnsDestinationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationSnsDestinationPtrInput` via:
 //
-//          ConfigurationSetEventDestinationSnsDestinationArgs{...}
+//	        ConfigurationSetEventDestinationSnsDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetEventDestinationSnsDestinationPtrInput interface {
 	pulumi.Input
 
@@ -1021,7 +1021,7 @@ type ConfigurationSetReputationOptions struct {
 // ConfigurationSetReputationOptionsInput is an input type that accepts ConfigurationSetReputationOptionsArgs and ConfigurationSetReputationOptionsOutput values.
 // You can construct a concrete instance of `ConfigurationSetReputationOptionsInput` via:
 //
-//          ConfigurationSetReputationOptionsArgs{...}
+//	ConfigurationSetReputationOptionsArgs{...}
 type ConfigurationSetReputationOptionsInput interface {
 	pulumi.Input
 
@@ -1056,11 +1056,11 @@ func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptio
 // ConfigurationSetReputationOptionsPtrInput is an input type that accepts ConfigurationSetReputationOptionsArgs, ConfigurationSetReputationOptionsPtr and ConfigurationSetReputationOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetReputationOptionsPtrInput` via:
 //
-//          ConfigurationSetReputationOptionsArgs{...}
+//	        ConfigurationSetReputationOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetReputationOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1154,7 +1154,7 @@ type ConfigurationSetSendingOptions struct {
 // ConfigurationSetSendingOptionsInput is an input type that accepts ConfigurationSetSendingOptionsArgs and ConfigurationSetSendingOptionsOutput values.
 // You can construct a concrete instance of `ConfigurationSetSendingOptionsInput` via:
 //
-//          ConfigurationSetSendingOptionsArgs{...}
+//	ConfigurationSetSendingOptionsArgs{...}
 type ConfigurationSetSendingOptionsInput interface {
 	pulumi.Input
 
@@ -1189,11 +1189,11 @@ func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsPtrO
 // ConfigurationSetSendingOptionsPtrInput is an input type that accepts ConfigurationSetSendingOptionsArgs, ConfigurationSetSendingOptionsPtr and ConfigurationSetSendingOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetSendingOptionsPtrInput` via:
 //
-//          ConfigurationSetSendingOptionsArgs{...}
+//	        ConfigurationSetSendingOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetSendingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1288,7 +1288,7 @@ type ConfigurationSetTags struct {
 // ConfigurationSetTagsInput is an input type that accepts ConfigurationSetTagsArgs and ConfigurationSetTagsOutput values.
 // You can construct a concrete instance of `ConfigurationSetTagsInput` via:
 //
-//          ConfigurationSetTagsArgs{...}
+//	ConfigurationSetTagsArgs{...}
 type ConfigurationSetTagsInput interface {
 	pulumi.Input
 
@@ -1316,7 +1316,7 @@ func (i ConfigurationSetTagsArgs) ToConfigurationSetTagsOutputWithContext(ctx co
 // ConfigurationSetTagsArrayInput is an input type that accepts ConfigurationSetTagsArray and ConfigurationSetTagsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetTagsArrayInput` via:
 //
-//          ConfigurationSetTagsArray{ ConfigurationSetTagsArgs{...} }
+//	ConfigurationSetTagsArray{ ConfigurationSetTagsArgs{...} }
 type ConfigurationSetTagsArrayInput interface {
 	pulumi.Input
 
@@ -1387,7 +1387,7 @@ type ConfigurationSetTrackingOptions struct {
 // ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
 // You can construct a concrete instance of `ConfigurationSetTrackingOptionsInput` via:
 //
-//          ConfigurationSetTrackingOptionsArgs{...}
+//	ConfigurationSetTrackingOptionsArgs{...}
 type ConfigurationSetTrackingOptionsInput interface {
 	pulumi.Input
 
@@ -1422,11 +1422,11 @@ func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPt
 // ConfigurationSetTrackingOptionsPtrInput is an input type that accepts ConfigurationSetTrackingOptionsArgs, ConfigurationSetTrackingOptionsPtr and ConfigurationSetTrackingOptionsPtrOutput values.
 // You can construct a concrete instance of `ConfigurationSetTrackingOptionsPtrInput` via:
 //
-//          ConfigurationSetTrackingOptionsArgs{...}
+//	        ConfigurationSetTrackingOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationSetTrackingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1521,7 +1521,7 @@ type DedicatedIpPoolTags struct {
 // DedicatedIpPoolTagsInput is an input type that accepts DedicatedIpPoolTagsArgs and DedicatedIpPoolTagsOutput values.
 // You can construct a concrete instance of `DedicatedIpPoolTagsInput` via:
 //
-//          DedicatedIpPoolTagsArgs{...}
+//	DedicatedIpPoolTagsArgs{...}
 type DedicatedIpPoolTagsInput interface {
 	pulumi.Input
 
@@ -1549,7 +1549,7 @@ func (i DedicatedIpPoolTagsArgs) ToDedicatedIpPoolTagsOutputWithContext(ctx cont
 // DedicatedIpPoolTagsArrayInput is an input type that accepts DedicatedIpPoolTagsArray and DedicatedIpPoolTagsArrayOutput values.
 // You can construct a concrete instance of `DedicatedIpPoolTagsArrayInput` via:
 //
-//          DedicatedIpPoolTagsArray{ DedicatedIpPoolTagsArgs{...} }
+//	DedicatedIpPoolTagsArray{ DedicatedIpPoolTagsArgs{...} }
 type DedicatedIpPoolTagsArrayInput interface {
 	pulumi.Input
 
@@ -1621,7 +1621,7 @@ type IdentityMailFromAttributes struct {
 // IdentityMailFromAttributesInput is an input type that accepts IdentityMailFromAttributesArgs and IdentityMailFromAttributesOutput values.
 // You can construct a concrete instance of `IdentityMailFromAttributesInput` via:
 //
-//          IdentityMailFromAttributesArgs{...}
+//	IdentityMailFromAttributesArgs{...}
 type IdentityMailFromAttributesInput interface {
 	pulumi.Input
 
@@ -1657,11 +1657,11 @@ func (i IdentityMailFromAttributesArgs) ToIdentityMailFromAttributesPtrOutputWit
 // IdentityMailFromAttributesPtrInput is an input type that accepts IdentityMailFromAttributesArgs, IdentityMailFromAttributesPtr and IdentityMailFromAttributesPtrOutput values.
 // You can construct a concrete instance of `IdentityMailFromAttributesPtrInput` via:
 //
-//          IdentityMailFromAttributesArgs{...}
+//	        IdentityMailFromAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityMailFromAttributesPtrInput interface {
 	pulumi.Input
 
@@ -1769,7 +1769,7 @@ type IdentityTags struct {
 // IdentityTagsInput is an input type that accepts IdentityTagsArgs and IdentityTagsOutput values.
 // You can construct a concrete instance of `IdentityTagsInput` via:
 //
-//          IdentityTagsArgs{...}
+//	IdentityTagsArgs{...}
 type IdentityTagsInput interface {
 	pulumi.Input
 
@@ -1797,7 +1797,7 @@ func (i IdentityTagsArgs) ToIdentityTagsOutputWithContext(ctx context.Context) I
 // IdentityTagsArrayInput is an input type that accepts IdentityTagsArray and IdentityTagsArrayOutput values.
 // You can construct a concrete instance of `IdentityTagsArrayInput` via:
 //
-//          IdentityTagsArray{ IdentityTagsArgs{...} }
+//	IdentityTagsArray{ IdentityTagsArgs{...} }
 type IdentityTagsArrayInput interface {
 	pulumi.Input
 

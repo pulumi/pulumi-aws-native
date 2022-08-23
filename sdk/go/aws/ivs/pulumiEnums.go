@@ -140,7 +140,7 @@ func (o ChannelLatencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // ChannelLatencyModeInput is an input type that accepts ChannelLatencyModeArgs and ChannelLatencyModeOutput values.
 // You can construct a concrete instance of `ChannelLatencyModeInput` via:
 //
-//          ChannelLatencyModeArgs{...}
+//	ChannelLatencyModeArgs{...}
 type ChannelLatencyModeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // ChannelTypeInput is an input type that accepts ChannelTypeArgs and ChannelTypeOutput values.
 // You can construct a concrete instance of `ChannelTypeInput` via:
 //
-//          ChannelTypeArgs{...}
+//	ChannelTypeArgs{...}
 type ChannelTypeInput interface {
 	pulumi.Input
 
@@ -562,7 +562,7 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToSt
 // RecordingConfigurationThumbnailConfigurationRecordingModeInput is an input type that accepts RecordingConfigurationThumbnailConfigurationRecordingModeArgs and RecordingConfigurationThumbnailConfigurationRecordingModeOutput values.
 // You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationRecordingModeInput` via:
 //
-//          RecordingConfigurationThumbnailConfigurationRecordingModeArgs{...}
+//	RecordingConfigurationThumbnailConfigurationRecordingModeArgs{...}
 type RecordingConfigurationThumbnailConfigurationRecordingModeInput interface {
 	pulumi.Input
 

@@ -138,7 +138,7 @@ func (o SigningProfilePlatformIdPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // SigningProfilePlatformIdInput is an input type that accepts SigningProfilePlatformIdArgs and SigningProfilePlatformIdOutput values.
 // You can construct a concrete instance of `SigningProfilePlatformIdInput` via:
 //
-//          SigningProfilePlatformIdArgs{...}
+//	SigningProfilePlatformIdArgs{...}
 type SigningProfilePlatformIdInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToStringPtrOutputWit
 // SigningProfileSignatureValidityPeriodTypeInput is an input type that accepts SigningProfileSignatureValidityPeriodTypeArgs and SigningProfileSignatureValidityPeriodTypeOutput values.
 // You can construct a concrete instance of `SigningProfileSignatureValidityPeriodTypeInput` via:
 //
-//          SigningProfileSignatureValidityPeriodTypeArgs{...}
+//	SigningProfileSignatureValidityPeriodTypeArgs{...}
 type SigningProfileSignatureValidityPeriodTypeInput interface {
 	pulumi.Input
 

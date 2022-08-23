@@ -21,7 +21,7 @@ type ContainerCorsRule struct {
 // ContainerCorsRuleInput is an input type that accepts ContainerCorsRuleArgs and ContainerCorsRuleOutput values.
 // You can construct a concrete instance of `ContainerCorsRuleInput` via:
 //
-//          ContainerCorsRuleArgs{...}
+//	ContainerCorsRuleArgs{...}
 type ContainerCorsRuleInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ContainerCorsRuleArgs) ToContainerCorsRuleOutputWithContext(ctx context.
 // ContainerCorsRuleArrayInput is an input type that accepts ContainerCorsRuleArray and ContainerCorsRuleArrayOutput values.
 // You can construct a concrete instance of `ContainerCorsRuleArrayInput` via:
 //
-//          ContainerCorsRuleArray{ ContainerCorsRuleArgs{...} }
+//	ContainerCorsRuleArray{ ContainerCorsRuleArgs{...} }
 type ContainerCorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ type ContainerMetricPolicy struct {
 // ContainerMetricPolicyInput is an input type that accepts ContainerMetricPolicyArgs and ContainerMetricPolicyOutput values.
 // You can construct a concrete instance of `ContainerMetricPolicyInput` via:
 //
-//          ContainerMetricPolicyArgs{...}
+//	ContainerMetricPolicyArgs{...}
 type ContainerMetricPolicyInput interface {
 	pulumi.Input
 
@@ -172,11 +172,11 @@ func (i ContainerMetricPolicyArgs) ToContainerMetricPolicyPtrOutputWithContext(c
 // ContainerMetricPolicyPtrInput is an input type that accepts ContainerMetricPolicyArgs, ContainerMetricPolicyPtr and ContainerMetricPolicyPtrOutput values.
 // You can construct a concrete instance of `ContainerMetricPolicyPtrInput` via:
 //
-//          ContainerMetricPolicyArgs{...}
+//	        ContainerMetricPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerMetricPolicyPtrInput interface {
 	pulumi.Input
 
@@ -284,7 +284,7 @@ type ContainerMetricPolicyRule struct {
 // ContainerMetricPolicyRuleInput is an input type that accepts ContainerMetricPolicyRuleArgs and ContainerMetricPolicyRuleOutput values.
 // You can construct a concrete instance of `ContainerMetricPolicyRuleInput` via:
 //
-//          ContainerMetricPolicyRuleArgs{...}
+//	ContainerMetricPolicyRuleArgs{...}
 type ContainerMetricPolicyRuleInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ func (i ContainerMetricPolicyRuleArgs) ToContainerMetricPolicyRuleOutputWithCont
 // ContainerMetricPolicyRuleArrayInput is an input type that accepts ContainerMetricPolicyRuleArray and ContainerMetricPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ContainerMetricPolicyRuleArrayInput` via:
 //
-//          ContainerMetricPolicyRuleArray{ ContainerMetricPolicyRuleArgs{...} }
+//	ContainerMetricPolicyRuleArray{ ContainerMetricPolicyRuleArgs{...} }
 type ContainerMetricPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -384,7 +384,7 @@ type ContainerTag struct {
 // ContainerTagInput is an input type that accepts ContainerTagArgs and ContainerTagOutput values.
 // You can construct a concrete instance of `ContainerTagInput` via:
 //
-//          ContainerTagArgs{...}
+//	ContainerTagArgs{...}
 type ContainerTagInput interface {
 	pulumi.Input
 
@@ -412,7 +412,7 @@ func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) C
 // ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
 // You can construct a concrete instance of `ContainerTagArrayInput` via:
 //
-//          ContainerTagArray{ ContainerTagArgs{...} }
+//	ContainerTagArray{ ContainerTagArgs{...} }
 type ContainerTagArrayInput interface {
 	pulumi.Input
 

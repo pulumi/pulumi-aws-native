@@ -20,7 +20,7 @@ type AttributesItemProperties struct {
 // AttributesItemPropertiesInput is an input type that accepts AttributesItemPropertiesArgs and AttributesItemPropertiesOutput values.
 // You can construct a concrete instance of `AttributesItemPropertiesInput` via:
 //
-//          AttributesItemPropertiesArgs{...}
+//	AttributesItemPropertiesArgs{...}
 type AttributesItemPropertiesInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AttributesItemPropertiesArgs) ToAttributesItemPropertiesOutputWithContex
 // AttributesItemPropertiesArrayInput is an input type that accepts AttributesItemPropertiesArray and AttributesItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `AttributesItemPropertiesArrayInput` via:
 //
-//          AttributesItemPropertiesArray{ AttributesItemPropertiesArgs{...} }
+//	AttributesItemPropertiesArray{ AttributesItemPropertiesArgs{...} }
 type AttributesItemPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -127,7 +127,7 @@ type DatasetGroupTag struct {
 // DatasetGroupTagInput is an input type that accepts DatasetGroupTagArgs and DatasetGroupTagOutput values.
 // You can construct a concrete instance of `DatasetGroupTagInput` via:
 //
-//          DatasetGroupTagArgs{...}
+//	DatasetGroupTagArgs{...}
 type DatasetGroupTagInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i DatasetGroupTagArgs) ToDatasetGroupTagOutputWithContext(ctx context.Cont
 // DatasetGroupTagArrayInput is an input type that accepts DatasetGroupTagArray and DatasetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DatasetGroupTagArrayInput` via:
 //
-//          DatasetGroupTagArray{ DatasetGroupTagArgs{...} }
+//	DatasetGroupTagArray{ DatasetGroupTagArgs{...} }
 type DatasetGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +233,7 @@ type EncryptionConfigProperties struct {
 // EncryptionConfigPropertiesInput is an input type that accepts EncryptionConfigPropertiesArgs and EncryptionConfigPropertiesOutput values.
 // You can construct a concrete instance of `EncryptionConfigPropertiesInput` via:
 //
-//          EncryptionConfigPropertiesArgs{...}
+//	EncryptionConfigPropertiesArgs{...}
 type EncryptionConfigPropertiesInput interface {
 	pulumi.Input
 
@@ -269,11 +269,11 @@ func (i EncryptionConfigPropertiesArgs) ToEncryptionConfigPropertiesPtrOutputWit
 // EncryptionConfigPropertiesPtrInput is an input type that accepts EncryptionConfigPropertiesArgs, EncryptionConfigPropertiesPtr and EncryptionConfigPropertiesPtrOutput values.
 // You can construct a concrete instance of `EncryptionConfigPropertiesPtrInput` via:
 //
-//          EncryptionConfigPropertiesArgs{...}
+//	        EncryptionConfigPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EncryptionConfigPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -380,7 +380,7 @@ type SchemaProperties struct {
 // SchemaPropertiesInput is an input type that accepts SchemaPropertiesArgs and SchemaPropertiesOutput values.
 // You can construct a concrete instance of `SchemaPropertiesInput` via:
 //
-//          SchemaPropertiesArgs{...}
+//	SchemaPropertiesArgs{...}
 type SchemaPropertiesInput interface {
 	pulumi.Input
 
@@ -464,7 +464,7 @@ type TagsItemProperties struct {
 // TagsItemPropertiesInput is an input type that accepts TagsItemPropertiesArgs and TagsItemPropertiesOutput values.
 // You can construct a concrete instance of `TagsItemPropertiesInput` via:
 //
-//          TagsItemPropertiesArgs{...}
+//	TagsItemPropertiesArgs{...}
 type TagsItemPropertiesInput interface {
 	pulumi.Input
 
@@ -493,7 +493,7 @@ func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx contex
 // TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
 //
-//          TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
+//	TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
 type TagsItemPropertiesArrayInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type BucketAccessRules struct {
 // BucketAccessRulesInput is an input type that accepts BucketAccessRulesArgs and BucketAccessRulesOutput values.
 // You can construct a concrete instance of `BucketAccessRulesInput` via:
 //
-//          BucketAccessRulesArgs{...}
+//	BucketAccessRulesArgs{...}
 type BucketAccessRulesInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i BucketAccessRulesArgs) ToBucketAccessRulesPtrOutputWithContext(ctx conte
 // BucketAccessRulesPtrInput is an input type that accepts BucketAccessRulesArgs, BucketAccessRulesPtr and BucketAccessRulesPtrOutput values.
 // You can construct a concrete instance of `BucketAccessRulesPtrInput` via:
 //
-//          BucketAccessRulesArgs{...}
+//	        BucketAccessRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketAccessRulesPtrInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ type BucketTag struct {
 // BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
 // You can construct a concrete instance of `BucketTagInput` via:
 //
-//          BucketTagArgs{...}
+//	BucketTagArgs{...}
 type BucketTagInput interface {
 	pulumi.Input
 
@@ -211,7 +211,7 @@ func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketT
 // BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
 // You can construct a concrete instance of `BucketTagArrayInput` via:
 //
-//          BucketTagArray{ BucketTagArgs{...} }
+//	BucketTagArray{ BucketTagArgs{...} }
 type BucketTagArrayInput interface {
 	pulumi.Input
 
@@ -289,7 +289,7 @@ type CertificateTag struct {
 // CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
 // You can construct a concrete instance of `CertificateTagInput` via:
 //
-//          CertificateTagArgs{...}
+//	CertificateTagArgs{...}
 type CertificateTagInput interface {
 	pulumi.Input
 
@@ -320,7 +320,7 @@ func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Contex
 // CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
 // You can construct a concrete instance of `CertificateTagArrayInput` via:
 //
-//          CertificateTagArray{ CertificateTagArgs{...} }
+//	CertificateTagArray{ CertificateTagArgs{...} }
 type CertificateTagArrayInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ type ContainerType struct {
 // ContainerTypeInput is an input type that accepts ContainerTypeArgs and ContainerTypeOutput values.
 // You can construct a concrete instance of `ContainerTypeInput` via:
 //
-//          ContainerTypeArgs{...}
+//	ContainerTypeArgs{...}
 type ContainerTypeInput interface {
 	pulumi.Input
 
@@ -441,7 +441,7 @@ func (i ContainerTypeArgs) ToContainerTypeOutputWithContext(ctx context.Context)
 // ContainerTypeArrayInput is an input type that accepts ContainerTypeArray and ContainerTypeArrayOutput values.
 // You can construct a concrete instance of `ContainerTypeArrayInput` via:
 //
-//          ContainerTypeArray{ ContainerTypeArgs{...} }
+//	ContainerTypeArray{ ContainerTypeArgs{...} }
 type ContainerTypeArrayInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ type ContainerEnvironmentVariable struct {
 // ContainerEnvironmentVariableInput is an input type that accepts ContainerEnvironmentVariableArgs and ContainerEnvironmentVariableOutput values.
 // You can construct a concrete instance of `ContainerEnvironmentVariableInput` via:
 //
-//          ContainerEnvironmentVariableArgs{...}
+//	ContainerEnvironmentVariableArgs{...}
 type ContainerEnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -559,7 +559,7 @@ func (i ContainerEnvironmentVariableArgs) ToContainerEnvironmentVariableOutputWi
 // ContainerEnvironmentVariableArrayInput is an input type that accepts ContainerEnvironmentVariableArray and ContainerEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ContainerEnvironmentVariableArrayInput` via:
 //
-//          ContainerEnvironmentVariableArray{ ContainerEnvironmentVariableArgs{...} }
+//	ContainerEnvironmentVariableArray{ ContainerEnvironmentVariableArgs{...} }
 type ContainerEnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -642,7 +642,7 @@ type ContainerHealthCheckConfig struct {
 // ContainerHealthCheckConfigInput is an input type that accepts ContainerHealthCheckConfigArgs and ContainerHealthCheckConfigOutput values.
 // You can construct a concrete instance of `ContainerHealthCheckConfigInput` via:
 //
-//          ContainerHealthCheckConfigArgs{...}
+//	ContainerHealthCheckConfigArgs{...}
 type ContainerHealthCheckConfigInput interface {
 	pulumi.Input
 
@@ -689,11 +689,11 @@ func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigPtrOutputWit
 // ContainerHealthCheckConfigPtrInput is an input type that accepts ContainerHealthCheckConfigArgs, ContainerHealthCheckConfigPtr and ContainerHealthCheckConfigPtrOutput values.
 // You can construct a concrete instance of `ContainerHealthCheckConfigPtrInput` via:
 //
-//          ContainerHealthCheckConfigArgs{...}
+//	        ContainerHealthCheckConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerHealthCheckConfigPtrInput interface {
 	pulumi.Input
 
@@ -866,7 +866,7 @@ type ContainerPortInfo struct {
 // ContainerPortInfoInput is an input type that accepts ContainerPortInfoArgs and ContainerPortInfoOutput values.
 // You can construct a concrete instance of `ContainerPortInfoInput` via:
 //
-//          ContainerPortInfoArgs{...}
+//	ContainerPortInfoArgs{...}
 type ContainerPortInfoInput interface {
 	pulumi.Input
 
@@ -894,7 +894,7 @@ func (i ContainerPortInfoArgs) ToContainerPortInfoOutputWithContext(ctx context.
 // ContainerPortInfoArrayInput is an input type that accepts ContainerPortInfoArray and ContainerPortInfoArrayOutput values.
 // You can construct a concrete instance of `ContainerPortInfoArrayInput` via:
 //
-//          ContainerPortInfoArray{ ContainerPortInfoArgs{...} }
+//	ContainerPortInfoArray{ ContainerPortInfoArgs{...} }
 type ContainerPortInfoArrayInput interface {
 	pulumi.Input
 
@@ -968,7 +968,7 @@ type ContainerPublicDomainName struct {
 // ContainerPublicDomainNameInput is an input type that accepts ContainerPublicDomainNameArgs and ContainerPublicDomainNameOutput values.
 // You can construct a concrete instance of `ContainerPublicDomainNameInput` via:
 //
-//          ContainerPublicDomainNameArgs{...}
+//	ContainerPublicDomainNameArgs{...}
 type ContainerPublicDomainNameInput interface {
 	pulumi.Input
 
@@ -998,7 +998,7 @@ func (i ContainerPublicDomainNameArgs) ToContainerPublicDomainNameOutputWithCont
 // ContainerPublicDomainNameArrayInput is an input type that accepts ContainerPublicDomainNameArray and ContainerPublicDomainNameArrayOutput values.
 // You can construct a concrete instance of `ContainerPublicDomainNameArrayInput` via:
 //
-//          ContainerPublicDomainNameArray{ ContainerPublicDomainNameArgs{...} }
+//	ContainerPublicDomainNameArray{ ContainerPublicDomainNameArgs{...} }
 type ContainerPublicDomainNameArrayInput interface {
 	pulumi.Input
 
@@ -1077,7 +1077,7 @@ type ContainerPublicEndpoint struct {
 // ContainerPublicEndpointInput is an input type that accepts ContainerPublicEndpointArgs and ContainerPublicEndpointOutput values.
 // You can construct a concrete instance of `ContainerPublicEndpointInput` via:
 //
-//          ContainerPublicEndpointArgs{...}
+//	ContainerPublicEndpointArgs{...}
 type ContainerPublicEndpointInput interface {
 	pulumi.Input
 
@@ -1118,11 +1118,11 @@ func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointPtrOutputWithConte
 // ContainerPublicEndpointPtrInput is an input type that accepts ContainerPublicEndpointArgs, ContainerPublicEndpointPtr and ContainerPublicEndpointPtrOutput values.
 // You can construct a concrete instance of `ContainerPublicEndpointPtrInput` via:
 //
-//          ContainerPublicEndpointArgs{...}
+//	        ContainerPublicEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerPublicEndpointPtrInput interface {
 	pulumi.Input
 
@@ -1253,7 +1253,7 @@ type ContainerServiceDeployment struct {
 // ContainerServiceDeploymentInput is an input type that accepts ContainerServiceDeploymentArgs and ContainerServiceDeploymentOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentInput` via:
 //
-//          ContainerServiceDeploymentArgs{...}
+//	ContainerServiceDeploymentArgs{...}
 type ContainerServiceDeploymentInput interface {
 	pulumi.Input
 
@@ -1292,11 +1292,11 @@ func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentPtrOutputWit
 // ContainerServiceDeploymentPtrInput is an input type that accepts ContainerServiceDeploymentArgs, ContainerServiceDeploymentPtr and ContainerServiceDeploymentPtrOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentPtrInput` via:
 //
-//          ContainerServiceDeploymentArgs{...}
+//	        ContainerServiceDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContainerServiceDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -1412,7 +1412,7 @@ type ContainerTag struct {
 // ContainerTagInput is an input type that accepts ContainerTagArgs and ContainerTagOutput values.
 // You can construct a concrete instance of `ContainerTagInput` via:
 //
-//          ContainerTagArgs{...}
+//	ContainerTagArgs{...}
 type ContainerTagInput interface {
 	pulumi.Input
 
@@ -1443,7 +1443,7 @@ func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) C
 // ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
 // You can construct a concrete instance of `ContainerTagArrayInput` via:
 //
-//          ContainerTagArray{ ContainerTagArgs{...} }
+//	ContainerTagArray{ ContainerTagArgs{...} }
 type ContainerTagArrayInput interface {
 	pulumi.Input
 
@@ -1533,7 +1533,7 @@ type DatabaseRelationalDatabaseParameter struct {
 // DatabaseRelationalDatabaseParameterInput is an input type that accepts DatabaseRelationalDatabaseParameterArgs and DatabaseRelationalDatabaseParameterOutput values.
 // You can construct a concrete instance of `DatabaseRelationalDatabaseParameterInput` via:
 //
-//          DatabaseRelationalDatabaseParameterArgs{...}
+//	DatabaseRelationalDatabaseParameterArgs{...}
 type DatabaseRelationalDatabaseParameterInput interface {
 	pulumi.Input
 
@@ -1576,7 +1576,7 @@ func (i DatabaseRelationalDatabaseParameterArgs) ToDatabaseRelationalDatabasePar
 // DatabaseRelationalDatabaseParameterArrayInput is an input type that accepts DatabaseRelationalDatabaseParameterArray and DatabaseRelationalDatabaseParameterArrayOutput values.
 // You can construct a concrete instance of `DatabaseRelationalDatabaseParameterArrayInput` via:
 //
-//          DatabaseRelationalDatabaseParameterArray{ DatabaseRelationalDatabaseParameterArgs{...} }
+//	DatabaseRelationalDatabaseParameterArray{ DatabaseRelationalDatabaseParameterArgs{...} }
 type DatabaseRelationalDatabaseParameterArrayInput interface {
 	pulumi.Input
 
@@ -1684,7 +1684,7 @@ type DatabaseTag struct {
 // DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
 // You can construct a concrete instance of `DatabaseTagInput` via:
 //
-//          DatabaseTagArgs{...}
+//	DatabaseTagArgs{...}
 type DatabaseTagInput interface {
 	pulumi.Input
 
@@ -1715,7 +1715,7 @@ func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) Dat
 // DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
 // You can construct a concrete instance of `DatabaseTagArrayInput` via:
 //
-//          DatabaseTagArray{ DatabaseTagArgs{...} }
+//	DatabaseTagArray{ DatabaseTagArgs{...} }
 type DatabaseTagArrayInput interface {
 	pulumi.Input
 
@@ -1794,7 +1794,7 @@ type DiskAddOn struct {
 // DiskAddOnInput is an input type that accepts DiskAddOnArgs and DiskAddOnOutput values.
 // You can construct a concrete instance of `DiskAddOnInput` via:
 //
-//          DiskAddOnArgs{...}
+//	DiskAddOnArgs{...}
 type DiskAddOnInput interface {
 	pulumi.Input
 
@@ -1826,7 +1826,7 @@ func (i DiskAddOnArgs) ToDiskAddOnOutputWithContext(ctx context.Context) DiskAdd
 // DiskAddOnArrayInput is an input type that accepts DiskAddOnArray and DiskAddOnArrayOutput values.
 // You can construct a concrete instance of `DiskAddOnArrayInput` via:
 //
-//          DiskAddOnArray{ DiskAddOnArgs{...} }
+//	DiskAddOnArray{ DiskAddOnArgs{...} }
 type DiskAddOnArrayInput interface {
 	pulumi.Input
 
@@ -1906,7 +1906,7 @@ type DiskAutoSnapshotAddOn struct {
 // DiskAutoSnapshotAddOnInput is an input type that accepts DiskAutoSnapshotAddOnArgs and DiskAutoSnapshotAddOnOutput values.
 // You can construct a concrete instance of `DiskAutoSnapshotAddOnInput` via:
 //
-//          DiskAutoSnapshotAddOnArgs{...}
+//	DiskAutoSnapshotAddOnArgs{...}
 type DiskAutoSnapshotAddOnInput interface {
 	pulumi.Input
 
@@ -1943,11 +1943,11 @@ func (i DiskAutoSnapshotAddOnArgs) ToDiskAutoSnapshotAddOnPtrOutputWithContext(c
 // DiskAutoSnapshotAddOnPtrInput is an input type that accepts DiskAutoSnapshotAddOnArgs, DiskAutoSnapshotAddOnPtr and DiskAutoSnapshotAddOnPtrOutput values.
 // You can construct a concrete instance of `DiskAutoSnapshotAddOnPtrInput` via:
 //
-//          DiskAutoSnapshotAddOnArgs{...}
+//	        DiskAutoSnapshotAddOnArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DiskAutoSnapshotAddOnPtrInput interface {
 	pulumi.Input
 
@@ -2125,7 +2125,7 @@ type DiskTag struct {
 // DiskTagInput is an input type that accepts DiskTagArgs and DiskTagOutput values.
 // You can construct a concrete instance of `DiskTagInput` via:
 //
-//          DiskTagArgs{...}
+//	DiskTagArgs{...}
 type DiskTagInput interface {
 	pulumi.Input
 
@@ -2156,7 +2156,7 @@ func (i DiskTagArgs) ToDiskTagOutputWithContext(ctx context.Context) DiskTagOutp
 // DiskTagArrayInput is an input type that accepts DiskTagArray and DiskTagArrayOutput values.
 // You can construct a concrete instance of `DiskTagArrayInput` via:
 //
-//          DiskTagArray{ DiskTagArgs{...} }
+//	DiskTagArray{ DiskTagArgs{...} }
 type DiskTagArrayInput interface {
 	pulumi.Input
 
@@ -2232,7 +2232,7 @@ type DistributionCacheBehavior struct {
 // DistributionCacheBehaviorInput is an input type that accepts DistributionCacheBehaviorArgs and DistributionCacheBehaviorOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorInput` via:
 //
-//          DistributionCacheBehaviorArgs{...}
+//	DistributionCacheBehaviorArgs{...}
 type DistributionCacheBehaviorInput interface {
 	pulumi.Input
 
@@ -2323,7 +2323,7 @@ type DistributionCacheBehaviorPerPath struct {
 // DistributionCacheBehaviorPerPathInput is an input type that accepts DistributionCacheBehaviorPerPathArgs and DistributionCacheBehaviorPerPathOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorPerPathInput` via:
 //
-//          DistributionCacheBehaviorPerPathArgs{...}
+//	DistributionCacheBehaviorPerPathArgs{...}
 type DistributionCacheBehaviorPerPathInput interface {
 	pulumi.Input
 
@@ -2354,7 +2354,7 @@ func (i DistributionCacheBehaviorPerPathArgs) ToDistributionCacheBehaviorPerPath
 // DistributionCacheBehaviorPerPathArrayInput is an input type that accepts DistributionCacheBehaviorPerPathArray and DistributionCacheBehaviorPerPathArrayOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorPerPathArrayInput` via:
 //
-//          DistributionCacheBehaviorPerPathArray{ DistributionCacheBehaviorPerPathArgs{...} }
+//	DistributionCacheBehaviorPerPathArray{ DistributionCacheBehaviorPerPathArgs{...} }
 type DistributionCacheBehaviorPerPathArrayInput interface {
 	pulumi.Input
 
@@ -2444,7 +2444,7 @@ type DistributionCacheSettings struct {
 // DistributionCacheSettingsInput is an input type that accepts DistributionCacheSettingsArgs and DistributionCacheSettingsOutput values.
 // You can construct a concrete instance of `DistributionCacheSettingsInput` via:
 //
-//          DistributionCacheSettingsArgs{...}
+//	DistributionCacheSettingsArgs{...}
 type DistributionCacheSettingsInput interface {
 	pulumi.Input
 
@@ -2495,11 +2495,11 @@ func (i DistributionCacheSettingsArgs) ToDistributionCacheSettingsPtrOutputWithC
 // DistributionCacheSettingsPtrInput is an input type that accepts DistributionCacheSettingsArgs, DistributionCacheSettingsPtr and DistributionCacheSettingsPtrOutput values.
 // You can construct a concrete instance of `DistributionCacheSettingsPtrInput` via:
 //
-//          DistributionCacheSettingsArgs{...}
+//	        DistributionCacheSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionCacheSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2705,7 +2705,7 @@ type DistributionCookieObject struct {
 // DistributionCookieObjectInput is an input type that accepts DistributionCookieObjectArgs and DistributionCookieObjectOutput values.
 // You can construct a concrete instance of `DistributionCookieObjectInput` via:
 //
-//          DistributionCookieObjectArgs{...}
+//	DistributionCookieObjectArgs{...}
 type DistributionCookieObjectInput interface {
 	pulumi.Input
 
@@ -2744,11 +2744,11 @@ func (i DistributionCookieObjectArgs) ToDistributionCookieObjectPtrOutputWithCon
 // DistributionCookieObjectPtrInput is an input type that accepts DistributionCookieObjectArgs, DistributionCookieObjectPtr and DistributionCookieObjectPtrOutput values.
 // You can construct a concrete instance of `DistributionCookieObjectPtrInput` via:
 //
-//          DistributionCookieObjectArgs{...}
+//	        DistributionCookieObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionCookieObjectPtrInput interface {
 	pulumi.Input
 
@@ -2864,7 +2864,7 @@ type DistributionHeaderObject struct {
 // DistributionHeaderObjectInput is an input type that accepts DistributionHeaderObjectArgs and DistributionHeaderObjectOutput values.
 // You can construct a concrete instance of `DistributionHeaderObjectInput` via:
 //
-//          DistributionHeaderObjectArgs{...}
+//	DistributionHeaderObjectArgs{...}
 type DistributionHeaderObjectInput interface {
 	pulumi.Input
 
@@ -2903,11 +2903,11 @@ func (i DistributionHeaderObjectArgs) ToDistributionHeaderObjectPtrOutputWithCon
 // DistributionHeaderObjectPtrInput is an input type that accepts DistributionHeaderObjectArgs, DistributionHeaderObjectPtr and DistributionHeaderObjectPtrOutput values.
 // You can construct a concrete instance of `DistributionHeaderObjectPtrInput` via:
 //
-//          DistributionHeaderObjectArgs{...}
+//	        DistributionHeaderObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionHeaderObjectPtrInput interface {
 	pulumi.Input
 
@@ -3025,7 +3025,7 @@ type DistributionInputOrigin struct {
 // DistributionInputOriginInput is an input type that accepts DistributionInputOriginArgs and DistributionInputOriginOutput values.
 // You can construct a concrete instance of `DistributionInputOriginInput` via:
 //
-//          DistributionInputOriginArgs{...}
+//	DistributionInputOriginArgs{...}
 type DistributionInputOriginInput interface {
 	pulumi.Input
 
@@ -3150,7 +3150,7 @@ type DistributionQueryStringObject struct {
 // DistributionQueryStringObjectInput is an input type that accepts DistributionQueryStringObjectArgs and DistributionQueryStringObjectOutput values.
 // You can construct a concrete instance of `DistributionQueryStringObjectInput` via:
 //
-//          DistributionQueryStringObjectArgs{...}
+//	DistributionQueryStringObjectArgs{...}
 type DistributionQueryStringObjectInput interface {
 	pulumi.Input
 
@@ -3189,11 +3189,11 @@ func (i DistributionQueryStringObjectArgs) ToDistributionQueryStringObjectPtrOut
 // DistributionQueryStringObjectPtrInput is an input type that accepts DistributionQueryStringObjectArgs, DistributionQueryStringObjectPtr and DistributionQueryStringObjectPtrOutput values.
 // You can construct a concrete instance of `DistributionQueryStringObjectPtrInput` via:
 //
-//          DistributionQueryStringObjectArgs{...}
+//	        DistributionQueryStringObjectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionQueryStringObjectPtrInput interface {
 	pulumi.Input
 
@@ -3309,7 +3309,7 @@ type DistributionTag struct {
 // DistributionTagInput is an input type that accepts DistributionTagArgs and DistributionTagOutput values.
 // You can construct a concrete instance of `DistributionTagInput` via:
 //
-//          DistributionTagArgs{...}
+//	DistributionTagArgs{...}
 type DistributionTagInput interface {
 	pulumi.Input
 
@@ -3340,7 +3340,7 @@ func (i DistributionTagArgs) ToDistributionTagOutputWithContext(ctx context.Cont
 // DistributionTagArrayInput is an input type that accepts DistributionTagArray and DistributionTagArrayOutput values.
 // You can construct a concrete instance of `DistributionTagArrayInput` via:
 //
-//          DistributionTagArray{ DistributionTagArgs{...} }
+//	DistributionTagArray{ DistributionTagArgs{...} }
 type DistributionTagArrayInput interface {
 	pulumi.Input
 
@@ -3419,7 +3419,7 @@ type InstanceAddOn struct {
 // InstanceAddOnInput is an input type that accepts InstanceAddOnArgs and InstanceAddOnOutput values.
 // You can construct a concrete instance of `InstanceAddOnInput` via:
 //
-//          InstanceAddOnArgs{...}
+//	InstanceAddOnArgs{...}
 type InstanceAddOnInput interface {
 	pulumi.Input
 
@@ -3451,7 +3451,7 @@ func (i InstanceAddOnArgs) ToInstanceAddOnOutputWithContext(ctx context.Context)
 // InstanceAddOnArrayInput is an input type that accepts InstanceAddOnArray and InstanceAddOnArrayOutput values.
 // You can construct a concrete instance of `InstanceAddOnArrayInput` via:
 //
-//          InstanceAddOnArray{ InstanceAddOnArgs{...} }
+//	InstanceAddOnArray{ InstanceAddOnArgs{...} }
 type InstanceAddOnArrayInput interface {
 	pulumi.Input
 
@@ -3531,7 +3531,7 @@ type InstanceAutoSnapshotAddOn struct {
 // InstanceAutoSnapshotAddOnInput is an input type that accepts InstanceAutoSnapshotAddOnArgs and InstanceAutoSnapshotAddOnOutput values.
 // You can construct a concrete instance of `InstanceAutoSnapshotAddOnInput` via:
 //
-//          InstanceAutoSnapshotAddOnArgs{...}
+//	InstanceAutoSnapshotAddOnArgs{...}
 type InstanceAutoSnapshotAddOnInput interface {
 	pulumi.Input
 
@@ -3568,11 +3568,11 @@ func (i InstanceAutoSnapshotAddOnArgs) ToInstanceAutoSnapshotAddOnPtrOutputWithC
 // InstanceAutoSnapshotAddOnPtrInput is an input type that accepts InstanceAutoSnapshotAddOnArgs, InstanceAutoSnapshotAddOnPtr and InstanceAutoSnapshotAddOnPtrOutput values.
 // You can construct a concrete instance of `InstanceAutoSnapshotAddOnPtrInput` via:
 //
-//          InstanceAutoSnapshotAddOnArgs{...}
+//	        InstanceAutoSnapshotAddOnArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceAutoSnapshotAddOnPtrInput interface {
 	pulumi.Input
 
@@ -3683,7 +3683,7 @@ type InstanceDisk struct {
 // InstanceDiskInput is an input type that accepts InstanceDiskArgs and InstanceDiskOutput values.
 // You can construct a concrete instance of `InstanceDiskInput` via:
 //
-//          InstanceDiskArgs{...}
+//	InstanceDiskArgs{...}
 type InstanceDiskInput interface {
 	pulumi.Input
 
@@ -3724,7 +3724,7 @@ func (i InstanceDiskArgs) ToInstanceDiskOutputWithContext(ctx context.Context) I
 // InstanceDiskArrayInput is an input type that accepts InstanceDiskArray and InstanceDiskArrayOutput values.
 // You can construct a concrete instance of `InstanceDiskArrayInput` via:
 //
-//          InstanceDiskArray{ InstanceDiskArgs{...} }
+//	InstanceDiskArray{ InstanceDiskArgs{...} }
 type InstanceDiskArrayInput interface {
 	pulumi.Input
 
@@ -3829,7 +3829,7 @@ type InstanceHardware struct {
 // InstanceHardwareInput is an input type that accepts InstanceHardwareArgs and InstanceHardwareOutput values.
 // You can construct a concrete instance of `InstanceHardwareInput` via:
 //
-//          InstanceHardwareArgs{...}
+//	InstanceHardwareArgs{...}
 type InstanceHardwareInput interface {
 	pulumi.Input
 
@@ -3870,11 +3870,11 @@ func (i InstanceHardwareArgs) ToInstanceHardwarePtrOutputWithContext(ctx context
 // InstanceHardwarePtrInput is an input type that accepts InstanceHardwareArgs, InstanceHardwarePtr and InstanceHardwarePtrOutput values.
 // You can construct a concrete instance of `InstanceHardwarePtrInput` via:
 //
-//          InstanceHardwareArgs{...}
+//	        InstanceHardwareArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceHardwarePtrInput interface {
 	pulumi.Input
 
@@ -4005,7 +4005,7 @@ type InstanceLocation struct {
 // InstanceLocationInput is an input type that accepts InstanceLocationArgs and InstanceLocationOutput values.
 // You can construct a concrete instance of `InstanceLocationInput` via:
 //
-//          InstanceLocationArgs{...}
+//	InstanceLocationArgs{...}
 type InstanceLocationInput interface {
 	pulumi.Input
 
@@ -4044,11 +4044,11 @@ func (i InstanceLocationArgs) ToInstanceLocationPtrOutputWithContext(ctx context
 // InstanceLocationPtrInput is an input type that accepts InstanceLocationArgs, InstanceLocationPtr and InstanceLocationPtrOutput values.
 // You can construct a concrete instance of `InstanceLocationPtrInput` via:
 //
-//          InstanceLocationArgs{...}
+//	        InstanceLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceLocationPtrInput interface {
 	pulumi.Input
 
@@ -4162,7 +4162,7 @@ type InstanceMonthlyTransfer struct {
 // InstanceMonthlyTransferInput is an input type that accepts InstanceMonthlyTransferArgs and InstanceMonthlyTransferOutput values.
 // You can construct a concrete instance of `InstanceMonthlyTransferInput` via:
 //
-//          InstanceMonthlyTransferArgs{...}
+//	InstanceMonthlyTransferArgs{...}
 type InstanceMonthlyTransferInput interface {
 	pulumi.Input
 
@@ -4199,11 +4199,11 @@ func (i InstanceMonthlyTransferArgs) ToInstanceMonthlyTransferPtrOutputWithConte
 // InstanceMonthlyTransferPtrInput is an input type that accepts InstanceMonthlyTransferArgs, InstanceMonthlyTransferPtr and InstanceMonthlyTransferPtrOutput values.
 // You can construct a concrete instance of `InstanceMonthlyTransferPtrInput` via:
 //
-//          InstanceMonthlyTransferArgs{...}
+//	        InstanceMonthlyTransferArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceMonthlyTransferPtrInput interface {
 	pulumi.Input
 
@@ -4303,7 +4303,7 @@ type InstanceNetworking struct {
 // InstanceNetworkingInput is an input type that accepts InstanceNetworkingArgs and InstanceNetworkingOutput values.
 // You can construct a concrete instance of `InstanceNetworkingInput` via:
 //
-//          InstanceNetworkingArgs{...}
+//	InstanceNetworkingArgs{...}
 type InstanceNetworkingInput interface {
 	pulumi.Input
 
@@ -4341,11 +4341,11 @@ func (i InstanceNetworkingArgs) ToInstanceNetworkingPtrOutputWithContext(ctx con
 // InstanceNetworkingPtrInput is an input type that accepts InstanceNetworkingArgs, InstanceNetworkingPtr and InstanceNetworkingPtrOutput values.
 // You can construct a concrete instance of `InstanceNetworkingPtrInput` via:
 //
-//          InstanceNetworkingArgs{...}
+//	        InstanceNetworkingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceNetworkingPtrInput interface {
 	pulumi.Input
 
@@ -4472,7 +4472,7 @@ type InstancePort struct {
 // InstancePortInput is an input type that accepts InstancePortArgs and InstancePortOutput values.
 // You can construct a concrete instance of `InstancePortInput` via:
 //
-//          InstancePortArgs{...}
+//	InstancePortArgs{...}
 type InstancePortInput interface {
 	pulumi.Input
 
@@ -4516,7 +4516,7 @@ func (i InstancePortArgs) ToInstancePortOutputWithContext(ctx context.Context) I
 // InstancePortArrayInput is an input type that accepts InstancePortArray and InstancePortArrayOutput values.
 // You can construct a concrete instance of `InstancePortArrayInput` via:
 //
-//          InstancePortArray{ InstancePortArgs{...} }
+//	InstancePortArray{ InstancePortArgs{...} }
 type InstancePortArrayInput interface {
 	pulumi.Input
 
@@ -4631,7 +4631,7 @@ type InstanceStateType struct {
 // InstanceStateTypeInput is an input type that accepts InstanceStateTypeArgs and InstanceStateTypeOutput values.
 // You can construct a concrete instance of `InstanceStateTypeInput` via:
 //
-//          InstanceStateTypeArgs{...}
+//	InstanceStateTypeArgs{...}
 type InstanceStateTypeInput interface {
 	pulumi.Input
 
@@ -4670,11 +4670,11 @@ func (i InstanceStateTypeArgs) ToInstanceStateTypePtrOutputWithContext(ctx conte
 // InstanceStateTypePtrInput is an input type that accepts InstanceStateTypeArgs, InstanceStateTypePtr and InstanceStateTypePtrOutput values.
 // You can construct a concrete instance of `InstanceStateTypePtrInput` via:
 //
-//          InstanceStateTypeArgs{...}
+//	        InstanceStateTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceStateTypePtrInput interface {
 	pulumi.Input
 
@@ -4790,7 +4790,7 @@ type InstanceTag struct {
 // InstanceTagInput is an input type that accepts InstanceTagArgs and InstanceTagOutput values.
 // You can construct a concrete instance of `InstanceTagInput` via:
 //
-//          InstanceTagArgs{...}
+//	InstanceTagArgs{...}
 type InstanceTagInput interface {
 	pulumi.Input
 
@@ -4821,7 +4821,7 @@ func (i InstanceTagArgs) ToInstanceTagOutputWithContext(ctx context.Context) Ins
 // InstanceTagArrayInput is an input type that accepts InstanceTagArray and InstanceTagArrayOutput values.
 // You can construct a concrete instance of `InstanceTagArrayInput` via:
 //
-//          InstanceTagArray{ InstanceTagArgs{...} }
+//	InstanceTagArray{ InstanceTagArgs{...} }
 type InstanceTagArrayInput interface {
 	pulumi.Input
 
@@ -4899,7 +4899,7 @@ type LoadBalancerTag struct {
 // LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
 // You can construct a concrete instance of `LoadBalancerTagInput` via:
 //
-//          LoadBalancerTagArgs{...}
+//	LoadBalancerTagArgs{...}
 type LoadBalancerTagInput interface {
 	pulumi.Input
 
@@ -4930,7 +4930,7 @@ func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Cont
 // LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
 //
-//          LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
+//	LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
 type LoadBalancerTagArrayInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type FirewallDomainListTag struct {
 // FirewallDomainListTagInput is an input type that accepts FirewallDomainListTagArgs and FirewallDomainListTagOutput values.
 // You can construct a concrete instance of `FirewallDomainListTagInput` via:
 //
-//          FirewallDomainListTagArgs{...}
+//	FirewallDomainListTagArgs{...}
 type FirewallDomainListTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i FirewallDomainListTagArgs) ToFirewallDomainListTagOutputWithContext(ctx 
 // FirewallDomainListTagArrayInput is an input type that accepts FirewallDomainListTagArray and FirewallDomainListTagArrayOutput values.
 // You can construct a concrete instance of `FirewallDomainListTagArrayInput` via:
 //
-//          FirewallDomainListTagArray{ FirewallDomainListTagArgs{...} }
+//	FirewallDomainListTagArray{ FirewallDomainListTagArgs{...} }
 type FirewallDomainListTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type FirewallRuleGroupAssociationTag struct {
 // FirewallRuleGroupAssociationTagInput is an input type that accepts FirewallRuleGroupAssociationTagArgs and FirewallRuleGroupAssociationTagOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupAssociationTagInput` via:
 //
-//          FirewallRuleGroupAssociationTagArgs{...}
+//	FirewallRuleGroupAssociationTagArgs{...}
 type FirewallRuleGroupAssociationTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i FirewallRuleGroupAssociationTagArgs) ToFirewallRuleGroupAssociationTagOu
 // FirewallRuleGroupAssociationTagArrayInput is an input type that accepts FirewallRuleGroupAssociationTagArray and FirewallRuleGroupAssociationTagArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupAssociationTagArrayInput` via:
 //
-//          FirewallRuleGroupAssociationTagArray{ FirewallRuleGroupAssociationTagArgs{...} }
+//	FirewallRuleGroupAssociationTagArray{ FirewallRuleGroupAssociationTagArgs{...} }
 type FirewallRuleGroupAssociationTagArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ type FirewallRuleGroupFirewallRule struct {
 // FirewallRuleGroupFirewallRuleInput is an input type that accepts FirewallRuleGroupFirewallRuleArgs and FirewallRuleGroupFirewallRuleOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleInput` via:
 //
-//          FirewallRuleGroupFirewallRuleArgs{...}
+//	FirewallRuleGroupFirewallRuleArgs{...}
 type FirewallRuleGroupFirewallRuleInput interface {
 	pulumi.Input
 
@@ -290,7 +290,7 @@ func (i FirewallRuleGroupFirewallRuleArgs) ToFirewallRuleGroupFirewallRuleOutput
 // FirewallRuleGroupFirewallRuleArrayInput is an input type that accepts FirewallRuleGroupFirewallRuleArray and FirewallRuleGroupFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleArrayInput` via:
 //
-//          FirewallRuleGroupFirewallRuleArray{ FirewallRuleGroupFirewallRuleArgs{...} }
+//	FirewallRuleGroupFirewallRuleArray{ FirewallRuleGroupFirewallRuleArgs{...} }
 type FirewallRuleGroupFirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -397,7 +397,7 @@ type FirewallRuleGroupTag struct {
 // FirewallRuleGroupTagInput is an input type that accepts FirewallRuleGroupTagArgs and FirewallRuleGroupTagOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupTagInput` via:
 //
-//          FirewallRuleGroupTagArgs{...}
+//	FirewallRuleGroupTagArgs{...}
 type FirewallRuleGroupTagInput interface {
 	pulumi.Input
 
@@ -428,7 +428,7 @@ func (i FirewallRuleGroupTagArgs) ToFirewallRuleGroupTagOutputWithContext(ctx co
 // FirewallRuleGroupTagArrayInput is an input type that accepts FirewallRuleGroupTagArray and FirewallRuleGroupTagArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupTagArrayInput` via:
 //
-//          FirewallRuleGroupTagArray{ FirewallRuleGroupTagArgs{...} }
+//	FirewallRuleGroupTagArray{ FirewallRuleGroupTagArgs{...} }
 type FirewallRuleGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -503,7 +503,7 @@ type ResolverEndpointIpAddressRequest struct {
 // ResolverEndpointIpAddressRequestInput is an input type that accepts ResolverEndpointIpAddressRequestArgs and ResolverEndpointIpAddressRequestOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressRequestInput` via:
 //
-//          ResolverEndpointIpAddressRequestArgs{...}
+//	ResolverEndpointIpAddressRequestArgs{...}
 type ResolverEndpointIpAddressRequestInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequest
 // ResolverEndpointIpAddressRequestArrayInput is an input type that accepts ResolverEndpointIpAddressRequestArray and ResolverEndpointIpAddressRequestArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressRequestArrayInput` via:
 //
-//          ResolverEndpointIpAddressRequestArray{ ResolverEndpointIpAddressRequestArgs{...} }
+//	ResolverEndpointIpAddressRequestArray{ ResolverEndpointIpAddressRequestArgs{...} }
 type ResolverEndpointIpAddressRequestArrayInput interface {
 	pulumi.Input
 
@@ -603,7 +603,7 @@ type ResolverEndpointTag struct {
 // ResolverEndpointTagInput is an input type that accepts ResolverEndpointTagArgs and ResolverEndpointTagOutput values.
 // You can construct a concrete instance of `ResolverEndpointTagInput` via:
 //
-//          ResolverEndpointTagArgs{...}
+//	ResolverEndpointTagArgs{...}
 type ResolverEndpointTagInput interface {
 	pulumi.Input
 
@@ -631,7 +631,7 @@ func (i ResolverEndpointTagArgs) ToResolverEndpointTagOutputWithContext(ctx cont
 // ResolverEndpointTagArrayInput is an input type that accepts ResolverEndpointTagArray and ResolverEndpointTagArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointTagArrayInput` via:
 //
-//          ResolverEndpointTagArray{ ResolverEndpointTagArgs{...} }
+//	ResolverEndpointTagArray{ ResolverEndpointTagArgs{...} }
 type ResolverEndpointTagArrayInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ type ResolverRuleTag struct {
 // ResolverRuleTagInput is an input type that accepts ResolverRuleTagArgs and ResolverRuleTagOutput values.
 // You can construct a concrete instance of `ResolverRuleTagInput` via:
 //
-//          ResolverRuleTagArgs{...}
+//	ResolverRuleTagArgs{...}
 type ResolverRuleTagInput interface {
 	pulumi.Input
 
@@ -735,7 +735,7 @@ func (i ResolverRuleTagArgs) ToResolverRuleTagOutputWithContext(ctx context.Cont
 // ResolverRuleTagArrayInput is an input type that accepts ResolverRuleTagArray and ResolverRuleTagArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTagArrayInput` via:
 //
-//          ResolverRuleTagArray{ ResolverRuleTagArgs{...} }
+//	ResolverRuleTagArray{ ResolverRuleTagArgs{...} }
 type ResolverRuleTagArrayInput interface {
 	pulumi.Input
 
@@ -811,7 +811,7 @@ type ResolverRuleTargetAddress struct {
 // ResolverRuleTargetAddressInput is an input type that accepts ResolverRuleTargetAddressArgs and ResolverRuleTargetAddressOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetAddressInput` via:
 //
-//          ResolverRuleTargetAddressArgs{...}
+//	ResolverRuleTargetAddressArgs{...}
 type ResolverRuleTargetAddressInput interface {
 	pulumi.Input
 
@@ -841,7 +841,7 @@ func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutputWithCont
 // ResolverRuleTargetAddressArrayInput is an input type that accepts ResolverRuleTargetAddressArray and ResolverRuleTargetAddressArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetAddressArrayInput` via:
 //
-//          ResolverRuleTargetAddressArray{ ResolverRuleTargetAddressArgs{...} }
+//	ResolverRuleTargetAddressArray{ ResolverRuleTargetAddressArgs{...} }
 type ResolverRuleTargetAddressArrayInput interface {
 	pulumi.Input
 

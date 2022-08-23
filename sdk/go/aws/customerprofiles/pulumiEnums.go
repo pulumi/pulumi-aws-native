@@ -142,7 +142,7 @@ func (o IntegrationConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // IntegrationConnectorTypeInput is an input type that accepts IntegrationConnectorTypeArgs and IntegrationConnectorTypeOutput values.
 // You can construct a concrete instance of `IntegrationConnectorTypeInput` via:
 //
-//          IntegrationConnectorTypeArgs{...}
+//	IntegrationConnectorTypeArgs{...}
 type IntegrationConnectorTypeInput interface {
 	pulumi.Input
 
@@ -320,7 +320,7 @@ func (o IntegrationMarketoConnectorOperatorPtrOutput) ToStringPtrOutputWithConte
 // IntegrationMarketoConnectorOperatorInput is an input type that accepts IntegrationMarketoConnectorOperatorArgs and IntegrationMarketoConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationMarketoConnectorOperatorInput` via:
 //
-//          IntegrationMarketoConnectorOperatorArgs{...}
+//	IntegrationMarketoConnectorOperatorArgs{...}
 type IntegrationMarketoConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -496,7 +496,7 @@ func (o IntegrationOperatorPropertiesKeysPtrOutput) ToStringPtrOutputWithContext
 // IntegrationOperatorPropertiesKeysInput is an input type that accepts IntegrationOperatorPropertiesKeysArgs and IntegrationOperatorPropertiesKeysOutput values.
 // You can construct a concrete instance of `IntegrationOperatorPropertiesKeysInput` via:
 //
-//          IntegrationOperatorPropertiesKeysArgs{...}
+//	IntegrationOperatorPropertiesKeysArgs{...}
 type IntegrationOperatorPropertiesKeysInput interface {
 	pulumi.Input
 
@@ -678,7 +678,7 @@ func (o IntegrationS3ConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ct
 // IntegrationS3ConnectorOperatorInput is an input type that accepts IntegrationS3ConnectorOperatorArgs and IntegrationS3ConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationS3ConnectorOperatorInput` via:
 //
-//          IntegrationS3ConnectorOperatorArgs{...}
+//	IntegrationS3ConnectorOperatorArgs{...}
 type IntegrationS3ConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -861,7 +861,7 @@ func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToStringPtrOutputWithCo
 // IntegrationSalesforceConnectorOperatorInput is an input type that accepts IntegrationSalesforceConnectorOperatorArgs and IntegrationSalesforceConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationSalesforceConnectorOperatorInput` via:
 //
-//          IntegrationSalesforceConnectorOperatorArgs{...}
+//	IntegrationSalesforceConnectorOperatorArgs{...}
 type IntegrationSalesforceConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1025,7 +1025,7 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToStringPtrO
 // IntegrationScheduledTriggerPropertiesDataPullModeInput is an input type that accepts IntegrationScheduledTriggerPropertiesDataPullModeArgs and IntegrationScheduledTriggerPropertiesDataPullModeOutput values.
 // You can construct a concrete instance of `IntegrationScheduledTriggerPropertiesDataPullModeInput` via:
 //
-//          IntegrationScheduledTriggerPropertiesDataPullModeArgs{...}
+//	IntegrationScheduledTriggerPropertiesDataPullModeArgs{...}
 type IntegrationScheduledTriggerPropertiesDataPullModeInput interface {
 	pulumi.Input
 
@@ -1208,7 +1208,7 @@ func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToStringPtrOutputWithCo
 // IntegrationServiceNowConnectorOperatorInput is an input type that accepts IntegrationServiceNowConnectorOperatorArgs and IntegrationServiceNowConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationServiceNowConnectorOperatorInput` via:
 //
-//          IntegrationServiceNowConnectorOperatorArgs{...}
+//	IntegrationServiceNowConnectorOperatorArgs{...}
 type IntegrationServiceNowConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1377,7 +1377,7 @@ func (o IntegrationTaskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // IntegrationTaskTypeInput is an input type that accepts IntegrationTaskTypeArgs and IntegrationTaskTypeOutput values.
 // You can construct a concrete instance of `IntegrationTaskTypeInput` via:
 //
-//          IntegrationTaskTypeArgs{...}
+//	IntegrationTaskTypeArgs{...}
 type IntegrationTaskTypeInput interface {
 	pulumi.Input
 
@@ -1542,7 +1542,7 @@ func (o IntegrationTriggerTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // IntegrationTriggerTypeInput is an input type that accepts IntegrationTriggerTypeArgs and IntegrationTriggerTypeOutput values.
 // You can construct a concrete instance of `IntegrationTriggerTypeInput` via:
 //
-//          IntegrationTriggerTypeArgs{...}
+//	IntegrationTriggerTypeArgs{...}
 type IntegrationTriggerTypeInput interface {
 	pulumi.Input
 
@@ -1718,7 +1718,7 @@ func (o IntegrationZendeskConnectorOperatorPtrOutput) ToStringPtrOutputWithConte
 // IntegrationZendeskConnectorOperatorInput is an input type that accepts IntegrationZendeskConnectorOperatorArgs and IntegrationZendeskConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationZendeskConnectorOperatorInput` via:
 //
-//          IntegrationZendeskConnectorOperatorArgs{...}
+//	IntegrationZendeskConnectorOperatorArgs{...}
 type IntegrationZendeskConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1886,7 +1886,7 @@ func (o ObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // ObjectTypeFieldContentTypeInput is an input type that accepts ObjectTypeFieldContentTypeArgs and ObjectTypeFieldContentTypeOutput values.
 // You can construct a concrete instance of `ObjectTypeFieldContentTypeInput` via:
 //
-//          ObjectTypeFieldContentTypeArgs{...}
+//	ObjectTypeFieldContentTypeArgs{...}
 type ObjectTypeFieldContentTypeInput interface {
 	pulumi.Input
 
@@ -2053,7 +2053,7 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithCont
 // ObjectTypeKeyStandardIdentifiersItemInput is an input type that accepts ObjectTypeKeyStandardIdentifiersItemArgs and ObjectTypeKeyStandardIdentifiersItemOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyStandardIdentifiersItemInput` via:
 //
-//          ObjectTypeKeyStandardIdentifiersItemArgs{...}
+//	ObjectTypeKeyStandardIdentifiersItemArgs{...}
 type ObjectTypeKeyStandardIdentifiersItemInput interface {
 	pulumi.Input
 
@@ -2091,7 +2091,7 @@ func (in *objectTypeKeyStandardIdentifiersItemPtr) ToObjectTypeKeyStandardIdenti
 // ObjectTypeKeyStandardIdentifiersItemArrayInput is an input type that accepts ObjectTypeKeyStandardIdentifiersItemArray and ObjectTypeKeyStandardIdentifiersItemArrayOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyStandardIdentifiersItemArrayInput` via:
 //
-//          ObjectTypeKeyStandardIdentifiersItemArray{ ObjectTypeKeyStandardIdentifiersItemArgs{...} }
+//	ObjectTypeKeyStandardIdentifiersItemArray{ ObjectTypeKeyStandardIdentifiersItemArgs{...} }
 type ObjectTypeKeyStandardIdentifiersItemArrayInput interface {
 	pulumi.Input
 

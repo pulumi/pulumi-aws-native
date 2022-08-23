@@ -141,7 +141,7 @@ func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutputWithCo
 // RobotApplicationRobotSoftwareSuiteNameInput is an input type that accepts RobotApplicationRobotSoftwareSuiteNameArgs and RobotApplicationRobotSoftwareSuiteNameOutput values.
 // You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteNameInput` via:
 //
-//          RobotApplicationRobotSoftwareSuiteNameArgs{...}
+//	RobotApplicationRobotSoftwareSuiteNameArgs{...}
 type RobotApplicationRobotSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutputWit
 // RobotApplicationRobotSoftwareSuiteVersionInput is an input type that accepts RobotApplicationRobotSoftwareSuiteVersionArgs and RobotApplicationRobotSoftwareSuiteVersionOutput values.
 // You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteVersionInput` via:
 //
-//          RobotApplicationRobotSoftwareSuiteVersionArgs{...}
+//	RobotApplicationRobotSoftwareSuiteVersionArgs{...}
 type RobotApplicationRobotSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutputWith
 // RobotApplicationSourceConfigArchitectureInput is an input type that accepts RobotApplicationSourceConfigArchitectureArgs and RobotApplicationSourceConfigArchitectureOutput values.
 // You can construct a concrete instance of `RobotApplicationSourceConfigArchitectureInput` via:
 //
-//          RobotApplicationSourceConfigArchitectureArgs{...}
+//	RobotApplicationSourceConfigArchitectureArgs{...}
 type RobotApplicationSourceConfigArchitectureInput interface {
 	pulumi.Input
 
@@ -639,7 +639,7 @@ func (o RobotArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // RobotArchitectureInput is an input type that accepts RobotArchitectureArgs and RobotArchitectureOutput values.
 // You can construct a concrete instance of `RobotArchitectureInput` via:
 //
-//          RobotArchitectureArgs{...}
+//	RobotArchitectureArgs{...}
 type RobotArchitectureInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ func (o SimulationApplicationRenderingEngineNamePtrOutput) ToStringPtrOutputWith
 // SimulationApplicationRenderingEngineNameInput is an input type that accepts SimulationApplicationRenderingEngineNameArgs and SimulationApplicationRenderingEngineNameOutput values.
 // You can construct a concrete instance of `SimulationApplicationRenderingEngineNameInput` via:
 //
-//          SimulationApplicationRenderingEngineNameArgs{...}
+//	SimulationApplicationRenderingEngineNameArgs{...}
 type SimulationApplicationRenderingEngineNameInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutputW
 // SimulationApplicationRobotSoftwareSuiteNameInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteNameArgs and SimulationApplicationRobotSoftwareSuiteNameOutput values.
 // You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuiteNameInput` via:
 //
-//          SimulationApplicationRobotSoftwareSuiteNameArgs{...}
+//	SimulationApplicationRobotSoftwareSuiteNameArgs{...}
 type SimulationApplicationRobotSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -1136,7 +1136,7 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutp
 // SimulationApplicationRobotSoftwareSuiteVersionInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteVersionArgs and SimulationApplicationRobotSoftwareSuiteVersionOutput values.
 // You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuiteVersionInput` via:
 //
-//          SimulationApplicationRobotSoftwareSuiteVersionArgs{...}
+//	SimulationApplicationRobotSoftwareSuiteVersionArgs{...}
 type SimulationApplicationRobotSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -1302,7 +1302,7 @@ func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToStringPtrOu
 // SimulationApplicationSimulationSoftwareSuiteNameInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteNameArgs and SimulationApplicationSimulationSoftwareSuiteNameOutput values.
 // You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuiteNameInput` via:
 //
-//          SimulationApplicationSimulationSoftwareSuiteNameArgs{...}
+//	SimulationApplicationSimulationSoftwareSuiteNameArgs{...}
 type SimulationApplicationSimulationSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -1472,7 +1472,7 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToStringPt
 // SimulationApplicationSimulationSoftwareSuiteVersionInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteVersionArgs and SimulationApplicationSimulationSoftwareSuiteVersionOutput values.
 // You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuiteVersionInput` via:
 //
-//          SimulationApplicationSimulationSoftwareSuiteVersionArgs{...}
+//	SimulationApplicationSimulationSoftwareSuiteVersionArgs{...}
 type SimulationApplicationSimulationSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -1638,7 +1638,7 @@ func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutpu
 // SimulationApplicationSourceConfigArchitectureInput is an input type that accepts SimulationApplicationSourceConfigArchitectureArgs and SimulationApplicationSourceConfigArchitectureOutput values.
 // You can construct a concrete instance of `SimulationApplicationSourceConfigArchitectureInput` via:
 //
-//          SimulationApplicationSourceConfigArchitectureArgs{...}
+//	SimulationApplicationSourceConfigArchitectureArgs{...}
 type SimulationApplicationSourceConfigArchitectureInput interface {
 	pulumi.Input
 

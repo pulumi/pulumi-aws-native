@@ -18,7 +18,7 @@ type NotificationChannelConfig struct {
 // NotificationChannelConfigInput is an input type that accepts NotificationChannelConfigArgs and NotificationChannelConfigOutput values.
 // You can construct a concrete instance of `NotificationChannelConfigInput` via:
 //
-//          NotificationChannelConfigArgs{...}
+//	NotificationChannelConfigArgs{...}
 type NotificationChannelConfigInput interface {
 	pulumi.Input
 
@@ -70,7 +70,7 @@ type NotificationChannelSnsChannelConfig struct {
 // NotificationChannelSnsChannelConfigInput is an input type that accepts NotificationChannelSnsChannelConfigArgs and NotificationChannelSnsChannelConfigOutput values.
 // You can construct a concrete instance of `NotificationChannelSnsChannelConfigInput` via:
 //
-//          NotificationChannelSnsChannelConfigArgs{...}
+//	NotificationChannelSnsChannelConfigArgs{...}
 type NotificationChannelSnsChannelConfigInput interface {
 	pulumi.Input
 
@@ -106,11 +106,11 @@ func (i NotificationChannelSnsChannelConfigArgs) ToNotificationChannelSnsChannel
 // NotificationChannelSnsChannelConfigPtrInput is an input type that accepts NotificationChannelSnsChannelConfigArgs, NotificationChannelSnsChannelConfigPtr and NotificationChannelSnsChannelConfigPtrOutput values.
 // You can construct a concrete instance of `NotificationChannelSnsChannelConfigPtrInput` via:
 //
-//          NotificationChannelSnsChannelConfigArgs{...}
+//	        NotificationChannelSnsChannelConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NotificationChannelSnsChannelConfigPtrInput interface {
 	pulumi.Input
 
@@ -207,7 +207,7 @@ type ResourceCollectionCloudFormationCollectionFilter struct {
 // ResourceCollectionCloudFormationCollectionFilterInput is an input type that accepts ResourceCollectionCloudFormationCollectionFilterArgs and ResourceCollectionCloudFormationCollectionFilterOutput values.
 // You can construct a concrete instance of `ResourceCollectionCloudFormationCollectionFilterInput` via:
 //
-//          ResourceCollectionCloudFormationCollectionFilterArgs{...}
+//	ResourceCollectionCloudFormationCollectionFilterArgs{...}
 type ResourceCollectionCloudFormationCollectionFilterInput interface {
 	pulumi.Input
 
@@ -244,11 +244,11 @@ func (i ResourceCollectionCloudFormationCollectionFilterArgs) ToResourceCollecti
 // ResourceCollectionCloudFormationCollectionFilterPtrInput is an input type that accepts ResourceCollectionCloudFormationCollectionFilterArgs, ResourceCollectionCloudFormationCollectionFilterPtr and ResourceCollectionCloudFormationCollectionFilterPtrOutput values.
 // You can construct a concrete instance of `ResourceCollectionCloudFormationCollectionFilterPtrInput` via:
 //
-//          ResourceCollectionCloudFormationCollectionFilterArgs{...}
+//	        ResourceCollectionCloudFormationCollectionFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceCollectionCloudFormationCollectionFilterPtrInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ type ResourceCollectionFilter struct {
 // ResourceCollectionFilterInput is an input type that accepts ResourceCollectionFilterArgs and ResourceCollectionFilterOutput values.
 // You can construct a concrete instance of `ResourceCollectionFilterInput` via:
 //
-//          ResourceCollectionFilterArgs{...}
+//	ResourceCollectionFilterArgs{...}
 type ResourceCollectionFilterInput interface {
 	pulumi.Input
 
@@ -451,7 +451,7 @@ type ResourceCollectionTagCollection struct {
 // ResourceCollectionTagCollectionInput is an input type that accepts ResourceCollectionTagCollectionArgs and ResourceCollectionTagCollectionOutput values.
 // You can construct a concrete instance of `ResourceCollectionTagCollectionInput` via:
 //
-//          ResourceCollectionTagCollectionArgs{...}
+//	ResourceCollectionTagCollectionArgs{...}
 type ResourceCollectionTagCollectionInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ func (i ResourceCollectionTagCollectionArgs) ToResourceCollectionTagCollectionOu
 // ResourceCollectionTagCollectionArrayInput is an input type that accepts ResourceCollectionTagCollectionArray and ResourceCollectionTagCollectionArrayOutput values.
 // You can construct a concrete instance of `ResourceCollectionTagCollectionArrayInput` via:
 //
-//          ResourceCollectionTagCollectionArray{ ResourceCollectionTagCollectionArgs{...} }
+//	ResourceCollectionTagCollectionArray{ ResourceCollectionTagCollectionArgs{...} }
 type ResourceCollectionTagCollectionArrayInput interface {
 	pulumi.Input
 

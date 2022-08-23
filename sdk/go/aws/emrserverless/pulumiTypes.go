@@ -19,7 +19,7 @@ type ApplicationAutoStartConfiguration struct {
 // ApplicationAutoStartConfigurationInput is an input type that accepts ApplicationAutoStartConfigurationArgs and ApplicationAutoStartConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationAutoStartConfigurationInput` via:
 //
-//          ApplicationAutoStartConfigurationArgs{...}
+//	ApplicationAutoStartConfigurationArgs{...}
 type ApplicationAutoStartConfigurationInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApplicationAutoStartConfigurationArgs) ToApplicationAutoStartConfigurati
 // ApplicationAutoStartConfigurationPtrInput is an input type that accepts ApplicationAutoStartConfigurationArgs, ApplicationAutoStartConfigurationPtr and ApplicationAutoStartConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationAutoStartConfigurationPtrInput` via:
 //
-//          ApplicationAutoStartConfigurationArgs{...}
+//	        ApplicationAutoStartConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationAutoStartConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ type ApplicationAutoStopConfiguration struct {
 // ApplicationAutoStopConfigurationInput is an input type that accepts ApplicationAutoStopConfigurationArgs and ApplicationAutoStopConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationAutoStopConfigurationInput` via:
 //
-//          ApplicationAutoStopConfigurationArgs{...}
+//	ApplicationAutoStopConfigurationArgs{...}
 type ApplicationAutoStopConfigurationInput interface {
 	pulumi.Input
 
@@ -200,11 +200,11 @@ func (i ApplicationAutoStopConfigurationArgs) ToApplicationAutoStopConfiguration
 // ApplicationAutoStopConfigurationPtrInput is an input type that accepts ApplicationAutoStopConfigurationArgs, ApplicationAutoStopConfigurationPtr and ApplicationAutoStopConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationAutoStopConfigurationPtrInput` via:
 //
-//          ApplicationAutoStopConfigurationArgs{...}
+//	        ApplicationAutoStopConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationAutoStopConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ type ApplicationInitialCapacityConfig struct {
 // ApplicationInitialCapacityConfigInput is an input type that accepts ApplicationInitialCapacityConfigArgs and ApplicationInitialCapacityConfigOutput values.
 // You can construct a concrete instance of `ApplicationInitialCapacityConfigInput` via:
 //
-//          ApplicationInitialCapacityConfigArgs{...}
+//	ApplicationInitialCapacityConfigArgs{...}
 type ApplicationInitialCapacityConfigInput interface {
 	pulumi.Input
 
@@ -376,7 +376,7 @@ type ApplicationInitialCapacityConfigKeyValuePair struct {
 // ApplicationInitialCapacityConfigKeyValuePairInput is an input type that accepts ApplicationInitialCapacityConfigKeyValuePairArgs and ApplicationInitialCapacityConfigKeyValuePairOutput values.
 // You can construct a concrete instance of `ApplicationInitialCapacityConfigKeyValuePairInput` via:
 //
-//          ApplicationInitialCapacityConfigKeyValuePairArgs{...}
+//	ApplicationInitialCapacityConfigKeyValuePairArgs{...}
 type ApplicationInitialCapacityConfigKeyValuePairInput interface {
 	pulumi.Input
 
@@ -405,7 +405,7 @@ func (i ApplicationInitialCapacityConfigKeyValuePairArgs) ToApplicationInitialCa
 // ApplicationInitialCapacityConfigKeyValuePairArrayInput is an input type that accepts ApplicationInitialCapacityConfigKeyValuePairArray and ApplicationInitialCapacityConfigKeyValuePairArrayOutput values.
 // You can construct a concrete instance of `ApplicationInitialCapacityConfigKeyValuePairArrayInput` via:
 //
-//          ApplicationInitialCapacityConfigKeyValuePairArray{ ApplicationInitialCapacityConfigKeyValuePairArgs{...} }
+//	ApplicationInitialCapacityConfigKeyValuePairArray{ ApplicationInitialCapacityConfigKeyValuePairArgs{...} }
 type ApplicationInitialCapacityConfigKeyValuePairArrayInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ type ApplicationMaximumAllowedResources struct {
 // ApplicationMaximumAllowedResourcesInput is an input type that accepts ApplicationMaximumAllowedResourcesArgs and ApplicationMaximumAllowedResourcesOutput values.
 // You can construct a concrete instance of `ApplicationMaximumAllowedResourcesInput` via:
 //
-//          ApplicationMaximumAllowedResourcesArgs{...}
+//	ApplicationMaximumAllowedResourcesArgs{...}
 type ApplicationMaximumAllowedResourcesInput interface {
 	pulumi.Input
 
@@ -522,11 +522,11 @@ func (i ApplicationMaximumAllowedResourcesArgs) ToApplicationMaximumAllowedResou
 // ApplicationMaximumAllowedResourcesPtrInput is an input type that accepts ApplicationMaximumAllowedResourcesArgs, ApplicationMaximumAllowedResourcesPtr and ApplicationMaximumAllowedResourcesPtrOutput values.
 // You can construct a concrete instance of `ApplicationMaximumAllowedResourcesPtrInput` via:
 //
-//          ApplicationMaximumAllowedResourcesArgs{...}
+//	        ApplicationMaximumAllowedResourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationMaximumAllowedResourcesPtrInput interface {
 	pulumi.Input
 
@@ -655,7 +655,7 @@ type ApplicationNetworkConfiguration struct {
 // ApplicationNetworkConfigurationInput is an input type that accepts ApplicationNetworkConfigurationArgs and ApplicationNetworkConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationNetworkConfigurationInput` via:
 //
-//          ApplicationNetworkConfigurationArgs{...}
+//	ApplicationNetworkConfigurationArgs{...}
 type ApplicationNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -693,11 +693,11 @@ func (i ApplicationNetworkConfigurationArgs) ToApplicationNetworkConfigurationPt
 // ApplicationNetworkConfigurationPtrInput is an input type that accepts ApplicationNetworkConfigurationArgs, ApplicationNetworkConfigurationPtr and ApplicationNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationNetworkConfigurationPtrInput` via:
 //
-//          ApplicationNetworkConfigurationArgs{...}
+//	        ApplicationNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -812,7 +812,7 @@ type ApplicationTag struct {
 // ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
 // You can construct a concrete instance of `ApplicationTagInput` via:
 //
-//          ApplicationTagArgs{...}
+//	ApplicationTagArgs{...}
 type ApplicationTagInput interface {
 	pulumi.Input
 
@@ -843,7 +843,7 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
-//          ApplicationTagArray{ ApplicationTagArgs{...} }
+//	ApplicationTagArray{ ApplicationTagArgs{...} }
 type ApplicationTagArrayInput interface {
 	pulumi.Input
 
@@ -922,7 +922,7 @@ type ApplicationWorkerConfiguration struct {
 // ApplicationWorkerConfigurationInput is an input type that accepts ApplicationWorkerConfigurationArgs and ApplicationWorkerConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationWorkerConfigurationInput` via:
 //
-//          ApplicationWorkerConfigurationArgs{...}
+//	ApplicationWorkerConfigurationArgs{...}
 type ApplicationWorkerConfigurationInput interface {
 	pulumi.Input
 

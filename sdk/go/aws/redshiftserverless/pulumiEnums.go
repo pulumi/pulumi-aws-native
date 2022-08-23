@@ -140,7 +140,7 @@ func (o NamespaceLogExportPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // NamespaceLogExportInput is an input type that accepts NamespaceLogExportArgs and NamespaceLogExportOutput values.
 // You can construct a concrete instance of `NamespaceLogExportInput` via:
 //
-//          NamespaceLogExportArgs{...}
+//	NamespaceLogExportArgs{...}
 type NamespaceLogExportInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *namespaceLogExportPtr) ToNamespaceLogExportPtrOutputWithContext(ctx co
 // NamespaceLogExportArrayInput is an input type that accepts NamespaceLogExportArray and NamespaceLogExportArrayOutput values.
 // You can construct a concrete instance of `NamespaceLogExportArrayInput` via:
 //
-//          NamespaceLogExportArray{ NamespaceLogExportArgs{...} }
+//	NamespaceLogExportArray{ NamespaceLogExportArgs{...} }
 type NamespaceLogExportArrayInput interface {
 	pulumi.Input
 

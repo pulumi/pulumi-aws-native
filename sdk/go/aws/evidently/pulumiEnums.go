@@ -139,7 +139,7 @@ func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToStringPtrOutputWithC
 // ExperimentMetricGoalObjectDesiredChangeInput is an input type that accepts ExperimentMetricGoalObjectDesiredChangeArgs and ExperimentMetricGoalObjectDesiredChangeOutput values.
 // You can construct a concrete instance of `ExperimentMetricGoalObjectDesiredChangeInput` via:
 //
-//          ExperimentMetricGoalObjectDesiredChangeArgs{...}
+//	ExperimentMetricGoalObjectDesiredChangeArgs{...}
 type ExperimentMetricGoalObjectDesiredChangeInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o FeatureEvaluationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 // FeatureEvaluationStrategyInput is an input type that accepts FeatureEvaluationStrategyArgs and FeatureEvaluationStrategyOutput values.
 // You can construct a concrete instance of `FeatureEvaluationStrategyInput` via:
 //
-//          FeatureEvaluationStrategyArgs{...}
+//	FeatureEvaluationStrategyArgs{...}
 type FeatureEvaluationStrategyInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o FirewallPolicyRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // FirewallPolicyRuleOrderInput is an input type that accepts FirewallPolicyRuleOrderArgs and FirewallPolicyRuleOrderOutput values.
 // You can construct a concrete instance of `FirewallPolicyRuleOrderInput` via:
 //
-//          FirewallPolicyRuleOrderArgs{...}
+//	FirewallPolicyRuleOrderArgs{...}
 type FirewallPolicyRuleOrderInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput) ToS
 // LoggingConfigurationLogDestinationConfigLogDestinationTypeInput is an input type that accepts LoggingConfigurationLogDestinationConfigLogDestinationTypeArgs and LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput values.
 // You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigLogDestinationTypeInput` via:
 //
-//          LoggingConfigurationLogDestinationConfigLogDestinationTypeArgs{...}
+//	LoggingConfigurationLogDestinationConfigLogDestinationTypeArgs{...}
 type LoggingConfigurationLogDestinationConfigLogDestinationTypeInput interface {
 	pulumi.Input
 
@@ -468,7 +468,7 @@ func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) ToStringPtrOut
 // LoggingConfigurationLogDestinationConfigLogTypeInput is an input type that accepts LoggingConfigurationLogDestinationConfigLogTypeArgs and LoggingConfigurationLogDestinationConfigLogTypeOutput values.
 // You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigLogTypeInput` via:
 //
-//          LoggingConfigurationLogDestinationConfigLogTypeArgs{...}
+//	LoggingConfigurationLogDestinationConfigLogTypeArgs{...}
 type LoggingConfigurationLogDestinationConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -632,7 +632,7 @@ func (o RuleGroupGeneratedRulesTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // RuleGroupGeneratedRulesTypeInput is an input type that accepts RuleGroupGeneratedRulesTypeArgs and RuleGroupGeneratedRulesTypeOutput values.
 // You can construct a concrete instance of `RuleGroupGeneratedRulesTypeInput` via:
 //
-//          RuleGroupGeneratedRulesTypeArgs{...}
+//	RuleGroupGeneratedRulesTypeArgs{...}
 type RuleGroupGeneratedRulesTypeInput interface {
 	pulumi.Input
 
@@ -796,7 +796,7 @@ func (o RuleGroupHeaderDirectionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // RuleGroupHeaderDirectionInput is an input type that accepts RuleGroupHeaderDirectionArgs and RuleGroupHeaderDirectionOutput values.
 // You can construct a concrete instance of `RuleGroupHeaderDirectionInput` via:
 //
-//          RuleGroupHeaderDirectionArgs{...}
+//	RuleGroupHeaderDirectionArgs{...}
 type RuleGroupHeaderDirectionInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ func (o RuleGroupHeaderProtocolPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // RuleGroupHeaderProtocolInput is an input type that accepts RuleGroupHeaderProtocolArgs and RuleGroupHeaderProtocolOutput values.
 // You can construct a concrete instance of `RuleGroupHeaderProtocolInput` via:
 //
-//          RuleGroupHeaderProtocolArgs{...}
+//	RuleGroupHeaderProtocolArgs{...}
 type RuleGroupHeaderProtocolInput interface {
 	pulumi.Input
 
@@ -1141,7 +1141,7 @@ func (o RuleGroupRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // RuleGroupRuleOrderInput is an input type that accepts RuleGroupRuleOrderArgs and RuleGroupRuleOrderOutput values.
 // You can construct a concrete instance of `RuleGroupRuleOrderInput` via:
 //
-//          RuleGroupRuleOrderArgs{...}
+//	RuleGroupRuleOrderArgs{...}
 type RuleGroupRuleOrderInput interface {
 	pulumi.Input
 
@@ -1306,7 +1306,7 @@ func (o RuleGroupStatefulRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx c
 // RuleGroupStatefulRuleActionInput is an input type that accepts RuleGroupStatefulRuleActionArgs and RuleGroupStatefulRuleActionOutput values.
 // You can construct a concrete instance of `RuleGroupStatefulRuleActionInput` via:
 //
-//          RuleGroupStatefulRuleActionArgs{...}
+//	RuleGroupStatefulRuleActionArgs{...}
 type RuleGroupStatefulRuleActionInput interface {
 	pulumi.Input
 
@@ -1476,7 +1476,7 @@ func (o RuleGroupTCPFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // RuleGroupTCPFlagInput is an input type that accepts RuleGroupTCPFlagArgs and RuleGroupTCPFlagOutput values.
 // You can construct a concrete instance of `RuleGroupTCPFlagInput` via:
 //
-//          RuleGroupTCPFlagArgs{...}
+//	RuleGroupTCPFlagArgs{...}
 type RuleGroupTCPFlagInput interface {
 	pulumi.Input
 
@@ -1514,7 +1514,7 @@ func (in *ruleGroupTCPFlagPtr) ToRuleGroupTCPFlagPtrOutputWithContext(ctx contex
 // RuleGroupTCPFlagArrayInput is an input type that accepts RuleGroupTCPFlagArray and RuleGroupTCPFlagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTCPFlagArrayInput` via:
 //
-//          RuleGroupTCPFlagArray{ RuleGroupTCPFlagArgs{...} }
+//	RuleGroupTCPFlagArray{ RuleGroupTCPFlagArgs{...} }
 type RuleGroupTCPFlagArrayInput interface {
 	pulumi.Input
 
@@ -1685,7 +1685,7 @@ func (o RuleGroupTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // RuleGroupTargetTypeInput is an input type that accepts RuleGroupTargetTypeArgs and RuleGroupTargetTypeOutput values.
 // You can construct a concrete instance of `RuleGroupTargetTypeInput` via:
 //
-//          RuleGroupTargetTypeArgs{...}
+//	RuleGroupTargetTypeArgs{...}
 type RuleGroupTargetTypeInput interface {
 	pulumi.Input
 
@@ -1723,7 +1723,7 @@ func (in *ruleGroupTargetTypePtr) ToRuleGroupTargetTypePtrOutputWithContext(ctx 
 // RuleGroupTargetTypeArrayInput is an input type that accepts RuleGroupTargetTypeArray and RuleGroupTargetTypeArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTargetTypeArrayInput` via:
 //
-//          RuleGroupTargetTypeArray{ RuleGroupTargetTypeArgs{...} }
+//	RuleGroupTargetTypeArray{ RuleGroupTargetTypeArgs{...} }
 type RuleGroupTargetTypeArrayInput interface {
 	pulumi.Input
 
@@ -1894,7 +1894,7 @@ func (o RuleGroupTypeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // RuleGroupTypeEnumInput is an input type that accepts RuleGroupTypeEnumArgs and RuleGroupTypeEnumOutput values.
 // You can construct a concrete instance of `RuleGroupTypeEnumInput` via:
 //
-//          RuleGroupTypeEnumArgs{...}
+//	RuleGroupTypeEnumArgs{...}
 type RuleGroupTypeEnumInput interface {
 	pulumi.Input
 

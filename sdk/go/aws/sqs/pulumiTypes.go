@@ -20,7 +20,7 @@ type QueueTag struct {
 // QueueTagInput is an input type that accepts QueueTagArgs and QueueTagOutput values.
 // You can construct a concrete instance of `QueueTagInput` via:
 //
-//          QueueTagArgs{...}
+//	QueueTagArgs{...}
 type QueueTagInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i QueueTagArgs) ToQueueTagOutputWithContext(ctx context.Context) QueueTagO
 // QueueTagArrayInput is an input type that accepts QueueTagArray and QueueTagArrayOutput values.
 // You can construct a concrete instance of `QueueTagArrayInput` via:
 //
-//          QueueTagArray{ QueueTagArgs{...} }
+//	QueueTagArray{ QueueTagArgs{...} }
 type QueueTagArrayInput interface {
 	pulumi.Input
 

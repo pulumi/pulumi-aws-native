@@ -20,7 +20,7 @@ type ApiBodyS3Location struct {
 // ApiBodyS3LocationInput is an input type that accepts ApiBodyS3LocationArgs and ApiBodyS3LocationOutput values.
 // You can construct a concrete instance of `ApiBodyS3LocationInput` via:
 //
-//          ApiBodyS3LocationArgs{...}
+//	ApiBodyS3LocationArgs{...}
 type ApiBodyS3LocationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ApiBodyS3LocationArgs) ToApiBodyS3LocationPtrOutputWithContext(ctx conte
 // ApiBodyS3LocationPtrInput is an input type that accepts ApiBodyS3LocationArgs, ApiBodyS3LocationPtr and ApiBodyS3LocationPtrOutput values.
 // You can construct a concrete instance of `ApiBodyS3LocationPtrInput` via:
 //
-//          ApiBodyS3LocationArgs{...}
+//	        ApiBodyS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiBodyS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -200,7 +200,7 @@ type ApiCors struct {
 // ApiCorsInput is an input type that accepts ApiCorsArgs and ApiCorsOutput values.
 // You can construct a concrete instance of `ApiCorsInput` via:
 //
-//          ApiCorsArgs{...}
+//	ApiCorsArgs{...}
 type ApiCorsInput interface {
 	pulumi.Input
 
@@ -240,11 +240,11 @@ func (i ApiCorsArgs) ToApiCorsPtrOutputWithContext(ctx context.Context) ApiCorsP
 // ApiCorsPtrInput is an input type that accepts ApiCorsArgs, ApiCorsPtr and ApiCorsPtrOutput values.
 // You can construct a concrete instance of `ApiCorsPtrInput` via:
 //
-//          ApiCorsArgs{...}
+//	        ApiCorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiCorsPtrInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ type ApiGatewayManagedOverridesAccessLogSettings struct {
 // ApiGatewayManagedOverridesAccessLogSettingsInput is an input type that accepts ApiGatewayManagedOverridesAccessLogSettingsArgs and ApiGatewayManagedOverridesAccessLogSettingsOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesAccessLogSettingsInput` via:
 //
-//          ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
+//	ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
 type ApiGatewayManagedOverridesAccessLogSettingsInput interface {
 	pulumi.Input
 
@@ -440,11 +440,11 @@ func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOver
 // ApiGatewayManagedOverridesAccessLogSettingsPtrInput is an input type that accepts ApiGatewayManagedOverridesAccessLogSettingsArgs, ApiGatewayManagedOverridesAccessLogSettingsPtr and ApiGatewayManagedOverridesAccessLogSettingsPtrOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesAccessLogSettingsPtrInput` via:
 //
-//          ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
+//	        ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiGatewayManagedOverridesAccessLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ type ApiGatewayManagedOverridesIntegrationOverrides struct {
 // ApiGatewayManagedOverridesIntegrationOverridesInput is an input type that accepts ApiGatewayManagedOverridesIntegrationOverridesArgs and ApiGatewayManagedOverridesIntegrationOverridesOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesIntegrationOverridesInput` via:
 //
-//          ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
+//	ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
 type ApiGatewayManagedOverridesIntegrationOverridesInput interface {
 	pulumi.Input
 
@@ -592,11 +592,11 @@ func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedO
 // ApiGatewayManagedOverridesIntegrationOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesIntegrationOverridesArgs, ApiGatewayManagedOverridesIntegrationOverridesPtr and ApiGatewayManagedOverridesIntegrationOverridesPtrOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesIntegrationOverridesPtrInput` via:
 //
-//          ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
+//	        ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiGatewayManagedOverridesIntegrationOverridesPtrInput interface {
 	pulumi.Input
 
@@ -733,7 +733,7 @@ type ApiGatewayManagedOverridesRouteOverrides struct {
 // ApiGatewayManagedOverridesRouteOverridesInput is an input type that accepts ApiGatewayManagedOverridesRouteOverridesArgs and ApiGatewayManagedOverridesRouteOverridesOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesRouteOverridesInput` via:
 //
-//          ApiGatewayManagedOverridesRouteOverridesArgs{...}
+//	ApiGatewayManagedOverridesRouteOverridesArgs{...}
 type ApiGatewayManagedOverridesRouteOverridesInput interface {
 	pulumi.Input
 
@@ -772,11 +772,11 @@ func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverrid
 // ApiGatewayManagedOverridesRouteOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesRouteOverridesArgs, ApiGatewayManagedOverridesRouteOverridesPtr and ApiGatewayManagedOverridesRouteOverridesPtrOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesRouteOverridesPtrInput` via:
 //
-//          ApiGatewayManagedOverridesRouteOverridesArgs{...}
+//	        ApiGatewayManagedOverridesRouteOverridesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiGatewayManagedOverridesRouteOverridesPtrInput interface {
 	pulumi.Input
 
@@ -926,7 +926,7 @@ type ApiGatewayManagedOverridesRouteSettings struct {
 // ApiGatewayManagedOverridesRouteSettingsInput is an input type that accepts ApiGatewayManagedOverridesRouteSettingsArgs and ApiGatewayManagedOverridesRouteSettingsOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesRouteSettingsInput` via:
 //
-//          ApiGatewayManagedOverridesRouteSettingsArgs{...}
+//	ApiGatewayManagedOverridesRouteSettingsArgs{...}
 type ApiGatewayManagedOverridesRouteSettingsInput interface {
 	pulumi.Input
 
@@ -965,11 +965,11 @@ func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverride
 // ApiGatewayManagedOverridesRouteSettingsPtrInput is an input type that accepts ApiGatewayManagedOverridesRouteSettingsArgs, ApiGatewayManagedOverridesRouteSettingsPtr and ApiGatewayManagedOverridesRouteSettingsPtrOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesRouteSettingsPtrInput` via:
 //
-//          ApiGatewayManagedOverridesRouteSettingsArgs{...}
+//	        ApiGatewayManagedOverridesRouteSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiGatewayManagedOverridesRouteSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1120,7 +1120,7 @@ type ApiGatewayManagedOverridesStageOverrides struct {
 // ApiGatewayManagedOverridesStageOverridesInput is an input type that accepts ApiGatewayManagedOverridesStageOverridesArgs and ApiGatewayManagedOverridesStageOverridesOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesStageOverridesInput` via:
 //
-//          ApiGatewayManagedOverridesStageOverridesArgs{...}
+//	ApiGatewayManagedOverridesStageOverridesArgs{...}
 type ApiGatewayManagedOverridesStageOverridesInput interface {
 	pulumi.Input
 
@@ -1160,11 +1160,11 @@ func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverrid
 // ApiGatewayManagedOverridesStageOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesStageOverridesArgs, ApiGatewayManagedOverridesStageOverridesPtr and ApiGatewayManagedOverridesStageOverridesPtrOutput values.
 // You can construct a concrete instance of `ApiGatewayManagedOverridesStageOverridesPtrInput` via:
 //
-//          ApiGatewayManagedOverridesStageOverridesArgs{...}
+//	        ApiGatewayManagedOverridesStageOverridesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiGatewayManagedOverridesStageOverridesPtrInput interface {
 	pulumi.Input
 
@@ -1328,7 +1328,7 @@ type AuthorizerJWTConfiguration struct {
 // AuthorizerJWTConfigurationInput is an input type that accepts AuthorizerJWTConfigurationArgs and AuthorizerJWTConfigurationOutput values.
 // You can construct a concrete instance of `AuthorizerJWTConfigurationInput` via:
 //
-//          AuthorizerJWTConfigurationArgs{...}
+//	AuthorizerJWTConfigurationArgs{...}
 type AuthorizerJWTConfigurationInput interface {
 	pulumi.Input
 
@@ -1364,11 +1364,11 @@ func (i AuthorizerJWTConfigurationArgs) ToAuthorizerJWTConfigurationPtrOutputWit
 // AuthorizerJWTConfigurationPtrInput is an input type that accepts AuthorizerJWTConfigurationArgs, AuthorizerJWTConfigurationPtr and AuthorizerJWTConfigurationPtrOutput values.
 // You can construct a concrete instance of `AuthorizerJWTConfigurationPtrInput` via:
 //
-//          AuthorizerJWTConfigurationArgs{...}
+//	        AuthorizerJWTConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AuthorizerJWTConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1479,7 +1479,7 @@ type DomainNameConfiguration struct {
 // DomainNameConfigurationInput is an input type that accepts DomainNameConfigurationArgs and DomainNameConfigurationOutput values.
 // You can construct a concrete instance of `DomainNameConfigurationInput` via:
 //
-//          DomainNameConfigurationArgs{...}
+//	DomainNameConfigurationArgs{...}
 type DomainNameConfigurationInput interface {
 	pulumi.Input
 
@@ -1510,7 +1510,7 @@ func (i DomainNameConfigurationArgs) ToDomainNameConfigurationOutputWithContext(
 // DomainNameConfigurationArrayInput is an input type that accepts DomainNameConfigurationArray and DomainNameConfigurationArrayOutput values.
 // You can construct a concrete instance of `DomainNameConfigurationArrayInput` via:
 //
-//          DomainNameConfigurationArray{ DomainNameConfigurationArgs{...} }
+//	DomainNameConfigurationArray{ DomainNameConfigurationArgs{...} }
 type DomainNameConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1594,7 +1594,7 @@ type DomainNameMutualTlsAuthentication struct {
 // DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	DomainNameMutualTlsAuthenticationArgs{...}
 type DomainNameMutualTlsAuthenticationInput interface {
 	pulumi.Input
 
@@ -1630,11 +1630,11 @@ func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticati
 // DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	        DomainNameMutualTlsAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainNameMutualTlsAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -1741,7 +1741,7 @@ type IntegrationTlsConfig struct {
 // IntegrationTlsConfigInput is an input type that accepts IntegrationTlsConfigArgs and IntegrationTlsConfigOutput values.
 // You can construct a concrete instance of `IntegrationTlsConfigInput` via:
 //
-//          IntegrationTlsConfigArgs{...}
+//	IntegrationTlsConfigArgs{...}
 type IntegrationTlsConfigInput interface {
 	pulumi.Input
 
@@ -1776,11 +1776,11 @@ func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutputWithContext(ctx
 // IntegrationTlsConfigPtrInput is an input type that accepts IntegrationTlsConfigArgs, IntegrationTlsConfigPtr and IntegrationTlsConfigPtrOutput values.
 // You can construct a concrete instance of `IntegrationTlsConfigPtrInput` via:
 //
-//          IntegrationTlsConfigArgs{...}
+//	        IntegrationTlsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationTlsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1875,7 +1875,7 @@ type StageAccessLogSettings struct {
 // StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsInput` via:
 //
-//          StageAccessLogSettingsArgs{...}
+//	StageAccessLogSettingsArgs{...}
 type StageAccessLogSettingsInput interface {
 	pulumi.Input
 
@@ -1911,11 +1911,11 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext
 // StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
 //
-//          StageAccessLogSettingsArgs{...}
+//	        StageAccessLogSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageAccessLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2026,7 +2026,7 @@ type StageRouteSettings struct {
 // StageRouteSettingsInput is an input type that accepts StageRouteSettingsArgs and StageRouteSettingsOutput values.
 // You can construct a concrete instance of `StageRouteSettingsInput` via:
 //
-//          StageRouteSettingsArgs{...}
+//	StageRouteSettingsArgs{...}
 type StageRouteSettingsInput interface {
 	pulumi.Input
 
@@ -2065,11 +2065,11 @@ func (i StageRouteSettingsArgs) ToStageRouteSettingsPtrOutputWithContext(ctx con
 // StageRouteSettingsPtrInput is an input type that accepts StageRouteSettingsArgs, StageRouteSettingsPtr and StageRouteSettingsPtrOutput values.
 // You can construct a concrete instance of `StageRouteSettingsPtrInput` via:
 //
-//          StageRouteSettingsArgs{...}
+//	        StageRouteSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageRouteSettingsPtrInput interface {
 	pulumi.Input
 

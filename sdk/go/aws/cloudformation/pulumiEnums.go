@@ -139,7 +139,7 @@ func (o HookTypeConfigConfigurationAliasPtrOutput) ToStringPtrOutputWithContext(
 // HookTypeConfigConfigurationAliasInput is an input type that accepts HookTypeConfigConfigurationAliasArgs and HookTypeConfigConfigurationAliasOutput values.
 // You can construct a concrete instance of `HookTypeConfigConfigurationAliasInput` via:
 //
-//          HookTypeConfigConfigurationAliasArgs{...}
+//	HookTypeConfigConfigurationAliasArgs{...}
 type HookTypeConfigConfigurationAliasInput interface {
 	pulumi.Input
 
@@ -496,7 +496,7 @@ func (o PublicTypeVersionTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // PublicTypeVersionTypeInput is an input type that accepts PublicTypeVersionTypeArgs and PublicTypeVersionTypeOutput values.
 // You can construct a concrete instance of `PublicTypeVersionTypeInput` via:
 //
-//          PublicTypeVersionTypeArgs{...}
+//	PublicTypeVersionTypeArgs{...}
 type PublicTypeVersionTypeInput interface {
 	pulumi.Input
 
@@ -1033,7 +1033,7 @@ func (o StackSetCallAsPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // StackSetCallAsInput is an input type that accepts StackSetCallAsArgs and StackSetCallAsOutput values.
 // You can construct a concrete instance of `StackSetCallAsInput` via:
 //
-//          StackSetCallAsArgs{...}
+//	StackSetCallAsArgs{...}
 type StackSetCallAsInput interface {
 	pulumi.Input
 
@@ -1198,7 +1198,7 @@ func (o StackSetCapabilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // StackSetCapabilityInput is an input type that accepts StackSetCapabilityArgs and StackSetCapabilityOutput values.
 // You can construct a concrete instance of `StackSetCapabilityInput` via:
 //
-//          StackSetCapabilityArgs{...}
+//	StackSetCapabilityArgs{...}
 type StackSetCapabilityInput interface {
 	pulumi.Input
 
@@ -1236,7 +1236,7 @@ func (in *stackSetCapabilityPtr) ToStackSetCapabilityPtrOutputWithContext(ctx co
 // StackSetCapabilityArrayInput is an input type that accepts StackSetCapabilityArray and StackSetCapabilityArrayOutput values.
 // You can construct a concrete instance of `StackSetCapabilityArrayInput` via:
 //
-//          StackSetCapabilityArray{ StackSetCapabilityArgs{...} }
+//	StackSetCapabilityArray{ StackSetCapabilityArgs{...} }
 type StackSetCapabilityArrayInput interface {
 	pulumi.Input
 
@@ -1408,7 +1408,7 @@ func (o StackSetPermissionModelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // StackSetPermissionModelInput is an input type that accepts StackSetPermissionModelArgs and StackSetPermissionModelOutput values.
 // You can construct a concrete instance of `StackSetPermissionModelInput` via:
 //
-//          StackSetPermissionModelArgs{...}
+//	StackSetPermissionModelArgs{...}
 type StackSetPermissionModelInput interface {
 	pulumi.Input
 
@@ -1573,7 +1573,7 @@ func (o StackSetRegionConcurrencyTypePtrOutput) ToStringPtrOutputWithContext(ctx
 // StackSetRegionConcurrencyTypeInput is an input type that accepts StackSetRegionConcurrencyTypeArgs and StackSetRegionConcurrencyTypeOutput values.
 // You can construct a concrete instance of `StackSetRegionConcurrencyTypeInput` via:
 //
-//          StackSetRegionConcurrencyTypeArgs{...}
+//	StackSetRegionConcurrencyTypeArgs{...}
 type StackSetRegionConcurrencyTypeInput interface {
 	pulumi.Input
 
@@ -1739,7 +1739,7 @@ func (o TypeActivationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // TypeActivationTypeInput is an input type that accepts TypeActivationTypeArgs and TypeActivationTypeOutput values.
 // You can construct a concrete instance of `TypeActivationTypeInput` via:
 //
-//          TypeActivationTypeArgs{...}
+//	TypeActivationTypeArgs{...}
 type TypeActivationTypeInput interface {
 	pulumi.Input
 
@@ -1904,7 +1904,7 @@ func (o TypeActivationVersionBumpPtrOutput) ToStringPtrOutputWithContext(ctx con
 // TypeActivationVersionBumpInput is an input type that accepts TypeActivationVersionBumpArgs and TypeActivationVersionBumpOutput values.
 // You can construct a concrete instance of `TypeActivationVersionBumpInput` via:
 //
-//          TypeActivationVersionBumpArgs{...}
+//	TypeActivationVersionBumpArgs{...}
 type TypeActivationVersionBumpInput interface {
 	pulumi.Input
 

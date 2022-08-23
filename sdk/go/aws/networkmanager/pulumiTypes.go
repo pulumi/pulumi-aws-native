@@ -19,7 +19,7 @@ type ConnectAttachmentOptions struct {
 // ConnectAttachmentOptionsInput is an input type that accepts ConnectAttachmentOptionsArgs and ConnectAttachmentOptionsOutput values.
 // You can construct a concrete instance of `ConnectAttachmentOptionsInput` via:
 //
-//          ConnectAttachmentOptionsArgs{...}
+//	ConnectAttachmentOptionsArgs{...}
 type ConnectAttachmentOptionsInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutputWithCon
 // ConnectAttachmentOptionsPtrInput is an input type that accepts ConnectAttachmentOptionsArgs, ConnectAttachmentOptionsPtr and ConnectAttachmentOptionsPtrOutput values.
 // You can construct a concrete instance of `ConnectAttachmentOptionsPtrInput` via:
 //
-//          ConnectAttachmentOptionsArgs{...}
+//	        ConnectAttachmentOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectAttachmentOptionsPtrInput interface {
 	pulumi.Input
 
@@ -255,7 +255,7 @@ type ConnectAttachmentTag struct {
 // ConnectAttachmentTagInput is an input type that accepts ConnectAttachmentTagArgs and ConnectAttachmentTagOutput values.
 // You can construct a concrete instance of `ConnectAttachmentTagInput` via:
 //
-//          ConnectAttachmentTagArgs{...}
+//	ConnectAttachmentTagArgs{...}
 type ConnectAttachmentTagInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutputWithContext(ctx co
 // ConnectAttachmentTagArrayInput is an input type that accepts ConnectAttachmentTagArray and ConnectAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `ConnectAttachmentTagArrayInput` via:
 //
-//          ConnectAttachmentTagArray{ ConnectAttachmentTagArgs{...} }
+//	ConnectAttachmentTagArray{ ConnectAttachmentTagArgs{...} }
 type ConnectAttachmentTagArrayInput interface {
 	pulumi.Input
 
@@ -420,7 +420,7 @@ type ConnectPeerBgpOptions struct {
 // ConnectPeerBgpOptionsInput is an input type that accepts ConnectPeerBgpOptionsArgs and ConnectPeerBgpOptionsOutput values.
 // You can construct a concrete instance of `ConnectPeerBgpOptionsInput` via:
 //
-//          ConnectPeerBgpOptionsArgs{...}
+//	ConnectPeerBgpOptionsArgs{...}
 type ConnectPeerBgpOptionsInput interface {
 	pulumi.Input
 
@@ -456,11 +456,11 @@ func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutputWithContext(c
 // ConnectPeerBgpOptionsPtrInput is an input type that accepts ConnectPeerBgpOptionsArgs, ConnectPeerBgpOptionsPtr and ConnectPeerBgpOptionsPtrOutput values.
 // You can construct a concrete instance of `ConnectPeerBgpOptionsPtrInput` via:
 //
-//          ConnectPeerBgpOptionsArgs{...}
+//	        ConnectPeerBgpOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectPeerBgpOptionsPtrInput interface {
 	pulumi.Input
 
@@ -670,7 +670,7 @@ type ConnectPeerTag struct {
 // ConnectPeerTagInput is an input type that accepts ConnectPeerTagArgs and ConnectPeerTagOutput values.
 // You can construct a concrete instance of `ConnectPeerTagInput` via:
 //
-//          ConnectPeerTagArgs{...}
+//	ConnectPeerTagArgs{...}
 type ConnectPeerTagInput interface {
 	pulumi.Input
 
@@ -701,7 +701,7 @@ func (i ConnectPeerTagArgs) ToConnectPeerTagOutputWithContext(ctx context.Contex
 // ConnectPeerTagArrayInput is an input type that accepts ConnectPeerTagArray and ConnectPeerTagArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerTagArrayInput` via:
 //
-//          ConnectPeerTagArray{ ConnectPeerTagArgs{...} }
+//	ConnectPeerTagArray{ ConnectPeerTagArgs{...} }
 type ConnectPeerTagArrayInput interface {
 	pulumi.Input
 
@@ -889,7 +889,7 @@ type CoreNetworkTag struct {
 // CoreNetworkTagInput is an input type that accepts CoreNetworkTagArgs and CoreNetworkTagOutput values.
 // You can construct a concrete instance of `CoreNetworkTagInput` via:
 //
-//          CoreNetworkTagArgs{...}
+//	CoreNetworkTagArgs{...}
 type CoreNetworkTagInput interface {
 	pulumi.Input
 
@@ -920,7 +920,7 @@ func (i CoreNetworkTagArgs) ToCoreNetworkTagOutputWithContext(ctx context.Contex
 // CoreNetworkTagArrayInput is an input type that accepts CoreNetworkTagArray and CoreNetworkTagArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkTagArrayInput` via:
 //
-//          CoreNetworkTagArray{ CoreNetworkTagArgs{...} }
+//	CoreNetworkTagArray{ CoreNetworkTagArgs{...} }
 type CoreNetworkTagArrayInput interface {
 	pulumi.Input
 
@@ -1000,7 +1000,7 @@ type DeviceLocation struct {
 // DeviceLocationInput is an input type that accepts DeviceLocationArgs and DeviceLocationOutput values.
 // You can construct a concrete instance of `DeviceLocationInput` via:
 //
-//          DeviceLocationArgs{...}
+//	DeviceLocationArgs{...}
 type DeviceLocationInput interface {
 	pulumi.Input
 
@@ -1041,11 +1041,11 @@ func (i DeviceLocationArgs) ToDeviceLocationPtrOutputWithContext(ctx context.Con
 // DeviceLocationPtrInput is an input type that accepts DeviceLocationArgs, DeviceLocationPtr and DeviceLocationPtrOutput values.
 // You can construct a concrete instance of `DeviceLocationPtrInput` via:
 //
-//          DeviceLocationArgs{...}
+//	        DeviceLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeviceLocationPtrInput interface {
 	pulumi.Input
 
@@ -1174,7 +1174,7 @@ type DeviceTag struct {
 // DeviceTagInput is an input type that accepts DeviceTagArgs and DeviceTagOutput values.
 // You can construct a concrete instance of `DeviceTagInput` via:
 //
-//          DeviceTagArgs{...}
+//	DeviceTagArgs{...}
 type DeviceTagInput interface {
 	pulumi.Input
 
@@ -1203,7 +1203,7 @@ func (i DeviceTagArgs) ToDeviceTagOutputWithContext(ctx context.Context) DeviceT
 // DeviceTagArrayInput is an input type that accepts DeviceTagArray and DeviceTagArrayOutput values.
 // You can construct a concrete instance of `DeviceTagArrayInput` via:
 //
-//          DeviceTagArray{ DeviceTagArgs{...} }
+//	DeviceTagArray{ DeviceTagArgs{...} }
 type DeviceTagArrayInput interface {
 	pulumi.Input
 
@@ -1277,7 +1277,7 @@ type GlobalNetworkTag struct {
 // GlobalNetworkTagInput is an input type that accepts GlobalNetworkTagArgs and GlobalNetworkTagOutput values.
 // You can construct a concrete instance of `GlobalNetworkTagInput` via:
 //
-//          GlobalNetworkTagArgs{...}
+//	GlobalNetworkTagArgs{...}
 type GlobalNetworkTagInput interface {
 	pulumi.Input
 
@@ -1306,7 +1306,7 @@ func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutputWithContext(ctx context.Co
 // GlobalNetworkTagArrayInput is an input type that accepts GlobalNetworkTagArray and GlobalNetworkTagArrayOutput values.
 // You can construct a concrete instance of `GlobalNetworkTagArrayInput` via:
 //
-//          GlobalNetworkTagArray{ GlobalNetworkTagArgs{...} }
+//	GlobalNetworkTagArray{ GlobalNetworkTagArgs{...} }
 type GlobalNetworkTagArrayInput interface {
 	pulumi.Input
 
@@ -1382,7 +1382,7 @@ type LinkBandwidth struct {
 // LinkBandwidthInput is an input type that accepts LinkBandwidthArgs and LinkBandwidthOutput values.
 // You can construct a concrete instance of `LinkBandwidthInput` via:
 //
-//          LinkBandwidthArgs{...}
+//	LinkBandwidthArgs{...}
 type LinkBandwidthInput interface {
 	pulumi.Input
 
@@ -1488,7 +1488,7 @@ type LinkTag struct {
 // LinkTagInput is an input type that accepts LinkTagArgs and LinkTagOutput values.
 // You can construct a concrete instance of `LinkTagInput` via:
 //
-//          LinkTagArgs{...}
+//	LinkTagArgs{...}
 type LinkTagInput interface {
 	pulumi.Input
 
@@ -1517,7 +1517,7 @@ func (i LinkTagArgs) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutp
 // LinkTagArrayInput is an input type that accepts LinkTagArray and LinkTagArrayOutput values.
 // You can construct a concrete instance of `LinkTagArrayInput` via:
 //
-//          LinkTagArray{ LinkTagArgs{...} }
+//	LinkTagArray{ LinkTagArgs{...} }
 type LinkTagArrayInput interface {
 	pulumi.Input
 
@@ -1595,7 +1595,7 @@ type SiteLocation struct {
 // SiteLocationInput is an input type that accepts SiteLocationArgs and SiteLocationOutput values.
 // You can construct a concrete instance of `SiteLocationInput` via:
 //
-//          SiteLocationArgs{...}
+//	SiteLocationArgs{...}
 type SiteLocationInput interface {
 	pulumi.Input
 
@@ -1636,11 +1636,11 @@ func (i SiteLocationArgs) ToSiteLocationPtrOutputWithContext(ctx context.Context
 // SiteLocationPtrInput is an input type that accepts SiteLocationArgs, SiteLocationPtr and SiteLocationPtrOutput values.
 // You can construct a concrete instance of `SiteLocationPtrInput` via:
 //
-//          SiteLocationArgs{...}
+//	        SiteLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteLocationPtrInput interface {
 	pulumi.Input
 
@@ -1769,7 +1769,7 @@ type SiteTag struct {
 // SiteTagInput is an input type that accepts SiteTagArgs and SiteTagOutput values.
 // You can construct a concrete instance of `SiteTagInput` via:
 //
-//          SiteTagArgs{...}
+//	SiteTagArgs{...}
 type SiteTagInput interface {
 	pulumi.Input
 
@@ -1798,7 +1798,7 @@ func (i SiteTagArgs) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutp
 // SiteTagArrayInput is an input type that accepts SiteTagArray and SiteTagArrayOutput values.
 // You can construct a concrete instance of `SiteTagArrayInput` via:
 //
-//          SiteTagArray{ SiteTagArgs{...} }
+//	SiteTagArray{ SiteTagArgs{...} }
 type SiteTagArrayInput interface {
 	pulumi.Input
 
@@ -1968,7 +1968,7 @@ type SiteToSiteVpnAttachmentTag struct {
 // SiteToSiteVpnAttachmentTagInput is an input type that accepts SiteToSiteVpnAttachmentTagArgs and SiteToSiteVpnAttachmentTagOutput values.
 // You can construct a concrete instance of `SiteToSiteVpnAttachmentTagInput` via:
 //
-//          SiteToSiteVpnAttachmentTagArgs{...}
+//	SiteToSiteVpnAttachmentTagArgs{...}
 type SiteToSiteVpnAttachmentTagInput interface {
 	pulumi.Input
 
@@ -1999,7 +1999,7 @@ func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutputWithCo
 // SiteToSiteVpnAttachmentTagArrayInput is an input type that accepts SiteToSiteVpnAttachmentTagArray and SiteToSiteVpnAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `SiteToSiteVpnAttachmentTagArrayInput` via:
 //
-//          SiteToSiteVpnAttachmentTagArray{ SiteToSiteVpnAttachmentTagArgs{...} }
+//	SiteToSiteVpnAttachmentTagArray{ SiteToSiteVpnAttachmentTagArgs{...} }
 type SiteToSiteVpnAttachmentTagArrayInput interface {
 	pulumi.Input
 
@@ -2171,7 +2171,7 @@ type VpcAttachmentTag struct {
 // VpcAttachmentTagInput is an input type that accepts VpcAttachmentTagArgs and VpcAttachmentTagOutput values.
 // You can construct a concrete instance of `VpcAttachmentTagInput` via:
 //
-//          VpcAttachmentTagArgs{...}
+//	VpcAttachmentTagArgs{...}
 type VpcAttachmentTagInput interface {
 	pulumi.Input
 
@@ -2202,7 +2202,7 @@ func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutputWithContext(ctx context.Co
 // VpcAttachmentTagArrayInput is an input type that accepts VpcAttachmentTagArray and VpcAttachmentTagArrayOutput values.
 // You can construct a concrete instance of `VpcAttachmentTagArrayInput` via:
 //
-//          VpcAttachmentTagArray{ VpcAttachmentTagArgs{...} }
+//	VpcAttachmentTagArray{ VpcAttachmentTagArgs{...} }
 type VpcAttachmentTagArrayInput interface {
 	pulumi.Input
 
@@ -2278,7 +2278,7 @@ type VpcAttachmentVpcOptions struct {
 // VpcAttachmentVpcOptionsInput is an input type that accepts VpcAttachmentVpcOptionsArgs and VpcAttachmentVpcOptionsOutput values.
 // You can construct a concrete instance of `VpcAttachmentVpcOptionsInput` via:
 //
-//          VpcAttachmentVpcOptionsArgs{...}
+//	VpcAttachmentVpcOptionsArgs{...}
 type VpcAttachmentVpcOptionsInput interface {
 	pulumi.Input
 
@@ -2315,11 +2315,11 @@ func (i VpcAttachmentVpcOptionsArgs) ToVpcAttachmentVpcOptionsPtrOutputWithConte
 // VpcAttachmentVpcOptionsPtrInput is an input type that accepts VpcAttachmentVpcOptionsArgs, VpcAttachmentVpcOptionsPtr and VpcAttachmentVpcOptionsPtrOutput values.
 // You can construct a concrete instance of `VpcAttachmentVpcOptionsPtrInput` via:
 //
-//          VpcAttachmentVpcOptionsArgs{...}
+//	        VpcAttachmentVpcOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VpcAttachmentVpcOptionsPtrInput interface {
 	pulumi.Input
 

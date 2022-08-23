@@ -21,7 +21,7 @@ type RepositoryAssociationTag struct {
 // RepositoryAssociationTagInput is an input type that accepts RepositoryAssociationTagArgs and RepositoryAssociationTagOutput values.
 // You can construct a concrete instance of `RepositoryAssociationTagInput` via:
 //
-//          RepositoryAssociationTagArgs{...}
+//	RepositoryAssociationTagArgs{...}
 type RepositoryAssociationTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i RepositoryAssociationTagArgs) ToRepositoryAssociationTagOutputWithContex
 // RepositoryAssociationTagArrayInput is an input type that accepts RepositoryAssociationTagArray and RepositoryAssociationTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryAssociationTagArrayInput` via:
 //
-//          RepositoryAssociationTagArray{ RepositoryAssociationTagArgs{...} }
+//	RepositoryAssociationTagArray{ RepositoryAssociationTagArgs{...} }
 type RepositoryAssociationTagArrayInput interface {
 	pulumi.Input
 

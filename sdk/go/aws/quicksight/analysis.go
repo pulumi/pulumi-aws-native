@@ -222,11 +222,12 @@ func (o AnalysisOutput) Parameters() AnalysisParametersPtrOutput {
 }
 
 // <p>A structure that describes the principals and the resource-level permissions on an
-//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-//             providing a list of AWS Identity and Access Management (IAM) action information for each
-//             principal listed by Amazon Resource Name (ARN). </p>
 //
-//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+//	    analysis. You can use the <code>Permissions</code> structure to grant permissions by
+//	    providing a list of AWS Identity and Access Management (IAM) action information for each
+//	    principal listed by Amazon Resource Name (ARN). </p>
+//
+//	<p>To specify no permissions, omit <code>Permissions</code>.</p>
 func (o AnalysisOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisResourcePermissionArrayOutput { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
@@ -245,7 +246,8 @@ func (o AnalysisOutput) Status() AnalysisResourceStatusOutput {
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//             analysis.</p>
+//
+//	analysis.</p>
 func (o AnalysisOutput) Tags() AnalysisTagArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisTagArrayOutput { return v.Tags }).(AnalysisTagArrayOutput)
 }

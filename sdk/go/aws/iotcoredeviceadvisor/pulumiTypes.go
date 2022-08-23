@@ -21,7 +21,7 @@ type SuiteDefinitionConfigurationProperties struct {
 // SuiteDefinitionConfigurationPropertiesInput is an input type that accepts SuiteDefinitionConfigurationPropertiesArgs and SuiteDefinitionConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `SuiteDefinitionConfigurationPropertiesInput` via:
 //
-//          SuiteDefinitionConfigurationPropertiesArgs{...}
+//	SuiteDefinitionConfigurationPropertiesArgs{...}
 type SuiteDefinitionConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -160,7 +160,7 @@ type SuiteDefinitionDeviceUnderTest struct {
 // SuiteDefinitionDeviceUnderTestInput is an input type that accepts SuiteDefinitionDeviceUnderTestArgs and SuiteDefinitionDeviceUnderTestOutput values.
 // You can construct a concrete instance of `SuiteDefinitionDeviceUnderTestInput` via:
 //
-//          SuiteDefinitionDeviceUnderTestArgs{...}
+//	SuiteDefinitionDeviceUnderTestArgs{...}
 type SuiteDefinitionDeviceUnderTestInput interface {
 	pulumi.Input
 
@@ -188,7 +188,7 @@ func (i SuiteDefinitionDeviceUnderTestArgs) ToSuiteDefinitionDeviceUnderTestOutp
 // SuiteDefinitionDeviceUnderTestArrayInput is an input type that accepts SuiteDefinitionDeviceUnderTestArray and SuiteDefinitionDeviceUnderTestArrayOutput values.
 // You can construct a concrete instance of `SuiteDefinitionDeviceUnderTestArrayInput` via:
 //
-//          SuiteDefinitionDeviceUnderTestArray{ SuiteDefinitionDeviceUnderTestArgs{...} }
+//	SuiteDefinitionDeviceUnderTestArray{ SuiteDefinitionDeviceUnderTestArgs{...} }
 type SuiteDefinitionDeviceUnderTestArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +263,7 @@ type SuiteDefinitionTag struct {
 // SuiteDefinitionTagInput is an input type that accepts SuiteDefinitionTagArgs and SuiteDefinitionTagOutput values.
 // You can construct a concrete instance of `SuiteDefinitionTagInput` via:
 //
-//          SuiteDefinitionTagArgs{...}
+//	SuiteDefinitionTagArgs{...}
 type SuiteDefinitionTagInput interface {
 	pulumi.Input
 
@@ -294,7 +294,7 @@ func (i SuiteDefinitionTagArgs) ToSuiteDefinitionTagOutputWithContext(ctx contex
 // SuiteDefinitionTagArrayInput is an input type that accepts SuiteDefinitionTagArray and SuiteDefinitionTagArrayOutput values.
 // You can construct a concrete instance of `SuiteDefinitionTagArrayInput` via:
 //
-//          SuiteDefinitionTagArray{ SuiteDefinitionTagArgs{...} }
+//	SuiteDefinitionTagArray{ SuiteDefinitionTagArgs{...} }
 type SuiteDefinitionTagArrayInput interface {
 	pulumi.Input
 

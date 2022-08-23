@@ -139,7 +139,7 @@ func (o ReplicationConfigurationFilterTypePtrOutput) ToStringPtrOutputWithContex
 // ReplicationConfigurationFilterTypeInput is an input type that accepts ReplicationConfigurationFilterTypeArgs and ReplicationConfigurationFilterTypeOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationFilterTypeInput` via:
 //
-//          ReplicationConfigurationFilterTypeArgs{...}
+//	ReplicationConfigurationFilterTypeArgs{...}
 type ReplicationConfigurationFilterTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o RepositoryEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // RepositoryEncryptionTypeInput is an input type that accepts RepositoryEncryptionTypeArgs and RepositoryEncryptionTypeOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionTypeInput` via:
 //
-//          RepositoryEncryptionTypeArgs{...}
+//	RepositoryEncryptionTypeArgs{...}
 type RepositoryEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToStringPtrOutputWithContext(ctx 
 // RepositoryImageTagMutabilityInput is an input type that accepts RepositoryImageTagMutabilityArgs and RepositoryImageTagMutabilityOutput values.
 // You can construct a concrete instance of `RepositoryImageTagMutabilityInput` via:
 //
-//          RepositoryImageTagMutabilityArgs{...}
+//	RepositoryImageTagMutabilityArgs{...}
 type RepositoryImageTagMutabilityInput interface {
 	pulumi.Input
 

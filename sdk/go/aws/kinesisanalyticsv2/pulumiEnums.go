@@ -140,7 +140,7 @@ func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToStringPt
 // ApplicationCheckpointConfigurationConfigurationTypeInput is an input type that accepts ApplicationCheckpointConfigurationConfigurationTypeArgs and ApplicationCheckpointConfigurationConfigurationTypeOutput values.
 // You can construct a concrete instance of `ApplicationCheckpointConfigurationConfigurationTypeInput` via:
 //
-//          ApplicationCheckpointConfigurationConfigurationTypeArgs{...}
+//	ApplicationCheckpointConfigurationConfigurationTypeArgs{...}
 type ApplicationCheckpointConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToStringPtrOutputW
 // ApplicationCodeConfigurationCodeContentTypeInput is an input type that accepts ApplicationCodeConfigurationCodeContentTypeArgs and ApplicationCodeConfigurationCodeContentTypeOutput values.
 // You can construct a concrete instance of `ApplicationCodeConfigurationCodeContentTypeInput` via:
 //
-//          ApplicationCodeConfigurationCodeContentTypeArgs{...}
+//	ApplicationCodeConfigurationCodeContentTypeArgs{...}
 type ApplicationCodeConfigurationCodeContentTypeInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToStringPtr
 // ApplicationCustomArtifactConfigurationArtifactTypeInput is an input type that accepts ApplicationCustomArtifactConfigurationArtifactTypeArgs and ApplicationCustomArtifactConfigurationArtifactTypeOutput values.
 // You can construct a concrete instance of `ApplicationCustomArtifactConfigurationArtifactTypeInput` via:
 //
-//          ApplicationCustomArtifactConfigurationArtifactTypeArgs{...}
+//	ApplicationCustomArtifactConfigurationArtifactTypeArgs{...}
 type ApplicationCustomArtifactConfigurationArtifactTypeInput interface {
 	pulumi.Input
 
@@ -634,7 +634,7 @@ func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToStringPtrOutputWithCont
 // ApplicationInputSchemaRecordEncodingInput is an input type that accepts ApplicationInputSchemaRecordEncodingArgs and ApplicationInputSchemaRecordEncodingOutput values.
 // You can construct a concrete instance of `ApplicationInputSchemaRecordEncodingInput` via:
 //
-//          ApplicationInputSchemaRecordEncodingArgs{...}
+//	ApplicationInputSchemaRecordEncodingArgs{...}
 type ApplicationInputSchemaRecordEncodingInput interface {
 	pulumi.Input
 
@@ -799,7 +799,7 @@ func (o ApplicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // ApplicationModeInput is an input type that accepts ApplicationModeArgs and ApplicationModeOutput values.
 // You can construct a concrete instance of `ApplicationModeInput` via:
 //
-//          ApplicationModeArgs{...}
+//	ApplicationModeArgs{...}
 type ApplicationModeInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToStringPt
 // ApplicationMonitoringConfigurationConfigurationTypeInput is an input type that accepts ApplicationMonitoringConfigurationConfigurationTypeArgs and ApplicationMonitoringConfigurationConfigurationTypeOutput values.
 // You can construct a concrete instance of `ApplicationMonitoringConfigurationConfigurationTypeInput` via:
 //
-//          ApplicationMonitoringConfigurationConfigurationTypeArgs{...}
+//	ApplicationMonitoringConfigurationConfigurationTypeArgs{...}
 type ApplicationMonitoringConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -1131,7 +1131,7 @@ func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToStringPtrOutputWi
 // ApplicationMonitoringConfigurationLogLevelInput is an input type that accepts ApplicationMonitoringConfigurationLogLevelArgs and ApplicationMonitoringConfigurationLogLevelOutput values.
 // You can construct a concrete instance of `ApplicationMonitoringConfigurationLogLevelInput` via:
 //
-//          ApplicationMonitoringConfigurationLogLevelArgs{...}
+//	ApplicationMonitoringConfigurationLogLevelArgs{...}
 type ApplicationMonitoringConfigurationLogLevelInput interface {
 	pulumi.Input
 
@@ -1298,7 +1298,7 @@ func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToStringPtrOutp
 // ApplicationMonitoringConfigurationMetricsLevelInput is an input type that accepts ApplicationMonitoringConfigurationMetricsLevelArgs and ApplicationMonitoringConfigurationMetricsLevelOutput values.
 // You can construct a concrete instance of `ApplicationMonitoringConfigurationMetricsLevelInput` via:
 //
-//          ApplicationMonitoringConfigurationMetricsLevelArgs{...}
+//	ApplicationMonitoringConfigurationMetricsLevelArgs{...}
 type ApplicationMonitoringConfigurationMetricsLevelInput interface {
 	pulumi.Input
 
@@ -1463,7 +1463,7 @@ func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToStringP
 // ApplicationParallelismConfigurationConfigurationTypeInput is an input type that accepts ApplicationParallelismConfigurationConfigurationTypeArgs and ApplicationParallelismConfigurationConfigurationTypeOutput values.
 // You can construct a concrete instance of `ApplicationParallelismConfigurationConfigurationTypeInput` via:
 //
-//          ApplicationParallelismConfigurationConfigurationTypeArgs{...}
+//	ApplicationParallelismConfigurationConfigurationTypeArgs{...}
 type ApplicationParallelismConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -1628,7 +1628,7 @@ func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToStringPtrOutputWithC
 // ApplicationRecordFormatRecordFormatTypeInput is an input type that accepts ApplicationRecordFormatRecordFormatTypeArgs and ApplicationRecordFormatRecordFormatTypeOutput values.
 // You can construct a concrete instance of `ApplicationRecordFormatRecordFormatTypeInput` via:
 //
-//          ApplicationRecordFormatRecordFormatTypeArgs{...}
+//	ApplicationRecordFormatRecordFormatTypeArgs{...}
 type ApplicationRecordFormatRecordFormatTypeInput interface {
 	pulumi.Input
 
@@ -1795,7 +1795,7 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToStringPtr
 // ApplicationZeppelinMonitoringConfigurationLogLevelInput is an input type that accepts ApplicationZeppelinMonitoringConfigurationLogLevelArgs and ApplicationZeppelinMonitoringConfigurationLogLevelOutput values.
 // You can construct a concrete instance of `ApplicationZeppelinMonitoringConfigurationLogLevelInput` via:
 //
-//          ApplicationZeppelinMonitoringConfigurationLogLevelArgs{...}
+//	ApplicationZeppelinMonitoringConfigurationLogLevelArgs{...}
 type ApplicationZeppelinMonitoringConfigurationLogLevelInput interface {
 	pulumi.Input
 

@@ -65,7 +65,7 @@ type ClusterTag struct {
 // ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
 // You can construct a concrete instance of `ClusterTagInput` via:
 //
-//          ClusterTagArgs{...}
+//	ClusterTagArgs{...}
 type ClusterTagInput interface {
 	pulumi.Input
 
@@ -93,7 +93,7 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
-//          ClusterTagArray{ ClusterTagArgs{...} }
+//	ClusterTagArray{ ClusterTagArgs{...} }
 type ClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ type ControlPanelTag struct {
 // ControlPanelTagInput is an input type that accepts ControlPanelTagArgs and ControlPanelTagOutput values.
 // You can construct a concrete instance of `ControlPanelTagInput` via:
 //
-//          ControlPanelTagArgs{...}
+//	ControlPanelTagArgs{...}
 type ControlPanelTagInput interface {
 	pulumi.Input
 
@@ -193,7 +193,7 @@ func (i ControlPanelTagArgs) ToControlPanelTagOutputWithContext(ctx context.Cont
 // ControlPanelTagArrayInput is an input type that accepts ControlPanelTagArray and ControlPanelTagArrayOutput values.
 // You can construct a concrete instance of `ControlPanelTagArrayInput` via:
 //
-//          ControlPanelTagArray{ ControlPanelTagArgs{...} }
+//	ControlPanelTagArray{ ControlPanelTagArgs{...} }
 type ControlPanelTagArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ type SafetyRuleAssertionRule struct {
 // SafetyRuleAssertionRuleInput is an input type that accepts SafetyRuleAssertionRuleArgs and SafetyRuleAssertionRuleOutput values.
 // You can construct a concrete instance of `SafetyRuleAssertionRuleInput` via:
 //
-//          SafetyRuleAssertionRuleArgs{...}
+//	SafetyRuleAssertionRuleArgs{...}
 type SafetyRuleAssertionRuleInput interface {
 	pulumi.Input
 
@@ -307,11 +307,11 @@ func (i SafetyRuleAssertionRuleArgs) ToSafetyRuleAssertionRulePtrOutputWithConte
 // SafetyRuleAssertionRulePtrInput is an input type that accepts SafetyRuleAssertionRuleArgs, SafetyRuleAssertionRulePtr and SafetyRuleAssertionRulePtrOutput values.
 // You can construct a concrete instance of `SafetyRuleAssertionRulePtrInput` via:
 //
-//          SafetyRuleAssertionRuleArgs{...}
+//	        SafetyRuleAssertionRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SafetyRuleAssertionRulePtrInput interface {
 	pulumi.Input
 
@@ -430,7 +430,7 @@ type SafetyRuleGatingRule struct {
 // SafetyRuleGatingRuleInput is an input type that accepts SafetyRuleGatingRuleArgs and SafetyRuleGatingRuleOutput values.
 // You can construct a concrete instance of `SafetyRuleGatingRuleInput` via:
 //
-//          SafetyRuleGatingRuleArgs{...}
+//	SafetyRuleGatingRuleArgs{...}
 type SafetyRuleGatingRuleInput interface {
 	pulumi.Input
 
@@ -472,11 +472,11 @@ func (i SafetyRuleGatingRuleArgs) ToSafetyRuleGatingRulePtrOutputWithContext(ctx
 // SafetyRuleGatingRulePtrInput is an input type that accepts SafetyRuleGatingRuleArgs, SafetyRuleGatingRulePtr and SafetyRuleGatingRulePtrOutput values.
 // You can construct a concrete instance of `SafetyRuleGatingRulePtrInput` via:
 //
-//          SafetyRuleGatingRuleArgs{...}
+//	        SafetyRuleGatingRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SafetyRuleGatingRulePtrInput interface {
 	pulumi.Input
 
@@ -610,7 +610,7 @@ type SafetyRuleRuleConfig struct {
 // SafetyRuleRuleConfigInput is an input type that accepts SafetyRuleRuleConfigArgs and SafetyRuleRuleConfigOutput values.
 // You can construct a concrete instance of `SafetyRuleRuleConfigInput` via:
 //
-//          SafetyRuleRuleConfigArgs{...}
+//	SafetyRuleRuleConfigArgs{...}
 type SafetyRuleRuleConfigInput interface {
 	pulumi.Input
 
@@ -650,11 +650,11 @@ func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigPtrOutputWithContext(ctx
 // SafetyRuleRuleConfigPtrInput is an input type that accepts SafetyRuleRuleConfigArgs, SafetyRuleRuleConfigPtr and SafetyRuleRuleConfigPtrOutput values.
 // You can construct a concrete instance of `SafetyRuleRuleConfigPtrInput` via:
 //
-//          SafetyRuleRuleConfigArgs{...}
+//	        SafetyRuleRuleConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SafetyRuleRuleConfigPtrInput interface {
 	pulumi.Input
 
@@ -780,7 +780,7 @@ type SafetyRuleTag struct {
 // SafetyRuleTagInput is an input type that accepts SafetyRuleTagArgs and SafetyRuleTagOutput values.
 // You can construct a concrete instance of `SafetyRuleTagInput` via:
 //
-//          SafetyRuleTagArgs{...}
+//	SafetyRuleTagArgs{...}
 type SafetyRuleTagInput interface {
 	pulumi.Input
 
@@ -808,7 +808,7 @@ func (i SafetyRuleTagArgs) ToSafetyRuleTagOutputWithContext(ctx context.Context)
 // SafetyRuleTagArrayInput is an input type that accepts SafetyRuleTagArray and SafetyRuleTagArrayOutput values.
 // You can construct a concrete instance of `SafetyRuleTagArrayInput` via:
 //
-//          SafetyRuleTagArray{ SafetyRuleTagArgs{...} }
+//	SafetyRuleTagArray{ SafetyRuleTagArgs{...} }
 type SafetyRuleTagArrayInput interface {
 	pulumi.Input
 

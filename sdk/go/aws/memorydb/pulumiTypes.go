@@ -21,7 +21,7 @@ type ACLTag struct {
 // ACLTagInput is an input type that accepts ACLTagArgs and ACLTagOutput values.
 // You can construct a concrete instance of `ACLTagInput` via:
 //
-//          ACLTagArgs{...}
+//	ACLTagArgs{...}
 type ACLTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ACLTagArgs) ToACLTagOutputWithContext(ctx context.Context) ACLTagOutput 
 // ACLTagArrayInput is an input type that accepts ACLTagArray and ACLTagArrayOutput values.
 // You can construct a concrete instance of `ACLTagArrayInput` via:
 //
-//          ACLTagArray{ ACLTagArgs{...} }
+//	ACLTagArray{ ACLTagArgs{...} }
 type ACLTagArrayInput interface {
 	pulumi.Input
 
@@ -129,7 +129,7 @@ type AuthenticationModeProperties struct {
 // AuthenticationModePropertiesInput is an input type that accepts AuthenticationModePropertiesArgs and AuthenticationModePropertiesOutput values.
 // You can construct a concrete instance of `AuthenticationModePropertiesInput` via:
 //
-//          AuthenticationModePropertiesArgs{...}
+//	AuthenticationModePropertiesArgs{...}
 type AuthenticationModePropertiesInput interface {
 	pulumi.Input
 
@@ -190,7 +190,7 @@ type ClusterEndpoint struct {
 // ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
 // You can construct a concrete instance of `ClusterEndpointInput` via:
 //
-//          ClusterEndpointArgs{...}
+//	ClusterEndpointArgs{...}
 type ClusterEndpointInput interface {
 	pulumi.Input
 
@@ -228,11 +228,11 @@ func (i ClusterEndpointArgs) ToClusterEndpointPtrOutputWithContext(ctx context.C
 // ClusterEndpointPtrInput is an input type that accepts ClusterEndpointArgs, ClusterEndpointPtr and ClusterEndpointPtrOutput values.
 // You can construct a concrete instance of `ClusterEndpointPtrInput` via:
 //
-//          ClusterEndpointArgs{...}
+//	        ClusterEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterEndpointPtrInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ type ClusterTag struct {
 // ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
 // You can construct a concrete instance of `ClusterTagInput` via:
 //
-//          ClusterTagArgs{...}
+//	ClusterTagArgs{...}
 type ClusterTagInput interface {
 	pulumi.Input
 
@@ -378,7 +378,7 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
-//          ClusterTagArray{ ClusterTagArgs{...} }
+//	ClusterTagArray{ ClusterTagArgs{...} }
 type ClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -456,7 +456,7 @@ type ParameterGroupTag struct {
 // ParameterGroupTagInput is an input type that accepts ParameterGroupTagArgs and ParameterGroupTagOutput values.
 // You can construct a concrete instance of `ParameterGroupTagInput` via:
 //
-//          ParameterGroupTagArgs{...}
+//	ParameterGroupTagArgs{...}
 type ParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -487,7 +487,7 @@ func (i ParameterGroupTagArgs) ToParameterGroupTagOutputWithContext(ctx context.
 // ParameterGroupTagArrayInput is an input type that accepts ParameterGroupTagArray and ParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupTagArrayInput` via:
 //
-//          ParameterGroupTagArray{ ParameterGroupTagArgs{...} }
+//	ParameterGroupTagArray{ ParameterGroupTagArgs{...} }
 type ParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -565,7 +565,7 @@ type SubnetGroupTag struct {
 // SubnetGroupTagInput is an input type that accepts SubnetGroupTagArgs and SubnetGroupTagOutput values.
 // You can construct a concrete instance of `SubnetGroupTagInput` via:
 //
-//          SubnetGroupTagArgs{...}
+//	SubnetGroupTagArgs{...}
 type SubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -596,7 +596,7 @@ func (i SubnetGroupTagArgs) ToSubnetGroupTagOutputWithContext(ctx context.Contex
 // SubnetGroupTagArrayInput is an input type that accepts SubnetGroupTagArray and SubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupTagArrayInput` via:
 //
-//          SubnetGroupTagArray{ SubnetGroupTagArgs{...} }
+//	SubnetGroupTagArray{ SubnetGroupTagArgs{...} }
 type SubnetGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -674,7 +674,7 @@ type UserTag struct {
 // UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
 // You can construct a concrete instance of `UserTagInput` via:
 //
-//          UserTagArgs{...}
+//	UserTagArgs{...}
 type UserTagInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
-//          UserTagArray{ UserTagArgs{...} }
+//	UserTagArray{ UserTagArgs{...} }
 type UserTagArrayInput interface {
 	pulumi.Input
 

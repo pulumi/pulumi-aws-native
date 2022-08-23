@@ -140,7 +140,7 @@ func (o ResourceCollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ResourceCollectionTypeInput is an input type that accepts ResourceCollectionTypeArgs and ResourceCollectionTypeOutput values.
 // You can construct a concrete instance of `ResourceCollectionTypeInput` via:
 //
-//          ResourceCollectionTypeArgs{...}
+//	ResourceCollectionTypeArgs{...}
 type ResourceCollectionTypeInput interface {
 	pulumi.Input
 

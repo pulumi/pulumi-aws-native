@@ -21,7 +21,7 @@ type AnalysisDataSetReference struct {
 // AnalysisDataSetReferenceInput is an input type that accepts AnalysisDataSetReferenceArgs and AnalysisDataSetReferenceOutput values.
 // You can construct a concrete instance of `AnalysisDataSetReferenceInput` via:
 //
-//          AnalysisDataSetReferenceArgs{...}
+//	AnalysisDataSetReferenceArgs{...}
 type AnalysisDataSetReferenceInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AnalysisDataSetReferenceArgs) ToAnalysisDataSetReferenceOutputWithContex
 // AnalysisDataSetReferenceArrayInput is an input type that accepts AnalysisDataSetReferenceArray and AnalysisDataSetReferenceArrayOutput values.
 // You can construct a concrete instance of `AnalysisDataSetReferenceArrayInput` via:
 //
-//          AnalysisDataSetReferenceArray{ AnalysisDataSetReferenceArgs{...} }
+//	AnalysisDataSetReferenceArray{ AnalysisDataSetReferenceArgs{...} }
 type AnalysisDataSetReferenceArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type AnalysisDateTimeParameter struct {
 // AnalysisDateTimeParameterInput is an input type that accepts AnalysisDateTimeParameterArgs and AnalysisDateTimeParameterOutput values.
 // You can construct a concrete instance of `AnalysisDateTimeParameterInput` via:
 //
-//          AnalysisDateTimeParameterArgs{...}
+//	AnalysisDateTimeParameterArgs{...}
 type AnalysisDateTimeParameterInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i AnalysisDateTimeParameterArgs) ToAnalysisDateTimeParameterOutputWithCont
 // AnalysisDateTimeParameterArrayInput is an input type that accepts AnalysisDateTimeParameterArray and AnalysisDateTimeParameterArrayOutput values.
 // You can construct a concrete instance of `AnalysisDateTimeParameterArrayInput` via:
 //
-//          AnalysisDateTimeParameterArray{ AnalysisDateTimeParameterArgs{...} }
+//	AnalysisDateTimeParameterArray{ AnalysisDateTimeParameterArgs{...} }
 type AnalysisDateTimeParameterArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +239,7 @@ type AnalysisDecimalParameter struct {
 // AnalysisDecimalParameterInput is an input type that accepts AnalysisDecimalParameterArgs and AnalysisDecimalParameterOutput values.
 // You can construct a concrete instance of `AnalysisDecimalParameterInput` via:
 //
-//          AnalysisDecimalParameterArgs{...}
+//	AnalysisDecimalParameterArgs{...}
 type AnalysisDecimalParameterInput interface {
 	pulumi.Input
 
@@ -270,7 +270,7 @@ func (i AnalysisDecimalParameterArgs) ToAnalysisDecimalParameterOutputWithContex
 // AnalysisDecimalParameterArrayInput is an input type that accepts AnalysisDecimalParameterArray and AnalysisDecimalParameterArrayOutput values.
 // You can construct a concrete instance of `AnalysisDecimalParameterArrayInput` via:
 //
-//          AnalysisDecimalParameterArray{ AnalysisDecimalParameterArgs{...} }
+//	AnalysisDecimalParameterArray{ AnalysisDecimalParameterArgs{...} }
 type AnalysisDecimalParameterArrayInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ type AnalysisError struct {
 // AnalysisErrorInput is an input type that accepts AnalysisErrorArgs and AnalysisErrorOutput values.
 // You can construct a concrete instance of `AnalysisErrorInput` via:
 //
-//          AnalysisErrorArgs{...}
+//	AnalysisErrorArgs{...}
 type AnalysisErrorInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ func (i AnalysisErrorArgs) ToAnalysisErrorOutputWithContext(ctx context.Context)
 // AnalysisErrorArrayInput is an input type that accepts AnalysisErrorArray and AnalysisErrorArrayOutput values.
 // You can construct a concrete instance of `AnalysisErrorArrayInput` via:
 //
-//          AnalysisErrorArray{ AnalysisErrorArgs{...} }
+//	AnalysisErrorArray{ AnalysisErrorArgs{...} }
 type AnalysisErrorArrayInput interface {
 	pulumi.Input
 
@@ -454,7 +454,7 @@ type AnalysisIntegerParameter struct {
 // AnalysisIntegerParameterInput is an input type that accepts AnalysisIntegerParameterArgs and AnalysisIntegerParameterOutput values.
 // You can construct a concrete instance of `AnalysisIntegerParameterInput` via:
 //
-//          AnalysisIntegerParameterArgs{...}
+//	AnalysisIntegerParameterArgs{...}
 type AnalysisIntegerParameterInput interface {
 	pulumi.Input
 
@@ -485,7 +485,7 @@ func (i AnalysisIntegerParameterArgs) ToAnalysisIntegerParameterOutputWithContex
 // AnalysisIntegerParameterArrayInput is an input type that accepts AnalysisIntegerParameterArray and AnalysisIntegerParameterArrayOutput values.
 // You can construct a concrete instance of `AnalysisIntegerParameterArrayInput` via:
 //
-//          AnalysisIntegerParameterArray{ AnalysisIntegerParameterArgs{...} }
+//	AnalysisIntegerParameterArray{ AnalysisIntegerParameterArgs{...} }
 type AnalysisIntegerParameterArrayInput interface {
 	pulumi.Input
 
@@ -567,7 +567,7 @@ type AnalysisParameters struct {
 // AnalysisParametersInput is an input type that accepts AnalysisParametersArgs and AnalysisParametersOutput values.
 // You can construct a concrete instance of `AnalysisParametersInput` via:
 //
-//          AnalysisParametersArgs{...}
+//	AnalysisParametersArgs{...}
 type AnalysisParametersInput interface {
 	pulumi.Input
 
@@ -610,11 +610,11 @@ func (i AnalysisParametersArgs) ToAnalysisParametersPtrOutputWithContext(ctx con
 // AnalysisParametersPtrInput is an input type that accepts AnalysisParametersArgs, AnalysisParametersPtr and AnalysisParametersPtrOutput values.
 // You can construct a concrete instance of `AnalysisParametersPtrInput` via:
 //
-//          AnalysisParametersArgs{...}
+//	        AnalysisParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalysisParametersPtrInput interface {
 	pulumi.Input
 
@@ -774,7 +774,7 @@ type AnalysisResourcePermission struct {
 // AnalysisResourcePermissionInput is an input type that accepts AnalysisResourcePermissionArgs and AnalysisResourcePermissionOutput values.
 // You can construct a concrete instance of `AnalysisResourcePermissionInput` via:
 //
-//          AnalysisResourcePermissionArgs{...}
+//	AnalysisResourcePermissionArgs{...}
 type AnalysisResourcePermissionInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ func (i AnalysisResourcePermissionArgs) ToAnalysisResourcePermissionOutputWithCo
 // AnalysisResourcePermissionArrayInput is an input type that accepts AnalysisResourcePermissionArray and AnalysisResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `AnalysisResourcePermissionArrayInput` via:
 //
-//          AnalysisResourcePermissionArray{ AnalysisResourcePermissionArgs{...} }
+//	AnalysisResourcePermissionArray{ AnalysisResourcePermissionArgs{...} }
 type AnalysisResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -862,20 +862,21 @@ func (o AnalysisResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o AnalysisResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -901,10 +902,11 @@ func (o AnalysisResourcePermissionArrayOutput) Index(i pulumi.IntInput) Analysis
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
 	//             console.</p>
@@ -914,10 +916,11 @@ type AnalysisSheet struct {
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type AnalysisSheetOutput struct{ *pulumi.OutputState }
 
 func (AnalysisSheetOutput) ElementType() reflect.Type {
@@ -933,7 +936,8 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Contex
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-//             console.</p>
+//
+//	console.</p>
 func (o AnalysisSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -971,7 +975,7 @@ type AnalysisSourceEntity struct {
 // AnalysisSourceEntityInput is an input type that accepts AnalysisSourceEntityArgs and AnalysisSourceEntityOutput values.
 // You can construct a concrete instance of `AnalysisSourceEntityInput` via:
 //
-//          AnalysisSourceEntityArgs{...}
+//	AnalysisSourceEntityArgs{...}
 type AnalysisSourceEntityInput interface {
 	pulumi.Input
 
@@ -1026,7 +1030,7 @@ type AnalysisSourceTemplate struct {
 // AnalysisSourceTemplateInput is an input type that accepts AnalysisSourceTemplateArgs and AnalysisSourceTemplateOutput values.
 // You can construct a concrete instance of `AnalysisSourceTemplateInput` via:
 //
-//          AnalysisSourceTemplateArgs{...}
+//	AnalysisSourceTemplateArgs{...}
 type AnalysisSourceTemplateInput interface {
 	pulumi.Input
 
@@ -1065,11 +1069,11 @@ func (i AnalysisSourceTemplateArgs) ToAnalysisSourceTemplatePtrOutputWithContext
 // AnalysisSourceTemplatePtrInput is an input type that accepts AnalysisSourceTemplateArgs, AnalysisSourceTemplatePtr and AnalysisSourceTemplatePtrOutput values.
 // You can construct a concrete instance of `AnalysisSourceTemplatePtrInput` via:
 //
-//          AnalysisSourceTemplateArgs{...}
+//	        AnalysisSourceTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalysisSourceTemplatePtrInput interface {
 	pulumi.Input
 
@@ -1185,7 +1189,7 @@ type AnalysisStringParameter struct {
 // AnalysisStringParameterInput is an input type that accepts AnalysisStringParameterArgs and AnalysisStringParameterOutput values.
 // You can construct a concrete instance of `AnalysisStringParameterInput` via:
 //
-//          AnalysisStringParameterArgs{...}
+//	AnalysisStringParameterArgs{...}
 type AnalysisStringParameterInput interface {
 	pulumi.Input
 
@@ -1216,7 +1220,7 @@ func (i AnalysisStringParameterArgs) ToAnalysisStringParameterOutputWithContext(
 // AnalysisStringParameterArrayInput is an input type that accepts AnalysisStringParameterArray and AnalysisStringParameterArrayOutput values.
 // You can construct a concrete instance of `AnalysisStringParameterArrayInput` via:
 //
-//          AnalysisStringParameterArray{ AnalysisStringParameterArgs{...} }
+//	AnalysisStringParameterArray{ AnalysisStringParameterArgs{...} }
 type AnalysisStringParameterArrayInput interface {
 	pulumi.Input
 
@@ -1284,7 +1288,8 @@ func (o AnalysisStringParameterArrayOutput) Index(i pulumi.IntInput) AnalysisStr
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type AnalysisTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -1295,7 +1300,7 @@ type AnalysisTag struct {
 // AnalysisTagInput is an input type that accepts AnalysisTagArgs and AnalysisTagOutput values.
 // You can construct a concrete instance of `AnalysisTagInput` via:
 //
-//          AnalysisTagArgs{...}
+//	AnalysisTagArgs{...}
 type AnalysisTagInput interface {
 	pulumi.Input
 
@@ -1304,7 +1309,8 @@ type AnalysisTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type AnalysisTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -1327,7 +1333,7 @@ func (i AnalysisTagArgs) ToAnalysisTagOutputWithContext(ctx context.Context) Ana
 // AnalysisTagArrayInput is an input type that accepts AnalysisTagArray and AnalysisTagArrayOutput values.
 // You can construct a concrete instance of `AnalysisTagArrayInput` via:
 //
-//          AnalysisTagArray{ AnalysisTagArgs{...} }
+//	AnalysisTagArray{ AnalysisTagArgs{...} }
 type AnalysisTagArrayInput interface {
 	pulumi.Input
 
@@ -1350,7 +1356,8 @@ func (i AnalysisTagArray) ToAnalysisTagArrayOutputWithContext(ctx context.Contex
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type AnalysisTagOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTagOutput) ElementType() reflect.Type {
@@ -1403,7 +1410,7 @@ type DashboardAdHocFilteringOption struct {
 // DashboardAdHocFilteringOptionInput is an input type that accepts DashboardAdHocFilteringOptionArgs and DashboardAdHocFilteringOptionOutput values.
 // You can construct a concrete instance of `DashboardAdHocFilteringOptionInput` via:
 //
-//          DashboardAdHocFilteringOptionArgs{...}
+//	DashboardAdHocFilteringOptionArgs{...}
 type DashboardAdHocFilteringOptionInput interface {
 	pulumi.Input
 
@@ -1439,11 +1446,11 @@ func (i DashboardAdHocFilteringOptionArgs) ToDashboardAdHocFilteringOptionPtrOut
 // DashboardAdHocFilteringOptionPtrInput is an input type that accepts DashboardAdHocFilteringOptionArgs, DashboardAdHocFilteringOptionPtr and DashboardAdHocFilteringOptionPtrOutput values.
 // You can construct a concrete instance of `DashboardAdHocFilteringOptionPtrInput` via:
 //
-//          DashboardAdHocFilteringOptionArgs{...}
+//	        DashboardAdHocFilteringOptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardAdHocFilteringOptionPtrInput interface {
 	pulumi.Input
 
@@ -1542,7 +1549,7 @@ type DashboardDataSetReference struct {
 // DashboardDataSetReferenceInput is an input type that accepts DashboardDataSetReferenceArgs and DashboardDataSetReferenceOutput values.
 // You can construct a concrete instance of `DashboardDataSetReferenceInput` via:
 //
-//          DashboardDataSetReferenceArgs{...}
+//	DashboardDataSetReferenceArgs{...}
 type DashboardDataSetReferenceInput interface {
 	pulumi.Input
 
@@ -1573,7 +1580,7 @@ func (i DashboardDataSetReferenceArgs) ToDashboardDataSetReferenceOutputWithCont
 // DashboardDataSetReferenceArrayInput is an input type that accepts DashboardDataSetReferenceArray and DashboardDataSetReferenceArrayOutput values.
 // You can construct a concrete instance of `DashboardDataSetReferenceArrayInput` via:
 //
-//          DashboardDataSetReferenceArray{ DashboardDataSetReferenceArgs{...} }
+//	DashboardDataSetReferenceArray{ DashboardDataSetReferenceArgs{...} }
 type DashboardDataSetReferenceArrayInput interface {
 	pulumi.Input
 
@@ -1651,7 +1658,7 @@ type DashboardDateTimeParameter struct {
 // DashboardDateTimeParameterInput is an input type that accepts DashboardDateTimeParameterArgs and DashboardDateTimeParameterOutput values.
 // You can construct a concrete instance of `DashboardDateTimeParameterInput` via:
 //
-//          DashboardDateTimeParameterArgs{...}
+//	DashboardDateTimeParameterArgs{...}
 type DashboardDateTimeParameterInput interface {
 	pulumi.Input
 
@@ -1682,7 +1689,7 @@ func (i DashboardDateTimeParameterArgs) ToDashboardDateTimeParameterOutputWithCo
 // DashboardDateTimeParameterArrayInput is an input type that accepts DashboardDateTimeParameterArray and DashboardDateTimeParameterArrayOutput values.
 // You can construct a concrete instance of `DashboardDateTimeParameterArrayInput` via:
 //
-//          DashboardDateTimeParameterArray{ DashboardDateTimeParameterArgs{...} }
+//	DashboardDateTimeParameterArray{ DashboardDateTimeParameterArgs{...} }
 type DashboardDateTimeParameterArrayInput interface {
 	pulumi.Input
 
@@ -1760,7 +1767,7 @@ type DashboardDecimalParameter struct {
 // DashboardDecimalParameterInput is an input type that accepts DashboardDecimalParameterArgs and DashboardDecimalParameterOutput values.
 // You can construct a concrete instance of `DashboardDecimalParameterInput` via:
 //
-//          DashboardDecimalParameterArgs{...}
+//	DashboardDecimalParameterArgs{...}
 type DashboardDecimalParameterInput interface {
 	pulumi.Input
 
@@ -1791,7 +1798,7 @@ func (i DashboardDecimalParameterArgs) ToDashboardDecimalParameterOutputWithCont
 // DashboardDecimalParameterArrayInput is an input type that accepts DashboardDecimalParameterArray and DashboardDecimalParameterArrayOutput values.
 // You can construct a concrete instance of `DashboardDecimalParameterArrayInput` via:
 //
-//          DashboardDecimalParameterArray{ DashboardDecimalParameterArgs{...} }
+//	DashboardDecimalParameterArray{ DashboardDecimalParameterArgs{...} }
 type DashboardDecimalParameterArrayInput interface {
 	pulumi.Input
 
@@ -1917,7 +1924,7 @@ type DashboardExportToCSVOption struct {
 // DashboardExportToCSVOptionInput is an input type that accepts DashboardExportToCSVOptionArgs and DashboardExportToCSVOptionOutput values.
 // You can construct a concrete instance of `DashboardExportToCSVOptionInput` via:
 //
-//          DashboardExportToCSVOptionArgs{...}
+//	DashboardExportToCSVOptionArgs{...}
 type DashboardExportToCSVOptionInput interface {
 	pulumi.Input
 
@@ -1953,11 +1960,11 @@ func (i DashboardExportToCSVOptionArgs) ToDashboardExportToCSVOptionPtrOutputWit
 // DashboardExportToCSVOptionPtrInput is an input type that accepts DashboardExportToCSVOptionArgs, DashboardExportToCSVOptionPtr and DashboardExportToCSVOptionPtrOutput values.
 // You can construct a concrete instance of `DashboardExportToCSVOptionPtrInput` via:
 //
-//          DashboardExportToCSVOptionArgs{...}
+//	        DashboardExportToCSVOptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardExportToCSVOptionPtrInput interface {
 	pulumi.Input
 
@@ -2056,7 +2063,7 @@ type DashboardIntegerParameter struct {
 // DashboardIntegerParameterInput is an input type that accepts DashboardIntegerParameterArgs and DashboardIntegerParameterOutput values.
 // You can construct a concrete instance of `DashboardIntegerParameterInput` via:
 //
-//          DashboardIntegerParameterArgs{...}
+//	DashboardIntegerParameterArgs{...}
 type DashboardIntegerParameterInput interface {
 	pulumi.Input
 
@@ -2087,7 +2094,7 @@ func (i DashboardIntegerParameterArgs) ToDashboardIntegerParameterOutputWithCont
 // DashboardIntegerParameterArrayInput is an input type that accepts DashboardIntegerParameterArray and DashboardIntegerParameterArrayOutput values.
 // You can construct a concrete instance of `DashboardIntegerParameterArrayInput` via:
 //
-//          DashboardIntegerParameterArray{ DashboardIntegerParameterArgs{...} }
+//	DashboardIntegerParameterArray{ DashboardIntegerParameterArgs{...} }
 type DashboardIntegerParameterArrayInput interface {
 	pulumi.Input
 
@@ -2169,7 +2176,7 @@ type DashboardParameters struct {
 // DashboardParametersInput is an input type that accepts DashboardParametersArgs and DashboardParametersOutput values.
 // You can construct a concrete instance of `DashboardParametersInput` via:
 //
-//          DashboardParametersArgs{...}
+//	DashboardParametersArgs{...}
 type DashboardParametersInput interface {
 	pulumi.Input
 
@@ -2212,11 +2219,11 @@ func (i DashboardParametersArgs) ToDashboardParametersPtrOutputWithContext(ctx c
 // DashboardParametersPtrInput is an input type that accepts DashboardParametersArgs, DashboardParametersPtr and DashboardParametersPtrOutput values.
 // You can construct a concrete instance of `DashboardParametersPtrInput` via:
 //
-//          DashboardParametersArgs{...}
+//	        DashboardParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardParametersPtrInput interface {
 	pulumi.Input
 
@@ -2361,7 +2368,7 @@ type DashboardPublishOptions struct {
 // DashboardPublishOptionsInput is an input type that accepts DashboardPublishOptionsArgs and DashboardPublishOptionsOutput values.
 // You can construct a concrete instance of `DashboardPublishOptionsInput` via:
 //
-//          DashboardPublishOptionsArgs{...}
+//	DashboardPublishOptionsArgs{...}
 type DashboardPublishOptionsInput interface {
 	pulumi.Input
 
@@ -2399,11 +2406,11 @@ func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsPtrOutputWithConte
 // DashboardPublishOptionsPtrInput is an input type that accepts DashboardPublishOptionsArgs, DashboardPublishOptionsPtr and DashboardPublishOptionsPtrOutput values.
 // You can construct a concrete instance of `DashboardPublishOptionsPtrInput` via:
 //
-//          DashboardPublishOptionsArgs{...}
+//	        DashboardPublishOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardPublishOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2542,7 +2549,7 @@ type DashboardResourcePermission struct {
 // DashboardResourcePermissionInput is an input type that accepts DashboardResourcePermissionArgs and DashboardResourcePermissionOutput values.
 // You can construct a concrete instance of `DashboardResourcePermissionInput` via:
 //
-//          DashboardResourcePermissionArgs{...}
+//	DashboardResourcePermissionArgs{...}
 type DashboardResourcePermissionInput interface {
 	pulumi.Input
 
@@ -2587,7 +2594,7 @@ func (i DashboardResourcePermissionArgs) ToDashboardResourcePermissionOutputWith
 // DashboardResourcePermissionArrayInput is an input type that accepts DashboardResourcePermissionArray and DashboardResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `DashboardResourcePermissionArrayInput` via:
 //
-//          DashboardResourcePermissionArray{ DashboardResourcePermissionArgs{...} }
+//	DashboardResourcePermissionArray{ DashboardResourcePermissionArgs{...} }
 type DashboardResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -2630,20 +2637,21 @@ func (o DashboardResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o DashboardResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -2669,10 +2677,11 @@ func (o DashboardResourcePermissionArrayOutput) Index(i pulumi.IntInput) Dashboa
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type DashboardSheet struct {
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
 	//             console.</p>
@@ -2682,10 +2691,11 @@ type DashboardSheet struct {
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type DashboardSheetOutput struct{ *pulumi.OutputState }
 
 func (DashboardSheetOutput) ElementType() reflect.Type {
@@ -2701,7 +2711,8 @@ func (o DashboardSheetOutput) ToDashboardSheetOutputWithContext(ctx context.Cont
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-//             console.</p>
+//
+//	console.</p>
 func (o DashboardSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2739,7 +2750,7 @@ type DashboardSheetControlsOption struct {
 // DashboardSheetControlsOptionInput is an input type that accepts DashboardSheetControlsOptionArgs and DashboardSheetControlsOptionOutput values.
 // You can construct a concrete instance of `DashboardSheetControlsOptionInput` via:
 //
-//          DashboardSheetControlsOptionArgs{...}
+//	DashboardSheetControlsOptionArgs{...}
 type DashboardSheetControlsOptionInput interface {
 	pulumi.Input
 
@@ -2775,11 +2786,11 @@ func (i DashboardSheetControlsOptionArgs) ToDashboardSheetControlsOptionPtrOutpu
 // DashboardSheetControlsOptionPtrInput is an input type that accepts DashboardSheetControlsOptionArgs, DashboardSheetControlsOptionPtr and DashboardSheetControlsOptionPtrOutput values.
 // You can construct a concrete instance of `DashboardSheetControlsOptionPtrInput` via:
 //
-//          DashboardSheetControlsOptionArgs{...}
+//	        DashboardSheetControlsOptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardSheetControlsOptionPtrInput interface {
 	pulumi.Input
 
@@ -2875,7 +2886,7 @@ type DashboardSourceEntity struct {
 // DashboardSourceEntityInput is an input type that accepts DashboardSourceEntityArgs and DashboardSourceEntityOutput values.
 // You can construct a concrete instance of `DashboardSourceEntityInput` via:
 //
-//          DashboardSourceEntityArgs{...}
+//	DashboardSourceEntityArgs{...}
 type DashboardSourceEntityInput interface {
 	pulumi.Input
 
@@ -2930,7 +2941,7 @@ type DashboardSourceTemplate struct {
 // DashboardSourceTemplateInput is an input type that accepts DashboardSourceTemplateArgs and DashboardSourceTemplateOutput values.
 // You can construct a concrete instance of `DashboardSourceTemplateInput` via:
 //
-//          DashboardSourceTemplateArgs{...}
+//	DashboardSourceTemplateArgs{...}
 type DashboardSourceTemplateInput interface {
 	pulumi.Input
 
@@ -2969,11 +2980,11 @@ func (i DashboardSourceTemplateArgs) ToDashboardSourceTemplatePtrOutputWithConte
 // DashboardSourceTemplatePtrInput is an input type that accepts DashboardSourceTemplateArgs, DashboardSourceTemplatePtr and DashboardSourceTemplatePtrOutput values.
 // You can construct a concrete instance of `DashboardSourceTemplatePtrInput` via:
 //
-//          DashboardSourceTemplateArgs{...}
+//	        DashboardSourceTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DashboardSourceTemplatePtrInput interface {
 	pulumi.Input
 
@@ -3089,7 +3100,7 @@ type DashboardStringParameter struct {
 // DashboardStringParameterInput is an input type that accepts DashboardStringParameterArgs and DashboardStringParameterOutput values.
 // You can construct a concrete instance of `DashboardStringParameterInput` via:
 //
-//          DashboardStringParameterArgs{...}
+//	DashboardStringParameterArgs{...}
 type DashboardStringParameterInput interface {
 	pulumi.Input
 
@@ -3120,7 +3131,7 @@ func (i DashboardStringParameterArgs) ToDashboardStringParameterOutputWithContex
 // DashboardStringParameterArrayInput is an input type that accepts DashboardStringParameterArray and DashboardStringParameterArrayOutput values.
 // You can construct a concrete instance of `DashboardStringParameterArrayInput` via:
 //
-//          DashboardStringParameterArray{ DashboardStringParameterArgs{...} }
+//	DashboardStringParameterArray{ DashboardStringParameterArgs{...} }
 type DashboardStringParameterArrayInput interface {
 	pulumi.Input
 
@@ -3188,7 +3199,8 @@ func (o DashboardStringParameterArrayOutput) Index(i pulumi.IntInput) DashboardS
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DashboardTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -3199,7 +3211,7 @@ type DashboardTag struct {
 // DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
 // You can construct a concrete instance of `DashboardTagInput` via:
 //
-//          DashboardTagArgs{...}
+//	DashboardTagArgs{...}
 type DashboardTagInput interface {
 	pulumi.Input
 
@@ -3208,7 +3220,8 @@ type DashboardTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DashboardTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -3231,7 +3244,7 @@ func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) D
 // DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
 // You can construct a concrete instance of `DashboardTagArrayInput` via:
 //
-//          DashboardTagArray{ DashboardTagArgs{...} }
+//	DashboardTagArray{ DashboardTagArgs{...} }
 type DashboardTagArrayInput interface {
 	pulumi.Input
 
@@ -3254,7 +3267,8 @@ func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Cont
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DashboardTagOutput struct{ *pulumi.OutputState }
 
 func (DashboardTagOutput) ElementType() reflect.Type {
@@ -3349,7 +3363,8 @@ func (o DashboardVersionOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-//             version of the dashboard.</p>
+//
+//	version of the dashboard.</p>
 func (o DashboardVersionOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardVersion) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
@@ -3389,8 +3404,9 @@ func (o DashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 }
 
 // <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
-//             a variant type structure. For this structure to be valid, only one of the attributes can
-//             be non-null.</p>
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
 type DataSetColumnGroup struct {
 	GeoSpatialColumnGroup *DataSetGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroup"`
 }
@@ -3398,7 +3414,7 @@ type DataSetColumnGroup struct {
 // DataSetColumnGroupInput is an input type that accepts DataSetColumnGroupArgs and DataSetColumnGroupOutput values.
 // You can construct a concrete instance of `DataSetColumnGroupInput` via:
 //
-//          DataSetColumnGroupArgs{...}
+//	DataSetColumnGroupArgs{...}
 type DataSetColumnGroupInput interface {
 	pulumi.Input
 
@@ -3407,8 +3423,9 @@ type DataSetColumnGroupInput interface {
 }
 
 // <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
-//             a variant type structure. For this structure to be valid, only one of the attributes can
-//             be non-null.</p>
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
 type DataSetColumnGroupArgs struct {
 	GeoSpatialColumnGroup DataSetGeoSpatialColumnGroupPtrInput `pulumi:"geoSpatialColumnGroup"`
 }
@@ -3428,7 +3445,7 @@ func (i DataSetColumnGroupArgs) ToDataSetColumnGroupOutputWithContext(ctx contex
 // DataSetColumnGroupArrayInput is an input type that accepts DataSetColumnGroupArray and DataSetColumnGroupArrayOutput values.
 // You can construct a concrete instance of `DataSetColumnGroupArrayInput` via:
 //
-//          DataSetColumnGroupArray{ DataSetColumnGroupArgs{...} }
+//	DataSetColumnGroupArray{ DataSetColumnGroupArgs{...} }
 type DataSetColumnGroupArrayInput interface {
 	pulumi.Input
 
@@ -3451,8 +3468,9 @@ func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutputWithContext(ctx 
 }
 
 // <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
-//             a variant type structure. For this structure to be valid, only one of the attributes can
-//             be non-null.</p>
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
 type DataSetColumnGroupOutput struct{ *pulumi.OutputState }
 
 func (DataSetColumnGroupOutput) ElementType() reflect.Type {
@@ -3499,7 +3517,7 @@ type DataSetColumnLevelPermissionRule struct {
 // DataSetColumnLevelPermissionRuleInput is an input type that accepts DataSetColumnLevelPermissionRuleArgs and DataSetColumnLevelPermissionRuleOutput values.
 // You can construct a concrete instance of `DataSetColumnLevelPermissionRuleInput` via:
 //
-//          DataSetColumnLevelPermissionRuleArgs{...}
+//	DataSetColumnLevelPermissionRuleArgs{...}
 type DataSetColumnLevelPermissionRuleInput interface {
 	pulumi.Input
 
@@ -3527,7 +3545,7 @@ func (i DataSetColumnLevelPermissionRuleArgs) ToDataSetColumnLevelPermissionRule
 // DataSetColumnLevelPermissionRuleArrayInput is an input type that accepts DataSetColumnLevelPermissionRuleArray and DataSetColumnLevelPermissionRuleArrayOutput values.
 // You can construct a concrete instance of `DataSetColumnLevelPermissionRuleArrayInput` via:
 //
-//          DataSetColumnLevelPermissionRuleArray{ DataSetColumnLevelPermissionRuleArgs{...} }
+//	DataSetColumnLevelPermissionRuleArray{ DataSetColumnLevelPermissionRuleArgs{...} }
 type DataSetColumnLevelPermissionRuleArrayInput interface {
 	pulumi.Input
 
@@ -3597,7 +3615,7 @@ type DataSetFieldFolderMap struct {
 // DataSetFieldFolderMapInput is an input type that accepts DataSetFieldFolderMap and DataSetFieldFolderMapOutput values.
 // You can construct a concrete instance of `DataSetFieldFolderMapInput` via:
 //
-//          DataSetFieldFolderMap{ "key": DataSetFieldFolderArgs{...} }
+//	DataSetFieldFolderMap{ "key": DataSetFieldFolderArgs{...} }
 type DataSetFieldFolderMapInput interface {
 	pulumi.Input
 
@@ -3631,11 +3649,11 @@ func (i DataSetFieldFolderMapArgs) ToDataSetFieldFolderMapPtrOutputWithContext(c
 // DataSetFieldFolderMapPtrInput is an input type that accepts DataSetFieldFolderMapArgs, DataSetFieldFolderMapPtr and DataSetFieldFolderMapPtrOutput values.
 // You can construct a concrete instance of `DataSetFieldFolderMapPtrInput` via:
 //
-//          DataSetFieldFolderMapArgs{...}
+//	        DataSetFieldFolderMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetFieldFolderMapPtrInput interface {
 	pulumi.Input
 
@@ -3721,7 +3739,7 @@ type DataSetGeoSpatialColumnGroup struct {
 // DataSetGeoSpatialColumnGroupInput is an input type that accepts DataSetGeoSpatialColumnGroupArgs and DataSetGeoSpatialColumnGroupOutput values.
 // You can construct a concrete instance of `DataSetGeoSpatialColumnGroupInput` via:
 //
-//          DataSetGeoSpatialColumnGroupArgs{...}
+//	DataSetGeoSpatialColumnGroupArgs{...}
 type DataSetGeoSpatialColumnGroupInput interface {
 	pulumi.Input
 
@@ -3761,11 +3779,11 @@ func (i DataSetGeoSpatialColumnGroupArgs) ToDataSetGeoSpatialColumnGroupPtrOutpu
 // DataSetGeoSpatialColumnGroupPtrInput is an input type that accepts DataSetGeoSpatialColumnGroupArgs, DataSetGeoSpatialColumnGroupPtr and DataSetGeoSpatialColumnGroupPtrOutput values.
 // You can construct a concrete instance of `DataSetGeoSpatialColumnGroupPtrInput` via:
 //
-//          DataSetGeoSpatialColumnGroupArgs{...}
+//	        DataSetGeoSpatialColumnGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetGeoSpatialColumnGroupPtrInput interface {
 	pulumi.Input
 
@@ -3896,7 +3914,7 @@ type DataSetIngestionWaitPolicy struct {
 // DataSetIngestionWaitPolicyInput is an input type that accepts DataSetIngestionWaitPolicyArgs and DataSetIngestionWaitPolicyOutput values.
 // You can construct a concrete instance of `DataSetIngestionWaitPolicyInput` via:
 //
-//          DataSetIngestionWaitPolicyArgs{...}
+//	DataSetIngestionWaitPolicyArgs{...}
 type DataSetIngestionWaitPolicyInput interface {
 	pulumi.Input
 
@@ -3937,11 +3955,11 @@ func (i DataSetIngestionWaitPolicyArgs) ToDataSetIngestionWaitPolicyPtrOutputWit
 // DataSetIngestionWaitPolicyPtrInput is an input type that accepts DataSetIngestionWaitPolicyArgs, DataSetIngestionWaitPolicyPtr and DataSetIngestionWaitPolicyPtrOutput values.
 // You can construct a concrete instance of `DataSetIngestionWaitPolicyPtrInput` via:
 //
-//          DataSetIngestionWaitPolicyArgs{...}
+//	        DataSetIngestionWaitPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetIngestionWaitPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3993,13 +4011,15 @@ func (o DataSetIngestionWaitPolicyOutput) ToDataSetIngestionWaitPolicyPtrOutputW
 }
 
 // <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
-//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
+//
+//	Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 func (o DataSetIngestionWaitPolicyOutput) IngestionWaitTimeInHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSetIngestionWaitPolicy) *float64 { return v.IngestionWaitTimeInHours }).(pulumi.Float64PtrOutput)
 }
 
 // <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
-//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
+//
+//	Applicable only when DataSetImportMode mode is set to SPICE.</p>
 func (o DataSetIngestionWaitPolicyOutput) WaitForSpiceIngestion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetIngestionWaitPolicy) *bool { return v.WaitForSpiceIngestion }).(pulumi.BoolPtrOutput)
 }
@@ -4029,7 +4049,8 @@ func (o DataSetIngestionWaitPolicyPtrOutput) Elem() DataSetIngestionWaitPolicyOu
 }
 
 // <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
-//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
+//
+//	Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 func (o DataSetIngestionWaitPolicyPtrOutput) IngestionWaitTimeInHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSetIngestionWaitPolicy) *float64 {
 		if v == nil {
@@ -4040,7 +4061,8 @@ func (o DataSetIngestionWaitPolicyPtrOutput) IngestionWaitTimeInHours() pulumi.F
 }
 
 // <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
-//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
+//
+//	Applicable only when DataSetImportMode mode is set to SPICE.</p>
 func (o DataSetIngestionWaitPolicyPtrOutput) WaitForSpiceIngestion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetIngestionWaitPolicy) *bool {
 		if v == nil {
@@ -4056,7 +4078,7 @@ type DataSetLogicalTableMap struct {
 // DataSetLogicalTableMapInput is an input type that accepts DataSetLogicalTableMap and DataSetLogicalTableMapOutput values.
 // You can construct a concrete instance of `DataSetLogicalTableMapInput` via:
 //
-//          DataSetLogicalTableMap{ "key": DataSetLogicalTableArgs{...} }
+//	DataSetLogicalTableMap{ "key": DataSetLogicalTableArgs{...} }
 type DataSetLogicalTableMapInput interface {
 	pulumi.Input
 
@@ -4090,11 +4112,11 @@ func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapPtrOutputWithContext
 // DataSetLogicalTableMapPtrInput is an input type that accepts DataSetLogicalTableMapArgs, DataSetLogicalTableMapPtr and DataSetLogicalTableMapPtrOutput values.
 // You can construct a concrete instance of `DataSetLogicalTableMapPtrInput` via:
 //
-//          DataSetLogicalTableMapArgs{...}
+//	        DataSetLogicalTableMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetLogicalTableMapPtrInput interface {
 	pulumi.Input
 
@@ -4232,7 +4254,7 @@ type DataSetPhysicalTableMap struct {
 // DataSetPhysicalTableMapInput is an input type that accepts DataSetPhysicalTableMap and DataSetPhysicalTableMapOutput values.
 // You can construct a concrete instance of `DataSetPhysicalTableMapInput` via:
 //
-//          DataSetPhysicalTableMap{ "key": DataSetPhysicalTableArgs{...} }
+//	DataSetPhysicalTableMap{ "key": DataSetPhysicalTableArgs{...} }
 type DataSetPhysicalTableMapInput interface {
 	pulumi.Input
 
@@ -4266,11 +4288,11 @@ func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapPtrOutputWithConte
 // DataSetPhysicalTableMapPtrInput is an input type that accepts DataSetPhysicalTableMapArgs, DataSetPhysicalTableMapPtr and DataSetPhysicalTableMapPtrOutput values.
 // You can construct a concrete instance of `DataSetPhysicalTableMapPtrInput` via:
 //
-//          DataSetPhysicalTableMapArgs{...}
+//	        DataSetPhysicalTableMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetPhysicalTableMapPtrInput interface {
 	pulumi.Input
 
@@ -4369,7 +4391,7 @@ type DataSetResourcePermission struct {
 // DataSetResourcePermissionInput is an input type that accepts DataSetResourcePermissionArgs and DataSetResourcePermissionOutput values.
 // You can construct a concrete instance of `DataSetResourcePermissionInput` via:
 //
-//          DataSetResourcePermissionArgs{...}
+//	DataSetResourcePermissionArgs{...}
 type DataSetResourcePermissionInput interface {
 	pulumi.Input
 
@@ -4414,7 +4436,7 @@ func (i DataSetResourcePermissionArgs) ToDataSetResourcePermissionOutputWithCont
 // DataSetResourcePermissionArrayInput is an input type that accepts DataSetResourcePermissionArray and DataSetResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `DataSetResourcePermissionArrayInput` via:
 //
-//          DataSetResourcePermissionArray{ DataSetResourcePermissionArgs{...} }
+//	DataSetResourcePermissionArray{ DataSetResourcePermissionArgs{...} }
 type DataSetResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -4457,20 +4479,21 @@ func (o DataSetResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o DataSetResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -4508,7 +4531,7 @@ type DataSetRowLevelPermissionDataSet struct {
 // DataSetRowLevelPermissionDataSetInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs and DataSetRowLevelPermissionDataSetOutput values.
 // You can construct a concrete instance of `DataSetRowLevelPermissionDataSetInput` via:
 //
-//          DataSetRowLevelPermissionDataSetArgs{...}
+//	DataSetRowLevelPermissionDataSetArgs{...}
 type DataSetRowLevelPermissionDataSetInput interface {
 	pulumi.Input
 
@@ -4549,11 +4572,11 @@ func (i DataSetRowLevelPermissionDataSetArgs) ToDataSetRowLevelPermissionDataSet
 // DataSetRowLevelPermissionDataSetPtrInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs, DataSetRowLevelPermissionDataSetPtr and DataSetRowLevelPermissionDataSetPtrOutput values.
 // You can construct a concrete instance of `DataSetRowLevelPermissionDataSetPtrInput` via:
 //
-//          DataSetRowLevelPermissionDataSetArgs{...}
+//	        DataSetRowLevelPermissionDataSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSetRowLevelPermissionDataSetPtrInput interface {
 	pulumi.Input
 
@@ -4687,7 +4710,8 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() DataSetRow
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSetTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -4698,7 +4722,7 @@ type DataSetTag struct {
 // DataSetTagInput is an input type that accepts DataSetTagArgs and DataSetTagOutput values.
 // You can construct a concrete instance of `DataSetTagInput` via:
 //
-//          DataSetTagArgs{...}
+//	DataSetTagArgs{...}
 type DataSetTagInput interface {
 	pulumi.Input
 
@@ -4707,7 +4731,8 @@ type DataSetTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSetTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -4730,7 +4755,7 @@ func (i DataSetTagArgs) ToDataSetTagOutputWithContext(ctx context.Context) DataS
 // DataSetTagArrayInput is an input type that accepts DataSetTagArray and DataSetTagArrayOutput values.
 // You can construct a concrete instance of `DataSetTagArrayInput` via:
 //
-//          DataSetTagArray{ DataSetTagArgs{...} }
+//	DataSetTagArray{ DataSetTagArgs{...} }
 type DataSetTagArrayInput interface {
 	pulumi.Input
 
@@ -4753,7 +4778,8 @@ func (i DataSetTagArray) ToDataSetTagArrayOutputWithContext(ctx context.Context)
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSetTagOutput struct{ *pulumi.OutputState }
 
 func (DataSetTagOutput) ElementType() reflect.Type {
@@ -4807,7 +4833,7 @@ type DataSourceAmazonElasticsearchParameters struct {
 // DataSourceAmazonElasticsearchParametersInput is an input type that accepts DataSourceAmazonElasticsearchParametersArgs and DataSourceAmazonElasticsearchParametersOutput values.
 // You can construct a concrete instance of `DataSourceAmazonElasticsearchParametersInput` via:
 //
-//          DataSourceAmazonElasticsearchParametersArgs{...}
+//	DataSourceAmazonElasticsearchParametersArgs{...}
 type DataSourceAmazonElasticsearchParametersInput interface {
 	pulumi.Input
 
@@ -4844,11 +4870,11 @@ func (i DataSourceAmazonElasticsearchParametersArgs) ToDataSourceAmazonElasticse
 // DataSourceAmazonElasticsearchParametersPtrInput is an input type that accepts DataSourceAmazonElasticsearchParametersArgs, DataSourceAmazonElasticsearchParametersPtr and DataSourceAmazonElasticsearchParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceAmazonElasticsearchParametersPtrInput` via:
 //
-//          DataSourceAmazonElasticsearchParametersArgs{...}
+//	        DataSourceAmazonElasticsearchParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceAmazonElasticsearchParametersPtrInput interface {
 	pulumi.Input
 
@@ -4947,7 +4973,7 @@ type DataSourceAmazonOpenSearchParameters struct {
 // DataSourceAmazonOpenSearchParametersInput is an input type that accepts DataSourceAmazonOpenSearchParametersArgs and DataSourceAmazonOpenSearchParametersOutput values.
 // You can construct a concrete instance of `DataSourceAmazonOpenSearchParametersInput` via:
 //
-//          DataSourceAmazonOpenSearchParametersArgs{...}
+//	DataSourceAmazonOpenSearchParametersArgs{...}
 type DataSourceAmazonOpenSearchParametersInput interface {
 	pulumi.Input
 
@@ -4984,11 +5010,11 @@ func (i DataSourceAmazonOpenSearchParametersArgs) ToDataSourceAmazonOpenSearchPa
 // DataSourceAmazonOpenSearchParametersPtrInput is an input type that accepts DataSourceAmazonOpenSearchParametersArgs, DataSourceAmazonOpenSearchParametersPtr and DataSourceAmazonOpenSearchParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceAmazonOpenSearchParametersPtrInput` via:
 //
-//          DataSourceAmazonOpenSearchParametersArgs{...}
+//	        DataSourceAmazonOpenSearchParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceAmazonOpenSearchParametersPtrInput interface {
 	pulumi.Input
 
@@ -5087,7 +5113,7 @@ type DataSourceAthenaParameters struct {
 // DataSourceAthenaParametersInput is an input type that accepts DataSourceAthenaParametersArgs and DataSourceAthenaParametersOutput values.
 // You can construct a concrete instance of `DataSourceAthenaParametersInput` via:
 //
-//          DataSourceAthenaParametersArgs{...}
+//	DataSourceAthenaParametersArgs{...}
 type DataSourceAthenaParametersInput interface {
 	pulumi.Input
 
@@ -5124,11 +5150,11 @@ func (i DataSourceAthenaParametersArgs) ToDataSourceAthenaParametersPtrOutputWit
 // DataSourceAthenaParametersPtrInput is an input type that accepts DataSourceAthenaParametersArgs, DataSourceAthenaParametersPtr and DataSourceAthenaParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceAthenaParametersPtrInput` via:
 //
-//          DataSourceAthenaParametersArgs{...}
+//	        DataSourceAthenaParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceAthenaParametersPtrInput interface {
 	pulumi.Input
 
@@ -5231,7 +5257,7 @@ type DataSourceAuroraParameters struct {
 // DataSourceAuroraParametersInput is an input type that accepts DataSourceAuroraParametersArgs and DataSourceAuroraParametersOutput values.
 // You can construct a concrete instance of `DataSourceAuroraParametersInput` via:
 //
-//          DataSourceAuroraParametersArgs{...}
+//	DataSourceAuroraParametersArgs{...}
 type DataSourceAuroraParametersInput interface {
 	pulumi.Input
 
@@ -5272,11 +5298,11 @@ func (i DataSourceAuroraParametersArgs) ToDataSourceAuroraParametersPtrOutputWit
 // DataSourceAuroraParametersPtrInput is an input type that accepts DataSourceAuroraParametersArgs, DataSourceAuroraParametersPtr and DataSourceAuroraParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceAuroraParametersPtrInput` via:
 //
-//          DataSourceAuroraParametersArgs{...}
+//	        DataSourceAuroraParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceAuroraParametersPtrInput interface {
 	pulumi.Input
 
@@ -5409,7 +5435,7 @@ type DataSourceAuroraPostgreSqlParameters struct {
 // DataSourceAuroraPostgreSqlParametersInput is an input type that accepts DataSourceAuroraPostgreSqlParametersArgs and DataSourceAuroraPostgreSqlParametersOutput values.
 // You can construct a concrete instance of `DataSourceAuroraPostgreSqlParametersInput` via:
 //
-//          DataSourceAuroraPostgreSqlParametersArgs{...}
+//	DataSourceAuroraPostgreSqlParametersArgs{...}
 type DataSourceAuroraPostgreSqlParametersInput interface {
 	pulumi.Input
 
@@ -5450,11 +5476,11 @@ func (i DataSourceAuroraPostgreSqlParametersArgs) ToDataSourceAuroraPostgreSqlPa
 // DataSourceAuroraPostgreSqlParametersPtrInput is an input type that accepts DataSourceAuroraPostgreSqlParametersArgs, DataSourceAuroraPostgreSqlParametersPtr and DataSourceAuroraPostgreSqlParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceAuroraPostgreSqlParametersPtrInput` via:
 //
-//          DataSourceAuroraPostgreSqlParametersArgs{...}
+//	        DataSourceAuroraPostgreSqlParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceAuroraPostgreSqlParametersPtrInput interface {
 	pulumi.Input
 
@@ -5595,7 +5621,7 @@ type DataSourceCredentialPair struct {
 // DataSourceCredentialPairInput is an input type that accepts DataSourceCredentialPairArgs and DataSourceCredentialPairOutput values.
 // You can construct a concrete instance of `DataSourceCredentialPairInput` via:
 //
-//          DataSourceCredentialPairArgs{...}
+//	DataSourceCredentialPairArgs{...}
 type DataSourceCredentialPairInput interface {
 	pulumi.Input
 
@@ -5644,11 +5670,11 @@ func (i DataSourceCredentialPairArgs) ToDataSourceCredentialPairPtrOutputWithCon
 // DataSourceCredentialPairPtrInput is an input type that accepts DataSourceCredentialPairArgs, DataSourceCredentialPairPtr and DataSourceCredentialPairPtrOutput values.
 // You can construct a concrete instance of `DataSourceCredentialPairPtrInput` via:
 //
-//          DataSourceCredentialPairArgs{...}
+//	        DataSourceCredentialPairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceCredentialPairPtrInput interface {
 	pulumi.Input
 
@@ -5700,14 +5726,15 @@ func (o DataSourceCredentialPairOutput) ToDataSourceCredentialPairPtrOutputWithC
 }
 
 // <p>A set of alternate data source parameters that you want to share for these
-//             credentials. The credentials are applied in tandem with the data source parameters when
-//             you copy a data source by using a create or update request. The API operation compares
-//             the <code>DataSourceParameters</code> structure that's in the request with the
-//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-//             structures are an exact match, the request is allowed to use the new data source with
-//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
-//             null, the <code>DataSourceParameters</code> originally used with these
-//                 <code>Credentials</code> is automatically allowed.</p>
+//
+//	credentials. The credentials are applied in tandem with the data source parameters when
+//	you copy a data source by using a create or update request. The API operation compares
+//	the <code>DataSourceParameters</code> structure that's in the request with the
+//	structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//	structures are an exact match, the request is allowed to use the new data source with
+//	the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+//	null, the <code>DataSourceParameters</code> originally used with these
+//	    <code>Credentials</code> is automatically allowed.</p>
 func (o DataSourceCredentialPairOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
 	return o.ApplyT(func(v DataSourceCredentialPair) []DataSourceParameters { return v.AlternateDataSourceParameters }).(DataSourceParametersArrayOutput)
 }
@@ -5747,14 +5774,15 @@ func (o DataSourceCredentialPairPtrOutput) Elem() DataSourceCredentialPairOutput
 }
 
 // <p>A set of alternate data source parameters that you want to share for these
-//             credentials. The credentials are applied in tandem with the data source parameters when
-//             you copy a data source by using a create or update request. The API operation compares
-//             the <code>DataSourceParameters</code> structure that's in the request with the
-//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-//             structures are an exact match, the request is allowed to use the new data source with
-//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
-//             null, the <code>DataSourceParameters</code> originally used with these
-//                 <code>Credentials</code> is automatically allowed.</p>
+//
+//	credentials. The credentials are applied in tandem with the data source parameters when
+//	you copy a data source by using a create or update request. The API operation compares
+//	the <code>DataSourceParameters</code> structure that's in the request with the
+//	structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//	structures are an exact match, the request is allowed to use the new data source with
+//	the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+//	null, the <code>DataSourceParameters</code> originally used with these
+//	    <code>Credentials</code> is automatically allowed.</p>
 func (o DataSourceCredentialPairPtrOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
 	return o.ApplyT(func(v *DataSourceCredentialPair) []DataSourceParameters {
 		if v == nil {
@@ -5785,7 +5813,8 @@ func (o DataSourceCredentialPairPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
-//             valid, only one of the attributes can be non-null.</p>
+//
+//	valid, only one of the attributes can be non-null.</p>
 type DataSourceCredentials struct {
 	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
@@ -5798,7 +5827,7 @@ type DataSourceCredentials struct {
 // DataSourceCredentialsInput is an input type that accepts DataSourceCredentialsArgs and DataSourceCredentialsOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsInput` via:
 //
-//          DataSourceCredentialsArgs{...}
+//	DataSourceCredentialsArgs{...}
 type DataSourceCredentialsInput interface {
 	pulumi.Input
 
@@ -5807,7 +5836,8 @@ type DataSourceCredentialsInput interface {
 }
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
-//             valid, only one of the attributes can be non-null.</p>
+//
+//	valid, only one of the attributes can be non-null.</p>
 type DataSourceCredentialsArgs struct {
 	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
@@ -5840,11 +5870,11 @@ func (i DataSourceCredentialsArgs) ToDataSourceCredentialsPtrOutputWithContext(c
 // DataSourceCredentialsPtrInput is an input type that accepts DataSourceCredentialsArgs, DataSourceCredentialsPtr and DataSourceCredentialsPtrOutput values.
 // You can construct a concrete instance of `DataSourceCredentialsPtrInput` via:
 //
-//          DataSourceCredentialsArgs{...}
+//	        DataSourceCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -5871,7 +5901,8 @@ func (i *dataSourceCredentialsPtrType) ToDataSourceCredentialsPtrOutputWithConte
 }
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
-//             valid, only one of the attributes can be non-null.</p>
+//
+//	valid, only one of the attributes can be non-null.</p>
 type DataSourceCredentialsOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCredentialsOutput) ElementType() reflect.Type {
@@ -5897,9 +5928,10 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 }
 
 // <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
-//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
-//             data source in the ARN is used as the credentials for the
-//             <code>DataSourceCredentials</code> structure.</p>
+//
+//	want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+//	data source in the ARN is used as the credentials for the
+//	<code>DataSourceCredentials</code> structure.</p>
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
@@ -5933,9 +5965,10 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
-//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
-//             data source in the ARN is used as the credentials for the
-//             <code>DataSourceCredentials</code> structure.</p>
+//
+//	want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+//	data source in the ARN is used as the credentials for the
+//	<code>DataSourceCredentials</code> structure.</p>
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -5964,7 +5997,7 @@ type DataSourceErrorInfo struct {
 // DataSourceErrorInfoInput is an input type that accepts DataSourceErrorInfoArgs and DataSourceErrorInfoOutput values.
 // You can construct a concrete instance of `DataSourceErrorInfoInput` via:
 //
-//          DataSourceErrorInfoArgs{...}
+//	DataSourceErrorInfoArgs{...}
 type DataSourceErrorInfoInput interface {
 	pulumi.Input
 
@@ -6002,11 +6035,11 @@ func (i DataSourceErrorInfoArgs) ToDataSourceErrorInfoPtrOutputWithContext(ctx c
 // DataSourceErrorInfoPtrInput is an input type that accepts DataSourceErrorInfoArgs, DataSourceErrorInfoPtr and DataSourceErrorInfoPtrOutput values.
 // You can construct a concrete instance of `DataSourceErrorInfoPtrInput` via:
 //
-//          DataSourceErrorInfoArgs{...}
+//	        DataSourceErrorInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceErrorInfoPtrInput interface {
 	pulumi.Input
 
@@ -6120,7 +6153,7 @@ type DataSourceManifestFileLocation struct {
 // DataSourceManifestFileLocationInput is an input type that accepts DataSourceManifestFileLocationArgs and DataSourceManifestFileLocationOutput values.
 // You can construct a concrete instance of `DataSourceManifestFileLocationInput` via:
 //
-//          DataSourceManifestFileLocationArgs{...}
+//	DataSourceManifestFileLocationArgs{...}
 type DataSourceManifestFileLocationInput interface {
 	pulumi.Input
 
@@ -6159,11 +6192,11 @@ func (i DataSourceManifestFileLocationArgs) ToDataSourceManifestFileLocationPtrO
 // DataSourceManifestFileLocationPtrInput is an input type that accepts DataSourceManifestFileLocationArgs, DataSourceManifestFileLocationPtr and DataSourceManifestFileLocationPtrOutput values.
 // You can construct a concrete instance of `DataSourceManifestFileLocationPtrInput` via:
 //
-//          DataSourceManifestFileLocationArgs{...}
+//	        DataSourceManifestFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceManifestFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -6281,7 +6314,7 @@ type DataSourceMariaDbParameters struct {
 // DataSourceMariaDbParametersInput is an input type that accepts DataSourceMariaDbParametersArgs and DataSourceMariaDbParametersOutput values.
 // You can construct a concrete instance of `DataSourceMariaDbParametersInput` via:
 //
-//          DataSourceMariaDbParametersArgs{...}
+//	DataSourceMariaDbParametersArgs{...}
 type DataSourceMariaDbParametersInput interface {
 	pulumi.Input
 
@@ -6322,11 +6355,11 @@ func (i DataSourceMariaDbParametersArgs) ToDataSourceMariaDbParametersPtrOutputW
 // DataSourceMariaDbParametersPtrInput is an input type that accepts DataSourceMariaDbParametersArgs, DataSourceMariaDbParametersPtr and DataSourceMariaDbParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceMariaDbParametersPtrInput` via:
 //
-//          DataSourceMariaDbParametersArgs{...}
+//	        DataSourceMariaDbParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceMariaDbParametersPtrInput interface {
 	pulumi.Input
 
@@ -6459,7 +6492,7 @@ type DataSourceMySqlParameters struct {
 // DataSourceMySqlParametersInput is an input type that accepts DataSourceMySqlParametersArgs and DataSourceMySqlParametersOutput values.
 // You can construct a concrete instance of `DataSourceMySqlParametersInput` via:
 //
-//          DataSourceMySqlParametersArgs{...}
+//	DataSourceMySqlParametersArgs{...}
 type DataSourceMySqlParametersInput interface {
 	pulumi.Input
 
@@ -6500,11 +6533,11 @@ func (i DataSourceMySqlParametersArgs) ToDataSourceMySqlParametersPtrOutputWithC
 // DataSourceMySqlParametersPtrInput is an input type that accepts DataSourceMySqlParametersArgs, DataSourceMySqlParametersPtr and DataSourceMySqlParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceMySqlParametersPtrInput` via:
 //
-//          DataSourceMySqlParametersArgs{...}
+//	        DataSourceMySqlParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceMySqlParametersPtrInput interface {
 	pulumi.Input
 
@@ -6633,7 +6666,7 @@ type DataSourceOracleParameters struct {
 // DataSourceOracleParametersInput is an input type that accepts DataSourceOracleParametersArgs and DataSourceOracleParametersOutput values.
 // You can construct a concrete instance of `DataSourceOracleParametersInput` via:
 //
-//          DataSourceOracleParametersArgs{...}
+//	DataSourceOracleParametersArgs{...}
 type DataSourceOracleParametersInput interface {
 	pulumi.Input
 
@@ -6670,11 +6703,11 @@ func (i DataSourceOracleParametersArgs) ToDataSourceOracleParametersPtrOutputWit
 // DataSourceOracleParametersPtrInput is an input type that accepts DataSourceOracleParametersArgs, DataSourceOracleParametersPtr and DataSourceOracleParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceOracleParametersPtrInput` via:
 //
-//          DataSourceOracleParametersArgs{...}
+//	        DataSourceOracleParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceOracleParametersPtrInput interface {
 	pulumi.Input
 
@@ -6788,8 +6821,9 @@ func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 }
 
 // <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
+//
+//	This is a variant type structure. For this structure to be valid, only one of the
+//	attributes can be non-null.</p>
 type DataSourceParameters struct {
 	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
 	AmazonOpenSearchParameters    *DataSourceAmazonOpenSearchParameters    `pulumi:"amazonOpenSearchParameters"`
@@ -6813,7 +6847,7 @@ type DataSourceParameters struct {
 // DataSourceParametersInput is an input type that accepts DataSourceParametersArgs and DataSourceParametersOutput values.
 // You can construct a concrete instance of `DataSourceParametersInput` via:
 //
-//          DataSourceParametersArgs{...}
+//	DataSourceParametersArgs{...}
 type DataSourceParametersInput interface {
 	pulumi.Input
 
@@ -6822,8 +6856,9 @@ type DataSourceParametersInput interface {
 }
 
 // <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
+//
+//	This is a variant type structure. For this structure to be valid, only one of the
+//	attributes can be non-null.</p>
 type DataSourceParametersArgs struct {
 	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
 	AmazonOpenSearchParameters    DataSourceAmazonOpenSearchParametersPtrInput    `pulumi:"amazonOpenSearchParameters"`
@@ -6867,11 +6902,11 @@ func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutputWithContext(ctx
 // DataSourceParametersPtrInput is an input type that accepts DataSourceParametersArgs, DataSourceParametersPtr and DataSourceParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceParametersPtrInput` via:
 //
-//          DataSourceParametersArgs{...}
+//	        DataSourceParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceParametersPtrInput interface {
 	pulumi.Input
 
@@ -6900,7 +6935,7 @@ func (i *dataSourceParametersPtrType) ToDataSourceParametersPtrOutputWithContext
 // DataSourceParametersArrayInput is an input type that accepts DataSourceParametersArray and DataSourceParametersArrayOutput values.
 // You can construct a concrete instance of `DataSourceParametersArrayInput` via:
 //
-//          DataSourceParametersArray{ DataSourceParametersArgs{...} }
+//	DataSourceParametersArray{ DataSourceParametersArgs{...} }
 type DataSourceParametersArrayInput interface {
 	pulumi.Input
 
@@ -6923,8 +6958,9 @@ func (i DataSourceParametersArray) ToDataSourceParametersArrayOutputWithContext(
 }
 
 // <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
+//
+//	This is a variant type structure. For this structure to be valid, only one of the
+//	attributes can be non-null.</p>
 type DataSourceParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceParametersOutput) ElementType() reflect.Type {
@@ -7233,7 +7269,7 @@ type DataSourcePostgreSqlParameters struct {
 // DataSourcePostgreSqlParametersInput is an input type that accepts DataSourcePostgreSqlParametersArgs and DataSourcePostgreSqlParametersOutput values.
 // You can construct a concrete instance of `DataSourcePostgreSqlParametersInput` via:
 //
-//          DataSourcePostgreSqlParametersArgs{...}
+//	DataSourcePostgreSqlParametersArgs{...}
 type DataSourcePostgreSqlParametersInput interface {
 	pulumi.Input
 
@@ -7274,11 +7310,11 @@ func (i DataSourcePostgreSqlParametersArgs) ToDataSourcePostgreSqlParametersPtrO
 // DataSourcePostgreSqlParametersPtrInput is an input type that accepts DataSourcePostgreSqlParametersArgs, DataSourcePostgreSqlParametersPtr and DataSourcePostgreSqlParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourcePostgreSqlParametersPtrInput` via:
 //
-//          DataSourcePostgreSqlParametersArgs{...}
+//	        DataSourcePostgreSqlParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourcePostgreSqlParametersPtrInput interface {
 	pulumi.Input
 
@@ -7411,7 +7447,7 @@ type DataSourcePrestoParameters struct {
 // DataSourcePrestoParametersInput is an input type that accepts DataSourcePrestoParametersArgs and DataSourcePrestoParametersOutput values.
 // You can construct a concrete instance of `DataSourcePrestoParametersInput` via:
 //
-//          DataSourcePrestoParametersArgs{...}
+//	DataSourcePrestoParametersArgs{...}
 type DataSourcePrestoParametersInput interface {
 	pulumi.Input
 
@@ -7452,11 +7488,11 @@ func (i DataSourcePrestoParametersArgs) ToDataSourcePrestoParametersPtrOutputWit
 // DataSourcePrestoParametersPtrInput is an input type that accepts DataSourcePrestoParametersArgs, DataSourcePrestoParametersPtr and DataSourcePrestoParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourcePrestoParametersPtrInput` via:
 //
-//          DataSourcePrestoParametersArgs{...}
+//	        DataSourcePrestoParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourcePrestoParametersPtrInput interface {
 	pulumi.Input
 
@@ -7587,7 +7623,7 @@ type DataSourceRdsParameters struct {
 // DataSourceRdsParametersInput is an input type that accepts DataSourceRdsParametersArgs and DataSourceRdsParametersOutput values.
 // You can construct a concrete instance of `DataSourceRdsParametersInput` via:
 //
-//          DataSourceRdsParametersArgs{...}
+//	DataSourceRdsParametersArgs{...}
 type DataSourceRdsParametersInput interface {
 	pulumi.Input
 
@@ -7626,11 +7662,11 @@ func (i DataSourceRdsParametersArgs) ToDataSourceRdsParametersPtrOutputWithConte
 // DataSourceRdsParametersPtrInput is an input type that accepts DataSourceRdsParametersArgs, DataSourceRdsParametersPtr and DataSourceRdsParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceRdsParametersPtrInput` via:
 //
-//          DataSourceRdsParametersArgs{...}
+//	        DataSourceRdsParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceRdsParametersPtrInput interface {
 	pulumi.Input
 
@@ -7736,8 +7772,9 @@ func (o DataSourceRdsParametersPtrOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 // <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+//
+//	<code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//	<code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParameters struct {
 	// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
 	//             provided.</p>
@@ -7753,7 +7790,7 @@ type DataSourceRedshiftParameters struct {
 // DataSourceRedshiftParametersInput is an input type that accepts DataSourceRedshiftParametersArgs and DataSourceRedshiftParametersOutput values.
 // You can construct a concrete instance of `DataSourceRedshiftParametersInput` via:
 //
-//          DataSourceRedshiftParametersArgs{...}
+//	DataSourceRedshiftParametersArgs{...}
 type DataSourceRedshiftParametersInput interface {
 	pulumi.Input
 
@@ -7762,8 +7799,9 @@ type DataSourceRedshiftParametersInput interface {
 }
 
 // <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+//
+//	<code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//	<code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParametersArgs struct {
 	// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
 	//             provided.</p>
@@ -7799,11 +7837,11 @@ func (i DataSourceRedshiftParametersArgs) ToDataSourceRedshiftParametersPtrOutpu
 // DataSourceRedshiftParametersPtrInput is an input type that accepts DataSourceRedshiftParametersArgs, DataSourceRedshiftParametersPtr and DataSourceRedshiftParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceRedshiftParametersPtrInput` via:
 //
-//          DataSourceRedshiftParametersArgs{...}
+//	        DataSourceRedshiftParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceRedshiftParametersPtrInput interface {
 	pulumi.Input
 
@@ -7830,8 +7868,9 @@ func (i *dataSourceRedshiftParametersPtrType) ToDataSourceRedshiftParametersPtrO
 }
 
 // <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+//
+//	<code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//	<code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceRedshiftParametersOutput) ElementType() reflect.Type {
@@ -7857,7 +7896,8 @@ func (o DataSourceRedshiftParametersOutput) ToDataSourceRedshiftParametersPtrOut
 }
 
 // <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
-//             provided.</p>
+//
+//	provided.</p>
 func (o DataSourceRedshiftParametersOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
@@ -7902,7 +7942,8 @@ func (o DataSourceRedshiftParametersPtrOutput) Elem() DataSourceRedshiftParamete
 }
 
 // <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
-//             provided.</p>
+//
+//	provided.</p>
 func (o DataSourceRedshiftParametersPtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *string {
 		if v == nil {
@@ -7967,7 +8008,7 @@ type DataSourceResourcePermission struct {
 // DataSourceResourcePermissionInput is an input type that accepts DataSourceResourcePermissionArgs and DataSourceResourcePermissionOutput values.
 // You can construct a concrete instance of `DataSourceResourcePermissionInput` via:
 //
-//          DataSourceResourcePermissionArgs{...}
+//	DataSourceResourcePermissionArgs{...}
 type DataSourceResourcePermissionInput interface {
 	pulumi.Input
 
@@ -8012,7 +8053,7 @@ func (i DataSourceResourcePermissionArgs) ToDataSourceResourcePermissionOutputWi
 // DataSourceResourcePermissionArrayInput is an input type that accepts DataSourceResourcePermissionArray and DataSourceResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `DataSourceResourcePermissionArrayInput` via:
 //
-//          DataSourceResourcePermissionArray{ DataSourceResourcePermissionArgs{...} }
+//	DataSourceResourcePermissionArray{ DataSourceResourcePermissionArgs{...} }
 type DataSourceResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -8055,20 +8096,21 @@ func (o DataSourceResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o DataSourceResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -8101,7 +8143,7 @@ type DataSourceS3Parameters struct {
 // DataSourceS3ParametersInput is an input type that accepts DataSourceS3ParametersArgs and DataSourceS3ParametersOutput values.
 // You can construct a concrete instance of `DataSourceS3ParametersInput` via:
 //
-//          DataSourceS3ParametersArgs{...}
+//	DataSourceS3ParametersArgs{...}
 type DataSourceS3ParametersInput interface {
 	pulumi.Input
 
@@ -8137,11 +8179,11 @@ func (i DataSourceS3ParametersArgs) ToDataSourceS3ParametersPtrOutputWithContext
 // DataSourceS3ParametersPtrInput is an input type that accepts DataSourceS3ParametersArgs, DataSourceS3ParametersPtr and DataSourceS3ParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceS3ParametersPtrInput` via:
 //
-//          DataSourceS3ParametersArgs{...}
+//	        DataSourceS3ParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceS3ParametersPtrInput interface {
 	pulumi.Input
 
@@ -8242,7 +8284,7 @@ type DataSourceSnowflakeParameters struct {
 // DataSourceSnowflakeParametersInput is an input type that accepts DataSourceSnowflakeParametersArgs and DataSourceSnowflakeParametersOutput values.
 // You can construct a concrete instance of `DataSourceSnowflakeParametersInput` via:
 //
-//          DataSourceSnowflakeParametersArgs{...}
+//	DataSourceSnowflakeParametersArgs{...}
 type DataSourceSnowflakeParametersInput interface {
 	pulumi.Input
 
@@ -8283,11 +8325,11 @@ func (i DataSourceSnowflakeParametersArgs) ToDataSourceSnowflakeParametersPtrOut
 // DataSourceSnowflakeParametersPtrInput is an input type that accepts DataSourceSnowflakeParametersArgs, DataSourceSnowflakeParametersPtr and DataSourceSnowflakeParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceSnowflakeParametersPtrInput` via:
 //
-//          DataSourceSnowflakeParametersArgs{...}
+//	        DataSourceSnowflakeParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceSnowflakeParametersPtrInput interface {
 	pulumi.Input
 
@@ -8418,7 +8460,7 @@ type DataSourceSparkParameters struct {
 // DataSourceSparkParametersInput is an input type that accepts DataSourceSparkParametersArgs and DataSourceSparkParametersOutput values.
 // You can construct a concrete instance of `DataSourceSparkParametersInput` via:
 //
-//          DataSourceSparkParametersArgs{...}
+//	DataSourceSparkParametersArgs{...}
 type DataSourceSparkParametersInput interface {
 	pulumi.Input
 
@@ -8457,11 +8499,11 @@ func (i DataSourceSparkParametersArgs) ToDataSourceSparkParametersPtrOutputWithC
 // DataSourceSparkParametersPtrInput is an input type that accepts DataSourceSparkParametersArgs, DataSourceSparkParametersPtr and DataSourceSparkParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceSparkParametersPtrInput` via:
 //
-//          DataSourceSparkParametersArgs{...}
+//	        DataSourceSparkParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceSparkParametersPtrInput interface {
 	pulumi.Input
 
@@ -8579,7 +8621,7 @@ type DataSourceSqlServerParameters struct {
 // DataSourceSqlServerParametersInput is an input type that accepts DataSourceSqlServerParametersArgs and DataSourceSqlServerParametersOutput values.
 // You can construct a concrete instance of `DataSourceSqlServerParametersInput` via:
 //
-//          DataSourceSqlServerParametersArgs{...}
+//	DataSourceSqlServerParametersArgs{...}
 type DataSourceSqlServerParametersInput interface {
 	pulumi.Input
 
@@ -8620,11 +8662,11 @@ func (i DataSourceSqlServerParametersArgs) ToDataSourceSqlServerParametersPtrOut
 // DataSourceSqlServerParametersPtrInput is an input type that accepts DataSourceSqlServerParametersArgs, DataSourceSqlServerParametersPtr and DataSourceSqlServerParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceSqlServerParametersPtrInput` via:
 //
-//          DataSourceSqlServerParametersArgs{...}
+//	        DataSourceSqlServerParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceSqlServerParametersPtrInput interface {
 	pulumi.Input
 
@@ -8745,7 +8787,8 @@ func (o DataSourceSqlServerParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 }
 
 // <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
-//             underlying data source.</p>
+//
+//	underlying data source.</p>
 type DataSourceSslProperties struct {
 	// <p>A Boolean option to control whether SSL should be disabled.</p>
 	DisableSsl *bool `pulumi:"disableSsl"`
@@ -8754,7 +8797,7 @@ type DataSourceSslProperties struct {
 // DataSourceSslPropertiesInput is an input type that accepts DataSourceSslPropertiesArgs and DataSourceSslPropertiesOutput values.
 // You can construct a concrete instance of `DataSourceSslPropertiesInput` via:
 //
-//          DataSourceSslPropertiesArgs{...}
+//	DataSourceSslPropertiesArgs{...}
 type DataSourceSslPropertiesInput interface {
 	pulumi.Input
 
@@ -8763,7 +8806,8 @@ type DataSourceSslPropertiesInput interface {
 }
 
 // <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
-//             underlying data source.</p>
+//
+//	underlying data source.</p>
 type DataSourceSslPropertiesArgs struct {
 	// <p>A Boolean option to control whether SSL should be disabled.</p>
 	DisableSsl pulumi.BoolPtrInput `pulumi:"disableSsl"`
@@ -8792,11 +8836,11 @@ func (i DataSourceSslPropertiesArgs) ToDataSourceSslPropertiesPtrOutputWithConte
 // DataSourceSslPropertiesPtrInput is an input type that accepts DataSourceSslPropertiesArgs, DataSourceSslPropertiesPtr and DataSourceSslPropertiesPtrOutput values.
 // You can construct a concrete instance of `DataSourceSslPropertiesPtrInput` via:
 //
-//          DataSourceSslPropertiesArgs{...}
+//	        DataSourceSslPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceSslPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -8823,7 +8867,8 @@ func (i *dataSourceSslPropertiesPtrType) ToDataSourceSslPropertiesPtrOutputWithC
 }
 
 // <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
-//             underlying data source.</p>
+//
+//	underlying data source.</p>
 type DataSourceSslPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSslPropertiesOutput) ElementType() reflect.Type {
@@ -8888,7 +8933,8 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSourceTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -8899,7 +8945,7 @@ type DataSourceTag struct {
 // DataSourceTagInput is an input type that accepts DataSourceTagArgs and DataSourceTagOutput values.
 // You can construct a concrete instance of `DataSourceTagInput` via:
 //
-//          DataSourceTagArgs{...}
+//	DataSourceTagArgs{...}
 type DataSourceTagInput interface {
 	pulumi.Input
 
@@ -8908,7 +8954,8 @@ type DataSourceTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSourceTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -8931,7 +8978,7 @@ func (i DataSourceTagArgs) ToDataSourceTagOutputWithContext(ctx context.Context)
 // DataSourceTagArrayInput is an input type that accepts DataSourceTagArray and DataSourceTagArrayOutput values.
 // You can construct a concrete instance of `DataSourceTagArrayInput` via:
 //
-//          DataSourceTagArray{ DataSourceTagArgs{...} }
+//	DataSourceTagArray{ DataSourceTagArgs{...} }
 type DataSourceTagArrayInput interface {
 	pulumi.Input
 
@@ -8954,7 +9001,8 @@ func (i DataSourceTagArray) ToDataSourceTagArrayOutputWithContext(ctx context.Co
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type DataSourceTagOutput struct{ *pulumi.OutputState }
 
 func (DataSourceTagOutput) ElementType() reflect.Type {
@@ -9012,7 +9060,7 @@ type DataSourceTeradataParameters struct {
 // DataSourceTeradataParametersInput is an input type that accepts DataSourceTeradataParametersArgs and DataSourceTeradataParametersOutput values.
 // You can construct a concrete instance of `DataSourceTeradataParametersInput` via:
 //
-//          DataSourceTeradataParametersArgs{...}
+//	DataSourceTeradataParametersArgs{...}
 type DataSourceTeradataParametersInput interface {
 	pulumi.Input
 
@@ -9053,11 +9101,11 @@ func (i DataSourceTeradataParametersArgs) ToDataSourceTeradataParametersPtrOutpu
 // DataSourceTeradataParametersPtrInput is an input type that accepts DataSourceTeradataParametersArgs, DataSourceTeradataParametersPtr and DataSourceTeradataParametersPtrOutput values.
 // You can construct a concrete instance of `DataSourceTeradataParametersPtrInput` via:
 //
-//          DataSourceTeradataParametersArgs{...}
+//	        DataSourceTeradataParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceTeradataParametersPtrInput interface {
 	pulumi.Input
 
@@ -9186,7 +9234,7 @@ type DataSourceVpcConnectionProperties struct {
 // DataSourceVpcConnectionPropertiesInput is an input type that accepts DataSourceVpcConnectionPropertiesArgs and DataSourceVpcConnectionPropertiesOutput values.
 // You can construct a concrete instance of `DataSourceVpcConnectionPropertiesInput` via:
 //
-//          DataSourceVpcConnectionPropertiesArgs{...}
+//	DataSourceVpcConnectionPropertiesArgs{...}
 type DataSourceVpcConnectionPropertiesInput interface {
 	pulumi.Input
 
@@ -9223,11 +9271,11 @@ func (i DataSourceVpcConnectionPropertiesArgs) ToDataSourceVpcConnectionProperti
 // DataSourceVpcConnectionPropertiesPtrInput is an input type that accepts DataSourceVpcConnectionPropertiesArgs, DataSourceVpcConnectionPropertiesPtr and DataSourceVpcConnectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `DataSourceVpcConnectionPropertiesPtrInput` via:
 //
-//          DataSourceVpcConnectionPropertiesArgs{...}
+//	        DataSourceVpcConnectionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceVpcConnectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -9547,7 +9595,7 @@ type TemplateDataSetReference struct {
 // TemplateDataSetReferenceInput is an input type that accepts TemplateDataSetReferenceArgs and TemplateDataSetReferenceOutput values.
 // You can construct a concrete instance of `TemplateDataSetReferenceInput` via:
 //
-//          TemplateDataSetReferenceArgs{...}
+//	TemplateDataSetReferenceArgs{...}
 type TemplateDataSetReferenceInput interface {
 	pulumi.Input
 
@@ -9578,7 +9626,7 @@ func (i TemplateDataSetReferenceArgs) ToTemplateDataSetReferenceOutputWithContex
 // TemplateDataSetReferenceArrayInput is an input type that accepts TemplateDataSetReferenceArray and TemplateDataSetReferenceArrayOutput values.
 // You can construct a concrete instance of `TemplateDataSetReferenceArrayInput` via:
 //
-//          TemplateDataSetReferenceArray{ TemplateDataSetReferenceArgs{...} }
+//	TemplateDataSetReferenceArray{ TemplateDataSetReferenceArgs{...} }
 type TemplateDataSetReferenceArrayInput interface {
 	pulumi.Input
 
@@ -9781,7 +9829,7 @@ type TemplateResourcePermission struct {
 // TemplateResourcePermissionInput is an input type that accepts TemplateResourcePermissionArgs and TemplateResourcePermissionOutput values.
 // You can construct a concrete instance of `TemplateResourcePermissionInput` via:
 //
-//          TemplateResourcePermissionArgs{...}
+//	TemplateResourcePermissionArgs{...}
 type TemplateResourcePermissionInput interface {
 	pulumi.Input
 
@@ -9826,7 +9874,7 @@ func (i TemplateResourcePermissionArgs) ToTemplateResourcePermissionOutputWithCo
 // TemplateResourcePermissionArrayInput is an input type that accepts TemplateResourcePermissionArray and TemplateResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `TemplateResourcePermissionArrayInput` via:
 //
-//          TemplateResourcePermissionArray{ TemplateResourcePermissionArgs{...} }
+//	TemplateResourcePermissionArray{ TemplateResourcePermissionArgs{...} }
 type TemplateResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -9869,20 +9917,21 @@ func (o TemplateResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o TemplateResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -9908,10 +9957,11 @@ func (o TemplateResourcePermissionArrayOutput) Index(i pulumi.IntInput) Template
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type TemplateSheet struct {
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
 	//             console.</p>
@@ -9921,10 +9971,11 @@ type TemplateSheet struct {
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
+//
+//	are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type TemplateSheetOutput struct{ *pulumi.OutputState }
 
 func (TemplateSheetOutput) ElementType() reflect.Type {
@@ -9940,7 +9991,8 @@ func (o TemplateSheetOutput) ToTemplateSheetOutputWithContext(ctx context.Contex
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-//             console.</p>
+//
+//	console.</p>
 func (o TemplateSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -9982,7 +10034,7 @@ type TemplateSourceAnalysis struct {
 // TemplateSourceAnalysisInput is an input type that accepts TemplateSourceAnalysisArgs and TemplateSourceAnalysisOutput values.
 // You can construct a concrete instance of `TemplateSourceAnalysisInput` via:
 //
-//          TemplateSourceAnalysisArgs{...}
+//	TemplateSourceAnalysisArgs{...}
 type TemplateSourceAnalysisInput interface {
 	pulumi.Input
 
@@ -10022,11 +10074,11 @@ func (i TemplateSourceAnalysisArgs) ToTemplateSourceAnalysisPtrOutputWithContext
 // TemplateSourceAnalysisPtrInput is an input type that accepts TemplateSourceAnalysisArgs, TemplateSourceAnalysisPtr and TemplateSourceAnalysisPtrOutput values.
 // You can construct a concrete instance of `TemplateSourceAnalysisPtrInput` via:
 //
-//          TemplateSourceAnalysisArgs{...}
+//	        TemplateSourceAnalysisArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TemplateSourceAnalysisPtrInput interface {
 	pulumi.Input
 
@@ -10083,7 +10135,8 @@ func (o TemplateSourceAnalysisOutput) Arn() pulumi.StringOutput {
 }
 
 // <p>A structure containing information about the dataset references used as placeholders
-//             in the template.</p>
+//
+//	in the template.</p>
 func (o TemplateSourceAnalysisOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v TemplateSourceAnalysis) []TemplateDataSetReference { return v.DataSetReferences }).(TemplateDataSetReferenceArrayOutput)
 }
@@ -10123,7 +10176,8 @@ func (o TemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // <p>A structure containing information about the dataset references used as placeholders
-//             in the template.</p>
+//
+//	in the template.</p>
 func (o TemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *TemplateSourceAnalysis) []TemplateDataSetReference {
 		if v == nil {
@@ -10142,7 +10196,7 @@ type TemplateSourceEntity struct {
 // TemplateSourceEntityInput is an input type that accepts TemplateSourceEntityArgs and TemplateSourceEntityOutput values.
 // You can construct a concrete instance of `TemplateSourceEntityInput` via:
 //
-//          TemplateSourceEntityArgs{...}
+//	TemplateSourceEntityArgs{...}
 type TemplateSourceEntityInput interface {
 	pulumi.Input
 
@@ -10200,7 +10254,7 @@ type TemplateSourceTemplate struct {
 // TemplateSourceTemplateInput is an input type that accepts TemplateSourceTemplateArgs and TemplateSourceTemplateOutput values.
 // You can construct a concrete instance of `TemplateSourceTemplateInput` via:
 //
-//          TemplateSourceTemplateArgs{...}
+//	TemplateSourceTemplateArgs{...}
 type TemplateSourceTemplateInput interface {
 	pulumi.Input
 
@@ -10237,11 +10291,11 @@ func (i TemplateSourceTemplateArgs) ToTemplateSourceTemplatePtrOutputWithContext
 // TemplateSourceTemplatePtrInput is an input type that accepts TemplateSourceTemplateArgs, TemplateSourceTemplatePtr and TemplateSourceTemplatePtrOutput values.
 // You can construct a concrete instance of `TemplateSourceTemplatePtrInput` via:
 //
-//          TemplateSourceTemplateArgs{...}
+//	        TemplateSourceTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TemplateSourceTemplatePtrInput interface {
 	pulumi.Input
 
@@ -10332,7 +10386,8 @@ func (o TemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type TemplateTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -10343,7 +10398,7 @@ type TemplateTag struct {
 // TemplateTagInput is an input type that accepts TemplateTagArgs and TemplateTagOutput values.
 // You can construct a concrete instance of `TemplateTagInput` via:
 //
-//          TemplateTagArgs{...}
+//	TemplateTagArgs{...}
 type TemplateTagInput interface {
 	pulumi.Input
 
@@ -10352,7 +10407,8 @@ type TemplateTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type TemplateTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -10375,7 +10431,7 @@ func (i TemplateTagArgs) ToTemplateTagOutputWithContext(ctx context.Context) Tem
 // TemplateTagArrayInput is an input type that accepts TemplateTagArray and TemplateTagArrayOutput values.
 // You can construct a concrete instance of `TemplateTagArrayInput` via:
 //
-//          TemplateTagArray{ TemplateTagArgs{...} }
+//	TemplateTagArray{ TemplateTagArgs{...} }
 type TemplateTagArrayInput interface {
 	pulumi.Input
 
@@ -10398,7 +10454,8 @@ func (i TemplateTagArray) ToTemplateTagArrayOutputWithContext(ctx context.Contex
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type TemplateTagOutput struct{ *pulumi.OutputState }
 
 func (TemplateTagOutput) ElementType() reflect.Type {
@@ -10488,8 +10545,9 @@ func (o TemplateVersionOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-//             template should be bound to new datasets matching the same schema described through this
-//             API operation.</p>
+//
+//	template should be bound to new datasets matching the same schema described through this
+//	API operation.</p>
 func (o TemplateVersionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateVersion) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
 }
@@ -10510,7 +10568,8 @@ func (o TemplateVersionOutput) Sheets() TemplateSheetArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-//             template.</p>
+//
+//	template.</p>
 func (o TemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
@@ -10538,7 +10597,7 @@ type ThemeBorderStyle struct {
 // ThemeBorderStyleInput is an input type that accepts ThemeBorderStyleArgs and ThemeBorderStyleOutput values.
 // You can construct a concrete instance of `ThemeBorderStyleInput` via:
 //
-//          ThemeBorderStyleArgs{...}
+//	ThemeBorderStyleArgs{...}
 type ThemeBorderStyleInput interface {
 	pulumi.Input
 
@@ -10575,11 +10634,11 @@ func (i ThemeBorderStyleArgs) ToThemeBorderStylePtrOutputWithContext(ctx context
 // ThemeBorderStylePtrInput is an input type that accepts ThemeBorderStyleArgs, ThemeBorderStylePtr and ThemeBorderStylePtrOutput values.
 // You can construct a concrete instance of `ThemeBorderStylePtrInput` via:
 //
-//          ThemeBorderStyleArgs{...}
+//	        ThemeBorderStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeBorderStylePtrInput interface {
 	pulumi.Input
 
@@ -10670,7 +10729,8 @@ func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
 }
 
 // <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
+//
+//	a theme.</p>
 type ThemeConfiguration struct {
 	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
 	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
@@ -10681,7 +10741,7 @@ type ThemeConfiguration struct {
 // ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
 // You can construct a concrete instance of `ThemeConfigurationInput` via:
 //
-//          ThemeConfigurationArgs{...}
+//	ThemeConfigurationArgs{...}
 type ThemeConfigurationInput interface {
 	pulumi.Input
 
@@ -10690,7 +10750,8 @@ type ThemeConfigurationInput interface {
 }
 
 // <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
+//
+//	a theme.</p>
 type ThemeConfigurationArgs struct {
 	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
 	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
@@ -10721,11 +10782,11 @@ func (i ThemeConfigurationArgs) ToThemeConfigurationPtrOutputWithContext(ctx con
 // ThemeConfigurationPtrInput is an input type that accepts ThemeConfigurationArgs, ThemeConfigurationPtr and ThemeConfigurationPtrOutput values.
 // You can construct a concrete instance of `ThemeConfigurationPtrInput` via:
 //
-//          ThemeConfigurationArgs{...}
+//	        ThemeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -10752,7 +10813,8 @@ func (i *themeConfigurationPtrType) ToThemeConfigurationPtrOutputWithContext(ctx
 }
 
 // <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
+//
+//	a theme.</p>
 type ThemeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ThemeConfigurationOutput) ElementType() reflect.Type {
@@ -10854,8 +10916,9 @@ func (o ThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePtrOutp
 }
 
 // <p>The theme colors that are used for data colors in charts. The colors description is a
-//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
-//                 <code>#</code>, for example #37BFF5. </p>
+//
+//	hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//	    <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPalette struct {
 	// <p>The hexadecimal codes for the colors.</p>
 	Colors []string `pulumi:"colors"`
@@ -10869,7 +10932,7 @@ type ThemeDataColorPalette struct {
 // ThemeDataColorPaletteInput is an input type that accepts ThemeDataColorPaletteArgs and ThemeDataColorPaletteOutput values.
 // You can construct a concrete instance of `ThemeDataColorPaletteInput` via:
 //
-//          ThemeDataColorPaletteArgs{...}
+//	ThemeDataColorPaletteArgs{...}
 type ThemeDataColorPaletteInput interface {
 	pulumi.Input
 
@@ -10878,8 +10941,9 @@ type ThemeDataColorPaletteInput interface {
 }
 
 // <p>The theme colors that are used for data colors in charts. The colors description is a
-//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
-//                 <code>#</code>, for example #37BFF5. </p>
+//
+//	hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//	    <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPaletteArgs struct {
 	// <p>The hexadecimal codes for the colors.</p>
 	Colors pulumi.StringArrayInput `pulumi:"colors"`
@@ -10913,11 +10977,11 @@ func (i ThemeDataColorPaletteArgs) ToThemeDataColorPalettePtrOutputWithContext(c
 // ThemeDataColorPalettePtrInput is an input type that accepts ThemeDataColorPaletteArgs, ThemeDataColorPalettePtr and ThemeDataColorPalettePtrOutput values.
 // You can construct a concrete instance of `ThemeDataColorPalettePtrInput` via:
 //
-//          ThemeDataColorPaletteArgs{...}
+//	        ThemeDataColorPaletteArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeDataColorPalettePtrInput interface {
 	pulumi.Input
 
@@ -10944,8 +11008,9 @@ func (i *themeDataColorPalettePtrType) ToThemeDataColorPalettePtrOutputWithConte
 }
 
 // <p>The theme colors that are used for data colors in charts. The colors description is a
-//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
-//                 <code>#</code>, for example #37BFF5. </p>
+//
+//	hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//	    <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPaletteOutput struct{ *pulumi.OutputState }
 
 func (ThemeDataColorPaletteOutput) ElementType() reflect.Type {
@@ -10976,7 +11041,8 @@ func (o ThemeDataColorPaletteOutput) Colors() pulumi.StringArrayOutput {
 }
 
 // <p>The hexadecimal code of a color that applies to charts where a lack of data is
-//             highlighted.</p>
+//
+//	highlighted.</p>
 func (o ThemeDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
 }
@@ -11021,7 +11087,8 @@ func (o ThemeDataColorPalettePtrOutput) Colors() pulumi.StringArrayOutput {
 }
 
 // <p>The hexadecimal code of a color that applies to charts where a lack of data is
-//             highlighted.</p>
+//
+//	highlighted.</p>
 func (o ThemeDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeDataColorPalette) *string {
 		if v == nil {
@@ -11099,7 +11166,7 @@ type ThemeFont struct {
 // ThemeFontInput is an input type that accepts ThemeFontArgs and ThemeFontOutput values.
 // You can construct a concrete instance of `ThemeFontInput` via:
 //
-//          ThemeFontArgs{...}
+//	ThemeFontArgs{...}
 type ThemeFontInput interface {
 	pulumi.Input
 
@@ -11126,7 +11193,7 @@ func (i ThemeFontArgs) ToThemeFontOutputWithContext(ctx context.Context) ThemeFo
 // ThemeFontArrayInput is an input type that accepts ThemeFontArray and ThemeFontArrayOutput values.
 // You can construct a concrete instance of `ThemeFontArrayInput` via:
 //
-//          ThemeFontArray{ ThemeFontArgs{...} }
+//	ThemeFontArray{ ThemeFontArgs{...} }
 type ThemeFontArrayInput interface {
 	pulumi.Input
 
@@ -11196,7 +11263,7 @@ type ThemeGutterStyle struct {
 // ThemeGutterStyleInput is an input type that accepts ThemeGutterStyleArgs and ThemeGutterStyleOutput values.
 // You can construct a concrete instance of `ThemeGutterStyleInput` via:
 //
-//          ThemeGutterStyleArgs{...}
+//	ThemeGutterStyleArgs{...}
 type ThemeGutterStyleInput interface {
 	pulumi.Input
 
@@ -11234,11 +11301,11 @@ func (i ThemeGutterStyleArgs) ToThemeGutterStylePtrOutputWithContext(ctx context
 // ThemeGutterStylePtrInput is an input type that accepts ThemeGutterStyleArgs, ThemeGutterStylePtr and ThemeGutterStylePtrOutput values.
 // You can construct a concrete instance of `ThemeGutterStylePtrInput` via:
 //
-//          ThemeGutterStyleArgs{...}
+//	        ThemeGutterStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeGutterStylePtrInput interface {
 	pulumi.Input
 
@@ -11290,7 +11357,8 @@ func (o ThemeGutterStyleOutput) ToThemeGutterStylePtrOutputWithContext(ctx conte
 }
 
 // <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-//         </p>
+//
+//	</p>
 func (o ThemeGutterStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeGutterStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -11320,7 +11388,8 @@ func (o ThemeGutterStylePtrOutput) Elem() ThemeGutterStyleOutput {
 }
 
 // <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-//         </p>
+//
+//	</p>
 func (o ThemeGutterStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeGutterStyle) *bool {
 		if v == nil {
@@ -11339,7 +11408,7 @@ type ThemeMarginStyle struct {
 // ThemeMarginStyleInput is an input type that accepts ThemeMarginStyleArgs and ThemeMarginStyleOutput values.
 // You can construct a concrete instance of `ThemeMarginStyleInput` via:
 //
-//          ThemeMarginStyleArgs{...}
+//	ThemeMarginStyleArgs{...}
 type ThemeMarginStyleInput interface {
 	pulumi.Input
 
@@ -11376,11 +11445,11 @@ func (i ThemeMarginStyleArgs) ToThemeMarginStylePtrOutputWithContext(ctx context
 // ThemeMarginStylePtrInput is an input type that accepts ThemeMarginStyleArgs, ThemeMarginStylePtr and ThemeMarginStylePtrOutput values.
 // You can construct a concrete instance of `ThemeMarginStylePtrInput` via:
 //
-//          ThemeMarginStyleArgs{...}
+//	        ThemeMarginStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeMarginStylePtrInput interface {
 	pulumi.Input
 
@@ -11495,7 +11564,7 @@ type ThemeResourcePermission struct {
 // ThemeResourcePermissionInput is an input type that accepts ThemeResourcePermissionArgs and ThemeResourcePermissionOutput values.
 // You can construct a concrete instance of `ThemeResourcePermissionInput` via:
 //
-//          ThemeResourcePermissionArgs{...}
+//	ThemeResourcePermissionArgs{...}
 type ThemeResourcePermissionInput interface {
 	pulumi.Input
 
@@ -11540,7 +11609,7 @@ func (i ThemeResourcePermissionArgs) ToThemeResourcePermissionOutputWithContext(
 // ThemeResourcePermissionArrayInput is an input type that accepts ThemeResourcePermissionArray and ThemeResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `ThemeResourcePermissionArrayInput` via:
 //
-//          ThemeResourcePermissionArray{ ThemeResourcePermissionArgs{...} }
+//	ThemeResourcePermissionArray{ ThemeResourcePermissionArgs{...} }
 type ThemeResourcePermissionArrayInput interface {
 	pulumi.Input
 
@@ -11583,20 +11652,21 @@ func (o ThemeResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 }
 
 // <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-//             following:</p>
-//         <ul>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-//             </li>
-//             <li>
-//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-//                     ARN. Use this option only to share resources (templates) across AWS accounts.
-//                     (This is less common.) </p>
-//             </li>
-//          </ul>
+//
+//	    following:</p>
+//	<ul>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	    </li>
+//	    <li>
+//	        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//	            ARN. Use this option only to share resources (templates) across AWS accounts.
+//	            (This is less common.) </p>
+//	    </li>
+//	 </ul>
 func (o ThemeResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v ThemeResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -11630,7 +11700,7 @@ type ThemeSheetStyle struct {
 // ThemeSheetStyleInput is an input type that accepts ThemeSheetStyleArgs and ThemeSheetStyleOutput values.
 // You can construct a concrete instance of `ThemeSheetStyleInput` via:
 //
-//          ThemeSheetStyleArgs{...}
+//	ThemeSheetStyleArgs{...}
 type ThemeSheetStyleInput interface {
 	pulumi.Input
 
@@ -11667,11 +11737,11 @@ func (i ThemeSheetStyleArgs) ToThemeSheetStylePtrOutputWithContext(ctx context.C
 // ThemeSheetStylePtrInput is an input type that accepts ThemeSheetStyleArgs, ThemeSheetStylePtr and ThemeSheetStylePtrOutput values.
 // You can construct a concrete instance of `ThemeSheetStylePtrInput` via:
 //
-//          ThemeSheetStyleArgs{...}
+//	        ThemeSheetStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeSheetStylePtrInput interface {
 	pulumi.Input
 
@@ -11773,7 +11843,8 @@ func (o ThemeSheetStylePtrOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type ThemeTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
@@ -11784,7 +11855,7 @@ type ThemeTag struct {
 // ThemeTagInput is an input type that accepts ThemeTagArgs and ThemeTagOutput values.
 // You can construct a concrete instance of `ThemeTagInput` via:
 //
-//          ThemeTagArgs{...}
+//	ThemeTagArgs{...}
 type ThemeTagInput interface {
 	pulumi.Input
 
@@ -11793,7 +11864,8 @@ type ThemeTagInput interface {
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type ThemeTagArgs struct {
 	// <p>Tag key.</p>
 	Key pulumi.StringInput `pulumi:"key"`
@@ -11816,7 +11888,7 @@ func (i ThemeTagArgs) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagO
 // ThemeTagArrayInput is an input type that accepts ThemeTagArray and ThemeTagArrayOutput values.
 // You can construct a concrete instance of `ThemeTagArrayInput` via:
 //
-//          ThemeTagArray{ ThemeTagArgs{...} }
+//	ThemeTagArray{ ThemeTagArgs{...} }
 type ThemeTagArrayInput interface {
 	pulumi.Input
 
@@ -11839,7 +11911,8 @@ func (i ThemeTagArray) ToThemeTagArrayOutputWithContext(ctx context.Context) The
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//             resource.</p>
+//
+//	resource.</p>
 type ThemeTagOutput struct{ *pulumi.OutputState }
 
 func (ThemeTagOutput) ElementType() reflect.Type {
@@ -11893,7 +11966,7 @@ type ThemeTileLayoutStyle struct {
 // ThemeTileLayoutStyleInput is an input type that accepts ThemeTileLayoutStyleArgs and ThemeTileLayoutStyleOutput values.
 // You can construct a concrete instance of `ThemeTileLayoutStyleInput` via:
 //
-//          ThemeTileLayoutStyleArgs{...}
+//	ThemeTileLayoutStyleArgs{...}
 type ThemeTileLayoutStyleInput interface {
 	pulumi.Input
 
@@ -11930,11 +12003,11 @@ func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStylePtrOutputWithContext(ctx
 // ThemeTileLayoutStylePtrInput is an input type that accepts ThemeTileLayoutStyleArgs, ThemeTileLayoutStylePtr and ThemeTileLayoutStylePtrOutput values.
 // You can construct a concrete instance of `ThemeTileLayoutStylePtrInput` via:
 //
-//          ThemeTileLayoutStyleArgs{...}
+//	        ThemeTileLayoutStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeTileLayoutStylePtrInput interface {
 	pulumi.Input
 
@@ -12043,7 +12116,7 @@ type ThemeTileStyle struct {
 // ThemeTileStyleInput is an input type that accepts ThemeTileStyleArgs and ThemeTileStyleOutput values.
 // You can construct a concrete instance of `ThemeTileStyleInput` via:
 //
-//          ThemeTileStyleArgs{...}
+//	ThemeTileStyleArgs{...}
 type ThemeTileStyleInput interface {
 	pulumi.Input
 
@@ -12079,11 +12152,11 @@ func (i ThemeTileStyleArgs) ToThemeTileStylePtrOutputWithContext(ctx context.Con
 // ThemeTileStylePtrInput is an input type that accepts ThemeTileStyleArgs, ThemeTileStylePtr and ThemeTileStylePtrOutput values.
 // You can construct a concrete instance of `ThemeTileStylePtrInput` via:
 //
-//          ThemeTileStyleArgs{...}
+//	        ThemeTileStyleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeTileStylePtrInput interface {
 	pulumi.Input
 
@@ -12179,7 +12252,7 @@ type ThemeTypography struct {
 // ThemeTypographyInput is an input type that accepts ThemeTypographyArgs and ThemeTypographyOutput values.
 // You can construct a concrete instance of `ThemeTypographyInput` via:
 //
-//          ThemeTypographyArgs{...}
+//	ThemeTypographyArgs{...}
 type ThemeTypographyInput interface {
 	pulumi.Input
 
@@ -12215,11 +12288,11 @@ func (i ThemeTypographyArgs) ToThemeTypographyPtrOutputWithContext(ctx context.C
 // ThemeTypographyPtrInput is an input type that accepts ThemeTypographyArgs, ThemeTypographyPtr and ThemeTypographyPtrOutput values.
 // You can construct a concrete instance of `ThemeTypographyPtrInput` via:
 //
-//          ThemeTypographyArgs{...}
+//	        ThemeTypographyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeTypographyPtrInput interface {
 	pulumi.Input
 
@@ -12308,10 +12381,11 @@ func (o ThemeTypographyPtrOutput) FontFamilies() ThemeFontArrayOutput {
 }
 
 // <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-//             description is a hexadecimal color code that consists of six alphanumerical characters,
-//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-//                 Guide.</i>
-//         </p>
+//
+//	    description is a hexadecimal color code that consists of six alphanumerical characters,
+//	    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//	        Guide.</i>
+//	</p>
 type ThemeUIColorPalette struct {
 	// <p>This color is that applies to selected states and buttons.</p>
 	Accent *string `pulumi:"accent"`
@@ -12360,7 +12434,7 @@ type ThemeUIColorPalette struct {
 // ThemeUIColorPaletteInput is an input type that accepts ThemeUIColorPaletteArgs and ThemeUIColorPaletteOutput values.
 // You can construct a concrete instance of `ThemeUIColorPaletteInput` via:
 //
-//          ThemeUIColorPaletteArgs{...}
+//	ThemeUIColorPaletteArgs{...}
 type ThemeUIColorPaletteInput interface {
 	pulumi.Input
 
@@ -12369,10 +12443,11 @@ type ThemeUIColorPaletteInput interface {
 }
 
 // <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-//             description is a hexadecimal color code that consists of six alphanumerical characters,
-//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-//                 Guide.</i>
-//         </p>
+//
+//	    description is a hexadecimal color code that consists of six alphanumerical characters,
+//	    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//	        Guide.</i>
+//	</p>
 type ThemeUIColorPaletteArgs struct {
 	// <p>This color is that applies to selected states and buttons.</p>
 	Accent pulumi.StringPtrInput `pulumi:"accent"`
@@ -12441,11 +12516,11 @@ func (i ThemeUIColorPaletteArgs) ToThemeUIColorPalettePtrOutputWithContext(ctx c
 // ThemeUIColorPalettePtrInput is an input type that accepts ThemeUIColorPaletteArgs, ThemeUIColorPalettePtr and ThemeUIColorPalettePtrOutput values.
 // You can construct a concrete instance of `ThemeUIColorPalettePtrInput` via:
 //
-//          ThemeUIColorPaletteArgs{...}
+//	        ThemeUIColorPaletteArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeUIColorPalettePtrInput interface {
 	pulumi.Input
 
@@ -12472,10 +12547,11 @@ func (i *themeUIColorPalettePtrType) ToThemeUIColorPalettePtrOutputWithContext(c
 }
 
 // <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-//             description is a hexadecimal color code that consists of six alphanumerical characters,
-//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-//                 Guide.</i>
-//         </p>
+//
+//	    description is a hexadecimal color code that consists of six alphanumerical characters,
+//	    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//	        Guide.</i>
+//	</p>
 type ThemeUIColorPaletteOutput struct{ *pulumi.OutputState }
 
 func (ThemeUIColorPaletteOutput) ElementType() reflect.Type {
@@ -12506,7 +12582,8 @@ func (o ThemeUIColorPaletteOutput) Accent() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             accent color.</p>
+//
+//	accent color.</p>
 func (o ThemeUIColorPaletteOutput) AccentForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.AccentForeground }).(pulumi.StringPtrOutput)
 }
@@ -12517,19 +12594,22 @@ func (o ThemeUIColorPaletteOutput) Danger() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             error color.</p>
+//
+//	error color.</p>
 func (o ThemeUIColorPaletteOutput) DangerForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.DangerForeground }).(pulumi.StringPtrOutput)
 }
 
 // <p>The color that applies to the names of fields that are identified as
-//             dimensions.</p>
+//
+//	dimensions.</p>
 func (o ThemeUIColorPaletteOutput) Dimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Dimension }).(pulumi.StringPtrOutput)
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             dimension color.</p>
+//
+//	dimension color.</p>
 func (o ThemeUIColorPaletteOutput) DimensionForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.DimensionForeground }).(pulumi.StringPtrOutput)
 }
@@ -12540,7 +12620,8 @@ func (o ThemeUIColorPaletteOutput) Measure() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             measure color.</p>
+//
+//	measure color.</p>
 func (o ThemeUIColorPaletteOutput) MeasureForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.MeasureForeground }).(pulumi.StringPtrOutput)
 }
@@ -12551,7 +12632,8 @@ func (o ThemeUIColorPaletteOutput) PrimaryBackground() pulumi.StringPtrOutput {
 }
 
 // <p>The color of text and other foreground elements that appear over the primary
-//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+//
+//	background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 func (o ThemeUIColorPaletteOutput) PrimaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.PrimaryForeground }).(pulumi.StringPtrOutput)
 }
@@ -12562,19 +12644,22 @@ func (o ThemeUIColorPaletteOutput) SecondaryBackground() pulumi.StringPtrOutput 
 }
 
 // <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-//             appears over the secondary background.</p>
+//
+//	appears over the secondary background.</p>
 func (o ThemeUIColorPaletteOutput) SecondaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.SecondaryForeground }).(pulumi.StringPtrOutput)
 }
 
 // <p>The color that applies to success messages, for example the check mark for a
-//             successful download.</p>
+//
+//	successful download.</p>
 func (o ThemeUIColorPaletteOutput) Success() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Success }).(pulumi.StringPtrOutput)
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             success color.</p>
+//
+//	success color.</p>
 func (o ThemeUIColorPaletteOutput) SuccessForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.SuccessForeground }).(pulumi.StringPtrOutput)
 }
@@ -12585,7 +12670,8 @@ func (o ThemeUIColorPaletteOutput) Warning() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             warning color.</p>
+//
+//	warning color.</p>
 func (o ThemeUIColorPaletteOutput) WarningForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.WarningForeground }).(pulumi.StringPtrOutput)
 }
@@ -12625,7 +12711,8 @@ func (o ThemeUIColorPalettePtrOutput) Accent() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             accent color.</p>
+//
+//	accent color.</p>
 func (o ThemeUIColorPalettePtrOutput) AccentForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12646,7 +12733,8 @@ func (o ThemeUIColorPalettePtrOutput) Danger() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             error color.</p>
+//
+//	error color.</p>
 func (o ThemeUIColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12657,7 +12745,8 @@ func (o ThemeUIColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput 
 }
 
 // <p>The color that applies to the names of fields that are identified as
-//             dimensions.</p>
+//
+//	dimensions.</p>
 func (o ThemeUIColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12668,7 +12757,8 @@ func (o ThemeUIColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             dimension color.</p>
+//
+//	dimension color.</p>
 func (o ThemeUIColorPalettePtrOutput) DimensionForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12689,7 +12779,8 @@ func (o ThemeUIColorPalettePtrOutput) Measure() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             measure color.</p>
+//
+//	measure color.</p>
 func (o ThemeUIColorPalettePtrOutput) MeasureForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12710,7 +12801,8 @@ func (o ThemeUIColorPalettePtrOutput) PrimaryBackground() pulumi.StringPtrOutput
 }
 
 // <p>The color of text and other foreground elements that appear over the primary
-//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+//
+//	background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 func (o ThemeUIColorPalettePtrOutput) PrimaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12731,7 +12823,8 @@ func (o ThemeUIColorPalettePtrOutput) SecondaryBackground() pulumi.StringPtrOutp
 }
 
 // <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-//             appears over the secondary background.</p>
+//
+//	appears over the secondary background.</p>
 func (o ThemeUIColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12742,7 +12835,8 @@ func (o ThemeUIColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutp
 }
 
 // <p>The color that applies to success messages, for example the check mark for a
-//             successful download.</p>
+//
+//	successful download.</p>
 func (o ThemeUIColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12753,7 +12847,8 @@ func (o ThemeUIColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             success color.</p>
+//
+//	success color.</p>
 func (o ThemeUIColorPalettePtrOutput) SuccessForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12774,7 +12869,8 @@ func (o ThemeUIColorPalettePtrOutput) Warning() pulumi.StringPtrOutput {
 }
 
 // <p>The foreground color that applies to any text or other elements that appear over the
-//             warning color.</p>
+//
+//	warning color.</p>
 func (o ThemeUIColorPalettePtrOutput) WarningForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -12824,7 +12920,8 @@ func (o ThemeVersionOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-//             themes initially inherit from a default QuickSight theme.</p>
+//
+//	themes initially inherit from a default QuickSight theme.</p>
 func (o ThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
 }
@@ -12892,7 +12989,8 @@ func (o ThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-//             themes initially inherit from a default QuickSight theme.</p>
+//
+//	themes initially inherit from a default QuickSight theme.</p>
 func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeVersion) *string {
 		if v == nil {

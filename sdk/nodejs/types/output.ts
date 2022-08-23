@@ -3034,6 +3034,7 @@ export namespace appmesh {
     export interface VirtualServiceVirtualRouterServiceProvider {
         virtualRouterName: string;
     }
+
 }
 
 export namespace apprunner {
@@ -12748,6 +12749,7 @@ export namespace events {
         sageMakerPipelineParameters?: outputs.events.RuleSageMakerPipelineParameters;
         sqsParameters?: outputs.events.RuleSqsParameters;
     }
+
 }
 
 export namespace eventschemas {
@@ -17731,6 +17733,7 @@ export namespace iotsitewise {
         key: string;
         value: string;
     }
+
 }
 
 export namespace iotthingsgraph {
@@ -29504,9 +29507,15 @@ export namespace s3 {
         key: string;
         value: string;
     }
+
 }
 
 export namespace s3objectlambda {
+    export interface AccessPointAwsLambda {
+        functionArn: string;
+        functionPayload?: string;
+    }
+
     /**
      * Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
      */
@@ -29549,7 +29558,11 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfiguration {
         actions: string[];
-        contentTransformation: any;
+        contentTransformation: outputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationProperties;
+    }
+
+    export interface AccessPointTransformationConfigurationContentTransformationProperties {
+        awsLambda: outputs.s3objectlambda.AccessPointAwsLambda;
     }
 
     export interface PolicyStatusProperties {
@@ -31745,6 +31758,36 @@ export namespace sagemaker {
          * Maximum parallel execution steps
          */
         maxParallelExecutionSteps: number;
+    }
+
+    export interface PipelineDefinition0Properties {
+        /**
+         * A specification that defines the pipeline in JSON format.
+         */
+        pipelineDefinitionBody: string;
+    }
+
+    export interface PipelineDefinition1Properties {
+        pipelineDefinitionS3Location: outputs.sagemaker.PipelineS3Location;
+    }
+
+    export interface PipelineS3Location {
+        /**
+         * The name of the S3 bucket where the PipelineDefinition file is stored.
+         */
+        bucket: string;
+        /**
+         * The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+         */
+        eTag?: string;
+        /**
+         * The file name of the PipelineDefinition file (Amazon S3 object name).
+         */
+        key: string;
+        /**
+         * For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+         */
+        version?: string;
     }
 
     export interface PipelineTag {

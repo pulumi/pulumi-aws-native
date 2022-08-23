@@ -17,7 +17,7 @@ type FindingsFilterCriterion struct {
 // FindingsFilterCriterionInput is an input type that accepts FindingsFilterCriterionArgs and FindingsFilterCriterionOutput values.
 // You can construct a concrete instance of `FindingsFilterCriterionInput` via:
 //
-//          FindingsFilterCriterionArgs{...}
+//	FindingsFilterCriterionArgs{...}
 type FindingsFilterCriterionInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionPtrOutputWithConte
 // FindingsFilterCriterionPtrInput is an input type that accepts FindingsFilterCriterionArgs, FindingsFilterCriterionPtr and FindingsFilterCriterionPtrOutput values.
 // You can construct a concrete instance of `FindingsFilterCriterionPtrInput` via:
 //
-//          FindingsFilterCriterionArgs{...}
+//	        FindingsFilterCriterionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FindingsFilterCriterionPtrInput interface {
 	pulumi.Input
 
@@ -138,7 +138,7 @@ type FindingsFilterFindingCriteria struct {
 // FindingsFilterFindingCriteriaInput is an input type that accepts FindingsFilterFindingCriteriaArgs and FindingsFilterFindingCriteriaOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaInput` via:
 //
-//          FindingsFilterFindingCriteriaArgs{...}
+//	FindingsFilterFindingCriteriaArgs{...}
 type FindingsFilterFindingCriteriaInput interface {
 	pulumi.Input
 

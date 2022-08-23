@@ -35,7 +35,7 @@ type FlowEncryption struct {
 // FlowEncryptionInput is an input type that accepts FlowEncryptionArgs and FlowEncryptionOutput values.
 // You can construct a concrete instance of `FlowEncryptionInput` via:
 //
-//          FlowEncryptionArgs{...}
+//	FlowEncryptionArgs{...}
 type FlowEncryptionInput interface {
 	pulumi.Input
 
@@ -88,11 +88,11 @@ func (i FlowEncryptionArgs) ToFlowEncryptionPtrOutputWithContext(ctx context.Con
 // FlowEncryptionPtrInput is an input type that accepts FlowEncryptionArgs, FlowEncryptionPtr and FlowEncryptionPtrOutput values.
 // You can construct a concrete instance of `FlowEncryptionPtrInput` via:
 //
-//          FlowEncryptionArgs{...}
+//	        FlowEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (o FlowEncryptionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowEncryption) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowEncryptionOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowEncryption) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -282,7 +282,7 @@ func (o FlowEncryptionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowEncryptionPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowEncryption) *string {
 		if v == nil {
@@ -327,7 +327,7 @@ type FlowEntitlementEncryption struct {
 // FlowEntitlementEncryptionInput is an input type that accepts FlowEntitlementEncryptionArgs and FlowEntitlementEncryptionOutput values.
 // You can construct a concrete instance of `FlowEntitlementEncryptionInput` via:
 //
-//          FlowEntitlementEncryptionArgs{...}
+//	FlowEntitlementEncryptionArgs{...}
 type FlowEntitlementEncryptionInput interface {
 	pulumi.Input
 
@@ -380,11 +380,11 @@ func (i FlowEntitlementEncryptionArgs) ToFlowEntitlementEncryptionPtrOutputWithC
 // FlowEntitlementEncryptionPtrInput is an input type that accepts FlowEntitlementEncryptionArgs, FlowEntitlementEncryptionPtr and FlowEntitlementEncryptionPtrOutput values.
 // You can construct a concrete instance of `FlowEntitlementEncryptionPtrInput` via:
 //
-//          FlowEntitlementEncryptionArgs{...}
+//	        FlowEntitlementEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowEntitlementEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o FlowEntitlementEncryptionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowEntitlementEncryption) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowEntitlementEncryptionOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowEntitlementEncryption) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -574,7 +574,7 @@ func (o FlowEntitlementEncryptionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowEntitlementEncryptionPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowEntitlementEncryption) *string {
 		if v == nil {
@@ -604,7 +604,7 @@ type FlowFailoverConfig struct {
 // FlowFailoverConfigInput is an input type that accepts FlowFailoverConfigArgs and FlowFailoverConfigOutput values.
 // You can construct a concrete instance of `FlowFailoverConfigInput` via:
 //
-//          FlowFailoverConfigArgs{...}
+//	FlowFailoverConfigArgs{...}
 type FlowFailoverConfigInput interface {
 	pulumi.Input
 
@@ -642,11 +642,11 @@ func (i FlowFailoverConfigArgs) ToFlowFailoverConfigPtrOutputWithContext(ctx con
 // FlowFailoverConfigPtrInput is an input type that accepts FlowFailoverConfigArgs, FlowFailoverConfigPtr and FlowFailoverConfigPtrOutput values.
 // You can construct a concrete instance of `FlowFailoverConfigPtrInput` via:
 //
-//          FlowFailoverConfigArgs{...}
+//	        FlowFailoverConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowFailoverConfigPtrInput interface {
 	pulumi.Input
 
@@ -764,7 +764,7 @@ type FlowOutputEncryption struct {
 // FlowOutputEncryptionInput is an input type that accepts FlowOutputEncryptionArgs and FlowOutputEncryptionOutput values.
 // You can construct a concrete instance of `FlowOutputEncryptionInput` via:
 //
-//          FlowOutputEncryptionArgs{...}
+//	FlowOutputEncryptionArgs{...}
 type FlowOutputEncryptionInput interface {
 	pulumi.Input
 
@@ -807,11 +807,11 @@ func (i FlowOutputEncryptionArgs) ToFlowOutputEncryptionPtrOutputWithContext(ctx
 // FlowOutputEncryptionPtrInput is an input type that accepts FlowOutputEncryptionArgs, FlowOutputEncryptionPtr and FlowOutputEncryptionPtrOutput values.
 // You can construct a concrete instance of `FlowOutputEncryptionPtrInput` via:
 //
-//          FlowOutputEncryptionArgs{...}
+//	        FlowOutputEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowOutputEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -877,7 +877,7 @@ func (o FlowOutputEncryptionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowOutputEncryption) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowOutputEncryptionOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowOutputEncryption) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -936,7 +936,7 @@ func (o FlowOutputEncryptionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowOutputEncryptionPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputEncryption) *string {
 		if v == nil {
@@ -955,7 +955,7 @@ type FlowOutputVpcInterfaceAttachment struct {
 // FlowOutputVpcInterfaceAttachmentInput is an input type that accepts FlowOutputVpcInterfaceAttachmentArgs and FlowOutputVpcInterfaceAttachmentOutput values.
 // You can construct a concrete instance of `FlowOutputVpcInterfaceAttachmentInput` via:
 //
-//          FlowOutputVpcInterfaceAttachmentArgs{...}
+//	FlowOutputVpcInterfaceAttachmentArgs{...}
 type FlowOutputVpcInterfaceAttachmentInput interface {
 	pulumi.Input
 
@@ -992,11 +992,11 @@ func (i FlowOutputVpcInterfaceAttachmentArgs) ToFlowOutputVpcInterfaceAttachment
 // FlowOutputVpcInterfaceAttachmentPtrInput is an input type that accepts FlowOutputVpcInterfaceAttachmentArgs, FlowOutputVpcInterfaceAttachmentPtr and FlowOutputVpcInterfaceAttachmentPtrOutput values.
 // You can construct a concrete instance of `FlowOutputVpcInterfaceAttachmentPtrInput` via:
 //
-//          FlowOutputVpcInterfaceAttachmentArgs{...}
+//	        FlowOutputVpcInterfaceAttachmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowOutputVpcInterfaceAttachmentPtrInput interface {
 	pulumi.Input
 
@@ -1123,7 +1123,7 @@ type FlowSourceType struct {
 // FlowSourceTypeInput is an input type that accepts FlowSourceTypeArgs and FlowSourceTypeOutput values.
 // You can construct a concrete instance of `FlowSourceTypeInput` via:
 //
-//          FlowSourceTypeArgs{...}
+//	FlowSourceTypeArgs{...}
 type FlowSourceTypeInput interface {
 	pulumi.Input
 
@@ -1466,7 +1466,7 @@ type FlowSourceEncryption struct {
 // FlowSourceEncryptionInput is an input type that accepts FlowSourceEncryptionArgs and FlowSourceEncryptionOutput values.
 // You can construct a concrete instance of `FlowSourceEncryptionInput` via:
 //
-//          FlowSourceEncryptionArgs{...}
+//	FlowSourceEncryptionArgs{...}
 type FlowSourceEncryptionInput interface {
 	pulumi.Input
 
@@ -1519,11 +1519,11 @@ func (i FlowSourceEncryptionArgs) ToFlowSourceEncryptionPtrOutputWithContext(ctx
 // FlowSourceEncryptionPtrInput is an input type that accepts FlowSourceEncryptionArgs, FlowSourceEncryptionPtr and FlowSourceEncryptionPtrOutput values.
 // You can construct a concrete instance of `FlowSourceEncryptionPtrInput` via:
 //
-//          FlowSourceEncryptionArgs{...}
+//	        FlowSourceEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1609,7 +1609,7 @@ func (o FlowSourceEncryptionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceEncryption) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowSourceEncryptionOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceEncryption) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -1713,7 +1713,7 @@ func (o FlowSourceEncryptionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
 func (o FlowSourceEncryptionPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceEncryption) *string {
 		if v == nil {

@@ -144,7 +144,7 @@ func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToStringPtrOutputWithCo
 // AlarmModelSimpleRuleComparisonOperatorInput is an input type that accepts AlarmModelSimpleRuleComparisonOperatorArgs and AlarmModelSimpleRuleComparisonOperatorOutput values.
 // You can construct a concrete instance of `AlarmModelSimpleRuleComparisonOperatorInput` via:
 //
-//          AlarmModelSimpleRuleComparisonOperatorArgs{...}
+//	AlarmModelSimpleRuleComparisonOperatorArgs{...}
 type AlarmModelSimpleRuleComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (o DetectorModelEvaluationMethodPtrOutput) ToStringPtrOutputWithContext(ctx
 // DetectorModelEvaluationMethodInput is an input type that accepts DetectorModelEvaluationMethodArgs and DetectorModelEvaluationMethodOutput values.
 // You can construct a concrete instance of `DetectorModelEvaluationMethodInput` via:
 //
-//          DetectorModelEvaluationMethodArgs{...}
+//	DetectorModelEvaluationMethodArgs{...}
 type DetectorModelEvaluationMethodInput interface {
 	pulumi.Input
 

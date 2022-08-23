@@ -141,7 +141,7 @@ func (o ApplicationAlarmSeverityPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // ApplicationAlarmSeverityInput is an input type that accepts ApplicationAlarmSeverityArgs and ApplicationAlarmSeverityOutput values.
 // You can construct a concrete instance of `ApplicationAlarmSeverityInput` via:
 //
-//          ApplicationAlarmSeverityArgs{...}
+//	ApplicationAlarmSeverityArgs{...}
 type ApplicationAlarmSeverityInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput
 // ApplicationComponentMonitoringSettingComponentConfigurationModeInput is an input type that accepts ApplicationComponentMonitoringSettingComponentConfigurationModeArgs and ApplicationComponentMonitoringSettingComponentConfigurationModeOutput values.
 // You can construct a concrete instance of `ApplicationComponentMonitoringSettingComponentConfigurationModeInput` via:
 //
-//          ApplicationComponentMonitoringSettingComponentConfigurationModeArgs{...}
+//	ApplicationComponentMonitoringSettingComponentConfigurationModeArgs{...}
 type ApplicationComponentMonitoringSettingComponentConfigurationModeInput interface {
 	pulumi.Input
 
@@ -475,7 +475,7 @@ func (o ApplicationEventLevelPtrOutput) ToStringPtrOutputWithContext(ctx context
 // ApplicationEventLevelInput is an input type that accepts ApplicationEventLevelArgs and ApplicationEventLevelOutput values.
 // You can construct a concrete instance of `ApplicationEventLevelInput` via:
 //
-//          ApplicationEventLevelArgs{...}
+//	ApplicationEventLevelArgs{...}
 type ApplicationEventLevelInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ func (in *applicationEventLevelPtr) ToApplicationEventLevelPtrOutputWithContext(
 // ApplicationEventLevelArrayInput is an input type that accepts ApplicationEventLevelArray and ApplicationEventLevelArrayOutput values.
 // You can construct a concrete instance of `ApplicationEventLevelArrayInput` via:
 //
-//          ApplicationEventLevelArray{ ApplicationEventLevelArgs{...} }
+//	ApplicationEventLevelArray{ ApplicationEventLevelArgs{...} }
 type ApplicationEventLevelArrayInput interface {
 	pulumi.Input
 
@@ -684,7 +684,7 @@ func (o ApplicationGroupingTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // ApplicationGroupingTypeInput is an input type that accepts ApplicationGroupingTypeArgs and ApplicationGroupingTypeOutput values.
 // You can construct a concrete instance of `ApplicationGroupingTypeInput` via:
 //
-//          ApplicationGroupingTypeArgs{...}
+//	ApplicationGroupingTypeArgs{...}
 type ApplicationGroupingTypeInput interface {
 	pulumi.Input
 
@@ -850,7 +850,7 @@ func (o ApplicationLogEncodingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // ApplicationLogEncodingInput is an input type that accepts ApplicationLogEncodingArgs and ApplicationLogEncodingOutput values.
 // You can construct a concrete instance of `ApplicationLogEncodingInput` via:
 //
-//          ApplicationLogEncodingArgs{...}
+//	ApplicationLogEncodingArgs{...}
 type ApplicationLogEncodingInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToStr
 // ApplicationSubComponentTypeConfigurationSubComponentTypeInput is an input type that accepts ApplicationSubComponentTypeConfigurationSubComponentTypeArgs and ApplicationSubComponentTypeConfigurationSubComponentTypeOutput values.
 // You can construct a concrete instance of `ApplicationSubComponentTypeConfigurationSubComponentTypeInput` via:
 //
-//          ApplicationSubComponentTypeConfigurationSubComponentTypeArgs{...}
+//	ApplicationSubComponentTypeConfigurationSubComponentTypeArgs{...}
 type ApplicationSubComponentTypeConfigurationSubComponentTypeInput interface {
 	pulumi.Input
 

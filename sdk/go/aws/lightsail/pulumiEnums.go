@@ -145,7 +145,7 @@ func (o DiskAddOnStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // DiskAddOnStatusInput is an input type that accepts DiskAddOnStatusArgs and DiskAddOnStatusOutput values.
 // You can construct a concrete instance of `DiskAddOnStatusInput` via:
 //
-//          DiskAddOnStatusArgs{...}
+//	DiskAddOnStatusArgs{...}
 type DiskAddOnStatusInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ func (o InstanceAddOnStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // InstanceAddOnStatusInput is an input type that accepts InstanceAddOnStatusArgs and InstanceAddOnStatusOutput values.
 // You can construct a concrete instance of `InstanceAddOnStatusInput` via:
 //
-//          InstanceAddOnStatusArgs{...}
+//	InstanceAddOnStatusArgs{...}
 type InstanceAddOnStatusInput interface {
 	pulumi.Input
 

@@ -33,7 +33,7 @@ type ProviderAssumeRole struct {
 // ProviderAssumeRoleInput is an input type that accepts ProviderAssumeRoleArgs and ProviderAssumeRoleOutput values.
 // You can construct a concrete instance of `ProviderAssumeRoleInput` via:
 //
-//          ProviderAssumeRoleArgs{...}
+//	ProviderAssumeRoleArgs{...}
 type ProviderAssumeRoleInput interface {
 	pulumi.Input
 
@@ -84,11 +84,11 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutputWithContext(ctx con
 // ProviderAssumeRolePtrInput is an input type that accepts ProviderAssumeRoleArgs, ProviderAssumeRolePtr and ProviderAssumeRolePtrOutput values.
 // You can construct a concrete instance of `ProviderAssumeRolePtrInput` via:
 //
-//          ProviderAssumeRoleArgs{...}
+//	        ProviderAssumeRoleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderAssumeRolePtrInput interface {
 	pulumi.Input
 
@@ -292,7 +292,7 @@ type ProviderDefaultTags struct {
 // ProviderDefaultTagsInput is an input type that accepts ProviderDefaultTagsArgs and ProviderDefaultTagsOutput values.
 // You can construct a concrete instance of `ProviderDefaultTagsInput` via:
 //
-//          ProviderDefaultTagsArgs{...}
+//	ProviderDefaultTagsArgs{...}
 type ProviderDefaultTagsInput interface {
 	pulumi.Input
 
@@ -329,11 +329,11 @@ func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutputWithContext(ctx c
 // ProviderDefaultTagsPtrInput is an input type that accepts ProviderDefaultTagsArgs, ProviderDefaultTagsPtr and ProviderDefaultTagsPtrOutput values.
 // You can construct a concrete instance of `ProviderDefaultTagsPtrInput` via:
 //
-//          ProviderDefaultTagsArgs{...}
+//	        ProviderDefaultTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderDefaultTagsPtrInput interface {
 	pulumi.Input
 
@@ -748,7 +748,7 @@ type ProviderEndpoint struct {
 // ProviderEndpointInput is an input type that accepts ProviderEndpointArgs and ProviderEndpointOutput values.
 // You can construct a concrete instance of `ProviderEndpointInput` via:
 //
-//          ProviderEndpointArgs{...}
+//	ProviderEndpointArgs{...}
 type ProviderEndpointInput interface {
 	pulumi.Input
 
@@ -1093,7 +1093,7 @@ func (i ProviderEndpointArgs) ToProviderEndpointOutputWithContext(ctx context.Co
 // ProviderEndpointArrayInput is an input type that accepts ProviderEndpointArray and ProviderEndpointArrayOutput values.
 // You can construct a concrete instance of `ProviderEndpointArrayInput` via:
 //
-//          ProviderEndpointArray{ ProviderEndpointArgs{...} }
+//	ProviderEndpointArray{ ProviderEndpointArgs{...} }
 type ProviderEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1956,7 +1956,7 @@ type ProviderIgnoreTags struct {
 // ProviderIgnoreTagsInput is an input type that accepts ProviderIgnoreTagsArgs and ProviderIgnoreTagsOutput values.
 // You can construct a concrete instance of `ProviderIgnoreTagsInput` via:
 //
-//          ProviderIgnoreTagsArgs{...}
+//	ProviderIgnoreTagsArgs{...}
 type ProviderIgnoreTagsInput interface {
 	pulumi.Input
 
@@ -1995,11 +1995,11 @@ func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutputWithContext(ctx con
 // ProviderIgnoreTagsPtrInput is an input type that accepts ProviderIgnoreTagsArgs, ProviderIgnoreTagsPtr and ProviderIgnoreTagsPtrOutput values.
 // You can construct a concrete instance of `ProviderIgnoreTagsPtrInput` via:
 //
-//          ProviderIgnoreTagsArgs{...}
+//	        ProviderIgnoreTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderIgnoreTagsPtrInput interface {
 	pulumi.Input
 

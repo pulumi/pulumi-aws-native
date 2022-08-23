@@ -16,7 +16,7 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 pipeline_definition: Any,
+                 pipeline_definition: pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']],
                  role_arn: pulumi.Input[str],
                  parallelism_configuration: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
@@ -45,11 +45,11 @@ class PipelineArgs:
 
     @property
     @pulumi.getter(name="pipelineDefinition")
-    def pipeline_definition(self) -> Any:
+    def pipeline_definition(self) -> pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']]:
         return pulumi.get(self, "pipeline_definition")
 
     @pipeline_definition.setter
-    def pipeline_definition(self, value: Any):
+    def pipeline_definition(self, value: pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']]):
         pulumi.set(self, "pipeline_definition", value)
 
     @property
@@ -125,7 +125,7 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
-                 pipeline_definition: Optional[Any] = None,
+                 pipeline_definition: Optional[pulumi.Input[Union[pulumi.InputType['PipelineDefinition0PropertiesArgs'], pulumi.InputType['PipelineDefinition1PropertiesArgs']]]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
@@ -167,7 +167,7 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
-                 pipeline_definition: Optional[Any] = None,
+                 pipeline_definition: Optional[pulumi.Input[Union[pulumi.InputType['PipelineDefinition0PropertiesArgs'], pulumi.InputType['PipelineDefinition1PropertiesArgs']]]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,

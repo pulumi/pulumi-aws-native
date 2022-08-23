@@ -10,6 +10,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessPointAwsLambda struct {
+	FunctionArn     string  `pulumi:"functionArn"`
+	FunctionPayload *string `pulumi:"functionPayload"`
+}
+
+// AccessPointAwsLambdaInput is an input type that accepts AccessPointAwsLambdaArgs and AccessPointAwsLambdaOutput values.
+// You can construct a concrete instance of `AccessPointAwsLambdaInput` via:
+//
+//	AccessPointAwsLambdaArgs{...}
+type AccessPointAwsLambdaInput interface {
+	pulumi.Input
+
+	ToAccessPointAwsLambdaOutput() AccessPointAwsLambdaOutput
+	ToAccessPointAwsLambdaOutputWithContext(context.Context) AccessPointAwsLambdaOutput
+}
+
+type AccessPointAwsLambdaArgs struct {
+	FunctionArn     pulumi.StringInput    `pulumi:"functionArn"`
+	FunctionPayload pulumi.StringPtrInput `pulumi:"functionPayload"`
+}
+
+func (AccessPointAwsLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsLambda)(nil)).Elem()
+}
+
+func (i AccessPointAwsLambdaArgs) ToAccessPointAwsLambdaOutput() AccessPointAwsLambdaOutput {
+	return i.ToAccessPointAwsLambdaOutputWithContext(context.Background())
+}
+
+func (i AccessPointAwsLambdaArgs) ToAccessPointAwsLambdaOutputWithContext(ctx context.Context) AccessPointAwsLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsLambdaOutput)
+}
+
+type AccessPointAwsLambdaOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAwsLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsLambda)(nil)).Elem()
+}
+
+func (o AccessPointAwsLambdaOutput) ToAccessPointAwsLambdaOutput() AccessPointAwsLambdaOutput {
+	return o
+}
+
+func (o AccessPointAwsLambdaOutput) ToAccessPointAwsLambdaOutputWithContext(ctx context.Context) AccessPointAwsLambdaOutput {
+	return o
+}
+
+func (o AccessPointAwsLambdaOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointAwsLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+func (o AccessPointAwsLambdaOutput) FunctionPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsLambda) *string { return v.FunctionPayload }).(pulumi.StringPtrOutput)
+}
+
 // Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfiguration struct {
 	AllowedFeatures              []string                                 `pulumi:"allowedFeatures"`
@@ -21,7 +76,7 @@ type AccessPointObjectLambdaConfiguration struct {
 // AccessPointObjectLambdaConfigurationInput is an input type that accepts AccessPointObjectLambdaConfigurationArgs and AccessPointObjectLambdaConfigurationOutput values.
 // You can construct a concrete instance of `AccessPointObjectLambdaConfigurationInput` via:
 //
-//          AccessPointObjectLambdaConfigurationArgs{...}
+//	AccessPointObjectLambdaConfigurationArgs{...}
 type AccessPointObjectLambdaConfigurationInput interface {
 	pulumi.Input
 
@@ -176,9 +231,9 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
 // - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-//  - PUT Object calls fail if the request includes a public ACL.
-//    . - PUT Bucket calls fail if the request includes a public ACL.
-//    Enabling this setting doesn't affect existing policies or ACLs.
+//   - PUT Object calls fail if the request includes a public ACL.
+//     . - PUT Bucket calls fail if the request includes a public ACL.
+//     Enabling this setting doesn't affect existing policies or ACLs.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
@@ -225,9 +280,9 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPu
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
 // - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-//  - PUT Object calls fail if the request includes a public ACL.
-//    . - PUT Bucket calls fail if the request includes a public ACL.
-//    Enabling this setting doesn't affect existing policies or ACLs.
+//   - PUT Object calls fail if the request includes a public ACL.
+//     . - PUT Bucket calls fail if the request includes a public ACL.
+//     Enabling this setting doesn't affect existing policies or ACLs.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -270,14 +325,14 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBucket
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfiguration struct {
-	Actions               []string    `pulumi:"actions"`
-	ContentTransformation interface{} `pulumi:"contentTransformation"`
+	Actions               []string                                                              `pulumi:"actions"`
+	ContentTransformation AccessPointTransformationConfigurationContentTransformationProperties `pulumi:"contentTransformation"`
 }
 
 // AccessPointTransformationConfigurationInput is an input type that accepts AccessPointTransformationConfigurationArgs and AccessPointTransformationConfigurationOutput values.
 // You can construct a concrete instance of `AccessPointTransformationConfigurationInput` via:
 //
-//          AccessPointTransformationConfigurationArgs{...}
+//	AccessPointTransformationConfigurationArgs{...}
 type AccessPointTransformationConfigurationInput interface {
 	pulumi.Input
 
@@ -287,8 +342,8 @@ type AccessPointTransformationConfigurationInput interface {
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationArgs struct {
-	Actions               pulumi.StringArrayInput `pulumi:"actions"`
-	ContentTransformation pulumi.Input            `pulumi:"contentTransformation"`
+	Actions               pulumi.StringArrayInput                                                    `pulumi:"actions"`
+	ContentTransformation AccessPointTransformationConfigurationContentTransformationPropertiesInput `pulumi:"contentTransformation"`
 }
 
 func (AccessPointTransformationConfigurationArgs) ElementType() reflect.Type {
@@ -306,7 +361,7 @@ func (i AccessPointTransformationConfigurationArgs) ToAccessPointTransformationC
 // AccessPointTransformationConfigurationArrayInput is an input type that accepts AccessPointTransformationConfigurationArray and AccessPointTransformationConfigurationArrayOutput values.
 // You can construct a concrete instance of `AccessPointTransformationConfigurationArrayInput` via:
 //
-//          AccessPointTransformationConfigurationArray{ AccessPointTransformationConfigurationArgs{...} }
+//	AccessPointTransformationConfigurationArray{ AccessPointTransformationConfigurationArgs{...} }
 type AccessPointTransformationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -347,8 +402,10 @@ func (o AccessPointTransformationConfigurationOutput) Actions() pulumi.StringArr
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-func (o AccessPointTransformationConfigurationOutput) ContentTransformation() pulumi.AnyOutput {
-	return o.ApplyT(func(v AccessPointTransformationConfiguration) interface{} { return v.ContentTransformation }).(pulumi.AnyOutput)
+func (o AccessPointTransformationConfigurationOutput) ContentTransformation() AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
+	return o.ApplyT(func(v AccessPointTransformationConfiguration) AccessPointTransformationConfigurationContentTransformationProperties {
+		return v.ContentTransformation
+	}).(AccessPointTransformationConfigurationContentTransformationPropertiesOutput)
 }
 
 type AccessPointTransformationConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -369,6 +426,57 @@ func (o AccessPointTransformationConfigurationArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessPointTransformationConfiguration {
 		return vs[0].([]AccessPointTransformationConfiguration)[vs[1].(int)]
 	}).(AccessPointTransformationConfigurationOutput)
+}
+
+type AccessPointTransformationConfigurationContentTransformationProperties struct {
+	AwsLambda AccessPointAwsLambda `pulumi:"awsLambda"`
+}
+
+// AccessPointTransformationConfigurationContentTransformationPropertiesInput is an input type that accepts AccessPointTransformationConfigurationContentTransformationPropertiesArgs and AccessPointTransformationConfigurationContentTransformationPropertiesOutput values.
+// You can construct a concrete instance of `AccessPointTransformationConfigurationContentTransformationPropertiesInput` via:
+//
+//	AccessPointTransformationConfigurationContentTransformationPropertiesArgs{...}
+type AccessPointTransformationConfigurationContentTransformationPropertiesInput interface {
+	pulumi.Input
+
+	ToAccessPointTransformationConfigurationContentTransformationPropertiesOutput() AccessPointTransformationConfigurationContentTransformationPropertiesOutput
+	ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(context.Context) AccessPointTransformationConfigurationContentTransformationPropertiesOutput
+}
+
+type AccessPointTransformationConfigurationContentTransformationPropertiesArgs struct {
+	AwsLambda AccessPointAwsLambdaInput `pulumi:"awsLambda"`
+}
+
+func (AccessPointTransformationConfigurationContentTransformationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointTransformationConfigurationContentTransformationProperties)(nil)).Elem()
+}
+
+func (i AccessPointTransformationConfigurationContentTransformationPropertiesArgs) ToAccessPointTransformationConfigurationContentTransformationPropertiesOutput() AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
+	return i.ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(context.Background())
+}
+
+func (i AccessPointTransformationConfigurationContentTransformationPropertiesArgs) ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(ctx context.Context) AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationContentTransformationPropertiesOutput)
+}
+
+type AccessPointTransformationConfigurationContentTransformationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointTransformationConfigurationContentTransformationProperties)(nil)).Elem()
+}
+
+func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ToAccessPointTransformationConfigurationContentTransformationPropertiesOutput() AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
+	return o
+}
+
+func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(ctx context.Context) AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
+	return o
+}
+
+func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) AwsLambda() AccessPointAwsLambdaOutput {
+	return o.ApplyT(func(v AccessPointTransformationConfigurationContentTransformationProperties) AccessPointAwsLambda {
+		return v.AwsLambda
+	}).(AccessPointAwsLambdaOutput)
 }
 
 type PolicyStatusProperties struct {
@@ -430,15 +538,19 @@ func (o PolicyStatusPropertiesPtrOutput) IsPublic() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsLambdaInput)(nil)).Elem(), AccessPointAwsLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointObjectLambdaConfigurationInput)(nil)).Elem(), AccessPointObjectLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationInput)(nil)).Elem(), AccessPointTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationArrayInput)(nil)).Elem(), AccessPointTransformationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationContentTransformationPropertiesInput)(nil)).Elem(), AccessPointTransformationConfigurationContentTransformationPropertiesArgs{})
+	pulumi.RegisterOutputType(AccessPointAwsLambdaOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AccessPointTransformationConfigurationContentTransformationPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyStatusPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyStatusPropertiesPtrOutput{})
 }

@@ -139,7 +139,7 @@ func (o ScheduledQueryDimensionValueTypePtrOutput) ToStringPtrOutputWithContext(
 // ScheduledQueryDimensionValueTypeInput is an input type that accepts ScheduledQueryDimensionValueTypeArgs and ScheduledQueryDimensionValueTypeOutput values.
 // You can construct a concrete instance of `ScheduledQueryDimensionValueTypeInput` via:
 //
-//          ScheduledQueryDimensionValueTypeArgs{...}
+//	ScheduledQueryDimensionValueTypeArgs{...}
 type ScheduledQueryDimensionValueTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o ScheduledQueryEncryptionOptionPtrOutput) ToStringPtrOutputWithContext(ct
 // ScheduledQueryEncryptionOptionInput is an input type that accepts ScheduledQueryEncryptionOptionArgs and ScheduledQueryEncryptionOptionOutput values.
 // You can construct a concrete instance of `ScheduledQueryEncryptionOptionInput` via:
 //
-//          ScheduledQueryEncryptionOptionArgs{...}
+//	ScheduledQueryEncryptionOptionArgs{...}
 type ScheduledQueryEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToStringPtrO
 // ScheduledQueryMixedMeasureMappingMeasureValueTypeInput is an input type that accepts ScheduledQueryMixedMeasureMappingMeasureValueTypeArgs and ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput values.
 // You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingMeasureValueTypeInput` via:
 //
-//          ScheduledQueryMixedMeasureMappingMeasureValueTypeArgs{...}
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeArgs{...}
 type ScheduledQueryMixedMeasureMappingMeasureValueTypeInput interface {
 	pulumi.Input
 
@@ -639,7 +639,7 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToS
 // ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeArgs and ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput` via:
 //
-//          ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeArgs{...}
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeArgs{...}
 type ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type AppDataSource struct {
 // AppDataSourceInput is an input type that accepts AppDataSourceArgs and AppDataSourceOutput values.
 // You can construct a concrete instance of `AppDataSourceInput` via:
 //
-//          AppDataSourceArgs{...}
+//	AppDataSourceArgs{...}
 type AppDataSourceInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i AppDataSourceArgs) ToAppDataSourceOutputWithContext(ctx context.Context)
 // AppDataSourceArrayInput is an input type that accepts AppDataSourceArray and AppDataSourceArrayOutput values.
 // You can construct a concrete instance of `AppDataSourceArrayInput` via:
 //
-//          AppDataSourceArray{ AppDataSourceArgs{...} }
+//	AppDataSourceArray{ AppDataSourceArgs{...} }
 type AppDataSourceArrayInput interface {
 	pulumi.Input
 
@@ -125,7 +125,7 @@ type AppEnvironmentVariable struct {
 // AppEnvironmentVariableInput is an input type that accepts AppEnvironmentVariableArgs and AppEnvironmentVariableOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableInput` via:
 //
-//          AppEnvironmentVariableArgs{...}
+//	AppEnvironmentVariableArgs{...}
 type AppEnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -154,7 +154,7 @@ func (i AppEnvironmentVariableArgs) ToAppEnvironmentVariableOutputWithContext(ct
 // AppEnvironmentVariableArrayInput is an input type that accepts AppEnvironmentVariableArray and AppEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableArrayInput` via:
 //
-//          AppEnvironmentVariableArray{ AppEnvironmentVariableArgs{...} }
+//	AppEnvironmentVariableArray{ AppEnvironmentVariableArgs{...} }
 type AppEnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ type AppSource struct {
 // AppSourceInput is an input type that accepts AppSourceArgs and AppSourceOutput values.
 // You can construct a concrete instance of `AppSourceInput` via:
 //
-//          AppSourceArgs{...}
+//	AppSourceArgs{...}
 type AppSourceInput interface {
 	pulumi.Input
 
@@ -274,11 +274,11 @@ func (i AppSourceArgs) ToAppSourcePtrOutputWithContext(ctx context.Context) AppS
 // AppSourcePtrInput is an input type that accepts AppSourceArgs, AppSourcePtr and AppSourcePtrOutput values.
 // You can construct a concrete instance of `AppSourcePtrInput` via:
 //
-//          AppSourceArgs{...}
+//	        AppSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppSourcePtrInput interface {
 	pulumi.Input
 
@@ -439,7 +439,7 @@ type AppSslConfiguration struct {
 // AppSslConfigurationInput is an input type that accepts AppSslConfigurationArgs and AppSslConfigurationOutput values.
 // You can construct a concrete instance of `AppSslConfigurationInput` via:
 //
-//          AppSslConfigurationArgs{...}
+//	AppSslConfigurationArgs{...}
 type AppSslConfigurationInput interface {
 	pulumi.Input
 
@@ -476,11 +476,11 @@ func (i AppSslConfigurationArgs) ToAppSslConfigurationPtrOutputWithContext(ctx c
 // AppSslConfigurationPtrInput is an input type that accepts AppSslConfigurationArgs, AppSslConfigurationPtr and AppSslConfigurationPtrOutput values.
 // You can construct a concrete instance of `AppSslConfigurationPtrInput` via:
 //
-//          AppSslConfigurationArgs{...}
+//	        AppSslConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppSslConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -603,7 +603,7 @@ type InstanceBlockDeviceMapping struct {
 // InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `InstanceBlockDeviceMappingInput` via:
 //
-//          InstanceBlockDeviceMappingArgs{...}
+//	InstanceBlockDeviceMappingArgs{...}
 type InstanceBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutputWithCo
 // InstanceBlockDeviceMappingArrayInput is an input type that accepts InstanceBlockDeviceMappingArray and InstanceBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `InstanceBlockDeviceMappingArrayInput` via:
 //
-//          InstanceBlockDeviceMappingArray{ InstanceBlockDeviceMappingArgs{...} }
+//	InstanceBlockDeviceMappingArray{ InstanceBlockDeviceMappingArgs{...} }
 type InstanceBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -716,7 +716,7 @@ type InstanceEbsBlockDevice struct {
 // InstanceEbsBlockDeviceInput is an input type that accepts InstanceEbsBlockDeviceArgs and InstanceEbsBlockDeviceOutput values.
 // You can construct a concrete instance of `InstanceEbsBlockDeviceInput` via:
 //
-//          InstanceEbsBlockDeviceArgs{...}
+//	InstanceEbsBlockDeviceArgs{...}
 type InstanceEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -755,11 +755,11 @@ func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDevicePtrOutputWithContext
 // InstanceEbsBlockDevicePtrInput is an input type that accepts InstanceEbsBlockDeviceArgs, InstanceEbsBlockDevicePtr and InstanceEbsBlockDevicePtrOutput values.
 // You can construct a concrete instance of `InstanceEbsBlockDevicePtrInput` via:
 //
-//          InstanceEbsBlockDeviceArgs{...}
+//	        InstanceEbsBlockDeviceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceEbsBlockDevicePtrInput interface {
 	pulumi.Input
 
@@ -911,7 +911,7 @@ type InstanceTimeBasedAutoScaling struct {
 // InstanceTimeBasedAutoScalingInput is an input type that accepts InstanceTimeBasedAutoScalingArgs and InstanceTimeBasedAutoScalingOutput values.
 // You can construct a concrete instance of `InstanceTimeBasedAutoScalingInput` via:
 //
-//          InstanceTimeBasedAutoScalingArgs{...}
+//	InstanceTimeBasedAutoScalingArgs{...}
 type InstanceTimeBasedAutoScalingInput interface {
 	pulumi.Input
 
@@ -952,11 +952,11 @@ func (i InstanceTimeBasedAutoScalingArgs) ToInstanceTimeBasedAutoScalingPtrOutpu
 // InstanceTimeBasedAutoScalingPtrInput is an input type that accepts InstanceTimeBasedAutoScalingArgs, InstanceTimeBasedAutoScalingPtr and InstanceTimeBasedAutoScalingPtrOutput values.
 // You can construct a concrete instance of `InstanceTimeBasedAutoScalingPtrInput` via:
 //
-//          InstanceTimeBasedAutoScalingArgs{...}
+//	        InstanceTimeBasedAutoScalingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceTimeBasedAutoScalingPtrInput interface {
 	pulumi.Input
 
@@ -1133,7 +1133,7 @@ type LayerAutoScalingThresholds struct {
 // LayerAutoScalingThresholdsInput is an input type that accepts LayerAutoScalingThresholdsArgs and LayerAutoScalingThresholdsOutput values.
 // You can construct a concrete instance of `LayerAutoScalingThresholdsInput` via:
 //
-//          LayerAutoScalingThresholdsArgs{...}
+//	LayerAutoScalingThresholdsArgs{...}
 type LayerAutoScalingThresholdsInput interface {
 	pulumi.Input
 
@@ -1173,11 +1173,11 @@ func (i LayerAutoScalingThresholdsArgs) ToLayerAutoScalingThresholdsPtrOutputWit
 // LayerAutoScalingThresholdsPtrInput is an input type that accepts LayerAutoScalingThresholdsArgs, LayerAutoScalingThresholdsPtr and LayerAutoScalingThresholdsPtrOutput values.
 // You can construct a concrete instance of `LayerAutoScalingThresholdsPtrInput` via:
 //
-//          LayerAutoScalingThresholdsArgs{...}
+//	        LayerAutoScalingThresholdsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LayerAutoScalingThresholdsPtrInput interface {
 	pulumi.Input
 
@@ -1336,7 +1336,7 @@ type LayerLifecycleEventConfiguration struct {
 // LayerLifecycleEventConfigurationInput is an input type that accepts LayerLifecycleEventConfigurationArgs and LayerLifecycleEventConfigurationOutput values.
 // You can construct a concrete instance of `LayerLifecycleEventConfigurationInput` via:
 //
-//          LayerLifecycleEventConfigurationArgs{...}
+//	LayerLifecycleEventConfigurationArgs{...}
 type LayerLifecycleEventConfigurationInput interface {
 	pulumi.Input
 
@@ -1371,11 +1371,11 @@ func (i LayerLifecycleEventConfigurationArgs) ToLayerLifecycleEventConfiguration
 // LayerLifecycleEventConfigurationPtrInput is an input type that accepts LayerLifecycleEventConfigurationArgs, LayerLifecycleEventConfigurationPtr and LayerLifecycleEventConfigurationPtrOutput values.
 // You can construct a concrete instance of `LayerLifecycleEventConfigurationPtrInput` via:
 //
-//          LayerLifecycleEventConfigurationArgs{...}
+//	        LayerLifecycleEventConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LayerLifecycleEventConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1473,7 +1473,7 @@ type LayerLoadBasedAutoScaling struct {
 // LayerLoadBasedAutoScalingInput is an input type that accepts LayerLoadBasedAutoScalingArgs and LayerLoadBasedAutoScalingOutput values.
 // You can construct a concrete instance of `LayerLoadBasedAutoScalingInput` via:
 //
-//          LayerLoadBasedAutoScalingArgs{...}
+//	LayerLoadBasedAutoScalingArgs{...}
 type LayerLoadBasedAutoScalingInput interface {
 	pulumi.Input
 
@@ -1510,11 +1510,11 @@ func (i LayerLoadBasedAutoScalingArgs) ToLayerLoadBasedAutoScalingPtrOutputWithC
 // LayerLoadBasedAutoScalingPtrInput is an input type that accepts LayerLoadBasedAutoScalingArgs, LayerLoadBasedAutoScalingPtr and LayerLoadBasedAutoScalingPtrOutput values.
 // You can construct a concrete instance of `LayerLoadBasedAutoScalingPtrInput` via:
 //
-//          LayerLoadBasedAutoScalingArgs{...}
+//	        LayerLoadBasedAutoScalingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LayerLoadBasedAutoScalingPtrInput interface {
 	pulumi.Input
 
@@ -1638,7 +1638,7 @@ type LayerRecipes struct {
 // LayerRecipesInput is an input type that accepts LayerRecipesArgs and LayerRecipesOutput values.
 // You can construct a concrete instance of `LayerRecipesInput` via:
 //
-//          LayerRecipesArgs{...}
+//	LayerRecipesArgs{...}
 type LayerRecipesInput interface {
 	pulumi.Input
 
@@ -1677,11 +1677,11 @@ func (i LayerRecipesArgs) ToLayerRecipesPtrOutputWithContext(ctx context.Context
 // LayerRecipesPtrInput is an input type that accepts LayerRecipesArgs, LayerRecipesPtr and LayerRecipesPtrOutput values.
 // You can construct a concrete instance of `LayerRecipesPtrInput` via:
 //
-//          LayerRecipesArgs{...}
+//	        LayerRecipesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LayerRecipesPtrInput interface {
 	pulumi.Input
 
@@ -1828,7 +1828,7 @@ type LayerShutdownEventConfiguration struct {
 // LayerShutdownEventConfigurationInput is an input type that accepts LayerShutdownEventConfigurationArgs and LayerShutdownEventConfigurationOutput values.
 // You can construct a concrete instance of `LayerShutdownEventConfigurationInput` via:
 //
-//          LayerShutdownEventConfigurationArgs{...}
+//	LayerShutdownEventConfigurationArgs{...}
 type LayerShutdownEventConfigurationInput interface {
 	pulumi.Input
 
@@ -1864,11 +1864,11 @@ func (i LayerShutdownEventConfigurationArgs) ToLayerShutdownEventConfigurationPt
 // LayerShutdownEventConfigurationPtrInput is an input type that accepts LayerShutdownEventConfigurationArgs, LayerShutdownEventConfigurationPtr and LayerShutdownEventConfigurationPtrOutput values.
 // You can construct a concrete instance of `LayerShutdownEventConfigurationPtrInput` via:
 //
-//          LayerShutdownEventConfigurationArgs{...}
+//	        LayerShutdownEventConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LayerShutdownEventConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1976,7 +1976,7 @@ type LayerTag struct {
 // LayerTagInput is an input type that accepts LayerTagArgs and LayerTagOutput values.
 // You can construct a concrete instance of `LayerTagInput` via:
 //
-//          LayerTagArgs{...}
+//	LayerTagArgs{...}
 type LayerTagInput interface {
 	pulumi.Input
 
@@ -2004,7 +2004,7 @@ func (i LayerTagArgs) ToLayerTagOutputWithContext(ctx context.Context) LayerTagO
 // LayerTagArrayInput is an input type that accepts LayerTagArray and LayerTagArrayOutput values.
 // You can construct a concrete instance of `LayerTagArrayInput` via:
 //
-//          LayerTagArray{ LayerTagArgs{...} }
+//	LayerTagArray{ LayerTagArgs{...} }
 type LayerTagArrayInput interface {
 	pulumi.Input
 
@@ -2081,7 +2081,7 @@ type LayerVolumeConfiguration struct {
 // LayerVolumeConfigurationInput is an input type that accepts LayerVolumeConfigurationArgs and LayerVolumeConfigurationOutput values.
 // You can construct a concrete instance of `LayerVolumeConfigurationInput` via:
 //
-//          LayerVolumeConfigurationArgs{...}
+//	LayerVolumeConfigurationArgs{...}
 type LayerVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -2114,7 +2114,7 @@ func (i LayerVolumeConfigurationArgs) ToLayerVolumeConfigurationOutputWithContex
 // LayerVolumeConfigurationArrayInput is an input type that accepts LayerVolumeConfigurationArray and LayerVolumeConfigurationArrayOutput values.
 // You can construct a concrete instance of `LayerVolumeConfigurationArrayInput` via:
 //
-//          LayerVolumeConfigurationArray{ LayerVolumeConfigurationArgs{...} }
+//	LayerVolumeConfigurationArray{ LayerVolumeConfigurationArgs{...} }
 type LayerVolumeConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2206,7 +2206,7 @@ type StackChefConfiguration struct {
 // StackChefConfigurationInput is an input type that accepts StackChefConfigurationArgs and StackChefConfigurationOutput values.
 // You can construct a concrete instance of `StackChefConfigurationInput` via:
 //
-//          StackChefConfigurationArgs{...}
+//	StackChefConfigurationArgs{...}
 type StackChefConfigurationInput interface {
 	pulumi.Input
 
@@ -2242,11 +2242,11 @@ func (i StackChefConfigurationArgs) ToStackChefConfigurationPtrOutputWithContext
 // StackChefConfigurationPtrInput is an input type that accepts StackChefConfigurationArgs, StackChefConfigurationPtr and StackChefConfigurationPtrOutput values.
 // You can construct a concrete instance of `StackChefConfigurationPtrInput` via:
 //
-//          StackChefConfigurationArgs{...}
+//	        StackChefConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackChefConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2354,7 +2354,7 @@ type StackConfigurationManager struct {
 // StackConfigurationManagerInput is an input type that accepts StackConfigurationManagerArgs and StackConfigurationManagerOutput values.
 // You can construct a concrete instance of `StackConfigurationManagerInput` via:
 //
-//          StackConfigurationManagerArgs{...}
+//	StackConfigurationManagerArgs{...}
 type StackConfigurationManagerInput interface {
 	pulumi.Input
 
@@ -2390,11 +2390,11 @@ func (i StackConfigurationManagerArgs) ToStackConfigurationManagerPtrOutputWithC
 // StackConfigurationManagerPtrInput is an input type that accepts StackConfigurationManagerArgs, StackConfigurationManagerPtr and StackConfigurationManagerPtrOutput values.
 // You can construct a concrete instance of `StackConfigurationManagerPtrInput` via:
 //
-//          StackConfigurationManagerArgs{...}
+//	        StackConfigurationManagerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackConfigurationManagerPtrInput interface {
 	pulumi.Input
 
@@ -2502,7 +2502,7 @@ type StackElasticIp struct {
 // StackElasticIpInput is an input type that accepts StackElasticIpArgs and StackElasticIpOutput values.
 // You can construct a concrete instance of `StackElasticIpInput` via:
 //
-//          StackElasticIpArgs{...}
+//	StackElasticIpArgs{...}
 type StackElasticIpInput interface {
 	pulumi.Input
 
@@ -2530,7 +2530,7 @@ func (i StackElasticIpArgs) ToStackElasticIpOutputWithContext(ctx context.Contex
 // StackElasticIpArrayInput is an input type that accepts StackElasticIpArray and StackElasticIpArrayOutput values.
 // You can construct a concrete instance of `StackElasticIpArrayInput` via:
 //
-//          StackElasticIpArray{ StackElasticIpArgs{...} }
+//	StackElasticIpArray{ StackElasticIpArgs{...} }
 type StackElasticIpArrayInput interface {
 	pulumi.Input
 
@@ -2603,7 +2603,7 @@ type StackRdsDbInstance struct {
 // StackRdsDbInstanceInput is an input type that accepts StackRdsDbInstanceArgs and StackRdsDbInstanceOutput values.
 // You can construct a concrete instance of `StackRdsDbInstanceInput` via:
 //
-//          StackRdsDbInstanceArgs{...}
+//	StackRdsDbInstanceArgs{...}
 type StackRdsDbInstanceInput interface {
 	pulumi.Input
 
@@ -2632,7 +2632,7 @@ func (i StackRdsDbInstanceArgs) ToStackRdsDbInstanceOutputWithContext(ctx contex
 // StackRdsDbInstanceArrayInput is an input type that accepts StackRdsDbInstanceArray and StackRdsDbInstanceArrayOutput values.
 // You can construct a concrete instance of `StackRdsDbInstanceArrayInput` via:
 //
-//          StackRdsDbInstanceArray{ StackRdsDbInstanceArgs{...} }
+//	StackRdsDbInstanceArray{ StackRdsDbInstanceArgs{...} }
 type StackRdsDbInstanceArrayInput interface {
 	pulumi.Input
 
@@ -2712,7 +2712,7 @@ type StackSource struct {
 // StackSourceInput is an input type that accepts StackSourceArgs and StackSourceOutput values.
 // You can construct a concrete instance of `StackSourceInput` via:
 //
-//          StackSourceArgs{...}
+//	StackSourceArgs{...}
 type StackSourceInput interface {
 	pulumi.Input
 
@@ -2752,11 +2752,11 @@ func (i StackSourceArgs) ToStackSourcePtrOutputWithContext(ctx context.Context) 
 // StackSourcePtrInput is an input type that accepts StackSourceArgs, StackSourcePtr and StackSourcePtrOutput values.
 // You can construct a concrete instance of `StackSourcePtrInput` via:
 //
-//          StackSourceArgs{...}
+//	        StackSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSourcePtrInput interface {
 	pulumi.Input
 
@@ -2916,7 +2916,7 @@ type StackTag struct {
 // StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
 // You can construct a concrete instance of `StackTagInput` via:
 //
-//          StackTagArgs{...}
+//	StackTagArgs{...}
 type StackTagInput interface {
 	pulumi.Input
 
@@ -2944,7 +2944,7 @@ func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagO
 // StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
 // You can construct a concrete instance of `StackTagArrayInput` via:
 //
-//          StackTagArray{ StackTagArgs{...} }
+//	StackTagArray{ StackTagArgs{...} }
 type StackTagArrayInput interface {
 	pulumi.Input
 

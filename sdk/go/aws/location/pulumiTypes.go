@@ -17,7 +17,7 @@ type MapConfiguration struct {
 // MapConfigurationInput is an input type that accepts MapConfigurationArgs and MapConfigurationOutput values.
 // You can construct a concrete instance of `MapConfigurationInput` via:
 //
-//          MapConfigurationArgs{...}
+//	MapConfigurationArgs{...}
 type MapConfigurationInput interface {
 	pulumi.Input
 
@@ -66,7 +66,7 @@ type PlaceIndexDataSourceConfiguration struct {
 // PlaceIndexDataSourceConfigurationInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs and PlaceIndexDataSourceConfigurationOutput values.
 // You can construct a concrete instance of `PlaceIndexDataSourceConfigurationInput` via:
 //
-//          PlaceIndexDataSourceConfigurationArgs{...}
+//	PlaceIndexDataSourceConfigurationArgs{...}
 type PlaceIndexDataSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -101,11 +101,11 @@ func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurati
 // PlaceIndexDataSourceConfigurationPtrInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs, PlaceIndexDataSourceConfigurationPtr and PlaceIndexDataSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaceIndexDataSourceConfigurationPtrInput` via:
 //
-//          PlaceIndexDataSourceConfigurationArgs{...}
+//	        PlaceIndexDataSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaceIndexDataSourceConfigurationPtrInput interface {
 	pulumi.Input
 

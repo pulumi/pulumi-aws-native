@@ -962,7 +962,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 	}
 
-	fmt.Println("failed to generate property types for %+v", propSchema)
+	fmt.Printf("failed to generate property types for %+v", propSchema)
 	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 }
 

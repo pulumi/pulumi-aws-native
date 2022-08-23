@@ -213,7 +213,7 @@ type NamespaceTag struct {
 // NamespaceTagInput is an input type that accepts NamespaceTagArgs and NamespaceTagOutput values.
 // You can construct a concrete instance of `NamespaceTagInput` via:
 //
-//          NamespaceTagArgs{...}
+//	NamespaceTagArgs{...}
 type NamespaceTagInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ func (i NamespaceTagArgs) ToNamespaceTagOutputWithContext(ctx context.Context) N
 // NamespaceTagArrayInput is an input type that accepts NamespaceTagArray and NamespaceTagArrayOutput values.
 // You can construct a concrete instance of `NamespaceTagArrayInput` via:
 //
-//          NamespaceTagArray{ NamespaceTagArgs{...} }
+//	NamespaceTagArray{ NamespaceTagArgs{...} }
 type NamespaceTagArrayInput interface {
 	pulumi.Input
 

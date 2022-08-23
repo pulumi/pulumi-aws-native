@@ -23,7 +23,7 @@ type DevicePoolRule struct {
 // DevicePoolRuleInput is an input type that accepts DevicePoolRuleArgs and DevicePoolRuleOutput values.
 // You can construct a concrete instance of `DevicePoolRuleInput` via:
 //
-//          DevicePoolRuleArgs{...}
+//	DevicePoolRuleArgs{...}
 type DevicePoolRuleInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i DevicePoolRuleArgs) ToDevicePoolRuleOutputWithContext(ctx context.Contex
 // DevicePoolRuleArrayInput is an input type that accepts DevicePoolRuleArray and DevicePoolRuleArrayOutput values.
 // You can construct a concrete instance of `DevicePoolRuleArrayInput` via:
 //
-//          DevicePoolRuleArray{ DevicePoolRuleArgs{...} }
+//	DevicePoolRuleArray{ DevicePoolRuleArgs{...} }
 type DevicePoolRuleArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ type DevicePoolTag struct {
 // DevicePoolTagInput is an input type that accepts DevicePoolTagArgs and DevicePoolTagOutput values.
 // You can construct a concrete instance of `DevicePoolTagInput` via:
 //
-//          DevicePoolTagArgs{...}
+//	DevicePoolTagArgs{...}
 type DevicePoolTagInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ func (i DevicePoolTagArgs) ToDevicePoolTagOutputWithContext(ctx context.Context)
 // DevicePoolTagArrayInput is an input type that accepts DevicePoolTagArray and DevicePoolTagArrayOutput values.
 // You can construct a concrete instance of `DevicePoolTagArrayInput` via:
 //
-//          DevicePoolTagArray{ DevicePoolTagArgs{...} }
+//	DevicePoolTagArray{ DevicePoolTagArgs{...} }
 type DevicePoolTagArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ type InstanceProfileTag struct {
 // InstanceProfileTagInput is an input type that accepts InstanceProfileTagArgs and InstanceProfileTagOutput values.
 // You can construct a concrete instance of `InstanceProfileTagInput` via:
 //
-//          InstanceProfileTagArgs{...}
+//	InstanceProfileTagArgs{...}
 type InstanceProfileTagInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ func (i InstanceProfileTagArgs) ToInstanceProfileTagOutputWithContext(ctx contex
 // InstanceProfileTagArrayInput is an input type that accepts InstanceProfileTagArray and InstanceProfileTagArrayOutput values.
 // You can construct a concrete instance of `InstanceProfileTagArrayInput` via:
 //
-//          InstanceProfileTagArray{ InstanceProfileTagArgs{...} }
+//	InstanceProfileTagArray{ InstanceProfileTagArgs{...} }
 type InstanceProfileTagArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +336,7 @@ type NetworkProfileTag struct {
 // NetworkProfileTagInput is an input type that accepts NetworkProfileTagArgs and NetworkProfileTagOutput values.
 // You can construct a concrete instance of `NetworkProfileTagInput` via:
 //
-//          NetworkProfileTagArgs{...}
+//	NetworkProfileTagArgs{...}
 type NetworkProfileTagInput interface {
 	pulumi.Input
 
@@ -364,7 +364,7 @@ func (i NetworkProfileTagArgs) ToNetworkProfileTagOutputWithContext(ctx context.
 // NetworkProfileTagArrayInput is an input type that accepts NetworkProfileTagArray and NetworkProfileTagArrayOutput values.
 // You can construct a concrete instance of `NetworkProfileTagArrayInput` via:
 //
-//          NetworkProfileTagArray{ NetworkProfileTagArgs{...} }
+//	NetworkProfileTagArray{ NetworkProfileTagArgs{...} }
 type NetworkProfileTagArrayInput interface {
 	pulumi.Input
 
@@ -436,7 +436,7 @@ type ProjectTag struct {
 // ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
 // You can construct a concrete instance of `ProjectTagInput` via:
 //
-//          ProjectTagArgs{...}
+//	ProjectTagArgs{...}
 type ProjectTagInput interface {
 	pulumi.Input
 
@@ -464,7 +464,7 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
-//          ProjectTagArray{ ProjectTagArgs{...} }
+//	ProjectTagArray{ ProjectTagArgs{...} }
 type ProjectTagArrayInput interface {
 	pulumi.Input
 
@@ -536,7 +536,7 @@ type TestGridProjectTag struct {
 // TestGridProjectTagInput is an input type that accepts TestGridProjectTagArgs and TestGridProjectTagOutput values.
 // You can construct a concrete instance of `TestGridProjectTagInput` via:
 //
-//          TestGridProjectTagArgs{...}
+//	TestGridProjectTagArgs{...}
 type TestGridProjectTagInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ func (i TestGridProjectTagArgs) ToTestGridProjectTagOutputWithContext(ctx contex
 // TestGridProjectTagArrayInput is an input type that accepts TestGridProjectTagArray and TestGridProjectTagArrayOutput values.
 // You can construct a concrete instance of `TestGridProjectTagArrayInput` via:
 //
-//          TestGridProjectTagArray{ TestGridProjectTagArgs{...} }
+//	TestGridProjectTagArray{ TestGridProjectTagArgs{...} }
 type TestGridProjectTagArrayInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ type TestGridProjectVpcConfig struct {
 // TestGridProjectVpcConfigInput is an input type that accepts TestGridProjectVpcConfigArgs and TestGridProjectVpcConfigOutput values.
 // You can construct a concrete instance of `TestGridProjectVpcConfigInput` via:
 //
-//          TestGridProjectVpcConfigArgs{...}
+//	TestGridProjectVpcConfigArgs{...}
 type TestGridProjectVpcConfigInput interface {
 	pulumi.Input
 
@@ -680,11 +680,11 @@ func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutputWithCon
 // TestGridProjectVpcConfigPtrInput is an input type that accepts TestGridProjectVpcConfigArgs, TestGridProjectVpcConfigPtr and TestGridProjectVpcConfigPtrOutput values.
 // You can construct a concrete instance of `TestGridProjectVpcConfigPtrInput` via:
 //
-//          TestGridProjectVpcConfigArgs{...}
+//	        TestGridProjectVpcConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TestGridProjectVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -810,7 +810,7 @@ type VPCEConfigurationTag struct {
 // VPCEConfigurationTagInput is an input type that accepts VPCEConfigurationTagArgs and VPCEConfigurationTagOutput values.
 // You can construct a concrete instance of `VPCEConfigurationTagInput` via:
 //
-//          VPCEConfigurationTagArgs{...}
+//	VPCEConfigurationTagArgs{...}
 type VPCEConfigurationTagInput interface {
 	pulumi.Input
 
@@ -838,7 +838,7 @@ func (i VPCEConfigurationTagArgs) ToVPCEConfigurationTagOutputWithContext(ctx co
 // VPCEConfigurationTagArrayInput is an input type that accepts VPCEConfigurationTagArray and VPCEConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `VPCEConfigurationTagArrayInput` via:
 //
-//          VPCEConfigurationTagArray{ VPCEConfigurationTagArgs{...} }
+//	VPCEConfigurationTagArray{ VPCEConfigurationTagArgs{...} }
 type VPCEConfigurationTagArrayInput interface {
 	pulumi.Input
 

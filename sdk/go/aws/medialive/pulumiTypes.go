@@ -25,7 +25,7 @@ type ChannelAacSettings struct {
 // ChannelAacSettingsInput is an input type that accepts ChannelAacSettingsArgs and ChannelAacSettingsOutput values.
 // You can construct a concrete instance of `ChannelAacSettingsInput` via:
 //
-//          ChannelAacSettingsArgs{...}
+//	ChannelAacSettingsArgs{...}
 type ChannelAacSettingsInput interface {
 	pulumi.Input
 
@@ -68,11 +68,11 @@ func (i ChannelAacSettingsArgs) ToChannelAacSettingsPtrOutputWithContext(ctx con
 // ChannelAacSettingsPtrInput is an input type that accepts ChannelAacSettingsArgs, ChannelAacSettingsPtr and ChannelAacSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAacSettingsPtrInput` via:
 //
-//          ChannelAacSettingsArgs{...}
+//	        ChannelAacSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAacSettingsPtrInput interface {
 	pulumi.Input
 
@@ -276,7 +276,7 @@ type ChannelAc3Settings struct {
 // ChannelAc3SettingsInput is an input type that accepts ChannelAc3SettingsArgs and ChannelAc3SettingsOutput values.
 // You can construct a concrete instance of `ChannelAc3SettingsInput` via:
 //
-//          ChannelAc3SettingsArgs{...}
+//	ChannelAc3SettingsArgs{...}
 type ChannelAc3SettingsInput interface {
 	pulumi.Input
 
@@ -317,11 +317,11 @@ func (i ChannelAc3SettingsArgs) ToChannelAc3SettingsPtrOutputWithContext(ctx con
 // ChannelAc3SettingsPtrInput is an input type that accepts ChannelAc3SettingsArgs, ChannelAc3SettingsPtr and ChannelAc3SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAc3SettingsPtrInput` via:
 //
-//          ChannelAc3SettingsArgs{...}
+//	        ChannelAc3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAc3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -493,7 +493,7 @@ type ChannelAncillarySourceSettings struct {
 // ChannelAncillarySourceSettingsInput is an input type that accepts ChannelAncillarySourceSettingsArgs and ChannelAncillarySourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelAncillarySourceSettingsInput` via:
 //
-//          ChannelAncillarySourceSettingsArgs{...}
+//	ChannelAncillarySourceSettingsArgs{...}
 type ChannelAncillarySourceSettingsInput interface {
 	pulumi.Input
 
@@ -528,11 +528,11 @@ func (i ChannelAncillarySourceSettingsArgs) ToChannelAncillarySourceSettingsPtrO
 // ChannelAncillarySourceSettingsPtrInput is an input type that accepts ChannelAncillarySourceSettingsArgs, ChannelAncillarySourceSettingsPtr and ChannelAncillarySourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAncillarySourceSettingsPtrInput` via:
 //
-//          ChannelAncillarySourceSettingsArgs{...}
+//	        ChannelAncillarySourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAncillarySourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -626,7 +626,7 @@ type ChannelArchiveCdnSettings struct {
 // ChannelArchiveCdnSettingsInput is an input type that accepts ChannelArchiveCdnSettingsArgs and ChannelArchiveCdnSettingsOutput values.
 // You can construct a concrete instance of `ChannelArchiveCdnSettingsInput` via:
 //
-//          ChannelArchiveCdnSettingsArgs{...}
+//	ChannelArchiveCdnSettingsArgs{...}
 type ChannelArchiveCdnSettingsInput interface {
 	pulumi.Input
 
@@ -661,11 +661,11 @@ func (i ChannelArchiveCdnSettingsArgs) ToChannelArchiveCdnSettingsPtrOutputWithC
 // ChannelArchiveCdnSettingsPtrInput is an input type that accepts ChannelArchiveCdnSettingsArgs, ChannelArchiveCdnSettingsPtr and ChannelArchiveCdnSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelArchiveCdnSettingsPtrInput` via:
 //
-//          ChannelArchiveCdnSettingsArgs{...}
+//	        ChannelArchiveCdnSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelArchiveCdnSettingsPtrInput interface {
 	pulumi.Input
 
@@ -760,7 +760,7 @@ type ChannelArchiveContainerSettings struct {
 // ChannelArchiveContainerSettingsInput is an input type that accepts ChannelArchiveContainerSettingsArgs and ChannelArchiveContainerSettingsOutput values.
 // You can construct a concrete instance of `ChannelArchiveContainerSettingsInput` via:
 //
-//          ChannelArchiveContainerSettingsArgs{...}
+//	ChannelArchiveContainerSettingsArgs{...}
 type ChannelArchiveContainerSettingsInput interface {
 	pulumi.Input
 
@@ -796,11 +796,11 @@ func (i ChannelArchiveContainerSettingsArgs) ToChannelArchiveContainerSettingsPt
 // ChannelArchiveContainerSettingsPtrInput is an input type that accepts ChannelArchiveContainerSettingsArgs, ChannelArchiveContainerSettingsPtr and ChannelArchiveContainerSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelArchiveContainerSettingsPtrInput` via:
 //
-//          ChannelArchiveContainerSettingsArgs{...}
+//	        ChannelArchiveContainerSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelArchiveContainerSettingsPtrInput interface {
 	pulumi.Input
 
@@ -909,7 +909,7 @@ type ChannelArchiveGroupSettings struct {
 // ChannelArchiveGroupSettingsInput is an input type that accepts ChannelArchiveGroupSettingsArgs and ChannelArchiveGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelArchiveGroupSettingsInput` via:
 //
-//          ChannelArchiveGroupSettingsArgs{...}
+//	ChannelArchiveGroupSettingsArgs{...}
 type ChannelArchiveGroupSettingsInput interface {
 	pulumi.Input
 
@@ -946,11 +946,11 @@ func (i ChannelArchiveGroupSettingsArgs) ToChannelArchiveGroupSettingsPtrOutputW
 // ChannelArchiveGroupSettingsPtrInput is an input type that accepts ChannelArchiveGroupSettingsArgs, ChannelArchiveGroupSettingsPtr and ChannelArchiveGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelArchiveGroupSettingsPtrInput` via:
 //
-//          ChannelArchiveGroupSettingsArgs{...}
+//	        ChannelArchiveGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelArchiveGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1072,7 +1072,7 @@ type ChannelArchiveOutputSettings struct {
 // ChannelArchiveOutputSettingsInput is an input type that accepts ChannelArchiveOutputSettingsArgs and ChannelArchiveOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelArchiveOutputSettingsInput` via:
 //
-//          ChannelArchiveOutputSettingsArgs{...}
+//	ChannelArchiveOutputSettingsArgs{...}
 type ChannelArchiveOutputSettingsInput interface {
 	pulumi.Input
 
@@ -1109,11 +1109,11 @@ func (i ChannelArchiveOutputSettingsArgs) ToChannelArchiveOutputSettingsPtrOutpu
 // ChannelArchiveOutputSettingsPtrInput is an input type that accepts ChannelArchiveOutputSettingsArgs, ChannelArchiveOutputSettingsPtr and ChannelArchiveOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelArchiveOutputSettingsPtrInput` via:
 //
-//          ChannelArchiveOutputSettingsArgs{...}
+//	        ChannelArchiveOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelArchiveOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1233,7 +1233,7 @@ type ChannelArchiveS3Settings struct {
 // ChannelArchiveS3SettingsInput is an input type that accepts ChannelArchiveS3SettingsArgs and ChannelArchiveS3SettingsOutput values.
 // You can construct a concrete instance of `ChannelArchiveS3SettingsInput` via:
 //
-//          ChannelArchiveS3SettingsArgs{...}
+//	ChannelArchiveS3SettingsArgs{...}
 type ChannelArchiveS3SettingsInput interface {
 	pulumi.Input
 
@@ -1268,11 +1268,11 @@ func (i ChannelArchiveS3SettingsArgs) ToChannelArchiveS3SettingsPtrOutputWithCon
 // ChannelArchiveS3SettingsPtrInput is an input type that accepts ChannelArchiveS3SettingsArgs, ChannelArchiveS3SettingsPtr and ChannelArchiveS3SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelArchiveS3SettingsPtrInput` via:
 //
-//          ChannelArchiveS3SettingsArgs{...}
+//	        ChannelArchiveS3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelArchiveS3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -1365,7 +1365,7 @@ type ChannelAribDestinationSettings struct {
 // ChannelAribDestinationSettingsInput is an input type that accepts ChannelAribDestinationSettingsArgs and ChannelAribDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelAribDestinationSettingsInput` via:
 //
-//          ChannelAribDestinationSettingsArgs{...}
+//	ChannelAribDestinationSettingsArgs{...}
 type ChannelAribDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -1399,11 +1399,11 @@ func (i ChannelAribDestinationSettingsArgs) ToChannelAribDestinationSettingsPtrO
 // ChannelAribDestinationSettingsPtrInput is an input type that accepts ChannelAribDestinationSettingsArgs, ChannelAribDestinationSettingsPtr and ChannelAribDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAribDestinationSettingsPtrInput` via:
 //
-//          ChannelAribDestinationSettingsArgs{...}
+//	        ChannelAribDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAribDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1483,7 +1483,7 @@ type ChannelAribSourceSettings struct {
 // ChannelAribSourceSettingsInput is an input type that accepts ChannelAribSourceSettingsArgs and ChannelAribSourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelAribSourceSettingsInput` via:
 //
-//          ChannelAribSourceSettingsArgs{...}
+//	ChannelAribSourceSettingsArgs{...}
 type ChannelAribSourceSettingsInput interface {
 	pulumi.Input
 
@@ -1517,11 +1517,11 @@ func (i ChannelAribSourceSettingsArgs) ToChannelAribSourceSettingsPtrOutputWithC
 // ChannelAribSourceSettingsPtrInput is an input type that accepts ChannelAribSourceSettingsArgs, ChannelAribSourceSettingsPtr and ChannelAribSourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAribSourceSettingsPtrInput` via:
 //
-//          ChannelAribSourceSettingsArgs{...}
+//	        ChannelAribSourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAribSourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1603,7 +1603,7 @@ type ChannelAudioChannelMapping struct {
 // ChannelAudioChannelMappingInput is an input type that accepts ChannelAudioChannelMappingArgs and ChannelAudioChannelMappingOutput values.
 // You can construct a concrete instance of `ChannelAudioChannelMappingInput` via:
 //
-//          ChannelAudioChannelMappingArgs{...}
+//	ChannelAudioChannelMappingArgs{...}
 type ChannelAudioChannelMappingInput interface {
 	pulumi.Input
 
@@ -1631,7 +1631,7 @@ func (i ChannelAudioChannelMappingArgs) ToChannelAudioChannelMappingOutputWithCo
 // ChannelAudioChannelMappingArrayInput is an input type that accepts ChannelAudioChannelMappingArray and ChannelAudioChannelMappingArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioChannelMappingArrayInput` via:
 //
-//          ChannelAudioChannelMappingArray{ ChannelAudioChannelMappingArgs{...} }
+//	ChannelAudioChannelMappingArray{ ChannelAudioChannelMappingArgs{...} }
 type ChannelAudioChannelMappingArrayInput interface {
 	pulumi.Input
 
@@ -1707,7 +1707,7 @@ type ChannelAudioCodecSettings struct {
 // ChannelAudioCodecSettingsInput is an input type that accepts ChannelAudioCodecSettingsArgs and ChannelAudioCodecSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioCodecSettingsInput` via:
 //
-//          ChannelAudioCodecSettingsArgs{...}
+//	ChannelAudioCodecSettingsArgs{...}
 type ChannelAudioCodecSettingsInput interface {
 	pulumi.Input
 
@@ -1747,11 +1747,11 @@ func (i ChannelAudioCodecSettingsArgs) ToChannelAudioCodecSettingsPtrOutputWithC
 // ChannelAudioCodecSettingsPtrInput is an input type that accepts ChannelAudioCodecSettingsArgs, ChannelAudioCodecSettingsPtr and ChannelAudioCodecSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioCodecSettingsPtrInput` via:
 //
-//          ChannelAudioCodecSettingsArgs{...}
+//	        ChannelAudioCodecSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioCodecSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1920,7 +1920,7 @@ type ChannelAudioDescription struct {
 // ChannelAudioDescriptionInput is an input type that accepts ChannelAudioDescriptionArgs and ChannelAudioDescriptionOutput values.
 // You can construct a concrete instance of `ChannelAudioDescriptionInput` via:
 //
-//          ChannelAudioDescriptionArgs{...}
+//	ChannelAudioDescriptionArgs{...}
 type ChannelAudioDescriptionInput interface {
 	pulumi.Input
 
@@ -1957,7 +1957,7 @@ func (i ChannelAudioDescriptionArgs) ToChannelAudioDescriptionOutputWithContext(
 // ChannelAudioDescriptionArrayInput is an input type that accepts ChannelAudioDescriptionArray and ChannelAudioDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioDescriptionArrayInput` via:
 //
-//          ChannelAudioDescriptionArray{ ChannelAudioDescriptionArgs{...} }
+//	ChannelAudioDescriptionArray{ ChannelAudioDescriptionArgs{...} }
 type ChannelAudioDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -2067,7 +2067,7 @@ type ChannelAudioHlsRenditionSelection struct {
 // ChannelAudioHlsRenditionSelectionInput is an input type that accepts ChannelAudioHlsRenditionSelectionArgs and ChannelAudioHlsRenditionSelectionOutput values.
 // You can construct a concrete instance of `ChannelAudioHlsRenditionSelectionInput` via:
 //
-//          ChannelAudioHlsRenditionSelectionArgs{...}
+//	ChannelAudioHlsRenditionSelectionArgs{...}
 type ChannelAudioHlsRenditionSelectionInput interface {
 	pulumi.Input
 
@@ -2103,11 +2103,11 @@ func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelecti
 // ChannelAudioHlsRenditionSelectionPtrInput is an input type that accepts ChannelAudioHlsRenditionSelectionArgs, ChannelAudioHlsRenditionSelectionPtr and ChannelAudioHlsRenditionSelectionPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioHlsRenditionSelectionPtrInput` via:
 //
-//          ChannelAudioHlsRenditionSelectionArgs{...}
+//	        ChannelAudioHlsRenditionSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioHlsRenditionSelectionPtrInput interface {
 	pulumi.Input
 
@@ -2215,7 +2215,7 @@ type ChannelAudioLanguageSelection struct {
 // ChannelAudioLanguageSelectionInput is an input type that accepts ChannelAudioLanguageSelectionArgs and ChannelAudioLanguageSelectionOutput values.
 // You can construct a concrete instance of `ChannelAudioLanguageSelectionInput` via:
 //
-//          ChannelAudioLanguageSelectionArgs{...}
+//	ChannelAudioLanguageSelectionArgs{...}
 type ChannelAudioLanguageSelectionInput interface {
 	pulumi.Input
 
@@ -2251,11 +2251,11 @@ func (i ChannelAudioLanguageSelectionArgs) ToChannelAudioLanguageSelectionPtrOut
 // ChannelAudioLanguageSelectionPtrInput is an input type that accepts ChannelAudioLanguageSelectionArgs, ChannelAudioLanguageSelectionPtr and ChannelAudioLanguageSelectionPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioLanguageSelectionPtrInput` via:
 //
-//          ChannelAudioLanguageSelectionArgs{...}
+//	        ChannelAudioLanguageSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioLanguageSelectionPtrInput interface {
 	pulumi.Input
 
@@ -2364,7 +2364,7 @@ type ChannelAudioNormalizationSettings struct {
 // ChannelAudioNormalizationSettingsInput is an input type that accepts ChannelAudioNormalizationSettingsArgs and ChannelAudioNormalizationSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioNormalizationSettingsInput` via:
 //
-//          ChannelAudioNormalizationSettingsArgs{...}
+//	ChannelAudioNormalizationSettingsArgs{...}
 type ChannelAudioNormalizationSettingsInput interface {
 	pulumi.Input
 
@@ -2401,11 +2401,11 @@ func (i ChannelAudioNormalizationSettingsArgs) ToChannelAudioNormalizationSettin
 // ChannelAudioNormalizationSettingsPtrInput is an input type that accepts ChannelAudioNormalizationSettingsArgs, ChannelAudioNormalizationSettingsPtr and ChannelAudioNormalizationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioNormalizationSettingsPtrInput` via:
 //
-//          ChannelAudioNormalizationSettingsArgs{...}
+//	        ChannelAudioNormalizationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioNormalizationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2528,7 +2528,7 @@ type ChannelAudioOnlyHlsSettings struct {
 // ChannelAudioOnlyHlsSettingsInput is an input type that accepts ChannelAudioOnlyHlsSettingsArgs and ChannelAudioOnlyHlsSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioOnlyHlsSettingsInput` via:
 //
-//          ChannelAudioOnlyHlsSettingsArgs{...}
+//	ChannelAudioOnlyHlsSettingsArgs{...}
 type ChannelAudioOnlyHlsSettingsInput interface {
 	pulumi.Input
 
@@ -2566,11 +2566,11 @@ func (i ChannelAudioOnlyHlsSettingsArgs) ToChannelAudioOnlyHlsSettingsPtrOutputW
 // ChannelAudioOnlyHlsSettingsPtrInput is an input type that accepts ChannelAudioOnlyHlsSettingsArgs, ChannelAudioOnlyHlsSettingsPtr and ChannelAudioOnlyHlsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioOnlyHlsSettingsPtrInput` via:
 //
-//          ChannelAudioOnlyHlsSettingsArgs{...}
+//	        ChannelAudioOnlyHlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioOnlyHlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2703,7 +2703,7 @@ type ChannelAudioPidSelection struct {
 // ChannelAudioPidSelectionInput is an input type that accepts ChannelAudioPidSelectionArgs and ChannelAudioPidSelectionOutput values.
 // You can construct a concrete instance of `ChannelAudioPidSelectionInput` via:
 //
-//          ChannelAudioPidSelectionArgs{...}
+//	ChannelAudioPidSelectionArgs{...}
 type ChannelAudioPidSelectionInput interface {
 	pulumi.Input
 
@@ -2738,11 +2738,11 @@ func (i ChannelAudioPidSelectionArgs) ToChannelAudioPidSelectionPtrOutputWithCon
 // ChannelAudioPidSelectionPtrInput is an input type that accepts ChannelAudioPidSelectionArgs, ChannelAudioPidSelectionPtr and ChannelAudioPidSelectionPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioPidSelectionPtrInput` via:
 //
-//          ChannelAudioPidSelectionArgs{...}
+//	        ChannelAudioPidSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioPidSelectionPtrInput interface {
 	pulumi.Input
 
@@ -2837,7 +2837,7 @@ type ChannelAudioSelector struct {
 // ChannelAudioSelectorInput is an input type that accepts ChannelAudioSelectorArgs and ChannelAudioSelectorOutput values.
 // You can construct a concrete instance of `ChannelAudioSelectorInput` via:
 //
-//          ChannelAudioSelectorArgs{...}
+//	ChannelAudioSelectorArgs{...}
 type ChannelAudioSelectorInput interface {
 	pulumi.Input
 
@@ -2865,7 +2865,7 @@ func (i ChannelAudioSelectorArgs) ToChannelAudioSelectorOutputWithContext(ctx co
 // ChannelAudioSelectorArrayInput is an input type that accepts ChannelAudioSelectorArray and ChannelAudioSelectorArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioSelectorArrayInput` via:
 //
-//          ChannelAudioSelectorArray{ ChannelAudioSelectorArgs{...} }
+//	ChannelAudioSelectorArray{ ChannelAudioSelectorArgs{...} }
 type ChannelAudioSelectorArrayInput interface {
 	pulumi.Input
 
@@ -2939,7 +2939,7 @@ type ChannelAudioSelectorSettings struct {
 // ChannelAudioSelectorSettingsInput is an input type that accepts ChannelAudioSelectorSettingsArgs and ChannelAudioSelectorSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioSelectorSettingsInput` via:
 //
-//          ChannelAudioSelectorSettingsArgs{...}
+//	ChannelAudioSelectorSettingsArgs{...}
 type ChannelAudioSelectorSettingsInput interface {
 	pulumi.Input
 
@@ -2977,11 +2977,11 @@ func (i ChannelAudioSelectorSettingsArgs) ToChannelAudioSelectorSettingsPtrOutpu
 // ChannelAudioSelectorSettingsPtrInput is an input type that accepts ChannelAudioSelectorSettingsArgs, ChannelAudioSelectorSettingsPtr and ChannelAudioSelectorSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioSelectorSettingsPtrInput` via:
 //
-//          ChannelAudioSelectorSettingsArgs{...}
+//	        ChannelAudioSelectorSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioSelectorSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3117,7 +3117,7 @@ type ChannelAudioSilenceFailoverSettings struct {
 // ChannelAudioSilenceFailoverSettingsInput is an input type that accepts ChannelAudioSilenceFailoverSettingsArgs and ChannelAudioSilenceFailoverSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioSilenceFailoverSettingsInput` via:
 //
-//          ChannelAudioSilenceFailoverSettingsArgs{...}
+//	ChannelAudioSilenceFailoverSettingsArgs{...}
 type ChannelAudioSilenceFailoverSettingsInput interface {
 	pulumi.Input
 
@@ -3153,11 +3153,11 @@ func (i ChannelAudioSilenceFailoverSettingsArgs) ToChannelAudioSilenceFailoverSe
 // ChannelAudioSilenceFailoverSettingsPtrInput is an input type that accepts ChannelAudioSilenceFailoverSettingsArgs, ChannelAudioSilenceFailoverSettingsPtr and ChannelAudioSilenceFailoverSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioSilenceFailoverSettingsPtrInput` via:
 //
-//          ChannelAudioSilenceFailoverSettingsArgs{...}
+//	        ChannelAudioSilenceFailoverSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioSilenceFailoverSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3264,7 +3264,7 @@ type ChannelAudioTrack struct {
 // ChannelAudioTrackInput is an input type that accepts ChannelAudioTrackArgs and ChannelAudioTrackOutput values.
 // You can construct a concrete instance of `ChannelAudioTrackInput` via:
 //
-//          ChannelAudioTrackArgs{...}
+//	ChannelAudioTrackArgs{...}
 type ChannelAudioTrackInput interface {
 	pulumi.Input
 
@@ -3291,7 +3291,7 @@ func (i ChannelAudioTrackArgs) ToChannelAudioTrackOutputWithContext(ctx context.
 // ChannelAudioTrackArrayInput is an input type that accepts ChannelAudioTrackArray and ChannelAudioTrackArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioTrackArrayInput` via:
 //
-//          ChannelAudioTrackArray{ ChannelAudioTrackArgs{...} }
+//	ChannelAudioTrackArray{ ChannelAudioTrackArgs{...} }
 type ChannelAudioTrackArrayInput interface {
 	pulumi.Input
 
@@ -3358,7 +3358,7 @@ type ChannelAudioTrackSelection struct {
 // ChannelAudioTrackSelectionInput is an input type that accepts ChannelAudioTrackSelectionArgs and ChannelAudioTrackSelectionOutput values.
 // You can construct a concrete instance of `ChannelAudioTrackSelectionInput` via:
 //
-//          ChannelAudioTrackSelectionArgs{...}
+//	ChannelAudioTrackSelectionArgs{...}
 type ChannelAudioTrackSelectionInput interface {
 	pulumi.Input
 
@@ -3393,11 +3393,11 @@ func (i ChannelAudioTrackSelectionArgs) ToChannelAudioTrackSelectionPtrOutputWit
 // ChannelAudioTrackSelectionPtrInput is an input type that accepts ChannelAudioTrackSelectionArgs, ChannelAudioTrackSelectionPtr and ChannelAudioTrackSelectionPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioTrackSelectionPtrInput` via:
 //
-//          ChannelAudioTrackSelectionArgs{...}
+//	        ChannelAudioTrackSelectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioTrackSelectionPtrInput interface {
 	pulumi.Input
 
@@ -3491,7 +3491,7 @@ type ChannelAudioWatermarkSettings struct {
 // ChannelAudioWatermarkSettingsInput is an input type that accepts ChannelAudioWatermarkSettingsArgs and ChannelAudioWatermarkSettingsOutput values.
 // You can construct a concrete instance of `ChannelAudioWatermarkSettingsInput` via:
 //
-//          ChannelAudioWatermarkSettingsArgs{...}
+//	ChannelAudioWatermarkSettingsArgs{...}
 type ChannelAudioWatermarkSettingsInput interface {
 	pulumi.Input
 
@@ -3526,11 +3526,11 @@ func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsPtrOut
 // ChannelAudioWatermarkSettingsPtrInput is an input type that accepts ChannelAudioWatermarkSettingsArgs, ChannelAudioWatermarkSettingsPtr and ChannelAudioWatermarkSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAudioWatermarkSettingsPtrInput` via:
 //
-//          ChannelAudioWatermarkSettingsArgs{...}
+//	        ChannelAudioWatermarkSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAudioWatermarkSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3629,7 +3629,7 @@ type ChannelAutomaticInputFailoverSettings struct {
 // ChannelAutomaticInputFailoverSettingsInput is an input type that accepts ChannelAutomaticInputFailoverSettingsArgs and ChannelAutomaticInputFailoverSettingsOutput values.
 // You can construct a concrete instance of `ChannelAutomaticInputFailoverSettingsInput` via:
 //
-//          ChannelAutomaticInputFailoverSettingsArgs{...}
+//	ChannelAutomaticInputFailoverSettingsArgs{...}
 type ChannelAutomaticInputFailoverSettingsInput interface {
 	pulumi.Input
 
@@ -3667,11 +3667,11 @@ func (i ChannelAutomaticInputFailoverSettingsArgs) ToChannelAutomaticInputFailov
 // ChannelAutomaticInputFailoverSettingsPtrInput is an input type that accepts ChannelAutomaticInputFailoverSettingsArgs, ChannelAutomaticInputFailoverSettingsPtr and ChannelAutomaticInputFailoverSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAutomaticInputFailoverSettingsPtrInput` via:
 //
-//          ChannelAutomaticInputFailoverSettingsArgs{...}
+//	        ChannelAutomaticInputFailoverSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAutomaticInputFailoverSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3805,7 +3805,7 @@ type ChannelAvailBlanking struct {
 // ChannelAvailBlankingInput is an input type that accepts ChannelAvailBlankingArgs and ChannelAvailBlankingOutput values.
 // You can construct a concrete instance of `ChannelAvailBlankingInput` via:
 //
-//          ChannelAvailBlankingArgs{...}
+//	ChannelAvailBlankingArgs{...}
 type ChannelAvailBlankingInput interface {
 	pulumi.Input
 
@@ -3841,11 +3841,11 @@ func (i ChannelAvailBlankingArgs) ToChannelAvailBlankingPtrOutputWithContext(ctx
 // ChannelAvailBlankingPtrInput is an input type that accepts ChannelAvailBlankingArgs, ChannelAvailBlankingPtr and ChannelAvailBlankingPtrOutput values.
 // You can construct a concrete instance of `ChannelAvailBlankingPtrInput` via:
 //
-//          ChannelAvailBlankingArgs{...}
+//	        ChannelAvailBlankingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAvailBlankingPtrInput interface {
 	pulumi.Input
 
@@ -3952,7 +3952,7 @@ type ChannelAvailConfiguration struct {
 // ChannelAvailConfigurationInput is an input type that accepts ChannelAvailConfigurationArgs and ChannelAvailConfigurationOutput values.
 // You can construct a concrete instance of `ChannelAvailConfigurationInput` via:
 //
-//          ChannelAvailConfigurationArgs{...}
+//	ChannelAvailConfigurationArgs{...}
 type ChannelAvailConfigurationInput interface {
 	pulumi.Input
 
@@ -3987,11 +3987,11 @@ func (i ChannelAvailConfigurationArgs) ToChannelAvailConfigurationPtrOutputWithC
 // ChannelAvailConfigurationPtrInput is an input type that accepts ChannelAvailConfigurationArgs, ChannelAvailConfigurationPtr and ChannelAvailConfigurationPtrOutput values.
 // You can construct a concrete instance of `ChannelAvailConfigurationPtrInput` via:
 //
-//          ChannelAvailConfigurationArgs{...}
+//	        ChannelAvailConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAvailConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4086,7 +4086,7 @@ type ChannelAvailSettings struct {
 // ChannelAvailSettingsInput is an input type that accepts ChannelAvailSettingsArgs and ChannelAvailSettingsOutput values.
 // You can construct a concrete instance of `ChannelAvailSettingsInput` via:
 //
-//          ChannelAvailSettingsArgs{...}
+//	ChannelAvailSettingsArgs{...}
 type ChannelAvailSettingsInput interface {
 	pulumi.Input
 
@@ -4122,11 +4122,11 @@ func (i ChannelAvailSettingsArgs) ToChannelAvailSettingsPtrOutputWithContext(ctx
 // ChannelAvailSettingsPtrInput is an input type that accepts ChannelAvailSettingsArgs, ChannelAvailSettingsPtr and ChannelAvailSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelAvailSettingsPtrInput` via:
 //
-//          ChannelAvailSettingsArgs{...}
+//	        ChannelAvailSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelAvailSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4237,7 +4237,7 @@ type ChannelBlackoutSlate struct {
 // ChannelBlackoutSlateInput is an input type that accepts ChannelBlackoutSlateArgs and ChannelBlackoutSlateOutput values.
 // You can construct a concrete instance of `ChannelBlackoutSlateInput` via:
 //
-//          ChannelBlackoutSlateArgs{...}
+//	ChannelBlackoutSlateArgs{...}
 type ChannelBlackoutSlateInput interface {
 	pulumi.Input
 
@@ -4276,11 +4276,11 @@ func (i ChannelBlackoutSlateArgs) ToChannelBlackoutSlatePtrOutputWithContext(ctx
 // ChannelBlackoutSlatePtrInput is an input type that accepts ChannelBlackoutSlateArgs, ChannelBlackoutSlatePtr and ChannelBlackoutSlatePtrOutput values.
 // You can construct a concrete instance of `ChannelBlackoutSlatePtrInput` via:
 //
-//          ChannelBlackoutSlateArgs{...}
+//	        ChannelBlackoutSlateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelBlackoutSlatePtrInput interface {
 	pulumi.Input
 
@@ -4442,7 +4442,7 @@ type ChannelBurnInDestinationSettings struct {
 // ChannelBurnInDestinationSettingsInput is an input type that accepts ChannelBurnInDestinationSettingsArgs and ChannelBurnInDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelBurnInDestinationSettingsInput` via:
 //
-//          ChannelBurnInDestinationSettingsArgs{...}
+//	ChannelBurnInDestinationSettingsArgs{...}
 type ChannelBurnInDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -4493,11 +4493,11 @@ func (i ChannelBurnInDestinationSettingsArgs) ToChannelBurnInDestinationSettings
 // ChannelBurnInDestinationSettingsPtrInput is an input type that accepts ChannelBurnInDestinationSettingsArgs, ChannelBurnInDestinationSettingsPtr and ChannelBurnInDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelBurnInDestinationSettingsPtrInput` via:
 //
-//          ChannelBurnInDestinationSettingsArgs{...}
+//	        ChannelBurnInDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelBurnInDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4803,7 +4803,7 @@ type ChannelCaptionDescription struct {
 // ChannelCaptionDescriptionInput is an input type that accepts ChannelCaptionDescriptionArgs and ChannelCaptionDescriptionOutput values.
 // You can construct a concrete instance of `ChannelCaptionDescriptionInput` via:
 //
-//          ChannelCaptionDescriptionArgs{...}
+//	ChannelCaptionDescriptionArgs{...}
 type ChannelCaptionDescriptionInput interface {
 	pulumi.Input
 
@@ -4834,7 +4834,7 @@ func (i ChannelCaptionDescriptionArgs) ToChannelCaptionDescriptionOutputWithCont
 // ChannelCaptionDescriptionArrayInput is an input type that accepts ChannelCaptionDescriptionArray and ChannelCaptionDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionDescriptionArrayInput` via:
 //
-//          ChannelCaptionDescriptionArray{ ChannelCaptionDescriptionArgs{...} }
+//	ChannelCaptionDescriptionArray{ ChannelCaptionDescriptionArgs{...} }
 type ChannelCaptionDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -4929,7 +4929,7 @@ type ChannelCaptionDestinationSettings struct {
 // ChannelCaptionDestinationSettingsInput is an input type that accepts ChannelCaptionDestinationSettingsArgs and ChannelCaptionDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelCaptionDestinationSettingsInput` via:
 //
-//          ChannelCaptionDestinationSettingsArgs{...}
+//	ChannelCaptionDestinationSettingsArgs{...}
 type ChannelCaptionDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -4976,11 +4976,11 @@ func (i ChannelCaptionDestinationSettingsArgs) ToChannelCaptionDestinationSettin
 // ChannelCaptionDestinationSettingsPtrInput is an input type that accepts ChannelCaptionDestinationSettingsArgs, ChannelCaptionDestinationSettingsPtr and ChannelCaptionDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelCaptionDestinationSettingsPtrInput` via:
 //
-//          ChannelCaptionDestinationSettingsArgs{...}
+//	        ChannelCaptionDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelCaptionDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5258,7 +5258,7 @@ type ChannelCaptionLanguageMapping struct {
 // ChannelCaptionLanguageMappingInput is an input type that accepts ChannelCaptionLanguageMappingArgs and ChannelCaptionLanguageMappingOutput values.
 // You can construct a concrete instance of `ChannelCaptionLanguageMappingInput` via:
 //
-//          ChannelCaptionLanguageMappingArgs{...}
+//	ChannelCaptionLanguageMappingArgs{...}
 type ChannelCaptionLanguageMappingInput interface {
 	pulumi.Input
 
@@ -5287,7 +5287,7 @@ func (i ChannelCaptionLanguageMappingArgs) ToChannelCaptionLanguageMappingOutput
 // ChannelCaptionLanguageMappingArrayInput is an input type that accepts ChannelCaptionLanguageMappingArray and ChannelCaptionLanguageMappingArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionLanguageMappingArrayInput` via:
 //
-//          ChannelCaptionLanguageMappingArray{ ChannelCaptionLanguageMappingArgs{...} }
+//	ChannelCaptionLanguageMappingArray{ ChannelCaptionLanguageMappingArgs{...} }
 type ChannelCaptionLanguageMappingArrayInput interface {
 	pulumi.Input
 
@@ -5365,7 +5365,7 @@ type ChannelCaptionRectangle struct {
 // ChannelCaptionRectangleInput is an input type that accepts ChannelCaptionRectangleArgs and ChannelCaptionRectangleOutput values.
 // You can construct a concrete instance of `ChannelCaptionRectangleInput` via:
 //
-//          ChannelCaptionRectangleArgs{...}
+//	ChannelCaptionRectangleArgs{...}
 type ChannelCaptionRectangleInput interface {
 	pulumi.Input
 
@@ -5403,11 +5403,11 @@ func (i ChannelCaptionRectangleArgs) ToChannelCaptionRectanglePtrOutputWithConte
 // ChannelCaptionRectanglePtrInput is an input type that accepts ChannelCaptionRectangleArgs, ChannelCaptionRectanglePtr and ChannelCaptionRectanglePtrOutput values.
 // You can construct a concrete instance of `ChannelCaptionRectanglePtrInput` via:
 //
-//          ChannelCaptionRectangleArgs{...}
+//	        ChannelCaptionRectangleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelCaptionRectanglePtrInput interface {
 	pulumi.Input
 
@@ -5542,7 +5542,7 @@ type ChannelCaptionSelector struct {
 // ChannelCaptionSelectorInput is an input type that accepts ChannelCaptionSelectorArgs and ChannelCaptionSelectorOutput values.
 // You can construct a concrete instance of `ChannelCaptionSelectorInput` via:
 //
-//          ChannelCaptionSelectorArgs{...}
+//	ChannelCaptionSelectorArgs{...}
 type ChannelCaptionSelectorInput interface {
 	pulumi.Input
 
@@ -5571,7 +5571,7 @@ func (i ChannelCaptionSelectorArgs) ToChannelCaptionSelectorOutputWithContext(ct
 // ChannelCaptionSelectorArrayInput is an input type that accepts ChannelCaptionSelectorArray and ChannelCaptionSelectorArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionSelectorArrayInput` via:
 //
-//          ChannelCaptionSelectorArray{ ChannelCaptionSelectorArgs{...} }
+//	ChannelCaptionSelectorArray{ ChannelCaptionSelectorArgs{...} }
 type ChannelCaptionSelectorArrayInput interface {
 	pulumi.Input
 
@@ -5652,7 +5652,7 @@ type ChannelCaptionSelectorSettings struct {
 // ChannelCaptionSelectorSettingsInput is an input type that accepts ChannelCaptionSelectorSettingsArgs and ChannelCaptionSelectorSettingsOutput values.
 // You can construct a concrete instance of `ChannelCaptionSelectorSettingsInput` via:
 //
-//          ChannelCaptionSelectorSettingsArgs{...}
+//	ChannelCaptionSelectorSettingsArgs{...}
 type ChannelCaptionSelectorSettingsInput interface {
 	pulumi.Input
 
@@ -5693,11 +5693,11 @@ func (i ChannelCaptionSelectorSettingsArgs) ToChannelCaptionSelectorSettingsPtrO
 // ChannelCaptionSelectorSettingsPtrInput is an input type that accepts ChannelCaptionSelectorSettingsArgs, ChannelCaptionSelectorSettingsPtr and ChannelCaptionSelectorSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelCaptionSelectorSettingsPtrInput` via:
 //
-//          ChannelCaptionSelectorSettingsArgs{...}
+//	        ChannelCaptionSelectorSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelCaptionSelectorSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5871,7 +5871,7 @@ type ChannelCdiInputSpecification struct {
 // ChannelCdiInputSpecificationInput is an input type that accepts ChannelCdiInputSpecificationArgs and ChannelCdiInputSpecificationOutput values.
 // You can construct a concrete instance of `ChannelCdiInputSpecificationInput` via:
 //
-//          ChannelCdiInputSpecificationArgs{...}
+//	ChannelCdiInputSpecificationArgs{...}
 type ChannelCdiInputSpecificationInput interface {
 	pulumi.Input
 
@@ -5906,11 +5906,11 @@ func (i ChannelCdiInputSpecificationArgs) ToChannelCdiInputSpecificationPtrOutpu
 // ChannelCdiInputSpecificationPtrInput is an input type that accepts ChannelCdiInputSpecificationArgs, ChannelCdiInputSpecificationPtr and ChannelCdiInputSpecificationPtrOutput values.
 // You can construct a concrete instance of `ChannelCdiInputSpecificationPtrInput` via:
 //
-//          ChannelCdiInputSpecificationArgs{...}
+//	        ChannelCdiInputSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelCdiInputSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -6003,7 +6003,7 @@ type ChannelColorSpacePassthroughSettings struct {
 // ChannelColorSpacePassthroughSettingsInput is an input type that accepts ChannelColorSpacePassthroughSettingsArgs and ChannelColorSpacePassthroughSettingsOutput values.
 // You can construct a concrete instance of `ChannelColorSpacePassthroughSettingsInput` via:
 //
-//          ChannelColorSpacePassthroughSettingsArgs{...}
+//	ChannelColorSpacePassthroughSettingsArgs{...}
 type ChannelColorSpacePassthroughSettingsInput interface {
 	pulumi.Input
 
@@ -6037,11 +6037,11 @@ func (i ChannelColorSpacePassthroughSettingsArgs) ToChannelColorSpacePassthrough
 // ChannelColorSpacePassthroughSettingsPtrInput is an input type that accepts ChannelColorSpacePassthroughSettingsArgs, ChannelColorSpacePassthroughSettingsPtr and ChannelColorSpacePassthroughSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelColorSpacePassthroughSettingsPtrInput` via:
 //
-//          ChannelColorSpacePassthroughSettingsArgs{...}
+//	        ChannelColorSpacePassthroughSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelColorSpacePassthroughSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6124,7 +6124,7 @@ type ChannelDvbNitSettings struct {
 // ChannelDvbNitSettingsInput is an input type that accepts ChannelDvbNitSettingsArgs and ChannelDvbNitSettingsOutput values.
 // You can construct a concrete instance of `ChannelDvbNitSettingsInput` via:
 //
-//          ChannelDvbNitSettingsArgs{...}
+//	ChannelDvbNitSettingsArgs{...}
 type ChannelDvbNitSettingsInput interface {
 	pulumi.Input
 
@@ -6161,11 +6161,11 @@ func (i ChannelDvbNitSettingsArgs) ToChannelDvbNitSettingsPtrOutputWithContext(c
 // ChannelDvbNitSettingsPtrInput is an input type that accepts ChannelDvbNitSettingsArgs, ChannelDvbNitSettingsPtr and ChannelDvbNitSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelDvbNitSettingsPtrInput` via:
 //
-//          ChannelDvbNitSettingsArgs{...}
+//	        ChannelDvbNitSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDvbNitSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6288,7 +6288,7 @@ type ChannelDvbSdtSettings struct {
 // ChannelDvbSdtSettingsInput is an input type that accepts ChannelDvbSdtSettingsArgs and ChannelDvbSdtSettingsOutput values.
 // You can construct a concrete instance of `ChannelDvbSdtSettingsInput` via:
 //
-//          ChannelDvbSdtSettingsArgs{...}
+//	ChannelDvbSdtSettingsArgs{...}
 type ChannelDvbSdtSettingsInput interface {
 	pulumi.Input
 
@@ -6326,11 +6326,11 @@ func (i ChannelDvbSdtSettingsArgs) ToChannelDvbSdtSettingsPtrOutputWithContext(c
 // ChannelDvbSdtSettingsPtrInput is an input type that accepts ChannelDvbSdtSettingsArgs, ChannelDvbSdtSettingsPtr and ChannelDvbSdtSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelDvbSdtSettingsPtrInput` via:
 //
-//          ChannelDvbSdtSettingsArgs{...}
+//	        ChannelDvbSdtSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDvbSdtSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6479,7 +6479,7 @@ type ChannelDvbSubDestinationSettings struct {
 // ChannelDvbSubDestinationSettingsInput is an input type that accepts ChannelDvbSubDestinationSettingsArgs and ChannelDvbSubDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelDvbSubDestinationSettingsInput` via:
 //
-//          ChannelDvbSubDestinationSettingsArgs{...}
+//	ChannelDvbSubDestinationSettingsArgs{...}
 type ChannelDvbSubDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -6530,11 +6530,11 @@ func (i ChannelDvbSubDestinationSettingsArgs) ToChannelDvbSubDestinationSettings
 // ChannelDvbSubDestinationSettingsPtrInput is an input type that accepts ChannelDvbSubDestinationSettingsArgs, ChannelDvbSubDestinationSettingsPtr and ChannelDvbSubDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelDvbSubDestinationSettingsPtrInput` via:
 //
-//          ChannelDvbSubDestinationSettingsArgs{...}
+//	        ChannelDvbSubDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDvbSubDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6837,7 +6837,7 @@ type ChannelDvbSubSourceSettings struct {
 // ChannelDvbSubSourceSettingsInput is an input type that accepts ChannelDvbSubSourceSettingsArgs and ChannelDvbSubSourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelDvbSubSourceSettingsInput` via:
 //
-//          ChannelDvbSubSourceSettingsArgs{...}
+//	ChannelDvbSubSourceSettingsArgs{...}
 type ChannelDvbSubSourceSettingsInput interface {
 	pulumi.Input
 
@@ -6873,11 +6873,11 @@ func (i ChannelDvbSubSourceSettingsArgs) ToChannelDvbSubSourceSettingsPtrOutputW
 // ChannelDvbSubSourceSettingsPtrInput is an input type that accepts ChannelDvbSubSourceSettingsArgs, ChannelDvbSubSourceSettingsPtr and ChannelDvbSubSourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelDvbSubSourceSettingsPtrInput` via:
 //
-//          ChannelDvbSubSourceSettingsArgs{...}
+//	        ChannelDvbSubSourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDvbSubSourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6984,7 +6984,7 @@ type ChannelDvbTdtSettings struct {
 // ChannelDvbTdtSettingsInput is an input type that accepts ChannelDvbTdtSettingsArgs and ChannelDvbTdtSettingsOutput values.
 // You can construct a concrete instance of `ChannelDvbTdtSettingsInput` via:
 //
-//          ChannelDvbTdtSettingsArgs{...}
+//	ChannelDvbTdtSettingsArgs{...}
 type ChannelDvbTdtSettingsInput interface {
 	pulumi.Input
 
@@ -7019,11 +7019,11 @@ func (i ChannelDvbTdtSettingsArgs) ToChannelDvbTdtSettingsPtrOutputWithContext(c
 // ChannelDvbTdtSettingsPtrInput is an input type that accepts ChannelDvbTdtSettingsArgs, ChannelDvbTdtSettingsPtr and ChannelDvbTdtSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelDvbTdtSettingsPtrInput` via:
 //
-//          ChannelDvbTdtSettingsArgs{...}
+//	        ChannelDvbTdtSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDvbTdtSettingsPtrInput interface {
 	pulumi.Input
 
@@ -7136,7 +7136,7 @@ type ChannelEac3Settings struct {
 // ChannelEac3SettingsInput is an input type that accepts ChannelEac3SettingsArgs and ChannelEac3SettingsOutput values.
 // You can construct a concrete instance of `ChannelEac3SettingsInput` via:
 //
-//          ChannelEac3SettingsArgs{...}
+//	ChannelEac3SettingsArgs{...}
 type ChannelEac3SettingsInput interface {
 	pulumi.Input
 
@@ -7190,11 +7190,11 @@ func (i ChannelEac3SettingsArgs) ToChannelEac3SettingsPtrOutputWithContext(ctx c
 // ChannelEac3SettingsPtrInput is an input type that accepts ChannelEac3SettingsArgs, ChannelEac3SettingsPtr and ChannelEac3SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEac3SettingsPtrInput` via:
 //
-//          ChannelEac3SettingsArgs{...}
+//	        ChannelEac3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEac3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -7538,7 +7538,7 @@ type ChannelEbuTtDDestinationSettings struct {
 // ChannelEbuTtDDestinationSettingsInput is an input type that accepts ChannelEbuTtDDestinationSettingsArgs and ChannelEbuTtDDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelEbuTtDDestinationSettingsInput` via:
 //
-//          ChannelEbuTtDDestinationSettingsArgs{...}
+//	ChannelEbuTtDDestinationSettingsArgs{...}
 type ChannelEbuTtDDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -7576,11 +7576,11 @@ func (i ChannelEbuTtDDestinationSettingsArgs) ToChannelEbuTtDDestinationSettings
 // ChannelEbuTtDDestinationSettingsPtrInput is an input type that accepts ChannelEbuTtDDestinationSettingsArgs, ChannelEbuTtDDestinationSettingsPtr and ChannelEbuTtDDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEbuTtDDestinationSettingsPtrInput` via:
 //
-//          ChannelEbuTtDDestinationSettingsArgs{...}
+//	        ChannelEbuTtDDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEbuTtDDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -7712,7 +7712,7 @@ type ChannelEmbeddedDestinationSettings struct {
 // ChannelEmbeddedDestinationSettingsInput is an input type that accepts ChannelEmbeddedDestinationSettingsArgs and ChannelEmbeddedDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedDestinationSettingsInput` via:
 //
-//          ChannelEmbeddedDestinationSettingsArgs{...}
+//	ChannelEmbeddedDestinationSettingsArgs{...}
 type ChannelEmbeddedDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -7746,11 +7746,11 @@ func (i ChannelEmbeddedDestinationSettingsArgs) ToChannelEmbeddedDestinationSett
 // ChannelEmbeddedDestinationSettingsPtrInput is an input type that accepts ChannelEmbeddedDestinationSettingsArgs, ChannelEmbeddedDestinationSettingsPtr and ChannelEmbeddedDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedDestinationSettingsPtrInput` via:
 //
-//          ChannelEmbeddedDestinationSettingsArgs{...}
+//	        ChannelEmbeddedDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEmbeddedDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -7830,7 +7830,7 @@ type ChannelEmbeddedPlusScte20DestinationSettings struct {
 // ChannelEmbeddedPlusScte20DestinationSettingsInput is an input type that accepts ChannelEmbeddedPlusScte20DestinationSettingsArgs and ChannelEmbeddedPlusScte20DestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedPlusScte20DestinationSettingsInput` via:
 //
-//          ChannelEmbeddedPlusScte20DestinationSettingsArgs{...}
+//	ChannelEmbeddedPlusScte20DestinationSettingsArgs{...}
 type ChannelEmbeddedPlusScte20DestinationSettingsInput interface {
 	pulumi.Input
 
@@ -7864,11 +7864,11 @@ func (i ChannelEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEmbeddedPlusS
 // ChannelEmbeddedPlusScte20DestinationSettingsPtrInput is an input type that accepts ChannelEmbeddedPlusScte20DestinationSettingsArgs, ChannelEmbeddedPlusScte20DestinationSettingsPtr and ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedPlusScte20DestinationSettingsPtrInput` via:
 //
-//          ChannelEmbeddedPlusScte20DestinationSettingsArgs{...}
+//	        ChannelEmbeddedPlusScte20DestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEmbeddedPlusScte20DestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -7952,7 +7952,7 @@ type ChannelEmbeddedSourceSettings struct {
 // ChannelEmbeddedSourceSettingsInput is an input type that accepts ChannelEmbeddedSourceSettingsArgs and ChannelEmbeddedSourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedSourceSettingsInput` via:
 //
-//          ChannelEmbeddedSourceSettingsArgs{...}
+//	ChannelEmbeddedSourceSettingsArgs{...}
 type ChannelEmbeddedSourceSettingsInput interface {
 	pulumi.Input
 
@@ -7990,11 +7990,11 @@ func (i ChannelEmbeddedSourceSettingsArgs) ToChannelEmbeddedSourceSettingsPtrOut
 // ChannelEmbeddedSourceSettingsPtrInput is an input type that accepts ChannelEmbeddedSourceSettingsArgs, ChannelEmbeddedSourceSettingsPtr and ChannelEmbeddedSourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEmbeddedSourceSettingsPtrInput` via:
 //
-//          ChannelEmbeddedSourceSettingsArgs{...}
+//	        ChannelEmbeddedSourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEmbeddedSourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8138,7 +8138,7 @@ type ChannelEncoderSettings struct {
 // ChannelEncoderSettingsInput is an input type that accepts ChannelEncoderSettingsArgs and ChannelEncoderSettingsOutput values.
 // You can construct a concrete instance of `ChannelEncoderSettingsInput` via:
 //
-//          ChannelEncoderSettingsArgs{...}
+//	ChannelEncoderSettingsArgs{...}
 type ChannelEncoderSettingsInput interface {
 	pulumi.Input
 
@@ -8184,11 +8184,11 @@ func (i ChannelEncoderSettingsArgs) ToChannelEncoderSettingsPtrOutputWithContext
 // ChannelEncoderSettingsPtrInput is an input type that accepts ChannelEncoderSettingsArgs, ChannelEncoderSettingsPtr and ChannelEncoderSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelEncoderSettingsPtrInput` via:
 //
-//          ChannelEncoderSettingsArgs{...}
+//	        ChannelEncoderSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelEncoderSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8427,7 +8427,7 @@ type ChannelFailoverCondition struct {
 // ChannelFailoverConditionInput is an input type that accepts ChannelFailoverConditionArgs and ChannelFailoverConditionOutput values.
 // You can construct a concrete instance of `ChannelFailoverConditionInput` via:
 //
-//          ChannelFailoverConditionArgs{...}
+//	ChannelFailoverConditionArgs{...}
 type ChannelFailoverConditionInput interface {
 	pulumi.Input
 
@@ -8454,7 +8454,7 @@ func (i ChannelFailoverConditionArgs) ToChannelFailoverConditionOutputWithContex
 // ChannelFailoverConditionArrayInput is an input type that accepts ChannelFailoverConditionArray and ChannelFailoverConditionArrayOutput values.
 // You can construct a concrete instance of `ChannelFailoverConditionArrayInput` via:
 //
-//          ChannelFailoverConditionArray{ ChannelFailoverConditionArgs{...} }
+//	ChannelFailoverConditionArray{ ChannelFailoverConditionArgs{...} }
 type ChannelFailoverConditionArrayInput interface {
 	pulumi.Input
 
@@ -8523,7 +8523,7 @@ type ChannelFailoverConditionSettings struct {
 // ChannelFailoverConditionSettingsInput is an input type that accepts ChannelFailoverConditionSettingsArgs and ChannelFailoverConditionSettingsOutput values.
 // You can construct a concrete instance of `ChannelFailoverConditionSettingsInput` via:
 //
-//          ChannelFailoverConditionSettingsArgs{...}
+//	ChannelFailoverConditionSettingsArgs{...}
 type ChannelFailoverConditionSettingsInput interface {
 	pulumi.Input
 
@@ -8560,11 +8560,11 @@ func (i ChannelFailoverConditionSettingsArgs) ToChannelFailoverConditionSettings
 // ChannelFailoverConditionSettingsPtrInput is an input type that accepts ChannelFailoverConditionSettingsArgs, ChannelFailoverConditionSettingsPtr and ChannelFailoverConditionSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFailoverConditionSettingsPtrInput` via:
 //
-//          ChannelFailoverConditionSettingsArgs{...}
+//	        ChannelFailoverConditionSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFailoverConditionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8688,7 +8688,7 @@ type ChannelFeatureActivations struct {
 // ChannelFeatureActivationsInput is an input type that accepts ChannelFeatureActivationsArgs and ChannelFeatureActivationsOutput values.
 // You can construct a concrete instance of `ChannelFeatureActivationsInput` via:
 //
-//          ChannelFeatureActivationsArgs{...}
+//	ChannelFeatureActivationsArgs{...}
 type ChannelFeatureActivationsInput interface {
 	pulumi.Input
 
@@ -8723,11 +8723,11 @@ func (i ChannelFeatureActivationsArgs) ToChannelFeatureActivationsPtrOutputWithC
 // ChannelFeatureActivationsPtrInput is an input type that accepts ChannelFeatureActivationsArgs, ChannelFeatureActivationsPtr and ChannelFeatureActivationsPtrOutput values.
 // You can construct a concrete instance of `ChannelFeatureActivationsPtrInput` via:
 //
-//          ChannelFeatureActivationsArgs{...}
+//	        ChannelFeatureActivationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFeatureActivationsPtrInput interface {
 	pulumi.Input
 
@@ -8823,7 +8823,7 @@ type ChannelFecOutputSettings struct {
 // ChannelFecOutputSettingsInput is an input type that accepts ChannelFecOutputSettingsArgs and ChannelFecOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelFecOutputSettingsInput` via:
 //
-//          ChannelFecOutputSettingsArgs{...}
+//	ChannelFecOutputSettingsArgs{...}
 type ChannelFecOutputSettingsInput interface {
 	pulumi.Input
 
@@ -8860,11 +8860,11 @@ func (i ChannelFecOutputSettingsArgs) ToChannelFecOutputSettingsPtrOutputWithCon
 // ChannelFecOutputSettingsPtrInput is an input type that accepts ChannelFecOutputSettingsArgs, ChannelFecOutputSettingsPtr and ChannelFecOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFecOutputSettingsPtrInput` via:
 //
-//          ChannelFecOutputSettingsArgs{...}
+//	        ChannelFecOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFecOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8986,7 +8986,7 @@ type ChannelFmp4HlsSettings struct {
 // ChannelFmp4HlsSettingsInput is an input type that accepts ChannelFmp4HlsSettingsArgs and ChannelFmp4HlsSettingsOutput values.
 // You can construct a concrete instance of `ChannelFmp4HlsSettingsInput` via:
 //
-//          ChannelFmp4HlsSettingsArgs{...}
+//	ChannelFmp4HlsSettingsArgs{...}
 type ChannelFmp4HlsSettingsInput interface {
 	pulumi.Input
 
@@ -9023,11 +9023,11 @@ func (i ChannelFmp4HlsSettingsArgs) ToChannelFmp4HlsSettingsPtrOutputWithContext
 // ChannelFmp4HlsSettingsPtrInput is an input type that accepts ChannelFmp4HlsSettingsArgs, ChannelFmp4HlsSettingsPtr and ChannelFmp4HlsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFmp4HlsSettingsPtrInput` via:
 //
-//          ChannelFmp4HlsSettingsArgs{...}
+//	        ChannelFmp4HlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFmp4HlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9147,7 +9147,7 @@ type ChannelFrameCaptureCdnSettings struct {
 // ChannelFrameCaptureCdnSettingsInput is an input type that accepts ChannelFrameCaptureCdnSettingsArgs and ChannelFrameCaptureCdnSettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureCdnSettingsInput` via:
 //
-//          ChannelFrameCaptureCdnSettingsArgs{...}
+//	ChannelFrameCaptureCdnSettingsArgs{...}
 type ChannelFrameCaptureCdnSettingsInput interface {
 	pulumi.Input
 
@@ -9182,11 +9182,11 @@ func (i ChannelFrameCaptureCdnSettingsArgs) ToChannelFrameCaptureCdnSettingsPtrO
 // ChannelFrameCaptureCdnSettingsPtrInput is an input type that accepts ChannelFrameCaptureCdnSettingsArgs, ChannelFrameCaptureCdnSettingsPtr and ChannelFrameCaptureCdnSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureCdnSettingsPtrInput` via:
 //
-//          ChannelFrameCaptureCdnSettingsArgs{...}
+//	        ChannelFrameCaptureCdnSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureCdnSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9281,7 +9281,7 @@ type ChannelFrameCaptureGroupSettings struct {
 // ChannelFrameCaptureGroupSettingsInput is an input type that accepts ChannelFrameCaptureGroupSettingsArgs and ChannelFrameCaptureGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureGroupSettingsInput` via:
 //
-//          ChannelFrameCaptureGroupSettingsArgs{...}
+//	ChannelFrameCaptureGroupSettingsArgs{...}
 type ChannelFrameCaptureGroupSettingsInput interface {
 	pulumi.Input
 
@@ -9317,11 +9317,11 @@ func (i ChannelFrameCaptureGroupSettingsArgs) ToChannelFrameCaptureGroupSettings
 // ChannelFrameCaptureGroupSettingsPtrInput is an input type that accepts ChannelFrameCaptureGroupSettingsArgs, ChannelFrameCaptureGroupSettingsPtr and ChannelFrameCaptureGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureGroupSettingsPtrInput` via:
 //
-//          ChannelFrameCaptureGroupSettingsArgs{...}
+//	        ChannelFrameCaptureGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9429,7 +9429,7 @@ type ChannelFrameCaptureHlsSettings struct {
 // ChannelFrameCaptureHlsSettingsInput is an input type that accepts ChannelFrameCaptureHlsSettingsArgs and ChannelFrameCaptureHlsSettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureHlsSettingsInput` via:
 //
-//          ChannelFrameCaptureHlsSettingsArgs{...}
+//	ChannelFrameCaptureHlsSettingsArgs{...}
 type ChannelFrameCaptureHlsSettingsInput interface {
 	pulumi.Input
 
@@ -9463,11 +9463,11 @@ func (i ChannelFrameCaptureHlsSettingsArgs) ToChannelFrameCaptureHlsSettingsPtrO
 // ChannelFrameCaptureHlsSettingsPtrInput is an input type that accepts ChannelFrameCaptureHlsSettingsArgs, ChannelFrameCaptureHlsSettingsPtr and ChannelFrameCaptureHlsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureHlsSettingsPtrInput` via:
 //
-//          ChannelFrameCaptureHlsSettingsArgs{...}
+//	        ChannelFrameCaptureHlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureHlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9548,7 +9548,7 @@ type ChannelFrameCaptureOutputSettings struct {
 // ChannelFrameCaptureOutputSettingsInput is an input type that accepts ChannelFrameCaptureOutputSettingsArgs and ChannelFrameCaptureOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureOutputSettingsInput` via:
 //
-//          ChannelFrameCaptureOutputSettingsArgs{...}
+//	ChannelFrameCaptureOutputSettingsArgs{...}
 type ChannelFrameCaptureOutputSettingsInput interface {
 	pulumi.Input
 
@@ -9583,11 +9583,11 @@ func (i ChannelFrameCaptureOutputSettingsArgs) ToChannelFrameCaptureOutputSettin
 // ChannelFrameCaptureOutputSettingsPtrInput is an input type that accepts ChannelFrameCaptureOutputSettingsArgs, ChannelFrameCaptureOutputSettingsPtr and ChannelFrameCaptureOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureOutputSettingsPtrInput` via:
 //
-//          ChannelFrameCaptureOutputSettingsArgs{...}
+//	        ChannelFrameCaptureOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9681,7 +9681,7 @@ type ChannelFrameCaptureS3Settings struct {
 // ChannelFrameCaptureS3SettingsInput is an input type that accepts ChannelFrameCaptureS3SettingsArgs and ChannelFrameCaptureS3SettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureS3SettingsInput` via:
 //
-//          ChannelFrameCaptureS3SettingsArgs{...}
+//	ChannelFrameCaptureS3SettingsArgs{...}
 type ChannelFrameCaptureS3SettingsInput interface {
 	pulumi.Input
 
@@ -9716,11 +9716,11 @@ func (i ChannelFrameCaptureS3SettingsArgs) ToChannelFrameCaptureS3SettingsPtrOut
 // ChannelFrameCaptureS3SettingsPtrInput is an input type that accepts ChannelFrameCaptureS3SettingsArgs, ChannelFrameCaptureS3SettingsPtr and ChannelFrameCaptureS3SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureS3SettingsPtrInput` via:
 //
-//          ChannelFrameCaptureS3SettingsArgs{...}
+//	        ChannelFrameCaptureS3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureS3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -9815,7 +9815,7 @@ type ChannelFrameCaptureSettings struct {
 // ChannelFrameCaptureSettingsInput is an input type that accepts ChannelFrameCaptureSettingsArgs and ChannelFrameCaptureSettingsOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureSettingsInput` via:
 //
-//          ChannelFrameCaptureSettingsArgs{...}
+//	ChannelFrameCaptureSettingsArgs{...}
 type ChannelFrameCaptureSettingsInput interface {
 	pulumi.Input
 
@@ -9851,11 +9851,11 @@ func (i ChannelFrameCaptureSettingsArgs) ToChannelFrameCaptureSettingsPtrOutputW
 // ChannelFrameCaptureSettingsPtrInput is an input type that accepts ChannelFrameCaptureSettingsArgs, ChannelFrameCaptureSettingsPtr and ChannelFrameCaptureSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelFrameCaptureSettingsPtrInput` via:
 //
-//          ChannelFrameCaptureSettingsArgs{...}
+//	        ChannelFrameCaptureSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelFrameCaptureSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9967,7 +9967,7 @@ type ChannelGlobalConfiguration struct {
 // ChannelGlobalConfigurationInput is an input type that accepts ChannelGlobalConfigurationArgs and ChannelGlobalConfigurationOutput values.
 // You can construct a concrete instance of `ChannelGlobalConfigurationInput` via:
 //
-//          ChannelGlobalConfigurationArgs{...}
+//	ChannelGlobalConfigurationArgs{...}
 type ChannelGlobalConfigurationInput interface {
 	pulumi.Input
 
@@ -10007,11 +10007,11 @@ func (i ChannelGlobalConfigurationArgs) ToChannelGlobalConfigurationPtrOutputWit
 // ChannelGlobalConfigurationPtrInput is an input type that accepts ChannelGlobalConfigurationArgs, ChannelGlobalConfigurationPtr and ChannelGlobalConfigurationPtrOutput values.
 // You can construct a concrete instance of `ChannelGlobalConfigurationPtrInput` via:
 //
-//          ChannelGlobalConfigurationArgs{...}
+//	        ChannelGlobalConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelGlobalConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -10172,7 +10172,7 @@ type ChannelH264ColorSpaceSettings struct {
 // ChannelH264ColorSpaceSettingsInput is an input type that accepts ChannelH264ColorSpaceSettingsArgs and ChannelH264ColorSpaceSettingsOutput values.
 // You can construct a concrete instance of `ChannelH264ColorSpaceSettingsInput` via:
 //
-//          ChannelH264ColorSpaceSettingsArgs{...}
+//	ChannelH264ColorSpaceSettingsArgs{...}
 type ChannelH264ColorSpaceSettingsInput interface {
 	pulumi.Input
 
@@ -10209,11 +10209,11 @@ func (i ChannelH264ColorSpaceSettingsArgs) ToChannelH264ColorSpaceSettingsPtrOut
 // ChannelH264ColorSpaceSettingsPtrInput is an input type that accepts ChannelH264ColorSpaceSettingsArgs, ChannelH264ColorSpaceSettingsPtr and ChannelH264ColorSpaceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH264ColorSpaceSettingsPtrInput` via:
 //
-//          ChannelH264ColorSpaceSettingsArgs{...}
+//	        ChannelH264ColorSpaceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH264ColorSpaceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -10335,7 +10335,7 @@ type ChannelH264FilterSettings struct {
 // ChannelH264FilterSettingsInput is an input type that accepts ChannelH264FilterSettingsArgs and ChannelH264FilterSettingsOutput values.
 // You can construct a concrete instance of `ChannelH264FilterSettingsInput` via:
 //
-//          ChannelH264FilterSettingsArgs{...}
+//	ChannelH264FilterSettingsArgs{...}
 type ChannelH264FilterSettingsInput interface {
 	pulumi.Input
 
@@ -10370,11 +10370,11 @@ func (i ChannelH264FilterSettingsArgs) ToChannelH264FilterSettingsPtrOutputWithC
 // ChannelH264FilterSettingsPtrInput is an input type that accepts ChannelH264FilterSettingsArgs, ChannelH264FilterSettingsPtr and ChannelH264FilterSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH264FilterSettingsPtrInput` via:
 //
-//          ChannelH264FilterSettingsArgs{...}
+//	        ChannelH264FilterSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH264FilterSettingsPtrInput interface {
 	pulumi.Input
 
@@ -10508,7 +10508,7 @@ type ChannelH264Settings struct {
 // ChannelH264SettingsInput is an input type that accepts ChannelH264SettingsArgs and ChannelH264SettingsOutput values.
 // You can construct a concrete instance of `ChannelH264SettingsInput` via:
 //
-//          ChannelH264SettingsArgs{...}
+//	ChannelH264SettingsArgs{...}
 type ChannelH264SettingsInput interface {
 	pulumi.Input
 
@@ -10583,11 +10583,11 @@ func (i ChannelH264SettingsArgs) ToChannelH264SettingsPtrOutputWithContext(ctx c
 // ChannelH264SettingsPtrInput is an input type that accepts ChannelH264SettingsArgs, ChannelH264SettingsPtr and ChannelH264SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH264SettingsPtrInput` via:
 //
-//          ChannelH264SettingsArgs{...}
+//	        ChannelH264SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH264SettingsPtrInput interface {
 	pulumi.Input
 
@@ -11204,7 +11204,7 @@ type ChannelH265ColorSpaceSettings struct {
 // ChannelH265ColorSpaceSettingsInput is an input type that accepts ChannelH265ColorSpaceSettingsArgs and ChannelH265ColorSpaceSettingsOutput values.
 // You can construct a concrete instance of `ChannelH265ColorSpaceSettingsInput` via:
 //
-//          ChannelH265ColorSpaceSettingsArgs{...}
+//	ChannelH265ColorSpaceSettingsArgs{...}
 type ChannelH265ColorSpaceSettingsInput interface {
 	pulumi.Input
 
@@ -11242,11 +11242,11 @@ func (i ChannelH265ColorSpaceSettingsArgs) ToChannelH265ColorSpaceSettingsPtrOut
 // ChannelH265ColorSpaceSettingsPtrInput is an input type that accepts ChannelH265ColorSpaceSettingsArgs, ChannelH265ColorSpaceSettingsPtr and ChannelH265ColorSpaceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH265ColorSpaceSettingsPtrInput` via:
 //
-//          ChannelH265ColorSpaceSettingsArgs{...}
+//	        ChannelH265ColorSpaceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH265ColorSpaceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -11381,7 +11381,7 @@ type ChannelH265FilterSettings struct {
 // ChannelH265FilterSettingsInput is an input type that accepts ChannelH265FilterSettingsArgs and ChannelH265FilterSettingsOutput values.
 // You can construct a concrete instance of `ChannelH265FilterSettingsInput` via:
 //
-//          ChannelH265FilterSettingsArgs{...}
+//	ChannelH265FilterSettingsArgs{...}
 type ChannelH265FilterSettingsInput interface {
 	pulumi.Input
 
@@ -11416,11 +11416,11 @@ func (i ChannelH265FilterSettingsArgs) ToChannelH265FilterSettingsPtrOutputWithC
 // ChannelH265FilterSettingsPtrInput is an input type that accepts ChannelH265FilterSettingsArgs, ChannelH265FilterSettingsPtr and ChannelH265FilterSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH265FilterSettingsPtrInput` via:
 //
-//          ChannelH265FilterSettingsArgs{...}
+//	        ChannelH265FilterSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH265FilterSettingsPtrInput interface {
 	pulumi.Input
 
@@ -11542,7 +11542,7 @@ type ChannelH265Settings struct {
 // ChannelH265SettingsInput is an input type that accepts ChannelH265SettingsArgs and ChannelH265SettingsOutput values.
 // You can construct a concrete instance of `ChannelH265SettingsInput` via:
 //
-//          ChannelH265SettingsArgs{...}
+//	ChannelH265SettingsArgs{...}
 type ChannelH265SettingsInput interface {
 	pulumi.Input
 
@@ -11605,11 +11605,11 @@ func (i ChannelH265SettingsArgs) ToChannelH265SettingsPtrOutputWithContext(ctx c
 // ChannelH265SettingsPtrInput is an input type that accepts ChannelH265SettingsArgs, ChannelH265SettingsPtr and ChannelH265SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelH265SettingsPtrInput` via:
 //
-//          ChannelH265SettingsArgs{...}
+//	        ChannelH265SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelH265SettingsPtrInput interface {
 	pulumi.Input
 
@@ -12068,7 +12068,7 @@ type ChannelHdr10Settings struct {
 // ChannelHdr10SettingsInput is an input type that accepts ChannelHdr10SettingsArgs and ChannelHdr10SettingsOutput values.
 // You can construct a concrete instance of `ChannelHdr10SettingsInput` via:
 //
-//          ChannelHdr10SettingsArgs{...}
+//	ChannelHdr10SettingsArgs{...}
 type ChannelHdr10SettingsInput interface {
 	pulumi.Input
 
@@ -12104,11 +12104,11 @@ func (i ChannelHdr10SettingsArgs) ToChannelHdr10SettingsPtrOutputWithContext(ctx
 // ChannelHdr10SettingsPtrInput is an input type that accepts ChannelHdr10SettingsArgs, ChannelHdr10SettingsPtr and ChannelHdr10SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHdr10SettingsPtrInput` via:
 //
-//          ChannelHdr10SettingsArgs{...}
+//	        ChannelHdr10SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHdr10SettingsPtrInput interface {
 	pulumi.Input
 
@@ -12221,7 +12221,7 @@ type ChannelHlsAkamaiSettings struct {
 // ChannelHlsAkamaiSettingsInput is an input type that accepts ChannelHlsAkamaiSettingsArgs and ChannelHlsAkamaiSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsAkamaiSettingsInput` via:
 //
-//          ChannelHlsAkamaiSettingsArgs{...}
+//	ChannelHlsAkamaiSettingsArgs{...}
 type ChannelHlsAkamaiSettingsInput interface {
 	pulumi.Input
 
@@ -12262,11 +12262,11 @@ func (i ChannelHlsAkamaiSettingsArgs) ToChannelHlsAkamaiSettingsPtrOutputWithCon
 // ChannelHlsAkamaiSettingsPtrInput is an input type that accepts ChannelHlsAkamaiSettingsArgs, ChannelHlsAkamaiSettingsPtr and ChannelHlsAkamaiSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsAkamaiSettingsPtrInput` via:
 //
-//          ChannelHlsAkamaiSettingsArgs{...}
+//	        ChannelHlsAkamaiSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsAkamaiSettingsPtrInput interface {
 	pulumi.Input
 
@@ -12441,7 +12441,7 @@ type ChannelHlsBasicPutSettings struct {
 // ChannelHlsBasicPutSettingsInput is an input type that accepts ChannelHlsBasicPutSettingsArgs and ChannelHlsBasicPutSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsBasicPutSettingsInput` via:
 //
-//          ChannelHlsBasicPutSettingsArgs{...}
+//	ChannelHlsBasicPutSettingsArgs{...}
 type ChannelHlsBasicPutSettingsInput interface {
 	pulumi.Input
 
@@ -12479,11 +12479,11 @@ func (i ChannelHlsBasicPutSettingsArgs) ToChannelHlsBasicPutSettingsPtrOutputWit
 // ChannelHlsBasicPutSettingsPtrInput is an input type that accepts ChannelHlsBasicPutSettingsArgs, ChannelHlsBasicPutSettingsPtr and ChannelHlsBasicPutSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsBasicPutSettingsPtrInput` via:
 //
-//          ChannelHlsBasicPutSettingsArgs{...}
+//	        ChannelHlsBasicPutSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsBasicPutSettingsPtrInput interface {
 	pulumi.Input
 
@@ -12620,7 +12620,7 @@ type ChannelHlsCdnSettings struct {
 // ChannelHlsCdnSettingsInput is an input type that accepts ChannelHlsCdnSettingsArgs and ChannelHlsCdnSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsCdnSettingsInput` via:
 //
-//          ChannelHlsCdnSettingsArgs{...}
+//	ChannelHlsCdnSettingsArgs{...}
 type ChannelHlsCdnSettingsInput interface {
 	pulumi.Input
 
@@ -12659,11 +12659,11 @@ func (i ChannelHlsCdnSettingsArgs) ToChannelHlsCdnSettingsPtrOutputWithContext(c
 // ChannelHlsCdnSettingsPtrInput is an input type that accepts ChannelHlsCdnSettingsArgs, ChannelHlsCdnSettingsPtr and ChannelHlsCdnSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsCdnSettingsPtrInput` via:
 //
-//          ChannelHlsCdnSettingsArgs{...}
+//	        ChannelHlsCdnSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsCdnSettingsPtrInput interface {
 	pulumi.Input
 
@@ -12851,7 +12851,7 @@ type ChannelHlsGroupSettings struct {
 // ChannelHlsGroupSettingsInput is an input type that accepts ChannelHlsGroupSettingsArgs and ChannelHlsGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsGroupSettingsInput` via:
 //
-//          ChannelHlsGroupSettingsArgs{...}
+//	ChannelHlsGroupSettingsArgs{...}
 type ChannelHlsGroupSettingsInput interface {
 	pulumi.Input
 
@@ -12928,11 +12928,11 @@ func (i ChannelHlsGroupSettingsArgs) ToChannelHlsGroupSettingsPtrOutputWithConte
 // ChannelHlsGroupSettingsPtrInput is an input type that accepts ChannelHlsGroupSettingsArgs, ChannelHlsGroupSettingsPtr and ChannelHlsGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsGroupSettingsPtrInput` via:
 //
-//          ChannelHlsGroupSettingsArgs{...}
+//	        ChannelHlsGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -13576,7 +13576,7 @@ type ChannelHlsInputSettings struct {
 // ChannelHlsInputSettingsInput is an input type that accepts ChannelHlsInputSettingsArgs and ChannelHlsInputSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsInputSettingsInput` via:
 //
-//          ChannelHlsInputSettingsArgs{...}
+//	ChannelHlsInputSettingsArgs{...}
 type ChannelHlsInputSettingsInput interface {
 	pulumi.Input
 
@@ -13615,11 +13615,11 @@ func (i ChannelHlsInputSettingsArgs) ToChannelHlsInputSettingsPtrOutputWithConte
 // ChannelHlsInputSettingsPtrInput is an input type that accepts ChannelHlsInputSettingsArgs, ChannelHlsInputSettingsPtr and ChannelHlsInputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsInputSettingsPtrInput` via:
 //
-//          ChannelHlsInputSettingsArgs{...}
+//	        ChannelHlsInputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsInputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -13769,7 +13769,7 @@ type ChannelHlsMediaStoreSettings struct {
 // ChannelHlsMediaStoreSettingsInput is an input type that accepts ChannelHlsMediaStoreSettingsArgs and ChannelHlsMediaStoreSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsMediaStoreSettingsInput` via:
 //
-//          ChannelHlsMediaStoreSettingsArgs{...}
+//	ChannelHlsMediaStoreSettingsArgs{...}
 type ChannelHlsMediaStoreSettingsInput interface {
 	pulumi.Input
 
@@ -13808,11 +13808,11 @@ func (i ChannelHlsMediaStoreSettingsArgs) ToChannelHlsMediaStoreSettingsPtrOutpu
 // ChannelHlsMediaStoreSettingsPtrInput is an input type that accepts ChannelHlsMediaStoreSettingsArgs, ChannelHlsMediaStoreSettingsPtr and ChannelHlsMediaStoreSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsMediaStoreSettingsPtrInput` via:
 //
-//          ChannelHlsMediaStoreSettingsArgs{...}
+//	        ChannelHlsMediaStoreSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsMediaStoreSettingsPtrInput interface {
 	pulumi.Input
 
@@ -13961,7 +13961,7 @@ type ChannelHlsOutputSettings struct {
 // ChannelHlsOutputSettingsInput is an input type that accepts ChannelHlsOutputSettingsArgs and ChannelHlsOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsOutputSettingsInput` via:
 //
-//          ChannelHlsOutputSettingsArgs{...}
+//	ChannelHlsOutputSettingsArgs{...}
 type ChannelHlsOutputSettingsInput interface {
 	pulumi.Input
 
@@ -13999,11 +13999,11 @@ func (i ChannelHlsOutputSettingsArgs) ToChannelHlsOutputSettingsPtrOutputWithCon
 // ChannelHlsOutputSettingsPtrInput is an input type that accepts ChannelHlsOutputSettingsArgs, ChannelHlsOutputSettingsPtr and ChannelHlsOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsOutputSettingsPtrInput` via:
 //
-//          ChannelHlsOutputSettingsArgs{...}
+//	        ChannelHlsOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -14136,7 +14136,7 @@ type ChannelHlsS3Settings struct {
 // ChannelHlsS3SettingsInput is an input type that accepts ChannelHlsS3SettingsArgs and ChannelHlsS3SettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsS3SettingsInput` via:
 //
-//          ChannelHlsS3SettingsArgs{...}
+//	ChannelHlsS3SettingsArgs{...}
 type ChannelHlsS3SettingsInput interface {
 	pulumi.Input
 
@@ -14171,11 +14171,11 @@ func (i ChannelHlsS3SettingsArgs) ToChannelHlsS3SettingsPtrOutputWithContext(ctx
 // ChannelHlsS3SettingsPtrInput is an input type that accepts ChannelHlsS3SettingsArgs, ChannelHlsS3SettingsPtr and ChannelHlsS3SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsS3SettingsPtrInput` via:
 //
-//          ChannelHlsS3SettingsArgs{...}
+//	        ChannelHlsS3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsS3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -14272,7 +14272,7 @@ type ChannelHlsSettings struct {
 // ChannelHlsSettingsInput is an input type that accepts ChannelHlsSettingsArgs and ChannelHlsSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsSettingsInput` via:
 //
-//          ChannelHlsSettingsArgs{...}
+//	ChannelHlsSettingsArgs{...}
 type ChannelHlsSettingsInput interface {
 	pulumi.Input
 
@@ -14310,11 +14310,11 @@ func (i ChannelHlsSettingsArgs) ToChannelHlsSettingsPtrOutputWithContext(ctx con
 // ChannelHlsSettingsPtrInput is an input type that accepts ChannelHlsSettingsArgs, ChannelHlsSettingsPtr and ChannelHlsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsSettingsPtrInput` via:
 //
-//          ChannelHlsSettingsArgs{...}
+//	        ChannelHlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -14451,7 +14451,7 @@ type ChannelHlsWebdavSettings struct {
 // ChannelHlsWebdavSettingsInput is an input type that accepts ChannelHlsWebdavSettingsArgs and ChannelHlsWebdavSettingsOutput values.
 // You can construct a concrete instance of `ChannelHlsWebdavSettingsInput` via:
 //
-//          ChannelHlsWebdavSettingsArgs{...}
+//	ChannelHlsWebdavSettingsArgs{...}
 type ChannelHlsWebdavSettingsInput interface {
 	pulumi.Input
 
@@ -14490,11 +14490,11 @@ func (i ChannelHlsWebdavSettingsArgs) ToChannelHlsWebdavSettingsPtrOutputWithCon
 // ChannelHlsWebdavSettingsPtrInput is an input type that accepts ChannelHlsWebdavSettingsArgs, ChannelHlsWebdavSettingsPtr and ChannelHlsWebdavSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHlsWebdavSettingsPtrInput` via:
 //
-//          ChannelHlsWebdavSettingsArgs{...}
+//	        ChannelHlsWebdavSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHlsWebdavSettingsPtrInput interface {
 	pulumi.Input
 
@@ -14639,7 +14639,7 @@ type ChannelHtmlMotionGraphicsSettings struct {
 // ChannelHtmlMotionGraphicsSettingsInput is an input type that accepts ChannelHtmlMotionGraphicsSettingsArgs and ChannelHtmlMotionGraphicsSettingsOutput values.
 // You can construct a concrete instance of `ChannelHtmlMotionGraphicsSettingsInput` via:
 //
-//          ChannelHtmlMotionGraphicsSettingsArgs{...}
+//	ChannelHtmlMotionGraphicsSettingsArgs{...}
 type ChannelHtmlMotionGraphicsSettingsInput interface {
 	pulumi.Input
 
@@ -14673,11 +14673,11 @@ func (i ChannelHtmlMotionGraphicsSettingsArgs) ToChannelHtmlMotionGraphicsSettin
 // ChannelHtmlMotionGraphicsSettingsPtrInput is an input type that accepts ChannelHtmlMotionGraphicsSettingsArgs, ChannelHtmlMotionGraphicsSettingsPtr and ChannelHtmlMotionGraphicsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelHtmlMotionGraphicsSettingsPtrInput` via:
 //
-//          ChannelHtmlMotionGraphicsSettingsArgs{...}
+//	        ChannelHtmlMotionGraphicsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelHtmlMotionGraphicsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -14761,7 +14761,7 @@ type ChannelInputAttachment struct {
 // ChannelInputAttachmentInput is an input type that accepts ChannelInputAttachmentArgs and ChannelInputAttachmentOutput values.
 // You can construct a concrete instance of `ChannelInputAttachmentInput` via:
 //
-//          ChannelInputAttachmentArgs{...}
+//	ChannelInputAttachmentArgs{...}
 type ChannelInputAttachmentInput interface {
 	pulumi.Input
 
@@ -14791,7 +14791,7 @@ func (i ChannelInputAttachmentArgs) ToChannelInputAttachmentOutputWithContext(ct
 // ChannelInputAttachmentArrayInput is an input type that accepts ChannelInputAttachmentArray and ChannelInputAttachmentArrayOutput values.
 // You can construct a concrete instance of `ChannelInputAttachmentArrayInput` via:
 //
-//          ChannelInputAttachmentArray{ ChannelInputAttachmentArgs{...} }
+//	ChannelInputAttachmentArray{ ChannelInputAttachmentArgs{...} }
 type ChannelInputAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -14873,7 +14873,7 @@ type ChannelInputChannelLevel struct {
 // ChannelInputChannelLevelInput is an input type that accepts ChannelInputChannelLevelArgs and ChannelInputChannelLevelOutput values.
 // You can construct a concrete instance of `ChannelInputChannelLevelInput` via:
 //
-//          ChannelInputChannelLevelArgs{...}
+//	ChannelInputChannelLevelArgs{...}
 type ChannelInputChannelLevelInput interface {
 	pulumi.Input
 
@@ -14901,7 +14901,7 @@ func (i ChannelInputChannelLevelArgs) ToChannelInputChannelLevelOutputWithContex
 // ChannelInputChannelLevelArrayInput is an input type that accepts ChannelInputChannelLevelArray and ChannelInputChannelLevelArrayOutput values.
 // You can construct a concrete instance of `ChannelInputChannelLevelArrayInput` via:
 //
-//          ChannelInputChannelLevelArray{ ChannelInputChannelLevelArgs{...} }
+//	ChannelInputChannelLevelArray{ ChannelInputChannelLevelArgs{...} }
 type ChannelInputChannelLevelArrayInput interface {
 	pulumi.Input
 
@@ -14974,7 +14974,7 @@ type ChannelInputLocation struct {
 // ChannelInputLocationInput is an input type that accepts ChannelInputLocationArgs and ChannelInputLocationOutput values.
 // You can construct a concrete instance of `ChannelInputLocationInput` via:
 //
-//          ChannelInputLocationArgs{...}
+//	ChannelInputLocationArgs{...}
 type ChannelInputLocationInput interface {
 	pulumi.Input
 
@@ -15011,11 +15011,11 @@ func (i ChannelInputLocationArgs) ToChannelInputLocationPtrOutputWithContext(ctx
 // ChannelInputLocationPtrInput is an input type that accepts ChannelInputLocationArgs, ChannelInputLocationPtr and ChannelInputLocationPtrOutput values.
 // You can construct a concrete instance of `ChannelInputLocationPtrInput` via:
 //
-//          ChannelInputLocationArgs{...}
+//	        ChannelInputLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelInputLocationPtrInput interface {
 	pulumi.Input
 
@@ -15139,7 +15139,7 @@ type ChannelInputLossBehavior struct {
 // ChannelInputLossBehaviorInput is an input type that accepts ChannelInputLossBehaviorArgs and ChannelInputLossBehaviorOutput values.
 // You can construct a concrete instance of `ChannelInputLossBehaviorInput` via:
 //
-//          ChannelInputLossBehaviorArgs{...}
+//	ChannelInputLossBehaviorArgs{...}
 type ChannelInputLossBehaviorInput interface {
 	pulumi.Input
 
@@ -15178,11 +15178,11 @@ func (i ChannelInputLossBehaviorArgs) ToChannelInputLossBehaviorPtrOutputWithCon
 // ChannelInputLossBehaviorPtrInput is an input type that accepts ChannelInputLossBehaviorArgs, ChannelInputLossBehaviorPtr and ChannelInputLossBehaviorPtrOutput values.
 // You can construct a concrete instance of `ChannelInputLossBehaviorPtrInput` via:
 //
-//          ChannelInputLossBehaviorArgs{...}
+//	        ChannelInputLossBehaviorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelInputLossBehaviorPtrInput interface {
 	pulumi.Input
 
@@ -15328,7 +15328,7 @@ type ChannelInputLossFailoverSettings struct {
 // ChannelInputLossFailoverSettingsInput is an input type that accepts ChannelInputLossFailoverSettingsArgs and ChannelInputLossFailoverSettingsOutput values.
 // You can construct a concrete instance of `ChannelInputLossFailoverSettingsInput` via:
 //
-//          ChannelInputLossFailoverSettingsArgs{...}
+//	ChannelInputLossFailoverSettingsArgs{...}
 type ChannelInputLossFailoverSettingsInput interface {
 	pulumi.Input
 
@@ -15363,11 +15363,11 @@ func (i ChannelInputLossFailoverSettingsArgs) ToChannelInputLossFailoverSettings
 // ChannelInputLossFailoverSettingsPtrInput is an input type that accepts ChannelInputLossFailoverSettingsArgs, ChannelInputLossFailoverSettingsPtr and ChannelInputLossFailoverSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelInputLossFailoverSettingsPtrInput` via:
 //
-//          ChannelInputLossFailoverSettingsArgs{...}
+//	        ChannelInputLossFailoverSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelInputLossFailoverSettingsPtrInput interface {
 	pulumi.Input
 
@@ -15471,7 +15471,7 @@ type ChannelInputSettings struct {
 // ChannelInputSettingsInput is an input type that accepts ChannelInputSettingsArgs and ChannelInputSettingsOutput values.
 // You can construct a concrete instance of `ChannelInputSettingsInput` via:
 //
-//          ChannelInputSettingsArgs{...}
+//	ChannelInputSettingsArgs{...}
 type ChannelInputSettingsInput interface {
 	pulumi.Input
 
@@ -15516,11 +15516,11 @@ func (i ChannelInputSettingsArgs) ToChannelInputSettingsPtrOutputWithContext(ctx
 // ChannelInputSettingsPtrInput is an input type that accepts ChannelInputSettingsArgs, ChannelInputSettingsPtr and ChannelInputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelInputSettingsPtrInput` via:
 //
-//          ChannelInputSettingsArgs{...}
+//	        ChannelInputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelInputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -15746,7 +15746,7 @@ type ChannelInputSpecification struct {
 // ChannelInputSpecificationInput is an input type that accepts ChannelInputSpecificationArgs and ChannelInputSpecificationOutput values.
 // You can construct a concrete instance of `ChannelInputSpecificationInput` via:
 //
-//          ChannelInputSpecificationArgs{...}
+//	ChannelInputSpecificationArgs{...}
 type ChannelInputSpecificationInput interface {
 	pulumi.Input
 
@@ -15783,11 +15783,11 @@ func (i ChannelInputSpecificationArgs) ToChannelInputSpecificationPtrOutputWithC
 // ChannelInputSpecificationPtrInput is an input type that accepts ChannelInputSpecificationArgs, ChannelInputSpecificationPtr and ChannelInputSpecificationPtrOutput values.
 // You can construct a concrete instance of `ChannelInputSpecificationPtrInput` via:
 //
-//          ChannelInputSpecificationArgs{...}
+//	        ChannelInputSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelInputSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -15907,7 +15907,7 @@ type ChannelKeyProviderSettings struct {
 // ChannelKeyProviderSettingsInput is an input type that accepts ChannelKeyProviderSettingsArgs and ChannelKeyProviderSettingsOutput values.
 // You can construct a concrete instance of `ChannelKeyProviderSettingsInput` via:
 //
-//          ChannelKeyProviderSettingsArgs{...}
+//	ChannelKeyProviderSettingsArgs{...}
 type ChannelKeyProviderSettingsInput interface {
 	pulumi.Input
 
@@ -15942,11 +15942,11 @@ func (i ChannelKeyProviderSettingsArgs) ToChannelKeyProviderSettingsPtrOutputWit
 // ChannelKeyProviderSettingsPtrInput is an input type that accepts ChannelKeyProviderSettingsArgs, ChannelKeyProviderSettingsPtr and ChannelKeyProviderSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelKeyProviderSettingsPtrInput` via:
 //
-//          ChannelKeyProviderSettingsArgs{...}
+//	        ChannelKeyProviderSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelKeyProviderSettingsPtrInput interface {
 	pulumi.Input
 
@@ -16086,7 +16086,7 @@ type ChannelM2tsSettings struct {
 // ChannelM2tsSettingsInput is an input type that accepts ChannelM2tsSettingsArgs and ChannelM2tsSettingsOutput values.
 // You can construct a concrete instance of `ChannelM2tsSettingsInput` via:
 //
-//          ChannelM2tsSettingsArgs{...}
+//	ChannelM2tsSettingsArgs{...}
 type ChannelM2tsSettingsInput interface {
 	pulumi.Input
 
@@ -16167,11 +16167,11 @@ func (i ChannelM2tsSettingsArgs) ToChannelM2tsSettingsPtrOutputWithContext(ctx c
 // ChannelM2tsSettingsPtrInput is an input type that accepts ChannelM2tsSettingsArgs, ChannelM2tsSettingsPtr and ChannelM2tsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelM2tsSettingsPtrInput` via:
 //
-//          ChannelM2tsSettingsArgs{...}
+//	        ChannelM2tsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelM2tsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -16879,7 +16879,7 @@ type ChannelM3u8Settings struct {
 // ChannelM3u8SettingsInput is an input type that accepts ChannelM3u8SettingsArgs and ChannelM3u8SettingsOutput values.
 // You can construct a concrete instance of `ChannelM3u8SettingsInput` via:
 //
-//          ChannelM3u8SettingsArgs{...}
+//	ChannelM3u8SettingsArgs{...}
 type ChannelM3u8SettingsInput interface {
 	pulumi.Input
 
@@ -16930,11 +16930,11 @@ func (i ChannelM3u8SettingsArgs) ToChannelM3u8SettingsPtrOutputWithContext(ctx c
 // ChannelM3u8SettingsPtrInput is an input type that accepts ChannelM3u8SettingsArgs, ChannelM3u8SettingsPtr and ChannelM3u8SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelM3u8SettingsPtrInput` via:
 //
-//          ChannelM3u8SettingsArgs{...}
+//	        ChannelM3u8SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelM3u8SettingsPtrInput interface {
 	pulumi.Input
 
@@ -17236,7 +17236,7 @@ type ChannelMediaPackageGroupSettings struct {
 // ChannelMediaPackageGroupSettingsInput is an input type that accepts ChannelMediaPackageGroupSettingsArgs and ChannelMediaPackageGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageGroupSettingsInput` via:
 //
-//          ChannelMediaPackageGroupSettingsArgs{...}
+//	ChannelMediaPackageGroupSettingsArgs{...}
 type ChannelMediaPackageGroupSettingsInput interface {
 	pulumi.Input
 
@@ -17271,11 +17271,11 @@ func (i ChannelMediaPackageGroupSettingsArgs) ToChannelMediaPackageGroupSettings
 // ChannelMediaPackageGroupSettingsPtrInput is an input type that accepts ChannelMediaPackageGroupSettingsArgs, ChannelMediaPackageGroupSettingsPtr and ChannelMediaPackageGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageGroupSettingsPtrInput` via:
 //
-//          ChannelMediaPackageGroupSettingsArgs{...}
+//	        ChannelMediaPackageGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMediaPackageGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -17369,7 +17369,7 @@ type ChannelMediaPackageOutputDestinationSettings struct {
 // ChannelMediaPackageOutputDestinationSettingsInput is an input type that accepts ChannelMediaPackageOutputDestinationSettingsArgs and ChannelMediaPackageOutputDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageOutputDestinationSettingsInput` via:
 //
-//          ChannelMediaPackageOutputDestinationSettingsArgs{...}
+//	ChannelMediaPackageOutputDestinationSettingsArgs{...}
 type ChannelMediaPackageOutputDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -17396,7 +17396,7 @@ func (i ChannelMediaPackageOutputDestinationSettingsArgs) ToChannelMediaPackageO
 // ChannelMediaPackageOutputDestinationSettingsArrayInput is an input type that accepts ChannelMediaPackageOutputDestinationSettingsArray and ChannelMediaPackageOutputDestinationSettingsArrayOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageOutputDestinationSettingsArrayInput` via:
 //
-//          ChannelMediaPackageOutputDestinationSettingsArray{ ChannelMediaPackageOutputDestinationSettingsArgs{...} }
+//	ChannelMediaPackageOutputDestinationSettingsArray{ ChannelMediaPackageOutputDestinationSettingsArgs{...} }
 type ChannelMediaPackageOutputDestinationSettingsArrayInput interface {
 	pulumi.Input
 
@@ -17462,7 +17462,7 @@ type ChannelMediaPackageOutputSettings struct {
 // ChannelMediaPackageOutputSettingsInput is an input type that accepts ChannelMediaPackageOutputSettingsArgs and ChannelMediaPackageOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageOutputSettingsInput` via:
 //
-//          ChannelMediaPackageOutputSettingsArgs{...}
+//	ChannelMediaPackageOutputSettingsArgs{...}
 type ChannelMediaPackageOutputSettingsInput interface {
 	pulumi.Input
 
@@ -17496,11 +17496,11 @@ func (i ChannelMediaPackageOutputSettingsArgs) ToChannelMediaPackageOutputSettin
 // ChannelMediaPackageOutputSettingsPtrInput is an input type that accepts ChannelMediaPackageOutputSettingsArgs, ChannelMediaPackageOutputSettingsPtr and ChannelMediaPackageOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageOutputSettingsPtrInput` via:
 //
-//          ChannelMediaPackageOutputSettingsArgs{...}
+//	        ChannelMediaPackageOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMediaPackageOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -17582,7 +17582,7 @@ type ChannelMotionGraphicsConfiguration struct {
 // ChannelMotionGraphicsConfigurationInput is an input type that accepts ChannelMotionGraphicsConfigurationArgs and ChannelMotionGraphicsConfigurationOutput values.
 // You can construct a concrete instance of `ChannelMotionGraphicsConfigurationInput` via:
 //
-//          ChannelMotionGraphicsConfigurationArgs{...}
+//	ChannelMotionGraphicsConfigurationArgs{...}
 type ChannelMotionGraphicsConfigurationInput interface {
 	pulumi.Input
 
@@ -17618,11 +17618,11 @@ func (i ChannelMotionGraphicsConfigurationArgs) ToChannelMotionGraphicsConfigura
 // ChannelMotionGraphicsConfigurationPtrInput is an input type that accepts ChannelMotionGraphicsConfigurationArgs, ChannelMotionGraphicsConfigurationPtr and ChannelMotionGraphicsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ChannelMotionGraphicsConfigurationPtrInput` via:
 //
-//          ChannelMotionGraphicsConfigurationArgs{...}
+//	        ChannelMotionGraphicsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMotionGraphicsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -17731,7 +17731,7 @@ type ChannelMotionGraphicsSettings struct {
 // ChannelMotionGraphicsSettingsInput is an input type that accepts ChannelMotionGraphicsSettingsArgs and ChannelMotionGraphicsSettingsOutput values.
 // You can construct a concrete instance of `ChannelMotionGraphicsSettingsInput` via:
 //
-//          ChannelMotionGraphicsSettingsArgs{...}
+//	ChannelMotionGraphicsSettingsArgs{...}
 type ChannelMotionGraphicsSettingsInput interface {
 	pulumi.Input
 
@@ -17766,11 +17766,11 @@ func (i ChannelMotionGraphicsSettingsArgs) ToChannelMotionGraphicsSettingsPtrOut
 // ChannelMotionGraphicsSettingsPtrInput is an input type that accepts ChannelMotionGraphicsSettingsArgs, ChannelMotionGraphicsSettingsPtr and ChannelMotionGraphicsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMotionGraphicsSettingsPtrInput` via:
 //
-//          ChannelMotionGraphicsSettingsArgs{...}
+//	        ChannelMotionGraphicsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMotionGraphicsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -17868,7 +17868,7 @@ type ChannelMp2Settings struct {
 // ChannelMp2SettingsInput is an input type that accepts ChannelMp2SettingsArgs and ChannelMp2SettingsOutput values.
 // You can construct a concrete instance of `ChannelMp2SettingsInput` via:
 //
-//          ChannelMp2SettingsArgs{...}
+//	ChannelMp2SettingsArgs{...}
 type ChannelMp2SettingsInput interface {
 	pulumi.Input
 
@@ -17905,11 +17905,11 @@ func (i ChannelMp2SettingsArgs) ToChannelMp2SettingsPtrOutputWithContext(ctx con
 // ChannelMp2SettingsPtrInput is an input type that accepts ChannelMp2SettingsArgs, ChannelMp2SettingsPtr and ChannelMp2SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMp2SettingsPtrInput` via:
 //
-//          ChannelMp2SettingsArgs{...}
+//	        ChannelMp2SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMp2SettingsPtrInput interface {
 	pulumi.Input
 
@@ -18029,7 +18029,7 @@ type ChannelMpeg2FilterSettings struct {
 // ChannelMpeg2FilterSettingsInput is an input type that accepts ChannelMpeg2FilterSettingsArgs and ChannelMpeg2FilterSettingsOutput values.
 // You can construct a concrete instance of `ChannelMpeg2FilterSettingsInput` via:
 //
-//          ChannelMpeg2FilterSettingsArgs{...}
+//	ChannelMpeg2FilterSettingsArgs{...}
 type ChannelMpeg2FilterSettingsInput interface {
 	pulumi.Input
 
@@ -18064,11 +18064,11 @@ func (i ChannelMpeg2FilterSettingsArgs) ToChannelMpeg2FilterSettingsPtrOutputWit
 // ChannelMpeg2FilterSettingsPtrInput is an input type that accepts ChannelMpeg2FilterSettingsArgs, ChannelMpeg2FilterSettingsPtr and ChannelMpeg2FilterSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMpeg2FilterSettingsPtrInput` via:
 //
-//          ChannelMpeg2FilterSettingsArgs{...}
+//	        ChannelMpeg2FilterSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMpeg2FilterSettingsPtrInput interface {
 	pulumi.Input
 
@@ -18177,7 +18177,7 @@ type ChannelMpeg2Settings struct {
 // ChannelMpeg2SettingsInput is an input type that accepts ChannelMpeg2SettingsArgs and ChannelMpeg2SettingsOutput values.
 // You can construct a concrete instance of `ChannelMpeg2SettingsInput` via:
 //
-//          ChannelMpeg2SettingsArgs{...}
+//	ChannelMpeg2SettingsArgs{...}
 type ChannelMpeg2SettingsInput interface {
 	pulumi.Input
 
@@ -18227,11 +18227,11 @@ func (i ChannelMpeg2SettingsArgs) ToChannelMpeg2SettingsPtrOutputWithContext(ctx
 // ChannelMpeg2SettingsPtrInput is an input type that accepts ChannelMpeg2SettingsArgs, ChannelMpeg2SettingsPtr and ChannelMpeg2SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMpeg2SettingsPtrInput` via:
 //
-//          ChannelMpeg2SettingsArgs{...}
+//	        ChannelMpeg2SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMpeg2SettingsPtrInput interface {
 	pulumi.Input
 
@@ -18538,7 +18538,7 @@ type ChannelMsSmoothGroupSettings struct {
 // ChannelMsSmoothGroupSettingsInput is an input type that accepts ChannelMsSmoothGroupSettingsArgs and ChannelMsSmoothGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelMsSmoothGroupSettingsInput` via:
 //
-//          ChannelMsSmoothGroupSettingsArgs{...}
+//	ChannelMsSmoothGroupSettingsArgs{...}
 type ChannelMsSmoothGroupSettingsInput interface {
 	pulumi.Input
 
@@ -18591,11 +18591,11 @@ func (i ChannelMsSmoothGroupSettingsArgs) ToChannelMsSmoothGroupSettingsPtrOutpu
 // ChannelMsSmoothGroupSettingsPtrInput is an input type that accepts ChannelMsSmoothGroupSettingsArgs, ChannelMsSmoothGroupSettingsPtr and ChannelMsSmoothGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMsSmoothGroupSettingsPtrInput` via:
 //
-//          ChannelMsSmoothGroupSettingsArgs{...}
+//	        ChannelMsSmoothGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMsSmoothGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -18924,7 +18924,7 @@ type ChannelMsSmoothOutputSettings struct {
 // ChannelMsSmoothOutputSettingsInput is an input type that accepts ChannelMsSmoothOutputSettingsArgs and ChannelMsSmoothOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelMsSmoothOutputSettingsInput` via:
 //
-//          ChannelMsSmoothOutputSettingsArgs{...}
+//	ChannelMsSmoothOutputSettingsArgs{...}
 type ChannelMsSmoothOutputSettingsInput interface {
 	pulumi.Input
 
@@ -18960,11 +18960,11 @@ func (i ChannelMsSmoothOutputSettingsArgs) ToChannelMsSmoothOutputSettingsPtrOut
 // ChannelMsSmoothOutputSettingsPtrInput is an input type that accepts ChannelMsSmoothOutputSettingsArgs, ChannelMsSmoothOutputSettingsPtr and ChannelMsSmoothOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMsSmoothOutputSettingsPtrInput` via:
 //
-//          ChannelMsSmoothOutputSettingsArgs{...}
+//	        ChannelMsSmoothOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMsSmoothOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19070,7 +19070,7 @@ type ChannelMultiplexGroupSettings struct {
 // ChannelMultiplexGroupSettingsInput is an input type that accepts ChannelMultiplexGroupSettingsArgs and ChannelMultiplexGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelMultiplexGroupSettingsInput` via:
 //
-//          ChannelMultiplexGroupSettingsArgs{...}
+//	ChannelMultiplexGroupSettingsArgs{...}
 type ChannelMultiplexGroupSettingsInput interface {
 	pulumi.Input
 
@@ -19104,11 +19104,11 @@ func (i ChannelMultiplexGroupSettingsArgs) ToChannelMultiplexGroupSettingsPtrOut
 // ChannelMultiplexGroupSettingsPtrInput is an input type that accepts ChannelMultiplexGroupSettingsArgs, ChannelMultiplexGroupSettingsPtr and ChannelMultiplexGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMultiplexGroupSettingsPtrInput` via:
 //
-//          ChannelMultiplexGroupSettingsArgs{...}
+//	        ChannelMultiplexGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMultiplexGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19189,7 +19189,7 @@ type ChannelMultiplexOutputSettings struct {
 // ChannelMultiplexOutputSettingsInput is an input type that accepts ChannelMultiplexOutputSettingsArgs and ChannelMultiplexOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelMultiplexOutputSettingsInput` via:
 //
-//          ChannelMultiplexOutputSettingsArgs{...}
+//	ChannelMultiplexOutputSettingsArgs{...}
 type ChannelMultiplexOutputSettingsInput interface {
 	pulumi.Input
 
@@ -19224,11 +19224,11 @@ func (i ChannelMultiplexOutputSettingsArgs) ToChannelMultiplexOutputSettingsPtrO
 // ChannelMultiplexOutputSettingsPtrInput is an input type that accepts ChannelMultiplexOutputSettingsArgs, ChannelMultiplexOutputSettingsPtr and ChannelMultiplexOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMultiplexOutputSettingsPtrInput` via:
 //
-//          ChannelMultiplexOutputSettingsArgs{...}
+//	        ChannelMultiplexOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMultiplexOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19323,7 +19323,7 @@ type ChannelMultiplexProgramChannelDestinationSettings struct {
 // ChannelMultiplexProgramChannelDestinationSettingsInput is an input type that accepts ChannelMultiplexProgramChannelDestinationSettingsArgs and ChannelMultiplexProgramChannelDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelMultiplexProgramChannelDestinationSettingsInput` via:
 //
-//          ChannelMultiplexProgramChannelDestinationSettingsArgs{...}
+//	ChannelMultiplexProgramChannelDestinationSettingsArgs{...}
 type ChannelMultiplexProgramChannelDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -19359,11 +19359,11 @@ func (i ChannelMultiplexProgramChannelDestinationSettingsArgs) ToChannelMultiple
 // ChannelMultiplexProgramChannelDestinationSettingsPtrInput is an input type that accepts ChannelMultiplexProgramChannelDestinationSettingsArgs, ChannelMultiplexProgramChannelDestinationSettingsPtr and ChannelMultiplexProgramChannelDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelMultiplexProgramChannelDestinationSettingsPtrInput` via:
 //
-//          ChannelMultiplexProgramChannelDestinationSettingsArgs{...}
+//	        ChannelMultiplexProgramChannelDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelMultiplexProgramChannelDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19471,7 +19471,7 @@ type ChannelNetworkInputSettings struct {
 // ChannelNetworkInputSettingsInput is an input type that accepts ChannelNetworkInputSettingsArgs and ChannelNetworkInputSettingsOutput values.
 // You can construct a concrete instance of `ChannelNetworkInputSettingsInput` via:
 //
-//          ChannelNetworkInputSettingsArgs{...}
+//	ChannelNetworkInputSettingsArgs{...}
 type ChannelNetworkInputSettingsInput interface {
 	pulumi.Input
 
@@ -19507,11 +19507,11 @@ func (i ChannelNetworkInputSettingsArgs) ToChannelNetworkInputSettingsPtrOutputW
 // ChannelNetworkInputSettingsPtrInput is an input type that accepts ChannelNetworkInputSettingsArgs, ChannelNetworkInputSettingsPtr and ChannelNetworkInputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelNetworkInputSettingsPtrInput` via:
 //
-//          ChannelNetworkInputSettingsArgs{...}
+//	        ChannelNetworkInputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelNetworkInputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -19620,7 +19620,7 @@ type ChannelNielsenCBET struct {
 // ChannelNielsenCBETInput is an input type that accepts ChannelNielsenCBETArgs and ChannelNielsenCBETOutput values.
 // You can construct a concrete instance of `ChannelNielsenCBETInput` via:
 //
-//          ChannelNielsenCBETArgs{...}
+//	ChannelNielsenCBETArgs{...}
 type ChannelNielsenCBETInput interface {
 	pulumi.Input
 
@@ -19657,11 +19657,11 @@ func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETPtrOutputWithContext(ctx con
 // ChannelNielsenCBETPtrInput is an input type that accepts ChannelNielsenCBETArgs, ChannelNielsenCBETPtr and ChannelNielsenCBETPtrOutput values.
 // You can construct a concrete instance of `ChannelNielsenCBETPtrInput` via:
 //
-//          ChannelNielsenCBETArgs{...}
+//	        ChannelNielsenCBETArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelNielsenCBETPtrInput interface {
 	pulumi.Input
 
@@ -19782,7 +19782,7 @@ type ChannelNielsenConfiguration struct {
 // ChannelNielsenConfigurationInput is an input type that accepts ChannelNielsenConfigurationArgs and ChannelNielsenConfigurationOutput values.
 // You can construct a concrete instance of `ChannelNielsenConfigurationInput` via:
 //
-//          ChannelNielsenConfigurationArgs{...}
+//	ChannelNielsenConfigurationArgs{...}
 type ChannelNielsenConfigurationInput interface {
 	pulumi.Input
 
@@ -19818,11 +19818,11 @@ func (i ChannelNielsenConfigurationArgs) ToChannelNielsenConfigurationPtrOutputW
 // ChannelNielsenConfigurationPtrInput is an input type that accepts ChannelNielsenConfigurationArgs, ChannelNielsenConfigurationPtr and ChannelNielsenConfigurationPtrOutput values.
 // You can construct a concrete instance of `ChannelNielsenConfigurationPtrInput` via:
 //
-//          ChannelNielsenConfigurationArgs{...}
+//	        ChannelNielsenConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelNielsenConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -19930,7 +19930,7 @@ type ChannelNielsenNaesIiNw struct {
 // ChannelNielsenNaesIiNwInput is an input type that accepts ChannelNielsenNaesIiNwArgs and ChannelNielsenNaesIiNwOutput values.
 // You can construct a concrete instance of `ChannelNielsenNaesIiNwInput` via:
 //
-//          ChannelNielsenNaesIiNwArgs{...}
+//	ChannelNielsenNaesIiNwArgs{...}
 type ChannelNielsenNaesIiNwInput interface {
 	pulumi.Input
 
@@ -19966,11 +19966,11 @@ func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwPtrOutputWithContext
 // ChannelNielsenNaesIiNwPtrInput is an input type that accepts ChannelNielsenNaesIiNwArgs, ChannelNielsenNaesIiNwPtr and ChannelNielsenNaesIiNwPtrOutput values.
 // You can construct a concrete instance of `ChannelNielsenNaesIiNwPtrInput` via:
 //
-//          ChannelNielsenNaesIiNwArgs{...}
+//	        ChannelNielsenNaesIiNwArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelNielsenNaesIiNwPtrInput interface {
 	pulumi.Input
 
@@ -20079,7 +20079,7 @@ type ChannelNielsenWatermarksSettings struct {
 // ChannelNielsenWatermarksSettingsInput is an input type that accepts ChannelNielsenWatermarksSettingsArgs and ChannelNielsenWatermarksSettingsOutput values.
 // You can construct a concrete instance of `ChannelNielsenWatermarksSettingsInput` via:
 //
-//          ChannelNielsenWatermarksSettingsArgs{...}
+//	ChannelNielsenWatermarksSettingsArgs{...}
 type ChannelNielsenWatermarksSettingsInput interface {
 	pulumi.Input
 
@@ -20116,11 +20116,11 @@ func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettings
 // ChannelNielsenWatermarksSettingsPtrInput is an input type that accepts ChannelNielsenWatermarksSettingsArgs, ChannelNielsenWatermarksSettingsPtr and ChannelNielsenWatermarksSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelNielsenWatermarksSettingsPtrInput` via:
 //
-//          ChannelNielsenWatermarksSettingsArgs{...}
+//	        ChannelNielsenWatermarksSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelNielsenWatermarksSettingsPtrInput interface {
 	pulumi.Input
 
@@ -20244,7 +20244,7 @@ type ChannelOutputType struct {
 // ChannelOutputTypeInput is an input type that accepts ChannelOutputTypeArgs and ChannelOutputTypeOutput values.
 // You can construct a concrete instance of `ChannelOutputTypeInput` via:
 //
-//          ChannelOutputTypeArgs{...}
+//	ChannelOutputTypeArgs{...}
 type ChannelOutputTypeInput interface {
 	pulumi.Input
 
@@ -20275,7 +20275,7 @@ func (i ChannelOutputTypeArgs) ToChannelOutputTypeOutputWithContext(ctx context.
 // ChannelOutputTypeArrayInput is an input type that accepts ChannelOutputTypeArray and ChannelOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputTypeArrayInput` via:
 //
-//          ChannelOutputTypeArray{ ChannelOutputTypeArgs{...} }
+//	ChannelOutputTypeArray{ ChannelOutputTypeArgs{...} }
 type ChannelOutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -20361,7 +20361,7 @@ type ChannelOutputDestination struct {
 // ChannelOutputDestinationInput is an input type that accepts ChannelOutputDestinationArgs and ChannelOutputDestinationOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationInput` via:
 //
-//          ChannelOutputDestinationArgs{...}
+//	ChannelOutputDestinationArgs{...}
 type ChannelOutputDestinationInput interface {
 	pulumi.Input
 
@@ -20391,7 +20391,7 @@ func (i ChannelOutputDestinationArgs) ToChannelOutputDestinationOutputWithContex
 // ChannelOutputDestinationArrayInput is an input type that accepts ChannelOutputDestinationArray and ChannelOutputDestinationArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationArrayInput` via:
 //
-//          ChannelOutputDestinationArray{ ChannelOutputDestinationArgs{...} }
+//	ChannelOutputDestinationArray{ ChannelOutputDestinationArgs{...} }
 type ChannelOutputDestinationArrayInput interface {
 	pulumi.Input
 
@@ -20477,7 +20477,7 @@ type ChannelOutputDestinationSettings struct {
 // ChannelOutputDestinationSettingsInput is an input type that accepts ChannelOutputDestinationSettingsArgs and ChannelOutputDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationSettingsInput` via:
 //
-//          ChannelOutputDestinationSettingsArgs{...}
+//	ChannelOutputDestinationSettingsArgs{...}
 type ChannelOutputDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -20507,7 +20507,7 @@ func (i ChannelOutputDestinationSettingsArgs) ToChannelOutputDestinationSettings
 // ChannelOutputDestinationSettingsArrayInput is an input type that accepts ChannelOutputDestinationSettingsArray and ChannelOutputDestinationSettingsArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationSettingsArrayInput` via:
 //
-//          ChannelOutputDestinationSettingsArray{ ChannelOutputDestinationSettingsArgs{...} }
+//	ChannelOutputDestinationSettingsArray{ ChannelOutputDestinationSettingsArgs{...} }
 type ChannelOutputDestinationSettingsArrayInput interface {
 	pulumi.Input
 
@@ -20588,7 +20588,7 @@ type ChannelOutputGroup struct {
 // ChannelOutputGroupInput is an input type that accepts ChannelOutputGroupArgs and ChannelOutputGroupOutput values.
 // You can construct a concrete instance of `ChannelOutputGroupInput` via:
 //
-//          ChannelOutputGroupArgs{...}
+//	ChannelOutputGroupArgs{...}
 type ChannelOutputGroupInput interface {
 	pulumi.Input
 
@@ -20617,7 +20617,7 @@ func (i ChannelOutputGroupArgs) ToChannelOutputGroupOutputWithContext(ctx contex
 // ChannelOutputGroupArrayInput is an input type that accepts ChannelOutputGroupArray and ChannelOutputGroupArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputGroupArrayInput` via:
 //
-//          ChannelOutputGroupArray{ ChannelOutputGroupArgs{...} }
+//	ChannelOutputGroupArray{ ChannelOutputGroupArgs{...} }
 type ChannelOutputGroupArrayInput interface {
 	pulumi.Input
 
@@ -20699,7 +20699,7 @@ type ChannelOutputGroupSettings struct {
 // ChannelOutputGroupSettingsInput is an input type that accepts ChannelOutputGroupSettingsArgs and ChannelOutputGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelOutputGroupSettingsInput` via:
 //
-//          ChannelOutputGroupSettingsArgs{...}
+//	ChannelOutputGroupSettingsArgs{...}
 type ChannelOutputGroupSettingsInput interface {
 	pulumi.Input
 
@@ -20741,11 +20741,11 @@ func (i ChannelOutputGroupSettingsArgs) ToChannelOutputGroupSettingsPtrOutputWit
 // ChannelOutputGroupSettingsPtrInput is an input type that accepts ChannelOutputGroupSettingsArgs, ChannelOutputGroupSettingsPtr and ChannelOutputGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelOutputGroupSettingsPtrInput` via:
 //
-//          ChannelOutputGroupSettingsArgs{...}
+//	        ChannelOutputGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelOutputGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -20934,7 +20934,7 @@ type ChannelOutputLocationRef struct {
 // ChannelOutputLocationRefInput is an input type that accepts ChannelOutputLocationRefArgs and ChannelOutputLocationRefOutput values.
 // You can construct a concrete instance of `ChannelOutputLocationRefInput` via:
 //
-//          ChannelOutputLocationRefArgs{...}
+//	ChannelOutputLocationRefArgs{...}
 type ChannelOutputLocationRefInput interface {
 	pulumi.Input
 
@@ -20969,11 +20969,11 @@ func (i ChannelOutputLocationRefArgs) ToChannelOutputLocationRefPtrOutputWithCon
 // ChannelOutputLocationRefPtrInput is an input type that accepts ChannelOutputLocationRefArgs, ChannelOutputLocationRefPtr and ChannelOutputLocationRefPtrOutput values.
 // You can construct a concrete instance of `ChannelOutputLocationRefPtrInput` via:
 //
-//          ChannelOutputLocationRefArgs{...}
+//	        ChannelOutputLocationRefArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelOutputLocationRefPtrInput interface {
 	pulumi.Input
 
@@ -21074,7 +21074,7 @@ type ChannelOutputSettings struct {
 // ChannelOutputSettingsInput is an input type that accepts ChannelOutputSettingsArgs and ChannelOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelOutputSettingsInput` via:
 //
-//          ChannelOutputSettingsArgs{...}
+//	ChannelOutputSettingsArgs{...}
 type ChannelOutputSettingsInput interface {
 	pulumi.Input
 
@@ -21116,11 +21116,11 @@ func (i ChannelOutputSettingsArgs) ToChannelOutputSettingsPtrOutputWithContext(c
 // ChannelOutputSettingsPtrInput is an input type that accepts ChannelOutputSettingsArgs, ChannelOutputSettingsPtr and ChannelOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelOutputSettingsPtrInput` via:
 //
-//          ChannelOutputSettingsArgs{...}
+//	        ChannelOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -21304,7 +21304,7 @@ type ChannelPassThroughSettings struct {
 // ChannelPassThroughSettingsInput is an input type that accepts ChannelPassThroughSettingsArgs and ChannelPassThroughSettingsOutput values.
 // You can construct a concrete instance of `ChannelPassThroughSettingsInput` via:
 //
-//          ChannelPassThroughSettingsArgs{...}
+//	ChannelPassThroughSettingsArgs{...}
 type ChannelPassThroughSettingsInput interface {
 	pulumi.Input
 
@@ -21338,11 +21338,11 @@ func (i ChannelPassThroughSettingsArgs) ToChannelPassThroughSettingsPtrOutputWit
 // ChannelPassThroughSettingsPtrInput is an input type that accepts ChannelPassThroughSettingsArgs, ChannelPassThroughSettingsPtr and ChannelPassThroughSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelPassThroughSettingsPtrInput` via:
 //
-//          ChannelPassThroughSettingsArgs{...}
+//	        ChannelPassThroughSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelPassThroughSettingsPtrInput interface {
 	pulumi.Input
 
@@ -21422,7 +21422,7 @@ type ChannelRawSettings struct {
 // ChannelRawSettingsInput is an input type that accepts ChannelRawSettingsArgs and ChannelRawSettingsOutput values.
 // You can construct a concrete instance of `ChannelRawSettingsInput` via:
 //
-//          ChannelRawSettingsArgs{...}
+//	ChannelRawSettingsArgs{...}
 type ChannelRawSettingsInput interface {
 	pulumi.Input
 
@@ -21456,11 +21456,11 @@ func (i ChannelRawSettingsArgs) ToChannelRawSettingsPtrOutputWithContext(ctx con
 // ChannelRawSettingsPtrInput is an input type that accepts ChannelRawSettingsArgs, ChannelRawSettingsPtr and ChannelRawSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRawSettingsPtrInput` via:
 //
-//          ChannelRawSettingsArgs{...}
+//	        ChannelRawSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRawSettingsPtrInput interface {
 	pulumi.Input
 
@@ -21540,7 +21540,7 @@ type ChannelRec601Settings struct {
 // ChannelRec601SettingsInput is an input type that accepts ChannelRec601SettingsArgs and ChannelRec601SettingsOutput values.
 // You can construct a concrete instance of `ChannelRec601SettingsInput` via:
 //
-//          ChannelRec601SettingsArgs{...}
+//	ChannelRec601SettingsArgs{...}
 type ChannelRec601SettingsInput interface {
 	pulumi.Input
 
@@ -21574,11 +21574,11 @@ func (i ChannelRec601SettingsArgs) ToChannelRec601SettingsPtrOutputWithContext(c
 // ChannelRec601SettingsPtrInput is an input type that accepts ChannelRec601SettingsArgs, ChannelRec601SettingsPtr and ChannelRec601SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRec601SettingsPtrInput` via:
 //
-//          ChannelRec601SettingsArgs{...}
+//	        ChannelRec601SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRec601SettingsPtrInput interface {
 	pulumi.Input
 
@@ -21658,7 +21658,7 @@ type ChannelRec709Settings struct {
 // ChannelRec709SettingsInput is an input type that accepts ChannelRec709SettingsArgs and ChannelRec709SettingsOutput values.
 // You can construct a concrete instance of `ChannelRec709SettingsInput` via:
 //
-//          ChannelRec709SettingsArgs{...}
+//	ChannelRec709SettingsArgs{...}
 type ChannelRec709SettingsInput interface {
 	pulumi.Input
 
@@ -21692,11 +21692,11 @@ func (i ChannelRec709SettingsArgs) ToChannelRec709SettingsPtrOutputWithContext(c
 // ChannelRec709SettingsPtrInput is an input type that accepts ChannelRec709SettingsArgs, ChannelRec709SettingsPtr and ChannelRec709SettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRec709SettingsPtrInput` via:
 //
-//          ChannelRec709SettingsArgs{...}
+//	        ChannelRec709SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRec709SettingsPtrInput interface {
 	pulumi.Input
 
@@ -21779,7 +21779,7 @@ type ChannelRemixSettings struct {
 // ChannelRemixSettingsInput is an input type that accepts ChannelRemixSettingsArgs and ChannelRemixSettingsOutput values.
 // You can construct a concrete instance of `ChannelRemixSettingsInput` via:
 //
-//          ChannelRemixSettingsArgs{...}
+//	ChannelRemixSettingsArgs{...}
 type ChannelRemixSettingsInput interface {
 	pulumi.Input
 
@@ -21816,11 +21816,11 @@ func (i ChannelRemixSettingsArgs) ToChannelRemixSettingsPtrOutputWithContext(ctx
 // ChannelRemixSettingsPtrInput is an input type that accepts ChannelRemixSettingsArgs, ChannelRemixSettingsPtr and ChannelRemixSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRemixSettingsPtrInput` via:
 //
-//          ChannelRemixSettingsArgs{...}
+//	        ChannelRemixSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRemixSettingsPtrInput interface {
 	pulumi.Input
 
@@ -21939,7 +21939,7 @@ type ChannelRtmpCaptionInfoDestinationSettings struct {
 // ChannelRtmpCaptionInfoDestinationSettingsInput is an input type that accepts ChannelRtmpCaptionInfoDestinationSettingsArgs and ChannelRtmpCaptionInfoDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelRtmpCaptionInfoDestinationSettingsInput` via:
 //
-//          ChannelRtmpCaptionInfoDestinationSettingsArgs{...}
+//	ChannelRtmpCaptionInfoDestinationSettingsArgs{...}
 type ChannelRtmpCaptionInfoDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -21973,11 +21973,11 @@ func (i ChannelRtmpCaptionInfoDestinationSettingsArgs) ToChannelRtmpCaptionInfoD
 // ChannelRtmpCaptionInfoDestinationSettingsPtrInput is an input type that accepts ChannelRtmpCaptionInfoDestinationSettingsArgs, ChannelRtmpCaptionInfoDestinationSettingsPtr and ChannelRtmpCaptionInfoDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRtmpCaptionInfoDestinationSettingsPtrInput` via:
 //
-//          ChannelRtmpCaptionInfoDestinationSettingsArgs{...}
+//	        ChannelRtmpCaptionInfoDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRtmpCaptionInfoDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22064,7 +22064,7 @@ type ChannelRtmpGroupSettings struct {
 // ChannelRtmpGroupSettingsInput is an input type that accepts ChannelRtmpGroupSettingsArgs and ChannelRtmpGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelRtmpGroupSettingsInput` via:
 //
-//          ChannelRtmpGroupSettingsArgs{...}
+//	ChannelRtmpGroupSettingsArgs{...}
 type ChannelRtmpGroupSettingsInput interface {
 	pulumi.Input
 
@@ -22105,11 +22105,11 @@ func (i ChannelRtmpGroupSettingsArgs) ToChannelRtmpGroupSettingsPtrOutputWithCon
 // ChannelRtmpGroupSettingsPtrInput is an input type that accepts ChannelRtmpGroupSettingsArgs, ChannelRtmpGroupSettingsPtr and ChannelRtmpGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRtmpGroupSettingsPtrInput` via:
 //
-//          ChannelRtmpGroupSettingsArgs{...}
+//	        ChannelRtmpGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRtmpGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22284,7 +22284,7 @@ type ChannelRtmpOutputSettings struct {
 // ChannelRtmpOutputSettingsInput is an input type that accepts ChannelRtmpOutputSettingsArgs and ChannelRtmpOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelRtmpOutputSettingsInput` via:
 //
-//          ChannelRtmpOutputSettingsArgs{...}
+//	ChannelRtmpOutputSettingsArgs{...}
 type ChannelRtmpOutputSettingsInput interface {
 	pulumi.Input
 
@@ -22322,11 +22322,11 @@ func (i ChannelRtmpOutputSettingsArgs) ToChannelRtmpOutputSettingsPtrOutputWithC
 // ChannelRtmpOutputSettingsPtrInput is an input type that accepts ChannelRtmpOutputSettingsArgs, ChannelRtmpOutputSettingsPtr and ChannelRtmpOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelRtmpOutputSettingsPtrInput` via:
 //
-//          ChannelRtmpOutputSettingsArgs{...}
+//	        ChannelRtmpOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRtmpOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22458,7 +22458,7 @@ type ChannelScte20PlusEmbeddedDestinationSettings struct {
 // ChannelScte20PlusEmbeddedDestinationSettingsInput is an input type that accepts ChannelScte20PlusEmbeddedDestinationSettingsArgs and ChannelScte20PlusEmbeddedDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelScte20PlusEmbeddedDestinationSettingsInput` via:
 //
-//          ChannelScte20PlusEmbeddedDestinationSettingsArgs{...}
+//	ChannelScte20PlusEmbeddedDestinationSettingsArgs{...}
 type ChannelScte20PlusEmbeddedDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -22492,11 +22492,11 @@ func (i ChannelScte20PlusEmbeddedDestinationSettingsArgs) ToChannelScte20PlusEmb
 // ChannelScte20PlusEmbeddedDestinationSettingsPtrInput is an input type that accepts ChannelScte20PlusEmbeddedDestinationSettingsArgs, ChannelScte20PlusEmbeddedDestinationSettingsPtr and ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelScte20PlusEmbeddedDestinationSettingsPtrInput` via:
 //
-//          ChannelScte20PlusEmbeddedDestinationSettingsArgs{...}
+//	        ChannelScte20PlusEmbeddedDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte20PlusEmbeddedDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22578,7 +22578,7 @@ type ChannelScte20SourceSettings struct {
 // ChannelScte20SourceSettingsInput is an input type that accepts ChannelScte20SourceSettingsArgs and ChannelScte20SourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelScte20SourceSettingsInput` via:
 //
-//          ChannelScte20SourceSettingsArgs{...}
+//	ChannelScte20SourceSettingsArgs{...}
 type ChannelScte20SourceSettingsInput interface {
 	pulumi.Input
 
@@ -22614,11 +22614,11 @@ func (i ChannelScte20SourceSettingsArgs) ToChannelScte20SourceSettingsPtrOutputW
 // ChannelScte20SourceSettingsPtrInput is an input type that accepts ChannelScte20SourceSettingsArgs, ChannelScte20SourceSettingsPtr and ChannelScte20SourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelScte20SourceSettingsPtrInput` via:
 //
-//          ChannelScte20SourceSettingsArgs{...}
+//	        ChannelScte20SourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte20SourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22724,7 +22724,7 @@ type ChannelScte27DestinationSettings struct {
 // ChannelScte27DestinationSettingsInput is an input type that accepts ChannelScte27DestinationSettingsArgs and ChannelScte27DestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelScte27DestinationSettingsInput` via:
 //
-//          ChannelScte27DestinationSettingsArgs{...}
+//	ChannelScte27DestinationSettingsArgs{...}
 type ChannelScte27DestinationSettingsInput interface {
 	pulumi.Input
 
@@ -22758,11 +22758,11 @@ func (i ChannelScte27DestinationSettingsArgs) ToChannelScte27DestinationSettings
 // ChannelScte27DestinationSettingsPtrInput is an input type that accepts ChannelScte27DestinationSettingsArgs, ChannelScte27DestinationSettingsPtr and ChannelScte27DestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelScte27DestinationSettingsPtrInput` via:
 //
-//          ChannelScte27DestinationSettingsArgs{...}
+//	        ChannelScte27DestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte27DestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22844,7 +22844,7 @@ type ChannelScte27SourceSettings struct {
 // ChannelScte27SourceSettingsInput is an input type that accepts ChannelScte27SourceSettingsArgs and ChannelScte27SourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelScte27SourceSettingsInput` via:
 //
-//          ChannelScte27SourceSettingsArgs{...}
+//	ChannelScte27SourceSettingsArgs{...}
 type ChannelScte27SourceSettingsInput interface {
 	pulumi.Input
 
@@ -22880,11 +22880,11 @@ func (i ChannelScte27SourceSettingsArgs) ToChannelScte27SourceSettingsPtrOutputW
 // ChannelScte27SourceSettingsPtrInput is an input type that accepts ChannelScte27SourceSettingsArgs, ChannelScte27SourceSettingsPtr and ChannelScte27SourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelScte27SourceSettingsPtrInput` via:
 //
-//          ChannelScte27SourceSettingsArgs{...}
+//	        ChannelScte27SourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte27SourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -22993,7 +22993,7 @@ type ChannelScte35SpliceInsert struct {
 // ChannelScte35SpliceInsertInput is an input type that accepts ChannelScte35SpliceInsertArgs and ChannelScte35SpliceInsertOutput values.
 // You can construct a concrete instance of `ChannelScte35SpliceInsertInput` via:
 //
-//          ChannelScte35SpliceInsertArgs{...}
+//	ChannelScte35SpliceInsertArgs{...}
 type ChannelScte35SpliceInsertInput interface {
 	pulumi.Input
 
@@ -23030,11 +23030,11 @@ func (i ChannelScte35SpliceInsertArgs) ToChannelScte35SpliceInsertPtrOutputWithC
 // ChannelScte35SpliceInsertPtrInput is an input type that accepts ChannelScte35SpliceInsertArgs, ChannelScte35SpliceInsertPtr and ChannelScte35SpliceInsertPtrOutput values.
 // You can construct a concrete instance of `ChannelScte35SpliceInsertPtrInput` via:
 //
-//          ChannelScte35SpliceInsertArgs{...}
+//	        ChannelScte35SpliceInsertArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte35SpliceInsertPtrInput interface {
 	pulumi.Input
 
@@ -23156,7 +23156,7 @@ type ChannelScte35TimeSignalApos struct {
 // ChannelScte35TimeSignalAposInput is an input type that accepts ChannelScte35TimeSignalAposArgs and ChannelScte35TimeSignalAposOutput values.
 // You can construct a concrete instance of `ChannelScte35TimeSignalAposInput` via:
 //
-//          ChannelScte35TimeSignalAposArgs{...}
+//	ChannelScte35TimeSignalAposArgs{...}
 type ChannelScte35TimeSignalAposInput interface {
 	pulumi.Input
 
@@ -23193,11 +23193,11 @@ func (i ChannelScte35TimeSignalAposArgs) ToChannelScte35TimeSignalAposPtrOutputW
 // ChannelScte35TimeSignalAposPtrInput is an input type that accepts ChannelScte35TimeSignalAposArgs, ChannelScte35TimeSignalAposPtr and ChannelScte35TimeSignalAposPtrOutput values.
 // You can construct a concrete instance of `ChannelScte35TimeSignalAposPtrInput` via:
 //
-//          ChannelScte35TimeSignalAposArgs{...}
+//	        ChannelScte35TimeSignalAposArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelScte35TimeSignalAposPtrInput interface {
 	pulumi.Input
 
@@ -23316,7 +23316,7 @@ type ChannelSmpteTtDestinationSettings struct {
 // ChannelSmpteTtDestinationSettingsInput is an input type that accepts ChannelSmpteTtDestinationSettingsArgs and ChannelSmpteTtDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelSmpteTtDestinationSettingsInput` via:
 //
-//          ChannelSmpteTtDestinationSettingsArgs{...}
+//	ChannelSmpteTtDestinationSettingsArgs{...}
 type ChannelSmpteTtDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -23350,11 +23350,11 @@ func (i ChannelSmpteTtDestinationSettingsArgs) ToChannelSmpteTtDestinationSettin
 // ChannelSmpteTtDestinationSettingsPtrInput is an input type that accepts ChannelSmpteTtDestinationSettingsArgs, ChannelSmpteTtDestinationSettingsPtr and ChannelSmpteTtDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelSmpteTtDestinationSettingsPtrInput` via:
 //
-//          ChannelSmpteTtDestinationSettingsArgs{...}
+//	        ChannelSmpteTtDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelSmpteTtDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -23436,7 +23436,7 @@ type ChannelStandardHlsSettings struct {
 // ChannelStandardHlsSettingsInput is an input type that accepts ChannelStandardHlsSettingsArgs and ChannelStandardHlsSettingsOutput values.
 // You can construct a concrete instance of `ChannelStandardHlsSettingsInput` via:
 //
-//          ChannelStandardHlsSettingsArgs{...}
+//	ChannelStandardHlsSettingsArgs{...}
 type ChannelStandardHlsSettingsInput interface {
 	pulumi.Input
 
@@ -23472,11 +23472,11 @@ func (i ChannelStandardHlsSettingsArgs) ToChannelStandardHlsSettingsPtrOutputWit
 // ChannelStandardHlsSettingsPtrInput is an input type that accepts ChannelStandardHlsSettingsArgs, ChannelStandardHlsSettingsPtr and ChannelStandardHlsSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelStandardHlsSettingsPtrInput` via:
 //
-//          ChannelStandardHlsSettingsArgs{...}
+//	        ChannelStandardHlsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelStandardHlsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -23584,7 +23584,7 @@ type ChannelStaticKeySettings struct {
 // ChannelStaticKeySettingsInput is an input type that accepts ChannelStaticKeySettingsArgs and ChannelStaticKeySettingsOutput values.
 // You can construct a concrete instance of `ChannelStaticKeySettingsInput` via:
 //
-//          ChannelStaticKeySettingsArgs{...}
+//	ChannelStaticKeySettingsArgs{...}
 type ChannelStaticKeySettingsInput interface {
 	pulumi.Input
 
@@ -23620,11 +23620,11 @@ func (i ChannelStaticKeySettingsArgs) ToChannelStaticKeySettingsPtrOutputWithCon
 // ChannelStaticKeySettingsPtrInput is an input type that accepts ChannelStaticKeySettingsArgs, ChannelStaticKeySettingsPtr and ChannelStaticKeySettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelStaticKeySettingsPtrInput` via:
 //
-//          ChannelStaticKeySettingsArgs{...}
+//	        ChannelStaticKeySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelStaticKeySettingsPtrInput interface {
 	pulumi.Input
 
@@ -23730,7 +23730,7 @@ type ChannelTeletextDestinationSettings struct {
 // ChannelTeletextDestinationSettingsInput is an input type that accepts ChannelTeletextDestinationSettingsArgs and ChannelTeletextDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelTeletextDestinationSettingsInput` via:
 //
-//          ChannelTeletextDestinationSettingsArgs{...}
+//	ChannelTeletextDestinationSettingsArgs{...}
 type ChannelTeletextDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -23764,11 +23764,11 @@ func (i ChannelTeletextDestinationSettingsArgs) ToChannelTeletextDestinationSett
 // ChannelTeletextDestinationSettingsPtrInput is an input type that accepts ChannelTeletextDestinationSettingsArgs, ChannelTeletextDestinationSettingsPtr and ChannelTeletextDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelTeletextDestinationSettingsPtrInput` via:
 //
-//          ChannelTeletextDestinationSettingsArgs{...}
+//	        ChannelTeletextDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelTeletextDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -23850,7 +23850,7 @@ type ChannelTeletextSourceSettings struct {
 // ChannelTeletextSourceSettingsInput is an input type that accepts ChannelTeletextSourceSettingsArgs and ChannelTeletextSourceSettingsOutput values.
 // You can construct a concrete instance of `ChannelTeletextSourceSettingsInput` via:
 //
-//          ChannelTeletextSourceSettingsArgs{...}
+//	ChannelTeletextSourceSettingsArgs{...}
 type ChannelTeletextSourceSettingsInput interface {
 	pulumi.Input
 
@@ -23886,11 +23886,11 @@ func (i ChannelTeletextSourceSettingsArgs) ToChannelTeletextSourceSettingsPtrOut
 // ChannelTeletextSourceSettingsPtrInput is an input type that accepts ChannelTeletextSourceSettingsArgs, ChannelTeletextSourceSettingsPtr and ChannelTeletextSourceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelTeletextSourceSettingsPtrInput` via:
 //
-//          ChannelTeletextSourceSettingsArgs{...}
+//	        ChannelTeletextSourceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelTeletextSourceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -23998,7 +23998,7 @@ type ChannelTemporalFilterSettings struct {
 // ChannelTemporalFilterSettingsInput is an input type that accepts ChannelTemporalFilterSettingsArgs and ChannelTemporalFilterSettingsOutput values.
 // You can construct a concrete instance of `ChannelTemporalFilterSettingsInput` via:
 //
-//          ChannelTemporalFilterSettingsArgs{...}
+//	ChannelTemporalFilterSettingsArgs{...}
 type ChannelTemporalFilterSettingsInput interface {
 	pulumi.Input
 
@@ -24034,11 +24034,11 @@ func (i ChannelTemporalFilterSettingsArgs) ToChannelTemporalFilterSettingsPtrOut
 // ChannelTemporalFilterSettingsPtrInput is an input type that accepts ChannelTemporalFilterSettingsArgs, ChannelTemporalFilterSettingsPtr and ChannelTemporalFilterSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelTemporalFilterSettingsPtrInput` via:
 //
-//          ChannelTemporalFilterSettingsArgs{...}
+//	        ChannelTemporalFilterSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelTemporalFilterSettingsPtrInput interface {
 	pulumi.Input
 
@@ -24146,7 +24146,7 @@ type ChannelTimecodeConfig struct {
 // ChannelTimecodeConfigInput is an input type that accepts ChannelTimecodeConfigArgs and ChannelTimecodeConfigOutput values.
 // You can construct a concrete instance of `ChannelTimecodeConfigInput` via:
 //
-//          ChannelTimecodeConfigArgs{...}
+//	ChannelTimecodeConfigArgs{...}
 type ChannelTimecodeConfigInput interface {
 	pulumi.Input
 
@@ -24182,11 +24182,11 @@ func (i ChannelTimecodeConfigArgs) ToChannelTimecodeConfigPtrOutputWithContext(c
 // ChannelTimecodeConfigPtrInput is an input type that accepts ChannelTimecodeConfigArgs, ChannelTimecodeConfigPtr and ChannelTimecodeConfigPtrOutput values.
 // You can construct a concrete instance of `ChannelTimecodeConfigPtrInput` via:
 //
-//          ChannelTimecodeConfigArgs{...}
+//	        ChannelTimecodeConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelTimecodeConfigPtrInput interface {
 	pulumi.Input
 
@@ -24293,7 +24293,7 @@ type ChannelTtmlDestinationSettings struct {
 // ChannelTtmlDestinationSettingsInput is an input type that accepts ChannelTtmlDestinationSettingsArgs and ChannelTtmlDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelTtmlDestinationSettingsInput` via:
 //
-//          ChannelTtmlDestinationSettingsArgs{...}
+//	ChannelTtmlDestinationSettingsArgs{...}
 type ChannelTtmlDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -24328,11 +24328,11 @@ func (i ChannelTtmlDestinationSettingsArgs) ToChannelTtmlDestinationSettingsPtrO
 // ChannelTtmlDestinationSettingsPtrInput is an input type that accepts ChannelTtmlDestinationSettingsArgs, ChannelTtmlDestinationSettingsPtr and ChannelTtmlDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelTtmlDestinationSettingsPtrInput` via:
 //
-//          ChannelTtmlDestinationSettingsArgs{...}
+//	        ChannelTtmlDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelTtmlDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -24426,7 +24426,7 @@ type ChannelUdpContainerSettings struct {
 // ChannelUdpContainerSettingsInput is an input type that accepts ChannelUdpContainerSettingsArgs and ChannelUdpContainerSettingsOutput values.
 // You can construct a concrete instance of `ChannelUdpContainerSettingsInput` via:
 //
-//          ChannelUdpContainerSettingsArgs{...}
+//	ChannelUdpContainerSettingsArgs{...}
 type ChannelUdpContainerSettingsInput interface {
 	pulumi.Input
 
@@ -24461,11 +24461,11 @@ func (i ChannelUdpContainerSettingsArgs) ToChannelUdpContainerSettingsPtrOutputW
 // ChannelUdpContainerSettingsPtrInput is an input type that accepts ChannelUdpContainerSettingsArgs, ChannelUdpContainerSettingsPtr and ChannelUdpContainerSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelUdpContainerSettingsPtrInput` via:
 //
-//          ChannelUdpContainerSettingsArgs{...}
+//	        ChannelUdpContainerSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelUdpContainerSettingsPtrInput interface {
 	pulumi.Input
 
@@ -24561,7 +24561,7 @@ type ChannelUdpGroupSettings struct {
 // ChannelUdpGroupSettingsInput is an input type that accepts ChannelUdpGroupSettingsArgs and ChannelUdpGroupSettingsOutput values.
 // You can construct a concrete instance of `ChannelUdpGroupSettingsInput` via:
 //
-//          ChannelUdpGroupSettingsArgs{...}
+//	ChannelUdpGroupSettingsArgs{...}
 type ChannelUdpGroupSettingsInput interface {
 	pulumi.Input
 
@@ -24598,11 +24598,11 @@ func (i ChannelUdpGroupSettingsArgs) ToChannelUdpGroupSettingsPtrOutputWithConte
 // ChannelUdpGroupSettingsPtrInput is an input type that accepts ChannelUdpGroupSettingsArgs, ChannelUdpGroupSettingsPtr and ChannelUdpGroupSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelUdpGroupSettingsPtrInput` via:
 //
-//          ChannelUdpGroupSettingsArgs{...}
+//	        ChannelUdpGroupSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelUdpGroupSettingsPtrInput interface {
 	pulumi.Input
 
@@ -24725,7 +24725,7 @@ type ChannelUdpOutputSettings struct {
 // ChannelUdpOutputSettingsInput is an input type that accepts ChannelUdpOutputSettingsArgs and ChannelUdpOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelUdpOutputSettingsInput` via:
 //
-//          ChannelUdpOutputSettingsArgs{...}
+//	ChannelUdpOutputSettingsArgs{...}
 type ChannelUdpOutputSettingsInput interface {
 	pulumi.Input
 
@@ -24763,11 +24763,11 @@ func (i ChannelUdpOutputSettingsArgs) ToChannelUdpOutputSettingsPtrOutputWithCon
 // ChannelUdpOutputSettingsPtrInput is an input type that accepts ChannelUdpOutputSettingsArgs, ChannelUdpOutputSettingsPtr and ChannelUdpOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelUdpOutputSettingsPtrInput` via:
 //
-//          ChannelUdpOutputSettingsArgs{...}
+//	        ChannelUdpOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelUdpOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -24901,7 +24901,7 @@ type ChannelVideoBlackFailoverSettings struct {
 // ChannelVideoBlackFailoverSettingsInput is an input type that accepts ChannelVideoBlackFailoverSettingsArgs and ChannelVideoBlackFailoverSettingsOutput values.
 // You can construct a concrete instance of `ChannelVideoBlackFailoverSettingsInput` via:
 //
-//          ChannelVideoBlackFailoverSettingsArgs{...}
+//	ChannelVideoBlackFailoverSettingsArgs{...}
 type ChannelVideoBlackFailoverSettingsInput interface {
 	pulumi.Input
 
@@ -24937,11 +24937,11 @@ func (i ChannelVideoBlackFailoverSettingsArgs) ToChannelVideoBlackFailoverSettin
 // ChannelVideoBlackFailoverSettingsPtrInput is an input type that accepts ChannelVideoBlackFailoverSettingsArgs, ChannelVideoBlackFailoverSettingsPtr and ChannelVideoBlackFailoverSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoBlackFailoverSettingsPtrInput` via:
 //
-//          ChannelVideoBlackFailoverSettingsArgs{...}
+//	        ChannelVideoBlackFailoverSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoBlackFailoverSettingsPtrInput interface {
 	pulumi.Input
 
@@ -25051,7 +25051,7 @@ type ChannelVideoCodecSettings struct {
 // ChannelVideoCodecSettingsInput is an input type that accepts ChannelVideoCodecSettingsArgs and ChannelVideoCodecSettingsOutput values.
 // You can construct a concrete instance of `ChannelVideoCodecSettingsInput` via:
 //
-//          ChannelVideoCodecSettingsArgs{...}
+//	ChannelVideoCodecSettingsArgs{...}
 type ChannelVideoCodecSettingsInput interface {
 	pulumi.Input
 
@@ -25089,11 +25089,11 @@ func (i ChannelVideoCodecSettingsArgs) ToChannelVideoCodecSettingsPtrOutputWithC
 // ChannelVideoCodecSettingsPtrInput is an input type that accepts ChannelVideoCodecSettingsArgs, ChannelVideoCodecSettingsPtr and ChannelVideoCodecSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoCodecSettingsPtrInput` via:
 //
-//          ChannelVideoCodecSettingsArgs{...}
+//	        ChannelVideoCodecSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoCodecSettingsPtrInput interface {
 	pulumi.Input
 
@@ -25232,7 +25232,7 @@ type ChannelVideoDescription struct {
 // ChannelVideoDescriptionInput is an input type that accepts ChannelVideoDescriptionArgs and ChannelVideoDescriptionOutput values.
 // You can construct a concrete instance of `ChannelVideoDescriptionInput` via:
 //
-//          ChannelVideoDescriptionArgs{...}
+//	ChannelVideoDescriptionArgs{...}
 type ChannelVideoDescriptionInput interface {
 	pulumi.Input
 
@@ -25265,7 +25265,7 @@ func (i ChannelVideoDescriptionArgs) ToChannelVideoDescriptionOutputWithContext(
 // ChannelVideoDescriptionArrayInput is an input type that accepts ChannelVideoDescriptionArray and ChannelVideoDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelVideoDescriptionArrayInput` via:
 //
-//          ChannelVideoDescriptionArray{ ChannelVideoDescriptionArgs{...} }
+//	ChannelVideoDescriptionArray{ ChannelVideoDescriptionArgs{...} }
 type ChannelVideoDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -25359,7 +25359,7 @@ type ChannelVideoSelector struct {
 // ChannelVideoSelectorInput is an input type that accepts ChannelVideoSelectorArgs and ChannelVideoSelectorOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorInput` via:
 //
-//          ChannelVideoSelectorArgs{...}
+//	ChannelVideoSelectorArgs{...}
 type ChannelVideoSelectorInput interface {
 	pulumi.Input
 
@@ -25397,11 +25397,11 @@ func (i ChannelVideoSelectorArgs) ToChannelVideoSelectorPtrOutputWithContext(ctx
 // ChannelVideoSelectorPtrInput is an input type that accepts ChannelVideoSelectorArgs, ChannelVideoSelectorPtr and ChannelVideoSelectorPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorPtrInput` via:
 //
-//          ChannelVideoSelectorArgs{...}
+//	        ChannelVideoSelectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoSelectorPtrInput interface {
 	pulumi.Input
 
@@ -25534,7 +25534,7 @@ type ChannelVideoSelectorColorSpaceSettings struct {
 // ChannelVideoSelectorColorSpaceSettingsInput is an input type that accepts ChannelVideoSelectorColorSpaceSettingsArgs and ChannelVideoSelectorColorSpaceSettingsOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorColorSpaceSettingsInput` via:
 //
-//          ChannelVideoSelectorColorSpaceSettingsArgs{...}
+//	ChannelVideoSelectorColorSpaceSettingsArgs{...}
 type ChannelVideoSelectorColorSpaceSettingsInput interface {
 	pulumi.Input
 
@@ -25569,11 +25569,11 @@ func (i ChannelVideoSelectorColorSpaceSettingsArgs) ToChannelVideoSelectorColorS
 // ChannelVideoSelectorColorSpaceSettingsPtrInput is an input type that accepts ChannelVideoSelectorColorSpaceSettingsArgs, ChannelVideoSelectorColorSpaceSettingsPtr and ChannelVideoSelectorColorSpaceSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorColorSpaceSettingsPtrInput` via:
 //
-//          ChannelVideoSelectorColorSpaceSettingsArgs{...}
+//	        ChannelVideoSelectorColorSpaceSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoSelectorColorSpaceSettingsPtrInput interface {
 	pulumi.Input
 
@@ -25667,7 +25667,7 @@ type ChannelVideoSelectorPid struct {
 // ChannelVideoSelectorPidInput is an input type that accepts ChannelVideoSelectorPidArgs and ChannelVideoSelectorPidOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorPidInput` via:
 //
-//          ChannelVideoSelectorPidArgs{...}
+//	ChannelVideoSelectorPidArgs{...}
 type ChannelVideoSelectorPidInput interface {
 	pulumi.Input
 
@@ -25702,11 +25702,11 @@ func (i ChannelVideoSelectorPidArgs) ToChannelVideoSelectorPidPtrOutputWithConte
 // ChannelVideoSelectorPidPtrInput is an input type that accepts ChannelVideoSelectorPidArgs, ChannelVideoSelectorPidPtr and ChannelVideoSelectorPidPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorPidPtrInput` via:
 //
-//          ChannelVideoSelectorPidArgs{...}
+//	        ChannelVideoSelectorPidArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoSelectorPidPtrInput interface {
 	pulumi.Input
 
@@ -25800,7 +25800,7 @@ type ChannelVideoSelectorProgramId struct {
 // ChannelVideoSelectorProgramIdInput is an input type that accepts ChannelVideoSelectorProgramIdArgs and ChannelVideoSelectorProgramIdOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorProgramIdInput` via:
 //
-//          ChannelVideoSelectorProgramIdArgs{...}
+//	ChannelVideoSelectorProgramIdArgs{...}
 type ChannelVideoSelectorProgramIdInput interface {
 	pulumi.Input
 
@@ -25835,11 +25835,11 @@ func (i ChannelVideoSelectorProgramIdArgs) ToChannelVideoSelectorProgramIdPtrOut
 // ChannelVideoSelectorProgramIdPtrInput is an input type that accepts ChannelVideoSelectorProgramIdArgs, ChannelVideoSelectorProgramIdPtr and ChannelVideoSelectorProgramIdPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorProgramIdPtrInput` via:
 //
-//          ChannelVideoSelectorProgramIdArgs{...}
+//	        ChannelVideoSelectorProgramIdArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoSelectorProgramIdPtrInput interface {
 	pulumi.Input
 
@@ -25934,7 +25934,7 @@ type ChannelVideoSelectorSettings struct {
 // ChannelVideoSelectorSettingsInput is an input type that accepts ChannelVideoSelectorSettingsArgs and ChannelVideoSelectorSettingsOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorSettingsInput` via:
 //
-//          ChannelVideoSelectorSettingsArgs{...}
+//	ChannelVideoSelectorSettingsArgs{...}
 type ChannelVideoSelectorSettingsInput interface {
 	pulumi.Input
 
@@ -25970,11 +25970,11 @@ func (i ChannelVideoSelectorSettingsArgs) ToChannelVideoSelectorSettingsPtrOutpu
 // ChannelVideoSelectorSettingsPtrInput is an input type that accepts ChannelVideoSelectorSettingsArgs, ChannelVideoSelectorSettingsPtr and ChannelVideoSelectorSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelVideoSelectorSettingsPtrInput` via:
 //
-//          ChannelVideoSelectorSettingsArgs{...}
+//	        ChannelVideoSelectorSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVideoSelectorSettingsPtrInput interface {
 	pulumi.Input
 
@@ -26083,7 +26083,7 @@ type ChannelVpcOutputSettings struct {
 // ChannelVpcOutputSettingsInput is an input type that accepts ChannelVpcOutputSettingsArgs and ChannelVpcOutputSettingsOutput values.
 // You can construct a concrete instance of `ChannelVpcOutputSettingsInput` via:
 //
-//          ChannelVpcOutputSettingsArgs{...}
+//	ChannelVpcOutputSettingsArgs{...}
 type ChannelVpcOutputSettingsInput interface {
 	pulumi.Input
 
@@ -26120,11 +26120,11 @@ func (i ChannelVpcOutputSettingsArgs) ToChannelVpcOutputSettingsPtrOutputWithCon
 // ChannelVpcOutputSettingsPtrInput is an input type that accepts ChannelVpcOutputSettingsArgs, ChannelVpcOutputSettingsPtr and ChannelVpcOutputSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelVpcOutputSettingsPtrInput` via:
 //
-//          ChannelVpcOutputSettingsArgs{...}
+//	        ChannelVpcOutputSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelVpcOutputSettingsPtrInput interface {
 	pulumi.Input
 
@@ -26246,7 +26246,7 @@ type ChannelWavSettings struct {
 // ChannelWavSettingsInput is an input type that accepts ChannelWavSettingsArgs and ChannelWavSettingsOutput values.
 // You can construct a concrete instance of `ChannelWavSettingsInput` via:
 //
-//          ChannelWavSettingsArgs{...}
+//	ChannelWavSettingsArgs{...}
 type ChannelWavSettingsInput interface {
 	pulumi.Input
 
@@ -26283,11 +26283,11 @@ func (i ChannelWavSettingsArgs) ToChannelWavSettingsPtrOutputWithContext(ctx con
 // ChannelWavSettingsPtrInput is an input type that accepts ChannelWavSettingsArgs, ChannelWavSettingsPtr and ChannelWavSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelWavSettingsPtrInput` via:
 //
-//          ChannelWavSettingsArgs{...}
+//	        ChannelWavSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelWavSettingsPtrInput interface {
 	pulumi.Input
 
@@ -26407,7 +26407,7 @@ type ChannelWebvttDestinationSettings struct {
 // ChannelWebvttDestinationSettingsInput is an input type that accepts ChannelWebvttDestinationSettingsArgs and ChannelWebvttDestinationSettingsOutput values.
 // You can construct a concrete instance of `ChannelWebvttDestinationSettingsInput` via:
 //
-//          ChannelWebvttDestinationSettingsArgs{...}
+//	ChannelWebvttDestinationSettingsArgs{...}
 type ChannelWebvttDestinationSettingsInput interface {
 	pulumi.Input
 
@@ -26442,11 +26442,11 @@ func (i ChannelWebvttDestinationSettingsArgs) ToChannelWebvttDestinationSettings
 // ChannelWebvttDestinationSettingsPtrInput is an input type that accepts ChannelWebvttDestinationSettingsArgs, ChannelWebvttDestinationSettingsPtr and ChannelWebvttDestinationSettingsPtrOutput values.
 // You can construct a concrete instance of `ChannelWebvttDestinationSettingsPtrInput` via:
 //
-//          ChannelWebvttDestinationSettingsArgs{...}
+//	        ChannelWebvttDestinationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelWebvttDestinationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -26540,7 +26540,7 @@ type InputDestinationRequest struct {
 // InputDestinationRequestInput is an input type that accepts InputDestinationRequestArgs and InputDestinationRequestOutput values.
 // You can construct a concrete instance of `InputDestinationRequestInput` via:
 //
-//          InputDestinationRequestArgs{...}
+//	InputDestinationRequestArgs{...}
 type InputDestinationRequestInput interface {
 	pulumi.Input
 
@@ -26567,7 +26567,7 @@ func (i InputDestinationRequestArgs) ToInputDestinationRequestOutputWithContext(
 // InputDestinationRequestArrayInput is an input type that accepts InputDestinationRequestArray and InputDestinationRequestArrayOutput values.
 // You can construct a concrete instance of `InputDestinationRequestArrayInput` via:
 //
-//          InputDestinationRequestArray{ InputDestinationRequestArgs{...} }
+//	InputDestinationRequestArray{ InputDestinationRequestArgs{...} }
 type InputDestinationRequestArrayInput interface {
 	pulumi.Input
 
@@ -26634,7 +26634,7 @@ type InputDeviceSettings struct {
 // InputDeviceSettingsInput is an input type that accepts InputDeviceSettingsArgs and InputDeviceSettingsOutput values.
 // You can construct a concrete instance of `InputDeviceSettingsInput` via:
 //
-//          InputDeviceSettingsArgs{...}
+//	InputDeviceSettingsArgs{...}
 type InputDeviceSettingsInput interface {
 	pulumi.Input
 
@@ -26661,7 +26661,7 @@ func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutputWithContext(ctx cont
 // InputDeviceSettingsArrayInput is an input type that accepts InputDeviceSettingsArray and InputDeviceSettingsArrayOutput values.
 // You can construct a concrete instance of `InputDeviceSettingsArrayInput` via:
 //
-//          InputDeviceSettingsArray{ InputDeviceSettingsArgs{...} }
+//	InputDeviceSettingsArray{ InputDeviceSettingsArgs{...} }
 type InputDeviceSettingsArrayInput interface {
 	pulumi.Input
 
@@ -26728,7 +26728,7 @@ type InputMediaConnectFlowRequest struct {
 // InputMediaConnectFlowRequestInput is an input type that accepts InputMediaConnectFlowRequestArgs and InputMediaConnectFlowRequestOutput values.
 // You can construct a concrete instance of `InputMediaConnectFlowRequestInput` via:
 //
-//          InputMediaConnectFlowRequestArgs{...}
+//	InputMediaConnectFlowRequestArgs{...}
 type InputMediaConnectFlowRequestInput interface {
 	pulumi.Input
 
@@ -26755,7 +26755,7 @@ func (i InputMediaConnectFlowRequestArgs) ToInputMediaConnectFlowRequestOutputWi
 // InputMediaConnectFlowRequestArrayInput is an input type that accepts InputMediaConnectFlowRequestArray and InputMediaConnectFlowRequestArrayOutput values.
 // You can construct a concrete instance of `InputMediaConnectFlowRequestArrayInput` via:
 //
-//          InputMediaConnectFlowRequestArray{ InputMediaConnectFlowRequestArgs{...} }
+//	InputMediaConnectFlowRequestArray{ InputMediaConnectFlowRequestArgs{...} }
 type InputMediaConnectFlowRequestArrayInput interface {
 	pulumi.Input
 
@@ -26822,7 +26822,7 @@ type InputSecurityGroupInputWhitelistRuleCidr struct {
 // InputSecurityGroupInputWhitelistRuleCidrInput is an input type that accepts InputSecurityGroupInputWhitelistRuleCidrArgs and InputSecurityGroupInputWhitelistRuleCidrOutput values.
 // You can construct a concrete instance of `InputSecurityGroupInputWhitelistRuleCidrInput` via:
 //
-//          InputSecurityGroupInputWhitelistRuleCidrArgs{...}
+//	InputSecurityGroupInputWhitelistRuleCidrArgs{...}
 type InputSecurityGroupInputWhitelistRuleCidrInput interface {
 	pulumi.Input
 
@@ -26849,7 +26849,7 @@ func (i InputSecurityGroupInputWhitelistRuleCidrArgs) ToInputSecurityGroupInputW
 // InputSecurityGroupInputWhitelistRuleCidrArrayInput is an input type that accepts InputSecurityGroupInputWhitelistRuleCidrArray and InputSecurityGroupInputWhitelistRuleCidrArrayOutput values.
 // You can construct a concrete instance of `InputSecurityGroupInputWhitelistRuleCidrArrayInput` via:
 //
-//          InputSecurityGroupInputWhitelistRuleCidrArray{ InputSecurityGroupInputWhitelistRuleCidrArgs{...} }
+//	InputSecurityGroupInputWhitelistRuleCidrArray{ InputSecurityGroupInputWhitelistRuleCidrArgs{...} }
 type InputSecurityGroupInputWhitelistRuleCidrArrayInput interface {
 	pulumi.Input
 
@@ -26918,7 +26918,7 @@ type InputSourceRequest struct {
 // InputSourceRequestInput is an input type that accepts InputSourceRequestArgs and InputSourceRequestOutput values.
 // You can construct a concrete instance of `InputSourceRequestInput` via:
 //
-//          InputSourceRequestArgs{...}
+//	InputSourceRequestArgs{...}
 type InputSourceRequestInput interface {
 	pulumi.Input
 
@@ -26947,7 +26947,7 @@ func (i InputSourceRequestArgs) ToInputSourceRequestOutputWithContext(ctx contex
 // InputSourceRequestArrayInput is an input type that accepts InputSourceRequestArray and InputSourceRequestArrayOutput values.
 // You can construct a concrete instance of `InputSourceRequestArrayInput` via:
 //
-//          InputSourceRequestArray{ InputSourceRequestArgs{...} }
+//	InputSourceRequestArray{ InputSourceRequestArgs{...} }
 type InputSourceRequestArrayInput interface {
 	pulumi.Input
 
@@ -27023,7 +27023,7 @@ type InputVpcRequest struct {
 // InputVpcRequestInput is an input type that accepts InputVpcRequestArgs and InputVpcRequestOutput values.
 // You can construct a concrete instance of `InputVpcRequestInput` via:
 //
-//          InputVpcRequestArgs{...}
+//	InputVpcRequestArgs{...}
 type InputVpcRequestInput interface {
 	pulumi.Input
 
@@ -27059,11 +27059,11 @@ func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutputWithContext(ctx context.C
 // InputVpcRequestPtrInput is an input type that accepts InputVpcRequestArgs, InputVpcRequestPtr and InputVpcRequestPtrOutput values.
 // You can construct a concrete instance of `InputVpcRequestPtrInput` via:
 //
-//          InputVpcRequestArgs{...}
+//	        InputVpcRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InputVpcRequestPtrInput interface {
 	pulumi.Input
 

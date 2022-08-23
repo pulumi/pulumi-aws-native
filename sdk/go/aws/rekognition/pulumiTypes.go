@@ -21,7 +21,7 @@ type CollectionTag struct {
 // CollectionTagInput is an input type that accepts CollectionTagArgs and CollectionTagOutput values.
 // You can construct a concrete instance of `CollectionTagInput` via:
 //
-//          CollectionTagArgs{...}
+//	CollectionTagArgs{...}
 type CollectionTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i CollectionTagArgs) ToCollectionTagOutputWithContext(ctx context.Context)
 // CollectionTagArrayInput is an input type that accepts CollectionTagArray and CollectionTagArrayOutput values.
 // You can construct a concrete instance of `CollectionTagArrayInput` via:
 //
-//          CollectionTagArray{ CollectionTagArgs{...} }
+//	CollectionTagArray{ CollectionTagArgs{...} }
 type CollectionTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type StreamProcessorBoundingBox struct {
 // StreamProcessorBoundingBoxInput is an input type that accepts StreamProcessorBoundingBoxArgs and StreamProcessorBoundingBoxOutput values.
 // You can construct a concrete instance of `StreamProcessorBoundingBoxInput` via:
 //
-//          StreamProcessorBoundingBoxArgs{...}
+//	StreamProcessorBoundingBoxArgs{...}
 type StreamProcessorBoundingBoxInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i StreamProcessorBoundingBoxArgs) ToStreamProcessorBoundingBoxOutputWithCo
 // StreamProcessorBoundingBoxArrayInput is an input type that accepts StreamProcessorBoundingBoxArray and StreamProcessorBoundingBoxArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorBoundingBoxArrayInput` via:
 //
-//          StreamProcessorBoundingBoxArray{ StreamProcessorBoundingBoxArgs{...} }
+//	StreamProcessorBoundingBoxArray{ StreamProcessorBoundingBoxArgs{...} }
 type StreamProcessorBoundingBoxArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +244,7 @@ type StreamProcessorConnectedHomeSettings struct {
 // StreamProcessorConnectedHomeSettingsInput is an input type that accepts StreamProcessorConnectedHomeSettingsArgs and StreamProcessorConnectedHomeSettingsOutput values.
 // You can construct a concrete instance of `StreamProcessorConnectedHomeSettingsInput` via:
 //
-//          StreamProcessorConnectedHomeSettingsArgs{...}
+//	StreamProcessorConnectedHomeSettingsArgs{...}
 type StreamProcessorConnectedHomeSettingsInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i StreamProcessorConnectedHomeSettingsArgs) ToStreamProcessorConnectedHome
 // StreamProcessorConnectedHomeSettingsPtrInput is an input type that accepts StreamProcessorConnectedHomeSettingsArgs, StreamProcessorConnectedHomeSettingsPtr and StreamProcessorConnectedHomeSettingsPtrOutput values.
 // You can construct a concrete instance of `StreamProcessorConnectedHomeSettingsPtrInput` via:
 //
-//          StreamProcessorConnectedHomeSettingsArgs{...}
+//	        StreamProcessorConnectedHomeSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorConnectedHomeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -398,7 +398,7 @@ type StreamProcessorDataSharingPreference struct {
 // StreamProcessorDataSharingPreferenceInput is an input type that accepts StreamProcessorDataSharingPreferenceArgs and StreamProcessorDataSharingPreferenceOutput values.
 // You can construct a concrete instance of `StreamProcessorDataSharingPreferenceInput` via:
 //
-//          StreamProcessorDataSharingPreferenceArgs{...}
+//	StreamProcessorDataSharingPreferenceArgs{...}
 type StreamProcessorDataSharingPreferenceInput interface {
 	pulumi.Input
 
@@ -435,11 +435,11 @@ func (i StreamProcessorDataSharingPreferenceArgs) ToStreamProcessorDataSharingPr
 // StreamProcessorDataSharingPreferencePtrInput is an input type that accepts StreamProcessorDataSharingPreferenceArgs, StreamProcessorDataSharingPreferencePtr and StreamProcessorDataSharingPreferencePtrOutput values.
 // You can construct a concrete instance of `StreamProcessorDataSharingPreferencePtrInput` via:
 //
-//          StreamProcessorDataSharingPreferenceArgs{...}
+//	        StreamProcessorDataSharingPreferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorDataSharingPreferencePtrInput interface {
 	pulumi.Input
 
@@ -540,7 +540,7 @@ type StreamProcessorFaceSearchSettings struct {
 // StreamProcessorFaceSearchSettingsInput is an input type that accepts StreamProcessorFaceSearchSettingsArgs and StreamProcessorFaceSearchSettingsOutput values.
 // You can construct a concrete instance of `StreamProcessorFaceSearchSettingsInput` via:
 //
-//          StreamProcessorFaceSearchSettingsArgs{...}
+//	StreamProcessorFaceSearchSettingsArgs{...}
 type StreamProcessorFaceSearchSettingsInput interface {
 	pulumi.Input
 
@@ -579,11 +579,11 @@ func (i StreamProcessorFaceSearchSettingsArgs) ToStreamProcessorFaceSearchSettin
 // StreamProcessorFaceSearchSettingsPtrInput is an input type that accepts StreamProcessorFaceSearchSettingsArgs, StreamProcessorFaceSearchSettingsPtr and StreamProcessorFaceSearchSettingsPtrOutput values.
 // You can construct a concrete instance of `StreamProcessorFaceSearchSettingsPtrInput` via:
 //
-//          StreamProcessorFaceSearchSettingsArgs{...}
+//	        StreamProcessorFaceSearchSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorFaceSearchSettingsPtrInput interface {
 	pulumi.Input
 
@@ -697,7 +697,7 @@ type StreamProcessorKinesisDataStream struct {
 // StreamProcessorKinesisDataStreamInput is an input type that accepts StreamProcessorKinesisDataStreamArgs and StreamProcessorKinesisDataStreamOutput values.
 // You can construct a concrete instance of `StreamProcessorKinesisDataStreamInput` via:
 //
-//          StreamProcessorKinesisDataStreamArgs{...}
+//	StreamProcessorKinesisDataStreamArgs{...}
 type StreamProcessorKinesisDataStreamInput interface {
 	pulumi.Input
 
@@ -734,11 +734,11 @@ func (i StreamProcessorKinesisDataStreamArgs) ToStreamProcessorKinesisDataStream
 // StreamProcessorKinesisDataStreamPtrInput is an input type that accepts StreamProcessorKinesisDataStreamArgs, StreamProcessorKinesisDataStreamPtr and StreamProcessorKinesisDataStreamPtrOutput values.
 // You can construct a concrete instance of `StreamProcessorKinesisDataStreamPtrInput` via:
 //
-//          StreamProcessorKinesisDataStreamArgs{...}
+//	        StreamProcessorKinesisDataStreamArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorKinesisDataStreamPtrInput interface {
 	pulumi.Input
 
@@ -837,7 +837,7 @@ type StreamProcessorKinesisVideoStream struct {
 // StreamProcessorKinesisVideoStreamInput is an input type that accepts StreamProcessorKinesisVideoStreamArgs and StreamProcessorKinesisVideoStreamOutput values.
 // You can construct a concrete instance of `StreamProcessorKinesisVideoStreamInput` via:
 //
-//          StreamProcessorKinesisVideoStreamArgs{...}
+//	StreamProcessorKinesisVideoStreamArgs{...}
 type StreamProcessorKinesisVideoStreamInput interface {
 	pulumi.Input
 
@@ -892,7 +892,7 @@ type StreamProcessorNotificationChannel struct {
 // StreamProcessorNotificationChannelInput is an input type that accepts StreamProcessorNotificationChannelArgs and StreamProcessorNotificationChannelOutput values.
 // You can construct a concrete instance of `StreamProcessorNotificationChannelInput` via:
 //
-//          StreamProcessorNotificationChannelArgs{...}
+//	StreamProcessorNotificationChannelArgs{...}
 type StreamProcessorNotificationChannelInput interface {
 	pulumi.Input
 
@@ -929,11 +929,11 @@ func (i StreamProcessorNotificationChannelArgs) ToStreamProcessorNotificationCha
 // StreamProcessorNotificationChannelPtrInput is an input type that accepts StreamProcessorNotificationChannelArgs, StreamProcessorNotificationChannelPtr and StreamProcessorNotificationChannelPtrOutput values.
 // You can construct a concrete instance of `StreamProcessorNotificationChannelPtrInput` via:
 //
-//          StreamProcessorNotificationChannelArgs{...}
+//	        StreamProcessorNotificationChannelArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorNotificationChannelPtrInput interface {
 	pulumi.Input
 
@@ -1034,7 +1034,7 @@ type StreamProcessorPoint struct {
 // StreamProcessorPointInput is an input type that accepts StreamProcessorPointArgs and StreamProcessorPointOutput values.
 // You can construct a concrete instance of `StreamProcessorPointInput` via:
 //
-//          StreamProcessorPointArgs{...}
+//	StreamProcessorPointArgs{...}
 type StreamProcessorPointInput interface {
 	pulumi.Input
 
@@ -1065,7 +1065,7 @@ func (i StreamProcessorPointArgs) ToStreamProcessorPointOutputWithContext(ctx co
 // StreamProcessorPointArrayInput is an input type that accepts StreamProcessorPointArray and StreamProcessorPointArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorPointArrayInput` via:
 //
-//          StreamProcessorPointArray{ StreamProcessorPointArgs{...} }
+//	StreamProcessorPointArray{ StreamProcessorPointArgs{...} }
 type StreamProcessorPointArrayInput interface {
 	pulumi.Input
 
@@ -1143,7 +1143,7 @@ type StreamProcessorS3Destination struct {
 // StreamProcessorS3DestinationInput is an input type that accepts StreamProcessorS3DestinationArgs and StreamProcessorS3DestinationOutput values.
 // You can construct a concrete instance of `StreamProcessorS3DestinationInput` via:
 //
-//          StreamProcessorS3DestinationArgs{...}
+//	StreamProcessorS3DestinationArgs{...}
 type StreamProcessorS3DestinationInput interface {
 	pulumi.Input
 
@@ -1182,11 +1182,11 @@ func (i StreamProcessorS3DestinationArgs) ToStreamProcessorS3DestinationPtrOutpu
 // StreamProcessorS3DestinationPtrInput is an input type that accepts StreamProcessorS3DestinationArgs, StreamProcessorS3DestinationPtr and StreamProcessorS3DestinationPtrOutput values.
 // You can construct a concrete instance of `StreamProcessorS3DestinationPtrInput` via:
 //
-//          StreamProcessorS3DestinationArgs{...}
+//	        StreamProcessorS3DestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamProcessorS3DestinationPtrInput interface {
 	pulumi.Input
 
@@ -1302,7 +1302,7 @@ type StreamProcessorTag struct {
 // StreamProcessorTagInput is an input type that accepts StreamProcessorTagArgs and StreamProcessorTagOutput values.
 // You can construct a concrete instance of `StreamProcessorTagInput` via:
 //
-//          StreamProcessorTagArgs{...}
+//	StreamProcessorTagArgs{...}
 type StreamProcessorTagInput interface {
 	pulumi.Input
 
@@ -1333,7 +1333,7 @@ func (i StreamProcessorTagArgs) ToStreamProcessorTagOutputWithContext(ctx contex
 // StreamProcessorTagArrayInput is an input type that accepts StreamProcessorTagArray and StreamProcessorTagArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorTagArrayInput` via:
 //
-//          StreamProcessorTagArray{ StreamProcessorTagArgs{...} }
+//	StreamProcessorTagArray{ StreamProcessorTagArgs{...} }
 type StreamProcessorTagArrayInput interface {
 	pulumi.Input
 
@@ -1417,7 +1417,7 @@ func (i StreamProcessorPointArrayArray) ToStreamProcessorPointArrayArrayOutputWi
 // StreamProcessorPointArrayArrayInput is an input type that accepts StreamProcessorPointArrayArray and StreamProcessorPointArrayArrayOutput values.
 // You can construct a concrete instance of `StreamProcessorPointArrayArrayInput` via:
 //
-//          StreamProcessorPointArrayArray{ StreamProcessorPointArray{ StreamProcessorPointArgs{...} } }
+//	StreamProcessorPointArrayArray{ StreamProcessorPointArray{ StreamProcessorPointArgs{...} } }
 type StreamProcessorPointArrayArrayInput interface {
 	pulumi.Input
 

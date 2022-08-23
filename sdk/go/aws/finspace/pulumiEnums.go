@@ -140,7 +140,7 @@ func (o EnvironmentFederationModePtrOutput) ToStringPtrOutputWithContext(ctx con
 // EnvironmentFederationModeInput is an input type that accepts EnvironmentFederationModeArgs and EnvironmentFederationModeOutput values.
 // You can construct a concrete instance of `EnvironmentFederationModeInput` via:
 //
-//          EnvironmentFederationModeArgs{...}
+//	EnvironmentFederationModeArgs{...}
 type EnvironmentFederationModeInput interface {
 	pulumi.Input
 

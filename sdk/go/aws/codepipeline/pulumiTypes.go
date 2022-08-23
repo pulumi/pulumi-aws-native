@@ -18,7 +18,7 @@ type CustomActionTypeArtifactDetails struct {
 // CustomActionTypeArtifactDetailsInput is an input type that accepts CustomActionTypeArtifactDetailsArgs and CustomActionTypeArtifactDetailsOutput values.
 // You can construct a concrete instance of `CustomActionTypeArtifactDetailsInput` via:
 //
-//          CustomActionTypeArtifactDetailsArgs{...}
+//	CustomActionTypeArtifactDetailsArgs{...}
 type CustomActionTypeArtifactDetailsInput interface {
 	pulumi.Input
 
@@ -78,7 +78,7 @@ type CustomActionTypeConfigurationProperties struct {
 // CustomActionTypeConfigurationPropertiesInput is an input type that accepts CustomActionTypeConfigurationPropertiesArgs and CustomActionTypeConfigurationPropertiesOutput values.
 // You can construct a concrete instance of `CustomActionTypeConfigurationPropertiesInput` via:
 //
-//          CustomActionTypeConfigurationPropertiesArgs{...}
+//	CustomActionTypeConfigurationPropertiesArgs{...}
 type CustomActionTypeConfigurationPropertiesInput interface {
 	pulumi.Input
 
@@ -111,7 +111,7 @@ func (i CustomActionTypeConfigurationPropertiesArgs) ToCustomActionTypeConfigura
 // CustomActionTypeConfigurationPropertiesArrayInput is an input type that accepts CustomActionTypeConfigurationPropertiesArray and CustomActionTypeConfigurationPropertiesArrayOutput values.
 // You can construct a concrete instance of `CustomActionTypeConfigurationPropertiesArrayInput` via:
 //
-//          CustomActionTypeConfigurationPropertiesArray{ CustomActionTypeConfigurationPropertiesArgs{...} }
+//	CustomActionTypeConfigurationPropertiesArray{ CustomActionTypeConfigurationPropertiesArgs{...} }
 type CustomActionTypeConfigurationPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +205,7 @@ type CustomActionTypeSettings struct {
 // CustomActionTypeSettingsInput is an input type that accepts CustomActionTypeSettingsArgs and CustomActionTypeSettingsOutput values.
 // You can construct a concrete instance of `CustomActionTypeSettingsInput` via:
 //
-//          CustomActionTypeSettingsArgs{...}
+//	CustomActionTypeSettingsArgs{...}
 type CustomActionTypeSettingsInput interface {
 	pulumi.Input
 
@@ -243,11 +243,11 @@ func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsPtrOutputWithCon
 // CustomActionTypeSettingsPtrInput is an input type that accepts CustomActionTypeSettingsArgs, CustomActionTypeSettingsPtr and CustomActionTypeSettingsPtrOutput values.
 // You can construct a concrete instance of `CustomActionTypeSettingsPtrInput` via:
 //
-//          CustomActionTypeSettingsArgs{...}
+//	        CustomActionTypeSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CustomActionTypeSettingsPtrInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ type CustomActionTypeTag struct {
 // CustomActionTypeTagInput is an input type that accepts CustomActionTypeTagArgs and CustomActionTypeTagOutput values.
 // You can construct a concrete instance of `CustomActionTypeTagInput` via:
 //
-//          CustomActionTypeTagArgs{...}
+//	CustomActionTypeTagArgs{...}
 type CustomActionTypeTagInput interface {
 	pulumi.Input
 
@@ -409,7 +409,7 @@ func (i CustomActionTypeTagArgs) ToCustomActionTypeTagOutputWithContext(ctx cont
 // CustomActionTypeTagArrayInput is an input type that accepts CustomActionTypeTagArray and CustomActionTypeTagArrayOutput values.
 // You can construct a concrete instance of `CustomActionTypeTagArrayInput` via:
 //
-//          CustomActionTypeTagArray{ CustomActionTypeTagArgs{...} }
+//	CustomActionTypeTagArray{ CustomActionTypeTagArgs{...} }
 type CustomActionTypeTagArrayInput interface {
 	pulumi.Input
 
@@ -488,7 +488,7 @@ type PipelineActionDeclaration struct {
 // PipelineActionDeclarationInput is an input type that accepts PipelineActionDeclarationArgs and PipelineActionDeclarationOutput values.
 // You can construct a concrete instance of `PipelineActionDeclarationInput` via:
 //
-//          PipelineActionDeclarationArgs{...}
+//	PipelineActionDeclarationArgs{...}
 type PipelineActionDeclarationInput interface {
 	pulumi.Input
 
@@ -523,7 +523,7 @@ func (i PipelineActionDeclarationArgs) ToPipelineActionDeclarationOutputWithCont
 // PipelineActionDeclarationArrayInput is an input type that accepts PipelineActionDeclarationArray and PipelineActionDeclarationArrayOutput values.
 // You can construct a concrete instance of `PipelineActionDeclarationArrayInput` via:
 //
-//          PipelineActionDeclarationArray{ PipelineActionDeclarationArgs{...} }
+//	PipelineActionDeclarationArray{ PipelineActionDeclarationArgs{...} }
 type PipelineActionDeclarationArrayInput interface {
 	pulumi.Input
 
@@ -625,7 +625,7 @@ type PipelineActionTypeId struct {
 // PipelineActionTypeIdInput is an input type that accepts PipelineActionTypeIdArgs and PipelineActionTypeIdOutput values.
 // You can construct a concrete instance of `PipelineActionTypeIdInput` via:
 //
-//          PipelineActionTypeIdArgs{...}
+//	PipelineActionTypeIdArgs{...}
 type PipelineActionTypeIdInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ type PipelineArtifactStore struct {
 // PipelineArtifactStoreInput is an input type that accepts PipelineArtifactStoreArgs and PipelineArtifactStoreOutput values.
 // You can construct a concrete instance of `PipelineArtifactStoreInput` via:
 //
-//          PipelineArtifactStoreArgs{...}
+//	PipelineArtifactStoreArgs{...}
 type PipelineArtifactStoreInput interface {
 	pulumi.Input
 
@@ -728,11 +728,11 @@ func (i PipelineArtifactStoreArgs) ToPipelineArtifactStorePtrOutputWithContext(c
 // PipelineArtifactStorePtrInput is an input type that accepts PipelineArtifactStoreArgs, PipelineArtifactStorePtr and PipelineArtifactStorePtrOutput values.
 // You can construct a concrete instance of `PipelineArtifactStorePtrInput` via:
 //
-//          PipelineArtifactStoreArgs{...}
+//	        PipelineArtifactStoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineArtifactStorePtrInput interface {
 	pulumi.Input
 
@@ -853,7 +853,7 @@ type PipelineArtifactStoreMap struct {
 // PipelineArtifactStoreMapInput is an input type that accepts PipelineArtifactStoreMap and PipelineArtifactStoreMapOutput values.
 // You can construct a concrete instance of `PipelineArtifactStoreMapInput` via:
 //
-//          PipelineArtifactStoreMap{ "key": PipelineArtifactStoreArgs{...} }
+//	PipelineArtifactStoreMap{ "key": PipelineArtifactStoreArgs{...} }
 type PipelineArtifactStoreMapInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ func (i PipelineArtifactStoreMapArgs) ToPipelineArtifactStoreMapOutputWithContex
 // PipelineArtifactStoreMapArrayInput is an input type that accepts PipelineArtifactStoreMapArray and PipelineArtifactStoreMapArrayOutput values.
 // You can construct a concrete instance of `PipelineArtifactStoreMapArrayInput` via:
 //
-//          PipelineArtifactStoreMapArray{ PipelineArtifactStoreMapArgs{...} }
+//	PipelineArtifactStoreMapArray{ PipelineArtifactStoreMapArgs{...} }
 type PipelineArtifactStoreMapArrayInput interface {
 	pulumi.Input
 
@@ -953,7 +953,7 @@ type PipelineBlockerDeclaration struct {
 // PipelineBlockerDeclarationInput is an input type that accepts PipelineBlockerDeclarationArgs and PipelineBlockerDeclarationOutput values.
 // You can construct a concrete instance of `PipelineBlockerDeclarationInput` via:
 //
-//          PipelineBlockerDeclarationArgs{...}
+//	PipelineBlockerDeclarationArgs{...}
 type PipelineBlockerDeclarationInput interface {
 	pulumi.Input
 
@@ -981,7 +981,7 @@ func (i PipelineBlockerDeclarationArgs) ToPipelineBlockerDeclarationOutputWithCo
 // PipelineBlockerDeclarationArrayInput is an input type that accepts PipelineBlockerDeclarationArray and PipelineBlockerDeclarationArrayOutput values.
 // You can construct a concrete instance of `PipelineBlockerDeclarationArrayInput` via:
 //
-//          PipelineBlockerDeclarationArray{ PipelineBlockerDeclarationArgs{...} }
+//	PipelineBlockerDeclarationArray{ PipelineBlockerDeclarationArgs{...} }
 type PipelineBlockerDeclarationArrayInput interface {
 	pulumi.Input
 
@@ -1053,7 +1053,7 @@ type PipelineEncryptionKey struct {
 // PipelineEncryptionKeyInput is an input type that accepts PipelineEncryptionKeyArgs and PipelineEncryptionKeyOutput values.
 // You can construct a concrete instance of `PipelineEncryptionKeyInput` via:
 //
-//          PipelineEncryptionKeyArgs{...}
+//	PipelineEncryptionKeyArgs{...}
 type PipelineEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -1089,11 +1089,11 @@ func (i PipelineEncryptionKeyArgs) ToPipelineEncryptionKeyPtrOutputWithContext(c
 // PipelineEncryptionKeyPtrInput is an input type that accepts PipelineEncryptionKeyArgs, PipelineEncryptionKeyPtr and PipelineEncryptionKeyPtrOutput values.
 // You can construct a concrete instance of `PipelineEncryptionKeyPtrInput` via:
 //
-//          PipelineEncryptionKeyArgs{...}
+//	        PipelineEncryptionKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -1200,7 +1200,7 @@ type PipelineInputArtifact struct {
 // PipelineInputArtifactInput is an input type that accepts PipelineInputArtifactArgs and PipelineInputArtifactOutput values.
 // You can construct a concrete instance of `PipelineInputArtifactInput` via:
 //
-//          PipelineInputArtifactArgs{...}
+//	PipelineInputArtifactArgs{...}
 type PipelineInputArtifactInput interface {
 	pulumi.Input
 
@@ -1227,7 +1227,7 @@ func (i PipelineInputArtifactArgs) ToPipelineInputArtifactOutputWithContext(ctx 
 // PipelineInputArtifactArrayInput is an input type that accepts PipelineInputArtifactArray and PipelineInputArtifactArrayOutput values.
 // You can construct a concrete instance of `PipelineInputArtifactArrayInput` via:
 //
-//          PipelineInputArtifactArray{ PipelineInputArtifactArgs{...} }
+//	PipelineInputArtifactArray{ PipelineInputArtifactArgs{...} }
 type PipelineInputArtifactArrayInput interface {
 	pulumi.Input
 
@@ -1294,7 +1294,7 @@ type PipelineOutputArtifact struct {
 // PipelineOutputArtifactInput is an input type that accepts PipelineOutputArtifactArgs and PipelineOutputArtifactOutput values.
 // You can construct a concrete instance of `PipelineOutputArtifactInput` via:
 //
-//          PipelineOutputArtifactArgs{...}
+//	PipelineOutputArtifactArgs{...}
 type PipelineOutputArtifactInput interface {
 	pulumi.Input
 
@@ -1321,7 +1321,7 @@ func (i PipelineOutputArtifactArgs) ToPipelineOutputArtifactOutputWithContext(ct
 // PipelineOutputArtifactArrayInput is an input type that accepts PipelineOutputArtifactArray and PipelineOutputArtifactArrayOutput values.
 // You can construct a concrete instance of `PipelineOutputArtifactArrayInput` via:
 //
-//          PipelineOutputArtifactArray{ PipelineOutputArtifactArgs{...} }
+//	PipelineOutputArtifactArray{ PipelineOutputArtifactArgs{...} }
 type PipelineOutputArtifactArrayInput interface {
 	pulumi.Input
 
@@ -1390,7 +1390,7 @@ type PipelineStageDeclaration struct {
 // PipelineStageDeclarationInput is an input type that accepts PipelineStageDeclarationArgs and PipelineStageDeclarationOutput values.
 // You can construct a concrete instance of `PipelineStageDeclarationInput` via:
 //
-//          PipelineStageDeclarationArgs{...}
+//	PipelineStageDeclarationArgs{...}
 type PipelineStageDeclarationInput interface {
 	pulumi.Input
 
@@ -1419,7 +1419,7 @@ func (i PipelineStageDeclarationArgs) ToPipelineStageDeclarationOutputWithContex
 // PipelineStageDeclarationArrayInput is an input type that accepts PipelineStageDeclarationArray and PipelineStageDeclarationArrayOutput values.
 // You can construct a concrete instance of `PipelineStageDeclarationArrayInput` via:
 //
-//          PipelineStageDeclarationArray{ PipelineStageDeclarationArgs{...} }
+//	PipelineStageDeclarationArray{ PipelineStageDeclarationArgs{...} }
 type PipelineStageDeclarationArrayInput interface {
 	pulumi.Input
 
@@ -1495,7 +1495,7 @@ type PipelineStageTransition struct {
 // PipelineStageTransitionInput is an input type that accepts PipelineStageTransitionArgs and PipelineStageTransitionOutput values.
 // You can construct a concrete instance of `PipelineStageTransitionInput` via:
 //
-//          PipelineStageTransitionArgs{...}
+//	PipelineStageTransitionArgs{...}
 type PipelineStageTransitionInput interface {
 	pulumi.Input
 
@@ -1523,7 +1523,7 @@ func (i PipelineStageTransitionArgs) ToPipelineStageTransitionOutputWithContext(
 // PipelineStageTransitionArrayInput is an input type that accepts PipelineStageTransitionArray and PipelineStageTransitionArrayOutput values.
 // You can construct a concrete instance of `PipelineStageTransitionArrayInput` via:
 //
-//          PipelineStageTransitionArray{ PipelineStageTransitionArgs{...} }
+//	PipelineStageTransitionArray{ PipelineStageTransitionArgs{...} }
 type PipelineStageTransitionArrayInput interface {
 	pulumi.Input
 
@@ -1595,7 +1595,7 @@ type PipelineTag struct {
 // PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
 // You can construct a concrete instance of `PipelineTagInput` via:
 //
-//          PipelineTagArgs{...}
+//	PipelineTagArgs{...}
 type PipelineTagInput interface {
 	pulumi.Input
 
@@ -1623,7 +1623,7 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
-//          PipelineTagArray{ PipelineTagArgs{...} }
+//	PipelineTagArray{ PipelineTagArgs{...} }
 type PipelineTagArrayInput interface {
 	pulumi.Input
 
@@ -1695,7 +1695,7 @@ type WebhookAuthConfiguration struct {
 // WebhookAuthConfigurationInput is an input type that accepts WebhookAuthConfigurationArgs and WebhookAuthConfigurationOutput values.
 // You can construct a concrete instance of `WebhookAuthConfigurationInput` via:
 //
-//          WebhookAuthConfigurationArgs{...}
+//	WebhookAuthConfigurationArgs{...}
 type WebhookAuthConfigurationInput interface {
 	pulumi.Input
 
@@ -1792,7 +1792,7 @@ type WebhookFilterRule struct {
 // WebhookFilterRuleInput is an input type that accepts WebhookFilterRuleArgs and WebhookFilterRuleOutput values.
 // You can construct a concrete instance of `WebhookFilterRuleInput` via:
 //
-//          WebhookFilterRuleArgs{...}
+//	WebhookFilterRuleArgs{...}
 type WebhookFilterRuleInput interface {
 	pulumi.Input
 
@@ -1820,7 +1820,7 @@ func (i WebhookFilterRuleArgs) ToWebhookFilterRuleOutputWithContext(ctx context.
 // WebhookFilterRuleArrayInput is an input type that accepts WebhookFilterRuleArray and WebhookFilterRuleArrayOutput values.
 // You can construct a concrete instance of `WebhookFilterRuleArrayInput` via:
 //
-//          WebhookFilterRuleArray{ WebhookFilterRuleArgs{...} }
+//	WebhookFilterRuleArray{ WebhookFilterRuleArgs{...} }
 type WebhookFilterRuleArrayInput interface {
 	pulumi.Input
 

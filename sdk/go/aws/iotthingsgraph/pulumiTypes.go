@@ -18,7 +18,7 @@ type FlowTemplateDefinitionDocument struct {
 // FlowTemplateDefinitionDocumentInput is an input type that accepts FlowTemplateDefinitionDocumentArgs and FlowTemplateDefinitionDocumentOutput values.
 // You can construct a concrete instance of `FlowTemplateDefinitionDocumentInput` via:
 //
-//          FlowTemplateDefinitionDocumentArgs{...}
+//	FlowTemplateDefinitionDocumentArgs{...}
 type FlowTemplateDefinitionDocumentInput interface {
 	pulumi.Input
 

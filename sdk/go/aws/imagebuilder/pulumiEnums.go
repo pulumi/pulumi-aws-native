@@ -140,7 +140,7 @@ func (o ComponentPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // ComponentPlatformInput is an input type that accepts ComponentPlatformArgs and ComponentPlatformOutput values.
 // You can construct a concrete instance of `ComponentPlatformInput` via:
 //
-//          ComponentPlatformArgs{...}
+//	ComponentPlatformArgs{...}
 type ComponentPlatformInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ func (o ContainerRecipeContainerTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 // ContainerRecipeContainerTypeInput is an input type that accepts ContainerRecipeContainerTypeArgs and ContainerRecipeContainerTypeOutput values.
 // You can construct a concrete instance of `ContainerRecipeContainerTypeInput` via:
 //
-//          ContainerRecipeContainerTypeArgs{...}
+//	ContainerRecipeContainerTypeArgs{...}
 type ContainerRecipeContainerTypeInput interface {
 	pulumi.Input
 
@@ -565,7 +565,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) T
 // ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs and ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput values.
 // You can construct a concrete instance of `ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` via:
 //
-//          ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {
 	pulumi.Input
 
@@ -730,7 +730,7 @@ func (o ContainerRecipePlatformOverridePtrOutput) ToStringPtrOutputWithContext(c
 // ContainerRecipePlatformOverrideInput is an input type that accepts ContainerRecipePlatformOverrideArgs and ContainerRecipePlatformOverrideOutput values.
 // You can construct a concrete instance of `ContainerRecipePlatformOverrideInput` via:
 //
-//          ContainerRecipePlatformOverrideArgs{...}
+//	ContainerRecipePlatformOverrideArgs{...}
 type ContainerRecipePlatformOverrideInput interface {
 	pulumi.Input
 
@@ -894,7 +894,7 @@ func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToStringPtrOut
 // ContainerRecipeTargetContainerRepositoryServiceInput is an input type that accepts ContainerRecipeTargetContainerRepositoryServiceArgs and ContainerRecipeTargetContainerRepositoryServiceOutput values.
 // You can construct a concrete instance of `ContainerRecipeTargetContainerRepositoryServiceInput` via:
 //
-//          ContainerRecipeTargetContainerRepositoryServiceArgs{...}
+//	ContainerRecipeTargetContainerRepositoryServiceArgs{...}
 type ContainerRecipeTargetContainerRepositoryServiceInput interface {
 	pulumi.Input
 
@@ -1058,7 +1058,7 @@ func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToSt
 // DistributionConfigurationTargetContainerRepositoryServiceInput is an input type that accepts DistributionConfigurationTargetContainerRepositoryServiceArgs and DistributionConfigurationTargetContainerRepositoryServiceOutput values.
 // You can construct a concrete instance of `DistributionConfigurationTargetContainerRepositoryServiceInput` via:
 //
-//          DistributionConfigurationTargetContainerRepositoryServiceArgs{...}
+//	DistributionConfigurationTargetContainerRepositoryServiceArgs{...}
 type DistributionConfigurationTargetContainerRepositoryServiceInput interface {
 	pulumi.Input
 
@@ -1223,7 +1223,7 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToStringP
 // ImagePipelineSchedulePipelineExecutionStartConditionInput is an input type that accepts ImagePipelineSchedulePipelineExecutionStartConditionArgs and ImagePipelineSchedulePipelineExecutionStartConditionOutput values.
 // You can construct a concrete instance of `ImagePipelineSchedulePipelineExecutionStartConditionInput` via:
 //
-//          ImagePipelineSchedulePipelineExecutionStartConditionArgs{...}
+//	ImagePipelineSchedulePipelineExecutionStartConditionArgs{...}
 type ImagePipelineSchedulePipelineExecutionStartConditionInput interface {
 	pulumi.Input
 
@@ -1388,7 +1388,7 @@ func (o ImagePipelineStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // ImagePipelineStatusInput is an input type that accepts ImagePipelineStatusArgs and ImagePipelineStatusOutput values.
 // You can construct a concrete instance of `ImagePipelineStatusInput` via:
 //
-//          ImagePipelineStatusArgs{...}
+//	ImagePipelineStatusArgs{...}
 type ImagePipelineStatusInput interface {
 	pulumi.Input
 
@@ -1558,7 +1558,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToStr
 // ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs and ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput values.
 // You can construct a concrete instance of `ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` via:
 //
-//          ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
 type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {
 	pulumi.Input
 
@@ -1723,7 +1723,7 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) T
 // InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs and InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput` via:
 //
-//          InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs{...}
+//	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs{...}
 type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput interface {
 	pulumi.Input
 

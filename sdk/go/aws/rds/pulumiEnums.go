@@ -139,7 +139,7 @@ func (o DBProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx c
 // DBProxyAuthFormatAuthSchemeInput is an input type that accepts DBProxyAuthFormatAuthSchemeArgs and DBProxyAuthFormatAuthSchemeOutput values.
 // You can construct a concrete instance of `DBProxyAuthFormatAuthSchemeInput` via:
 //
-//          DBProxyAuthFormatAuthSchemeArgs{...}
+//	DBProxyAuthFormatAuthSchemeArgs{...}
 type DBProxyAuthFormatAuthSchemeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o DBProxyAuthFormatIAMAuthPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // DBProxyAuthFormatIAMAuthInput is an input type that accepts DBProxyAuthFormatIAMAuthArgs and DBProxyAuthFormatIAMAuthOutput values.
 // You can construct a concrete instance of `DBProxyAuthFormatIAMAuthInput` via:
 //
-//          DBProxyAuthFormatIAMAuthArgs{...}
+//	DBProxyAuthFormatIAMAuthArgs{...}
 type DBProxyAuthFormatIAMAuthInput interface {
 	pulumi.Input
 
@@ -469,7 +469,7 @@ func (o DBProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx con
 // DBProxyEndpointTargetRoleInput is an input type that accepts DBProxyEndpointTargetRoleArgs and DBProxyEndpointTargetRoleOutput values.
 // You can construct a concrete instance of `DBProxyEndpointTargetRoleInput` via:
 //
-//          DBProxyEndpointTargetRoleArgs{...}
+//	DBProxyEndpointTargetRoleArgs{...}
 type DBProxyEndpointTargetRoleInput interface {
 	pulumi.Input
 
@@ -634,7 +634,7 @@ func (o DBProxyEngineFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // DBProxyEngineFamilyInput is an input type that accepts DBProxyEngineFamilyArgs and DBProxyEngineFamilyOutput values.
 // You can construct a concrete instance of `DBProxyEngineFamilyInput` via:
 //
-//          DBProxyEngineFamilyArgs{...}
+//	DBProxyEngineFamilyArgs{...}
 type DBProxyEngineFamilyInput interface {
 	pulumi.Input
 
@@ -798,7 +798,7 @@ func (o DBProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutputWithContext
 // DBProxyTargetGroupTargetGroupNameInput is an input type that accepts DBProxyTargetGroupTargetGroupNameArgs and DBProxyTargetGroupTargetGroupNameOutput values.
 // You can construct a concrete instance of `DBProxyTargetGroupTargetGroupNameInput` via:
 //
-//          DBProxyTargetGroupTargetGroupNameArgs{...}
+//	DBProxyTargetGroupTargetGroupNameArgs{...}
 type DBProxyTargetGroupTargetGroupNameInput interface {
 	pulumi.Input
 
@@ -969,7 +969,7 @@ func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // EventSubscriptionSourceTypeInput is an input type that accepts EventSubscriptionSourceTypeArgs and EventSubscriptionSourceTypeOutput values.
 // You can construct a concrete instance of `EventSubscriptionSourceTypeInput` via:
 //
-//          EventSubscriptionSourceTypeArgs{...}
+//	EventSubscriptionSourceTypeArgs{...}
 type EventSubscriptionSourceTypeInput interface {
 	pulumi.Input
 
@@ -1136,7 +1136,7 @@ func (o GlobalClusterEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // GlobalClusterEngineInput is an input type that accepts GlobalClusterEngineArgs and GlobalClusterEngineOutput values.
 // You can construct a concrete instance of `GlobalClusterEngineInput` via:
 //
-//          GlobalClusterEngineArgs{...}
+//	GlobalClusterEngineArgs{...}
 type GlobalClusterEngineInput interface {
 	pulumi.Input
 

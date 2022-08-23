@@ -21,7 +21,7 @@ type ApplicationAlarm struct {
 // ApplicationAlarmInput is an input type that accepts ApplicationAlarmArgs and ApplicationAlarmOutput values.
 // You can construct a concrete instance of `ApplicationAlarmInput` via:
 //
-//          ApplicationAlarmArgs{...}
+//	ApplicationAlarmArgs{...}
 type ApplicationAlarmInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i ApplicationAlarmArgs) ToApplicationAlarmOutputWithContext(ctx context.Co
 // ApplicationAlarmArrayInput is an input type that accepts ApplicationAlarmArray and ApplicationAlarmArrayOutput values.
 // You can construct a concrete instance of `ApplicationAlarmArrayInput` via:
 //
-//          ApplicationAlarmArray{ ApplicationAlarmArgs{...} }
+//	ApplicationAlarmArray{ ApplicationAlarmArgs{...} }
 type ApplicationAlarmArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type ApplicationAlarmMetric struct {
 // ApplicationAlarmMetricInput is an input type that accepts ApplicationAlarmMetricArgs and ApplicationAlarmMetricOutput values.
 // You can construct a concrete instance of `ApplicationAlarmMetricInput` via:
 //
-//          ApplicationAlarmMetricArgs{...}
+//	ApplicationAlarmMetricArgs{...}
 type ApplicationAlarmMetricInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ func (i ApplicationAlarmMetricArgs) ToApplicationAlarmMetricOutputWithContext(ct
 // ApplicationAlarmMetricArrayInput is an input type that accepts ApplicationAlarmMetricArray and ApplicationAlarmMetricArrayOutput values.
 // You can construct a concrete instance of `ApplicationAlarmMetricArrayInput` via:
 //
-//          ApplicationAlarmMetricArray{ ApplicationAlarmMetricArgs{...} }
+//	ApplicationAlarmMetricArray{ ApplicationAlarmMetricArgs{...} }
 type ApplicationAlarmMetricArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type ApplicationComponentConfiguration struct {
 // ApplicationComponentConfigurationInput is an input type that accepts ApplicationComponentConfigurationArgs and ApplicationComponentConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationComponentConfigurationInput` via:
 //
-//          ApplicationComponentConfigurationArgs{...}
+//	ApplicationComponentConfigurationArgs{...}
 type ApplicationComponentConfigurationInput interface {
 	pulumi.Input
 
@@ -269,11 +269,11 @@ func (i ApplicationComponentConfigurationArgs) ToApplicationComponentConfigurati
 // ApplicationComponentConfigurationPtrInput is an input type that accepts ApplicationComponentConfigurationArgs, ApplicationComponentConfigurationPtr and ApplicationComponentConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationComponentConfigurationPtrInput` via:
 //
-//          ApplicationComponentConfigurationArgs{...}
+//	        ApplicationComponentConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationComponentConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -401,7 +401,7 @@ type ApplicationComponentMonitoringSetting struct {
 // ApplicationComponentMonitoringSettingInput is an input type that accepts ApplicationComponentMonitoringSettingArgs and ApplicationComponentMonitoringSettingOutput values.
 // You can construct a concrete instance of `ApplicationComponentMonitoringSettingInput` via:
 //
-//          ApplicationComponentMonitoringSettingArgs{...}
+//	ApplicationComponentMonitoringSettingArgs{...}
 type ApplicationComponentMonitoringSettingInput interface {
 	pulumi.Input
 
@@ -440,7 +440,7 @@ func (i ApplicationComponentMonitoringSettingArgs) ToApplicationComponentMonitor
 // ApplicationComponentMonitoringSettingArrayInput is an input type that accepts ApplicationComponentMonitoringSettingArray and ApplicationComponentMonitoringSettingArrayOutput values.
 // You can construct a concrete instance of `ApplicationComponentMonitoringSettingArrayInput` via:
 //
-//          ApplicationComponentMonitoringSettingArray{ ApplicationComponentMonitoringSettingArgs{...} }
+//	ApplicationComponentMonitoringSettingArray{ ApplicationComponentMonitoringSettingArgs{...} }
 type ApplicationComponentMonitoringSettingArrayInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ type ApplicationConfigurationDetails struct {
 // ApplicationConfigurationDetailsInput is an input type that accepts ApplicationConfigurationDetailsArgs and ApplicationConfigurationDetailsOutput values.
 // You can construct a concrete instance of `ApplicationConfigurationDetailsInput` via:
 //
-//          ApplicationConfigurationDetailsArgs{...}
+//	ApplicationConfigurationDetailsArgs{...}
 type ApplicationConfigurationDetailsInput interface {
 	pulumi.Input
 
@@ -603,11 +603,11 @@ func (i ApplicationConfigurationDetailsArgs) ToApplicationConfigurationDetailsPt
 // ApplicationConfigurationDetailsPtrInput is an input type that accepts ApplicationConfigurationDetailsArgs, ApplicationConfigurationDetailsPtr and ApplicationConfigurationDetailsPtrOutput values.
 // You can construct a concrete instance of `ApplicationConfigurationDetailsPtrInput` via:
 //
-//          ApplicationConfigurationDetailsArgs{...}
+//	        ApplicationConfigurationDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationConfigurationDetailsPtrInput interface {
 	pulumi.Input
 
@@ -804,7 +804,7 @@ type ApplicationCustomComponent struct {
 // ApplicationCustomComponentInput is an input type that accepts ApplicationCustomComponentArgs and ApplicationCustomComponentOutput values.
 // You can construct a concrete instance of `ApplicationCustomComponentInput` via:
 //
-//          ApplicationCustomComponentArgs{...}
+//	ApplicationCustomComponentArgs{...}
 type ApplicationCustomComponentInput interface {
 	pulumi.Input
 
@@ -835,7 +835,7 @@ func (i ApplicationCustomComponentArgs) ToApplicationCustomComponentOutputWithCo
 // ApplicationCustomComponentArrayInput is an input type that accepts ApplicationCustomComponentArray and ApplicationCustomComponentArrayOutput values.
 // You can construct a concrete instance of `ApplicationCustomComponentArrayInput` via:
 //
-//          ApplicationCustomComponentArray{ ApplicationCustomComponentArgs{...} }
+//	ApplicationCustomComponentArray{ ApplicationCustomComponentArgs{...} }
 type ApplicationCustomComponentArrayInput interface {
 	pulumi.Input
 
@@ -911,7 +911,7 @@ type ApplicationHAClusterPrometheusExporter struct {
 // ApplicationHAClusterPrometheusExporterInput is an input type that accepts ApplicationHAClusterPrometheusExporterArgs and ApplicationHAClusterPrometheusExporterOutput values.
 // You can construct a concrete instance of `ApplicationHAClusterPrometheusExporterInput` via:
 //
-//          ApplicationHAClusterPrometheusExporterArgs{...}
+//	ApplicationHAClusterPrometheusExporterArgs{...}
 type ApplicationHAClusterPrometheusExporterInput interface {
 	pulumi.Input
 
@@ -948,11 +948,11 @@ func (i ApplicationHAClusterPrometheusExporterArgs) ToApplicationHAClusterPromet
 // ApplicationHAClusterPrometheusExporterPtrInput is an input type that accepts ApplicationHAClusterPrometheusExporterArgs, ApplicationHAClusterPrometheusExporterPtr and ApplicationHAClusterPrometheusExporterPtrOutput values.
 // You can construct a concrete instance of `ApplicationHAClusterPrometheusExporterPtrInput` via:
 //
-//          ApplicationHAClusterPrometheusExporterArgs{...}
+//	        ApplicationHAClusterPrometheusExporterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationHAClusterPrometheusExporterPtrInput interface {
 	pulumi.Input
 
@@ -1062,7 +1062,7 @@ type ApplicationHANAPrometheusExporter struct {
 // ApplicationHANAPrometheusExporterInput is an input type that accepts ApplicationHANAPrometheusExporterArgs and ApplicationHANAPrometheusExporterOutput values.
 // You can construct a concrete instance of `ApplicationHANAPrometheusExporterInput` via:
 //
-//          ApplicationHANAPrometheusExporterArgs{...}
+//	ApplicationHANAPrometheusExporterArgs{...}
 type ApplicationHANAPrometheusExporterInput interface {
 	pulumi.Input
 
@@ -1110,11 +1110,11 @@ func (i ApplicationHANAPrometheusExporterArgs) ToApplicationHANAPrometheusExport
 // ApplicationHANAPrometheusExporterPtrInput is an input type that accepts ApplicationHANAPrometheusExporterArgs, ApplicationHANAPrometheusExporterPtr and ApplicationHANAPrometheusExporterPtrOutput values.
 // You can construct a concrete instance of `ApplicationHANAPrometheusExporterPtrInput` via:
 //
-//          ApplicationHANAPrometheusExporterArgs{...}
+//	        ApplicationHANAPrometheusExporterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationHANAPrometheusExporterPtrInput interface {
 	pulumi.Input
 
@@ -1180,10 +1180,10 @@ func (o ApplicationHANAPrometheusExporterOutput) HANASID() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASID }).(pulumi.StringOutput)
 }
 
-// The secret name which manages the HANA DB credentials e.g. {
-//   "username": "<>",
-//   "password": "<>"
-// }.
+//	The secret name which manages the HANA DB credentials e.g. {
+//	  "username": "<>",
+//	  "password": "<>"
+//	}.
 func (o ApplicationHANAPrometheusExporterOutput) HANASecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASecretName }).(pulumi.StringOutput)
 }
@@ -1247,10 +1247,10 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HANASID() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret name which manages the HANA DB credentials e.g. {
-//   "username": "<>",
-//   "password": "<>"
-// }.
+//	The secret name which manages the HANA DB credentials e.g. {
+//	  "username": "<>",
+//	  "password": "<>"
+//	}.
 func (o ApplicationHANAPrometheusExporterPtrOutput) HANASecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
 		if v == nil {
@@ -1283,7 +1283,7 @@ type ApplicationJMXPrometheusExporter struct {
 // ApplicationJMXPrometheusExporterInput is an input type that accepts ApplicationJMXPrometheusExporterArgs and ApplicationJMXPrometheusExporterOutput values.
 // You can construct a concrete instance of `ApplicationJMXPrometheusExporterInput` via:
 //
-//          ApplicationJMXPrometheusExporterArgs{...}
+//	ApplicationJMXPrometheusExporterArgs{...}
 type ApplicationJMXPrometheusExporterInput interface {
 	pulumi.Input
 
@@ -1324,11 +1324,11 @@ func (i ApplicationJMXPrometheusExporterArgs) ToApplicationJMXPrometheusExporter
 // ApplicationJMXPrometheusExporterPtrInput is an input type that accepts ApplicationJMXPrometheusExporterArgs, ApplicationJMXPrometheusExporterPtr and ApplicationJMXPrometheusExporterPtrOutput values.
 // You can construct a concrete instance of `ApplicationJMXPrometheusExporterPtrInput` via:
 //
-//          ApplicationJMXPrometheusExporterArgs{...}
+//	        ApplicationJMXPrometheusExporterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationJMXPrometheusExporterPtrInput interface {
 	pulumi.Input
 
@@ -1465,7 +1465,7 @@ type ApplicationLog struct {
 // ApplicationLogInput is an input type that accepts ApplicationLogArgs and ApplicationLogOutput values.
 // You can construct a concrete instance of `ApplicationLogInput` via:
 //
-//          ApplicationLogArgs{...}
+//	ApplicationLogArgs{...}
 type ApplicationLogInput interface {
 	pulumi.Input
 
@@ -1502,7 +1502,7 @@ func (i ApplicationLogArgs) ToApplicationLogOutputWithContext(ctx context.Contex
 // ApplicationLogArrayInput is an input type that accepts ApplicationLogArray and ApplicationLogArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogArrayInput` via:
 //
-//          ApplicationLogArray{ ApplicationLogArgs{...} }
+//	ApplicationLogArray{ ApplicationLogArgs{...} }
 type ApplicationLogArrayInput interface {
 	pulumi.Input
 
@@ -1597,7 +1597,7 @@ type ApplicationLogPattern struct {
 // ApplicationLogPatternInput is an input type that accepts ApplicationLogPatternArgs and ApplicationLogPatternOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternInput` via:
 //
-//          ApplicationLogPatternArgs{...}
+//	ApplicationLogPatternArgs{...}
 type ApplicationLogPatternInput interface {
 	pulumi.Input
 
@@ -1630,7 +1630,7 @@ func (i ApplicationLogPatternArgs) ToApplicationLogPatternOutputWithContext(ctx 
 // ApplicationLogPatternArrayInput is an input type that accepts ApplicationLogPatternArray and ApplicationLogPatternArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternArrayInput` via:
 //
-//          ApplicationLogPatternArray{ ApplicationLogPatternArgs{...} }
+//	ApplicationLogPatternArray{ ApplicationLogPatternArgs{...} }
 type ApplicationLogPatternArrayInput interface {
 	pulumi.Input
 
@@ -1713,7 +1713,7 @@ type ApplicationLogPatternSet struct {
 // ApplicationLogPatternSetInput is an input type that accepts ApplicationLogPatternSetArgs and ApplicationLogPatternSetOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternSetInput` via:
 //
-//          ApplicationLogPatternSetArgs{...}
+//	ApplicationLogPatternSetArgs{...}
 type ApplicationLogPatternSetInput interface {
 	pulumi.Input
 
@@ -1744,7 +1744,7 @@ func (i ApplicationLogPatternSetArgs) ToApplicationLogPatternSetOutputWithContex
 // ApplicationLogPatternSetArrayInput is an input type that accepts ApplicationLogPatternSetArray and ApplicationLogPatternSetArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternSetArrayInput` via:
 //
-//          ApplicationLogPatternSetArray{ ApplicationLogPatternSetArgs{...} }
+//	ApplicationLogPatternSetArray{ ApplicationLogPatternSetArgs{...} }
 type ApplicationLogPatternSetArrayInput interface {
 	pulumi.Input
 
@@ -1824,7 +1824,7 @@ type ApplicationSubComponentConfigurationDetails struct {
 // ApplicationSubComponentConfigurationDetailsInput is an input type that accepts ApplicationSubComponentConfigurationDetailsArgs and ApplicationSubComponentConfigurationDetailsOutput values.
 // You can construct a concrete instance of `ApplicationSubComponentConfigurationDetailsInput` via:
 //
-//          ApplicationSubComponentConfigurationDetailsArgs{...}
+//	ApplicationSubComponentConfigurationDetailsArgs{...}
 type ApplicationSubComponentConfigurationDetailsInput interface {
 	pulumi.Input
 
@@ -1895,7 +1895,7 @@ type ApplicationSubComponentTypeConfiguration struct {
 // ApplicationSubComponentTypeConfigurationInput is an input type that accepts ApplicationSubComponentTypeConfigurationArgs and ApplicationSubComponentTypeConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationSubComponentTypeConfigurationInput` via:
 //
-//          ApplicationSubComponentTypeConfigurationArgs{...}
+//	ApplicationSubComponentTypeConfigurationArgs{...}
 type ApplicationSubComponentTypeConfigurationInput interface {
 	pulumi.Input
 
@@ -1926,7 +1926,7 @@ func (i ApplicationSubComponentTypeConfigurationArgs) ToApplicationSubComponentT
 // ApplicationSubComponentTypeConfigurationArrayInput is an input type that accepts ApplicationSubComponentTypeConfigurationArray and ApplicationSubComponentTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationSubComponentTypeConfigurationArrayInput` via:
 //
-//          ApplicationSubComponentTypeConfigurationArray{ ApplicationSubComponentTypeConfigurationArgs{...} }
+//	ApplicationSubComponentTypeConfigurationArray{ ApplicationSubComponentTypeConfigurationArgs{...} }
 type ApplicationSubComponentTypeConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2008,7 +2008,7 @@ type ApplicationTag struct {
 // ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
 // You can construct a concrete instance of `ApplicationTagInput` via:
 //
-//          ApplicationTagArgs{...}
+//	ApplicationTagArgs{...}
 type ApplicationTagInput interface {
 	pulumi.Input
 
@@ -2039,7 +2039,7 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
-//          ApplicationTagArray{ ApplicationTagArgs{...} }
+//	ApplicationTagArray{ ApplicationTagArgs{...} }
 type ApplicationTagArrayInput interface {
 	pulumi.Input
 
@@ -2121,7 +2121,7 @@ type ApplicationWindowsEvent struct {
 // ApplicationWindowsEventInput is an input type that accepts ApplicationWindowsEventArgs and ApplicationWindowsEventOutput values.
 // You can construct a concrete instance of `ApplicationWindowsEventInput` via:
 //
-//          ApplicationWindowsEventArgs{...}
+//	ApplicationWindowsEventArgs{...}
 type ApplicationWindowsEventInput interface {
 	pulumi.Input
 
@@ -2156,7 +2156,7 @@ func (i ApplicationWindowsEventArgs) ToApplicationWindowsEventOutputWithContext(
 // ApplicationWindowsEventArrayInput is an input type that accepts ApplicationWindowsEventArray and ApplicationWindowsEventArrayOutput values.
 // You can construct a concrete instance of `ApplicationWindowsEventArrayInput` via:
 //
-//          ApplicationWindowsEventArray{ ApplicationWindowsEventArgs{...} }
+//	ApplicationWindowsEventArray{ ApplicationWindowsEventArgs{...} }
 type ApplicationWindowsEventArrayInput interface {
 	pulumi.Input
 

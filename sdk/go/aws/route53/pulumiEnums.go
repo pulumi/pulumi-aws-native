@@ -140,7 +140,7 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToStri
 // HealthCheckConfigPropertiesInsufficientDataHealthStatusInput is an input type that accepts HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs and HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput values.
 // You can construct a concrete instance of `HealthCheckConfigPropertiesInsufficientDataHealthStatusInput` via:
 //
-//          HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs{...}
+//	HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs{...}
 type HealthCheckConfigPropertiesInsufficientDataHealthStatusInput interface {
 	pulumi.Input
 
@@ -310,7 +310,7 @@ func (o HealthCheckConfigPropertiesTypePtrOutput) ToStringPtrOutputWithContext(c
 // HealthCheckConfigPropertiesTypeInput is an input type that accepts HealthCheckConfigPropertiesTypeArgs and HealthCheckConfigPropertiesTypeOutput values.
 // You can construct a concrete instance of `HealthCheckConfigPropertiesTypeInput` via:
 //
-//          HealthCheckConfigPropertiesTypeArgs{...}
+//	HealthCheckConfigPropertiesTypeArgs{...}
 type HealthCheckConfigPropertiesTypeInput interface {
 	pulumi.Input
 
@@ -475,7 +475,7 @@ func (o KeySigningKeyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // KeySigningKeyStatusInput is an input type that accepts KeySigningKeyStatusArgs and KeySigningKeyStatusOutput values.
 // You can construct a concrete instance of `KeySigningKeyStatusInput` via:
 //
-//          KeySigningKeyStatusArgs{...}
+//	KeySigningKeyStatusArgs{...}
 type KeySigningKeyStatusInput interface {
 	pulumi.Input
 

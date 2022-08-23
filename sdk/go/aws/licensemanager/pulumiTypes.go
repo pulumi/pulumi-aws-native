@@ -18,7 +18,7 @@ type LicenseBorrowConfiguration struct {
 // LicenseBorrowConfigurationInput is an input type that accepts LicenseBorrowConfigurationArgs and LicenseBorrowConfigurationOutput values.
 // You can construct a concrete instance of `LicenseBorrowConfigurationInput` via:
 //
-//          LicenseBorrowConfigurationArgs{...}
+//	LicenseBorrowConfigurationArgs{...}
 type LicenseBorrowConfigurationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i LicenseBorrowConfigurationArgs) ToLicenseBorrowConfigurationPtrOutputWit
 // LicenseBorrowConfigurationPtrInput is an input type that accepts LicenseBorrowConfigurationArgs, LicenseBorrowConfigurationPtr and LicenseBorrowConfigurationPtrOutput values.
 // You can construct a concrete instance of `LicenseBorrowConfigurationPtrInput` via:
 //
-//          LicenseBorrowConfigurationArgs{...}
+//	        LicenseBorrowConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LicenseBorrowConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ type LicenseConsumptionConfiguration struct {
 // LicenseConsumptionConfigurationInput is an input type that accepts LicenseConsumptionConfigurationArgs and LicenseConsumptionConfigurationOutput values.
 // You can construct a concrete instance of `LicenseConsumptionConfigurationInput` via:
 //
-//          LicenseConsumptionConfigurationArgs{...}
+//	LicenseConsumptionConfigurationArgs{...}
 type LicenseConsumptionConfigurationInput interface {
 	pulumi.Input
 
@@ -284,7 +284,7 @@ type LicenseEntitlement struct {
 // LicenseEntitlementInput is an input type that accepts LicenseEntitlementArgs and LicenseEntitlementOutput values.
 // You can construct a concrete instance of `LicenseEntitlementInput` via:
 //
-//          LicenseEntitlementArgs{...}
+//	LicenseEntitlementArgs{...}
 type LicenseEntitlementInput interface {
 	pulumi.Input
 
@@ -316,7 +316,7 @@ func (i LicenseEntitlementArgs) ToLicenseEntitlementOutputWithContext(ctx contex
 // LicenseEntitlementArrayInput is an input type that accepts LicenseEntitlementArray and LicenseEntitlementArrayOutput values.
 // You can construct a concrete instance of `LicenseEntitlementArrayInput` via:
 //
-//          LicenseEntitlementArray{ LicenseEntitlementArgs{...} }
+//	LicenseEntitlementArray{ LicenseEntitlementArgs{...} }
 type LicenseEntitlementArrayInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ type LicenseIssuerData struct {
 // LicenseIssuerDataInput is an input type that accepts LicenseIssuerDataArgs and LicenseIssuerDataOutput values.
 // You can construct a concrete instance of `LicenseIssuerDataInput` via:
 //
-//          LicenseIssuerDataArgs{...}
+//	LicenseIssuerDataArgs{...}
 type LicenseIssuerDataInput interface {
 	pulumi.Input
 
@@ -501,7 +501,7 @@ type LicenseMetadata struct {
 // LicenseMetadataInput is an input type that accepts LicenseMetadataArgs and LicenseMetadataOutput values.
 // You can construct a concrete instance of `LicenseMetadataInput` via:
 //
-//          LicenseMetadataArgs{...}
+//	LicenseMetadataArgs{...}
 type LicenseMetadataInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ func (i LicenseMetadataArgs) ToLicenseMetadataOutputWithContext(ctx context.Cont
 // LicenseMetadataArrayInput is an input type that accepts LicenseMetadataArray and LicenseMetadataArrayOutput values.
 // You can construct a concrete instance of `LicenseMetadataArrayInput` via:
 //
-//          LicenseMetadataArray{ LicenseMetadataArgs{...} }
+//	LicenseMetadataArray{ LicenseMetadataArgs{...} }
 type LicenseMetadataArrayInput interface {
 	pulumi.Input
 
@@ -600,7 +600,7 @@ type LicenseProvisionalConfiguration struct {
 // LicenseProvisionalConfigurationInput is an input type that accepts LicenseProvisionalConfigurationArgs and LicenseProvisionalConfigurationOutput values.
 // You can construct a concrete instance of `LicenseProvisionalConfigurationInput` via:
 //
-//          LicenseProvisionalConfigurationArgs{...}
+//	LicenseProvisionalConfigurationArgs{...}
 type LicenseProvisionalConfigurationInput interface {
 	pulumi.Input
 
@@ -635,11 +635,11 @@ func (i LicenseProvisionalConfigurationArgs) ToLicenseProvisionalConfigurationPt
 // LicenseProvisionalConfigurationPtrInput is an input type that accepts LicenseProvisionalConfigurationArgs, LicenseProvisionalConfigurationPtr and LicenseProvisionalConfigurationPtrOutput values.
 // You can construct a concrete instance of `LicenseProvisionalConfigurationPtrInput` via:
 //
-//          LicenseProvisionalConfigurationArgs{...}
+//	        LicenseProvisionalConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LicenseProvisionalConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -736,7 +736,7 @@ type LicenseValidityDateFormat struct {
 // LicenseValidityDateFormatInput is an input type that accepts LicenseValidityDateFormatArgs and LicenseValidityDateFormatOutput values.
 // You can construct a concrete instance of `LicenseValidityDateFormatInput` via:
 //
-//          LicenseValidityDateFormatArgs{...}
+//	LicenseValidityDateFormatArgs{...}
 type LicenseValidityDateFormatInput interface {
 	pulumi.Input
 

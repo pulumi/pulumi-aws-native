@@ -16,7 +16,7 @@ type ComponentBindingProperties struct {
 // ComponentBindingPropertiesInput is an input type that accepts ComponentBindingPropertiesArgs and ComponentBindingPropertiesOutput values.
 // You can construct a concrete instance of `ComponentBindingPropertiesInput` via:
 //
-//          ComponentBindingPropertiesArgs{...}
+//	ComponentBindingPropertiesArgs{...}
 type ComponentBindingPropertiesInput interface {
 	pulumi.Input
 
@@ -88,7 +88,7 @@ type ComponentChild struct {
 // ComponentChildInput is an input type that accepts ComponentChildArgs and ComponentChildOutput values.
 // You can construct a concrete instance of `ComponentChildInput` via:
 //
-//          ComponentChildArgs{...}
+//	ComponentChildArgs{...}
 type ComponentChildInput interface {
 	pulumi.Input
 
@@ -119,7 +119,7 @@ func (i ComponentChildArgs) ToComponentChildOutputWithContext(ctx context.Contex
 // ComponentChildArrayInput is an input type that accepts ComponentChildArray and ComponentChildArrayOutput values.
 // You can construct a concrete instance of `ComponentChildArrayInput` via:
 //
-//          ComponentChildArray{ ComponentChildArgs{...} }
+//	ComponentChildArray{ ComponentChildArgs{...} }
 type ComponentChildArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +201,7 @@ type ComponentCollectionProperties struct {
 // ComponentCollectionPropertiesInput is an input type that accepts ComponentCollectionPropertiesArgs and ComponentCollectionPropertiesOutput values.
 // You can construct a concrete instance of `ComponentCollectionPropertiesInput` via:
 //
-//          ComponentCollectionPropertiesArgs{...}
+//	ComponentCollectionPropertiesArgs{...}
 type ComponentCollectionPropertiesInput interface {
 	pulumi.Input
 
@@ -235,11 +235,11 @@ func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesPtrOut
 // ComponentCollectionPropertiesPtrInput is an input type that accepts ComponentCollectionPropertiesArgs, ComponentCollectionPropertiesPtr and ComponentCollectionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ComponentCollectionPropertiesPtrInput` via:
 //
-//          ComponentCollectionPropertiesArgs{...}
+//	        ComponentCollectionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentCollectionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ type ComponentEvents struct {
 // ComponentEventsInput is an input type that accepts ComponentEventsArgs and ComponentEventsOutput values.
 // You can construct a concrete instance of `ComponentEventsInput` via:
 //
-//          ComponentEventsArgs{...}
+//	ComponentEventsArgs{...}
 type ComponentEventsInput interface {
 	pulumi.Input
 
@@ -353,11 +353,11 @@ func (i ComponentEventsArgs) ToComponentEventsPtrOutputWithContext(ctx context.C
 // ComponentEventsPtrInput is an input type that accepts ComponentEventsArgs, ComponentEventsPtr and ComponentEventsPtrOutput values.
 // You can construct a concrete instance of `ComponentEventsPtrInput` via:
 //
-//          ComponentEventsArgs{...}
+//	        ComponentEventsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentEventsPtrInput interface {
 	pulumi.Input
 
@@ -437,7 +437,7 @@ type ComponentOverrides struct {
 // ComponentOverridesInput is an input type that accepts ComponentOverridesArgs and ComponentOverridesOutput values.
 // You can construct a concrete instance of `ComponentOverridesInput` via:
 //
-//          ComponentOverridesArgs{...}
+//	ComponentOverridesArgs{...}
 type ComponentOverridesInput interface {
 	pulumi.Input
 
@@ -471,11 +471,11 @@ func (i ComponentOverridesArgs) ToComponentOverridesPtrOutputWithContext(ctx con
 // ComponentOverridesPtrInput is an input type that accepts ComponentOverridesArgs, ComponentOverridesPtr and ComponentOverridesPtrOutput values.
 // You can construct a concrete instance of `ComponentOverridesPtrInput` via:
 //
-//          ComponentOverridesArgs{...}
+//	        ComponentOverridesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentOverridesPtrInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ type ComponentProperties struct {
 // ComponentPropertiesInput is an input type that accepts ComponentPropertiesArgs and ComponentPropertiesOutput values.
 // You can construct a concrete instance of `ComponentPropertiesInput` via:
 //
-//          ComponentPropertiesArgs{...}
+//	ComponentPropertiesArgs{...}
 type ComponentPropertiesInput interface {
 	pulumi.Input
 
@@ -622,7 +622,7 @@ type ComponentTags struct {
 // ComponentTagsInput is an input type that accepts ComponentTagsArgs and ComponentTagsOutput values.
 // You can construct a concrete instance of `ComponentTagsInput` via:
 //
-//          ComponentTagsArgs{...}
+//	ComponentTagsArgs{...}
 type ComponentTagsInput interface {
 	pulumi.Input
 
@@ -656,11 +656,11 @@ func (i ComponentTagsArgs) ToComponentTagsPtrOutputWithContext(ctx context.Conte
 // ComponentTagsPtrInput is an input type that accepts ComponentTagsArgs, ComponentTagsPtr and ComponentTagsPtrOutput values.
 // You can construct a concrete instance of `ComponentTagsPtrInput` via:
 //
-//          ComponentTagsArgs{...}
+//	        ComponentTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentTagsPtrInput interface {
 	pulumi.Input
 
@@ -742,7 +742,7 @@ type ComponentVariant struct {
 // ComponentVariantInput is an input type that accepts ComponentVariantArgs and ComponentVariantOutput values.
 // You can construct a concrete instance of `ComponentVariantInput` via:
 //
-//          ComponentVariantArgs{...}
+//	ComponentVariantArgs{...}
 type ComponentVariantInput interface {
 	pulumi.Input
 
@@ -770,7 +770,7 @@ func (i ComponentVariantArgs) ToComponentVariantOutputWithContext(ctx context.Co
 // ComponentVariantArrayInput is an input type that accepts ComponentVariantArray and ComponentVariantArrayOutput values.
 // You can construct a concrete instance of `ComponentVariantArrayInput` via:
 //
-//          ComponentVariantArray{ ComponentVariantArgs{...} }
+//	ComponentVariantArray{ ComponentVariantArgs{...} }
 type ComponentVariantArrayInput interface {
 	pulumi.Input
 
@@ -840,7 +840,7 @@ type ComponentVariantValues struct {
 // ComponentVariantValuesInput is an input type that accepts ComponentVariantValuesArgs and ComponentVariantValuesOutput values.
 // You can construct a concrete instance of `ComponentVariantValuesInput` via:
 //
-//          ComponentVariantValuesArgs{...}
+//	ComponentVariantValuesArgs{...}
 type ComponentVariantValuesInput interface {
 	pulumi.Input
 
@@ -874,11 +874,11 @@ func (i ComponentVariantValuesArgs) ToComponentVariantValuesPtrOutputWithContext
 // ComponentVariantValuesPtrInput is an input type that accepts ComponentVariantValuesArgs, ComponentVariantValuesPtr and ComponentVariantValuesPtrOutput values.
 // You can construct a concrete instance of `ComponentVariantValuesPtrInput` via:
 //
-//          ComponentVariantValuesArgs{...}
+//	        ComponentVariantValuesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentVariantValuesPtrInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ type ThemeTags struct {
 // ThemeTagsInput is an input type that accepts ThemeTagsArgs and ThemeTagsOutput values.
 // You can construct a concrete instance of `ThemeTagsInput` via:
 //
-//          ThemeTagsArgs{...}
+//	ThemeTagsArgs{...}
 type ThemeTagsInput interface {
 	pulumi.Input
 
@@ -992,11 +992,11 @@ func (i ThemeTagsArgs) ToThemeTagsPtrOutputWithContext(ctx context.Context) Them
 // ThemeTagsPtrInput is an input type that accepts ThemeTagsArgs, ThemeTagsPtr and ThemeTagsPtrOutput values.
 // You can construct a concrete instance of `ThemeTagsPtrInput` via:
 //
-//          ThemeTagsArgs{...}
+//	        ThemeTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeTagsPtrInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ type ThemeValue struct {
 // ThemeValueInput is an input type that accepts ThemeValueArgs and ThemeValueOutput values.
 // You can construct a concrete instance of `ThemeValueInput` via:
 //
-//          ThemeValueArgs{...}
+//	ThemeValueArgs{...}
 type ThemeValueInput interface {
 	pulumi.Input
 
@@ -1114,11 +1114,11 @@ func (i ThemeValueArgs) ToThemeValuePtrOutputWithContext(ctx context.Context) Th
 // ThemeValuePtrInput is an input type that accepts ThemeValueArgs, ThemeValuePtr and ThemeValuePtrOutput values.
 // You can construct a concrete instance of `ThemeValuePtrInput` via:
 //
-//          ThemeValueArgs{...}
+//	        ThemeValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThemeValuePtrInput interface {
 	pulumi.Input
 
@@ -1226,7 +1226,7 @@ type ThemeValues struct {
 // ThemeValuesInput is an input type that accepts ThemeValuesArgs and ThemeValuesOutput values.
 // You can construct a concrete instance of `ThemeValuesInput` via:
 //
-//          ThemeValuesArgs{...}
+//	ThemeValuesArgs{...}
 type ThemeValuesInput interface {
 	pulumi.Input
 
@@ -1254,7 +1254,7 @@ func (i ThemeValuesArgs) ToThemeValuesOutputWithContext(ctx context.Context) The
 // ThemeValuesArrayInput is an input type that accepts ThemeValuesArray and ThemeValuesArrayOutput values.
 // You can construct a concrete instance of `ThemeValuesArrayInput` via:
 //
-//          ThemeValuesArray{ ThemeValuesArgs{...} }
+//	ThemeValuesArray{ ThemeValuesArgs{...} }
 type ThemeValuesArrayInput interface {
 	pulumi.Input
 

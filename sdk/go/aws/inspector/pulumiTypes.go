@@ -18,7 +18,7 @@ type AssessmentTemplateTag struct {
 // AssessmentTemplateTagInput is an input type that accepts AssessmentTemplateTagArgs and AssessmentTemplateTagOutput values.
 // You can construct a concrete instance of `AssessmentTemplateTagInput` via:
 //
-//          AssessmentTemplateTagArgs{...}
+//	AssessmentTemplateTagArgs{...}
 type AssessmentTemplateTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i AssessmentTemplateTagArgs) ToAssessmentTemplateTagOutputWithContext(ctx 
 // AssessmentTemplateTagArrayInput is an input type that accepts AssessmentTemplateTagArray and AssessmentTemplateTagArrayOutput values.
 // You can construct a concrete instance of `AssessmentTemplateTagArrayInput` via:
 //
-//          AssessmentTemplateTagArray{ AssessmentTemplateTagArgs{...} }
+//	AssessmentTemplateTagArray{ AssessmentTemplateTagArgs{...} }
 type AssessmentTemplateTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type ResourceGroupTag struct {
 // ResourceGroupTagInput is an input type that accepts ResourceGroupTagArgs and ResourceGroupTagOutput values.
 // You can construct a concrete instance of `ResourceGroupTagInput` via:
 //
-//          ResourceGroupTagArgs{...}
+//	ResourceGroupTagArgs{...}
 type ResourceGroupTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i ResourceGroupTagArgs) ToResourceGroupTagOutputWithContext(ctx context.Co
 // ResourceGroupTagArrayInput is an input type that accepts ResourceGroupTagArray and ResourceGroupTagArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupTagArrayInput` via:
 //
-//          ResourceGroupTagArray{ ResourceGroupTagArgs{...} }
+//	ResourceGroupTagArray{ ResourceGroupTagArgs{...} }
 type ResourceGroupTagArrayInput interface {
 	pulumi.Input
 

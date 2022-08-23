@@ -140,7 +140,7 @@ func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToStringPtrOutputWithCo
 // ClusterEncryptionInTransitClientBrokerInput is an input type that accepts ClusterEncryptionInTransitClientBrokerArgs and ClusterEncryptionInTransitClientBrokerOutput values.
 // You can construct a concrete instance of `ClusterEncryptionInTransitClientBrokerInput` via:
 //
-//          ClusterEncryptionInTransitClientBrokerArgs{...}
+//	ClusterEncryptionInTransitClientBrokerArgs{...}
 type ClusterEncryptionInTransitClientBrokerInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o ClusterEnhancedMonitoringPtrOutput) ToStringPtrOutputWithContext(ctx con
 // ClusterEnhancedMonitoringInput is an input type that accepts ClusterEnhancedMonitoringArgs and ClusterEnhancedMonitoringOutput values.
 // You can construct a concrete instance of `ClusterEnhancedMonitoringInput` via:
 //
-//          ClusterEnhancedMonitoringArgs{...}
+//	ClusterEnhancedMonitoringArgs{...}
 type ClusterEnhancedMonitoringInput interface {
 	pulumi.Input
 

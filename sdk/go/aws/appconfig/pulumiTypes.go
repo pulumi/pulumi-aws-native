@@ -18,7 +18,7 @@ type ApplicationTags struct {
 // ApplicationTagsInput is an input type that accepts ApplicationTagsArgs and ApplicationTagsOutput values.
 // You can construct a concrete instance of `ApplicationTagsInput` via:
 //
-//          ApplicationTagsArgs{...}
+//	ApplicationTagsArgs{...}
 type ApplicationTagsInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ApplicationTagsArgs) ToApplicationTagsOutputWithContext(ctx context.Cont
 // ApplicationTagsArrayInput is an input type that accepts ApplicationTagsArray and ApplicationTagsArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagsArrayInput` via:
 //
-//          ApplicationTagsArray{ ApplicationTagsArgs{...} }
+//	ApplicationTagsArray{ ApplicationTagsArgs{...} }
 type ApplicationTagsArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type ConfigurationProfileTags struct {
 // ConfigurationProfileTagsInput is an input type that accepts ConfigurationProfileTagsArgs and ConfigurationProfileTagsOutput values.
 // You can construct a concrete instance of `ConfigurationProfileTagsInput` via:
 //
-//          ConfigurationProfileTagsArgs{...}
+//	ConfigurationProfileTagsArgs{...}
 type ConfigurationProfileTagsInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i ConfigurationProfileTagsArgs) ToConfigurationProfileTagsOutputWithContex
 // ConfigurationProfileTagsArrayInput is an input type that accepts ConfigurationProfileTagsArray and ConfigurationProfileTagsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileTagsArrayInput` via:
 //
-//          ConfigurationProfileTagsArray{ ConfigurationProfileTagsArgs{...} }
+//	ConfigurationProfileTagsArray{ ConfigurationProfileTagsArgs{...} }
 type ConfigurationProfileTagsArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type ConfigurationProfileValidators struct {
 // ConfigurationProfileValidatorsInput is an input type that accepts ConfigurationProfileValidatorsArgs and ConfigurationProfileValidatorsOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorsInput` via:
 //
-//          ConfigurationProfileValidatorsArgs{...}
+//	ConfigurationProfileValidatorsArgs{...}
 type ConfigurationProfileValidatorsInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i ConfigurationProfileValidatorsArgs) ToConfigurationProfileValidatorsOutp
 // ConfigurationProfileValidatorsArrayInput is an input type that accepts ConfigurationProfileValidatorsArray and ConfigurationProfileValidatorsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorsArrayInput` via:
 //
-//          ConfigurationProfileValidatorsArray{ ConfigurationProfileValidatorsArgs{...} }
+//	ConfigurationProfileValidatorsArray{ ConfigurationProfileValidatorsArgs{...} }
 type ConfigurationProfileValidatorsArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +318,7 @@ type DeploymentStrategyTags struct {
 // DeploymentStrategyTagsInput is an input type that accepts DeploymentStrategyTagsArgs and DeploymentStrategyTagsOutput values.
 // You can construct a concrete instance of `DeploymentStrategyTagsInput` via:
 //
-//          DeploymentStrategyTagsArgs{...}
+//	DeploymentStrategyTagsArgs{...}
 type DeploymentStrategyTagsInput interface {
 	pulumi.Input
 
@@ -346,7 +346,7 @@ func (i DeploymentStrategyTagsArgs) ToDeploymentStrategyTagsOutputWithContext(ct
 // DeploymentStrategyTagsArrayInput is an input type that accepts DeploymentStrategyTagsArray and DeploymentStrategyTagsArrayOutput values.
 // You can construct a concrete instance of `DeploymentStrategyTagsArrayInput` via:
 //
-//          DeploymentStrategyTagsArray{ DeploymentStrategyTagsArgs{...} }
+//	DeploymentStrategyTagsArray{ DeploymentStrategyTagsArgs{...} }
 type DeploymentStrategyTagsArrayInput interface {
 	pulumi.Input
 
@@ -418,7 +418,7 @@ type DeploymentTags struct {
 // DeploymentTagsInput is an input type that accepts DeploymentTagsArgs and DeploymentTagsOutput values.
 // You can construct a concrete instance of `DeploymentTagsInput` via:
 //
-//          DeploymentTagsArgs{...}
+//	DeploymentTagsArgs{...}
 type DeploymentTagsInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ func (i DeploymentTagsArgs) ToDeploymentTagsOutputWithContext(ctx context.Contex
 // DeploymentTagsArrayInput is an input type that accepts DeploymentTagsArray and DeploymentTagsArrayOutput values.
 // You can construct a concrete instance of `DeploymentTagsArrayInput` via:
 //
-//          DeploymentTagsArray{ DeploymentTagsArgs{...} }
+//	DeploymentTagsArray{ DeploymentTagsArgs{...} }
 type DeploymentTagsArrayInput interface {
 	pulumi.Input
 
@@ -518,7 +518,7 @@ type EnvironmentMonitors struct {
 // EnvironmentMonitorsInput is an input type that accepts EnvironmentMonitorsArgs and EnvironmentMonitorsOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorsInput` via:
 //
-//          EnvironmentMonitorsArgs{...}
+//	EnvironmentMonitorsArgs{...}
 type EnvironmentMonitorsInput interface {
 	pulumi.Input
 
@@ -546,7 +546,7 @@ func (i EnvironmentMonitorsArgs) ToEnvironmentMonitorsOutputWithContext(ctx cont
 // EnvironmentMonitorsArrayInput is an input type that accepts EnvironmentMonitorsArray and EnvironmentMonitorsArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorsArrayInput` via:
 //
-//          EnvironmentMonitorsArray{ EnvironmentMonitorsArgs{...} }
+//	EnvironmentMonitorsArray{ EnvironmentMonitorsArgs{...} }
 type EnvironmentMonitorsArrayInput interface {
 	pulumi.Input
 
@@ -618,7 +618,7 @@ type EnvironmentTags struct {
 // EnvironmentTagsInput is an input type that accepts EnvironmentTagsArgs and EnvironmentTagsOutput values.
 // You can construct a concrete instance of `EnvironmentTagsInput` via:
 //
-//          EnvironmentTagsArgs{...}
+//	EnvironmentTagsArgs{...}
 type EnvironmentTagsInput interface {
 	pulumi.Input
 
@@ -646,7 +646,7 @@ func (i EnvironmentTagsArgs) ToEnvironmentTagsOutputWithContext(ctx context.Cont
 // EnvironmentTagsArrayInput is an input type that accepts EnvironmentTagsArray and EnvironmentTagsArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagsArrayInput` via:
 //
-//          EnvironmentTagsArray{ EnvironmentTagsArgs{...} }
+//	EnvironmentTagsArray{ EnvironmentTagsArgs{...} }
 type EnvironmentTagsArrayInput interface {
 	pulumi.Input
 

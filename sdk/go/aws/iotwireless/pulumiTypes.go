@@ -18,7 +18,7 @@ type DestinationTag struct {
 // DestinationTagInput is an input type that accepts DestinationTagArgs and DestinationTagOutput values.
 // You can construct a concrete instance of `DestinationTagInput` via:
 //
-//          DestinationTagArgs{...}
+//	DestinationTagArgs{...}
 type DestinationTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DestinationTagArgs) ToDestinationTagOutputWithContext(ctx context.Contex
 // DestinationTagArrayInput is an input type that accepts DestinationTagArray and DestinationTagArrayOutput values.
 // You can construct a concrete instance of `DestinationTagArrayInput` via:
 //
-//          DestinationTagArray{ DestinationTagArgs{...} }
+//	DestinationTagArray{ DestinationTagArgs{...} }
 type DestinationTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type DeviceProfileLoRaWANDeviceProfile struct {
 // DeviceProfileLoRaWANDeviceProfileInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs and DeviceProfileLoRaWANDeviceProfileOutput values.
 // You can construct a concrete instance of `DeviceProfileLoRaWANDeviceProfileInput` via:
 //
-//          DeviceProfileLoRaWANDeviceProfileArgs{...}
+//	DeviceProfileLoRaWANDeviceProfileArgs{...}
 type DeviceProfileLoRaWANDeviceProfileInput interface {
 	pulumi.Input
 
@@ -178,11 +178,11 @@ func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfi
 // DeviceProfileLoRaWANDeviceProfilePtrInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs, DeviceProfileLoRaWANDeviceProfilePtr and DeviceProfileLoRaWANDeviceProfilePtrOutput values.
 // You can construct a concrete instance of `DeviceProfileLoRaWANDeviceProfilePtrInput` via:
 //
-//          DeviceProfileLoRaWANDeviceProfileArgs{...}
+//	        DeviceProfileLoRaWANDeviceProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeviceProfileLoRaWANDeviceProfilePtrInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type DeviceProfileTag struct {
 // DeviceProfileTagInput is an input type that accepts DeviceProfileTagArgs and DeviceProfileTagOutput values.
 // You can construct a concrete instance of `DeviceProfileTagInput` via:
 //
-//          DeviceProfileTagArgs{...}
+//	DeviceProfileTagArgs{...}
 type DeviceProfileTagInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ func (i DeviceProfileTagArgs) ToDeviceProfileTagOutputWithContext(ctx context.Co
 // DeviceProfileTagArrayInput is an input type that accepts DeviceProfileTagArray and DeviceProfileTagArrayOutput values.
 // You can construct a concrete instance of `DeviceProfileTagArrayInput` via:
 //
-//          DeviceProfileTagArray{ DeviceProfileTagArgs{...} }
+//	DeviceProfileTagArray{ DeviceProfileTagArgs{...} }
 type DeviceProfileTagArrayInput interface {
 	pulumi.Input
 
@@ -548,7 +548,7 @@ type FuotaTaskLoRaWAN struct {
 // FuotaTaskLoRaWANInput is an input type that accepts FuotaTaskLoRaWANArgs and FuotaTaskLoRaWANOutput values.
 // You can construct a concrete instance of `FuotaTaskLoRaWANInput` via:
 //
-//          FuotaTaskLoRaWANArgs{...}
+//	FuotaTaskLoRaWANArgs{...}
 type FuotaTaskLoRaWANInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ type FuotaTaskTag struct {
 // FuotaTaskTagInput is an input type that accepts FuotaTaskTagArgs and FuotaTaskTagOutput values.
 // You can construct a concrete instance of `FuotaTaskTagInput` via:
 //
-//          FuotaTaskTagArgs{...}
+//	FuotaTaskTagArgs{...}
 type FuotaTaskTagInput interface {
 	pulumi.Input
 
@@ -679,7 +679,7 @@ func (i FuotaTaskTagArgs) ToFuotaTaskTagOutputWithContext(ctx context.Context) F
 // FuotaTaskTagArrayInput is an input type that accepts FuotaTaskTagArray and FuotaTaskTagArrayOutput values.
 // You can construct a concrete instance of `FuotaTaskTagArrayInput` via:
 //
-//          FuotaTaskTagArray{ FuotaTaskTagArgs{...} }
+//	FuotaTaskTagArray{ FuotaTaskTagArgs{...} }
 type FuotaTaskTagArrayInput interface {
 	pulumi.Input
 
@@ -757,7 +757,7 @@ type MulticastGroupLoRaWAN struct {
 // MulticastGroupLoRaWANInput is an input type that accepts MulticastGroupLoRaWANArgs and MulticastGroupLoRaWANOutput values.
 // You can construct a concrete instance of `MulticastGroupLoRaWANInput` via:
 //
-//          MulticastGroupLoRaWANArgs{...}
+//	MulticastGroupLoRaWANArgs{...}
 type MulticastGroupLoRaWANInput interface {
 	pulumi.Input
 
@@ -894,7 +894,7 @@ type MulticastGroupTag struct {
 // MulticastGroupTagInput is an input type that accepts MulticastGroupTagArgs and MulticastGroupTagOutput values.
 // You can construct a concrete instance of `MulticastGroupTagInput` via:
 //
-//          MulticastGroupTagArgs{...}
+//	MulticastGroupTagArgs{...}
 type MulticastGroupTagInput interface {
 	pulumi.Input
 
@@ -922,7 +922,7 @@ func (i MulticastGroupTagArgs) ToMulticastGroupTagOutputWithContext(ctx context.
 // MulticastGroupTagArrayInput is an input type that accepts MulticastGroupTagArray and MulticastGroupTagArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupTagArrayInput` via:
 //
-//          MulticastGroupTagArray{ MulticastGroupTagArgs{...} }
+//	MulticastGroupTagArray{ MulticastGroupTagArgs{...} }
 type MulticastGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -997,7 +997,7 @@ type NetworkAnalyzerConfigurationTag struct {
 // NetworkAnalyzerConfigurationTagInput is an input type that accepts NetworkAnalyzerConfigurationTagArgs and NetworkAnalyzerConfigurationTagOutput values.
 // You can construct a concrete instance of `NetworkAnalyzerConfigurationTagInput` via:
 //
-//          NetworkAnalyzerConfigurationTagArgs{...}
+//	NetworkAnalyzerConfigurationTagArgs{...}
 type NetworkAnalyzerConfigurationTagInput interface {
 	pulumi.Input
 
@@ -1028,7 +1028,7 @@ func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOu
 // NetworkAnalyzerConfigurationTagArrayInput is an input type that accepts NetworkAnalyzerConfigurationTagArray and NetworkAnalyzerConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `NetworkAnalyzerConfigurationTagArrayInput` via:
 //
-//          NetworkAnalyzerConfigurationTagArray{ NetworkAnalyzerConfigurationTagArgs{...} }
+//	NetworkAnalyzerConfigurationTagArray{ NetworkAnalyzerConfigurationTagArgs{...} }
 type NetworkAnalyzerConfigurationTagArrayInput interface {
 	pulumi.Input
 
@@ -1102,7 +1102,7 @@ type PartnerAccountSidewalkAccountInfo struct {
 // PartnerAccountSidewalkAccountInfoInput is an input type that accepts PartnerAccountSidewalkAccountInfoArgs and PartnerAccountSidewalkAccountInfoOutput values.
 // You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoInput` via:
 //
-//          PartnerAccountSidewalkAccountInfoArgs{...}
+//	PartnerAccountSidewalkAccountInfoArgs{...}
 type PartnerAccountSidewalkAccountInfoInput interface {
 	pulumi.Input
 
@@ -1137,11 +1137,11 @@ func (i PartnerAccountSidewalkAccountInfoArgs) ToPartnerAccountSidewalkAccountIn
 // PartnerAccountSidewalkAccountInfoPtrInput is an input type that accepts PartnerAccountSidewalkAccountInfoArgs, PartnerAccountSidewalkAccountInfoPtr and PartnerAccountSidewalkAccountInfoPtrOutput values.
 // You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoPtrInput` via:
 //
-//          PartnerAccountSidewalkAccountInfoArgs{...}
+//	        PartnerAccountSidewalkAccountInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PartnerAccountSidewalkAccountInfoPtrInput interface {
 	pulumi.Input
 
@@ -1318,7 +1318,7 @@ type PartnerAccountSidewalkUpdateAccount struct {
 // PartnerAccountSidewalkUpdateAccountInput is an input type that accepts PartnerAccountSidewalkUpdateAccountArgs and PartnerAccountSidewalkUpdateAccountOutput values.
 // You can construct a concrete instance of `PartnerAccountSidewalkUpdateAccountInput` via:
 //
-//          PartnerAccountSidewalkUpdateAccountArgs{...}
+//	PartnerAccountSidewalkUpdateAccountArgs{...}
 type PartnerAccountSidewalkUpdateAccountInput interface {
 	pulumi.Input
 
@@ -1353,11 +1353,11 @@ func (i PartnerAccountSidewalkUpdateAccountArgs) ToPartnerAccountSidewalkUpdateA
 // PartnerAccountSidewalkUpdateAccountPtrInput is an input type that accepts PartnerAccountSidewalkUpdateAccountArgs, PartnerAccountSidewalkUpdateAccountPtr and PartnerAccountSidewalkUpdateAccountPtrOutput values.
 // You can construct a concrete instance of `PartnerAccountSidewalkUpdateAccountPtrInput` via:
 //
-//          PartnerAccountSidewalkUpdateAccountArgs{...}
+//	        PartnerAccountSidewalkUpdateAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PartnerAccountSidewalkUpdateAccountPtrInput interface {
 	pulumi.Input
 
@@ -1452,7 +1452,7 @@ type PartnerAccountTag struct {
 // PartnerAccountTagInput is an input type that accepts PartnerAccountTagArgs and PartnerAccountTagOutput values.
 // You can construct a concrete instance of `PartnerAccountTagInput` via:
 //
-//          PartnerAccountTagArgs{...}
+//	PartnerAccountTagArgs{...}
 type PartnerAccountTagInput interface {
 	pulumi.Input
 
@@ -1480,7 +1480,7 @@ func (i PartnerAccountTagArgs) ToPartnerAccountTagOutputWithContext(ctx context.
 // PartnerAccountTagArrayInput is an input type that accepts PartnerAccountTagArray and PartnerAccountTagArrayOutput values.
 // You can construct a concrete instance of `PartnerAccountTagArrayInput` via:
 //
-//          PartnerAccountTagArray{ PartnerAccountTagArgs{...} }
+//	PartnerAccountTagArray{ PartnerAccountTagArgs{...} }
 type PartnerAccountTagArrayInput interface {
 	pulumi.Input
 
@@ -1569,7 +1569,7 @@ type ServiceProfileLoRaWANServiceProfile struct {
 // ServiceProfileLoRaWANServiceProfileInput is an input type that accepts ServiceProfileLoRaWANServiceProfileArgs and ServiceProfileLoRaWANServiceProfileOutput values.
 // You can construct a concrete instance of `ServiceProfileLoRaWANServiceProfileInput` via:
 //
-//          ServiceProfileLoRaWANServiceProfileArgs{...}
+//	ServiceProfileLoRaWANServiceProfileArgs{...}
 type ServiceProfileLoRaWANServiceProfileInput interface {
 	pulumi.Input
 
@@ -1622,11 +1622,11 @@ func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceP
 // ServiceProfileLoRaWANServiceProfilePtrInput is an input type that accepts ServiceProfileLoRaWANServiceProfileArgs, ServiceProfileLoRaWANServiceProfilePtr and ServiceProfileLoRaWANServiceProfilePtrOutput values.
 // You can construct a concrete instance of `ServiceProfileLoRaWANServiceProfilePtrInput` via:
 //
-//          ServiceProfileLoRaWANServiceProfileArgs{...}
+//	        ServiceProfileLoRaWANServiceProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceProfileLoRaWANServiceProfilePtrInput interface {
 	pulumi.Input
 
@@ -1955,7 +1955,7 @@ type ServiceProfileTag struct {
 // ServiceProfileTagInput is an input type that accepts ServiceProfileTagArgs and ServiceProfileTagOutput values.
 // You can construct a concrete instance of `ServiceProfileTagInput` via:
 //
-//          ServiceProfileTagArgs{...}
+//	ServiceProfileTagArgs{...}
 type ServiceProfileTagInput interface {
 	pulumi.Input
 
@@ -1983,7 +1983,7 @@ func (i ServiceProfileTagArgs) ToServiceProfileTagOutputWithContext(ctx context.
 // ServiceProfileTagArrayInput is an input type that accepts ServiceProfileTagArray and ServiceProfileTagArrayOutput values.
 // You can construct a concrete instance of `ServiceProfileTagArrayInput` via:
 //
-//          ServiceProfileTagArray{ ServiceProfileTagArgs{...} }
+//	ServiceProfileTagArray{ ServiceProfileTagArgs{...} }
 type ServiceProfileTagArrayInput interface {
 	pulumi.Input
 
@@ -2056,7 +2056,7 @@ type TaskDefinitionLoRaWANGatewayVersion struct {
 // TaskDefinitionLoRaWANGatewayVersionInput is an input type that accepts TaskDefinitionLoRaWANGatewayVersionArgs and TaskDefinitionLoRaWANGatewayVersionOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANGatewayVersionInput` via:
 //
-//          TaskDefinitionLoRaWANGatewayVersionArgs{...}
+//	TaskDefinitionLoRaWANGatewayVersionArgs{...}
 type TaskDefinitionLoRaWANGatewayVersionInput interface {
 	pulumi.Input
 
@@ -2093,11 +2093,11 @@ func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayV
 // TaskDefinitionLoRaWANGatewayVersionPtrInput is an input type that accepts TaskDefinitionLoRaWANGatewayVersionArgs, TaskDefinitionLoRaWANGatewayVersionPtr and TaskDefinitionLoRaWANGatewayVersionPtrOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANGatewayVersionPtrInput` via:
 //
-//          TaskDefinitionLoRaWANGatewayVersionArgs{...}
+//	        TaskDefinitionLoRaWANGatewayVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskDefinitionLoRaWANGatewayVersionPtrInput interface {
 	pulumi.Input
 
@@ -2220,7 +2220,7 @@ type TaskDefinitionLoRaWANUpdateGatewayTaskCreate struct {
 // TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs and TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput` via:
 //
-//          TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
+//	TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput interface {
 	pulumi.Input
 
@@ -2258,11 +2258,11 @@ func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWA
 // TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs, TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtr and TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput` via:
 //
-//          TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
+//	        TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput interface {
 	pulumi.Input
 
@@ -2400,7 +2400,7 @@ type TaskDefinitionLoRaWANUpdateGatewayTaskEntry struct {
 // TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs and TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput` via:
 //
-//          TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
+//	TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput interface {
 	pulumi.Input
 
@@ -2436,11 +2436,11 @@ func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWAN
 // TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs, TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtr and TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput values.
 // You can construct a concrete instance of `TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput` via:
 //
-//          TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
+//	        TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrInput interface {
 	pulumi.Input
 
@@ -2552,7 +2552,7 @@ type TaskDefinitionTag struct {
 // TaskDefinitionTagInput is an input type that accepts TaskDefinitionTagArgs and TaskDefinitionTagOutput values.
 // You can construct a concrete instance of `TaskDefinitionTagInput` via:
 //
-//          TaskDefinitionTagArgs{...}
+//	TaskDefinitionTagArgs{...}
 type TaskDefinitionTagInput interface {
 	pulumi.Input
 
@@ -2580,7 +2580,7 @@ func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.
 // TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
 // You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
 //
-//          TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
+//	TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
 type TaskDefinitionTagArrayInput interface {
 	pulumi.Input
 
@@ -2653,7 +2653,7 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
 // TaskDefinitionUpdateWirelessGatewayTaskCreateInput is an input type that accepts TaskDefinitionUpdateWirelessGatewayTaskCreateArgs and TaskDefinitionUpdateWirelessGatewayTaskCreateOutput values.
 // You can construct a concrete instance of `TaskDefinitionUpdateWirelessGatewayTaskCreateInput` via:
 //
-//          TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{...}
+//	TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{...}
 type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 	pulumi.Input
 
@@ -2690,11 +2690,11 @@ func (i TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ToTaskDefinitionUpdat
 // TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput is an input type that accepts TaskDefinitionUpdateWirelessGatewayTaskCreateArgs, TaskDefinitionUpdateWirelessGatewayTaskCreatePtr and TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput values.
 // You can construct a concrete instance of `TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput` via:
 //
-//          TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{...}
+//	        TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput interface {
 	pulumi.Input
 
@@ -2818,7 +2818,7 @@ type TraceContentProperties struct {
 // TraceContentPropertiesInput is an input type that accepts TraceContentPropertiesArgs and TraceContentPropertiesOutput values.
 // You can construct a concrete instance of `TraceContentPropertiesInput` via:
 //
-//          TraceContentPropertiesArgs{...}
+//	TraceContentPropertiesArgs{...}
 type TraceContentPropertiesInput interface {
 	pulumi.Input
 
@@ -2855,11 +2855,11 @@ func (i TraceContentPropertiesArgs) ToTraceContentPropertiesPtrOutputWithContext
 // TraceContentPropertiesPtrInput is an input type that accepts TraceContentPropertiesArgs, TraceContentPropertiesPtr and TraceContentPropertiesPtrOutput values.
 // You can construct a concrete instance of `TraceContentPropertiesPtrInput` via:
 //
-//          TraceContentPropertiesArgs{...}
+//	        TraceContentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TraceContentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2970,7 +2970,7 @@ type WirelessDeviceAbpV10x struct {
 // WirelessDeviceAbpV10xInput is an input type that accepts WirelessDeviceAbpV10xArgs and WirelessDeviceAbpV10xOutput values.
 // You can construct a concrete instance of `WirelessDeviceAbpV10xInput` via:
 //
-//          WirelessDeviceAbpV10xArgs{...}
+//	WirelessDeviceAbpV10xArgs{...}
 type WirelessDeviceAbpV10xInput interface {
 	pulumi.Input
 
@@ -3006,11 +3006,11 @@ func (i WirelessDeviceAbpV10xArgs) ToWirelessDeviceAbpV10xPtrOutputWithContext(c
 // WirelessDeviceAbpV10xPtrInput is an input type that accepts WirelessDeviceAbpV10xArgs, WirelessDeviceAbpV10xPtr and WirelessDeviceAbpV10xPtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceAbpV10xPtrInput` via:
 //
-//          WirelessDeviceAbpV10xArgs{...}
+//	        WirelessDeviceAbpV10xArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceAbpV10xPtrInput interface {
 	pulumi.Input
 
@@ -3118,7 +3118,7 @@ type WirelessDeviceAbpV11 struct {
 // WirelessDeviceAbpV11Input is an input type that accepts WirelessDeviceAbpV11Args and WirelessDeviceAbpV11Output values.
 // You can construct a concrete instance of `WirelessDeviceAbpV11Input` via:
 //
-//          WirelessDeviceAbpV11Args{...}
+//	WirelessDeviceAbpV11Args{...}
 type WirelessDeviceAbpV11Input interface {
 	pulumi.Input
 
@@ -3154,11 +3154,11 @@ func (i WirelessDeviceAbpV11Args) ToWirelessDeviceAbpV11PtrOutputWithContext(ctx
 // WirelessDeviceAbpV11PtrInput is an input type that accepts WirelessDeviceAbpV11Args, WirelessDeviceAbpV11Ptr and WirelessDeviceAbpV11PtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceAbpV11PtrInput` via:
 //
-//          WirelessDeviceAbpV11Args{...}
+//	        WirelessDeviceAbpV11Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceAbpV11PtrInput interface {
 	pulumi.Input
 
@@ -3271,7 +3271,7 @@ type WirelessDeviceLoRaWANDevice struct {
 // WirelessDeviceLoRaWANDeviceInput is an input type that accepts WirelessDeviceLoRaWANDeviceArgs and WirelessDeviceLoRaWANDeviceOutput values.
 // You can construct a concrete instance of `WirelessDeviceLoRaWANDeviceInput` via:
 //
-//          WirelessDeviceLoRaWANDeviceArgs{...}
+//	WirelessDeviceLoRaWANDeviceArgs{...}
 type WirelessDeviceLoRaWANDeviceInput interface {
 	pulumi.Input
 
@@ -3312,11 +3312,11 @@ func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDevicePtrOutputW
 // WirelessDeviceLoRaWANDevicePtrInput is an input type that accepts WirelessDeviceLoRaWANDeviceArgs, WirelessDeviceLoRaWANDevicePtr and WirelessDeviceLoRaWANDevicePtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceLoRaWANDevicePtrInput` via:
 //
-//          WirelessDeviceLoRaWANDeviceArgs{...}
+//	        WirelessDeviceLoRaWANDeviceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceLoRaWANDevicePtrInput interface {
 	pulumi.Input
 
@@ -3489,7 +3489,7 @@ type WirelessDeviceOtaaV10x struct {
 // WirelessDeviceOtaaV10xInput is an input type that accepts WirelessDeviceOtaaV10xArgs and WirelessDeviceOtaaV10xOutput values.
 // You can construct a concrete instance of `WirelessDeviceOtaaV10xInput` via:
 //
-//          WirelessDeviceOtaaV10xArgs{...}
+//	WirelessDeviceOtaaV10xArgs{...}
 type WirelessDeviceOtaaV10xInput interface {
 	pulumi.Input
 
@@ -3525,11 +3525,11 @@ func (i WirelessDeviceOtaaV10xArgs) ToWirelessDeviceOtaaV10xPtrOutputWithContext
 // WirelessDeviceOtaaV10xPtrInput is an input type that accepts WirelessDeviceOtaaV10xArgs, WirelessDeviceOtaaV10xPtr and WirelessDeviceOtaaV10xPtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceOtaaV10xPtrInput` via:
 //
-//          WirelessDeviceOtaaV10xArgs{...}
+//	        WirelessDeviceOtaaV10xArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceOtaaV10xPtrInput interface {
 	pulumi.Input
 
@@ -3638,7 +3638,7 @@ type WirelessDeviceOtaaV11 struct {
 // WirelessDeviceOtaaV11Input is an input type that accepts WirelessDeviceOtaaV11Args and WirelessDeviceOtaaV11Output values.
 // You can construct a concrete instance of `WirelessDeviceOtaaV11Input` via:
 //
-//          WirelessDeviceOtaaV11Args{...}
+//	WirelessDeviceOtaaV11Args{...}
 type WirelessDeviceOtaaV11Input interface {
 	pulumi.Input
 
@@ -3675,11 +3675,11 @@ func (i WirelessDeviceOtaaV11Args) ToWirelessDeviceOtaaV11PtrOutputWithContext(c
 // WirelessDeviceOtaaV11PtrInput is an input type that accepts WirelessDeviceOtaaV11Args, WirelessDeviceOtaaV11Ptr and WirelessDeviceOtaaV11PtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceOtaaV11PtrInput` via:
 //
-//          WirelessDeviceOtaaV11Args{...}
+//	        WirelessDeviceOtaaV11Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceOtaaV11PtrInput interface {
 	pulumi.Input
 
@@ -3800,7 +3800,7 @@ type WirelessDeviceSessionKeysAbpV10x struct {
 // WirelessDeviceSessionKeysAbpV10xInput is an input type that accepts WirelessDeviceSessionKeysAbpV10xArgs and WirelessDeviceSessionKeysAbpV10xOutput values.
 // You can construct a concrete instance of `WirelessDeviceSessionKeysAbpV10xInput` via:
 //
-//          WirelessDeviceSessionKeysAbpV10xArgs{...}
+//	WirelessDeviceSessionKeysAbpV10xArgs{...}
 type WirelessDeviceSessionKeysAbpV10xInput interface {
 	pulumi.Input
 
@@ -3836,11 +3836,11 @@ func (i WirelessDeviceSessionKeysAbpV10xArgs) ToWirelessDeviceSessionKeysAbpV10x
 // WirelessDeviceSessionKeysAbpV10xPtrInput is an input type that accepts WirelessDeviceSessionKeysAbpV10xArgs, WirelessDeviceSessionKeysAbpV10xPtr and WirelessDeviceSessionKeysAbpV10xPtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceSessionKeysAbpV10xPtrInput` via:
 //
-//          WirelessDeviceSessionKeysAbpV10xArgs{...}
+//	        WirelessDeviceSessionKeysAbpV10xArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceSessionKeysAbpV10xPtrInput interface {
 	pulumi.Input
 
@@ -3950,7 +3950,7 @@ type WirelessDeviceSessionKeysAbpV11 struct {
 // WirelessDeviceSessionKeysAbpV11Input is an input type that accepts WirelessDeviceSessionKeysAbpV11Args and WirelessDeviceSessionKeysAbpV11Output values.
 // You can construct a concrete instance of `WirelessDeviceSessionKeysAbpV11Input` via:
 //
-//          WirelessDeviceSessionKeysAbpV11Args{...}
+//	WirelessDeviceSessionKeysAbpV11Args{...}
 type WirelessDeviceSessionKeysAbpV11Input interface {
 	pulumi.Input
 
@@ -3988,11 +3988,11 @@ func (i WirelessDeviceSessionKeysAbpV11Args) ToWirelessDeviceSessionKeysAbpV11Pt
 // WirelessDeviceSessionKeysAbpV11PtrInput is an input type that accepts WirelessDeviceSessionKeysAbpV11Args, WirelessDeviceSessionKeysAbpV11Ptr and WirelessDeviceSessionKeysAbpV11PtrOutput values.
 // You can construct a concrete instance of `WirelessDeviceSessionKeysAbpV11PtrInput` via:
 //
-//          WirelessDeviceSessionKeysAbpV11Args{...}
+//	        WirelessDeviceSessionKeysAbpV11Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WirelessDeviceSessionKeysAbpV11PtrInput interface {
 	pulumi.Input
 
@@ -4126,7 +4126,7 @@ type WirelessDeviceTag struct {
 // WirelessDeviceTagInput is an input type that accepts WirelessDeviceTagArgs and WirelessDeviceTagOutput values.
 // You can construct a concrete instance of `WirelessDeviceTagInput` via:
 //
-//          WirelessDeviceTagArgs{...}
+//	WirelessDeviceTagArgs{...}
 type WirelessDeviceTagInput interface {
 	pulumi.Input
 
@@ -4154,7 +4154,7 @@ func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutputWithContext(ctx context.
 // WirelessDeviceTagArrayInput is an input type that accepts WirelessDeviceTagArray and WirelessDeviceTagArrayOutput values.
 // You can construct a concrete instance of `WirelessDeviceTagArrayInput` via:
 //
-//          WirelessDeviceTagArray{ WirelessDeviceTagArgs{...} }
+//	WirelessDeviceTagArray{ WirelessDeviceTagArgs{...} }
 type WirelessDeviceTagArrayInput interface {
 	pulumi.Input
 
@@ -4226,7 +4226,7 @@ type WirelessGatewayLoRaWANGateway struct {
 // WirelessGatewayLoRaWANGatewayInput is an input type that accepts WirelessGatewayLoRaWANGatewayArgs and WirelessGatewayLoRaWANGatewayOutput values.
 // You can construct a concrete instance of `WirelessGatewayLoRaWANGatewayInput` via:
 //
-//          WirelessGatewayLoRaWANGatewayArgs{...}
+//	WirelessGatewayLoRaWANGatewayArgs{...}
 type WirelessGatewayLoRaWANGatewayInput interface {
 	pulumi.Input
 
@@ -4323,7 +4323,7 @@ type WirelessGatewayTag struct {
 // WirelessGatewayTagInput is an input type that accepts WirelessGatewayTagArgs and WirelessGatewayTagOutput values.
 // You can construct a concrete instance of `WirelessGatewayTagInput` via:
 //
-//          WirelessGatewayTagArgs{...}
+//	WirelessGatewayTagArgs{...}
 type WirelessGatewayTagInput interface {
 	pulumi.Input
 
@@ -4351,7 +4351,7 @@ func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutputWithContext(ctx contex
 // WirelessGatewayTagArrayInput is an input type that accepts WirelessGatewayTagArray and WirelessGatewayTagArrayOutput values.
 // You can construct a concrete instance of `WirelessGatewayTagArrayInput` via:
 //
-//          WirelessGatewayTagArray{ WirelessGatewayTagArgs{...} }
+//	WirelessGatewayTagArray{ WirelessGatewayTagArgs{...} }
 type WirelessGatewayTagArrayInput interface {
 	pulumi.Input
 

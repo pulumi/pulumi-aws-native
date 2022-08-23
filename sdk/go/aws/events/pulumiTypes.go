@@ -18,7 +18,7 @@ type ConnectionApiKeyAuthParameters struct {
 // ConnectionApiKeyAuthParametersInput is an input type that accepts ConnectionApiKeyAuthParametersArgs and ConnectionApiKeyAuthParametersOutput values.
 // You can construct a concrete instance of `ConnectionApiKeyAuthParametersInput` via:
 //
-//          ConnectionApiKeyAuthParametersArgs{...}
+//	ConnectionApiKeyAuthParametersArgs{...}
 type ConnectionApiKeyAuthParametersInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ConnectionApiKeyAuthParametersArgs) ToConnectionApiKeyAuthParametersPtrO
 // ConnectionApiKeyAuthParametersPtrInput is an input type that accepts ConnectionApiKeyAuthParametersArgs, ConnectionApiKeyAuthParametersPtr and ConnectionApiKeyAuthParametersPtrOutput values.
 // You can construct a concrete instance of `ConnectionApiKeyAuthParametersPtrInput` via:
 //
-//          ConnectionApiKeyAuthParametersArgs{...}
+//	        ConnectionApiKeyAuthParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionApiKeyAuthParametersPtrInput interface {
 	pulumi.Input
 
@@ -168,7 +168,7 @@ type ConnectionAuthParameters struct {
 // ConnectionAuthParametersInput is an input type that accepts ConnectionAuthParametersArgs and ConnectionAuthParametersOutput values.
 // You can construct a concrete instance of `ConnectionAuthParametersInput` via:
 //
-//          ConnectionAuthParametersArgs{...}
+//	ConnectionAuthParametersArgs{...}
 type ConnectionAuthParametersInput interface {
 	pulumi.Input
 
@@ -233,7 +233,7 @@ type ConnectionBasicAuthParameters struct {
 // ConnectionBasicAuthParametersInput is an input type that accepts ConnectionBasicAuthParametersArgs and ConnectionBasicAuthParametersOutput values.
 // You can construct a concrete instance of `ConnectionBasicAuthParametersInput` via:
 //
-//          ConnectionBasicAuthParametersArgs{...}
+//	ConnectionBasicAuthParametersArgs{...}
 type ConnectionBasicAuthParametersInput interface {
 	pulumi.Input
 
@@ -269,11 +269,11 @@ func (i ConnectionBasicAuthParametersArgs) ToConnectionBasicAuthParametersPtrOut
 // ConnectionBasicAuthParametersPtrInput is an input type that accepts ConnectionBasicAuthParametersArgs, ConnectionBasicAuthParametersPtr and ConnectionBasicAuthParametersPtrOutput values.
 // You can construct a concrete instance of `ConnectionBasicAuthParametersPtrInput` via:
 //
-//          ConnectionBasicAuthParametersArgs{...}
+//	        ConnectionBasicAuthParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionBasicAuthParametersPtrInput interface {
 	pulumi.Input
 
@@ -381,7 +381,7 @@ type ConnectionClientParameters struct {
 // ConnectionClientParametersInput is an input type that accepts ConnectionClientParametersArgs and ConnectionClientParametersOutput values.
 // You can construct a concrete instance of `ConnectionClientParametersInput` via:
 //
-//          ConnectionClientParametersArgs{...}
+//	ConnectionClientParametersArgs{...}
 type ConnectionClientParametersInput interface {
 	pulumi.Input
 
@@ -417,11 +417,11 @@ func (i ConnectionClientParametersArgs) ToConnectionClientParametersPtrOutputWit
 // ConnectionClientParametersPtrInput is an input type that accepts ConnectionClientParametersArgs, ConnectionClientParametersPtr and ConnectionClientParametersPtrOutput values.
 // You can construct a concrete instance of `ConnectionClientParametersPtrInput` via:
 //
-//          ConnectionClientParametersArgs{...}
+//	        ConnectionClientParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionClientParametersPtrInput interface {
 	pulumi.Input
 
@@ -530,7 +530,7 @@ type ConnectionHttpParameters struct {
 // ConnectionHttpParametersInput is an input type that accepts ConnectionHttpParametersArgs and ConnectionHttpParametersOutput values.
 // You can construct a concrete instance of `ConnectionHttpParametersInput` via:
 //
-//          ConnectionHttpParametersArgs{...}
+//	ConnectionHttpParametersArgs{...}
 type ConnectionHttpParametersInput interface {
 	pulumi.Input
 
@@ -567,11 +567,11 @@ func (i ConnectionHttpParametersArgs) ToConnectionHttpParametersPtrOutputWithCon
 // ConnectionHttpParametersPtrInput is an input type that accepts ConnectionHttpParametersArgs, ConnectionHttpParametersPtr and ConnectionHttpParametersPtrOutput values.
 // You can construct a concrete instance of `ConnectionHttpParametersPtrInput` via:
 //
-//          ConnectionHttpParametersArgs{...}
+//	        ConnectionHttpParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionHttpParametersPtrInput interface {
 	pulumi.Input
 
@@ -694,7 +694,7 @@ type ConnectionOAuthParameters struct {
 // ConnectionOAuthParametersInput is an input type that accepts ConnectionOAuthParametersArgs and ConnectionOAuthParametersOutput values.
 // You can construct a concrete instance of `ConnectionOAuthParametersInput` via:
 //
-//          ConnectionOAuthParametersArgs{...}
+//	ConnectionOAuthParametersArgs{...}
 type ConnectionOAuthParametersInput interface {
 	pulumi.Input
 
@@ -732,11 +732,11 @@ func (i ConnectionOAuthParametersArgs) ToConnectionOAuthParametersPtrOutputWithC
 // ConnectionOAuthParametersPtrInput is an input type that accepts ConnectionOAuthParametersArgs, ConnectionOAuthParametersPtr and ConnectionOAuthParametersPtrOutput values.
 // You can construct a concrete instance of `ConnectionOAuthParametersPtrInput` via:
 //
-//          ConnectionOAuthParametersArgs{...}
+//	        ConnectionOAuthParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectionOAuthParametersPtrInput interface {
 	pulumi.Input
 
@@ -871,7 +871,7 @@ type ConnectionParameter struct {
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
 // You can construct a concrete instance of `ConnectionParameterInput` via:
 //
-//          ConnectionParameterArgs{...}
+//	ConnectionParameterArgs{...}
 type ConnectionParameterInput interface {
 	pulumi.Input
 
@@ -900,7 +900,7 @@ func (i ConnectionParameterArgs) ToConnectionParameterOutputWithContext(ctx cont
 // ConnectionParameterArrayInput is an input type that accepts ConnectionParameterArray and ConnectionParameterArrayOutput values.
 // You can construct a concrete instance of `ConnectionParameterArrayInput` via:
 //
-//          ConnectionParameterArray{ ConnectionParameterArgs{...} }
+//	ConnectionParameterArray{ ConnectionParameterArgs{...} }
 type ConnectionParameterArrayInput interface {
 	pulumi.Input
 
@@ -975,7 +975,7 @@ type EndpointEventBus struct {
 // EndpointEventBusInput is an input type that accepts EndpointEventBusArgs and EndpointEventBusOutput values.
 // You can construct a concrete instance of `EndpointEventBusInput` via:
 //
-//          EndpointEventBusArgs{...}
+//	EndpointEventBusArgs{...}
 type EndpointEventBusInput interface {
 	pulumi.Input
 
@@ -1002,7 +1002,7 @@ func (i EndpointEventBusArgs) ToEndpointEventBusOutputWithContext(ctx context.Co
 // EndpointEventBusArrayInput is an input type that accepts EndpointEventBusArray and EndpointEventBusArrayOutput values.
 // You can construct a concrete instance of `EndpointEventBusArrayInput` via:
 //
-//          EndpointEventBusArray{ EndpointEventBusArgs{...} }
+//	EndpointEventBusArray{ EndpointEventBusArgs{...} }
 type EndpointEventBusArrayInput interface {
 	pulumi.Input
 
@@ -1070,7 +1070,7 @@ type EndpointFailoverConfig struct {
 // EndpointFailoverConfigInput is an input type that accepts EndpointFailoverConfigArgs and EndpointFailoverConfigOutput values.
 // You can construct a concrete instance of `EndpointFailoverConfigInput` via:
 //
-//          EndpointFailoverConfigArgs{...}
+//	EndpointFailoverConfigArgs{...}
 type EndpointFailoverConfigInput interface {
 	pulumi.Input
 
@@ -1166,7 +1166,7 @@ type EndpointPrimary struct {
 // EndpointPrimaryInput is an input type that accepts EndpointPrimaryArgs and EndpointPrimaryOutput values.
 // You can construct a concrete instance of `EndpointPrimaryInput` via:
 //
-//          EndpointPrimaryArgs{...}
+//	EndpointPrimaryArgs{...}
 type EndpointPrimaryInput interface {
 	pulumi.Input
 
@@ -1248,7 +1248,7 @@ type EndpointReplicationConfig struct {
 // EndpointReplicationConfigInput is an input type that accepts EndpointReplicationConfigArgs and EndpointReplicationConfigOutput values.
 // You can construct a concrete instance of `EndpointReplicationConfigInput` via:
 //
-//          EndpointReplicationConfigArgs{...}
+//	EndpointReplicationConfigArgs{...}
 type EndpointReplicationConfigInput interface {
 	pulumi.Input
 
@@ -1283,11 +1283,11 @@ func (i EndpointReplicationConfigArgs) ToEndpointReplicationConfigPtrOutputWithC
 // EndpointReplicationConfigPtrInput is an input type that accepts EndpointReplicationConfigArgs, EndpointReplicationConfigPtr and EndpointReplicationConfigPtrOutput values.
 // You can construct a concrete instance of `EndpointReplicationConfigPtrInput` via:
 //
-//          EndpointReplicationConfigArgs{...}
+//	        EndpointReplicationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointReplicationConfigPtrInput interface {
 	pulumi.Input
 
@@ -1381,7 +1381,7 @@ type EndpointRoutingConfig struct {
 // EndpointRoutingConfigInput is an input type that accepts EndpointRoutingConfigArgs and EndpointRoutingConfigOutput values.
 // You can construct a concrete instance of `EndpointRoutingConfigInput` via:
 //
-//          EndpointRoutingConfigArgs{...}
+//	EndpointRoutingConfigArgs{...}
 type EndpointRoutingConfigInput interface {
 	pulumi.Input
 
@@ -1463,7 +1463,7 @@ type EndpointSecondary struct {
 // EndpointSecondaryInput is an input type that accepts EndpointSecondaryArgs and EndpointSecondaryOutput values.
 // You can construct a concrete instance of `EndpointSecondaryInput` via:
 //
-//          EndpointSecondaryArgs{...}
+//	EndpointSecondaryArgs{...}
 type EndpointSecondaryInput interface {
 	pulumi.Input
 
@@ -1547,7 +1547,7 @@ type EventBusPolicyCondition struct {
 // EventBusPolicyConditionInput is an input type that accepts EventBusPolicyConditionArgs and EventBusPolicyConditionOutput values.
 // You can construct a concrete instance of `EventBusPolicyConditionInput` via:
 //
-//          EventBusPolicyConditionArgs{...}
+//	EventBusPolicyConditionArgs{...}
 type EventBusPolicyConditionInput interface {
 	pulumi.Input
 
@@ -1584,11 +1584,11 @@ func (i EventBusPolicyConditionArgs) ToEventBusPolicyConditionPtrOutputWithConte
 // EventBusPolicyConditionPtrInput is an input type that accepts EventBusPolicyConditionArgs, EventBusPolicyConditionPtr and EventBusPolicyConditionPtrOutput values.
 // You can construct a concrete instance of `EventBusPolicyConditionPtrInput` via:
 //
-//          EventBusPolicyConditionArgs{...}
+//	        EventBusPolicyConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventBusPolicyConditionPtrInput interface {
 	pulumi.Input
 
@@ -1709,7 +1709,7 @@ type EventBusTagEntry struct {
 // EventBusTagEntryInput is an input type that accepts EventBusTagEntryArgs and EventBusTagEntryOutput values.
 // You can construct a concrete instance of `EventBusTagEntryInput` via:
 //
-//          EventBusTagEntryArgs{...}
+//	EventBusTagEntryArgs{...}
 type EventBusTagEntryInput interface {
 	pulumi.Input
 
@@ -1737,7 +1737,7 @@ func (i EventBusTagEntryArgs) ToEventBusTagEntryOutputWithContext(ctx context.Co
 // EventBusTagEntryArrayInput is an input type that accepts EventBusTagEntryArray and EventBusTagEntryArrayOutput values.
 // You can construct a concrete instance of `EventBusTagEntryArrayInput` via:
 //
-//          EventBusTagEntryArray{ EventBusTagEntryArgs{...} }
+//	EventBusTagEntryArray{ EventBusTagEntryArgs{...} }
 type EventBusTagEntryArrayInput interface {
 	pulumi.Input
 
@@ -1810,7 +1810,7 @@ type RuleAwsVpcConfiguration struct {
 // RuleAwsVpcConfigurationInput is an input type that accepts RuleAwsVpcConfigurationArgs and RuleAwsVpcConfigurationOutput values.
 // You can construct a concrete instance of `RuleAwsVpcConfigurationInput` via:
 //
-//          RuleAwsVpcConfigurationArgs{...}
+//	RuleAwsVpcConfigurationArgs{...}
 type RuleAwsVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -1847,11 +1847,11 @@ func (i RuleAwsVpcConfigurationArgs) ToRuleAwsVpcConfigurationPtrOutputWithConte
 // RuleAwsVpcConfigurationPtrInput is an input type that accepts RuleAwsVpcConfigurationArgs, RuleAwsVpcConfigurationPtr and RuleAwsVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `RuleAwsVpcConfigurationPtrInput` via:
 //
-//          RuleAwsVpcConfigurationArgs{...}
+//	        RuleAwsVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleAwsVpcConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1971,7 +1971,7 @@ type RuleBatchArrayProperties struct {
 // RuleBatchArrayPropertiesInput is an input type that accepts RuleBatchArrayPropertiesArgs and RuleBatchArrayPropertiesOutput values.
 // You can construct a concrete instance of `RuleBatchArrayPropertiesInput` via:
 //
-//          RuleBatchArrayPropertiesArgs{...}
+//	RuleBatchArrayPropertiesArgs{...}
 type RuleBatchArrayPropertiesInput interface {
 	pulumi.Input
 
@@ -2006,11 +2006,11 @@ func (i RuleBatchArrayPropertiesArgs) ToRuleBatchArrayPropertiesPtrOutputWithCon
 // RuleBatchArrayPropertiesPtrInput is an input type that accepts RuleBatchArrayPropertiesArgs, RuleBatchArrayPropertiesPtr and RuleBatchArrayPropertiesPtrOutput values.
 // You can construct a concrete instance of `RuleBatchArrayPropertiesPtrInput` via:
 //
-//          RuleBatchArrayPropertiesArgs{...}
+//	        RuleBatchArrayPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleBatchArrayPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2107,7 +2107,7 @@ type RuleBatchParameters struct {
 // RuleBatchParametersInput is an input type that accepts RuleBatchParametersArgs and RuleBatchParametersOutput values.
 // You can construct a concrete instance of `RuleBatchParametersInput` via:
 //
-//          RuleBatchParametersArgs{...}
+//	RuleBatchParametersArgs{...}
 type RuleBatchParametersInput interface {
 	pulumi.Input
 
@@ -2145,11 +2145,11 @@ func (i RuleBatchParametersArgs) ToRuleBatchParametersPtrOutputWithContext(ctx c
 // RuleBatchParametersPtrInput is an input type that accepts RuleBatchParametersArgs, RuleBatchParametersPtr and RuleBatchParametersPtrOutput values.
 // You can construct a concrete instance of `RuleBatchParametersPtrInput` via:
 //
-//          RuleBatchParametersArgs{...}
+//	        RuleBatchParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleBatchParametersPtrInput interface {
 	pulumi.Input
 
@@ -2282,7 +2282,7 @@ type RuleBatchRetryStrategy struct {
 // RuleBatchRetryStrategyInput is an input type that accepts RuleBatchRetryStrategyArgs and RuleBatchRetryStrategyOutput values.
 // You can construct a concrete instance of `RuleBatchRetryStrategyInput` via:
 //
-//          RuleBatchRetryStrategyArgs{...}
+//	RuleBatchRetryStrategyArgs{...}
 type RuleBatchRetryStrategyInput interface {
 	pulumi.Input
 
@@ -2317,11 +2317,11 @@ func (i RuleBatchRetryStrategyArgs) ToRuleBatchRetryStrategyPtrOutputWithContext
 // RuleBatchRetryStrategyPtrInput is an input type that accepts RuleBatchRetryStrategyArgs, RuleBatchRetryStrategyPtr and RuleBatchRetryStrategyPtrOutput values.
 // You can construct a concrete instance of `RuleBatchRetryStrategyPtrInput` via:
 //
-//          RuleBatchRetryStrategyArgs{...}
+//	        RuleBatchRetryStrategyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleBatchRetryStrategyPtrInput interface {
 	pulumi.Input
 
@@ -2417,7 +2417,7 @@ type RuleCapacityProviderStrategyItem struct {
 // RuleCapacityProviderStrategyItemInput is an input type that accepts RuleCapacityProviderStrategyItemArgs and RuleCapacityProviderStrategyItemOutput values.
 // You can construct a concrete instance of `RuleCapacityProviderStrategyItemInput` via:
 //
-//          RuleCapacityProviderStrategyItemArgs{...}
+//	RuleCapacityProviderStrategyItemArgs{...}
 type RuleCapacityProviderStrategyItemInput interface {
 	pulumi.Input
 
@@ -2446,7 +2446,7 @@ func (i RuleCapacityProviderStrategyItemArgs) ToRuleCapacityProviderStrategyItem
 // RuleCapacityProviderStrategyItemArrayInput is an input type that accepts RuleCapacityProviderStrategyItemArray and RuleCapacityProviderStrategyItemArrayOutput values.
 // You can construct a concrete instance of `RuleCapacityProviderStrategyItemArrayInput` via:
 //
-//          RuleCapacityProviderStrategyItemArray{ RuleCapacityProviderStrategyItemArgs{...} }
+//	RuleCapacityProviderStrategyItemArray{ RuleCapacityProviderStrategyItemArgs{...} }
 type RuleCapacityProviderStrategyItemArrayInput interface {
 	pulumi.Input
 
@@ -2521,7 +2521,7 @@ type RuleDeadLetterConfig struct {
 // RuleDeadLetterConfigInput is an input type that accepts RuleDeadLetterConfigArgs and RuleDeadLetterConfigOutput values.
 // You can construct a concrete instance of `RuleDeadLetterConfigInput` via:
 //
-//          RuleDeadLetterConfigArgs{...}
+//	RuleDeadLetterConfigArgs{...}
 type RuleDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -2556,11 +2556,11 @@ func (i RuleDeadLetterConfigArgs) ToRuleDeadLetterConfigPtrOutputWithContext(ctx
 // RuleDeadLetterConfigPtrInput is an input type that accepts RuleDeadLetterConfigArgs, RuleDeadLetterConfigPtr and RuleDeadLetterConfigPtrOutput values.
 // You can construct a concrete instance of `RuleDeadLetterConfigPtrInput` via:
 //
-//          RuleDeadLetterConfigArgs{...}
+//	        RuleDeadLetterConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleDeadLetterConfigPtrInput interface {
 	pulumi.Input
 
@@ -2667,7 +2667,7 @@ type RuleEcsParameters struct {
 // RuleEcsParametersInput is an input type that accepts RuleEcsParametersArgs and RuleEcsParametersOutput values.
 // You can construct a concrete instance of `RuleEcsParametersInput` via:
 //
-//          RuleEcsParametersArgs{...}
+//	RuleEcsParametersArgs{...}
 type RuleEcsParametersInput interface {
 	pulumi.Input
 
@@ -2715,11 +2715,11 @@ func (i RuleEcsParametersArgs) ToRuleEcsParametersPtrOutputWithContext(ctx conte
 // RuleEcsParametersPtrInput is an input type that accepts RuleEcsParametersArgs, RuleEcsParametersPtr and RuleEcsParametersPtrOutput values.
 // You can construct a concrete instance of `RuleEcsParametersPtrInput` via:
 //
-//          RuleEcsParametersArgs{...}
+//	        RuleEcsParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleEcsParametersPtrInput interface {
 	pulumi.Input
 
@@ -2984,7 +2984,7 @@ type RuleHttpParameters struct {
 // RuleHttpParametersInput is an input type that accepts RuleHttpParametersArgs and RuleHttpParametersOutput values.
 // You can construct a concrete instance of `RuleHttpParametersInput` via:
 //
-//          RuleHttpParametersArgs{...}
+//	RuleHttpParametersArgs{...}
 type RuleHttpParametersInput interface {
 	pulumi.Input
 
@@ -3021,11 +3021,11 @@ func (i RuleHttpParametersArgs) ToRuleHttpParametersPtrOutputWithContext(ctx con
 // RuleHttpParametersPtrInput is an input type that accepts RuleHttpParametersArgs, RuleHttpParametersPtr and RuleHttpParametersPtrOutput values.
 // You can construct a concrete instance of `RuleHttpParametersPtrInput` via:
 //
-//          RuleHttpParametersArgs{...}
+//	        RuleHttpParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleHttpParametersPtrInput interface {
 	pulumi.Input
 
@@ -3146,7 +3146,7 @@ type RuleInputTransformer struct {
 // RuleInputTransformerInput is an input type that accepts RuleInputTransformerArgs and RuleInputTransformerOutput values.
 // You can construct a concrete instance of `RuleInputTransformerInput` via:
 //
-//          RuleInputTransformerArgs{...}
+//	RuleInputTransformerArgs{...}
 type RuleInputTransformerInput interface {
 	pulumi.Input
 
@@ -3182,11 +3182,11 @@ func (i RuleInputTransformerArgs) ToRuleInputTransformerPtrOutputWithContext(ctx
 // RuleInputTransformerPtrInput is an input type that accepts RuleInputTransformerArgs, RuleInputTransformerPtr and RuleInputTransformerPtrOutput values.
 // You can construct a concrete instance of `RuleInputTransformerPtrInput` via:
 //
-//          RuleInputTransformerArgs{...}
+//	        RuleInputTransformerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleInputTransformerPtrInput interface {
 	pulumi.Input
 
@@ -3293,7 +3293,7 @@ type RuleKinesisParameters struct {
 // RuleKinesisParametersInput is an input type that accepts RuleKinesisParametersArgs and RuleKinesisParametersOutput values.
 // You can construct a concrete instance of `RuleKinesisParametersInput` via:
 //
-//          RuleKinesisParametersArgs{...}
+//	RuleKinesisParametersArgs{...}
 type RuleKinesisParametersInput interface {
 	pulumi.Input
 
@@ -3328,11 +3328,11 @@ func (i RuleKinesisParametersArgs) ToRuleKinesisParametersPtrOutputWithContext(c
 // RuleKinesisParametersPtrInput is an input type that accepts RuleKinesisParametersArgs, RuleKinesisParametersPtr and RuleKinesisParametersPtrOutput values.
 // You can construct a concrete instance of `RuleKinesisParametersPtrInput` via:
 //
-//          RuleKinesisParametersArgs{...}
+//	        RuleKinesisParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleKinesisParametersPtrInput interface {
 	pulumi.Input
 
@@ -3426,7 +3426,7 @@ type RuleNetworkConfiguration struct {
 // RuleNetworkConfigurationInput is an input type that accepts RuleNetworkConfigurationArgs and RuleNetworkConfigurationOutput values.
 // You can construct a concrete instance of `RuleNetworkConfigurationInput` via:
 //
-//          RuleNetworkConfigurationArgs{...}
+//	RuleNetworkConfigurationArgs{...}
 type RuleNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -3461,11 +3461,11 @@ func (i RuleNetworkConfigurationArgs) ToRuleNetworkConfigurationPtrOutputWithCon
 // RuleNetworkConfigurationPtrInput is an input type that accepts RuleNetworkConfigurationArgs, RuleNetworkConfigurationPtr and RuleNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `RuleNetworkConfigurationPtrInput` via:
 //
-//          RuleNetworkConfigurationArgs{...}
+//	        RuleNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3560,7 +3560,7 @@ type RulePlacementConstraint struct {
 // RulePlacementConstraintInput is an input type that accepts RulePlacementConstraintArgs and RulePlacementConstraintOutput values.
 // You can construct a concrete instance of `RulePlacementConstraintInput` via:
 //
-//          RulePlacementConstraintArgs{...}
+//	RulePlacementConstraintArgs{...}
 type RulePlacementConstraintInput interface {
 	pulumi.Input
 
@@ -3588,7 +3588,7 @@ func (i RulePlacementConstraintArgs) ToRulePlacementConstraintOutputWithContext(
 // RulePlacementConstraintArrayInput is an input type that accepts RulePlacementConstraintArray and RulePlacementConstraintArrayOutput values.
 // You can construct a concrete instance of `RulePlacementConstraintArrayInput` via:
 //
-//          RulePlacementConstraintArray{ RulePlacementConstraintArgs{...} }
+//	RulePlacementConstraintArray{ RulePlacementConstraintArgs{...} }
 type RulePlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -3660,7 +3660,7 @@ type RulePlacementStrategy struct {
 // RulePlacementStrategyInput is an input type that accepts RulePlacementStrategyArgs and RulePlacementStrategyOutput values.
 // You can construct a concrete instance of `RulePlacementStrategyInput` via:
 //
-//          RulePlacementStrategyArgs{...}
+//	RulePlacementStrategyArgs{...}
 type RulePlacementStrategyInput interface {
 	pulumi.Input
 
@@ -3688,7 +3688,7 @@ func (i RulePlacementStrategyArgs) ToRulePlacementStrategyOutputWithContext(ctx 
 // RulePlacementStrategyArrayInput is an input type that accepts RulePlacementStrategyArray and RulePlacementStrategyArrayOutput values.
 // You can construct a concrete instance of `RulePlacementStrategyArrayInput` via:
 //
-//          RulePlacementStrategyArray{ RulePlacementStrategyArgs{...} }
+//	RulePlacementStrategyArray{ RulePlacementStrategyArgs{...} }
 type RulePlacementStrategyArrayInput interface {
 	pulumi.Input
 
@@ -3764,7 +3764,7 @@ type RuleRedshiftDataParameters struct {
 // RuleRedshiftDataParametersInput is an input type that accepts RuleRedshiftDataParametersArgs and RuleRedshiftDataParametersOutput values.
 // You can construct a concrete instance of `RuleRedshiftDataParametersInput` via:
 //
-//          RuleRedshiftDataParametersArgs{...}
+//	RuleRedshiftDataParametersArgs{...}
 type RuleRedshiftDataParametersInput interface {
 	pulumi.Input
 
@@ -3804,11 +3804,11 @@ func (i RuleRedshiftDataParametersArgs) ToRuleRedshiftDataParametersPtrOutputWit
 // RuleRedshiftDataParametersPtrInput is an input type that accepts RuleRedshiftDataParametersArgs, RuleRedshiftDataParametersPtr and RuleRedshiftDataParametersPtrOutput values.
 // You can construct a concrete instance of `RuleRedshiftDataParametersPtrInput` via:
 //
-//          RuleRedshiftDataParametersArgs{...}
+//	        RuleRedshiftDataParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleRedshiftDataParametersPtrInput interface {
 	pulumi.Input
 
@@ -3968,7 +3968,7 @@ type RuleRetryPolicy struct {
 // RuleRetryPolicyInput is an input type that accepts RuleRetryPolicyArgs and RuleRetryPolicyOutput values.
 // You can construct a concrete instance of `RuleRetryPolicyInput` via:
 //
-//          RuleRetryPolicyArgs{...}
+//	RuleRetryPolicyArgs{...}
 type RuleRetryPolicyInput interface {
 	pulumi.Input
 
@@ -4004,11 +4004,11 @@ func (i RuleRetryPolicyArgs) ToRuleRetryPolicyPtrOutputWithContext(ctx context.C
 // RuleRetryPolicyPtrInput is an input type that accepts RuleRetryPolicyArgs, RuleRetryPolicyPtr and RuleRetryPolicyPtrOutput values.
 // You can construct a concrete instance of `RuleRetryPolicyPtrInput` via:
 //
-//          RuleRetryPolicyArgs{...}
+//	        RuleRetryPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleRetryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4115,7 +4115,7 @@ type RuleRunCommandParameters struct {
 // RuleRunCommandParametersInput is an input type that accepts RuleRunCommandParametersArgs and RuleRunCommandParametersOutput values.
 // You can construct a concrete instance of `RuleRunCommandParametersInput` via:
 //
-//          RuleRunCommandParametersArgs{...}
+//	RuleRunCommandParametersArgs{...}
 type RuleRunCommandParametersInput interface {
 	pulumi.Input
 
@@ -4150,11 +4150,11 @@ func (i RuleRunCommandParametersArgs) ToRuleRunCommandParametersPtrOutputWithCon
 // RuleRunCommandParametersPtrInput is an input type that accepts RuleRunCommandParametersArgs, RuleRunCommandParametersPtr and RuleRunCommandParametersPtrOutput values.
 // You can construct a concrete instance of `RuleRunCommandParametersPtrInput` via:
 //
-//          RuleRunCommandParametersArgs{...}
+//	        RuleRunCommandParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleRunCommandParametersPtrInput interface {
 	pulumi.Input
 
@@ -4249,7 +4249,7 @@ type RuleRunCommandTarget struct {
 // RuleRunCommandTargetInput is an input type that accepts RuleRunCommandTargetArgs and RuleRunCommandTargetOutput values.
 // You can construct a concrete instance of `RuleRunCommandTargetInput` via:
 //
-//          RuleRunCommandTargetArgs{...}
+//	RuleRunCommandTargetArgs{...}
 type RuleRunCommandTargetInput interface {
 	pulumi.Input
 
@@ -4277,7 +4277,7 @@ func (i RuleRunCommandTargetArgs) ToRuleRunCommandTargetOutputWithContext(ctx co
 // RuleRunCommandTargetArrayInput is an input type that accepts RuleRunCommandTargetArray and RuleRunCommandTargetArrayOutput values.
 // You can construct a concrete instance of `RuleRunCommandTargetArrayInput` via:
 //
-//          RuleRunCommandTargetArray{ RuleRunCommandTargetArgs{...} }
+//	RuleRunCommandTargetArray{ RuleRunCommandTargetArgs{...} }
 type RuleRunCommandTargetArrayInput interface {
 	pulumi.Input
 
@@ -4349,7 +4349,7 @@ type RuleSageMakerPipelineParameter struct {
 // RuleSageMakerPipelineParameterInput is an input type that accepts RuleSageMakerPipelineParameterArgs and RuleSageMakerPipelineParameterOutput values.
 // You can construct a concrete instance of `RuleSageMakerPipelineParameterInput` via:
 //
-//          RuleSageMakerPipelineParameterArgs{...}
+//	RuleSageMakerPipelineParameterArgs{...}
 type RuleSageMakerPipelineParameterInput interface {
 	pulumi.Input
 
@@ -4377,7 +4377,7 @@ func (i RuleSageMakerPipelineParameterArgs) ToRuleSageMakerPipelineParameterOutp
 // RuleSageMakerPipelineParameterArrayInput is an input type that accepts RuleSageMakerPipelineParameterArray and RuleSageMakerPipelineParameterArrayOutput values.
 // You can construct a concrete instance of `RuleSageMakerPipelineParameterArrayInput` via:
 //
-//          RuleSageMakerPipelineParameterArray{ RuleSageMakerPipelineParameterArgs{...} }
+//	RuleSageMakerPipelineParameterArray{ RuleSageMakerPipelineParameterArgs{...} }
 type RuleSageMakerPipelineParameterArrayInput interface {
 	pulumi.Input
 
@@ -4448,7 +4448,7 @@ type RuleSageMakerPipelineParameters struct {
 // RuleSageMakerPipelineParametersInput is an input type that accepts RuleSageMakerPipelineParametersArgs and RuleSageMakerPipelineParametersOutput values.
 // You can construct a concrete instance of `RuleSageMakerPipelineParametersInput` via:
 //
-//          RuleSageMakerPipelineParametersArgs{...}
+//	RuleSageMakerPipelineParametersArgs{...}
 type RuleSageMakerPipelineParametersInput interface {
 	pulumi.Input
 
@@ -4483,11 +4483,11 @@ func (i RuleSageMakerPipelineParametersArgs) ToRuleSageMakerPipelineParametersPt
 // RuleSageMakerPipelineParametersPtrInput is an input type that accepts RuleSageMakerPipelineParametersArgs, RuleSageMakerPipelineParametersPtr and RuleSageMakerPipelineParametersPtrOutput values.
 // You can construct a concrete instance of `RuleSageMakerPipelineParametersPtrInput` via:
 //
-//          RuleSageMakerPipelineParametersArgs{...}
+//	        RuleSageMakerPipelineParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleSageMakerPipelineParametersPtrInput interface {
 	pulumi.Input
 
@@ -4583,7 +4583,7 @@ type RuleSqsParameters struct {
 // RuleSqsParametersInput is an input type that accepts RuleSqsParametersArgs and RuleSqsParametersOutput values.
 // You can construct a concrete instance of `RuleSqsParametersInput` via:
 //
-//          RuleSqsParametersArgs{...}
+//	RuleSqsParametersArgs{...}
 type RuleSqsParametersInput interface {
 	pulumi.Input
 
@@ -4618,11 +4618,11 @@ func (i RuleSqsParametersArgs) ToRuleSqsParametersPtrOutputWithContext(ctx conte
 // RuleSqsParametersPtrInput is an input type that accepts RuleSqsParametersArgs, RuleSqsParametersPtr and RuleSqsParametersPtrOutput values.
 // You can construct a concrete instance of `RuleSqsParametersPtrInput` via:
 //
-//          RuleSqsParametersArgs{...}
+//	        RuleSqsParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RuleSqsParametersPtrInput interface {
 	pulumi.Input
 
@@ -4717,7 +4717,7 @@ type RuleTag struct {
 // RuleTagInput is an input type that accepts RuleTagArgs and RuleTagOutput values.
 // You can construct a concrete instance of `RuleTagInput` via:
 //
-//          RuleTagArgs{...}
+//	RuleTagArgs{...}
 type RuleTagInput interface {
 	pulumi.Input
 
@@ -4745,7 +4745,7 @@ func (i RuleTagArgs) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutp
 // RuleTagArrayInput is an input type that accepts RuleTagArray and RuleTagArrayOutput values.
 // You can construct a concrete instance of `RuleTagArrayInput` via:
 //
-//          RuleTagArray{ RuleTagArgs{...} }
+//	RuleTagArray{ RuleTagArgs{...} }
 type RuleTagArrayInput interface {
 	pulumi.Input
 
@@ -4831,7 +4831,7 @@ type RuleTarget struct {
 // RuleTargetInput is an input type that accepts RuleTargetArgs and RuleTargetOutput values.
 // You can construct a concrete instance of `RuleTargetInput` via:
 //
-//          RuleTargetArgs{...}
+//	RuleTargetArgs{...}
 type RuleTargetInput interface {
 	pulumi.Input
 
@@ -4873,7 +4873,7 @@ func (i RuleTargetArgs) ToRuleTargetOutputWithContext(ctx context.Context) RuleT
 // RuleTargetArrayInput is an input type that accepts RuleTargetArray and RuleTargetArrayOutput values.
 // You can construct a concrete instance of `RuleTargetArrayInput` via:
 //
-//          RuleTargetArray{ RuleTargetArgs{...} }
+//	RuleTargetArray{ RuleTargetArgs{...} }
 type RuleTargetArrayInput interface {
 	pulumi.Input
 

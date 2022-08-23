@@ -139,7 +139,7 @@ func (o FilterActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // FilterActionInput is an input type that accepts FilterActionArgs and FilterActionOutput values.
 // You can construct a concrete instance of `FilterActionInput` via:
 //
-//          FilterActionArgs{...}
+//	FilterActionArgs{...}
 type FilterActionInput interface {
 	pulumi.Input
 
@@ -302,7 +302,7 @@ func (o FilterMapComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // FilterMapComparisonInput is an input type that accepts FilterMapComparisonArgs and FilterMapComparisonOutput values.
 // You can construct a concrete instance of `FilterMapComparisonInput` via:
 //
-//          FilterMapComparisonArgs{...}
+//	FilterMapComparisonArgs{...}
 type FilterMapComparisonInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ func (o FilterStringComparisonPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // FilterStringComparisonInput is an input type that accepts FilterStringComparisonArgs and FilterStringComparisonOutput values.
 // You can construct a concrete instance of `FilterStringComparisonInput` via:
 //
-//          FilterStringComparisonArgs{...}
+//	FilterStringComparisonArgs{...}
 type FilterStringComparisonInput interface {
 	pulumi.Input
 

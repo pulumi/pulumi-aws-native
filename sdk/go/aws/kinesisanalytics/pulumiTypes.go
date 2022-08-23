@@ -18,7 +18,7 @@ type ApplicationCSVMappingParameters struct {
 // ApplicationCSVMappingParametersInput is an input type that accepts ApplicationCSVMappingParametersArgs and ApplicationCSVMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationCSVMappingParametersInput` via:
 //
-//          ApplicationCSVMappingParametersArgs{...}
+//	ApplicationCSVMappingParametersArgs{...}
 type ApplicationCSVMappingParametersInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ApplicationCSVMappingParametersArgs) ToApplicationCSVMappingParametersPt
 // ApplicationCSVMappingParametersPtrInput is an input type that accepts ApplicationCSVMappingParametersArgs, ApplicationCSVMappingParametersPtr and ApplicationCSVMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationCSVMappingParametersPtrInput` via:
 //
-//          ApplicationCSVMappingParametersArgs{...}
+//	        ApplicationCSVMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationCSVMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -170,7 +170,7 @@ type ApplicationInputType struct {
 // ApplicationInputTypeInput is an input type that accepts ApplicationInputTypeArgs and ApplicationInputTypeOutput values.
 // You can construct a concrete instance of `ApplicationInputTypeInput` via:
 //
-//          ApplicationInputTypeArgs{...}
+//	ApplicationInputTypeArgs{...}
 type ApplicationInputTypeInput interface {
 	pulumi.Input
 
@@ -202,7 +202,7 @@ func (i ApplicationInputTypeArgs) ToApplicationInputTypeOutputWithContext(ctx co
 // ApplicationInputTypeArrayInput is an input type that accepts ApplicationInputTypeArray and ApplicationInputTypeArrayOutput values.
 // You can construct a concrete instance of `ApplicationInputTypeArrayInput` via:
 //
-//          ApplicationInputTypeArray{ ApplicationInputTypeArgs{...} }
+//	ApplicationInputTypeArray{ ApplicationInputTypeArgs{...} }
 type ApplicationInputTypeArrayInput interface {
 	pulumi.Input
 
@@ -292,7 +292,7 @@ type ApplicationInputLambdaProcessor struct {
 // ApplicationInputLambdaProcessorInput is an input type that accepts ApplicationInputLambdaProcessorArgs and ApplicationInputLambdaProcessorOutput values.
 // You can construct a concrete instance of `ApplicationInputLambdaProcessorInput` via:
 //
-//          ApplicationInputLambdaProcessorArgs{...}
+//	ApplicationInputLambdaProcessorArgs{...}
 type ApplicationInputLambdaProcessorInput interface {
 	pulumi.Input
 
@@ -328,11 +328,11 @@ func (i ApplicationInputLambdaProcessorArgs) ToApplicationInputLambdaProcessorPt
 // ApplicationInputLambdaProcessorPtrInput is an input type that accepts ApplicationInputLambdaProcessorArgs, ApplicationInputLambdaProcessorPtr and ApplicationInputLambdaProcessorPtrOutput values.
 // You can construct a concrete instance of `ApplicationInputLambdaProcessorPtrInput` via:
 //
-//          ApplicationInputLambdaProcessorArgs{...}
+//	        ApplicationInputLambdaProcessorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInputLambdaProcessorPtrInput interface {
 	pulumi.Input
 
@@ -439,7 +439,7 @@ type ApplicationInputParallelism struct {
 // ApplicationInputParallelismInput is an input type that accepts ApplicationInputParallelismArgs and ApplicationInputParallelismOutput values.
 // You can construct a concrete instance of `ApplicationInputParallelismInput` via:
 //
-//          ApplicationInputParallelismArgs{...}
+//	ApplicationInputParallelismArgs{...}
 type ApplicationInputParallelismInput interface {
 	pulumi.Input
 
@@ -474,11 +474,11 @@ func (i ApplicationInputParallelismArgs) ToApplicationInputParallelismPtrOutputW
 // ApplicationInputParallelismPtrInput is an input type that accepts ApplicationInputParallelismArgs, ApplicationInputParallelismPtr and ApplicationInputParallelismPtrOutput values.
 // You can construct a concrete instance of `ApplicationInputParallelismPtrInput` via:
 //
-//          ApplicationInputParallelismArgs{...}
+//	        ApplicationInputParallelismArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInputParallelismPtrInput interface {
 	pulumi.Input
 
@@ -572,7 +572,7 @@ type ApplicationInputProcessingConfiguration struct {
 // ApplicationInputProcessingConfigurationInput is an input type that accepts ApplicationInputProcessingConfigurationArgs and ApplicationInputProcessingConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationInputProcessingConfigurationInput` via:
 //
-//          ApplicationInputProcessingConfigurationArgs{...}
+//	ApplicationInputProcessingConfigurationArgs{...}
 type ApplicationInputProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -607,11 +607,11 @@ func (i ApplicationInputProcessingConfigurationArgs) ToApplicationInputProcessin
 // ApplicationInputProcessingConfigurationPtrInput is an input type that accepts ApplicationInputProcessingConfigurationArgs, ApplicationInputProcessingConfigurationPtr and ApplicationInputProcessingConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationInputProcessingConfigurationPtrInput` via:
 //
-//          ApplicationInputProcessingConfigurationArgs{...}
+//	        ApplicationInputProcessingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInputProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -709,7 +709,7 @@ type ApplicationInputSchema struct {
 // ApplicationInputSchemaInput is an input type that accepts ApplicationInputSchemaArgs and ApplicationInputSchemaOutput values.
 // You can construct a concrete instance of `ApplicationInputSchemaInput` via:
 //
-//          ApplicationInputSchemaArgs{...}
+//	ApplicationInputSchemaArgs{...}
 type ApplicationInputSchemaInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ type ApplicationJSONMappingParameters struct {
 // ApplicationJSONMappingParametersInput is an input type that accepts ApplicationJSONMappingParametersArgs and ApplicationJSONMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationJSONMappingParametersInput` via:
 //
-//          ApplicationJSONMappingParametersArgs{...}
+//	ApplicationJSONMappingParametersArgs{...}
 type ApplicationJSONMappingParametersInput interface {
 	pulumi.Input
 
@@ -803,11 +803,11 @@ func (i ApplicationJSONMappingParametersArgs) ToApplicationJSONMappingParameters
 // ApplicationJSONMappingParametersPtrInput is an input type that accepts ApplicationJSONMappingParametersArgs, ApplicationJSONMappingParametersPtr and ApplicationJSONMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationJSONMappingParametersPtrInput` via:
 //
-//          ApplicationJSONMappingParametersArgs{...}
+//	        ApplicationJSONMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationJSONMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -902,7 +902,7 @@ type ApplicationKinesisFirehoseInput struct {
 // ApplicationKinesisFirehoseInputInput is an input type that accepts ApplicationKinesisFirehoseInputArgs and ApplicationKinesisFirehoseInputOutput values.
 // You can construct a concrete instance of `ApplicationKinesisFirehoseInputInput` via:
 //
-//          ApplicationKinesisFirehoseInputArgs{...}
+//	ApplicationKinesisFirehoseInputArgs{...}
 type ApplicationKinesisFirehoseInputInput interface {
 	pulumi.Input
 
@@ -938,11 +938,11 @@ func (i ApplicationKinesisFirehoseInputArgs) ToApplicationKinesisFirehoseInputPt
 // ApplicationKinesisFirehoseInputPtrInput is an input type that accepts ApplicationKinesisFirehoseInputArgs, ApplicationKinesisFirehoseInputPtr and ApplicationKinesisFirehoseInputPtrOutput values.
 // You can construct a concrete instance of `ApplicationKinesisFirehoseInputPtrInput` via:
 //
-//          ApplicationKinesisFirehoseInputArgs{...}
+//	        ApplicationKinesisFirehoseInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationKinesisFirehoseInputPtrInput interface {
 	pulumi.Input
 
@@ -1050,7 +1050,7 @@ type ApplicationKinesisStreamsInput struct {
 // ApplicationKinesisStreamsInputInput is an input type that accepts ApplicationKinesisStreamsInputArgs and ApplicationKinesisStreamsInputOutput values.
 // You can construct a concrete instance of `ApplicationKinesisStreamsInputInput` via:
 //
-//          ApplicationKinesisStreamsInputArgs{...}
+//	ApplicationKinesisStreamsInputArgs{...}
 type ApplicationKinesisStreamsInputInput interface {
 	pulumi.Input
 
@@ -1086,11 +1086,11 @@ func (i ApplicationKinesisStreamsInputArgs) ToApplicationKinesisStreamsInputPtrO
 // ApplicationKinesisStreamsInputPtrInput is an input type that accepts ApplicationKinesisStreamsInputArgs, ApplicationKinesisStreamsInputPtr and ApplicationKinesisStreamsInputPtrOutput values.
 // You can construct a concrete instance of `ApplicationKinesisStreamsInputPtrInput` via:
 //
-//          ApplicationKinesisStreamsInputArgs{...}
+//	        ApplicationKinesisStreamsInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationKinesisStreamsInputPtrInput interface {
 	pulumi.Input
 
@@ -1198,7 +1198,7 @@ type ApplicationMappingParameters struct {
 // ApplicationMappingParametersInput is an input type that accepts ApplicationMappingParametersArgs and ApplicationMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationMappingParametersInput` via:
 //
-//          ApplicationMappingParametersArgs{...}
+//	ApplicationMappingParametersArgs{...}
 type ApplicationMappingParametersInput interface {
 	pulumi.Input
 
@@ -1234,11 +1234,11 @@ func (i ApplicationMappingParametersArgs) ToApplicationMappingParametersPtrOutpu
 // ApplicationMappingParametersPtrInput is an input type that accepts ApplicationMappingParametersArgs, ApplicationMappingParametersPtr and ApplicationMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationMappingParametersPtrInput` via:
 //
-//          ApplicationMappingParametersArgs{...}
+//	        ApplicationMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -1345,7 +1345,7 @@ type ApplicationOutputResourceDestinationSchema struct {
 // ApplicationOutputResourceDestinationSchemaInput is an input type that accepts ApplicationOutputResourceDestinationSchemaArgs and ApplicationOutputResourceDestinationSchemaOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceDestinationSchemaInput` via:
 //
-//          ApplicationOutputResourceDestinationSchemaArgs{...}
+//	ApplicationOutputResourceDestinationSchemaArgs{...}
 type ApplicationOutputResourceDestinationSchemaInput interface {
 	pulumi.Input
 
@@ -1428,7 +1428,7 @@ type ApplicationOutputResourceKinesisFirehoseOutput struct {
 // ApplicationOutputResourceKinesisFirehoseOutputInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs and ApplicationOutputResourceKinesisFirehoseOutputOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceKinesisFirehoseOutputInput` via:
 //
-//          ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
+//	ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
 type ApplicationOutputResourceKinesisFirehoseOutputInput interface {
 	pulumi.Input
 
@@ -1464,11 +1464,11 @@ func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputR
 // ApplicationOutputResourceKinesisFirehoseOutputPtrInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs, ApplicationOutputResourceKinesisFirehoseOutputPtr and ApplicationOutputResourceKinesisFirehoseOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceKinesisFirehoseOutputPtrInput` via:
 //
-//          ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
+//	        ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationOutputResourceKinesisFirehoseOutputPtrInput interface {
 	pulumi.Input
 
@@ -1576,7 +1576,7 @@ type ApplicationOutputResourceKinesisStreamsOutput struct {
 // ApplicationOutputResourceKinesisStreamsOutputInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs and ApplicationOutputResourceKinesisStreamsOutputOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceKinesisStreamsOutputInput` via:
 //
-//          ApplicationOutputResourceKinesisStreamsOutputArgs{...}
+//	ApplicationOutputResourceKinesisStreamsOutputArgs{...}
 type ApplicationOutputResourceKinesisStreamsOutputInput interface {
 	pulumi.Input
 
@@ -1612,11 +1612,11 @@ func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputRe
 // ApplicationOutputResourceKinesisStreamsOutputPtrInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs, ApplicationOutputResourceKinesisStreamsOutputPtr and ApplicationOutputResourceKinesisStreamsOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceKinesisStreamsOutputPtrInput` via:
 //
-//          ApplicationOutputResourceKinesisStreamsOutputArgs{...}
+//	        ApplicationOutputResourceKinesisStreamsOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationOutputResourceKinesisStreamsOutputPtrInput interface {
 	pulumi.Input
 
@@ -1724,7 +1724,7 @@ type ApplicationOutputResourceLambdaOutput struct {
 // ApplicationOutputResourceLambdaOutputInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs and ApplicationOutputResourceLambdaOutputOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceLambdaOutputInput` via:
 //
-//          ApplicationOutputResourceLambdaOutputArgs{...}
+//	ApplicationOutputResourceLambdaOutputArgs{...}
 type ApplicationOutputResourceLambdaOutputInput interface {
 	pulumi.Input
 
@@ -1760,11 +1760,11 @@ func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLa
 // ApplicationOutputResourceLambdaOutputPtrInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs, ApplicationOutputResourceLambdaOutputPtr and ApplicationOutputResourceLambdaOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceLambdaOutputPtrInput` via:
 //
-//          ApplicationOutputResourceLambdaOutputArgs{...}
+//	        ApplicationOutputResourceLambdaOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationOutputResourceLambdaOutputPtrInput interface {
 	pulumi.Input
 
@@ -1875,7 +1875,7 @@ type ApplicationOutputResourceOutputType struct {
 // ApplicationOutputResourceOutputTypeInput is an input type that accepts ApplicationOutputResourceOutputTypeArgs and ApplicationOutputResourceOutputTypeOutput values.
 // You can construct a concrete instance of `ApplicationOutputResourceOutputTypeInput` via:
 //
-//          ApplicationOutputResourceOutputTypeArgs{...}
+//	ApplicationOutputResourceOutputTypeArgs{...}
 type ApplicationOutputResourceOutputTypeInput interface {
 	pulumi.Input
 
@@ -2023,7 +2023,7 @@ type ApplicationRecordColumn struct {
 // ApplicationRecordColumnInput is an input type that accepts ApplicationRecordColumnArgs and ApplicationRecordColumnOutput values.
 // You can construct a concrete instance of `ApplicationRecordColumnInput` via:
 //
-//          ApplicationRecordColumnArgs{...}
+//	ApplicationRecordColumnArgs{...}
 type ApplicationRecordColumnInput interface {
 	pulumi.Input
 
@@ -2052,7 +2052,7 @@ func (i ApplicationRecordColumnArgs) ToApplicationRecordColumnOutputWithContext(
 // ApplicationRecordColumnArrayInput is an input type that accepts ApplicationRecordColumnArray and ApplicationRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationRecordColumnArrayInput` via:
 //
-//          ApplicationRecordColumnArray{ ApplicationRecordColumnArgs{...} }
+//	ApplicationRecordColumnArray{ ApplicationRecordColumnArgs{...} }
 type ApplicationRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -2128,7 +2128,7 @@ type ApplicationRecordFormat struct {
 // ApplicationRecordFormatInput is an input type that accepts ApplicationRecordFormatArgs and ApplicationRecordFormatOutput values.
 // You can construct a concrete instance of `ApplicationRecordFormatInput` via:
 //
-//          ApplicationRecordFormatArgs{...}
+//	ApplicationRecordFormatArgs{...}
 type ApplicationRecordFormatInput interface {
 	pulumi.Input
 
@@ -2183,7 +2183,7 @@ type ApplicationReferenceDataSourceCSVMappingParameters struct {
 // ApplicationReferenceDataSourceCSVMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceCSVMappingParametersArgs and ApplicationReferenceDataSourceCSVMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceCSVMappingParametersInput` via:
 //
-//          ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
+//	ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
 type ApplicationReferenceDataSourceCSVMappingParametersInput interface {
 	pulumi.Input
 
@@ -2219,11 +2219,11 @@ func (i ApplicationReferenceDataSourceCSVMappingParametersArgs) ToApplicationRef
 // ApplicationReferenceDataSourceCSVMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceCSVMappingParametersArgs, ApplicationReferenceDataSourceCSVMappingParametersPtr and ApplicationReferenceDataSourceCSVMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceCSVMappingParametersPtrInput` via:
 //
-//          ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
+//	        ApplicationReferenceDataSourceCSVMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationReferenceDataSourceCSVMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -2330,7 +2330,7 @@ type ApplicationReferenceDataSourceJSONMappingParameters struct {
 // ApplicationReferenceDataSourceJSONMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceJSONMappingParametersArgs and ApplicationReferenceDataSourceJSONMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceJSONMappingParametersInput` via:
 //
-//          ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
+//	ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
 type ApplicationReferenceDataSourceJSONMappingParametersInput interface {
 	pulumi.Input
 
@@ -2365,11 +2365,11 @@ func (i ApplicationReferenceDataSourceJSONMappingParametersArgs) ToApplicationRe
 // ApplicationReferenceDataSourceJSONMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceJSONMappingParametersArgs, ApplicationReferenceDataSourceJSONMappingParametersPtr and ApplicationReferenceDataSourceJSONMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceJSONMappingParametersPtrInput` via:
 //
-//          ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
+//	        ApplicationReferenceDataSourceJSONMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationReferenceDataSourceJSONMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -2464,7 +2464,7 @@ type ApplicationReferenceDataSourceMappingParameters struct {
 // ApplicationReferenceDataSourceMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceMappingParametersArgs and ApplicationReferenceDataSourceMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceMappingParametersInput` via:
 //
-//          ApplicationReferenceDataSourceMappingParametersArgs{...}
+//	ApplicationReferenceDataSourceMappingParametersArgs{...}
 type ApplicationReferenceDataSourceMappingParametersInput interface {
 	pulumi.Input
 
@@ -2500,11 +2500,11 @@ func (i ApplicationReferenceDataSourceMappingParametersArgs) ToApplicationRefere
 // ApplicationReferenceDataSourceMappingParametersPtrInput is an input type that accepts ApplicationReferenceDataSourceMappingParametersArgs, ApplicationReferenceDataSourceMappingParametersPtr and ApplicationReferenceDataSourceMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceMappingParametersPtrInput` via:
 //
-//          ApplicationReferenceDataSourceMappingParametersArgs{...}
+//	        ApplicationReferenceDataSourceMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationReferenceDataSourceMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -2617,7 +2617,7 @@ type ApplicationReferenceDataSourceRecordColumn struct {
 // ApplicationReferenceDataSourceRecordColumnInput is an input type that accepts ApplicationReferenceDataSourceRecordColumnArgs and ApplicationReferenceDataSourceRecordColumnOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceRecordColumnInput` via:
 //
-//          ApplicationReferenceDataSourceRecordColumnArgs{...}
+//	ApplicationReferenceDataSourceRecordColumnArgs{...}
 type ApplicationReferenceDataSourceRecordColumnInput interface {
 	pulumi.Input
 
@@ -2646,7 +2646,7 @@ func (i ApplicationReferenceDataSourceRecordColumnArgs) ToApplicationReferenceDa
 // ApplicationReferenceDataSourceRecordColumnArrayInput is an input type that accepts ApplicationReferenceDataSourceRecordColumnArray and ApplicationReferenceDataSourceRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceRecordColumnArrayInput` via:
 //
-//          ApplicationReferenceDataSourceRecordColumnArray{ ApplicationReferenceDataSourceRecordColumnArgs{...} }
+//	ApplicationReferenceDataSourceRecordColumnArray{ ApplicationReferenceDataSourceRecordColumnArgs{...} }
 type ApplicationReferenceDataSourceRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -2722,7 +2722,7 @@ type ApplicationReferenceDataSourceRecordFormat struct {
 // ApplicationReferenceDataSourceRecordFormatInput is an input type that accepts ApplicationReferenceDataSourceRecordFormatArgs and ApplicationReferenceDataSourceRecordFormatOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceRecordFormatInput` via:
 //
-//          ApplicationReferenceDataSourceRecordFormatArgs{...}
+//	ApplicationReferenceDataSourceRecordFormatArgs{...}
 type ApplicationReferenceDataSourceRecordFormatInput interface {
 	pulumi.Input
 
@@ -2822,7 +2822,7 @@ type ApplicationReferenceDataSourceReferenceDataSource struct {
 // ApplicationReferenceDataSourceReferenceDataSourceInput is an input type that accepts ApplicationReferenceDataSourceReferenceDataSourceArgs and ApplicationReferenceDataSourceReferenceDataSourceOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceReferenceDataSourceInput` via:
 //
-//          ApplicationReferenceDataSourceReferenceDataSourceArgs{...}
+//	ApplicationReferenceDataSourceReferenceDataSourceArgs{...}
 type ApplicationReferenceDataSourceReferenceDataSourceInput interface {
 	pulumi.Input
 
@@ -2938,7 +2938,7 @@ type ApplicationReferenceDataSourceReferenceSchema struct {
 // ApplicationReferenceDataSourceReferenceSchemaInput is an input type that accepts ApplicationReferenceDataSourceReferenceSchemaArgs and ApplicationReferenceDataSourceReferenceSchemaOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceReferenceSchemaInput` via:
 //
-//          ApplicationReferenceDataSourceReferenceSchemaArgs{...}
+//	ApplicationReferenceDataSourceReferenceSchemaArgs{...}
 type ApplicationReferenceDataSourceReferenceSchemaInput interface {
 	pulumi.Input
 
@@ -3054,7 +3054,7 @@ type ApplicationReferenceDataSourceS3ReferenceDataSource struct {
 // ApplicationReferenceDataSourceS3ReferenceDataSourceInput is an input type that accepts ApplicationReferenceDataSourceS3ReferenceDataSourceArgs and ApplicationReferenceDataSourceS3ReferenceDataSourceOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceS3ReferenceDataSourceInput` via:
 //
-//          ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{...}
+//	ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{...}
 type ApplicationReferenceDataSourceS3ReferenceDataSourceInput interface {
 	pulumi.Input
 
@@ -3091,11 +3091,11 @@ func (i ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationRe
 // ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput is an input type that accepts ApplicationReferenceDataSourceS3ReferenceDataSourceArgs, ApplicationReferenceDataSourceS3ReferenceDataSourcePtr and ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput values.
 // You can construct a concrete instance of `ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput` via:
 //
-//          ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{...}
+//	        ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput interface {
 	pulumi.Input
 

@@ -47,7 +47,7 @@ type FilterCriteria struct {
 // FilterCriteriaInput is an input type that accepts FilterCriteriaArgs and FilterCriteriaOutput values.
 // You can construct a concrete instance of `FilterCriteriaInput` via:
 //
-//          FilterCriteriaArgs{...}
+//	FilterCriteriaArgs{...}
 type FilterCriteriaInput interface {
 	pulumi.Input
 
@@ -550,7 +550,7 @@ type FilterDateFilter struct {
 // FilterDateFilterInput is an input type that accepts FilterDateFilterArgs and FilterDateFilterOutput values.
 // You can construct a concrete instance of `FilterDateFilterInput` via:
 //
-//          FilterDateFilterArgs{...}
+//	FilterDateFilterArgs{...}
 type FilterDateFilterInput interface {
 	pulumi.Input
 
@@ -578,7 +578,7 @@ func (i FilterDateFilterArgs) ToFilterDateFilterOutputWithContext(ctx context.Co
 // FilterDateFilterArrayInput is an input type that accepts FilterDateFilterArray and FilterDateFilterArrayOutput values.
 // You can construct a concrete instance of `FilterDateFilterArrayInput` via:
 //
-//          FilterDateFilterArray{ FilterDateFilterArgs{...} }
+//	FilterDateFilterArray{ FilterDateFilterArgs{...} }
 type FilterDateFilterArrayInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ type FilterMapFilter struct {
 // FilterMapFilterInput is an input type that accepts FilterMapFilterArgs and FilterMapFilterOutput values.
 // You can construct a concrete instance of `FilterMapFilterInput` via:
 //
-//          FilterMapFilterArgs{...}
+//	FilterMapFilterArgs{...}
 type FilterMapFilterInput interface {
 	pulumi.Input
 
@@ -680,7 +680,7 @@ func (i FilterMapFilterArgs) ToFilterMapFilterOutputWithContext(ctx context.Cont
 // FilterMapFilterArrayInput is an input type that accepts FilterMapFilterArray and FilterMapFilterArrayOutput values.
 // You can construct a concrete instance of `FilterMapFilterArrayInput` via:
 //
-//          FilterMapFilterArray{ FilterMapFilterArgs{...} }
+//	FilterMapFilterArray{ FilterMapFilterArgs{...} }
 type FilterMapFilterArrayInput interface {
 	pulumi.Input
 
@@ -756,7 +756,7 @@ type FilterNumberFilter struct {
 // FilterNumberFilterInput is an input type that accepts FilterNumberFilterArgs and FilterNumberFilterOutput values.
 // You can construct a concrete instance of `FilterNumberFilterInput` via:
 //
-//          FilterNumberFilterArgs{...}
+//	FilterNumberFilterArgs{...}
 type FilterNumberFilterInput interface {
 	pulumi.Input
 
@@ -792,11 +792,11 @@ func (i FilterNumberFilterArgs) ToFilterNumberFilterPtrOutputWithContext(ctx con
 // FilterNumberFilterPtrInput is an input type that accepts FilterNumberFilterArgs, FilterNumberFilterPtr and FilterNumberFilterPtrOutput values.
 // You can construct a concrete instance of `FilterNumberFilterPtrInput` via:
 //
-//          FilterNumberFilterArgs{...}
+//	        FilterNumberFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FilterNumberFilterPtrInput interface {
 	pulumi.Input
 
@@ -825,7 +825,7 @@ func (i *filterNumberFilterPtrType) ToFilterNumberFilterPtrOutputWithContext(ctx
 // FilterNumberFilterArrayInput is an input type that accepts FilterNumberFilterArray and FilterNumberFilterArrayOutput values.
 // You can construct a concrete instance of `FilterNumberFilterArrayInput` via:
 //
-//          FilterNumberFilterArray{ FilterNumberFilterArgs{...} }
+//	FilterNumberFilterArray{ FilterNumberFilterArgs{...} }
 type FilterNumberFilterArrayInput interface {
 	pulumi.Input
 
@@ -953,7 +953,7 @@ type FilterPackageFilter struct {
 // FilterPackageFilterInput is an input type that accepts FilterPackageFilterArgs and FilterPackageFilterOutput values.
 // You can construct a concrete instance of `FilterPackageFilterInput` via:
 //
-//          FilterPackageFilterArgs{...}
+//	FilterPackageFilterArgs{...}
 type FilterPackageFilterInput interface {
 	pulumi.Input
 
@@ -985,7 +985,7 @@ func (i FilterPackageFilterArgs) ToFilterPackageFilterOutputWithContext(ctx cont
 // FilterPackageFilterArrayInput is an input type that accepts FilterPackageFilterArray and FilterPackageFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPackageFilterArrayInput` via:
 //
-//          FilterPackageFilterArray{ FilterPackageFilterArgs{...} }
+//	FilterPackageFilterArray{ FilterPackageFilterArgs{...} }
 type FilterPackageFilterArrayInput interface {
 	pulumi.Input
 
@@ -1073,7 +1073,7 @@ type FilterPortRangeFilter struct {
 // FilterPortRangeFilterInput is an input type that accepts FilterPortRangeFilterArgs and FilterPortRangeFilterOutput values.
 // You can construct a concrete instance of `FilterPortRangeFilterInput` via:
 //
-//          FilterPortRangeFilterArgs{...}
+//	FilterPortRangeFilterArgs{...}
 type FilterPortRangeFilterInput interface {
 	pulumi.Input
 
@@ -1101,7 +1101,7 @@ func (i FilterPortRangeFilterArgs) ToFilterPortRangeFilterOutputWithContext(ctx 
 // FilterPortRangeFilterArrayInput is an input type that accepts FilterPortRangeFilterArray and FilterPortRangeFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPortRangeFilterArrayInput` via:
 //
-//          FilterPortRangeFilterArray{ FilterPortRangeFilterArgs{...} }
+//	FilterPortRangeFilterArray{ FilterPortRangeFilterArgs{...} }
 type FilterPortRangeFilterArrayInput interface {
 	pulumi.Input
 
@@ -1173,7 +1173,7 @@ type FilterStringFilter struct {
 // FilterStringFilterInput is an input type that accepts FilterStringFilterArgs and FilterStringFilterOutput values.
 // You can construct a concrete instance of `FilterStringFilterInput` via:
 //
-//          FilterStringFilterArgs{...}
+//	FilterStringFilterArgs{...}
 type FilterStringFilterInput interface {
 	pulumi.Input
 
@@ -1209,11 +1209,11 @@ func (i FilterStringFilterArgs) ToFilterStringFilterPtrOutputWithContext(ctx con
 // FilterStringFilterPtrInput is an input type that accepts FilterStringFilterArgs, FilterStringFilterPtr and FilterStringFilterPtrOutput values.
 // You can construct a concrete instance of `FilterStringFilterPtrInput` via:
 //
-//          FilterStringFilterArgs{...}
+//	        FilterStringFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FilterStringFilterPtrInput interface {
 	pulumi.Input
 
@@ -1242,7 +1242,7 @@ func (i *filterStringFilterPtrType) ToFilterStringFilterPtrOutputWithContext(ctx
 // FilterStringFilterArrayInput is an input type that accepts FilterStringFilterArray and FilterStringFilterArrayOutput values.
 // You can construct a concrete instance of `FilterStringFilterArrayInput` via:
 //
-//          FilterStringFilterArray{ FilterStringFilterArgs{...} }
+//	FilterStringFilterArray{ FilterStringFilterArgs{...} }
 type FilterStringFilterArrayInput interface {
 	pulumi.Input
 

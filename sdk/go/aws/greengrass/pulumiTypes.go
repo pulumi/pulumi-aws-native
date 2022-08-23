@@ -19,7 +19,7 @@ type ConnectorDefinitionConnector struct {
 // ConnectorDefinitionConnectorInput is an input type that accepts ConnectorDefinitionConnectorArgs and ConnectorDefinitionConnectorOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionConnectorInput` via:
 //
-//          ConnectorDefinitionConnectorArgs{...}
+//	ConnectorDefinitionConnectorArgs{...}
 type ConnectorDefinitionConnectorInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i ConnectorDefinitionConnectorArgs) ToConnectorDefinitionConnectorOutputWi
 // ConnectorDefinitionConnectorArrayInput is an input type that accepts ConnectorDefinitionConnectorArray and ConnectorDefinitionConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionConnectorArrayInput` via:
 //
-//          ConnectorDefinitionConnectorArray{ ConnectorDefinitionConnectorArgs{...} }
+//	ConnectorDefinitionConnectorArray{ ConnectorDefinitionConnectorArgs{...} }
 type ConnectorDefinitionConnectorArrayInput interface {
 	pulumi.Input
 
@@ -123,7 +123,7 @@ type ConnectorDefinitionVersionType struct {
 // ConnectorDefinitionVersionTypeInput is an input type that accepts ConnectorDefinitionVersionTypeArgs and ConnectorDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionVersionTypeInput` via:
 //
-//          ConnectorDefinitionVersionTypeArgs{...}
+//	ConnectorDefinitionVersionTypeArgs{...}
 type ConnectorDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -158,11 +158,11 @@ func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypePtrO
 // ConnectorDefinitionVersionTypePtrInput is an input type that accepts ConnectorDefinitionVersionTypeArgs, ConnectorDefinitionVersionTypePtr and ConnectorDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionVersionTypePtrInput` via:
 //
-//          ConnectorDefinitionVersionTypeArgs{...}
+//	        ConnectorDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ type ConnectorDefinitionVersionConnector struct {
 // ConnectorDefinitionVersionConnectorInput is an input type that accepts ConnectorDefinitionVersionConnectorArgs and ConnectorDefinitionVersionConnectorOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionVersionConnectorInput` via:
 //
-//          ConnectorDefinitionVersionConnectorArgs{...}
+//	ConnectorDefinitionVersionConnectorArgs{...}
 type ConnectorDefinitionVersionConnectorInput interface {
 	pulumi.Input
 
@@ -287,7 +287,7 @@ func (i ConnectorDefinitionVersionConnectorArgs) ToConnectorDefinitionVersionCon
 // ConnectorDefinitionVersionConnectorArrayInput is an input type that accepts ConnectorDefinitionVersionConnectorArray and ConnectorDefinitionVersionConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionVersionConnectorArrayInput` via:
 //
-//          ConnectorDefinitionVersionConnectorArray{ ConnectorDefinitionVersionConnectorArgs{...} }
+//	ConnectorDefinitionVersionConnectorArray{ ConnectorDefinitionVersionConnectorArgs{...} }
 type ConnectorDefinitionVersionConnectorArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ type CoreDefinitionCore struct {
 // CoreDefinitionCoreInput is an input type that accepts CoreDefinitionCoreArgs and CoreDefinitionCoreOutput values.
 // You can construct a concrete instance of `CoreDefinitionCoreInput` via:
 //
-//          CoreDefinitionCoreArgs{...}
+//	CoreDefinitionCoreArgs{...}
 type CoreDefinitionCoreInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ func (i CoreDefinitionCoreArgs) ToCoreDefinitionCoreOutputWithContext(ctx contex
 // CoreDefinitionCoreArrayInput is an input type that accepts CoreDefinitionCoreArray and CoreDefinitionCoreArrayOutput values.
 // You can construct a concrete instance of `CoreDefinitionCoreArrayInput` via:
 //
-//          CoreDefinitionCoreArray{ CoreDefinitionCoreArgs{...} }
+//	CoreDefinitionCoreArray{ CoreDefinitionCoreArgs{...} }
 type CoreDefinitionCoreArrayInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ type CoreDefinitionVersionType struct {
 // CoreDefinitionVersionTypeInput is an input type that accepts CoreDefinitionVersionTypeArgs and CoreDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `CoreDefinitionVersionTypeInput` via:
 //
-//          CoreDefinitionVersionTypeArgs{...}
+//	CoreDefinitionVersionTypeArgs{...}
 type CoreDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -509,11 +509,11 @@ func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypePtrOutputWithC
 // CoreDefinitionVersionTypePtrInput is an input type that accepts CoreDefinitionVersionTypeArgs, CoreDefinitionVersionTypePtr and CoreDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `CoreDefinitionVersionTypePtrInput` via:
 //
-//          CoreDefinitionVersionTypeArgs{...}
+//	        CoreDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CoreDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -610,7 +610,7 @@ type CoreDefinitionVersionCore struct {
 // CoreDefinitionVersionCoreInput is an input type that accepts CoreDefinitionVersionCoreArgs and CoreDefinitionVersionCoreOutput values.
 // You can construct a concrete instance of `CoreDefinitionVersionCoreInput` via:
 //
-//          CoreDefinitionVersionCoreArgs{...}
+//	CoreDefinitionVersionCoreArgs{...}
 type CoreDefinitionVersionCoreInput interface {
 	pulumi.Input
 
@@ -640,7 +640,7 @@ func (i CoreDefinitionVersionCoreArgs) ToCoreDefinitionVersionCoreOutputWithCont
 // CoreDefinitionVersionCoreArrayInput is an input type that accepts CoreDefinitionVersionCoreArray and CoreDefinitionVersionCoreArrayOutput values.
 // You can construct a concrete instance of `CoreDefinitionVersionCoreArrayInput` via:
 //
-//          CoreDefinitionVersionCoreArray{ CoreDefinitionVersionCoreArgs{...} }
+//	CoreDefinitionVersionCoreArray{ CoreDefinitionVersionCoreArgs{...} }
 type CoreDefinitionVersionCoreArrayInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type DeviceDefinitionDevice struct {
 // DeviceDefinitionDeviceInput is an input type that accepts DeviceDefinitionDeviceArgs and DeviceDefinitionDeviceOutput values.
 // You can construct a concrete instance of `DeviceDefinitionDeviceInput` via:
 //
-//          DeviceDefinitionDeviceArgs{...}
+//	DeviceDefinitionDeviceArgs{...}
 type DeviceDefinitionDeviceInput interface {
 	pulumi.Input
 
@@ -752,7 +752,7 @@ func (i DeviceDefinitionDeviceArgs) ToDeviceDefinitionDeviceOutputWithContext(ct
 // DeviceDefinitionDeviceArrayInput is an input type that accepts DeviceDefinitionDeviceArray and DeviceDefinitionDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceDefinitionDeviceArrayInput` via:
 //
-//          DeviceDefinitionDeviceArray{ DeviceDefinitionDeviceArgs{...} }
+//	DeviceDefinitionDeviceArray{ DeviceDefinitionDeviceArgs{...} }
 type DeviceDefinitionDeviceArrayInput interface {
 	pulumi.Input
 
@@ -831,7 +831,7 @@ type DeviceDefinitionVersionType struct {
 // DeviceDefinitionVersionTypeInput is an input type that accepts DeviceDefinitionVersionTypeArgs and DeviceDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `DeviceDefinitionVersionTypeInput` via:
 //
-//          DeviceDefinitionVersionTypeArgs{...}
+//	DeviceDefinitionVersionTypeArgs{...}
 type DeviceDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -866,11 +866,11 @@ func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypePtrOutputW
 // DeviceDefinitionVersionTypePtrInput is an input type that accepts DeviceDefinitionVersionTypeArgs, DeviceDefinitionVersionTypePtr and DeviceDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `DeviceDefinitionVersionTypePtrInput` via:
 //
-//          DeviceDefinitionVersionTypeArgs{...}
+//	        DeviceDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeviceDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ type DeviceDefinitionVersionDevice struct {
 // DeviceDefinitionVersionDeviceInput is an input type that accepts DeviceDefinitionVersionDeviceArgs and DeviceDefinitionVersionDeviceOutput values.
 // You can construct a concrete instance of `DeviceDefinitionVersionDeviceInput` via:
 //
-//          DeviceDefinitionVersionDeviceArgs{...}
+//	DeviceDefinitionVersionDeviceArgs{...}
 type DeviceDefinitionVersionDeviceInput interface {
 	pulumi.Input
 
@@ -997,7 +997,7 @@ func (i DeviceDefinitionVersionDeviceArgs) ToDeviceDefinitionVersionDeviceOutput
 // DeviceDefinitionVersionDeviceArrayInput is an input type that accepts DeviceDefinitionVersionDeviceArray and DeviceDefinitionVersionDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceDefinitionVersionDeviceArrayInput` via:
 //
-//          DeviceDefinitionVersionDeviceArray{ DeviceDefinitionVersionDeviceArgs{...} }
+//	DeviceDefinitionVersionDeviceArray{ DeviceDefinitionVersionDeviceArgs{...} }
 type DeviceDefinitionVersionDeviceArrayInput interface {
 	pulumi.Input
 
@@ -1076,7 +1076,7 @@ type FunctionDefinitionDefaultConfig struct {
 // FunctionDefinitionDefaultConfigInput is an input type that accepts FunctionDefinitionDefaultConfigArgs and FunctionDefinitionDefaultConfigOutput values.
 // You can construct a concrete instance of `FunctionDefinitionDefaultConfigInput` via:
 //
-//          FunctionDefinitionDefaultConfigArgs{...}
+//	FunctionDefinitionDefaultConfigArgs{...}
 type FunctionDefinitionDefaultConfigInput interface {
 	pulumi.Input
 
@@ -1111,11 +1111,11 @@ func (i FunctionDefinitionDefaultConfigArgs) ToFunctionDefinitionDefaultConfigPt
 // FunctionDefinitionDefaultConfigPtrInput is an input type that accepts FunctionDefinitionDefaultConfigArgs, FunctionDefinitionDefaultConfigPtr and FunctionDefinitionDefaultConfigPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionDefaultConfigPtrInput` via:
 //
-//          FunctionDefinitionDefaultConfigArgs{...}
+//	        FunctionDefinitionDefaultConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionDefaultConfigPtrInput interface {
 	pulumi.Input
 
@@ -1212,7 +1212,7 @@ type FunctionDefinitionEnvironment struct {
 // FunctionDefinitionEnvironmentInput is an input type that accepts FunctionDefinitionEnvironmentArgs and FunctionDefinitionEnvironmentOutput values.
 // You can construct a concrete instance of `FunctionDefinitionEnvironmentInput` via:
 //
-//          FunctionDefinitionEnvironmentArgs{...}
+//	FunctionDefinitionEnvironmentArgs{...}
 type FunctionDefinitionEnvironmentInput interface {
 	pulumi.Input
 
@@ -1250,11 +1250,11 @@ func (i FunctionDefinitionEnvironmentArgs) ToFunctionDefinitionEnvironmentPtrOut
 // FunctionDefinitionEnvironmentPtrInput is an input type that accepts FunctionDefinitionEnvironmentArgs, FunctionDefinitionEnvironmentPtr and FunctionDefinitionEnvironmentPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionEnvironmentPtrInput` via:
 //
-//          FunctionDefinitionEnvironmentArgs{...}
+//	        FunctionDefinitionEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -1390,7 +1390,7 @@ type FunctionDefinitionExecution struct {
 // FunctionDefinitionExecutionInput is an input type that accepts FunctionDefinitionExecutionArgs and FunctionDefinitionExecutionOutput values.
 // You can construct a concrete instance of `FunctionDefinitionExecutionInput` via:
 //
-//          FunctionDefinitionExecutionArgs{...}
+//	FunctionDefinitionExecutionArgs{...}
 type FunctionDefinitionExecutionInput interface {
 	pulumi.Input
 
@@ -1426,11 +1426,11 @@ func (i FunctionDefinitionExecutionArgs) ToFunctionDefinitionExecutionPtrOutputW
 // FunctionDefinitionExecutionPtrInput is an input type that accepts FunctionDefinitionExecutionArgs, FunctionDefinitionExecutionPtr and FunctionDefinitionExecutionPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionExecutionPtrInput` via:
 //
-//          FunctionDefinitionExecutionArgs{...}
+//	        FunctionDefinitionExecutionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionExecutionPtrInput interface {
 	pulumi.Input
 
@@ -1539,7 +1539,7 @@ type FunctionDefinitionFunction struct {
 // FunctionDefinitionFunctionInput is an input type that accepts FunctionDefinitionFunctionArgs and FunctionDefinitionFunctionOutput values.
 // You can construct a concrete instance of `FunctionDefinitionFunctionInput` via:
 //
-//          FunctionDefinitionFunctionArgs{...}
+//	FunctionDefinitionFunctionArgs{...}
 type FunctionDefinitionFunctionInput interface {
 	pulumi.Input
 
@@ -1568,7 +1568,7 @@ func (i FunctionDefinitionFunctionArgs) ToFunctionDefinitionFunctionOutputWithCo
 // FunctionDefinitionFunctionArrayInput is an input type that accepts FunctionDefinitionFunctionArray and FunctionDefinitionFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionFunctionArrayInput` via:
 //
-//          FunctionDefinitionFunctionArray{ FunctionDefinitionFunctionArgs{...} }
+//	FunctionDefinitionFunctionArray{ FunctionDefinitionFunctionArgs{...} }
 type FunctionDefinitionFunctionArrayInput interface {
 	pulumi.Input
 
@@ -1651,7 +1651,7 @@ type FunctionDefinitionFunctionConfiguration struct {
 // FunctionDefinitionFunctionConfigurationInput is an input type that accepts FunctionDefinitionFunctionConfigurationArgs and FunctionDefinitionFunctionConfigurationOutput values.
 // You can construct a concrete instance of `FunctionDefinitionFunctionConfigurationInput` via:
 //
-//          FunctionDefinitionFunctionConfigurationArgs{...}
+//	FunctionDefinitionFunctionConfigurationArgs{...}
 type FunctionDefinitionFunctionConfigurationInput interface {
 	pulumi.Input
 
@@ -1731,7 +1731,7 @@ type FunctionDefinitionResourceAccessPolicy struct {
 // FunctionDefinitionResourceAccessPolicyInput is an input type that accepts FunctionDefinitionResourceAccessPolicyArgs and FunctionDefinitionResourceAccessPolicyOutput values.
 // You can construct a concrete instance of `FunctionDefinitionResourceAccessPolicyInput` via:
 //
-//          FunctionDefinitionResourceAccessPolicyArgs{...}
+//	FunctionDefinitionResourceAccessPolicyArgs{...}
 type FunctionDefinitionResourceAccessPolicyInput interface {
 	pulumi.Input
 
@@ -1759,7 +1759,7 @@ func (i FunctionDefinitionResourceAccessPolicyArgs) ToFunctionDefinitionResource
 // FunctionDefinitionResourceAccessPolicyArrayInput is an input type that accepts FunctionDefinitionResourceAccessPolicyArray and FunctionDefinitionResourceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionResourceAccessPolicyArrayInput` via:
 //
-//          FunctionDefinitionResourceAccessPolicyArray{ FunctionDefinitionResourceAccessPolicyArgs{...} }
+//	FunctionDefinitionResourceAccessPolicyArray{ FunctionDefinitionResourceAccessPolicyArgs{...} }
 type FunctionDefinitionResourceAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -1831,7 +1831,7 @@ type FunctionDefinitionRunAs struct {
 // FunctionDefinitionRunAsInput is an input type that accepts FunctionDefinitionRunAsArgs and FunctionDefinitionRunAsOutput values.
 // You can construct a concrete instance of `FunctionDefinitionRunAsInput` via:
 //
-//          FunctionDefinitionRunAsArgs{...}
+//	FunctionDefinitionRunAsArgs{...}
 type FunctionDefinitionRunAsInput interface {
 	pulumi.Input
 
@@ -1867,11 +1867,11 @@ func (i FunctionDefinitionRunAsArgs) ToFunctionDefinitionRunAsPtrOutputWithConte
 // FunctionDefinitionRunAsPtrInput is an input type that accepts FunctionDefinitionRunAsArgs, FunctionDefinitionRunAsPtr and FunctionDefinitionRunAsPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionRunAsPtrInput` via:
 //
-//          FunctionDefinitionRunAsArgs{...}
+//	        FunctionDefinitionRunAsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionRunAsPtrInput interface {
 	pulumi.Input
 
@@ -1979,7 +1979,7 @@ type FunctionDefinitionVersionType struct {
 // FunctionDefinitionVersionTypeInput is an input type that accepts FunctionDefinitionVersionTypeArgs and FunctionDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionTypeInput` via:
 //
-//          FunctionDefinitionVersionTypeArgs{...}
+//	FunctionDefinitionVersionTypeArgs{...}
 type FunctionDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -2015,11 +2015,11 @@ func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypePtrOut
 // FunctionDefinitionVersionTypePtrInput is an input type that accepts FunctionDefinitionVersionTypeArgs, FunctionDefinitionVersionTypePtr and FunctionDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionTypePtrInput` via:
 //
-//          FunctionDefinitionVersionTypeArgs{...}
+//	        FunctionDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -2126,7 +2126,7 @@ type FunctionDefinitionVersionDefaultConfig struct {
 // FunctionDefinitionVersionDefaultConfigInput is an input type that accepts FunctionDefinitionVersionDefaultConfigArgs and FunctionDefinitionVersionDefaultConfigOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionDefaultConfigInput` via:
 //
-//          FunctionDefinitionVersionDefaultConfigArgs{...}
+//	FunctionDefinitionVersionDefaultConfigArgs{...}
 type FunctionDefinitionVersionDefaultConfigInput interface {
 	pulumi.Input
 
@@ -2161,11 +2161,11 @@ func (i FunctionDefinitionVersionDefaultConfigArgs) ToFunctionDefinitionVersionD
 // FunctionDefinitionVersionDefaultConfigPtrInput is an input type that accepts FunctionDefinitionVersionDefaultConfigArgs, FunctionDefinitionVersionDefaultConfigPtr and FunctionDefinitionVersionDefaultConfigPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionDefaultConfigPtrInput` via:
 //
-//          FunctionDefinitionVersionDefaultConfigArgs{...}
+//	        FunctionDefinitionVersionDefaultConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionVersionDefaultConfigPtrInput interface {
 	pulumi.Input
 
@@ -2262,7 +2262,7 @@ type FunctionDefinitionVersionEnvironment struct {
 // FunctionDefinitionVersionEnvironmentInput is an input type that accepts FunctionDefinitionVersionEnvironmentArgs and FunctionDefinitionVersionEnvironmentOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionEnvironmentInput` via:
 //
-//          FunctionDefinitionVersionEnvironmentArgs{...}
+//	FunctionDefinitionVersionEnvironmentArgs{...}
 type FunctionDefinitionVersionEnvironmentInput interface {
 	pulumi.Input
 
@@ -2300,11 +2300,11 @@ func (i FunctionDefinitionVersionEnvironmentArgs) ToFunctionDefinitionVersionEnv
 // FunctionDefinitionVersionEnvironmentPtrInput is an input type that accepts FunctionDefinitionVersionEnvironmentArgs, FunctionDefinitionVersionEnvironmentPtr and FunctionDefinitionVersionEnvironmentPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionEnvironmentPtrInput` via:
 //
-//          FunctionDefinitionVersionEnvironmentArgs{...}
+//	        FunctionDefinitionVersionEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionVersionEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -2440,7 +2440,7 @@ type FunctionDefinitionVersionExecution struct {
 // FunctionDefinitionVersionExecutionInput is an input type that accepts FunctionDefinitionVersionExecutionArgs and FunctionDefinitionVersionExecutionOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionExecutionInput` via:
 //
-//          FunctionDefinitionVersionExecutionArgs{...}
+//	FunctionDefinitionVersionExecutionArgs{...}
 type FunctionDefinitionVersionExecutionInput interface {
 	pulumi.Input
 
@@ -2476,11 +2476,11 @@ func (i FunctionDefinitionVersionExecutionArgs) ToFunctionDefinitionVersionExecu
 // FunctionDefinitionVersionExecutionPtrInput is an input type that accepts FunctionDefinitionVersionExecutionArgs, FunctionDefinitionVersionExecutionPtr and FunctionDefinitionVersionExecutionPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionExecutionPtrInput` via:
 //
-//          FunctionDefinitionVersionExecutionArgs{...}
+//	        FunctionDefinitionVersionExecutionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionVersionExecutionPtrInput interface {
 	pulumi.Input
 
@@ -2589,7 +2589,7 @@ type FunctionDefinitionVersionFunction struct {
 // FunctionDefinitionVersionFunctionInput is an input type that accepts FunctionDefinitionVersionFunctionArgs and FunctionDefinitionVersionFunctionOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionFunctionInput` via:
 //
-//          FunctionDefinitionVersionFunctionArgs{...}
+//	FunctionDefinitionVersionFunctionArgs{...}
 type FunctionDefinitionVersionFunctionInput interface {
 	pulumi.Input
 
@@ -2618,7 +2618,7 @@ func (i FunctionDefinitionVersionFunctionArgs) ToFunctionDefinitionVersionFuncti
 // FunctionDefinitionVersionFunctionArrayInput is an input type that accepts FunctionDefinitionVersionFunctionArray and FunctionDefinitionVersionFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionFunctionArrayInput` via:
 //
-//          FunctionDefinitionVersionFunctionArray{ FunctionDefinitionVersionFunctionArgs{...} }
+//	FunctionDefinitionVersionFunctionArray{ FunctionDefinitionVersionFunctionArgs{...} }
 type FunctionDefinitionVersionFunctionArrayInput interface {
 	pulumi.Input
 
@@ -2701,7 +2701,7 @@ type FunctionDefinitionVersionFunctionConfiguration struct {
 // FunctionDefinitionVersionFunctionConfigurationInput is an input type that accepts FunctionDefinitionVersionFunctionConfigurationArgs and FunctionDefinitionVersionFunctionConfigurationOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionFunctionConfigurationInput` via:
 //
-//          FunctionDefinitionVersionFunctionConfigurationArgs{...}
+//	FunctionDefinitionVersionFunctionConfigurationArgs{...}
 type FunctionDefinitionVersionFunctionConfigurationInput interface {
 	pulumi.Input
 
@@ -2783,7 +2783,7 @@ type FunctionDefinitionVersionResourceAccessPolicy struct {
 // FunctionDefinitionVersionResourceAccessPolicyInput is an input type that accepts FunctionDefinitionVersionResourceAccessPolicyArgs and FunctionDefinitionVersionResourceAccessPolicyOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionResourceAccessPolicyInput` via:
 //
-//          FunctionDefinitionVersionResourceAccessPolicyArgs{...}
+//	FunctionDefinitionVersionResourceAccessPolicyArgs{...}
 type FunctionDefinitionVersionResourceAccessPolicyInput interface {
 	pulumi.Input
 
@@ -2811,7 +2811,7 @@ func (i FunctionDefinitionVersionResourceAccessPolicyArgs) ToFunctionDefinitionV
 // FunctionDefinitionVersionResourceAccessPolicyArrayInput is an input type that accepts FunctionDefinitionVersionResourceAccessPolicyArray and FunctionDefinitionVersionResourceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionResourceAccessPolicyArrayInput` via:
 //
-//          FunctionDefinitionVersionResourceAccessPolicyArray{ FunctionDefinitionVersionResourceAccessPolicyArgs{...} }
+//	FunctionDefinitionVersionResourceAccessPolicyArray{ FunctionDefinitionVersionResourceAccessPolicyArgs{...} }
 type FunctionDefinitionVersionResourceAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -2883,7 +2883,7 @@ type FunctionDefinitionVersionRunAs struct {
 // FunctionDefinitionVersionRunAsInput is an input type that accepts FunctionDefinitionVersionRunAsArgs and FunctionDefinitionVersionRunAsOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionRunAsInput` via:
 //
-//          FunctionDefinitionVersionRunAsArgs{...}
+//	FunctionDefinitionVersionRunAsArgs{...}
 type FunctionDefinitionVersionRunAsInput interface {
 	pulumi.Input
 
@@ -2919,11 +2919,11 @@ func (i FunctionDefinitionVersionRunAsArgs) ToFunctionDefinitionVersionRunAsPtrO
 // FunctionDefinitionVersionRunAsPtrInput is an input type that accepts FunctionDefinitionVersionRunAsArgs, FunctionDefinitionVersionRunAsPtr and FunctionDefinitionVersionRunAsPtrOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionRunAsPtrInput` via:
 //
-//          FunctionDefinitionVersionRunAsArgs{...}
+//	        FunctionDefinitionVersionRunAsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionDefinitionVersionRunAsPtrInput interface {
 	pulumi.Input
 
@@ -3036,7 +3036,7 @@ type GroupVersionType struct {
 // GroupVersionTypeInput is an input type that accepts GroupVersionTypeArgs and GroupVersionTypeOutput values.
 // You can construct a concrete instance of `GroupVersionTypeInput` via:
 //
-//          GroupVersionTypeArgs{...}
+//	GroupVersionTypeArgs{...}
 type GroupVersionTypeInput interface {
 	pulumi.Input
 
@@ -3077,11 +3077,11 @@ func (i GroupVersionTypeArgs) ToGroupVersionTypePtrOutputWithContext(ctx context
 // GroupVersionTypePtrInput is an input type that accepts GroupVersionTypeArgs, GroupVersionTypePtr and GroupVersionTypePtrOutput values.
 // You can construct a concrete instance of `GroupVersionTypePtrInput` via:
 //
-//          GroupVersionTypeArgs{...}
+//	        GroupVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -3257,7 +3257,7 @@ type LoggerDefinitionLogger struct {
 // LoggerDefinitionLoggerInput is an input type that accepts LoggerDefinitionLoggerArgs and LoggerDefinitionLoggerOutput values.
 // You can construct a concrete instance of `LoggerDefinitionLoggerInput` via:
 //
-//          LoggerDefinitionLoggerArgs{...}
+//	LoggerDefinitionLoggerArgs{...}
 type LoggerDefinitionLoggerInput interface {
 	pulumi.Input
 
@@ -3288,7 +3288,7 @@ func (i LoggerDefinitionLoggerArgs) ToLoggerDefinitionLoggerOutputWithContext(ct
 // LoggerDefinitionLoggerArrayInput is an input type that accepts LoggerDefinitionLoggerArray and LoggerDefinitionLoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerDefinitionLoggerArrayInput` via:
 //
-//          LoggerDefinitionLoggerArray{ LoggerDefinitionLoggerArgs{...} }
+//	LoggerDefinitionLoggerArray{ LoggerDefinitionLoggerArgs{...} }
 type LoggerDefinitionLoggerArrayInput interface {
 	pulumi.Input
 
@@ -3371,7 +3371,7 @@ type LoggerDefinitionVersionType struct {
 // LoggerDefinitionVersionTypeInput is an input type that accepts LoggerDefinitionVersionTypeArgs and LoggerDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `LoggerDefinitionVersionTypeInput` via:
 //
-//          LoggerDefinitionVersionTypeArgs{...}
+//	LoggerDefinitionVersionTypeArgs{...}
 type LoggerDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -3406,11 +3406,11 @@ func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypePtrOutputW
 // LoggerDefinitionVersionTypePtrInput is an input type that accepts LoggerDefinitionVersionTypeArgs, LoggerDefinitionVersionTypePtr and LoggerDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `LoggerDefinitionVersionTypePtrInput` via:
 //
-//          LoggerDefinitionVersionTypeArgs{...}
+//	        LoggerDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoggerDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -3508,7 +3508,7 @@ type LoggerDefinitionVersionLogger struct {
 // LoggerDefinitionVersionLoggerInput is an input type that accepts LoggerDefinitionVersionLoggerArgs and LoggerDefinitionVersionLoggerOutput values.
 // You can construct a concrete instance of `LoggerDefinitionVersionLoggerInput` via:
 //
-//          LoggerDefinitionVersionLoggerArgs{...}
+//	LoggerDefinitionVersionLoggerArgs{...}
 type LoggerDefinitionVersionLoggerInput interface {
 	pulumi.Input
 
@@ -3539,7 +3539,7 @@ func (i LoggerDefinitionVersionLoggerArgs) ToLoggerDefinitionVersionLoggerOutput
 // LoggerDefinitionVersionLoggerArrayInput is an input type that accepts LoggerDefinitionVersionLoggerArray and LoggerDefinitionVersionLoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerDefinitionVersionLoggerArrayInput` via:
 //
-//          LoggerDefinitionVersionLoggerArray{ LoggerDefinitionVersionLoggerArgs{...} }
+//	LoggerDefinitionVersionLoggerArray{ LoggerDefinitionVersionLoggerArgs{...} }
 type LoggerDefinitionVersionLoggerArrayInput interface {
 	pulumi.Input
 
@@ -3623,7 +3623,7 @@ type ResourceDefinitionGroupOwnerSetting struct {
 // ResourceDefinitionGroupOwnerSettingInput is an input type that accepts ResourceDefinitionGroupOwnerSettingArgs and ResourceDefinitionGroupOwnerSettingOutput values.
 // You can construct a concrete instance of `ResourceDefinitionGroupOwnerSettingInput` via:
 //
-//          ResourceDefinitionGroupOwnerSettingArgs{...}
+//	ResourceDefinitionGroupOwnerSettingArgs{...}
 type ResourceDefinitionGroupOwnerSettingInput interface {
 	pulumi.Input
 
@@ -3659,11 +3659,11 @@ func (i ResourceDefinitionGroupOwnerSettingArgs) ToResourceDefinitionGroupOwnerS
 // ResourceDefinitionGroupOwnerSettingPtrInput is an input type that accepts ResourceDefinitionGroupOwnerSettingArgs, ResourceDefinitionGroupOwnerSettingPtr and ResourceDefinitionGroupOwnerSettingPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionGroupOwnerSettingPtrInput` via:
 //
-//          ResourceDefinitionGroupOwnerSettingArgs{...}
+//	        ResourceDefinitionGroupOwnerSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionGroupOwnerSettingPtrInput interface {
 	pulumi.Input
 
@@ -3771,7 +3771,7 @@ type ResourceDefinitionLocalDeviceResourceData struct {
 // ResourceDefinitionLocalDeviceResourceDataInput is an input type that accepts ResourceDefinitionLocalDeviceResourceDataArgs and ResourceDefinitionLocalDeviceResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionLocalDeviceResourceDataInput` via:
 //
-//          ResourceDefinitionLocalDeviceResourceDataArgs{...}
+//	ResourceDefinitionLocalDeviceResourceDataArgs{...}
 type ResourceDefinitionLocalDeviceResourceDataInput interface {
 	pulumi.Input
 
@@ -3807,11 +3807,11 @@ func (i ResourceDefinitionLocalDeviceResourceDataArgs) ToResourceDefinitionLocal
 // ResourceDefinitionLocalDeviceResourceDataPtrInput is an input type that accepts ResourceDefinitionLocalDeviceResourceDataArgs, ResourceDefinitionLocalDeviceResourceDataPtr and ResourceDefinitionLocalDeviceResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionLocalDeviceResourceDataPtrInput` via:
 //
-//          ResourceDefinitionLocalDeviceResourceDataArgs{...}
+//	        ResourceDefinitionLocalDeviceResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionLocalDeviceResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -3922,7 +3922,7 @@ type ResourceDefinitionLocalVolumeResourceData struct {
 // ResourceDefinitionLocalVolumeResourceDataInput is an input type that accepts ResourceDefinitionLocalVolumeResourceDataArgs and ResourceDefinitionLocalVolumeResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionLocalVolumeResourceDataInput` via:
 //
-//          ResourceDefinitionLocalVolumeResourceDataArgs{...}
+//	ResourceDefinitionLocalVolumeResourceDataArgs{...}
 type ResourceDefinitionLocalVolumeResourceDataInput interface {
 	pulumi.Input
 
@@ -3959,11 +3959,11 @@ func (i ResourceDefinitionLocalVolumeResourceDataArgs) ToResourceDefinitionLocal
 // ResourceDefinitionLocalVolumeResourceDataPtrInput is an input type that accepts ResourceDefinitionLocalVolumeResourceDataArgs, ResourceDefinitionLocalVolumeResourceDataPtr and ResourceDefinitionLocalVolumeResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionLocalVolumeResourceDataPtrInput` via:
 //
-//          ResourceDefinitionLocalVolumeResourceDataArgs{...}
+//	        ResourceDefinitionLocalVolumeResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionLocalVolumeResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -4089,7 +4089,7 @@ type ResourceDefinitionResourceDataContainer struct {
 // ResourceDefinitionResourceDataContainerInput is an input type that accepts ResourceDefinitionResourceDataContainerArgs and ResourceDefinitionResourceDataContainerOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceDataContainerInput` via:
 //
-//          ResourceDefinitionResourceDataContainerArgs{...}
+//	ResourceDefinitionResourceDataContainerArgs{...}
 type ResourceDefinitionResourceDataContainerInput interface {
 	pulumi.Input
 
@@ -4169,7 +4169,7 @@ type ResourceDefinitionResourceDownloadOwnerSetting struct {
 // ResourceDefinitionResourceDownloadOwnerSettingInput is an input type that accepts ResourceDefinitionResourceDownloadOwnerSettingArgs and ResourceDefinitionResourceDownloadOwnerSettingOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceDownloadOwnerSettingInput` via:
 //
-//          ResourceDefinitionResourceDownloadOwnerSettingArgs{...}
+//	ResourceDefinitionResourceDownloadOwnerSettingArgs{...}
 type ResourceDefinitionResourceDownloadOwnerSettingInput interface {
 	pulumi.Input
 
@@ -4205,11 +4205,11 @@ func (i ResourceDefinitionResourceDownloadOwnerSettingArgs) ToResourceDefinition
 // ResourceDefinitionResourceDownloadOwnerSettingPtrInput is an input type that accepts ResourceDefinitionResourceDownloadOwnerSettingArgs, ResourceDefinitionResourceDownloadOwnerSettingPtr and ResourceDefinitionResourceDownloadOwnerSettingPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceDownloadOwnerSettingPtrInput` via:
 //
-//          ResourceDefinitionResourceDownloadOwnerSettingArgs{...}
+//	        ResourceDefinitionResourceDownloadOwnerSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionResourceDownloadOwnerSettingPtrInput interface {
 	pulumi.Input
 
@@ -4318,7 +4318,7 @@ type ResourceDefinitionResourceInstance struct {
 // ResourceDefinitionResourceInstanceInput is an input type that accepts ResourceDefinitionResourceInstanceArgs and ResourceDefinitionResourceInstanceOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceInstanceInput` via:
 //
-//          ResourceDefinitionResourceInstanceArgs{...}
+//	ResourceDefinitionResourceInstanceArgs{...}
 type ResourceDefinitionResourceInstanceInput interface {
 	pulumi.Input
 
@@ -4347,7 +4347,7 @@ func (i ResourceDefinitionResourceInstanceArgs) ToResourceDefinitionResourceInst
 // ResourceDefinitionResourceInstanceArrayInput is an input type that accepts ResourceDefinitionResourceInstanceArray and ResourceDefinitionResourceInstanceArrayOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceInstanceArrayInput` via:
 //
-//          ResourceDefinitionResourceInstanceArray{ ResourceDefinitionResourceInstanceArgs{...} }
+//	ResourceDefinitionResourceInstanceArray{ ResourceDefinitionResourceInstanceArgs{...} }
 type ResourceDefinitionResourceInstanceArrayInput interface {
 	pulumi.Input
 
@@ -4426,7 +4426,7 @@ type ResourceDefinitionS3MachineLearningModelResourceData struct {
 // ResourceDefinitionS3MachineLearningModelResourceDataInput is an input type that accepts ResourceDefinitionS3MachineLearningModelResourceDataArgs and ResourceDefinitionS3MachineLearningModelResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionS3MachineLearningModelResourceDataInput` via:
 //
-//          ResourceDefinitionS3MachineLearningModelResourceDataArgs{...}
+//	ResourceDefinitionS3MachineLearningModelResourceDataArgs{...}
 type ResourceDefinitionS3MachineLearningModelResourceDataInput interface {
 	pulumi.Input
 
@@ -4463,11 +4463,11 @@ func (i ResourceDefinitionS3MachineLearningModelResourceDataArgs) ToResourceDefi
 // ResourceDefinitionS3MachineLearningModelResourceDataPtrInput is an input type that accepts ResourceDefinitionS3MachineLearningModelResourceDataArgs, ResourceDefinitionS3MachineLearningModelResourceDataPtr and ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionS3MachineLearningModelResourceDataPtrInput` via:
 //
-//          ResourceDefinitionS3MachineLearningModelResourceDataArgs{...}
+//	        ResourceDefinitionS3MachineLearningModelResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionS3MachineLearningModelResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -4591,7 +4591,7 @@ type ResourceDefinitionSageMakerMachineLearningModelResourceData struct {
 // ResourceDefinitionSageMakerMachineLearningModelResourceDataInput is an input type that accepts ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs and ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionSageMakerMachineLearningModelResourceDataInput` via:
 //
-//          ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs{...}
+//	ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs{...}
 type ResourceDefinitionSageMakerMachineLearningModelResourceDataInput interface {
 	pulumi.Input
 
@@ -4628,11 +4628,11 @@ func (i ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs) ToResou
 // ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrInput is an input type that accepts ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs, ResourceDefinitionSageMakerMachineLearningModelResourceDataPtr and ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrInput` via:
 //
-//          ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs{...}
+//	        ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -4755,7 +4755,7 @@ type ResourceDefinitionSecretsManagerSecretResourceData struct {
 // ResourceDefinitionSecretsManagerSecretResourceDataInput is an input type that accepts ResourceDefinitionSecretsManagerSecretResourceDataArgs and ResourceDefinitionSecretsManagerSecretResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionSecretsManagerSecretResourceDataInput` via:
 //
-//          ResourceDefinitionSecretsManagerSecretResourceDataArgs{...}
+//	ResourceDefinitionSecretsManagerSecretResourceDataArgs{...}
 type ResourceDefinitionSecretsManagerSecretResourceDataInput interface {
 	pulumi.Input
 
@@ -4791,11 +4791,11 @@ func (i ResourceDefinitionSecretsManagerSecretResourceDataArgs) ToResourceDefini
 // ResourceDefinitionSecretsManagerSecretResourceDataPtrInput is an input type that accepts ResourceDefinitionSecretsManagerSecretResourceDataArgs, ResourceDefinitionSecretsManagerSecretResourceDataPtr and ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionSecretsManagerSecretResourceDataPtrInput` via:
 //
-//          ResourceDefinitionSecretsManagerSecretResourceDataArgs{...}
+//	        ResourceDefinitionSecretsManagerSecretResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionSecretsManagerSecretResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -4904,7 +4904,7 @@ type ResourceDefinitionVersionType struct {
 // ResourceDefinitionVersionTypeInput is an input type that accepts ResourceDefinitionVersionTypeArgs and ResourceDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionTypeInput` via:
 //
-//          ResourceDefinitionVersionTypeArgs{...}
+//	ResourceDefinitionVersionTypeArgs{...}
 type ResourceDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -4939,11 +4939,11 @@ func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypePtrOut
 // ResourceDefinitionVersionTypePtrInput is an input type that accepts ResourceDefinitionVersionTypeArgs, ResourceDefinitionVersionTypePtr and ResourceDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionTypePtrInput` via:
 //
-//          ResourceDefinitionVersionTypeArgs{...}
+//	        ResourceDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -5038,7 +5038,7 @@ type ResourceDefinitionVersionGroupOwnerSetting struct {
 // ResourceDefinitionVersionGroupOwnerSettingInput is an input type that accepts ResourceDefinitionVersionGroupOwnerSettingArgs and ResourceDefinitionVersionGroupOwnerSettingOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionGroupOwnerSettingInput` via:
 //
-//          ResourceDefinitionVersionGroupOwnerSettingArgs{...}
+//	ResourceDefinitionVersionGroupOwnerSettingArgs{...}
 type ResourceDefinitionVersionGroupOwnerSettingInput interface {
 	pulumi.Input
 
@@ -5074,11 +5074,11 @@ func (i ResourceDefinitionVersionGroupOwnerSettingArgs) ToResourceDefinitionVers
 // ResourceDefinitionVersionGroupOwnerSettingPtrInput is an input type that accepts ResourceDefinitionVersionGroupOwnerSettingArgs, ResourceDefinitionVersionGroupOwnerSettingPtr and ResourceDefinitionVersionGroupOwnerSettingPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionGroupOwnerSettingPtrInput` via:
 //
-//          ResourceDefinitionVersionGroupOwnerSettingArgs{...}
+//	        ResourceDefinitionVersionGroupOwnerSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionGroupOwnerSettingPtrInput interface {
 	pulumi.Input
 
@@ -5186,7 +5186,7 @@ type ResourceDefinitionVersionLocalDeviceResourceData struct {
 // ResourceDefinitionVersionLocalDeviceResourceDataInput is an input type that accepts ResourceDefinitionVersionLocalDeviceResourceDataArgs and ResourceDefinitionVersionLocalDeviceResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionLocalDeviceResourceDataInput` via:
 //
-//          ResourceDefinitionVersionLocalDeviceResourceDataArgs{...}
+//	ResourceDefinitionVersionLocalDeviceResourceDataArgs{...}
 type ResourceDefinitionVersionLocalDeviceResourceDataInput interface {
 	pulumi.Input
 
@@ -5222,11 +5222,11 @@ func (i ResourceDefinitionVersionLocalDeviceResourceDataArgs) ToResourceDefiniti
 // ResourceDefinitionVersionLocalDeviceResourceDataPtrInput is an input type that accepts ResourceDefinitionVersionLocalDeviceResourceDataArgs, ResourceDefinitionVersionLocalDeviceResourceDataPtr and ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionLocalDeviceResourceDataPtrInput` via:
 //
-//          ResourceDefinitionVersionLocalDeviceResourceDataArgs{...}
+//	        ResourceDefinitionVersionLocalDeviceResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionLocalDeviceResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -5337,7 +5337,7 @@ type ResourceDefinitionVersionLocalVolumeResourceData struct {
 // ResourceDefinitionVersionLocalVolumeResourceDataInput is an input type that accepts ResourceDefinitionVersionLocalVolumeResourceDataArgs and ResourceDefinitionVersionLocalVolumeResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionLocalVolumeResourceDataInput` via:
 //
-//          ResourceDefinitionVersionLocalVolumeResourceDataArgs{...}
+//	ResourceDefinitionVersionLocalVolumeResourceDataArgs{...}
 type ResourceDefinitionVersionLocalVolumeResourceDataInput interface {
 	pulumi.Input
 
@@ -5374,11 +5374,11 @@ func (i ResourceDefinitionVersionLocalVolumeResourceDataArgs) ToResourceDefiniti
 // ResourceDefinitionVersionLocalVolumeResourceDataPtrInput is an input type that accepts ResourceDefinitionVersionLocalVolumeResourceDataArgs, ResourceDefinitionVersionLocalVolumeResourceDataPtr and ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionLocalVolumeResourceDataPtrInput` via:
 //
-//          ResourceDefinitionVersionLocalVolumeResourceDataArgs{...}
+//	        ResourceDefinitionVersionLocalVolumeResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionLocalVolumeResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -5504,7 +5504,7 @@ type ResourceDefinitionVersionResourceDataContainer struct {
 // ResourceDefinitionVersionResourceDataContainerInput is an input type that accepts ResourceDefinitionVersionResourceDataContainerArgs and ResourceDefinitionVersionResourceDataContainerOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceDataContainerInput` via:
 //
-//          ResourceDefinitionVersionResourceDataContainerArgs{...}
+//	ResourceDefinitionVersionResourceDataContainerArgs{...}
 type ResourceDefinitionVersionResourceDataContainerInput interface {
 	pulumi.Input
 
@@ -5584,7 +5584,7 @@ type ResourceDefinitionVersionResourceDownloadOwnerSetting struct {
 // ResourceDefinitionVersionResourceDownloadOwnerSettingInput is an input type that accepts ResourceDefinitionVersionResourceDownloadOwnerSettingArgs and ResourceDefinitionVersionResourceDownloadOwnerSettingOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceDownloadOwnerSettingInput` via:
 //
-//          ResourceDefinitionVersionResourceDownloadOwnerSettingArgs{...}
+//	ResourceDefinitionVersionResourceDownloadOwnerSettingArgs{...}
 type ResourceDefinitionVersionResourceDownloadOwnerSettingInput interface {
 	pulumi.Input
 
@@ -5620,11 +5620,11 @@ func (i ResourceDefinitionVersionResourceDownloadOwnerSettingArgs) ToResourceDef
 // ResourceDefinitionVersionResourceDownloadOwnerSettingPtrInput is an input type that accepts ResourceDefinitionVersionResourceDownloadOwnerSettingArgs, ResourceDefinitionVersionResourceDownloadOwnerSettingPtr and ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceDownloadOwnerSettingPtrInput` via:
 //
-//          ResourceDefinitionVersionResourceDownloadOwnerSettingArgs{...}
+//	        ResourceDefinitionVersionResourceDownloadOwnerSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionResourceDownloadOwnerSettingPtrInput interface {
 	pulumi.Input
 
@@ -5733,7 +5733,7 @@ type ResourceDefinitionVersionResourceInstance struct {
 // ResourceDefinitionVersionResourceInstanceInput is an input type that accepts ResourceDefinitionVersionResourceInstanceArgs and ResourceDefinitionVersionResourceInstanceOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceInstanceInput` via:
 //
-//          ResourceDefinitionVersionResourceInstanceArgs{...}
+//	ResourceDefinitionVersionResourceInstanceArgs{...}
 type ResourceDefinitionVersionResourceInstanceInput interface {
 	pulumi.Input
 
@@ -5762,7 +5762,7 @@ func (i ResourceDefinitionVersionResourceInstanceArgs) ToResourceDefinitionVersi
 // ResourceDefinitionVersionResourceInstanceArrayInput is an input type that accepts ResourceDefinitionVersionResourceInstanceArray and ResourceDefinitionVersionResourceInstanceArrayOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceInstanceArrayInput` via:
 //
-//          ResourceDefinitionVersionResourceInstanceArray{ ResourceDefinitionVersionResourceInstanceArgs{...} }
+//	ResourceDefinitionVersionResourceInstanceArray{ ResourceDefinitionVersionResourceInstanceArgs{...} }
 type ResourceDefinitionVersionResourceInstanceArrayInput interface {
 	pulumi.Input
 
@@ -5841,7 +5841,7 @@ type ResourceDefinitionVersionS3MachineLearningModelResourceData struct {
 // ResourceDefinitionVersionS3MachineLearningModelResourceDataInput is an input type that accepts ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs and ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionS3MachineLearningModelResourceDataInput` via:
 //
-//          ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs{...}
+//	ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs{...}
 type ResourceDefinitionVersionS3MachineLearningModelResourceDataInput interface {
 	pulumi.Input
 
@@ -5878,11 +5878,11 @@ func (i ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs) ToResou
 // ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrInput is an input type that accepts ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs, ResourceDefinitionVersionS3MachineLearningModelResourceDataPtr and ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrInput` via:
 //
-//          ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs{...}
+//	        ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -6006,7 +6006,7 @@ type ResourceDefinitionVersionSageMakerMachineLearningModelResourceData struct {
 // ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataInput is an input type that accepts ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs and ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataInput` via:
 //
-//          ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs{...}
+//	ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs{...}
 type ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataInput interface {
 	pulumi.Input
 
@@ -6043,11 +6043,11 @@ func (i ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs) 
 // ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrInput is an input type that accepts ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs, ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtr and ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrInput` via:
 //
-//          ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs{...}
+//	        ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -6174,7 +6174,7 @@ type ResourceDefinitionVersionSecretsManagerSecretResourceData struct {
 // ResourceDefinitionVersionSecretsManagerSecretResourceDataInput is an input type that accepts ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs and ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionSecretsManagerSecretResourceDataInput` via:
 //
-//          ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs{...}
+//	ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs{...}
 type ResourceDefinitionVersionSecretsManagerSecretResourceDataInput interface {
 	pulumi.Input
 
@@ -6210,11 +6210,11 @@ func (i ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs) ToResourc
 // ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrInput is an input type that accepts ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs, ResourceDefinitionVersionSecretsManagerSecretResourceDataPtr and ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrInput` via:
 //
-//          ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs{...}
+//	        ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrInput interface {
 	pulumi.Input
 
@@ -6326,7 +6326,7 @@ type SubscriptionDefinitionSubscription struct {
 // SubscriptionDefinitionSubscriptionInput is an input type that accepts SubscriptionDefinitionSubscriptionArgs and SubscriptionDefinitionSubscriptionOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionSubscriptionInput` via:
 //
-//          SubscriptionDefinitionSubscriptionArgs{...}
+//	SubscriptionDefinitionSubscriptionArgs{...}
 type SubscriptionDefinitionSubscriptionInput interface {
 	pulumi.Input
 
@@ -6356,7 +6356,7 @@ func (i SubscriptionDefinitionSubscriptionArgs) ToSubscriptionDefinitionSubscrip
 // SubscriptionDefinitionSubscriptionArrayInput is an input type that accepts SubscriptionDefinitionSubscriptionArray and SubscriptionDefinitionSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionSubscriptionArrayInput` via:
 //
-//          SubscriptionDefinitionSubscriptionArray{ SubscriptionDefinitionSubscriptionArgs{...} }
+//	SubscriptionDefinitionSubscriptionArray{ SubscriptionDefinitionSubscriptionArgs{...} }
 type SubscriptionDefinitionSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -6435,7 +6435,7 @@ type SubscriptionDefinitionVersionType struct {
 // SubscriptionDefinitionVersionTypeInput is an input type that accepts SubscriptionDefinitionVersionTypeArgs and SubscriptionDefinitionVersionTypeOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionVersionTypeInput` via:
 //
-//          SubscriptionDefinitionVersionTypeArgs{...}
+//	SubscriptionDefinitionVersionTypeArgs{...}
 type SubscriptionDefinitionVersionTypeInput interface {
 	pulumi.Input
 
@@ -6470,11 +6470,11 @@ func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTy
 // SubscriptionDefinitionVersionTypePtrInput is an input type that accepts SubscriptionDefinitionVersionTypeArgs, SubscriptionDefinitionVersionTypePtr and SubscriptionDefinitionVersionTypePtrOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionVersionTypePtrInput` via:
 //
-//          SubscriptionDefinitionVersionTypeArgs{...}
+//	        SubscriptionDefinitionVersionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
@@ -6571,7 +6571,7 @@ type SubscriptionDefinitionVersionSubscription struct {
 // SubscriptionDefinitionVersionSubscriptionInput is an input type that accepts SubscriptionDefinitionVersionSubscriptionArgs and SubscriptionDefinitionVersionSubscriptionOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionVersionSubscriptionInput` via:
 //
-//          SubscriptionDefinitionVersionSubscriptionArgs{...}
+//	SubscriptionDefinitionVersionSubscriptionArgs{...}
 type SubscriptionDefinitionVersionSubscriptionInput interface {
 	pulumi.Input
 
@@ -6601,7 +6601,7 @@ func (i SubscriptionDefinitionVersionSubscriptionArgs) ToSubscriptionDefinitionV
 // SubscriptionDefinitionVersionSubscriptionArrayInput is an input type that accepts SubscriptionDefinitionVersionSubscriptionArray and SubscriptionDefinitionVersionSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionVersionSubscriptionArrayInput` via:
 //
-//          SubscriptionDefinitionVersionSubscriptionArray{ SubscriptionDefinitionVersionSubscriptionArgs{...} }
+//	SubscriptionDefinitionVersionSubscriptionArray{ SubscriptionDefinitionVersionSubscriptionArgs{...} }
 type SubscriptionDefinitionVersionSubscriptionArrayInput interface {
 	pulumi.Input
 

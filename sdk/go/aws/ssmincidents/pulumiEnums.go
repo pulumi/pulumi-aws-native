@@ -140,7 +140,7 @@ func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToStringPtrOutputWithCo
 // ResponsePlanSsmAutomationTargetAccountInput is an input type that accepts ResponsePlanSsmAutomationTargetAccountArgs and ResponsePlanSsmAutomationTargetAccountOutput values.
 // You can construct a concrete instance of `ResponsePlanSsmAutomationTargetAccountInput` via:
 //
-//          ResponsePlanSsmAutomationTargetAccountArgs{...}
+//	ResponsePlanSsmAutomationTargetAccountArgs{...}
 type ResponsePlanSsmAutomationTargetAccountInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o ResponsePlanVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 // ResponsePlanVariableTypeInput is an input type that accepts ResponsePlanVariableTypeArgs and ResponsePlanVariableTypeOutput values.
 // You can construct a concrete instance of `ResponsePlanVariableTypeInput` via:
 //
-//          ResponsePlanVariableTypeArgs{...}
+//	ResponsePlanVariableTypeArgs{...}
 type ResponsePlanVariableTypeInput interface {
 	pulumi.Input
 

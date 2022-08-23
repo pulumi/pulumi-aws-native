@@ -18,7 +18,7 @@ type ReplicationSetRegionConfiguration struct {
 // ReplicationSetRegionConfigurationInput is an input type that accepts ReplicationSetRegionConfigurationArgs and ReplicationSetRegionConfigurationOutput values.
 // You can construct a concrete instance of `ReplicationSetRegionConfigurationInput` via:
 //
-//          ReplicationSetRegionConfigurationArgs{...}
+//	ReplicationSetRegionConfigurationArgs{...}
 type ReplicationSetRegionConfigurationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ReplicationSetRegionConfigurationArgs) ToReplicationSetRegionConfigurati
 // ReplicationSetRegionConfigurationPtrInput is an input type that accepts ReplicationSetRegionConfigurationArgs, ReplicationSetRegionConfigurationPtr and ReplicationSetRegionConfigurationPtrOutput values.
 // You can construct a concrete instance of `ReplicationSetRegionConfigurationPtrInput` via:
 //
-//          ReplicationSetRegionConfigurationArgs{...}
+//	        ReplicationSetRegionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationSetRegionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type ReplicationSetReplicationRegion struct {
 // ReplicationSetReplicationRegionInput is an input type that accepts ReplicationSetReplicationRegionArgs and ReplicationSetReplicationRegionOutput values.
 // You can construct a concrete instance of `ReplicationSetReplicationRegionInput` via:
 //
-//          ReplicationSetReplicationRegionArgs{...}
+//	ReplicationSetReplicationRegionArgs{...}
 type ReplicationSetReplicationRegionInput interface {
 	pulumi.Input
 
@@ -184,7 +184,7 @@ func (i ReplicationSetReplicationRegionArgs) ToReplicationSetReplicationRegionOu
 // ReplicationSetReplicationRegionArrayInput is an input type that accepts ReplicationSetReplicationRegionArray and ReplicationSetReplicationRegionArrayOutput values.
 // You can construct a concrete instance of `ReplicationSetReplicationRegionArrayInput` via:
 //
-//          ReplicationSetReplicationRegionArray{ ReplicationSetReplicationRegionArgs{...} }
+//	ReplicationSetReplicationRegionArray{ ReplicationSetReplicationRegionArgs{...} }
 type ReplicationSetReplicationRegionArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +259,7 @@ type ResponsePlanAction struct {
 // ResponsePlanActionInput is an input type that accepts ResponsePlanActionArgs and ResponsePlanActionOutput values.
 // You can construct a concrete instance of `ResponsePlanActionInput` via:
 //
-//          ResponsePlanActionArgs{...}
+//	ResponsePlanActionArgs{...}
 type ResponsePlanActionInput interface {
 	pulumi.Input
 
@@ -287,7 +287,7 @@ func (i ResponsePlanActionArgs) ToResponsePlanActionOutputWithContext(ctx contex
 // ResponsePlanActionArrayInput is an input type that accepts ResponsePlanActionArray and ResponsePlanActionArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanActionArrayInput` via:
 //
-//          ResponsePlanActionArray{ ResponsePlanActionArgs{...} }
+//	ResponsePlanActionArray{ ResponsePlanActionArgs{...} }
 type ResponsePlanActionArrayInput interface {
 	pulumi.Input
 
@@ -356,7 +356,7 @@ type ResponsePlanChatChannel struct {
 // ResponsePlanChatChannelInput is an input type that accepts ResponsePlanChatChannelArgs and ResponsePlanChatChannelOutput values.
 // You can construct a concrete instance of `ResponsePlanChatChannelInput` via:
 //
-//          ResponsePlanChatChannelArgs{...}
+//	ResponsePlanChatChannelArgs{...}
 type ResponsePlanChatChannelInput interface {
 	pulumi.Input
 
@@ -392,11 +392,11 @@ func (i ResponsePlanChatChannelArgs) ToResponsePlanChatChannelPtrOutputWithConte
 // ResponsePlanChatChannelPtrInput is an input type that accepts ResponsePlanChatChannelArgs, ResponsePlanChatChannelPtr and ResponsePlanChatChannelPtrOutput values.
 // You can construct a concrete instance of `ResponsePlanChatChannelPtrInput` via:
 //
-//          ResponsePlanChatChannelArgs{...}
+//	        ResponsePlanChatChannelArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponsePlanChatChannelPtrInput interface {
 	pulumi.Input
 
@@ -493,7 +493,7 @@ type ResponsePlanDynamicSsmParameter struct {
 // ResponsePlanDynamicSsmParameterInput is an input type that accepts ResponsePlanDynamicSsmParameterArgs and ResponsePlanDynamicSsmParameterOutput values.
 // You can construct a concrete instance of `ResponsePlanDynamicSsmParameterInput` via:
 //
-//          ResponsePlanDynamicSsmParameterArgs{...}
+//	ResponsePlanDynamicSsmParameterArgs{...}
 type ResponsePlanDynamicSsmParameterInput interface {
 	pulumi.Input
 
@@ -522,7 +522,7 @@ func (i ResponsePlanDynamicSsmParameterArgs) ToResponsePlanDynamicSsmParameterOu
 // ResponsePlanDynamicSsmParameterArrayInput is an input type that accepts ResponsePlanDynamicSsmParameterArray and ResponsePlanDynamicSsmParameterArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanDynamicSsmParameterArrayInput` via:
 //
-//          ResponsePlanDynamicSsmParameterArray{ ResponsePlanDynamicSsmParameterArgs{...} }
+//	ResponsePlanDynamicSsmParameterArray{ ResponsePlanDynamicSsmParameterArgs{...} }
 type ResponsePlanDynamicSsmParameterArrayInput interface {
 	pulumi.Input
 
@@ -595,7 +595,7 @@ type ResponsePlanDynamicSsmParameterValue struct {
 // ResponsePlanDynamicSsmParameterValueInput is an input type that accepts ResponsePlanDynamicSsmParameterValueArgs and ResponsePlanDynamicSsmParameterValueOutput values.
 // You can construct a concrete instance of `ResponsePlanDynamicSsmParameterValueInput` via:
 //
-//          ResponsePlanDynamicSsmParameterValueArgs{...}
+//	ResponsePlanDynamicSsmParameterValueArgs{...}
 type ResponsePlanDynamicSsmParameterValueInput interface {
 	pulumi.Input
 
@@ -656,7 +656,7 @@ type ResponsePlanIncidentTemplate struct {
 // ResponsePlanIncidentTemplateInput is an input type that accepts ResponsePlanIncidentTemplateArgs and ResponsePlanIncidentTemplateOutput values.
 // You can construct a concrete instance of `ResponsePlanIncidentTemplateInput` via:
 //
-//          ResponsePlanIncidentTemplateArgs{...}
+//	ResponsePlanIncidentTemplateArgs{...}
 type ResponsePlanIncidentTemplateInput interface {
 	pulumi.Input
 
@@ -814,7 +814,7 @@ type ResponsePlanNotificationTargetItem struct {
 // ResponsePlanNotificationTargetItemInput is an input type that accepts ResponsePlanNotificationTargetItemArgs and ResponsePlanNotificationTargetItemOutput values.
 // You can construct a concrete instance of `ResponsePlanNotificationTargetItemInput` via:
 //
-//          ResponsePlanNotificationTargetItemArgs{...}
+//	ResponsePlanNotificationTargetItemArgs{...}
 type ResponsePlanNotificationTargetItemInput interface {
 	pulumi.Input
 
@@ -842,7 +842,7 @@ func (i ResponsePlanNotificationTargetItemArgs) ToResponsePlanNotificationTarget
 // ResponsePlanNotificationTargetItemArrayInput is an input type that accepts ResponsePlanNotificationTargetItemArray and ResponsePlanNotificationTargetItemArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanNotificationTargetItemArrayInput` via:
 //
-//          ResponsePlanNotificationTargetItemArray{ ResponsePlanNotificationTargetItemArgs{...} }
+//	ResponsePlanNotificationTargetItemArray{ ResponsePlanNotificationTargetItemArgs{...} }
 type ResponsePlanNotificationTargetItemArrayInput interface {
 	pulumi.Input
 
@@ -922,7 +922,7 @@ type ResponsePlanSsmAutomation struct {
 // ResponsePlanSsmAutomationInput is an input type that accepts ResponsePlanSsmAutomationArgs and ResponsePlanSsmAutomationOutput values.
 // You can construct a concrete instance of `ResponsePlanSsmAutomationInput` via:
 //
-//          ResponsePlanSsmAutomationArgs{...}
+//	ResponsePlanSsmAutomationArgs{...}
 type ResponsePlanSsmAutomationInput interface {
 	pulumi.Input
 
@@ -969,11 +969,11 @@ func (i ResponsePlanSsmAutomationArgs) ToResponsePlanSsmAutomationPtrOutputWithC
 // ResponsePlanSsmAutomationPtrInput is an input type that accepts ResponsePlanSsmAutomationArgs, ResponsePlanSsmAutomationPtr and ResponsePlanSsmAutomationPtrOutput values.
 // You can construct a concrete instance of `ResponsePlanSsmAutomationPtrInput` via:
 //
-//          ResponsePlanSsmAutomationArgs{...}
+//	        ResponsePlanSsmAutomationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponsePlanSsmAutomationPtrInput interface {
 	pulumi.Input
 
@@ -1147,7 +1147,7 @@ type ResponsePlanSsmParameter struct {
 // ResponsePlanSsmParameterInput is an input type that accepts ResponsePlanSsmParameterArgs and ResponsePlanSsmParameterOutput values.
 // You can construct a concrete instance of `ResponsePlanSsmParameterInput` via:
 //
-//          ResponsePlanSsmParameterArgs{...}
+//	ResponsePlanSsmParameterArgs{...}
 type ResponsePlanSsmParameterInput interface {
 	pulumi.Input
 
@@ -1176,7 +1176,7 @@ func (i ResponsePlanSsmParameterArgs) ToResponsePlanSsmParameterOutputWithContex
 // ResponsePlanSsmParameterArrayInput is an input type that accepts ResponsePlanSsmParameterArray and ResponsePlanSsmParameterArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanSsmParameterArrayInput` via:
 //
-//          ResponsePlanSsmParameterArray{ ResponsePlanSsmParameterArgs{...} }
+//	ResponsePlanSsmParameterArray{ ResponsePlanSsmParameterArgs{...} }
 type ResponsePlanSsmParameterArrayInput interface {
 	pulumi.Input
 
@@ -1250,7 +1250,7 @@ type ResponsePlanTag struct {
 // ResponsePlanTagInput is an input type that accepts ResponsePlanTagArgs and ResponsePlanTagOutput values.
 // You can construct a concrete instance of `ResponsePlanTagInput` via:
 //
-//          ResponsePlanTagArgs{...}
+//	ResponsePlanTagArgs{...}
 type ResponsePlanTagInput interface {
 	pulumi.Input
 
@@ -1279,7 +1279,7 @@ func (i ResponsePlanTagArgs) ToResponsePlanTagOutputWithContext(ctx context.Cont
 // ResponsePlanTagArrayInput is an input type that accepts ResponsePlanTagArray and ResponsePlanTagArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanTagArrayInput` via:
 //
-//          ResponsePlanTagArray{ ResponsePlanTagArgs{...} }
+//	ResponsePlanTagArray{ ResponsePlanTagArgs{...} }
 type ResponsePlanTagArrayInput interface {
 	pulumi.Input
 

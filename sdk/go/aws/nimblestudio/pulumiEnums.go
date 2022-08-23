@@ -139,7 +139,7 @@ func (o LaunchProfileStreamingClipboardModePtrOutput) ToStringPtrOutputWithConte
 // LaunchProfileStreamingClipboardModeInput is an input type that accepts LaunchProfileStreamingClipboardModeArgs and LaunchProfileStreamingClipboardModeOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingClipboardModeInput` via:
 //
-//          LaunchProfileStreamingClipboardModeArgs{...}
+//	LaunchProfileStreamingClipboardModeArgs{...}
 type LaunchProfileStreamingClipboardModeInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o LaunchProfileStreamingInstanceTypePtrOutput) ToStringPtrOutputWithContex
 // LaunchProfileStreamingInstanceTypeInput is an input type that accepts LaunchProfileStreamingInstanceTypeArgs and LaunchProfileStreamingInstanceTypeOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingInstanceTypeInput` via:
 //
-//          LaunchProfileStreamingInstanceTypeArgs{...}
+//	LaunchProfileStreamingInstanceTypeArgs{...}
 type LaunchProfileStreamingInstanceTypeInput interface {
 	pulumi.Input
 
@@ -345,7 +345,7 @@ func (in *launchProfileStreamingInstanceTypePtr) ToLaunchProfileStreamingInstanc
 // LaunchProfileStreamingInstanceTypeArrayInput is an input type that accepts LaunchProfileStreamingInstanceTypeArray and LaunchProfileStreamingInstanceTypeArrayOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingInstanceTypeArrayInput` via:
 //
-//          LaunchProfileStreamingInstanceTypeArray{ LaunchProfileStreamingInstanceTypeArgs{...} }
+//	LaunchProfileStreamingInstanceTypeArray{ LaunchProfileStreamingInstanceTypeArgs{...} }
 type LaunchProfileStreamingInstanceTypeArrayInput interface {
 	pulumi.Input
 
@@ -515,7 +515,7 @@ func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToStringPtrOutputWith
 // LaunchProfileStreamingSessionStorageModeInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArgs and LaunchProfileStreamingSessionStorageModeOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeInput` via:
 //
-//          LaunchProfileStreamingSessionStorageModeArgs{...}
+//	LaunchProfileStreamingSessionStorageModeArgs{...}
 type LaunchProfileStreamingSessionStorageModeInput interface {
 	pulumi.Input
 
@@ -553,7 +553,7 @@ func (in *launchProfileStreamingSessionStorageModePtr) ToLaunchProfileStreamingS
 // LaunchProfileStreamingSessionStorageModeArrayInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArray and LaunchProfileStreamingSessionStorageModeArrayOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeArrayInput` via:
 //
-//          LaunchProfileStreamingSessionStorageModeArray{ LaunchProfileStreamingSessionStorageModeArgs{...} }
+//	LaunchProfileStreamingSessionStorageModeArray{ LaunchProfileStreamingSessionStorageModeArgs{...} }
 type LaunchProfileStreamingSessionStorageModeArrayInput interface {
 	pulumi.Input
 
@@ -814,7 +814,7 @@ func (o StudioComponentInitializationScriptRunContextPtrOutput) ToStringPtrOutpu
 // StudioComponentInitializationScriptRunContextInput is an input type that accepts StudioComponentInitializationScriptRunContextArgs and StudioComponentInitializationScriptRunContextOutput values.
 // You can construct a concrete instance of `StudioComponentInitializationScriptRunContextInput` via:
 //
-//          StudioComponentInitializationScriptRunContextArgs{...}
+//	StudioComponentInitializationScriptRunContextArgs{...}
 type StudioComponentInitializationScriptRunContextInput interface {
 	pulumi.Input
 
@@ -978,7 +978,7 @@ func (o StudioComponentLaunchProfilePlatformPtrOutput) ToStringPtrOutputWithCont
 // StudioComponentLaunchProfilePlatformInput is an input type that accepts StudioComponentLaunchProfilePlatformArgs and StudioComponentLaunchProfilePlatformOutput values.
 // You can construct a concrete instance of `StudioComponentLaunchProfilePlatformInput` via:
 //
-//          StudioComponentLaunchProfilePlatformArgs{...}
+//	StudioComponentLaunchProfilePlatformArgs{...}
 type StudioComponentLaunchProfilePlatformInput interface {
 	pulumi.Input
 
@@ -1144,7 +1144,7 @@ func (o StudioComponentSubtypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 // StudioComponentSubtypeInput is an input type that accepts StudioComponentSubtypeArgs and StudioComponentSubtypeOutput values.
 // You can construct a concrete instance of `StudioComponentSubtypeInput` via:
 //
-//          StudioComponentSubtypeArgs{...}
+//	StudioComponentSubtypeArgs{...}
 type StudioComponentSubtypeInput interface {
 	pulumi.Input
 
@@ -1311,7 +1311,7 @@ func (o StudioComponentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // StudioComponentTypeInput is an input type that accepts StudioComponentTypeArgs and StudioComponentTypeOutput values.
 // You can construct a concrete instance of `StudioComponentTypeInput` via:
 //
-//          StudioComponentTypeArgs{...}
+//	StudioComponentTypeArgs{...}
 type StudioComponentTypeInput interface {
 	pulumi.Input
 
@@ -1476,7 +1476,7 @@ func (o StudioEncryptionConfigurationKeyTypePtrOutput) ToStringPtrOutputWithCont
 // StudioEncryptionConfigurationKeyTypeInput is an input type that accepts StudioEncryptionConfigurationKeyTypeArgs and StudioEncryptionConfigurationKeyTypeOutput values.
 // You can construct a concrete instance of `StudioEncryptionConfigurationKeyTypeInput` via:
 //
-//          StudioEncryptionConfigurationKeyTypeArgs{...}
+//	StudioEncryptionConfigurationKeyTypeArgs{...}
 type StudioEncryptionConfigurationKeyTypeInput interface {
 	pulumi.Input
 

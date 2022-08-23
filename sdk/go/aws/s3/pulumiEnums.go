@@ -239,7 +239,7 @@ func (o BucketAccelerateConfigurationAccelerationStatusPtrOutput) ToStringPtrOut
 // BucketAccelerateConfigurationAccelerationStatusInput is an input type that accepts BucketAccelerateConfigurationAccelerationStatusArgs and BucketAccelerateConfigurationAccelerationStatusOutput values.
 // You can construct a concrete instance of `BucketAccelerateConfigurationAccelerationStatusInput` via:
 //
-//          BucketAccelerateConfigurationAccelerationStatusArgs{...}
+//	BucketAccelerateConfigurationAccelerationStatusArgs{...}
 type BucketAccelerateConfigurationAccelerationStatusInput interface {
 	pulumi.Input
 
@@ -410,7 +410,7 @@ func (o BucketAccessControlPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // BucketAccessControlInput is an input type that accepts BucketAccessControlArgs and BucketAccessControlOutput values.
 // You can construct a concrete instance of `BucketAccessControlInput` via:
 //
-//          BucketAccessControlArgs{...}
+//	BucketAccessControlArgs{...}
 type BucketAccessControlInput interface {
 	pulumi.Input
 
@@ -577,7 +577,7 @@ func (o BucketCorsRuleAllowedMethodsItemPtrOutput) ToStringPtrOutputWithContext(
 // BucketCorsRuleAllowedMethodsItemInput is an input type that accepts BucketCorsRuleAllowedMethodsItemArgs and BucketCorsRuleAllowedMethodsItemOutput values.
 // You can construct a concrete instance of `BucketCorsRuleAllowedMethodsItemInput` via:
 //
-//          BucketCorsRuleAllowedMethodsItemArgs{...}
+//	BucketCorsRuleAllowedMethodsItemArgs{...}
 type BucketCorsRuleAllowedMethodsItemInput interface {
 	pulumi.Input
 
@@ -615,7 +615,7 @@ func (in *bucketCorsRuleAllowedMethodsItemPtr) ToBucketCorsRuleAllowedMethodsIte
 // BucketCorsRuleAllowedMethodsItemArrayInput is an input type that accepts BucketCorsRuleAllowedMethodsItemArray and BucketCorsRuleAllowedMethodsItemArrayOutput values.
 // You can construct a concrete instance of `BucketCorsRuleAllowedMethodsItemArrayInput` via:
 //
-//          BucketCorsRuleAllowedMethodsItemArray{ BucketCorsRuleAllowedMethodsItemArgs{...} }
+//	BucketCorsRuleAllowedMethodsItemArray{ BucketCorsRuleAllowedMethodsItemArgs{...} }
 type BucketCorsRuleAllowedMethodsItemArrayInput interface {
 	pulumi.Input
 
@@ -786,7 +786,7 @@ func (o BucketDefaultRetentionModePtrOutput) ToStringPtrOutputWithContext(ctx co
 // BucketDefaultRetentionModeInput is an input type that accepts BucketDefaultRetentionModeArgs and BucketDefaultRetentionModeOutput values.
 // You can construct a concrete instance of `BucketDefaultRetentionModeInput` via:
 //
-//          BucketDefaultRetentionModeArgs{...}
+//	BucketDefaultRetentionModeArgs{...}
 type BucketDefaultRetentionModeInput interface {
 	pulumi.Input
 
@@ -950,7 +950,7 @@ func (o BucketDeleteMarkerReplicationStatusPtrOutput) ToStringPtrOutputWithConte
 // BucketDeleteMarkerReplicationStatusInput is an input type that accepts BucketDeleteMarkerReplicationStatusArgs and BucketDeleteMarkerReplicationStatusOutput values.
 // You can construct a concrete instance of `BucketDeleteMarkerReplicationStatusInput` via:
 //
-//          BucketDeleteMarkerReplicationStatusArgs{...}
+//	BucketDeleteMarkerReplicationStatusArgs{...}
 type BucketDeleteMarkerReplicationStatusInput interface {
 	pulumi.Input
 
@@ -1116,7 +1116,7 @@ func (o BucketDestinationFormatPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // BucketDestinationFormatInput is an input type that accepts BucketDestinationFormatArgs and BucketDestinationFormatOutput values.
 // You can construct a concrete instance of `BucketDestinationFormatInput` via:
 //
-//          BucketDestinationFormatArgs{...}
+//	BucketDestinationFormatArgs{...}
 type BucketDestinationFormatInput interface {
 	pulumi.Input
 
@@ -1281,7 +1281,7 @@ func (o BucketIntelligentTieringConfigurationStatusPtrOutput) ToStringPtrOutputW
 // BucketIntelligentTieringConfigurationStatusInput is an input type that accepts BucketIntelligentTieringConfigurationStatusArgs and BucketIntelligentTieringConfigurationStatusOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationStatusInput` via:
 //
-//          BucketIntelligentTieringConfigurationStatusArgs{...}
+//	BucketIntelligentTieringConfigurationStatusArgs{...}
 type BucketIntelligentTieringConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -1446,7 +1446,7 @@ func (o BucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToStringPtr
 // BucketInventoryConfigurationIncludedObjectVersionsInput is an input type that accepts BucketInventoryConfigurationIncludedObjectVersionsArgs and BucketInventoryConfigurationIncludedObjectVersionsOutput values.
 // You can construct a concrete instance of `BucketInventoryConfigurationIncludedObjectVersionsInput` via:
 //
-//          BucketInventoryConfigurationIncludedObjectVersionsArgs{...}
+//	BucketInventoryConfigurationIncludedObjectVersionsArgs{...}
 type BucketInventoryConfigurationIncludedObjectVersionsInput interface {
 	pulumi.Input
 
@@ -1620,7 +1620,7 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 // BucketInventoryConfigurationOptionalFieldsItemInput is an input type that accepts BucketInventoryConfigurationOptionalFieldsItemArgs and BucketInventoryConfigurationOptionalFieldsItemOutput values.
 // You can construct a concrete instance of `BucketInventoryConfigurationOptionalFieldsItemInput` via:
 //
-//          BucketInventoryConfigurationOptionalFieldsItemArgs{...}
+//	BucketInventoryConfigurationOptionalFieldsItemArgs{...}
 type BucketInventoryConfigurationOptionalFieldsItemInput interface {
 	pulumi.Input
 
@@ -1658,7 +1658,7 @@ func (in *bucketInventoryConfigurationOptionalFieldsItemPtr) ToBucketInventoryCo
 // BucketInventoryConfigurationOptionalFieldsItemArrayInput is an input type that accepts BucketInventoryConfigurationOptionalFieldsItemArray and BucketInventoryConfigurationOptionalFieldsItemArrayOutput values.
 // You can construct a concrete instance of `BucketInventoryConfigurationOptionalFieldsItemArrayInput` via:
 //
-//          BucketInventoryConfigurationOptionalFieldsItemArray{ BucketInventoryConfigurationOptionalFieldsItemArgs{...} }
+//	BucketInventoryConfigurationOptionalFieldsItemArray{ BucketInventoryConfigurationOptionalFieldsItemArgs{...} }
 type BucketInventoryConfigurationOptionalFieldsItemArrayInput interface {
 	pulumi.Input
 
@@ -1830,7 +1830,7 @@ func (o BucketInventoryConfigurationScheduleFrequencyPtrOutput) ToStringPtrOutpu
 // BucketInventoryConfigurationScheduleFrequencyInput is an input type that accepts BucketInventoryConfigurationScheduleFrequencyArgs and BucketInventoryConfigurationScheduleFrequencyOutput values.
 // You can construct a concrete instance of `BucketInventoryConfigurationScheduleFrequencyInput` via:
 //
-//          BucketInventoryConfigurationScheduleFrequencyArgs{...}
+//	BucketInventoryConfigurationScheduleFrequencyArgs{...}
 type BucketInventoryConfigurationScheduleFrequencyInput interface {
 	pulumi.Input
 
@@ -1994,7 +1994,7 @@ func (o BucketMetricsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // BucketMetricsStatusInput is an input type that accepts BucketMetricsStatusArgs and BucketMetricsStatusOutput values.
 // You can construct a concrete instance of `BucketMetricsStatusInput` via:
 //
-//          BucketMetricsStatusArgs{...}
+//	BucketMetricsStatusArgs{...}
 type BucketMetricsStatusInput interface {
 	pulumi.Input
 
@@ -2163,7 +2163,7 @@ func (o BucketNoncurrentVersionTransitionStorageClassPtrOutput) ToStringPtrOutpu
 // BucketNoncurrentVersionTransitionStorageClassInput is an input type that accepts BucketNoncurrentVersionTransitionStorageClassArgs and BucketNoncurrentVersionTransitionStorageClassOutput values.
 // You can construct a concrete instance of `BucketNoncurrentVersionTransitionStorageClassInput` via:
 //
-//          BucketNoncurrentVersionTransitionStorageClassArgs{...}
+//	BucketNoncurrentVersionTransitionStorageClassArgs{...}
 type BucketNoncurrentVersionTransitionStorageClassInput interface {
 	pulumi.Input
 
@@ -2329,7 +2329,7 @@ func (o BucketOwnershipControlsRuleObjectOwnershipPtrOutput) ToStringPtrOutputWi
 // BucketOwnershipControlsRuleObjectOwnershipInput is an input type that accepts BucketOwnershipControlsRuleObjectOwnershipArgs and BucketOwnershipControlsRuleObjectOwnershipOutput values.
 // You can construct a concrete instance of `BucketOwnershipControlsRuleObjectOwnershipInput` via:
 //
-//          BucketOwnershipControlsRuleObjectOwnershipArgs{...}
+//	BucketOwnershipControlsRuleObjectOwnershipArgs{...}
 type BucketOwnershipControlsRuleObjectOwnershipInput interface {
 	pulumi.Input
 
@@ -2494,7 +2494,7 @@ func (o BucketRedirectAllRequestsToProtocolPtrOutput) ToStringPtrOutputWithConte
 // BucketRedirectAllRequestsToProtocolInput is an input type that accepts BucketRedirectAllRequestsToProtocolArgs and BucketRedirectAllRequestsToProtocolOutput values.
 // You can construct a concrete instance of `BucketRedirectAllRequestsToProtocolInput` via:
 //
-//          BucketRedirectAllRequestsToProtocolArgs{...}
+//	BucketRedirectAllRequestsToProtocolArgs{...}
 type BucketRedirectAllRequestsToProtocolInput interface {
 	pulumi.Input
 
@@ -2659,7 +2659,7 @@ func (o BucketRedirectRuleProtocolPtrOutput) ToStringPtrOutputWithContext(ctx co
 // BucketRedirectRuleProtocolInput is an input type that accepts BucketRedirectRuleProtocolArgs and BucketRedirectRuleProtocolOutput values.
 // You can construct a concrete instance of `BucketRedirectRuleProtocolInput` via:
 //
-//          BucketRedirectRuleProtocolArgs{...}
+//	BucketRedirectRuleProtocolArgs{...}
 type BucketRedirectRuleProtocolInput interface {
 	pulumi.Input
 
@@ -2824,7 +2824,7 @@ func (o BucketReplicaModificationsStatusPtrOutput) ToStringPtrOutputWithContext(
 // BucketReplicaModificationsStatusInput is an input type that accepts BucketReplicaModificationsStatusArgs and BucketReplicaModificationsStatusOutput values.
 // You can construct a concrete instance of `BucketReplicaModificationsStatusInput` via:
 //
-//          BucketReplicaModificationsStatusArgs{...}
+//	BucketReplicaModificationsStatusArgs{...}
 type BucketReplicaModificationsStatusInput interface {
 	pulumi.Input
 
@@ -2995,7 +2995,7 @@ func (o BucketReplicationDestinationStorageClassPtrOutput) ToStringPtrOutputWith
 // BucketReplicationDestinationStorageClassInput is an input type that accepts BucketReplicationDestinationStorageClassArgs and BucketReplicationDestinationStorageClassOutput values.
 // You can construct a concrete instance of `BucketReplicationDestinationStorageClassInput` via:
 //
-//          BucketReplicationDestinationStorageClassArgs{...}
+//	BucketReplicationDestinationStorageClassArgs{...}
 type BucketReplicationDestinationStorageClassInput interface {
 	pulumi.Input
 
@@ -3160,7 +3160,7 @@ func (o BucketReplicationRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 // BucketReplicationRuleStatusInput is an input type that accepts BucketReplicationRuleStatusArgs and BucketReplicationRuleStatusOutput values.
 // You can construct a concrete instance of `BucketReplicationRuleStatusInput` via:
 //
-//          BucketReplicationRuleStatusArgs{...}
+//	BucketReplicationRuleStatusArgs{...}
 type BucketReplicationRuleStatusInput interface {
 	pulumi.Input
 
@@ -3324,7 +3324,7 @@ func (o BucketReplicationTimeStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 // BucketReplicationTimeStatusInput is an input type that accepts BucketReplicationTimeStatusArgs and BucketReplicationTimeStatusOutput values.
 // You can construct a concrete instance of `BucketReplicationTimeStatusInput` via:
 //
-//          BucketReplicationTimeStatusArgs{...}
+//	BucketReplicationTimeStatusArgs{...}
 type BucketReplicationTimeStatusInput interface {
 	pulumi.Input
 
@@ -3488,7 +3488,7 @@ func (o BucketRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // BucketRuleStatusInput is an input type that accepts BucketRuleStatusArgs and BucketRuleStatusOutput values.
 // You can construct a concrete instance of `BucketRuleStatusInput` via:
 //
-//          BucketRuleStatusArgs{...}
+//	BucketRuleStatusArgs{...}
 type BucketRuleStatusInput interface {
 	pulumi.Input
 
@@ -3652,7 +3652,7 @@ func (o BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput) ToStringPtrOut
 // BucketServerSideEncryptionByDefaultSSEAlgorithmInput is an input type that accepts BucketServerSideEncryptionByDefaultSSEAlgorithmArgs and BucketServerSideEncryptionByDefaultSSEAlgorithmOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionByDefaultSSEAlgorithmInput` via:
 //
-//          BucketServerSideEncryptionByDefaultSSEAlgorithmArgs{...}
+//	BucketServerSideEncryptionByDefaultSSEAlgorithmArgs{...}
 type BucketServerSideEncryptionByDefaultSSEAlgorithmInput interface {
 	pulumi.Input
 
@@ -3817,7 +3817,7 @@ func (o BucketSseKmsEncryptedObjectsStatusPtrOutput) ToStringPtrOutputWithContex
 // BucketSseKmsEncryptedObjectsStatusInput is an input type that accepts BucketSseKmsEncryptedObjectsStatusArgs and BucketSseKmsEncryptedObjectsStatusOutput values.
 // You can construct a concrete instance of `BucketSseKmsEncryptedObjectsStatusInput` via:
 //
-//          BucketSseKmsEncryptedObjectsStatusArgs{...}
+//	BucketSseKmsEncryptedObjectsStatusArgs{...}
 type BucketSseKmsEncryptedObjectsStatusInput interface {
 	pulumi.Input
 
@@ -3982,7 +3982,7 @@ func (o BucketTieringAccessTierPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // BucketTieringAccessTierInput is an input type that accepts BucketTieringAccessTierArgs and BucketTieringAccessTierOutput values.
 // You can construct a concrete instance of `BucketTieringAccessTierInput` via:
 //
-//          BucketTieringAccessTierArgs{...}
+//	BucketTieringAccessTierArgs{...}
 type BucketTieringAccessTierInput interface {
 	pulumi.Input
 
@@ -4150,7 +4150,7 @@ func (o BucketTransitionStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx 
 // BucketTransitionStorageClassInput is an input type that accepts BucketTransitionStorageClassArgs and BucketTransitionStorageClassOutput values.
 // You can construct a concrete instance of `BucketTransitionStorageClassInput` via:
 //
-//          BucketTransitionStorageClassArgs{...}
+//	BucketTransitionStorageClassArgs{...}
 type BucketTransitionStorageClassInput interface {
 	pulumi.Input
 
@@ -4315,7 +4315,7 @@ func (o BucketVersioningConfigurationStatusPtrOutput) ToStringPtrOutputWithConte
 // BucketVersioningConfigurationStatusInput is an input type that accepts BucketVersioningConfigurationStatusArgs and BucketVersioningConfigurationStatusOutput values.
 // You can construct a concrete instance of `BucketVersioningConfigurationStatusInput` via:
 //
-//          BucketVersioningConfigurationStatusArgs{...}
+//	BucketVersioningConfigurationStatusArgs{...}
 type BucketVersioningConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -4480,7 +4480,7 @@ func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) ToS
 // MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput is an input type that accepts MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicArgs and MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput` via:
 //
-//          MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicArgs{...}
+//	MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicArgs{...}
 type MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput interface {
 	pulumi.Input
 
@@ -4645,7 +4645,7 @@ func (o StorageLensS3BucketDestinationFormatPtrOutput) ToStringPtrOutputWithCont
 // StorageLensS3BucketDestinationFormatInput is an input type that accepts StorageLensS3BucketDestinationFormatArgs and StorageLensS3BucketDestinationFormatOutput values.
 // You can construct a concrete instance of `StorageLensS3BucketDestinationFormatInput` via:
 //
-//          StorageLensS3BucketDestinationFormatArgs{...}
+//	StorageLensS3BucketDestinationFormatArgs{...}
 type StorageLensS3BucketDestinationFormatInput interface {
 	pulumi.Input
 
@@ -4809,7 +4809,7 @@ func (o StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput) ToStringPtrO
 // StorageLensS3BucketDestinationOutputSchemaVersionInput is an input type that accepts StorageLensS3BucketDestinationOutputSchemaVersionArgs and StorageLensS3BucketDestinationOutputSchemaVersionOutput values.
 // You can construct a concrete instance of `StorageLensS3BucketDestinationOutputSchemaVersionInput` via:
 //
-//          StorageLensS3BucketDestinationOutputSchemaVersionArgs{...}
+//	StorageLensS3BucketDestinationOutputSchemaVersionArgs{...}
 type StorageLensS3BucketDestinationOutputSchemaVersionInput interface {
 	pulumi.Input
 

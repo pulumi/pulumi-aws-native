@@ -101,13 +101,15 @@ func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // <p>A valid grouping of resource permissions to apply to the new theme.
-// 			</p>
+//
+//	</p>
 func (o LookupThemeResultOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeResourcePermission { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
 // <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-// 			resource.</p>
+//
+//	resource.</p>
 func (o LookupThemeResultOutput) Tags() ThemeTagArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeTag { return v.Tags }).(ThemeTagArrayOutput)
 }

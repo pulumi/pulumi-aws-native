@@ -18,7 +18,7 @@ type CellTag struct {
 // CellTagInput is an input type that accepts CellTagArgs and CellTagOutput values.
 // You can construct a concrete instance of `CellTagInput` via:
 //
-//          CellTagArgs{...}
+//	CellTagArgs{...}
 type CellTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i CellTagArgs) ToCellTagOutputWithContext(ctx context.Context) CellTagOutp
 // CellTagArrayInput is an input type that accepts CellTagArray and CellTagArrayOutput values.
 // You can construct a concrete instance of `CellTagArrayInput` via:
 //
-//          CellTagArray{ CellTagArgs{...} }
+//	CellTagArray{ CellTagArgs{...} }
 type CellTagArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type ReadinessCheckTag struct {
 // ReadinessCheckTagInput is an input type that accepts ReadinessCheckTagArgs and ReadinessCheckTagOutput values.
 // You can construct a concrete instance of `ReadinessCheckTagInput` via:
 //
-//          ReadinessCheckTagArgs{...}
+//	ReadinessCheckTagArgs{...}
 type ReadinessCheckTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i ReadinessCheckTagArgs) ToReadinessCheckTagOutputWithContext(ctx context.
 // ReadinessCheckTagArrayInput is an input type that accepts ReadinessCheckTagArray and ReadinessCheckTagArrayOutput values.
 // You can construct a concrete instance of `ReadinessCheckTagArrayInput` via:
 //
-//          ReadinessCheckTagArray{ ReadinessCheckTagArgs{...} }
+//	ReadinessCheckTagArray{ ReadinessCheckTagArgs{...} }
 type ReadinessCheckTagArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type RecoveryGroupTag struct {
 // RecoveryGroupTagInput is an input type that accepts RecoveryGroupTagArgs and RecoveryGroupTagOutput values.
 // You can construct a concrete instance of `RecoveryGroupTagInput` via:
 //
-//          RecoveryGroupTagArgs{...}
+//	RecoveryGroupTagArgs{...}
 type RecoveryGroupTagInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i RecoveryGroupTagArgs) ToRecoveryGroupTagOutputWithContext(ctx context.Co
 // RecoveryGroupTagArrayInput is an input type that accepts RecoveryGroupTagArray and RecoveryGroupTagArrayOutput values.
 // You can construct a concrete instance of `RecoveryGroupTagArrayInput` via:
 //
-//          RecoveryGroupTagArray{ RecoveryGroupTagArgs{...} }
+//	RecoveryGroupTagArray{ RecoveryGroupTagArgs{...} }
 type RecoveryGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -326,7 +326,7 @@ type ResourceSetDNSTargetResource struct {
 // ResourceSetDNSTargetResourceInput is an input type that accepts ResourceSetDNSTargetResourceArgs and ResourceSetDNSTargetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetDNSTargetResourceInput` via:
 //
-//          ResourceSetDNSTargetResourceArgs{...}
+//	ResourceSetDNSTargetResourceArgs{...}
 type ResourceSetDNSTargetResourceInput interface {
 	pulumi.Input
 
@@ -370,11 +370,11 @@ func (i ResourceSetDNSTargetResourceArgs) ToResourceSetDNSTargetResourcePtrOutpu
 // ResourceSetDNSTargetResourcePtrInput is an input type that accepts ResourceSetDNSTargetResourceArgs, ResourceSetDNSTargetResourcePtr and ResourceSetDNSTargetResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetDNSTargetResourcePtrInput` via:
 //
-//          ResourceSetDNSTargetResourceArgs{...}
+//	        ResourceSetDNSTargetResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetDNSTargetResourcePtrInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ type ResourceSetNLBResource struct {
 // ResourceSetNLBResourceInput is an input type that accepts ResourceSetNLBResourceArgs and ResourceSetNLBResourceOutput values.
 // You can construct a concrete instance of `ResourceSetNLBResourceInput` via:
 //
-//          ResourceSetNLBResourceArgs{...}
+//	ResourceSetNLBResourceArgs{...}
 type ResourceSetNLBResourceInput interface {
 	pulumi.Input
 
@@ -568,11 +568,11 @@ func (i ResourceSetNLBResourceArgs) ToResourceSetNLBResourcePtrOutputWithContext
 // ResourceSetNLBResourcePtrInput is an input type that accepts ResourceSetNLBResourceArgs, ResourceSetNLBResourcePtr and ResourceSetNLBResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetNLBResourcePtrInput` via:
 //
-//          ResourceSetNLBResourceArgs{...}
+//	        ResourceSetNLBResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetNLBResourcePtrInput interface {
 	pulumi.Input
 
@@ -673,7 +673,7 @@ type ResourceSetR53ResourceRecord struct {
 // ResourceSetR53ResourceRecordInput is an input type that accepts ResourceSetR53ResourceRecordArgs and ResourceSetR53ResourceRecordOutput values.
 // You can construct a concrete instance of `ResourceSetR53ResourceRecordInput` via:
 //
-//          ResourceSetR53ResourceRecordArgs{...}
+//	ResourceSetR53ResourceRecordArgs{...}
 type ResourceSetR53ResourceRecordInput interface {
 	pulumi.Input
 
@@ -712,11 +712,11 @@ func (i ResourceSetR53ResourceRecordArgs) ToResourceSetR53ResourceRecordPtrOutpu
 // ResourceSetR53ResourceRecordPtrInput is an input type that accepts ResourceSetR53ResourceRecordArgs, ResourceSetR53ResourceRecordPtr and ResourceSetR53ResourceRecordPtrOutput values.
 // You can construct a concrete instance of `ResourceSetR53ResourceRecordPtrInput` via:
 //
-//          ResourceSetR53ResourceRecordArgs{...}
+//	        ResourceSetR53ResourceRecordArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetR53ResourceRecordPtrInput interface {
 	pulumi.Input
 
@@ -835,7 +835,7 @@ type ResourceSetResource struct {
 // ResourceSetResourceInput is an input type that accepts ResourceSetResourceArgs and ResourceSetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceInput` via:
 //
-//          ResourceSetResourceArgs{...}
+//	ResourceSetResourceArgs{...}
 type ResourceSetResourceInput interface {
 	pulumi.Input
 
@@ -869,7 +869,7 @@ func (i ResourceSetResourceArgs) ToResourceSetResourceOutputWithContext(ctx cont
 // ResourceSetResourceArrayInput is an input type that accepts ResourceSetResourceArray and ResourceSetResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceSetResourceArrayInput` via:
 //
-//          ResourceSetResourceArray{ ResourceSetResourceArgs{...} }
+//	ResourceSetResourceArray{ ResourceSetResourceArgs{...} }
 type ResourceSetResourceArrayInput interface {
 	pulumi.Input
 
@@ -953,7 +953,7 @@ type ResourceSetTag struct {
 // ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
 // You can construct a concrete instance of `ResourceSetTagInput` via:
 //
-//          ResourceSetTagArgs{...}
+//	ResourceSetTagArgs{...}
 type ResourceSetTagInput interface {
 	pulumi.Input
 
@@ -981,7 +981,7 @@ func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Contex
 // ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
 // You can construct a concrete instance of `ResourceSetTagArrayInput` via:
 //
-//          ResourceSetTagArray{ ResourceSetTagArgs{...} }
+//	ResourceSetTagArray{ ResourceSetTagArgs{...} }
 type ResourceSetTagArrayInput interface {
 	pulumi.Input
 
@@ -1054,7 +1054,7 @@ type ResourceSetTargetResource struct {
 // ResourceSetTargetResourceInput is an input type that accepts ResourceSetTargetResourceArgs and ResourceSetTargetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetTargetResourceInput` via:
 //
-//          ResourceSetTargetResourceArgs{...}
+//	ResourceSetTargetResourceArgs{...}
 type ResourceSetTargetResourceInput interface {
 	pulumi.Input
 
@@ -1091,11 +1091,11 @@ func (i ResourceSetTargetResourceArgs) ToResourceSetTargetResourcePtrOutputWithC
 // ResourceSetTargetResourcePtrInput is an input type that accepts ResourceSetTargetResourceArgs, ResourceSetTargetResourcePtr and ResourceSetTargetResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetTargetResourcePtrInput` via:
 //
-//          ResourceSetTargetResourceArgs{...}
+//	        ResourceSetTargetResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetTargetResourcePtrInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ type AgentPermissionsProperties struct {
 // AgentPermissionsPropertiesInput is an input type that accepts AgentPermissionsPropertiesArgs and AgentPermissionsPropertiesOutput values.
 // You can construct a concrete instance of `AgentPermissionsPropertiesInput` via:
 //
-//          AgentPermissionsPropertiesArgs{...}
+//	AgentPermissionsPropertiesArgs{...}
 type AgentPermissionsPropertiesInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesPtrOutputWit
 // AgentPermissionsPropertiesPtrInput is an input type that accepts AgentPermissionsPropertiesArgs, AgentPermissionsPropertiesPtr and AgentPermissionsPropertiesPtrOutput values.
 // You can construct a concrete instance of `AgentPermissionsPropertiesPtrInput` via:
 //
-//          AgentPermissionsPropertiesArgs{...}
+//	        AgentPermissionsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AgentPermissionsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type ProfilingGroupChannel struct {
 // ProfilingGroupChannelInput is an input type that accepts ProfilingGroupChannelArgs and ProfilingGroupChannelOutput values.
 // You can construct a concrete instance of `ProfilingGroupChannelInput` via:
 //
-//          ProfilingGroupChannelArgs{...}
+//	ProfilingGroupChannelArgs{...}
 type ProfilingGroupChannelInput interface {
 	pulumi.Input
 
@@ -188,7 +188,7 @@ func (i ProfilingGroupChannelArgs) ToProfilingGroupChannelOutputWithContext(ctx 
 // ProfilingGroupChannelArrayInput is an input type that accepts ProfilingGroupChannelArray and ProfilingGroupChannelArrayOutput values.
 // You can construct a concrete instance of `ProfilingGroupChannelArrayInput` via:
 //
-//          ProfilingGroupChannelArray{ ProfilingGroupChannelArgs{...} }
+//	ProfilingGroupChannelArray{ ProfilingGroupChannelArgs{...} }
 type ProfilingGroupChannelArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +264,7 @@ type ProfilingGroupTag struct {
 // ProfilingGroupTagInput is an input type that accepts ProfilingGroupTagArgs and ProfilingGroupTagOutput values.
 // You can construct a concrete instance of `ProfilingGroupTagInput` via:
 //
-//          ProfilingGroupTagArgs{...}
+//	ProfilingGroupTagArgs{...}
 type ProfilingGroupTagInput interface {
 	pulumi.Input
 
@@ -295,7 +295,7 @@ func (i ProfilingGroupTagArgs) ToProfilingGroupTagOutputWithContext(ctx context.
 // ProfilingGroupTagArrayInput is an input type that accepts ProfilingGroupTagArray and ProfilingGroupTagArrayOutput values.
 // You can construct a concrete instance of `ProfilingGroupTagArrayInput` via:
 //
-//          ProfilingGroupTagArray{ ProfilingGroupTagArgs{...} }
+//	ProfilingGroupTagArray{ ProfilingGroupTagArgs{...} }
 type ProfilingGroupTagArrayInput interface {
 	pulumi.Input
 

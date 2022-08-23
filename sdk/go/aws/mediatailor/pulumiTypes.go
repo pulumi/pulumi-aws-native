@@ -19,7 +19,7 @@ type PlaybackConfigurationAdMarkerPassthrough struct {
 // PlaybackConfigurationAdMarkerPassthroughInput is an input type that accepts PlaybackConfigurationAdMarkerPassthroughArgs and PlaybackConfigurationAdMarkerPassthroughOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationAdMarkerPassthroughInput` via:
 //
-//          PlaybackConfigurationAdMarkerPassthroughArgs{...}
+//	PlaybackConfigurationAdMarkerPassthroughArgs{...}
 type PlaybackConfigurationAdMarkerPassthroughInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdM
 // PlaybackConfigurationAdMarkerPassthroughPtrInput is an input type that accepts PlaybackConfigurationAdMarkerPassthroughArgs, PlaybackConfigurationAdMarkerPassthroughPtr and PlaybackConfigurationAdMarkerPassthroughPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationAdMarkerPassthroughPtrInput` via:
 //
-//          PlaybackConfigurationAdMarkerPassthroughArgs{...}
+//	        PlaybackConfigurationAdMarkerPassthroughArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationAdMarkerPassthroughPtrInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ type PlaybackConfigurationAvailSuppression struct {
 // PlaybackConfigurationAvailSuppressionInput is an input type that accepts PlaybackConfigurationAvailSuppressionArgs and PlaybackConfigurationAvailSuppressionOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationAvailSuppressionInput` via:
 //
-//          PlaybackConfigurationAvailSuppressionArgs{...}
+//	PlaybackConfigurationAvailSuppressionArgs{...}
 type PlaybackConfigurationAvailSuppressionInput interface {
 	pulumi.Input
 
@@ -200,11 +200,11 @@ func (i PlaybackConfigurationAvailSuppressionArgs) ToPlaybackConfigurationAvailS
 // PlaybackConfigurationAvailSuppressionPtrInput is an input type that accepts PlaybackConfigurationAvailSuppressionArgs, PlaybackConfigurationAvailSuppressionPtr and PlaybackConfigurationAvailSuppressionPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationAvailSuppressionPtrInput` via:
 //
-//          PlaybackConfigurationAvailSuppressionArgs{...}
+//	        PlaybackConfigurationAvailSuppressionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationAvailSuppressionPtrInput interface {
 	pulumi.Input
 
@@ -322,7 +322,7 @@ type PlaybackConfigurationBumper struct {
 // PlaybackConfigurationBumperInput is an input type that accepts PlaybackConfigurationBumperArgs and PlaybackConfigurationBumperOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationBumperInput` via:
 //
-//          PlaybackConfigurationBumperArgs{...}
+//	PlaybackConfigurationBumperArgs{...}
 type PlaybackConfigurationBumperInput interface {
 	pulumi.Input
 
@@ -361,11 +361,11 @@ func (i PlaybackConfigurationBumperArgs) ToPlaybackConfigurationBumperPtrOutputW
 // PlaybackConfigurationBumperPtrInput is an input type that accepts PlaybackConfigurationBumperArgs, PlaybackConfigurationBumperPtr and PlaybackConfigurationBumperPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationBumperPtrInput` via:
 //
-//          PlaybackConfigurationBumperArgs{...}
+//	        PlaybackConfigurationBumperArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationBumperPtrInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ type PlaybackConfigurationCdnConfiguration struct {
 // PlaybackConfigurationCdnConfigurationInput is an input type that accepts PlaybackConfigurationCdnConfigurationArgs and PlaybackConfigurationCdnConfigurationOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationCdnConfigurationInput` via:
 //
-//          PlaybackConfigurationCdnConfigurationArgs{...}
+//	PlaybackConfigurationCdnConfigurationArgs{...}
 type PlaybackConfigurationCdnConfigurationInput interface {
 	pulumi.Input
 
@@ -520,11 +520,11 @@ func (i PlaybackConfigurationCdnConfigurationArgs) ToPlaybackConfigurationCdnCon
 // PlaybackConfigurationCdnConfigurationPtrInput is an input type that accepts PlaybackConfigurationCdnConfigurationArgs, PlaybackConfigurationCdnConfigurationPtr and PlaybackConfigurationCdnConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationCdnConfigurationPtrInput` via:
 //
-//          PlaybackConfigurationCdnConfigurationArgs{...}
+//	        PlaybackConfigurationCdnConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationCdnConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ type PlaybackConfigurationConfigurationAliases struct {
 // PlaybackConfigurationConfigurationAliasesInput is an input type that accepts PlaybackConfigurationConfigurationAliasesArgs and PlaybackConfigurationConfigurationAliasesOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationConfigurationAliasesInput` via:
 //
-//          PlaybackConfigurationConfigurationAliasesArgs{...}
+//	PlaybackConfigurationConfigurationAliasesArgs{...}
 type PlaybackConfigurationConfigurationAliasesInput interface {
 	pulumi.Input
 
@@ -671,11 +671,11 @@ func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationCo
 // PlaybackConfigurationConfigurationAliasesPtrInput is an input type that accepts PlaybackConfigurationConfigurationAliasesArgs, PlaybackConfigurationConfigurationAliasesPtr and PlaybackConfigurationConfigurationAliasesPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationConfigurationAliasesPtrInput` via:
 //
-//          PlaybackConfigurationConfigurationAliasesArgs{...}
+//	        PlaybackConfigurationConfigurationAliasesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationConfigurationAliasesPtrInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ type PlaybackConfigurationDashConfiguration struct {
 // PlaybackConfigurationDashConfigurationInput is an input type that accepts PlaybackConfigurationDashConfigurationArgs and PlaybackConfigurationDashConfigurationOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationDashConfigurationInput` via:
 //
-//          PlaybackConfigurationDashConfigurationArgs{...}
+//	PlaybackConfigurationDashConfigurationArgs{...}
 type PlaybackConfigurationDashConfigurationInput interface {
 	pulumi.Input
 
@@ -804,11 +804,11 @@ func (i PlaybackConfigurationDashConfigurationArgs) ToPlaybackConfigurationDashC
 // PlaybackConfigurationDashConfigurationPtrInput is an input type that accepts PlaybackConfigurationDashConfigurationArgs, PlaybackConfigurationDashConfigurationPtr and PlaybackConfigurationDashConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationDashConfigurationPtrInput` via:
 //
-//          PlaybackConfigurationDashConfigurationArgs{...}
+//	        PlaybackConfigurationDashConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationDashConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -938,7 +938,7 @@ type PlaybackConfigurationHlsConfiguration struct {
 // PlaybackConfigurationHlsConfigurationInput is an input type that accepts PlaybackConfigurationHlsConfigurationArgs and PlaybackConfigurationHlsConfigurationOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationHlsConfigurationInput` via:
 //
-//          PlaybackConfigurationHlsConfigurationArgs{...}
+//	PlaybackConfigurationHlsConfigurationArgs{...}
 type PlaybackConfigurationHlsConfigurationInput interface {
 	pulumi.Input
 
@@ -974,11 +974,11 @@ func (i PlaybackConfigurationHlsConfigurationArgs) ToPlaybackConfigurationHlsCon
 // PlaybackConfigurationHlsConfigurationPtrInput is an input type that accepts PlaybackConfigurationHlsConfigurationArgs, PlaybackConfigurationHlsConfigurationPtr and PlaybackConfigurationHlsConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationHlsConfigurationPtrInput` via:
 //
-//          PlaybackConfigurationHlsConfigurationArgs{...}
+//	        PlaybackConfigurationHlsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationHlsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1078,7 +1078,7 @@ type PlaybackConfigurationLivePreRollConfiguration struct {
 // PlaybackConfigurationLivePreRollConfigurationInput is an input type that accepts PlaybackConfigurationLivePreRollConfigurationArgs and PlaybackConfigurationLivePreRollConfigurationOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationLivePreRollConfigurationInput` via:
 //
-//          PlaybackConfigurationLivePreRollConfigurationArgs{...}
+//	PlaybackConfigurationLivePreRollConfigurationArgs{...}
 type PlaybackConfigurationLivePreRollConfigurationInput interface {
 	pulumi.Input
 
@@ -1117,11 +1117,11 @@ func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToPlaybackConfigurati
 // PlaybackConfigurationLivePreRollConfigurationPtrInput is an input type that accepts PlaybackConfigurationLivePreRollConfigurationArgs, PlaybackConfigurationLivePreRollConfigurationPtr and PlaybackConfigurationLivePreRollConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationLivePreRollConfigurationPtrInput` via:
 //
-//          PlaybackConfigurationLivePreRollConfigurationArgs{...}
+//	        PlaybackConfigurationLivePreRollConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationLivePreRollConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1235,7 +1235,7 @@ type PlaybackConfigurationManifestProcessingRules struct {
 // PlaybackConfigurationManifestProcessingRulesInput is an input type that accepts PlaybackConfigurationManifestProcessingRulesArgs and PlaybackConfigurationManifestProcessingRulesOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationManifestProcessingRulesInput` via:
 //
-//          PlaybackConfigurationManifestProcessingRulesArgs{...}
+//	PlaybackConfigurationManifestProcessingRulesArgs{...}
 type PlaybackConfigurationManifestProcessingRulesInput interface {
 	pulumi.Input
 
@@ -1272,11 +1272,11 @@ func (i PlaybackConfigurationManifestProcessingRulesArgs) ToPlaybackConfiguratio
 // PlaybackConfigurationManifestProcessingRulesPtrInput is an input type that accepts PlaybackConfigurationManifestProcessingRulesArgs, PlaybackConfigurationManifestProcessingRulesPtr and PlaybackConfigurationManifestProcessingRulesPtrOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationManifestProcessingRulesPtrInput` via:
 //
-//          PlaybackConfigurationManifestProcessingRulesArgs{...}
+//	        PlaybackConfigurationManifestProcessingRulesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaybackConfigurationManifestProcessingRulesPtrInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ type PlaybackConfigurationTag struct {
 // PlaybackConfigurationTagInput is an input type that accepts PlaybackConfigurationTagArgs and PlaybackConfigurationTagOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationTagInput` via:
 //
-//          PlaybackConfigurationTagArgs{...}
+//	PlaybackConfigurationTagArgs{...}
 type PlaybackConfigurationTagInput interface {
 	pulumi.Input
 
@@ -1404,7 +1404,7 @@ func (i PlaybackConfigurationTagArgs) ToPlaybackConfigurationTagOutputWithContex
 // PlaybackConfigurationTagArrayInput is an input type that accepts PlaybackConfigurationTagArray and PlaybackConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationTagArrayInput` via:
 //
-//          PlaybackConfigurationTagArray{ PlaybackConfigurationTagArgs{...} }
+//	PlaybackConfigurationTagArray{ PlaybackConfigurationTagArgs{...} }
 type PlaybackConfigurationTagArrayInput interface {
 	pulumi.Input
 

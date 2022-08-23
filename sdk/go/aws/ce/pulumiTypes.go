@@ -21,7 +21,7 @@ type AnomalyMonitorResourceTag struct {
 // AnomalyMonitorResourceTagInput is an input type that accepts AnomalyMonitorResourceTagArgs and AnomalyMonitorResourceTagOutput values.
 // You can construct a concrete instance of `AnomalyMonitorResourceTagInput` via:
 //
-//          AnomalyMonitorResourceTagArgs{...}
+//	AnomalyMonitorResourceTagArgs{...}
 type AnomalyMonitorResourceTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AnomalyMonitorResourceTagArgs) ToAnomalyMonitorResourceTagOutputWithCont
 // AnomalyMonitorResourceTagArrayInput is an input type that accepts AnomalyMonitorResourceTagArray and AnomalyMonitorResourceTagArrayOutput values.
 // You can construct a concrete instance of `AnomalyMonitorResourceTagArrayInput` via:
 //
-//          AnomalyMonitorResourceTagArray{ AnomalyMonitorResourceTagArgs{...} }
+//	AnomalyMonitorResourceTagArray{ AnomalyMonitorResourceTagArgs{...} }
 type AnomalyMonitorResourceTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type AnomalySubscriptionResourceTag struct {
 // AnomalySubscriptionResourceTagInput is an input type that accepts AnomalySubscriptionResourceTagArgs and AnomalySubscriptionResourceTagOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionResourceTagInput` via:
 //
-//          AnomalySubscriptionResourceTagArgs{...}
+//	AnomalySubscriptionResourceTagArgs{...}
 type AnomalySubscriptionResourceTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i AnomalySubscriptionResourceTagArgs) ToAnomalySubscriptionResourceTagOutp
 // AnomalySubscriptionResourceTagArrayInput is an input type that accepts AnomalySubscriptionResourceTagArray and AnomalySubscriptionResourceTagArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionResourceTagArrayInput` via:
 //
-//          AnomalySubscriptionResourceTagArray{ AnomalySubscriptionResourceTagArgs{...} }
+//	AnomalySubscriptionResourceTagArray{ AnomalySubscriptionResourceTagArgs{...} }
 type AnomalySubscriptionResourceTagArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +237,7 @@ type AnomalySubscriptionSubscriber struct {
 // AnomalySubscriptionSubscriberInput is an input type that accepts AnomalySubscriptionSubscriberArgs and AnomalySubscriptionSubscriberOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberInput` via:
 //
-//          AnomalySubscriptionSubscriberArgs{...}
+//	AnomalySubscriptionSubscriberArgs{...}
 type AnomalySubscriptionSubscriberInput interface {
 	pulumi.Input
 
@@ -266,7 +266,7 @@ func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutput
 // AnomalySubscriptionSubscriberArrayInput is an input type that accepts AnomalySubscriptionSubscriberArray and AnomalySubscriptionSubscriberArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberArrayInput` via:
 //
-//          AnomalySubscriptionSubscriberArray{ AnomalySubscriptionSubscriberArgs{...} }
+//	AnomalySubscriptionSubscriberArray{ AnomalySubscriptionSubscriberArgs{...} }
 type AnomalySubscriptionSubscriberArrayInput interface {
 	pulumi.Input
 

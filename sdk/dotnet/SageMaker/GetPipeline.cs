@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetPipelineResult
     {
         public readonly Outputs.ParallelismConfigurationProperties? ParallelismConfiguration;
-        public readonly object? PipelineDefinition;
+        public readonly Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>? PipelineDefinition;
         /// <summary>
         /// The description of the Pipeline.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.SageMaker
         private GetPipelineResult(
             Outputs.ParallelismConfigurationProperties? parallelismConfiguration,
 
-            object? pipelineDefinition,
+            Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>? pipelineDefinition,
 
             string? pipelineDescription,
 

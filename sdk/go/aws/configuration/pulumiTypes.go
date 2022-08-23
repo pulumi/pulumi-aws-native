@@ -21,7 +21,7 @@ type AggregationAuthorizationTag struct {
 // AggregationAuthorizationTagInput is an input type that accepts AggregationAuthorizationTagArgs and AggregationAuthorizationTagOutput values.
 // You can construct a concrete instance of `AggregationAuthorizationTagInput` via:
 //
-//          AggregationAuthorizationTagArgs{...}
+//	AggregationAuthorizationTagArgs{...}
 type AggregationAuthorizationTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AggregationAuthorizationTagArgs) ToAggregationAuthorizationTagOutputWith
 // AggregationAuthorizationTagArrayInput is an input type that accepts AggregationAuthorizationTagArray and AggregationAuthorizationTagArrayOutput values.
 // You can construct a concrete instance of `AggregationAuthorizationTagArrayInput` via:
 //
-//          AggregationAuthorizationTagArray{ AggregationAuthorizationTagArgs{...} }
+//	AggregationAuthorizationTagArray{ AggregationAuthorizationTagArgs{...} }
 type AggregationAuthorizationTagArrayInput interface {
 	pulumi.Input
 
@@ -129,7 +129,7 @@ type ConfigRuleScope struct {
 // ConfigRuleScopeInput is an input type that accepts ConfigRuleScopeArgs and ConfigRuleScopeOutput values.
 // You can construct a concrete instance of `ConfigRuleScopeInput` via:
 //
-//          ConfigRuleScopeArgs{...}
+//	ConfigRuleScopeArgs{...}
 type ConfigRuleScopeInput interface {
 	pulumi.Input
 
@@ -167,11 +167,11 @@ func (i ConfigRuleScopeArgs) ToConfigRuleScopePtrOutputWithContext(ctx context.C
 // ConfigRuleScopePtrInput is an input type that accepts ConfigRuleScopeArgs, ConfigRuleScopePtr and ConfigRuleScopePtrOutput values.
 // You can construct a concrete instance of `ConfigRuleScopePtrInput` via:
 //
-//          ConfigRuleScopeArgs{...}
+//	        ConfigRuleScopeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigRuleScopePtrInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ type ConfigRuleSource struct {
 // ConfigRuleSourceInput is an input type that accepts ConfigRuleSourceArgs and ConfigRuleSourceOutput values.
 // You can construct a concrete instance of `ConfigRuleSourceInput` via:
 //
-//          ConfigRuleSourceArgs{...}
+//	ConfigRuleSourceArgs{...}
 type ConfigRuleSourceInput interface {
 	pulumi.Input
 
@@ -418,7 +418,7 @@ type ConfigRuleSourceDetail struct {
 // ConfigRuleSourceDetailInput is an input type that accepts ConfigRuleSourceDetailArgs and ConfigRuleSourceDetailOutput values.
 // You can construct a concrete instance of `ConfigRuleSourceDetailInput` via:
 //
-//          ConfigRuleSourceDetailArgs{...}
+//	ConfigRuleSourceDetailArgs{...}
 type ConfigRuleSourceDetailInput interface {
 	pulumi.Input
 
@@ -447,7 +447,7 @@ func (i ConfigRuleSourceDetailArgs) ToConfigRuleSourceDetailOutputWithContext(ct
 // ConfigRuleSourceDetailArrayInput is an input type that accepts ConfigRuleSourceDetailArray and ConfigRuleSourceDetailArrayOutput values.
 // You can construct a concrete instance of `ConfigRuleSourceDetailArrayInput` via:
 //
-//          ConfigRuleSourceDetailArray{ ConfigRuleSourceDetailArgs{...} }
+//	ConfigRuleSourceDetailArray{ ConfigRuleSourceDetailArgs{...} }
 type ConfigRuleSourceDetailArrayInput interface {
 	pulumi.Input
 
@@ -524,7 +524,7 @@ type ConfigurationAggregatorAccountAggregationSource struct {
 // ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourceInput` via:
 //
-//          ConfigurationAggregatorAccountAggregationSourceArgs{...}
+//	ConfigurationAggregatorAccountAggregationSourceArgs{...}
 type ConfigurationAggregatorAccountAggregationSourceInput interface {
 	pulumi.Input
 
@@ -553,7 +553,7 @@ func (i ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggr
 // ConfigurationAggregatorAccountAggregationSourceArrayInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArray and ConfigurationAggregatorAccountAggregationSourceArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourceArrayInput` via:
 //
-//          ConfigurationAggregatorAccountAggregationSourceArray{ ConfigurationAggregatorAccountAggregationSourceArgs{...} }
+//	ConfigurationAggregatorAccountAggregationSourceArray{ ConfigurationAggregatorAccountAggregationSourceArgs{...} }
 type ConfigurationAggregatorAccountAggregationSourceArrayInput interface {
 	pulumi.Input
 
@@ -630,7 +630,7 @@ type ConfigurationAggregatorOrganizationAggregationSource struct {
 // ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourceInput` via:
 //
-//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
+//	ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
 type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 	pulumi.Input
 
@@ -667,11 +667,11 @@ func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfiguratio
 // ConfigurationAggregatorOrganizationAggregationSourcePtrInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs, ConfigurationAggregatorOrganizationAggregationSourcePtr and ConfigurationAggregatorOrganizationAggregationSourcePtrOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourcePtrInput` via:
 //
-//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
+//	        ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationAggregatorOrganizationAggregationSourcePtrInput interface {
 	pulumi.Input
 
@@ -795,7 +795,7 @@ type ConfigurationAggregatorTag struct {
 // ConfigurationAggregatorTagInput is an input type that accepts ConfigurationAggregatorTagArgs and ConfigurationAggregatorTagOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorTagInput` via:
 //
-//          ConfigurationAggregatorTagArgs{...}
+//	ConfigurationAggregatorTagArgs{...}
 type ConfigurationAggregatorTagInput interface {
 	pulumi.Input
 
@@ -826,7 +826,7 @@ func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutputWithCo
 // ConfigurationAggregatorTagArrayInput is an input type that accepts ConfigurationAggregatorTagArray and ConfigurationAggregatorTagArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorTagArrayInput` via:
 //
-//          ConfigurationAggregatorTagArray{ ConfigurationAggregatorTagArgs{...} }
+//	ConfigurationAggregatorTagArray{ ConfigurationAggregatorTagArgs{...} }
 type ConfigurationAggregatorTagArrayInput interface {
 	pulumi.Input
 
@@ -902,7 +902,7 @@ type ConfigurationRecorderRecordingGroup struct {
 // ConfigurationRecorderRecordingGroupInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs and ConfigurationRecorderRecordingGroupOutput values.
 // You can construct a concrete instance of `ConfigurationRecorderRecordingGroupInput` via:
 //
-//          ConfigurationRecorderRecordingGroupArgs{...}
+//	ConfigurationRecorderRecordingGroupArgs{...}
 type ConfigurationRecorderRecordingGroupInput interface {
 	pulumi.Input
 
@@ -939,11 +939,11 @@ func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordin
 // ConfigurationRecorderRecordingGroupPtrInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs, ConfigurationRecorderRecordingGroupPtr and ConfigurationRecorderRecordingGroupPtrOutput values.
 // You can construct a concrete instance of `ConfigurationRecorderRecordingGroupPtrInput` via:
 //
-//          ConfigurationRecorderRecordingGroupArgs{...}
+//	        ConfigurationRecorderRecordingGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationRecorderRecordingGroupPtrInput interface {
 	pulumi.Input
 
@@ -1065,7 +1065,7 @@ type ConformancePackInputParameter struct {
 // ConformancePackInputParameterInput is an input type that accepts ConformancePackInputParameterArgs and ConformancePackInputParameterOutput values.
 // You can construct a concrete instance of `ConformancePackInputParameterInput` via:
 //
-//          ConformancePackInputParameterArgs{...}
+//	ConformancePackInputParameterArgs{...}
 type ConformancePackInputParameterInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutput
 // ConformancePackInputParameterArrayInput is an input type that accepts ConformancePackInputParameterArray and ConformancePackInputParameterArrayOutput values.
 // You can construct a concrete instance of `ConformancePackInputParameterArrayInput` via:
 //
-//          ConformancePackInputParameterArray{ ConformancePackInputParameterArgs{...} }
+//	ConformancePackInputParameterArray{ ConformancePackInputParameterArgs{...} }
 type ConformancePackInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -1166,7 +1166,7 @@ type DeliveryChannelConfigSnapshotDeliveryProperties struct {
 // DeliveryChannelConfigSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs and DeliveryChannelConfigSnapshotDeliveryPropertiesOutput values.
 // You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesInput` via:
 //
-//          DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+//	DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
 type DeliveryChannelConfigSnapshotDeliveryPropertiesInput interface {
 	pulumi.Input
 
@@ -1201,11 +1201,11 @@ func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelCo
 // DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs, DeliveryChannelConfigSnapshotDeliveryPropertiesPtr and DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput values.
 // You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput` via:
 //
-//          DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+//	        DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1307,7 +1307,7 @@ type OrganizationConfigRuleOrganizationCustomRuleMetadata struct {
 // OrganizationConfigRuleOrganizationCustomRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomRuleMetadataOutput values.
 // You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataInput` via:
 //
-//          OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+//	OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
 type OrganizationConfigRuleOrganizationCustomRuleMetadataInput interface {
 	pulumi.Input
 
@@ -1350,11 +1350,11 @@ func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganization
 // OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput` via:
 //
-//          OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+//	        OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1563,7 +1563,7 @@ type OrganizationConfigRuleOrganizationManagedRuleMetadata struct {
 // OrganizationConfigRuleOrganizationManagedRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs and OrganizationConfigRuleOrganizationManagedRuleMetadataOutput values.
 // You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataInput` via:
 //
-//          OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+//	OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
 type OrganizationConfigRuleOrganizationManagedRuleMetadataInput interface {
 	pulumi.Input
 
@@ -1605,11 +1605,11 @@ func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizatio
 // OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs, OrganizationConfigRuleOrganizationManagedRuleMetadataPtr and OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput` via:
 //
-//          OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+//	        OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput interface {
 	pulumi.Input
 
@@ -1798,7 +1798,7 @@ type OrganizationConformancePackConformancePackInputParameter struct {
 // OrganizationConformancePackConformancePackInputParameterInput is an input type that accepts OrganizationConformancePackConformancePackInputParameterArgs and OrganizationConformancePackConformancePackInputParameterOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackConformancePackInputParameterInput` via:
 //
-//          OrganizationConformancePackConformancePackInputParameterArgs{...}
+//	OrganizationConformancePackConformancePackInputParameterArgs{...}
 type OrganizationConformancePackConformancePackInputParameterInput interface {
 	pulumi.Input
 
@@ -1827,7 +1827,7 @@ func (i OrganizationConformancePackConformancePackInputParameterArgs) ToOrganiza
 // OrganizationConformancePackConformancePackInputParameterArrayInput is an input type that accepts OrganizationConformancePackConformancePackInputParameterArray and OrganizationConformancePackConformancePackInputParameterArrayOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackConformancePackInputParameterArrayInput` via:
 //
-//          OrganizationConformancePackConformancePackInputParameterArray{ OrganizationConformancePackConformancePackInputParameterArgs{...} }
+//	OrganizationConformancePackConformancePackInputParameterArray{ OrganizationConformancePackConformancePackInputParameterArgs{...} }
 type OrganizationConformancePackConformancePackInputParameterArrayInput interface {
 	pulumi.Input
 
@@ -1899,7 +1899,7 @@ type RemediationConfigurationExecutionControls struct {
 // RemediationConfigurationExecutionControlsInput is an input type that accepts RemediationConfigurationExecutionControlsArgs and RemediationConfigurationExecutionControlsOutput values.
 // You can construct a concrete instance of `RemediationConfigurationExecutionControlsInput` via:
 //
-//          RemediationConfigurationExecutionControlsArgs{...}
+//	RemediationConfigurationExecutionControlsArgs{...}
 type RemediationConfigurationExecutionControlsInput interface {
 	pulumi.Input
 
@@ -1934,11 +1934,11 @@ func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfiguratio
 // RemediationConfigurationExecutionControlsPtrInput is an input type that accepts RemediationConfigurationExecutionControlsArgs, RemediationConfigurationExecutionControlsPtr and RemediationConfigurationExecutionControlsPtrOutput values.
 // You can construct a concrete instance of `RemediationConfigurationExecutionControlsPtrInput` via:
 //
-//          RemediationConfigurationExecutionControlsArgs{...}
+//	        RemediationConfigurationExecutionControlsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationConfigurationExecutionControlsPtrInput interface {
 	pulumi.Input
 
@@ -2035,7 +2035,7 @@ type RemediationConfigurationSsmControls struct {
 // RemediationConfigurationSsmControlsInput is an input type that accepts RemediationConfigurationSsmControlsArgs and RemediationConfigurationSsmControlsOutput values.
 // You can construct a concrete instance of `RemediationConfigurationSsmControlsInput` via:
 //
-//          RemediationConfigurationSsmControlsArgs{...}
+//	RemediationConfigurationSsmControlsArgs{...}
 type RemediationConfigurationSsmControlsInput interface {
 	pulumi.Input
 
@@ -2071,11 +2071,11 @@ func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmCo
 // RemediationConfigurationSsmControlsPtrInput is an input type that accepts RemediationConfigurationSsmControlsArgs, RemediationConfigurationSsmControlsPtr and RemediationConfigurationSsmControlsPtrOutput values.
 // You can construct a concrete instance of `RemediationConfigurationSsmControlsPtrInput` via:
 //
-//          RemediationConfigurationSsmControlsArgs{...}
+//	        RemediationConfigurationSsmControlsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemediationConfigurationSsmControlsPtrInput interface {
 	pulumi.Input
 
@@ -2186,7 +2186,7 @@ type StoredQueryTag struct {
 // StoredQueryTagInput is an input type that accepts StoredQueryTagArgs and StoredQueryTagOutput values.
 // You can construct a concrete instance of `StoredQueryTagInput` via:
 //
-//          StoredQueryTagArgs{...}
+//	StoredQueryTagArgs{...}
 type StoredQueryTagInput interface {
 	pulumi.Input
 
@@ -2217,7 +2217,7 @@ func (i StoredQueryTagArgs) ToStoredQueryTagOutputWithContext(ctx context.Contex
 // StoredQueryTagArrayInput is an input type that accepts StoredQueryTagArray and StoredQueryTagArrayOutput values.
 // You can construct a concrete instance of `StoredQueryTagArrayInput` via:
 //
-//          StoredQueryTagArray{ StoredQueryTagArgs{...} }
+//	StoredQueryTagArray{ StoredQueryTagArgs{...} }
 type StoredQueryTagArrayInput interface {
 	pulumi.Input
 

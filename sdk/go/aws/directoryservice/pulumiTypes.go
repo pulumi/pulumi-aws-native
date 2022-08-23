@@ -18,7 +18,7 @@ type MicrosoftADVpcSettings struct {
 // MicrosoftADVpcSettingsInput is an input type that accepts MicrosoftADVpcSettingsArgs and MicrosoftADVpcSettingsOutput values.
 // You can construct a concrete instance of `MicrosoftADVpcSettingsInput` via:
 //
-//          MicrosoftADVpcSettingsArgs{...}
+//	MicrosoftADVpcSettingsArgs{...}
 type MicrosoftADVpcSettingsInput interface {
 	pulumi.Input
 
@@ -73,7 +73,7 @@ type SimpleADVpcSettings struct {
 // SimpleADVpcSettingsInput is an input type that accepts SimpleADVpcSettingsArgs and SimpleADVpcSettingsOutput values.
 // You can construct a concrete instance of `SimpleADVpcSettingsInput` via:
 //
-//          SimpleADVpcSettingsArgs{...}
+//	SimpleADVpcSettingsArgs{...}
 type SimpleADVpcSettingsInput interface {
 	pulumi.Input
 

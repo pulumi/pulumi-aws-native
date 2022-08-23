@@ -18,7 +18,7 @@ type AlertAction struct {
 // AlertActionInput is an input type that accepts AlertActionArgs and AlertActionOutput values.
 // You can construct a concrete instance of `AlertActionInput` via:
 //
-//          AlertActionArgs{...}
+//	AlertActionArgs{...}
 type AlertActionInput interface {
 	pulumi.Input
 
@@ -76,7 +76,7 @@ type AlertLambdaConfiguration struct {
 // AlertLambdaConfigurationInput is an input type that accepts AlertLambdaConfigurationArgs and AlertLambdaConfigurationOutput values.
 // You can construct a concrete instance of `AlertLambdaConfigurationInput` via:
 //
-//          AlertLambdaConfigurationArgs{...}
+//	AlertLambdaConfigurationArgs{...}
 type AlertLambdaConfigurationInput interface {
 	pulumi.Input
 
@@ -115,11 +115,11 @@ func (i AlertLambdaConfigurationArgs) ToAlertLambdaConfigurationPtrOutputWithCon
 // AlertLambdaConfigurationPtrInput is an input type that accepts AlertLambdaConfigurationArgs, AlertLambdaConfigurationPtr and AlertLambdaConfigurationPtrOutput values.
 // You can construct a concrete instance of `AlertLambdaConfigurationPtrInput` via:
 //
-//          AlertLambdaConfigurationArgs{...}
+//	        AlertLambdaConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertLambdaConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -235,7 +235,7 @@ type AlertSNSConfiguration struct {
 // AlertSNSConfigurationInput is an input type that accepts AlertSNSConfigurationArgs and AlertSNSConfigurationOutput values.
 // You can construct a concrete instance of `AlertSNSConfigurationInput` via:
 //
-//          AlertSNSConfigurationArgs{...}
+//	AlertSNSConfigurationArgs{...}
 type AlertSNSConfigurationInput interface {
 	pulumi.Input
 
@@ -274,11 +274,11 @@ func (i AlertSNSConfigurationArgs) ToAlertSNSConfigurationPtrOutputWithContext(c
 // AlertSNSConfigurationPtrInput is an input type that accepts AlertSNSConfigurationArgs, AlertSNSConfigurationPtr and AlertSNSConfigurationPtrOutput values.
 // You can construct a concrete instance of `AlertSNSConfigurationPtrInput` via:
 //
-//          AlertSNSConfigurationArgs{...}
+//	        AlertSNSConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlertSNSConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -391,7 +391,7 @@ type AnomalyDetectorAppFlowConfig struct {
 // AnomalyDetectorAppFlowConfigInput is an input type that accepts AnomalyDetectorAppFlowConfigArgs and AnomalyDetectorAppFlowConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorAppFlowConfigInput` via:
 //
-//          AnomalyDetectorAppFlowConfigArgs{...}
+//	AnomalyDetectorAppFlowConfigArgs{...}
 type AnomalyDetectorAppFlowConfigInput interface {
 	pulumi.Input
 
@@ -427,11 +427,11 @@ func (i AnomalyDetectorAppFlowConfigArgs) ToAnomalyDetectorAppFlowConfigPtrOutpu
 // AnomalyDetectorAppFlowConfigPtrInput is an input type that accepts AnomalyDetectorAppFlowConfigArgs, AnomalyDetectorAppFlowConfigPtr and AnomalyDetectorAppFlowConfigPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorAppFlowConfigPtrInput` via:
 //
-//          AnomalyDetectorAppFlowConfigArgs{...}
+//	        AnomalyDetectorAppFlowConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorAppFlowConfigPtrInput interface {
 	pulumi.Input
 
@@ -538,7 +538,7 @@ type AnomalyDetectorCloudwatchConfig struct {
 // AnomalyDetectorCloudwatchConfigInput is an input type that accepts AnomalyDetectorCloudwatchConfigArgs and AnomalyDetectorCloudwatchConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorCloudwatchConfigInput` via:
 //
-//          AnomalyDetectorCloudwatchConfigArgs{...}
+//	AnomalyDetectorCloudwatchConfigArgs{...}
 type AnomalyDetectorCloudwatchConfigInput interface {
 	pulumi.Input
 
@@ -573,11 +573,11 @@ func (i AnomalyDetectorCloudwatchConfigArgs) ToAnomalyDetectorCloudwatchConfigPt
 // AnomalyDetectorCloudwatchConfigPtrInput is an input type that accepts AnomalyDetectorCloudwatchConfigArgs, AnomalyDetectorCloudwatchConfigPtr and AnomalyDetectorCloudwatchConfigPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorCloudwatchConfigPtrInput` via:
 //
-//          AnomalyDetectorCloudwatchConfigArgs{...}
+//	        AnomalyDetectorCloudwatchConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorCloudwatchConfigPtrInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type AnomalyDetectorConfig struct {
 // AnomalyDetectorConfigInput is an input type that accepts AnomalyDetectorConfigArgs and AnomalyDetectorConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorConfigInput` via:
 //
-//          AnomalyDetectorConfigArgs{...}
+//	AnomalyDetectorConfigArgs{...}
 type AnomalyDetectorConfigInput interface {
 	pulumi.Input
 
@@ -762,7 +762,7 @@ type AnomalyDetectorCsvFormatDescriptor struct {
 // AnomalyDetectorCsvFormatDescriptorInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorArgs and AnomalyDetectorCsvFormatDescriptorOutput values.
 // You can construct a concrete instance of `AnomalyDetectorCsvFormatDescriptorInput` via:
 //
-//          AnomalyDetectorCsvFormatDescriptorArgs{...}
+//	AnomalyDetectorCsvFormatDescriptorArgs{...}
 type AnomalyDetectorCsvFormatDescriptorInput interface {
 	pulumi.Input
 
@@ -802,11 +802,11 @@ func (i AnomalyDetectorCsvFormatDescriptorArgs) ToAnomalyDetectorCsvFormatDescri
 // AnomalyDetectorCsvFormatDescriptorPtrInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorArgs, AnomalyDetectorCsvFormatDescriptorPtr and AnomalyDetectorCsvFormatDescriptorPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorCsvFormatDescriptorPtrInput` via:
 //
-//          AnomalyDetectorCsvFormatDescriptorArgs{...}
+//	        AnomalyDetectorCsvFormatDescriptorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorCsvFormatDescriptorPtrInput interface {
 	pulumi.Input
 
@@ -968,7 +968,7 @@ type AnomalyDetectorFileFormatDescriptor struct {
 // AnomalyDetectorFileFormatDescriptorInput is an input type that accepts AnomalyDetectorFileFormatDescriptorArgs and AnomalyDetectorFileFormatDescriptorOutput values.
 // You can construct a concrete instance of `AnomalyDetectorFileFormatDescriptorInput` via:
 //
-//          AnomalyDetectorFileFormatDescriptorArgs{...}
+//	AnomalyDetectorFileFormatDescriptorArgs{...}
 type AnomalyDetectorFileFormatDescriptorInput interface {
 	pulumi.Input
 
@@ -1004,11 +1004,11 @@ func (i AnomalyDetectorFileFormatDescriptorArgs) ToAnomalyDetectorFileFormatDesc
 // AnomalyDetectorFileFormatDescriptorPtrInput is an input type that accepts AnomalyDetectorFileFormatDescriptorArgs, AnomalyDetectorFileFormatDescriptorPtr and AnomalyDetectorFileFormatDescriptorPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorFileFormatDescriptorPtrInput` via:
 //
-//          AnomalyDetectorFileFormatDescriptorArgs{...}
+//	        AnomalyDetectorFileFormatDescriptorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorFileFormatDescriptorPtrInput interface {
 	pulumi.Input
 
@@ -1120,7 +1120,7 @@ type AnomalyDetectorJsonFormatDescriptor struct {
 // AnomalyDetectorJsonFormatDescriptorInput is an input type that accepts AnomalyDetectorJsonFormatDescriptorArgs and AnomalyDetectorJsonFormatDescriptorOutput values.
 // You can construct a concrete instance of `AnomalyDetectorJsonFormatDescriptorInput` via:
 //
-//          AnomalyDetectorJsonFormatDescriptorArgs{...}
+//	AnomalyDetectorJsonFormatDescriptorArgs{...}
 type AnomalyDetectorJsonFormatDescriptorInput interface {
 	pulumi.Input
 
@@ -1156,11 +1156,11 @@ func (i AnomalyDetectorJsonFormatDescriptorArgs) ToAnomalyDetectorJsonFormatDesc
 // AnomalyDetectorJsonFormatDescriptorPtrInput is an input type that accepts AnomalyDetectorJsonFormatDescriptorArgs, AnomalyDetectorJsonFormatDescriptorPtr and AnomalyDetectorJsonFormatDescriptorPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorJsonFormatDescriptorPtrInput` via:
 //
-//          AnomalyDetectorJsonFormatDescriptorArgs{...}
+//	        AnomalyDetectorJsonFormatDescriptorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorJsonFormatDescriptorPtrInput interface {
 	pulumi.Input
 
@@ -1272,7 +1272,7 @@ type AnomalyDetectorMetric struct {
 // AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricInput` via:
 //
-//          AnomalyDetectorMetricArgs{...}
+//	AnomalyDetectorMetricArgs{...}
 type AnomalyDetectorMetricInput interface {
 	pulumi.Input
 
@@ -1302,7 +1302,7 @@ func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricOutputWithContext(ctx 
 // AnomalyDetectorMetricArrayInput is an input type that accepts AnomalyDetectorMetricArray and AnomalyDetectorMetricArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricArrayInput` via:
 //
-//          AnomalyDetectorMetricArray{ AnomalyDetectorMetricArgs{...} }
+//	AnomalyDetectorMetricArray{ AnomalyDetectorMetricArgs{...} }
 type AnomalyDetectorMetricArrayInput interface {
 	pulumi.Input
 
@@ -1392,7 +1392,7 @@ type AnomalyDetectorMetricSet struct {
 // AnomalyDetectorMetricSetInput is an input type that accepts AnomalyDetectorMetricSetArgs and AnomalyDetectorMetricSetOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricSetInput` via:
 //
-//          AnomalyDetectorMetricSetArgs{...}
+//	AnomalyDetectorMetricSetArgs{...}
 type AnomalyDetectorMetricSetInput interface {
 	pulumi.Input
 
@@ -1433,7 +1433,7 @@ func (i AnomalyDetectorMetricSetArgs) ToAnomalyDetectorMetricSetOutputWithContex
 // AnomalyDetectorMetricSetArrayInput is an input type that accepts AnomalyDetectorMetricSetArray and AnomalyDetectorMetricSetArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricSetArrayInput` via:
 //
-//          AnomalyDetectorMetricSetArray{ AnomalyDetectorMetricSetArgs{...} }
+//	AnomalyDetectorMetricSetArray{ AnomalyDetectorMetricSetArgs{...} }
 type AnomalyDetectorMetricSetArrayInput interface {
 	pulumi.Input
 
@@ -1544,7 +1544,7 @@ type AnomalyDetectorMetricSource struct {
 // AnomalyDetectorMetricSourceInput is an input type that accepts AnomalyDetectorMetricSourceArgs and AnomalyDetectorMetricSourceOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricSourceInput` via:
 //
-//          AnomalyDetectorMetricSourceArgs{...}
+//	AnomalyDetectorMetricSourceArgs{...}
 type AnomalyDetectorMetricSourceInput interface {
 	pulumi.Input
 
@@ -1622,7 +1622,7 @@ type AnomalyDetectorRDSSourceConfig struct {
 // AnomalyDetectorRDSSourceConfigInput is an input type that accepts AnomalyDetectorRDSSourceConfigArgs and AnomalyDetectorRDSSourceConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRDSSourceConfigInput` via:
 //
-//          AnomalyDetectorRDSSourceConfigArgs{...}
+//	AnomalyDetectorRDSSourceConfigArgs{...}
 type AnomalyDetectorRDSSourceConfigInput interface {
 	pulumi.Input
 
@@ -1664,11 +1664,11 @@ func (i AnomalyDetectorRDSSourceConfigArgs) ToAnomalyDetectorRDSSourceConfigPtrO
 // AnomalyDetectorRDSSourceConfigPtrInput is an input type that accepts AnomalyDetectorRDSSourceConfigArgs, AnomalyDetectorRDSSourceConfigPtr and AnomalyDetectorRDSSourceConfigPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRDSSourceConfigPtrInput` via:
 //
-//          AnomalyDetectorRDSSourceConfigArgs{...}
+//	        AnomalyDetectorRDSSourceConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorRDSSourceConfigPtrInput interface {
 	pulumi.Input
 
@@ -1860,7 +1860,7 @@ type AnomalyDetectorRedshiftSourceConfig struct {
 // AnomalyDetectorRedshiftSourceConfigInput is an input type that accepts AnomalyDetectorRedshiftSourceConfigArgs and AnomalyDetectorRedshiftSourceConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRedshiftSourceConfigInput` via:
 //
-//          AnomalyDetectorRedshiftSourceConfigArgs{...}
+//	AnomalyDetectorRedshiftSourceConfigArgs{...}
 type AnomalyDetectorRedshiftSourceConfigInput interface {
 	pulumi.Input
 
@@ -1902,11 +1902,11 @@ func (i AnomalyDetectorRedshiftSourceConfigArgs) ToAnomalyDetectorRedshiftSource
 // AnomalyDetectorRedshiftSourceConfigPtrInput is an input type that accepts AnomalyDetectorRedshiftSourceConfigArgs, AnomalyDetectorRedshiftSourceConfigPtr and AnomalyDetectorRedshiftSourceConfigPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRedshiftSourceConfigPtrInput` via:
 //
-//          AnomalyDetectorRedshiftSourceConfigArgs{...}
+//	        AnomalyDetectorRedshiftSourceConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorRedshiftSourceConfigPtrInput interface {
 	pulumi.Input
 
@@ -2094,7 +2094,7 @@ type AnomalyDetectorS3SourceConfig struct {
 // AnomalyDetectorS3SourceConfigInput is an input type that accepts AnomalyDetectorS3SourceConfigArgs and AnomalyDetectorS3SourceConfigOutput values.
 // You can construct a concrete instance of `AnomalyDetectorS3SourceConfigInput` via:
 //
-//          AnomalyDetectorS3SourceConfigArgs{...}
+//	AnomalyDetectorS3SourceConfigArgs{...}
 type AnomalyDetectorS3SourceConfigInput interface {
 	pulumi.Input
 
@@ -2132,11 +2132,11 @@ func (i AnomalyDetectorS3SourceConfigArgs) ToAnomalyDetectorS3SourceConfigPtrOut
 // AnomalyDetectorS3SourceConfigPtrInput is an input type that accepts AnomalyDetectorS3SourceConfigArgs, AnomalyDetectorS3SourceConfigPtr and AnomalyDetectorS3SourceConfigPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorS3SourceConfigPtrInput` via:
 //
-//          AnomalyDetectorS3SourceConfigArgs{...}
+//	        AnomalyDetectorS3SourceConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorS3SourceConfigPtrInput interface {
 	pulumi.Input
 
@@ -2273,7 +2273,7 @@ type AnomalyDetectorTimestampColumn struct {
 // AnomalyDetectorTimestampColumnInput is an input type that accepts AnomalyDetectorTimestampColumnArgs and AnomalyDetectorTimestampColumnOutput values.
 // You can construct a concrete instance of `AnomalyDetectorTimestampColumnInput` via:
 //
-//          AnomalyDetectorTimestampColumnArgs{...}
+//	AnomalyDetectorTimestampColumnArgs{...}
 type AnomalyDetectorTimestampColumnInput interface {
 	pulumi.Input
 
@@ -2310,11 +2310,11 @@ func (i AnomalyDetectorTimestampColumnArgs) ToAnomalyDetectorTimestampColumnPtrO
 // AnomalyDetectorTimestampColumnPtrInput is an input type that accepts AnomalyDetectorTimestampColumnArgs, AnomalyDetectorTimestampColumnPtr and AnomalyDetectorTimestampColumnPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorTimestampColumnPtrInput` via:
 //
-//          AnomalyDetectorTimestampColumnArgs{...}
+//	        AnomalyDetectorTimestampColumnArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorTimestampColumnPtrInput interface {
 	pulumi.Input
 
@@ -2424,7 +2424,7 @@ type AnomalyDetectorVpcConfiguration struct {
 // AnomalyDetectorVpcConfigurationInput is an input type that accepts AnomalyDetectorVpcConfigurationArgs and AnomalyDetectorVpcConfigurationOutput values.
 // You can construct a concrete instance of `AnomalyDetectorVpcConfigurationInput` via:
 //
-//          AnomalyDetectorVpcConfigurationArgs{...}
+//	AnomalyDetectorVpcConfigurationArgs{...}
 type AnomalyDetectorVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -2460,11 +2460,11 @@ func (i AnomalyDetectorVpcConfigurationArgs) ToAnomalyDetectorVpcConfigurationPt
 // AnomalyDetectorVpcConfigurationPtrInput is an input type that accepts AnomalyDetectorVpcConfigurationArgs, AnomalyDetectorVpcConfigurationPtr and AnomalyDetectorVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorVpcConfigurationPtrInput` via:
 //
-//          AnomalyDetectorVpcConfigurationArgs{...}
+//	        AnomalyDetectorVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorVpcConfigurationPtrInput interface {
 	pulumi.Input
 

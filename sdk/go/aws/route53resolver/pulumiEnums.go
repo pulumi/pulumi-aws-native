@@ -235,7 +235,7 @@ func (o FirewallRuleGroupAssociationMutationProtectionPtrOutput) ToStringPtrOutp
 // FirewallRuleGroupAssociationMutationProtectionInput is an input type that accepts FirewallRuleGroupAssociationMutationProtectionArgs and FirewallRuleGroupAssociationMutationProtectionOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupAssociationMutationProtectionInput` via:
 //
-//          FirewallRuleGroupAssociationMutationProtectionArgs{...}
+//	FirewallRuleGroupAssociationMutationProtectionArgs{...}
 type FirewallRuleGroupAssociationMutationProtectionInput interface {
 	pulumi.Input
 
@@ -494,7 +494,7 @@ func (o FirewallRuleGroupFirewallRuleActionPtrOutput) ToStringPtrOutputWithConte
 // FirewallRuleGroupFirewallRuleActionInput is an input type that accepts FirewallRuleGroupFirewallRuleActionArgs and FirewallRuleGroupFirewallRuleActionOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleActionInput` via:
 //
-//          FirewallRuleGroupFirewallRuleActionArgs{...}
+//	FirewallRuleGroupFirewallRuleActionArgs{...}
 type FirewallRuleGroupFirewallRuleActionInput interface {
 	pulumi.Input
 
@@ -658,7 +658,7 @@ func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput) ToStringPtrO
 // FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput is an input type that accepts FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeArgs and FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput` via:
 //
-//          FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeArgs{...}
+//	FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeArgs{...}
 type FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput interface {
 	pulumi.Input
 
@@ -824,7 +824,7 @@ func (o FirewallRuleGroupFirewallRuleBlockResponsePtrOutput) ToStringPtrOutputWi
 // FirewallRuleGroupFirewallRuleBlockResponseInput is an input type that accepts FirewallRuleGroupFirewallRuleBlockResponseArgs and FirewallRuleGroupFirewallRuleBlockResponseOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleBlockResponseInput` via:
 //
-//          FirewallRuleGroupFirewallRuleBlockResponseArgs{...}
+//	FirewallRuleGroupFirewallRuleBlockResponseArgs{...}
 type FirewallRuleGroupFirewallRuleBlockResponseInput interface {
 	pulumi.Input
 
@@ -1266,7 +1266,7 @@ func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToStringPtrOutputWithCont
 // ResolverConfigAutodefinedReverseFlagInput is an input type that accepts ResolverConfigAutodefinedReverseFlagArgs and ResolverConfigAutodefinedReverseFlagOutput values.
 // You can construct a concrete instance of `ResolverConfigAutodefinedReverseFlagInput` via:
 //
-//          ResolverConfigAutodefinedReverseFlagArgs{...}
+//	ResolverConfigAutodefinedReverseFlagArgs{...}
 type ResolverConfigAutodefinedReverseFlagInput interface {
 	pulumi.Input
 
@@ -1897,7 +1897,7 @@ func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResolverRuleRuleTypeInput is an input type that accepts ResolverRuleRuleTypeArgs and ResolverRuleRuleTypeOutput values.
 // You can construct a concrete instance of `ResolverRuleRuleTypeInput` via:
 //
-//          ResolverRuleRuleTypeArgs{...}
+//	ResolverRuleRuleTypeArgs{...}
 type ResolverRuleRuleTypeInput interface {
 	pulumi.Input
 

@@ -20,7 +20,7 @@ type CloudFormationProductProvisioningArtifactProperties struct {
 // CloudFormationProductProvisioningArtifactPropertiesInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArgs and CloudFormationProductProvisioningArtifactPropertiesOutput values.
 // You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesInput` via:
 //
-//          CloudFormationProductProvisioningArtifactPropertiesArgs{...}
+//	CloudFormationProductProvisioningArtifactPropertiesArgs{...}
 type CloudFormationProductProvisioningArtifactPropertiesInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i CloudFormationProductProvisioningArtifactPropertiesArgs) ToCloudFormatio
 // CloudFormationProductProvisioningArtifactPropertiesArrayInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArray and CloudFormationProductProvisioningArtifactPropertiesArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesArrayInput` via:
 //
-//          CloudFormationProductProvisioningArtifactPropertiesArray{ CloudFormationProductProvisioningArtifactPropertiesArgs{...} }
+//	CloudFormationProductProvisioningArtifactPropertiesArray{ CloudFormationProductProvisioningArtifactPropertiesArgs{...} }
 type CloudFormationProductProvisioningArtifactPropertiesArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type CloudFormationProductTag struct {
 // CloudFormationProductTagInput is an input type that accepts CloudFormationProductTagArgs and CloudFormationProductTagOutput values.
 // You can construct a concrete instance of `CloudFormationProductTagInput` via:
 //
-//          CloudFormationProductTagArgs{...}
+//	CloudFormationProductTagArgs{...}
 type CloudFormationProductTagInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i CloudFormationProductTagArgs) ToCloudFormationProductTagOutputWithContex
 // CloudFormationProductTagArrayInput is an input type that accepts CloudFormationProductTagArray and CloudFormationProductTagArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProductTagArrayInput` via:
 //
-//          CloudFormationProductTagArray{ CloudFormationProductTagArgs{...} }
+//	CloudFormationProductTagArray{ CloudFormationProductTagArgs{...} }
 type CloudFormationProductTagArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type CloudFormationProvisionedProductProvisioningParameter struct {
 // CloudFormationProvisionedProductProvisioningParameterInput is an input type that accepts CloudFormationProvisionedProductProvisioningParameterArgs and CloudFormationProvisionedProductProvisioningParameterOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningParameterInput` via:
 //
-//          CloudFormationProvisionedProductProvisioningParameterArgs{...}
+//	CloudFormationProvisionedProductProvisioningParameterArgs{...}
 type CloudFormationProvisionedProductProvisioningParameterInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ func (i CloudFormationProvisionedProductProvisioningParameterArgs) ToCloudFormat
 // CloudFormationProvisionedProductProvisioningParameterArrayInput is an input type that accepts CloudFormationProvisionedProductProvisioningParameterArray and CloudFormationProvisionedProductProvisioningParameterArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningParameterArrayInput` via:
 //
-//          CloudFormationProvisionedProductProvisioningParameterArray{ CloudFormationProvisionedProductProvisioningParameterArgs{...} }
+//	CloudFormationProvisionedProductProvisioningParameterArray{ CloudFormationProvisionedProductProvisioningParameterArgs{...} }
 type CloudFormationProvisionedProductProvisioningParameterArrayInput interface {
 	pulumi.Input
 
@@ -335,7 +335,7 @@ type CloudFormationProvisionedProductProvisioningPreferences struct {
 // CloudFormationProvisionedProductProvisioningPreferencesInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesArgs and CloudFormationProvisionedProductProvisioningPreferencesOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningPreferencesInput` via:
 //
-//          CloudFormationProvisionedProductProvisioningPreferencesArgs{...}
+//	CloudFormationProvisionedProductProvisioningPreferencesArgs{...}
 type CloudFormationProvisionedProductProvisioningPreferencesInput interface {
 	pulumi.Input
 
@@ -376,11 +376,11 @@ func (i CloudFormationProvisionedProductProvisioningPreferencesArgs) ToCloudForm
 // CloudFormationProvisionedProductProvisioningPreferencesPtrInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesArgs, CloudFormationProvisionedProductProvisioningPreferencesPtr and CloudFormationProvisionedProductProvisioningPreferencesPtrOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningPreferencesPtrInput` via:
 //
-//          CloudFormationProvisionedProductProvisioningPreferencesArgs{...}
+//	        CloudFormationProvisionedProductProvisioningPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudFormationProvisionedProductProvisioningPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -563,7 +563,7 @@ type CloudFormationProvisionedProductTag struct {
 // CloudFormationProvisionedProductTagInput is an input type that accepts CloudFormationProvisionedProductTagArgs and CloudFormationProvisionedProductTagOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductTagInput` via:
 //
-//          CloudFormationProvisionedProductTagArgs{...}
+//	CloudFormationProvisionedProductTagArgs{...}
 type CloudFormationProvisionedProductTagInput interface {
 	pulumi.Input
 
@@ -591,7 +591,7 @@ func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProd
 // CloudFormationProvisionedProductTagArrayInput is an input type that accepts CloudFormationProvisionedProductTagArray and CloudFormationProvisionedProductTagArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductTagArrayInput` via:
 //
-//          CloudFormationProvisionedProductTagArray{ CloudFormationProvisionedProductTagArgs{...} }
+//	CloudFormationProvisionedProductTagArray{ CloudFormationProvisionedProductTagArgs{...} }
 type CloudFormationProvisionedProductTagArrayInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type PortfolioTag struct {
 // PortfolioTagInput is an input type that accepts PortfolioTagArgs and PortfolioTagOutput values.
 // You can construct a concrete instance of `PortfolioTagInput` via:
 //
-//          PortfolioTagArgs{...}
+//	PortfolioTagArgs{...}
 type PortfolioTagInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ func (i PortfolioTagArgs) ToPortfolioTagOutputWithContext(ctx context.Context) P
 // PortfolioTagArrayInput is an input type that accepts PortfolioTagArray and PortfolioTagArrayOutput values.
 // You can construct a concrete instance of `PortfolioTagArrayInput` via:
 //
-//          PortfolioTagArray{ PortfolioTagArgs{...} }
+//	PortfolioTagArray{ PortfolioTagArgs{...} }
 type PortfolioTagArrayInput interface {
 	pulumi.Input
 
@@ -763,7 +763,7 @@ type ServiceActionDefinitionParameter struct {
 // ServiceActionDefinitionParameterInput is an input type that accepts ServiceActionDefinitionParameterArgs and ServiceActionDefinitionParameterOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionParameterInput` via:
 //
-//          ServiceActionDefinitionParameterArgs{...}
+//	ServiceActionDefinitionParameterArgs{...}
 type ServiceActionDefinitionParameterInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ func (i ServiceActionDefinitionParameterArgs) ToServiceActionDefinitionParameter
 // ServiceActionDefinitionParameterArrayInput is an input type that accepts ServiceActionDefinitionParameterArray and ServiceActionDefinitionParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionParameterArrayInput` via:
 //
-//          ServiceActionDefinitionParameterArray{ ServiceActionDefinitionParameterArgs{...} }
+//	ServiceActionDefinitionParameterArray{ ServiceActionDefinitionParameterArgs{...} }
 type ServiceActionDefinitionParameterArrayInput interface {
 	pulumi.Input
 

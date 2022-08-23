@@ -28,7 +28,7 @@ export interface GetPipelineArgs {
 
 export interface GetPipelineResult {
     readonly parallelismConfiguration?: outputs.sagemaker.ParallelismConfigurationProperties;
-    readonly pipelineDefinition?: any;
+    readonly pipelineDefinition?: outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties;
     /**
      * The description of the Pipeline.
      */

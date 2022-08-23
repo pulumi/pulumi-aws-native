@@ -19,7 +19,7 @@ type ApplicationSettingsCampaignHook struct {
 // ApplicationSettingsCampaignHookInput is an input type that accepts ApplicationSettingsCampaignHookArgs and ApplicationSettingsCampaignHookOutput values.
 // You can construct a concrete instance of `ApplicationSettingsCampaignHookInput` via:
 //
-//          ApplicationSettingsCampaignHookArgs{...}
+//	ApplicationSettingsCampaignHookArgs{...}
 type ApplicationSettingsCampaignHookInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApplicationSettingsCampaignHookArgs) ToApplicationSettingsCampaignHookPt
 // ApplicationSettingsCampaignHookPtrInput is an input type that accepts ApplicationSettingsCampaignHookArgs, ApplicationSettingsCampaignHookPtr and ApplicationSettingsCampaignHookPtrOutput values.
 // You can construct a concrete instance of `ApplicationSettingsCampaignHookPtrInput` via:
 //
-//          ApplicationSettingsCampaignHookArgs{...}
+//	        ApplicationSettingsCampaignHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationSettingsCampaignHookPtrInput interface {
 	pulumi.Input
 
@@ -183,7 +183,7 @@ type ApplicationSettingsLimits struct {
 // ApplicationSettingsLimitsInput is an input type that accepts ApplicationSettingsLimitsArgs and ApplicationSettingsLimitsOutput values.
 // You can construct a concrete instance of `ApplicationSettingsLimitsInput` via:
 //
-//          ApplicationSettingsLimitsArgs{...}
+//	ApplicationSettingsLimitsArgs{...}
 type ApplicationSettingsLimitsInput interface {
 	pulumi.Input
 
@@ -221,11 +221,11 @@ func (i ApplicationSettingsLimitsArgs) ToApplicationSettingsLimitsPtrOutputWithC
 // ApplicationSettingsLimitsPtrInput is an input type that accepts ApplicationSettingsLimitsArgs, ApplicationSettingsLimitsPtr and ApplicationSettingsLimitsPtrOutput values.
 // You can construct a concrete instance of `ApplicationSettingsLimitsPtrInput` via:
 //
-//          ApplicationSettingsLimitsArgs{...}
+//	        ApplicationSettingsLimitsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationSettingsLimitsPtrInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type ApplicationSettingsQuietTime struct {
 // ApplicationSettingsQuietTimeInput is an input type that accepts ApplicationSettingsQuietTimeArgs and ApplicationSettingsQuietTimeOutput values.
 // You can construct a concrete instance of `ApplicationSettingsQuietTimeInput` via:
 //
-//          ApplicationSettingsQuietTimeArgs{...}
+//	ApplicationSettingsQuietTimeArgs{...}
 type ApplicationSettingsQuietTimeInput interface {
 	pulumi.Input
 
@@ -395,11 +395,11 @@ func (i ApplicationSettingsQuietTimeArgs) ToApplicationSettingsQuietTimePtrOutpu
 // ApplicationSettingsQuietTimePtrInput is an input type that accepts ApplicationSettingsQuietTimeArgs, ApplicationSettingsQuietTimePtr and ApplicationSettingsQuietTimePtrOutput values.
 // You can construct a concrete instance of `ApplicationSettingsQuietTimePtrInput` via:
 //
-//          ApplicationSettingsQuietTimeArgs{...}
+//	        ApplicationSettingsQuietTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationSettingsQuietTimePtrInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ type CampaignCustomDeliveryConfiguration struct {
 // CampaignCustomDeliveryConfigurationInput is an input type that accepts CampaignCustomDeliveryConfigurationArgs and CampaignCustomDeliveryConfigurationOutput values.
 // You can construct a concrete instance of `CampaignCustomDeliveryConfigurationInput` via:
 //
-//          CampaignCustomDeliveryConfigurationArgs{...}
+//	CampaignCustomDeliveryConfigurationArgs{...}
 type CampaignCustomDeliveryConfigurationInput interface {
 	pulumi.Input
 
@@ -543,11 +543,11 @@ func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigu
 // CampaignCustomDeliveryConfigurationPtrInput is an input type that accepts CampaignCustomDeliveryConfigurationArgs, CampaignCustomDeliveryConfigurationPtr and CampaignCustomDeliveryConfigurationPtrOutput values.
 // You can construct a concrete instance of `CampaignCustomDeliveryConfigurationPtrInput` via:
 //
-//          CampaignCustomDeliveryConfigurationArgs{...}
+//	        CampaignCustomDeliveryConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignCustomDeliveryConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -654,7 +654,7 @@ type CampaignCustomMessage struct {
 // CampaignCustomMessageInput is an input type that accepts CampaignCustomMessageArgs and CampaignCustomMessageOutput values.
 // You can construct a concrete instance of `CampaignCustomMessageInput` via:
 //
-//          CampaignCustomMessageArgs{...}
+//	CampaignCustomMessageArgs{...}
 type CampaignCustomMessageInput interface {
 	pulumi.Input
 
@@ -689,11 +689,11 @@ func (i CampaignCustomMessageArgs) ToCampaignCustomMessagePtrOutputWithContext(c
 // CampaignCustomMessagePtrInput is an input type that accepts CampaignCustomMessageArgs, CampaignCustomMessagePtr and CampaignCustomMessagePtrOutput values.
 // You can construct a concrete instance of `CampaignCustomMessagePtrInput` via:
 //
-//          CampaignCustomMessageArgs{...}
+//	        CampaignCustomMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignCustomMessagePtrInput interface {
 	pulumi.Input
 
@@ -792,7 +792,7 @@ type CampaignDefaultButtonConfiguration struct {
 // CampaignDefaultButtonConfigurationInput is an input type that accepts CampaignDefaultButtonConfigurationArgs and CampaignDefaultButtonConfigurationOutput values.
 // You can construct a concrete instance of `CampaignDefaultButtonConfigurationInput` via:
 //
-//          CampaignDefaultButtonConfigurationArgs{...}
+//	CampaignDefaultButtonConfigurationArgs{...}
 type CampaignDefaultButtonConfigurationInput interface {
 	pulumi.Input
 
@@ -832,11 +832,11 @@ func (i CampaignDefaultButtonConfigurationArgs) ToCampaignDefaultButtonConfigura
 // CampaignDefaultButtonConfigurationPtrInput is an input type that accepts CampaignDefaultButtonConfigurationArgs, CampaignDefaultButtonConfigurationPtr and CampaignDefaultButtonConfigurationPtrOutput values.
 // You can construct a concrete instance of `CampaignDefaultButtonConfigurationPtrInput` via:
 //
-//          CampaignDefaultButtonConfigurationArgs{...}
+//	        CampaignDefaultButtonConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignDefaultButtonConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -998,7 +998,7 @@ type CampaignEmailMessage struct {
 // CampaignEmailMessageInput is an input type that accepts CampaignEmailMessageArgs and CampaignEmailMessageOutput values.
 // You can construct a concrete instance of `CampaignEmailMessageInput` via:
 //
-//          CampaignEmailMessageArgs{...}
+//	CampaignEmailMessageArgs{...}
 type CampaignEmailMessageInput interface {
 	pulumi.Input
 
@@ -1036,11 +1036,11 @@ func (i CampaignEmailMessageArgs) ToCampaignEmailMessagePtrOutputWithContext(ctx
 // CampaignEmailMessagePtrInput is an input type that accepts CampaignEmailMessageArgs, CampaignEmailMessagePtr and CampaignEmailMessagePtrOutput values.
 // You can construct a concrete instance of `CampaignEmailMessagePtrInput` via:
 //
-//          CampaignEmailMessageArgs{...}
+//	        CampaignEmailMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignEmailMessagePtrInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ type CampaignEventDimensions struct {
 // CampaignEventDimensionsInput is an input type that accepts CampaignEventDimensionsArgs and CampaignEventDimensionsOutput values.
 // You can construct a concrete instance of `CampaignEventDimensionsInput` via:
 //
-//          CampaignEventDimensionsArgs{...}
+//	CampaignEventDimensionsArgs{...}
 type CampaignEventDimensionsInput interface {
 	pulumi.Input
 
@@ -1212,11 +1212,11 @@ func (i CampaignEventDimensionsArgs) ToCampaignEventDimensionsPtrOutputWithConte
 // CampaignEventDimensionsPtrInput is an input type that accepts CampaignEventDimensionsArgs, CampaignEventDimensionsPtr and CampaignEventDimensionsPtrOutput values.
 // You can construct a concrete instance of `CampaignEventDimensionsPtrInput` via:
 //
-//          CampaignEventDimensionsArgs{...}
+//	        CampaignEventDimensionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignEventDimensionsPtrInput interface {
 	pulumi.Input
 
@@ -1337,7 +1337,7 @@ type CampaignEventFilter struct {
 // CampaignEventFilterInput is an input type that accepts CampaignEventFilterArgs and CampaignEventFilterOutput values.
 // You can construct a concrete instance of `CampaignEventFilterInput` via:
 //
-//          CampaignEventFilterArgs{...}
+//	CampaignEventFilterArgs{...}
 type CampaignEventFilterInput interface {
 	pulumi.Input
 
@@ -1373,11 +1373,11 @@ func (i CampaignEventFilterArgs) ToCampaignEventFilterPtrOutputWithContext(ctx c
 // CampaignEventFilterPtrInput is an input type that accepts CampaignEventFilterArgs, CampaignEventFilterPtr and CampaignEventFilterPtrOutput values.
 // You can construct a concrete instance of `CampaignEventFilterPtrInput` via:
 //
-//          CampaignEventFilterArgs{...}
+//	        CampaignEventFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignEventFilterPtrInput interface {
 	pulumi.Input
 
@@ -1486,7 +1486,7 @@ type CampaignHook struct {
 // CampaignHookInput is an input type that accepts CampaignHookArgs and CampaignHookOutput values.
 // You can construct a concrete instance of `CampaignHookInput` via:
 //
-//          CampaignHookArgs{...}
+//	CampaignHookArgs{...}
 type CampaignHookInput interface {
 	pulumi.Input
 
@@ -1523,11 +1523,11 @@ func (i CampaignHookArgs) ToCampaignHookPtrOutputWithContext(ctx context.Context
 // CampaignHookPtrInput is an input type that accepts CampaignHookArgs, CampaignHookPtr and CampaignHookPtrOutput values.
 // You can construct a concrete instance of `CampaignHookPtrInput` via:
 //
-//          CampaignHookArgs{...}
+//	        CampaignHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignHookPtrInput interface {
 	pulumi.Input
 
@@ -1649,7 +1649,7 @@ type CampaignInAppMessage struct {
 // CampaignInAppMessageInput is an input type that accepts CampaignInAppMessageArgs and CampaignInAppMessageOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageInput` via:
 //
-//          CampaignInAppMessageArgs{...}
+//	CampaignInAppMessageArgs{...}
 type CampaignInAppMessageInput interface {
 	pulumi.Input
 
@@ -1686,11 +1686,11 @@ func (i CampaignInAppMessageArgs) ToCampaignInAppMessagePtrOutputWithContext(ctx
 // CampaignInAppMessagePtrInput is an input type that accepts CampaignInAppMessageArgs, CampaignInAppMessagePtr and CampaignInAppMessagePtrOutput values.
 // You can construct a concrete instance of `CampaignInAppMessagePtrInput` via:
 //
-//          CampaignInAppMessageArgs{...}
+//	        CampaignInAppMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignInAppMessagePtrInput interface {
 	pulumi.Input
 
@@ -1812,7 +1812,7 @@ type CampaignInAppMessageBodyConfig struct {
 // CampaignInAppMessageBodyConfigInput is an input type that accepts CampaignInAppMessageBodyConfigArgs and CampaignInAppMessageBodyConfigOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageBodyConfigInput` via:
 //
-//          CampaignInAppMessageBodyConfigArgs{...}
+//	CampaignInAppMessageBodyConfigArgs{...}
 type CampaignInAppMessageBodyConfigInput interface {
 	pulumi.Input
 
@@ -1849,11 +1849,11 @@ func (i CampaignInAppMessageBodyConfigArgs) ToCampaignInAppMessageBodyConfigPtrO
 // CampaignInAppMessageBodyConfigPtrInput is an input type that accepts CampaignInAppMessageBodyConfigArgs, CampaignInAppMessageBodyConfigPtr and CampaignInAppMessageBodyConfigPtrOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageBodyConfigPtrInput` via:
 //
-//          CampaignInAppMessageBodyConfigArgs{...}
+//	        CampaignInAppMessageBodyConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignInAppMessageBodyConfigPtrInput interface {
 	pulumi.Input
 
@@ -1976,7 +1976,7 @@ type CampaignInAppMessageButton struct {
 // CampaignInAppMessageButtonInput is an input type that accepts CampaignInAppMessageButtonArgs and CampaignInAppMessageButtonOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageButtonInput` via:
 //
-//          CampaignInAppMessageButtonArgs{...}
+//	CampaignInAppMessageButtonArgs{...}
 type CampaignInAppMessageButtonInput interface {
 	pulumi.Input
 
@@ -2014,11 +2014,11 @@ func (i CampaignInAppMessageButtonArgs) ToCampaignInAppMessageButtonPtrOutputWit
 // CampaignInAppMessageButtonPtrInput is an input type that accepts CampaignInAppMessageButtonArgs, CampaignInAppMessageButtonPtr and CampaignInAppMessageButtonPtrOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageButtonPtrInput` via:
 //
-//          CampaignInAppMessageButtonArgs{...}
+//	        CampaignInAppMessageButtonArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignInAppMessageButtonPtrInput interface {
 	pulumi.Input
 
@@ -2156,7 +2156,7 @@ type CampaignInAppMessageContent struct {
 // CampaignInAppMessageContentInput is an input type that accepts CampaignInAppMessageContentArgs and CampaignInAppMessageContentOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageContentInput` via:
 //
-//          CampaignInAppMessageContentArgs{...}
+//	CampaignInAppMessageContentArgs{...}
 type CampaignInAppMessageContentInput interface {
 	pulumi.Input
 
@@ -2188,7 +2188,7 @@ func (i CampaignInAppMessageContentArgs) ToCampaignInAppMessageContentOutputWith
 // CampaignInAppMessageContentArrayInput is an input type that accepts CampaignInAppMessageContentArray and CampaignInAppMessageContentArrayOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageContentArrayInput` via:
 //
-//          CampaignInAppMessageContentArray{ CampaignInAppMessageContentArgs{...} }
+//	CampaignInAppMessageContentArray{ CampaignInAppMessageContentArgs{...} }
 type CampaignInAppMessageContentArrayInput interface {
 	pulumi.Input
 
@@ -2277,7 +2277,7 @@ type CampaignInAppMessageHeaderConfig struct {
 // CampaignInAppMessageHeaderConfigInput is an input type that accepts CampaignInAppMessageHeaderConfigArgs and CampaignInAppMessageHeaderConfigOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageHeaderConfigInput` via:
 //
-//          CampaignInAppMessageHeaderConfigArgs{...}
+//	CampaignInAppMessageHeaderConfigArgs{...}
 type CampaignInAppMessageHeaderConfigInput interface {
 	pulumi.Input
 
@@ -2314,11 +2314,11 @@ func (i CampaignInAppMessageHeaderConfigArgs) ToCampaignInAppMessageHeaderConfig
 // CampaignInAppMessageHeaderConfigPtrInput is an input type that accepts CampaignInAppMessageHeaderConfigArgs, CampaignInAppMessageHeaderConfigPtr and CampaignInAppMessageHeaderConfigPtrOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageHeaderConfigPtrInput` via:
 //
-//          CampaignInAppMessageHeaderConfigArgs{...}
+//	        CampaignInAppMessageHeaderConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignInAppMessageHeaderConfigPtrInput interface {
 	pulumi.Input
 
@@ -2442,7 +2442,7 @@ type CampaignLimits struct {
 // CampaignLimitsInput is an input type that accepts CampaignLimitsArgs and CampaignLimitsOutput values.
 // You can construct a concrete instance of `CampaignLimitsInput` via:
 //
-//          CampaignLimitsArgs{...}
+//	CampaignLimitsArgs{...}
 type CampaignLimitsInput interface {
 	pulumi.Input
 
@@ -2481,11 +2481,11 @@ func (i CampaignLimitsArgs) ToCampaignLimitsPtrOutputWithContext(ctx context.Con
 // CampaignLimitsPtrInput is an input type that accepts CampaignLimitsArgs, CampaignLimitsPtr and CampaignLimitsPtrOutput values.
 // You can construct a concrete instance of `CampaignLimitsPtrInput` via:
 //
-//          CampaignLimitsArgs{...}
+//	        CampaignLimitsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignLimitsPtrInput interface {
 	pulumi.Input
 
@@ -2642,7 +2642,7 @@ type CampaignMessage struct {
 // CampaignMessageInput is an input type that accepts CampaignMessageArgs and CampaignMessageOutput values.
 // You can construct a concrete instance of `CampaignMessageInput` via:
 //
-//          CampaignMessageArgs{...}
+//	CampaignMessageArgs{...}
 type CampaignMessageInput interface {
 	pulumi.Input
 
@@ -2688,11 +2688,11 @@ func (i CampaignMessageArgs) ToCampaignMessagePtrOutputWithContext(ctx context.C
 // CampaignMessagePtrInput is an input type that accepts CampaignMessageArgs, CampaignMessagePtr and CampaignMessagePtrOutput values.
 // You can construct a concrete instance of `CampaignMessagePtrInput` via:
 //
-//          CampaignMessageArgs{...}
+//	        CampaignMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignMessagePtrInput interface {
 	pulumi.Input
 
@@ -2937,7 +2937,7 @@ type CampaignMessageConfiguration struct {
 // CampaignMessageConfigurationInput is an input type that accepts CampaignMessageConfigurationArgs and CampaignMessageConfigurationOutput values.
 // You can construct a concrete instance of `CampaignMessageConfigurationInput` via:
 //
-//          CampaignMessageConfigurationArgs{...}
+//	CampaignMessageConfigurationArgs{...}
 type CampaignMessageConfigurationInput interface {
 	pulumi.Input
 
@@ -2980,11 +2980,11 @@ func (i CampaignMessageConfigurationArgs) ToCampaignMessageConfigurationPtrOutpu
 // CampaignMessageConfigurationPtrInput is an input type that accepts CampaignMessageConfigurationArgs, CampaignMessageConfigurationPtr and CampaignMessageConfigurationPtrOutput values.
 // You can construct a concrete instance of `CampaignMessageConfigurationPtrInput` via:
 //
-//          CampaignMessageConfigurationArgs{...}
+//	        CampaignMessageConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignMessageConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3183,7 +3183,7 @@ type CampaignOverrideButtonConfiguration struct {
 // CampaignOverrideButtonConfigurationInput is an input type that accepts CampaignOverrideButtonConfigurationArgs and CampaignOverrideButtonConfigurationOutput values.
 // You can construct a concrete instance of `CampaignOverrideButtonConfigurationInput` via:
 //
-//          CampaignOverrideButtonConfigurationArgs{...}
+//	CampaignOverrideButtonConfigurationArgs{...}
 type CampaignOverrideButtonConfigurationInput interface {
 	pulumi.Input
 
@@ -3219,11 +3219,11 @@ func (i CampaignOverrideButtonConfigurationArgs) ToCampaignOverrideButtonConfigu
 // CampaignOverrideButtonConfigurationPtrInput is an input type that accepts CampaignOverrideButtonConfigurationArgs, CampaignOverrideButtonConfigurationPtr and CampaignOverrideButtonConfigurationPtrOutput values.
 // You can construct a concrete instance of `CampaignOverrideButtonConfigurationPtrInput` via:
 //
-//          CampaignOverrideButtonConfigurationArgs{...}
+//	        CampaignOverrideButtonConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignOverrideButtonConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3331,7 +3331,7 @@ type CampaignQuietTime struct {
 // CampaignQuietTimeInput is an input type that accepts CampaignQuietTimeArgs and CampaignQuietTimeOutput values.
 // You can construct a concrete instance of `CampaignQuietTimeInput` via:
 //
-//          CampaignQuietTimeArgs{...}
+//	CampaignQuietTimeArgs{...}
 type CampaignQuietTimeInput interface {
 	pulumi.Input
 
@@ -3367,11 +3367,11 @@ func (i CampaignQuietTimeArgs) ToCampaignQuietTimePtrOutputWithContext(ctx conte
 // CampaignQuietTimePtrInput is an input type that accepts CampaignQuietTimeArgs, CampaignQuietTimePtr and CampaignQuietTimePtrOutput values.
 // You can construct a concrete instance of `CampaignQuietTimePtrInput` via:
 //
-//          CampaignQuietTimeArgs{...}
+//	        CampaignQuietTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignQuietTimePtrInput interface {
 	pulumi.Input
 
@@ -3484,7 +3484,7 @@ type CampaignSchedule struct {
 // CampaignScheduleInput is an input type that accepts CampaignScheduleArgs and CampaignScheduleOutput values.
 // You can construct a concrete instance of `CampaignScheduleInput` via:
 //
-//          CampaignScheduleArgs{...}
+//	CampaignScheduleArgs{...}
 type CampaignScheduleInput interface {
 	pulumi.Input
 
@@ -3525,11 +3525,11 @@ func (i CampaignScheduleArgs) ToCampaignSchedulePtrOutputWithContext(ctx context
 // CampaignSchedulePtrInput is an input type that accepts CampaignScheduleArgs, CampaignSchedulePtr and CampaignSchedulePtrOutput values.
 // You can construct a concrete instance of `CampaignSchedulePtrInput` via:
 //
-//          CampaignScheduleArgs{...}
+//	        CampaignScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignSchedulePtrInput interface {
 	pulumi.Input
 
@@ -3702,7 +3702,7 @@ type CampaignSetDimension struct {
 // CampaignSetDimensionInput is an input type that accepts CampaignSetDimensionArgs and CampaignSetDimensionOutput values.
 // You can construct a concrete instance of `CampaignSetDimensionInput` via:
 //
-//          CampaignSetDimensionArgs{...}
+//	CampaignSetDimensionArgs{...}
 type CampaignSetDimensionInput interface {
 	pulumi.Input
 
@@ -3738,11 +3738,11 @@ func (i CampaignSetDimensionArgs) ToCampaignSetDimensionPtrOutputWithContext(ctx
 // CampaignSetDimensionPtrInput is an input type that accepts CampaignSetDimensionArgs, CampaignSetDimensionPtr and CampaignSetDimensionPtrOutput values.
 // You can construct a concrete instance of `CampaignSetDimensionPtrInput` via:
 //
-//          CampaignSetDimensionArgs{...}
+//	        CampaignSetDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignSetDimensionPtrInput interface {
 	pulumi.Input
 
@@ -3854,7 +3854,7 @@ type CampaignSmsMessage struct {
 // CampaignSmsMessageInput is an input type that accepts CampaignSmsMessageArgs and CampaignSmsMessageOutput values.
 // You can construct a concrete instance of `CampaignSmsMessageInput` via:
 //
-//          CampaignSmsMessageArgs{...}
+//	CampaignSmsMessageArgs{...}
 type CampaignSmsMessageInput interface {
 	pulumi.Input
 
@@ -3894,11 +3894,11 @@ func (i CampaignSmsMessageArgs) ToCampaignSmsMessagePtrOutputWithContext(ctx con
 // CampaignSmsMessagePtrInput is an input type that accepts CampaignSmsMessageArgs, CampaignSmsMessagePtr and CampaignSmsMessagePtrOutput values.
 // You can construct a concrete instance of `CampaignSmsMessagePtrInput` via:
 //
-//          CampaignSmsMessageArgs{...}
+//	        CampaignSmsMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignSmsMessagePtrInput interface {
 	pulumi.Input
 
@@ -4058,7 +4058,7 @@ type CampaignTemplate struct {
 // CampaignTemplateInput is an input type that accepts CampaignTemplateArgs and CampaignTemplateOutput values.
 // You can construct a concrete instance of `CampaignTemplateInput` via:
 //
-//          CampaignTemplateArgs{...}
+//	CampaignTemplateArgs{...}
 type CampaignTemplateInput interface {
 	pulumi.Input
 
@@ -4094,11 +4094,11 @@ func (i CampaignTemplateArgs) ToCampaignTemplatePtrOutputWithContext(ctx context
 // CampaignTemplatePtrInput is an input type that accepts CampaignTemplateArgs, CampaignTemplatePtr and CampaignTemplatePtrOutput values.
 // You can construct a concrete instance of `CampaignTemplatePtrInput` via:
 //
-//          CampaignTemplateArgs{...}
+//	        CampaignTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignTemplatePtrInput interface {
 	pulumi.Input
 
@@ -4208,7 +4208,7 @@ type CampaignTemplateConfiguration struct {
 // CampaignTemplateConfigurationInput is an input type that accepts CampaignTemplateConfigurationArgs and CampaignTemplateConfigurationOutput values.
 // You can construct a concrete instance of `CampaignTemplateConfigurationInput` via:
 //
-//          CampaignTemplateConfigurationArgs{...}
+//	CampaignTemplateConfigurationArgs{...}
 type CampaignTemplateConfigurationInput interface {
 	pulumi.Input
 
@@ -4246,11 +4246,11 @@ func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationPtrOut
 // CampaignTemplateConfigurationPtrInput is an input type that accepts CampaignTemplateConfigurationArgs, CampaignTemplateConfigurationPtr and CampaignTemplateConfigurationPtrOutput values.
 // You can construct a concrete instance of `CampaignTemplateConfigurationPtrInput` via:
 //
-//          CampaignTemplateConfigurationArgs{...}
+//	        CampaignTemplateConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CampaignTemplateConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4389,7 +4389,7 @@ type CampaignWriteTreatmentResource struct {
 // CampaignWriteTreatmentResourceInput is an input type that accepts CampaignWriteTreatmentResourceArgs and CampaignWriteTreatmentResourceOutput values.
 // You can construct a concrete instance of `CampaignWriteTreatmentResourceInput` via:
 //
-//          CampaignWriteTreatmentResourceArgs{...}
+//	CampaignWriteTreatmentResourceArgs{...}
 type CampaignWriteTreatmentResourceInput interface {
 	pulumi.Input
 
@@ -4422,7 +4422,7 @@ func (i CampaignWriteTreatmentResourceArgs) ToCampaignWriteTreatmentResourceOutp
 // CampaignWriteTreatmentResourceArrayInput is an input type that accepts CampaignWriteTreatmentResourceArray and CampaignWriteTreatmentResourceArrayOutput values.
 // You can construct a concrete instance of `CampaignWriteTreatmentResourceArrayInput` via:
 //
-//          CampaignWriteTreatmentResourceArray{ CampaignWriteTreatmentResourceArgs{...} }
+//	CampaignWriteTreatmentResourceArray{ CampaignWriteTreatmentResourceArgs{...} }
 type CampaignWriteTreatmentResourceArrayInput interface {
 	pulumi.Input
 
@@ -4517,7 +4517,7 @@ type InAppTemplateBodyConfig struct {
 // InAppTemplateBodyConfigInput is an input type that accepts InAppTemplateBodyConfigArgs and InAppTemplateBodyConfigOutput values.
 // You can construct a concrete instance of `InAppTemplateBodyConfigInput` via:
 //
-//          InAppTemplateBodyConfigArgs{...}
+//	InAppTemplateBodyConfigArgs{...}
 type InAppTemplateBodyConfigInput interface {
 	pulumi.Input
 
@@ -4554,11 +4554,11 @@ func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigPtrOutputWithConte
 // InAppTemplateBodyConfigPtrInput is an input type that accepts InAppTemplateBodyConfigArgs, InAppTemplateBodyConfigPtr and InAppTemplateBodyConfigPtrOutput values.
 // You can construct a concrete instance of `InAppTemplateBodyConfigPtrInput` via:
 //
-//          InAppTemplateBodyConfigArgs{...}
+//	        InAppTemplateBodyConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InAppTemplateBodyConfigPtrInput interface {
 	pulumi.Input
 
@@ -4681,7 +4681,7 @@ type InAppTemplateButtonConfig struct {
 // InAppTemplateButtonConfigInput is an input type that accepts InAppTemplateButtonConfigArgs and InAppTemplateButtonConfigOutput values.
 // You can construct a concrete instance of `InAppTemplateButtonConfigInput` via:
 //
-//          InAppTemplateButtonConfigArgs{...}
+//	InAppTemplateButtonConfigArgs{...}
 type InAppTemplateButtonConfigInput interface {
 	pulumi.Input
 
@@ -4719,11 +4719,11 @@ func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigPtrOutputWithC
 // InAppTemplateButtonConfigPtrInput is an input type that accepts InAppTemplateButtonConfigArgs, InAppTemplateButtonConfigPtr and InAppTemplateButtonConfigPtrOutput values.
 // You can construct a concrete instance of `InAppTemplateButtonConfigPtrInput` via:
 //
-//          InAppTemplateButtonConfigArgs{...}
+//	        InAppTemplateButtonConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InAppTemplateButtonConfigPtrInput interface {
 	pulumi.Input
 
@@ -4861,7 +4861,7 @@ type InAppTemplateDefaultButtonConfiguration struct {
 // InAppTemplateDefaultButtonConfigurationInput is an input type that accepts InAppTemplateDefaultButtonConfigurationArgs and InAppTemplateDefaultButtonConfigurationOutput values.
 // You can construct a concrete instance of `InAppTemplateDefaultButtonConfigurationInput` via:
 //
-//          InAppTemplateDefaultButtonConfigurationArgs{...}
+//	InAppTemplateDefaultButtonConfigurationArgs{...}
 type InAppTemplateDefaultButtonConfigurationInput interface {
 	pulumi.Input
 
@@ -4901,11 +4901,11 @@ func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButto
 // InAppTemplateDefaultButtonConfigurationPtrInput is an input type that accepts InAppTemplateDefaultButtonConfigurationArgs, InAppTemplateDefaultButtonConfigurationPtr and InAppTemplateDefaultButtonConfigurationPtrOutput values.
 // You can construct a concrete instance of `InAppTemplateDefaultButtonConfigurationPtrInput` via:
 //
-//          InAppTemplateDefaultButtonConfigurationArgs{...}
+//	        InAppTemplateDefaultButtonConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InAppTemplateDefaultButtonConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5066,7 +5066,7 @@ type InAppTemplateHeaderConfig struct {
 // InAppTemplateHeaderConfigInput is an input type that accepts InAppTemplateHeaderConfigArgs and InAppTemplateHeaderConfigOutput values.
 // You can construct a concrete instance of `InAppTemplateHeaderConfigInput` via:
 //
-//          InAppTemplateHeaderConfigArgs{...}
+//	InAppTemplateHeaderConfigArgs{...}
 type InAppTemplateHeaderConfigInput interface {
 	pulumi.Input
 
@@ -5103,11 +5103,11 @@ func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigPtrOutputWithC
 // InAppTemplateHeaderConfigPtrInput is an input type that accepts InAppTemplateHeaderConfigArgs, InAppTemplateHeaderConfigPtr and InAppTemplateHeaderConfigPtrOutput values.
 // You can construct a concrete instance of `InAppTemplateHeaderConfigPtrInput` via:
 //
-//          InAppTemplateHeaderConfigArgs{...}
+//	        InAppTemplateHeaderConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InAppTemplateHeaderConfigPtrInput interface {
 	pulumi.Input
 
@@ -5232,7 +5232,7 @@ type InAppTemplateInAppMessageContent struct {
 // InAppTemplateInAppMessageContentInput is an input type that accepts InAppTemplateInAppMessageContentArgs and InAppTemplateInAppMessageContentOutput values.
 // You can construct a concrete instance of `InAppTemplateInAppMessageContentInput` via:
 //
-//          InAppTemplateInAppMessageContentArgs{...}
+//	InAppTemplateInAppMessageContentArgs{...}
 type InAppTemplateInAppMessageContentInput interface {
 	pulumi.Input
 
@@ -5264,7 +5264,7 @@ func (i InAppTemplateInAppMessageContentArgs) ToInAppTemplateInAppMessageContent
 // InAppTemplateInAppMessageContentArrayInput is an input type that accepts InAppTemplateInAppMessageContentArray and InAppTemplateInAppMessageContentArrayOutput values.
 // You can construct a concrete instance of `InAppTemplateInAppMessageContentArrayInput` via:
 //
-//          InAppTemplateInAppMessageContentArray{ InAppTemplateInAppMessageContentArgs{...} }
+//	InAppTemplateInAppMessageContentArray{ InAppTemplateInAppMessageContentArgs{...} }
 type InAppTemplateInAppMessageContentArrayInput interface {
 	pulumi.Input
 
@@ -5352,7 +5352,7 @@ type InAppTemplateOverrideButtonConfiguration struct {
 // InAppTemplateOverrideButtonConfigurationInput is an input type that accepts InAppTemplateOverrideButtonConfigurationArgs and InAppTemplateOverrideButtonConfigurationOutput values.
 // You can construct a concrete instance of `InAppTemplateOverrideButtonConfigurationInput` via:
 //
-//          InAppTemplateOverrideButtonConfigurationArgs{...}
+//	InAppTemplateOverrideButtonConfigurationArgs{...}
 type InAppTemplateOverrideButtonConfigurationInput interface {
 	pulumi.Input
 
@@ -5388,11 +5388,11 @@ func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideBut
 // InAppTemplateOverrideButtonConfigurationPtrInput is an input type that accepts InAppTemplateOverrideButtonConfigurationArgs, InAppTemplateOverrideButtonConfigurationPtr and InAppTemplateOverrideButtonConfigurationPtrOutput values.
 // You can construct a concrete instance of `InAppTemplateOverrideButtonConfigurationPtrInput` via:
 //
-//          InAppTemplateOverrideButtonConfigurationArgs{...}
+//	        InAppTemplateOverrideButtonConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InAppTemplateOverrideButtonConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5504,7 +5504,7 @@ type PushTemplateAPNSPushNotificationTemplate struct {
 // PushTemplateAPNSPushNotificationTemplateInput is an input type that accepts PushTemplateAPNSPushNotificationTemplateArgs and PushTemplateAPNSPushNotificationTemplateOutput values.
 // You can construct a concrete instance of `PushTemplateAPNSPushNotificationTemplateInput` via:
 //
-//          PushTemplateAPNSPushNotificationTemplateArgs{...}
+//	PushTemplateAPNSPushNotificationTemplateArgs{...}
 type PushTemplateAPNSPushNotificationTemplateInput interface {
 	pulumi.Input
 
@@ -5544,11 +5544,11 @@ func (i PushTemplateAPNSPushNotificationTemplateArgs) ToPushTemplateAPNSPushNoti
 // PushTemplateAPNSPushNotificationTemplatePtrInput is an input type that accepts PushTemplateAPNSPushNotificationTemplateArgs, PushTemplateAPNSPushNotificationTemplatePtr and PushTemplateAPNSPushNotificationTemplatePtrOutput values.
 // You can construct a concrete instance of `PushTemplateAPNSPushNotificationTemplatePtrInput` via:
 //
-//          PushTemplateAPNSPushNotificationTemplateArgs{...}
+//	        PushTemplateAPNSPushNotificationTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PushTemplateAPNSPushNotificationTemplatePtrInput interface {
 	pulumi.Input
 
@@ -5714,7 +5714,7 @@ type PushTemplateAndroidPushNotificationTemplate struct {
 // PushTemplateAndroidPushNotificationTemplateInput is an input type that accepts PushTemplateAndroidPushNotificationTemplateArgs and PushTemplateAndroidPushNotificationTemplateOutput values.
 // You can construct a concrete instance of `PushTemplateAndroidPushNotificationTemplateInput` via:
 //
-//          PushTemplateAndroidPushNotificationTemplateArgs{...}
+//	PushTemplateAndroidPushNotificationTemplateArgs{...}
 type PushTemplateAndroidPushNotificationTemplateInput interface {
 	pulumi.Input
 
@@ -5756,11 +5756,11 @@ func (i PushTemplateAndroidPushNotificationTemplateArgs) ToPushTemplateAndroidPu
 // PushTemplateAndroidPushNotificationTemplatePtrInput is an input type that accepts PushTemplateAndroidPushNotificationTemplateArgs, PushTemplateAndroidPushNotificationTemplatePtr and PushTemplateAndroidPushNotificationTemplatePtrOutput values.
 // You can construct a concrete instance of `PushTemplateAndroidPushNotificationTemplatePtrInput` via:
 //
-//          PushTemplateAndroidPushNotificationTemplateArgs{...}
+//	        PushTemplateAndroidPushNotificationTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PushTemplateAndroidPushNotificationTemplatePtrInput interface {
 	pulumi.Input
 
@@ -5949,7 +5949,7 @@ type PushTemplateDefaultPushNotificationTemplate struct {
 // PushTemplateDefaultPushNotificationTemplateInput is an input type that accepts PushTemplateDefaultPushNotificationTemplateArgs and PushTemplateDefaultPushNotificationTemplateOutput values.
 // You can construct a concrete instance of `PushTemplateDefaultPushNotificationTemplateInput` via:
 //
-//          PushTemplateDefaultPushNotificationTemplateArgs{...}
+//	PushTemplateDefaultPushNotificationTemplateArgs{...}
 type PushTemplateDefaultPushNotificationTemplateInput interface {
 	pulumi.Input
 
@@ -5988,11 +5988,11 @@ func (i PushTemplateDefaultPushNotificationTemplateArgs) ToPushTemplateDefaultPu
 // PushTemplateDefaultPushNotificationTemplatePtrInput is an input type that accepts PushTemplateDefaultPushNotificationTemplateArgs, PushTemplateDefaultPushNotificationTemplatePtr and PushTemplateDefaultPushNotificationTemplatePtrOutput values.
 // You can construct a concrete instance of `PushTemplateDefaultPushNotificationTemplatePtrInput` via:
 //
-//          PushTemplateDefaultPushNotificationTemplateArgs{...}
+//	        PushTemplateDefaultPushNotificationTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PushTemplateDefaultPushNotificationTemplatePtrInput interface {
 	pulumi.Input
 
@@ -6138,7 +6138,7 @@ type SegmentBehavior struct {
 // SegmentBehaviorInput is an input type that accepts SegmentBehaviorArgs and SegmentBehaviorOutput values.
 // You can construct a concrete instance of `SegmentBehaviorInput` via:
 //
-//          SegmentBehaviorArgs{...}
+//	SegmentBehaviorArgs{...}
 type SegmentBehaviorInput interface {
 	pulumi.Input
 
@@ -6173,11 +6173,11 @@ func (i SegmentBehaviorArgs) ToSegmentBehaviorPtrOutputWithContext(ctx context.C
 // SegmentBehaviorPtrInput is an input type that accepts SegmentBehaviorArgs, SegmentBehaviorPtr and SegmentBehaviorPtrOutput values.
 // You can construct a concrete instance of `SegmentBehaviorPtrInput` via:
 //
-//          SegmentBehaviorArgs{...}
+//	        SegmentBehaviorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentBehaviorPtrInput interface {
 	pulumi.Input
 
@@ -6272,7 +6272,7 @@ type SegmentCoordinates struct {
 // SegmentCoordinatesInput is an input type that accepts SegmentCoordinatesArgs and SegmentCoordinatesOutput values.
 // You can construct a concrete instance of `SegmentCoordinatesInput` via:
 //
-//          SegmentCoordinatesArgs{...}
+//	SegmentCoordinatesArgs{...}
 type SegmentCoordinatesInput interface {
 	pulumi.Input
 
@@ -6308,11 +6308,11 @@ func (i SegmentCoordinatesArgs) ToSegmentCoordinatesPtrOutputWithContext(ctx con
 // SegmentCoordinatesPtrInput is an input type that accepts SegmentCoordinatesArgs, SegmentCoordinatesPtr and SegmentCoordinatesPtrOutput values.
 // You can construct a concrete instance of `SegmentCoordinatesPtrInput` via:
 //
-//          SegmentCoordinatesArgs{...}
+//	        SegmentCoordinatesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentCoordinatesPtrInput interface {
 	pulumi.Input
 
@@ -6424,7 +6424,7 @@ type SegmentDemographic struct {
 // SegmentDemographicInput is an input type that accepts SegmentDemographicArgs and SegmentDemographicOutput values.
 // You can construct a concrete instance of `SegmentDemographicInput` via:
 //
-//          SegmentDemographicArgs{...}
+//	SegmentDemographicArgs{...}
 type SegmentDemographicInput interface {
 	pulumi.Input
 
@@ -6464,11 +6464,11 @@ func (i SegmentDemographicArgs) ToSegmentDemographicPtrOutputWithContext(ctx con
 // SegmentDemographicPtrInput is an input type that accepts SegmentDemographicArgs, SegmentDemographicPtr and SegmentDemographicPtrOutput values.
 // You can construct a concrete instance of `SegmentDemographicPtrInput` via:
 //
-//          SegmentDemographicArgs{...}
+//	        SegmentDemographicArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentDemographicPtrInput interface {
 	pulumi.Input
 
@@ -6632,7 +6632,7 @@ type SegmentDimensions struct {
 // SegmentDimensionsInput is an input type that accepts SegmentDimensionsArgs and SegmentDimensionsOutput values.
 // You can construct a concrete instance of `SegmentDimensionsInput` via:
 //
-//          SegmentDimensionsArgs{...}
+//	SegmentDimensionsArgs{...}
 type SegmentDimensionsInput interface {
 	pulumi.Input
 
@@ -6672,11 +6672,11 @@ func (i SegmentDimensionsArgs) ToSegmentDimensionsPtrOutputWithContext(ctx conte
 // SegmentDimensionsPtrInput is an input type that accepts SegmentDimensionsArgs, SegmentDimensionsPtr and SegmentDimensionsPtrOutput values.
 // You can construct a concrete instance of `SegmentDimensionsPtrInput` via:
 //
-//          SegmentDimensionsArgs{...}
+//	        SegmentDimensionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentDimensionsPtrInput interface {
 	pulumi.Input
 
@@ -6836,7 +6836,7 @@ type SegmentGPSPoint struct {
 // SegmentGPSPointInput is an input type that accepts SegmentGPSPointArgs and SegmentGPSPointOutput values.
 // You can construct a concrete instance of `SegmentGPSPointInput` via:
 //
-//          SegmentGPSPointArgs{...}
+//	SegmentGPSPointArgs{...}
 type SegmentGPSPointInput interface {
 	pulumi.Input
 
@@ -6872,11 +6872,11 @@ func (i SegmentGPSPointArgs) ToSegmentGPSPointPtrOutputWithContext(ctx context.C
 // SegmentGPSPointPtrInput is an input type that accepts SegmentGPSPointArgs, SegmentGPSPointPtr and SegmentGPSPointPtrOutput values.
 // You can construct a concrete instance of `SegmentGPSPointPtrInput` via:
 //
-//          SegmentGPSPointArgs{...}
+//	        SegmentGPSPointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentGPSPointPtrInput interface {
 	pulumi.Input
 
@@ -6984,7 +6984,7 @@ type SegmentGroups struct {
 // SegmentGroupsInput is an input type that accepts SegmentGroupsArgs and SegmentGroupsOutput values.
 // You can construct a concrete instance of `SegmentGroupsInput` via:
 //
-//          SegmentGroupsArgs{...}
+//	SegmentGroupsArgs{...}
 type SegmentGroupsInput interface {
 	pulumi.Input
 
@@ -7020,11 +7020,11 @@ func (i SegmentGroupsArgs) ToSegmentGroupsPtrOutputWithContext(ctx context.Conte
 // SegmentGroupsPtrInput is an input type that accepts SegmentGroupsArgs, SegmentGroupsPtr and SegmentGroupsPtrOutput values.
 // You can construct a concrete instance of `SegmentGroupsPtrInput` via:
 //
-//          SegmentGroupsArgs{...}
+//	        SegmentGroupsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentGroupsPtrInput interface {
 	pulumi.Input
 
@@ -7053,7 +7053,7 @@ func (i *segmentGroupsPtrType) ToSegmentGroupsPtrOutputWithContext(ctx context.C
 // SegmentGroupsArrayInput is an input type that accepts SegmentGroupsArray and SegmentGroupsArrayOutput values.
 // You can construct a concrete instance of `SegmentGroupsArrayInput` via:
 //
-//          SegmentGroupsArray{ SegmentGroupsArgs{...} }
+//	SegmentGroupsArray{ SegmentGroupsArgs{...} }
 type SegmentGroupsArrayInput interface {
 	pulumi.Input
 
@@ -7177,7 +7177,7 @@ type SegmentLocation struct {
 // SegmentLocationInput is an input type that accepts SegmentLocationArgs and SegmentLocationOutput values.
 // You can construct a concrete instance of `SegmentLocationInput` via:
 //
-//          SegmentLocationArgs{...}
+//	SegmentLocationArgs{...}
 type SegmentLocationInput interface {
 	pulumi.Input
 
@@ -7213,11 +7213,11 @@ func (i SegmentLocationArgs) ToSegmentLocationPtrOutputWithContext(ctx context.C
 // SegmentLocationPtrInput is an input type that accepts SegmentLocationArgs, SegmentLocationPtr and SegmentLocationPtrOutput values.
 // You can construct a concrete instance of `SegmentLocationPtrInput` via:
 //
-//          SegmentLocationArgs{...}
+//	        SegmentLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentLocationPtrInput interface {
 	pulumi.Input
 
@@ -7325,7 +7325,7 @@ type SegmentRecency struct {
 // SegmentRecencyInput is an input type that accepts SegmentRecencyArgs and SegmentRecencyOutput values.
 // You can construct a concrete instance of `SegmentRecencyInput` via:
 //
-//          SegmentRecencyArgs{...}
+//	SegmentRecencyArgs{...}
 type SegmentRecencyInput interface {
 	pulumi.Input
 
@@ -7361,11 +7361,11 @@ func (i SegmentRecencyArgs) ToSegmentRecencyPtrOutputWithContext(ctx context.Con
 // SegmentRecencyPtrInput is an input type that accepts SegmentRecencyArgs, SegmentRecencyPtr and SegmentRecencyPtrOutput values.
 // You can construct a concrete instance of `SegmentRecencyPtrInput` via:
 //
-//          SegmentRecencyArgs{...}
+//	        SegmentRecencyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentRecencyPtrInput interface {
 	pulumi.Input
 
@@ -7473,7 +7473,7 @@ type SegmentSetDimension struct {
 // SegmentSetDimensionInput is an input type that accepts SegmentSetDimensionArgs and SegmentSetDimensionOutput values.
 // You can construct a concrete instance of `SegmentSetDimensionInput` via:
 //
-//          SegmentSetDimensionArgs{...}
+//	SegmentSetDimensionArgs{...}
 type SegmentSetDimensionInput interface {
 	pulumi.Input
 
@@ -7509,11 +7509,11 @@ func (i SegmentSetDimensionArgs) ToSegmentSetDimensionPtrOutputWithContext(ctx c
 // SegmentSetDimensionPtrInput is an input type that accepts SegmentSetDimensionArgs, SegmentSetDimensionPtr and SegmentSetDimensionPtrOutput values.
 // You can construct a concrete instance of `SegmentSetDimensionPtrInput` via:
 //
-//          SegmentSetDimensionArgs{...}
+//	        SegmentSetDimensionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SegmentSetDimensionPtrInput interface {
 	pulumi.Input
 

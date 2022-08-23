@@ -183,6 +183,9 @@ __all__ = [
     'OfflineStoreConfigPropertiesArgs',
     'OnlineStoreConfigPropertiesArgs',
     'ParallelismConfigurationPropertiesArgs',
+    'PipelineDefinition0PropertiesArgs',
+    'PipelineDefinition1PropertiesArgs',
+    'PipelineS3LocationArgs',
     'PipelineTagArgs',
     'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
@@ -7545,6 +7548,113 @@ class ParallelismConfigurationPropertiesArgs:
     @max_parallel_execution_steps.setter
     def max_parallel_execution_steps(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_parallel_execution_steps", value)
+
+
+@pulumi.input_type
+class PipelineDefinition0PropertiesArgs:
+    def __init__(__self__, *,
+                 pipeline_definition_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] pipeline_definition_body: A specification that defines the pipeline in JSON format.
+        """
+        pulumi.set(__self__, "pipeline_definition_body", pipeline_definition_body)
+
+    @property
+    @pulumi.getter(name="pipelineDefinitionBody")
+    def pipeline_definition_body(self) -> pulumi.Input[str]:
+        """
+        A specification that defines the pipeline in JSON format.
+        """
+        return pulumi.get(self, "pipeline_definition_body")
+
+    @pipeline_definition_body.setter
+    def pipeline_definition_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pipeline_definition_body", value)
+
+
+@pulumi.input_type
+class PipelineDefinition1PropertiesArgs:
+    def __init__(__self__, *,
+                 pipeline_definition_s3_location: pulumi.Input['PipelineS3LocationArgs']):
+        pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
+
+    @property
+    @pulumi.getter(name="pipelineDefinitionS3Location")
+    def pipeline_definition_s3_location(self) -> pulumi.Input['PipelineS3LocationArgs']:
+        return pulumi.get(self, "pipeline_definition_s3_location")
+
+    @pipeline_definition_s3_location.setter
+    def pipeline_definition_s3_location(self, value: pulumi.Input['PipelineS3LocationArgs']):
+        pulumi.set(self, "pipeline_definition_s3_location", value)
+
+
+@pulumi.input_type
+class PipelineS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str],
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket where the PipelineDefinition file is stored.
+        :param pulumi.Input[str] key: The file name of the PipelineDefinition file (Amazon S3 object name).
+        :param pulumi.Input[str] e_tag: The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+        :param pulumi.Input[str] version: For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket where the PipelineDefinition file is stored.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The file name of the PipelineDefinition file (Amazon S3 object name).
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        For versioning-enabled buckets, a specific version of the PipelineDefinition file.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

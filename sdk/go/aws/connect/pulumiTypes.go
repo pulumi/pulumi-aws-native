@@ -20,7 +20,7 @@ type ConstraintsProperties struct {
 // ConstraintsPropertiesInput is an input type that accepts ConstraintsPropertiesArgs and ConstraintsPropertiesOutput values.
 // You can construct a concrete instance of `ConstraintsPropertiesInput` via:
 //
-//          ConstraintsPropertiesArgs{...}
+//	ConstraintsPropertiesArgs{...}
 type ConstraintsPropertiesInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ConstraintsPropertiesArgs) ToConstraintsPropertiesPtrOutputWithContext(c
 // ConstraintsPropertiesPtrInput is an input type that accepts ConstraintsPropertiesArgs, ConstraintsPropertiesPtr and ConstraintsPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConstraintsPropertiesPtrInput` via:
 //
-//          ConstraintsPropertiesArgs{...}
+//	        ConstraintsPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConstraintsPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -187,7 +187,7 @@ type ContactFlowModuleTag struct {
 // ContactFlowModuleTagInput is an input type that accepts ContactFlowModuleTagArgs and ContactFlowModuleTagOutput values.
 // You can construct a concrete instance of `ContactFlowModuleTagInput` via:
 //
-//          ContactFlowModuleTagArgs{...}
+//	ContactFlowModuleTagArgs{...}
 type ContactFlowModuleTagInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ func (i ContactFlowModuleTagArgs) ToContactFlowModuleTagOutputWithContext(ctx co
 // ContactFlowModuleTagArrayInput is an input type that accepts ContactFlowModuleTagArray and ContactFlowModuleTagArrayOutput values.
 // You can construct a concrete instance of `ContactFlowModuleTagArrayInput` via:
 //
-//          ContactFlowModuleTagArray{ ContactFlowModuleTagArgs{...} }
+//	ContactFlowModuleTagArray{ ContactFlowModuleTagArgs{...} }
 type ContactFlowModuleTagArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +296,7 @@ type ContactFlowTag struct {
 // ContactFlowTagInput is an input type that accepts ContactFlowTagArgs and ContactFlowTagOutput values.
 // You can construct a concrete instance of `ContactFlowTagInput` via:
 //
-//          ContactFlowTagArgs{...}
+//	ContactFlowTagArgs{...}
 type ContactFlowTagInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ func (i ContactFlowTagArgs) ToContactFlowTagOutputWithContext(ctx context.Contex
 // ContactFlowTagArrayInput is an input type that accepts ContactFlowTagArray and ContactFlowTagArrayOutput values.
 // You can construct a concrete instance of `ContactFlowTagArrayInput` via:
 //
-//          ContactFlowTagArray{ ContactFlowTagArgs{...} }
+//	ContactFlowTagArray{ ContactFlowTagArgs{...} }
 type ContactFlowTagArrayInput interface {
 	pulumi.Input
 
@@ -407,7 +407,7 @@ type HoursOfOperationConfig struct {
 // HoursOfOperationConfigInput is an input type that accepts HoursOfOperationConfigArgs and HoursOfOperationConfigOutput values.
 // You can construct a concrete instance of `HoursOfOperationConfigInput` via:
 //
-//          HoursOfOperationConfigArgs{...}
+//	HoursOfOperationConfigArgs{...}
 type HoursOfOperationConfigInput interface {
 	pulumi.Input
 
@@ -440,7 +440,7 @@ func (i HoursOfOperationConfigArgs) ToHoursOfOperationConfigOutputWithContext(ct
 // HoursOfOperationConfigArrayInput is an input type that accepts HoursOfOperationConfigArray and HoursOfOperationConfigArrayOutput values.
 // You can construct a concrete instance of `HoursOfOperationConfigArrayInput` via:
 //
-//          HoursOfOperationConfigArray{ HoursOfOperationConfigArgs{...} }
+//	HoursOfOperationConfigArray{ HoursOfOperationConfigArgs{...} }
 type HoursOfOperationConfigArrayInput interface {
 	pulumi.Input
 
@@ -523,7 +523,7 @@ type HoursOfOperationTag struct {
 // HoursOfOperationTagInput is an input type that accepts HoursOfOperationTagArgs and HoursOfOperationTagOutput values.
 // You can construct a concrete instance of `HoursOfOperationTagInput` via:
 //
-//          HoursOfOperationTagArgs{...}
+//	HoursOfOperationTagArgs{...}
 type HoursOfOperationTagInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ func (i HoursOfOperationTagArgs) ToHoursOfOperationTagOutputWithContext(ctx cont
 // HoursOfOperationTagArrayInput is an input type that accepts HoursOfOperationTagArray and HoursOfOperationTagArrayOutput values.
 // You can construct a concrete instance of `HoursOfOperationTagArrayInput` via:
 //
-//          HoursOfOperationTagArray{ HoursOfOperationTagArgs{...} }
+//	HoursOfOperationTagArray{ HoursOfOperationTagArgs{...} }
 type HoursOfOperationTagArrayInput interface {
 	pulumi.Input
 
@@ -632,7 +632,7 @@ type HoursOfOperationTimeSlice struct {
 // HoursOfOperationTimeSliceInput is an input type that accepts HoursOfOperationTimeSliceArgs and HoursOfOperationTimeSliceOutput values.
 // You can construct a concrete instance of `HoursOfOperationTimeSliceInput` via:
 //
-//          HoursOfOperationTimeSliceArgs{...}
+//	HoursOfOperationTimeSliceArgs{...}
 type HoursOfOperationTimeSliceInput interface {
 	pulumi.Input
 
@@ -696,7 +696,7 @@ type PhoneNumberTag struct {
 // PhoneNumberTagInput is an input type that accepts PhoneNumberTagArgs and PhoneNumberTagOutput values.
 // You can construct a concrete instance of `PhoneNumberTagInput` via:
 //
-//          PhoneNumberTagArgs{...}
+//	PhoneNumberTagArgs{...}
 type PhoneNumberTagInput interface {
 	pulumi.Input
 
@@ -727,7 +727,7 @@ func (i PhoneNumberTagArgs) ToPhoneNumberTagOutputWithContext(ctx context.Contex
 // PhoneNumberTagArrayInput is an input type that accepts PhoneNumberTagArray and PhoneNumberTagArrayOutput values.
 // You can construct a concrete instance of `PhoneNumberTagArrayInput` via:
 //
-//          PhoneNumberTagArray{ PhoneNumberTagArgs{...} }
+//	PhoneNumberTagArray{ PhoneNumberTagArgs{...} }
 type PhoneNumberTagArrayInput interface {
 	pulumi.Input
 
@@ -805,7 +805,7 @@ type QuickConnectConfig struct {
 // QuickConnectConfigInput is an input type that accepts QuickConnectConfigArgs and QuickConnectConfigOutput values.
 // You can construct a concrete instance of `QuickConnectConfigInput` via:
 //
-//          QuickConnectConfigArgs{...}
+//	QuickConnectConfigArgs{...}
 type QuickConnectConfigInput interface {
 	pulumi.Input
 
@@ -932,7 +932,7 @@ type QuickConnectPhoneNumberQuickConnectConfig struct {
 // QuickConnectPhoneNumberQuickConnectConfigInput is an input type that accepts QuickConnectPhoneNumberQuickConnectConfigArgs and QuickConnectPhoneNumberQuickConnectConfigOutput values.
 // You can construct a concrete instance of `QuickConnectPhoneNumberQuickConnectConfigInput` via:
 //
-//          QuickConnectPhoneNumberQuickConnectConfigArgs{...}
+//	QuickConnectPhoneNumberQuickConnectConfigArgs{...}
 type QuickConnectPhoneNumberQuickConnectConfigInput interface {
 	pulumi.Input
 
@@ -968,11 +968,11 @@ func (i QuickConnectPhoneNumberQuickConnectConfigArgs) ToQuickConnectPhoneNumber
 // QuickConnectPhoneNumberQuickConnectConfigPtrInput is an input type that accepts QuickConnectPhoneNumberQuickConnectConfigArgs, QuickConnectPhoneNumberQuickConnectConfigPtr and QuickConnectPhoneNumberQuickConnectConfigPtrOutput values.
 // You can construct a concrete instance of `QuickConnectPhoneNumberQuickConnectConfigPtrInput` via:
 //
-//          QuickConnectPhoneNumberQuickConnectConfigArgs{...}
+//	        QuickConnectPhoneNumberQuickConnectConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QuickConnectPhoneNumberQuickConnectConfigPtrInput interface {
 	pulumi.Input
 
@@ -1069,7 +1069,7 @@ type QuickConnectQueueQuickConnectConfig struct {
 // QuickConnectQueueQuickConnectConfigInput is an input type that accepts QuickConnectQueueQuickConnectConfigArgs and QuickConnectQueueQuickConnectConfigOutput values.
 // You can construct a concrete instance of `QuickConnectQueueQuickConnectConfigInput` via:
 //
-//          QuickConnectQueueQuickConnectConfigArgs{...}
+//	QuickConnectQueueQuickConnectConfigArgs{...}
 type QuickConnectQueueQuickConnectConfigInput interface {
 	pulumi.Input
 
@@ -1106,11 +1106,11 @@ func (i QuickConnectQueueQuickConnectConfigArgs) ToQuickConnectQueueQuickConnect
 // QuickConnectQueueQuickConnectConfigPtrInput is an input type that accepts QuickConnectQueueQuickConnectConfigArgs, QuickConnectQueueQuickConnectConfigPtr and QuickConnectQueueQuickConnectConfigPtrOutput values.
 // You can construct a concrete instance of `QuickConnectQueueQuickConnectConfigPtrInput` via:
 //
-//          QuickConnectQueueQuickConnectConfigArgs{...}
+//	        QuickConnectQueueQuickConnectConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QuickConnectQueueQuickConnectConfigPtrInput interface {
 	pulumi.Input
 
@@ -1222,7 +1222,7 @@ type QuickConnectTag struct {
 // QuickConnectTagInput is an input type that accepts QuickConnectTagArgs and QuickConnectTagOutput values.
 // You can construct a concrete instance of `QuickConnectTagInput` via:
 //
-//          QuickConnectTagArgs{...}
+//	QuickConnectTagArgs{...}
 type QuickConnectTagInput interface {
 	pulumi.Input
 
@@ -1253,7 +1253,7 @@ func (i QuickConnectTagArgs) ToQuickConnectTagOutputWithContext(ctx context.Cont
 // QuickConnectTagArrayInput is an input type that accepts QuickConnectTagArray and QuickConnectTagArrayOutput values.
 // You can construct a concrete instance of `QuickConnectTagArrayInput` via:
 //
-//          QuickConnectTagArray{ QuickConnectTagArgs{...} }
+//	QuickConnectTagArray{ QuickConnectTagArgs{...} }
 type QuickConnectTagArrayInput interface {
 	pulumi.Input
 
@@ -1329,7 +1329,7 @@ type QuickConnectUserQuickConnectConfig struct {
 // QuickConnectUserQuickConnectConfigInput is an input type that accepts QuickConnectUserQuickConnectConfigArgs and QuickConnectUserQuickConnectConfigOutput values.
 // You can construct a concrete instance of `QuickConnectUserQuickConnectConfigInput` via:
 //
-//          QuickConnectUserQuickConnectConfigArgs{...}
+//	QuickConnectUserQuickConnectConfigArgs{...}
 type QuickConnectUserQuickConnectConfigInput interface {
 	pulumi.Input
 
@@ -1366,11 +1366,11 @@ func (i QuickConnectUserQuickConnectConfigArgs) ToQuickConnectUserQuickConnectCo
 // QuickConnectUserQuickConnectConfigPtrInput is an input type that accepts QuickConnectUserQuickConnectConfigArgs, QuickConnectUserQuickConnectConfigPtr and QuickConnectUserQuickConnectConfigPtrOutput values.
 // You can construct a concrete instance of `QuickConnectUserQuickConnectConfigPtrInput` via:
 //
-//          QuickConnectUserQuickConnectConfigArgs{...}
+//	        QuickConnectUserQuickConnectConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QuickConnectUserQuickConnectConfigPtrInput interface {
 	pulumi.Input
 
@@ -1480,7 +1480,7 @@ type TaskTemplateDefaultFieldValue struct {
 // TaskTemplateDefaultFieldValueInput is an input type that accepts TaskTemplateDefaultFieldValueArgs and TaskTemplateDefaultFieldValueOutput values.
 // You can construct a concrete instance of `TaskTemplateDefaultFieldValueInput` via:
 //
-//          TaskTemplateDefaultFieldValueArgs{...}
+//	TaskTemplateDefaultFieldValueArgs{...}
 type TaskTemplateDefaultFieldValueInput interface {
 	pulumi.Input
 
@@ -1509,7 +1509,7 @@ func (i TaskTemplateDefaultFieldValueArgs) ToTaskTemplateDefaultFieldValueOutput
 // TaskTemplateDefaultFieldValueArrayInput is an input type that accepts TaskTemplateDefaultFieldValueArray and TaskTemplateDefaultFieldValueArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateDefaultFieldValueArrayInput` via:
 //
-//          TaskTemplateDefaultFieldValueArray{ TaskTemplateDefaultFieldValueArgs{...} }
+//	TaskTemplateDefaultFieldValueArray{ TaskTemplateDefaultFieldValueArgs{...} }
 type TaskTemplateDefaultFieldValueArrayInput interface {
 	pulumi.Input
 
@@ -1587,7 +1587,7 @@ type TaskTemplateField struct {
 // TaskTemplateFieldInput is an input type that accepts TaskTemplateFieldArgs and TaskTemplateFieldOutput values.
 // You can construct a concrete instance of `TaskTemplateFieldInput` via:
 //
-//          TaskTemplateFieldArgs{...}
+//	TaskTemplateFieldArgs{...}
 type TaskTemplateFieldInput interface {
 	pulumi.Input
 
@@ -1620,7 +1620,7 @@ func (i TaskTemplateFieldArgs) ToTaskTemplateFieldOutputWithContext(ctx context.
 // TaskTemplateFieldArrayInput is an input type that accepts TaskTemplateFieldArray and TaskTemplateFieldArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateFieldArrayInput` via:
 //
-//          TaskTemplateFieldArray{ TaskTemplateFieldArgs{...} }
+//	TaskTemplateFieldArray{ TaskTemplateFieldArgs{...} }
 type TaskTemplateFieldArrayInput interface {
 	pulumi.Input
 
@@ -1704,7 +1704,7 @@ type TaskTemplateFieldIdentifier struct {
 // TaskTemplateFieldIdentifierInput is an input type that accepts TaskTemplateFieldIdentifierArgs and TaskTemplateFieldIdentifierOutput values.
 // You can construct a concrete instance of `TaskTemplateFieldIdentifierInput` via:
 //
-//          TaskTemplateFieldIdentifierArgs{...}
+//	TaskTemplateFieldIdentifierArgs{...}
 type TaskTemplateFieldIdentifierInput interface {
 	pulumi.Input
 
@@ -1758,7 +1758,7 @@ type TaskTemplateInvisibleFieldInfo struct {
 // TaskTemplateInvisibleFieldInfoInput is an input type that accepts TaskTemplateInvisibleFieldInfoArgs and TaskTemplateInvisibleFieldInfoOutput values.
 // You can construct a concrete instance of `TaskTemplateInvisibleFieldInfoInput` via:
 //
-//          TaskTemplateInvisibleFieldInfoArgs{...}
+//	TaskTemplateInvisibleFieldInfoArgs{...}
 type TaskTemplateInvisibleFieldInfoInput interface {
 	pulumi.Input
 
@@ -1786,7 +1786,7 @@ func (i TaskTemplateInvisibleFieldInfoArgs) ToTaskTemplateInvisibleFieldInfoOutp
 // TaskTemplateInvisibleFieldInfoArrayInput is an input type that accepts TaskTemplateInvisibleFieldInfoArray and TaskTemplateInvisibleFieldInfoArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateInvisibleFieldInfoArrayInput` via:
 //
-//          TaskTemplateInvisibleFieldInfoArray{ TaskTemplateInvisibleFieldInfoArgs{...} }
+//	TaskTemplateInvisibleFieldInfoArray{ TaskTemplateInvisibleFieldInfoArgs{...} }
 type TaskTemplateInvisibleFieldInfoArrayInput interface {
 	pulumi.Input
 
@@ -1855,7 +1855,7 @@ type TaskTemplateReadOnlyFieldInfo struct {
 // TaskTemplateReadOnlyFieldInfoInput is an input type that accepts TaskTemplateReadOnlyFieldInfoArgs and TaskTemplateReadOnlyFieldInfoOutput values.
 // You can construct a concrete instance of `TaskTemplateReadOnlyFieldInfoInput` via:
 //
-//          TaskTemplateReadOnlyFieldInfoArgs{...}
+//	TaskTemplateReadOnlyFieldInfoArgs{...}
 type TaskTemplateReadOnlyFieldInfoInput interface {
 	pulumi.Input
 
@@ -1883,7 +1883,7 @@ func (i TaskTemplateReadOnlyFieldInfoArgs) ToTaskTemplateReadOnlyFieldInfoOutput
 // TaskTemplateReadOnlyFieldInfoArrayInput is an input type that accepts TaskTemplateReadOnlyFieldInfoArray and TaskTemplateReadOnlyFieldInfoArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateReadOnlyFieldInfoArrayInput` via:
 //
-//          TaskTemplateReadOnlyFieldInfoArray{ TaskTemplateReadOnlyFieldInfoArgs{...} }
+//	TaskTemplateReadOnlyFieldInfoArray{ TaskTemplateReadOnlyFieldInfoArgs{...} }
 type TaskTemplateReadOnlyFieldInfoArrayInput interface {
 	pulumi.Input
 
@@ -1952,7 +1952,7 @@ type TaskTemplateRequiredFieldInfo struct {
 // TaskTemplateRequiredFieldInfoInput is an input type that accepts TaskTemplateRequiredFieldInfoArgs and TaskTemplateRequiredFieldInfoOutput values.
 // You can construct a concrete instance of `TaskTemplateRequiredFieldInfoInput` via:
 //
-//          TaskTemplateRequiredFieldInfoArgs{...}
+//	TaskTemplateRequiredFieldInfoArgs{...}
 type TaskTemplateRequiredFieldInfoInput interface {
 	pulumi.Input
 
@@ -1980,7 +1980,7 @@ func (i TaskTemplateRequiredFieldInfoArgs) ToTaskTemplateRequiredFieldInfoOutput
 // TaskTemplateRequiredFieldInfoArrayInput is an input type that accepts TaskTemplateRequiredFieldInfoArray and TaskTemplateRequiredFieldInfoArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateRequiredFieldInfoArrayInput` via:
 //
-//          TaskTemplateRequiredFieldInfoArray{ TaskTemplateRequiredFieldInfoArgs{...} }
+//	TaskTemplateRequiredFieldInfoArray{ TaskTemplateRequiredFieldInfoArgs{...} }
 type TaskTemplateRequiredFieldInfoArrayInput interface {
 	pulumi.Input
 
@@ -2052,7 +2052,7 @@ type TaskTemplateTag struct {
 // TaskTemplateTagInput is an input type that accepts TaskTemplateTagArgs and TaskTemplateTagOutput values.
 // You can construct a concrete instance of `TaskTemplateTagInput` via:
 //
-//          TaskTemplateTagArgs{...}
+//	TaskTemplateTagArgs{...}
 type TaskTemplateTagInput interface {
 	pulumi.Input
 
@@ -2083,7 +2083,7 @@ func (i TaskTemplateTagArgs) ToTaskTemplateTagOutputWithContext(ctx context.Cont
 // TaskTemplateTagArrayInput is an input type that accepts TaskTemplateTagArray and TaskTemplateTagArrayOutput values.
 // You can construct a concrete instance of `TaskTemplateTagArrayInput` via:
 //
-//          TaskTemplateTagArray{ TaskTemplateTagArgs{...} }
+//	TaskTemplateTagArray{ TaskTemplateTagArgs{...} }
 type TaskTemplateTagArrayInput interface {
 	pulumi.Input
 
@@ -2160,7 +2160,7 @@ type UserIdentityInfo struct {
 // UserIdentityInfoInput is an input type that accepts UserIdentityInfoArgs and UserIdentityInfoOutput values.
 // You can construct a concrete instance of `UserIdentityInfoInput` via:
 //
-//          UserIdentityInfoArgs{...}
+//	UserIdentityInfoArgs{...}
 type UserIdentityInfoInput interface {
 	pulumi.Input
 
@@ -2198,11 +2198,11 @@ func (i UserIdentityInfoArgs) ToUserIdentityInfoPtrOutputWithContext(ctx context
 // UserIdentityInfoPtrInput is an input type that accepts UserIdentityInfoArgs, UserIdentityInfoPtr and UserIdentityInfoPtrOutput values.
 // You can construct a concrete instance of `UserIdentityInfoPtrInput` via:
 //
-//          UserIdentityInfoArgs{...}
+//	        UserIdentityInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserIdentityInfoPtrInput interface {
 	pulumi.Input
 
@@ -2327,7 +2327,7 @@ type UserPhoneConfig struct {
 // UserPhoneConfigInput is an input type that accepts UserPhoneConfigArgs and UserPhoneConfigOutput values.
 // You can construct a concrete instance of `UserPhoneConfigInput` via:
 //
-//          UserPhoneConfigArgs{...}
+//	UserPhoneConfigArgs{...}
 type UserPhoneConfigInput interface {
 	pulumi.Input
 
@@ -2457,7 +2457,7 @@ type UserTag struct {
 // UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
 // You can construct a concrete instance of `UserTagInput` via:
 //
-//          UserTagArgs{...}
+//	UserTagArgs{...}
 type UserTagInput interface {
 	pulumi.Input
 
@@ -2488,7 +2488,7 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
-//          UserTagArray{ UserTagArgs{...} }
+//	UserTagArray{ UserTagArgs{...} }
 type UserTagArrayInput interface {
 	pulumi.Input
 

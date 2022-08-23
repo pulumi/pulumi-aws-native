@@ -139,7 +139,7 @@ func (o JobQueueStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // JobQueueStateEnumInput is an input type that accepts JobQueueStateEnumArgs and JobQueueStateEnumOutput values.
 // You can construct a concrete instance of `JobQueueStateEnumInput` via:
 //
-//          JobQueueStateEnumArgs{...}
+//	JobQueueStateEnumArgs{...}
 type JobQueueStateEnumInput interface {
 	pulumi.Input
 

@@ -17,7 +17,7 @@ type ConfigAntennaDownlinkConfig struct {
 // ConfigAntennaDownlinkConfigInput is an input type that accepts ConfigAntennaDownlinkConfigArgs and ConfigAntennaDownlinkConfigOutput values.
 // You can construct a concrete instance of `ConfigAntennaDownlinkConfigInput` via:
 //
-//          ConfigAntennaDownlinkConfigArgs{...}
+//	ConfigAntennaDownlinkConfigArgs{...}
 type ConfigAntennaDownlinkConfigInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigPtrOutputW
 // ConfigAntennaDownlinkConfigPtrInput is an input type that accepts ConfigAntennaDownlinkConfigArgs, ConfigAntennaDownlinkConfigPtr and ConfigAntennaDownlinkConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigAntennaDownlinkConfigPtrInput` via:
 //
-//          ConfigAntennaDownlinkConfigArgs{...}
+//	        ConfigAntennaDownlinkConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigAntennaDownlinkConfigPtrInput interface {
 	pulumi.Input
 
@@ -152,7 +152,7 @@ type ConfigAntennaDownlinkDemodDecodeConfig struct {
 // ConfigAntennaDownlinkDemodDecodeConfigInput is an input type that accepts ConfigAntennaDownlinkDemodDecodeConfigArgs and ConfigAntennaDownlinkDemodDecodeConfigOutput values.
 // You can construct a concrete instance of `ConfigAntennaDownlinkDemodDecodeConfigInput` via:
 //
-//          ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
+//	ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
 type ConfigAntennaDownlinkDemodDecodeConfigInput interface {
 	pulumi.Input
 
@@ -189,11 +189,11 @@ func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemod
 // ConfigAntennaDownlinkDemodDecodeConfigPtrInput is an input type that accepts ConfigAntennaDownlinkDemodDecodeConfigArgs, ConfigAntennaDownlinkDemodDecodeConfigPtr and ConfigAntennaDownlinkDemodDecodeConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigAntennaDownlinkDemodDecodeConfigPtrInput` via:
 //
-//          ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
+//	        ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigAntennaDownlinkDemodDecodeConfigPtrInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ type ConfigAntennaUplinkConfig struct {
 // ConfigAntennaUplinkConfigInput is an input type that accepts ConfigAntennaUplinkConfigArgs and ConfigAntennaUplinkConfigOutput values.
 // You can construct a concrete instance of `ConfigAntennaUplinkConfigInput` via:
 //
-//          ConfigAntennaUplinkConfigArgs{...}
+//	ConfigAntennaUplinkConfigArgs{...}
 type ConfigAntennaUplinkConfigInput interface {
 	pulumi.Input
 
@@ -352,11 +352,11 @@ func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigPtrOutputWithC
 // ConfigAntennaUplinkConfigPtrInput is an input type that accepts ConfigAntennaUplinkConfigArgs, ConfigAntennaUplinkConfigPtr and ConfigAntennaUplinkConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigAntennaUplinkConfigPtrInput` via:
 //
-//          ConfigAntennaUplinkConfigArgs{...}
+//	        ConfigAntennaUplinkConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigAntennaUplinkConfigPtrInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ type ConfigData struct {
 // ConfigDataInput is an input type that accepts ConfigDataArgs and ConfigDataOutput values.
 // You can construct a concrete instance of `ConfigDataInput` via:
 //
-//          ConfigDataArgs{...}
+//	ConfigDataArgs{...}
 type ConfigDataInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ type ConfigDataflowEndpointConfig struct {
 // ConfigDataflowEndpointConfigInput is an input type that accepts ConfigDataflowEndpointConfigArgs and ConfigDataflowEndpointConfigOutput values.
 // You can construct a concrete instance of `ConfigDataflowEndpointConfigInput` via:
 //
-//          ConfigDataflowEndpointConfigArgs{...}
+//	ConfigDataflowEndpointConfigArgs{...}
 type ConfigDataflowEndpointConfigInput interface {
 	pulumi.Input
 
@@ -685,11 +685,11 @@ func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigPtrOutpu
 // ConfigDataflowEndpointConfigPtrInput is an input type that accepts ConfigDataflowEndpointConfigArgs, ConfigDataflowEndpointConfigPtr and ConfigDataflowEndpointConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigDataflowEndpointConfigPtrInput` via:
 //
-//          ConfigDataflowEndpointConfigArgs{...}
+//	        ConfigDataflowEndpointConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigDataflowEndpointConfigPtrInput interface {
 	pulumi.Input
 
@@ -796,7 +796,7 @@ type ConfigDecodeConfig struct {
 // ConfigDecodeConfigInput is an input type that accepts ConfigDecodeConfigArgs and ConfigDecodeConfigOutput values.
 // You can construct a concrete instance of `ConfigDecodeConfigInput` via:
 //
-//          ConfigDecodeConfigArgs{...}
+//	ConfigDecodeConfigArgs{...}
 type ConfigDecodeConfigInput interface {
 	pulumi.Input
 
@@ -831,11 +831,11 @@ func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigPtrOutputWithContext(ctx con
 // ConfigDecodeConfigPtrInput is an input type that accepts ConfigDecodeConfigArgs, ConfigDecodeConfigPtr and ConfigDecodeConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigDecodeConfigPtrInput` via:
 //
-//          ConfigDecodeConfigArgs{...}
+//	        ConfigDecodeConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigDecodeConfigPtrInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ type ConfigDemodulationConfig struct {
 // ConfigDemodulationConfigInput is an input type that accepts ConfigDemodulationConfigArgs and ConfigDemodulationConfigOutput values.
 // You can construct a concrete instance of `ConfigDemodulationConfigInput` via:
 //
-//          ConfigDemodulationConfigArgs{...}
+//	ConfigDemodulationConfigArgs{...}
 type ConfigDemodulationConfigInput interface {
 	pulumi.Input
 
@@ -964,11 +964,11 @@ func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigPtrOutputWithCon
 // ConfigDemodulationConfigPtrInput is an input type that accepts ConfigDemodulationConfigArgs, ConfigDemodulationConfigPtr and ConfigDemodulationConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigDemodulationConfigPtrInput` via:
 //
-//          ConfigDemodulationConfigArgs{...}
+//	        ConfigDemodulationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigDemodulationConfigPtrInput interface {
 	pulumi.Input
 
@@ -1063,7 +1063,7 @@ type ConfigEirp struct {
 // ConfigEirpInput is an input type that accepts ConfigEirpArgs and ConfigEirpOutput values.
 // You can construct a concrete instance of `ConfigEirpInput` via:
 //
-//          ConfigEirpArgs{...}
+//	ConfigEirpArgs{...}
 type ConfigEirpInput interface {
 	pulumi.Input
 
@@ -1099,11 +1099,11 @@ func (i ConfigEirpArgs) ToConfigEirpPtrOutputWithContext(ctx context.Context) Co
 // ConfigEirpPtrInput is an input type that accepts ConfigEirpArgs, ConfigEirpPtr and ConfigEirpPtrOutput values.
 // You can construct a concrete instance of `ConfigEirpPtrInput` via:
 //
-//          ConfigEirpArgs{...}
+//	        ConfigEirpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigEirpPtrInput interface {
 	pulumi.Input
 
@@ -1211,7 +1211,7 @@ type ConfigFrequency struct {
 // ConfigFrequencyInput is an input type that accepts ConfigFrequencyArgs and ConfigFrequencyOutput values.
 // You can construct a concrete instance of `ConfigFrequencyInput` via:
 //
-//          ConfigFrequencyArgs{...}
+//	ConfigFrequencyArgs{...}
 type ConfigFrequencyInput interface {
 	pulumi.Input
 
@@ -1247,11 +1247,11 @@ func (i ConfigFrequencyArgs) ToConfigFrequencyPtrOutputWithContext(ctx context.C
 // ConfigFrequencyPtrInput is an input type that accepts ConfigFrequencyArgs, ConfigFrequencyPtr and ConfigFrequencyPtrOutput values.
 // You can construct a concrete instance of `ConfigFrequencyPtrInput` via:
 //
-//          ConfigFrequencyArgs{...}
+//	        ConfigFrequencyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigFrequencyPtrInput interface {
 	pulumi.Input
 
@@ -1359,7 +1359,7 @@ type ConfigFrequencyBandwidth struct {
 // ConfigFrequencyBandwidthInput is an input type that accepts ConfigFrequencyBandwidthArgs and ConfigFrequencyBandwidthOutput values.
 // You can construct a concrete instance of `ConfigFrequencyBandwidthInput` via:
 //
-//          ConfigFrequencyBandwidthArgs{...}
+//	ConfigFrequencyBandwidthArgs{...}
 type ConfigFrequencyBandwidthInput interface {
 	pulumi.Input
 
@@ -1395,11 +1395,11 @@ func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthPtrOutputWithCon
 // ConfigFrequencyBandwidthPtrInput is an input type that accepts ConfigFrequencyBandwidthArgs, ConfigFrequencyBandwidthPtr and ConfigFrequencyBandwidthPtrOutput values.
 // You can construct a concrete instance of `ConfigFrequencyBandwidthPtrInput` via:
 //
-//          ConfigFrequencyBandwidthArgs{...}
+//	        ConfigFrequencyBandwidthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigFrequencyBandwidthPtrInput interface {
 	pulumi.Input
 
@@ -1508,7 +1508,7 @@ type ConfigS3RecordingConfig struct {
 // ConfigS3RecordingConfigInput is an input type that accepts ConfigS3RecordingConfigArgs and ConfigS3RecordingConfigOutput values.
 // You can construct a concrete instance of `ConfigS3RecordingConfigInput` via:
 //
-//          ConfigS3RecordingConfigArgs{...}
+//	ConfigS3RecordingConfigArgs{...}
 type ConfigS3RecordingConfigInput interface {
 	pulumi.Input
 
@@ -1545,11 +1545,11 @@ func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigPtrOutputWithConte
 // ConfigS3RecordingConfigPtrInput is an input type that accepts ConfigS3RecordingConfigArgs, ConfigS3RecordingConfigPtr and ConfigS3RecordingConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigS3RecordingConfigPtrInput` via:
 //
-//          ConfigS3RecordingConfigArgs{...}
+//	        ConfigS3RecordingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigS3RecordingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1671,7 +1671,7 @@ type ConfigSpectrumConfig struct {
 // ConfigSpectrumConfigInput is an input type that accepts ConfigSpectrumConfigArgs and ConfigSpectrumConfigOutput values.
 // You can construct a concrete instance of `ConfigSpectrumConfigInput` via:
 //
-//          ConfigSpectrumConfigArgs{...}
+//	ConfigSpectrumConfigArgs{...}
 type ConfigSpectrumConfigInput interface {
 	pulumi.Input
 
@@ -1708,11 +1708,11 @@ func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigPtrOutputWithContext(ctx
 // ConfigSpectrumConfigPtrInput is an input type that accepts ConfigSpectrumConfigArgs, ConfigSpectrumConfigPtr and ConfigSpectrumConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigSpectrumConfigPtrInput` via:
 //
-//          ConfigSpectrumConfigArgs{...}
+//	        ConfigSpectrumConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigSpectrumConfigPtrInput interface {
 	pulumi.Input
 
@@ -1833,7 +1833,7 @@ type ConfigTag struct {
 // ConfigTagInput is an input type that accepts ConfigTagArgs and ConfigTagOutput values.
 // You can construct a concrete instance of `ConfigTagInput` via:
 //
-//          ConfigTagArgs{...}
+//	ConfigTagArgs{...}
 type ConfigTagInput interface {
 	pulumi.Input
 
@@ -1861,7 +1861,7 @@ func (i ConfigTagArgs) ToConfigTagOutputWithContext(ctx context.Context) ConfigT
 // ConfigTagArrayInput is an input type that accepts ConfigTagArray and ConfigTagArrayOutput values.
 // You can construct a concrete instance of `ConfigTagArrayInput` via:
 //
-//          ConfigTagArray{ ConfigTagArgs{...} }
+//	ConfigTagArray{ ConfigTagArgs{...} }
 type ConfigTagArrayInput interface {
 	pulumi.Input
 
@@ -1932,7 +1932,7 @@ type ConfigTrackingConfig struct {
 // ConfigTrackingConfigInput is an input type that accepts ConfigTrackingConfigArgs and ConfigTrackingConfigOutput values.
 // You can construct a concrete instance of `ConfigTrackingConfigInput` via:
 //
-//          ConfigTrackingConfigArgs{...}
+//	ConfigTrackingConfigArgs{...}
 type ConfigTrackingConfigInput interface {
 	pulumi.Input
 
@@ -1967,11 +1967,11 @@ func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigPtrOutputWithContext(ctx
 // ConfigTrackingConfigPtrInput is an input type that accepts ConfigTrackingConfigArgs, ConfigTrackingConfigPtr and ConfigTrackingConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigTrackingConfigPtrInput` via:
 //
-//          ConfigTrackingConfigArgs{...}
+//	        ConfigTrackingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigTrackingConfigPtrInput interface {
 	pulumi.Input
 
@@ -2066,7 +2066,7 @@ type ConfigUplinkEchoConfig struct {
 // ConfigUplinkEchoConfigInput is an input type that accepts ConfigUplinkEchoConfigArgs and ConfigUplinkEchoConfigOutput values.
 // You can construct a concrete instance of `ConfigUplinkEchoConfigInput` via:
 //
-//          ConfigUplinkEchoConfigArgs{...}
+//	ConfigUplinkEchoConfigArgs{...}
 type ConfigUplinkEchoConfigInput interface {
 	pulumi.Input
 
@@ -2102,11 +2102,11 @@ func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigPtrOutputWithContext
 // ConfigUplinkEchoConfigPtrInput is an input type that accepts ConfigUplinkEchoConfigArgs, ConfigUplinkEchoConfigPtr and ConfigUplinkEchoConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigUplinkEchoConfigPtrInput` via:
 //
-//          ConfigUplinkEchoConfigArgs{...}
+//	        ConfigUplinkEchoConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigUplinkEchoConfigPtrInput interface {
 	pulumi.Input
 
@@ -2214,7 +2214,7 @@ type ConfigUplinkSpectrumConfig struct {
 // ConfigUplinkSpectrumConfigInput is an input type that accepts ConfigUplinkSpectrumConfigArgs and ConfigUplinkSpectrumConfigOutput values.
 // You can construct a concrete instance of `ConfigUplinkSpectrumConfigInput` via:
 //
-//          ConfigUplinkSpectrumConfigArgs{...}
+//	ConfigUplinkSpectrumConfigArgs{...}
 type ConfigUplinkSpectrumConfigInput interface {
 	pulumi.Input
 
@@ -2250,11 +2250,11 @@ func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigPtrOutputWit
 // ConfigUplinkSpectrumConfigPtrInput is an input type that accepts ConfigUplinkSpectrumConfigArgs, ConfigUplinkSpectrumConfigPtr and ConfigUplinkSpectrumConfigPtrOutput values.
 // You can construct a concrete instance of `ConfigUplinkSpectrumConfigPtrInput` via:
 //
-//          ConfigUplinkSpectrumConfigArgs{...}
+//	        ConfigUplinkSpectrumConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigUplinkSpectrumConfigPtrInput interface {
 	pulumi.Input
 
@@ -2363,7 +2363,7 @@ type DataflowEndpointGroupDataflowEndpoint struct {
 // DataflowEndpointGroupDataflowEndpointInput is an input type that accepts DataflowEndpointGroupDataflowEndpointArgs and DataflowEndpointGroupDataflowEndpointOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupDataflowEndpointInput` via:
 //
-//          DataflowEndpointGroupDataflowEndpointArgs{...}
+//	DataflowEndpointGroupDataflowEndpointArgs{...}
 type DataflowEndpointGroupDataflowEndpointInput interface {
 	pulumi.Input
 
@@ -2400,11 +2400,11 @@ func (i DataflowEndpointGroupDataflowEndpointArgs) ToDataflowEndpointGroupDatafl
 // DataflowEndpointGroupDataflowEndpointPtrInput is an input type that accepts DataflowEndpointGroupDataflowEndpointArgs, DataflowEndpointGroupDataflowEndpointPtr and DataflowEndpointGroupDataflowEndpointPtrOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupDataflowEndpointPtrInput` via:
 //
-//          DataflowEndpointGroupDataflowEndpointArgs{...}
+//	        DataflowEndpointGroupDataflowEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataflowEndpointGroupDataflowEndpointPtrInput interface {
 	pulumi.Input
 
@@ -2525,7 +2525,7 @@ type DataflowEndpointGroupEndpointDetails struct {
 // DataflowEndpointGroupEndpointDetailsInput is an input type that accepts DataflowEndpointGroupEndpointDetailsArgs and DataflowEndpointGroupEndpointDetailsOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupEndpointDetailsInput` via:
 //
-//          DataflowEndpointGroupEndpointDetailsArgs{...}
+//	DataflowEndpointGroupEndpointDetailsArgs{...}
 type DataflowEndpointGroupEndpointDetailsInput interface {
 	pulumi.Input
 
@@ -2553,7 +2553,7 @@ func (i DataflowEndpointGroupEndpointDetailsArgs) ToDataflowEndpointGroupEndpoin
 // DataflowEndpointGroupEndpointDetailsArrayInput is an input type that accepts DataflowEndpointGroupEndpointDetailsArray and DataflowEndpointGroupEndpointDetailsArrayOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupEndpointDetailsArrayInput` via:
 //
-//          DataflowEndpointGroupEndpointDetailsArray{ DataflowEndpointGroupEndpointDetailsArgs{...} }
+//	DataflowEndpointGroupEndpointDetailsArray{ DataflowEndpointGroupEndpointDetailsArgs{...} }
 type DataflowEndpointGroupEndpointDetailsArrayInput interface {
 	pulumi.Input
 
@@ -2628,7 +2628,7 @@ type DataflowEndpointGroupSecurityDetails struct {
 // DataflowEndpointGroupSecurityDetailsInput is an input type that accepts DataflowEndpointGroupSecurityDetailsArgs and DataflowEndpointGroupSecurityDetailsOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupSecurityDetailsInput` via:
 //
-//          DataflowEndpointGroupSecurityDetailsArgs{...}
+//	DataflowEndpointGroupSecurityDetailsArgs{...}
 type DataflowEndpointGroupSecurityDetailsInput interface {
 	pulumi.Input
 
@@ -2665,11 +2665,11 @@ func (i DataflowEndpointGroupSecurityDetailsArgs) ToDataflowEndpointGroupSecurit
 // DataflowEndpointGroupSecurityDetailsPtrInput is an input type that accepts DataflowEndpointGroupSecurityDetailsArgs, DataflowEndpointGroupSecurityDetailsPtr and DataflowEndpointGroupSecurityDetailsPtrOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupSecurityDetailsPtrInput` via:
 //
-//          DataflowEndpointGroupSecurityDetailsArgs{...}
+//	        DataflowEndpointGroupSecurityDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataflowEndpointGroupSecurityDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2790,7 +2790,7 @@ type DataflowEndpointGroupSocketAddress struct {
 // DataflowEndpointGroupSocketAddressInput is an input type that accepts DataflowEndpointGroupSocketAddressArgs and DataflowEndpointGroupSocketAddressOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupSocketAddressInput` via:
 //
-//          DataflowEndpointGroupSocketAddressArgs{...}
+//	DataflowEndpointGroupSocketAddressArgs{...}
 type DataflowEndpointGroupSocketAddressInput interface {
 	pulumi.Input
 
@@ -2826,11 +2826,11 @@ func (i DataflowEndpointGroupSocketAddressArgs) ToDataflowEndpointGroupSocketAdd
 // DataflowEndpointGroupSocketAddressPtrInput is an input type that accepts DataflowEndpointGroupSocketAddressArgs, DataflowEndpointGroupSocketAddressPtr and DataflowEndpointGroupSocketAddressPtrOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupSocketAddressPtrInput` via:
 //
-//          DataflowEndpointGroupSocketAddressArgs{...}
+//	        DataflowEndpointGroupSocketAddressArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataflowEndpointGroupSocketAddressPtrInput interface {
 	pulumi.Input
 
@@ -2938,7 +2938,7 @@ type DataflowEndpointGroupTag struct {
 // DataflowEndpointGroupTagInput is an input type that accepts DataflowEndpointGroupTagArgs and DataflowEndpointGroupTagOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupTagInput` via:
 //
-//          DataflowEndpointGroupTagArgs{...}
+//	DataflowEndpointGroupTagArgs{...}
 type DataflowEndpointGroupTagInput interface {
 	pulumi.Input
 
@@ -2966,7 +2966,7 @@ func (i DataflowEndpointGroupTagArgs) ToDataflowEndpointGroupTagOutputWithContex
 // DataflowEndpointGroupTagArrayInput is an input type that accepts DataflowEndpointGroupTagArray and DataflowEndpointGroupTagArrayOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupTagArrayInput` via:
 //
-//          DataflowEndpointGroupTagArray{ DataflowEndpointGroupTagArgs{...} }
+//	DataflowEndpointGroupTagArray{ DataflowEndpointGroupTagArgs{...} }
 type DataflowEndpointGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -3038,7 +3038,7 @@ type MissionProfileDataflowEdge struct {
 // MissionProfileDataflowEdgeInput is an input type that accepts MissionProfileDataflowEdgeArgs and MissionProfileDataflowEdgeOutput values.
 // You can construct a concrete instance of `MissionProfileDataflowEdgeInput` via:
 //
-//          MissionProfileDataflowEdgeArgs{...}
+//	MissionProfileDataflowEdgeArgs{...}
 type MissionProfileDataflowEdgeInput interface {
 	pulumi.Input
 
@@ -3066,7 +3066,7 @@ func (i MissionProfileDataflowEdgeArgs) ToMissionProfileDataflowEdgeOutputWithCo
 // MissionProfileDataflowEdgeArrayInput is an input type that accepts MissionProfileDataflowEdgeArray and MissionProfileDataflowEdgeArrayOutput values.
 // You can construct a concrete instance of `MissionProfileDataflowEdgeArrayInput` via:
 //
-//          MissionProfileDataflowEdgeArray{ MissionProfileDataflowEdgeArgs{...} }
+//	MissionProfileDataflowEdgeArray{ MissionProfileDataflowEdgeArgs{...} }
 type MissionProfileDataflowEdgeArrayInput interface {
 	pulumi.Input
 
@@ -3138,7 +3138,7 @@ type MissionProfileTag struct {
 // MissionProfileTagInput is an input type that accepts MissionProfileTagArgs and MissionProfileTagOutput values.
 // You can construct a concrete instance of `MissionProfileTagInput` via:
 //
-//          MissionProfileTagArgs{...}
+//	MissionProfileTagArgs{...}
 type MissionProfileTagInput interface {
 	pulumi.Input
 
@@ -3166,7 +3166,7 @@ func (i MissionProfileTagArgs) ToMissionProfileTagOutputWithContext(ctx context.
 // MissionProfileTagArrayInput is an input type that accepts MissionProfileTagArray and MissionProfileTagArrayOutput values.
 // You can construct a concrete instance of `MissionProfileTagArrayInput` via:
 //
-//          MissionProfileTagArray{ MissionProfileTagArgs{...} }
+//	MissionProfileTagArray{ MissionProfileTagArgs{...} }
 type MissionProfileTagArrayInput interface {
 	pulumi.Input
 

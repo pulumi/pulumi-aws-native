@@ -17,7 +17,7 @@ type CampaignDialerConfig struct {
 // CampaignDialerConfigInput is an input type that accepts CampaignDialerConfigArgs and CampaignDialerConfigOutput values.
 // You can construct a concrete instance of `CampaignDialerConfigInput` via:
 //
-//          CampaignDialerConfigArgs{...}
+//	CampaignDialerConfigArgs{...}
 type CampaignDialerConfigInput interface {
 	pulumi.Input
 
@@ -93,7 +93,7 @@ type CampaignOutboundCallConfig struct {
 // CampaignOutboundCallConfigInput is an input type that accepts CampaignOutboundCallConfigArgs and CampaignOutboundCallConfigOutput values.
 // You can construct a concrete instance of `CampaignOutboundCallConfigInput` via:
 //
-//          CampaignOutboundCallConfigArgs{...}
+//	CampaignOutboundCallConfigArgs{...}
 type CampaignOutboundCallConfigInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type CampaignTag struct {
 // CampaignTagInput is an input type that accepts CampaignTagArgs and CampaignTagOutput values.
 // You can construct a concrete instance of `CampaignTagInput` via:
 //
-//          CampaignTagArgs{...}
+//	CampaignTagArgs{...}
 type CampaignTagInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ func (i CampaignTagArgs) ToCampaignTagOutputWithContext(ctx context.Context) Cam
 // CampaignTagArrayInput is an input type that accepts CampaignTagArray and CampaignTagArrayOutput values.
 // You can construct a concrete instance of `CampaignTagArrayInput` via:
 //
-//          CampaignTagArray{ CampaignTagArgs{...} }
+//	CampaignTagArray{ CampaignTagArgs{...} }
 type CampaignTagArrayInput interface {
 	pulumi.Input
 

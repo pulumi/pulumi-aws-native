@@ -186,9 +186,10 @@ func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 }
 
 // <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-// 				<code>ListThemes</code> or choose <b>Themes</b> from
-// 			within a QuickSight analysis. </p>
+//
+//	the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+//		<code>ListThemes</code> or choose <b>Themes</b> from
+//	within a QuickSight analysis. </p>
 func (o ThemeOutput) BaseThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.BaseThemeId }).(pulumi.StringPtrOutput)
 }
@@ -213,13 +214,15 @@ func (o ThemeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // <p>A valid grouping of resource permissions to apply to the new theme.
-// 			</p>
+//
+//	</p>
 func (o ThemeOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeResourcePermissionArrayOutput { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
 // <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-// 			resource.</p>
+//
+//	resource.</p>
 func (o ThemeOutput) Tags() ThemeTagArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeTagArrayOutput { return v.Tags }).(ThemeTagArrayOutput)
 }
@@ -237,9 +240,10 @@ func (o ThemeOutput) Version() ThemeVersionOutput {
 }
 
 // <p>A description of the first version of the theme that you're creating. Every time
-// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-// 			theme has a description of the version in the <code>VersionDescription</code>
-// 			field.</p>
+//
+//		<code>UpdateTheme</code> is called, a new version is created. Each version of the
+//	theme has a description of the version in the <code>VersionDescription</code>
+//	field.</p>
 func (o ThemeOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }

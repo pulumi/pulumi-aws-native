@@ -21,7 +21,7 @@ type TrailDataResource struct {
 // TrailDataResourceInput is an input type that accepts TrailDataResourceArgs and TrailDataResourceOutput values.
 // You can construct a concrete instance of `TrailDataResourceInput` via:
 //
-//          TrailDataResourceArgs{...}
+//	TrailDataResourceArgs{...}
 type TrailDataResourceInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i TrailDataResourceArgs) ToTrailDataResourceOutputWithContext(ctx context.
 // TrailDataResourceArrayInput is an input type that accepts TrailDataResourceArray and TrailDataResourceArrayOutput values.
 // You can construct a concrete instance of `TrailDataResourceArrayInput` via:
 //
-//          TrailDataResourceArray{ TrailDataResourceArgs{...} }
+//	TrailDataResourceArray{ TrailDataResourceArgs{...} }
 type TrailDataResourceArrayInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ type TrailEventSelector struct {
 // TrailEventSelectorInput is an input type that accepts TrailEventSelectorArgs and TrailEventSelectorOutput values.
 // You can construct a concrete instance of `TrailEventSelectorInput` via:
 //
-//          TrailEventSelectorArgs{...}
+//	TrailEventSelectorArgs{...}
 type TrailEventSelectorInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ func (i TrailEventSelectorArgs) ToTrailEventSelectorOutputWithContext(ctx contex
 // TrailEventSelectorArrayInput is an input type that accepts TrailEventSelectorArray and TrailEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorArrayInput` via:
 //
-//          TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
+//	TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
 type TrailEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +252,7 @@ type TrailInsightSelector struct {
 // TrailInsightSelectorInput is an input type that accepts TrailInsightSelectorArgs and TrailInsightSelectorOutput values.
 // You can construct a concrete instance of `TrailInsightSelectorInput` via:
 //
-//          TrailInsightSelectorArgs{...}
+//	TrailInsightSelectorArgs{...}
 type TrailInsightSelectorInput interface {
 	pulumi.Input
 
@@ -281,7 +281,7 @@ func (i TrailInsightSelectorArgs) ToTrailInsightSelectorOutputWithContext(ctx co
 // TrailInsightSelectorArrayInput is an input type that accepts TrailInsightSelectorArray and TrailInsightSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailInsightSelectorArrayInput` via:
 //
-//          TrailInsightSelectorArray{ TrailInsightSelectorArgs{...} }
+//	TrailInsightSelectorArray{ TrailInsightSelectorArgs{...} }
 type TrailInsightSelectorArrayInput interface {
 	pulumi.Input
 
@@ -354,7 +354,7 @@ type TrailTag struct {
 // TrailTagInput is an input type that accepts TrailTagArgs and TrailTagOutput values.
 // You can construct a concrete instance of `TrailTagInput` via:
 //
-//          TrailTagArgs{...}
+//	TrailTagArgs{...}
 type TrailTagInput interface {
 	pulumi.Input
 
@@ -385,7 +385,7 @@ func (i TrailTagArgs) ToTrailTagOutputWithContext(ctx context.Context) TrailTagO
 // TrailTagArrayInput is an input type that accepts TrailTagArray and TrailTagArrayOutput values.
 // You can construct a concrete instance of `TrailTagArrayInput` via:
 //
-//          TrailTagArray{ TrailTagArgs{...} }
+//	TrailTagArray{ TrailTagArgs{...} }
 type TrailTagArrayInput interface {
 	pulumi.Input
 

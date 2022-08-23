@@ -139,7 +139,7 @@ func (o BudgetsActionActionThresholdTypePtrOutput) ToStringPtrOutputWithContext(
 // BudgetsActionActionThresholdTypeInput is an input type that accepts BudgetsActionActionThresholdTypeArgs and BudgetsActionActionThresholdTypeOutput values.
 // You can construct a concrete instance of `BudgetsActionActionThresholdTypeInput` via:
 //
-//          BudgetsActionActionThresholdTypeArgs{...}
+//	BudgetsActionActionThresholdTypeArgs{...}
 type BudgetsActionActionThresholdTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o BudgetsActionActionTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 // BudgetsActionActionTypeInput is an input type that accepts BudgetsActionActionTypeArgs and BudgetsActionActionTypeOutput values.
 // You can construct a concrete instance of `BudgetsActionActionTypeInput` via:
 //
-//          BudgetsActionActionTypeArgs{...}
+//	BudgetsActionActionTypeArgs{...}
 type BudgetsActionActionTypeInput interface {
 	pulumi.Input
 
@@ -468,7 +468,7 @@ func (o BudgetsActionApprovalModelPtrOutput) ToStringPtrOutputWithContext(ctx co
 // BudgetsActionApprovalModelInput is an input type that accepts BudgetsActionApprovalModelArgs and BudgetsActionApprovalModelOutput values.
 // You can construct a concrete instance of `BudgetsActionApprovalModelInput` via:
 //
-//          BudgetsActionApprovalModelArgs{...}
+//	BudgetsActionApprovalModelArgs{...}
 type BudgetsActionApprovalModelInput interface {
 	pulumi.Input
 
@@ -632,7 +632,7 @@ func (o BudgetsActionNotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx
 // BudgetsActionNotificationTypeInput is an input type that accepts BudgetsActionNotificationTypeArgs and BudgetsActionNotificationTypeOutput values.
 // You can construct a concrete instance of `BudgetsActionNotificationTypeInput` via:
 //
-//          BudgetsActionNotificationTypeArgs{...}
+//	BudgetsActionNotificationTypeArgs{...}
 type BudgetsActionNotificationTypeInput interface {
 	pulumi.Input
 
@@ -796,7 +796,7 @@ func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToStringPtrOutputWithC
 // BudgetsActionSsmActionDefinitionSubtypeInput is an input type that accepts BudgetsActionSsmActionDefinitionSubtypeArgs and BudgetsActionSsmActionDefinitionSubtypeOutput values.
 // You can construct a concrete instance of `BudgetsActionSsmActionDefinitionSubtypeInput` via:
 //
-//          BudgetsActionSsmActionDefinitionSubtypeArgs{...}
+//	BudgetsActionSsmActionDefinitionSubtypeArgs{...}
 type BudgetsActionSsmActionDefinitionSubtypeInput interface {
 	pulumi.Input
 
@@ -960,7 +960,7 @@ func (o BudgetsActionSubscriberTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // BudgetsActionSubscriberTypeInput is an input type that accepts BudgetsActionSubscriberTypeArgs and BudgetsActionSubscriberTypeOutput values.
 // You can construct a concrete instance of `BudgetsActionSubscriberTypeInput` via:
 //
-//          BudgetsActionSubscriberTypeArgs{...}
+//	BudgetsActionSubscriberTypeArgs{...}
 type BudgetsActionSubscriberTypeInput interface {
 	pulumi.Input
 

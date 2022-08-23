@@ -142,7 +142,7 @@ func (o EnvironmentLoggingLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // EnvironmentLoggingLevelInput is an input type that accepts EnvironmentLoggingLevelArgs and EnvironmentLoggingLevelOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingLevelInput` via:
 //
-//          EnvironmentLoggingLevelArgs{...}
+//	EnvironmentLoggingLevelArgs{...}
 type EnvironmentLoggingLevelInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ func (o EnvironmentWebserverAccessModePtrOutput) ToStringPtrOutputWithContext(ct
 // EnvironmentWebserverAccessModeInput is an input type that accepts EnvironmentWebserverAccessModeArgs and EnvironmentWebserverAccessModeOutput values.
 // You can construct a concrete instance of `EnvironmentWebserverAccessModeInput` via:
 //
-//          EnvironmentWebserverAccessModeArgs{...}
+//	EnvironmentWebserverAccessModeArgs{...}
 type EnvironmentWebserverAccessModeInput interface {
 	pulumi.Input
 

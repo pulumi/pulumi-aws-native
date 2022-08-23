@@ -26,7 +26,7 @@ type AppAutoBranchCreationConfig struct {
 // AppAutoBranchCreationConfigInput is an input type that accepts AppAutoBranchCreationConfigArgs and AppAutoBranchCreationConfigOutput values.
 // You can construct a concrete instance of `AppAutoBranchCreationConfigInput` via:
 //
-//          AppAutoBranchCreationConfigArgs{...}
+//	AppAutoBranchCreationConfigArgs{...}
 type AppAutoBranchCreationConfigInput interface {
 	pulumi.Input
 
@@ -70,11 +70,11 @@ func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigPtrOutputW
 // AppAutoBranchCreationConfigPtrInput is an input type that accepts AppAutoBranchCreationConfigArgs, AppAutoBranchCreationConfigPtr and AppAutoBranchCreationConfigPtrOutput values.
 // You can construct a concrete instance of `AppAutoBranchCreationConfigPtrInput` via:
 //
-//          AppAutoBranchCreationConfigArgs{...}
+//	        AppAutoBranchCreationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppAutoBranchCreationConfigPtrInput interface {
 	pulumi.Input
 
@@ -287,7 +287,7 @@ type AppBasicAuthConfig struct {
 // AppBasicAuthConfigInput is an input type that accepts AppBasicAuthConfigArgs and AppBasicAuthConfigOutput values.
 // You can construct a concrete instance of `AppBasicAuthConfigInput` via:
 //
-//          AppBasicAuthConfigArgs{...}
+//	AppBasicAuthConfigArgs{...}
 type AppBasicAuthConfigInput interface {
 	pulumi.Input
 
@@ -324,11 +324,11 @@ func (i AppBasicAuthConfigArgs) ToAppBasicAuthConfigPtrOutputWithContext(ctx con
 // AppBasicAuthConfigPtrInput is an input type that accepts AppBasicAuthConfigArgs, AppBasicAuthConfigPtr and AppBasicAuthConfigPtrOutput values.
 // You can construct a concrete instance of `AppBasicAuthConfigPtrInput` via:
 //
-//          AppBasicAuthConfigArgs{...}
+//	        AppBasicAuthConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppBasicAuthConfigPtrInput interface {
 	pulumi.Input
 
@@ -451,7 +451,7 @@ type AppCustomRule struct {
 // AppCustomRuleInput is an input type that accepts AppCustomRuleArgs and AppCustomRuleOutput values.
 // You can construct a concrete instance of `AppCustomRuleInput` via:
 //
-//          AppCustomRuleArgs{...}
+//	AppCustomRuleArgs{...}
 type AppCustomRuleInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ func (i AppCustomRuleArgs) ToAppCustomRuleOutputWithContext(ctx context.Context)
 // AppCustomRuleArrayInput is an input type that accepts AppCustomRuleArray and AppCustomRuleArrayOutput values.
 // You can construct a concrete instance of `AppCustomRuleArrayInput` via:
 //
-//          AppCustomRuleArray{ AppCustomRuleArgs{...} }
+//	AppCustomRuleArray{ AppCustomRuleArgs{...} }
 type AppCustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -561,7 +561,7 @@ type AppEnvironmentVariable struct {
 // AppEnvironmentVariableInput is an input type that accepts AppEnvironmentVariableArgs and AppEnvironmentVariableOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableInput` via:
 //
-//          AppEnvironmentVariableArgs{...}
+//	AppEnvironmentVariableArgs{...}
 type AppEnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ func (i AppEnvironmentVariableArgs) ToAppEnvironmentVariableOutputWithContext(ct
 // AppEnvironmentVariableArrayInput is an input type that accepts AppEnvironmentVariableArray and AppEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableArrayInput` via:
 //
-//          AppEnvironmentVariableArray{ AppEnvironmentVariableArgs{...} }
+//	AppEnvironmentVariableArray{ AppEnvironmentVariableArgs{...} }
 type AppEnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -661,7 +661,7 @@ type AppTag struct {
 // AppTagInput is an input type that accepts AppTagArgs and AppTagOutput values.
 // You can construct a concrete instance of `AppTagInput` via:
 //
-//          AppTagArgs{...}
+//	AppTagArgs{...}
 type AppTagInput interface {
 	pulumi.Input
 
@@ -689,7 +689,7 @@ func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput 
 // AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
 // You can construct a concrete instance of `AppTagArrayInput` via:
 //
-//          AppTagArray{ AppTagArgs{...} }
+//	AppTagArray{ AppTagArgs{...} }
 type AppTagArrayInput interface {
 	pulumi.Input
 
@@ -762,7 +762,7 @@ type BranchBasicAuthConfig struct {
 // BranchBasicAuthConfigInput is an input type that accepts BranchBasicAuthConfigArgs and BranchBasicAuthConfigOutput values.
 // You can construct a concrete instance of `BranchBasicAuthConfigInput` via:
 //
-//          BranchBasicAuthConfigArgs{...}
+//	BranchBasicAuthConfigArgs{...}
 type BranchBasicAuthConfigInput interface {
 	pulumi.Input
 
@@ -799,11 +799,11 @@ func (i BranchBasicAuthConfigArgs) ToBranchBasicAuthConfigPtrOutputWithContext(c
 // BranchBasicAuthConfigPtrInput is an input type that accepts BranchBasicAuthConfigArgs, BranchBasicAuthConfigPtr and BranchBasicAuthConfigPtrOutput values.
 // You can construct a concrete instance of `BranchBasicAuthConfigPtrInput` via:
 //
-//          BranchBasicAuthConfigArgs{...}
+//	        BranchBasicAuthConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BranchBasicAuthConfigPtrInput interface {
 	pulumi.Input
 
@@ -924,7 +924,7 @@ type BranchEnvironmentVariable struct {
 // BranchEnvironmentVariableInput is an input type that accepts BranchEnvironmentVariableArgs and BranchEnvironmentVariableOutput values.
 // You can construct a concrete instance of `BranchEnvironmentVariableInput` via:
 //
-//          BranchEnvironmentVariableArgs{...}
+//	BranchEnvironmentVariableArgs{...}
 type BranchEnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ func (i BranchEnvironmentVariableArgs) ToBranchEnvironmentVariableOutputWithCont
 // BranchEnvironmentVariableArrayInput is an input type that accepts BranchEnvironmentVariableArray and BranchEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `BranchEnvironmentVariableArrayInput` via:
 //
-//          BranchEnvironmentVariableArray{ BranchEnvironmentVariableArgs{...} }
+//	BranchEnvironmentVariableArray{ BranchEnvironmentVariableArgs{...} }
 type BranchEnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -1024,7 +1024,7 @@ type BranchTag struct {
 // BranchTagInput is an input type that accepts BranchTagArgs and BranchTagOutput values.
 // You can construct a concrete instance of `BranchTagInput` via:
 //
-//          BranchTagArgs{...}
+//	BranchTagArgs{...}
 type BranchTagInput interface {
 	pulumi.Input
 
@@ -1052,7 +1052,7 @@ func (i BranchTagArgs) ToBranchTagOutputWithContext(ctx context.Context) BranchT
 // BranchTagArrayInput is an input type that accepts BranchTagArray and BranchTagArrayOutput values.
 // You can construct a concrete instance of `BranchTagArrayInput` via:
 //
-//          BranchTagArray{ BranchTagArgs{...} }
+//	BranchTagArray{ BranchTagArgs{...} }
 type BranchTagArrayInput interface {
 	pulumi.Input
 
@@ -1124,7 +1124,7 @@ type DomainSubDomainSetting struct {
 // DomainSubDomainSettingInput is an input type that accepts DomainSubDomainSettingArgs and DomainSubDomainSettingOutput values.
 // You can construct a concrete instance of `DomainSubDomainSettingInput` via:
 //
-//          DomainSubDomainSettingArgs{...}
+//	DomainSubDomainSettingArgs{...}
 type DomainSubDomainSettingInput interface {
 	pulumi.Input
 
@@ -1152,7 +1152,7 @@ func (i DomainSubDomainSettingArgs) ToDomainSubDomainSettingOutputWithContext(ct
 // DomainSubDomainSettingArrayInput is an input type that accepts DomainSubDomainSettingArray and DomainSubDomainSettingArrayOutput values.
 // You can construct a concrete instance of `DomainSubDomainSettingArrayInput` via:
 //
-//          DomainSubDomainSettingArray{ DomainSubDomainSettingArgs{...} }
+//	DomainSubDomainSettingArray{ DomainSubDomainSettingArgs{...} }
 type DomainSubDomainSettingArrayInput interface {
 	pulumi.Input
 

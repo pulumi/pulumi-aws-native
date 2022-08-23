@@ -21,7 +21,7 @@ type EndpointDocDbSettings struct {
 // EndpointDocDbSettingsInput is an input type that accepts EndpointDocDbSettingsArgs and EndpointDocDbSettingsOutput values.
 // You can construct a concrete instance of `EndpointDocDbSettingsInput` via:
 //
-//          EndpointDocDbSettingsArgs{...}
+//	EndpointDocDbSettingsArgs{...}
 type EndpointDocDbSettingsInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i EndpointDocDbSettingsArgs) ToEndpointDocDbSettingsPtrOutputWithContext(c
 // EndpointDocDbSettingsPtrInput is an input type that accepts EndpointDocDbSettingsArgs, EndpointDocDbSettingsPtr and EndpointDocDbSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointDocDbSettingsPtrInput` via:
 //
-//          EndpointDocDbSettingsArgs{...}
+//	        EndpointDocDbSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDocDbSettingsPtrInput interface {
 	pulumi.Input
 
@@ -210,7 +210,7 @@ type EndpointDynamoDbSettings struct {
 // EndpointDynamoDbSettingsInput is an input type that accepts EndpointDynamoDbSettingsArgs and EndpointDynamoDbSettingsOutput values.
 // You can construct a concrete instance of `EndpointDynamoDbSettingsInput` via:
 //
-//          EndpointDynamoDbSettingsArgs{...}
+//	EndpointDynamoDbSettingsArgs{...}
 type EndpointDynamoDbSettingsInput interface {
 	pulumi.Input
 
@@ -245,11 +245,11 @@ func (i EndpointDynamoDbSettingsArgs) ToEndpointDynamoDbSettingsPtrOutputWithCon
 // EndpointDynamoDbSettingsPtrInput is an input type that accepts EndpointDynamoDbSettingsArgs, EndpointDynamoDbSettingsPtr and EndpointDynamoDbSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointDynamoDbSettingsPtrInput` via:
 //
-//          EndpointDynamoDbSettingsArgs{...}
+//	        EndpointDynamoDbSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDynamoDbSettingsPtrInput interface {
 	pulumi.Input
 
@@ -346,7 +346,7 @@ type EndpointElasticsearchSettings struct {
 // EndpointElasticsearchSettingsInput is an input type that accepts EndpointElasticsearchSettingsArgs and EndpointElasticsearchSettingsOutput values.
 // You can construct a concrete instance of `EndpointElasticsearchSettingsInput` via:
 //
-//          EndpointElasticsearchSettingsArgs{...}
+//	EndpointElasticsearchSettingsArgs{...}
 type EndpointElasticsearchSettingsInput interface {
 	pulumi.Input
 
@@ -384,11 +384,11 @@ func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOut
 // EndpointElasticsearchSettingsPtrInput is an input type that accepts EndpointElasticsearchSettingsArgs, EndpointElasticsearchSettingsPtr and EndpointElasticsearchSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointElasticsearchSettingsPtrInput` via:
 //
-//          EndpointElasticsearchSettingsArgs{...}
+//	        EndpointElasticsearchSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointElasticsearchSettingsPtrInput interface {
 	pulumi.Input
 
@@ -533,7 +533,7 @@ type EndpointGcpMySQLSettings struct {
 // EndpointGcpMySQLSettingsInput is an input type that accepts EndpointGcpMySQLSettingsArgs and EndpointGcpMySQLSettingsOutput values.
 // You can construct a concrete instance of `EndpointGcpMySQLSettingsInput` via:
 //
-//          EndpointGcpMySQLSettingsArgs{...}
+//	EndpointGcpMySQLSettingsArgs{...}
 type EndpointGcpMySQLSettingsInput interface {
 	pulumi.Input
 
@@ -580,11 +580,11 @@ func (i EndpointGcpMySQLSettingsArgs) ToEndpointGcpMySQLSettingsPtrOutputWithCon
 // EndpointGcpMySQLSettingsPtrInput is an input type that accepts EndpointGcpMySQLSettingsArgs, EndpointGcpMySQLSettingsPtr and EndpointGcpMySQLSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointGcpMySQLSettingsPtrInput` via:
 //
-//          EndpointGcpMySQLSettingsArgs{...}
+//	        EndpointGcpMySQLSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGcpMySQLSettingsPtrInput interface {
 	pulumi.Input
 
@@ -838,7 +838,7 @@ type EndpointIbmDb2Settings struct {
 // EndpointIbmDb2SettingsInput is an input type that accepts EndpointIbmDb2SettingsArgs and EndpointIbmDb2SettingsOutput values.
 // You can construct a concrete instance of `EndpointIbmDb2SettingsInput` via:
 //
-//          EndpointIbmDb2SettingsArgs{...}
+//	EndpointIbmDb2SettingsArgs{...}
 type EndpointIbmDb2SettingsInput interface {
 	pulumi.Input
 
@@ -877,11 +877,11 @@ func (i EndpointIbmDb2SettingsArgs) ToEndpointIbmDb2SettingsPtrOutputWithContext
 // EndpointIbmDb2SettingsPtrInput is an input type that accepts EndpointIbmDb2SettingsArgs, EndpointIbmDb2SettingsPtr and EndpointIbmDb2SettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointIbmDb2SettingsPtrInput` via:
 //
-//          EndpointIbmDb2SettingsArgs{...}
+//	        EndpointIbmDb2SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointIbmDb2SettingsPtrInput interface {
 	pulumi.Input
 
@@ -1044,7 +1044,7 @@ type EndpointKafkaSettings struct {
 // EndpointKafkaSettingsInput is an input type that accepts EndpointKafkaSettingsArgs and EndpointKafkaSettingsOutput values.
 // You can construct a concrete instance of `EndpointKafkaSettingsInput` via:
 //
-//          EndpointKafkaSettingsArgs{...}
+//	EndpointKafkaSettingsArgs{...}
 type EndpointKafkaSettingsInput interface {
 	pulumi.Input
 
@@ -1096,11 +1096,11 @@ func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutputWithContext(c
 // EndpointKafkaSettingsPtrInput is an input type that accepts EndpointKafkaSettingsArgs, EndpointKafkaSettingsPtr and EndpointKafkaSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointKafkaSettingsPtrInput` via:
 //
-//          EndpointKafkaSettingsArgs{...}
+//	        EndpointKafkaSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointKafkaSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1424,7 +1424,7 @@ type EndpointKinesisSettings struct {
 // EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
 // You can construct a concrete instance of `EndpointKinesisSettingsInput` via:
 //
-//          EndpointKinesisSettingsArgs{...}
+//	EndpointKinesisSettingsArgs{...}
 type EndpointKinesisSettingsInput interface {
 	pulumi.Input
 
@@ -1468,11 +1468,11 @@ func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutputWithConte
 // EndpointKinesisSettingsPtrInput is an input type that accepts EndpointKinesisSettingsArgs, EndpointKinesisSettingsPtr and EndpointKinesisSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointKinesisSettingsPtrInput` via:
 //
-//          EndpointKinesisSettingsArgs{...}
+//	        EndpointKinesisSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointKinesisSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1691,7 +1691,7 @@ type EndpointMicrosoftSqlServerSettings struct {
 // EndpointMicrosoftSqlServerSettingsInput is an input type that accepts EndpointMicrosoftSqlServerSettingsArgs and EndpointMicrosoftSqlServerSettingsOutput values.
 // You can construct a concrete instance of `EndpointMicrosoftSqlServerSettingsInput` via:
 //
-//          EndpointMicrosoftSqlServerSettingsArgs{...}
+//	EndpointMicrosoftSqlServerSettingsArgs{...}
 type EndpointMicrosoftSqlServerSettingsInput interface {
 	pulumi.Input
 
@@ -1734,11 +1734,11 @@ func (i EndpointMicrosoftSqlServerSettingsArgs) ToEndpointMicrosoftSqlServerSett
 // EndpointMicrosoftSqlServerSettingsPtrInput is an input type that accepts EndpointMicrosoftSqlServerSettingsArgs, EndpointMicrosoftSqlServerSettingsPtr and EndpointMicrosoftSqlServerSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointMicrosoftSqlServerSettingsPtrInput` via:
 //
-//          EndpointMicrosoftSqlServerSettingsArgs{...}
+//	        EndpointMicrosoftSqlServerSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointMicrosoftSqlServerSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1948,7 +1948,7 @@ type EndpointMongoDbSettings struct {
 // EndpointMongoDbSettingsInput is an input type that accepts EndpointMongoDbSettingsArgs and EndpointMongoDbSettingsOutput values.
 // You can construct a concrete instance of `EndpointMongoDbSettingsInput` via:
 //
-//          EndpointMongoDbSettingsArgs{...}
+//	EndpointMongoDbSettingsArgs{...}
 type EndpointMongoDbSettingsInput interface {
 	pulumi.Input
 
@@ -1995,11 +1995,11 @@ func (i EndpointMongoDbSettingsArgs) ToEndpointMongoDbSettingsPtrOutputWithConte
 // EndpointMongoDbSettingsPtrInput is an input type that accepts EndpointMongoDbSettingsArgs, EndpointMongoDbSettingsPtr and EndpointMongoDbSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointMongoDbSettingsPtrInput` via:
 //
-//          EndpointMongoDbSettingsArgs{...}
+//	        EndpointMongoDbSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointMongoDbSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2257,7 +2257,7 @@ type EndpointMySqlSettings struct {
 // EndpointMySqlSettingsInput is an input type that accepts EndpointMySqlSettingsArgs and EndpointMySqlSettingsOutput values.
 // You can construct a concrete instance of `EndpointMySqlSettingsInput` via:
 //
-//          EndpointMySqlSettingsArgs{...}
+//	EndpointMySqlSettingsArgs{...}
 type EndpointMySqlSettingsInput interface {
 	pulumi.Input
 
@@ -2300,11 +2300,11 @@ func (i EndpointMySqlSettingsArgs) ToEndpointMySqlSettingsPtrOutputWithContext(c
 // EndpointMySqlSettingsPtrInput is an input type that accepts EndpointMySqlSettingsArgs, EndpointMySqlSettingsPtr and EndpointMySqlSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointMySqlSettingsPtrInput` via:
 //
-//          EndpointMySqlSettingsArgs{...}
+//	        EndpointMySqlSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointMySqlSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2508,7 +2508,7 @@ type EndpointNeptuneSettings struct {
 // EndpointNeptuneSettingsInput is an input type that accepts EndpointNeptuneSettingsArgs and EndpointNeptuneSettingsOutput values.
 // You can construct a concrete instance of `EndpointNeptuneSettingsInput` via:
 //
-//          EndpointNeptuneSettingsArgs{...}
+//	EndpointNeptuneSettingsArgs{...}
 type EndpointNeptuneSettingsInput interface {
 	pulumi.Input
 
@@ -2549,11 +2549,11 @@ func (i EndpointNeptuneSettingsArgs) ToEndpointNeptuneSettingsPtrOutputWithConte
 // EndpointNeptuneSettingsPtrInput is an input type that accepts EndpointNeptuneSettingsArgs, EndpointNeptuneSettingsPtr and EndpointNeptuneSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointNeptuneSettingsPtrInput` via:
 //
-//          EndpointNeptuneSettingsArgs{...}
+//	        EndpointNeptuneSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointNeptuneSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2759,7 +2759,7 @@ type EndpointOracleSettings struct {
 // EndpointOracleSettingsInput is an input type that accepts EndpointOracleSettingsArgs and EndpointOracleSettingsOutput values.
 // You can construct a concrete instance of `EndpointOracleSettingsInput` via:
 //
-//          EndpointOracleSettingsArgs{...}
+//	EndpointOracleSettingsArgs{...}
 type EndpointOracleSettingsInput interface {
 	pulumi.Input
 
@@ -2828,11 +2828,11 @@ func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsPtrOutputWithContext
 // EndpointOracleSettingsPtrInput is an input type that accepts EndpointOracleSettingsArgs, EndpointOracleSettingsPtr and EndpointOracleSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointOracleSettingsPtrInput` via:
 //
-//          EndpointOracleSettingsArgs{...}
+//	        EndpointOracleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointOracleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3380,7 +3380,7 @@ type EndpointPostgreSqlSettings struct {
 // EndpointPostgreSqlSettingsInput is an input type that accepts EndpointPostgreSqlSettingsArgs and EndpointPostgreSqlSettingsOutput values.
 // You can construct a concrete instance of `EndpointPostgreSqlSettingsInput` via:
 //
-//          EndpointPostgreSqlSettingsArgs{...}
+//	EndpointPostgreSqlSettingsArgs{...}
 type EndpointPostgreSqlSettingsInput interface {
 	pulumi.Input
 
@@ -3427,11 +3427,11 @@ func (i EndpointPostgreSqlSettingsArgs) ToEndpointPostgreSqlSettingsPtrOutputWit
 // EndpointPostgreSqlSettingsPtrInput is an input type that accepts EndpointPostgreSqlSettingsArgs, EndpointPostgreSqlSettingsPtr and EndpointPostgreSqlSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointPostgreSqlSettingsPtrInput` via:
 //
-//          EndpointPostgreSqlSettingsArgs{...}
+//	        EndpointPostgreSqlSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointPostgreSqlSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3687,7 +3687,7 @@ type EndpointRedisSettings struct {
 // EndpointRedisSettingsInput is an input type that accepts EndpointRedisSettingsArgs and EndpointRedisSettingsOutput values.
 // You can construct a concrete instance of `EndpointRedisSettingsInput` via:
 //
-//          EndpointRedisSettingsArgs{...}
+//	EndpointRedisSettingsArgs{...}
 type EndpointRedisSettingsInput interface {
 	pulumi.Input
 
@@ -3728,11 +3728,11 @@ func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutputWithContext(c
 // EndpointRedisSettingsPtrInput is an input type that accepts EndpointRedisSettingsArgs, EndpointRedisSettingsPtr and EndpointRedisSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointRedisSettingsPtrInput` via:
 //
-//          EndpointRedisSettingsArgs{...}
+//	        EndpointRedisSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointRedisSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3928,7 +3928,7 @@ type EndpointRedshiftSettings struct {
 // EndpointRedshiftSettingsInput is an input type that accepts EndpointRedshiftSettingsArgs and EndpointRedshiftSettingsOutput values.
 // You can construct a concrete instance of `EndpointRedshiftSettingsInput` via:
 //
-//          EndpointRedshiftSettingsArgs{...}
+//	EndpointRedshiftSettingsArgs{...}
 type EndpointRedshiftSettingsInput interface {
 	pulumi.Input
 
@@ -3987,11 +3987,11 @@ func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutputWithCon
 // EndpointRedshiftSettingsPtrInput is an input type that accepts EndpointRedshiftSettingsArgs, EndpointRedshiftSettingsPtr and EndpointRedshiftSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointRedshiftSettingsPtrInput` via:
 //
-//          EndpointRedshiftSettingsArgs{...}
+//	        EndpointRedshiftSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointRedshiftSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4434,7 +4434,7 @@ type EndpointS3Settings struct {
 // EndpointS3SettingsInput is an input type that accepts EndpointS3SettingsArgs and EndpointS3SettingsOutput values.
 // You can construct a concrete instance of `EndpointS3SettingsInput` via:
 //
-//          EndpointS3SettingsArgs{...}
+//	EndpointS3SettingsArgs{...}
 type EndpointS3SettingsInput interface {
 	pulumi.Input
 
@@ -4506,11 +4506,11 @@ func (i EndpointS3SettingsArgs) ToEndpointS3SettingsPtrOutputWithContext(ctx con
 // EndpointS3SettingsPtrInput is an input type that accepts EndpointS3SettingsArgs, EndpointS3SettingsPtr and EndpointS3SettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointS3SettingsPtrInput` via:
 //
-//          EndpointS3SettingsArgs{...}
+//	        EndpointS3SettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointS3SettingsPtrInput interface {
 	pulumi.Input
 
@@ -5086,7 +5086,7 @@ type EndpointSybaseSettings struct {
 // EndpointSybaseSettingsInput is an input type that accepts EndpointSybaseSettingsArgs and EndpointSybaseSettingsOutput values.
 // You can construct a concrete instance of `EndpointSybaseSettingsInput` via:
 //
-//          EndpointSybaseSettingsArgs{...}
+//	EndpointSybaseSettingsArgs{...}
 type EndpointSybaseSettingsInput interface {
 	pulumi.Input
 
@@ -5122,11 +5122,11 @@ func (i EndpointSybaseSettingsArgs) ToEndpointSybaseSettingsPtrOutputWithContext
 // EndpointSybaseSettingsPtrInput is an input type that accepts EndpointSybaseSettingsArgs, EndpointSybaseSettingsPtr and EndpointSybaseSettingsPtrOutput values.
 // You can construct a concrete instance of `EndpointSybaseSettingsPtrInput` via:
 //
-//          EndpointSybaseSettingsArgs{...}
+//	        EndpointSybaseSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointSybaseSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5234,7 +5234,7 @@ type EndpointTag struct {
 // EndpointTagInput is an input type that accepts EndpointTagArgs and EndpointTagOutput values.
 // You can construct a concrete instance of `EndpointTagInput` via:
 //
-//          EndpointTagArgs{...}
+//	EndpointTagArgs{...}
 type EndpointTagInput interface {
 	pulumi.Input
 
@@ -5262,7 +5262,7 @@ func (i EndpointTagArgs) ToEndpointTagOutputWithContext(ctx context.Context) End
 // EndpointTagArrayInput is an input type that accepts EndpointTagArray and EndpointTagArrayOutput values.
 // You can construct a concrete instance of `EndpointTagArrayInput` via:
 //
-//          EndpointTagArray{ EndpointTagArgs{...} }
+//	EndpointTagArray{ EndpointTagArgs{...} }
 type EndpointTagArrayInput interface {
 	pulumi.Input
 
@@ -5334,7 +5334,7 @@ type EventSubscriptionTag struct {
 // EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagInput` via:
 //
-//          EventSubscriptionTagArgs{...}
+//	EventSubscriptionTagArgs{...}
 type EventSubscriptionTagInput interface {
 	pulumi.Input
 
@@ -5362,7 +5362,7 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
-//          EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
+//	EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
 type EventSubscriptionTagArrayInput interface {
 	pulumi.Input
 
@@ -5434,7 +5434,7 @@ type ReplicationInstanceTag struct {
 // ReplicationInstanceTagInput is an input type that accepts ReplicationInstanceTagArgs and ReplicationInstanceTagOutput values.
 // You can construct a concrete instance of `ReplicationInstanceTagInput` via:
 //
-//          ReplicationInstanceTagArgs{...}
+//	ReplicationInstanceTagArgs{...}
 type ReplicationInstanceTagInput interface {
 	pulumi.Input
 
@@ -5462,7 +5462,7 @@ func (i ReplicationInstanceTagArgs) ToReplicationInstanceTagOutputWithContext(ct
 // ReplicationInstanceTagArrayInput is an input type that accepts ReplicationInstanceTagArray and ReplicationInstanceTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationInstanceTagArrayInput` via:
 //
-//          ReplicationInstanceTagArray{ ReplicationInstanceTagArgs{...} }
+//	ReplicationInstanceTagArray{ ReplicationInstanceTagArgs{...} }
 type ReplicationInstanceTagArrayInput interface {
 	pulumi.Input
 
@@ -5534,7 +5534,7 @@ type ReplicationSubnetGroupTag struct {
 // ReplicationSubnetGroupTagInput is an input type that accepts ReplicationSubnetGroupTagArgs and ReplicationSubnetGroupTagOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupTagInput` via:
 //
-//          ReplicationSubnetGroupTagArgs{...}
+//	ReplicationSubnetGroupTagArgs{...}
 type ReplicationSubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -5562,7 +5562,7 @@ func (i ReplicationSubnetGroupTagArgs) ToReplicationSubnetGroupTagOutputWithCont
 // ReplicationSubnetGroupTagArrayInput is an input type that accepts ReplicationSubnetGroupTagArray and ReplicationSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupTagArrayInput` via:
 //
-//          ReplicationSubnetGroupTagArray{ ReplicationSubnetGroupTagArgs{...} }
+//	ReplicationSubnetGroupTagArray{ ReplicationSubnetGroupTagArgs{...} }
 type ReplicationSubnetGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -5634,7 +5634,7 @@ type ReplicationTaskTag struct {
 // ReplicationTaskTagInput is an input type that accepts ReplicationTaskTagArgs and ReplicationTaskTagOutput values.
 // You can construct a concrete instance of `ReplicationTaskTagInput` via:
 //
-//          ReplicationTaskTagArgs{...}
+//	ReplicationTaskTagArgs{...}
 type ReplicationTaskTagInput interface {
 	pulumi.Input
 
@@ -5662,7 +5662,7 @@ func (i ReplicationTaskTagArgs) ToReplicationTaskTagOutputWithContext(ctx contex
 // ReplicationTaskTagArrayInput is an input type that accepts ReplicationTaskTagArray and ReplicationTaskTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationTaskTagArrayInput` via:
 //
-//          ReplicationTaskTagArray{ ReplicationTaskTagArgs{...} }
+//	ReplicationTaskTagArray{ ReplicationTaskTagArgs{...} }
 type ReplicationTaskTagArrayInput interface {
 	pulumi.Input
 

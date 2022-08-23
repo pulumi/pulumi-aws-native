@@ -17,7 +17,7 @@ type ApplicationInstanceManifestOverridesPayload struct {
 // ApplicationInstanceManifestOverridesPayloadInput is an input type that accepts ApplicationInstanceManifestOverridesPayloadArgs and ApplicationInstanceManifestOverridesPayloadOutput values.
 // You can construct a concrete instance of `ApplicationInstanceManifestOverridesPayloadInput` via:
 //
-//          ApplicationInstanceManifestOverridesPayloadArgs{...}
+//	ApplicationInstanceManifestOverridesPayloadArgs{...}
 type ApplicationInstanceManifestOverridesPayloadInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i ApplicationInstanceManifestOverridesPayloadArgs) ToApplicationInstanceMa
 // ApplicationInstanceManifestOverridesPayloadPtrInput is an input type that accepts ApplicationInstanceManifestOverridesPayloadArgs, ApplicationInstanceManifestOverridesPayloadPtr and ApplicationInstanceManifestOverridesPayloadPtrOutput values.
 // You can construct a concrete instance of `ApplicationInstanceManifestOverridesPayloadPtrInput` via:
 //
-//          ApplicationInstanceManifestOverridesPayloadArgs{...}
+//	        ApplicationInstanceManifestOverridesPayloadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationInstanceManifestOverridesPayloadPtrInput interface {
 	pulumi.Input
 
@@ -150,7 +150,7 @@ type ApplicationInstanceManifestPayload struct {
 // ApplicationInstanceManifestPayloadInput is an input type that accepts ApplicationInstanceManifestPayloadArgs and ApplicationInstanceManifestPayloadOutput values.
 // You can construct a concrete instance of `ApplicationInstanceManifestPayloadInput` via:
 //
-//          ApplicationInstanceManifestPayloadArgs{...}
+//	ApplicationInstanceManifestPayloadArgs{...}
 type ApplicationInstanceManifestPayloadInput interface {
 	pulumi.Input
 
@@ -202,7 +202,7 @@ type ApplicationInstanceTag struct {
 // ApplicationInstanceTagInput is an input type that accepts ApplicationInstanceTagArgs and ApplicationInstanceTagOutput values.
 // You can construct a concrete instance of `ApplicationInstanceTagInput` via:
 //
-//          ApplicationInstanceTagArgs{...}
+//	ApplicationInstanceTagArgs{...}
 type ApplicationInstanceTagInput interface {
 	pulumi.Input
 
@@ -232,7 +232,7 @@ func (i ApplicationInstanceTagArgs) ToApplicationInstanceTagOutputWithContext(ct
 // ApplicationInstanceTagArrayInput is an input type that accepts ApplicationInstanceTagArray and ApplicationInstanceTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationInstanceTagArrayInput` via:
 //
-//          ApplicationInstanceTagArray{ ApplicationInstanceTagArgs{...} }
+//	ApplicationInstanceTagArray{ ApplicationInstanceTagArgs{...} }
 type ApplicationInstanceTagArrayInput interface {
 	pulumi.Input
 
@@ -417,7 +417,7 @@ type PackageTag struct {
 // PackageTagInput is an input type that accepts PackageTagArgs and PackageTagOutput values.
 // You can construct a concrete instance of `PackageTagInput` via:
 //
-//          PackageTagArgs{...}
+//	PackageTagArgs{...}
 type PackageTagInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ func (i PackageTagArgs) ToPackageTagOutputWithContext(ctx context.Context) Packa
 // PackageTagArrayInput is an input type that accepts PackageTagArray and PackageTagArrayOutput values.
 // You can construct a concrete instance of `PackageTagArrayInput` via:
 //
-//          PackageTagArray{ PackageTagArgs{...} }
+//	PackageTagArray{ PackageTagArgs{...} }
 type PackageTagArrayInput interface {
 	pulumi.Input
 

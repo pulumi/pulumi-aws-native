@@ -21,7 +21,7 @@ type AcceleratorTag struct {
 // AcceleratorTagInput is an input type that accepts AcceleratorTagArgs and AcceleratorTagOutput values.
 // You can construct a concrete instance of `AcceleratorTagInput` via:
 //
-//          AcceleratorTagArgs{...}
+//	AcceleratorTagArgs{...}
 type AcceleratorTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AcceleratorTagArgs) ToAcceleratorTagOutputWithContext(ctx context.Contex
 // AcceleratorTagArrayInput is an input type that accepts AcceleratorTagArray and AcceleratorTagArrayOutput values.
 // You can construct a concrete instance of `AcceleratorTagArrayInput` via:
 //
-//          AcceleratorTagArray{ AcceleratorTagArgs{...} }
+//	AcceleratorTagArray{ AcceleratorTagArgs{...} }
 type AcceleratorTagArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type EndpointGroupEndpointConfiguration struct {
 // EndpointGroupEndpointConfigurationInput is an input type that accepts EndpointGroupEndpointConfigurationArgs and EndpointGroupEndpointConfigurationOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationInput` via:
 //
-//          EndpointGroupEndpointConfigurationArgs{...}
+//	EndpointGroupEndpointConfigurationArgs{...}
 type EndpointGroupEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ func (i EndpointGroupEndpointConfigurationArgs) ToEndpointGroupEndpointConfigura
 // EndpointGroupEndpointConfigurationArrayInput is an input type that accepts EndpointGroupEndpointConfigurationArray and EndpointGroupEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationArrayInput` via:
 //
-//          EndpointGroupEndpointConfigurationArray{ EndpointGroupEndpointConfigurationArgs{...} }
+//	EndpointGroupEndpointConfigurationArray{ EndpointGroupEndpointConfigurationArgs{...} }
 type EndpointGroupEndpointConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ type EndpointGroupPortOverride struct {
 // EndpointGroupPortOverrideInput is an input type that accepts EndpointGroupPortOverrideArgs and EndpointGroupPortOverrideOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideInput` via:
 //
-//          EndpointGroupPortOverrideArgs{...}
+//	EndpointGroupPortOverrideArgs{...}
 type EndpointGroupPortOverrideInput interface {
 	pulumi.Input
 
@@ -275,7 +275,7 @@ func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutputWithCont
 // EndpointGroupPortOverrideArrayInput is an input type that accepts EndpointGroupPortOverrideArray and EndpointGroupPortOverrideArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideArrayInput` via:
 //
-//          EndpointGroupPortOverrideArray{ EndpointGroupPortOverrideArgs{...} }
+//	EndpointGroupPortOverrideArray{ EndpointGroupPortOverrideArgs{...} }
 type EndpointGroupPortOverrideArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ type ListenerPortRange struct {
 // ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
 // You can construct a concrete instance of `ListenerPortRangeInput` via:
 //
-//          ListenerPortRangeArgs{...}
+//	ListenerPortRangeArgs{...}
 type ListenerPortRangeInput interface {
 	pulumi.Input
 
@@ -378,7 +378,7 @@ func (i ListenerPortRangeArgs) ToListenerPortRangeOutputWithContext(ctx context.
 // ListenerPortRangeArrayInput is an input type that accepts ListenerPortRangeArray and ListenerPortRangeArrayOutput values.
 // You can construct a concrete instance of `ListenerPortRangeArrayInput` via:
 //
-//          ListenerPortRangeArray{ ListenerPortRangeArgs{...} }
+//	ListenerPortRangeArray{ ListenerPortRangeArgs{...} }
 type ListenerPortRangeArrayInput interface {
 	pulumi.Input
 

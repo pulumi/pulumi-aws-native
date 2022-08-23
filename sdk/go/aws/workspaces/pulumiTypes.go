@@ -77,7 +77,7 @@ type ConnectionAliasTag struct {
 // ConnectionAliasTagInput is an input type that accepts ConnectionAliasTagArgs and ConnectionAliasTagOutput values.
 // You can construct a concrete instance of `ConnectionAliasTagInput` via:
 //
-//          ConnectionAliasTagArgs{...}
+//	ConnectionAliasTagArgs{...}
 type ConnectionAliasTagInput interface {
 	pulumi.Input
 
@@ -105,7 +105,7 @@ func (i ConnectionAliasTagArgs) ToConnectionAliasTagOutputWithContext(ctx contex
 // ConnectionAliasTagArrayInput is an input type that accepts ConnectionAliasTagArray and ConnectionAliasTagArrayOutput values.
 // You can construct a concrete instance of `ConnectionAliasTagArrayInput` via:
 //
-//          ConnectionAliasTagArray{ ConnectionAliasTagArgs{...} }
+//	ConnectionAliasTagArray{ ConnectionAliasTagArgs{...} }
 type ConnectionAliasTagArrayInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ type WorkspaceProperties struct {
 // WorkspacePropertiesInput is an input type that accepts WorkspacePropertiesArgs and WorkspacePropertiesOutput values.
 // You can construct a concrete instance of `WorkspacePropertiesInput` via:
 //
-//          WorkspacePropertiesArgs{...}
+//	WorkspacePropertiesArgs{...}
 type WorkspacePropertiesInput interface {
 	pulumi.Input
 
@@ -219,11 +219,11 @@ func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutputWithContext(ctx c
 // WorkspacePropertiesPtrInput is an input type that accepts WorkspacePropertiesArgs, WorkspacePropertiesPtr and WorkspacePropertiesPtrOutput values.
 // You can construct a concrete instance of `WorkspacePropertiesPtrInput` via:
 //
-//          WorkspacePropertiesArgs{...}
+//	        WorkspacePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -370,7 +370,7 @@ type WorkspaceTag struct {
 // WorkspaceTagInput is an input type that accepts WorkspaceTagArgs and WorkspaceTagOutput values.
 // You can construct a concrete instance of `WorkspaceTagInput` via:
 //
-//          WorkspaceTagArgs{...}
+//	WorkspaceTagArgs{...}
 type WorkspaceTagInput interface {
 	pulumi.Input
 
@@ -398,7 +398,7 @@ func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) W
 // WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
 // You can construct a concrete instance of `WorkspaceTagArrayInput` via:
 //
-//          WorkspaceTagArray{ WorkspaceTagArgs{...} }
+//	WorkspaceTagArray{ WorkspaceTagArgs{...} }
 type WorkspaceTagArrayInput interface {
 	pulumi.Input
 

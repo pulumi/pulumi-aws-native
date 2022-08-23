@@ -18,7 +18,7 @@ type TopicSubscription struct {
 // TopicSubscriptionInput is an input type that accepts TopicSubscriptionArgs and TopicSubscriptionOutput values.
 // You can construct a concrete instance of `TopicSubscriptionInput` via:
 //
-//          TopicSubscriptionArgs{...}
+//	TopicSubscriptionArgs{...}
 type TopicSubscriptionInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i TopicSubscriptionArgs) ToTopicSubscriptionOutputWithContext(ctx context.
 // TopicSubscriptionArrayInput is an input type that accepts TopicSubscriptionArray and TopicSubscriptionArrayOutput values.
 // You can construct a concrete instance of `TopicSubscriptionArrayInput` via:
 //
-//          TopicSubscriptionArray{ TopicSubscriptionArgs{...} }
+//	TopicSubscriptionArray{ TopicSubscriptionArgs{...} }
 type TopicSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -118,7 +118,7 @@ type TopicTag struct {
 // TopicTagInput is an input type that accepts TopicTagArgs and TopicTagOutput values.
 // You can construct a concrete instance of `TopicTagInput` via:
 //
-//          TopicTagArgs{...}
+//	TopicTagArgs{...}
 type TopicTagInput interface {
 	pulumi.Input
 
@@ -146,7 +146,7 @@ func (i TopicTagArgs) ToTopicTagOutputWithContext(ctx context.Context) TopicTagO
 // TopicTagArrayInput is an input type that accepts TopicTagArray and TopicTagArrayOutput values.
 // You can construct a concrete instance of `TopicTagArrayInput` via:
 //
-//          TopicTagArray{ TopicTagArgs{...} }
+//	TopicTagArray{ TopicTagArgs{...} }
 type TopicTagArrayInput interface {
 	pulumi.Input
 

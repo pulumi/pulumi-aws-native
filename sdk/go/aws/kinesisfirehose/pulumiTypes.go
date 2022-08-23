@@ -18,7 +18,7 @@ type DeliveryStreamAmazonopensearchserviceBufferingHints struct {
 // DeliveryStreamAmazonopensearchserviceBufferingHintsInput is an input type that accepts DeliveryStreamAmazonopensearchserviceBufferingHintsArgs and DeliveryStreamAmazonopensearchserviceBufferingHintsOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceBufferingHintsInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{...}
+//	DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{...}
 type DeliveryStreamAmazonopensearchserviceBufferingHintsInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i DeliveryStreamAmazonopensearchserviceBufferingHintsArgs) ToDeliveryStrea
 // DeliveryStreamAmazonopensearchserviceBufferingHintsPtrInput is an input type that accepts DeliveryStreamAmazonopensearchserviceBufferingHintsArgs, DeliveryStreamAmazonopensearchserviceBufferingHintsPtr and DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceBufferingHintsPtrInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{...}
+//	        DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamAmazonopensearchserviceBufferingHintsPtrInput interface {
 	pulumi.Input
 
@@ -177,7 +177,7 @@ type DeliveryStreamAmazonopensearchserviceDestinationConfiguration struct {
 // DeliveryStreamAmazonopensearchserviceDestinationConfigurationInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs and DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{...}
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{...}
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -224,11 +224,11 @@ func (i DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs) ToDel
 // DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs, DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtr and DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{...}
+//	        DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -496,7 +496,7 @@ type DeliveryStreamAmazonopensearchserviceRetryOptions struct {
 // DeliveryStreamAmazonopensearchserviceRetryOptionsInput is an input type that accepts DeliveryStreamAmazonopensearchserviceRetryOptionsArgs and DeliveryStreamAmazonopensearchserviceRetryOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceRetryOptionsInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{...}
+//	DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{...}
 type DeliveryStreamAmazonopensearchserviceRetryOptionsInput interface {
 	pulumi.Input
 
@@ -531,11 +531,11 @@ func (i DeliveryStreamAmazonopensearchserviceRetryOptionsArgs) ToDeliveryStreamA
 // DeliveryStreamAmazonopensearchserviceRetryOptionsPtrInput is an input type that accepts DeliveryStreamAmazonopensearchserviceRetryOptionsArgs, DeliveryStreamAmazonopensearchserviceRetryOptionsPtr and DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceRetryOptionsPtrInput` via:
 //
-//          DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{...}
+//	        DeliveryStreamAmazonopensearchserviceRetryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamAmazonopensearchserviceRetryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -630,7 +630,7 @@ type DeliveryStreamBufferingHints struct {
 // DeliveryStreamBufferingHintsInput is an input type that accepts DeliveryStreamBufferingHintsArgs and DeliveryStreamBufferingHintsOutput values.
 // You can construct a concrete instance of `DeliveryStreamBufferingHintsInput` via:
 //
-//          DeliveryStreamBufferingHintsArgs{...}
+//	DeliveryStreamBufferingHintsArgs{...}
 type DeliveryStreamBufferingHintsInput interface {
 	pulumi.Input
 
@@ -666,11 +666,11 @@ func (i DeliveryStreamBufferingHintsArgs) ToDeliveryStreamBufferingHintsPtrOutpu
 // DeliveryStreamBufferingHintsPtrInput is an input type that accepts DeliveryStreamBufferingHintsArgs, DeliveryStreamBufferingHintsPtr and DeliveryStreamBufferingHintsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamBufferingHintsPtrInput` via:
 //
-//          DeliveryStreamBufferingHintsArgs{...}
+//	        DeliveryStreamBufferingHintsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamBufferingHintsPtrInput interface {
 	pulumi.Input
 
@@ -779,7 +779,7 @@ type DeliveryStreamCloudWatchLoggingOptions struct {
 // DeliveryStreamCloudWatchLoggingOptionsInput is an input type that accepts DeliveryStreamCloudWatchLoggingOptionsArgs and DeliveryStreamCloudWatchLoggingOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamCloudWatchLoggingOptionsInput` via:
 //
-//          DeliveryStreamCloudWatchLoggingOptionsArgs{...}
+//	DeliveryStreamCloudWatchLoggingOptionsArgs{...}
 type DeliveryStreamCloudWatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -816,11 +816,11 @@ func (i DeliveryStreamCloudWatchLoggingOptionsArgs) ToDeliveryStreamCloudWatchLo
 // DeliveryStreamCloudWatchLoggingOptionsPtrInput is an input type that accepts DeliveryStreamCloudWatchLoggingOptionsArgs, DeliveryStreamCloudWatchLoggingOptionsPtr and DeliveryStreamCloudWatchLoggingOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamCloudWatchLoggingOptionsPtrInput` via:
 //
-//          DeliveryStreamCloudWatchLoggingOptionsArgs{...}
+//	        DeliveryStreamCloudWatchLoggingOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamCloudWatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -942,7 +942,7 @@ type DeliveryStreamCopyCommand struct {
 // DeliveryStreamCopyCommandInput is an input type that accepts DeliveryStreamCopyCommandArgs and DeliveryStreamCopyCommandOutput values.
 // You can construct a concrete instance of `DeliveryStreamCopyCommandInput` via:
 //
-//          DeliveryStreamCopyCommandArgs{...}
+//	DeliveryStreamCopyCommandArgs{...}
 type DeliveryStreamCopyCommandInput interface {
 	pulumi.Input
 
@@ -979,11 +979,11 @@ func (i DeliveryStreamCopyCommandArgs) ToDeliveryStreamCopyCommandPtrOutputWithC
 // DeliveryStreamCopyCommandPtrInput is an input type that accepts DeliveryStreamCopyCommandArgs, DeliveryStreamCopyCommandPtr and DeliveryStreamCopyCommandPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamCopyCommandPtrInput` via:
 //
-//          DeliveryStreamCopyCommandArgs{...}
+//	        DeliveryStreamCopyCommandArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamCopyCommandPtrInput interface {
 	pulumi.Input
 
@@ -1106,7 +1106,7 @@ type DeliveryStreamDataFormatConversionConfiguration struct {
 // DeliveryStreamDataFormatConversionConfigurationInput is an input type that accepts DeliveryStreamDataFormatConversionConfigurationArgs and DeliveryStreamDataFormatConversionConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamDataFormatConversionConfigurationInput` via:
 //
-//          DeliveryStreamDataFormatConversionConfigurationArgs{...}
+//	DeliveryStreamDataFormatConversionConfigurationArgs{...}
 type DeliveryStreamDataFormatConversionConfigurationInput interface {
 	pulumi.Input
 
@@ -1144,11 +1144,11 @@ func (i DeliveryStreamDataFormatConversionConfigurationArgs) ToDeliveryStreamDat
 // DeliveryStreamDataFormatConversionConfigurationPtrInput is an input type that accepts DeliveryStreamDataFormatConversionConfigurationArgs, DeliveryStreamDataFormatConversionConfigurationPtr and DeliveryStreamDataFormatConversionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamDataFormatConversionConfigurationPtrInput` via:
 //
-//          DeliveryStreamDataFormatConversionConfigurationArgs{...}
+//	        DeliveryStreamDataFormatConversionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamDataFormatConversionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1288,7 +1288,7 @@ type DeliveryStreamDeserializer struct {
 // DeliveryStreamDeserializerInput is an input type that accepts DeliveryStreamDeserializerArgs and DeliveryStreamDeserializerOutput values.
 // You can construct a concrete instance of `DeliveryStreamDeserializerInput` via:
 //
-//          DeliveryStreamDeserializerArgs{...}
+//	DeliveryStreamDeserializerArgs{...}
 type DeliveryStreamDeserializerInput interface {
 	pulumi.Input
 
@@ -1324,11 +1324,11 @@ func (i DeliveryStreamDeserializerArgs) ToDeliveryStreamDeserializerPtrOutputWit
 // DeliveryStreamDeserializerPtrInput is an input type that accepts DeliveryStreamDeserializerArgs, DeliveryStreamDeserializerPtr and DeliveryStreamDeserializerPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamDeserializerPtrInput` via:
 //
-//          DeliveryStreamDeserializerArgs{...}
+//	        DeliveryStreamDeserializerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamDeserializerPtrInput interface {
 	pulumi.Input
 
@@ -1436,7 +1436,7 @@ type DeliveryStreamDynamicPartitioningConfiguration struct {
 // DeliveryStreamDynamicPartitioningConfigurationInput is an input type that accepts DeliveryStreamDynamicPartitioningConfigurationArgs and DeliveryStreamDynamicPartitioningConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamDynamicPartitioningConfigurationInput` via:
 //
-//          DeliveryStreamDynamicPartitioningConfigurationArgs{...}
+//	DeliveryStreamDynamicPartitioningConfigurationArgs{...}
 type DeliveryStreamDynamicPartitioningConfigurationInput interface {
 	pulumi.Input
 
@@ -1472,11 +1472,11 @@ func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDyna
 // DeliveryStreamDynamicPartitioningConfigurationPtrInput is an input type that accepts DeliveryStreamDynamicPartitioningConfigurationArgs, DeliveryStreamDynamicPartitioningConfigurationPtr and DeliveryStreamDynamicPartitioningConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamDynamicPartitioningConfigurationPtrInput` via:
 //
-//          DeliveryStreamDynamicPartitioningConfigurationArgs{...}
+//	        DeliveryStreamDynamicPartitioningConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamDynamicPartitioningConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1586,7 +1586,7 @@ type DeliveryStreamElasticsearchBufferingHints struct {
 // DeliveryStreamElasticsearchBufferingHintsInput is an input type that accepts DeliveryStreamElasticsearchBufferingHintsArgs and DeliveryStreamElasticsearchBufferingHintsOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchBufferingHintsInput` via:
 //
-//          DeliveryStreamElasticsearchBufferingHintsArgs{...}
+//	DeliveryStreamElasticsearchBufferingHintsArgs{...}
 type DeliveryStreamElasticsearchBufferingHintsInput interface {
 	pulumi.Input
 
@@ -1622,11 +1622,11 @@ func (i DeliveryStreamElasticsearchBufferingHintsArgs) ToDeliveryStreamElasticse
 // DeliveryStreamElasticsearchBufferingHintsPtrInput is an input type that accepts DeliveryStreamElasticsearchBufferingHintsArgs, DeliveryStreamElasticsearchBufferingHintsPtr and DeliveryStreamElasticsearchBufferingHintsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchBufferingHintsPtrInput` via:
 //
-//          DeliveryStreamElasticsearchBufferingHintsArgs{...}
+//	        DeliveryStreamElasticsearchBufferingHintsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamElasticsearchBufferingHintsPtrInput interface {
 	pulumi.Input
 
@@ -1745,7 +1745,7 @@ type DeliveryStreamElasticsearchDestinationConfiguration struct {
 // DeliveryStreamElasticsearchDestinationConfigurationInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationArgs and DeliveryStreamElasticsearchDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationInput` via:
 //
-//          DeliveryStreamElasticsearchDestinationConfigurationArgs{...}
+//	DeliveryStreamElasticsearchDestinationConfigurationArgs{...}
 type DeliveryStreamElasticsearchDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -1792,11 +1792,11 @@ func (i DeliveryStreamElasticsearchDestinationConfigurationArgs) ToDeliveryStrea
 // DeliveryStreamElasticsearchDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationArgs, DeliveryStreamElasticsearchDestinationConfigurationPtr and DeliveryStreamElasticsearchDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamElasticsearchDestinationConfigurationArgs{...}
+//	        DeliveryStreamElasticsearchDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamElasticsearchDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2062,7 +2062,7 @@ type DeliveryStreamElasticsearchRetryOptions struct {
 // DeliveryStreamElasticsearchRetryOptionsInput is an input type that accepts DeliveryStreamElasticsearchRetryOptionsArgs and DeliveryStreamElasticsearchRetryOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchRetryOptionsInput` via:
 //
-//          DeliveryStreamElasticsearchRetryOptionsArgs{...}
+//	DeliveryStreamElasticsearchRetryOptionsArgs{...}
 type DeliveryStreamElasticsearchRetryOptionsInput interface {
 	pulumi.Input
 
@@ -2097,11 +2097,11 @@ func (i DeliveryStreamElasticsearchRetryOptionsArgs) ToDeliveryStreamElasticsear
 // DeliveryStreamElasticsearchRetryOptionsPtrInput is an input type that accepts DeliveryStreamElasticsearchRetryOptionsArgs, DeliveryStreamElasticsearchRetryOptionsPtr and DeliveryStreamElasticsearchRetryOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamElasticsearchRetryOptionsPtrInput` via:
 //
-//          DeliveryStreamElasticsearchRetryOptionsArgs{...}
+//	        DeliveryStreamElasticsearchRetryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamElasticsearchRetryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2196,7 +2196,7 @@ type DeliveryStreamEncryptionConfiguration struct {
 // DeliveryStreamEncryptionConfigurationInput is an input type that accepts DeliveryStreamEncryptionConfigurationArgs and DeliveryStreamEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationArgs{...}
+//	DeliveryStreamEncryptionConfigurationArgs{...}
 type DeliveryStreamEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -2232,11 +2232,11 @@ func (i DeliveryStreamEncryptionConfigurationArgs) ToDeliveryStreamEncryptionCon
 // DeliveryStreamEncryptionConfigurationPtrInput is an input type that accepts DeliveryStreamEncryptionConfigurationArgs, DeliveryStreamEncryptionConfigurationPtr and DeliveryStreamEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationPtrInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationArgs{...}
+//	        DeliveryStreamEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2348,7 +2348,7 @@ type DeliveryStreamEncryptionConfigurationInputType struct {
 // DeliveryStreamEncryptionConfigurationInputTypeInput is an input type that accepts DeliveryStreamEncryptionConfigurationInputTypeArgs and DeliveryStreamEncryptionConfigurationInputTypeOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInputTypeInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationInputTypeArgs{...}
+//	DeliveryStreamEncryptionConfigurationInputTypeArgs{...}
 type DeliveryStreamEncryptionConfigurationInputTypeInput interface {
 	pulumi.Input
 
@@ -2384,11 +2384,11 @@ func (i DeliveryStreamEncryptionConfigurationInputTypeArgs) ToDeliveryStreamEncr
 // DeliveryStreamEncryptionConfigurationInputTypePtrInput is an input type that accepts DeliveryStreamEncryptionConfigurationInputTypeArgs, DeliveryStreamEncryptionConfigurationInputTypePtr and DeliveryStreamEncryptionConfigurationInputTypePtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInputTypePtrInput` via:
 //
-//          DeliveryStreamEncryptionConfigurationInputTypeArgs{...}
+//	        DeliveryStreamEncryptionConfigurationInputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamEncryptionConfigurationInputTypePtrInput interface {
 	pulumi.Input
 
@@ -2509,7 +2509,7 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 // DeliveryStreamExtendedS3DestinationConfigurationInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationArgs and DeliveryStreamExtendedS3DestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationInput` via:
 //
-//          DeliveryStreamExtendedS3DestinationConfigurationArgs{...}
+//	DeliveryStreamExtendedS3DestinationConfigurationArgs{...}
 type DeliveryStreamExtendedS3DestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -2556,11 +2556,11 @@ func (i DeliveryStreamExtendedS3DestinationConfigurationArgs) ToDeliveryStreamEx
 // DeliveryStreamExtendedS3DestinationConfigurationPtrInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationArgs, DeliveryStreamExtendedS3DestinationConfigurationPtr and DeliveryStreamExtendedS3DestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamExtendedS3DestinationConfigurationArgs{...}
+//	        DeliveryStreamExtendedS3DestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamExtendedS3DestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2828,7 +2828,7 @@ type DeliveryStreamHiveJsonSerDe struct {
 // DeliveryStreamHiveJsonSerDeInput is an input type that accepts DeliveryStreamHiveJsonSerDeArgs and DeliveryStreamHiveJsonSerDeOutput values.
 // You can construct a concrete instance of `DeliveryStreamHiveJsonSerDeInput` via:
 //
-//          DeliveryStreamHiveJsonSerDeArgs{...}
+//	DeliveryStreamHiveJsonSerDeArgs{...}
 type DeliveryStreamHiveJsonSerDeInput interface {
 	pulumi.Input
 
@@ -2863,11 +2863,11 @@ func (i DeliveryStreamHiveJsonSerDeArgs) ToDeliveryStreamHiveJsonSerDePtrOutputW
 // DeliveryStreamHiveJsonSerDePtrInput is an input type that accepts DeliveryStreamHiveJsonSerDeArgs, DeliveryStreamHiveJsonSerDePtr and DeliveryStreamHiveJsonSerDePtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamHiveJsonSerDePtrInput` via:
 //
-//          DeliveryStreamHiveJsonSerDeArgs{...}
+//	        DeliveryStreamHiveJsonSerDeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamHiveJsonSerDePtrInput interface {
 	pulumi.Input
 
@@ -2962,7 +2962,7 @@ type DeliveryStreamHttpEndpointCommonAttribute struct {
 // DeliveryStreamHttpEndpointCommonAttributeInput is an input type that accepts DeliveryStreamHttpEndpointCommonAttributeArgs and DeliveryStreamHttpEndpointCommonAttributeOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointCommonAttributeInput` via:
 //
-//          DeliveryStreamHttpEndpointCommonAttributeArgs{...}
+//	DeliveryStreamHttpEndpointCommonAttributeArgs{...}
 type DeliveryStreamHttpEndpointCommonAttributeInput interface {
 	pulumi.Input
 
@@ -2990,7 +2990,7 @@ func (i DeliveryStreamHttpEndpointCommonAttributeArgs) ToDeliveryStreamHttpEndpo
 // DeliveryStreamHttpEndpointCommonAttributeArrayInput is an input type that accepts DeliveryStreamHttpEndpointCommonAttributeArray and DeliveryStreamHttpEndpointCommonAttributeArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointCommonAttributeArrayInput` via:
 //
-//          DeliveryStreamHttpEndpointCommonAttributeArray{ DeliveryStreamHttpEndpointCommonAttributeArgs{...} }
+//	DeliveryStreamHttpEndpointCommonAttributeArray{ DeliveryStreamHttpEndpointCommonAttributeArgs{...} }
 type DeliveryStreamHttpEndpointCommonAttributeArrayInput interface {
 	pulumi.Input
 
@@ -3063,7 +3063,7 @@ type DeliveryStreamHttpEndpointConfiguration struct {
 // DeliveryStreamHttpEndpointConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointConfigurationArgs and DeliveryStreamHttpEndpointConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointConfigurationInput` via:
 //
-//          DeliveryStreamHttpEndpointConfigurationArgs{...}
+//	DeliveryStreamHttpEndpointConfigurationArgs{...}
 type DeliveryStreamHttpEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -3100,11 +3100,11 @@ func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpoin
 // DeliveryStreamHttpEndpointConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointConfigurationArgs, DeliveryStreamHttpEndpointConfigurationPtr and DeliveryStreamHttpEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointConfigurationPtrInput` via:
 //
-//          DeliveryStreamHttpEndpointConfigurationArgs{...}
+//	        DeliveryStreamHttpEndpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamHttpEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3232,7 +3232,7 @@ type DeliveryStreamHttpEndpointDestinationConfiguration struct {
 // DeliveryStreamHttpEndpointDestinationConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointDestinationConfigurationArgs and DeliveryStreamHttpEndpointDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointDestinationConfigurationInput` via:
 //
-//          DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
+//	DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
 type DeliveryStreamHttpEndpointDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -3275,11 +3275,11 @@ func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStream
 // DeliveryStreamHttpEndpointDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointDestinationConfigurationArgs, DeliveryStreamHttpEndpointDestinationConfigurationPtr and DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointDestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
+//	        DeliveryStreamHttpEndpointDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamHttpEndpointDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3492,7 +3492,7 @@ type DeliveryStreamHttpEndpointRequestConfiguration struct {
 // DeliveryStreamHttpEndpointRequestConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationArgs and DeliveryStreamHttpEndpointRequestConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationInput` via:
 //
-//          DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
+//	DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
 type DeliveryStreamHttpEndpointRequestConfigurationInput interface {
 	pulumi.Input
 
@@ -3528,11 +3528,11 @@ func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttp
 // DeliveryStreamHttpEndpointRequestConfigurationPtrInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationArgs, DeliveryStreamHttpEndpointRequestConfigurationPtr and DeliveryStreamHttpEndpointRequestConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationPtrInput` via:
 //
-//          DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
+//	        DeliveryStreamHttpEndpointRequestConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamHttpEndpointRequestConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3643,7 +3643,7 @@ type DeliveryStreamInputFormatConfiguration struct {
 // DeliveryStreamInputFormatConfigurationInput is an input type that accepts DeliveryStreamInputFormatConfigurationArgs and DeliveryStreamInputFormatConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamInputFormatConfigurationInput` via:
 //
-//          DeliveryStreamInputFormatConfigurationArgs{...}
+//	DeliveryStreamInputFormatConfigurationArgs{...}
 type DeliveryStreamInputFormatConfigurationInput interface {
 	pulumi.Input
 
@@ -3678,11 +3678,11 @@ func (i DeliveryStreamInputFormatConfigurationArgs) ToDeliveryStreamInputFormatC
 // DeliveryStreamInputFormatConfigurationPtrInput is an input type that accepts DeliveryStreamInputFormatConfigurationArgs, DeliveryStreamInputFormatConfigurationPtr and DeliveryStreamInputFormatConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamInputFormatConfigurationPtrInput` via:
 //
-//          DeliveryStreamInputFormatConfigurationArgs{...}
+//	        DeliveryStreamInputFormatConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamInputFormatConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3776,7 +3776,7 @@ type DeliveryStreamKMSEncryptionConfig struct {
 // DeliveryStreamKMSEncryptionConfigInput is an input type that accepts DeliveryStreamKMSEncryptionConfigArgs and DeliveryStreamKMSEncryptionConfigOutput values.
 // You can construct a concrete instance of `DeliveryStreamKMSEncryptionConfigInput` via:
 //
-//          DeliveryStreamKMSEncryptionConfigArgs{...}
+//	DeliveryStreamKMSEncryptionConfigArgs{...}
 type DeliveryStreamKMSEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -3811,11 +3811,11 @@ func (i DeliveryStreamKMSEncryptionConfigArgs) ToDeliveryStreamKMSEncryptionConf
 // DeliveryStreamKMSEncryptionConfigPtrInput is an input type that accepts DeliveryStreamKMSEncryptionConfigArgs, DeliveryStreamKMSEncryptionConfigPtr and DeliveryStreamKMSEncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamKMSEncryptionConfigPtrInput` via:
 //
-//          DeliveryStreamKMSEncryptionConfigArgs{...}
+//	        DeliveryStreamKMSEncryptionConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamKMSEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -3910,7 +3910,7 @@ type DeliveryStreamKinesisStreamSourceConfiguration struct {
 // DeliveryStreamKinesisStreamSourceConfigurationInput is an input type that accepts DeliveryStreamKinesisStreamSourceConfigurationArgs and DeliveryStreamKinesisStreamSourceConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamKinesisStreamSourceConfigurationInput` via:
 //
-//          DeliveryStreamKinesisStreamSourceConfigurationArgs{...}
+//	DeliveryStreamKinesisStreamSourceConfigurationArgs{...}
 type DeliveryStreamKinesisStreamSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -3946,11 +3946,11 @@ func (i DeliveryStreamKinesisStreamSourceConfigurationArgs) ToDeliveryStreamKine
 // DeliveryStreamKinesisStreamSourceConfigurationPtrInput is an input type that accepts DeliveryStreamKinesisStreamSourceConfigurationArgs, DeliveryStreamKinesisStreamSourceConfigurationPtr and DeliveryStreamKinesisStreamSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamKinesisStreamSourceConfigurationPtrInput` via:
 //
-//          DeliveryStreamKinesisStreamSourceConfigurationArgs{...}
+//	        DeliveryStreamKinesisStreamSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamKinesisStreamSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4059,7 +4059,7 @@ type DeliveryStreamOpenXJsonSerDe struct {
 // DeliveryStreamOpenXJsonSerDeInput is an input type that accepts DeliveryStreamOpenXJsonSerDeArgs and DeliveryStreamOpenXJsonSerDeOutput values.
 // You can construct a concrete instance of `DeliveryStreamOpenXJsonSerDeInput` via:
 //
-//          DeliveryStreamOpenXJsonSerDeArgs{...}
+//	DeliveryStreamOpenXJsonSerDeArgs{...}
 type DeliveryStreamOpenXJsonSerDeInput interface {
 	pulumi.Input
 
@@ -4096,11 +4096,11 @@ func (i DeliveryStreamOpenXJsonSerDeArgs) ToDeliveryStreamOpenXJsonSerDePtrOutpu
 // DeliveryStreamOpenXJsonSerDePtrInput is an input type that accepts DeliveryStreamOpenXJsonSerDeArgs, DeliveryStreamOpenXJsonSerDePtr and DeliveryStreamOpenXJsonSerDePtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamOpenXJsonSerDePtrInput` via:
 //
-//          DeliveryStreamOpenXJsonSerDeArgs{...}
+//	        DeliveryStreamOpenXJsonSerDeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamOpenXJsonSerDePtrInput interface {
 	pulumi.Input
 
@@ -4229,7 +4229,7 @@ type DeliveryStreamOrcSerDe struct {
 // DeliveryStreamOrcSerDeInput is an input type that accepts DeliveryStreamOrcSerDeArgs and DeliveryStreamOrcSerDeOutput values.
 // You can construct a concrete instance of `DeliveryStreamOrcSerDeInput` via:
 //
-//          DeliveryStreamOrcSerDeArgs{...}
+//	DeliveryStreamOrcSerDeArgs{...}
 type DeliveryStreamOrcSerDeInput interface {
 	pulumi.Input
 
@@ -4273,11 +4273,11 @@ func (i DeliveryStreamOrcSerDeArgs) ToDeliveryStreamOrcSerDePtrOutputWithContext
 // DeliveryStreamOrcSerDePtrInput is an input type that accepts DeliveryStreamOrcSerDeArgs, DeliveryStreamOrcSerDePtr and DeliveryStreamOrcSerDePtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamOrcSerDePtrInput` via:
 //
-//          DeliveryStreamOrcSerDeArgs{...}
+//	        DeliveryStreamOrcSerDeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamOrcSerDePtrInput interface {
 	pulumi.Input
 
@@ -4488,7 +4488,7 @@ type DeliveryStreamOutputFormatConfiguration struct {
 // DeliveryStreamOutputFormatConfigurationInput is an input type that accepts DeliveryStreamOutputFormatConfigurationArgs and DeliveryStreamOutputFormatConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamOutputFormatConfigurationInput` via:
 //
-//          DeliveryStreamOutputFormatConfigurationArgs{...}
+//	DeliveryStreamOutputFormatConfigurationArgs{...}
 type DeliveryStreamOutputFormatConfigurationInput interface {
 	pulumi.Input
 
@@ -4523,11 +4523,11 @@ func (i DeliveryStreamOutputFormatConfigurationArgs) ToDeliveryStreamOutputForma
 // DeliveryStreamOutputFormatConfigurationPtrInput is an input type that accepts DeliveryStreamOutputFormatConfigurationArgs, DeliveryStreamOutputFormatConfigurationPtr and DeliveryStreamOutputFormatConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamOutputFormatConfigurationPtrInput` via:
 //
-//          DeliveryStreamOutputFormatConfigurationArgs{...}
+//	        DeliveryStreamOutputFormatConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamOutputFormatConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4626,7 +4626,7 @@ type DeliveryStreamParquetSerDe struct {
 // DeliveryStreamParquetSerDeInput is an input type that accepts DeliveryStreamParquetSerDeArgs and DeliveryStreamParquetSerDeOutput values.
 // You can construct a concrete instance of `DeliveryStreamParquetSerDeInput` via:
 //
-//          DeliveryStreamParquetSerDeArgs{...}
+//	DeliveryStreamParquetSerDeArgs{...}
 type DeliveryStreamParquetSerDeInput interface {
 	pulumi.Input
 
@@ -4666,11 +4666,11 @@ func (i DeliveryStreamParquetSerDeArgs) ToDeliveryStreamParquetSerDePtrOutputWit
 // DeliveryStreamParquetSerDePtrInput is an input type that accepts DeliveryStreamParquetSerDeArgs, DeliveryStreamParquetSerDePtr and DeliveryStreamParquetSerDePtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamParquetSerDePtrInput` via:
 //
-//          DeliveryStreamParquetSerDeArgs{...}
+//	        DeliveryStreamParquetSerDeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamParquetSerDePtrInput interface {
 	pulumi.Input
 
@@ -4830,7 +4830,7 @@ type DeliveryStreamProcessingConfiguration struct {
 // DeliveryStreamProcessingConfigurationInput is an input type that accepts DeliveryStreamProcessingConfigurationArgs and DeliveryStreamProcessingConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessingConfigurationInput` via:
 //
-//          DeliveryStreamProcessingConfigurationArgs{...}
+//	DeliveryStreamProcessingConfigurationArgs{...}
 type DeliveryStreamProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -4866,11 +4866,11 @@ func (i DeliveryStreamProcessingConfigurationArgs) ToDeliveryStreamProcessingCon
 // DeliveryStreamProcessingConfigurationPtrInput is an input type that accepts DeliveryStreamProcessingConfigurationArgs, DeliveryStreamProcessingConfigurationPtr and DeliveryStreamProcessingConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessingConfigurationPtrInput` via:
 //
-//          DeliveryStreamProcessingConfigurationArgs{...}
+//	        DeliveryStreamProcessingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4978,7 +4978,7 @@ type DeliveryStreamProcessor struct {
 // DeliveryStreamProcessorInput is an input type that accepts DeliveryStreamProcessorArgs and DeliveryStreamProcessorOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorInput` via:
 //
-//          DeliveryStreamProcessorArgs{...}
+//	DeliveryStreamProcessorArgs{...}
 type DeliveryStreamProcessorInput interface {
 	pulumi.Input
 
@@ -5006,7 +5006,7 @@ func (i DeliveryStreamProcessorArgs) ToDeliveryStreamProcessorOutputWithContext(
 // DeliveryStreamProcessorArrayInput is an input type that accepts DeliveryStreamProcessorArray and DeliveryStreamProcessorArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorArrayInput` via:
 //
-//          DeliveryStreamProcessorArray{ DeliveryStreamProcessorArgs{...} }
+//	DeliveryStreamProcessorArray{ DeliveryStreamProcessorArgs{...} }
 type DeliveryStreamProcessorArrayInput interface {
 	pulumi.Input
 
@@ -5078,7 +5078,7 @@ type DeliveryStreamProcessorParameter struct {
 // DeliveryStreamProcessorParameterInput is an input type that accepts DeliveryStreamProcessorParameterArgs and DeliveryStreamProcessorParameterOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorParameterInput` via:
 //
-//          DeliveryStreamProcessorParameterArgs{...}
+//	DeliveryStreamProcessorParameterArgs{...}
 type DeliveryStreamProcessorParameterInput interface {
 	pulumi.Input
 
@@ -5106,7 +5106,7 @@ func (i DeliveryStreamProcessorParameterArgs) ToDeliveryStreamProcessorParameter
 // DeliveryStreamProcessorParameterArrayInput is an input type that accepts DeliveryStreamProcessorParameterArray and DeliveryStreamProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorParameterArrayInput` via:
 //
-//          DeliveryStreamProcessorParameterArray{ DeliveryStreamProcessorParameterArgs{...} }
+//	DeliveryStreamProcessorParameterArray{ DeliveryStreamProcessorParameterArgs{...} }
 type DeliveryStreamProcessorParameterArrayInput interface {
 	pulumi.Input
 
@@ -5187,7 +5187,7 @@ type DeliveryStreamRedshiftDestinationConfiguration struct {
 // DeliveryStreamRedshiftDestinationConfigurationInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationArgs and DeliveryStreamRedshiftDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamRedshiftDestinationConfigurationInput` via:
 //
-//          DeliveryStreamRedshiftDestinationConfigurationArgs{...}
+//	DeliveryStreamRedshiftDestinationConfigurationArgs{...}
 type DeliveryStreamRedshiftDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -5232,11 +5232,11 @@ func (i DeliveryStreamRedshiftDestinationConfigurationArgs) ToDeliveryStreamReds
 // DeliveryStreamRedshiftDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationArgs, DeliveryStreamRedshiftDestinationConfigurationPtr and DeliveryStreamRedshiftDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamRedshiftDestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamRedshiftDestinationConfigurationArgs{...}
+//	        DeliveryStreamRedshiftDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamRedshiftDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5472,7 +5472,7 @@ type DeliveryStreamRedshiftRetryOptions struct {
 // DeliveryStreamRedshiftRetryOptionsInput is an input type that accepts DeliveryStreamRedshiftRetryOptionsArgs and DeliveryStreamRedshiftRetryOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamRedshiftRetryOptionsInput` via:
 //
-//          DeliveryStreamRedshiftRetryOptionsArgs{...}
+//	DeliveryStreamRedshiftRetryOptionsArgs{...}
 type DeliveryStreamRedshiftRetryOptionsInput interface {
 	pulumi.Input
 
@@ -5507,11 +5507,11 @@ func (i DeliveryStreamRedshiftRetryOptionsArgs) ToDeliveryStreamRedshiftRetryOpt
 // DeliveryStreamRedshiftRetryOptionsPtrInput is an input type that accepts DeliveryStreamRedshiftRetryOptionsArgs, DeliveryStreamRedshiftRetryOptionsPtr and DeliveryStreamRedshiftRetryOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamRedshiftRetryOptionsPtrInput` via:
 //
-//          DeliveryStreamRedshiftRetryOptionsArgs{...}
+//	        DeliveryStreamRedshiftRetryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamRedshiftRetryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -5605,7 +5605,7 @@ type DeliveryStreamRetryOptions struct {
 // DeliveryStreamRetryOptionsInput is an input type that accepts DeliveryStreamRetryOptionsArgs and DeliveryStreamRetryOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamRetryOptionsInput` via:
 //
-//          DeliveryStreamRetryOptionsArgs{...}
+//	DeliveryStreamRetryOptionsArgs{...}
 type DeliveryStreamRetryOptionsInput interface {
 	pulumi.Input
 
@@ -5640,11 +5640,11 @@ func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsPtrOutputWit
 // DeliveryStreamRetryOptionsPtrInput is an input type that accepts DeliveryStreamRetryOptionsArgs, DeliveryStreamRetryOptionsPtr and DeliveryStreamRetryOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamRetryOptionsPtrInput` via:
 //
-//          DeliveryStreamRetryOptionsArgs{...}
+//	        DeliveryStreamRetryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamRetryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -5745,7 +5745,7 @@ type DeliveryStreamS3DestinationConfiguration struct {
 // DeliveryStreamS3DestinationConfigurationInput is an input type that accepts DeliveryStreamS3DestinationConfigurationArgs and DeliveryStreamS3DestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamS3DestinationConfigurationInput` via:
 //
-//          DeliveryStreamS3DestinationConfigurationArgs{...}
+//	DeliveryStreamS3DestinationConfigurationArgs{...}
 type DeliveryStreamS3DestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -5787,11 +5787,11 @@ func (i DeliveryStreamS3DestinationConfigurationArgs) ToDeliveryStreamS3Destinat
 // DeliveryStreamS3DestinationConfigurationPtrInput is an input type that accepts DeliveryStreamS3DestinationConfigurationArgs, DeliveryStreamS3DestinationConfigurationPtr and DeliveryStreamS3DestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamS3DestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamS3DestinationConfigurationArgs{...}
+//	        DeliveryStreamS3DestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamS3DestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5989,7 +5989,7 @@ type DeliveryStreamSchemaConfiguration struct {
 // DeliveryStreamSchemaConfigurationInput is an input type that accepts DeliveryStreamSchemaConfigurationArgs and DeliveryStreamSchemaConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamSchemaConfigurationInput` via:
 //
-//          DeliveryStreamSchemaConfigurationArgs{...}
+//	DeliveryStreamSchemaConfigurationArgs{...}
 type DeliveryStreamSchemaConfigurationInput interface {
 	pulumi.Input
 
@@ -6029,11 +6029,11 @@ func (i DeliveryStreamSchemaConfigurationArgs) ToDeliveryStreamSchemaConfigurati
 // DeliveryStreamSchemaConfigurationPtrInput is an input type that accepts DeliveryStreamSchemaConfigurationArgs, DeliveryStreamSchemaConfigurationPtr and DeliveryStreamSchemaConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamSchemaConfigurationPtrInput` via:
 //
-//          DeliveryStreamSchemaConfigurationArgs{...}
+//	        DeliveryStreamSchemaConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamSchemaConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6193,7 +6193,7 @@ type DeliveryStreamSerializer struct {
 // DeliveryStreamSerializerInput is an input type that accepts DeliveryStreamSerializerArgs and DeliveryStreamSerializerOutput values.
 // You can construct a concrete instance of `DeliveryStreamSerializerInput` via:
 //
-//          DeliveryStreamSerializerArgs{...}
+//	DeliveryStreamSerializerArgs{...}
 type DeliveryStreamSerializerInput interface {
 	pulumi.Input
 
@@ -6229,11 +6229,11 @@ func (i DeliveryStreamSerializerArgs) ToDeliveryStreamSerializerPtrOutputWithCon
 // DeliveryStreamSerializerPtrInput is an input type that accepts DeliveryStreamSerializerArgs, DeliveryStreamSerializerPtr and DeliveryStreamSerializerPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamSerializerPtrInput` via:
 //
-//          DeliveryStreamSerializerArgs{...}
+//	        DeliveryStreamSerializerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamSerializerPtrInput interface {
 	pulumi.Input
 
@@ -6348,7 +6348,7 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 // DeliveryStreamSplunkDestinationConfigurationInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationArgs and DeliveryStreamSplunkDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationInput` via:
 //
-//          DeliveryStreamSplunkDestinationConfigurationArgs{...}
+//	DeliveryStreamSplunkDestinationConfigurationArgs{...}
 type DeliveryStreamSplunkDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -6391,11 +6391,11 @@ func (i DeliveryStreamSplunkDestinationConfigurationArgs) ToDeliveryStreamSplunk
 // DeliveryStreamSplunkDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationArgs, DeliveryStreamSplunkDestinationConfigurationPtr and DeliveryStreamSplunkDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationPtrInput` via:
 //
-//          DeliveryStreamSplunkDestinationConfigurationArgs{...}
+//	        DeliveryStreamSplunkDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamSplunkDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6603,7 +6603,7 @@ type DeliveryStreamSplunkRetryOptions struct {
 // DeliveryStreamSplunkRetryOptionsInput is an input type that accepts DeliveryStreamSplunkRetryOptionsArgs and DeliveryStreamSplunkRetryOptionsOutput values.
 // You can construct a concrete instance of `DeliveryStreamSplunkRetryOptionsInput` via:
 //
-//          DeliveryStreamSplunkRetryOptionsArgs{...}
+//	DeliveryStreamSplunkRetryOptionsArgs{...}
 type DeliveryStreamSplunkRetryOptionsInput interface {
 	pulumi.Input
 
@@ -6638,11 +6638,11 @@ func (i DeliveryStreamSplunkRetryOptionsArgs) ToDeliveryStreamSplunkRetryOptions
 // DeliveryStreamSplunkRetryOptionsPtrInput is an input type that accepts DeliveryStreamSplunkRetryOptionsArgs, DeliveryStreamSplunkRetryOptionsPtr and DeliveryStreamSplunkRetryOptionsPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamSplunkRetryOptionsPtrInput` via:
 //
-//          DeliveryStreamSplunkRetryOptionsArgs{...}
+//	        DeliveryStreamSplunkRetryOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamSplunkRetryOptionsPtrInput interface {
 	pulumi.Input
 
@@ -6737,7 +6737,7 @@ type DeliveryStreamTag struct {
 // DeliveryStreamTagInput is an input type that accepts DeliveryStreamTagArgs and DeliveryStreamTagOutput values.
 // You can construct a concrete instance of `DeliveryStreamTagInput` via:
 //
-//          DeliveryStreamTagArgs{...}
+//	DeliveryStreamTagArgs{...}
 type DeliveryStreamTagInput interface {
 	pulumi.Input
 
@@ -6765,7 +6765,7 @@ func (i DeliveryStreamTagArgs) ToDeliveryStreamTagOutputWithContext(ctx context.
 // DeliveryStreamTagArrayInput is an input type that accepts DeliveryStreamTagArray and DeliveryStreamTagArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamTagArrayInput` via:
 //
-//          DeliveryStreamTagArray{ DeliveryStreamTagArgs{...} }
+//	DeliveryStreamTagArray{ DeliveryStreamTagArgs{...} }
 type DeliveryStreamTagArrayInput interface {
 	pulumi.Input
 
@@ -6838,7 +6838,7 @@ type DeliveryStreamVpcConfiguration struct {
 // DeliveryStreamVpcConfigurationInput is an input type that accepts DeliveryStreamVpcConfigurationArgs and DeliveryStreamVpcConfigurationOutput values.
 // You can construct a concrete instance of `DeliveryStreamVpcConfigurationInput` via:
 //
-//          DeliveryStreamVpcConfigurationArgs{...}
+//	DeliveryStreamVpcConfigurationArgs{...}
 type DeliveryStreamVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -6875,11 +6875,11 @@ func (i DeliveryStreamVpcConfigurationArgs) ToDeliveryStreamVpcConfigurationPtrO
 // DeliveryStreamVpcConfigurationPtrInput is an input type that accepts DeliveryStreamVpcConfigurationArgs, DeliveryStreamVpcConfigurationPtr and DeliveryStreamVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `DeliveryStreamVpcConfigurationPtrInput` via:
 //
-//          DeliveryStreamVpcConfigurationArgs{...}
+//	        DeliveryStreamVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeliveryStreamVpcConfigurationPtrInput interface {
 	pulumi.Input
 

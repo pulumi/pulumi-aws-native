@@ -18,7 +18,7 @@ type AlarmDimension struct {
 // AlarmDimensionInput is an input type that accepts AlarmDimensionArgs and AlarmDimensionOutput values.
 // You can construct a concrete instance of `AlarmDimensionInput` via:
 //
-//          AlarmDimensionArgs{...}
+//	AlarmDimensionArgs{...}
 type AlarmDimensionInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i AlarmDimensionArgs) ToAlarmDimensionOutputWithContext(ctx context.Contex
 // AlarmDimensionArrayInput is an input type that accepts AlarmDimensionArray and AlarmDimensionArrayOutput values.
 // You can construct a concrete instance of `AlarmDimensionArrayInput` via:
 //
-//          AlarmDimensionArray{ AlarmDimensionArgs{...} }
+//	AlarmDimensionArray{ AlarmDimensionArgs{...} }
 type AlarmDimensionArrayInput interface {
 	pulumi.Input
 
@@ -119,7 +119,7 @@ type AlarmMetric struct {
 // AlarmMetricInput is an input type that accepts AlarmMetricArgs and AlarmMetricOutput values.
 // You can construct a concrete instance of `AlarmMetricInput` via:
 //
-//          AlarmMetricArgs{...}
+//	AlarmMetricArgs{...}
 type AlarmMetricInput interface {
 	pulumi.Input
 
@@ -156,11 +156,11 @@ func (i AlarmMetricArgs) ToAlarmMetricPtrOutputWithContext(ctx context.Context) 
 // AlarmMetricPtrInput is an input type that accepts AlarmMetricArgs, AlarmMetricPtr and AlarmMetricPtrOutput values.
 // You can construct a concrete instance of `AlarmMetricPtrInput` via:
 //
-//          AlarmMetricArgs{...}
+//	        AlarmMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmMetricPtrInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ type AlarmMetricDataQuery struct {
 // AlarmMetricDataQueryInput is an input type that accepts AlarmMetricDataQueryArgs and AlarmMetricDataQueryOutput values.
 // You can construct a concrete instance of `AlarmMetricDataQueryInput` via:
 //
-//          AlarmMetricDataQueryArgs{...}
+//	AlarmMetricDataQueryArgs{...}
 type AlarmMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ func (i AlarmMetricDataQueryArgs) ToAlarmMetricDataQueryOutputWithContext(ctx co
 // AlarmMetricDataQueryArrayInput is an input type that accepts AlarmMetricDataQueryArray and AlarmMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `AlarmMetricDataQueryArrayInput` via:
 //
-//          AlarmMetricDataQueryArray{ AlarmMetricDataQueryArgs{...} }
+//	AlarmMetricDataQueryArray{ AlarmMetricDataQueryArgs{...} }
 type AlarmMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -413,7 +413,7 @@ type AlarmMetricStat struct {
 // AlarmMetricStatInput is an input type that accepts AlarmMetricStatArgs and AlarmMetricStatOutput values.
 // You can construct a concrete instance of `AlarmMetricStatInput` via:
 //
-//          AlarmMetricStatArgs{...}
+//	AlarmMetricStatArgs{...}
 type AlarmMetricStatInput interface {
 	pulumi.Input
 
@@ -451,11 +451,11 @@ func (i AlarmMetricStatArgs) ToAlarmMetricStatPtrOutputWithContext(ctx context.C
 // AlarmMetricStatPtrInput is an input type that accepts AlarmMetricStatArgs, AlarmMetricStatPtr and AlarmMetricStatPtrOutput values.
 // You can construct a concrete instance of `AlarmMetricStatPtrInput` via:
 //
-//          AlarmMetricStatArgs{...}
+//	        AlarmMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AlarmMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -589,7 +589,7 @@ type AnomalyDetectorConfiguration struct {
 // AnomalyDetectorConfigurationInput is an input type that accepts AnomalyDetectorConfigurationArgs and AnomalyDetectorConfigurationOutput values.
 // You can construct a concrete instance of `AnomalyDetectorConfigurationInput` via:
 //
-//          AnomalyDetectorConfigurationArgs{...}
+//	AnomalyDetectorConfigurationArgs{...}
 type AnomalyDetectorConfigurationInput interface {
 	pulumi.Input
 
@@ -625,11 +625,11 @@ func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationPtrOutpu
 // AnomalyDetectorConfigurationPtrInput is an input type that accepts AnomalyDetectorConfigurationArgs, AnomalyDetectorConfigurationPtr and AnomalyDetectorConfigurationPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorConfigurationPtrInput` via:
 //
-//          AnomalyDetectorConfigurationArgs{...}
+//	        AnomalyDetectorConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -737,7 +737,7 @@ type AnomalyDetectorDimension struct {
 // AnomalyDetectorDimensionInput is an input type that accepts AnomalyDetectorDimensionArgs and AnomalyDetectorDimensionOutput values.
 // You can construct a concrete instance of `AnomalyDetectorDimensionInput` via:
 //
-//          AnomalyDetectorDimensionArgs{...}
+//	AnomalyDetectorDimensionArgs{...}
 type AnomalyDetectorDimensionInput interface {
 	pulumi.Input
 
@@ -765,7 +765,7 @@ func (i AnomalyDetectorDimensionArgs) ToAnomalyDetectorDimensionOutputWithContex
 // AnomalyDetectorDimensionArrayInput is an input type that accepts AnomalyDetectorDimensionArray and AnomalyDetectorDimensionArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorDimensionArrayInput` via:
 //
-//          AnomalyDetectorDimensionArray{ AnomalyDetectorDimensionArgs{...} }
+//	AnomalyDetectorDimensionArray{ AnomalyDetectorDimensionArgs{...} }
 type AnomalyDetectorDimensionArrayInput interface {
 	pulumi.Input
 
@@ -838,7 +838,7 @@ type AnomalyDetectorMetric struct {
 // AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricInput` via:
 //
-//          AnomalyDetectorMetricArgs{...}
+//	AnomalyDetectorMetricArgs{...}
 type AnomalyDetectorMetricInput interface {
 	pulumi.Input
 
@@ -875,11 +875,11 @@ func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricPtrOutputWithContext(c
 // AnomalyDetectorMetricPtrInput is an input type that accepts AnomalyDetectorMetricArgs, AnomalyDetectorMetricPtr and AnomalyDetectorMetricPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricPtrInput` via:
 //
-//          AnomalyDetectorMetricArgs{...}
+//	        AnomalyDetectorMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorMetricPtrInput interface {
 	pulumi.Input
 
@@ -1005,7 +1005,7 @@ type AnomalyDetectorMetricDataQuery struct {
 // AnomalyDetectorMetricDataQueryInput is an input type that accepts AnomalyDetectorMetricDataQueryArgs and AnomalyDetectorMetricDataQueryOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricDataQueryInput` via:
 //
-//          AnomalyDetectorMetricDataQueryArgs{...}
+//	AnomalyDetectorMetricDataQueryArgs{...}
 type AnomalyDetectorMetricDataQueryInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ func (i AnomalyDetectorMetricDataQueryArgs) ToAnomalyDetectorMetricDataQueryOutp
 // AnomalyDetectorMetricDataQueryArrayInput is an input type that accepts AnomalyDetectorMetricDataQueryArray and AnomalyDetectorMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricDataQueryArrayInput` via:
 //
-//          AnomalyDetectorMetricDataQueryArray{ AnomalyDetectorMetricDataQueryArgs{...} }
+//	AnomalyDetectorMetricDataQueryArray{ AnomalyDetectorMetricDataQueryArgs{...} }
 type AnomalyDetectorMetricDataQueryArrayInput interface {
 	pulumi.Input
 
@@ -1129,7 +1129,7 @@ type AnomalyDetectorMetricMathAnomalyDetector struct {
 // AnomalyDetectorMetricMathAnomalyDetectorInput is an input type that accepts AnomalyDetectorMetricMathAnomalyDetectorArgs and AnomalyDetectorMetricMathAnomalyDetectorOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricMathAnomalyDetectorInput` via:
 //
-//          AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
+//	AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
 type AnomalyDetectorMetricMathAnomalyDetectorInput interface {
 	pulumi.Input
 
@@ -1164,11 +1164,11 @@ func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMat
 // AnomalyDetectorMetricMathAnomalyDetectorPtrInput is an input type that accepts AnomalyDetectorMetricMathAnomalyDetectorArgs, AnomalyDetectorMetricMathAnomalyDetectorPtr and AnomalyDetectorMetricMathAnomalyDetectorPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricMathAnomalyDetectorPtrInput` via:
 //
-//          AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
+//	        AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorMetricMathAnomalyDetectorPtrInput interface {
 	pulumi.Input
 
@@ -1267,7 +1267,7 @@ type AnomalyDetectorMetricStat struct {
 // AnomalyDetectorMetricStatInput is an input type that accepts AnomalyDetectorMetricStatArgs and AnomalyDetectorMetricStatOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricStatInput` via:
 //
-//          AnomalyDetectorMetricStatArgs{...}
+//	AnomalyDetectorMetricStatArgs{...}
 type AnomalyDetectorMetricStatInput interface {
 	pulumi.Input
 
@@ -1305,11 +1305,11 @@ func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatPtrOutputWithC
 // AnomalyDetectorMetricStatPtrInput is an input type that accepts AnomalyDetectorMetricStatArgs, AnomalyDetectorMetricStatPtr and AnomalyDetectorMetricStatPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricStatPtrInput` via:
 //
-//          AnomalyDetectorMetricStatArgs{...}
+//	        AnomalyDetectorMetricStatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorMetricStatPtrInput interface {
 	pulumi.Input
 
@@ -1443,7 +1443,7 @@ type AnomalyDetectorRange struct {
 // AnomalyDetectorRangeInput is an input type that accepts AnomalyDetectorRangeArgs and AnomalyDetectorRangeOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRangeInput` via:
 //
-//          AnomalyDetectorRangeArgs{...}
+//	AnomalyDetectorRangeArgs{...}
 type AnomalyDetectorRangeInput interface {
 	pulumi.Input
 
@@ -1471,7 +1471,7 @@ func (i AnomalyDetectorRangeArgs) ToAnomalyDetectorRangeOutputWithContext(ctx co
 // AnomalyDetectorRangeArrayInput is an input type that accepts AnomalyDetectorRangeArray and AnomalyDetectorRangeArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRangeArrayInput` via:
 //
-//          AnomalyDetectorRangeArray{ AnomalyDetectorRangeArgs{...} }
+//	AnomalyDetectorRangeArray{ AnomalyDetectorRangeArgs{...} }
 type AnomalyDetectorRangeArrayInput interface {
 	pulumi.Input
 
@@ -1545,7 +1545,7 @@ type AnomalyDetectorSingleMetricAnomalyDetector struct {
 // AnomalyDetectorSingleMetricAnomalyDetectorInput is an input type that accepts AnomalyDetectorSingleMetricAnomalyDetectorArgs and AnomalyDetectorSingleMetricAnomalyDetectorOutput values.
 // You can construct a concrete instance of `AnomalyDetectorSingleMetricAnomalyDetectorInput` via:
 //
-//          AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
+//	AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
 type AnomalyDetectorSingleMetricAnomalyDetectorInput interface {
 	pulumi.Input
 
@@ -1583,11 +1583,11 @@ func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleM
 // AnomalyDetectorSingleMetricAnomalyDetectorPtrInput is an input type that accepts AnomalyDetectorSingleMetricAnomalyDetectorArgs, AnomalyDetectorSingleMetricAnomalyDetectorPtr and AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput values.
 // You can construct a concrete instance of `AnomalyDetectorSingleMetricAnomalyDetectorPtrInput` via:
 //
-//          AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
+//	        AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnomalyDetectorSingleMetricAnomalyDetectorPtrInput interface {
 	pulumi.Input
 
@@ -1719,7 +1719,7 @@ type InsightRuleTags struct {
 // InsightRuleTagsInput is an input type that accepts InsightRuleTagsArgs and InsightRuleTagsOutput values.
 // You can construct a concrete instance of `InsightRuleTagsInput` via:
 //
-//          InsightRuleTagsArgs{...}
+//	InsightRuleTagsArgs{...}
 type InsightRuleTagsInput interface {
 	pulumi.Input
 
@@ -1753,11 +1753,11 @@ func (i InsightRuleTagsArgs) ToInsightRuleTagsPtrOutputWithContext(ctx context.C
 // InsightRuleTagsPtrInput is an input type that accepts InsightRuleTagsArgs, InsightRuleTagsPtr and InsightRuleTagsPtrOutput values.
 // You can construct a concrete instance of `InsightRuleTagsPtrInput` via:
 //
-//          InsightRuleTagsArgs{...}
+//	        InsightRuleTagsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightRuleTagsPtrInput interface {
 	pulumi.Input
 
@@ -1840,7 +1840,7 @@ type MetricStreamFilter struct {
 // MetricStreamFilterInput is an input type that accepts MetricStreamFilterArgs and MetricStreamFilterOutput values.
 // You can construct a concrete instance of `MetricStreamFilterInput` via:
 //
-//          MetricStreamFilterArgs{...}
+//	MetricStreamFilterArgs{...}
 type MetricStreamFilterInput interface {
 	pulumi.Input
 
@@ -1869,7 +1869,7 @@ func (i MetricStreamFilterArgs) ToMetricStreamFilterOutputWithContext(ctx contex
 // MetricStreamFilterArrayInput is an input type that accepts MetricStreamFilterArray and MetricStreamFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamFilterArrayInput` via:
 //
-//          MetricStreamFilterArray{ MetricStreamFilterArgs{...} }
+//	MetricStreamFilterArray{ MetricStreamFilterArgs{...} }
 type MetricStreamFilterArrayInput interface {
 	pulumi.Input
 
@@ -1942,7 +1942,7 @@ type MetricStreamStatisticsConfiguration struct {
 // MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationInput` via:
 //
-//          MetricStreamStatisticsConfigurationArgs{...}
+//	MetricStreamStatisticsConfigurationArgs{...}
 type MetricStreamStatisticsConfigurationInput interface {
 	pulumi.Input
 
@@ -1973,7 +1973,7 @@ func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigu
 // MetricStreamStatisticsConfigurationArrayInput is an input type that accepts MetricStreamStatisticsConfigurationArray and MetricStreamStatisticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationArrayInput` via:
 //
-//          MetricStreamStatisticsConfigurationArray{ MetricStreamStatisticsConfigurationArgs{...} }
+//	MetricStreamStatisticsConfigurationArray{ MetricStreamStatisticsConfigurationArgs{...} }
 type MetricStreamStatisticsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2051,7 +2051,7 @@ type MetricStreamStatisticsMetric struct {
 // MetricStreamStatisticsMetricInput is an input type that accepts MetricStreamStatisticsMetricArgs and MetricStreamStatisticsMetricOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsMetricInput` via:
 //
-//          MetricStreamStatisticsMetricArgs{...}
+//	MetricStreamStatisticsMetricArgs{...}
 type MetricStreamStatisticsMetricInput interface {
 	pulumi.Input
 
@@ -2082,7 +2082,7 @@ func (i MetricStreamStatisticsMetricArgs) ToMetricStreamStatisticsMetricOutputWi
 // MetricStreamStatisticsMetricArrayInput is an input type that accepts MetricStreamStatisticsMetricArray and MetricStreamStatisticsMetricArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsMetricArrayInput` via:
 //
-//          MetricStreamStatisticsMetricArray{ MetricStreamStatisticsMetricArgs{...} }
+//	MetricStreamStatisticsMetricArray{ MetricStreamStatisticsMetricArgs{...} }
 type MetricStreamStatisticsMetricArrayInput interface {
 	pulumi.Input
 
@@ -2160,7 +2160,7 @@ type MetricStreamTag struct {
 // MetricStreamTagInput is an input type that accepts MetricStreamTagArgs and MetricStreamTagOutput values.
 // You can construct a concrete instance of `MetricStreamTagInput` via:
 //
-//          MetricStreamTagArgs{...}
+//	MetricStreamTagArgs{...}
 type MetricStreamTagInput interface {
 	pulumi.Input
 
@@ -2191,7 +2191,7 @@ func (i MetricStreamTagArgs) ToMetricStreamTagOutputWithContext(ctx context.Cont
 // MetricStreamTagArrayInput is an input type that accepts MetricStreamTagArray and MetricStreamTagArrayOutput values.
 // You can construct a concrete instance of `MetricStreamTagArrayInput` via:
 //
-//          MetricStreamTagArray{ MetricStreamTagArgs{...} }
+//	MetricStreamTagArray{ MetricStreamTagArgs{...} }
 type MetricStreamTagArrayInput interface {
 	pulumi.Input
 

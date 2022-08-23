@@ -671,9 +671,9 @@ func (o ClusterOutput) SnapshotCopyManual() pulumi.BoolPtrOutput {
 
 // The number of days to retain automated snapshots in the destination region after they are copied from the source region.
 //
-//  Default is 7.
+//	Default is 7.
 //
-//  Constraints: Must be at least 1 and no more than 35.
+//	Constraints: Must be at least 1 and no more than 35.
 func (o ClusterOutput) SnapshotCopyRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.SnapshotCopyRetentionPeriod }).(pulumi.IntPtrOutput)
 }

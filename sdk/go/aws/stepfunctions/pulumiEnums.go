@@ -141,7 +141,7 @@ func (o StateMachineLoggingConfigurationLevelPtrOutput) ToStringPtrOutputWithCon
 // StateMachineLoggingConfigurationLevelInput is an input type that accepts StateMachineLoggingConfigurationLevelArgs and StateMachineLoggingConfigurationLevelOutput values.
 // You can construct a concrete instance of `StateMachineLoggingConfigurationLevelInput` via:
 //
-//          StateMachineLoggingConfigurationLevelArgs{...}
+//	StateMachineLoggingConfigurationLevelArgs{...}
 type StateMachineLoggingConfigurationLevelInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o StateMachineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // StateMachineTypeInput is an input type that accepts StateMachineTypeArgs and StateMachineTypeOutput values.
 // You can construct a concrete instance of `StateMachineTypeInput` via:
 //
-//          StateMachineTypeArgs{...}
+//	StateMachineTypeArgs{...}
 type StateMachineTypeInput interface {
 	pulumi.Input
 

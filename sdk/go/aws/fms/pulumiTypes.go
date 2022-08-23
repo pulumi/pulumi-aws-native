@@ -19,7 +19,7 @@ type PolicyIEMap struct {
 // PolicyIEMapInput is an input type that accepts PolicyIEMap and PolicyIEMapOutput values.
 // You can construct a concrete instance of `PolicyIEMapInput` via:
 //
-//          PolicyIEMap{ "key": PolicyIEArgs{...} }
+//	PolicyIEMap{ "key": PolicyIEArgs{...} }
 type PolicyIEMapInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i PolicyIEMapArgs) ToPolicyIEMapPtrOutputWithContext(ctx context.Context) 
 // PolicyIEMapPtrInput is an input type that accepts PolicyIEMapArgs, PolicyIEMapPtr and PolicyIEMapPtrOutput values.
 // You can construct a concrete instance of `PolicyIEMapPtrInput` via:
 //
-//          PolicyIEMapArgs{...}
+//	        PolicyIEMapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PolicyIEMapPtrInput interface {
 	pulumi.Input
 
@@ -170,7 +170,7 @@ type PolicyResourceTag struct {
 // PolicyResourceTagInput is an input type that accepts PolicyResourceTagArgs and PolicyResourceTagOutput values.
 // You can construct a concrete instance of `PolicyResourceTagInput` via:
 //
-//          PolicyResourceTagArgs{...}
+//	PolicyResourceTagArgs{...}
 type PolicyResourceTagInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ func (i PolicyResourceTagArgs) ToPolicyResourceTagOutputWithContext(ctx context.
 // PolicyResourceTagArrayInput is an input type that accepts PolicyResourceTagArray and PolicyResourceTagArrayOutput values.
 // You can construct a concrete instance of `PolicyResourceTagArrayInput` via:
 //
-//          PolicyResourceTagArray{ PolicyResourceTagArgs{...} }
+//	PolicyResourceTagArray{ PolicyResourceTagArgs{...} }
 type PolicyResourceTagArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +273,7 @@ type PolicyTag struct {
 // PolicyTagInput is an input type that accepts PolicyTagArgs and PolicyTagOutput values.
 // You can construct a concrete instance of `PolicyTagInput` via:
 //
-//          PolicyTagArgs{...}
+//	PolicyTagArgs{...}
 type PolicyTagInput interface {
 	pulumi.Input
 
@@ -302,7 +302,7 @@ func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyT
 // PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
 // You can construct a concrete instance of `PolicyTagArrayInput` via:
 //
-//          PolicyTagArray{ PolicyTagArgs{...} }
+//	PolicyTagArray{ PolicyTagArgs{...} }
 type PolicyTagArrayInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ type SecurityServicePolicyDataProperties struct {
 // SecurityServicePolicyDataPropertiesInput is an input type that accepts SecurityServicePolicyDataPropertiesArgs and SecurityServicePolicyDataPropertiesOutput values.
 // You can construct a concrete instance of `SecurityServicePolicyDataPropertiesInput` via:
 //
-//          SecurityServicePolicyDataPropertiesArgs{...}
+//	SecurityServicePolicyDataPropertiesArgs{...}
 type SecurityServicePolicyDataPropertiesInput interface {
 	pulumi.Input
 

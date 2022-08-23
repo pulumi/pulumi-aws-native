@@ -19,7 +19,7 @@ type ApplicationMaxAgeRule struct {
 // ApplicationMaxAgeRuleInput is an input type that accepts ApplicationMaxAgeRuleArgs and ApplicationMaxAgeRuleOutput values.
 // You can construct a concrete instance of `ApplicationMaxAgeRuleInput` via:
 //
-//          ApplicationMaxAgeRuleArgs{...}
+//	ApplicationMaxAgeRuleArgs{...}
 type ApplicationMaxAgeRuleInput interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ApplicationMaxAgeRuleArgs) ToApplicationMaxAgeRulePtrOutputWithContext(c
 // ApplicationMaxAgeRulePtrInput is an input type that accepts ApplicationMaxAgeRuleArgs, ApplicationMaxAgeRulePtr and ApplicationMaxAgeRulePtrOutput values.
 // You can construct a concrete instance of `ApplicationMaxAgeRulePtrInput` via:
 //
-//          ApplicationMaxAgeRuleArgs{...}
+//	        ApplicationMaxAgeRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationMaxAgeRulePtrInput interface {
 	pulumi.Input
 
@@ -182,7 +182,7 @@ type ApplicationMaxCountRule struct {
 // ApplicationMaxCountRuleInput is an input type that accepts ApplicationMaxCountRuleArgs and ApplicationMaxCountRuleOutput values.
 // You can construct a concrete instance of `ApplicationMaxCountRuleInput` via:
 //
-//          ApplicationMaxCountRuleArgs{...}
+//	ApplicationMaxCountRuleArgs{...}
 type ApplicationMaxCountRuleInput interface {
 	pulumi.Input
 
@@ -219,11 +219,11 @@ func (i ApplicationMaxCountRuleArgs) ToApplicationMaxCountRulePtrOutputWithConte
 // ApplicationMaxCountRulePtrInput is an input type that accepts ApplicationMaxCountRuleArgs, ApplicationMaxCountRulePtr and ApplicationMaxCountRulePtrOutput values.
 // You can construct a concrete instance of `ApplicationMaxCountRulePtrInput` via:
 //
-//          ApplicationMaxCountRuleArgs{...}
+//	        ApplicationMaxCountRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationMaxCountRulePtrInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ type ApplicationResourceLifecycleConfig struct {
 // ApplicationResourceLifecycleConfigInput is an input type that accepts ApplicationResourceLifecycleConfigArgs and ApplicationResourceLifecycleConfigOutput values.
 // You can construct a concrete instance of `ApplicationResourceLifecycleConfigInput` via:
 //
-//          ApplicationResourceLifecycleConfigArgs{...}
+//	ApplicationResourceLifecycleConfigArgs{...}
 type ApplicationResourceLifecycleConfigInput interface {
 	pulumi.Input
 
@@ -380,11 +380,11 @@ func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleCo
 // ApplicationResourceLifecycleConfigPtrInput is an input type that accepts ApplicationResourceLifecycleConfigArgs, ApplicationResourceLifecycleConfigPtr and ApplicationResourceLifecycleConfigPtrOutput values.
 // You can construct a concrete instance of `ApplicationResourceLifecycleConfigPtrInput` via:
 //
-//          ApplicationResourceLifecycleConfigArgs{...}
+//	        ApplicationResourceLifecycleConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationResourceLifecycleConfigPtrInput interface {
 	pulumi.Input
 
@@ -494,7 +494,7 @@ type ApplicationVersionLifecycleConfig struct {
 // ApplicationVersionLifecycleConfigInput is an input type that accepts ApplicationVersionLifecycleConfigArgs and ApplicationVersionLifecycleConfigOutput values.
 // You can construct a concrete instance of `ApplicationVersionLifecycleConfigInput` via:
 //
-//          ApplicationVersionLifecycleConfigArgs{...}
+//	ApplicationVersionLifecycleConfigArgs{...}
 type ApplicationVersionLifecycleConfigInput interface {
 	pulumi.Input
 
@@ -530,11 +530,11 @@ func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConf
 // ApplicationVersionLifecycleConfigPtrInput is an input type that accepts ApplicationVersionLifecycleConfigArgs, ApplicationVersionLifecycleConfigPtr and ApplicationVersionLifecycleConfigPtrOutput values.
 // You can construct a concrete instance of `ApplicationVersionLifecycleConfigPtrInput` via:
 //
-//          ApplicationVersionLifecycleConfigArgs{...}
+//	        ApplicationVersionLifecycleConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationVersionLifecycleConfigPtrInput interface {
 	pulumi.Input
 
@@ -642,7 +642,7 @@ type ApplicationVersionSourceBundle struct {
 // ApplicationVersionSourceBundleInput is an input type that accepts ApplicationVersionSourceBundleArgs and ApplicationVersionSourceBundleOutput values.
 // You can construct a concrete instance of `ApplicationVersionSourceBundleInput` via:
 //
-//          ApplicationVersionSourceBundleArgs{...}
+//	ApplicationVersionSourceBundleArgs{...}
 type ApplicationVersionSourceBundleInput interface {
 	pulumi.Input
 
@@ -699,7 +699,7 @@ type ConfigurationTemplateConfigurationOptionSetting struct {
 // ConfigurationTemplateConfigurationOptionSettingInput is an input type that accepts ConfigurationTemplateConfigurationOptionSettingArgs and ConfigurationTemplateConfigurationOptionSettingOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateConfigurationOptionSettingInput` via:
 //
-//          ConfigurationTemplateConfigurationOptionSettingArgs{...}
+//	ConfigurationTemplateConfigurationOptionSettingArgs{...}
 type ConfigurationTemplateConfigurationOptionSettingInput interface {
 	pulumi.Input
 
@@ -729,7 +729,7 @@ func (i ConfigurationTemplateConfigurationOptionSettingArgs) ToConfigurationTemp
 // ConfigurationTemplateConfigurationOptionSettingArrayInput is an input type that accepts ConfigurationTemplateConfigurationOptionSettingArray and ConfigurationTemplateConfigurationOptionSettingArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateConfigurationOptionSettingArrayInput` via:
 //
-//          ConfigurationTemplateConfigurationOptionSettingArray{ ConfigurationTemplateConfigurationOptionSettingArgs{...} }
+//	ConfigurationTemplateConfigurationOptionSettingArray{ ConfigurationTemplateConfigurationOptionSettingArgs{...} }
 type ConfigurationTemplateConfigurationOptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -809,7 +809,7 @@ type ConfigurationTemplateSourceConfiguration struct {
 // ConfigurationTemplateSourceConfigurationInput is an input type that accepts ConfigurationTemplateSourceConfigurationArgs and ConfigurationTemplateSourceConfigurationOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateSourceConfigurationInput` via:
 //
-//          ConfigurationTemplateSourceConfigurationArgs{...}
+//	ConfigurationTemplateSourceConfigurationArgs{...}
 type ConfigurationTemplateSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -845,11 +845,11 @@ func (i ConfigurationTemplateSourceConfigurationArgs) ToConfigurationTemplateSou
 // ConfigurationTemplateSourceConfigurationPtrInput is an input type that accepts ConfigurationTemplateSourceConfigurationArgs, ConfigurationTemplateSourceConfigurationPtr and ConfigurationTemplateSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateSourceConfigurationPtrInput` via:
 //
-//          ConfigurationTemplateSourceConfigurationArgs{...}
+//	        ConfigurationTemplateSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConfigurationTemplateSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -959,7 +959,7 @@ type EnvironmentOptionSetting struct {
 // EnvironmentOptionSettingInput is an input type that accepts EnvironmentOptionSettingArgs and EnvironmentOptionSettingOutput values.
 // You can construct a concrete instance of `EnvironmentOptionSettingInput` via:
 //
-//          EnvironmentOptionSettingArgs{...}
+//	EnvironmentOptionSettingArgs{...}
 type EnvironmentOptionSettingInput interface {
 	pulumi.Input
 
@@ -989,7 +989,7 @@ func (i EnvironmentOptionSettingArgs) ToEnvironmentOptionSettingOutputWithContex
 // EnvironmentOptionSettingArrayInput is an input type that accepts EnvironmentOptionSettingArray and EnvironmentOptionSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentOptionSettingArrayInput` via:
 //
-//          EnvironmentOptionSettingArray{ EnvironmentOptionSettingArgs{...} }
+//	EnvironmentOptionSettingArray{ EnvironmentOptionSettingArgs{...} }
 type EnvironmentOptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -1069,7 +1069,7 @@ type EnvironmentTag struct {
 // EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
 // You can construct a concrete instance of `EnvironmentTagInput` via:
 //
-//          EnvironmentTagArgs{...}
+//	EnvironmentTagArgs{...}
 type EnvironmentTagInput interface {
 	pulumi.Input
 
@@ -1097,7 +1097,7 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
-//          EnvironmentTagArray{ EnvironmentTagArgs{...} }
+//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
 type EnvironmentTagArrayInput interface {
 	pulumi.Input
 
@@ -1170,7 +1170,7 @@ type EnvironmentTier struct {
 // EnvironmentTierInput is an input type that accepts EnvironmentTierArgs and EnvironmentTierOutput values.
 // You can construct a concrete instance of `EnvironmentTierInput` via:
 //
-//          EnvironmentTierArgs{...}
+//	EnvironmentTierArgs{...}
 type EnvironmentTierInput interface {
 	pulumi.Input
 
@@ -1207,11 +1207,11 @@ func (i EnvironmentTierArgs) ToEnvironmentTierPtrOutputWithContext(ctx context.C
 // EnvironmentTierPtrInput is an input type that accepts EnvironmentTierArgs, EnvironmentTierPtr and EnvironmentTierPtrOutput values.
 // You can construct a concrete instance of `EnvironmentTierPtrInput` via:
 //
-//          EnvironmentTierArgs{...}
+//	        EnvironmentTierArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentTierPtrInput interface {
 	pulumi.Input
 

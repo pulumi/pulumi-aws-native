@@ -138,7 +138,7 @@ func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToStringPtrOutpu
 // CapacityReservationFleetInstanceMatchCriteriaInput is an input type that accepts CapacityReservationFleetInstanceMatchCriteriaArgs and CapacityReservationFleetInstanceMatchCriteriaOutput values.
 // You can construct a concrete instance of `CapacityReservationFleetInstanceMatchCriteriaInput` via:
 //
-//          CapacityReservationFleetInstanceMatchCriteriaArgs{...}
+//	CapacityReservationFleetInstanceMatchCriteriaArgs{...}
 type CapacityReservationFleetInstanceMatchCriteriaInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ func (o CapacityReservationFleetTenancyPtrOutput) ToStringPtrOutputWithContext(c
 // CapacityReservationFleetTenancyInput is an input type that accepts CapacityReservationFleetTenancyArgs and CapacityReservationFleetTenancyOutput values.
 // You can construct a concrete instance of `CapacityReservationFleetTenancyInput` via:
 //
-//          CapacityReservationFleetTenancyArgs{...}
+//	CapacityReservationFleetTenancyArgs{...}
 type CapacityReservationFleetTenancyInput interface {
 	pulumi.Input
 
@@ -465,7 +465,7 @@ func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrOutput
 // EC2FleetCapacityRebalanceReplacementStrategyInput is an input type that accepts EC2FleetCapacityRebalanceReplacementStrategyArgs and EC2FleetCapacityRebalanceReplacementStrategyOutput values.
 // You can construct a concrete instance of `EC2FleetCapacityRebalanceReplacementStrategyInput` via:
 //
-//          EC2FleetCapacityRebalanceReplacementStrategyArgs{...}
+//	EC2FleetCapacityRebalanceReplacementStrategyArgs{...}
 type EC2FleetCapacityRebalanceReplacementStrategyInput interface {
 	pulumi.Input
 
@@ -628,7 +628,7 @@ func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToStrin
 // EC2FleetCapacityReservationOptionsRequestUsageStrategyInput is an input type that accepts EC2FleetCapacityReservationOptionsRequestUsageStrategyArgs and EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput values.
 // You can construct a concrete instance of `EC2FleetCapacityReservationOptionsRequestUsageStrategyInput` via:
 //
-//          EC2FleetCapacityReservationOptionsRequestUsageStrategyArgs{...}
+//	EC2FleetCapacityReservationOptionsRequestUsageStrategyArgs{...}
 type EC2FleetCapacityReservationOptionsRequestUsageStrategyInput interface {
 	pulumi.Input
 
@@ -792,7 +792,7 @@ func (o EC2FleetExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutputWithC
 // EC2FleetExcessCapacityTerminationPolicyInput is an input type that accepts EC2FleetExcessCapacityTerminationPolicyArgs and EC2FleetExcessCapacityTerminationPolicyOutput values.
 // You can construct a concrete instance of `EC2FleetExcessCapacityTerminationPolicyInput` via:
 //
-//          EC2FleetExcessCapacityTerminationPolicyArgs{...}
+//	EC2FleetExcessCapacityTerminationPolicyArgs{...}
 type EC2FleetExcessCapacityTerminationPolicyInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
 // EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
 type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
 	pulumi.Input
 
@@ -996,7 +996,7 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) To
 // EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput interface {
 	pulumi.Input
 
@@ -1174,7 +1174,7 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStri
 // EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
 type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -1212,7 +1212,7 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToEC2Fleet
 // EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStri
 // EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
 type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -1422,7 +1422,7 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToEC2Fleet
 // EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput interface {
 	pulumi.Input
 
@@ -1594,7 +1594,7 @@ func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutput
 // EC2FleetInstanceRequirementsRequestBareMetalInput is an input type that accepts EC2FleetInstanceRequirementsRequestBareMetalArgs and EC2FleetInstanceRequirementsRequestBareMetalOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestBareMetalInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestBareMetalArgs{...}
+//	EC2FleetInstanceRequirementsRequestBareMetalArgs{...}
 type EC2FleetInstanceRequirementsRequestBareMetalInput interface {
 	pulumi.Input
 
@@ -1759,7 +1759,7 @@ func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStri
 // EC2FleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts EC2FleetInstanceRequirementsRequestBurstablePerformanceArgs and EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestBurstablePerformanceInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
+//	EC2FleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
 type EC2FleetInstanceRequirementsRequestBurstablePerformanceInput interface {
 	pulumi.Input
 
@@ -1924,7 +1924,7 @@ func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStri
 // EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs and EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
 type EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 
@@ -1962,7 +1962,7 @@ func (in *ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToEC2Fleet
 // EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray and EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray{ EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray{ EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput interface {
 	pulumi.Input
 
@@ -2133,7 +2133,7 @@ func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToS
 // EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs and EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
 type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
 	pulumi.Input
 
@@ -2171,7 +2171,7 @@ func (in *ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToEC2Fl
 // EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray and EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray{ EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray{ EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput interface {
 	pulumi.Input
 
@@ -2343,7 +2343,7 @@ func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOut
 // EC2FleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageArgs and EC2FleetInstanceRequirementsRequestLocalStorageOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestLocalStorageArgs{...}
+//	EC2FleetInstanceRequirementsRequestLocalStorageArgs{...}
 type EC2FleetInstanceRequirementsRequestLocalStorageInput interface {
 	pulumi.Input
 
@@ -2507,7 +2507,7 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStr
 // EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs and EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
+//	EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
 type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
 	pulumi.Input
 
@@ -2545,7 +2545,7 @@ func (in *ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToEC2Flee
 // EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray and EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
 //
-//          EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{ EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
+//	EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{ EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
 type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput interface {
 	pulumi.Input
 
@@ -2718,7 +2718,7 @@ func (o EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToStringPtrOutput
 // EC2FleetSpotOptionsRequestAllocationStrategyInput is an input type that accepts EC2FleetSpotOptionsRequestAllocationStrategyArgs and EC2FleetSpotOptionsRequestAllocationStrategyOutput values.
 // You can construct a concrete instance of `EC2FleetSpotOptionsRequestAllocationStrategyInput` via:
 //
-//          EC2FleetSpotOptionsRequestAllocationStrategyArgs{...}
+//	EC2FleetSpotOptionsRequestAllocationStrategyArgs{...}
 type EC2FleetSpotOptionsRequestAllocationStrategyInput interface {
 	pulumi.Input
 
@@ -2883,7 +2883,7 @@ func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToStrin
 // EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput is an input type that accepts EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorArgs and EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput values.
 // You can construct a concrete instance of `EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput` via:
 //
-//          EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorArgs{...}
+//	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorArgs{...}
 type EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput interface {
 	pulumi.Input
 
@@ -3092,7 +3092,7 @@ func (o EC2FleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithCont
 // EC2FleetTagSpecificationResourceTypeInput is an input type that accepts EC2FleetTagSpecificationResourceTypeArgs and EC2FleetTagSpecificationResourceTypeOutput values.
 // You can construct a concrete instance of `EC2FleetTagSpecificationResourceTypeInput` via:
 //
-//          EC2FleetTagSpecificationResourceTypeArgs{...}
+//	EC2FleetTagSpecificationResourceTypeArgs{...}
 type EC2FleetTagSpecificationResourceTypeInput interface {
 	pulumi.Input
 
@@ -3256,7 +3256,7 @@ func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 // EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeArgs and EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput values.
 // You can construct a concrete instance of `EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput` via:
 //
-//          EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeArgs{...}
+//	EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeArgs{...}
 type EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput interface {
 	pulumi.Input
 
@@ -3421,7 +3421,7 @@ func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutpu
 // EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs and EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput values.
 // You can construct a concrete instance of `EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput` via:
 //
-//          EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs{...}
+//	EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs{...}
 type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput interface {
 	pulumi.Input
 
@@ -3586,7 +3586,7 @@ func (o EC2FleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // EC2FleetTypeInput is an input type that accepts EC2FleetTypeArgs and EC2FleetTypeOutput values.
 // You can construct a concrete instance of `EC2FleetTypeInput` via:
 //
-//          EC2FleetTypeArgs{...}
+//	EC2FleetTypeArgs{...}
 type EC2FleetTypeInput interface {
 	pulumi.Input
 
@@ -3750,7 +3750,7 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToStringPtrOutpu
 // FlowLogDestinationOptionsPropertiesFileFormatInput is an input type that accepts FlowLogDestinationOptionsPropertiesFileFormatArgs and FlowLogDestinationOptionsPropertiesFileFormatOutput values.
 // You can construct a concrete instance of `FlowLogDestinationOptionsPropertiesFileFormatInput` via:
 //
-//          FlowLogDestinationOptionsPropertiesFileFormatArgs{...}
+//	FlowLogDestinationOptionsPropertiesFileFormatArgs{...}
 type FlowLogDestinationOptionsPropertiesFileFormatInput interface {
 	pulumi.Input
 
@@ -3916,7 +3916,7 @@ func (o FlowLogLogDestinationTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // FlowLogLogDestinationTypeInput is an input type that accepts FlowLogLogDestinationTypeArgs and FlowLogLogDestinationTypeOutput values.
 // You can construct a concrete instance of `FlowLogLogDestinationTypeInput` via:
 //
-//          FlowLogLogDestinationTypeArgs{...}
+//	FlowLogLogDestinationTypeArgs{...}
 type FlowLogLogDestinationTypeInput interface {
 	pulumi.Input
 
@@ -4082,7 +4082,7 @@ func (o FlowLogResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // FlowLogResourceTypeInput is an input type that accepts FlowLogResourceTypeArgs and FlowLogResourceTypeOutput values.
 // You can construct a concrete instance of `FlowLogResourceTypeInput` via:
 //
-//          FlowLogResourceTypeArgs{...}
+//	FlowLogResourceTypeArgs{...}
 type FlowLogResourceTypeInput interface {
 	pulumi.Input
 
@@ -4248,7 +4248,7 @@ func (o FlowLogTrafficTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // FlowLogTrafficTypeInput is an input type that accepts FlowLogTrafficTypeArgs and FlowLogTrafficTypeOutput values.
 // You can construct a concrete instance of `FlowLogTrafficTypeInput` via:
 //
-//          FlowLogTrafficTypeArgs{...}
+//	FlowLogTrafficTypeArgs{...}
 type FlowLogTrafficTypeInput interface {
 	pulumi.Input
 
@@ -4690,7 +4690,7 @@ func (o KeyPairKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // KeyPairKeyTypeInput is an input type that accepts KeyPairKeyTypeArgs and KeyPairKeyTypeOutput values.
 // You can construct a concrete instance of `KeyPairKeyTypeInput` via:
 //
-//          KeyPairKeyTypeArgs{...}
+//	KeyPairKeyTypeArgs{...}
 type KeyPairKeyTypeInput interface {
 	pulumi.Input
 
@@ -5036,7 +5036,7 @@ func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToStringPtrOutputWithContex
 // NetworkInsightsAccessScopeProtocolInput is an input type that accepts NetworkInsightsAccessScopeProtocolArgs and NetworkInsightsAccessScopeProtocolOutput values.
 // You can construct a concrete instance of `NetworkInsightsAccessScopeProtocolInput` via:
 //
-//          NetworkInsightsAccessScopeProtocolArgs{...}
+//	NetworkInsightsAccessScopeProtocolArgs{...}
 type NetworkInsightsAccessScopeProtocolInput interface {
 	pulumi.Input
 
@@ -5074,7 +5074,7 @@ func (in *networkInsightsAccessScopeProtocolPtr) ToNetworkInsightsAccessScopePro
 // NetworkInsightsAccessScopeProtocolArrayInput is an input type that accepts NetworkInsightsAccessScopeProtocolArray and NetworkInsightsAccessScopeProtocolArrayOutput values.
 // You can construct a concrete instance of `NetworkInsightsAccessScopeProtocolArrayInput` via:
 //
-//          NetworkInsightsAccessScopeProtocolArray{ NetworkInsightsAccessScopeProtocolArgs{...} }
+//	NetworkInsightsAccessScopeProtocolArray{ NetworkInsightsAccessScopeProtocolArgs{...} }
 type NetworkInsightsAccessScopeProtocolArrayInput interface {
 	pulumi.Input
 
@@ -5336,7 +5336,7 @@ func (o NetworkInsightsPathProtocolPtrOutput) ToStringPtrOutputWithContext(ctx c
 // NetworkInsightsPathProtocolInput is an input type that accepts NetworkInsightsPathProtocolArgs and NetworkInsightsPathProtocolOutput values.
 // You can construct a concrete instance of `NetworkInsightsPathProtocolInput` via:
 //
-//          NetworkInsightsPathProtocolArgs{...}
+//	NetworkInsightsPathProtocolArgs{...}
 type NetworkInsightsPathProtocolInput interface {
 	pulumi.Input
 
@@ -5501,7 +5501,7 @@ func (o PrefixListAddressFamilyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // PrefixListAddressFamilyInput is an input type that accepts PrefixListAddressFamilyArgs and PrefixListAddressFamilyOutput values.
 // You can construct a concrete instance of `PrefixListAddressFamilyInput` via:
 //
-//          PrefixListAddressFamilyArgs{...}
+//	PrefixListAddressFamilyArgs{...}
 type PrefixListAddressFamilyInput interface {
 	pulumi.Input
 
@@ -5670,7 +5670,7 @@ func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutputWithContext
 // SpotFleetEbsBlockDeviceVolumeTypeInput is an input type that accepts SpotFleetEbsBlockDeviceVolumeTypeArgs and SpotFleetEbsBlockDeviceVolumeTypeOutput values.
 // You can construct a concrete instance of `SpotFleetEbsBlockDeviceVolumeTypeInput` via:
 //
-//          SpotFleetEbsBlockDeviceVolumeTypeArgs{...}
+//	SpotFleetEbsBlockDeviceVolumeTypeArgs{...}
 type SpotFleetEbsBlockDeviceVolumeTypeInput interface {
 	pulumi.Input
 
@@ -5836,7 +5836,7 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutpu
 // SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
 	pulumi.Input
 
@@ -5874,7 +5874,7 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) T
 // SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput interface {
 	pulumi.Input
 
@@ -6052,7 +6052,7 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStr
 // SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -6090,7 +6090,7 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToSpotFle
 // SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput interface {
 	pulumi.Input
 
@@ -6262,7 +6262,7 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStr
 // SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -6300,7 +6300,7 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToSpotFle
 // SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput interface {
 	pulumi.Input
 
@@ -6472,7 +6472,7 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutpu
 // SpotFleetInstanceRequirementsRequestBareMetalInput is an input type that accepts SpotFleetInstanceRequirementsRequestBareMetalArgs and SpotFleetInstanceRequirementsRequestBareMetalOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBareMetalInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestBareMetalArgs{...}
+//	SpotFleetInstanceRequirementsRequestBareMetalArgs{...}
 type SpotFleetInstanceRequirementsRequestBareMetalInput interface {
 	pulumi.Input
 
@@ -6637,7 +6637,7 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStr
 // SpotFleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs and SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBurstablePerformanceInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
+//	SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
 type SpotFleetInstanceRequirementsRequestBurstablePerformanceInput interface {
 	pulumi.Input
 
@@ -6802,7 +6802,7 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStr
 // SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs and SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 
@@ -6840,7 +6840,7 @@ func (in *spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToSpotFle
 // SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray and SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray{ SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray{ SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput interface {
 	pulumi.Input
 
@@ -7011,7 +7011,7 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) To
 // SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
 type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
 	pulumi.Input
 
@@ -7049,7 +7049,7 @@ func (in *spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToSpot
 // SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray{ SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray{ SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput interface {
 	pulumi.Input
 
@@ -7221,7 +7221,7 @@ func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOu
 // SpotFleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageArgs and SpotFleetInstanceRequirementsRequestLocalStorageOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestLocalStorageArgs{...}
+//	SpotFleetInstanceRequirementsRequestLocalStorageArgs{...}
 type SpotFleetInstanceRequirementsRequestLocalStorageInput interface {
 	pulumi.Input
 
@@ -7385,7 +7385,7 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSt
 // SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
+//	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
 	pulumi.Input
 
@@ -7423,7 +7423,7 @@ func (in *spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToSpotFl
 // SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
 //
-//          SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray{ SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
+//	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray{ SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput interface {
 	pulumi.Input
 
@@ -7596,7 +7596,7 @@ func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutput
 // SpotFleetRequestConfigDataAllocationStrategyInput is an input type that accepts SpotFleetRequestConfigDataAllocationStrategyArgs and SpotFleetRequestConfigDataAllocationStrategyOutput values.
 // You can construct a concrete instance of `SpotFleetRequestConfigDataAllocationStrategyInput` via:
 //
-//          SpotFleetRequestConfigDataAllocationStrategyArgs{...}
+//	SpotFleetRequestConfigDataAllocationStrategyArgs{...}
 type SpotFleetRequestConfigDataAllocationStrategyInput interface {
 	pulumi.Input
 
@@ -7760,7 +7760,7 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSt
 // SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput is an input type that accepts SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs and SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput values.
 // You can construct a concrete instance of `SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput` via:
 //
-//          SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs{...}
+//	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs{...}
 type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput interface {
 	pulumi.Input
 
@@ -7925,7 +7925,7 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStrin
 // SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput is an input type that accepts SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs and SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput values.
 // You can construct a concrete instance of `SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput` via:
 //
-//          SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs{...}
+//	SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs{...}
 type SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput interface {
 	pulumi.Input
 
@@ -8090,7 +8090,7 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToStringPtrOu
 // SpotFleetRequestConfigDataTargetCapacityUnitTypeInput is an input type that accepts SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs and SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput values.
 // You can construct a concrete instance of `SpotFleetRequestConfigDataTargetCapacityUnitTypeInput` via:
 //
-//          SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs{...}
+//	SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs{...}
 type SpotFleetRequestConfigDataTargetCapacityUnitTypeInput interface {
 	pulumi.Input
 
@@ -8254,7 +8254,7 @@ func (o SpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutputWithContext(ct
 // SpotFleetRequestConfigDataTypeInput is an input type that accepts SpotFleetRequestConfigDataTypeArgs and SpotFleetRequestConfigDataTypeOutput values.
 // You can construct a concrete instance of `SpotFleetRequestConfigDataTypeInput` via:
 //
-//          SpotFleetRequestConfigDataTypeArgs{...}
+//	SpotFleetRequestConfigDataTypeArgs{...}
 type SpotFleetRequestConfigDataTypeInput interface {
 	pulumi.Input
 
@@ -8418,7 +8418,7 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrO
 // SpotFleetSpotCapacityRebalanceReplacementStrategyInput is an input type that accepts SpotFleetSpotCapacityRebalanceReplacementStrategyArgs and SpotFleetSpotCapacityRebalanceReplacementStrategyOutput values.
 // You can construct a concrete instance of `SpotFleetSpotCapacityRebalanceReplacementStrategyInput` via:
 //
-//          SpotFleetSpotCapacityRebalanceReplacementStrategyArgs{...}
+//	SpotFleetSpotCapacityRebalanceReplacementStrategyArgs{...}
 type SpotFleetSpotCapacityRebalanceReplacementStrategyInput interface {
 	pulumi.Input
 
@@ -8583,7 +8583,7 @@ func (o SpotFleetSpotPlacementTenancyPtrOutput) ToStringPtrOutputWithContext(ctx
 // SpotFleetSpotPlacementTenancyInput is an input type that accepts SpotFleetSpotPlacementTenancyArgs and SpotFleetSpotPlacementTenancyOutput values.
 // You can construct a concrete instance of `SpotFleetSpotPlacementTenancyInput` via:
 //
-//          SpotFleetSpotPlacementTenancyArgs{...}
+//	SpotFleetSpotPlacementTenancyArgs{...}
 type SpotFleetSpotPlacementTenancyInput interface {
 	pulumi.Input
 
@@ -8792,7 +8792,7 @@ func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithCon
 // SpotFleetTagSpecificationResourceTypeInput is an input type that accepts SpotFleetTagSpecificationResourceTypeArgs and SpotFleetTagSpecificationResourceTypeOutput values.
 // You can construct a concrete instance of `SpotFleetTagSpecificationResourceTypeInput` via:
 //
-//          SpotFleetTagSpecificationResourceTypeArgs{...}
+//	SpotFleetTagSpecificationResourceTypeArgs{...}
 type SpotFleetTagSpecificationResourceTypeInput interface {
 	pulumi.Input
 

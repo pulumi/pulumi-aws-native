@@ -139,7 +139,7 @@ func (o FindingsFilterFindingFilterActionPtrOutput) ToStringPtrOutputWithContext
 // FindingsFilterFindingFilterActionInput is an input type that accepts FindingsFilterFindingFilterActionArgs and FindingsFilterFindingFilterActionOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingFilterActionInput` via:
 //
-//          FindingsFilterFindingFilterActionArgs{...}
+//	FindingsFilterFindingFilterActionArgs{...}
 type FindingsFilterFindingFilterActionInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o SessionFindingPublishingFrequencyPtrOutput) ToStringPtrOutputWithContext
 // SessionFindingPublishingFrequencyInput is an input type that accepts SessionFindingPublishingFrequencyArgs and SessionFindingPublishingFrequencyOutput values.
 // You can construct a concrete instance of `SessionFindingPublishingFrequencyInput` via:
 //
-//          SessionFindingPublishingFrequencyArgs{...}
+//	SessionFindingPublishingFrequencyArgs{...}
 type SessionFindingPublishingFrequencyInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o SessionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // SessionStatusInput is an input type that accepts SessionStatusArgs and SessionStatusOutput values.
 // You can construct a concrete instance of `SessionStatusInput` via:
 //
-//          SessionStatusArgs{...}
+//	SessionStatusArgs{...}
 type SessionStatusInput interface {
 	pulumi.Input
 

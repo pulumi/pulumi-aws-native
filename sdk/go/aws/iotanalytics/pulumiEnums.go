@@ -139,7 +139,7 @@ func (o DatasetResourceConfigurationComputeTypePtrOutput) ToStringPtrOutputWithC
 // DatasetResourceConfigurationComputeTypeInput is an input type that accepts DatasetResourceConfigurationComputeTypeArgs and DatasetResourceConfigurationComputeTypeOutput values.
 // You can construct a concrete instance of `DatasetResourceConfigurationComputeTypeInput` via:
 //
-//          DatasetResourceConfigurationComputeTypeArgs{...}
+//	DatasetResourceConfigurationComputeTypeArgs{...}
 type DatasetResourceConfigurationComputeTypeInput interface {
 	pulumi.Input
 

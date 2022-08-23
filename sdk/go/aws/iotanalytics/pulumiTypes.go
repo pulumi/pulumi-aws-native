@@ -19,7 +19,7 @@ type ChannelCustomerManagedS3 struct {
 // ChannelCustomerManagedS3Input is an input type that accepts ChannelCustomerManagedS3Args and ChannelCustomerManagedS3Output values.
 // You can construct a concrete instance of `ChannelCustomerManagedS3Input` via:
 //
-//          ChannelCustomerManagedS3Args{...}
+//	ChannelCustomerManagedS3Args{...}
 type ChannelCustomerManagedS3Input interface {
 	pulumi.Input
 
@@ -56,11 +56,11 @@ func (i ChannelCustomerManagedS3Args) ToChannelCustomerManagedS3PtrOutputWithCon
 // ChannelCustomerManagedS3PtrInput is an input type that accepts ChannelCustomerManagedS3Args, ChannelCustomerManagedS3Ptr and ChannelCustomerManagedS3PtrOutput values.
 // You can construct a concrete instance of `ChannelCustomerManagedS3PtrInput` via:
 //
-//          ChannelCustomerManagedS3Args{...}
+//	        ChannelCustomerManagedS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelCustomerManagedS3PtrInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ type ChannelRetentionPeriod struct {
 // ChannelRetentionPeriodInput is an input type that accepts ChannelRetentionPeriodArgs and ChannelRetentionPeriodOutput values.
 // You can construct a concrete instance of `ChannelRetentionPeriodInput` via:
 //
-//          ChannelRetentionPeriodArgs{...}
+//	ChannelRetentionPeriodArgs{...}
 type ChannelRetentionPeriodInput interface {
 	pulumi.Input
 
@@ -217,11 +217,11 @@ func (i ChannelRetentionPeriodArgs) ToChannelRetentionPeriodPtrOutputWithContext
 // ChannelRetentionPeriodPtrInput is an input type that accepts ChannelRetentionPeriodArgs, ChannelRetentionPeriodPtr and ChannelRetentionPeriodPtrOutput values.
 // You can construct a concrete instance of `ChannelRetentionPeriodPtrInput` via:
 //
-//          ChannelRetentionPeriodArgs{...}
+//	        ChannelRetentionPeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelRetentionPeriodPtrInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ type ChannelServiceManagedS3 struct {
 // ChannelServiceManagedS3Input is an input type that accepts ChannelServiceManagedS3Args and ChannelServiceManagedS3Output values.
 // You can construct a concrete instance of `ChannelServiceManagedS3Input` via:
 //
-//          ChannelServiceManagedS3Args{...}
+//	ChannelServiceManagedS3Args{...}
 type ChannelServiceManagedS3Input interface {
 	pulumi.Input
 
@@ -361,11 +361,11 @@ func (i ChannelServiceManagedS3Args) ToChannelServiceManagedS3PtrOutputWithConte
 // ChannelServiceManagedS3PtrInput is an input type that accepts ChannelServiceManagedS3Args, ChannelServiceManagedS3Ptr and ChannelServiceManagedS3PtrOutput values.
 // You can construct a concrete instance of `ChannelServiceManagedS3PtrInput` via:
 //
-//          ChannelServiceManagedS3Args{...}
+//	        ChannelServiceManagedS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelServiceManagedS3PtrInput interface {
 	pulumi.Input
 
@@ -447,7 +447,7 @@ type ChannelStorage struct {
 // ChannelStorageInput is an input type that accepts ChannelStorageArgs and ChannelStorageOutput values.
 // You can construct a concrete instance of `ChannelStorageInput` via:
 //
-//          ChannelStorageArgs{...}
+//	ChannelStorageArgs{...}
 type ChannelStorageInput interface {
 	pulumi.Input
 
@@ -483,11 +483,11 @@ func (i ChannelStorageArgs) ToChannelStoragePtrOutputWithContext(ctx context.Con
 // ChannelStoragePtrInput is an input type that accepts ChannelStorageArgs, ChannelStoragePtr and ChannelStoragePtrOutput values.
 // You can construct a concrete instance of `ChannelStoragePtrInput` via:
 //
-//          ChannelStorageArgs{...}
+//	        ChannelStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelStoragePtrInput interface {
 	pulumi.Input
 
@@ -595,7 +595,7 @@ type ChannelTag struct {
 // ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
 // You can construct a concrete instance of `ChannelTagInput` via:
 //
-//          ChannelTagArgs{...}
+//	ChannelTagArgs{...}
 type ChannelTagInput interface {
 	pulumi.Input
 
@@ -623,7 +623,7 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
-//          ChannelTagArray{ ChannelTagArgs{...} }
+//	ChannelTagArray{ ChannelTagArgs{...} }
 type ChannelTagArrayInput interface {
 	pulumi.Input
 
@@ -696,7 +696,7 @@ type DatasetAction struct {
 // DatasetActionInput is an input type that accepts DatasetActionArgs and DatasetActionOutput values.
 // You can construct a concrete instance of `DatasetActionInput` via:
 //
-//          DatasetActionArgs{...}
+//	DatasetActionArgs{...}
 type DatasetActionInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ func (i DatasetActionArgs) ToDatasetActionOutputWithContext(ctx context.Context)
 // DatasetActionArrayInput is an input type that accepts DatasetActionArray and DatasetActionArrayOutput values.
 // You can construct a concrete instance of `DatasetActionArrayInput` via:
 //
-//          DatasetActionArray{ DatasetActionArgs{...} }
+//	DatasetActionArray{ DatasetActionArgs{...} }
 type DatasetActionArrayInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ type DatasetContainerAction struct {
 // DatasetContainerActionInput is an input type that accepts DatasetContainerActionArgs and DatasetContainerActionOutput values.
 // You can construct a concrete instance of `DatasetContainerActionInput` via:
 //
-//          DatasetContainerActionArgs{...}
+//	DatasetContainerActionArgs{...}
 type DatasetContainerActionInput interface {
 	pulumi.Input
 
@@ -841,11 +841,11 @@ func (i DatasetContainerActionArgs) ToDatasetContainerActionPtrOutputWithContext
 // DatasetContainerActionPtrInput is an input type that accepts DatasetContainerActionArgs, DatasetContainerActionPtr and DatasetContainerActionPtrOutput values.
 // You can construct a concrete instance of `DatasetContainerActionPtrInput` via:
 //
-//          DatasetContainerActionArgs{...}
+//	        DatasetContainerActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetContainerActionPtrInput interface {
 	pulumi.Input
 
@@ -979,7 +979,7 @@ type DatasetContentDeliveryRule struct {
 // DatasetContentDeliveryRuleInput is an input type that accepts DatasetContentDeliveryRuleArgs and DatasetContentDeliveryRuleOutput values.
 // You can construct a concrete instance of `DatasetContentDeliveryRuleInput` via:
 //
-//          DatasetContentDeliveryRuleArgs{...}
+//	DatasetContentDeliveryRuleArgs{...}
 type DatasetContentDeliveryRuleInput interface {
 	pulumi.Input
 
@@ -1007,7 +1007,7 @@ func (i DatasetContentDeliveryRuleArgs) ToDatasetContentDeliveryRuleOutputWithCo
 // DatasetContentDeliveryRuleArrayInput is an input type that accepts DatasetContentDeliveryRuleArray and DatasetContentDeliveryRuleArrayOutput values.
 // You can construct a concrete instance of `DatasetContentDeliveryRuleArrayInput` via:
 //
-//          DatasetContentDeliveryRuleArray{ DatasetContentDeliveryRuleArgs{...} }
+//	DatasetContentDeliveryRuleArray{ DatasetContentDeliveryRuleArgs{...} }
 type DatasetContentDeliveryRuleArrayInput interface {
 	pulumi.Input
 
@@ -1079,7 +1079,7 @@ type DatasetContentDeliveryRuleDestination struct {
 // DatasetContentDeliveryRuleDestinationInput is an input type that accepts DatasetContentDeliveryRuleDestinationArgs and DatasetContentDeliveryRuleDestinationOutput values.
 // You can construct a concrete instance of `DatasetContentDeliveryRuleDestinationInput` via:
 //
-//          DatasetContentDeliveryRuleDestinationArgs{...}
+//	DatasetContentDeliveryRuleDestinationArgs{...}
 type DatasetContentDeliveryRuleDestinationInput interface {
 	pulumi.Input
 
@@ -1137,7 +1137,7 @@ type DatasetContentVersionValue struct {
 // DatasetContentVersionValueInput is an input type that accepts DatasetContentVersionValueArgs and DatasetContentVersionValueOutput values.
 // You can construct a concrete instance of `DatasetContentVersionValueInput` via:
 //
-//          DatasetContentVersionValueArgs{...}
+//	DatasetContentVersionValueArgs{...}
 type DatasetContentVersionValueInput interface {
 	pulumi.Input
 
@@ -1172,11 +1172,11 @@ func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValuePtrOutputWit
 // DatasetContentVersionValuePtrInput is an input type that accepts DatasetContentVersionValueArgs, DatasetContentVersionValuePtr and DatasetContentVersionValuePtrOutput values.
 // You can construct a concrete instance of `DatasetContentVersionValuePtrInput` via:
 //
-//          DatasetContentVersionValueArgs{...}
+//	        DatasetContentVersionValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetContentVersionValuePtrInput interface {
 	pulumi.Input
 
@@ -1271,7 +1271,7 @@ type DatasetDeltaTime struct {
 // DatasetDeltaTimeInput is an input type that accepts DatasetDeltaTimeArgs and DatasetDeltaTimeOutput values.
 // You can construct a concrete instance of `DatasetDeltaTimeInput` via:
 //
-//          DatasetDeltaTimeArgs{...}
+//	DatasetDeltaTimeArgs{...}
 type DatasetDeltaTimeInput interface {
 	pulumi.Input
 
@@ -1307,11 +1307,11 @@ func (i DatasetDeltaTimeArgs) ToDatasetDeltaTimePtrOutputWithContext(ctx context
 // DatasetDeltaTimePtrInput is an input type that accepts DatasetDeltaTimeArgs, DatasetDeltaTimePtr and DatasetDeltaTimePtrOutput values.
 // You can construct a concrete instance of `DatasetDeltaTimePtrInput` via:
 //
-//          DatasetDeltaTimeArgs{...}
+//	        DatasetDeltaTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDeltaTimePtrInput interface {
 	pulumi.Input
 
@@ -1418,7 +1418,7 @@ type DatasetDeltaTimeSessionWindowConfiguration struct {
 // DatasetDeltaTimeSessionWindowConfigurationInput is an input type that accepts DatasetDeltaTimeSessionWindowConfigurationArgs and DatasetDeltaTimeSessionWindowConfigurationOutput values.
 // You can construct a concrete instance of `DatasetDeltaTimeSessionWindowConfigurationInput` via:
 //
-//          DatasetDeltaTimeSessionWindowConfigurationArgs{...}
+//	DatasetDeltaTimeSessionWindowConfigurationArgs{...}
 type DatasetDeltaTimeSessionWindowConfigurationInput interface {
 	pulumi.Input
 
@@ -1453,11 +1453,11 @@ func (i DatasetDeltaTimeSessionWindowConfigurationArgs) ToDatasetDeltaTimeSessio
 // DatasetDeltaTimeSessionWindowConfigurationPtrInput is an input type that accepts DatasetDeltaTimeSessionWindowConfigurationArgs, DatasetDeltaTimeSessionWindowConfigurationPtr and DatasetDeltaTimeSessionWindowConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetDeltaTimeSessionWindowConfigurationPtrInput` via:
 //
-//          DatasetDeltaTimeSessionWindowConfigurationArgs{...}
+//	        DatasetDeltaTimeSessionWindowConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetDeltaTimeSessionWindowConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1551,7 +1551,7 @@ type DatasetFilter struct {
 // DatasetFilterInput is an input type that accepts DatasetFilterArgs and DatasetFilterOutput values.
 // You can construct a concrete instance of `DatasetFilterInput` via:
 //
-//          DatasetFilterArgs{...}
+//	DatasetFilterArgs{...}
 type DatasetFilterInput interface {
 	pulumi.Input
 
@@ -1578,7 +1578,7 @@ func (i DatasetFilterArgs) ToDatasetFilterOutputWithContext(ctx context.Context)
 // DatasetFilterArrayInput is an input type that accepts DatasetFilterArray and DatasetFilterArrayOutput values.
 // You can construct a concrete instance of `DatasetFilterArrayInput` via:
 //
-//          DatasetFilterArray{ DatasetFilterArgs{...} }
+//	DatasetFilterArray{ DatasetFilterArgs{...} }
 type DatasetFilterArrayInput interface {
 	pulumi.Input
 
@@ -1646,7 +1646,7 @@ type DatasetGlueConfiguration struct {
 // DatasetGlueConfigurationInput is an input type that accepts DatasetGlueConfigurationArgs and DatasetGlueConfigurationOutput values.
 // You can construct a concrete instance of `DatasetGlueConfigurationInput` via:
 //
-//          DatasetGlueConfigurationArgs{...}
+//	DatasetGlueConfigurationArgs{...}
 type DatasetGlueConfigurationInput interface {
 	pulumi.Input
 
@@ -1682,11 +1682,11 @@ func (i DatasetGlueConfigurationArgs) ToDatasetGlueConfigurationPtrOutputWithCon
 // DatasetGlueConfigurationPtrInput is an input type that accepts DatasetGlueConfigurationArgs, DatasetGlueConfigurationPtr and DatasetGlueConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetGlueConfigurationPtrInput` via:
 //
-//          DatasetGlueConfigurationArgs{...}
+//	        DatasetGlueConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetGlueConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1794,7 +1794,7 @@ type DatasetIotEventsDestinationConfiguration struct {
 // DatasetIotEventsDestinationConfigurationInput is an input type that accepts DatasetIotEventsDestinationConfigurationArgs and DatasetIotEventsDestinationConfigurationOutput values.
 // You can construct a concrete instance of `DatasetIotEventsDestinationConfigurationInput` via:
 //
-//          DatasetIotEventsDestinationConfigurationArgs{...}
+//	DatasetIotEventsDestinationConfigurationArgs{...}
 type DatasetIotEventsDestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -1830,11 +1830,11 @@ func (i DatasetIotEventsDestinationConfigurationArgs) ToDatasetIotEventsDestinat
 // DatasetIotEventsDestinationConfigurationPtrInput is an input type that accepts DatasetIotEventsDestinationConfigurationArgs, DatasetIotEventsDestinationConfigurationPtr and DatasetIotEventsDestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetIotEventsDestinationConfigurationPtrInput` via:
 //
-//          DatasetIotEventsDestinationConfigurationArgs{...}
+//	        DatasetIotEventsDestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetIotEventsDestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1942,7 +1942,7 @@ type DatasetLateDataRule struct {
 // DatasetLateDataRuleInput is an input type that accepts DatasetLateDataRuleArgs and DatasetLateDataRuleOutput values.
 // You can construct a concrete instance of `DatasetLateDataRuleInput` via:
 //
-//          DatasetLateDataRuleArgs{...}
+//	DatasetLateDataRuleArgs{...}
 type DatasetLateDataRuleInput interface {
 	pulumi.Input
 
@@ -1970,7 +1970,7 @@ func (i DatasetLateDataRuleArgs) ToDatasetLateDataRuleOutputWithContext(ctx cont
 // DatasetLateDataRuleArrayInput is an input type that accepts DatasetLateDataRuleArray and DatasetLateDataRuleArrayOutput values.
 // You can construct a concrete instance of `DatasetLateDataRuleArrayInput` via:
 //
-//          DatasetLateDataRuleArray{ DatasetLateDataRuleArgs{...} }
+//	DatasetLateDataRuleArray{ DatasetLateDataRuleArgs{...} }
 type DatasetLateDataRuleArrayInput interface {
 	pulumi.Input
 
@@ -2041,7 +2041,7 @@ type DatasetLateDataRuleConfiguration struct {
 // DatasetLateDataRuleConfigurationInput is an input type that accepts DatasetLateDataRuleConfigurationArgs and DatasetLateDataRuleConfigurationOutput values.
 // You can construct a concrete instance of `DatasetLateDataRuleConfigurationInput` via:
 //
-//          DatasetLateDataRuleConfigurationArgs{...}
+//	DatasetLateDataRuleConfigurationArgs{...}
 type DatasetLateDataRuleConfigurationInput interface {
 	pulumi.Input
 
@@ -2092,7 +2092,7 @@ type DatasetOutputFileUriValue struct {
 // DatasetOutputFileUriValueInput is an input type that accepts DatasetOutputFileUriValueArgs and DatasetOutputFileUriValueOutput values.
 // You can construct a concrete instance of `DatasetOutputFileUriValueInput` via:
 //
-//          DatasetOutputFileUriValueArgs{...}
+//	DatasetOutputFileUriValueArgs{...}
 type DatasetOutputFileUriValueInput interface {
 	pulumi.Input
 
@@ -2127,11 +2127,11 @@ func (i DatasetOutputFileUriValueArgs) ToDatasetOutputFileUriValuePtrOutputWithC
 // DatasetOutputFileUriValuePtrInput is an input type that accepts DatasetOutputFileUriValueArgs, DatasetOutputFileUriValuePtr and DatasetOutputFileUriValuePtrOutput values.
 // You can construct a concrete instance of `DatasetOutputFileUriValuePtrInput` via:
 //
-//          DatasetOutputFileUriValueArgs{...}
+//	        DatasetOutputFileUriValueArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetOutputFileUriValuePtrInput interface {
 	pulumi.Input
 
@@ -2226,7 +2226,7 @@ type DatasetQueryAction struct {
 // DatasetQueryActionInput is an input type that accepts DatasetQueryActionArgs and DatasetQueryActionOutput values.
 // You can construct a concrete instance of `DatasetQueryActionInput` via:
 //
-//          DatasetQueryActionArgs{...}
+//	DatasetQueryActionArgs{...}
 type DatasetQueryActionInput interface {
 	pulumi.Input
 
@@ -2262,11 +2262,11 @@ func (i DatasetQueryActionArgs) ToDatasetQueryActionPtrOutputWithContext(ctx con
 // DatasetQueryActionPtrInput is an input type that accepts DatasetQueryActionArgs, DatasetQueryActionPtr and DatasetQueryActionPtrOutput values.
 // You can construct a concrete instance of `DatasetQueryActionPtrInput` via:
 //
-//          DatasetQueryActionArgs{...}
+//	        DatasetQueryActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetQueryActionPtrInput interface {
 	pulumi.Input
 
@@ -2374,7 +2374,7 @@ type DatasetResourceConfiguration struct {
 // DatasetResourceConfigurationInput is an input type that accepts DatasetResourceConfigurationArgs and DatasetResourceConfigurationOutput values.
 // You can construct a concrete instance of `DatasetResourceConfigurationInput` via:
 //
-//          DatasetResourceConfigurationArgs{...}
+//	DatasetResourceConfigurationArgs{...}
 type DatasetResourceConfigurationInput interface {
 	pulumi.Input
 
@@ -2410,11 +2410,11 @@ func (i DatasetResourceConfigurationArgs) ToDatasetResourceConfigurationPtrOutpu
 // DatasetResourceConfigurationPtrInput is an input type that accepts DatasetResourceConfigurationArgs, DatasetResourceConfigurationPtr and DatasetResourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetResourceConfigurationPtrInput` via:
 //
-//          DatasetResourceConfigurationArgs{...}
+//	        DatasetResourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetResourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2522,7 +2522,7 @@ type DatasetRetentionPeriod struct {
 // DatasetRetentionPeriodInput is an input type that accepts DatasetRetentionPeriodArgs and DatasetRetentionPeriodOutput values.
 // You can construct a concrete instance of `DatasetRetentionPeriodInput` via:
 //
-//          DatasetRetentionPeriodArgs{...}
+//	DatasetRetentionPeriodArgs{...}
 type DatasetRetentionPeriodInput interface {
 	pulumi.Input
 
@@ -2558,11 +2558,11 @@ func (i DatasetRetentionPeriodArgs) ToDatasetRetentionPeriodPtrOutputWithContext
 // DatasetRetentionPeriodPtrInput is an input type that accepts DatasetRetentionPeriodArgs, DatasetRetentionPeriodPtr and DatasetRetentionPeriodPtrOutput values.
 // You can construct a concrete instance of `DatasetRetentionPeriodPtrInput` via:
 //
-//          DatasetRetentionPeriodArgs{...}
+//	        DatasetRetentionPeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetRetentionPeriodPtrInput interface {
 	pulumi.Input
 
@@ -2672,7 +2672,7 @@ type DatasetS3DestinationConfiguration struct {
 // DatasetS3DestinationConfigurationInput is an input type that accepts DatasetS3DestinationConfigurationArgs and DatasetS3DestinationConfigurationOutput values.
 // You can construct a concrete instance of `DatasetS3DestinationConfigurationInput` via:
 //
-//          DatasetS3DestinationConfigurationArgs{...}
+//	DatasetS3DestinationConfigurationArgs{...}
 type DatasetS3DestinationConfigurationInput interface {
 	pulumi.Input
 
@@ -2710,11 +2710,11 @@ func (i DatasetS3DestinationConfigurationArgs) ToDatasetS3DestinationConfigurati
 // DatasetS3DestinationConfigurationPtrInput is an input type that accepts DatasetS3DestinationConfigurationArgs, DatasetS3DestinationConfigurationPtr and DatasetS3DestinationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetS3DestinationConfigurationPtrInput` via:
 //
-//          DatasetS3DestinationConfigurationArgs{...}
+//	        DatasetS3DestinationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetS3DestinationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2847,7 +2847,7 @@ type DatasetSchedule struct {
 // DatasetScheduleInput is an input type that accepts DatasetScheduleArgs and DatasetScheduleOutput values.
 // You can construct a concrete instance of `DatasetScheduleInput` via:
 //
-//          DatasetScheduleArgs{...}
+//	DatasetScheduleArgs{...}
 type DatasetScheduleInput interface {
 	pulumi.Input
 
@@ -2882,11 +2882,11 @@ func (i DatasetScheduleArgs) ToDatasetSchedulePtrOutputWithContext(ctx context.C
 // DatasetSchedulePtrInput is an input type that accepts DatasetScheduleArgs, DatasetSchedulePtr and DatasetSchedulePtrOutput values.
 // You can construct a concrete instance of `DatasetSchedulePtrInput` via:
 //
-//          DatasetScheduleArgs{...}
+//	        DatasetScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2981,7 +2981,7 @@ type DatasetTag struct {
 // DatasetTagInput is an input type that accepts DatasetTagArgs and DatasetTagOutput values.
 // You can construct a concrete instance of `DatasetTagInput` via:
 //
-//          DatasetTagArgs{...}
+//	DatasetTagArgs{...}
 type DatasetTagInput interface {
 	pulumi.Input
 
@@ -3009,7 +3009,7 @@ func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) Datas
 // DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
 // You can construct a concrete instance of `DatasetTagArrayInput` via:
 //
-//          DatasetTagArray{ DatasetTagArgs{...} }
+//	DatasetTagArray{ DatasetTagArgs{...} }
 type DatasetTagArrayInput interface {
 	pulumi.Input
 
@@ -3081,7 +3081,7 @@ type DatasetTrigger struct {
 // DatasetTriggerInput is an input type that accepts DatasetTriggerArgs and DatasetTriggerOutput values.
 // You can construct a concrete instance of `DatasetTriggerInput` via:
 //
-//          DatasetTriggerArgs{...}
+//	DatasetTriggerArgs{...}
 type DatasetTriggerInput interface {
 	pulumi.Input
 
@@ -3109,7 +3109,7 @@ func (i DatasetTriggerArgs) ToDatasetTriggerOutputWithContext(ctx context.Contex
 // DatasetTriggerArrayInput is an input type that accepts DatasetTriggerArray and DatasetTriggerArrayOutput values.
 // You can construct a concrete instance of `DatasetTriggerArrayInput` via:
 //
-//          DatasetTriggerArray{ DatasetTriggerArgs{...} }
+//	DatasetTriggerArray{ DatasetTriggerArgs{...} }
 type DatasetTriggerArrayInput interface {
 	pulumi.Input
 
@@ -3180,7 +3180,7 @@ type DatasetTriggeringDataset struct {
 // DatasetTriggeringDatasetInput is an input type that accepts DatasetTriggeringDatasetArgs and DatasetTriggeringDatasetOutput values.
 // You can construct a concrete instance of `DatasetTriggeringDatasetInput` via:
 //
-//          DatasetTriggeringDatasetArgs{...}
+//	DatasetTriggeringDatasetArgs{...}
 type DatasetTriggeringDatasetInput interface {
 	pulumi.Input
 
@@ -3215,11 +3215,11 @@ func (i DatasetTriggeringDatasetArgs) ToDatasetTriggeringDatasetPtrOutputWithCon
 // DatasetTriggeringDatasetPtrInput is an input type that accepts DatasetTriggeringDatasetArgs, DatasetTriggeringDatasetPtr and DatasetTriggeringDatasetPtrOutput values.
 // You can construct a concrete instance of `DatasetTriggeringDatasetPtrInput` via:
 //
-//          DatasetTriggeringDatasetArgs{...}
+//	        DatasetTriggeringDatasetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetTriggeringDatasetPtrInput interface {
 	pulumi.Input
 
@@ -3317,7 +3317,7 @@ type DatasetVariable struct {
 // DatasetVariableInput is an input type that accepts DatasetVariableArgs and DatasetVariableOutput values.
 // You can construct a concrete instance of `DatasetVariableInput` via:
 //
-//          DatasetVariableArgs{...}
+//	DatasetVariableArgs{...}
 type DatasetVariableInput interface {
 	pulumi.Input
 
@@ -3348,7 +3348,7 @@ func (i DatasetVariableArgs) ToDatasetVariableOutputWithContext(ctx context.Cont
 // DatasetVariableArrayInput is an input type that accepts DatasetVariableArray and DatasetVariableArrayOutput values.
 // You can construct a concrete instance of `DatasetVariableArrayInput` via:
 //
-//          DatasetVariableArray{ DatasetVariableArgs{...} }
+//	DatasetVariableArray{ DatasetVariableArgs{...} }
 type DatasetVariableArrayInput interface {
 	pulumi.Input
 
@@ -3432,7 +3432,7 @@ type DatasetVersioningConfiguration struct {
 // DatasetVersioningConfigurationInput is an input type that accepts DatasetVersioningConfigurationArgs and DatasetVersioningConfigurationOutput values.
 // You can construct a concrete instance of `DatasetVersioningConfigurationInput` via:
 //
-//          DatasetVersioningConfigurationArgs{...}
+//	DatasetVersioningConfigurationArgs{...}
 type DatasetVersioningConfigurationInput interface {
 	pulumi.Input
 
@@ -3468,11 +3468,11 @@ func (i DatasetVersioningConfigurationArgs) ToDatasetVersioningConfigurationPtrO
 // DatasetVersioningConfigurationPtrInput is an input type that accepts DatasetVersioningConfigurationArgs, DatasetVersioningConfigurationPtr and DatasetVersioningConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatasetVersioningConfigurationPtrInput` via:
 //
-//          DatasetVersioningConfigurationArgs{...}
+//	        DatasetVersioningConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatasetVersioningConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3580,7 +3580,7 @@ type DatastoreColumn struct {
 // DatastoreColumnInput is an input type that accepts DatastoreColumnArgs and DatastoreColumnOutput values.
 // You can construct a concrete instance of `DatastoreColumnInput` via:
 //
-//          DatastoreColumnArgs{...}
+//	DatastoreColumnArgs{...}
 type DatastoreColumnInput interface {
 	pulumi.Input
 
@@ -3608,7 +3608,7 @@ func (i DatastoreColumnArgs) ToDatastoreColumnOutputWithContext(ctx context.Cont
 // DatastoreColumnArrayInput is an input type that accepts DatastoreColumnArray and DatastoreColumnArrayOutput values.
 // You can construct a concrete instance of `DatastoreColumnArrayInput` via:
 //
-//          DatastoreColumnArray{ DatastoreColumnArgs{...} }
+//	DatastoreColumnArray{ DatastoreColumnArgs{...} }
 type DatastoreColumnArrayInput interface {
 	pulumi.Input
 
@@ -3681,7 +3681,7 @@ type DatastoreCustomerManagedS3 struct {
 // DatastoreCustomerManagedS3Input is an input type that accepts DatastoreCustomerManagedS3Args and DatastoreCustomerManagedS3Output values.
 // You can construct a concrete instance of `DatastoreCustomerManagedS3Input` via:
 //
-//          DatastoreCustomerManagedS3Args{...}
+//	DatastoreCustomerManagedS3Args{...}
 type DatastoreCustomerManagedS3Input interface {
 	pulumi.Input
 
@@ -3718,11 +3718,11 @@ func (i DatastoreCustomerManagedS3Args) ToDatastoreCustomerManagedS3PtrOutputWit
 // DatastoreCustomerManagedS3PtrInput is an input type that accepts DatastoreCustomerManagedS3Args, DatastoreCustomerManagedS3Ptr and DatastoreCustomerManagedS3PtrOutput values.
 // You can construct a concrete instance of `DatastoreCustomerManagedS3PtrInput` via:
 //
-//          DatastoreCustomerManagedS3Args{...}
+//	        DatastoreCustomerManagedS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreCustomerManagedS3PtrInput interface {
 	pulumi.Input
 
@@ -3843,7 +3843,7 @@ type DatastoreCustomerManagedS3Storage struct {
 // DatastoreCustomerManagedS3StorageInput is an input type that accepts DatastoreCustomerManagedS3StorageArgs and DatastoreCustomerManagedS3StorageOutput values.
 // You can construct a concrete instance of `DatastoreCustomerManagedS3StorageInput` via:
 //
-//          DatastoreCustomerManagedS3StorageArgs{...}
+//	DatastoreCustomerManagedS3StorageArgs{...}
 type DatastoreCustomerManagedS3StorageInput interface {
 	pulumi.Input
 
@@ -3879,11 +3879,11 @@ func (i DatastoreCustomerManagedS3StorageArgs) ToDatastoreCustomerManagedS3Stora
 // DatastoreCustomerManagedS3StoragePtrInput is an input type that accepts DatastoreCustomerManagedS3StorageArgs, DatastoreCustomerManagedS3StoragePtr and DatastoreCustomerManagedS3StoragePtrOutput values.
 // You can construct a concrete instance of `DatastoreCustomerManagedS3StoragePtrInput` via:
 //
-//          DatastoreCustomerManagedS3StorageArgs{...}
+//	        DatastoreCustomerManagedS3StorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreCustomerManagedS3StoragePtrInput interface {
 	pulumi.Input
 
@@ -3991,7 +3991,7 @@ type DatastoreFileFormatConfiguration struct {
 // DatastoreFileFormatConfigurationInput is an input type that accepts DatastoreFileFormatConfigurationArgs and DatastoreFileFormatConfigurationOutput values.
 // You can construct a concrete instance of `DatastoreFileFormatConfigurationInput` via:
 //
-//          DatastoreFileFormatConfigurationArgs{...}
+//	DatastoreFileFormatConfigurationArgs{...}
 type DatastoreFileFormatConfigurationInput interface {
 	pulumi.Input
 
@@ -4027,11 +4027,11 @@ func (i DatastoreFileFormatConfigurationArgs) ToDatastoreFileFormatConfiguration
 // DatastoreFileFormatConfigurationPtrInput is an input type that accepts DatastoreFileFormatConfigurationArgs, DatastoreFileFormatConfigurationPtr and DatastoreFileFormatConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatastoreFileFormatConfigurationPtrInput` via:
 //
-//          DatastoreFileFormatConfigurationArgs{...}
+//	        DatastoreFileFormatConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreFileFormatConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4138,7 +4138,7 @@ type DatastoreIotSiteWiseMultiLayerStorage struct {
 // DatastoreIotSiteWiseMultiLayerStorageInput is an input type that accepts DatastoreIotSiteWiseMultiLayerStorageArgs and DatastoreIotSiteWiseMultiLayerStorageOutput values.
 // You can construct a concrete instance of `DatastoreIotSiteWiseMultiLayerStorageInput` via:
 //
-//          DatastoreIotSiteWiseMultiLayerStorageArgs{...}
+//	DatastoreIotSiteWiseMultiLayerStorageArgs{...}
 type DatastoreIotSiteWiseMultiLayerStorageInput interface {
 	pulumi.Input
 
@@ -4173,11 +4173,11 @@ func (i DatastoreIotSiteWiseMultiLayerStorageArgs) ToDatastoreIotSiteWiseMultiLa
 // DatastoreIotSiteWiseMultiLayerStoragePtrInput is an input type that accepts DatastoreIotSiteWiseMultiLayerStorageArgs, DatastoreIotSiteWiseMultiLayerStoragePtr and DatastoreIotSiteWiseMultiLayerStoragePtrOutput values.
 // You can construct a concrete instance of `DatastoreIotSiteWiseMultiLayerStoragePtrInput` via:
 //
-//          DatastoreIotSiteWiseMultiLayerStorageArgs{...}
+//	        DatastoreIotSiteWiseMultiLayerStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreIotSiteWiseMultiLayerStoragePtrInput interface {
 	pulumi.Input
 
@@ -4272,7 +4272,7 @@ type DatastoreJsonConfiguration struct {
 // DatastoreJsonConfigurationInput is an input type that accepts DatastoreJsonConfigurationArgs and DatastoreJsonConfigurationOutput values.
 // You can construct a concrete instance of `DatastoreJsonConfigurationInput` via:
 //
-//          DatastoreJsonConfigurationArgs{...}
+//	DatastoreJsonConfigurationArgs{...}
 type DatastoreJsonConfigurationInput interface {
 	pulumi.Input
 
@@ -4306,11 +4306,11 @@ func (i DatastoreJsonConfigurationArgs) ToDatastoreJsonConfigurationPtrOutputWit
 // DatastoreJsonConfigurationPtrInput is an input type that accepts DatastoreJsonConfigurationArgs, DatastoreJsonConfigurationPtr and DatastoreJsonConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatastoreJsonConfigurationPtrInput` via:
 //
-//          DatastoreJsonConfigurationArgs{...}
+//	        DatastoreJsonConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreJsonConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4391,7 +4391,7 @@ type DatastoreParquetConfiguration struct {
 // DatastoreParquetConfigurationInput is an input type that accepts DatastoreParquetConfigurationArgs and DatastoreParquetConfigurationOutput values.
 // You can construct a concrete instance of `DatastoreParquetConfigurationInput` via:
 //
-//          DatastoreParquetConfigurationArgs{...}
+//	DatastoreParquetConfigurationArgs{...}
 type DatastoreParquetConfigurationInput interface {
 	pulumi.Input
 
@@ -4426,11 +4426,11 @@ func (i DatastoreParquetConfigurationArgs) ToDatastoreParquetConfigurationPtrOut
 // DatastoreParquetConfigurationPtrInput is an input type that accepts DatastoreParquetConfigurationArgs, DatastoreParquetConfigurationPtr and DatastoreParquetConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatastoreParquetConfigurationPtrInput` via:
 //
-//          DatastoreParquetConfigurationArgs{...}
+//	        DatastoreParquetConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreParquetConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4525,7 +4525,7 @@ type DatastorePartition struct {
 // DatastorePartitionInput is an input type that accepts DatastorePartitionArgs and DatastorePartitionOutput values.
 // You can construct a concrete instance of `DatastorePartitionInput` via:
 //
-//          DatastorePartitionArgs{...}
+//	DatastorePartitionArgs{...}
 type DatastorePartitionInput interface {
 	pulumi.Input
 
@@ -4561,11 +4561,11 @@ func (i DatastorePartitionArgs) ToDatastorePartitionPtrOutputWithContext(ctx con
 // DatastorePartitionPtrInput is an input type that accepts DatastorePartitionArgs, DatastorePartitionPtr and DatastorePartitionPtrOutput values.
 // You can construct a concrete instance of `DatastorePartitionPtrInput` via:
 //
-//          DatastorePartitionArgs{...}
+//	        DatastorePartitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastorePartitionPtrInput interface {
 	pulumi.Input
 
@@ -4594,7 +4594,7 @@ func (i *datastorePartitionPtrType) ToDatastorePartitionPtrOutputWithContext(ctx
 // DatastorePartitionArrayInput is an input type that accepts DatastorePartitionArray and DatastorePartitionArrayOutput values.
 // You can construct a concrete instance of `DatastorePartitionArrayInput` via:
 //
-//          DatastorePartitionArray{ DatastorePartitionArgs{...} }
+//	DatastorePartitionArray{ DatastorePartitionArgs{...} }
 type DatastorePartitionArrayInput interface {
 	pulumi.Input
 
@@ -4717,7 +4717,7 @@ type DatastorePartitions struct {
 // DatastorePartitionsInput is an input type that accepts DatastorePartitionsArgs and DatastorePartitionsOutput values.
 // You can construct a concrete instance of `DatastorePartitionsInput` via:
 //
-//          DatastorePartitionsArgs{...}
+//	DatastorePartitionsArgs{...}
 type DatastorePartitionsInput interface {
 	pulumi.Input
 
@@ -4752,11 +4752,11 @@ func (i DatastorePartitionsArgs) ToDatastorePartitionsPtrOutputWithContext(ctx c
 // DatastorePartitionsPtrInput is an input type that accepts DatastorePartitionsArgs, DatastorePartitionsPtr and DatastorePartitionsPtrOutput values.
 // You can construct a concrete instance of `DatastorePartitionsPtrInput` via:
 //
-//          DatastorePartitionsArgs{...}
+//	        DatastorePartitionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastorePartitionsPtrInput interface {
 	pulumi.Input
 
@@ -4851,7 +4851,7 @@ type DatastoreRetentionPeriod struct {
 // DatastoreRetentionPeriodInput is an input type that accepts DatastoreRetentionPeriodArgs and DatastoreRetentionPeriodOutput values.
 // You can construct a concrete instance of `DatastoreRetentionPeriodInput` via:
 //
-//          DatastoreRetentionPeriodArgs{...}
+//	DatastoreRetentionPeriodArgs{...}
 type DatastoreRetentionPeriodInput interface {
 	pulumi.Input
 
@@ -4887,11 +4887,11 @@ func (i DatastoreRetentionPeriodArgs) ToDatastoreRetentionPeriodPtrOutputWithCon
 // DatastoreRetentionPeriodPtrInput is an input type that accepts DatastoreRetentionPeriodArgs, DatastoreRetentionPeriodPtr and DatastoreRetentionPeriodPtrOutput values.
 // You can construct a concrete instance of `DatastoreRetentionPeriodPtrInput` via:
 //
-//          DatastoreRetentionPeriodArgs{...}
+//	        DatastoreRetentionPeriodArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreRetentionPeriodPtrInput interface {
 	pulumi.Input
 
@@ -4998,7 +4998,7 @@ type DatastoreSchemaDefinition struct {
 // DatastoreSchemaDefinitionInput is an input type that accepts DatastoreSchemaDefinitionArgs and DatastoreSchemaDefinitionOutput values.
 // You can construct a concrete instance of `DatastoreSchemaDefinitionInput` via:
 //
-//          DatastoreSchemaDefinitionArgs{...}
+//	DatastoreSchemaDefinitionArgs{...}
 type DatastoreSchemaDefinitionInput interface {
 	pulumi.Input
 
@@ -5033,11 +5033,11 @@ func (i DatastoreSchemaDefinitionArgs) ToDatastoreSchemaDefinitionPtrOutputWithC
 // DatastoreSchemaDefinitionPtrInput is an input type that accepts DatastoreSchemaDefinitionArgs, DatastoreSchemaDefinitionPtr and DatastoreSchemaDefinitionPtrOutput values.
 // You can construct a concrete instance of `DatastoreSchemaDefinitionPtrInput` via:
 //
-//          DatastoreSchemaDefinitionArgs{...}
+//	        DatastoreSchemaDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreSchemaDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -5130,7 +5130,7 @@ type DatastoreServiceManagedS3 struct {
 // DatastoreServiceManagedS3Input is an input type that accepts DatastoreServiceManagedS3Args and DatastoreServiceManagedS3Output values.
 // You can construct a concrete instance of `DatastoreServiceManagedS3Input` via:
 //
-//          DatastoreServiceManagedS3Args{...}
+//	DatastoreServiceManagedS3Args{...}
 type DatastoreServiceManagedS3Input interface {
 	pulumi.Input
 
@@ -5164,11 +5164,11 @@ func (i DatastoreServiceManagedS3Args) ToDatastoreServiceManagedS3PtrOutputWithC
 // DatastoreServiceManagedS3PtrInput is an input type that accepts DatastoreServiceManagedS3Args, DatastoreServiceManagedS3Ptr and DatastoreServiceManagedS3PtrOutput values.
 // You can construct a concrete instance of `DatastoreServiceManagedS3PtrInput` via:
 //
-//          DatastoreServiceManagedS3Args{...}
+//	        DatastoreServiceManagedS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreServiceManagedS3PtrInput interface {
 	pulumi.Input
 
@@ -5251,7 +5251,7 @@ type DatastoreStorage struct {
 // DatastoreStorageInput is an input type that accepts DatastoreStorageArgs and DatastoreStorageOutput values.
 // You can construct a concrete instance of `DatastoreStorageInput` via:
 //
-//          DatastoreStorageArgs{...}
+//	DatastoreStorageArgs{...}
 type DatastoreStorageInput interface {
 	pulumi.Input
 
@@ -5288,11 +5288,11 @@ func (i DatastoreStorageArgs) ToDatastoreStoragePtrOutputWithContext(ctx context
 // DatastoreStoragePtrInput is an input type that accepts DatastoreStorageArgs, DatastoreStoragePtr and DatastoreStoragePtrOutput values.
 // You can construct a concrete instance of `DatastoreStoragePtrInput` via:
 //
-//          DatastoreStorageArgs{...}
+//	        DatastoreStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreStoragePtrInput interface {
 	pulumi.Input
 
@@ -5413,7 +5413,7 @@ type DatastoreTag struct {
 // DatastoreTagInput is an input type that accepts DatastoreTagArgs and DatastoreTagOutput values.
 // You can construct a concrete instance of `DatastoreTagInput` via:
 //
-//          DatastoreTagArgs{...}
+//	DatastoreTagArgs{...}
 type DatastoreTagInput interface {
 	pulumi.Input
 
@@ -5441,7 +5441,7 @@ func (i DatastoreTagArgs) ToDatastoreTagOutputWithContext(ctx context.Context) D
 // DatastoreTagArrayInput is an input type that accepts DatastoreTagArray and DatastoreTagArrayOutput values.
 // You can construct a concrete instance of `DatastoreTagArrayInput` via:
 //
-//          DatastoreTagArray{ DatastoreTagArgs{...} }
+//	DatastoreTagArray{ DatastoreTagArgs{...} }
 type DatastoreTagArrayInput interface {
 	pulumi.Input
 
@@ -5513,7 +5513,7 @@ type DatastoreTimestampPartition struct {
 // DatastoreTimestampPartitionInput is an input type that accepts DatastoreTimestampPartitionArgs and DatastoreTimestampPartitionOutput values.
 // You can construct a concrete instance of `DatastoreTimestampPartitionInput` via:
 //
-//          DatastoreTimestampPartitionArgs{...}
+//	DatastoreTimestampPartitionArgs{...}
 type DatastoreTimestampPartitionInput interface {
 	pulumi.Input
 
@@ -5549,11 +5549,11 @@ func (i DatastoreTimestampPartitionArgs) ToDatastoreTimestampPartitionPtrOutputW
 // DatastoreTimestampPartitionPtrInput is an input type that accepts DatastoreTimestampPartitionArgs, DatastoreTimestampPartitionPtr and DatastoreTimestampPartitionPtrOutput values.
 // You can construct a concrete instance of `DatastoreTimestampPartitionPtrInput` via:
 //
-//          DatastoreTimestampPartitionArgs{...}
+//	        DatastoreTimestampPartitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatastoreTimestampPartitionPtrInput interface {
 	pulumi.Input
 
@@ -5669,7 +5669,7 @@ type PipelineActivity struct {
 // PipelineActivityInput is an input type that accepts PipelineActivityArgs and PipelineActivityOutput values.
 // You can construct a concrete instance of `PipelineActivityInput` via:
 //
-//          PipelineActivityArgs{...}
+//	PipelineActivityArgs{...}
 type PipelineActivityInput interface {
 	pulumi.Input
 
@@ -5705,7 +5705,7 @@ func (i PipelineActivityArgs) ToPipelineActivityOutputWithContext(ctx context.Co
 // PipelineActivityArrayInput is an input type that accepts PipelineActivityArray and PipelineActivityArrayOutput values.
 // You can construct a concrete instance of `PipelineActivityArrayInput` via:
 //
-//          PipelineActivityArray{ PipelineActivityArgs{...} }
+//	PipelineActivityArray{ PipelineActivityArgs{...} }
 type PipelineActivityArrayInput interface {
 	pulumi.Input
 
@@ -5810,7 +5810,7 @@ type PipelineAddAttributes struct {
 // PipelineAddAttributesInput is an input type that accepts PipelineAddAttributesArgs and PipelineAddAttributesOutput values.
 // You can construct a concrete instance of `PipelineAddAttributesInput` via:
 //
-//          PipelineAddAttributesArgs{...}
+//	PipelineAddAttributesArgs{...}
 type PipelineAddAttributesInput interface {
 	pulumi.Input
 
@@ -5847,11 +5847,11 @@ func (i PipelineAddAttributesArgs) ToPipelineAddAttributesPtrOutputWithContext(c
 // PipelineAddAttributesPtrInput is an input type that accepts PipelineAddAttributesArgs, PipelineAddAttributesPtr and PipelineAddAttributesPtrOutput values.
 // You can construct a concrete instance of `PipelineAddAttributesPtrInput` via:
 //
-//          PipelineAddAttributesArgs{...}
+//	        PipelineAddAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineAddAttributesPtrInput interface {
 	pulumi.Input
 
@@ -5973,7 +5973,7 @@ type PipelineChannel struct {
 // PipelineChannelInput is an input type that accepts PipelineChannelArgs and PipelineChannelOutput values.
 // You can construct a concrete instance of `PipelineChannelInput` via:
 //
-//          PipelineChannelArgs{...}
+//	PipelineChannelArgs{...}
 type PipelineChannelInput interface {
 	pulumi.Input
 
@@ -6010,11 +6010,11 @@ func (i PipelineChannelArgs) ToPipelineChannelPtrOutputWithContext(ctx context.C
 // PipelineChannelPtrInput is an input type that accepts PipelineChannelArgs, PipelineChannelPtr and PipelineChannelPtrOutput values.
 // You can construct a concrete instance of `PipelineChannelPtrInput` via:
 //
-//          PipelineChannelArgs{...}
+//	        PipelineChannelArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineChannelPtrInput interface {
 	pulumi.Input
 
@@ -6135,7 +6135,7 @@ type PipelineDatastore struct {
 // PipelineDatastoreInput is an input type that accepts PipelineDatastoreArgs and PipelineDatastoreOutput values.
 // You can construct a concrete instance of `PipelineDatastoreInput` via:
 //
-//          PipelineDatastoreArgs{...}
+//	PipelineDatastoreArgs{...}
 type PipelineDatastoreInput interface {
 	pulumi.Input
 
@@ -6171,11 +6171,11 @@ func (i PipelineDatastoreArgs) ToPipelineDatastorePtrOutputWithContext(ctx conte
 // PipelineDatastorePtrInput is an input type that accepts PipelineDatastoreArgs, PipelineDatastorePtr and PipelineDatastorePtrOutput values.
 // You can construct a concrete instance of `PipelineDatastorePtrInput` via:
 //
-//          PipelineDatastoreArgs{...}
+//	        PipelineDatastoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineDatastorePtrInput interface {
 	pulumi.Input
 
@@ -6286,7 +6286,7 @@ type PipelineDeviceRegistryEnrich struct {
 // PipelineDeviceRegistryEnrichInput is an input type that accepts PipelineDeviceRegistryEnrichArgs and PipelineDeviceRegistryEnrichOutput values.
 // You can construct a concrete instance of `PipelineDeviceRegistryEnrichInput` via:
 //
-//          PipelineDeviceRegistryEnrichArgs{...}
+//	PipelineDeviceRegistryEnrichArgs{...}
 type PipelineDeviceRegistryEnrichInput interface {
 	pulumi.Input
 
@@ -6325,11 +6325,11 @@ func (i PipelineDeviceRegistryEnrichArgs) ToPipelineDeviceRegistryEnrichPtrOutpu
 // PipelineDeviceRegistryEnrichPtrInput is an input type that accepts PipelineDeviceRegistryEnrichArgs, PipelineDeviceRegistryEnrichPtr and PipelineDeviceRegistryEnrichPtrOutput values.
 // You can construct a concrete instance of `PipelineDeviceRegistryEnrichPtrInput` via:
 //
-//          PipelineDeviceRegistryEnrichArgs{...}
+//	        PipelineDeviceRegistryEnrichArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineDeviceRegistryEnrichPtrInput interface {
 	pulumi.Input
 
@@ -6479,7 +6479,7 @@ type PipelineDeviceShadowEnrich struct {
 // PipelineDeviceShadowEnrichInput is an input type that accepts PipelineDeviceShadowEnrichArgs and PipelineDeviceShadowEnrichOutput values.
 // You can construct a concrete instance of `PipelineDeviceShadowEnrichInput` via:
 //
-//          PipelineDeviceShadowEnrichArgs{...}
+//	PipelineDeviceShadowEnrichArgs{...}
 type PipelineDeviceShadowEnrichInput interface {
 	pulumi.Input
 
@@ -6518,11 +6518,11 @@ func (i PipelineDeviceShadowEnrichArgs) ToPipelineDeviceShadowEnrichPtrOutputWit
 // PipelineDeviceShadowEnrichPtrInput is an input type that accepts PipelineDeviceShadowEnrichArgs, PipelineDeviceShadowEnrichPtr and PipelineDeviceShadowEnrichPtrOutput values.
 // You can construct a concrete instance of `PipelineDeviceShadowEnrichPtrInput` via:
 //
-//          PipelineDeviceShadowEnrichArgs{...}
+//	        PipelineDeviceShadowEnrichArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineDeviceShadowEnrichPtrInput interface {
 	pulumi.Input
 
@@ -6670,7 +6670,7 @@ type PipelineFilter struct {
 // PipelineFilterInput is an input type that accepts PipelineFilterArgs and PipelineFilterOutput values.
 // You can construct a concrete instance of `PipelineFilterInput` via:
 //
-//          PipelineFilterArgs{...}
+//	PipelineFilterArgs{...}
 type PipelineFilterInput interface {
 	pulumi.Input
 
@@ -6707,11 +6707,11 @@ func (i PipelineFilterArgs) ToPipelineFilterPtrOutputWithContext(ctx context.Con
 // PipelineFilterPtrInput is an input type that accepts PipelineFilterArgs, PipelineFilterPtr and PipelineFilterPtrOutput values.
 // You can construct a concrete instance of `PipelineFilterPtrInput` via:
 //
-//          PipelineFilterArgs{...}
+//	        PipelineFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineFilterPtrInput interface {
 	pulumi.Input
 
@@ -6834,7 +6834,7 @@ type PipelineLambda struct {
 // PipelineLambdaInput is an input type that accepts PipelineLambdaArgs and PipelineLambdaOutput values.
 // You can construct a concrete instance of `PipelineLambdaInput` via:
 //
-//          PipelineLambdaArgs{...}
+//	PipelineLambdaArgs{...}
 type PipelineLambdaInput interface {
 	pulumi.Input
 
@@ -6872,11 +6872,11 @@ func (i PipelineLambdaArgs) ToPipelineLambdaPtrOutputWithContext(ctx context.Con
 // PipelineLambdaPtrInput is an input type that accepts PipelineLambdaArgs, PipelineLambdaPtr and PipelineLambdaPtrOutput values.
 // You can construct a concrete instance of `PipelineLambdaPtrInput` via:
 //
-//          PipelineLambdaArgs{...}
+//	        PipelineLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineLambdaPtrInput interface {
 	pulumi.Input
 
@@ -7012,7 +7012,7 @@ type PipelineMath struct {
 // PipelineMathInput is an input type that accepts PipelineMathArgs and PipelineMathOutput values.
 // You can construct a concrete instance of `PipelineMathInput` via:
 //
-//          PipelineMathArgs{...}
+//	PipelineMathArgs{...}
 type PipelineMathInput interface {
 	pulumi.Input
 
@@ -7050,11 +7050,11 @@ func (i PipelineMathArgs) ToPipelineMathPtrOutputWithContext(ctx context.Context
 // PipelineMathPtrInput is an input type that accepts PipelineMathArgs, PipelineMathPtr and PipelineMathPtrOutput values.
 // You can construct a concrete instance of `PipelineMathPtrInput` via:
 //
-//          PipelineMathArgs{...}
+//	        PipelineMathArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineMathPtrInput interface {
 	pulumi.Input
 
@@ -7189,7 +7189,7 @@ type PipelineRemoveAttributes struct {
 // PipelineRemoveAttributesInput is an input type that accepts PipelineRemoveAttributesArgs and PipelineRemoveAttributesOutput values.
 // You can construct a concrete instance of `PipelineRemoveAttributesInput` via:
 //
-//          PipelineRemoveAttributesArgs{...}
+//	PipelineRemoveAttributesArgs{...}
 type PipelineRemoveAttributesInput interface {
 	pulumi.Input
 
@@ -7226,11 +7226,11 @@ func (i PipelineRemoveAttributesArgs) ToPipelineRemoveAttributesPtrOutputWithCon
 // PipelineRemoveAttributesPtrInput is an input type that accepts PipelineRemoveAttributesArgs, PipelineRemoveAttributesPtr and PipelineRemoveAttributesPtrOutput values.
 // You can construct a concrete instance of `PipelineRemoveAttributesPtrInput` via:
 //
-//          PipelineRemoveAttributesArgs{...}
+//	        PipelineRemoveAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineRemoveAttributesPtrInput interface {
 	pulumi.Input
 
@@ -7352,7 +7352,7 @@ type PipelineSelectAttributes struct {
 // PipelineSelectAttributesInput is an input type that accepts PipelineSelectAttributesArgs and PipelineSelectAttributesOutput values.
 // You can construct a concrete instance of `PipelineSelectAttributesInput` via:
 //
-//          PipelineSelectAttributesArgs{...}
+//	PipelineSelectAttributesArgs{...}
 type PipelineSelectAttributesInput interface {
 	pulumi.Input
 
@@ -7389,11 +7389,11 @@ func (i PipelineSelectAttributesArgs) ToPipelineSelectAttributesPtrOutputWithCon
 // PipelineSelectAttributesPtrInput is an input type that accepts PipelineSelectAttributesArgs, PipelineSelectAttributesPtr and PipelineSelectAttributesPtrOutput values.
 // You can construct a concrete instance of `PipelineSelectAttributesPtrInput` via:
 //
-//          PipelineSelectAttributesArgs{...}
+//	        PipelineSelectAttributesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PipelineSelectAttributesPtrInput interface {
 	pulumi.Input
 
@@ -7514,7 +7514,7 @@ type PipelineTag struct {
 // PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
 // You can construct a concrete instance of `PipelineTagInput` via:
 //
-//          PipelineTagArgs{...}
+//	PipelineTagArgs{...}
 type PipelineTagInput interface {
 	pulumi.Input
 
@@ -7542,7 +7542,7 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
-//          PipelineTagArray{ PipelineTagArgs{...} }
+//	PipelineTagArray{ PipelineTagArgs{...} }
 type PipelineTagArrayInput interface {
 	pulumi.Input
 

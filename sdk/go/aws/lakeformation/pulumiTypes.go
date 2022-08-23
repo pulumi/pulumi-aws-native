@@ -16,7 +16,7 @@ type DataLakeSettingsAdmins struct {
 // DataLakeSettingsAdminsInput is an input type that accepts DataLakeSettingsAdminsArgs and DataLakeSettingsAdminsOutput values.
 // You can construct a concrete instance of `DataLakeSettingsAdminsInput` via:
 //
-//          DataLakeSettingsAdminsArgs{...}
+//	DataLakeSettingsAdminsArgs{...}
 type DataLakeSettingsAdminsInput interface {
 	pulumi.Input
 
@@ -50,11 +50,11 @@ func (i DataLakeSettingsAdminsArgs) ToDataLakeSettingsAdminsPtrOutputWithContext
 // DataLakeSettingsAdminsPtrInput is an input type that accepts DataLakeSettingsAdminsArgs, DataLakeSettingsAdminsPtr and DataLakeSettingsAdminsPtrOutput values.
 // You can construct a concrete instance of `DataLakeSettingsAdminsPtrInput` via:
 //
-//          DataLakeSettingsAdminsArgs{...}
+//	        DataLakeSettingsAdminsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataLakeSettingsAdminsPtrInput interface {
 	pulumi.Input
 
@@ -135,7 +135,7 @@ type PermissionsColumnWildcard struct {
 // PermissionsColumnWildcardInput is an input type that accepts PermissionsColumnWildcardArgs and PermissionsColumnWildcardOutput values.
 // You can construct a concrete instance of `PermissionsColumnWildcardInput` via:
 //
-//          PermissionsColumnWildcardArgs{...}
+//	PermissionsColumnWildcardArgs{...}
 type PermissionsColumnWildcardInput interface {
 	pulumi.Input
 
@@ -170,11 +170,11 @@ func (i PermissionsColumnWildcardArgs) ToPermissionsColumnWildcardPtrOutputWithC
 // PermissionsColumnWildcardPtrInput is an input type that accepts PermissionsColumnWildcardArgs, PermissionsColumnWildcardPtr and PermissionsColumnWildcardPtrOutput values.
 // You can construct a concrete instance of `PermissionsColumnWildcardPtrInput` via:
 //
-//          PermissionsColumnWildcardArgs{...}
+//	        PermissionsColumnWildcardArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsColumnWildcardPtrInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ type PermissionsDataLakePrincipal struct {
 // PermissionsDataLakePrincipalInput is an input type that accepts PermissionsDataLakePrincipalArgs and PermissionsDataLakePrincipalOutput values.
 // You can construct a concrete instance of `PermissionsDataLakePrincipalInput` via:
 //
-//          PermissionsDataLakePrincipalArgs{...}
+//	PermissionsDataLakePrincipalArgs{...}
 type PermissionsDataLakePrincipalInput interface {
 	pulumi.Input
 
@@ -351,7 +351,7 @@ type PermissionsDataLocationResource struct {
 // PermissionsDataLocationResourceInput is an input type that accepts PermissionsDataLocationResourceArgs and PermissionsDataLocationResourceOutput values.
 // You can construct a concrete instance of `PermissionsDataLocationResourceInput` via:
 //
-//          PermissionsDataLocationResourceArgs{...}
+//	PermissionsDataLocationResourceArgs{...}
 type PermissionsDataLocationResourceInput interface {
 	pulumi.Input
 
@@ -387,11 +387,11 @@ func (i PermissionsDataLocationResourceArgs) ToPermissionsDataLocationResourcePt
 // PermissionsDataLocationResourcePtrInput is an input type that accepts PermissionsDataLocationResourceArgs, PermissionsDataLocationResourcePtr and PermissionsDataLocationResourcePtrOutput values.
 // You can construct a concrete instance of `PermissionsDataLocationResourcePtrInput` via:
 //
-//          PermissionsDataLocationResourceArgs{...}
+//	        PermissionsDataLocationResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsDataLocationResourcePtrInput interface {
 	pulumi.Input
 
@@ -499,7 +499,7 @@ type PermissionsDatabaseResource struct {
 // PermissionsDatabaseResourceInput is an input type that accepts PermissionsDatabaseResourceArgs and PermissionsDatabaseResourceOutput values.
 // You can construct a concrete instance of `PermissionsDatabaseResourceInput` via:
 //
-//          PermissionsDatabaseResourceArgs{...}
+//	PermissionsDatabaseResourceArgs{...}
 type PermissionsDatabaseResourceInput interface {
 	pulumi.Input
 
@@ -535,11 +535,11 @@ func (i PermissionsDatabaseResourceArgs) ToPermissionsDatabaseResourcePtrOutputW
 // PermissionsDatabaseResourcePtrInput is an input type that accepts PermissionsDatabaseResourceArgs, PermissionsDatabaseResourcePtr and PermissionsDatabaseResourcePtrOutput values.
 // You can construct a concrete instance of `PermissionsDatabaseResourcePtrInput` via:
 //
-//          PermissionsDatabaseResourceArgs{...}
+//	        PermissionsDatabaseResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsDatabaseResourcePtrInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ type PermissionsResource struct {
 // PermissionsResourceInput is an input type that accepts PermissionsResourceArgs and PermissionsResourceOutput values.
 // You can construct a concrete instance of `PermissionsResourceInput` via:
 //
-//          PermissionsResourceArgs{...}
+//	PermissionsResourceArgs{...}
 type PermissionsResourceInput interface {
 	pulumi.Input
 
@@ -776,7 +776,7 @@ type PermissionsTableResource struct {
 // PermissionsTableResourceInput is an input type that accepts PermissionsTableResourceArgs and PermissionsTableResourceOutput values.
 // You can construct a concrete instance of `PermissionsTableResourceInput` via:
 //
-//          PermissionsTableResourceArgs{...}
+//	PermissionsTableResourceArgs{...}
 type PermissionsTableResourceInput interface {
 	pulumi.Input
 
@@ -814,11 +814,11 @@ func (i PermissionsTableResourceArgs) ToPermissionsTableResourcePtrOutputWithCon
 // PermissionsTableResourcePtrInput is an input type that accepts PermissionsTableResourceArgs, PermissionsTableResourcePtr and PermissionsTableResourcePtrOutput values.
 // You can construct a concrete instance of `PermissionsTableResourcePtrInput` via:
 //
-//          PermissionsTableResourceArgs{...}
+//	        PermissionsTableResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsTableResourcePtrInput interface {
 	pulumi.Input
 
@@ -950,7 +950,7 @@ type PermissionsTableWildcard struct {
 // PermissionsTableWildcardInput is an input type that accepts PermissionsTableWildcardArgs and PermissionsTableWildcardOutput values.
 // You can construct a concrete instance of `PermissionsTableWildcardInput` via:
 //
-//          PermissionsTableWildcardArgs{...}
+//	PermissionsTableWildcardArgs{...}
 type PermissionsTableWildcardInput interface {
 	pulumi.Input
 
@@ -984,11 +984,11 @@ func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardPtrOutputWithCon
 // PermissionsTableWildcardPtrInput is an input type that accepts PermissionsTableWildcardArgs, PermissionsTableWildcardPtr and PermissionsTableWildcardPtrOutput values.
 // You can construct a concrete instance of `PermissionsTableWildcardPtrInput` via:
 //
-//          PermissionsTableWildcardArgs{...}
+//	        PermissionsTableWildcardArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsTableWildcardPtrInput interface {
 	pulumi.Input
 
@@ -1073,7 +1073,7 @@ type PermissionsTableWithColumnsResource struct {
 // PermissionsTableWithColumnsResourceInput is an input type that accepts PermissionsTableWithColumnsResourceArgs and PermissionsTableWithColumnsResourceOutput values.
 // You can construct a concrete instance of `PermissionsTableWithColumnsResourceInput` via:
 //
-//          PermissionsTableWithColumnsResourceArgs{...}
+//	PermissionsTableWithColumnsResourceArgs{...}
 type PermissionsTableWithColumnsResourceInput interface {
 	pulumi.Input
 
@@ -1112,11 +1112,11 @@ func (i PermissionsTableWithColumnsResourceArgs) ToPermissionsTableWithColumnsRe
 // PermissionsTableWithColumnsResourcePtrInput is an input type that accepts PermissionsTableWithColumnsResourceArgs, PermissionsTableWithColumnsResourcePtr and PermissionsTableWithColumnsResourcePtrOutput values.
 // You can construct a concrete instance of `PermissionsTableWithColumnsResourcePtrInput` via:
 //
-//          PermissionsTableWithColumnsResourceArgs{...}
+//	        PermissionsTableWithColumnsResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionsTableWithColumnsResourcePtrInput interface {
 	pulumi.Input
 

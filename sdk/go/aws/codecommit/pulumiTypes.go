@@ -18,7 +18,7 @@ type RepositoryCode struct {
 // RepositoryCodeInput is an input type that accepts RepositoryCodeArgs and RepositoryCodeOutput values.
 // You can construct a concrete instance of `RepositoryCodeInput` via:
 //
-//          RepositoryCodeArgs{...}
+//	RepositoryCodeArgs{...}
 type RepositoryCodeInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i RepositoryCodeArgs) ToRepositoryCodePtrOutputWithContext(ctx context.Con
 // RepositoryCodePtrInput is an input type that accepts RepositoryCodeArgs, RepositoryCodePtr and RepositoryCodePtrOutput values.
 // You can construct a concrete instance of `RepositoryCodePtrInput` via:
 //
-//          RepositoryCodeArgs{...}
+//	        RepositoryCodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryCodePtrInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ type RepositoryS3 struct {
 // RepositoryS3Input is an input type that accepts RepositoryS3Args and RepositoryS3Output values.
 // You can construct a concrete instance of `RepositoryS3Input` via:
 //
-//          RepositoryS3Args{...}
+//	RepositoryS3Args{...}
 type RepositoryS3Input interface {
 	pulumi.Input
 
@@ -204,11 +204,11 @@ func (i RepositoryS3Args) ToRepositoryS3PtrOutputWithContext(ctx context.Context
 // RepositoryS3PtrInput is an input type that accepts RepositoryS3Args, RepositoryS3Ptr and RepositoryS3PtrOutput values.
 // You can construct a concrete instance of `RepositoryS3PtrInput` via:
 //
-//          RepositoryS3Args{...}
+//	        RepositoryS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryS3PtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type RepositoryTag struct {
 // RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
 // You can construct a concrete instance of `RepositoryTagInput` via:
 //
-//          RepositoryTagArgs{...}
+//	RepositoryTagArgs{...}
 type RepositoryTagInput interface {
 	pulumi.Input
 
@@ -357,7 +357,7 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
-//          RepositoryTagArray{ RepositoryTagArgs{...} }
+//	RepositoryTagArray{ RepositoryTagArgs{...} }
 type RepositoryTagArrayInput interface {
 	pulumi.Input
 
@@ -432,7 +432,7 @@ type RepositoryTrigger struct {
 // RepositoryTriggerInput is an input type that accepts RepositoryTriggerArgs and RepositoryTriggerOutput values.
 // You can construct a concrete instance of `RepositoryTriggerInput` via:
 //
-//          RepositoryTriggerArgs{...}
+//	RepositoryTriggerArgs{...}
 type RepositoryTriggerInput interface {
 	pulumi.Input
 
@@ -463,7 +463,7 @@ func (i RepositoryTriggerArgs) ToRepositoryTriggerOutputWithContext(ctx context.
 // RepositoryTriggerArrayInput is an input type that accepts RepositoryTriggerArray and RepositoryTriggerArrayOutput values.
 // You can construct a concrete instance of `RepositoryTriggerArrayInput` via:
 //
-//          RepositoryTriggerArray{ RepositoryTriggerArgs{...} }
+//	RepositoryTriggerArray{ RepositoryTriggerArgs{...} }
 type RepositoryTriggerArrayInput interface {
 	pulumi.Input
 

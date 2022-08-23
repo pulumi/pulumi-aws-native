@@ -145,7 +145,7 @@ func (o PolicySecurityServicePolicyDataPropertiesTypePtrOutput) ToStringPtrOutpu
 // PolicySecurityServicePolicyDataPropertiesTypeInput is an input type that accepts PolicySecurityServicePolicyDataPropertiesTypeArgs and PolicySecurityServicePolicyDataPropertiesTypeOutput values.
 // You can construct a concrete instance of `PolicySecurityServicePolicyDataPropertiesTypeInput` via:
 //
-//          PolicySecurityServicePolicyDataPropertiesTypeArgs{...}
+//	PolicySecurityServicePolicyDataPropertiesTypeArgs{...}
 type PolicySecurityServicePolicyDataPropertiesTypeInput interface {
 	pulumi.Input
 

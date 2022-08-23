@@ -20,7 +20,7 @@ type ApiKeyStageKey struct {
 // ApiKeyStageKeyInput is an input type that accepts ApiKeyStageKeyArgs and ApiKeyStageKeyOutput values.
 // You can construct a concrete instance of `ApiKeyStageKeyInput` via:
 //
-//          ApiKeyStageKeyArgs{...}
+//	ApiKeyStageKeyArgs{...}
 type ApiKeyStageKeyInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ApiKeyStageKeyArgs) ToApiKeyStageKeyOutputWithContext(ctx context.Contex
 // ApiKeyStageKeyArrayInput is an input type that accepts ApiKeyStageKeyArray and ApiKeyStageKeyArrayOutput values.
 // You can construct a concrete instance of `ApiKeyStageKeyArrayInput` via:
 //
-//          ApiKeyStageKeyArray{ ApiKeyStageKeyArgs{...} }
+//	ApiKeyStageKeyArray{ ApiKeyStageKeyArgs{...} }
 type ApiKeyStageKeyArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type ApiKeyTag struct {
 // ApiKeyTagInput is an input type that accepts ApiKeyTagArgs and ApiKeyTagOutput values.
 // You can construct a concrete instance of `ApiKeyTagInput` via:
 //
-//          ApiKeyTagArgs{...}
+//	ApiKeyTagArgs{...}
 type ApiKeyTagInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i ApiKeyTagArgs) ToApiKeyTagOutputWithContext(ctx context.Context) ApiKeyT
 // ApiKeyTagArrayInput is an input type that accepts ApiKeyTagArray and ApiKeyTagArrayOutput values.
 // You can construct a concrete instance of `ApiKeyTagArrayInput` via:
 //
-//          ApiKeyTagArray{ ApiKeyTagArgs{...} }
+//	ApiKeyTagArray{ ApiKeyTagArgs{...} }
 type ApiKeyTagArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +230,7 @@ type ClientCertificateTag struct {
 // ClientCertificateTagInput is an input type that accepts ClientCertificateTagArgs and ClientCertificateTagOutput values.
 // You can construct a concrete instance of `ClientCertificateTagInput` via:
 //
-//          ClientCertificateTagArgs{...}
+//	ClientCertificateTagArgs{...}
 type ClientCertificateTagInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ func (i ClientCertificateTagArgs) ToClientCertificateTagOutputWithContext(ctx co
 // ClientCertificateTagArrayInput is an input type that accepts ClientCertificateTagArray and ClientCertificateTagArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateTagArrayInput` via:
 //
-//          ClientCertificateTagArray{ ClientCertificateTagArgs{...} }
+//	ClientCertificateTagArray{ ClientCertificateTagArgs{...} }
 type ClientCertificateTagArrayInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type DeploymentAccessLogSetting struct {
 // DeploymentAccessLogSettingInput is an input type that accepts DeploymentAccessLogSettingArgs and DeploymentAccessLogSettingOutput values.
 // You can construct a concrete instance of `DeploymentAccessLogSettingInput` via:
 //
-//          DeploymentAccessLogSettingArgs{...}
+//	DeploymentAccessLogSettingArgs{...}
 type DeploymentAccessLogSettingInput interface {
 	pulumi.Input
 
@@ -370,11 +370,11 @@ func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingPtrOutputWit
 // DeploymentAccessLogSettingPtrInput is an input type that accepts DeploymentAccessLogSettingArgs, DeploymentAccessLogSettingPtr and DeploymentAccessLogSettingPtrOutput values.
 // You can construct a concrete instance of `DeploymentAccessLogSettingPtrInput` via:
 //
-//          DeploymentAccessLogSettingArgs{...}
+//	        DeploymentAccessLogSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeploymentAccessLogSettingPtrInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ type DeploymentCanarySetting struct {
 // DeploymentCanarySettingInput is an input type that accepts DeploymentCanarySettingArgs and DeploymentCanarySettingOutput values.
 // You can construct a concrete instance of `DeploymentCanarySettingInput` via:
 //
-//          DeploymentCanarySettingArgs{...}
+//	DeploymentCanarySettingArgs{...}
 type DeploymentCanarySettingInput interface {
 	pulumi.Input
 
@@ -530,11 +530,11 @@ func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingPtrOutputWithConte
 // DeploymentCanarySettingPtrInput is an input type that accepts DeploymentCanarySettingArgs, DeploymentCanarySettingPtr and DeploymentCanarySettingPtrOutput values.
 // You can construct a concrete instance of `DeploymentCanarySettingPtrInput` via:
 //
-//          DeploymentCanarySettingArgs{...}
+//	        DeploymentCanarySettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeploymentCanarySettingPtrInput interface {
 	pulumi.Input
 
@@ -665,7 +665,7 @@ type DeploymentCanarySettings struct {
 // DeploymentCanarySettingsInput is an input type that accepts DeploymentCanarySettingsArgs and DeploymentCanarySettingsOutput values.
 // You can construct a concrete instance of `DeploymentCanarySettingsInput` via:
 //
-//          DeploymentCanarySettingsArgs{...}
+//	DeploymentCanarySettingsArgs{...}
 type DeploymentCanarySettingsInput interface {
 	pulumi.Input
 
@@ -705,11 +705,11 @@ func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutputWithCon
 // DeploymentCanarySettingsPtrInput is an input type that accepts DeploymentCanarySettingsArgs, DeploymentCanarySettingsPtr and DeploymentCanarySettingsPtrOutput values.
 // You can construct a concrete instance of `DeploymentCanarySettingsPtrInput` via:
 //
-//          DeploymentCanarySettingsArgs{...}
+//	        DeploymentCanarySettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeploymentCanarySettingsPtrInput interface {
 	pulumi.Input
 
@@ -854,7 +854,7 @@ type DeploymentMethodSetting struct {
 // DeploymentMethodSettingInput is an input type that accepts DeploymentMethodSettingArgs and DeploymentMethodSettingOutput values.
 // You can construct a concrete instance of `DeploymentMethodSettingInput` via:
 //
-//          DeploymentMethodSettingArgs{...}
+//	DeploymentMethodSettingArgs{...}
 type DeploymentMethodSettingInput interface {
 	pulumi.Input
 
@@ -900,7 +900,7 @@ func (i DeploymentMethodSettingArgs) ToDeploymentMethodSettingOutputWithContext(
 // DeploymentMethodSettingArrayInput is an input type that accepts DeploymentMethodSettingArray and DeploymentMethodSettingArrayOutput values.
 // You can construct a concrete instance of `DeploymentMethodSettingArrayInput` via:
 //
-//          DeploymentMethodSettingArray{ DeploymentMethodSettingArgs{...} }
+//	DeploymentMethodSettingArray{ DeploymentMethodSettingArgs{...} }
 type DeploymentMethodSettingArrayInput interface {
 	pulumi.Input
 
@@ -1050,7 +1050,7 @@ type DeploymentStageDescription struct {
 // DeploymentStageDescriptionInput is an input type that accepts DeploymentStageDescriptionArgs and DeploymentStageDescriptionOutput values.
 // You can construct a concrete instance of `DeploymentStageDescriptionInput` via:
 //
-//          DeploymentStageDescriptionArgs{...}
+//	DeploymentStageDescriptionArgs{...}
 type DeploymentStageDescriptionInput interface {
 	pulumi.Input
 
@@ -1122,11 +1122,11 @@ func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionPtrOutputWit
 // DeploymentStageDescriptionPtrInput is an input type that accepts DeploymentStageDescriptionArgs, DeploymentStageDescriptionPtr and DeploymentStageDescriptionPtrOutput values.
 // You can construct a concrete instance of `DeploymentStageDescriptionPtrInput` via:
 //
-//          DeploymentStageDescriptionArgs{...}
+//	        DeploymentStageDescriptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeploymentStageDescriptionPtrInput interface {
 	pulumi.Input
 
@@ -1495,7 +1495,7 @@ type DeploymentTag struct {
 // DeploymentTagInput is an input type that accepts DeploymentTagArgs and DeploymentTagOutput values.
 // You can construct a concrete instance of `DeploymentTagInput` via:
 //
-//          DeploymentTagArgs{...}
+//	DeploymentTagArgs{...}
 type DeploymentTagInput interface {
 	pulumi.Input
 
@@ -1525,7 +1525,7 @@ func (i DeploymentTagArgs) ToDeploymentTagOutputWithContext(ctx context.Context)
 // DeploymentTagArrayInput is an input type that accepts DeploymentTagArray and DeploymentTagArrayOutput values.
 // You can construct a concrete instance of `DeploymentTagArrayInput` via:
 //
-//          DeploymentTagArray{ DeploymentTagArgs{...} }
+//	DeploymentTagArray{ DeploymentTagArgs{...} }
 type DeploymentTagArrayInput interface {
 	pulumi.Input
 
@@ -1602,7 +1602,7 @@ type DocumentationPartLocation struct {
 // DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
 // You can construct a concrete instance of `DocumentationPartLocationInput` via:
 //
-//          DocumentationPartLocationArgs{...}
+//	DocumentationPartLocationArgs{...}
 type DocumentationPartLocationInput interface {
 	pulumi.Input
 
@@ -1671,7 +1671,7 @@ type DomainNameEndpointConfiguration struct {
 // DomainNameEndpointConfigurationInput is an input type that accepts DomainNameEndpointConfigurationArgs and DomainNameEndpointConfigurationOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationInput` via:
 //
-//          DomainNameEndpointConfigurationArgs{...}
+//	DomainNameEndpointConfigurationArgs{...}
 type DomainNameEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -1706,11 +1706,11 @@ func (i DomainNameEndpointConfigurationArgs) ToDomainNameEndpointConfigurationPt
 // DomainNameEndpointConfigurationPtrInput is an input type that accepts DomainNameEndpointConfigurationArgs, DomainNameEndpointConfigurationPtr and DomainNameEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationPtrInput` via:
 //
-//          DomainNameEndpointConfigurationArgs{...}
+//	        DomainNameEndpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainNameEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1805,7 +1805,7 @@ type DomainNameMutualTlsAuthentication struct {
 // DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	DomainNameMutualTlsAuthenticationArgs{...}
 type DomainNameMutualTlsAuthenticationInput interface {
 	pulumi.Input
 
@@ -1841,11 +1841,11 @@ func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticati
 // DomainNameMutualTlsAuthenticationPtrInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs, DomainNameMutualTlsAuthenticationPtr and DomainNameMutualTlsAuthenticationPtrOutput values.
 // You can construct a concrete instance of `DomainNameMutualTlsAuthenticationPtrInput` via:
 //
-//          DomainNameMutualTlsAuthenticationArgs{...}
+//	        DomainNameMutualTlsAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainNameMutualTlsAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -1953,7 +1953,7 @@ type DomainNameTag struct {
 // DomainNameTagInput is an input type that accepts DomainNameTagArgs and DomainNameTagOutput values.
 // You can construct a concrete instance of `DomainNameTagInput` via:
 //
-//          DomainNameTagArgs{...}
+//	DomainNameTagArgs{...}
 type DomainNameTagInput interface {
 	pulumi.Input
 
@@ -1981,7 +1981,7 @@ func (i DomainNameTagArgs) ToDomainNameTagOutputWithContext(ctx context.Context)
 // DomainNameTagArrayInput is an input type that accepts DomainNameTagArray and DomainNameTagArrayOutput values.
 // You can construct a concrete instance of `DomainNameTagArrayInput` via:
 //
-//          DomainNameTagArray{ DomainNameTagArgs{...} }
+//	DomainNameTagArray{ DomainNameTagArgs{...} }
 type DomainNameTagArrayInput interface {
 	pulumi.Input
 
@@ -2079,7 +2079,7 @@ type MethodIntegration struct {
 // MethodIntegrationInput is an input type that accepts MethodIntegrationArgs and MethodIntegrationOutput values.
 // You can construct a concrete instance of `MethodIntegrationInput` via:
 //
-//          MethodIntegrationArgs{...}
+//	MethodIntegrationArgs{...}
 type MethodIntegrationInput interface {
 	pulumi.Input
 
@@ -2141,11 +2141,11 @@ func (i MethodIntegrationArgs) ToMethodIntegrationPtrOutputWithContext(ctx conte
 // MethodIntegrationPtrInput is an input type that accepts MethodIntegrationArgs, MethodIntegrationPtr and MethodIntegrationPtrOutput values.
 // You can construct a concrete instance of `MethodIntegrationPtrInput` via:
 //
-//          MethodIntegrationArgs{...}
+//	        MethodIntegrationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MethodIntegrationPtrInput interface {
 	pulumi.Input
 
@@ -2445,7 +2445,7 @@ type MethodIntegrationResponse struct {
 // MethodIntegrationResponseInput is an input type that accepts MethodIntegrationResponseArgs and MethodIntegrationResponseOutput values.
 // You can construct a concrete instance of `MethodIntegrationResponseInput` via:
 //
-//          MethodIntegrationResponseArgs{...}
+//	MethodIntegrationResponseArgs{...}
 type MethodIntegrationResponseInput interface {
 	pulumi.Input
 
@@ -2481,7 +2481,7 @@ func (i MethodIntegrationResponseArgs) ToMethodIntegrationResponseOutputWithCont
 // MethodIntegrationResponseArrayInput is an input type that accepts MethodIntegrationResponseArray and MethodIntegrationResponseArrayOutput values.
 // You can construct a concrete instance of `MethodIntegrationResponseArrayInput` via:
 //
-//          MethodIntegrationResponseArray{ MethodIntegrationResponseArgs{...} }
+//	MethodIntegrationResponseArray{ MethodIntegrationResponseArgs{...} }
 type MethodIntegrationResponseArrayInput interface {
 	pulumi.Input
 
@@ -2574,7 +2574,7 @@ type MethodResponse struct {
 // MethodResponseInput is an input type that accepts MethodResponseArgs and MethodResponseOutput values.
 // You can construct a concrete instance of `MethodResponseInput` via:
 //
-//          MethodResponseArgs{...}
+//	MethodResponseArgs{...}
 type MethodResponseInput interface {
 	pulumi.Input
 
@@ -2606,7 +2606,7 @@ func (i MethodResponseArgs) ToMethodResponseOutputWithContext(ctx context.Contex
 // MethodResponseArrayInput is an input type that accepts MethodResponseArray and MethodResponseArrayOutput values.
 // You can construct a concrete instance of `MethodResponseArrayInput` via:
 //
-//          MethodResponseArray{ MethodResponseArgs{...} }
+//	MethodResponseArray{ MethodResponseArgs{...} }
 type MethodResponseArrayInput interface {
 	pulumi.Input
 
@@ -2685,7 +2685,7 @@ type RestApiEndpointConfiguration struct {
 // RestApiEndpointConfigurationInput is an input type that accepts RestApiEndpointConfigurationArgs and RestApiEndpointConfigurationOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationInput` via:
 //
-//          RestApiEndpointConfigurationArgs{...}
+//	RestApiEndpointConfigurationArgs{...}
 type RestApiEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -2721,11 +2721,11 @@ func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutpu
 // RestApiEndpointConfigurationPtrInput is an input type that accepts RestApiEndpointConfigurationArgs, RestApiEndpointConfigurationPtr and RestApiEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationPtrInput` via:
 //
-//          RestApiEndpointConfigurationArgs{...}
+//	        RestApiEndpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RestApiEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2835,7 +2835,7 @@ type RestApiS3Location struct {
 // RestApiS3LocationInput is an input type that accepts RestApiS3LocationArgs and RestApiS3LocationOutput values.
 // You can construct a concrete instance of `RestApiS3LocationInput` via:
 //
-//          RestApiS3LocationArgs{...}
+//	RestApiS3LocationArgs{...}
 type RestApiS3LocationInput interface {
 	pulumi.Input
 
@@ -2873,11 +2873,11 @@ func (i RestApiS3LocationArgs) ToRestApiS3LocationPtrOutputWithContext(ctx conte
 // RestApiS3LocationPtrInput is an input type that accepts RestApiS3LocationArgs, RestApiS3LocationPtr and RestApiS3LocationPtrOutput values.
 // You can construct a concrete instance of `RestApiS3LocationPtrInput` via:
 //
-//          RestApiS3LocationArgs{...}
+//	        RestApiS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RestApiS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -3011,7 +3011,7 @@ type RestApiTag struct {
 // RestApiTagInput is an input type that accepts RestApiTagArgs and RestApiTagOutput values.
 // You can construct a concrete instance of `RestApiTagInput` via:
 //
-//          RestApiTagArgs{...}
+//	RestApiTagArgs{...}
 type RestApiTagInput interface {
 	pulumi.Input
 
@@ -3039,7 +3039,7 @@ func (i RestApiTagArgs) ToRestApiTagOutputWithContext(ctx context.Context) RestA
 // RestApiTagArrayInput is an input type that accepts RestApiTagArray and RestApiTagArrayOutput values.
 // You can construct a concrete instance of `RestApiTagArrayInput` via:
 //
-//          RestApiTagArray{ RestApiTagArgs{...} }
+//	RestApiTagArray{ RestApiTagArgs{...} }
 type RestApiTagArrayInput interface {
 	pulumi.Input
 
@@ -3114,7 +3114,7 @@ type StageAccessLogSetting struct {
 // StageAccessLogSettingInput is an input type that accepts StageAccessLogSettingArgs and StageAccessLogSettingOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingInput` via:
 //
-//          StageAccessLogSettingArgs{...}
+//	StageAccessLogSettingArgs{...}
 type StageAccessLogSettingInput interface {
 	pulumi.Input
 
@@ -3153,11 +3153,11 @@ func (i StageAccessLogSettingArgs) ToStageAccessLogSettingPtrOutputWithContext(c
 // StageAccessLogSettingPtrInput is an input type that accepts StageAccessLogSettingArgs, StageAccessLogSettingPtr and StageAccessLogSettingPtrOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingPtrInput` via:
 //
-//          StageAccessLogSettingArgs{...}
+//	        StageAccessLogSettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageAccessLogSettingPtrInput interface {
 	pulumi.Input
 
@@ -3277,7 +3277,7 @@ type StageCanarySetting struct {
 // StageCanarySettingInput is an input type that accepts StageCanarySettingArgs and StageCanarySettingOutput values.
 // You can construct a concrete instance of `StageCanarySettingInput` via:
 //
-//          StageCanarySettingArgs{...}
+//	StageCanarySettingArgs{...}
 type StageCanarySettingInput interface {
 	pulumi.Input
 
@@ -3320,11 +3320,11 @@ func (i StageCanarySettingArgs) ToStageCanarySettingPtrOutputWithContext(ctx con
 // StageCanarySettingPtrInput is an input type that accepts StageCanarySettingArgs, StageCanarySettingPtr and StageCanarySettingPtrOutput values.
 // You can construct a concrete instance of `StageCanarySettingPtrInput` via:
 //
-//          StageCanarySettingArgs{...}
+//	        StageCanarySettingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StageCanarySettingPtrInput interface {
 	pulumi.Input
 
@@ -3486,7 +3486,7 @@ type StageMethodSetting struct {
 // StageMethodSettingInput is an input type that accepts StageMethodSettingArgs and StageMethodSettingOutput values.
 // You can construct a concrete instance of `StageMethodSettingInput` via:
 //
-//          StageMethodSettingArgs{...}
+//	StageMethodSettingArgs{...}
 type StageMethodSettingInput interface {
 	pulumi.Input
 
@@ -3533,7 +3533,7 @@ func (i StageMethodSettingArgs) ToStageMethodSettingOutputWithContext(ctx contex
 // StageMethodSettingArrayInput is an input type that accepts StageMethodSettingArray and StageMethodSettingArrayOutput values.
 // You can construct a concrete instance of `StageMethodSettingArrayInput` via:
 //
-//          StageMethodSettingArray{ StageMethodSettingArgs{...} }
+//	StageMethodSettingArray{ StageMethodSettingArgs{...} }
 type StageMethodSettingArrayInput interface {
 	pulumi.Input
 
@@ -3651,7 +3651,7 @@ type StageTag struct {
 // StageTagInput is an input type that accepts StageTagArgs and StageTagOutput values.
 // You can construct a concrete instance of `StageTagInput` via:
 //
-//          StageTagArgs{...}
+//	StageTagArgs{...}
 type StageTagInput interface {
 	pulumi.Input
 
@@ -3682,7 +3682,7 @@ func (i StageTagArgs) ToStageTagOutputWithContext(ctx context.Context) StageTagO
 // StageTagArrayInput is an input type that accepts StageTagArray and StageTagArrayOutput values.
 // You can construct a concrete instance of `StageTagArrayInput` via:
 //
-//          StageTagArray{ StageTagArgs{...} }
+//	StageTagArray{ StageTagArgs{...} }
 type StageTagArrayInput interface {
 	pulumi.Input
 
@@ -3761,7 +3761,7 @@ type UsagePlanApiStage struct {
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageInput` via:
 //
-//          UsagePlanApiStageArgs{...}
+//	UsagePlanApiStageArgs{...}
 type UsagePlanApiStageInput interface {
 	pulumi.Input
 
@@ -3793,7 +3793,7 @@ func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutputWithContext(ctx context.
 // UsagePlanApiStageArrayInput is an input type that accepts UsagePlanApiStageArray and UsagePlanApiStageArrayOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageArrayInput` via:
 //
-//          UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
+//	UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
 type UsagePlanApiStageArrayInput interface {
 	pulumi.Input
 
@@ -3876,7 +3876,7 @@ type UsagePlanQuotaSettings struct {
 // UsagePlanQuotaSettingsInput is an input type that accepts UsagePlanQuotaSettingsArgs and UsagePlanQuotaSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsInput` via:
 //
-//          UsagePlanQuotaSettingsArgs{...}
+//	UsagePlanQuotaSettingsArgs{...}
 type UsagePlanQuotaSettingsInput interface {
 	pulumi.Input
 
@@ -3916,11 +3916,11 @@ func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutputWithContext
 // UsagePlanQuotaSettingsPtrInput is an input type that accepts UsagePlanQuotaSettingsArgs, UsagePlanQuotaSettingsPtr and UsagePlanQuotaSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsPtrInput` via:
 //
-//          UsagePlanQuotaSettingsArgs{...}
+//	        UsagePlanQuotaSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UsagePlanQuotaSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4049,7 +4049,7 @@ type UsagePlanTag struct {
 // UsagePlanTagInput is an input type that accepts UsagePlanTagArgs and UsagePlanTagOutput values.
 // You can construct a concrete instance of `UsagePlanTagInput` via:
 //
-//          UsagePlanTagArgs{...}
+//	UsagePlanTagArgs{...}
 type UsagePlanTagInput interface {
 	pulumi.Input
 
@@ -4079,7 +4079,7 @@ func (i UsagePlanTagArgs) ToUsagePlanTagOutputWithContext(ctx context.Context) U
 // UsagePlanTagArrayInput is an input type that accepts UsagePlanTagArray and UsagePlanTagArrayOutput values.
 // You can construct a concrete instance of `UsagePlanTagArrayInput` via:
 //
-//          UsagePlanTagArray{ UsagePlanTagArgs{...} }
+//	UsagePlanTagArray{ UsagePlanTagArgs{...} }
 type UsagePlanTagArrayInput interface {
 	pulumi.Input
 
@@ -4155,7 +4155,7 @@ type UsagePlanThrottleSettings struct {
 // UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsInput` via:
 //
-//          UsagePlanThrottleSettingsArgs{...}
+//	UsagePlanThrottleSettingsArgs{...}
 type UsagePlanThrottleSettingsInput interface {
 	pulumi.Input
 
@@ -4193,11 +4193,11 @@ func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutputWithC
 // UsagePlanThrottleSettingsPtrInput is an input type that accepts UsagePlanThrottleSettingsArgs, UsagePlanThrottleSettingsPtr and UsagePlanThrottleSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsPtrInput` via:
 //
-//          UsagePlanThrottleSettingsArgs{...}
+//	        UsagePlanThrottleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UsagePlanThrottleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4309,7 +4309,7 @@ type VpcLinkTag struct {
 // VpcLinkTagInput is an input type that accepts VpcLinkTagArgs and VpcLinkTagOutput values.
 // You can construct a concrete instance of `VpcLinkTagInput` via:
 //
-//          VpcLinkTagArgs{...}
+//	VpcLinkTagArgs{...}
 type VpcLinkTagInput interface {
 	pulumi.Input
 
@@ -4337,7 +4337,7 @@ func (i VpcLinkTagArgs) ToVpcLinkTagOutputWithContext(ctx context.Context) VpcLi
 // VpcLinkTagArrayInput is an input type that accepts VpcLinkTagArray and VpcLinkTagArrayOutput values.
 // You can construct a concrete instance of `VpcLinkTagArrayInput` via:
 //
-//          VpcLinkTagArray{ VpcLinkTagArgs{...} }
+//	VpcLinkTagArray{ VpcLinkTagArgs{...} }
 type VpcLinkTagArrayInput interface {
 	pulumi.Input
 

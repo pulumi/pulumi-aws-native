@@ -18,7 +18,7 @@ type ApplicationApiGatewayProxyInput struct {
 // ApplicationApiGatewayProxyInputInput is an input type that accepts ApplicationApiGatewayProxyInputArgs and ApplicationApiGatewayProxyInputOutput values.
 // You can construct a concrete instance of `ApplicationApiGatewayProxyInputInput` via:
 //
-//          ApplicationApiGatewayProxyInputArgs{...}
+//	ApplicationApiGatewayProxyInputArgs{...}
 type ApplicationApiGatewayProxyInputInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ApplicationApiGatewayProxyInputArgs) ToApplicationApiGatewayProxyInputPt
 // ApplicationApiGatewayProxyInputPtrInput is an input type that accepts ApplicationApiGatewayProxyInputArgs, ApplicationApiGatewayProxyInputPtr and ApplicationApiGatewayProxyInputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApiGatewayProxyInputPtrInput` via:
 //
-//          ApplicationApiGatewayProxyInputArgs{...}
+//	        ApplicationApiGatewayProxyInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApiGatewayProxyInputPtrInput interface {
 	pulumi.Input
 
@@ -169,7 +169,7 @@ type ApplicationTag struct {
 // ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
 // You can construct a concrete instance of `ApplicationTagInput` via:
 //
-//          ApplicationTagArgs{...}
+//	ApplicationTagArgs{...}
 type ApplicationTagInput interface {
 	pulumi.Input
 
@@ -200,7 +200,7 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
-//          ApplicationTagArray{ ApplicationTagArgs{...} }
+//	ApplicationTagArray{ ApplicationTagArgs{...} }
 type ApplicationTagArrayInput interface {
 	pulumi.Input
 
@@ -278,7 +278,7 @@ type EnvironmentTag struct {
 // EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
 // You can construct a concrete instance of `EnvironmentTagInput` via:
 //
-//          EnvironmentTagArgs{...}
+//	EnvironmentTagArgs{...}
 type EnvironmentTagInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
-//          EnvironmentTagArray{ EnvironmentTagArgs{...} }
+//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
 type EnvironmentTagArrayInput interface {
 	pulumi.Input
 
@@ -387,7 +387,7 @@ type RouteTag struct {
 // RouteTagInput is an input type that accepts RouteTagArgs and RouteTagOutput values.
 // You can construct a concrete instance of `RouteTagInput` via:
 //
-//          RouteTagArgs{...}
+//	RouteTagArgs{...}
 type RouteTagInput interface {
 	pulumi.Input
 
@@ -418,7 +418,7 @@ func (i RouteTagArgs) ToRouteTagOutputWithContext(ctx context.Context) RouteTagO
 // RouteTagArrayInput is an input type that accepts RouteTagArray and RouteTagArrayOutput values.
 // You can construct a concrete instance of `RouteTagArrayInput` via:
 //
-//          RouteTagArray{ RouteTagArgs{...} }
+//	RouteTagArray{ RouteTagArgs{...} }
 type RouteTagArrayInput interface {
 	pulumi.Input
 
@@ -495,7 +495,7 @@ type RouteUriPathRouteInput struct {
 // RouteUriPathRouteInputInput is an input type that accepts RouteUriPathRouteInputArgs and RouteUriPathRouteInputOutput values.
 // You can construct a concrete instance of `RouteUriPathRouteInputInput` via:
 //
-//          RouteUriPathRouteInputArgs{...}
+//	RouteUriPathRouteInputArgs{...}
 type RouteUriPathRouteInputInput interface {
 	pulumi.Input
 
@@ -533,11 +533,11 @@ func (i RouteUriPathRouteInputArgs) ToRouteUriPathRouteInputPtrOutputWithContext
 // RouteUriPathRouteInputPtrInput is an input type that accepts RouteUriPathRouteInputArgs, RouteUriPathRouteInputPtr and RouteUriPathRouteInputPtrOutput values.
 // You can construct a concrete instance of `RouteUriPathRouteInputPtrInput` via:
 //
-//          RouteUriPathRouteInputArgs{...}
+//	        RouteUriPathRouteInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RouteUriPathRouteInputPtrInput interface {
 	pulumi.Input
 
@@ -670,7 +670,7 @@ type ServiceLambdaEndpointInput struct {
 // ServiceLambdaEndpointInputInput is an input type that accepts ServiceLambdaEndpointInputArgs and ServiceLambdaEndpointInputOutput values.
 // You can construct a concrete instance of `ServiceLambdaEndpointInputInput` via:
 //
-//          ServiceLambdaEndpointInputArgs{...}
+//	ServiceLambdaEndpointInputArgs{...}
 type ServiceLambdaEndpointInputInput interface {
 	pulumi.Input
 
@@ -705,11 +705,11 @@ func (i ServiceLambdaEndpointInputArgs) ToServiceLambdaEndpointInputPtrOutputWit
 // ServiceLambdaEndpointInputPtrInput is an input type that accepts ServiceLambdaEndpointInputArgs, ServiceLambdaEndpointInputPtr and ServiceLambdaEndpointInputPtrOutput values.
 // You can construct a concrete instance of `ServiceLambdaEndpointInputPtrInput` via:
 //
-//          ServiceLambdaEndpointInputArgs{...}
+//	        ServiceLambdaEndpointInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceLambdaEndpointInputPtrInput interface {
 	pulumi.Input
 
@@ -807,7 +807,7 @@ type ServiceTag struct {
 // ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
 // You can construct a concrete instance of `ServiceTagInput` via:
 //
-//          ServiceTagArgs{...}
+//	ServiceTagArgs{...}
 type ServiceTagInput interface {
 	pulumi.Input
 
@@ -838,7 +838,7 @@ func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) Servi
 // ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTagArrayInput` via:
 //
-//          ServiceTagArray{ ServiceTagArgs{...} }
+//	ServiceTagArray{ ServiceTagArgs{...} }
 type ServiceTagArrayInput interface {
 	pulumi.Input
 
@@ -913,7 +913,7 @@ type ServiceUrlEndpointInput struct {
 // ServiceUrlEndpointInputInput is an input type that accepts ServiceUrlEndpointInputArgs and ServiceUrlEndpointInputOutput values.
 // You can construct a concrete instance of `ServiceUrlEndpointInputInput` via:
 //
-//          ServiceUrlEndpointInputArgs{...}
+//	ServiceUrlEndpointInputArgs{...}
 type ServiceUrlEndpointInputInput interface {
 	pulumi.Input
 
@@ -949,11 +949,11 @@ func (i ServiceUrlEndpointInputArgs) ToServiceUrlEndpointInputPtrOutputWithConte
 // ServiceUrlEndpointInputPtrInput is an input type that accepts ServiceUrlEndpointInputArgs, ServiceUrlEndpointInputPtr and ServiceUrlEndpointInputPtrOutput values.
 // You can construct a concrete instance of `ServiceUrlEndpointInputPtrInput` via:
 //
-//          ServiceUrlEndpointInputArgs{...}
+//	        ServiceUrlEndpointInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceUrlEndpointInputPtrInput interface {
 	pulumi.Input
 

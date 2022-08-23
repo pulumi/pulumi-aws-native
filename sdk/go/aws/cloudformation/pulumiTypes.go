@@ -20,7 +20,7 @@ type HookVersionLoggingConfig struct {
 // HookVersionLoggingConfigInput is an input type that accepts HookVersionLoggingConfigArgs and HookVersionLoggingConfigOutput values.
 // You can construct a concrete instance of `HookVersionLoggingConfigInput` via:
 //
-//          HookVersionLoggingConfigArgs{...}
+//	HookVersionLoggingConfigArgs{...}
 type HookVersionLoggingConfigInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigPtrOutputWithCon
 // HookVersionLoggingConfigPtrInput is an input type that accepts HookVersionLoggingConfigArgs, HookVersionLoggingConfigPtr and HookVersionLoggingConfigPtrOutput values.
 // You can construct a concrete instance of `HookVersionLoggingConfigPtrInput` via:
 //
-//          HookVersionLoggingConfigArgs{...}
+//	        HookVersionLoggingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HookVersionLoggingConfigPtrInput interface {
 	pulumi.Input
 
@@ -174,7 +174,7 @@ type ManagedExecutionProperties struct {
 // ManagedExecutionPropertiesInput is an input type that accepts ManagedExecutionPropertiesArgs and ManagedExecutionPropertiesOutput values.
 // You can construct a concrete instance of `ManagedExecutionPropertiesInput` via:
 //
-//          ManagedExecutionPropertiesArgs{...}
+//	ManagedExecutionPropertiesArgs{...}
 type ManagedExecutionPropertiesInput interface {
 	pulumi.Input
 
@@ -210,11 +210,11 @@ func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesPtrOutputWit
 // ManagedExecutionPropertiesPtrInput is an input type that accepts ManagedExecutionPropertiesArgs, ManagedExecutionPropertiesPtr and ManagedExecutionPropertiesPtrOutput values.
 // You can construct a concrete instance of `ManagedExecutionPropertiesPtrInput` via:
 //
-//          ManagedExecutionPropertiesArgs{...}
+//	        ManagedExecutionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedExecutionPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ type ResourceVersionLoggingConfig struct {
 // ResourceVersionLoggingConfigInput is an input type that accepts ResourceVersionLoggingConfigArgs and ResourceVersionLoggingConfigOutput values.
 // You can construct a concrete instance of `ResourceVersionLoggingConfigInput` via:
 //
-//          ResourceVersionLoggingConfigArgs{...}
+//	ResourceVersionLoggingConfigArgs{...}
 type ResourceVersionLoggingConfigInput interface {
 	pulumi.Input
 
@@ -350,11 +350,11 @@ func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigPtrOutpu
 // ResourceVersionLoggingConfigPtrInput is an input type that accepts ResourceVersionLoggingConfigArgs, ResourceVersionLoggingConfigPtr and ResourceVersionLoggingConfigPtrOutput values.
 // You can construct a concrete instance of `ResourceVersionLoggingConfigPtrInput` via:
 //
-//          ResourceVersionLoggingConfigArgs{...}
+//	        ResourceVersionLoggingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceVersionLoggingConfigPtrInput interface {
 	pulumi.Input
 
@@ -468,7 +468,7 @@ type StackSetAutoDeployment struct {
 // StackSetAutoDeploymentInput is an input type that accepts StackSetAutoDeploymentArgs and StackSetAutoDeploymentOutput values.
 // You can construct a concrete instance of `StackSetAutoDeploymentInput` via:
 //
-//          StackSetAutoDeploymentArgs{...}
+//	StackSetAutoDeploymentArgs{...}
 type StackSetAutoDeploymentInput interface {
 	pulumi.Input
 
@@ -506,11 +506,11 @@ func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutputWithContext
 // StackSetAutoDeploymentPtrInput is an input type that accepts StackSetAutoDeploymentArgs, StackSetAutoDeploymentPtr and StackSetAutoDeploymentPtrOutput values.
 // You can construct a concrete instance of `StackSetAutoDeploymentPtrInput` via:
 //
-//          StackSetAutoDeploymentArgs{...}
+//	        StackSetAutoDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetAutoDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -614,7 +614,7 @@ func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargets struct {
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts []string `pulumi:"accounts"`
@@ -625,7 +625,7 @@ type StackSetDeploymentTargets struct {
 // StackSetDeploymentTargetsInput is an input type that accepts StackSetDeploymentTargetsArgs and StackSetDeploymentTargetsOutput values.
 // You can construct a concrete instance of `StackSetDeploymentTargetsInput` via:
 //
-//          StackSetDeploymentTargetsArgs{...}
+//	StackSetDeploymentTargetsArgs{...}
 type StackSetDeploymentTargetsInput interface {
 	pulumi.Input
 
@@ -633,7 +633,7 @@ type StackSetDeploymentTargetsInput interface {
 	ToStackSetDeploymentTargetsOutputWithContext(context.Context) StackSetDeploymentTargetsOutput
 }
 
-//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsArgs struct {
 	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
@@ -653,7 +653,7 @@ func (i StackSetDeploymentTargetsArgs) ToStackSetDeploymentTargetsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetDeploymentTargetsOutput)
 }
 
-//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsOutput struct{ *pulumi.OutputState }
 
 func (StackSetDeploymentTargetsOutput) ElementType() reflect.Type {
@@ -691,7 +691,7 @@ type StackSetOperationPreferences struct {
 // StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
 // You can construct a concrete instance of `StackSetOperationPreferencesInput` via:
 //
-//          StackSetOperationPreferencesArgs{...}
+//	StackSetOperationPreferencesArgs{...}
 type StackSetOperationPreferencesInput interface {
 	pulumi.Input
 
@@ -732,11 +732,11 @@ func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutpu
 // StackSetOperationPreferencesPtrInput is an input type that accepts StackSetOperationPreferencesArgs, StackSetOperationPreferencesPtr and StackSetOperationPreferencesPtrOutput values.
 // You can construct a concrete instance of `StackSetOperationPreferencesPtrInput` via:
 //
-//          StackSetOperationPreferencesArgs{...}
+//	        StackSetOperationPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetOperationPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -899,7 +899,7 @@ type StackSetParameter struct {
 // StackSetParameterInput is an input type that accepts StackSetParameterArgs and StackSetParameterOutput values.
 // You can construct a concrete instance of `StackSetParameterInput` via:
 //
-//          StackSetParameterArgs{...}
+//	StackSetParameterArgs{...}
 type StackSetParameterInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ func (i StackSetParameterArgs) ToStackSetParameterOutputWithContext(ctx context.
 // StackSetParameterArrayInput is an input type that accepts StackSetParameterArray and StackSetParameterArrayOutput values.
 // You can construct a concrete instance of `StackSetParameterArrayInput` via:
 //
-//          StackSetParameterArray{ StackSetParameterArgs{...} }
+//	StackSetParameterArray{ StackSetParameterArgs{...} }
 type StackSetParameterArrayInput interface {
 	pulumi.Input
 
@@ -1007,7 +1007,7 @@ type StackSetStackInstances struct {
 // StackSetStackInstancesInput is an input type that accepts StackSetStackInstancesArgs and StackSetStackInstancesOutput values.
 // You can construct a concrete instance of `StackSetStackInstancesInput` via:
 //
-//          StackSetStackInstancesArgs{...}
+//	StackSetStackInstancesArgs{...}
 type StackSetStackInstancesInput interface {
 	pulumi.Input
 
@@ -1039,7 +1039,7 @@ func (i StackSetStackInstancesArgs) ToStackSetStackInstancesOutputWithContext(ct
 // StackSetStackInstancesArrayInput is an input type that accepts StackSetStackInstancesArray and StackSetStackInstancesArrayOutput values.
 // You can construct a concrete instance of `StackSetStackInstancesArrayInput` via:
 //
-//          StackSetStackInstancesArray{ StackSetStackInstancesArgs{...} }
+//	StackSetStackInstancesArray{ StackSetStackInstancesArgs{...} }
 type StackSetStackInstancesArrayInput interface {
 	pulumi.Input
 
@@ -1121,7 +1121,7 @@ type StackSetTag struct {
 // StackSetTagInput is an input type that accepts StackSetTagArgs and StackSetTagOutput values.
 // You can construct a concrete instance of `StackSetTagInput` via:
 //
-//          StackSetTagArgs{...}
+//	StackSetTagArgs{...}
 type StackSetTagInput interface {
 	pulumi.Input
 
@@ -1152,7 +1152,7 @@ func (i StackSetTagArgs) ToStackSetTagOutputWithContext(ctx context.Context) Sta
 // StackSetTagArrayInput is an input type that accepts StackSetTagArray and StackSetTagArrayOutput values.
 // You can construct a concrete instance of `StackSetTagArrayInput` via:
 //
-//          StackSetTagArray{ StackSetTagArgs{...} }
+//	StackSetTagArray{ StackSetTagArgs{...} }
 type StackSetTagArrayInput interface {
 	pulumi.Input
 
@@ -1227,7 +1227,7 @@ type StackTag struct {
 // StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
 // You can construct a concrete instance of `StackTagInput` via:
 //
-//          StackTagArgs{...}
+//	StackTagArgs{...}
 type StackTagInput interface {
 	pulumi.Input
 
@@ -1255,7 +1255,7 @@ func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagO
 // StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
 // You can construct a concrete instance of `StackTagArrayInput` via:
 //
-//          StackTagArray{ StackTagArgs{...} }
+//	StackTagArray{ StackTagArgs{...} }
 type StackTagArrayInput interface {
 	pulumi.Input
 
@@ -1329,7 +1329,7 @@ type TypeActivationLoggingConfig struct {
 // TypeActivationLoggingConfigInput is an input type that accepts TypeActivationLoggingConfigArgs and TypeActivationLoggingConfigOutput values.
 // You can construct a concrete instance of `TypeActivationLoggingConfigInput` via:
 //
-//          TypeActivationLoggingConfigArgs{...}
+//	TypeActivationLoggingConfigArgs{...}
 type TypeActivationLoggingConfigInput interface {
 	pulumi.Input
 
@@ -1367,11 +1367,11 @@ func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigPtrOutputW
 // TypeActivationLoggingConfigPtrInput is an input type that accepts TypeActivationLoggingConfigArgs, TypeActivationLoggingConfigPtr and TypeActivationLoggingConfigPtrOutput values.
 // You can construct a concrete instance of `TypeActivationLoggingConfigPtrInput` via:
 //
-//          TypeActivationLoggingConfigArgs{...}
+//	        TypeActivationLoggingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TypeActivationLoggingConfigPtrInput interface {
 	pulumi.Input
 

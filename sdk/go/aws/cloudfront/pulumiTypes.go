@@ -22,7 +22,7 @@ type CachePolicyConfig struct {
 // CachePolicyConfigInput is an input type that accepts CachePolicyConfigArgs and CachePolicyConfigOutput values.
 // You can construct a concrete instance of `CachePolicyConfigInput` via:
 //
-//          CachePolicyConfigArgs{...}
+//	CachePolicyConfigArgs{...}
 type CachePolicyConfigInput interface {
 	pulumi.Input
 
@@ -177,7 +177,7 @@ type CachePolicyCookiesConfig struct {
 // CachePolicyCookiesConfigInput is an input type that accepts CachePolicyCookiesConfigArgs and CachePolicyCookiesConfigOutput values.
 // You can construct a concrete instance of `CachePolicyCookiesConfigInput` via:
 //
-//          CachePolicyCookiesConfigArgs{...}
+//	CachePolicyCookiesConfigArgs{...}
 type CachePolicyCookiesConfigInput interface {
 	pulumi.Input
 
@@ -274,7 +274,7 @@ type CachePolicyHeadersConfig struct {
 // CachePolicyHeadersConfigInput is an input type that accepts CachePolicyHeadersConfigArgs and CachePolicyHeadersConfigOutput values.
 // You can construct a concrete instance of `CachePolicyHeadersConfigInput` via:
 //
-//          CachePolicyHeadersConfigArgs{...}
+//	CachePolicyHeadersConfigArgs{...}
 type CachePolicyHeadersConfigInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
 // CachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
 // You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginInput` via:
 //
-//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
+//	CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
 type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ type CachePolicyQueryStringsConfig struct {
 // CachePolicyQueryStringsConfigInput is an input type that accepts CachePolicyQueryStringsConfigArgs and CachePolicyQueryStringsConfigOutput values.
 // You can construct a concrete instance of `CachePolicyQueryStringsConfigInput` via:
 //
-//          CachePolicyQueryStringsConfigArgs{...}
+//	CachePolicyQueryStringsConfigArgs{...}
 type CachePolicyQueryStringsConfigInput interface {
 	pulumi.Input
 
@@ -615,7 +615,7 @@ type CloudFrontOriginAccessIdentityConfig struct {
 // CloudFrontOriginAccessIdentityConfigInput is an input type that accepts CloudFrontOriginAccessIdentityConfigArgs and CloudFrontOriginAccessIdentityConfigOutput values.
 // You can construct a concrete instance of `CloudFrontOriginAccessIdentityConfigInput` via:
 //
-//          CloudFrontOriginAccessIdentityConfigArgs{...}
+//	CloudFrontOriginAccessIdentityConfigArgs{...}
 type CloudFrontOriginAccessIdentityConfigInput interface {
 	pulumi.Input
 
@@ -716,7 +716,7 @@ type DistributionCacheBehavior struct {
 // DistributionCacheBehaviorInput is an input type that accepts DistributionCacheBehaviorArgs and DistributionCacheBehaviorOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorInput` via:
 //
-//          DistributionCacheBehaviorArgs{...}
+//	DistributionCacheBehaviorArgs{...}
 type DistributionCacheBehaviorInput interface {
 	pulumi.Input
 
@@ -762,7 +762,7 @@ func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutputWithCont
 // DistributionCacheBehaviorArrayInput is an input type that accepts DistributionCacheBehaviorArray and DistributionCacheBehaviorArrayOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorArrayInput` via:
 //
-//          DistributionCacheBehaviorArray{ DistributionCacheBehaviorArgs{...} }
+//	DistributionCacheBehaviorArray{ DistributionCacheBehaviorArgs{...} }
 type DistributionCacheBehaviorArrayInput interface {
 	pulumi.Input
 
@@ -925,7 +925,7 @@ type DistributionConfig struct {
 // DistributionConfigInput is an input type that accepts DistributionConfigArgs and DistributionConfigOutput values.
 // You can construct a concrete instance of `DistributionConfigInput` via:
 //
-//          DistributionConfigArgs{...}
+//	DistributionConfigArgs{...}
 type DistributionConfigInput interface {
 	pulumi.Input
 
@@ -1260,7 +1260,7 @@ type DistributionCookies struct {
 // DistributionCookiesInput is an input type that accepts DistributionCookiesArgs and DistributionCookiesOutput values.
 // You can construct a concrete instance of `DistributionCookiesInput` via:
 //
-//          DistributionCookiesArgs{...}
+//	DistributionCookiesArgs{...}
 type DistributionCookiesInput interface {
 	pulumi.Input
 
@@ -1296,11 +1296,11 @@ func (i DistributionCookiesArgs) ToDistributionCookiesPtrOutputWithContext(ctx c
 // DistributionCookiesPtrInput is an input type that accepts DistributionCookiesArgs, DistributionCookiesPtr and DistributionCookiesPtrOutput values.
 // You can construct a concrete instance of `DistributionCookiesPtrInput` via:
 //
-//          DistributionCookiesArgs{...}
+//	        DistributionCookiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionCookiesPtrInput interface {
 	pulumi.Input
 
@@ -1410,7 +1410,7 @@ type DistributionCustomErrorResponse struct {
 // DistributionCustomErrorResponseInput is an input type that accepts DistributionCustomErrorResponseArgs and DistributionCustomErrorResponseOutput values.
 // You can construct a concrete instance of `DistributionCustomErrorResponseInput` via:
 //
-//          DistributionCustomErrorResponseArgs{...}
+//	DistributionCustomErrorResponseArgs{...}
 type DistributionCustomErrorResponseInput interface {
 	pulumi.Input
 
@@ -1440,7 +1440,7 @@ func (i DistributionCustomErrorResponseArgs) ToDistributionCustomErrorResponseOu
 // DistributionCustomErrorResponseArrayInput is an input type that accepts DistributionCustomErrorResponseArray and DistributionCustomErrorResponseArrayOutput values.
 // You can construct a concrete instance of `DistributionCustomErrorResponseArrayInput` via:
 //
-//          DistributionCustomErrorResponseArray{ DistributionCustomErrorResponseArgs{...} }
+//	DistributionCustomErrorResponseArray{ DistributionCustomErrorResponseArgs{...} }
 type DistributionCustomErrorResponseArrayInput interface {
 	pulumi.Input
 
@@ -1524,7 +1524,7 @@ type DistributionCustomOriginConfig struct {
 // DistributionCustomOriginConfigInput is an input type that accepts DistributionCustomOriginConfigArgs and DistributionCustomOriginConfigOutput values.
 // You can construct a concrete instance of `DistributionCustomOriginConfigInput` via:
 //
-//          DistributionCustomOriginConfigArgs{...}
+//	DistributionCustomOriginConfigArgs{...}
 type DistributionCustomOriginConfigInput interface {
 	pulumi.Input
 
@@ -1564,11 +1564,11 @@ func (i DistributionCustomOriginConfigArgs) ToDistributionCustomOriginConfigPtrO
 // DistributionCustomOriginConfigPtrInput is an input type that accepts DistributionCustomOriginConfigArgs, DistributionCustomOriginConfigPtr and DistributionCustomOriginConfigPtrOutput values.
 // You can construct a concrete instance of `DistributionCustomOriginConfigPtrInput` via:
 //
-//          DistributionCustomOriginConfigArgs{...}
+//	        DistributionCustomOriginConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionCustomOriginConfigPtrInput interface {
 	pulumi.Input
 
@@ -1745,7 +1745,7 @@ type DistributionDefaultCacheBehavior struct {
 // DistributionDefaultCacheBehaviorInput is an input type that accepts DistributionDefaultCacheBehaviorArgs and DistributionDefaultCacheBehaviorOutput values.
 // You can construct a concrete instance of `DistributionDefaultCacheBehaviorInput` via:
 //
-//          DistributionDefaultCacheBehaviorArgs{...}
+//	DistributionDefaultCacheBehaviorArgs{...}
 type DistributionDefaultCacheBehaviorInput interface {
 	pulumi.Input
 
@@ -1798,11 +1798,11 @@ func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehavior
 // DistributionDefaultCacheBehaviorPtrInput is an input type that accepts DistributionDefaultCacheBehaviorArgs, DistributionDefaultCacheBehaviorPtr and DistributionDefaultCacheBehaviorPtrOutput values.
 // You can construct a concrete instance of `DistributionDefaultCacheBehaviorPtrInput` via:
 //
-//          DistributionDefaultCacheBehaviorArgs{...}
+//	        DistributionDefaultCacheBehaviorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionDefaultCacheBehaviorPtrInput interface {
 	pulumi.Input
 
@@ -2137,7 +2137,7 @@ type DistributionForwardedValues struct {
 // DistributionForwardedValuesInput is an input type that accepts DistributionForwardedValuesArgs and DistributionForwardedValuesOutput values.
 // You can construct a concrete instance of `DistributionForwardedValuesInput` via:
 //
-//          DistributionForwardedValuesArgs{...}
+//	DistributionForwardedValuesArgs{...}
 type DistributionForwardedValuesInput interface {
 	pulumi.Input
 
@@ -2175,11 +2175,11 @@ func (i DistributionForwardedValuesArgs) ToDistributionForwardedValuesPtrOutputW
 // DistributionForwardedValuesPtrInput is an input type that accepts DistributionForwardedValuesArgs, DistributionForwardedValuesPtr and DistributionForwardedValuesPtrOutput values.
 // You can construct a concrete instance of `DistributionForwardedValuesPtrInput` via:
 //
-//          DistributionForwardedValuesArgs{...}
+//	        DistributionForwardedValuesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionForwardedValuesPtrInput interface {
 	pulumi.Input
 
@@ -2313,7 +2313,7 @@ type DistributionFunctionAssociation struct {
 // DistributionFunctionAssociationInput is an input type that accepts DistributionFunctionAssociationArgs and DistributionFunctionAssociationOutput values.
 // You can construct a concrete instance of `DistributionFunctionAssociationInput` via:
 //
-//          DistributionFunctionAssociationArgs{...}
+//	DistributionFunctionAssociationArgs{...}
 type DistributionFunctionAssociationInput interface {
 	pulumi.Input
 
@@ -2341,7 +2341,7 @@ func (i DistributionFunctionAssociationArgs) ToDistributionFunctionAssociationOu
 // DistributionFunctionAssociationArrayInput is an input type that accepts DistributionFunctionAssociationArray and DistributionFunctionAssociationArrayOutput values.
 // You can construct a concrete instance of `DistributionFunctionAssociationArrayInput` via:
 //
-//          DistributionFunctionAssociationArray{ DistributionFunctionAssociationArgs{...} }
+//	DistributionFunctionAssociationArray{ DistributionFunctionAssociationArgs{...} }
 type DistributionFunctionAssociationArrayInput interface {
 	pulumi.Input
 
@@ -2413,7 +2413,7 @@ type DistributionGeoRestriction struct {
 // DistributionGeoRestrictionInput is an input type that accepts DistributionGeoRestrictionArgs and DistributionGeoRestrictionOutput values.
 // You can construct a concrete instance of `DistributionGeoRestrictionInput` via:
 //
-//          DistributionGeoRestrictionArgs{...}
+//	DistributionGeoRestrictionArgs{...}
 type DistributionGeoRestrictionInput interface {
 	pulumi.Input
 
@@ -2449,11 +2449,11 @@ func (i DistributionGeoRestrictionArgs) ToDistributionGeoRestrictionPtrOutputWit
 // DistributionGeoRestrictionPtrInput is an input type that accepts DistributionGeoRestrictionArgs, DistributionGeoRestrictionPtr and DistributionGeoRestrictionPtrOutput values.
 // You can construct a concrete instance of `DistributionGeoRestrictionPtrInput` via:
 //
-//          DistributionGeoRestrictionArgs{...}
+//	        DistributionGeoRestrictionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionGeoRestrictionPtrInput interface {
 	pulumi.Input
 
@@ -2562,7 +2562,7 @@ type DistributionLambdaFunctionAssociation struct {
 // DistributionLambdaFunctionAssociationInput is an input type that accepts DistributionLambdaFunctionAssociationArgs and DistributionLambdaFunctionAssociationOutput values.
 // You can construct a concrete instance of `DistributionLambdaFunctionAssociationInput` via:
 //
-//          DistributionLambdaFunctionAssociationArgs{...}
+//	DistributionLambdaFunctionAssociationArgs{...}
 type DistributionLambdaFunctionAssociationInput interface {
 	pulumi.Input
 
@@ -2591,7 +2591,7 @@ func (i DistributionLambdaFunctionAssociationArgs) ToDistributionLambdaFunctionA
 // DistributionLambdaFunctionAssociationArrayInput is an input type that accepts DistributionLambdaFunctionAssociationArray and DistributionLambdaFunctionAssociationArrayOutput values.
 // You can construct a concrete instance of `DistributionLambdaFunctionAssociationArrayInput` via:
 //
-//          DistributionLambdaFunctionAssociationArray{ DistributionLambdaFunctionAssociationArgs{...} }
+//	DistributionLambdaFunctionAssociationArray{ DistributionLambdaFunctionAssociationArgs{...} }
 type DistributionLambdaFunctionAssociationArrayInput interface {
 	pulumi.Input
 
@@ -2670,7 +2670,7 @@ type DistributionLegacyCustomOrigin struct {
 // DistributionLegacyCustomOriginInput is an input type that accepts DistributionLegacyCustomOriginArgs and DistributionLegacyCustomOriginOutput values.
 // You can construct a concrete instance of `DistributionLegacyCustomOriginInput` via:
 //
-//          DistributionLegacyCustomOriginArgs{...}
+//	DistributionLegacyCustomOriginArgs{...}
 type DistributionLegacyCustomOriginInput interface {
 	pulumi.Input
 
@@ -2709,11 +2709,11 @@ func (i DistributionLegacyCustomOriginArgs) ToDistributionLegacyCustomOriginPtrO
 // DistributionLegacyCustomOriginPtrInput is an input type that accepts DistributionLegacyCustomOriginArgs, DistributionLegacyCustomOriginPtr and DistributionLegacyCustomOriginPtrOutput values.
 // You can construct a concrete instance of `DistributionLegacyCustomOriginPtrInput` via:
 //
-//          DistributionLegacyCustomOriginArgs{...}
+//	        DistributionLegacyCustomOriginArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionLegacyCustomOriginPtrInput interface {
 	pulumi.Input
 
@@ -2860,7 +2860,7 @@ type DistributionLegacyS3Origin struct {
 // DistributionLegacyS3OriginInput is an input type that accepts DistributionLegacyS3OriginArgs and DistributionLegacyS3OriginOutput values.
 // You can construct a concrete instance of `DistributionLegacyS3OriginInput` via:
 //
-//          DistributionLegacyS3OriginArgs{...}
+//	DistributionLegacyS3OriginArgs{...}
 type DistributionLegacyS3OriginInput interface {
 	pulumi.Input
 
@@ -2896,11 +2896,11 @@ func (i DistributionLegacyS3OriginArgs) ToDistributionLegacyS3OriginPtrOutputWit
 // DistributionLegacyS3OriginPtrInput is an input type that accepts DistributionLegacyS3OriginArgs, DistributionLegacyS3OriginPtr and DistributionLegacyS3OriginPtrOutput values.
 // You can construct a concrete instance of `DistributionLegacyS3OriginPtrInput` via:
 //
-//          DistributionLegacyS3OriginArgs{...}
+//	        DistributionLegacyS3OriginArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionLegacyS3OriginPtrInput interface {
 	pulumi.Input
 
@@ -3009,7 +3009,7 @@ type DistributionLogging struct {
 // DistributionLoggingInput is an input type that accepts DistributionLoggingArgs and DistributionLoggingOutput values.
 // You can construct a concrete instance of `DistributionLoggingInput` via:
 //
-//          DistributionLoggingArgs{...}
+//	DistributionLoggingArgs{...}
 type DistributionLoggingInput interface {
 	pulumi.Input
 
@@ -3046,11 +3046,11 @@ func (i DistributionLoggingArgs) ToDistributionLoggingPtrOutputWithContext(ctx c
 // DistributionLoggingPtrInput is an input type that accepts DistributionLoggingArgs, DistributionLoggingPtr and DistributionLoggingPtrOutput values.
 // You can construct a concrete instance of `DistributionLoggingPtrInput` via:
 //
-//          DistributionLoggingArgs{...}
+//	        DistributionLoggingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionLoggingPtrInput interface {
 	pulumi.Input
 
@@ -3178,7 +3178,7 @@ type DistributionOrigin struct {
 // DistributionOriginInput is an input type that accepts DistributionOriginArgs and DistributionOriginOutput values.
 // You can construct a concrete instance of `DistributionOriginInput` via:
 //
-//          DistributionOriginArgs{...}
+//	DistributionOriginArgs{...}
 type DistributionOriginInput interface {
 	pulumi.Input
 
@@ -3213,7 +3213,7 @@ func (i DistributionOriginArgs) ToDistributionOriginOutputWithContext(ctx contex
 // DistributionOriginArrayInput is an input type that accepts DistributionOriginArray and DistributionOriginArrayOutput values.
 // You can construct a concrete instance of `DistributionOriginArrayInput` via:
 //
-//          DistributionOriginArray{ DistributionOriginArgs{...} }
+//	DistributionOriginArray{ DistributionOriginArgs{...} }
 type DistributionOriginArrayInput interface {
 	pulumi.Input
 
@@ -3313,7 +3313,7 @@ type DistributionOriginCustomHeader struct {
 // DistributionOriginCustomHeaderInput is an input type that accepts DistributionOriginCustomHeaderArgs and DistributionOriginCustomHeaderOutput values.
 // You can construct a concrete instance of `DistributionOriginCustomHeaderInput` via:
 //
-//          DistributionOriginCustomHeaderArgs{...}
+//	DistributionOriginCustomHeaderArgs{...}
 type DistributionOriginCustomHeaderInput interface {
 	pulumi.Input
 
@@ -3341,7 +3341,7 @@ func (i DistributionOriginCustomHeaderArgs) ToDistributionOriginCustomHeaderOutp
 // DistributionOriginCustomHeaderArrayInput is an input type that accepts DistributionOriginCustomHeaderArray and DistributionOriginCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `DistributionOriginCustomHeaderArrayInput` via:
 //
-//          DistributionOriginCustomHeaderArray{ DistributionOriginCustomHeaderArgs{...} }
+//	DistributionOriginCustomHeaderArray{ DistributionOriginCustomHeaderArgs{...} }
 type DistributionOriginCustomHeaderArrayInput interface {
 	pulumi.Input
 
@@ -3414,7 +3414,7 @@ type DistributionOriginGroup struct {
 // DistributionOriginGroupInput is an input type that accepts DistributionOriginGroupArgs and DistributionOriginGroupOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupInput` via:
 //
-//          DistributionOriginGroupArgs{...}
+//	DistributionOriginGroupArgs{...}
 type DistributionOriginGroupInput interface {
 	pulumi.Input
 
@@ -3443,7 +3443,7 @@ func (i DistributionOriginGroupArgs) ToDistributionOriginGroupOutputWithContext(
 // DistributionOriginGroupArrayInput is an input type that accepts DistributionOriginGroupArray and DistributionOriginGroupArrayOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupArrayInput` via:
 //
-//          DistributionOriginGroupArray{ DistributionOriginGroupArgs{...} }
+//	DistributionOriginGroupArray{ DistributionOriginGroupArgs{...} }
 type DistributionOriginGroupArrayInput interface {
 	pulumi.Input
 
@@ -3518,7 +3518,7 @@ type DistributionOriginGroupFailoverCriteria struct {
 // DistributionOriginGroupFailoverCriteriaInput is an input type that accepts DistributionOriginGroupFailoverCriteriaArgs and DistributionOriginGroupFailoverCriteriaOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupFailoverCriteriaInput` via:
 //
-//          DistributionOriginGroupFailoverCriteriaArgs{...}
+//	DistributionOriginGroupFailoverCriteriaArgs{...}
 type DistributionOriginGroupFailoverCriteriaInput interface {
 	pulumi.Input
 
@@ -3567,7 +3567,7 @@ type DistributionOriginGroupMember struct {
 // DistributionOriginGroupMemberInput is an input type that accepts DistributionOriginGroupMemberArgs and DistributionOriginGroupMemberOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupMemberInput` via:
 //
-//          DistributionOriginGroupMemberArgs{...}
+//	DistributionOriginGroupMemberArgs{...}
 type DistributionOriginGroupMemberInput interface {
 	pulumi.Input
 
@@ -3594,7 +3594,7 @@ func (i DistributionOriginGroupMemberArgs) ToDistributionOriginGroupMemberOutput
 // DistributionOriginGroupMemberArrayInput is an input type that accepts DistributionOriginGroupMemberArray and DistributionOriginGroupMemberArrayOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupMemberArrayInput` via:
 //
-//          DistributionOriginGroupMemberArray{ DistributionOriginGroupMemberArgs{...} }
+//	DistributionOriginGroupMemberArray{ DistributionOriginGroupMemberArgs{...} }
 type DistributionOriginGroupMemberArrayInput interface {
 	pulumi.Input
 
@@ -3662,7 +3662,7 @@ type DistributionOriginGroupMembers struct {
 // DistributionOriginGroupMembersInput is an input type that accepts DistributionOriginGroupMembersArgs and DistributionOriginGroupMembersOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupMembersInput` via:
 //
-//          DistributionOriginGroupMembersArgs{...}
+//	DistributionOriginGroupMembersArgs{...}
 type DistributionOriginGroupMembersInput interface {
 	pulumi.Input
 
@@ -3717,7 +3717,7 @@ type DistributionOriginGroups struct {
 // DistributionOriginGroupsInput is an input type that accepts DistributionOriginGroupsArgs and DistributionOriginGroupsOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupsInput` via:
 //
-//          DistributionOriginGroupsArgs{...}
+//	DistributionOriginGroupsArgs{...}
 type DistributionOriginGroupsInput interface {
 	pulumi.Input
 
@@ -3753,11 +3753,11 @@ func (i DistributionOriginGroupsArgs) ToDistributionOriginGroupsPtrOutputWithCon
 // DistributionOriginGroupsPtrInput is an input type that accepts DistributionOriginGroupsArgs, DistributionOriginGroupsPtr and DistributionOriginGroupsPtrOutput values.
 // You can construct a concrete instance of `DistributionOriginGroupsPtrInput` via:
 //
-//          DistributionOriginGroupsArgs{...}
+//	        DistributionOriginGroupsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionOriginGroupsPtrInput interface {
 	pulumi.Input
 
@@ -3865,7 +3865,7 @@ type DistributionOriginShield struct {
 // DistributionOriginShieldInput is an input type that accepts DistributionOriginShieldArgs and DistributionOriginShieldOutput values.
 // You can construct a concrete instance of `DistributionOriginShieldInput` via:
 //
-//          DistributionOriginShieldArgs{...}
+//	DistributionOriginShieldArgs{...}
 type DistributionOriginShieldInput interface {
 	pulumi.Input
 
@@ -3901,11 +3901,11 @@ func (i DistributionOriginShieldArgs) ToDistributionOriginShieldPtrOutputWithCon
 // DistributionOriginShieldPtrInput is an input type that accepts DistributionOriginShieldArgs, DistributionOriginShieldPtr and DistributionOriginShieldPtrOutput values.
 // You can construct a concrete instance of `DistributionOriginShieldPtrInput` via:
 //
-//          DistributionOriginShieldArgs{...}
+//	        DistributionOriginShieldArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionOriginShieldPtrInput interface {
 	pulumi.Input
 
@@ -4012,7 +4012,7 @@ type DistributionRestrictions struct {
 // DistributionRestrictionsInput is an input type that accepts DistributionRestrictionsArgs and DistributionRestrictionsOutput values.
 // You can construct a concrete instance of `DistributionRestrictionsInput` via:
 //
-//          DistributionRestrictionsArgs{...}
+//	DistributionRestrictionsArgs{...}
 type DistributionRestrictionsInput interface {
 	pulumi.Input
 
@@ -4047,11 +4047,11 @@ func (i DistributionRestrictionsArgs) ToDistributionRestrictionsPtrOutputWithCon
 // DistributionRestrictionsPtrInput is an input type that accepts DistributionRestrictionsArgs, DistributionRestrictionsPtr and DistributionRestrictionsPtrOutput values.
 // You can construct a concrete instance of `DistributionRestrictionsPtrInput` via:
 //
-//          DistributionRestrictionsArgs{...}
+//	        DistributionRestrictionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionRestrictionsPtrInput interface {
 	pulumi.Input
 
@@ -4145,7 +4145,7 @@ type DistributionS3OriginConfig struct {
 // DistributionS3OriginConfigInput is an input type that accepts DistributionS3OriginConfigArgs and DistributionS3OriginConfigOutput values.
 // You can construct a concrete instance of `DistributionS3OriginConfigInput` via:
 //
-//          DistributionS3OriginConfigArgs{...}
+//	DistributionS3OriginConfigArgs{...}
 type DistributionS3OriginConfigInput interface {
 	pulumi.Input
 
@@ -4180,11 +4180,11 @@ func (i DistributionS3OriginConfigArgs) ToDistributionS3OriginConfigPtrOutputWit
 // DistributionS3OriginConfigPtrInput is an input type that accepts DistributionS3OriginConfigArgs, DistributionS3OriginConfigPtr and DistributionS3OriginConfigPtrOutput values.
 // You can construct a concrete instance of `DistributionS3OriginConfigPtrInput` via:
 //
-//          DistributionS3OriginConfigArgs{...}
+//	        DistributionS3OriginConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionS3OriginConfigPtrInput interface {
 	pulumi.Input
 
@@ -4279,7 +4279,7 @@ type DistributionStatusCodes struct {
 // DistributionStatusCodesInput is an input type that accepts DistributionStatusCodesArgs and DistributionStatusCodesOutput values.
 // You can construct a concrete instance of `DistributionStatusCodesInput` via:
 //
-//          DistributionStatusCodesArgs{...}
+//	DistributionStatusCodesArgs{...}
 type DistributionStatusCodesInput interface {
 	pulumi.Input
 
@@ -4334,7 +4334,7 @@ type DistributionTag struct {
 // DistributionTagInput is an input type that accepts DistributionTagArgs and DistributionTagOutput values.
 // You can construct a concrete instance of `DistributionTagInput` via:
 //
-//          DistributionTagArgs{...}
+//	DistributionTagArgs{...}
 type DistributionTagInput interface {
 	pulumi.Input
 
@@ -4362,7 +4362,7 @@ func (i DistributionTagArgs) ToDistributionTagOutputWithContext(ctx context.Cont
 // DistributionTagArrayInput is an input type that accepts DistributionTagArray and DistributionTagArrayOutput values.
 // You can construct a concrete instance of `DistributionTagArrayInput` via:
 //
-//          DistributionTagArray{ DistributionTagArgs{...} }
+//	DistributionTagArray{ DistributionTagArgs{...} }
 type DistributionTagArrayInput interface {
 	pulumi.Input
 
@@ -4437,7 +4437,7 @@ type DistributionViewerCertificate struct {
 // DistributionViewerCertificateInput is an input type that accepts DistributionViewerCertificateArgs and DistributionViewerCertificateOutput values.
 // You can construct a concrete instance of `DistributionViewerCertificateInput` via:
 //
-//          DistributionViewerCertificateArgs{...}
+//	DistributionViewerCertificateArgs{...}
 type DistributionViewerCertificateInput interface {
 	pulumi.Input
 
@@ -4476,11 +4476,11 @@ func (i DistributionViewerCertificateArgs) ToDistributionViewerCertificatePtrOut
 // DistributionViewerCertificatePtrInput is an input type that accepts DistributionViewerCertificateArgs, DistributionViewerCertificatePtr and DistributionViewerCertificatePtrOutput values.
 // You can construct a concrete instance of `DistributionViewerCertificatePtrInput` via:
 //
-//          DistributionViewerCertificateArgs{...}
+//	        DistributionViewerCertificateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionViewerCertificatePtrInput interface {
 	pulumi.Input
 
@@ -4627,7 +4627,7 @@ type FunctionConfig struct {
 // FunctionConfigInput is an input type that accepts FunctionConfigArgs and FunctionConfigOutput values.
 // You can construct a concrete instance of `FunctionConfigInput` via:
 //
-//          FunctionConfigArgs{...}
+//	FunctionConfigArgs{...}
 type FunctionConfigInput interface {
 	pulumi.Input
 
@@ -4663,11 +4663,11 @@ func (i FunctionConfigArgs) ToFunctionConfigPtrOutputWithContext(ctx context.Con
 // FunctionConfigPtrInput is an input type that accepts FunctionConfigArgs, FunctionConfigPtr and FunctionConfigPtrOutput values.
 // You can construct a concrete instance of `FunctionConfigPtrInput` via:
 //
-//          FunctionConfigArgs{...}
+//	        FunctionConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionConfigPtrInput interface {
 	pulumi.Input
 
@@ -4774,7 +4774,7 @@ type FunctionMetadata struct {
 // FunctionMetadataInput is an input type that accepts FunctionMetadataArgs and FunctionMetadataOutput values.
 // You can construct a concrete instance of `FunctionMetadataInput` via:
 //
-//          FunctionMetadataArgs{...}
+//	FunctionMetadataArgs{...}
 type FunctionMetadataInput interface {
 	pulumi.Input
 
@@ -4809,11 +4809,11 @@ func (i FunctionMetadataArgs) ToFunctionMetadataPtrOutputWithContext(ctx context
 // FunctionMetadataPtrInput is an input type that accepts FunctionMetadataArgs, FunctionMetadataPtr and FunctionMetadataPtrOutput values.
 // You can construct a concrete instance of `FunctionMetadataPtrInput` via:
 //
-//          FunctionMetadataArgs{...}
+//	        FunctionMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionMetadataPtrInput interface {
 	pulumi.Input
 
@@ -4909,7 +4909,7 @@ type KeyGroupConfig struct {
 // KeyGroupConfigInput is an input type that accepts KeyGroupConfigArgs and KeyGroupConfigOutput values.
 // You can construct a concrete instance of `KeyGroupConfigInput` via:
 //
-//          KeyGroupConfigArgs{...}
+//	KeyGroupConfigArgs{...}
 type KeyGroupConfigInput interface {
 	pulumi.Input
 
@@ -5023,7 +5023,7 @@ type OriginRequestPolicyConfig struct {
 // OriginRequestPolicyConfigInput is an input type that accepts OriginRequestPolicyConfigArgs and OriginRequestPolicyConfigOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyConfigInput` via:
 //
-//          OriginRequestPolicyConfigArgs{...}
+//	OriginRequestPolicyConfigArgs{...}
 type OriginRequestPolicyConfigInput interface {
 	pulumi.Input
 
@@ -5162,7 +5162,7 @@ type OriginRequestPolicyCookiesConfig struct {
 // OriginRequestPolicyCookiesConfigInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs and OriginRequestPolicyCookiesConfigOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyCookiesConfigInput` via:
 //
-//          OriginRequestPolicyCookiesConfigArgs{...}
+//	OriginRequestPolicyCookiesConfigArgs{...}
 type OriginRequestPolicyCookiesConfigInput interface {
 	pulumi.Input
 
@@ -5259,7 +5259,7 @@ type OriginRequestPolicyHeadersConfig struct {
 // OriginRequestPolicyHeadersConfigInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs and OriginRequestPolicyHeadersConfigOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyHeadersConfigInput` via:
 //
-//          OriginRequestPolicyHeadersConfigArgs{...}
+//	OriginRequestPolicyHeadersConfigArgs{...}
 type OriginRequestPolicyHeadersConfigInput interface {
 	pulumi.Input
 
@@ -5356,7 +5356,7 @@ type OriginRequestPolicyQueryStringsConfig struct {
 // OriginRequestPolicyQueryStringsConfigInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs and OriginRequestPolicyQueryStringsConfigOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigInput` via:
 //
-//          OriginRequestPolicyQueryStringsConfigArgs{...}
+//	OriginRequestPolicyQueryStringsConfigArgs{...}
 type OriginRequestPolicyQueryStringsConfigInput interface {
 	pulumi.Input
 
@@ -5455,7 +5455,7 @@ type PublicKeyConfig struct {
 // PublicKeyConfigInput is an input type that accepts PublicKeyConfigArgs and PublicKeyConfigOutput values.
 // You can construct a concrete instance of `PublicKeyConfigInput` via:
 //
-//          PublicKeyConfigArgs{...}
+//	PublicKeyConfigArgs{...}
 type PublicKeyConfigInput interface {
 	pulumi.Input
 
@@ -5580,7 +5580,7 @@ type RealtimeLogConfigEndPoint struct {
 // RealtimeLogConfigEndPointInput is an input type that accepts RealtimeLogConfigEndPointArgs and RealtimeLogConfigEndPointOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigEndPointInput` via:
 //
-//          RealtimeLogConfigEndPointArgs{...}
+//	RealtimeLogConfigEndPointArgs{...}
 type RealtimeLogConfigEndPointInput interface {
 	pulumi.Input
 
@@ -5608,7 +5608,7 @@ func (i RealtimeLogConfigEndPointArgs) ToRealtimeLogConfigEndPointOutputWithCont
 // RealtimeLogConfigEndPointArrayInput is an input type that accepts RealtimeLogConfigEndPointArray and RealtimeLogConfigEndPointArrayOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigEndPointArrayInput` via:
 //
-//          RealtimeLogConfigEndPointArray{ RealtimeLogConfigEndPointArgs{...} }
+//	RealtimeLogConfigEndPointArray{ RealtimeLogConfigEndPointArgs{...} }
 type RealtimeLogConfigEndPointArrayInput interface {
 	pulumi.Input
 
@@ -5680,7 +5680,7 @@ type RealtimeLogConfigKinesisStreamConfig struct {
 // RealtimeLogConfigKinesisStreamConfigInput is an input type that accepts RealtimeLogConfigKinesisStreamConfigArgs and RealtimeLogConfigKinesisStreamConfigOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigKinesisStreamConfigInput` via:
 //
-//          RealtimeLogConfigKinesisStreamConfigArgs{...}
+//	RealtimeLogConfigKinesisStreamConfigArgs{...}
 type RealtimeLogConfigKinesisStreamConfigInput interface {
 	pulumi.Input
 
@@ -5734,7 +5734,7 @@ type ResponseHeadersPolicyAccessControlAllowHeaders struct {
 // ResponseHeadersPolicyAccessControlAllowHeadersInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowHeadersArgs and ResponseHeadersPolicyAccessControlAllowHeadersOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowHeadersInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowHeadersArgs{...}
+//	ResponseHeadersPolicyAccessControlAllowHeadersArgs{...}
 type ResponseHeadersPolicyAccessControlAllowHeadersInput interface {
 	pulumi.Input
 
@@ -5769,11 +5769,11 @@ func (i ResponseHeadersPolicyAccessControlAllowHeadersArgs) ToResponseHeadersPol
 // ResponseHeadersPolicyAccessControlAllowHeadersPtrInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowHeadersArgs, ResponseHeadersPolicyAccessControlAllowHeadersPtr and ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowHeadersPtrInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowHeadersArgs{...}
+//	        ResponseHeadersPolicyAccessControlAllowHeadersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyAccessControlAllowHeadersPtrInput interface {
 	pulumi.Input
 
@@ -5867,7 +5867,7 @@ type ResponseHeadersPolicyAccessControlAllowMethods struct {
 // ResponseHeadersPolicyAccessControlAllowMethodsInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowMethodsArgs and ResponseHeadersPolicyAccessControlAllowMethodsOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowMethodsInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowMethodsArgs{...}
+//	ResponseHeadersPolicyAccessControlAllowMethodsArgs{...}
 type ResponseHeadersPolicyAccessControlAllowMethodsInput interface {
 	pulumi.Input
 
@@ -5902,11 +5902,11 @@ func (i ResponseHeadersPolicyAccessControlAllowMethodsArgs) ToResponseHeadersPol
 // ResponseHeadersPolicyAccessControlAllowMethodsPtrInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowMethodsArgs, ResponseHeadersPolicyAccessControlAllowMethodsPtr and ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowMethodsPtrInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowMethodsArgs{...}
+//	        ResponseHeadersPolicyAccessControlAllowMethodsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyAccessControlAllowMethodsPtrInput interface {
 	pulumi.Input
 
@@ -6000,7 +6000,7 @@ type ResponseHeadersPolicyAccessControlAllowOrigins struct {
 // ResponseHeadersPolicyAccessControlAllowOriginsInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowOriginsArgs and ResponseHeadersPolicyAccessControlAllowOriginsOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowOriginsInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowOriginsArgs{...}
+//	ResponseHeadersPolicyAccessControlAllowOriginsArgs{...}
 type ResponseHeadersPolicyAccessControlAllowOriginsInput interface {
 	pulumi.Input
 
@@ -6035,11 +6035,11 @@ func (i ResponseHeadersPolicyAccessControlAllowOriginsArgs) ToResponseHeadersPol
 // ResponseHeadersPolicyAccessControlAllowOriginsPtrInput is an input type that accepts ResponseHeadersPolicyAccessControlAllowOriginsArgs, ResponseHeadersPolicyAccessControlAllowOriginsPtr and ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlAllowOriginsPtrInput` via:
 //
-//          ResponseHeadersPolicyAccessControlAllowOriginsArgs{...}
+//	        ResponseHeadersPolicyAccessControlAllowOriginsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyAccessControlAllowOriginsPtrInput interface {
 	pulumi.Input
 
@@ -6133,7 +6133,7 @@ type ResponseHeadersPolicyAccessControlExposeHeaders struct {
 // ResponseHeadersPolicyAccessControlExposeHeadersInput is an input type that accepts ResponseHeadersPolicyAccessControlExposeHeadersArgs and ResponseHeadersPolicyAccessControlExposeHeadersOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlExposeHeadersInput` via:
 //
-//          ResponseHeadersPolicyAccessControlExposeHeadersArgs{...}
+//	ResponseHeadersPolicyAccessControlExposeHeadersArgs{...}
 type ResponseHeadersPolicyAccessControlExposeHeadersInput interface {
 	pulumi.Input
 
@@ -6168,11 +6168,11 @@ func (i ResponseHeadersPolicyAccessControlExposeHeadersArgs) ToResponseHeadersPo
 // ResponseHeadersPolicyAccessControlExposeHeadersPtrInput is an input type that accepts ResponseHeadersPolicyAccessControlExposeHeadersArgs, ResponseHeadersPolicyAccessControlExposeHeadersPtr and ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyAccessControlExposeHeadersPtrInput` via:
 //
-//          ResponseHeadersPolicyAccessControlExposeHeadersArgs{...}
+//	        ResponseHeadersPolicyAccessControlExposeHeadersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyAccessControlExposeHeadersPtrInput interface {
 	pulumi.Input
 
@@ -6270,7 +6270,7 @@ type ResponseHeadersPolicyConfig struct {
 // ResponseHeadersPolicyConfigInput is an input type that accepts ResponseHeadersPolicyConfigArgs and ResponseHeadersPolicyConfigOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyConfigInput` via:
 //
-//          ResponseHeadersPolicyConfigArgs{...}
+//	ResponseHeadersPolicyConfigArgs{...}
 type ResponseHeadersPolicyConfigInput interface {
 	pulumi.Input
 
@@ -6413,7 +6413,7 @@ type ResponseHeadersPolicyContentSecurityPolicy struct {
 // ResponseHeadersPolicyContentSecurityPolicyInput is an input type that accepts ResponseHeadersPolicyContentSecurityPolicyArgs and ResponseHeadersPolicyContentSecurityPolicyOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyContentSecurityPolicyInput` via:
 //
-//          ResponseHeadersPolicyContentSecurityPolicyArgs{...}
+//	ResponseHeadersPolicyContentSecurityPolicyArgs{...}
 type ResponseHeadersPolicyContentSecurityPolicyInput interface {
 	pulumi.Input
 
@@ -6449,11 +6449,11 @@ func (i ResponseHeadersPolicyContentSecurityPolicyArgs) ToResponseHeadersPolicyC
 // ResponseHeadersPolicyContentSecurityPolicyPtrInput is an input type that accepts ResponseHeadersPolicyContentSecurityPolicyArgs, ResponseHeadersPolicyContentSecurityPolicyPtr and ResponseHeadersPolicyContentSecurityPolicyPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyContentSecurityPolicyPtrInput` via:
 //
-//          ResponseHeadersPolicyContentSecurityPolicyArgs{...}
+//	        ResponseHeadersPolicyContentSecurityPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyContentSecurityPolicyPtrInput interface {
 	pulumi.Input
 
@@ -6560,7 +6560,7 @@ type ResponseHeadersPolicyContentTypeOptions struct {
 // ResponseHeadersPolicyContentTypeOptionsInput is an input type that accepts ResponseHeadersPolicyContentTypeOptionsArgs and ResponseHeadersPolicyContentTypeOptionsOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyContentTypeOptionsInput` via:
 //
-//          ResponseHeadersPolicyContentTypeOptionsArgs{...}
+//	ResponseHeadersPolicyContentTypeOptionsArgs{...}
 type ResponseHeadersPolicyContentTypeOptionsInput interface {
 	pulumi.Input
 
@@ -6595,11 +6595,11 @@ func (i ResponseHeadersPolicyContentTypeOptionsArgs) ToResponseHeadersPolicyCont
 // ResponseHeadersPolicyContentTypeOptionsPtrInput is an input type that accepts ResponseHeadersPolicyContentTypeOptionsArgs, ResponseHeadersPolicyContentTypeOptionsPtr and ResponseHeadersPolicyContentTypeOptionsPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyContentTypeOptionsPtrInput` via:
 //
-//          ResponseHeadersPolicyContentTypeOptionsArgs{...}
+//	        ResponseHeadersPolicyContentTypeOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyContentTypeOptionsPtrInput interface {
 	pulumi.Input
 
@@ -6699,7 +6699,7 @@ type ResponseHeadersPolicyCorsConfig struct {
 // ResponseHeadersPolicyCorsConfigInput is an input type that accepts ResponseHeadersPolicyCorsConfigArgs and ResponseHeadersPolicyCorsConfigOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCorsConfigInput` via:
 //
-//          ResponseHeadersPolicyCorsConfigArgs{...}
+//	ResponseHeadersPolicyCorsConfigArgs{...}
 type ResponseHeadersPolicyCorsConfigInput interface {
 	pulumi.Input
 
@@ -6740,11 +6740,11 @@ func (i ResponseHeadersPolicyCorsConfigArgs) ToResponseHeadersPolicyCorsConfigPt
 // ResponseHeadersPolicyCorsConfigPtrInput is an input type that accepts ResponseHeadersPolicyCorsConfigArgs, ResponseHeadersPolicyCorsConfigPtr and ResponseHeadersPolicyCorsConfigPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCorsConfigPtrInput` via:
 //
-//          ResponseHeadersPolicyCorsConfigArgs{...}
+//	        ResponseHeadersPolicyCorsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyCorsConfigPtrInput interface {
 	pulumi.Input
 
@@ -6926,7 +6926,7 @@ type ResponseHeadersPolicyCustomHeader struct {
 // ResponseHeadersPolicyCustomHeaderInput is an input type that accepts ResponseHeadersPolicyCustomHeaderArgs and ResponseHeadersPolicyCustomHeaderOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCustomHeaderInput` via:
 //
-//          ResponseHeadersPolicyCustomHeaderArgs{...}
+//	ResponseHeadersPolicyCustomHeaderArgs{...}
 type ResponseHeadersPolicyCustomHeaderInput interface {
 	pulumi.Input
 
@@ -6955,7 +6955,7 @@ func (i ResponseHeadersPolicyCustomHeaderArgs) ToResponseHeadersPolicyCustomHead
 // ResponseHeadersPolicyCustomHeaderArrayInput is an input type that accepts ResponseHeadersPolicyCustomHeaderArray and ResponseHeadersPolicyCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCustomHeaderArrayInput` via:
 //
-//          ResponseHeadersPolicyCustomHeaderArray{ ResponseHeadersPolicyCustomHeaderArgs{...} }
+//	ResponseHeadersPolicyCustomHeaderArray{ ResponseHeadersPolicyCustomHeaderArgs{...} }
 type ResponseHeadersPolicyCustomHeaderArrayInput interface {
 	pulumi.Input
 
@@ -7030,7 +7030,7 @@ type ResponseHeadersPolicyCustomHeadersConfig struct {
 // ResponseHeadersPolicyCustomHeadersConfigInput is an input type that accepts ResponseHeadersPolicyCustomHeadersConfigArgs and ResponseHeadersPolicyCustomHeadersConfigOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCustomHeadersConfigInput` via:
 //
-//          ResponseHeadersPolicyCustomHeadersConfigArgs{...}
+//	ResponseHeadersPolicyCustomHeadersConfigArgs{...}
 type ResponseHeadersPolicyCustomHeadersConfigInput interface {
 	pulumi.Input
 
@@ -7065,11 +7065,11 @@ func (i ResponseHeadersPolicyCustomHeadersConfigArgs) ToResponseHeadersPolicyCus
 // ResponseHeadersPolicyCustomHeadersConfigPtrInput is an input type that accepts ResponseHeadersPolicyCustomHeadersConfigArgs, ResponseHeadersPolicyCustomHeadersConfigPtr and ResponseHeadersPolicyCustomHeadersConfigPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyCustomHeadersConfigPtrInput` via:
 //
-//          ResponseHeadersPolicyCustomHeadersConfigArgs{...}
+//	        ResponseHeadersPolicyCustomHeadersConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyCustomHeadersConfigPtrInput interface {
 	pulumi.Input
 
@@ -7164,7 +7164,7 @@ type ResponseHeadersPolicyFrameOptions struct {
 // ResponseHeadersPolicyFrameOptionsInput is an input type that accepts ResponseHeadersPolicyFrameOptionsArgs and ResponseHeadersPolicyFrameOptionsOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyFrameOptionsInput` via:
 //
-//          ResponseHeadersPolicyFrameOptionsArgs{...}
+//	ResponseHeadersPolicyFrameOptionsArgs{...}
 type ResponseHeadersPolicyFrameOptionsInput interface {
 	pulumi.Input
 
@@ -7200,11 +7200,11 @@ func (i ResponseHeadersPolicyFrameOptionsArgs) ToResponseHeadersPolicyFrameOptio
 // ResponseHeadersPolicyFrameOptionsPtrInput is an input type that accepts ResponseHeadersPolicyFrameOptionsArgs, ResponseHeadersPolicyFrameOptionsPtr and ResponseHeadersPolicyFrameOptionsPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyFrameOptionsPtrInput` via:
 //
-//          ResponseHeadersPolicyFrameOptionsArgs{...}
+//	        ResponseHeadersPolicyFrameOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyFrameOptionsPtrInput interface {
 	pulumi.Input
 
@@ -7312,7 +7312,7 @@ type ResponseHeadersPolicyReferrerPolicy struct {
 // ResponseHeadersPolicyReferrerPolicyInput is an input type that accepts ResponseHeadersPolicyReferrerPolicyArgs and ResponseHeadersPolicyReferrerPolicyOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyReferrerPolicyInput` via:
 //
-//          ResponseHeadersPolicyReferrerPolicyArgs{...}
+//	ResponseHeadersPolicyReferrerPolicyArgs{...}
 type ResponseHeadersPolicyReferrerPolicyInput interface {
 	pulumi.Input
 
@@ -7348,11 +7348,11 @@ func (i ResponseHeadersPolicyReferrerPolicyArgs) ToResponseHeadersPolicyReferrer
 // ResponseHeadersPolicyReferrerPolicyPtrInput is an input type that accepts ResponseHeadersPolicyReferrerPolicyArgs, ResponseHeadersPolicyReferrerPolicyPtr and ResponseHeadersPolicyReferrerPolicyPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyReferrerPolicyPtrInput` via:
 //
-//          ResponseHeadersPolicyReferrerPolicyArgs{...}
+//	        ResponseHeadersPolicyReferrerPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyReferrerPolicyPtrInput interface {
 	pulumi.Input
 
@@ -7464,7 +7464,7 @@ type ResponseHeadersPolicySecurityHeadersConfig struct {
 // ResponseHeadersPolicySecurityHeadersConfigInput is an input type that accepts ResponseHeadersPolicySecurityHeadersConfigArgs and ResponseHeadersPolicySecurityHeadersConfigOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicySecurityHeadersConfigInput` via:
 //
-//          ResponseHeadersPolicySecurityHeadersConfigArgs{...}
+//	ResponseHeadersPolicySecurityHeadersConfigArgs{...}
 type ResponseHeadersPolicySecurityHeadersConfigInput interface {
 	pulumi.Input
 
@@ -7504,11 +7504,11 @@ func (i ResponseHeadersPolicySecurityHeadersConfigArgs) ToResponseHeadersPolicyS
 // ResponseHeadersPolicySecurityHeadersConfigPtrInput is an input type that accepts ResponseHeadersPolicySecurityHeadersConfigArgs, ResponseHeadersPolicySecurityHeadersConfigPtr and ResponseHeadersPolicySecurityHeadersConfigPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicySecurityHeadersConfigPtrInput` via:
 //
-//          ResponseHeadersPolicySecurityHeadersConfigArgs{...}
+//	        ResponseHeadersPolicySecurityHeadersConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicySecurityHeadersConfigPtrInput interface {
 	pulumi.Input
 
@@ -7682,7 +7682,7 @@ type ResponseHeadersPolicyStrictTransportSecurity struct {
 // ResponseHeadersPolicyStrictTransportSecurityInput is an input type that accepts ResponseHeadersPolicyStrictTransportSecurityArgs and ResponseHeadersPolicyStrictTransportSecurityOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyStrictTransportSecurityInput` via:
 //
-//          ResponseHeadersPolicyStrictTransportSecurityArgs{...}
+//	ResponseHeadersPolicyStrictTransportSecurityArgs{...}
 type ResponseHeadersPolicyStrictTransportSecurityInput interface {
 	pulumi.Input
 
@@ -7720,11 +7720,11 @@ func (i ResponseHeadersPolicyStrictTransportSecurityArgs) ToResponseHeadersPolic
 // ResponseHeadersPolicyStrictTransportSecurityPtrInput is an input type that accepts ResponseHeadersPolicyStrictTransportSecurityArgs, ResponseHeadersPolicyStrictTransportSecurityPtr and ResponseHeadersPolicyStrictTransportSecurityPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyStrictTransportSecurityPtrInput` via:
 //
-//          ResponseHeadersPolicyStrictTransportSecurityArgs{...}
+//	        ResponseHeadersPolicyStrictTransportSecurityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyStrictTransportSecurityPtrInput interface {
 	pulumi.Input
 
@@ -7860,7 +7860,7 @@ type ResponseHeadersPolicyXSSProtection struct {
 // ResponseHeadersPolicyXSSProtectionInput is an input type that accepts ResponseHeadersPolicyXSSProtectionArgs and ResponseHeadersPolicyXSSProtectionOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyXSSProtectionInput` via:
 //
-//          ResponseHeadersPolicyXSSProtectionArgs{...}
+//	ResponseHeadersPolicyXSSProtectionArgs{...}
 type ResponseHeadersPolicyXSSProtectionInput interface {
 	pulumi.Input
 
@@ -7898,11 +7898,11 @@ func (i ResponseHeadersPolicyXSSProtectionArgs) ToResponseHeadersPolicyXSSProtec
 // ResponseHeadersPolicyXSSProtectionPtrInput is an input type that accepts ResponseHeadersPolicyXSSProtectionArgs, ResponseHeadersPolicyXSSProtectionPtr and ResponseHeadersPolicyXSSProtectionPtrOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyXSSProtectionPtrInput` via:
 //
-//          ResponseHeadersPolicyXSSProtectionArgs{...}
+//	        ResponseHeadersPolicyXSSProtectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResponseHeadersPolicyXSSProtectionPtrInput interface {
 	pulumi.Input
 
@@ -8041,7 +8041,7 @@ type StreamingDistributionConfig struct {
 // StreamingDistributionConfigInput is an input type that accepts StreamingDistributionConfigArgs and StreamingDistributionConfigOutput values.
 // You can construct a concrete instance of `StreamingDistributionConfigInput` via:
 //
-//          StreamingDistributionConfigArgs{...}
+//	StreamingDistributionConfigArgs{...}
 type StreamingDistributionConfigInput interface {
 	pulumi.Input
 
@@ -8209,7 +8209,7 @@ type StreamingDistributionLogging struct {
 // StreamingDistributionLoggingInput is an input type that accepts StreamingDistributionLoggingArgs and StreamingDistributionLoggingOutput values.
 // You can construct a concrete instance of `StreamingDistributionLoggingInput` via:
 //
-//          StreamingDistributionLoggingArgs{...}
+//	StreamingDistributionLoggingArgs{...}
 type StreamingDistributionLoggingInput interface {
 	pulumi.Input
 
@@ -8246,11 +8246,11 @@ func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingPtrOutpu
 // StreamingDistributionLoggingPtrInput is an input type that accepts StreamingDistributionLoggingArgs, StreamingDistributionLoggingPtr and StreamingDistributionLoggingPtrOutput values.
 // You can construct a concrete instance of `StreamingDistributionLoggingPtrInput` via:
 //
-//          StreamingDistributionLoggingArgs{...}
+//	        StreamingDistributionLoggingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingDistributionLoggingPtrInput interface {
 	pulumi.Input
 
@@ -8371,7 +8371,7 @@ type StreamingDistributionS3Origin struct {
 // StreamingDistributionS3OriginInput is an input type that accepts StreamingDistributionS3OriginArgs and StreamingDistributionS3OriginOutput values.
 // You can construct a concrete instance of `StreamingDistributionS3OriginInput` via:
 //
-//          StreamingDistributionS3OriginArgs{...}
+//	StreamingDistributionS3OriginArgs{...}
 type StreamingDistributionS3OriginInput interface {
 	pulumi.Input
 
@@ -8468,7 +8468,7 @@ type StreamingDistributionTag struct {
 // StreamingDistributionTagInput is an input type that accepts StreamingDistributionTagArgs and StreamingDistributionTagOutput values.
 // You can construct a concrete instance of `StreamingDistributionTagInput` via:
 //
-//          StreamingDistributionTagArgs{...}
+//	StreamingDistributionTagArgs{...}
 type StreamingDistributionTagInput interface {
 	pulumi.Input
 
@@ -8496,7 +8496,7 @@ func (i StreamingDistributionTagArgs) ToStreamingDistributionTagOutputWithContex
 // StreamingDistributionTagArrayInput is an input type that accepts StreamingDistributionTagArray and StreamingDistributionTagArrayOutput values.
 // You can construct a concrete instance of `StreamingDistributionTagArrayInput` via:
 //
-//          StreamingDistributionTagArray{ StreamingDistributionTagArgs{...} }
+//	StreamingDistributionTagArray{ StreamingDistributionTagArgs{...} }
 type StreamingDistributionTagArrayInput interface {
 	pulumi.Input
 
@@ -8568,7 +8568,7 @@ type StreamingDistributionTrustedSigners struct {
 // StreamingDistributionTrustedSignersInput is an input type that accepts StreamingDistributionTrustedSignersArgs and StreamingDistributionTrustedSignersOutput values.
 // You can construct a concrete instance of `StreamingDistributionTrustedSignersInput` via:
 //
-//          StreamingDistributionTrustedSignersArgs{...}
+//	StreamingDistributionTrustedSignersArgs{...}
 type StreamingDistributionTrustedSignersInput interface {
 	pulumi.Input
 

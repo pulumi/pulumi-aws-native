@@ -21,7 +21,7 @@ type AddonTag struct {
 // AddonTagInput is an input type that accepts AddonTagArgs and AddonTagOutput values.
 // You can construct a concrete instance of `AddonTagInput` via:
 //
-//          AddonTagArgs{...}
+//	AddonTagArgs{...}
 type AddonTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AddonTagArgs) ToAddonTagOutputWithContext(ctx context.Context) AddonTagO
 // AddonTagArrayInput is an input type that accepts AddonTagArray and AddonTagArrayOutput values.
 // You can construct a concrete instance of `AddonTagArrayInput` via:
 //
-//          AddonTagArray{ AddonTagArgs{...} }
+//	AddonTagArray{ AddonTagArgs{...} }
 type AddonTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type ClusterEncryptionConfig struct {
 // ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigInput` via:
 //
-//          ClusterEncryptionConfigArgs{...}
+//	ClusterEncryptionConfigArgs{...}
 type ClusterEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutputWithContext(
 // ClusterEncryptionConfigArrayInput is an input type that accepts ClusterEncryptionConfigArray and ClusterEncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigArrayInput` via:
 //
-//          ClusterEncryptionConfigArray{ ClusterEncryptionConfigArgs{...} }
+//	ClusterEncryptionConfigArray{ ClusterEncryptionConfigArgs{...} }
 type ClusterEncryptionConfigArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ type ClusterKubernetesNetworkConfig struct {
 // ClusterKubernetesNetworkConfigInput is an input type that accepts ClusterKubernetesNetworkConfigArgs and ClusterKubernetesNetworkConfigOutput values.
 // You can construct a concrete instance of `ClusterKubernetesNetworkConfigInput` via:
 //
-//          ClusterKubernetesNetworkConfigArgs{...}
+//	ClusterKubernetesNetworkConfigArgs{...}
 type ClusterKubernetesNetworkConfigInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrO
 // ClusterKubernetesNetworkConfigPtrInput is an input type that accepts ClusterKubernetesNetworkConfigArgs, ClusterKubernetesNetworkConfigPtr and ClusterKubernetesNetworkConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterKubernetesNetworkConfigPtrInput` via:
 //
-//          ClusterKubernetesNetworkConfigArgs{...}
+//	        ClusterKubernetesNetworkConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterKubernetesNetworkConfigPtrInput interface {
 	pulumi.Input
 
@@ -415,7 +415,7 @@ type ClusterLogging struct {
 // ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
 // You can construct a concrete instance of `ClusterLoggingInput` via:
 //
-//          ClusterLoggingArgs{...}
+//	ClusterLoggingArgs{...}
 type ClusterLoggingInput interface {
 	pulumi.Input
 
@@ -452,11 +452,11 @@ func (i ClusterLoggingArgs) ToClusterLoggingPtrOutputWithContext(ctx context.Con
 // ClusterLoggingPtrInput is an input type that accepts ClusterLoggingArgs, ClusterLoggingPtr and ClusterLoggingPtrOutput values.
 // You can construct a concrete instance of `ClusterLoggingPtrInput` via:
 //
-//          ClusterLoggingArgs{...}
+//	        ClusterLoggingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterLoggingPtrInput interface {
 	pulumi.Input
 
@@ -554,7 +554,7 @@ type ClusterProvider struct {
 // ClusterProviderInput is an input type that accepts ClusterProviderArgs and ClusterProviderOutput values.
 // You can construct a concrete instance of `ClusterProviderInput` via:
 //
-//          ClusterProviderArgs{...}
+//	ClusterProviderArgs{...}
 type ClusterProviderInput interface {
 	pulumi.Input
 
@@ -590,11 +590,11 @@ func (i ClusterProviderArgs) ToClusterProviderPtrOutputWithContext(ctx context.C
 // ClusterProviderPtrInput is an input type that accepts ClusterProviderArgs, ClusterProviderPtr and ClusterProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterProviderPtrInput` via:
 //
-//          ClusterProviderArgs{...}
+//	        ClusterProviderArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterProviderPtrInput interface {
 	pulumi.Input
 
@@ -700,7 +700,7 @@ type ClusterResourcesVpcConfig struct {
 // ClusterResourcesVpcConfigInput is an input type that accepts ClusterResourcesVpcConfigArgs and ClusterResourcesVpcConfigOutput values.
 // You can construct a concrete instance of `ClusterResourcesVpcConfigInput` via:
 //
-//          ClusterResourcesVpcConfigArgs{...}
+//	ClusterResourcesVpcConfigArgs{...}
 type ClusterResourcesVpcConfigInput interface {
 	pulumi.Input
 
@@ -859,7 +859,7 @@ type ClusterTag struct {
 // ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
 // You can construct a concrete instance of `ClusterTagInput` via:
 //
-//          ClusterTagArgs{...}
+//	ClusterTagArgs{...}
 type ClusterTagInput interface {
 	pulumi.Input
 
@@ -890,7 +890,7 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
-//          ClusterTagArray{ ClusterTagArgs{...} }
+//	ClusterTagArray{ ClusterTagArgs{...} }
 type ClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -968,7 +968,7 @@ type FargateProfileLabel struct {
 // FargateProfileLabelInput is an input type that accepts FargateProfileLabelArgs and FargateProfileLabelOutput values.
 // You can construct a concrete instance of `FargateProfileLabelInput` via:
 //
-//          FargateProfileLabelArgs{...}
+//	FargateProfileLabelArgs{...}
 type FargateProfileLabelInput interface {
 	pulumi.Input
 
@@ -999,7 +999,7 @@ func (i FargateProfileLabelArgs) ToFargateProfileLabelOutputWithContext(ctx cont
 // FargateProfileLabelArrayInput is an input type that accepts FargateProfileLabelArray and FargateProfileLabelArrayOutput values.
 // You can construct a concrete instance of `FargateProfileLabelArrayInput` via:
 //
-//          FargateProfileLabelArray{ FargateProfileLabelArgs{...} }
+//	FargateProfileLabelArray{ FargateProfileLabelArgs{...} }
 type FargateProfileLabelArrayInput interface {
 	pulumi.Input
 
@@ -1074,7 +1074,7 @@ type FargateProfileSelector struct {
 // FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
 // You can construct a concrete instance of `FargateProfileSelectorInput` via:
 //
-//          FargateProfileSelectorArgs{...}
+//	FargateProfileSelectorArgs{...}
 type FargateProfileSelectorInput interface {
 	pulumi.Input
 
@@ -1102,7 +1102,7 @@ func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutputWithContext(ct
 // FargateProfileSelectorArrayInput is an input type that accepts FargateProfileSelectorArray and FargateProfileSelectorArrayOutput values.
 // You can construct a concrete instance of `FargateProfileSelectorArrayInput` via:
 //
-//          FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
+//	FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
 type FargateProfileSelectorArrayInput interface {
 	pulumi.Input
 
@@ -1177,7 +1177,7 @@ type FargateProfileTag struct {
 // FargateProfileTagInput is an input type that accepts FargateProfileTagArgs and FargateProfileTagOutput values.
 // You can construct a concrete instance of `FargateProfileTagInput` via:
 //
-//          FargateProfileTagArgs{...}
+//	FargateProfileTagArgs{...}
 type FargateProfileTagInput interface {
 	pulumi.Input
 
@@ -1208,7 +1208,7 @@ func (i FargateProfileTagArgs) ToFargateProfileTagOutputWithContext(ctx context.
 // FargateProfileTagArrayInput is an input type that accepts FargateProfileTagArray and FargateProfileTagArrayOutput values.
 // You can construct a concrete instance of `FargateProfileTagArrayInput` via:
 //
-//          FargateProfileTagArray{ FargateProfileTagArgs{...} }
+//	FargateProfileTagArray{ FargateProfileTagArgs{...} }
 type FargateProfileTagArrayInput interface {
 	pulumi.Input
 
@@ -1295,7 +1295,7 @@ type IdentityProviderConfigOidcIdentityProviderConfig struct {
 // IdentityProviderConfigOidcIdentityProviderConfigInput is an input type that accepts IdentityProviderConfigOidcIdentityProviderConfigArgs and IdentityProviderConfigOidcIdentityProviderConfigOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigOidcIdentityProviderConfigInput` via:
 //
-//          IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
+//	IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
 type IdentityProviderConfigOidcIdentityProviderConfigInput interface {
 	pulumi.Input
 
@@ -1343,11 +1343,11 @@ func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProvider
 // IdentityProviderConfigOidcIdentityProviderConfigPtrInput is an input type that accepts IdentityProviderConfigOidcIdentityProviderConfigArgs, IdentityProviderConfigOidcIdentityProviderConfigPtr and IdentityProviderConfigOidcIdentityProviderConfigPtrOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigOidcIdentityProviderConfigPtrInput` via:
 //
-//          IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
+//	        IdentityProviderConfigOidcIdentityProviderConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IdentityProviderConfigOidcIdentityProviderConfigPtrInput interface {
 	pulumi.Input
 
@@ -1538,7 +1538,7 @@ type IdentityProviderConfigRequiredClaim struct {
 // IdentityProviderConfigRequiredClaimInput is an input type that accepts IdentityProviderConfigRequiredClaimArgs and IdentityProviderConfigRequiredClaimOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigRequiredClaimInput` via:
 //
-//          IdentityProviderConfigRequiredClaimArgs{...}
+//	IdentityProviderConfigRequiredClaimArgs{...}
 type IdentityProviderConfigRequiredClaimInput interface {
 	pulumi.Input
 
@@ -1569,7 +1569,7 @@ func (i IdentityProviderConfigRequiredClaimArgs) ToIdentityProviderConfigRequire
 // IdentityProviderConfigRequiredClaimArrayInput is an input type that accepts IdentityProviderConfigRequiredClaimArray and IdentityProviderConfigRequiredClaimArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigRequiredClaimArrayInput` via:
 //
-//          IdentityProviderConfigRequiredClaimArray{ IdentityProviderConfigRequiredClaimArgs{...} }
+//	IdentityProviderConfigRequiredClaimArray{ IdentityProviderConfigRequiredClaimArgs{...} }
 type IdentityProviderConfigRequiredClaimArrayInput interface {
 	pulumi.Input
 
@@ -1647,7 +1647,7 @@ type IdentityProviderConfigTag struct {
 // IdentityProviderConfigTagInput is an input type that accepts IdentityProviderConfigTagArgs and IdentityProviderConfigTagOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigTagInput` via:
 //
-//          IdentityProviderConfigTagArgs{...}
+//	IdentityProviderConfigTagArgs{...}
 type IdentityProviderConfigTagInput interface {
 	pulumi.Input
 
@@ -1678,7 +1678,7 @@ func (i IdentityProviderConfigTagArgs) ToIdentityProviderConfigTagOutputWithCont
 // IdentityProviderConfigTagArrayInput is an input type that accepts IdentityProviderConfigTagArray and IdentityProviderConfigTagArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigTagArrayInput` via:
 //
-//          IdentityProviderConfigTagArray{ IdentityProviderConfigTagArgs{...} }
+//	IdentityProviderConfigTagArray{ IdentityProviderConfigTagArgs{...} }
 type IdentityProviderConfigTagArrayInput interface {
 	pulumi.Input
 
@@ -1755,7 +1755,7 @@ type NodegroupLaunchTemplateSpecification struct {
 // NodegroupLaunchTemplateSpecificationInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs and NodegroupLaunchTemplateSpecificationOutput values.
 // You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationInput` via:
 //
-//          NodegroupLaunchTemplateSpecificationArgs{...}
+//	NodegroupLaunchTemplateSpecificationArgs{...}
 type NodegroupLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -1793,11 +1793,11 @@ func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpeci
 // NodegroupLaunchTemplateSpecificationPtrInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs, NodegroupLaunchTemplateSpecificationPtr and NodegroupLaunchTemplateSpecificationPtrOutput values.
 // You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationPtrInput` via:
 //
-//          NodegroupLaunchTemplateSpecificationArgs{...}
+//	        NodegroupLaunchTemplateSpecificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NodegroupLaunchTemplateSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1920,7 +1920,7 @@ type NodegroupRemoteAccess struct {
 // NodegroupRemoteAccessInput is an input type that accepts NodegroupRemoteAccessArgs and NodegroupRemoteAccessOutput values.
 // You can construct a concrete instance of `NodegroupRemoteAccessInput` via:
 //
-//          NodegroupRemoteAccessArgs{...}
+//	NodegroupRemoteAccessArgs{...}
 type NodegroupRemoteAccessInput interface {
 	pulumi.Input
 
@@ -1957,11 +1957,11 @@ func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessPtrOutputWithContext(c
 // NodegroupRemoteAccessPtrInput is an input type that accepts NodegroupRemoteAccessArgs, NodegroupRemoteAccessPtr and NodegroupRemoteAccessPtrOutput values.
 // You can construct a concrete instance of `NodegroupRemoteAccessPtrInput` via:
 //
-//          NodegroupRemoteAccessArgs{...}
+//	        NodegroupRemoteAccessArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NodegroupRemoteAccessPtrInput interface {
 	pulumi.Input
 
@@ -2072,7 +2072,7 @@ type NodegroupScalingConfig struct {
 // NodegroupScalingConfigInput is an input type that accepts NodegroupScalingConfigArgs and NodegroupScalingConfigOutput values.
 // You can construct a concrete instance of `NodegroupScalingConfigInput` via:
 //
-//          NodegroupScalingConfigArgs{...}
+//	NodegroupScalingConfigArgs{...}
 type NodegroupScalingConfigInput interface {
 	pulumi.Input
 
@@ -2110,11 +2110,11 @@ func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigPtrOutputWithContext
 // NodegroupScalingConfigPtrInput is an input type that accepts NodegroupScalingConfigArgs, NodegroupScalingConfigPtr and NodegroupScalingConfigPtrOutput values.
 // You can construct a concrete instance of `NodegroupScalingConfigPtrInput` via:
 //
-//          NodegroupScalingConfigArgs{...}
+//	        NodegroupScalingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NodegroupScalingConfigPtrInput interface {
 	pulumi.Input
 
@@ -2238,7 +2238,7 @@ type NodegroupTaint struct {
 // NodegroupTaintInput is an input type that accepts NodegroupTaintArgs and NodegroupTaintOutput values.
 // You can construct a concrete instance of `NodegroupTaintInput` via:
 //
-//          NodegroupTaintArgs{...}
+//	NodegroupTaintArgs{...}
 type NodegroupTaintInput interface {
 	pulumi.Input
 
@@ -2268,7 +2268,7 @@ func (i NodegroupTaintArgs) ToNodegroupTaintOutputWithContext(ctx context.Contex
 // NodegroupTaintArrayInput is an input type that accepts NodegroupTaintArray and NodegroupTaintArrayOutput values.
 // You can construct a concrete instance of `NodegroupTaintArrayInput` via:
 //
-//          NodegroupTaintArray{ NodegroupTaintArgs{...} }
+//	NodegroupTaintArray{ NodegroupTaintArgs{...} }
 type NodegroupTaintArrayInput interface {
 	pulumi.Input
 
@@ -2348,7 +2348,7 @@ type NodegroupUpdateConfig struct {
 // NodegroupUpdateConfigInput is an input type that accepts NodegroupUpdateConfigArgs and NodegroupUpdateConfigOutput values.
 // You can construct a concrete instance of `NodegroupUpdateConfigInput` via:
 //
-//          NodegroupUpdateConfigArgs{...}
+//	NodegroupUpdateConfigArgs{...}
 type NodegroupUpdateConfigInput interface {
 	pulumi.Input
 
@@ -2387,11 +2387,11 @@ func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigPtrOutputWithContext(c
 // NodegroupUpdateConfigPtrInput is an input type that accepts NodegroupUpdateConfigArgs, NodegroupUpdateConfigPtr and NodegroupUpdateConfigPtrOutput values.
 // You can construct a concrete instance of `NodegroupUpdateConfigPtrInput` via:
 //
-//          NodegroupUpdateConfigArgs{...}
+//	        NodegroupUpdateConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NodegroupUpdateConfigPtrInput interface {
 	pulumi.Input
 

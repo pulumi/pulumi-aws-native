@@ -91,7 +91,7 @@ func (o LookupFlowEntitlementResultOutput) EntitlementArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupFlowEntitlementResult) *string { return v.EntitlementArn }).(pulumi.StringPtrOutput)
 }
 
-//  An indication of whether the entitlement is enabled.
+// An indication of whether the entitlement is enabled.
 func (o LookupFlowEntitlementResultOutput) EntitlementStatus() FlowEntitlementEntitlementStatusPtrOutput {
 	return o.ApplyT(func(v LookupFlowEntitlementResult) *FlowEntitlementEntitlementStatus { return v.EntitlementStatus }).(FlowEntitlementEntitlementStatusPtrOutput)
 }

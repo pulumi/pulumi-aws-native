@@ -18,7 +18,7 @@ type ClusterEndpoint struct {
 // ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
 // You can construct a concrete instance of `ClusterEndpointInput` via:
 //
-//          ClusterEndpointArgs{...}
+//	ClusterEndpointArgs{...}
 type ClusterEndpointInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i ClusterEndpointArgs) ToClusterEndpointPtrOutputWithContext(ctx context.C
 // ClusterEndpointPtrInput is an input type that accepts ClusterEndpointArgs, ClusterEndpointPtr and ClusterEndpointPtrOutput values.
 // You can construct a concrete instance of `ClusterEndpointPtrInput` via:
 //
-//          ClusterEndpointArgs{...}
+//	        ClusterEndpointArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterEndpointPtrInput interface {
 	pulumi.Input
 
@@ -166,7 +166,7 @@ type ClusterLoggingProperties struct {
 // ClusterLoggingPropertiesInput is an input type that accepts ClusterLoggingPropertiesArgs and ClusterLoggingPropertiesOutput values.
 // You can construct a concrete instance of `ClusterLoggingPropertiesInput` via:
 //
-//          ClusterLoggingPropertiesArgs{...}
+//	ClusterLoggingPropertiesArgs{...}
 type ClusterLoggingPropertiesInput interface {
 	pulumi.Input
 
@@ -202,11 +202,11 @@ func (i ClusterLoggingPropertiesArgs) ToClusterLoggingPropertiesPtrOutputWithCon
 // ClusterLoggingPropertiesPtrInput is an input type that accepts ClusterLoggingPropertiesArgs, ClusterLoggingPropertiesPtr and ClusterLoggingPropertiesPtrOutput values.
 // You can construct a concrete instance of `ClusterLoggingPropertiesPtrInput` via:
 //
-//          ClusterLoggingPropertiesArgs{...}
+//	        ClusterLoggingPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterLoggingPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -314,7 +314,7 @@ type ClusterParameterGroupParameter struct {
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
 //
-//          ClusterParameterGroupParameterArgs{...}
+//	ClusterParameterGroupParameterArgs{...}
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -342,7 +342,7 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
-//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//	ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ type ClusterParameterGroupTag struct {
 // ClusterParameterGroupTagInput is an input type that accepts ClusterParameterGroupTagArgs and ClusterParameterGroupTagOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupTagInput` via:
 //
-//          ClusterParameterGroupTagArgs{...}
+//	ClusterParameterGroupTagArgs{...}
 type ClusterParameterGroupTagInput interface {
 	pulumi.Input
 
@@ -442,7 +442,7 @@ func (i ClusterParameterGroupTagArgs) ToClusterParameterGroupTagOutputWithContex
 // ClusterParameterGroupTagArrayInput is an input type that accepts ClusterParameterGroupTagArray and ClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupTagArrayInput` via:
 //
-//          ClusterParameterGroupTagArray{ ClusterParameterGroupTagArgs{...} }
+//	ClusterParameterGroupTagArray{ ClusterParameterGroupTagArgs{...} }
 type ClusterParameterGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -514,7 +514,7 @@ type ClusterSecurityGroupTag struct {
 // ClusterSecurityGroupTagInput is an input type that accepts ClusterSecurityGroupTagArgs and ClusterSecurityGroupTagOutput values.
 // You can construct a concrete instance of `ClusterSecurityGroupTagInput` via:
 //
-//          ClusterSecurityGroupTagArgs{...}
+//	ClusterSecurityGroupTagArgs{...}
 type ClusterSecurityGroupTagInput interface {
 	pulumi.Input
 
@@ -542,7 +542,7 @@ func (i ClusterSecurityGroupTagArgs) ToClusterSecurityGroupTagOutputWithContext(
 // ClusterSecurityGroupTagArrayInput is an input type that accepts ClusterSecurityGroupTagArray and ClusterSecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterSecurityGroupTagArrayInput` via:
 //
-//          ClusterSecurityGroupTagArray{ ClusterSecurityGroupTagArgs{...} }
+//	ClusterSecurityGroupTagArray{ ClusterSecurityGroupTagArgs{...} }
 type ClusterSecurityGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -614,7 +614,7 @@ type ClusterSubnetGroupTag struct {
 // ClusterSubnetGroupTagInput is an input type that accepts ClusterSubnetGroupTagArgs and ClusterSubnetGroupTagOutput values.
 // You can construct a concrete instance of `ClusterSubnetGroupTagInput` via:
 //
-//          ClusterSubnetGroupTagArgs{...}
+//	ClusterSubnetGroupTagArgs{...}
 type ClusterSubnetGroupTagInput interface {
 	pulumi.Input
 
@@ -642,7 +642,7 @@ func (i ClusterSubnetGroupTagArgs) ToClusterSubnetGroupTagOutputWithContext(ctx 
 // ClusterSubnetGroupTagArrayInput is an input type that accepts ClusterSubnetGroupTagArray and ClusterSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `ClusterSubnetGroupTagArrayInput` via:
 //
-//          ClusterSubnetGroupTagArray{ ClusterSubnetGroupTagArgs{...} }
+//	ClusterSubnetGroupTagArray{ ClusterSubnetGroupTagArgs{...} }
 type ClusterSubnetGroupTagArrayInput interface {
 	pulumi.Input
 
@@ -717,7 +717,7 @@ type ClusterTag struct {
 // ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
 // You can construct a concrete instance of `ClusterTagInput` via:
 //
-//          ClusterTagArgs{...}
+//	ClusterTagArgs{...}
 type ClusterTagInput interface {
 	pulumi.Input
 
@@ -748,7 +748,7 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
-//          ClusterTagArray{ ClusterTagArgs{...} }
+//	ClusterTagArray{ ClusterTagArgs{...} }
 type ClusterTagArrayInput interface {
 	pulumi.Input
 
@@ -946,7 +946,7 @@ type EventSubscriptionTag struct {
 // EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagInput` via:
 //
-//          EventSubscriptionTagArgs{...}
+//	EventSubscriptionTagArgs{...}
 type EventSubscriptionTagInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
-//          EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
+//	EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
 type EventSubscriptionTagArrayInput interface {
 	pulumi.Input
 
@@ -1052,7 +1052,7 @@ type ScheduledActionPauseClusterMessage struct {
 // ScheduledActionPauseClusterMessageInput is an input type that accepts ScheduledActionPauseClusterMessageArgs and ScheduledActionPauseClusterMessageOutput values.
 // You can construct a concrete instance of `ScheduledActionPauseClusterMessageInput` via:
 //
-//          ScheduledActionPauseClusterMessageArgs{...}
+//	ScheduledActionPauseClusterMessageArgs{...}
 type ScheduledActionPauseClusterMessageInput interface {
 	pulumi.Input
 
@@ -1088,11 +1088,11 @@ func (i ScheduledActionPauseClusterMessageArgs) ToScheduledActionPauseClusterMes
 // ScheduledActionPauseClusterMessagePtrInput is an input type that accepts ScheduledActionPauseClusterMessageArgs, ScheduledActionPauseClusterMessagePtr and ScheduledActionPauseClusterMessagePtrOutput values.
 // You can construct a concrete instance of `ScheduledActionPauseClusterMessagePtrInput` via:
 //
-//          ScheduledActionPauseClusterMessageArgs{...}
+//	        ScheduledActionPauseClusterMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionPauseClusterMessagePtrInput interface {
 	pulumi.Input
 
@@ -1192,7 +1192,7 @@ type ScheduledActionResizeClusterMessage struct {
 // ScheduledActionResizeClusterMessageInput is an input type that accepts ScheduledActionResizeClusterMessageArgs and ScheduledActionResizeClusterMessageOutput values.
 // You can construct a concrete instance of `ScheduledActionResizeClusterMessageInput` via:
 //
-//          ScheduledActionResizeClusterMessageArgs{...}
+//	ScheduledActionResizeClusterMessageArgs{...}
 type ScheduledActionResizeClusterMessageInput interface {
 	pulumi.Input
 
@@ -1232,11 +1232,11 @@ func (i ScheduledActionResizeClusterMessageArgs) ToScheduledActionResizeClusterM
 // ScheduledActionResizeClusterMessagePtrInput is an input type that accepts ScheduledActionResizeClusterMessageArgs, ScheduledActionResizeClusterMessagePtr and ScheduledActionResizeClusterMessagePtrOutput values.
 // You can construct a concrete instance of `ScheduledActionResizeClusterMessagePtrInput` via:
 //
-//          ScheduledActionResizeClusterMessageArgs{...}
+//	        ScheduledActionResizeClusterMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionResizeClusterMessagePtrInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ type ScheduledActionResumeClusterMessage struct {
 // ScheduledActionResumeClusterMessageInput is an input type that accepts ScheduledActionResumeClusterMessageArgs and ScheduledActionResumeClusterMessageOutput values.
 // You can construct a concrete instance of `ScheduledActionResumeClusterMessageInput` via:
 //
-//          ScheduledActionResumeClusterMessageArgs{...}
+//	ScheduledActionResumeClusterMessageArgs{...}
 type ScheduledActionResumeClusterMessageInput interface {
 	pulumi.Input
 
@@ -1420,11 +1420,11 @@ func (i ScheduledActionResumeClusterMessageArgs) ToScheduledActionResumeClusterM
 // ScheduledActionResumeClusterMessagePtrInput is an input type that accepts ScheduledActionResumeClusterMessageArgs, ScheduledActionResumeClusterMessagePtr and ScheduledActionResumeClusterMessagePtrOutput values.
 // You can construct a concrete instance of `ScheduledActionResumeClusterMessagePtrInput` via:
 //
-//          ScheduledActionResumeClusterMessageArgs{...}
+//	        ScheduledActionResumeClusterMessageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionResumeClusterMessagePtrInput interface {
 	pulumi.Input
 
@@ -1521,7 +1521,7 @@ type ScheduledActionType struct {
 // ScheduledActionTypeInput is an input type that accepts ScheduledActionTypeArgs and ScheduledActionTypeOutput values.
 // You can construct a concrete instance of `ScheduledActionTypeInput` via:
 //
-//          ScheduledActionTypeArgs{...}
+//	ScheduledActionTypeArgs{...}
 type ScheduledActionTypeInput interface {
 	pulumi.Input
 
@@ -1558,11 +1558,11 @@ func (i ScheduledActionTypeArgs) ToScheduledActionTypePtrOutputWithContext(ctx c
 // ScheduledActionTypePtrInput is an input type that accepts ScheduledActionTypeArgs, ScheduledActionTypePtr and ScheduledActionTypePtrOutput values.
 // You can construct a concrete instance of `ScheduledActionTypePtrInput` via:
 //
-//          ScheduledActionTypeArgs{...}
+//	        ScheduledActionTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScheduledActionTypePtrInput interface {
 	pulumi.Input
 

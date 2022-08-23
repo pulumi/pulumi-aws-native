@@ -140,7 +140,7 @@ func (o AppAssessmentSchedulePtrOutput) ToStringPtrOutputWithContext(ctx context
 // AppAssessmentScheduleInput is an input type that accepts AppAssessmentScheduleArgs and AppAssessmentScheduleOutput values.
 // You can construct a concrete instance of `AppAssessmentScheduleInput` via:
 //
-//          AppAssessmentScheduleArgs{...}
+//	AppAssessmentScheduleArgs{...}
 type AppAssessmentScheduleInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToStringPtrOutputWithCo
 // ResiliencyPolicyDataLocationConstraintInput is an input type that accepts ResiliencyPolicyDataLocationConstraintArgs and ResiliencyPolicyDataLocationConstraintOutput values.
 // You can construct a concrete instance of `ResiliencyPolicyDataLocationConstraintInput` via:
 //
-//          ResiliencyPolicyDataLocationConstraintArgs{...}
+//	ResiliencyPolicyDataLocationConstraintArgs{...}
 type ResiliencyPolicyDataLocationConstraintInput interface {
 	pulumi.Input
 
@@ -474,7 +474,7 @@ func (o ResiliencyPolicyTierPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ResiliencyPolicyTierInput is an input type that accepts ResiliencyPolicyTierArgs and ResiliencyPolicyTierOutput values.
 // You can construct a concrete instance of `ResiliencyPolicyTierInput` via:
 //
-//          ResiliencyPolicyTierArgs{...}
+//	ResiliencyPolicyTierArgs{...}
 type ResiliencyPolicyTierInput interface {
 	pulumi.Input
 

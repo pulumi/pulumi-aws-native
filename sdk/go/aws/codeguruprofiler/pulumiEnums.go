@@ -140,7 +140,7 @@ func (o ProfilingGroupComputePlatformPtrOutput) ToStringPtrOutputWithContext(ctx
 // ProfilingGroupComputePlatformInput is an input type that accepts ProfilingGroupComputePlatformArgs and ProfilingGroupComputePlatformOutput values.
 // You can construct a concrete instance of `ProfilingGroupComputePlatformInput` via:
 //
-//          ProfilingGroupComputePlatformArgs{...}
+//	ProfilingGroupComputePlatformArgs{...}
 type ProfilingGroupComputePlatformInput interface {
 	pulumi.Input
 

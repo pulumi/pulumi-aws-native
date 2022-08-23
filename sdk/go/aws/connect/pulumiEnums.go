@@ -140,7 +140,7 @@ func (o ContactFlowModuleStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx co
 // ContactFlowModuleStateEnumInput is an input type that accepts ContactFlowModuleStateEnumArgs and ContactFlowModuleStateEnumOutput values.
 // You can construct a concrete instance of `ContactFlowModuleStateEnumInput` via:
 //
-//          ContactFlowModuleStateEnumArgs{...}
+//	ContactFlowModuleStateEnumArgs{...}
 type ContactFlowModuleStateEnumInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ func (o ContactFlowStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // ContactFlowStateEnumInput is an input type that accepts ContactFlowStateEnumArgs and ContactFlowStateEnumOutput values.
 // You can construct a concrete instance of `ContactFlowStateEnumInput` via:
 //
-//          ContactFlowStateEnumArgs{...}
+//	ContactFlowStateEnumArgs{...}
 type ContactFlowStateEnumInput interface {
 	pulumi.Input
 
@@ -568,7 +568,7 @@ func (o ContactFlowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // ContactFlowTypeInput is an input type that accepts ContactFlowTypeArgs and ContactFlowTypeOutput values.
 // You can construct a concrete instance of `ContactFlowTypeInput` via:
 //
-//          ContactFlowTypeArgs{...}
+//	ContactFlowTypeArgs{...}
 type ContactFlowTypeInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ func (o HoursOfOperationConfigDayPtrOutput) ToStringPtrOutputWithContext(ctx con
 // HoursOfOperationConfigDayInput is an input type that accepts HoursOfOperationConfigDayArgs and HoursOfOperationConfigDayOutput values.
 // You can construct a concrete instance of `HoursOfOperationConfigDayInput` via:
 //
-//          HoursOfOperationConfigDayArgs{...}
+//	HoursOfOperationConfigDayArgs{...}
 type HoursOfOperationConfigDayInput interface {
 	pulumi.Input
 
@@ -904,7 +904,7 @@ func (o QuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // QuickConnectTypeInput is an input type that accepts QuickConnectTypeArgs and QuickConnectTypeOutput values.
 // You can construct a concrete instance of `QuickConnectTypeInput` via:
 //
-//          QuickConnectTypeArgs{...}
+//	QuickConnectTypeArgs{...}
 type QuickConnectTypeInput interface {
 	pulumi.Input
 
@@ -1079,7 +1079,7 @@ func (o TaskTemplateFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 // TaskTemplateFieldTypeInput is an input type that accepts TaskTemplateFieldTypeArgs and TaskTemplateFieldTypeOutput values.
 // You can construct a concrete instance of `TaskTemplateFieldTypeInput` via:
 //
-//          TaskTemplateFieldTypeArgs{...}
+//	TaskTemplateFieldTypeArgs{...}
 type TaskTemplateFieldTypeInput interface {
 	pulumi.Input
 
@@ -1244,7 +1244,7 @@ func (o TaskTemplateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // TaskTemplateStatusInput is an input type that accepts TaskTemplateStatusArgs and TaskTemplateStatusOutput values.
 // You can construct a concrete instance of `TaskTemplateStatusInput` via:
 //
-//          TaskTemplateStatusArgs{...}
+//	TaskTemplateStatusArgs{...}
 type TaskTemplateStatusInput interface {
 	pulumi.Input
 
@@ -1409,7 +1409,7 @@ func (o UserPhoneTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // UserPhoneTypeInput is an input type that accepts UserPhoneTypeArgs and UserPhoneTypeOutput values.
 // You can construct a concrete instance of `UserPhoneTypeInput` via:
 //
-//          UserPhoneTypeArgs{...}
+//	UserPhoneTypeArgs{...}
 type UserPhoneTypeInput interface {
 	pulumi.Input
 

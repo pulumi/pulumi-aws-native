@@ -18,7 +18,7 @@ type DomainTag struct {
 // DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
 // You can construct a concrete instance of `DomainTagInput` via:
 //
-//          DomainTagArgs{...}
+//	DomainTagArgs{...}
 type DomainTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
-//          DomainTagArray{ DomainTagArgs{...} }
+//	DomainTagArray{ DomainTagArgs{...} }
 type DomainTagArrayInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ type IntegrationConnectorOperator struct {
 // IntegrationConnectorOperatorInput is an input type that accepts IntegrationConnectorOperatorArgs and IntegrationConnectorOperatorOutput values.
 // You can construct a concrete instance of `IntegrationConnectorOperatorInput` via:
 //
-//          IntegrationConnectorOperatorArgs{...}
+//	IntegrationConnectorOperatorArgs{...}
 type IntegrationConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -160,11 +160,11 @@ func (i IntegrationConnectorOperatorArgs) ToIntegrationConnectorOperatorPtrOutpu
 // IntegrationConnectorOperatorPtrInput is an input type that accepts IntegrationConnectorOperatorArgs, IntegrationConnectorOperatorPtr and IntegrationConnectorOperatorPtrOutput values.
 // You can construct a concrete instance of `IntegrationConnectorOperatorPtrInput` via:
 //
-//          IntegrationConnectorOperatorArgs{...}
+//	        IntegrationConnectorOperatorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationConnectorOperatorPtrInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ type IntegrationFlowDefinition struct {
 // IntegrationFlowDefinitionInput is an input type that accepts IntegrationFlowDefinitionArgs and IntegrationFlowDefinitionOutput values.
 // You can construct a concrete instance of `IntegrationFlowDefinitionInput` via:
 //
-//          IntegrationFlowDefinitionArgs{...}
+//	IntegrationFlowDefinitionArgs{...}
 type IntegrationFlowDefinitionInput interface {
 	pulumi.Input
 
@@ -355,11 +355,11 @@ func (i IntegrationFlowDefinitionArgs) ToIntegrationFlowDefinitionPtrOutputWithC
 // IntegrationFlowDefinitionPtrInput is an input type that accepts IntegrationFlowDefinitionArgs, IntegrationFlowDefinitionPtr and IntegrationFlowDefinitionPtrOutput values.
 // You can construct a concrete instance of `IntegrationFlowDefinitionPtrInput` via:
 //
-//          IntegrationFlowDefinitionArgs{...}
+//	        IntegrationFlowDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationFlowDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -518,7 +518,7 @@ type IntegrationIncrementalPullConfig struct {
 // IntegrationIncrementalPullConfigInput is an input type that accepts IntegrationIncrementalPullConfigArgs and IntegrationIncrementalPullConfigOutput values.
 // You can construct a concrete instance of `IntegrationIncrementalPullConfigInput` via:
 //
-//          IntegrationIncrementalPullConfigArgs{...}
+//	IntegrationIncrementalPullConfigArgs{...}
 type IntegrationIncrementalPullConfigInput interface {
 	pulumi.Input
 
@@ -553,11 +553,11 @@ func (i IntegrationIncrementalPullConfigArgs) ToIntegrationIncrementalPullConfig
 // IntegrationIncrementalPullConfigPtrInput is an input type that accepts IntegrationIncrementalPullConfigArgs, IntegrationIncrementalPullConfigPtr and IntegrationIncrementalPullConfigPtrOutput values.
 // You can construct a concrete instance of `IntegrationIncrementalPullConfigPtrInput` via:
 //
-//          IntegrationIncrementalPullConfigArgs{...}
+//	        IntegrationIncrementalPullConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationIncrementalPullConfigPtrInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ type IntegrationMarketoSourceProperties struct {
 // IntegrationMarketoSourcePropertiesInput is an input type that accepts IntegrationMarketoSourcePropertiesArgs and IntegrationMarketoSourcePropertiesOutput values.
 // You can construct a concrete instance of `IntegrationMarketoSourcePropertiesInput` via:
 //
-//          IntegrationMarketoSourcePropertiesArgs{...}
+//	IntegrationMarketoSourcePropertiesArgs{...}
 type IntegrationMarketoSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -686,11 +686,11 @@ func (i IntegrationMarketoSourcePropertiesArgs) ToIntegrationMarketoSourceProper
 // IntegrationMarketoSourcePropertiesPtrInput is an input type that accepts IntegrationMarketoSourcePropertiesArgs, IntegrationMarketoSourcePropertiesPtr and IntegrationMarketoSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationMarketoSourcePropertiesPtrInput` via:
 //
-//          IntegrationMarketoSourcePropertiesArgs{...}
+//	        IntegrationMarketoSourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationMarketoSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -785,7 +785,7 @@ type IntegrationObjectTypeMapping struct {
 // IntegrationObjectTypeMappingInput is an input type that accepts IntegrationObjectTypeMappingArgs and IntegrationObjectTypeMappingOutput values.
 // You can construct a concrete instance of `IntegrationObjectTypeMappingInput` via:
 //
-//          IntegrationObjectTypeMappingArgs{...}
+//	IntegrationObjectTypeMappingArgs{...}
 type IntegrationObjectTypeMappingInput interface {
 	pulumi.Input
 
@@ -813,7 +813,7 @@ func (i IntegrationObjectTypeMappingArgs) ToIntegrationObjectTypeMappingOutputWi
 // IntegrationObjectTypeMappingArrayInput is an input type that accepts IntegrationObjectTypeMappingArray and IntegrationObjectTypeMappingArrayOutput values.
 // You can construct a concrete instance of `IntegrationObjectTypeMappingArrayInput` via:
 //
-//          IntegrationObjectTypeMappingArray{ IntegrationObjectTypeMappingArgs{...} }
+//	IntegrationObjectTypeMappingArray{ IntegrationObjectTypeMappingArgs{...} }
 type IntegrationObjectTypeMappingArrayInput interface {
 	pulumi.Input
 
@@ -885,7 +885,7 @@ type IntegrationS3SourceProperties struct {
 // IntegrationS3SourcePropertiesInput is an input type that accepts IntegrationS3SourcePropertiesArgs and IntegrationS3SourcePropertiesOutput values.
 // You can construct a concrete instance of `IntegrationS3SourcePropertiesInput` via:
 //
-//          IntegrationS3SourcePropertiesArgs{...}
+//	IntegrationS3SourcePropertiesArgs{...}
 type IntegrationS3SourcePropertiesInput interface {
 	pulumi.Input
 
@@ -921,11 +921,11 @@ func (i IntegrationS3SourcePropertiesArgs) ToIntegrationS3SourcePropertiesPtrOut
 // IntegrationS3SourcePropertiesPtrInput is an input type that accepts IntegrationS3SourcePropertiesArgs, IntegrationS3SourcePropertiesPtr and IntegrationS3SourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationS3SourcePropertiesPtrInput` via:
 //
-//          IntegrationS3SourcePropertiesArgs{...}
+//	        IntegrationS3SourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationS3SourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1034,7 +1034,7 @@ type IntegrationSalesforceSourceProperties struct {
 // IntegrationSalesforceSourcePropertiesInput is an input type that accepts IntegrationSalesforceSourcePropertiesArgs and IntegrationSalesforceSourcePropertiesOutput values.
 // You can construct a concrete instance of `IntegrationSalesforceSourcePropertiesInput` via:
 //
-//          IntegrationSalesforceSourcePropertiesArgs{...}
+//	IntegrationSalesforceSourcePropertiesArgs{...}
 type IntegrationSalesforceSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1071,11 +1071,11 @@ func (i IntegrationSalesforceSourcePropertiesArgs) ToIntegrationSalesforceSource
 // IntegrationSalesforceSourcePropertiesPtrInput is an input type that accepts IntegrationSalesforceSourcePropertiesArgs, IntegrationSalesforceSourcePropertiesPtr and IntegrationSalesforceSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationSalesforceSourcePropertiesPtrInput` via:
 //
-//          IntegrationSalesforceSourcePropertiesArgs{...}
+//	        IntegrationSalesforceSourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationSalesforceSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1201,7 +1201,7 @@ type IntegrationScheduledTriggerProperties struct {
 // IntegrationScheduledTriggerPropertiesInput is an input type that accepts IntegrationScheduledTriggerPropertiesArgs and IntegrationScheduledTriggerPropertiesOutput values.
 // You can construct a concrete instance of `IntegrationScheduledTriggerPropertiesInput` via:
 //
-//          IntegrationScheduledTriggerPropertiesArgs{...}
+//	IntegrationScheduledTriggerPropertiesArgs{...}
 type IntegrationScheduledTriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -1242,11 +1242,11 @@ func (i IntegrationScheduledTriggerPropertiesArgs) ToIntegrationScheduledTrigger
 // IntegrationScheduledTriggerPropertiesPtrInput is an input type that accepts IntegrationScheduledTriggerPropertiesArgs, IntegrationScheduledTriggerPropertiesPtr and IntegrationScheduledTriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationScheduledTriggerPropertiesPtrInput` via:
 //
-//          IntegrationScheduledTriggerPropertiesArgs{...}
+//	        IntegrationScheduledTriggerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationScheduledTriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1420,7 +1420,7 @@ type IntegrationServiceNowSourceProperties struct {
 // IntegrationServiceNowSourcePropertiesInput is an input type that accepts IntegrationServiceNowSourcePropertiesArgs and IntegrationServiceNowSourcePropertiesOutput values.
 // You can construct a concrete instance of `IntegrationServiceNowSourcePropertiesInput` via:
 //
-//          IntegrationServiceNowSourcePropertiesArgs{...}
+//	IntegrationServiceNowSourcePropertiesArgs{...}
 type IntegrationServiceNowSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -1455,11 +1455,11 @@ func (i IntegrationServiceNowSourcePropertiesArgs) ToIntegrationServiceNowSource
 // IntegrationServiceNowSourcePropertiesPtrInput is an input type that accepts IntegrationServiceNowSourcePropertiesArgs, IntegrationServiceNowSourcePropertiesPtr and IntegrationServiceNowSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationServiceNowSourcePropertiesPtrInput` via:
 //
-//          IntegrationServiceNowSourcePropertiesArgs{...}
+//	        IntegrationServiceNowSourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationServiceNowSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1557,7 +1557,7 @@ type IntegrationSourceConnectorProperties struct {
 // IntegrationSourceConnectorPropertiesInput is an input type that accepts IntegrationSourceConnectorPropertiesArgs and IntegrationSourceConnectorPropertiesOutput values.
 // You can construct a concrete instance of `IntegrationSourceConnectorPropertiesInput` via:
 //
-//          IntegrationSourceConnectorPropertiesArgs{...}
+//	IntegrationSourceConnectorPropertiesArgs{...}
 type IntegrationSourceConnectorPropertiesInput interface {
 	pulumi.Input
 
@@ -1596,11 +1596,11 @@ func (i IntegrationSourceConnectorPropertiesArgs) ToIntegrationSourceConnectorPr
 // IntegrationSourceConnectorPropertiesPtrInput is an input type that accepts IntegrationSourceConnectorPropertiesArgs, IntegrationSourceConnectorPropertiesPtr and IntegrationSourceConnectorPropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationSourceConnectorPropertiesPtrInput` via:
 //
-//          IntegrationSourceConnectorPropertiesArgs{...}
+//	        IntegrationSourceConnectorPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationSourceConnectorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1753,7 +1753,7 @@ type IntegrationSourceFlowConfig struct {
 // IntegrationSourceFlowConfigInput is an input type that accepts IntegrationSourceFlowConfigArgs and IntegrationSourceFlowConfigOutput values.
 // You can construct a concrete instance of `IntegrationSourceFlowConfigInput` via:
 //
-//          IntegrationSourceFlowConfigArgs{...}
+//	IntegrationSourceFlowConfigArgs{...}
 type IntegrationSourceFlowConfigInput interface {
 	pulumi.Input
 
@@ -1791,11 +1791,11 @@ func (i IntegrationSourceFlowConfigArgs) ToIntegrationSourceFlowConfigPtrOutputW
 // IntegrationSourceFlowConfigPtrInput is an input type that accepts IntegrationSourceFlowConfigArgs, IntegrationSourceFlowConfigPtr and IntegrationSourceFlowConfigPtrOutput values.
 // You can construct a concrete instance of `IntegrationSourceFlowConfigPtrInput` via:
 //
-//          IntegrationSourceFlowConfigArgs{...}
+//	        IntegrationSourceFlowConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationSourceFlowConfigPtrInput interface {
 	pulumi.Input
 
@@ -1931,7 +1931,7 @@ type IntegrationTag struct {
 // IntegrationTagInput is an input type that accepts IntegrationTagArgs and IntegrationTagOutput values.
 // You can construct a concrete instance of `IntegrationTagInput` via:
 //
-//          IntegrationTagArgs{...}
+//	IntegrationTagArgs{...}
 type IntegrationTagInput interface {
 	pulumi.Input
 
@@ -1959,7 +1959,7 @@ func (i IntegrationTagArgs) ToIntegrationTagOutputWithContext(ctx context.Contex
 // IntegrationTagArrayInput is an input type that accepts IntegrationTagArray and IntegrationTagArrayOutput values.
 // You can construct a concrete instance of `IntegrationTagArrayInput` via:
 //
-//          IntegrationTagArray{ IntegrationTagArgs{...} }
+//	IntegrationTagArray{ IntegrationTagArgs{...} }
 type IntegrationTagArrayInput interface {
 	pulumi.Input
 
@@ -2034,7 +2034,7 @@ type IntegrationTask struct {
 // IntegrationTaskInput is an input type that accepts IntegrationTaskArgs and IntegrationTaskOutput values.
 // You can construct a concrete instance of `IntegrationTaskInput` via:
 //
-//          IntegrationTaskArgs{...}
+//	IntegrationTaskArgs{...}
 type IntegrationTaskInput interface {
 	pulumi.Input
 
@@ -2065,7 +2065,7 @@ func (i IntegrationTaskArgs) ToIntegrationTaskOutputWithContext(ctx context.Cont
 // IntegrationTaskArrayInput is an input type that accepts IntegrationTaskArray and IntegrationTaskArrayOutput values.
 // You can construct a concrete instance of `IntegrationTaskArrayInput` via:
 //
-//          IntegrationTaskArray{ IntegrationTaskArgs{...} }
+//	IntegrationTaskArray{ IntegrationTaskArgs{...} }
 type IntegrationTaskArrayInput interface {
 	pulumi.Input
 
@@ -2149,7 +2149,7 @@ type IntegrationTaskPropertiesMap struct {
 // IntegrationTaskPropertiesMapInput is an input type that accepts IntegrationTaskPropertiesMap and IntegrationTaskPropertiesMapOutput values.
 // You can construct a concrete instance of `IntegrationTaskPropertiesMapInput` via:
 //
-//          IntegrationTaskPropertiesMap{ "key": IntegrationTaskPropertiesArgs{...} }
+//	IntegrationTaskPropertiesMap{ "key": IntegrationTaskPropertiesArgs{...} }
 type IntegrationTaskPropertiesMapInput interface {
 	pulumi.Input
 
@@ -2177,7 +2177,7 @@ func (i IntegrationTaskPropertiesMapArgs) ToIntegrationTaskPropertiesMapOutputWi
 // IntegrationTaskPropertiesMapArrayInput is an input type that accepts IntegrationTaskPropertiesMapArray and IntegrationTaskPropertiesMapArrayOutput values.
 // You can construct a concrete instance of `IntegrationTaskPropertiesMapArrayInput` via:
 //
-//          IntegrationTaskPropertiesMapArray{ IntegrationTaskPropertiesMapArgs{...} }
+//	IntegrationTaskPropertiesMapArray{ IntegrationTaskPropertiesMapArgs{...} }
 type IntegrationTaskPropertiesMapArrayInput interface {
 	pulumi.Input
 
@@ -2249,7 +2249,7 @@ type IntegrationTriggerConfig struct {
 // IntegrationTriggerConfigInput is an input type that accepts IntegrationTriggerConfigArgs and IntegrationTriggerConfigOutput values.
 // You can construct a concrete instance of `IntegrationTriggerConfigInput` via:
 //
-//          IntegrationTriggerConfigArgs{...}
+//	IntegrationTriggerConfigArgs{...}
 type IntegrationTriggerConfigInput interface {
 	pulumi.Input
 
@@ -2285,11 +2285,11 @@ func (i IntegrationTriggerConfigArgs) ToIntegrationTriggerConfigPtrOutputWithCon
 // IntegrationTriggerConfigPtrInput is an input type that accepts IntegrationTriggerConfigArgs, IntegrationTriggerConfigPtr and IntegrationTriggerConfigPtrOutput values.
 // You can construct a concrete instance of `IntegrationTriggerConfigPtrInput` via:
 //
-//          IntegrationTriggerConfigArgs{...}
+//	        IntegrationTriggerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationTriggerConfigPtrInput interface {
 	pulumi.Input
 
@@ -2396,7 +2396,7 @@ type IntegrationTriggerProperties struct {
 // IntegrationTriggerPropertiesInput is an input type that accepts IntegrationTriggerPropertiesArgs and IntegrationTriggerPropertiesOutput values.
 // You can construct a concrete instance of `IntegrationTriggerPropertiesInput` via:
 //
-//          IntegrationTriggerPropertiesArgs{...}
+//	IntegrationTriggerPropertiesArgs{...}
 type IntegrationTriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -2431,11 +2431,11 @@ func (i IntegrationTriggerPropertiesArgs) ToIntegrationTriggerPropertiesPtrOutpu
 // IntegrationTriggerPropertiesPtrInput is an input type that accepts IntegrationTriggerPropertiesArgs, IntegrationTriggerPropertiesPtr and IntegrationTriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationTriggerPropertiesPtrInput` via:
 //
-//          IntegrationTriggerPropertiesArgs{...}
+//	        IntegrationTriggerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationTriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2529,7 +2529,7 @@ type IntegrationZendeskSourceProperties struct {
 // IntegrationZendeskSourcePropertiesInput is an input type that accepts IntegrationZendeskSourcePropertiesArgs and IntegrationZendeskSourcePropertiesOutput values.
 // You can construct a concrete instance of `IntegrationZendeskSourcePropertiesInput` via:
 //
-//          IntegrationZendeskSourcePropertiesArgs{...}
+//	IntegrationZendeskSourcePropertiesArgs{...}
 type IntegrationZendeskSourcePropertiesInput interface {
 	pulumi.Input
 
@@ -2564,11 +2564,11 @@ func (i IntegrationZendeskSourcePropertiesArgs) ToIntegrationZendeskSourceProper
 // IntegrationZendeskSourcePropertiesPtrInput is an input type that accepts IntegrationZendeskSourcePropertiesArgs, IntegrationZendeskSourcePropertiesPtr and IntegrationZendeskSourcePropertiesPtrOutput values.
 // You can construct a concrete instance of `IntegrationZendeskSourcePropertiesPtrInput` via:
 //
-//          IntegrationZendeskSourcePropertiesArgs{...}
+//	        IntegrationZendeskSourcePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationZendeskSourcePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2668,7 +2668,7 @@ type ObjectTypeField struct {
 // ObjectTypeFieldInput is an input type that accepts ObjectTypeFieldArgs and ObjectTypeFieldOutput values.
 // You can construct a concrete instance of `ObjectTypeFieldInput` via:
 //
-//          ObjectTypeFieldArgs{...}
+//	ObjectTypeFieldArgs{...}
 type ObjectTypeFieldInput interface {
 	pulumi.Input
 
@@ -2709,11 +2709,11 @@ func (i ObjectTypeFieldArgs) ToObjectTypeFieldPtrOutputWithContext(ctx context.C
 // ObjectTypeFieldPtrInput is an input type that accepts ObjectTypeFieldArgs, ObjectTypeFieldPtr and ObjectTypeFieldPtrOutput values.
 // You can construct a concrete instance of `ObjectTypeFieldPtrInput` via:
 //
-//          ObjectTypeFieldArgs{...}
+//	        ObjectTypeFieldArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ObjectTypeFieldPtrInput interface {
 	pulumi.Input
 
@@ -2841,7 +2841,7 @@ type ObjectTypeFieldMap struct {
 // ObjectTypeFieldMapInput is an input type that accepts ObjectTypeFieldMap and ObjectTypeFieldMapOutput values.
 // You can construct a concrete instance of `ObjectTypeFieldMapInput` via:
 //
-//          ObjectTypeFieldMap{ "key": ObjectTypeFieldArgs{...} }
+//	ObjectTypeFieldMap{ "key": ObjectTypeFieldArgs{...} }
 type ObjectTypeFieldMapInput interface {
 	pulumi.Input
 
@@ -2869,7 +2869,7 @@ func (i ObjectTypeFieldMapArgs) ToObjectTypeFieldMapOutputWithContext(ctx contex
 // ObjectTypeFieldMapArrayInput is an input type that accepts ObjectTypeFieldMapArray and ObjectTypeFieldMapArrayOutput values.
 // You can construct a concrete instance of `ObjectTypeFieldMapArrayInput` via:
 //
-//          ObjectTypeFieldMapArray{ ObjectTypeFieldMapArgs{...} }
+//	ObjectTypeFieldMapArray{ ObjectTypeFieldMapArgs{...} }
 type ObjectTypeFieldMapArrayInput interface {
 	pulumi.Input
 
@@ -2944,7 +2944,7 @@ type ObjectTypeKey struct {
 // ObjectTypeKeyInput is an input type that accepts ObjectTypeKeyArgs and ObjectTypeKeyOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyInput` via:
 //
-//          ObjectTypeKeyArgs{...}
+//	ObjectTypeKeyArgs{...}
 type ObjectTypeKeyInput interface {
 	pulumi.Input
 
@@ -2975,7 +2975,7 @@ func (i ObjectTypeKeyArgs) ToObjectTypeKeyOutputWithContext(ctx context.Context)
 // ObjectTypeKeyArrayInput is an input type that accepts ObjectTypeKeyArray and ObjectTypeKeyArrayOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyArrayInput` via:
 //
-//          ObjectTypeKeyArray{ ObjectTypeKeyArgs{...} }
+//	ObjectTypeKeyArray{ ObjectTypeKeyArgs{...} }
 type ObjectTypeKeyArrayInput interface {
 	pulumi.Input
 
@@ -3050,7 +3050,7 @@ type ObjectTypeKeyMap struct {
 // ObjectTypeKeyMapInput is an input type that accepts ObjectTypeKeyMap and ObjectTypeKeyMapOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyMapInput` via:
 //
-//          ObjectTypeKeyMap{ "key": ObjectTypeKeyArgs{...} }
+//	ObjectTypeKeyMap{ "key": ObjectTypeKeyArgs{...} }
 type ObjectTypeKeyMapInput interface {
 	pulumi.Input
 
@@ -3078,7 +3078,7 @@ func (i ObjectTypeKeyMapArgs) ToObjectTypeKeyMapOutputWithContext(ctx context.Co
 // ObjectTypeKeyMapArrayInput is an input type that accepts ObjectTypeKeyMapArray and ObjectTypeKeyMapArrayOutput values.
 // You can construct a concrete instance of `ObjectTypeKeyMapArrayInput` via:
 //
-//          ObjectTypeKeyMapArray{ ObjectTypeKeyMapArgs{...} }
+//	ObjectTypeKeyMapArray{ ObjectTypeKeyMapArgs{...} }
 type ObjectTypeKeyMapArrayInput interface {
 	pulumi.Input
 
@@ -3150,7 +3150,7 @@ type ObjectTypeTag struct {
 // ObjectTypeTagInput is an input type that accepts ObjectTypeTagArgs and ObjectTypeTagOutput values.
 // You can construct a concrete instance of `ObjectTypeTagInput` via:
 //
-//          ObjectTypeTagArgs{...}
+//	ObjectTypeTagArgs{...}
 type ObjectTypeTagInput interface {
 	pulumi.Input
 
@@ -3178,7 +3178,7 @@ func (i ObjectTypeTagArgs) ToObjectTypeTagOutputWithContext(ctx context.Context)
 // ObjectTypeTagArrayInput is an input type that accepts ObjectTypeTagArray and ObjectTypeTagArrayOutput values.
 // You can construct a concrete instance of `ObjectTypeTagArrayInput` via:
 //
-//          ObjectTypeTagArray{ ObjectTypeTagArgs{...} }
+//	ObjectTypeTagArray{ ObjectTypeTagArgs{...} }
 type ObjectTypeTagArrayInput interface {
 	pulumi.Input
 

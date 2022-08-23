@@ -139,7 +139,7 @@ func (o StreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ct
 // StreamEncryptionEncryptionTypeInput is an input type that accepts StreamEncryptionEncryptionTypeArgs and StreamEncryptionEncryptionTypeOutput values.
 // You can construct a concrete instance of `StreamEncryptionEncryptionTypeInput` via:
 //
-//          StreamEncryptionEncryptionTypeArgs{...}
+//	StreamEncryptionEncryptionTypeArgs{...}
 type StreamEncryptionEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -304,7 +304,7 @@ func (o StreamModeDetailsStreamModePtrOutput) ToStringPtrOutputWithContext(ctx c
 // StreamModeDetailsStreamModeInput is an input type that accepts StreamModeDetailsStreamModeArgs and StreamModeDetailsStreamModeOutput values.
 // You can construct a concrete instance of `StreamModeDetailsStreamModeInput` via:
 //
-//          StreamModeDetailsStreamModeArgs{...}
+//	StreamModeDetailsStreamModeArgs{...}
 type StreamModeDetailsStreamModeInput interface {
 	pulumi.Input
 

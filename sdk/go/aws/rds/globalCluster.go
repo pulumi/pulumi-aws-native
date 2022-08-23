@@ -166,7 +166,8 @@ func (o GlobalClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-//  The storage encryption setting for the new global database cluster.
+//	The storage encryption setting for the new global database cluster.
+//
 // If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)

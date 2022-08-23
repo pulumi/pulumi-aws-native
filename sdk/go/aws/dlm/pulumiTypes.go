@@ -18,7 +18,7 @@ type LifecyclePolicyAction struct {
 // LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
 // You can construct a concrete instance of `LifecyclePolicyActionInput` via:
 //
-//          LifecyclePolicyActionArgs{...}
+//	LifecyclePolicyActionArgs{...}
 type LifecyclePolicyActionInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutputWithContext(ctx 
 // LifecyclePolicyActionArrayInput is an input type that accepts LifecyclePolicyActionArray and LifecyclePolicyActionArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyActionArrayInput` via:
 //
-//          LifecyclePolicyActionArray{ LifecyclePolicyActionArgs{...} }
+//	LifecyclePolicyActionArray{ LifecyclePolicyActionArgs{...} }
 type LifecyclePolicyActionArrayInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ type LifecyclePolicyCreateRule struct {
 // LifecyclePolicyCreateRuleInput is an input type that accepts LifecyclePolicyCreateRuleArgs and LifecyclePolicyCreateRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCreateRuleInput` via:
 //
-//          LifecyclePolicyCreateRuleArgs{...}
+//	LifecyclePolicyCreateRuleArgs{...}
 type LifecyclePolicyCreateRuleInput interface {
 	pulumi.Input
 
@@ -160,11 +160,11 @@ func (i LifecyclePolicyCreateRuleArgs) ToLifecyclePolicyCreateRulePtrOutputWithC
 // LifecyclePolicyCreateRulePtrInput is an input type that accepts LifecyclePolicyCreateRuleArgs, LifecyclePolicyCreateRulePtr and LifecyclePolicyCreateRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCreateRulePtrInput` via:
 //
-//          LifecyclePolicyCreateRuleArgs{...}
+//	        LifecyclePolicyCreateRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyCreateRulePtrInput interface {
 	pulumi.Input
 
@@ -312,7 +312,7 @@ type LifecyclePolicyCrossRegionCopyAction struct {
 // LifecyclePolicyCrossRegionCopyActionInput is an input type that accepts LifecyclePolicyCrossRegionCopyActionArgs and LifecyclePolicyCrossRegionCopyActionOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyActionInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyActionArgs{...}
+//	LifecyclePolicyCrossRegionCopyActionArgs{...}
 type LifecyclePolicyCrossRegionCopyActionInput interface {
 	pulumi.Input
 
@@ -341,7 +341,7 @@ func (i LifecyclePolicyCrossRegionCopyActionArgs) ToLifecyclePolicyCrossRegionCo
 // LifecyclePolicyCrossRegionCopyActionArrayInput is an input type that accepts LifecyclePolicyCrossRegionCopyActionArray and LifecyclePolicyCrossRegionCopyActionArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyActionArrayInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyActionArray{ LifecyclePolicyCrossRegionCopyActionArgs{...} }
+//	LifecyclePolicyCrossRegionCopyActionArray{ LifecyclePolicyCrossRegionCopyActionArgs{...} }
 type LifecyclePolicyCrossRegionCopyActionArrayInput interface {
 	pulumi.Input
 
@@ -421,7 +421,7 @@ type LifecyclePolicyCrossRegionCopyDeprecateRule struct {
 // LifecyclePolicyCrossRegionCopyDeprecateRuleInput is an input type that accepts LifecyclePolicyCrossRegionCopyDeprecateRuleArgs and LifecyclePolicyCrossRegionCopyDeprecateRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyDeprecateRuleInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyDeprecateRuleArgs{...}
+//	LifecyclePolicyCrossRegionCopyDeprecateRuleArgs{...}
 type LifecyclePolicyCrossRegionCopyDeprecateRuleInput interface {
 	pulumi.Input
 
@@ -457,11 +457,11 @@ func (i LifecyclePolicyCrossRegionCopyDeprecateRuleArgs) ToLifecyclePolicyCrossR
 // LifecyclePolicyCrossRegionCopyDeprecateRulePtrInput is an input type that accepts LifecyclePolicyCrossRegionCopyDeprecateRuleArgs, LifecyclePolicyCrossRegionCopyDeprecateRulePtr and LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyDeprecateRulePtrInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyDeprecateRuleArgs{...}
+//	        LifecyclePolicyCrossRegionCopyDeprecateRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyCrossRegionCopyDeprecateRulePtrInput interface {
 	pulumi.Input
 
@@ -569,7 +569,7 @@ type LifecyclePolicyCrossRegionCopyRetainRule struct {
 // LifecyclePolicyCrossRegionCopyRetainRuleInput is an input type that accepts LifecyclePolicyCrossRegionCopyRetainRuleArgs and LifecyclePolicyCrossRegionCopyRetainRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyRetainRuleInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyRetainRuleArgs{...}
+//	LifecyclePolicyCrossRegionCopyRetainRuleArgs{...}
 type LifecyclePolicyCrossRegionCopyRetainRuleInput interface {
 	pulumi.Input
 
@@ -605,11 +605,11 @@ func (i LifecyclePolicyCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyCrossRegi
 // LifecyclePolicyCrossRegionCopyRetainRulePtrInput is an input type that accepts LifecyclePolicyCrossRegionCopyRetainRuleArgs, LifecyclePolicyCrossRegionCopyRetainRulePtr and LifecyclePolicyCrossRegionCopyRetainRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyRetainRulePtrInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyRetainRuleArgs{...}
+//	        LifecyclePolicyCrossRegionCopyRetainRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyCrossRegionCopyRetainRulePtrInput interface {
 	pulumi.Input
 
@@ -722,7 +722,7 @@ type LifecyclePolicyCrossRegionCopyRule struct {
 // LifecyclePolicyCrossRegionCopyRuleInput is an input type that accepts LifecyclePolicyCrossRegionCopyRuleArgs and LifecyclePolicyCrossRegionCopyRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyRuleInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyRuleArgs{...}
+//	LifecyclePolicyCrossRegionCopyRuleArgs{...}
 type LifecyclePolicyCrossRegionCopyRuleInput interface {
 	pulumi.Input
 
@@ -755,7 +755,7 @@ func (i LifecyclePolicyCrossRegionCopyRuleArgs) ToLifecyclePolicyCrossRegionCopy
 // LifecyclePolicyCrossRegionCopyRuleArrayInput is an input type that accepts LifecyclePolicyCrossRegionCopyRuleArray and LifecyclePolicyCrossRegionCopyRuleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyRuleArrayInput` via:
 //
-//          LifecyclePolicyCrossRegionCopyRuleArray{ LifecyclePolicyCrossRegionCopyRuleArgs{...} }
+//	LifecyclePolicyCrossRegionCopyRuleArray{ LifecyclePolicyCrossRegionCopyRuleArgs{...} }
 type LifecyclePolicyCrossRegionCopyRuleArrayInput interface {
 	pulumi.Input
 
@@ -852,7 +852,7 @@ type LifecyclePolicyDeprecateRule struct {
 // LifecyclePolicyDeprecateRuleInput is an input type that accepts LifecyclePolicyDeprecateRuleArgs and LifecyclePolicyDeprecateRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyDeprecateRuleInput` via:
 //
-//          LifecyclePolicyDeprecateRuleArgs{...}
+//	LifecyclePolicyDeprecateRuleArgs{...}
 type LifecyclePolicyDeprecateRuleInput interface {
 	pulumi.Input
 
@@ -889,11 +889,11 @@ func (i LifecyclePolicyDeprecateRuleArgs) ToLifecyclePolicyDeprecateRulePtrOutpu
 // LifecyclePolicyDeprecateRulePtrInput is an input type that accepts LifecyclePolicyDeprecateRuleArgs, LifecyclePolicyDeprecateRulePtr and LifecyclePolicyDeprecateRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyDeprecateRulePtrInput` via:
 //
-//          LifecyclePolicyDeprecateRuleArgs{...}
+//	        LifecyclePolicyDeprecateRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyDeprecateRulePtrInput interface {
 	pulumi.Input
 
@@ -1014,7 +1014,7 @@ type LifecyclePolicyEncryptionConfiguration struct {
 // LifecyclePolicyEncryptionConfigurationInput is an input type that accepts LifecyclePolicyEncryptionConfigurationArgs and LifecyclePolicyEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `LifecyclePolicyEncryptionConfigurationInput` via:
 //
-//          LifecyclePolicyEncryptionConfigurationArgs{...}
+//	LifecyclePolicyEncryptionConfigurationArgs{...}
 type LifecyclePolicyEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -1070,7 +1070,7 @@ type LifecyclePolicyEventParameters struct {
 // LifecyclePolicyEventParametersInput is an input type that accepts LifecyclePolicyEventParametersArgs and LifecyclePolicyEventParametersOutput values.
 // You can construct a concrete instance of `LifecyclePolicyEventParametersInput` via:
 //
-//          LifecyclePolicyEventParametersArgs{...}
+//	LifecyclePolicyEventParametersArgs{...}
 type LifecyclePolicyEventParametersInput interface {
 	pulumi.Input
 
@@ -1107,11 +1107,11 @@ func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersPtrO
 // LifecyclePolicyEventParametersPtrInput is an input type that accepts LifecyclePolicyEventParametersArgs, LifecyclePolicyEventParametersPtr and LifecyclePolicyEventParametersPtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyEventParametersPtrInput` via:
 //
-//          LifecyclePolicyEventParametersArgs{...}
+//	        LifecyclePolicyEventParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyEventParametersPtrInput interface {
 	pulumi.Input
 
@@ -1232,7 +1232,7 @@ type LifecyclePolicyEventSource struct {
 // LifecyclePolicyEventSourceInput is an input type that accepts LifecyclePolicyEventSourceArgs and LifecyclePolicyEventSourceOutput values.
 // You can construct a concrete instance of `LifecyclePolicyEventSourceInput` via:
 //
-//          LifecyclePolicyEventSourceArgs{...}
+//	LifecyclePolicyEventSourceArgs{...}
 type LifecyclePolicyEventSourceInput interface {
 	pulumi.Input
 
@@ -1268,11 +1268,11 @@ func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourcePtrOutputWit
 // LifecyclePolicyEventSourcePtrInput is an input type that accepts LifecyclePolicyEventSourceArgs, LifecyclePolicyEventSourcePtr and LifecyclePolicyEventSourcePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyEventSourcePtrInput` via:
 //
-//          LifecyclePolicyEventSourceArgs{...}
+//	        LifecyclePolicyEventSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyEventSourcePtrInput interface {
 	pulumi.Input
 
@@ -1382,7 +1382,7 @@ type LifecyclePolicyFastRestoreRule struct {
 // LifecyclePolicyFastRestoreRuleInput is an input type that accepts LifecyclePolicyFastRestoreRuleArgs and LifecyclePolicyFastRestoreRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyFastRestoreRuleInput` via:
 //
-//          LifecyclePolicyFastRestoreRuleArgs{...}
+//	LifecyclePolicyFastRestoreRuleArgs{...}
 type LifecyclePolicyFastRestoreRuleInput interface {
 	pulumi.Input
 
@@ -1420,11 +1420,11 @@ func (i LifecyclePolicyFastRestoreRuleArgs) ToLifecyclePolicyFastRestoreRulePtrO
 // LifecyclePolicyFastRestoreRulePtrInput is an input type that accepts LifecyclePolicyFastRestoreRuleArgs, LifecyclePolicyFastRestoreRulePtr and LifecyclePolicyFastRestoreRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyFastRestoreRulePtrInput` via:
 //
-//          LifecyclePolicyFastRestoreRuleArgs{...}
+//	        LifecyclePolicyFastRestoreRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyFastRestoreRulePtrInput interface {
 	pulumi.Input
 
@@ -1558,7 +1558,7 @@ type LifecyclePolicyParameters struct {
 // LifecyclePolicyParametersInput is an input type that accepts LifecyclePolicyParametersArgs and LifecyclePolicyParametersOutput values.
 // You can construct a concrete instance of `LifecyclePolicyParametersInput` via:
 //
-//          LifecyclePolicyParametersArgs{...}
+//	LifecyclePolicyParametersArgs{...}
 type LifecyclePolicyParametersInput interface {
 	pulumi.Input
 
@@ -1594,11 +1594,11 @@ func (i LifecyclePolicyParametersArgs) ToLifecyclePolicyParametersPtrOutputWithC
 // LifecyclePolicyParametersPtrInput is an input type that accepts LifecyclePolicyParametersArgs, LifecyclePolicyParametersPtr and LifecyclePolicyParametersPtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyParametersPtrInput` via:
 //
-//          LifecyclePolicyParametersArgs{...}
+//	        LifecyclePolicyParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyParametersPtrInput interface {
 	pulumi.Input
 
@@ -1712,7 +1712,7 @@ type LifecyclePolicyPolicyDetails struct {
 // LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsInput` via:
 //
-//          LifecyclePolicyPolicyDetailsArgs{...}
+//	LifecyclePolicyPolicyDetailsArgs{...}
 type LifecyclePolicyPolicyDetailsInput interface {
 	pulumi.Input
 
@@ -1754,11 +1754,11 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutpu
 // LifecyclePolicyPolicyDetailsPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs, LifecyclePolicyPolicyDetailsPtr and LifecyclePolicyPolicyDetailsPtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsPtrInput` via:
 //
-//          LifecyclePolicyPolicyDetailsArgs{...}
+//	        LifecyclePolicyPolicyDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyPolicyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1945,7 +1945,7 @@ type LifecyclePolicyRetainRule struct {
 // LifecyclePolicyRetainRuleInput is an input type that accepts LifecyclePolicyRetainRuleArgs and LifecyclePolicyRetainRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyRetainRuleInput` via:
 //
-//          LifecyclePolicyRetainRuleArgs{...}
+//	LifecyclePolicyRetainRuleArgs{...}
 type LifecyclePolicyRetainRuleInput interface {
 	pulumi.Input
 
@@ -1982,11 +1982,11 @@ func (i LifecyclePolicyRetainRuleArgs) ToLifecyclePolicyRetainRulePtrOutputWithC
 // LifecyclePolicyRetainRulePtrInput is an input type that accepts LifecyclePolicyRetainRuleArgs, LifecyclePolicyRetainRulePtr and LifecyclePolicyRetainRulePtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyRetainRulePtrInput` via:
 //
-//          LifecyclePolicyRetainRuleArgs{...}
+//	        LifecyclePolicyRetainRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LifecyclePolicyRetainRulePtrInput interface {
 	pulumi.Input
 
@@ -2115,7 +2115,7 @@ type LifecyclePolicySchedule struct {
 // LifecyclePolicyScheduleInput is an input type that accepts LifecyclePolicyScheduleArgs and LifecyclePolicyScheduleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyScheduleInput` via:
 //
-//          LifecyclePolicyScheduleArgs{...}
+//	LifecyclePolicyScheduleArgs{...}
 type LifecyclePolicyScheduleInput interface {
 	pulumi.Input
 
@@ -2151,7 +2151,7 @@ func (i LifecyclePolicyScheduleArgs) ToLifecyclePolicyScheduleOutputWithContext(
 // LifecyclePolicyScheduleArrayInput is an input type that accepts LifecyclePolicyScheduleArray and LifecyclePolicyScheduleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyScheduleArrayInput` via:
 //
-//          LifecyclePolicyScheduleArray{ LifecyclePolicyScheduleArgs{...} }
+//	LifecyclePolicyScheduleArray{ LifecyclePolicyScheduleArgs{...} }
 type LifecyclePolicyScheduleArrayInput interface {
 	pulumi.Input
 
@@ -2256,7 +2256,7 @@ type LifecyclePolicyShareRule struct {
 // LifecyclePolicyShareRuleInput is an input type that accepts LifecyclePolicyShareRuleArgs and LifecyclePolicyShareRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyShareRuleInput` via:
 //
-//          LifecyclePolicyShareRuleArgs{...}
+//	LifecyclePolicyShareRuleArgs{...}
 type LifecyclePolicyShareRuleInput interface {
 	pulumi.Input
 
@@ -2285,7 +2285,7 @@ func (i LifecyclePolicyShareRuleArgs) ToLifecyclePolicyShareRuleOutputWithContex
 // LifecyclePolicyShareRuleArrayInput is an input type that accepts LifecyclePolicyShareRuleArray and LifecyclePolicyShareRuleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyShareRuleArrayInput` via:
 //
-//          LifecyclePolicyShareRuleArray{ LifecyclePolicyShareRuleArgs{...} }
+//	LifecyclePolicyShareRuleArray{ LifecyclePolicyShareRuleArgs{...} }
 type LifecyclePolicyShareRuleArrayInput interface {
 	pulumi.Input
 
@@ -2361,7 +2361,7 @@ type LifecyclePolicyTag struct {
 // LifecyclePolicyTagInput is an input type that accepts LifecyclePolicyTagArgs and LifecyclePolicyTagOutput values.
 // You can construct a concrete instance of `LifecyclePolicyTagInput` via:
 //
-//          LifecyclePolicyTagArgs{...}
+//	LifecyclePolicyTagArgs{...}
 type LifecyclePolicyTagInput interface {
 	pulumi.Input
 
@@ -2389,7 +2389,7 @@ func (i LifecyclePolicyTagArgs) ToLifecyclePolicyTagOutputWithContext(ctx contex
 // LifecyclePolicyTagArrayInput is an input type that accepts LifecyclePolicyTagArray and LifecyclePolicyTagArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyTagArrayInput` via:
 //
-//          LifecyclePolicyTagArray{ LifecyclePolicyTagArgs{...} }
+//	LifecyclePolicyTagArray{ LifecyclePolicyTagArgs{...} }
 type LifecyclePolicyTagArrayInput interface {
 	pulumi.Input
 

@@ -140,7 +140,7 @@ func (o AppMonitorTelemetryPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 // AppMonitorTelemetryInput is an input type that accepts AppMonitorTelemetryArgs and AppMonitorTelemetryOutput values.
 // You can construct a concrete instance of `AppMonitorTelemetryInput` via:
 //
-//          AppMonitorTelemetryArgs{...}
+//	AppMonitorTelemetryArgs{...}
 type AppMonitorTelemetryInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (in *appMonitorTelemetryPtr) ToAppMonitorTelemetryPtrOutputWithContext(ctx 
 // AppMonitorTelemetryArrayInput is an input type that accepts AppMonitorTelemetryArray and AppMonitorTelemetryArrayOutput values.
 // You can construct a concrete instance of `AppMonitorTelemetryArrayInput` via:
 //
-//          AppMonitorTelemetryArray{ AppMonitorTelemetryArgs{...} }
+//	AppMonitorTelemetryArray{ AppMonitorTelemetryArgs{...} }
 type AppMonitorTelemetryArrayInput interface {
 	pulumi.Input
 

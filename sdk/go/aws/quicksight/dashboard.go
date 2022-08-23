@@ -228,10 +228,11 @@ func (o DashboardOutput) Parameters() DashboardParametersPtrOutput {
 }
 
 // <p>A structure that contains the permissions of the dashboard. You can use this structure
-//             for granting permissions by providing a list of IAM action information for each
-//             principal ARN. </p>
 //
-//         <p>To specify no permissions, omit the permissions list.</p>
+//	    for granting permissions by providing a list of IAM action information for each
+//	    principal ARN. </p>
+//
+//	<p>To specify no permissions, omit the permissions list.</p>
 func (o DashboardOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardResourcePermissionArrayOutput { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
@@ -241,15 +242,17 @@ func (o DashboardOutput) SourceEntity() DashboardSourceEntityOutput {
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//             dashboard.</p>
+//
+//	dashboard.</p>
 func (o DashboardOutput) Tags() DashboardTagArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardTagArrayOutput { return v.Tags }).(DashboardTagArrayOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-//             you add a value for this field, it overrides the value that is used in the source
-//             entity. The theme ARN must exist in the same AWS account where you create the
-//             dashboard.</p>
+//
+//	you add a value for this field, it overrides the value that is used in the source
+//	entity. The theme ARN must exist in the same AWS account where you create the
+//	dashboard.</p>
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

@@ -142,7 +142,7 @@ func (o AssociationComplianceSeverityPtrOutput) ToStringPtrOutputWithContext(ctx
 // AssociationComplianceSeverityInput is an input type that accepts AssociationComplianceSeverityArgs and AssociationComplianceSeverityOutput values.
 // You can construct a concrete instance of `AssociationComplianceSeverityInput` via:
 //
-//          AssociationComplianceSeverityArgs{...}
+//	AssociationComplianceSeverityArgs{...}
 type AssociationComplianceSeverityInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o AssociationSyncCompliancePtrOutput) ToStringPtrOutputWithContext(ctx con
 // AssociationSyncComplianceInput is an input type that accepts AssociationSyncComplianceArgs and AssociationSyncComplianceOutput values.
 // You can construct a concrete instance of `AssociationSyncComplianceInput` via:
 //
-//          AssociationSyncComplianceArgs{...}
+//	AssociationSyncComplianceArgs{...}
 type AssociationSyncComplianceInput interface {
 	pulumi.Input
 
@@ -472,7 +472,7 @@ func (o DocumentAttachmentsSourceKeyPtrOutput) ToStringPtrOutputWithContext(ctx 
 // DocumentAttachmentsSourceKeyInput is an input type that accepts DocumentAttachmentsSourceKeyArgs and DocumentAttachmentsSourceKeyOutput values.
 // You can construct a concrete instance of `DocumentAttachmentsSourceKeyInput` via:
 //
-//          DocumentAttachmentsSourceKeyArgs{...}
+//	DocumentAttachmentsSourceKeyArgs{...}
 type DocumentAttachmentsSourceKeyInput interface {
 	pulumi.Input
 
@@ -638,7 +638,7 @@ func (o DocumentFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // DocumentFormatInput is an input type that accepts DocumentFormatArgs and DocumentFormatOutput values.
 // You can construct a concrete instance of `DocumentFormatInput` via:
 //
-//          DocumentFormatArgs{...}
+//	DocumentFormatArgs{...}
 type DocumentFormatInput interface {
 	pulumi.Input
 
@@ -814,7 +814,7 @@ func (o DocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // DocumentTypeInput is an input type that accepts DocumentTypeArgs and DocumentTypeOutput values.
 // You can construct a concrete instance of `DocumentTypeInput` via:
 //
-//          DocumentTypeArgs{...}
+//	DocumentTypeArgs{...}
 type DocumentTypeInput interface {
 	pulumi.Input
 
@@ -979,7 +979,7 @@ func (o DocumentUpdateMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.
 // DocumentUpdateMethodInput is an input type that accepts DocumentUpdateMethodArgs and DocumentUpdateMethodOutput values.
 // You can construct a concrete instance of `DocumentUpdateMethodInput` via:
 //
-//          DocumentUpdateMethodArgs{...}
+//	DocumentUpdateMethodArgs{...}
 type DocumentUpdateMethodInput interface {
 	pulumi.Input
 

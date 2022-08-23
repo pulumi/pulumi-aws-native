@@ -204,9 +204,10 @@ func (o TemplateOutput) Version() TemplateVersionOutput {
 }
 
 // <p>A description of the current template version being created. This API operation creates the
-// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-// 			version is created. Each version of the template maintains a description of the version
-// 			in the <code>VersionDescription</code> field.</p>
+//
+//	first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+//	version is created. Each version of the template maintains a description of the version
+//	in the <code>VersionDescription</code> field.</p>
 func (o TemplateOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }

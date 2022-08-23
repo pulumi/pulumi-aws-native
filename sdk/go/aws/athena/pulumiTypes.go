@@ -18,7 +18,7 @@ type DataCatalogTag struct {
 // DataCatalogTagInput is an input type that accepts DataCatalogTagArgs and DataCatalogTagOutput values.
 // You can construct a concrete instance of `DataCatalogTagInput` via:
 //
-//          DataCatalogTagArgs{...}
+//	DataCatalogTagArgs{...}
 type DataCatalogTagInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i DataCatalogTagArgs) ToDataCatalogTagOutputWithContext(ctx context.Contex
 // DataCatalogTagArrayInput is an input type that accepts DataCatalogTagArray and DataCatalogTagArrayOutput values.
 // You can construct a concrete instance of `DataCatalogTagArrayInput` via:
 //
-//          DataCatalogTagArray{ DataCatalogTagArgs{...} }
+//	DataCatalogTagArray{ DataCatalogTagArgs{...} }
 type DataCatalogTagArrayInput interface {
 	pulumi.Input
 
@@ -122,7 +122,7 @@ type WorkGroupConfiguration struct {
 // WorkGroupConfigurationInput is an input type that accepts WorkGroupConfigurationArgs and WorkGroupConfigurationOutput values.
 // You can construct a concrete instance of `WorkGroupConfigurationInput` via:
 //
-//          WorkGroupConfigurationArgs{...}
+//	WorkGroupConfigurationArgs{...}
 type WorkGroupConfigurationInput interface {
 	pulumi.Input
 
@@ -162,11 +162,11 @@ func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationPtrOutputWithContext
 // WorkGroupConfigurationPtrInput is an input type that accepts WorkGroupConfigurationArgs, WorkGroupConfigurationPtr and WorkGroupConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkGroupConfigurationPtrInput` via:
 //
-//          WorkGroupConfigurationArgs{...}
+//	        WorkGroupConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type WorkGroupConfigurationUpdates struct {
 // WorkGroupConfigurationUpdatesInput is an input type that accepts WorkGroupConfigurationUpdatesArgs and WorkGroupConfigurationUpdatesOutput values.
 // You can construct a concrete instance of `WorkGroupConfigurationUpdatesInput` via:
 //
-//          WorkGroupConfigurationUpdatesArgs{...}
+//	WorkGroupConfigurationUpdatesArgs{...}
 type WorkGroupConfigurationUpdatesInput interface {
 	pulumi.Input
 
@@ -374,11 +374,11 @@ func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesPtrOut
 // WorkGroupConfigurationUpdatesPtrInput is an input type that accepts WorkGroupConfigurationUpdatesArgs, WorkGroupConfigurationUpdatesPtr and WorkGroupConfigurationUpdatesPtrOutput values.
 // You can construct a concrete instance of `WorkGroupConfigurationUpdatesPtrInput` via:
 //
-//          WorkGroupConfigurationUpdatesArgs{...}
+//	        WorkGroupConfigurationUpdatesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupConfigurationUpdatesPtrInput interface {
 	pulumi.Input
 
@@ -555,7 +555,7 @@ type WorkGroupEncryptionConfiguration struct {
 // WorkGroupEncryptionConfigurationInput is an input type that accepts WorkGroupEncryptionConfigurationArgs and WorkGroupEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `WorkGroupEncryptionConfigurationInput` via:
 //
-//          WorkGroupEncryptionConfigurationArgs{...}
+//	WorkGroupEncryptionConfigurationArgs{...}
 type WorkGroupEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -592,11 +592,11 @@ func (i WorkGroupEncryptionConfigurationArgs) ToWorkGroupEncryptionConfiguration
 // WorkGroupEncryptionConfigurationPtrInput is an input type that accepts WorkGroupEncryptionConfigurationArgs, WorkGroupEncryptionConfigurationPtr and WorkGroupEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkGroupEncryptionConfigurationPtrInput` via:
 //
-//          WorkGroupEncryptionConfigurationArgs{...}
+//	        WorkGroupEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -706,7 +706,7 @@ type WorkGroupEngineVersion struct {
 // WorkGroupEngineVersionInput is an input type that accepts WorkGroupEngineVersionArgs and WorkGroupEngineVersionOutput values.
 // You can construct a concrete instance of `WorkGroupEngineVersionInput` via:
 //
-//          WorkGroupEngineVersionArgs{...}
+//	WorkGroupEngineVersionArgs{...}
 type WorkGroupEngineVersionInput interface {
 	pulumi.Input
 
@@ -743,11 +743,11 @@ func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionPtrOutputWithContext
 // WorkGroupEngineVersionPtrInput is an input type that accepts WorkGroupEngineVersionArgs, WorkGroupEngineVersionPtr and WorkGroupEngineVersionPtrOutput values.
 // You can construct a concrete instance of `WorkGroupEngineVersionPtrInput` via:
 //
-//          WorkGroupEngineVersionArgs{...}
+//	        WorkGroupEngineVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupEngineVersionPtrInput interface {
 	pulumi.Input
 
@@ -857,7 +857,7 @@ type WorkGroupResultConfiguration struct {
 // WorkGroupResultConfigurationInput is an input type that accepts WorkGroupResultConfigurationArgs and WorkGroupResultConfigurationOutput values.
 // You can construct a concrete instance of `WorkGroupResultConfigurationInput` via:
 //
-//          WorkGroupResultConfigurationArgs{...}
+//	WorkGroupResultConfigurationArgs{...}
 type WorkGroupResultConfigurationInput interface {
 	pulumi.Input
 
@@ -894,11 +894,11 @@ func (i WorkGroupResultConfigurationArgs) ToWorkGroupResultConfigurationPtrOutpu
 // WorkGroupResultConfigurationPtrInput is an input type that accepts WorkGroupResultConfigurationArgs, WorkGroupResultConfigurationPtr and WorkGroupResultConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkGroupResultConfigurationPtrInput` via:
 //
-//          WorkGroupResultConfigurationArgs{...}
+//	        WorkGroupResultConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupResultConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1012,7 +1012,7 @@ type WorkGroupResultConfigurationUpdates struct {
 // WorkGroupResultConfigurationUpdatesInput is an input type that accepts WorkGroupResultConfigurationUpdatesArgs and WorkGroupResultConfigurationUpdatesOutput values.
 // You can construct a concrete instance of `WorkGroupResultConfigurationUpdatesInput` via:
 //
-//          WorkGroupResultConfigurationUpdatesArgs{...}
+//	WorkGroupResultConfigurationUpdatesArgs{...}
 type WorkGroupResultConfigurationUpdatesInput interface {
 	pulumi.Input
 
@@ -1051,11 +1051,11 @@ func (i WorkGroupResultConfigurationUpdatesArgs) ToWorkGroupResultConfigurationU
 // WorkGroupResultConfigurationUpdatesPtrInput is an input type that accepts WorkGroupResultConfigurationUpdatesArgs, WorkGroupResultConfigurationUpdatesPtr and WorkGroupResultConfigurationUpdatesPtrOutput values.
 // You can construct a concrete instance of `WorkGroupResultConfigurationUpdatesPtrInput` via:
 //
-//          WorkGroupResultConfigurationUpdatesArgs{...}
+//	        WorkGroupResultConfigurationUpdatesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkGroupResultConfigurationUpdatesPtrInput interface {
 	pulumi.Input
 
@@ -1192,7 +1192,7 @@ type WorkGroupTag struct {
 // WorkGroupTagInput is an input type that accepts WorkGroupTagArgs and WorkGroupTagOutput values.
 // You can construct a concrete instance of `WorkGroupTagInput` via:
 //
-//          WorkGroupTagArgs{...}
+//	WorkGroupTagArgs{...}
 type WorkGroupTagInput interface {
 	pulumi.Input
 
@@ -1220,7 +1220,7 @@ func (i WorkGroupTagArgs) ToWorkGroupTagOutputWithContext(ctx context.Context) W
 // WorkGroupTagArrayInput is an input type that accepts WorkGroupTagArray and WorkGroupTagArrayOutput values.
 // You can construct a concrete instance of `WorkGroupTagArrayInput` via:
 //
-//          WorkGroupTagArray{ WorkGroupTagArgs{...} }
+//	WorkGroupTagArray{ WorkGroupTagArgs{...} }
 type WorkGroupTagArrayInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type SignalingChannelTag struct {
 // SignalingChannelTagInput is an input type that accepts SignalingChannelTagArgs and SignalingChannelTagOutput values.
 // You can construct a concrete instance of `SignalingChannelTagInput` via:
 //
-//          SignalingChannelTagArgs{...}
+//	SignalingChannelTagArgs{...}
 type SignalingChannelTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i SignalingChannelTagArgs) ToSignalingChannelTagOutputWithContext(ctx cont
 // SignalingChannelTagArrayInput is an input type that accepts SignalingChannelTagArray and SignalingChannelTagArrayOutput values.
 // You can construct a concrete instance of `SignalingChannelTagArrayInput` via:
 //
-//          SignalingChannelTagArray{ SignalingChannelTagArgs{...} }
+//	SignalingChannelTagArray{ SignalingChannelTagArgs{...} }
 type SignalingChannelTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type StreamTag struct {
 // StreamTagInput is an input type that accepts StreamTagArgs and StreamTagOutput values.
 // You can construct a concrete instance of `StreamTagInput` via:
 //
-//          StreamTagArgs{...}
+//	StreamTagArgs{...}
 type StreamTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
-//          StreamTagArray{ StreamTagArgs{...} }
+//	StreamTagArray{ StreamTagArgs{...} }
 type StreamTagArrayInput interface {
 	pulumi.Input
 

@@ -21,7 +21,7 @@ type AgentTag struct {
 // AgentTagInput is an input type that accepts AgentTagArgs and AgentTagOutput values.
 // You can construct a concrete instance of `AgentTagInput` via:
 //
-//          AgentTagArgs{...}
+//	AgentTagArgs{...}
 type AgentTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i AgentTagArgs) ToAgentTagOutputWithContext(ctx context.Context) AgentTagO
 // AgentTagArrayInput is an input type that accepts AgentTagArray and AgentTagArrayOutput values.
 // You can construct a concrete instance of `AgentTagArrayInput` via:
 //
-//          AgentTagArray{ AgentTagArgs{...} }
+//	AgentTagArray{ AgentTagArgs{...} }
 type AgentTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type LocationEFSEc2Config struct {
 // LocationEFSEc2ConfigInput is an input type that accepts LocationEFSEc2ConfigArgs and LocationEFSEc2ConfigOutput values.
 // You can construct a concrete instance of `LocationEFSEc2ConfigInput` via:
 //
-//          LocationEFSEc2ConfigArgs{...}
+//	LocationEFSEc2ConfigArgs{...}
 type LocationEFSEc2ConfigInput interface {
 	pulumi.Input
 
@@ -194,7 +194,7 @@ type LocationEFSTag struct {
 // LocationEFSTagInput is an input type that accepts LocationEFSTagArgs and LocationEFSTagOutput values.
 // You can construct a concrete instance of `LocationEFSTagInput` via:
 //
-//          LocationEFSTagArgs{...}
+//	LocationEFSTagArgs{...}
 type LocationEFSTagInput interface {
 	pulumi.Input
 
@@ -225,7 +225,7 @@ func (i LocationEFSTagArgs) ToLocationEFSTagOutputWithContext(ctx context.Contex
 // LocationEFSTagArrayInput is an input type that accepts LocationEFSTagArray and LocationEFSTagArrayOutput values.
 // You can construct a concrete instance of `LocationEFSTagArrayInput` via:
 //
-//          LocationEFSTagArray{ LocationEFSTagArgs{...} }
+//	LocationEFSTagArray{ LocationEFSTagArgs{...} }
 type LocationEFSTagArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ type LocationFSxLustreTag struct {
 // LocationFSxLustreTagInput is an input type that accepts LocationFSxLustreTagArgs and LocationFSxLustreTagOutput values.
 // You can construct a concrete instance of `LocationFSxLustreTagInput` via:
 //
-//          LocationFSxLustreTagArgs{...}
+//	LocationFSxLustreTagArgs{...}
 type LocationFSxLustreTagInput interface {
 	pulumi.Input
 
@@ -334,7 +334,7 @@ func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutputWithContext(ctx co
 // LocationFSxLustreTagArrayInput is an input type that accepts LocationFSxLustreTagArray and LocationFSxLustreTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxLustreTagArrayInput` via:
 //
-//          LocationFSxLustreTagArray{ LocationFSxLustreTagArgs{...} }
+//	LocationFSxLustreTagArray{ LocationFSxLustreTagArgs{...} }
 type LocationFSxLustreTagArrayInput interface {
 	pulumi.Input
 
@@ -410,7 +410,7 @@ type LocationFSxOpenZFSMountOptions struct {
 // LocationFSxOpenZFSMountOptionsInput is an input type that accepts LocationFSxOpenZFSMountOptionsArgs and LocationFSxOpenZFSMountOptionsOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsInput` via:
 //
-//          LocationFSxOpenZFSMountOptionsArgs{...}
+//	LocationFSxOpenZFSMountOptionsArgs{...}
 type LocationFSxOpenZFSMountOptionsInput interface {
 	pulumi.Input
 
@@ -447,11 +447,11 @@ func (i LocationFSxOpenZFSMountOptionsArgs) ToLocationFSxOpenZFSMountOptionsPtrO
 // LocationFSxOpenZFSMountOptionsPtrInput is an input type that accepts LocationFSxOpenZFSMountOptionsArgs, LocationFSxOpenZFSMountOptionsPtr and LocationFSxOpenZFSMountOptionsPtrOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSMountOptionsPtrInput` via:
 //
-//          LocationFSxOpenZFSMountOptionsArgs{...}
+//	        LocationFSxOpenZFSMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationFSxOpenZFSMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -549,7 +549,7 @@ type LocationFSxOpenZFSNFS struct {
 // LocationFSxOpenZFSNFSInput is an input type that accepts LocationFSxOpenZFSNFSArgs and LocationFSxOpenZFSNFSOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSNFSInput` via:
 //
-//          LocationFSxOpenZFSNFSArgs{...}
+//	LocationFSxOpenZFSNFSArgs{...}
 type LocationFSxOpenZFSNFSInput interface {
 	pulumi.Input
 
@@ -585,11 +585,11 @@ func (i LocationFSxOpenZFSNFSArgs) ToLocationFSxOpenZFSNFSPtrOutputWithContext(c
 // LocationFSxOpenZFSNFSPtrInput is an input type that accepts LocationFSxOpenZFSNFSArgs, LocationFSxOpenZFSNFSPtr and LocationFSxOpenZFSNFSPtrOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSNFSPtrInput` via:
 //
-//          LocationFSxOpenZFSNFSArgs{...}
+//	        LocationFSxOpenZFSNFSArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationFSxOpenZFSNFSPtrInput interface {
 	pulumi.Input
 
@@ -685,7 +685,7 @@ type LocationFSxOpenZFSProtocol struct {
 // LocationFSxOpenZFSProtocolInput is an input type that accepts LocationFSxOpenZFSProtocolArgs and LocationFSxOpenZFSProtocolOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSProtocolInput` via:
 //
-//          LocationFSxOpenZFSProtocolArgs{...}
+//	LocationFSxOpenZFSProtocolArgs{...}
 type LocationFSxOpenZFSProtocolInput interface {
 	pulumi.Input
 
@@ -740,7 +740,7 @@ type LocationFSxOpenZFSTag struct {
 // LocationFSxOpenZFSTagInput is an input type that accepts LocationFSxOpenZFSTagArgs and LocationFSxOpenZFSTagOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSTagInput` via:
 //
-//          LocationFSxOpenZFSTagArgs{...}
+//	LocationFSxOpenZFSTagArgs{...}
 type LocationFSxOpenZFSTagInput interface {
 	pulumi.Input
 
@@ -771,7 +771,7 @@ func (i LocationFSxOpenZFSTagArgs) ToLocationFSxOpenZFSTagOutputWithContext(ctx 
 // LocationFSxOpenZFSTagArrayInput is an input type that accepts LocationFSxOpenZFSTagArray and LocationFSxOpenZFSTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxOpenZFSTagArrayInput` via:
 //
-//          LocationFSxOpenZFSTagArray{ LocationFSxOpenZFSTagArgs{...} }
+//	LocationFSxOpenZFSTagArray{ LocationFSxOpenZFSTagArgs{...} }
 type LocationFSxOpenZFSTagArrayInput interface {
 	pulumi.Input
 
@@ -849,7 +849,7 @@ type LocationFSxWindowsTag struct {
 // LocationFSxWindowsTagInput is an input type that accepts LocationFSxWindowsTagArgs and LocationFSxWindowsTagOutput values.
 // You can construct a concrete instance of `LocationFSxWindowsTagInput` via:
 //
-//          LocationFSxWindowsTagArgs{...}
+//	LocationFSxWindowsTagArgs{...}
 type LocationFSxWindowsTagInput interface {
 	pulumi.Input
 
@@ -880,7 +880,7 @@ func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutputWithContext(ctx 
 // LocationFSxWindowsTagArrayInput is an input type that accepts LocationFSxWindowsTagArray and LocationFSxWindowsTagArrayOutput values.
 // You can construct a concrete instance of `LocationFSxWindowsTagArrayInput` via:
 //
-//          LocationFSxWindowsTagArray{ LocationFSxWindowsTagArgs{...} }
+//	LocationFSxWindowsTagArray{ LocationFSxWindowsTagArgs{...} }
 type LocationFSxWindowsTagArrayInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ type LocationHDFSNameNode struct {
 // LocationHDFSNameNodeInput is an input type that accepts LocationHDFSNameNodeArgs and LocationHDFSNameNodeOutput values.
 // You can construct a concrete instance of `LocationHDFSNameNodeInput` via:
 //
-//          LocationHDFSNameNodeArgs{...}
+//	LocationHDFSNameNodeArgs{...}
 type LocationHDFSNameNodeInput interface {
 	pulumi.Input
 
@@ -989,7 +989,7 @@ func (i LocationHDFSNameNodeArgs) ToLocationHDFSNameNodeOutputWithContext(ctx co
 // LocationHDFSNameNodeArrayInput is an input type that accepts LocationHDFSNameNodeArray and LocationHDFSNameNodeArrayOutput values.
 // You can construct a concrete instance of `LocationHDFSNameNodeArrayInput` via:
 //
-//          LocationHDFSNameNodeArray{ LocationHDFSNameNodeArgs{...} }
+//	LocationHDFSNameNodeArray{ LocationHDFSNameNodeArgs{...} }
 type LocationHDFSNameNodeArrayInput interface {
 	pulumi.Input
 
@@ -1067,7 +1067,7 @@ type LocationHDFSQopConfiguration struct {
 // LocationHDFSQopConfigurationInput is an input type that accepts LocationHDFSQopConfigurationArgs and LocationHDFSQopConfigurationOutput values.
 // You can construct a concrete instance of `LocationHDFSQopConfigurationInput` via:
 //
-//          LocationHDFSQopConfigurationArgs{...}
+//	LocationHDFSQopConfigurationArgs{...}
 type LocationHDFSQopConfigurationInput interface {
 	pulumi.Input
 
@@ -1106,11 +1106,11 @@ func (i LocationHDFSQopConfigurationArgs) ToLocationHDFSQopConfigurationPtrOutpu
 // LocationHDFSQopConfigurationPtrInput is an input type that accepts LocationHDFSQopConfigurationArgs, LocationHDFSQopConfigurationPtr and LocationHDFSQopConfigurationPtrOutput values.
 // You can construct a concrete instance of `LocationHDFSQopConfigurationPtrInput` via:
 //
-//          LocationHDFSQopConfigurationArgs{...}
+//	        LocationHDFSQopConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationHDFSQopConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1230,7 +1230,7 @@ type LocationHDFSTag struct {
 // LocationHDFSTagInput is an input type that accepts LocationHDFSTagArgs and LocationHDFSTagOutput values.
 // You can construct a concrete instance of `LocationHDFSTagInput` via:
 //
-//          LocationHDFSTagArgs{...}
+//	LocationHDFSTagArgs{...}
 type LocationHDFSTagInput interface {
 	pulumi.Input
 
@@ -1261,7 +1261,7 @@ func (i LocationHDFSTagArgs) ToLocationHDFSTagOutputWithContext(ctx context.Cont
 // LocationHDFSTagArrayInput is an input type that accepts LocationHDFSTagArray and LocationHDFSTagArrayOutput values.
 // You can construct a concrete instance of `LocationHDFSTagArrayInput` via:
 //
-//          LocationHDFSTagArray{ LocationHDFSTagArgs{...} }
+//	LocationHDFSTagArray{ LocationHDFSTagArgs{...} }
 type LocationHDFSTagArrayInput interface {
 	pulumi.Input
 
@@ -1337,7 +1337,7 @@ type LocationNFSMountOptions struct {
 // LocationNFSMountOptionsInput is an input type that accepts LocationNFSMountOptionsArgs and LocationNFSMountOptionsOutput values.
 // You can construct a concrete instance of `LocationNFSMountOptionsInput` via:
 //
-//          LocationNFSMountOptionsArgs{...}
+//	LocationNFSMountOptionsArgs{...}
 type LocationNFSMountOptionsInput interface {
 	pulumi.Input
 
@@ -1374,11 +1374,11 @@ func (i LocationNFSMountOptionsArgs) ToLocationNFSMountOptionsPtrOutputWithConte
 // LocationNFSMountOptionsPtrInput is an input type that accepts LocationNFSMountOptionsArgs, LocationNFSMountOptionsPtr and LocationNFSMountOptionsPtrOutput values.
 // You can construct a concrete instance of `LocationNFSMountOptionsPtrInput` via:
 //
-//          LocationNFSMountOptionsArgs{...}
+//	        LocationNFSMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationNFSMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1477,7 +1477,7 @@ type LocationNFSOnPremConfig struct {
 // LocationNFSOnPremConfigInput is an input type that accepts LocationNFSOnPremConfigArgs and LocationNFSOnPremConfigOutput values.
 // You can construct a concrete instance of `LocationNFSOnPremConfigInput` via:
 //
-//          LocationNFSOnPremConfigArgs{...}
+//	LocationNFSOnPremConfigArgs{...}
 type LocationNFSOnPremConfigInput interface {
 	pulumi.Input
 
@@ -1568,7 +1568,7 @@ type LocationNFSTag struct {
 // LocationNFSTagInput is an input type that accepts LocationNFSTagArgs and LocationNFSTagOutput values.
 // You can construct a concrete instance of `LocationNFSTagInput` via:
 //
-//          LocationNFSTagArgs{...}
+//	LocationNFSTagArgs{...}
 type LocationNFSTagInput interface {
 	pulumi.Input
 
@@ -1599,7 +1599,7 @@ func (i LocationNFSTagArgs) ToLocationNFSTagOutputWithContext(ctx context.Contex
 // LocationNFSTagArrayInput is an input type that accepts LocationNFSTagArray and LocationNFSTagArrayOutput values.
 // You can construct a concrete instance of `LocationNFSTagArrayInput` via:
 //
-//          LocationNFSTagArray{ LocationNFSTagArgs{...} }
+//	LocationNFSTagArray{ LocationNFSTagArgs{...} }
 type LocationNFSTagArrayInput interface {
 	pulumi.Input
 
@@ -1677,7 +1677,7 @@ type LocationObjectStorageTag struct {
 // LocationObjectStorageTagInput is an input type that accepts LocationObjectStorageTagArgs and LocationObjectStorageTagOutput values.
 // You can construct a concrete instance of `LocationObjectStorageTagInput` via:
 //
-//          LocationObjectStorageTagArgs{...}
+//	LocationObjectStorageTagArgs{...}
 type LocationObjectStorageTagInput interface {
 	pulumi.Input
 
@@ -1708,7 +1708,7 @@ func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutputWithContex
 // LocationObjectStorageTagArrayInput is an input type that accepts LocationObjectStorageTagArray and LocationObjectStorageTagArrayOutput values.
 // You can construct a concrete instance of `LocationObjectStorageTagArrayInput` via:
 //
-//          LocationObjectStorageTagArray{ LocationObjectStorageTagArgs{...} }
+//	LocationObjectStorageTagArray{ LocationObjectStorageTagArgs{...} }
 type LocationObjectStorageTagArrayInput interface {
 	pulumi.Input
 
@@ -1784,7 +1784,7 @@ type LocationS3S3Config struct {
 // LocationS3S3ConfigInput is an input type that accepts LocationS3S3ConfigArgs and LocationS3S3ConfigOutput values.
 // You can construct a concrete instance of `LocationS3S3ConfigInput` via:
 //
-//          LocationS3S3ConfigArgs{...}
+//	LocationS3S3ConfigArgs{...}
 type LocationS3S3ConfigInput interface {
 	pulumi.Input
 
@@ -1841,7 +1841,7 @@ type LocationS3Tag struct {
 // LocationS3TagInput is an input type that accepts LocationS3TagArgs and LocationS3TagOutput values.
 // You can construct a concrete instance of `LocationS3TagInput` via:
 //
-//          LocationS3TagArgs{...}
+//	LocationS3TagArgs{...}
 type LocationS3TagInput interface {
 	pulumi.Input
 
@@ -1872,7 +1872,7 @@ func (i LocationS3TagArgs) ToLocationS3TagOutputWithContext(ctx context.Context)
 // LocationS3TagArrayInput is an input type that accepts LocationS3TagArray and LocationS3TagArrayOutput values.
 // You can construct a concrete instance of `LocationS3TagArrayInput` via:
 //
-//          LocationS3TagArray{ LocationS3TagArgs{...} }
+//	LocationS3TagArray{ LocationS3TagArgs{...} }
 type LocationS3TagArrayInput interface {
 	pulumi.Input
 
@@ -1948,7 +1948,7 @@ type LocationSMBMountOptions struct {
 // LocationSMBMountOptionsInput is an input type that accepts LocationSMBMountOptionsArgs and LocationSMBMountOptionsOutput values.
 // You can construct a concrete instance of `LocationSMBMountOptionsInput` via:
 //
-//          LocationSMBMountOptionsArgs{...}
+//	LocationSMBMountOptionsArgs{...}
 type LocationSMBMountOptionsInput interface {
 	pulumi.Input
 
@@ -1985,11 +1985,11 @@ func (i LocationSMBMountOptionsArgs) ToLocationSMBMountOptionsPtrOutputWithConte
 // LocationSMBMountOptionsPtrInput is an input type that accepts LocationSMBMountOptionsArgs, LocationSMBMountOptionsPtr and LocationSMBMountOptionsPtrOutput values.
 // You can construct a concrete instance of `LocationSMBMountOptionsPtrInput` via:
 //
-//          LocationSMBMountOptionsArgs{...}
+//	        LocationSMBMountOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LocationSMBMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2090,7 +2090,7 @@ type LocationSMBTag struct {
 // LocationSMBTagInput is an input type that accepts LocationSMBTagArgs and LocationSMBTagOutput values.
 // You can construct a concrete instance of `LocationSMBTagInput` via:
 //
-//          LocationSMBTagArgs{...}
+//	LocationSMBTagArgs{...}
 type LocationSMBTagInput interface {
 	pulumi.Input
 
@@ -2121,7 +2121,7 @@ func (i LocationSMBTagArgs) ToLocationSMBTagOutputWithContext(ctx context.Contex
 // LocationSMBTagArrayInput is an input type that accepts LocationSMBTagArray and LocationSMBTagArrayOutput values.
 // You can construct a concrete instance of `LocationSMBTagArrayInput` via:
 //
-//          LocationSMBTagArray{ LocationSMBTagArgs{...} }
+//	LocationSMBTagArray{ LocationSMBTagArgs{...} }
 type LocationSMBTagArrayInput interface {
 	pulumi.Input
 
@@ -2199,7 +2199,7 @@ type TaskFilterRule struct {
 // TaskFilterRuleInput is an input type that accepts TaskFilterRuleArgs and TaskFilterRuleOutput values.
 // You can construct a concrete instance of `TaskFilterRuleInput` via:
 //
-//          TaskFilterRuleArgs{...}
+//	TaskFilterRuleArgs{...}
 type TaskFilterRuleInput interface {
 	pulumi.Input
 
@@ -2230,7 +2230,7 @@ func (i TaskFilterRuleArgs) ToTaskFilterRuleOutputWithContext(ctx context.Contex
 // TaskFilterRuleArrayInput is an input type that accepts TaskFilterRuleArray and TaskFilterRuleArrayOutput values.
 // You can construct a concrete instance of `TaskFilterRuleArrayInput` via:
 //
-//          TaskFilterRuleArray{ TaskFilterRuleArgs{...} }
+//	TaskFilterRuleArray{ TaskFilterRuleArgs{...} }
 type TaskFilterRuleArrayInput interface {
 	pulumi.Input
 
@@ -2334,7 +2334,7 @@ type TaskOptions struct {
 // TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
 // You can construct a concrete instance of `TaskOptionsInput` via:
 //
-//          TaskOptionsArgs{...}
+//	TaskOptionsArgs{...}
 type TaskOptionsInput interface {
 	pulumi.Input
 
@@ -2399,11 +2399,11 @@ func (i TaskOptionsArgs) ToTaskOptionsPtrOutputWithContext(ctx context.Context) 
 // TaskOptionsPtrInput is an input type that accepts TaskOptionsArgs, TaskOptionsPtr and TaskOptionsPtrOutput values.
 // You can construct a concrete instance of `TaskOptionsPtrInput` via:
 //
-//          TaskOptionsArgs{...}
+//	        TaskOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskOptionsPtrInput interface {
 	pulumi.Input
 
@@ -2712,7 +2712,7 @@ type TaskSchedule struct {
 // TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
 // You can construct a concrete instance of `TaskScheduleInput` via:
 //
-//          TaskScheduleArgs{...}
+//	TaskScheduleArgs{...}
 type TaskScheduleInput interface {
 	pulumi.Input
 
@@ -2749,11 +2749,11 @@ func (i TaskScheduleArgs) ToTaskSchedulePtrOutputWithContext(ctx context.Context
 // TaskSchedulePtrInput is an input type that accepts TaskScheduleArgs, TaskSchedulePtr and TaskSchedulePtrOutput values.
 // You can construct a concrete instance of `TaskSchedulePtrInput` via:
 //
-//          TaskScheduleArgs{...}
+//	        TaskScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TaskSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2854,7 +2854,7 @@ type TaskTag struct {
 // TaskTagInput is an input type that accepts TaskTagArgs and TaskTagOutput values.
 // You can construct a concrete instance of `TaskTagInput` via:
 //
-//          TaskTagArgs{...}
+//	TaskTagArgs{...}
 type TaskTagInput interface {
 	pulumi.Input
 
@@ -2885,7 +2885,7 @@ func (i TaskTagArgs) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutp
 // TaskTagArrayInput is an input type that accepts TaskTagArray and TaskTagArrayOutput values.
 // You can construct a concrete instance of `TaskTagArrayInput` via:
 //
-//          TaskTagArray{ TaskTagArgs{...} }
+//	TaskTagArray{ TaskTagArgs{...} }
 type TaskTagArrayInput interface {
 	pulumi.Input
 

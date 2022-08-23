@@ -332,7 +332,7 @@ func (o ApplicationInstanceStatusFilterPtrOutput) ToStringPtrOutputWithContext(c
 // ApplicationInstanceStatusFilterInput is an input type that accepts ApplicationInstanceStatusFilterArgs and ApplicationInstanceStatusFilterOutput values.
 // You can construct a concrete instance of `ApplicationInstanceStatusFilterInput` via:
 //
-//          ApplicationInstanceStatusFilterArgs{...}
+//	ApplicationInstanceStatusFilterArgs{...}
 type ApplicationInstanceStatusFilterInput interface {
 	pulumi.Input
 

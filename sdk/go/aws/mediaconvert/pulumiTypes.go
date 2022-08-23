@@ -17,7 +17,7 @@ type JobTemplateAccelerationSettings struct {
 // JobTemplateAccelerationSettingsInput is an input type that accepts JobTemplateAccelerationSettingsArgs and JobTemplateAccelerationSettingsOutput values.
 // You can construct a concrete instance of `JobTemplateAccelerationSettingsInput` via:
 //
-//          JobTemplateAccelerationSettingsArgs{...}
+//	JobTemplateAccelerationSettingsArgs{...}
 type JobTemplateAccelerationSettingsInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i JobTemplateAccelerationSettingsArgs) ToJobTemplateAccelerationSettingsPt
 // JobTemplateAccelerationSettingsPtrInput is an input type that accepts JobTemplateAccelerationSettingsArgs, JobTemplateAccelerationSettingsPtr and JobTemplateAccelerationSettingsPtrOutput values.
 // You can construct a concrete instance of `JobTemplateAccelerationSettingsPtrInput` via:
 //
-//          JobTemplateAccelerationSettingsArgs{...}
+//	        JobTemplateAccelerationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobTemplateAccelerationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -152,7 +152,7 @@ type JobTemplateHopDestination struct {
 // JobTemplateHopDestinationInput is an input type that accepts JobTemplateHopDestinationArgs and JobTemplateHopDestinationOutput values.
 // You can construct a concrete instance of `JobTemplateHopDestinationInput` via:
 //
-//          JobTemplateHopDestinationArgs{...}
+//	JobTemplateHopDestinationArgs{...}
 type JobTemplateHopDestinationInput interface {
 	pulumi.Input
 
@@ -181,7 +181,7 @@ func (i JobTemplateHopDestinationArgs) ToJobTemplateHopDestinationOutputWithCont
 // JobTemplateHopDestinationArrayInput is an input type that accepts JobTemplateHopDestinationArray and JobTemplateHopDestinationArrayOutput values.
 // You can construct a concrete instance of `JobTemplateHopDestinationArrayInput` via:
 //
-//          JobTemplateHopDestinationArray{ JobTemplateHopDestinationArgs{...} }
+//	JobTemplateHopDestinationArray{ JobTemplateHopDestinationArgs{...} }
 type JobTemplateHopDestinationArrayInput interface {
 	pulumi.Input
 

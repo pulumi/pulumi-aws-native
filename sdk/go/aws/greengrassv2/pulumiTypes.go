@@ -18,7 +18,7 @@ type ComponentVersionComponentPlatform struct {
 // ComponentVersionComponentPlatformInput is an input type that accepts ComponentVersionComponentPlatformArgs and ComponentVersionComponentPlatformOutput values.
 // You can construct a concrete instance of `ComponentVersionComponentPlatformInput` via:
 //
-//          ComponentVersionComponentPlatformArgs{...}
+//	ComponentVersionComponentPlatformArgs{...}
 type ComponentVersionComponentPlatformInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ComponentVersionComponentPlatformArgs) ToComponentVersionComponentPlatfo
 // ComponentVersionComponentPlatformArrayInput is an input type that accepts ComponentVersionComponentPlatformArray and ComponentVersionComponentPlatformArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionComponentPlatformArrayInput` via:
 //
-//          ComponentVersionComponentPlatformArray{ ComponentVersionComponentPlatformArgs{...} }
+//	ComponentVersionComponentPlatformArray{ ComponentVersionComponentPlatformArgs{...} }
 type ComponentVersionComponentPlatformArrayInput interface {
 	pulumi.Input
 
@@ -120,7 +120,7 @@ type ComponentVersionLambdaContainerParams struct {
 // ComponentVersionLambdaContainerParamsInput is an input type that accepts ComponentVersionLambdaContainerParamsArgs and ComponentVersionLambdaContainerParamsOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaContainerParamsInput` via:
 //
-//          ComponentVersionLambdaContainerParamsArgs{...}
+//	ComponentVersionLambdaContainerParamsArgs{...}
 type ComponentVersionLambdaContainerParamsInput interface {
 	pulumi.Input
 
@@ -158,11 +158,11 @@ func (i ComponentVersionLambdaContainerParamsArgs) ToComponentVersionLambdaConta
 // ComponentVersionLambdaContainerParamsPtrInput is an input type that accepts ComponentVersionLambdaContainerParamsArgs, ComponentVersionLambdaContainerParamsPtr and ComponentVersionLambdaContainerParamsPtrOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaContainerParamsPtrInput` via:
 //
-//          ComponentVersionLambdaContainerParamsArgs{...}
+//	        ComponentVersionLambdaContainerParamsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentVersionLambdaContainerParamsPtrInput interface {
 	pulumi.Input
 
@@ -297,7 +297,7 @@ type ComponentVersionLambdaDeviceMount struct {
 // ComponentVersionLambdaDeviceMountInput is an input type that accepts ComponentVersionLambdaDeviceMountArgs and ComponentVersionLambdaDeviceMountOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaDeviceMountInput` via:
 //
-//          ComponentVersionLambdaDeviceMountArgs{...}
+//	ComponentVersionLambdaDeviceMountArgs{...}
 type ComponentVersionLambdaDeviceMountInput interface {
 	pulumi.Input
 
@@ -326,7 +326,7 @@ func (i ComponentVersionLambdaDeviceMountArgs) ToComponentVersionLambdaDeviceMou
 // ComponentVersionLambdaDeviceMountArrayInput is an input type that accepts ComponentVersionLambdaDeviceMountArray and ComponentVersionLambdaDeviceMountArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaDeviceMountArrayInput` via:
 //
-//          ComponentVersionLambdaDeviceMountArray{ ComponentVersionLambdaDeviceMountArgs{...} }
+//	ComponentVersionLambdaDeviceMountArray{ ComponentVersionLambdaDeviceMountArgs{...} }
 type ComponentVersionLambdaDeviceMountArrayInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ type ComponentVersionLambdaEventSource struct {
 // ComponentVersionLambdaEventSourceInput is an input type that accepts ComponentVersionLambdaEventSourceArgs and ComponentVersionLambdaEventSourceOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaEventSourceInput` via:
 //
-//          ComponentVersionLambdaEventSourceArgs{...}
+//	ComponentVersionLambdaEventSourceArgs{...}
 type ComponentVersionLambdaEventSourceInput interface {
 	pulumi.Input
 
@@ -432,7 +432,7 @@ func (i ComponentVersionLambdaEventSourceArgs) ToComponentVersionLambdaEventSour
 // ComponentVersionLambdaEventSourceArrayInput is an input type that accepts ComponentVersionLambdaEventSourceArray and ComponentVersionLambdaEventSourceArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaEventSourceArrayInput` via:
 //
-//          ComponentVersionLambdaEventSourceArray{ ComponentVersionLambdaEventSourceArgs{...} }
+//	ComponentVersionLambdaEventSourceArray{ ComponentVersionLambdaEventSourceArgs{...} }
 type ComponentVersionLambdaEventSourceArrayInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ type ComponentVersionLambdaExecutionParameters struct {
 // ComponentVersionLambdaExecutionParametersInput is an input type that accepts ComponentVersionLambdaExecutionParametersArgs and ComponentVersionLambdaExecutionParametersOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaExecutionParametersInput` via:
 //
-//          ComponentVersionLambdaExecutionParametersArgs{...}
+//	ComponentVersionLambdaExecutionParametersArgs{...}
 type ComponentVersionLambdaExecutionParametersInput interface {
 	pulumi.Input
 
@@ -558,11 +558,11 @@ func (i ComponentVersionLambdaExecutionParametersArgs) ToComponentVersionLambdaE
 // ComponentVersionLambdaExecutionParametersPtrInput is an input type that accepts ComponentVersionLambdaExecutionParametersArgs, ComponentVersionLambdaExecutionParametersPtr and ComponentVersionLambdaExecutionParametersPtrOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaExecutionParametersPtrInput` via:
 //
-//          ComponentVersionLambdaExecutionParametersArgs{...}
+//	        ComponentVersionLambdaExecutionParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentVersionLambdaExecutionParametersPtrInput interface {
 	pulumi.Input
 
@@ -797,7 +797,7 @@ type ComponentVersionLambdaFunctionRecipeSource struct {
 // ComponentVersionLambdaFunctionRecipeSourceInput is an input type that accepts ComponentVersionLambdaFunctionRecipeSourceArgs and ComponentVersionLambdaFunctionRecipeSourceOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaFunctionRecipeSourceInput` via:
 //
-//          ComponentVersionLambdaFunctionRecipeSourceArgs{...}
+//	ComponentVersionLambdaFunctionRecipeSourceArgs{...}
 type ComponentVersionLambdaFunctionRecipeSourceInput interface {
 	pulumi.Input
 
@@ -837,11 +837,11 @@ func (i ComponentVersionLambdaFunctionRecipeSourceArgs) ToComponentVersionLambda
 // ComponentVersionLambdaFunctionRecipeSourcePtrInput is an input type that accepts ComponentVersionLambdaFunctionRecipeSourceArgs, ComponentVersionLambdaFunctionRecipeSourcePtr and ComponentVersionLambdaFunctionRecipeSourcePtrOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaFunctionRecipeSourcePtrInput` via:
 //
-//          ComponentVersionLambdaFunctionRecipeSourceArgs{...}
+//	        ComponentVersionLambdaFunctionRecipeSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentVersionLambdaFunctionRecipeSourcePtrInput interface {
 	pulumi.Input
 
@@ -1005,7 +1005,7 @@ type ComponentVersionLambdaLinuxProcessParams struct {
 // ComponentVersionLambdaLinuxProcessParamsInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsArgs and ComponentVersionLambdaLinuxProcessParamsOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaLinuxProcessParamsInput` via:
 //
-//          ComponentVersionLambdaLinuxProcessParamsArgs{...}
+//	ComponentVersionLambdaLinuxProcessParamsArgs{...}
 type ComponentVersionLambdaLinuxProcessParamsInput interface {
 	pulumi.Input
 
@@ -1041,11 +1041,11 @@ func (i ComponentVersionLambdaLinuxProcessParamsArgs) ToComponentVersionLambdaLi
 // ComponentVersionLambdaLinuxProcessParamsPtrInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsArgs, ComponentVersionLambdaLinuxProcessParamsPtr and ComponentVersionLambdaLinuxProcessParamsPtrOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaLinuxProcessParamsPtrInput` via:
 //
-//          ComponentVersionLambdaLinuxProcessParamsArgs{...}
+//	        ComponentVersionLambdaLinuxProcessParamsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComponentVersionLambdaLinuxProcessParamsPtrInput interface {
 	pulumi.Input
 
@@ -1159,7 +1159,7 @@ type ComponentVersionLambdaVolumeMount struct {
 // ComponentVersionLambdaVolumeMountInput is an input type that accepts ComponentVersionLambdaVolumeMountArgs and ComponentVersionLambdaVolumeMountOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaVolumeMountInput` via:
 //
-//          ComponentVersionLambdaVolumeMountArgs{...}
+//	ComponentVersionLambdaVolumeMountArgs{...}
 type ComponentVersionLambdaVolumeMountInput interface {
 	pulumi.Input
 
@@ -1189,7 +1189,7 @@ func (i ComponentVersionLambdaVolumeMountArgs) ToComponentVersionLambdaVolumeMou
 // ComponentVersionLambdaVolumeMountArrayInput is an input type that accepts ComponentVersionLambdaVolumeMountArray and ComponentVersionLambdaVolumeMountArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaVolumeMountArrayInput` via:
 //
-//          ComponentVersionLambdaVolumeMountArray{ ComponentVersionLambdaVolumeMountArgs{...} }
+//	ComponentVersionLambdaVolumeMountArray{ ComponentVersionLambdaVolumeMountArgs{...} }
 type ComponentVersionLambdaVolumeMountArrayInput interface {
 	pulumi.Input
 

@@ -139,7 +139,7 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToStringPtrO
 // AnomalyDetectorCsvFormatDescriptorFileCompressionInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorFileCompressionArgs and AnomalyDetectorCsvFormatDescriptorFileCompressionOutput values.
 // You can construct a concrete instance of `AnomalyDetectorCsvFormatDescriptorFileCompressionInput` via:
 //
-//          AnomalyDetectorCsvFormatDescriptorFileCompressionArgs{...}
+//	AnomalyDetectorCsvFormatDescriptorFileCompressionArgs{...}
 type AnomalyDetectorCsvFormatDescriptorFileCompressionInput interface {
 	pulumi.Input
 
@@ -306,7 +306,7 @@ func (o AnomalyDetectorFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx cont
 // AnomalyDetectorFrequencyInput is an input type that accepts AnomalyDetectorFrequencyArgs and AnomalyDetectorFrequencyOutput values.
 // You can construct a concrete instance of `AnomalyDetectorFrequencyInput` via:
 //
-//          AnomalyDetectorFrequencyArgs{...}
+//	AnomalyDetectorFrequencyArgs{...}
 type AnomalyDetectorFrequencyInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToStringPtr
 // AnomalyDetectorJsonFormatDescriptorFileCompressionInput is an input type that accepts AnomalyDetectorJsonFormatDescriptorFileCompressionArgs and AnomalyDetectorJsonFormatDescriptorFileCompressionOutput values.
 // You can construct a concrete instance of `AnomalyDetectorJsonFormatDescriptorFileCompressionInput` via:
 //
-//          AnomalyDetectorJsonFormatDescriptorFileCompressionArgs{...}
+//	AnomalyDetectorJsonFormatDescriptorFileCompressionArgs{...}
 type AnomalyDetectorJsonFormatDescriptorFileCompressionInput interface {
 	pulumi.Input
 
@@ -635,7 +635,7 @@ func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToStringPtrOutputWith
 // AnomalyDetectorMetricAggregationFunctionInput is an input type that accepts AnomalyDetectorMetricAggregationFunctionArgs and AnomalyDetectorMetricAggregationFunctionOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricAggregationFunctionInput` via:
 //
-//          AnomalyDetectorMetricAggregationFunctionArgs{...}
+//	AnomalyDetectorMetricAggregationFunctionArgs{...}
 type AnomalyDetectorMetricAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -802,7 +802,7 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToStringPtrOutputWi
 // AnomalyDetectorMetricSetMetricSetFrequencyInput is an input type that accepts AnomalyDetectorMetricSetMetricSetFrequencyArgs and AnomalyDetectorMetricSetMetricSetFrequencyOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricSetMetricSetFrequencyInput` via:
 //
-//          AnomalyDetectorMetricSetMetricSetFrequencyArgs{...}
+//	AnomalyDetectorMetricSetMetricSetFrequencyArgs{...}
 type AnomalyDetectorMetricSetMetricSetFrequencyInput interface {
 	pulumi.Input
 

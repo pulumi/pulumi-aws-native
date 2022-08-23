@@ -21,7 +21,7 @@ type KeyTag struct {
 // KeyTagInput is an input type that accepts KeyTagArgs and KeyTagOutput values.
 // You can construct a concrete instance of `KeyTagInput` via:
 //
-//          KeyTagArgs{...}
+//	KeyTagArgs{...}
 type KeyTagInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i KeyTagArgs) ToKeyTagOutputWithContext(ctx context.Context) KeyTagOutput 
 // KeyTagArrayInput is an input type that accepts KeyTagArray and KeyTagArrayOutput values.
 // You can construct a concrete instance of `KeyTagArrayInput` via:
 //
-//          KeyTagArray{ KeyTagArgs{...} }
+//	KeyTagArray{ KeyTagArgs{...} }
 type KeyTagArrayInput interface {
 	pulumi.Input
 
@@ -130,7 +130,7 @@ type ReplicaKeyTag struct {
 // ReplicaKeyTagInput is an input type that accepts ReplicaKeyTagArgs and ReplicaKeyTagOutput values.
 // You can construct a concrete instance of `ReplicaKeyTagInput` via:
 //
-//          ReplicaKeyTagArgs{...}
+//	ReplicaKeyTagArgs{...}
 type ReplicaKeyTagInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i ReplicaKeyTagArgs) ToReplicaKeyTagOutputWithContext(ctx context.Context)
 // ReplicaKeyTagArrayInput is an input type that accepts ReplicaKeyTagArray and ReplicaKeyTagArrayOutput values.
 // You can construct a concrete instance of `ReplicaKeyTagArrayInput` via:
 //
-//          ReplicaKeyTagArray{ ReplicaKeyTagArgs{...} }
+//	ReplicaKeyTagArray{ ReplicaKeyTagArgs{...} }
 type ReplicaKeyTagArrayInput interface {
 	pulumi.Input
 

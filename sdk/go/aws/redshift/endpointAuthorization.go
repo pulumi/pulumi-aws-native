@@ -180,7 +180,7 @@ func (o EndpointAuthorizationOutput) EndpointCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.IntOutput { return v.EndpointCount }).(pulumi.IntOutput)
 }
 
-//  Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
+// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
 func (o EndpointAuthorizationOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
 }

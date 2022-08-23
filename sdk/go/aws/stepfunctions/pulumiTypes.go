@@ -18,7 +18,7 @@ type ActivityTagsEntry struct {
 // ActivityTagsEntryInput is an input type that accepts ActivityTagsEntryArgs and ActivityTagsEntryOutput values.
 // You can construct a concrete instance of `ActivityTagsEntryInput` via:
 //
-//          ActivityTagsEntryArgs{...}
+//	ActivityTagsEntryArgs{...}
 type ActivityTagsEntryInput interface {
 	pulumi.Input
 
@@ -46,7 +46,7 @@ func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutputWithContext(ctx context.
 // ActivityTagsEntryArrayInput is an input type that accepts ActivityTagsEntryArray and ActivityTagsEntryArrayOutput values.
 // You can construct a concrete instance of `ActivityTagsEntryArrayInput` via:
 //
-//          ActivityTagsEntryArray{ ActivityTagsEntryArgs{...} }
+//	ActivityTagsEntryArray{ ActivityTagsEntryArgs{...} }
 type ActivityTagsEntryArrayInput interface {
 	pulumi.Input
 
@@ -117,7 +117,7 @@ type StateMachineCloudWatchLogsLogGroup struct {
 // StateMachineCloudWatchLogsLogGroupInput is an input type that accepts StateMachineCloudWatchLogsLogGroupArgs and StateMachineCloudWatchLogsLogGroupOutput values.
 // You can construct a concrete instance of `StateMachineCloudWatchLogsLogGroupInput` via:
 //
-//          StateMachineCloudWatchLogsLogGroupArgs{...}
+//	StateMachineCloudWatchLogsLogGroupArgs{...}
 type StateMachineCloudWatchLogsLogGroupInput interface {
 	pulumi.Input
 
@@ -152,11 +152,11 @@ func (i StateMachineCloudWatchLogsLogGroupArgs) ToStateMachineCloudWatchLogsLogG
 // StateMachineCloudWatchLogsLogGroupPtrInput is an input type that accepts StateMachineCloudWatchLogsLogGroupArgs, StateMachineCloudWatchLogsLogGroupPtr and StateMachineCloudWatchLogsLogGroupPtrOutput values.
 // You can construct a concrete instance of `StateMachineCloudWatchLogsLogGroupPtrInput` via:
 //
-//          StateMachineCloudWatchLogsLogGroupArgs{...}
+//	        StateMachineCloudWatchLogsLogGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineCloudWatchLogsLogGroupPtrInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ type StateMachineDefinition struct {
 // StateMachineDefinitionInput is an input type that accepts StateMachineDefinitionArgs and StateMachineDefinitionOutput values.
 // You can construct a concrete instance of `StateMachineDefinitionInput` via:
 //
-//          StateMachineDefinitionArgs{...}
+//	StateMachineDefinitionArgs{...}
 type StateMachineDefinitionInput interface {
 	pulumi.Input
 
@@ -283,11 +283,11 @@ func (i StateMachineDefinitionArgs) ToStateMachineDefinitionPtrOutputWithContext
 // StateMachineDefinitionPtrInput is an input type that accepts StateMachineDefinitionArgs, StateMachineDefinitionPtr and StateMachineDefinitionPtrOutput values.
 // You can construct a concrete instance of `StateMachineDefinitionPtrInput` via:
 //
-//          StateMachineDefinitionArgs{...}
+//	        StateMachineDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -367,7 +367,7 @@ type StateMachineDefinitionSubstitutions struct {
 // StateMachineDefinitionSubstitutionsInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs and StateMachineDefinitionSubstitutionsOutput values.
 // You can construct a concrete instance of `StateMachineDefinitionSubstitutionsInput` via:
 //
-//          StateMachineDefinitionSubstitutionsArgs{...}
+//	StateMachineDefinitionSubstitutionsArgs{...}
 type StateMachineDefinitionSubstitutionsInput interface {
 	pulumi.Input
 
@@ -401,11 +401,11 @@ func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstit
 // StateMachineDefinitionSubstitutionsPtrInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs, StateMachineDefinitionSubstitutionsPtr and StateMachineDefinitionSubstitutionsPtrOutput values.
 // You can construct a concrete instance of `StateMachineDefinitionSubstitutionsPtrInput` via:
 //
-//          StateMachineDefinitionSubstitutionsArgs{...}
+//	        StateMachineDefinitionSubstitutionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineDefinitionSubstitutionsPtrInput interface {
 	pulumi.Input
 
@@ -486,7 +486,7 @@ type StateMachineLogDestination struct {
 // StateMachineLogDestinationInput is an input type that accepts StateMachineLogDestinationArgs and StateMachineLogDestinationOutput values.
 // You can construct a concrete instance of `StateMachineLogDestinationInput` via:
 //
-//          StateMachineLogDestinationArgs{...}
+//	StateMachineLogDestinationArgs{...}
 type StateMachineLogDestinationInput interface {
 	pulumi.Input
 
@@ -513,7 +513,7 @@ func (i StateMachineLogDestinationArgs) ToStateMachineLogDestinationOutputWithCo
 // StateMachineLogDestinationArrayInput is an input type that accepts StateMachineLogDestinationArray and StateMachineLogDestinationArrayOutput values.
 // You can construct a concrete instance of `StateMachineLogDestinationArrayInput` via:
 //
-//          StateMachineLogDestinationArray{ StateMachineLogDestinationArgs{...} }
+//	StateMachineLogDestinationArray{ StateMachineLogDestinationArgs{...} }
 type StateMachineLogDestinationArrayInput interface {
 	pulumi.Input
 
@@ -584,7 +584,7 @@ type StateMachineLoggingConfiguration struct {
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
 // You can construct a concrete instance of `StateMachineLoggingConfigurationInput` via:
 //
-//          StateMachineLoggingConfigurationArgs{...}
+//	StateMachineLoggingConfigurationArgs{...}
 type StateMachineLoggingConfigurationInput interface {
 	pulumi.Input
 
@@ -621,11 +621,11 @@ func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfiguration
 // StateMachineLoggingConfigurationPtrInput is an input type that accepts StateMachineLoggingConfigurationArgs, StateMachineLoggingConfigurationPtr and StateMachineLoggingConfigurationPtrOutput values.
 // You can construct a concrete instance of `StateMachineLoggingConfigurationPtrInput` via:
 //
-//          StateMachineLoggingConfigurationArgs{...}
+//	        StateMachineLoggingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineLoggingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -747,7 +747,7 @@ type StateMachineS3Location struct {
 // StateMachineS3LocationInput is an input type that accepts StateMachineS3LocationArgs and StateMachineS3LocationOutput values.
 // You can construct a concrete instance of `StateMachineS3LocationInput` via:
 //
-//          StateMachineS3LocationArgs{...}
+//	StateMachineS3LocationArgs{...}
 type StateMachineS3LocationInput interface {
 	pulumi.Input
 
@@ -784,11 +784,11 @@ func (i StateMachineS3LocationArgs) ToStateMachineS3LocationPtrOutputWithContext
 // StateMachineS3LocationPtrInput is an input type that accepts StateMachineS3LocationArgs, StateMachineS3LocationPtr and StateMachineS3LocationPtrOutput values.
 // You can construct a concrete instance of `StateMachineS3LocationPtrInput` via:
 //
-//          StateMachineS3LocationArgs{...}
+//	        StateMachineS3LocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineS3LocationPtrInput interface {
 	pulumi.Input
 
@@ -909,7 +909,7 @@ type StateMachineTagsEntry struct {
 // StateMachineTagsEntryInput is an input type that accepts StateMachineTagsEntryArgs and StateMachineTagsEntryOutput values.
 // You can construct a concrete instance of `StateMachineTagsEntryInput` via:
 //
-//          StateMachineTagsEntryArgs{...}
+//	StateMachineTagsEntryArgs{...}
 type StateMachineTagsEntryInput interface {
 	pulumi.Input
 
@@ -937,7 +937,7 @@ func (i StateMachineTagsEntryArgs) ToStateMachineTagsEntryOutputWithContext(ctx 
 // StateMachineTagsEntryArrayInput is an input type that accepts StateMachineTagsEntryArray and StateMachineTagsEntryArrayOutput values.
 // You can construct a concrete instance of `StateMachineTagsEntryArrayInput` via:
 //
-//          StateMachineTagsEntryArray{ StateMachineTagsEntryArgs{...} }
+//	StateMachineTagsEntryArray{ StateMachineTagsEntryArgs{...} }
 type StateMachineTagsEntryArrayInput interface {
 	pulumi.Input
 
@@ -1008,7 +1008,7 @@ type StateMachineTracingConfiguration struct {
 // StateMachineTracingConfigurationInput is an input type that accepts StateMachineTracingConfigurationArgs and StateMachineTracingConfigurationOutput values.
 // You can construct a concrete instance of `StateMachineTracingConfigurationInput` via:
 //
-//          StateMachineTracingConfigurationArgs{...}
+//	StateMachineTracingConfigurationArgs{...}
 type StateMachineTracingConfigurationInput interface {
 	pulumi.Input
 
@@ -1043,11 +1043,11 @@ func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfiguration
 // StateMachineTracingConfigurationPtrInput is an input type that accepts StateMachineTracingConfigurationArgs, StateMachineTracingConfigurationPtr and StateMachineTracingConfigurationPtrOutput values.
 // You can construct a concrete instance of `StateMachineTracingConfigurationPtrInput` via:
 //
-//          StateMachineTracingConfigurationArgs{...}
+//	        StateMachineTracingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineTracingConfigurationPtrInput interface {
 	pulumi.Input
 

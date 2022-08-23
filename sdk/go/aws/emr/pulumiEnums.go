@@ -140,7 +140,7 @@ func (o StudioAuthModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 // StudioAuthModeInput is an input type that accepts StudioAuthModeArgs and StudioAuthModeOutput values.
 // You can construct a concrete instance of `StudioAuthModeInput` via:
 //
-//          StudioAuthModeArgs{...}
+//	StudioAuthModeArgs{...}
 type StudioAuthModeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o StudioSessionMappingIdentityTypePtrOutput) ToStringPtrOutputWithContext(
 // StudioSessionMappingIdentityTypeInput is an input type that accepts StudioSessionMappingIdentityTypeArgs and StudioSessionMappingIdentityTypeOutput values.
 // You can construct a concrete instance of `StudioSessionMappingIdentityTypeInput` via:
 //
-//          StudioSessionMappingIdentityTypeArgs{...}
+//	StudioSessionMappingIdentityTypeArgs{...}
 type StudioSessionMappingIdentityTypeInput interface {
 	pulumi.Input
 

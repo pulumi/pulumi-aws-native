@@ -231,7 +231,7 @@ func (o BotAudioRecognitionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx c
 // BotAudioRecognitionStrategyInput is an input type that accepts BotAudioRecognitionStrategyArgs and BotAudioRecognitionStrategyOutput values.
 // You can construct a concrete instance of `BotAudioRecognitionStrategyInput` via:
 //
-//          BotAudioRecognitionStrategyArgs{...}
+//	BotAudioRecognitionStrategyArgs{...}
 type BotAudioRecognitionStrategyInput interface {
 	pulumi.Input
 
@@ -396,7 +396,7 @@ func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToStringPtrOutputW
 // BotObfuscationSettingObfuscationSettingTypeInput is an input type that accepts BotObfuscationSettingObfuscationSettingTypeArgs and BotObfuscationSettingObfuscationSettingTypeOutput values.
 // You can construct a concrete instance of `BotObfuscationSettingObfuscationSettingTypeInput` via:
 //
-//          BotObfuscationSettingObfuscationSettingTypeArgs{...}
+//	BotObfuscationSettingObfuscationSettingTypeArgs{...}
 type BotObfuscationSettingObfuscationSettingTypeInput interface {
 	pulumi.Input
 
@@ -560,7 +560,7 @@ func (o BotSlotConstraintPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // BotSlotConstraintInput is an input type that accepts BotSlotConstraintArgs and BotSlotConstraintOutput values.
 // You can construct a concrete instance of `BotSlotConstraintInput` via:
 //
-//          BotSlotConstraintArgs{...}
+//	BotSlotConstraintArgs{...}
 type BotSlotConstraintInput interface {
 	pulumi.Input
 
@@ -724,7 +724,7 @@ func (o BotSlotValueResolutionStrategyPtrOutput) ToStringPtrOutputWithContext(ct
 // BotSlotValueResolutionStrategyInput is an input type that accepts BotSlotValueResolutionStrategyArgs and BotSlotValueResolutionStrategyOutput values.
 // You can construct a concrete instance of `BotSlotValueResolutionStrategyInput` via:
 //
-//          BotSlotValueResolutionStrategyArgs{...}
+//	BotSlotValueResolutionStrategyArgs{...}
 type BotSlotValueResolutionStrategyInput interface {
 	pulumi.Input
 

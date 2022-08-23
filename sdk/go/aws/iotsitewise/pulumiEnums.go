@@ -142,7 +142,7 @@ func (o AssetModelDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AssetModelDataTypeInput is an input type that accepts AssetModelDataTypeArgs and AssetModelDataTypeOutput values.
 // You can construct a concrete instance of `AssetModelDataTypeInput` via:
 //
-//          AssetModelDataTypeArgs{...}
+//	AssetModelDataTypeArgs{...}
 type AssetModelDataTypeInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ func (o AssetModelDataTypeSpecPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // AssetModelDataTypeSpecInput is an input type that accepts AssetModelDataTypeSpecArgs and AssetModelDataTypeSpecOutput values.
 // You can construct a concrete instance of `AssetModelDataTypeSpecInput` via:
 //
-//          AssetModelDataTypeSpecArgs{...}
+//	AssetModelDataTypeSpecArgs{...}
 type AssetModelDataTypeSpecInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ func (o AssetModelTypeNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // AssetModelTypeNameInput is an input type that accepts AssetModelTypeNameArgs and AssetModelTypeNameOutput values.
 // You can construct a concrete instance of `AssetModelTypeNameInput` via:
 //
-//          AssetModelTypeNameArgs{...}
+//	AssetModelTypeNameArgs{...}
 type AssetModelTypeNameInput interface {
 	pulumi.Input
 
@@ -636,7 +636,7 @@ func (o AssetPropertyNotificationStatePtrOutput) ToStringPtrOutputWithContext(ct
 // AssetPropertyNotificationStateInput is an input type that accepts AssetPropertyNotificationStateArgs and AssetPropertyNotificationStateOutput values.
 // You can construct a concrete instance of `AssetPropertyNotificationStateInput` via:
 //
-//          AssetPropertyNotificationStateArgs{...}
+//	AssetPropertyNotificationStateArgs{...}
 type AssetPropertyNotificationStateInput interface {
 	pulumi.Input
 
