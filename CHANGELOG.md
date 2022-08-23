@@ -1,5 +1,85 @@
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `aws-native:apigateway:DocumentationPart`
+- `aws-native:appstream:DirectoryConfig`
+- `aws-native:appstream:ImageBuilder`
+- `aws-native:autoscaling:ScalingPolicy`
+- `aws-native:cloudtrail:EventDataStore`
+- `aws-native:connect:Instance`
+- `aws-native:datasync:LocationFSxONTAP`
+- `aws-native:dynamodb:Table`
+- `aws-native:ec2:CapacityReservation`
+- `aws-native:elasticbeanstalk:Application`
+- `aws-native:evidently:Segment`
+- `aws-native:iot:CACertificate`
+- `aws-native:iot:Policy`
+- `aws-native:lakeformation:DataCellsFilter`
+- `aws-native:lakeformation:PrincipalPermissions`
+- `aws-native:lakeformation:Tag`
+- `aws-native:lakeformation:TagAssociation`
+- `aws-native:logs:MetricFilter`
+- `aws-native:logs:SubscriptionFilter`
+- `aws-native:msk:ServerlessCluster`
+- `aws-native:networkmanager:ConnectAttachment`
+- `aws-native:networkmanager:ConnectPeer`
+- `aws-native:networkmanager:CoreNetwork`
+- `aws-native:networkmanager:SiteToSiteVpnAttachment`
+- `aws-native:networkmanager:VpcAttachment`
+- `aws-native:rds:DBCluster`
+- `aws-native:rds:DBInstance`
+- `aws-native:rds:OptionGroup`
+- `aws-native:redshiftserverless:Workgroup`
+- `aws-native:rolesanywhere:CRL`
+- `aws-native:rolesanywhere:Profile`
+- `aws-native:rolesanywhere:TrustAnchor`
+- `aws-native:ses:DedicatedIpPool`
+- `aws-native:ses:EmailIdentity`
+- `aws-native:sns:Topic`
+- `aws-native:supportapp:AccountAlias`
+- `aws-native:supportapp:SlackChannelConfiguration`
+- `aws-native:synthetics:Group`
+
+#### New functions:
+
+- `aws-native:apigateway:getDocumentationPart`
+- `aws-native:appstream:getDirectoryConfig`
+- `aws-native:appstream:getImageBuilder`
+- `aws-native:autoscaling:getScalingPolicy`
+- `aws-native:cloudtrail:getEventDataStore`
+- `aws-native:connect:getInstance`
+- `aws-native:datasync:getLocationFSxONTAP`
+- `aws-native:dynamodb:getTable`
+- `aws-native:ec2:getCapacityReservation`
+- `aws-native:elasticbeanstalk:getApplication`
+- `aws-native:evidently:getSegment`
+- `aws-native:iot:getCACertificate`
+- `aws-native:iot:getPolicy`
+- `aws-native:lakeformation:getPrincipalPermissions`
+- `aws-native:lakeformation:getTag`
+- `aws-native:lakeformation:getTagAssociation`
+- `aws-native:logs:getMetricFilter`
+- `aws-native:logs:getSubscriptionFilter`
+- `aws-native:msk:getServerlessCluster`
+- `aws-native:networkmanager:getConnectAttachment`
+- `aws-native:networkmanager:getConnectPeer`
+- `aws-native:networkmanager:getCoreNetwork`
+- `aws-native:networkmanager:getSiteToSiteVpnAttachment`
+- `aws-native:networkmanager:getVpcAttachment`
+- `aws-native:rds:getDBCluster`
+- `aws-native:rds:getDBInstance`
+- `aws-native:rds:getOptionGroup`
+- `aws-native:redshiftserverless:getWorkgroup`
+- `aws-native:rolesanywhere:getCRL`
+- `aws-native:rolesanywhere:getProfile`
+- `aws-native:rolesanywhere:getTrustAnchor`
+- `aws-native:ses:getEmailIdentity`
+- `aws-native:sns:getTopic`
+- `aws-native:supportapp:getAccountAlias`
+- `aws-native:supportapp:getSlackChannelConfiguration`
+- `aws-native:synthetics:getGroup`
+
 ## 0.20.0 (August 23, 2022)
 
 - Update to include the latest resource definitions
