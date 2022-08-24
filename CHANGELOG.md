@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+## 0.21.0 (August 24, 2022)
+
 #### New resources:
 
 - `aws-native:apigateway:DocumentationPart`
