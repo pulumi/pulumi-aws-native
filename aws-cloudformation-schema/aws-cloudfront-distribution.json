@@ -29,6 +29,9 @@
         "ConnectionTimeout" : {
           "type" : "integer"
         },
+        "OriginAccessControlId" : {
+          "type" : "string"
+        },
         "ConnectionAttempts" : {
           "type" : "integer"
         },
