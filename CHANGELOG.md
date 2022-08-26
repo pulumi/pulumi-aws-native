@@ -1,5 +1,19 @@
 ## HEAD (Unreleased)
 
+## 0.22.0 (August 26, 2022)
+
+* Update to include the latest resource definitions
+  **PLEASE NOTE:** `aws-native.ec2.CustomerGateway` and `aws-native.ec2.getCustomerGateway` have been removed upstream
+
+#### New resources:
+
+- `aws-native:rds:DBParameterGroup`
+
+#### New functions:
+
+- `aws-native:rds:getDBParameterGroup`
+
+
 ## 0.21.0 (August 24, 2022)
 
 #### New resources:
