@@ -330,7 +330,7 @@
       "permissions" : [ "rds:DescribeDBClusters" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource" ],
+      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBSubnetGroups", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

@@ -148,7 +148,6 @@ AWS::DynamoDB::Table
 AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
-AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
 AWS::EC2::EgressOnlyInternetGateway
@@ -440,6 +439,7 @@ AWS::QuickSight::Theme
 AWS::RDS::DBCluster
 AWS::RDS::DBClusterParameterGroup
 AWS::RDS::DBInstance
+AWS::RDS::DBParameterGroup
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup

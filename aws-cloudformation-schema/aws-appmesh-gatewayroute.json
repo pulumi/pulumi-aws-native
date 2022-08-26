@@ -80,6 +80,9 @@
       "properties" : {
         "VirtualService" : {
           "$ref" : "#/definitions/GatewayRouteVirtualService"
+        },
+        "Port" : {
+          "type" : "integer"
         }
       },
       "required" : [ "VirtualService" ]
@@ -116,6 +119,9 @@
         },
         "ServiceName" : {
           "type" : "string"
+        },
+        "Port" : {
+          "type" : "integer"
         }
       }
     },
@@ -184,6 +190,9 @@
           "items" : {
             "$ref" : "#/definitions/HttpGatewayRouteHeader"
           }
+        },
+        "Port" : {
+          "type" : "integer"
         },
         "Hostname" : {
           "$ref" : "#/definitions/GatewayRouteHostnameMatch"
