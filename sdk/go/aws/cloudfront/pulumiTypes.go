@@ -3113,15 +3113,16 @@ func (o DistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type DistributionOrigin struct {
-	ConnectionAttempts  *int                             `pulumi:"connectionAttempts"`
-	ConnectionTimeout   *int                             `pulumi:"connectionTimeout"`
-	CustomOriginConfig  *DistributionCustomOriginConfig  `pulumi:"customOriginConfig"`
-	DomainName          string                           `pulumi:"domainName"`
-	Id                  string                           `pulumi:"id"`
-	OriginCustomHeaders []DistributionOriginCustomHeader `pulumi:"originCustomHeaders"`
-	OriginPath          *string                          `pulumi:"originPath"`
-	OriginShield        *DistributionOriginShield        `pulumi:"originShield"`
-	S3OriginConfig      *DistributionS3OriginConfig      `pulumi:"s3OriginConfig"`
+	ConnectionAttempts    *int                             `pulumi:"connectionAttempts"`
+	ConnectionTimeout     *int                             `pulumi:"connectionTimeout"`
+	CustomOriginConfig    *DistributionCustomOriginConfig  `pulumi:"customOriginConfig"`
+	DomainName            string                           `pulumi:"domainName"`
+	Id                    string                           `pulumi:"id"`
+	OriginAccessControlId *string                          `pulumi:"originAccessControlId"`
+	OriginCustomHeaders   []DistributionOriginCustomHeader `pulumi:"originCustomHeaders"`
+	OriginPath            *string                          `pulumi:"originPath"`
+	OriginShield          *DistributionOriginShield        `pulumi:"originShield"`
+	S3OriginConfig        *DistributionS3OriginConfig      `pulumi:"s3OriginConfig"`
 }
 
 // DistributionOriginInput is an input type that accepts DistributionOriginArgs and DistributionOriginOutput values.
@@ -3136,15 +3137,16 @@ type DistributionOriginInput interface {
 }
 
 type DistributionOriginArgs struct {
-	ConnectionAttempts  pulumi.IntPtrInput                       `pulumi:"connectionAttempts"`
-	ConnectionTimeout   pulumi.IntPtrInput                       `pulumi:"connectionTimeout"`
-	CustomOriginConfig  DistributionCustomOriginConfigPtrInput   `pulumi:"customOriginConfig"`
-	DomainName          pulumi.StringInput                       `pulumi:"domainName"`
-	Id                  pulumi.StringInput                       `pulumi:"id"`
-	OriginCustomHeaders DistributionOriginCustomHeaderArrayInput `pulumi:"originCustomHeaders"`
-	OriginPath          pulumi.StringPtrInput                    `pulumi:"originPath"`
-	OriginShield        DistributionOriginShieldPtrInput         `pulumi:"originShield"`
-	S3OriginConfig      DistributionS3OriginConfigPtrInput       `pulumi:"s3OriginConfig"`
+	ConnectionAttempts    pulumi.IntPtrInput                       `pulumi:"connectionAttempts"`
+	ConnectionTimeout     pulumi.IntPtrInput                       `pulumi:"connectionTimeout"`
+	CustomOriginConfig    DistributionCustomOriginConfigPtrInput   `pulumi:"customOriginConfig"`
+	DomainName            pulumi.StringInput                       `pulumi:"domainName"`
+	Id                    pulumi.StringInput                       `pulumi:"id"`
+	OriginAccessControlId pulumi.StringPtrInput                    `pulumi:"originAccessControlId"`
+	OriginCustomHeaders   DistributionOriginCustomHeaderArrayInput `pulumi:"originCustomHeaders"`
+	OriginPath            pulumi.StringPtrInput                    `pulumi:"originPath"`
+	OriginShield          DistributionOriginShieldPtrInput         `pulumi:"originShield"`
+	S3OriginConfig        DistributionS3OriginConfigPtrInput       `pulumi:"s3OriginConfig"`
 }
 
 func (DistributionOriginArgs) ElementType() reflect.Type {
@@ -3216,6 +3218,10 @@ func (o DistributionOriginOutput) DomainName() pulumi.StringOutput {
 
 func (o DistributionOriginOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o DistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionOriginOutput) OriginCustomHeaders() DistributionOriginCustomHeaderArrayOutput {
@@ -6209,11 +6215,12 @@ func (o ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput) Items() pulumi
 }
 
 type ResponseHeadersPolicyConfig struct {
-	Comment               *string                                     `pulumi:"comment"`
-	CorsConfig            *ResponseHeadersPolicyCorsConfig            `pulumi:"corsConfig"`
-	CustomHeadersConfig   *ResponseHeadersPolicyCustomHeadersConfig   `pulumi:"customHeadersConfig"`
-	Name                  string                                      `pulumi:"name"`
-	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
+	Comment                   *string                                         `pulumi:"comment"`
+	CorsConfig                *ResponseHeadersPolicyCorsConfig                `pulumi:"corsConfig"`
+	CustomHeadersConfig       *ResponseHeadersPolicyCustomHeadersConfig       `pulumi:"customHeadersConfig"`
+	Name                      string                                          `pulumi:"name"`
+	SecurityHeadersConfig     *ResponseHeadersPolicySecurityHeadersConfig     `pulumi:"securityHeadersConfig"`
+	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
 // ResponseHeadersPolicyConfigInput is an input type that accepts ResponseHeadersPolicyConfigArgs and ResponseHeadersPolicyConfigOutput values.
@@ -6228,11 +6235,12 @@ type ResponseHeadersPolicyConfigInput interface {
 }
 
 type ResponseHeadersPolicyConfigArgs struct {
-	Comment               pulumi.StringPtrInput                              `pulumi:"comment"`
-	CorsConfig            ResponseHeadersPolicyCorsConfigPtrInput            `pulumi:"corsConfig"`
-	CustomHeadersConfig   ResponseHeadersPolicyCustomHeadersConfigPtrInput   `pulumi:"customHeadersConfig"`
-	Name                  pulumi.StringInput                                 `pulumi:"name"`
-	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput `pulumi:"securityHeadersConfig"`
+	Comment                   pulumi.StringPtrInput                                  `pulumi:"comment"`
+	CorsConfig                ResponseHeadersPolicyCorsConfigPtrInput                `pulumi:"corsConfig"`
+	CustomHeadersConfig       ResponseHeadersPolicyCustomHeadersConfigPtrInput       `pulumi:"customHeadersConfig"`
+	Name                      pulumi.StringInput                                     `pulumi:"name"`
+	SecurityHeadersConfig     ResponseHeadersPolicySecurityHeadersConfigPtrInput     `pulumi:"securityHeadersConfig"`
+	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput `pulumi:"serverTimingHeadersConfig"`
 }
 
 func (ResponseHeadersPolicyConfigArgs) ElementType() reflect.Type {
@@ -6283,6 +6291,12 @@ func (o ResponseHeadersPolicyConfigOutput) SecurityHeadersConfig() ResponseHeade
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicySecurityHeadersConfig {
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
+		return v.ServerTimingHeadersConfig
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
 }
 
 type ResponseHeadersPolicyConfigPtrOutput struct{ *pulumi.OutputState }
@@ -6352,6 +6366,15 @@ func (o ResponseHeadersPolicyConfigPtrOutput) SecurityHeadersConfig() ResponseHe
 		}
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ServerTimingHeadersConfig
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
 }
 
 type ResponseHeadersPolicyContentSecurityPolicy struct {
@@ -7621,6 +7644,154 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XSSProtection() Res
 	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
 }
 
+type ResponseHeadersPolicyServerTimingHeadersConfig struct {
+	Enabled      bool     `pulumi:"enabled"`
+	SamplingRate *float64 `pulumi:"samplingRate"`
+}
+
+// ResponseHeadersPolicyServerTimingHeadersConfigInput is an input type that accepts ResponseHeadersPolicyServerTimingHeadersConfigArgs and ResponseHeadersPolicyServerTimingHeadersConfigOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyServerTimingHeadersConfigInput` via:
+//
+//	ResponseHeadersPolicyServerTimingHeadersConfigArgs{...}
+type ResponseHeadersPolicyServerTimingHeadersConfigInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput
+	ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigArgs struct {
+	Enabled      pulumi.BoolInput       `pulumi:"enabled"`
+	SamplingRate pulumi.Float64PtrInput `pulumi:"samplingRate"`
+}
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigOutput).ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// ResponseHeadersPolicyServerTimingHeadersConfigPtrInput is an input type that accepts ResponseHeadersPolicyServerTimingHeadersConfigArgs, ResponseHeadersPolicyServerTimingHeadersConfigPtr and ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyServerTimingHeadersConfigPtrInput` via:
+//
+//	        ResponseHeadersPolicyServerTimingHeadersConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponseHeadersPolicyServerTimingHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput
+	ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput
+}
+
+type responseHeadersPolicyServerTimingHeadersConfigPtrType ResponseHeadersPolicyServerTimingHeadersConfigArgs
+
+func ResponseHeadersPolicyServerTimingHeadersConfigPtr(v *ResponseHeadersPolicyServerTimingHeadersConfigArgs) ResponseHeadersPolicyServerTimingHeadersConfigPtrInput {
+	return (*responseHeadersPolicyServerTimingHeadersConfigPtrType)(v)
+}
+
+func (*responseHeadersPolicyServerTimingHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i *responseHeadersPolicyServerTimingHeadersConfigPtrType) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *responseHeadersPolicyServerTimingHeadersConfigPtrType) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicyServerTimingHeadersConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
+		return &v
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) SamplingRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) *float64 { return v.SamplingRate }).(pulumi.Float64PtrOutput)
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Elem() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) ResponseHeadersPolicyServerTimingHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseHeadersPolicyServerTimingHeadersConfig
+		return ret
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SamplingRate
+	}).(pulumi.Float64PtrOutput)
+}
+
 type ResponseHeadersPolicyStrictTransportSecurity struct {
 	AccessControlMaxAgeSec int   `pulumi:"accessControlMaxAgeSec"`
 	IncludeSubdomains      *bool `pulumi:"includeSubdomains"`
@@ -8698,6 +8869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyReferrerPolicyPtrInput)(nil)).Elem(), ResponseHeadersPolicyReferrerPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXSSProtectionInput)(nil)).Elem(), ResponseHeadersPolicyXSSProtectionArgs{})
@@ -8815,6 +8988,8 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyReferrerPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXSSProtectionOutput{})

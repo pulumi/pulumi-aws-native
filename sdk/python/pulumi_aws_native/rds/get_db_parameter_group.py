@@ -19,46 +19,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBParameterGroupResult:
-    def __init__(__self__, description=None, family=None, id=None, parameters=None, tags=None):
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if family and not isinstance(family, str):
-            raise TypeError("Expected argument 'family' to be a str")
-        pulumi.set(__self__, "family", family)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        pulumi.set(__self__, "parameters", parameters)
+    def __init__(__self__, d_b_parameter_group_name=None, tags=None):
+        if d_b_parameter_group_name and not isinstance(d_b_parameter_group_name, str):
+            raise TypeError("Expected argument 'd_b_parameter_group_name' to be a str")
+        pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "parameters")
+    @pulumi.getter(name="dBParameterGroupName")
+    def d_b_parameter_group_name(self) -> Optional[str]:
+        """
+        Specifies the name of the DB parameter group
+        """
+        return pulumi.get(self, "d_b_parameter_group_name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DBParameterGroupTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -68,35 +50,35 @@ class AwaitableGetDBParameterGroupResult(GetDBParameterGroupResult):
         if False:
             yield self
         return GetDBParameterGroupResult(
-            description=self.description,
-            family=self.family,
-            id=self.id,
-            parameters=self.parameters,
+            d_b_parameter_group_name=self.d_b_parameter_group_name,
             tags=self.tags)
 
 
-def get_db_parameter_group(id: Optional[str] = None,
+def get_db_parameter_group(d_b_parameter_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBParameterGroupResult:
     """
-    Resource Type definition for AWS::RDS::DBParameterGroup
+    The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+
+
+    :param str d_b_parameter_group_name: Specifies the name of the DB parameter group
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['dBParameterGroupName'] = d_b_parameter_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
 
     return AwaitableGetDBParameterGroupResult(
-        description=__ret__.description,
-        family=__ret__.family,
-        id=__ret__.id,
-        parameters=__ret__.parameters,
+        d_b_parameter_group_name=__ret__.d_b_parameter_group_name,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_db_parameter_group)
-def get_db_parameter_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_db_parameter_group_output(d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBParameterGroupResult]:
     """
-    Resource Type definition for AWS::RDS::DBParameterGroup
+    The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+
+
+    :param str d_b_parameter_group_name: Specifies the name of the DB parameter group
     """
     ...

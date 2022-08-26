@@ -92,6 +92,9 @@
       "properties" : {
         "Path" : {
           "type" : "string"
+        },
+        "Format" : {
+          "$ref" : "#/definitions/LoggingFormat"
         }
       },
       "required" : [ "Path" ]
@@ -380,6 +383,22 @@
       },
       "required" : [ "Hostname" ]
     },
+    "LoggingFormat" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Text" : {
+          "type" : "string"
+        },
+        "Json" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/JsonFormatRef"
+          }
+        }
+      }
+    },
     "VirtualNodeHttp2ConnectionPool" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -461,6 +480,19 @@
         }
       },
       "required" : [ "Trust" ]
+    },
+    "JsonFormatRef" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "SubjectAlternativeNameMatchers" : {
       "type" : "object",

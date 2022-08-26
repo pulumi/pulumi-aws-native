@@ -66,6 +66,7 @@ __all__ = [
     'ResponseHeadersPolicyFrameOptions',
     'ResponseHeadersPolicyReferrerPolicy',
     'ResponseHeadersPolicySecurityHeadersConfig',
+    'ResponseHeadersPolicyServerTimingHeadersConfig',
     'ResponseHeadersPolicyStrictTransportSecurity',
     'ResponseHeadersPolicyXSSProtection',
     'StreamingDistributionConfig',
@@ -1475,6 +1476,8 @@ class DistributionOrigin(dict):
             suggest = "connection_timeout"
         elif key == "customOriginConfig":
             suggest = "custom_origin_config"
+        elif key == "originAccessControlId":
+            suggest = "origin_access_control_id"
         elif key == "originCustomHeaders":
             suggest = "origin_custom_headers"
         elif key == "originPath":
@@ -1501,6 +1504,7 @@ class DistributionOrigin(dict):
                  connection_attempts: Optional[int] = None,
                  connection_timeout: Optional[int] = None,
                  custom_origin_config: Optional['outputs.DistributionCustomOriginConfig'] = None,
+                 origin_access_control_id: Optional[str] = None,
                  origin_custom_headers: Optional[Sequence['outputs.DistributionOriginCustomHeader']] = None,
                  origin_path: Optional[str] = None,
                  origin_shield: Optional['outputs.DistributionOriginShield'] = None,
@@ -1513,6 +1517,8 @@ class DistributionOrigin(dict):
             pulumi.set(__self__, "connection_timeout", connection_timeout)
         if custom_origin_config is not None:
             pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+        if origin_access_control_id is not None:
+            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
         if origin_custom_headers is not None:
             pulumi.set(__self__, "origin_custom_headers", origin_custom_headers)
         if origin_path is not None:
@@ -1546,6 +1552,11 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="customOriginConfig")
     def custom_origin_config(self) -> Optional['outputs.DistributionCustomOriginConfig']:
         return pulumi.get(self, "custom_origin_config")
+
+    @property
+    @pulumi.getter(name="originAccessControlId")
+    def origin_access_control_id(self) -> Optional[str]:
+        return pulumi.get(self, "origin_access_control_id")
 
     @property
     @pulumi.getter(name="originCustomHeaders")
@@ -2390,6 +2401,8 @@ class ResponseHeadersPolicyConfig(dict):
             suggest = "custom_headers_config"
         elif key == "securityHeadersConfig":
             suggest = "security_headers_config"
+        elif key == "serverTimingHeadersConfig":
+            suggest = "server_timing_headers_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2407,7 +2420,8 @@ class ResponseHeadersPolicyConfig(dict):
                  comment: Optional[str] = None,
                  cors_config: Optional['outputs.ResponseHeadersPolicyCorsConfig'] = None,
                  custom_headers_config: Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig'] = None,
-                 security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None):
+                 security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None,
+                 server_timing_headers_config: Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig'] = None):
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -2417,6 +2431,8 @@ class ResponseHeadersPolicyConfig(dict):
             pulumi.set(__self__, "custom_headers_config", custom_headers_config)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
+        if server_timing_headers_config is not None:
+            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -2442,6 +2458,11 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="securityHeadersConfig")
     def security_headers_config(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig']:
         return pulumi.get(self, "security_headers_config")
+
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfig")
+    def server_timing_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig']:
+        return pulumi.get(self, "server_timing_headers_config")
 
 
 @pulumi.output_type
@@ -2765,6 +2786,43 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="xSSProtection")
     def x_ss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXSSProtection']:
         return pulumi.get(self, "x_ss_protection")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyServerTimingHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyServerTimingHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyServerTimingHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 sampling_rate: Optional[float] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[float]:
+        return pulumi.get(self, "sampling_rate")
 
 
 @pulumi.output_type

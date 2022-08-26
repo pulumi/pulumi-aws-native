@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.DistributionCustomOriginConfig? CustomOriginConfig;
         public readonly string DomainName;
         public readonly string Id;
+        public readonly string? OriginAccessControlId;
         public readonly ImmutableArray<Outputs.DistributionOriginCustomHeader> OriginCustomHeaders;
         public readonly string? OriginPath;
         public readonly Outputs.DistributionOriginShield? OriginShield;
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string id,
 
+            string? originAccessControlId,
+
             ImmutableArray<Outputs.DistributionOriginCustomHeader> originCustomHeaders,
 
             string? originPath,
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             CustomOriginConfig = customOriginConfig;
             DomainName = domainName;
             Id = id;
+            OriginAccessControlId = originAccessControlId;
             OriginCustomHeaders = originCustomHeaders;
             OriginPath = originPath;
             OriginShield = originShield;

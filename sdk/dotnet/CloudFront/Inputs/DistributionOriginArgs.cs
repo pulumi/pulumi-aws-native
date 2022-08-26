@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        [Input("originAccessControlId")]
+        public Input<string>? OriginAccessControlId { get; set; }
+
         [Input("originCustomHeaders")]
         private InputList<Inputs.DistributionOriginCustomHeaderArgs>? _originCustomHeaders;
         public InputList<Inputs.DistributionOriginCustomHeaderArgs> OriginCustomHeaders

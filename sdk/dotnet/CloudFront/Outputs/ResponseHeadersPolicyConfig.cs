@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
         public readonly string Name;
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
+        public readonly Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig;
 
         [OutputConstructor]
         private ResponseHeadersPolicyConfig(
@@ -29,13 +30,16 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string name,
 
-            Outputs.ResponseHeadersPolicySecurityHeadersConfig? securityHeadersConfig)
+            Outputs.ResponseHeadersPolicySecurityHeadersConfig? securityHeadersConfig,
+
+            Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? serverTimingHeadersConfig)
         {
             Comment = comment;
             CorsConfig = corsConfig;
             CustomHeadersConfig = customHeadersConfig;
             Name = name;
             SecurityHeadersConfig = securityHeadersConfig;
+            ServerTimingHeadersConfig = serverTimingHeadersConfig;
         }
     }
 }

@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("methodName")]
         public Input<string>? MethodName { get; set; }
 
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 

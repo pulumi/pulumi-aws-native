@@ -3100,6 +3100,7 @@ export namespace appmesh {
     export interface GatewayRouteGrpcGatewayRouteMatchArgs {
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteHostnameMatchArgs>;
         metadata?: pulumi.Input<pulumi.Input<inputs.appmesh.GatewayRouteGrpcGatewayRouteMetadataArgs>[]>;
+        port?: pulumi.Input<number>;
         serviceName?: pulumi.Input<string>;
     }
 
@@ -3151,6 +3152,7 @@ export namespace appmesh {
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteHostnameMatchArgs>;
         method?: pulumi.Input<string>;
         path?: pulumi.Input<inputs.appmesh.GatewayRouteHttpPathMatchArgs>;
+        port?: pulumi.Input<number>;
         prefix?: pulumi.Input<string>;
         queryParameters?: pulumi.Input<pulumi.Input<inputs.appmesh.GatewayRouteQueryParameterArgs>[]>;
     }
@@ -3210,6 +3212,7 @@ export namespace appmesh {
     }
 
     export interface GatewayRouteTargetArgs {
+        port?: pulumi.Input<number>;
         virtualService: pulumi.Input<inputs.appmesh.GatewayRouteVirtualServiceArgs>;
     }
 
@@ -3262,6 +3265,7 @@ export namespace appmesh {
     export interface RouteGrpcRouteMatchArgs {
         metadata?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteGrpcRouteMetadataArgs>[]>;
         methodName?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
         serviceName?: pulumi.Input<string>;
     }
 
@@ -3329,6 +3333,7 @@ export namespace appmesh {
         headers?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteHttpRouteHeaderArgs>[]>;
         method?: pulumi.Input<string>;
         path?: pulumi.Input<inputs.appmesh.RouteHttpPathMatchArgs>;
+        port?: pulumi.Input<number>;
         prefix?: pulumi.Input<string>;
         queryParameters?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteQueryParameterArgs>[]>;
         scheme?: pulumi.Input<string>;
@@ -3364,6 +3369,7 @@ export namespace appmesh {
 
     export interface RouteTcpRouteArgs {
         action: pulumi.Input<inputs.appmesh.RouteTcpRouteActionArgs>;
+        match?: pulumi.Input<inputs.appmesh.RouteTcpRouteMatchArgs>;
         timeout?: pulumi.Input<inputs.appmesh.RouteTcpTimeoutArgs>;
     }
 
@@ -3371,11 +3377,16 @@ export namespace appmesh {
         weightedTargets: pulumi.Input<pulumi.Input<inputs.appmesh.RouteWeightedTargetArgs>[]>;
     }
 
+    export interface RouteTcpRouteMatchArgs {
+        port?: pulumi.Input<number>;
+    }
+
     export interface RouteTcpTimeoutArgs {
         idle?: pulumi.Input<inputs.appmesh.RouteDurationArgs>;
     }
 
     export interface RouteWeightedTargetArgs {
+        port?: pulumi.Input<number>;
         virtualNode: pulumi.Input<string>;
         weight: pulumi.Input<number>;
     }
@@ -3411,6 +3422,7 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayFileAccessLogArgs {
+        format?: pulumi.Input<inputs.appmesh.VirtualGatewayLoggingFormatArgs>;
         path: pulumi.Input<string>;
     }
 
@@ -3435,6 +3447,11 @@ export namespace appmesh {
     export interface VirtualGatewayHttpConnectionPoolArgs {
         maxConnections: pulumi.Input<number>;
         maxPendingRequests?: pulumi.Input<number>;
+    }
+
+    export interface VirtualGatewayJsonFormatRefArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface VirtualGatewayListenerArgs {
@@ -3481,6 +3498,11 @@ export namespace appmesh {
 
     export interface VirtualGatewayLoggingArgs {
         accessLog?: pulumi.Input<inputs.appmesh.VirtualGatewayAccessLogArgs>;
+    }
+
+    export interface VirtualGatewayLoggingFormatArgs {
+        json?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualGatewayJsonFormatRefArgs>[]>;
+        text?: pulumi.Input<string>;
     }
 
     export interface VirtualGatewayPortMappingArgs {
@@ -3589,6 +3611,7 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeFileAccessLogArgs {
+        format?: pulumi.Input<inputs.appmesh.VirtualNodeLoggingFormatArgs>;
         path: pulumi.Input<string>;
     }
 
@@ -3623,6 +3646,11 @@ export namespace appmesh {
     export interface VirtualNodeHttpTimeoutArgs {
         idle?: pulumi.Input<inputs.appmesh.VirtualNodeDurationArgs>;
         perRequest?: pulumi.Input<inputs.appmesh.VirtualNodeDurationArgs>;
+    }
+
+    export interface VirtualNodeJsonFormatRefArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface VirtualNodeListenerArgs {
@@ -3678,6 +3706,11 @@ export namespace appmesh {
 
     export interface VirtualNodeLoggingArgs {
         accessLog?: pulumi.Input<inputs.appmesh.VirtualNodeAccessLogArgs>;
+    }
+
+    export interface VirtualNodeLoggingFormatArgs {
+        json?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeJsonFormatRefArgs>[]>;
+        text?: pulumi.Input<string>;
     }
 
     export interface VirtualNodeOutlierDetectionArgs {
@@ -5752,6 +5785,7 @@ export namespace cloudfront {
         customOriginConfig?: pulumi.Input<inputs.cloudfront.DistributionCustomOriginConfigArgs>;
         domainName: pulumi.Input<string>;
         id: pulumi.Input<string>;
+        originAccessControlId?: pulumi.Input<string>;
         originCustomHeaders?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginCustomHeaderArgs>[]>;
         originPath?: pulumi.Input<string>;
         originShield?: pulumi.Input<inputs.cloudfront.DistributionOriginShieldArgs>;
@@ -5895,6 +5929,7 @@ export namespace cloudfront {
         customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs>;
         name: pulumi.Input<string>;
         securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigArgs>;
+        serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs>;
     }
 
     export interface ResponseHeadersPolicyContentSecurityPolicyArgs {
@@ -5943,6 +5978,11 @@ export namespace cloudfront {
         referrerPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyReferrerPolicyArgs>;
         strictTransportSecurity?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurityArgs>;
         xSSProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyXSSProtectionArgs>;
+    }
+
+    export interface ResponseHeadersPolicyServerTimingHeadersConfigArgs {
+        enabled: pulumi.Input<boolean>;
+        samplingRate?: pulumi.Input<number>;
     }
 
     export interface ResponseHeadersPolicyStrictTransportSecurityArgs {
@@ -27256,9 +27296,18 @@ export namespace rds {
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBParameterGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface DBProxyAuthFormatArgs {

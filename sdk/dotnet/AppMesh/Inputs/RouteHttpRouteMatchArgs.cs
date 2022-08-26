@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("path")]
         public Input<Inputs.RouteHttpPathMatchArgs>? Path { get; set; }
 
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

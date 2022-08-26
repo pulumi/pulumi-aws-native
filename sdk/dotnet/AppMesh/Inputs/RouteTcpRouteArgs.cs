@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("action", required: true)]
         public Input<Inputs.RouteTcpRouteActionArgs> Action { get; set; } = null!;
 
+        [Input("match")]
+        public Input<Inputs.RouteTcpRouteMatchArgs>? Match { get; set; }
+
         [Input("timeout")]
         public Input<Inputs.RouteTcpTimeoutArgs>? Timeout { get; set; }
 

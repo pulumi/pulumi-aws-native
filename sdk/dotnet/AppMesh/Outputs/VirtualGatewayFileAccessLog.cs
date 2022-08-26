@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewayFileAccessLog
     {
+        public readonly Outputs.VirtualGatewayLoggingFormat? Format;
         public readonly string Path;
 
         [OutputConstructor]
-        private VirtualGatewayFileAccessLog(string path)
+        private VirtualGatewayFileAccessLog(
+            Outputs.VirtualGatewayLoggingFormat? format,
+
+            string path)
         {
+            Format = format;
             Path = path;
         }
     }

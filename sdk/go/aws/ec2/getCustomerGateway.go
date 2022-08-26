@@ -21,14 +21,11 @@ func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs,
 }
 
 type LookupCustomerGatewayArgs struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-	CustomerGatewayId string `pulumi:"customerGatewayId"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCustomerGatewayResult struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-	CustomerGatewayId *string `pulumi:"customerGatewayId"`
-	// One or more tags for the customer gateway.
+	Id   *string              `pulumi:"id"`
 	Tags []CustomerGatewayTag `pulumi:"tags"`
 }
 
@@ -46,8 +43,7 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 }
 
 type LookupCustomerGatewayOutputArgs struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-	CustomerGatewayId pulumi.StringInput `pulumi:"customerGatewayId"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCustomerGatewayOutputArgs) ElementType() reflect.Type {
@@ -68,12 +64,10 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWi
 	return o
 }
 
-// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-func (o LookupCustomerGatewayResultOutput) CustomerGatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupCustomerGatewayResult) *string { return v.CustomerGatewayId }).(pulumi.StringPtrOutput)
+func (o LookupCustomerGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// One or more tags for the customer gateway.
 func (o LookupCustomerGatewayResultOutput) Tags() CustomerGatewayTagArrayOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) []CustomerGatewayTag { return v.Tags }).(CustomerGatewayTagArrayOutput)
 }

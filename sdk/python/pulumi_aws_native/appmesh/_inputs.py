@@ -60,6 +60,7 @@ __all__ = [
     'RouteSpecArgs',
     'RouteTagArgs',
     'RouteTcpRouteActionArgs',
+    'RouteTcpRouteMatchArgs',
     'RouteTcpRouteArgs',
     'RouteTcpTimeoutArgs',
     'RouteWeightedTargetArgs',
@@ -74,6 +75,7 @@ __all__ = [
     'VirtualGatewayHealthCheckPolicyArgs',
     'VirtualGatewayHttp2ConnectionPoolArgs',
     'VirtualGatewayHttpConnectionPoolArgs',
+    'VirtualGatewayJsonFormatRefArgs',
     'VirtualGatewayListenerTlsAcmCertificateArgs',
     'VirtualGatewayListenerTlsCertificateArgs',
     'VirtualGatewayListenerTlsFileCertificateArgs',
@@ -82,6 +84,7 @@ __all__ = [
     'VirtualGatewayListenerTlsValidationContextArgs',
     'VirtualGatewayListenerTlsArgs',
     'VirtualGatewayListenerArgs',
+    'VirtualGatewayLoggingFormatArgs',
     'VirtualGatewayLoggingArgs',
     'VirtualGatewayPortMappingArgs',
     'VirtualGatewaySpecArgs',
@@ -111,6 +114,7 @@ __all__ = [
     'VirtualNodeHttp2ConnectionPoolArgs',
     'VirtualNodeHttpConnectionPoolArgs',
     'VirtualNodeHttpTimeoutArgs',
+    'VirtualNodeJsonFormatRefArgs',
     'VirtualNodeListenerTimeoutArgs',
     'VirtualNodeListenerTlsAcmCertificateArgs',
     'VirtualNodeListenerTlsCertificateArgs',
@@ -120,6 +124,7 @@ __all__ = [
     'VirtualNodeListenerTlsValidationContextArgs',
     'VirtualNodeListenerTlsArgs',
     'VirtualNodeListenerArgs',
+    'VirtualNodeLoggingFormatArgs',
     'VirtualNodeLoggingArgs',
     'VirtualNodeOutlierDetectionArgs',
     'VirtualNodePortMappingArgs',
@@ -180,11 +185,14 @@ class GatewayRouteGrpcGatewayRouteMatchArgs:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input['GatewayRouteHostnameMatchArgs']] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteGrpcGatewayRouteMetadataArgs']]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  service_name: Optional[pulumi.Input[str]] = None):
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -205,6 +213,15 @@ class GatewayRouteGrpcGatewayRouteMatchArgs:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteGrpcGatewayRouteMetadataArgs']]]]):
         pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -486,6 +503,7 @@ class GatewayRouteHttpGatewayRouteMatchArgs:
                  hostname: Optional[pulumi.Input['GatewayRouteHostnameMatchArgs']] = None,
                  method: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input['GatewayRouteHttpPathMatchArgs']] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteQueryParameterArgs']]]] = None):
         if headers is not None:
@@ -496,6 +514,8 @@ class GatewayRouteHttpGatewayRouteMatchArgs:
             pulumi.set(__self__, "method", method)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
@@ -536,6 +556,15 @@ class GatewayRouteHttpGatewayRouteMatchArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input['GatewayRouteHttpPathMatchArgs']]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
@@ -919,8 +948,11 @@ class GatewayRouteTagArgs:
 @pulumi.input_type
 class GatewayRouteTargetArgs:
     def __init__(__self__, *,
-                 virtual_service: pulumi.Input['GatewayRouteVirtualServiceArgs']):
+                 virtual_service: pulumi.Input['GatewayRouteVirtualServiceArgs'],
+                 port: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "virtual_service", virtual_service)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -930,6 +962,15 @@ class GatewayRouteTargetArgs:
     @virtual_service.setter
     def virtual_service(self, value: pulumi.Input['GatewayRouteVirtualServiceArgs']):
         pulumi.set(self, "virtual_service", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -1148,11 +1189,14 @@ class RouteGrpcRouteMatchArgs:
     def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input['RouteGrpcRouteMetadataArgs']]]] = None,
                  method_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  service_name: Optional[pulumi.Input[str]] = None):
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if method_name is not None:
             pulumi.set(__self__, "method_name", method_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -1173,6 +1217,15 @@ class RouteGrpcRouteMatchArgs:
     @method_name.setter
     def method_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "method_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -1593,6 +1646,7 @@ class RouteHttpRouteMatchArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['RouteHttpRouteHeaderArgs']]]] = None,
                  method: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input['RouteHttpPathMatchArgs']] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteQueryParameterArgs']]]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
@@ -1602,6 +1656,8 @@ class RouteHttpRouteMatchArgs:
             pulumi.set(__self__, "method", method)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
@@ -1635,6 +1691,15 @@ class RouteHttpRouteMatchArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input['RouteHttpPathMatchArgs']]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
@@ -1908,11 +1973,31 @@ class RouteTcpRouteActionArgs:
 
 
 @pulumi.input_type
+class RouteTcpRouteMatchArgs:
+    def __init__(__self__, *,
+                 port: Optional[pulumi.Input[int]] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
 class RouteTcpRouteArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RouteTcpRouteActionArgs'],
+                 match: Optional[pulumi.Input['RouteTcpRouteMatchArgs']] = None,
                  timeout: Optional[pulumi.Input['RouteTcpTimeoutArgs']] = None):
         pulumi.set(__self__, "action", action)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -1924,6 +2009,15 @@ class RouteTcpRouteArgs:
     @action.setter
     def action(self, value: pulumi.Input['RouteTcpRouteActionArgs']):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional[pulumi.Input['RouteTcpRouteMatchArgs']]:
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: Optional[pulumi.Input['RouteTcpRouteMatchArgs']]):
+        pulumi.set(self, "match", value)
 
     @property
     @pulumi.getter
@@ -1956,9 +2050,12 @@ class RouteTcpTimeoutArgs:
 class RouteWeightedTargetArgs:
     def __init__(__self__, *,
                  virtual_node: pulumi.Input[str],
-                 weight: pulumi.Input[int]):
+                 weight: pulumi.Input[int],
+                 port: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -1977,6 +2074,15 @@ class RouteWeightedTargetArgs:
     @weight.setter
     def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -2155,8 +2261,11 @@ class VirtualGatewayConnectionPoolArgs:
 @pulumi.input_type
 class VirtualGatewayFileAccessLogArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 format: Optional[pulumi.Input['VirtualGatewayLoggingFormatArgs']] = None):
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -2166,6 +2275,15 @@ class VirtualGatewayFileAccessLogArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input['VirtualGatewayLoggingFormatArgs']]:
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input['VirtualGatewayLoggingFormatArgs']]):
+        pulumi.set(self, "format", value)
 
 
 @pulumi.input_type
@@ -2310,6 +2428,33 @@ class VirtualGatewayHttpConnectionPoolArgs:
     @max_pending_requests.setter
     def max_pending_requests(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pending_requests", value)
+
+
+@pulumi.input_type
+class VirtualGatewayJsonFormatRefArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2558,6 +2703,35 @@ class VirtualGatewayListenerArgs:
     @t_ls.setter
     def t_ls(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']]):
         pulumi.set(self, "t_ls", value)
+
+
+@pulumi.input_type
+class VirtualGatewayLoggingFormatArgs:
+    def __init__(__self__, *,
+                 json: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayJsonFormatRefArgs']]]] = None,
+                 text: Optional[pulumi.Input[str]] = None):
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayJsonFormatRefArgs']]]]:
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayJsonFormatRefArgs']]]]):
+        pulumi.set(self, "json", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
 
 
 @pulumi.input_type
@@ -3171,8 +3345,11 @@ class VirtualNodeDurationArgs:
 @pulumi.input_type
 class VirtualNodeFileAccessLogArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 format: Optional[pulumi.Input['VirtualNodeLoggingFormatArgs']] = None):
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -3182,6 +3359,15 @@ class VirtualNodeFileAccessLogArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input['VirtualNodeLoggingFormatArgs']]:
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input['VirtualNodeLoggingFormatArgs']]):
+        pulumi.set(self, "format", value)
 
 
 @pulumi.input_type
@@ -3384,6 +3570,33 @@ class VirtualNodeHttpTimeoutArgs:
     @per_request.setter
     def per_request(self, value: Optional[pulumi.Input['VirtualNodeDurationArgs']]):
         pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class VirtualNodeJsonFormatRefArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -3709,6 +3922,35 @@ class VirtualNodeListenerArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']]):
         pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class VirtualNodeLoggingFormatArgs:
+    def __init__(__self__, *,
+                 json: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeJsonFormatRefArgs']]]] = None,
+                 text: Optional[pulumi.Input[str]] = None):
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeJsonFormatRefArgs']]]]:
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeJsonFormatRefArgs']]]]):
+        pulumi.set(self, "json", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
 
 
 @pulumi.input_type

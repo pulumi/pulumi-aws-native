@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class RouteWeightedTarget
     {
+        public readonly int? Port;
         public readonly string VirtualNode;
         public readonly int Weight;
 
         [OutputConstructor]
         private RouteWeightedTarget(
+            int? port,
+
             string virtualNode,
 
             int weight)
         {
+            Port = port;
             VirtualNode = virtualNode;
             Weight = weight;
         }

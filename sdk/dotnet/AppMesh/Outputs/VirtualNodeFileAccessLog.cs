@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeFileAccessLog
     {
+        public readonly Outputs.VirtualNodeLoggingFormat? Format;
         public readonly string Path;
 
         [OutputConstructor]
-        private VirtualNodeFileAccessLog(string path)
+        private VirtualNodeFileAccessLog(
+            Outputs.VirtualNodeLoggingFormat? format,
+
+            string path)
         {
+            Format = format;
             Path = path;
         }
     }

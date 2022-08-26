@@ -62,6 +62,7 @@ __all__ = [
     'RouteTag',
     'RouteTcpRoute',
     'RouteTcpRouteAction',
+    'RouteTcpRouteMatch',
     'RouteTcpTimeout',
     'RouteWeightedTarget',
     'VirtualGatewayAccessLog',
@@ -75,6 +76,7 @@ __all__ = [
     'VirtualGatewayHealthCheckPolicy',
     'VirtualGatewayHttp2ConnectionPool',
     'VirtualGatewayHttpConnectionPool',
+    'VirtualGatewayJsonFormatRef',
     'VirtualGatewayListener',
     'VirtualGatewayListenerTls',
     'VirtualGatewayListenerTlsAcmCertificate',
@@ -84,6 +86,7 @@ __all__ = [
     'VirtualGatewayListenerTlsValidationContext',
     'VirtualGatewayListenerTlsValidationContextTrust',
     'VirtualGatewayLogging',
+    'VirtualGatewayLoggingFormat',
     'VirtualGatewayPortMapping',
     'VirtualGatewaySpec',
     'VirtualGatewaySubjectAlternativeNameMatchers',
@@ -112,6 +115,7 @@ __all__ = [
     'VirtualNodeHttp2ConnectionPool',
     'VirtualNodeHttpConnectionPool',
     'VirtualNodeHttpTimeout',
+    'VirtualNodeJsonFormatRef',
     'VirtualNodeListener',
     'VirtualNodeListenerTimeout',
     'VirtualNodeListenerTls',
@@ -122,6 +126,7 @@ __all__ = [
     'VirtualNodeListenerTlsValidationContext',
     'VirtualNodeListenerTlsValidationContextTrust',
     'VirtualNodeLogging',
+    'VirtualNodeLoggingFormat',
     'VirtualNodeOutlierDetection',
     'VirtualNodePortMapping',
     'VirtualNodeServiceDiscovery',
@@ -209,11 +214,14 @@ class GatewayRouteGrpcGatewayRouteMatch(dict):
     def __init__(__self__, *,
                  hostname: Optional['outputs.GatewayRouteHostnameMatch'] = None,
                  metadata: Optional[Sequence['outputs.GatewayRouteGrpcGatewayRouteMetadata']] = None,
+                 port: Optional[int] = None,
                  service_name: Optional[str] = None):
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -226,6 +234,11 @@ class GatewayRouteGrpcGatewayRouteMatch(dict):
     @pulumi.getter
     def metadata(self) -> Optional[Sequence['outputs.GatewayRouteGrpcGatewayRouteMetadata']]:
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="serviceName")
@@ -461,6 +474,7 @@ class GatewayRouteHttpGatewayRouteMatch(dict):
                  hostname: Optional['outputs.GatewayRouteHostnameMatch'] = None,
                  method: Optional[str] = None,
                  path: Optional['outputs.GatewayRouteHttpPathMatch'] = None,
+                 port: Optional[int] = None,
                  prefix: Optional[str] = None,
                  query_parameters: Optional[Sequence['outputs.GatewayRouteQueryParameter']] = None):
         if headers is not None:
@@ -471,6 +485,8 @@ class GatewayRouteHttpGatewayRouteMatch(dict):
             pulumi.set(__self__, "method", method)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
@@ -495,6 +511,11 @@ class GatewayRouteHttpGatewayRouteMatch(dict):
     @pulumi.getter
     def path(self) -> Optional['outputs.GatewayRouteHttpPathMatch']:
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -802,13 +823,21 @@ class GatewayRouteTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 virtual_service: 'outputs.GatewayRouteVirtualService'):
+                 virtual_service: 'outputs.GatewayRouteVirtualService',
+                 port: Optional[int] = None):
         pulumi.set(__self__, "virtual_service", virtual_service)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualService")
     def virtual_service(self) -> 'outputs.GatewayRouteVirtualService':
         return pulumi.get(self, "virtual_service")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -1133,11 +1162,14 @@ class RouteGrpcRouteMatch(dict):
     def __init__(__self__, *,
                  metadata: Optional[Sequence['outputs.RouteGrpcRouteMetadata']] = None,
                  method_name: Optional[str] = None,
+                 port: Optional[int] = None,
                  service_name: Optional[str] = None):
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if method_name is not None:
             pulumi.set(__self__, "method_name", method_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -1150,6 +1182,11 @@ class RouteGrpcRouteMatch(dict):
     @pulumi.getter(name="methodName")
     def method_name(self) -> Optional[str]:
         return pulumi.get(self, "method_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="serviceName")
@@ -1537,6 +1574,7 @@ class RouteHttpRouteMatch(dict):
                  headers: Optional[Sequence['outputs.RouteHttpRouteHeader']] = None,
                  method: Optional[str] = None,
                  path: Optional['outputs.RouteHttpPathMatch'] = None,
+                 port: Optional[int] = None,
                  prefix: Optional[str] = None,
                  query_parameters: Optional[Sequence['outputs.RouteQueryParameter']] = None,
                  scheme: Optional[str] = None):
@@ -1546,6 +1584,8 @@ class RouteHttpRouteMatch(dict):
             pulumi.set(__self__, "method", method)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
@@ -1567,6 +1607,11 @@ class RouteHttpRouteMatch(dict):
     @pulumi.getter
     def path(self) -> Optional['outputs.RouteHttpPathMatch']:
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -1752,8 +1797,11 @@ class RouteTag(dict):
 class RouteTcpRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteTcpRouteAction',
+                 match: Optional['outputs.RouteTcpRouteMatch'] = None,
                  timeout: Optional['outputs.RouteTcpTimeout'] = None):
         pulumi.set(__self__, "action", action)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -1761,6 +1809,11 @@ class RouteTcpRoute(dict):
     @pulumi.getter
     def action(self) -> 'outputs.RouteTcpRouteAction':
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.RouteTcpRouteMatch']:
+        return pulumi.get(self, "match")
 
     @property
     @pulumi.getter
@@ -1798,6 +1851,19 @@ class RouteTcpRouteAction(dict):
 
 
 @pulumi.output_type
+class RouteTcpRouteMatch(dict):
+    def __init__(__self__, *,
+                 port: Optional[int] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class RouteTcpTimeout(dict):
     def __init__(__self__, *,
                  idle: Optional['outputs.RouteDuration'] = None):
@@ -1831,9 +1897,12 @@ class RouteWeightedTarget(dict):
 
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: int):
+                 weight: int,
+                 port: Optional[int] = None):
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -1844,6 +1913,11 @@ class RouteWeightedTarget(dict):
     @pulumi.getter
     def weight(self) -> int:
         return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -2046,13 +2120,21 @@ class VirtualGatewayConnectionPool(dict):
 @pulumi.output_type
 class VirtualGatewayFileAccessLog(dict):
     def __init__(__self__, *,
-                 path: str):
+                 path: str,
+                 format: Optional['outputs.VirtualGatewayLoggingFormat'] = None):
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
     def path(self) -> str:
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.VirtualGatewayLoggingFormat']:
+        return pulumi.get(self, "format")
 
 
 @pulumi.output_type
@@ -2229,6 +2311,25 @@ class VirtualGatewayHttpConnectionPool(dict):
     @pulumi.getter(name="maxPendingRequests")
     def max_pending_requests(self) -> Optional[int]:
         return pulumi.get(self, "max_pending_requests")
+
+
+@pulumi.output_type
+class VirtualGatewayJsonFormatRef(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2564,6 +2665,27 @@ class VirtualGatewayLogging(dict):
     @pulumi.getter(name="accessLog")
     def access_log(self) -> Optional['outputs.VirtualGatewayAccessLog']:
         return pulumi.get(self, "access_log")
+
+
+@pulumi.output_type
+class VirtualGatewayLoggingFormat(dict):
+    def __init__(__self__, *,
+                 json: Optional[Sequence['outputs.VirtualGatewayJsonFormatRef']] = None,
+                 text: Optional[str] = None):
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[Sequence['outputs.VirtualGatewayJsonFormatRef']]:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        return pulumi.get(self, "text")
 
 
 @pulumi.output_type
@@ -3227,13 +3349,21 @@ class VirtualNodeDuration(dict):
 @pulumi.output_type
 class VirtualNodeFileAccessLog(dict):
     def __init__(__self__, *,
-                 path: str):
+                 path: str,
+                 format: Optional['outputs.VirtualNodeLoggingFormat'] = None):
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
     def path(self) -> str:
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.VirtualNodeLoggingFormat']:
+        return pulumi.get(self, "format")
 
 
 @pulumi.output_type
@@ -3486,6 +3616,25 @@ class VirtualNodeHttpTimeout(dict):
     @pulumi.getter(name="perRequest")
     def per_request(self) -> Optional['outputs.VirtualNodeDuration']:
         return pulumi.get(self, "per_request")
+
+
+@pulumi.output_type
+class VirtualNodeJsonFormatRef(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3899,6 +4048,27 @@ class VirtualNodeLogging(dict):
     @pulumi.getter(name="accessLog")
     def access_log(self) -> Optional['outputs.VirtualNodeAccessLog']:
         return pulumi.get(self, "access_log")
+
+
+@pulumi.output_type
+class VirtualNodeLoggingFormat(dict):
+    def __init__(__self__, *,
+                 json: Optional[Sequence['outputs.VirtualNodeJsonFormatRef']] = None,
+                 text: Optional[str] = None):
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[Sequence['outputs.VirtualNodeJsonFormatRef']]:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        return pulumi.get(self, "text")
 
 
 @pulumi.output_type

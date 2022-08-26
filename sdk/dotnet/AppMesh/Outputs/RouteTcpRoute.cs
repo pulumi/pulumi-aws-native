@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class RouteTcpRoute
     {
         public readonly Outputs.RouteTcpRouteAction Action;
+        public readonly Outputs.RouteTcpRouteMatch? Match;
         public readonly Outputs.RouteTcpTimeout? Timeout;
 
         [OutputConstructor]
         private RouteTcpRoute(
             Outputs.RouteTcpRouteAction action,
 
+            Outputs.RouteTcpRouteMatch? match,
+
             Outputs.RouteTcpTimeout? timeout)
         {
             Action = action;
+            Match = match;
             Timeout = timeout;
         }
     }

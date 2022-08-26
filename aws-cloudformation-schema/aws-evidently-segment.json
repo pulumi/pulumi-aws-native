@@ -78,6 +78,9 @@
     },
     "delete" : {
       "permissions" : [ "evidently:DeleteSegment", "evidently:GetSegment", "evidently:UntagResource" ]
+    },
+    "list" : {
+      "permissions" : [ "evidently:ListSegment", "evidently:ListTagsForResource" ]
     }
   }
 }

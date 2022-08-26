@@ -309,6 +309,7 @@ func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Target() GatewayRouteTarget
 type GatewayRouteGrpcGatewayRouteMatch struct {
 	Hostname    *GatewayRouteHostnameMatch             `pulumi:"hostname"`
 	Metadata    []GatewayRouteGrpcGatewayRouteMetadata `pulumi:"metadata"`
+	Port        *int                                   `pulumi:"port"`
 	ServiceName *string                                `pulumi:"serviceName"`
 }
 
@@ -326,6 +327,7 @@ type GatewayRouteGrpcGatewayRouteMatchInput interface {
 type GatewayRouteGrpcGatewayRouteMatchArgs struct {
 	Hostname    GatewayRouteHostnameMatchPtrInput              `pulumi:"hostname"`
 	Metadata    GatewayRouteGrpcGatewayRouteMetadataArrayInput `pulumi:"metadata"`
+	Port        pulumi.IntPtrInput                             `pulumi:"port"`
 	ServiceName pulumi.StringPtrInput                          `pulumi:"serviceName"`
 }
 
@@ -414,6 +416,10 @@ func (o GatewayRouteGrpcGatewayRouteMatchOutput) Metadata() GatewayRouteGrpcGate
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) []GatewayRouteGrpcGatewayRouteMetadata { return v.Metadata }).(GatewayRouteGrpcGatewayRouteMetadataArrayOutput)
 }
 
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o GatewayRouteGrpcGatewayRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -458,6 +464,15 @@ func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Metadata() GatewayRouteGrpcG
 		}
 		return v.Metadata
 	}).(GatewayRouteGrpcGatewayRouteMetadataArrayOutput)
+}
+
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
@@ -1589,6 +1604,7 @@ type GatewayRouteHttpGatewayRouteMatch struct {
 	Hostname        *GatewayRouteHostnameMatch           `pulumi:"hostname"`
 	Method          *string                              `pulumi:"method"`
 	Path            *GatewayRouteHttpPathMatch           `pulumi:"path"`
+	Port            *int                                 `pulumi:"port"`
 	Prefix          *string                              `pulumi:"prefix"`
 	QueryParameters []GatewayRouteQueryParameter         `pulumi:"queryParameters"`
 }
@@ -1609,6 +1625,7 @@ type GatewayRouteHttpGatewayRouteMatchArgs struct {
 	Hostname        GatewayRouteHostnameMatchPtrInput            `pulumi:"hostname"`
 	Method          pulumi.StringPtrInput                        `pulumi:"method"`
 	Path            GatewayRouteHttpPathMatchPtrInput            `pulumi:"path"`
+	Port            pulumi.IntPtrInput                           `pulumi:"port"`
 	Prefix          pulumi.StringPtrInput                        `pulumi:"prefix"`
 	QueryParameters GatewayRouteQueryParameterArrayInput         `pulumi:"queryParameters"`
 }
@@ -1706,6 +1723,10 @@ func (o GatewayRouteHttpGatewayRouteMatchOutput) Path() GatewayRouteHttpPathMatc
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *GatewayRouteHttpPathMatch { return v.Path }).(GatewayRouteHttpPathMatchPtrOutput)
 }
 
+func (o GatewayRouteHttpGatewayRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o GatewayRouteHttpGatewayRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -1772,6 +1793,15 @@ func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Path() GatewayRouteHttpPathM
 		}
 		return v.Path
 	}).(GatewayRouteHttpPathMatchPtrOutput)
+}
+
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
@@ -3188,6 +3218,7 @@ func (o GatewayRouteTagArrayOutput) Index(i pulumi.IntInput) GatewayRouteTagOutp
 }
 
 type GatewayRouteTarget struct {
+	Port           *int                       `pulumi:"port"`
 	VirtualService GatewayRouteVirtualService `pulumi:"virtualService"`
 }
 
@@ -3203,6 +3234,7 @@ type GatewayRouteTargetInput interface {
 }
 
 type GatewayRouteTargetArgs struct {
+	Port           pulumi.IntPtrInput              `pulumi:"port"`
 	VirtualService GatewayRouteVirtualServiceInput `pulumi:"virtualService"`
 }
 
@@ -3283,6 +3315,10 @@ func (o GatewayRouteTargetOutput) ToGatewayRouteTargetPtrOutputWithContext(ctx c
 	}).(GatewayRouteTargetPtrOutput)
 }
 
+func (o GatewayRouteTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o GatewayRouteTargetOutput) VirtualService() GatewayRouteVirtualServiceOutput {
 	return o.ApplyT(func(v GatewayRouteTarget) GatewayRouteVirtualService { return v.VirtualService }).(GatewayRouteVirtualServiceOutput)
 }
@@ -3309,6 +3345,15 @@ func (o GatewayRouteTargetPtrOutput) Elem() GatewayRouteTargetOutput {
 		var ret GatewayRouteTarget
 		return ret
 	}).(GatewayRouteTargetOutput)
+}
+
+func (o GatewayRouteTargetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o GatewayRouteTargetPtrOutput) VirtualService() GatewayRouteVirtualServicePtrOutput {
@@ -4622,6 +4667,7 @@ func (o RouteGrpcRouteActionPtrOutput) WeightedTargets() RouteWeightedTargetArra
 type RouteGrpcRouteMatch struct {
 	Metadata    []RouteGrpcRouteMetadata `pulumi:"metadata"`
 	MethodName  *string                  `pulumi:"methodName"`
+	Port        *int                     `pulumi:"port"`
 	ServiceName *string                  `pulumi:"serviceName"`
 }
 
@@ -4639,6 +4685,7 @@ type RouteGrpcRouteMatchInput interface {
 type RouteGrpcRouteMatchArgs struct {
 	Metadata    RouteGrpcRouteMetadataArrayInput `pulumi:"metadata"`
 	MethodName  pulumi.StringPtrInput            `pulumi:"methodName"`
+	Port        pulumi.IntPtrInput               `pulumi:"port"`
 	ServiceName pulumi.StringPtrInput            `pulumi:"serviceName"`
 }
 
@@ -4727,6 +4774,10 @@ func (o RouteGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
+func (o RouteGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o RouteGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -4771,6 +4822,15 @@ func (o RouteGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 		}
 		return v.MethodName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o RouteGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteGrpcRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o RouteGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
@@ -6302,6 +6362,7 @@ type RouteHttpRouteMatch struct {
 	Headers         []RouteHttpRouteHeader `pulumi:"headers"`
 	Method          *string                `pulumi:"method"`
 	Path            *RouteHttpPathMatch    `pulumi:"path"`
+	Port            *int                   `pulumi:"port"`
 	Prefix          *string                `pulumi:"prefix"`
 	QueryParameters []RouteQueryParameter  `pulumi:"queryParameters"`
 	Scheme          *string                `pulumi:"scheme"`
@@ -6322,6 +6383,7 @@ type RouteHttpRouteMatchArgs struct {
 	Headers         RouteHttpRouteHeaderArrayInput `pulumi:"headers"`
 	Method          pulumi.StringPtrInput          `pulumi:"method"`
 	Path            RouteHttpPathMatchPtrInput     `pulumi:"path"`
+	Port            pulumi.IntPtrInput             `pulumi:"port"`
 	Prefix          pulumi.StringPtrInput          `pulumi:"prefix"`
 	QueryParameters RouteQueryParameterArrayInput  `pulumi:"queryParameters"`
 	Scheme          pulumi.StringPtrInput          `pulumi:"scheme"`
@@ -6416,6 +6478,10 @@ func (o RouteHttpRouteMatchOutput) Path() RouteHttpPathMatchPtrOutput {
 	return o.ApplyT(func(v RouteHttpRouteMatch) *RouteHttpPathMatch { return v.Path }).(RouteHttpPathMatchPtrOutput)
 }
 
+func (o RouteHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o RouteHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -6477,6 +6543,15 @@ func (o RouteHttpRouteMatchPtrOutput) Path() RouteHttpPathMatchPtrOutput {
 		}
 		return v.Path
 	}).(RouteHttpPathMatchPtrOutput)
+}
+
+func (o RouteHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteHttpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o RouteHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
@@ -7146,6 +7221,7 @@ func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
 
 type RouteTcpRoute struct {
 	Action  RouteTcpRouteAction `pulumi:"action"`
+	Match   *RouteTcpRouteMatch `pulumi:"match"`
 	Timeout *RouteTcpTimeout    `pulumi:"timeout"`
 }
 
@@ -7161,8 +7237,9 @@ type RouteTcpRouteInput interface {
 }
 
 type RouteTcpRouteArgs struct {
-	Action  RouteTcpRouteActionInput `pulumi:"action"`
-	Timeout RouteTcpTimeoutPtrInput  `pulumi:"timeout"`
+	Action  RouteTcpRouteActionInput   `pulumi:"action"`
+	Match   RouteTcpRouteMatchPtrInput `pulumi:"match"`
+	Timeout RouteTcpTimeoutPtrInput    `pulumi:"timeout"`
 }
 
 func (RouteTcpRouteArgs) ElementType() reflect.Type {
@@ -7246,6 +7323,10 @@ func (o RouteTcpRouteOutput) Action() RouteTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteTcpRoute) RouteTcpRouteAction { return v.Action }).(RouteTcpRouteActionOutput)
 }
 
+func (o RouteTcpRouteOutput) Match() RouteTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteTcpRoute) *RouteTcpRouteMatch { return v.Match }).(RouteTcpRouteMatchPtrOutput)
+}
+
 func (o RouteTcpRouteOutput) Timeout() RouteTcpTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteTcpRoute) *RouteTcpTimeout { return v.Timeout }).(RouteTcpTimeoutPtrOutput)
 }
@@ -7281,6 +7362,15 @@ func (o RouteTcpRoutePtrOutput) Action() RouteTcpRouteActionPtrOutput {
 		}
 		return &v.Action
 	}).(RouteTcpRouteActionPtrOutput)
+}
+
+func (o RouteTcpRoutePtrOutput) Match() RouteTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v *RouteTcpRoute) *RouteTcpRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return v.Match
+	}).(RouteTcpRouteMatchPtrOutput)
 }
 
 func (o RouteTcpRoutePtrOutput) Timeout() RouteTcpTimeoutPtrOutput {
@@ -7425,6 +7515,139 @@ func (o RouteTcpRouteActionPtrOutput) WeightedTargets() RouteWeightedTargetArray
 	}).(RouteWeightedTargetArrayOutput)
 }
 
+type RouteTcpRouteMatch struct {
+	Port *int `pulumi:"port"`
+}
+
+// RouteTcpRouteMatchInput is an input type that accepts RouteTcpRouteMatchArgs and RouteTcpRouteMatchOutput values.
+// You can construct a concrete instance of `RouteTcpRouteMatchInput` via:
+//
+//	RouteTcpRouteMatchArgs{...}
+type RouteTcpRouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteTcpRouteMatchOutput() RouteTcpRouteMatchOutput
+	ToRouteTcpRouteMatchOutputWithContext(context.Context) RouteTcpRouteMatchOutput
+}
+
+type RouteTcpRouteMatchArgs struct {
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (RouteTcpRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTcpRouteMatch)(nil)).Elem()
+}
+
+func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchOutput() RouteTcpRouteMatchOutput {
+	return i.ToRouteTcpRouteMatchOutputWithContext(context.Background())
+}
+
+func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchOutputWithContext(ctx context.Context) RouteTcpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteMatchOutput)
+}
+
+func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput {
+	return i.ToRouteTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteTcpRouteMatchArgs) ToRouteTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteMatchOutput).ToRouteTcpRouteMatchPtrOutputWithContext(ctx)
+}
+
+// RouteTcpRouteMatchPtrInput is an input type that accepts RouteTcpRouteMatchArgs, RouteTcpRouteMatchPtr and RouteTcpRouteMatchPtrOutput values.
+// You can construct a concrete instance of `RouteTcpRouteMatchPtrInput` via:
+//
+//	        RouteTcpRouteMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteTcpRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput
+	ToRouteTcpRouteMatchPtrOutputWithContext(context.Context) RouteTcpRouteMatchPtrOutput
+}
+
+type routeTcpRouteMatchPtrType RouteTcpRouteMatchArgs
+
+func RouteTcpRouteMatchPtr(v *RouteTcpRouteMatchArgs) RouteTcpRouteMatchPtrInput {
+	return (*routeTcpRouteMatchPtrType)(v)
+}
+
+func (*routeTcpRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteTcpRouteMatch)(nil)).Elem()
+}
+
+func (i *routeTcpRouteMatchPtrType) ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput {
+	return i.ToRouteTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeTcpRouteMatchPtrType) ToRouteTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTcpRouteMatchPtrOutput)
+}
+
+type RouteTcpRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteTcpRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteTcpRouteMatchOutput) ToRouteTcpRouteMatchOutput() RouteTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteTcpRouteMatchOutput) ToRouteTcpRouteMatchOutputWithContext(ctx context.Context) RouteTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteTcpRouteMatchOutput) ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput {
+	return o.ToRouteTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteTcpRouteMatchOutput) ToRouteTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteTcpRouteMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteTcpRouteMatch) *RouteTcpRouteMatch {
+		return &v
+	}).(RouteTcpRouteMatchPtrOutput)
+}
+
+func (o RouteTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type RouteTcpRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteTcpRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteTcpRouteMatchPtrOutput) ToRouteTcpRouteMatchPtrOutput() RouteTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteTcpRouteMatchPtrOutput) ToRouteTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteTcpRouteMatchPtrOutput) Elem() RouteTcpRouteMatchOutput {
+	return o.ApplyT(func(v *RouteTcpRouteMatch) RouteTcpRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteTcpRouteMatch
+		return ret
+	}).(RouteTcpRouteMatchOutput)
+}
+
+func (o RouteTcpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteTcpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
 type RouteTcpTimeout struct {
 	Idle *RouteDuration `pulumi:"idle"`
 }
@@ -7559,6 +7782,7 @@ func (o RouteTcpTimeoutPtrOutput) Idle() RouteDurationPtrOutput {
 }
 
 type RouteWeightedTarget struct {
+	Port        *int   `pulumi:"port"`
 	VirtualNode string `pulumi:"virtualNode"`
 	Weight      int    `pulumi:"weight"`
 }
@@ -7575,6 +7799,7 @@ type RouteWeightedTargetInput interface {
 }
 
 type RouteWeightedTargetArgs struct {
+	Port        pulumi.IntPtrInput `pulumi:"port"`
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	Weight      pulumi.IntInput    `pulumi:"weight"`
 }
@@ -7628,6 +7853,10 @@ func (o RouteWeightedTargetOutput) ToRouteWeightedTargetOutput() RouteWeightedTa
 
 func (o RouteWeightedTargetOutput) ToRouteWeightedTargetOutputWithContext(ctx context.Context) RouteWeightedTargetOutput {
 	return o
+}
+
+func (o RouteWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o RouteWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
@@ -8547,7 +8776,8 @@ func (o VirtualGatewayConnectionPoolPtrOutput) HTTP2() VirtualGatewayHttp2Connec
 }
 
 type VirtualGatewayFileAccessLog struct {
-	Path string `pulumi:"path"`
+	Format *VirtualGatewayLoggingFormat `pulumi:"format"`
+	Path   string                       `pulumi:"path"`
 }
 
 // VirtualGatewayFileAccessLogInput is an input type that accepts VirtualGatewayFileAccessLogArgs and VirtualGatewayFileAccessLogOutput values.
@@ -8562,7 +8792,8 @@ type VirtualGatewayFileAccessLogInput interface {
 }
 
 type VirtualGatewayFileAccessLogArgs struct {
-	Path pulumi.StringInput `pulumi:"path"`
+	Format VirtualGatewayLoggingFormatPtrInput `pulumi:"format"`
+	Path   pulumi.StringInput                  `pulumi:"path"`
 }
 
 func (VirtualGatewayFileAccessLogArgs) ElementType() reflect.Type {
@@ -8642,6 +8873,10 @@ func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogPtrOutpu
 	}).(VirtualGatewayFileAccessLogPtrOutput)
 }
 
+func (o VirtualGatewayFileAccessLogOutput) Format() VirtualGatewayLoggingFormatPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayFileAccessLog) *VirtualGatewayLoggingFormat { return v.Format }).(VirtualGatewayLoggingFormatPtrOutput)
+}
+
 func (o VirtualGatewayFileAccessLogOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewayFileAccessLog) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -8668,6 +8903,15 @@ func (o VirtualGatewayFileAccessLogPtrOutput) Elem() VirtualGatewayFileAccessLog
 		var ret VirtualGatewayFileAccessLog
 		return ret
 	}).(VirtualGatewayFileAccessLogOutput)
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) Format() VirtualGatewayLoggingFormatPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayFileAccessLog) *VirtualGatewayLoggingFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(VirtualGatewayLoggingFormatPtrOutput)
 }
 
 func (o VirtualGatewayFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
@@ -9314,6 +9558,106 @@ func (o VirtualGatewayHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.I
 		}
 		return v.MaxPendingRequests
 	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayJsonFormatRef struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VirtualGatewayJsonFormatRefInput is an input type that accepts VirtualGatewayJsonFormatRefArgs and VirtualGatewayJsonFormatRefOutput values.
+// You can construct a concrete instance of `VirtualGatewayJsonFormatRefInput` via:
+//
+//	VirtualGatewayJsonFormatRefArgs{...}
+type VirtualGatewayJsonFormatRefInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayJsonFormatRefOutput() VirtualGatewayJsonFormatRefOutput
+	ToVirtualGatewayJsonFormatRefOutputWithContext(context.Context) VirtualGatewayJsonFormatRefOutput
+}
+
+type VirtualGatewayJsonFormatRefArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VirtualGatewayJsonFormatRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayJsonFormatRef)(nil)).Elem()
+}
+
+func (i VirtualGatewayJsonFormatRefArgs) ToVirtualGatewayJsonFormatRefOutput() VirtualGatewayJsonFormatRefOutput {
+	return i.ToVirtualGatewayJsonFormatRefOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayJsonFormatRefArgs) ToVirtualGatewayJsonFormatRefOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayJsonFormatRefOutput)
+}
+
+// VirtualGatewayJsonFormatRefArrayInput is an input type that accepts VirtualGatewayJsonFormatRefArray and VirtualGatewayJsonFormatRefArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewayJsonFormatRefArrayInput` via:
+//
+//	VirtualGatewayJsonFormatRefArray{ VirtualGatewayJsonFormatRefArgs{...} }
+type VirtualGatewayJsonFormatRefArrayInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayJsonFormatRefArrayOutput() VirtualGatewayJsonFormatRefArrayOutput
+	ToVirtualGatewayJsonFormatRefArrayOutputWithContext(context.Context) VirtualGatewayJsonFormatRefArrayOutput
+}
+
+type VirtualGatewayJsonFormatRefArray []VirtualGatewayJsonFormatRefInput
+
+func (VirtualGatewayJsonFormatRefArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayJsonFormatRef)(nil)).Elem()
+}
+
+func (i VirtualGatewayJsonFormatRefArray) ToVirtualGatewayJsonFormatRefArrayOutput() VirtualGatewayJsonFormatRefArrayOutput {
+	return i.ToVirtualGatewayJsonFormatRefArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayJsonFormatRefArray) ToVirtualGatewayJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayJsonFormatRefArrayOutput)
+}
+
+type VirtualGatewayJsonFormatRefOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayJsonFormatRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayJsonFormatRef)(nil)).Elem()
+}
+
+func (o VirtualGatewayJsonFormatRefOutput) ToVirtualGatewayJsonFormatRefOutput() VirtualGatewayJsonFormatRefOutput {
+	return o
+}
+
+func (o VirtualGatewayJsonFormatRefOutput) ToVirtualGatewayJsonFormatRefOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefOutput {
+	return o
+}
+
+func (o VirtualGatewayJsonFormatRefOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayJsonFormatRef) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayJsonFormatRefOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayJsonFormatRef) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayJsonFormatRefArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayJsonFormatRefArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayJsonFormatRef)(nil)).Elem()
+}
+
+func (o VirtualGatewayJsonFormatRefArrayOutput) ToVirtualGatewayJsonFormatRefArrayOutput() VirtualGatewayJsonFormatRefArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayJsonFormatRefArrayOutput) ToVirtualGatewayJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualGatewayJsonFormatRefArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayJsonFormatRefArrayOutput) Index(i pulumi.IntInput) VirtualGatewayJsonFormatRefOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewayJsonFormatRef {
+		return vs[0].([]VirtualGatewayJsonFormatRef)[vs[1].(int)]
+	}).(VirtualGatewayJsonFormatRefOutput)
 }
 
 type VirtualGatewayListener struct {
@@ -10603,6 +10947,154 @@ func (o VirtualGatewayLoggingPtrOutput) AccessLog() VirtualGatewayAccessLogPtrOu
 		}
 		return v.AccessLog
 	}).(VirtualGatewayAccessLogPtrOutput)
+}
+
+type VirtualGatewayLoggingFormat struct {
+	Json []VirtualGatewayJsonFormatRef `pulumi:"json"`
+	Text *string                       `pulumi:"text"`
+}
+
+// VirtualGatewayLoggingFormatInput is an input type that accepts VirtualGatewayLoggingFormatArgs and VirtualGatewayLoggingFormatOutput values.
+// You can construct a concrete instance of `VirtualGatewayLoggingFormatInput` via:
+//
+//	VirtualGatewayLoggingFormatArgs{...}
+type VirtualGatewayLoggingFormatInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayLoggingFormatOutput() VirtualGatewayLoggingFormatOutput
+	ToVirtualGatewayLoggingFormatOutputWithContext(context.Context) VirtualGatewayLoggingFormatOutput
+}
+
+type VirtualGatewayLoggingFormatArgs struct {
+	Json VirtualGatewayJsonFormatRefArrayInput `pulumi:"json"`
+	Text pulumi.StringPtrInput                 `pulumi:"text"`
+}
+
+func (VirtualGatewayLoggingFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayLoggingFormat)(nil)).Elem()
+}
+
+func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatOutput() VirtualGatewayLoggingFormatOutput {
+	return i.ToVirtualGatewayLoggingFormatOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingFormatOutput)
+}
+
+func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput {
+	return i.ToVirtualGatewayLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayLoggingFormatArgs) ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingFormatOutput).ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayLoggingFormatPtrInput is an input type that accepts VirtualGatewayLoggingFormatArgs, VirtualGatewayLoggingFormatPtr and VirtualGatewayLoggingFormatPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayLoggingFormatPtrInput` via:
+//
+//	        VirtualGatewayLoggingFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualGatewayLoggingFormatPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput
+	ToVirtualGatewayLoggingFormatPtrOutputWithContext(context.Context) VirtualGatewayLoggingFormatPtrOutput
+}
+
+type virtualGatewayLoggingFormatPtrType VirtualGatewayLoggingFormatArgs
+
+func VirtualGatewayLoggingFormatPtr(v *VirtualGatewayLoggingFormatArgs) VirtualGatewayLoggingFormatPtrInput {
+	return (*virtualGatewayLoggingFormatPtrType)(v)
+}
+
+func (*virtualGatewayLoggingFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayLoggingFormat)(nil)).Elem()
+}
+
+func (i *virtualGatewayLoggingFormatPtrType) ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput {
+	return i.ToVirtualGatewayLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayLoggingFormatPtrType) ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingFormatPtrOutput)
+}
+
+type VirtualGatewayLoggingFormatOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayLoggingFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayLoggingFormat)(nil)).Elem()
+}
+
+func (o VirtualGatewayLoggingFormatOutput) ToVirtualGatewayLoggingFormatOutput() VirtualGatewayLoggingFormatOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingFormatOutput) ToVirtualGatewayLoggingFormatOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingFormatOutput) ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput {
+	return o.ToVirtualGatewayLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayLoggingFormatOutput) ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayLoggingFormat) *VirtualGatewayLoggingFormat {
+		return &v
+	}).(VirtualGatewayLoggingFormatPtrOutput)
+}
+
+func (o VirtualGatewayLoggingFormatOutput) Json() VirtualGatewayJsonFormatRefArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayLoggingFormat) []VirtualGatewayJsonFormatRef { return v.Json }).(VirtualGatewayJsonFormatRefArrayOutput)
+}
+
+func (o VirtualGatewayLoggingFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayLoggingFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewayLoggingFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayLoggingFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayLoggingFormat)(nil)).Elem()
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) ToVirtualGatewayLoggingFormatPtrOutput() VirtualGatewayLoggingFormatPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) ToVirtualGatewayLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingFormatPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) Elem() VirtualGatewayLoggingFormatOutput {
+	return o.ApplyT(func(v *VirtualGatewayLoggingFormat) VirtualGatewayLoggingFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayLoggingFormat
+		return ret
+	}).(VirtualGatewayLoggingFormatOutput)
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) Json() VirtualGatewayJsonFormatRefArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayLoggingFormat) []VirtualGatewayJsonFormatRef {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(VirtualGatewayJsonFormatRefArrayOutput)
+}
+
+func (o VirtualGatewayLoggingFormatPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayLoggingFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualGatewayPortMapping struct {
@@ -13447,7 +13939,8 @@ func (o VirtualNodeDurationPtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type VirtualNodeFileAccessLog struct {
-	Path string `pulumi:"path"`
+	Format *VirtualNodeLoggingFormat `pulumi:"format"`
+	Path   string                    `pulumi:"path"`
 }
 
 // VirtualNodeFileAccessLogInput is an input type that accepts VirtualNodeFileAccessLogArgs and VirtualNodeFileAccessLogOutput values.
@@ -13462,7 +13955,8 @@ type VirtualNodeFileAccessLogInput interface {
 }
 
 type VirtualNodeFileAccessLogArgs struct {
-	Path pulumi.StringInput `pulumi:"path"`
+	Format VirtualNodeLoggingFormatPtrInput `pulumi:"format"`
+	Path   pulumi.StringInput               `pulumi:"path"`
 }
 
 func (VirtualNodeFileAccessLogArgs) ElementType() reflect.Type {
@@ -13542,6 +14036,10 @@ func (o VirtualNodeFileAccessLogOutput) ToVirtualNodeFileAccessLogPtrOutputWithC
 	}).(VirtualNodeFileAccessLogPtrOutput)
 }
 
+func (o VirtualNodeFileAccessLogOutput) Format() VirtualNodeLoggingFormatPtrOutput {
+	return o.ApplyT(func(v VirtualNodeFileAccessLog) *VirtualNodeLoggingFormat { return v.Format }).(VirtualNodeLoggingFormatPtrOutput)
+}
+
 func (o VirtualNodeFileAccessLogOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeFileAccessLog) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -13568,6 +14066,15 @@ func (o VirtualNodeFileAccessLogPtrOutput) Elem() VirtualNodeFileAccessLogOutput
 		var ret VirtualNodeFileAccessLog
 		return ret
 	}).(VirtualNodeFileAccessLogOutput)
+}
+
+func (o VirtualNodeFileAccessLogPtrOutput) Format() VirtualNodeLoggingFormatPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeFileAccessLog) *VirtualNodeLoggingFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(VirtualNodeLoggingFormatPtrOutput)
 }
 
 func (o VirtualNodeFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
@@ -14510,6 +15017,106 @@ func (o VirtualNodeHttpTimeoutPtrOutput) PerRequest() VirtualNodeDurationPtrOutp
 		}
 		return v.PerRequest
 	}).(VirtualNodeDurationPtrOutput)
+}
+
+type VirtualNodeJsonFormatRef struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VirtualNodeJsonFormatRefInput is an input type that accepts VirtualNodeJsonFormatRefArgs and VirtualNodeJsonFormatRefOutput values.
+// You can construct a concrete instance of `VirtualNodeJsonFormatRefInput` via:
+//
+//	VirtualNodeJsonFormatRefArgs{...}
+type VirtualNodeJsonFormatRefInput interface {
+	pulumi.Input
+
+	ToVirtualNodeJsonFormatRefOutput() VirtualNodeJsonFormatRefOutput
+	ToVirtualNodeJsonFormatRefOutputWithContext(context.Context) VirtualNodeJsonFormatRefOutput
+}
+
+type VirtualNodeJsonFormatRefArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VirtualNodeJsonFormatRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeJsonFormatRef)(nil)).Elem()
+}
+
+func (i VirtualNodeJsonFormatRefArgs) ToVirtualNodeJsonFormatRefOutput() VirtualNodeJsonFormatRefOutput {
+	return i.ToVirtualNodeJsonFormatRefOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeJsonFormatRefArgs) ToVirtualNodeJsonFormatRefOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeJsonFormatRefOutput)
+}
+
+// VirtualNodeJsonFormatRefArrayInput is an input type that accepts VirtualNodeJsonFormatRefArray and VirtualNodeJsonFormatRefArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeJsonFormatRefArrayInput` via:
+//
+//	VirtualNodeJsonFormatRefArray{ VirtualNodeJsonFormatRefArgs{...} }
+type VirtualNodeJsonFormatRefArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNodeJsonFormatRefArrayOutput() VirtualNodeJsonFormatRefArrayOutput
+	ToVirtualNodeJsonFormatRefArrayOutputWithContext(context.Context) VirtualNodeJsonFormatRefArrayOutput
+}
+
+type VirtualNodeJsonFormatRefArray []VirtualNodeJsonFormatRefInput
+
+func (VirtualNodeJsonFormatRefArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeJsonFormatRef)(nil)).Elem()
+}
+
+func (i VirtualNodeJsonFormatRefArray) ToVirtualNodeJsonFormatRefArrayOutput() VirtualNodeJsonFormatRefArrayOutput {
+	return i.ToVirtualNodeJsonFormatRefArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeJsonFormatRefArray) ToVirtualNodeJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeJsonFormatRefArrayOutput)
+}
+
+type VirtualNodeJsonFormatRefOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeJsonFormatRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeJsonFormatRef)(nil)).Elem()
+}
+
+func (o VirtualNodeJsonFormatRefOutput) ToVirtualNodeJsonFormatRefOutput() VirtualNodeJsonFormatRefOutput {
+	return o
+}
+
+func (o VirtualNodeJsonFormatRefOutput) ToVirtualNodeJsonFormatRefOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefOutput {
+	return o
+}
+
+func (o VirtualNodeJsonFormatRefOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeJsonFormatRef) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeJsonFormatRefOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeJsonFormatRef) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VirtualNodeJsonFormatRefArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeJsonFormatRefArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeJsonFormatRef)(nil)).Elem()
+}
+
+func (o VirtualNodeJsonFormatRefArrayOutput) ToVirtualNodeJsonFormatRefArrayOutput() VirtualNodeJsonFormatRefArrayOutput {
+	return o
+}
+
+func (o VirtualNodeJsonFormatRefArrayOutput) ToVirtualNodeJsonFormatRefArrayOutputWithContext(ctx context.Context) VirtualNodeJsonFormatRefArrayOutput {
+	return o
+}
+
+func (o VirtualNodeJsonFormatRefArrayOutput) Index(i pulumi.IntInput) VirtualNodeJsonFormatRefOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeJsonFormatRef {
+		return vs[0].([]VirtualNodeJsonFormatRef)[vs[1].(int)]
+	}).(VirtualNodeJsonFormatRefOutput)
 }
 
 type VirtualNodeListener struct {
@@ -15989,6 +16596,154 @@ func (o VirtualNodeLoggingPtrOutput) AccessLog() VirtualNodeAccessLogPtrOutput {
 		}
 		return v.AccessLog
 	}).(VirtualNodeAccessLogPtrOutput)
+}
+
+type VirtualNodeLoggingFormat struct {
+	Json []VirtualNodeJsonFormatRef `pulumi:"json"`
+	Text *string                    `pulumi:"text"`
+}
+
+// VirtualNodeLoggingFormatInput is an input type that accepts VirtualNodeLoggingFormatArgs and VirtualNodeLoggingFormatOutput values.
+// You can construct a concrete instance of `VirtualNodeLoggingFormatInput` via:
+//
+//	VirtualNodeLoggingFormatArgs{...}
+type VirtualNodeLoggingFormatInput interface {
+	pulumi.Input
+
+	ToVirtualNodeLoggingFormatOutput() VirtualNodeLoggingFormatOutput
+	ToVirtualNodeLoggingFormatOutputWithContext(context.Context) VirtualNodeLoggingFormatOutput
+}
+
+type VirtualNodeLoggingFormatArgs struct {
+	Json VirtualNodeJsonFormatRefArrayInput `pulumi:"json"`
+	Text pulumi.StringPtrInput              `pulumi:"text"`
+}
+
+func (VirtualNodeLoggingFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeLoggingFormat)(nil)).Elem()
+}
+
+func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatOutput() VirtualNodeLoggingFormatOutput {
+	return i.ToVirtualNodeLoggingFormatOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingFormatOutput)
+}
+
+func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput {
+	return i.ToVirtualNodeLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeLoggingFormatArgs) ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingFormatOutput).ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeLoggingFormatPtrInput is an input type that accepts VirtualNodeLoggingFormatArgs, VirtualNodeLoggingFormatPtr and VirtualNodeLoggingFormatPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeLoggingFormatPtrInput` via:
+//
+//	        VirtualNodeLoggingFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNodeLoggingFormatPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput
+	ToVirtualNodeLoggingFormatPtrOutputWithContext(context.Context) VirtualNodeLoggingFormatPtrOutput
+}
+
+type virtualNodeLoggingFormatPtrType VirtualNodeLoggingFormatArgs
+
+func VirtualNodeLoggingFormatPtr(v *VirtualNodeLoggingFormatArgs) VirtualNodeLoggingFormatPtrInput {
+	return (*virtualNodeLoggingFormatPtrType)(v)
+}
+
+func (*virtualNodeLoggingFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeLoggingFormat)(nil)).Elem()
+}
+
+func (i *virtualNodeLoggingFormatPtrType) ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput {
+	return i.ToVirtualNodeLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeLoggingFormatPtrType) ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeLoggingFormatPtrOutput)
+}
+
+type VirtualNodeLoggingFormatOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeLoggingFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeLoggingFormat)(nil)).Elem()
+}
+
+func (o VirtualNodeLoggingFormatOutput) ToVirtualNodeLoggingFormatOutput() VirtualNodeLoggingFormatOutput {
+	return o
+}
+
+func (o VirtualNodeLoggingFormatOutput) ToVirtualNodeLoggingFormatOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatOutput {
+	return o
+}
+
+func (o VirtualNodeLoggingFormatOutput) ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput {
+	return o.ToVirtualNodeLoggingFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeLoggingFormatOutput) ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeLoggingFormat) *VirtualNodeLoggingFormat {
+		return &v
+	}).(VirtualNodeLoggingFormatPtrOutput)
+}
+
+func (o VirtualNodeLoggingFormatOutput) Json() VirtualNodeJsonFormatRefArrayOutput {
+	return o.ApplyT(func(v VirtualNodeLoggingFormat) []VirtualNodeJsonFormatRef { return v.Json }).(VirtualNodeJsonFormatRefArrayOutput)
+}
+
+func (o VirtualNodeLoggingFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNodeLoggingFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeLoggingFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeLoggingFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeLoggingFormat)(nil)).Elem()
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) ToVirtualNodeLoggingFormatPtrOutput() VirtualNodeLoggingFormatPtrOutput {
+	return o
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) ToVirtualNodeLoggingFormatPtrOutputWithContext(ctx context.Context) VirtualNodeLoggingFormatPtrOutput {
+	return o
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) Elem() VirtualNodeLoggingFormatOutput {
+	return o.ApplyT(func(v *VirtualNodeLoggingFormat) VirtualNodeLoggingFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeLoggingFormat
+		return ret
+	}).(VirtualNodeLoggingFormatOutput)
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) Json() VirtualNodeJsonFormatRefArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeLoggingFormat) []VirtualNodeJsonFormatRef {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(VirtualNodeJsonFormatRefArrayOutput)
+}
+
+func (o VirtualNodeLoggingFormatPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeLoggingFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNodeOutlierDetection struct {
@@ -19034,6 +19789,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRoutePtrInput)(nil)).Elem(), RouteTcpRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteActionInput)(nil)).Elem(), RouteTcpRouteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteActionPtrInput)(nil)).Elem(), RouteTcpRouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteMatchInput)(nil)).Elem(), RouteTcpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteMatchPtrInput)(nil)).Elem(), RouteTcpRouteMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpTimeoutInput)(nil)).Elem(), RouteTcpTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpTimeoutPtrInput)(nil)).Elem(), RouteTcpTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteWeightedTargetInput)(nil)).Elem(), RouteWeightedTargetArgs{})
@@ -19060,6 +19817,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayHttp2ConnectionPoolPtrInput)(nil)).Elem(), VirtualGatewayHttp2ConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayHttpConnectionPoolInput)(nil)).Elem(), VirtualGatewayHttpConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayHttpConnectionPoolPtrInput)(nil)).Elem(), VirtualGatewayHttpConnectionPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayJsonFormatRefInput)(nil)).Elem(), VirtualGatewayJsonFormatRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayJsonFormatRefArrayInput)(nil)).Elem(), VirtualGatewayJsonFormatRefArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayListenerInput)(nil)).Elem(), VirtualGatewayListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayListenerArrayInput)(nil)).Elem(), VirtualGatewayListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayListenerTlsInput)(nil)).Elem(), VirtualGatewayListenerTlsArgs{})
@@ -19078,6 +19837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayListenerTlsValidationContextTrustPtrInput)(nil)).Elem(), VirtualGatewayListenerTlsValidationContextTrustArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayLoggingInput)(nil)).Elem(), VirtualGatewayLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayLoggingPtrInput)(nil)).Elem(), VirtualGatewayLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayLoggingFormatInput)(nil)).Elem(), VirtualGatewayLoggingFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayLoggingFormatPtrInput)(nil)).Elem(), VirtualGatewayLoggingFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayPortMappingInput)(nil)).Elem(), VirtualGatewayPortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecInput)(nil)).Elem(), VirtualGatewaySpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySubjectAlternativeNameMatchersInput)(nil)).Elem(), VirtualGatewaySubjectAlternativeNameMatchersArgs{})
@@ -19132,6 +19893,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeHttpConnectionPoolPtrInput)(nil)).Elem(), VirtualNodeHttpConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeHttpTimeoutInput)(nil)).Elem(), VirtualNodeHttpTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeHttpTimeoutPtrInput)(nil)).Elem(), VirtualNodeHttpTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeJsonFormatRefInput)(nil)).Elem(), VirtualNodeJsonFormatRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeJsonFormatRefArrayInput)(nil)).Elem(), VirtualNodeJsonFormatRefArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeListenerInput)(nil)).Elem(), VirtualNodeListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeListenerArrayInput)(nil)).Elem(), VirtualNodeListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeListenerTimeoutInput)(nil)).Elem(), VirtualNodeListenerTimeoutArgs{})
@@ -19152,6 +19915,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeListenerTlsValidationContextTrustPtrInput)(nil)).Elem(), VirtualNodeListenerTlsValidationContextTrustArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeLoggingInput)(nil)).Elem(), VirtualNodeLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeLoggingPtrInput)(nil)).Elem(), VirtualNodeLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeLoggingFormatInput)(nil)).Elem(), VirtualNodeLoggingFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeLoggingFormatPtrInput)(nil)).Elem(), VirtualNodeLoggingFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeOutlierDetectionInput)(nil)).Elem(), VirtualNodeOutlierDetectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeOutlierDetectionPtrInput)(nil)).Elem(), VirtualNodeOutlierDetectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodePortMappingInput)(nil)).Elem(), VirtualNodePortMappingArgs{})
@@ -19297,6 +20062,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteTcpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteTcpRouteActionOutput{})
 	pulumi.RegisterOutputType(RouteTcpRouteActionPtrOutput{})
+	pulumi.RegisterOutputType(RouteTcpRouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteTcpRouteMatchPtrOutput{})
 	pulumi.RegisterOutputType(RouteTcpTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteTcpTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteWeightedTargetOutput{})
@@ -19323,6 +20090,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewayHttp2ConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayHttpConnectionPoolOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayHttpConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayJsonFormatRefOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayJsonFormatRefArrayOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayListenerOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayListenerTlsOutput{})
@@ -19341,6 +20110,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewayListenerTlsValidationContextTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayLoggingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayLoggingFormatOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayLoggingFormatPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayPortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecPtrOutput{})
@@ -19396,6 +20167,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeHttpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHttpTimeoutOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHttpTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeJsonFormatRefOutput{})
+	pulumi.RegisterOutputType(VirtualNodeJsonFormatRefArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeListenerOutput{})
 	pulumi.RegisterOutputType(VirtualNodeListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeListenerTimeoutOutput{})
@@ -19416,6 +20189,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeListenerTlsValidationContextTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeLoggingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeLoggingFormatOutput{})
+	pulumi.RegisterOutputType(VirtualNodeLoggingFormatPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeOutlierDetectionOutput{})
 	pulumi.RegisterOutputType(VirtualNodeOutlierDetectionPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodePortMappingOutput{})

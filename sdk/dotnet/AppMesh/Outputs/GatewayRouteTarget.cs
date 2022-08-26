@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteTarget
     {
+        public readonly int? Port;
         public readonly Outputs.GatewayRouteVirtualService VirtualService;
 
         [OutputConstructor]
-        private GatewayRouteTarget(Outputs.GatewayRouteVirtualService virtualService)
+        private GatewayRouteTarget(
+            int? port,
+
+            Outputs.GatewayRouteVirtualService virtualService)
         {
+            Port = port;
             VirtualService = virtualService;
         }
     }

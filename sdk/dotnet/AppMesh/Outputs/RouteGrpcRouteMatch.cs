@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     {
         public readonly ImmutableArray<Outputs.RouteGrpcRouteMetadata> Metadata;
         public readonly string? MethodName;
+        public readonly int? Port;
         public readonly string? ServiceName;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             string? methodName,
 
+            int? port,
+
             string? serviceName)
         {
             Metadata = metadata;
             MethodName = methodName;
+            Port = port;
             ServiceName = serviceName;
         }
     }

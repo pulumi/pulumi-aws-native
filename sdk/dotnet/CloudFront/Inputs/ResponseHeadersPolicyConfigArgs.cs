@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("securityHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs>? SecurityHeadersConfig { get; set; }
 
+        [Input("serverTimingHeadersConfig")]
+        public Input<Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs>? ServerTimingHeadersConfig { get; set; }
+
         public ResponseHeadersPolicyConfigArgs()
         {
         }

@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         public readonly Outputs.GatewayRouteHostnameMatch? Hostname;
         public readonly string? Method;
         public readonly Outputs.GatewayRouteHttpPathMatch? Path;
+        public readonly int? Port;
         public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.GatewayRouteQueryParameter> QueryParameters;
 
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             Outputs.GatewayRouteHttpPathMatch? path,
 
+            int? port,
+
             string? prefix,
 
             ImmutableArray<Outputs.GatewayRouteQueryParameter> queryParameters)
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
             Hostname = hostname;
             Method = method;
             Path = path;
+            Port = port;
             Prefix = prefix;
             QueryParameters = queryParameters;
         }

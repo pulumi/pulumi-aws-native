@@ -130,6 +130,9 @@
         },
         "Timeout" : {
           "$ref" : "#/definitions/TcpTimeout"
+        },
+        "Match" : {
+          "$ref" : "#/definitions/TcpRouteMatch"
         }
       },
       "required" : [ "Action" ]
@@ -272,6 +275,9 @@
         },
         "Weight" : {
           "type" : "integer"
+        },
+        "Port" : {
+          "type" : "integer"
         }
       },
       "required" : [ "VirtualNode", "Weight" ]
@@ -330,6 +336,9 @@
         },
         "ServiceName" : {
           "type" : "string"
+        },
+        "Port" : {
+          "type" : "integer"
         }
       }
     },
@@ -376,6 +385,15 @@
           "$ref" : "#/definitions/TcpRoute"
         },
         "Priority" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "TcpRouteMatch" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Port" : {
           "type" : "integer"
         }
       }
@@ -442,6 +460,9 @@
           "items" : {
             "$ref" : "#/definitions/HttpRouteHeader"
           }
+        },
+        "Port" : {
+          "type" : "integer"
         },
         "Prefix" : {
           "type" : "string"

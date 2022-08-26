@@ -172,9 +172,28 @@
       "properties" : {
         "Path" : {
           "type" : "string"
+        },
+        "Format" : {
+          "$ref" : "#/definitions/LoggingFormat"
         }
       },
       "required" : [ "Path" ]
+    },
+    "LoggingFormat" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Text" : {
+          "type" : "string"
+        },
+        "Json" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/JsonFormatRef"
+          }
+        }
+      }
     },
     "VirtualGatewayTlsValidationContext" : {
       "type" : "object",
@@ -211,6 +230,19 @@
         }
       },
       "required" : [ "CertificateChain" ]
+    },
+    "JsonFormatRef" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     },
     "VirtualGatewayHealthCheckPolicy" : {
       "type" : "object",

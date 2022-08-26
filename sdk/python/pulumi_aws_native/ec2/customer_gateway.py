@@ -22,10 +22,6 @@ class CustomerGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
-        :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
-        :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]] tags: One or more tags for the customer gateway.
         """
         pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -36,9 +32,6 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Input[int]:
-        """
-        For devices that support BGP, the customer gateway's BGP ASN.
-        """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
@@ -48,9 +41,6 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[str]:
-        """
-        The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -60,9 +50,6 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The type of VPN connection that this customer gateway supports.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -72,9 +59,6 @@ class CustomerGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]]:
-        """
-        One or more tags for the customer gateway.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -82,7 +66,12 @@ class CustomerGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""CustomerGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class CustomerGateway(pulumi.CustomResource):
+    warnings.warn("""CustomerGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -97,10 +86,6 @@ class CustomerGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
-        :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerGatewayTagArgs']]]] tags: One or more tags for the customer gateway.
-        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
         """
         ...
     @overload
@@ -131,6 +116,7 @@ class CustomerGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerGatewayTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""CustomerGateway is deprecated: CustomerGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -149,7 +135,6 @@ class CustomerGateway(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-            __props__.__dict__["customer_gateway_id"] = None
         super(CustomerGateway, __self__).__init__(
             'aws-native:ec2:CustomerGateway',
             resource_name,
@@ -173,7 +158,6 @@ class CustomerGateway(pulumi.CustomResource):
         __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
         __props__.__dict__["bgp_asn"] = None
-        __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -182,40 +166,20 @@ class CustomerGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Output[int]:
-        """
-        For devices that support BGP, the customer gateway's BGP ASN.
-        """
         return pulumi.get(self, "bgp_asn")
-
-    @property
-    @pulumi.getter(name="customerGatewayId")
-    def customer_gateway_id(self) -> pulumi.Output[str]:
-        """
-        CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        """
-        return pulumi.get(self, "customer_gateway_id")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
-        """
-        The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomerGatewayTag']]]:
-        """
-        One or more tags for the customer gateway.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of VPN connection that this customer gateway supports.
-        """
         return pulumi.get(self, "type")
 

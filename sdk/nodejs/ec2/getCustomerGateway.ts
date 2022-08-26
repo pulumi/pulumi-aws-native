@@ -15,25 +15,16 @@ export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:ec2:getCustomerGateway", {
-        "customerGatewayId": args.customerGatewayId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetCustomerGatewayArgs {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
-    customerGatewayId: string;
+    id: string;
 }
 
 export interface GetCustomerGatewayResult {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
-    readonly customerGatewayId?: string;
-    /**
-     * One or more tags for the customer gateway.
-     */
+    readonly id?: string;
     readonly tags?: outputs.ec2.CustomerGatewayTag[];
 }
 
@@ -42,8 +33,5 @@ export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opt
 }
 
 export interface GetCustomerGatewayOutputArgs {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
-    customerGatewayId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

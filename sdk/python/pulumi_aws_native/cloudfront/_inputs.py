@@ -65,6 +65,7 @@ __all__ = [
     'ResponseHeadersPolicyFrameOptionsArgs',
     'ResponseHeadersPolicyReferrerPolicyArgs',
     'ResponseHeadersPolicySecurityHeadersConfigArgs',
+    'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
     'ResponseHeadersPolicyStrictTransportSecurityArgs',
     'ResponseHeadersPolicyXSSProtectionArgs',
     'StreamingDistributionConfigArgs',
@@ -1636,6 +1637,7 @@ class DistributionOriginArgs:
                  connection_attempts: Optional[pulumi.Input[int]] = None,
                  connection_timeout: Optional[pulumi.Input[int]] = None,
                  custom_origin_config: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']] = None,
+                 origin_access_control_id: Optional[pulumi.Input[str]] = None,
                  origin_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
@@ -1648,6 +1650,8 @@ class DistributionOriginArgs:
             pulumi.set(__self__, "connection_timeout", connection_timeout)
         if custom_origin_config is not None:
             pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+        if origin_access_control_id is not None:
+            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
         if origin_custom_headers is not None:
             pulumi.set(__self__, "origin_custom_headers", origin_custom_headers)
         if origin_path is not None:
@@ -1701,6 +1705,15 @@ class DistributionOriginArgs:
     @custom_origin_config.setter
     def custom_origin_config(self, value: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']]):
         pulumi.set(self, "custom_origin_config", value)
+
+    @property
+    @pulumi.getter(name="originAccessControlId")
+    def origin_access_control_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin_access_control_id")
+
+    @origin_access_control_id.setter
+    def origin_access_control_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_access_control_id", value)
 
     @property
     @pulumi.getter(name="originCustomHeaders")
@@ -2294,7 +2307,8 @@ class ResponseHeadersPolicyConfigArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
-                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None):
+                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+                 server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -2304,6 +2318,8 @@ class ResponseHeadersPolicyConfigArgs:
             pulumi.set(__self__, "custom_headers_config", custom_headers_config)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
+        if server_timing_headers_config is not None:
+            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -2349,6 +2365,15 @@ class ResponseHeadersPolicyConfigArgs:
     @security_headers_config.setter
     def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
         pulumi.set(self, "security_headers_config", value)
+
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfig")
+    def server_timing_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
+        return pulumi.get(self, "server_timing_headers_config")
+
+    @server_timing_headers_config.setter
+    def server_timing_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
+        pulumi.set(self, "server_timing_headers_config", value)
 
 
 @pulumi.input_type
@@ -2661,6 +2686,34 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
     @x_ss_protection.setter
     def x_ss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]):
         pulumi.set(self, "x_ss_protection", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 sampling_rate: Optional[pulumi.Input[float]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "sampling_rate")
+
+    @sampling_rate.setter
+    def sampling_rate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sampling_rate", value)
 
 
 @pulumi.input_type

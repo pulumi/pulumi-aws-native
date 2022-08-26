@@ -2443,6 +2443,7 @@ export namespace appmesh {
     export interface GatewayRouteGrpcGatewayRouteMatch {
         hostname?: outputs.appmesh.GatewayRouteHostnameMatch;
         metadata?: outputs.appmesh.GatewayRouteGrpcGatewayRouteMetadata[];
+        port?: number;
         serviceName?: string;
     }
 
@@ -2494,6 +2495,7 @@ export namespace appmesh {
         hostname?: outputs.appmesh.GatewayRouteHostnameMatch;
         method?: string;
         path?: outputs.appmesh.GatewayRouteHttpPathMatch;
+        port?: number;
         prefix?: string;
         queryParameters?: outputs.appmesh.GatewayRouteQueryParameter[];
     }
@@ -2553,6 +2555,7 @@ export namespace appmesh {
     }
 
     export interface GatewayRouteTarget {
+        port?: number;
         virtualService: outputs.appmesh.GatewayRouteVirtualService;
     }
 
@@ -2605,6 +2608,7 @@ export namespace appmesh {
     export interface RouteGrpcRouteMatch {
         metadata?: outputs.appmesh.RouteGrpcRouteMetadata[];
         methodName?: string;
+        port?: number;
         serviceName?: string;
     }
 
@@ -2672,6 +2676,7 @@ export namespace appmesh {
         headers?: outputs.appmesh.RouteHttpRouteHeader[];
         method?: string;
         path?: outputs.appmesh.RouteHttpPathMatch;
+        port?: number;
         prefix?: string;
         queryParameters?: outputs.appmesh.RouteQueryParameter[];
         scheme?: string;
@@ -2707,6 +2712,7 @@ export namespace appmesh {
 
     export interface RouteTcpRoute {
         action: outputs.appmesh.RouteTcpRouteAction;
+        match?: outputs.appmesh.RouteTcpRouteMatch;
         timeout?: outputs.appmesh.RouteTcpTimeout;
     }
 
@@ -2714,11 +2720,16 @@ export namespace appmesh {
         weightedTargets: outputs.appmesh.RouteWeightedTarget[];
     }
 
+    export interface RouteTcpRouteMatch {
+        port?: number;
+    }
+
     export interface RouteTcpTimeout {
         idle?: outputs.appmesh.RouteDuration;
     }
 
     export interface RouteWeightedTarget {
+        port?: number;
         virtualNode: string;
         weight: number;
     }
@@ -2754,6 +2765,7 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayFileAccessLog {
+        format?: outputs.appmesh.VirtualGatewayLoggingFormat;
         path: string;
     }
 
@@ -2778,6 +2790,11 @@ export namespace appmesh {
     export interface VirtualGatewayHttpConnectionPool {
         maxConnections: number;
         maxPendingRequests?: number;
+    }
+
+    export interface VirtualGatewayJsonFormatRef {
+        key: string;
+        value: string;
     }
 
     export interface VirtualGatewayListener {
@@ -2824,6 +2841,11 @@ export namespace appmesh {
 
     export interface VirtualGatewayLogging {
         accessLog?: outputs.appmesh.VirtualGatewayAccessLog;
+    }
+
+    export interface VirtualGatewayLoggingFormat {
+        json?: outputs.appmesh.VirtualGatewayJsonFormatRef[];
+        text?: string;
     }
 
     export interface VirtualGatewayPortMapping {
@@ -2932,6 +2954,7 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeFileAccessLog {
+        format?: outputs.appmesh.VirtualNodeLoggingFormat;
         path: string;
     }
 
@@ -2966,6 +2989,11 @@ export namespace appmesh {
     export interface VirtualNodeHttpTimeout {
         idle?: outputs.appmesh.VirtualNodeDuration;
         perRequest?: outputs.appmesh.VirtualNodeDuration;
+    }
+
+    export interface VirtualNodeJsonFormatRef {
+        key: string;
+        value: string;
     }
 
     export interface VirtualNodeListener {
@@ -3021,6 +3049,11 @@ export namespace appmesh {
 
     export interface VirtualNodeLogging {
         accessLog?: outputs.appmesh.VirtualNodeAccessLog;
+    }
+
+    export interface VirtualNodeLoggingFormat {
+        json?: outputs.appmesh.VirtualNodeJsonFormatRef[];
+        text?: string;
     }
 
     export interface VirtualNodeOutlierDetection {
@@ -5131,6 +5164,7 @@ export namespace cloudfront {
         customOriginConfig?: outputs.cloudfront.DistributionCustomOriginConfig;
         domainName: string;
         id: string;
+        originAccessControlId?: string;
         originCustomHeaders?: outputs.cloudfront.DistributionOriginCustomHeader[];
         originPath?: string;
         originShield?: outputs.cloudfront.DistributionOriginShield;
@@ -5274,6 +5308,7 @@ export namespace cloudfront {
         customHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig;
         name: string;
         securityHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig;
+        serverTimingHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig;
     }
 
     export interface ResponseHeadersPolicyContentSecurityPolicy {
@@ -5322,6 +5357,11 @@ export namespace cloudfront {
         referrerPolicy?: outputs.cloudfront.ResponseHeadersPolicyReferrerPolicy;
         strictTransportSecurity?: outputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurity;
         xSSProtection?: outputs.cloudfront.ResponseHeadersPolicyXSSProtection;
+    }
+
+    export interface ResponseHeadersPolicyServerTimingHeadersConfig {
+        enabled: boolean;
+        samplingRate?: number;
     }
 
     export interface ResponseHeadersPolicyStrictTransportSecurity {
@@ -28158,9 +28198,18 @@ export namespace rds {
         value?: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBParameterGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
-        value: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
     }
 
     export interface DBProxyAuthFormat {

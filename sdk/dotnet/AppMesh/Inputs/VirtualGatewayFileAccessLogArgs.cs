@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualGatewayFileAccessLogArgs : global::Pulumi.ResourceArgs
     {
+        [Input("format")]
+        public Input<Inputs.VirtualGatewayLoggingFormatArgs>? Format { get; set; }
+
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         public readonly ImmutableArray<Outputs.RouteHttpRouteHeader> Headers;
         public readonly string? Method;
         public readonly Outputs.RouteHttpPathMatch? Path;
+        public readonly int? Port;
         public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.RouteQueryParameter> QueryParameters;
         public readonly string? Scheme;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             Outputs.RouteHttpPathMatch? path,
 
+            int? port,
+
             string? prefix,
 
             ImmutableArray<Outputs.RouteQueryParameter> queryParameters,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
             Headers = headers;
             Method = method;
             Path = path;
+            Port = port;
             Prefix = prefix;
             QueryParameters = queryParameters;
             Scheme = scheme;

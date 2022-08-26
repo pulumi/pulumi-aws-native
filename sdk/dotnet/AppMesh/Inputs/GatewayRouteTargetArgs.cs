@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class GatewayRouteTargetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
         [Input("virtualService", required: true)]
         public Input<Inputs.GatewayRouteVirtualServiceArgs> VirtualService { get; set; } = null!;
 
