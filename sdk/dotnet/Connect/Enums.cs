@@ -239,6 +239,104 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// Specifies default encryption using AWS KMS-Managed Keys
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceStorageConfigEncryptionType : IEquatable<InstanceStorageConfigEncryptionType>
+    {
+        private readonly string _value;
+
+        private InstanceStorageConfigEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceStorageConfigEncryptionType Kms { get; } = new InstanceStorageConfigEncryptionType("KMS");
+
+        public static bool operator ==(InstanceStorageConfigEncryptionType left, InstanceStorageConfigEncryptionType right) => left.Equals(right);
+        public static bool operator !=(InstanceStorageConfigEncryptionType left, InstanceStorageConfigEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceStorageConfigEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceStorageConfigEncryptionType other && Equals(other);
+        public bool Equals(InstanceStorageConfigEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of storage resource available for the instance
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceStorageConfigInstanceStorageResourceType : IEquatable<InstanceStorageConfigInstanceStorageResourceType>
+    {
+        private readonly string _value;
+
+        private InstanceStorageConfigInstanceStorageResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceStorageConfigInstanceStorageResourceType ChatTranscripts { get; } = new InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS");
+        public static InstanceStorageConfigInstanceStorageResourceType CallRecordings { get; } = new InstanceStorageConfigInstanceStorageResourceType("CALL_RECORDINGS");
+        public static InstanceStorageConfigInstanceStorageResourceType ScheduledReports { get; } = new InstanceStorageConfigInstanceStorageResourceType("SCHEDULED_REPORTS");
+        public static InstanceStorageConfigInstanceStorageResourceType MediaStreams { get; } = new InstanceStorageConfigInstanceStorageResourceType("MEDIA_STREAMS");
+        public static InstanceStorageConfigInstanceStorageResourceType ContactTraceRecords { get; } = new InstanceStorageConfigInstanceStorageResourceType("CONTACT_TRACE_RECORDS");
+        public static InstanceStorageConfigInstanceStorageResourceType AgentEvents { get; } = new InstanceStorageConfigInstanceStorageResourceType("AGENT_EVENTS");
+
+        public static bool operator ==(InstanceStorageConfigInstanceStorageResourceType left, InstanceStorageConfigInstanceStorageResourceType right) => left.Equals(right);
+        public static bool operator !=(InstanceStorageConfigInstanceStorageResourceType left, InstanceStorageConfigInstanceStorageResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceStorageConfigInstanceStorageResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceStorageConfigInstanceStorageResourceType other && Equals(other);
+        public bool Equals(InstanceStorageConfigInstanceStorageResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the storage type to be associated with the instance
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceStorageConfigStorageType : IEquatable<InstanceStorageConfigStorageType>
+    {
+        private readonly string _value;
+
+        private InstanceStorageConfigStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceStorageConfigStorageType S3 { get; } = new InstanceStorageConfigStorageType("S3");
+        public static InstanceStorageConfigStorageType KinesisVideoStream { get; } = new InstanceStorageConfigStorageType("KINESIS_VIDEO_STREAM");
+        public static InstanceStorageConfigStorageType KinesisStream { get; } = new InstanceStorageConfigStorageType("KINESIS_STREAM");
+        public static InstanceStorageConfigStorageType KinesisFirehose { get; } = new InstanceStorageConfigStorageType("KINESIS_FIREHOSE");
+
+        public static bool operator ==(InstanceStorageConfigStorageType left, InstanceStorageConfigStorageType right) => left.Equals(right);
+        public static bool operator !=(InstanceStorageConfigStorageType left, InstanceStorageConfigStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceStorageConfigStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceStorageConfigStorageType other && Equals(other);
+        public bool Equals(InstanceStorageConfigStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     /// </summary>
     [EnumType]

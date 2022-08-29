@@ -11,6 +11,7 @@ export * from "./getContactFlow";
 export * from "./getContactFlowModule";
 export * from "./getHoursOfOperation";
 export * from "./getInstance";
+export * from "./getInstanceStorageConfig";
 export * from "./getPhoneNumber";
 export * from "./getQuickConnect";
 export * from "./getTaskTemplate";
@@ -18,6 +19,7 @@ export * from "./getUser";
 export * from "./getUserHierarchyGroup";
 export * from "./hoursOfOperation";
 export * from "./instance";
+export * from "./instanceStorageConfig";
 export * from "./phoneNumber";
 export * from "./quickConnect";
 export * from "./taskTemplate";
@@ -32,6 +34,7 @@ import { ContactFlow } from "./contactFlow";
 import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { Instance } from "./instance";
+import { InstanceStorageConfig } from "./instanceStorageConfig";
 import { PhoneNumber } from "./phoneNumber";
 import { QuickConnect } from "./quickConnect";
 import { TaskTemplate } from "./taskTemplate";
@@ -50,6 +53,8 @@ const _module = {
                 return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws-native:connect:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws-native:connect:InstanceStorageConfig":
+                return new InstanceStorageConfig(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":

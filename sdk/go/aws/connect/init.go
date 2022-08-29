@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HoursOfOperation{}
 	case "aws-native:connect:Instance":
 		r = &Instance{}
+	case "aws-native:connect:InstanceStorageConfig":
+		r = &InstanceStorageConfig{}
 	case "aws-native:connect:PhoneNumber":
 		r = &PhoneNumber{}
 	case "aws-native:connect:QuickConnect":

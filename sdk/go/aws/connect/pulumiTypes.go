@@ -857,6 +857,752 @@ func (o InstanceAttributesPtrOutput) UseCustomTTSVoices() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type InstanceStorageConfigEncryptionConfig struct {
+	EncryptionType InstanceStorageConfigEncryptionType `pulumi:"encryptionType"`
+	KeyId          string                              `pulumi:"keyId"`
+}
+
+// InstanceStorageConfigEncryptionConfigInput is an input type that accepts InstanceStorageConfigEncryptionConfigArgs and InstanceStorageConfigEncryptionConfigOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigEncryptionConfigInput` via:
+//
+//	InstanceStorageConfigEncryptionConfigArgs{...}
+type InstanceStorageConfigEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigEncryptionConfigOutput() InstanceStorageConfigEncryptionConfigOutput
+	ToInstanceStorageConfigEncryptionConfigOutputWithContext(context.Context) InstanceStorageConfigEncryptionConfigOutput
+}
+
+type InstanceStorageConfigEncryptionConfigArgs struct {
+	EncryptionType InstanceStorageConfigEncryptionTypeInput `pulumi:"encryptionType"`
+	KeyId          pulumi.StringInput                       `pulumi:"keyId"`
+}
+
+func (InstanceStorageConfigEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigEncryptionConfig)(nil)).Elem()
+}
+
+func (i InstanceStorageConfigEncryptionConfigArgs) ToInstanceStorageConfigEncryptionConfigOutput() InstanceStorageConfigEncryptionConfigOutput {
+	return i.ToInstanceStorageConfigEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigEncryptionConfigArgs) ToInstanceStorageConfigEncryptionConfigOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigEncryptionConfigOutput)
+}
+
+func (i InstanceStorageConfigEncryptionConfigArgs) ToInstanceStorageConfigEncryptionConfigPtrOutput() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return i.ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigEncryptionConfigArgs) ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigEncryptionConfigOutput).ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(ctx)
+}
+
+// InstanceStorageConfigEncryptionConfigPtrInput is an input type that accepts InstanceStorageConfigEncryptionConfigArgs, InstanceStorageConfigEncryptionConfigPtr and InstanceStorageConfigEncryptionConfigPtrOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigEncryptionConfigPtrInput` via:
+//
+//	        InstanceStorageConfigEncryptionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceStorageConfigEncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigEncryptionConfigPtrOutput() InstanceStorageConfigEncryptionConfigPtrOutput
+	ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(context.Context) InstanceStorageConfigEncryptionConfigPtrOutput
+}
+
+type instanceStorageConfigEncryptionConfigPtrType InstanceStorageConfigEncryptionConfigArgs
+
+func InstanceStorageConfigEncryptionConfigPtr(v *InstanceStorageConfigEncryptionConfigArgs) InstanceStorageConfigEncryptionConfigPtrInput {
+	return (*instanceStorageConfigEncryptionConfigPtrType)(v)
+}
+
+func (*instanceStorageConfigEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigEncryptionConfig)(nil)).Elem()
+}
+
+func (i *instanceStorageConfigEncryptionConfigPtrType) ToInstanceStorageConfigEncryptionConfigPtrOutput() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return i.ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceStorageConfigEncryptionConfigPtrType) ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+type InstanceStorageConfigEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigEncryptionConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) ToInstanceStorageConfigEncryptionConfigOutput() InstanceStorageConfigEncryptionConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) ToInstanceStorageConfigEncryptionConfigOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) ToInstanceStorageConfigEncryptionConfigPtrOutput() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigEncryptionConfig) *InstanceStorageConfigEncryptionConfig {
+		return &v
+	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) EncryptionType() InstanceStorageConfigEncryptionTypeOutput {
+	return o.ApplyT(func(v InstanceStorageConfigEncryptionConfig) InstanceStorageConfigEncryptionType {
+		return v.EncryptionType
+	}).(InstanceStorageConfigEncryptionTypeOutput)
+}
+
+func (o InstanceStorageConfigEncryptionConfigOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigEncryptionConfig) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+type InstanceStorageConfigEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigEncryptionConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigEncryptionConfigPtrOutput) ToInstanceStorageConfigEncryptionConfigPtrOutput() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionConfigPtrOutput) ToInstanceStorageConfigEncryptionConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionConfigPtrOutput) Elem() InstanceStorageConfigEncryptionConfigOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigEncryptionConfig) InstanceStorageConfigEncryptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigEncryptionConfig
+		return ret
+	}).(InstanceStorageConfigEncryptionConfigOutput)
+}
+
+func (o InstanceStorageConfigEncryptionConfigPtrOutput) EncryptionType() InstanceStorageConfigEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigEncryptionConfig) *InstanceStorageConfigEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(InstanceStorageConfigEncryptionTypePtrOutput)
+}
+
+func (o InstanceStorageConfigEncryptionConfigPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigEncryptionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigKinesisFirehoseConfig struct {
+	FirehoseArn string `pulumi:"firehoseArn"`
+}
+
+// InstanceStorageConfigKinesisFirehoseConfigInput is an input type that accepts InstanceStorageConfigKinesisFirehoseConfigArgs and InstanceStorageConfigKinesisFirehoseConfigOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisFirehoseConfigInput` via:
+//
+//	InstanceStorageConfigKinesisFirehoseConfigArgs{...}
+type InstanceStorageConfigKinesisFirehoseConfigInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisFirehoseConfigOutput() InstanceStorageConfigKinesisFirehoseConfigOutput
+	ToInstanceStorageConfigKinesisFirehoseConfigOutputWithContext(context.Context) InstanceStorageConfigKinesisFirehoseConfigOutput
+}
+
+type InstanceStorageConfigKinesisFirehoseConfigArgs struct {
+	FirehoseArn pulumi.StringInput `pulumi:"firehoseArn"`
+}
+
+func (InstanceStorageConfigKinesisFirehoseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisFirehoseConfig)(nil)).Elem()
+}
+
+func (i InstanceStorageConfigKinesisFirehoseConfigArgs) ToInstanceStorageConfigKinesisFirehoseConfigOutput() InstanceStorageConfigKinesisFirehoseConfigOutput {
+	return i.ToInstanceStorageConfigKinesisFirehoseConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisFirehoseConfigArgs) ToInstanceStorageConfigKinesisFirehoseConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisFirehoseConfigOutput)
+}
+
+func (i InstanceStorageConfigKinesisFirehoseConfigArgs) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutput() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisFirehoseConfigArgs) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisFirehoseConfigOutput).ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(ctx)
+}
+
+// InstanceStorageConfigKinesisFirehoseConfigPtrInput is an input type that accepts InstanceStorageConfigKinesisFirehoseConfigArgs, InstanceStorageConfigKinesisFirehoseConfigPtr and InstanceStorageConfigKinesisFirehoseConfigPtrOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisFirehoseConfigPtrInput` via:
+//
+//	        InstanceStorageConfigKinesisFirehoseConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceStorageConfigKinesisFirehoseConfigPtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisFirehoseConfigPtrOutput() InstanceStorageConfigKinesisFirehoseConfigPtrOutput
+	ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(context.Context) InstanceStorageConfigKinesisFirehoseConfigPtrOutput
+}
+
+type instanceStorageConfigKinesisFirehoseConfigPtrType InstanceStorageConfigKinesisFirehoseConfigArgs
+
+func InstanceStorageConfigKinesisFirehoseConfigPtr(v *InstanceStorageConfigKinesisFirehoseConfigArgs) InstanceStorageConfigKinesisFirehoseConfigPtrInput {
+	return (*instanceStorageConfigKinesisFirehoseConfigPtrType)(v)
+}
+
+func (*instanceStorageConfigKinesisFirehoseConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisFirehoseConfig)(nil)).Elem()
+}
+
+func (i *instanceStorageConfigKinesisFirehoseConfigPtrType) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutput() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceStorageConfigKinesisFirehoseConfigPtrType) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
+}
+
+type InstanceStorageConfigKinesisFirehoseConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisFirehoseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisFirehoseConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigOutput) ToInstanceStorageConfigKinesisFirehoseConfigOutput() InstanceStorageConfigKinesisFirehoseConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigOutput) ToInstanceStorageConfigKinesisFirehoseConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigOutput) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutput() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return o.ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigOutput) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigKinesisFirehoseConfig) *InstanceStorageConfigKinesisFirehoseConfig {
+		return &v
+	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisFirehoseConfig) string { return v.FirehoseArn }).(pulumi.StringOutput)
+}
+
+type InstanceStorageConfigKinesisFirehoseConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisFirehoseConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisFirehoseConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutput() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) ToInstanceStorageConfigKinesisFirehoseConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) Elem() InstanceStorageConfigKinesisFirehoseConfigOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisFirehoseConfig) InstanceStorageConfigKinesisFirehoseConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigKinesisFirehoseConfig
+		return ret
+	}).(InstanceStorageConfigKinesisFirehoseConfigOutput)
+}
+
+func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) FirehoseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisFirehoseConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirehoseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigKinesisStreamConfig struct {
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// InstanceStorageConfigKinesisStreamConfigInput is an input type that accepts InstanceStorageConfigKinesisStreamConfigArgs and InstanceStorageConfigKinesisStreamConfigOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisStreamConfigInput` via:
+//
+//	InstanceStorageConfigKinesisStreamConfigArgs{...}
+type InstanceStorageConfigKinesisStreamConfigInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisStreamConfigOutput() InstanceStorageConfigKinesisStreamConfigOutput
+	ToInstanceStorageConfigKinesisStreamConfigOutputWithContext(context.Context) InstanceStorageConfigKinesisStreamConfigOutput
+}
+
+type InstanceStorageConfigKinesisStreamConfigArgs struct {
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (InstanceStorageConfigKinesisStreamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i InstanceStorageConfigKinesisStreamConfigArgs) ToInstanceStorageConfigKinesisStreamConfigOutput() InstanceStorageConfigKinesisStreamConfigOutput {
+	return i.ToInstanceStorageConfigKinesisStreamConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisStreamConfigArgs) ToInstanceStorageConfigKinesisStreamConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisStreamConfigOutput)
+}
+
+func (i InstanceStorageConfigKinesisStreamConfigArgs) ToInstanceStorageConfigKinesisStreamConfigPtrOutput() InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisStreamConfigArgs) ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisStreamConfigOutput).ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(ctx)
+}
+
+// InstanceStorageConfigKinesisStreamConfigPtrInput is an input type that accepts InstanceStorageConfigKinesisStreamConfigArgs, InstanceStorageConfigKinesisStreamConfigPtr and InstanceStorageConfigKinesisStreamConfigPtrOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisStreamConfigPtrInput` via:
+//
+//	        InstanceStorageConfigKinesisStreamConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceStorageConfigKinesisStreamConfigPtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisStreamConfigPtrOutput() InstanceStorageConfigKinesisStreamConfigPtrOutput
+	ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(context.Context) InstanceStorageConfigKinesisStreamConfigPtrOutput
+}
+
+type instanceStorageConfigKinesisStreamConfigPtrType InstanceStorageConfigKinesisStreamConfigArgs
+
+func InstanceStorageConfigKinesisStreamConfigPtr(v *InstanceStorageConfigKinesisStreamConfigArgs) InstanceStorageConfigKinesisStreamConfigPtrInput {
+	return (*instanceStorageConfigKinesisStreamConfigPtrType)(v)
+}
+
+func (*instanceStorageConfigKinesisStreamConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (i *instanceStorageConfigKinesisStreamConfigPtrType) ToInstanceStorageConfigKinesisStreamConfigPtrOutput() InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceStorageConfigKinesisStreamConfigPtrType) ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
+}
+
+type InstanceStorageConfigKinesisStreamConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisStreamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigOutput) ToInstanceStorageConfigKinesisStreamConfigOutput() InstanceStorageConfigKinesisStreamConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigOutput) ToInstanceStorageConfigKinesisStreamConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigOutput) ToInstanceStorageConfigKinesisStreamConfigPtrOutput() InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return o.ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigOutput) ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigKinesisStreamConfig) *InstanceStorageConfigKinesisStreamConfig {
+		return &v
+	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type InstanceStorageConfigKinesisStreamConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisStreamConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisStreamConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) ToInstanceStorageConfigKinesisStreamConfigPtrOutput() InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) ToInstanceStorageConfigKinesisStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisStreamConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) Elem() InstanceStorageConfigKinesisStreamConfigOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisStreamConfig) InstanceStorageConfigKinesisStreamConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigKinesisStreamConfig
+		return ret
+	}).(InstanceStorageConfigKinesisStreamConfigOutput)
+}
+
+func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisStreamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigKinesisVideoStreamConfig struct {
+	EncryptionConfig     *InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
+	Prefix               string                                 `pulumi:"prefix"`
+	RetentionPeriodHours float64                                `pulumi:"retentionPeriodHours"`
+}
+
+// InstanceStorageConfigKinesisVideoStreamConfigInput is an input type that accepts InstanceStorageConfigKinesisVideoStreamConfigArgs and InstanceStorageConfigKinesisVideoStreamConfigOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisVideoStreamConfigInput` via:
+//
+//	InstanceStorageConfigKinesisVideoStreamConfigArgs{...}
+type InstanceStorageConfigKinesisVideoStreamConfigInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisVideoStreamConfigOutput() InstanceStorageConfigKinesisVideoStreamConfigOutput
+	ToInstanceStorageConfigKinesisVideoStreamConfigOutputWithContext(context.Context) InstanceStorageConfigKinesisVideoStreamConfigOutput
+}
+
+type InstanceStorageConfigKinesisVideoStreamConfigArgs struct {
+	EncryptionConfig     InstanceStorageConfigEncryptionConfigPtrInput `pulumi:"encryptionConfig"`
+	Prefix               pulumi.StringInput                            `pulumi:"prefix"`
+	RetentionPeriodHours pulumi.Float64Input                           `pulumi:"retentionPeriodHours"`
+}
+
+func (InstanceStorageConfigKinesisVideoStreamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfig)(nil)).Elem()
+}
+
+func (i InstanceStorageConfigKinesisVideoStreamConfigArgs) ToInstanceStorageConfigKinesisVideoStreamConfigOutput() InstanceStorageConfigKinesisVideoStreamConfigOutput {
+	return i.ToInstanceStorageConfigKinesisVideoStreamConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisVideoStreamConfigArgs) ToInstanceStorageConfigKinesisVideoStreamConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisVideoStreamConfigOutput)
+}
+
+func (i InstanceStorageConfigKinesisVideoStreamConfigArgs) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutput() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigKinesisVideoStreamConfigArgs) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisVideoStreamConfigOutput).ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(ctx)
+}
+
+// InstanceStorageConfigKinesisVideoStreamConfigPtrInput is an input type that accepts InstanceStorageConfigKinesisVideoStreamConfigArgs, InstanceStorageConfigKinesisVideoStreamConfigPtr and InstanceStorageConfigKinesisVideoStreamConfigPtrOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigKinesisVideoStreamConfigPtrInput` via:
+//
+//	        InstanceStorageConfigKinesisVideoStreamConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceStorageConfigKinesisVideoStreamConfigPtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutput() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput
+	ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(context.Context) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput
+}
+
+type instanceStorageConfigKinesisVideoStreamConfigPtrType InstanceStorageConfigKinesisVideoStreamConfigArgs
+
+func InstanceStorageConfigKinesisVideoStreamConfigPtr(v *InstanceStorageConfigKinesisVideoStreamConfigArgs) InstanceStorageConfigKinesisVideoStreamConfigPtrInput {
+	return (*instanceStorageConfigKinesisVideoStreamConfigPtrType)(v)
+}
+
+func (*instanceStorageConfigKinesisVideoStreamConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisVideoStreamConfig)(nil)).Elem()
+}
+
+func (i *instanceStorageConfigKinesisVideoStreamConfigPtrType) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutput() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return i.ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceStorageConfigKinesisVideoStreamConfigPtrType) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
+}
+
+type InstanceStorageConfigKinesisVideoStreamConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisVideoStreamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToInstanceStorageConfigKinesisVideoStreamConfigOutput() InstanceStorageConfigKinesisVideoStreamConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToInstanceStorageConfigKinesisVideoStreamConfigOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutput() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return o.ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigKinesisVideoStreamConfig) *InstanceStorageConfigKinesisVideoStreamConfig {
+		return &v
+	}).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) *InstanceStorageConfigEncryptionConfig {
+		return v.EncryptionConfig
+	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) RetentionPeriodHours() pulumi.Float64Output {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) float64 { return v.RetentionPeriodHours }).(pulumi.Float64Output)
+}
+
+type InstanceStorageConfigKinesisVideoStreamConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigKinesisVideoStreamConfig)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutput() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) ToInstanceStorageConfigKinesisVideoStreamConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) Elem() InstanceStorageConfigKinesisVideoStreamConfigOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) InstanceStorageConfigKinesisVideoStreamConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigKinesisVideoStreamConfig
+		return ret
+	}).(InstanceStorageConfigKinesisVideoStreamConfigOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *InstanceStorageConfigEncryptionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfig
+	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) RetentionPeriodHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodHours
+	}).(pulumi.Float64PtrOutput)
+}
+
+type InstanceStorageConfigS3Config struct {
+	BucketName       string                                 `pulumi:"bucketName"`
+	BucketPrefix     string                                 `pulumi:"bucketPrefix"`
+	EncryptionConfig *InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
+}
+
+// InstanceStorageConfigS3ConfigInput is an input type that accepts InstanceStorageConfigS3ConfigArgs and InstanceStorageConfigS3ConfigOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigS3ConfigInput` via:
+//
+//	InstanceStorageConfigS3ConfigArgs{...}
+type InstanceStorageConfigS3ConfigInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigS3ConfigOutput() InstanceStorageConfigS3ConfigOutput
+	ToInstanceStorageConfigS3ConfigOutputWithContext(context.Context) InstanceStorageConfigS3ConfigOutput
+}
+
+type InstanceStorageConfigS3ConfigArgs struct {
+	BucketName       pulumi.StringInput                            `pulumi:"bucketName"`
+	BucketPrefix     pulumi.StringInput                            `pulumi:"bucketPrefix"`
+	EncryptionConfig InstanceStorageConfigEncryptionConfigPtrInput `pulumi:"encryptionConfig"`
+}
+
+func (InstanceStorageConfigS3ConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigS3Config)(nil)).Elem()
+}
+
+func (i InstanceStorageConfigS3ConfigArgs) ToInstanceStorageConfigS3ConfigOutput() InstanceStorageConfigS3ConfigOutput {
+	return i.ToInstanceStorageConfigS3ConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigS3ConfigArgs) ToInstanceStorageConfigS3ConfigOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigS3ConfigOutput)
+}
+
+func (i InstanceStorageConfigS3ConfigArgs) ToInstanceStorageConfigS3ConfigPtrOutput() InstanceStorageConfigS3ConfigPtrOutput {
+	return i.ToInstanceStorageConfigS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceStorageConfigS3ConfigArgs) ToInstanceStorageConfigS3ConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigS3ConfigOutput).ToInstanceStorageConfigS3ConfigPtrOutputWithContext(ctx)
+}
+
+// InstanceStorageConfigS3ConfigPtrInput is an input type that accepts InstanceStorageConfigS3ConfigArgs, InstanceStorageConfigS3ConfigPtr and InstanceStorageConfigS3ConfigPtrOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigS3ConfigPtrInput` via:
+//
+//	        InstanceStorageConfigS3ConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceStorageConfigS3ConfigPtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigS3ConfigPtrOutput() InstanceStorageConfigS3ConfigPtrOutput
+	ToInstanceStorageConfigS3ConfigPtrOutputWithContext(context.Context) InstanceStorageConfigS3ConfigPtrOutput
+}
+
+type instanceStorageConfigS3ConfigPtrType InstanceStorageConfigS3ConfigArgs
+
+func InstanceStorageConfigS3ConfigPtr(v *InstanceStorageConfigS3ConfigArgs) InstanceStorageConfigS3ConfigPtrInput {
+	return (*instanceStorageConfigS3ConfigPtrType)(v)
+}
+
+func (*instanceStorageConfigS3ConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigS3Config)(nil)).Elem()
+}
+
+func (i *instanceStorageConfigS3ConfigPtrType) ToInstanceStorageConfigS3ConfigPtrOutput() InstanceStorageConfigS3ConfigPtrOutput {
+	return i.ToInstanceStorageConfigS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceStorageConfigS3ConfigPtrType) ToInstanceStorageConfigS3ConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigS3ConfigPtrOutput)
+}
+
+type InstanceStorageConfigS3ConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigS3ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigS3Config)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) ToInstanceStorageConfigS3ConfigOutput() InstanceStorageConfigS3ConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) ToInstanceStorageConfigS3ConfigOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigOutput {
+	return o
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) ToInstanceStorageConfigS3ConfigPtrOutput() InstanceStorageConfigS3ConfigPtrOutput {
+	return o.ToInstanceStorageConfigS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) ToInstanceStorageConfigS3ConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigS3Config) *InstanceStorageConfigS3Config {
+		return &v
+	}).(InstanceStorageConfigS3ConfigPtrOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigS3Config) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) BucketPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceStorageConfigS3Config) string { return v.BucketPrefix }).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
+		return v.EncryptionConfig
+	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+type InstanceStorageConfigS3ConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigS3ConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigS3Config)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) ToInstanceStorageConfigS3ConfigPtrOutput() InstanceStorageConfigS3ConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) ToInstanceStorageConfigS3ConfigPtrOutputWithContext(ctx context.Context) InstanceStorageConfigS3ConfigPtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) Elem() InstanceStorageConfigS3ConfigOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigS3Config) InstanceStorageConfigS3Config {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigS3Config
+		return ret
+	}).(InstanceStorageConfigS3ConfigOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceStorageConfigS3ConfigPtrOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfig
+	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type PhoneNumberTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2740,6 +3486,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagArrayInput)(nil)).Elem(), HoursOfOperationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAttributesInput)(nil)).Elem(), InstanceAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionConfigInput)(nil)).Elem(), InstanceStorageConfigEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionConfigPtrInput)(nil)).Elem(), InstanceStorageConfigEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisFirehoseConfigInput)(nil)).Elem(), InstanceStorageConfigKinesisFirehoseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisFirehoseConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisFirehoseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisStreamConfigInput)(nil)).Elem(), InstanceStorageConfigKinesisStreamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisStreamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagInput)(nil)).Elem(), PhoneNumberTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
@@ -2782,6 +3538,16 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisFirehoseConfigOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisFirehoseConfigPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisStreamConfigPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisVideoStreamConfigOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})

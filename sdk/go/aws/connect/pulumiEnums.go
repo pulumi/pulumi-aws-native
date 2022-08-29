@@ -1031,6 +1031,506 @@ func (o InstanceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies default encryption using AWS KMS-Managed Keys
+type InstanceStorageConfigEncryptionType string
+
+const (
+	InstanceStorageConfigEncryptionTypeKms = InstanceStorageConfigEncryptionType("KMS")
+)
+
+func (InstanceStorageConfigEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigEncryptionType)(nil)).Elem()
+}
+
+func (e InstanceStorageConfigEncryptionType) ToInstanceStorageConfigEncryptionTypeOutput() InstanceStorageConfigEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(InstanceStorageConfigEncryptionTypeOutput)
+}
+
+func (e InstanceStorageConfigEncryptionType) ToInstanceStorageConfigEncryptionTypeOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceStorageConfigEncryptionTypeOutput)
+}
+
+func (e InstanceStorageConfigEncryptionType) ToInstanceStorageConfigEncryptionTypePtrOutput() InstanceStorageConfigEncryptionTypePtrOutput {
+	return e.ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigEncryptionType) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
+	return InstanceStorageConfigEncryptionType(e).ToInstanceStorageConfigEncryptionTypeOutputWithContext(ctx).ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e InstanceStorageConfigEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceStorageConfigEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigEncryptionType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryptionTypeOutput() InstanceStorageConfigEncryptionTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryptionTypeOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryptionTypePtrOutput() InstanceStorageConfigEncryptionTypePtrOutput {
+	return o.ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigEncryptionType) *InstanceStorageConfigEncryptionType {
+		return &v
+	}).(InstanceStorageConfigEncryptionTypePtrOutput)
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigEncryptionType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) ToInstanceStorageConfigEncryptionTypePtrOutput() InstanceStorageConfigEncryptionTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) Elem() InstanceStorageConfigEncryptionTypeOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigEncryptionType) InstanceStorageConfigEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigEncryptionType
+		return ret
+	}).(InstanceStorageConfigEncryptionTypeOutput)
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceStorageConfigEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceStorageConfigEncryptionTypeInput is an input type that accepts InstanceStorageConfigEncryptionTypeArgs and InstanceStorageConfigEncryptionTypeOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigEncryptionTypeInput` via:
+//
+//	InstanceStorageConfigEncryptionTypeArgs{...}
+type InstanceStorageConfigEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigEncryptionTypeOutput() InstanceStorageConfigEncryptionTypeOutput
+	ToInstanceStorageConfigEncryptionTypeOutputWithContext(context.Context) InstanceStorageConfigEncryptionTypeOutput
+}
+
+var instanceStorageConfigEncryptionTypePtrType = reflect.TypeOf((**InstanceStorageConfigEncryptionType)(nil)).Elem()
+
+type InstanceStorageConfigEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigEncryptionTypePtrOutput() InstanceStorageConfigEncryptionTypePtrOutput
+	ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(context.Context) InstanceStorageConfigEncryptionTypePtrOutput
+}
+
+type instanceStorageConfigEncryptionTypePtr string
+
+func InstanceStorageConfigEncryptionTypePtr(v string) InstanceStorageConfigEncryptionTypePtrInput {
+	return (*instanceStorageConfigEncryptionTypePtr)(&v)
+}
+
+func (*instanceStorageConfigEncryptionTypePtr) ElementType() reflect.Type {
+	return instanceStorageConfigEncryptionTypePtrType
+}
+
+func (in *instanceStorageConfigEncryptionTypePtr) ToInstanceStorageConfigEncryptionTypePtrOutput() InstanceStorageConfigEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceStorageConfigEncryptionTypePtrOutput)
+}
+
+func (in *instanceStorageConfigEncryptionTypePtr) ToInstanceStorageConfigEncryptionTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigEncryptionTypePtrOutput)
+}
+
+// Specifies the type of storage resource available for the instance
+type InstanceStorageConfigInstanceStorageResourceType string
+
+const (
+	InstanceStorageConfigInstanceStorageResourceTypeChatTranscripts     = InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS")
+	InstanceStorageConfigInstanceStorageResourceTypeCallRecordings      = InstanceStorageConfigInstanceStorageResourceType("CALL_RECORDINGS")
+	InstanceStorageConfigInstanceStorageResourceTypeScheduledReports    = InstanceStorageConfigInstanceStorageResourceType("SCHEDULED_REPORTS")
+	InstanceStorageConfigInstanceStorageResourceTypeMediaStreams        = InstanceStorageConfigInstanceStorageResourceType("MEDIA_STREAMS")
+	InstanceStorageConfigInstanceStorageResourceTypeContactTraceRecords = InstanceStorageConfigInstanceStorageResourceType("CONTACT_TRACE_RECORDS")
+	InstanceStorageConfigInstanceStorageResourceTypeAgentEvents         = InstanceStorageConfigInstanceStorageResourceType("AGENT_EVENTS")
+)
+
+func (InstanceStorageConfigInstanceStorageResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigInstanceStorageResourceType)(nil)).Elem()
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToInstanceStorageConfigInstanceStorageResourceTypeOutput() InstanceStorageConfigInstanceStorageResourceTypeOutput {
+	return pulumi.ToOutput(e).(InstanceStorageConfigInstanceStorageResourceTypeOutput)
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToInstanceStorageConfigInstanceStorageResourceTypeOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceStorageConfigInstanceStorageResourceTypeOutput)
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutput() InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return e.ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return InstanceStorageConfigInstanceStorageResourceType(e).ToInstanceStorageConfigInstanceStorageResourceTypeOutputWithContext(ctx).ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigInstanceStorageResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceStorageConfigInstanceStorageResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigInstanceStorageResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigInstanceStorageResourceType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorageConfigInstanceStorageResourceTypeOutput() InstanceStorageConfigInstanceStorageResourceTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorageConfigInstanceStorageResourceTypeOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutput() InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return o.ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigInstanceStorageResourceType) *InstanceStorageConfigInstanceStorageResourceType {
+		return &v
+	}).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigInstanceStorageResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigInstanceStorageResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigInstanceStorageResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigInstanceStorageResourceType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutput() InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) Elem() InstanceStorageConfigInstanceStorageResourceTypeOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigInstanceStorageResourceType) InstanceStorageConfigInstanceStorageResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigInstanceStorageResourceType
+		return ret
+	}).(InstanceStorageConfigInstanceStorageResourceTypeOutput)
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceStorageConfigInstanceStorageResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceStorageConfigInstanceStorageResourceTypeInput is an input type that accepts InstanceStorageConfigInstanceStorageResourceTypeArgs and InstanceStorageConfigInstanceStorageResourceTypeOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigInstanceStorageResourceTypeInput` via:
+//
+//	InstanceStorageConfigInstanceStorageResourceTypeArgs{...}
+type InstanceStorageConfigInstanceStorageResourceTypeInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigInstanceStorageResourceTypeOutput() InstanceStorageConfigInstanceStorageResourceTypeOutput
+	ToInstanceStorageConfigInstanceStorageResourceTypeOutputWithContext(context.Context) InstanceStorageConfigInstanceStorageResourceTypeOutput
+}
+
+var instanceStorageConfigInstanceStorageResourceTypePtrType = reflect.TypeOf((**InstanceStorageConfigInstanceStorageResourceType)(nil)).Elem()
+
+type InstanceStorageConfigInstanceStorageResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigInstanceStorageResourceTypePtrOutput() InstanceStorageConfigInstanceStorageResourceTypePtrOutput
+	ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput
+}
+
+type instanceStorageConfigInstanceStorageResourceTypePtr string
+
+func InstanceStorageConfigInstanceStorageResourceTypePtr(v string) InstanceStorageConfigInstanceStorageResourceTypePtrInput {
+	return (*instanceStorageConfigInstanceStorageResourceTypePtr)(&v)
+}
+
+func (*instanceStorageConfigInstanceStorageResourceTypePtr) ElementType() reflect.Type {
+	return instanceStorageConfigInstanceStorageResourceTypePtrType
+}
+
+func (in *instanceStorageConfigInstanceStorageResourceTypePtr) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutput() InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
+}
+
+func (in *instanceStorageConfigInstanceStorageResourceTypePtr) ToInstanceStorageConfigInstanceStorageResourceTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigInstanceStorageResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
+}
+
+// Specifies the storage type to be associated with the instance
+type InstanceStorageConfigStorageType string
+
+const (
+	InstanceStorageConfigStorageTypeS3                 = InstanceStorageConfigStorageType("S3")
+	InstanceStorageConfigStorageTypeKinesisVideoStream = InstanceStorageConfigStorageType("KINESIS_VIDEO_STREAM")
+	InstanceStorageConfigStorageTypeKinesisStream      = InstanceStorageConfigStorageType("KINESIS_STREAM")
+	InstanceStorageConfigStorageTypeKinesisFirehose    = InstanceStorageConfigStorageType("KINESIS_FIREHOSE")
+)
+
+func (InstanceStorageConfigStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigStorageType)(nil)).Elem()
+}
+
+func (e InstanceStorageConfigStorageType) ToInstanceStorageConfigStorageTypeOutput() InstanceStorageConfigStorageTypeOutput {
+	return pulumi.ToOutput(e).(InstanceStorageConfigStorageTypeOutput)
+}
+
+func (e InstanceStorageConfigStorageType) ToInstanceStorageConfigStorageTypeOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceStorageConfigStorageTypeOutput)
+}
+
+func (e InstanceStorageConfigStorageType) ToInstanceStorageConfigStorageTypePtrOutput() InstanceStorageConfigStorageTypePtrOutput {
+	return e.ToInstanceStorageConfigStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigStorageType) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
+	return InstanceStorageConfigStorageType(e).ToInstanceStorageConfigStorageTypeOutputWithContext(ctx).ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e InstanceStorageConfigStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceStorageConfigStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceStorageConfigStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceStorageConfigStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStorageConfigStorageType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTypeOutput() InstanceStorageConfigStorageTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTypeOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypeOutput {
+	return o
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTypePtrOutput() InstanceStorageConfigStorageTypePtrOutput {
+	return o.ToInstanceStorageConfigStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceStorageConfigStorageType) *InstanceStorageConfigStorageType {
+		return &v
+	}).(InstanceStorageConfigStorageTypePtrOutput)
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceStorageConfigStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceStorageConfigStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStorageConfigStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStorageConfigStorageType)(nil)).Elem()
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) ToInstanceStorageConfigStorageTypePtrOutput() InstanceStorageConfigStorageTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
+	return o
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) Elem() InstanceStorageConfigStorageTypeOutput {
+	return o.ApplyT(func(v *InstanceStorageConfigStorageType) InstanceStorageConfigStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStorageConfigStorageType
+		return ret
+	}).(InstanceStorageConfigStorageTypeOutput)
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceStorageConfigStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceStorageConfigStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceStorageConfigStorageTypeInput is an input type that accepts InstanceStorageConfigStorageTypeArgs and InstanceStorageConfigStorageTypeOutput values.
+// You can construct a concrete instance of `InstanceStorageConfigStorageTypeInput` via:
+//
+//	InstanceStorageConfigStorageTypeArgs{...}
+type InstanceStorageConfigStorageTypeInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigStorageTypeOutput() InstanceStorageConfigStorageTypeOutput
+	ToInstanceStorageConfigStorageTypeOutputWithContext(context.Context) InstanceStorageConfigStorageTypeOutput
+}
+
+var instanceStorageConfigStorageTypePtrType = reflect.TypeOf((**InstanceStorageConfigStorageType)(nil)).Elem()
+
+type InstanceStorageConfigStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceStorageConfigStorageTypePtrOutput() InstanceStorageConfigStorageTypePtrOutput
+	ToInstanceStorageConfigStorageTypePtrOutputWithContext(context.Context) InstanceStorageConfigStorageTypePtrOutput
+}
+
+type instanceStorageConfigStorageTypePtr string
+
+func InstanceStorageConfigStorageTypePtr(v string) InstanceStorageConfigStorageTypePtrInput {
+	return (*instanceStorageConfigStorageTypePtr)(&v)
+}
+
+func (*instanceStorageConfigStorageTypePtr) ElementType() reflect.Type {
+	return instanceStorageConfigStorageTypePtrType
+}
+
+func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTypePtrOutput() InstanceStorageConfigStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceStorageConfigStorageTypePtrOutput)
+}
+
+func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTypePtrOutputWithContext(ctx context.Context) InstanceStorageConfigStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigStorageTypePtrOutput)
+}
+
 // The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 type QuickConnectType string
 
@@ -1713,6 +2213,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypeInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypePtrInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionTypeInput)(nil)).Elem(), InstanceStorageConfigEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionTypePtrInput)(nil)).Elem(), InstanceStorageConfigEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigInstanceStorageResourceTypeInput)(nil)).Elem(), InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigInstanceStorageResourceTypePtrInput)(nil)).Elem(), InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypeInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
@@ -1735,6 +2241,12 @@ func init() {
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceStatusOutput{})
 	pulumi.RegisterOutputType(InstanceStatusPtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigInstanceStorageResourceTypeOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigInstanceStorageResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypeOutput{})
+	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})

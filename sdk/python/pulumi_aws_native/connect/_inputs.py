@@ -18,6 +18,11 @@ __all__ = [
     'HoursOfOperationTagArgs',
     'HoursOfOperationTimeSliceArgs',
     'InstanceAttributesArgs',
+    'InstanceStorageConfigEncryptionConfigArgs',
+    'InstanceStorageConfigKinesisFirehoseConfigArgs',
+    'InstanceStorageConfigKinesisStreamConfigArgs',
+    'InstanceStorageConfigKinesisVideoStreamConfigArgs',
+    'InstanceStorageConfigS3ConfigArgs',
     'PhoneNumberTagArgs',
     'QuickConnectConfigArgs',
     'QuickConnectPhoneNumberQuickConnectConfigArgs',
@@ -370,6 +375,143 @@ class InstanceAttributesArgs:
     @use_custom_tts_voices.setter
     def use_custom_tts_voices(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_custom_tts_voices", value)
+
+
+@pulumi.input_type
+class InstanceStorageConfigEncryptionConfigArgs:
+    def __init__(__self__, *,
+                 encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType'],
+                 key_id: pulumi.Input[str]):
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input['InstanceStorageConfigEncryptionType']:
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input['InstanceStorageConfigEncryptionType']):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+
+@pulumi.input_type
+class InstanceStorageConfigKinesisFirehoseConfigArgs:
+    def __init__(__self__, *,
+                 firehose_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
+
+    @property
+    @pulumi.getter(name="firehoseArn")
+    def firehose_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "firehose_arn")
+
+    @firehose_arn.setter
+    def firehose_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "firehose_arn", value)
+
+
+@pulumi.input_type
+class InstanceStorageConfigKinesisStreamConfigArgs:
+    def __init__(__self__, *,
+                 stream_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
+class InstanceStorageConfigKinesisVideoStreamConfigArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[str],
+                 retention_period_hours: pulumi.Input[float],
+                 encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None):
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodHours")
+    def retention_period_hours(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "retention_period_hours")
+
+    @retention_period_hours.setter
+    def retention_period_hours(self, value: pulumi.Input[float]):
+        pulumi.set(self, "retention_period_hours", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]:
+        return pulumi.get(self, "encryption_config")
+
+    @encryption_config.setter
+    def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]):
+        pulumi.set(self, "encryption_config", value)
+
+
+@pulumi.input_type
+class InstanceStorageConfigS3ConfigArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 bucket_prefix: pulumi.Input[str],
+                 encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_prefix")
+
+    @bucket_prefix.setter
+    def bucket_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_prefix", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]:
+        return pulumi.get(self, "encryption_config")
+
+    @encryption_config.setter
+    def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]):
+        pulumi.set(self, "encryption_config", value)
 
 
 @pulumi.input_type

@@ -7299,6 +7299,31 @@ export namespace connect {
         useCustomTTSVoices?: pulumi.Input<boolean>;
     }
 
+    export interface InstanceStorageConfigEncryptionConfigArgs {
+        encryptionType: pulumi.Input<enums.connect.InstanceStorageConfigEncryptionType>;
+        keyId: pulumi.Input<string>;
+    }
+
+    export interface InstanceStorageConfigKinesisFirehoseConfigArgs {
+        firehoseArn: pulumi.Input<string>;
+    }
+
+    export interface InstanceStorageConfigKinesisStreamConfigArgs {
+        streamArn: pulumi.Input<string>;
+    }
+
+    export interface InstanceStorageConfigKinesisVideoStreamConfigArgs {
+        encryptionConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs>;
+        prefix: pulumi.Input<string>;
+        retentionPeriodHours: pulumi.Input<number>;
+    }
+
+    export interface InstanceStorageConfigS3ConfigArgs {
+        bucketName: pulumi.Input<string>;
+        bucketPrefix: pulumi.Input<string>;
+        encryptionConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */

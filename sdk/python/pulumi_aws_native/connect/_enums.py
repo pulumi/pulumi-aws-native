@@ -12,6 +12,9 @@ __all__ = [
     'HoursOfOperationConfigDay',
     'InstanceIdentityManagementType',
     'InstanceStatus',
+    'InstanceStorageConfigEncryptionType',
+    'InstanceStorageConfigInstanceStorageResourceType',
+    'InstanceStorageConfigStorageType',
     'QuickConnectType',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
@@ -87,6 +90,35 @@ class InstanceStatus(str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_FAILED = "CREATION_FAILED"
     ACTIVE = "ACTIVE"
+
+
+class InstanceStorageConfigEncryptionType(str, Enum):
+    """
+    Specifies default encryption using AWS KMS-Managed Keys
+    """
+    KMS = "KMS"
+
+
+class InstanceStorageConfigInstanceStorageResourceType(str, Enum):
+    """
+    Specifies the type of storage resource available for the instance
+    """
+    CHAT_TRANSCRIPTS = "CHAT_TRANSCRIPTS"
+    CALL_RECORDINGS = "CALL_RECORDINGS"
+    SCHEDULED_REPORTS = "SCHEDULED_REPORTS"
+    MEDIA_STREAMS = "MEDIA_STREAMS"
+    CONTACT_TRACE_RECORDS = "CONTACT_TRACE_RECORDS"
+    AGENT_EVENTS = "AGENT_EVENTS"
+
+
+class InstanceStorageConfigStorageType(str, Enum):
+    """
+    Specifies the storage type to be associated with the instance
+    """
+    S3 = "S3"
+    KINESIS_VIDEO_STREAM = "KINESIS_VIDEO_STREAM"
+    KINESIS_STREAM = "KINESIS_STREAM"
+    KINESIS_FIREHOSE = "KINESIS_FIREHOSE"
 
 
 class QuickConnectType(str, Enum):

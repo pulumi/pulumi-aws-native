@@ -106,6 +106,7 @@ AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
+AWS::Connect::InstanceStorageConfig
 AWS::Connect::PhoneNumber
 AWS::Connect::QuickConnect
 AWS::Connect::TaskTemplate
@@ -148,6 +149,7 @@ AWS::DynamoDB::Table
 AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
+AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
 AWS::EC2::EgressOnlyInternetGateway

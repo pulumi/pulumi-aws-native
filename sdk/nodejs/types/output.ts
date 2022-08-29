@@ -7397,6 +7397,31 @@ export namespace connect {
         useCustomTTSVoices?: boolean;
     }
 
+    export interface InstanceStorageConfigEncryptionConfig {
+        encryptionType: enums.connect.InstanceStorageConfigEncryptionType;
+        keyId: string;
+    }
+
+    export interface InstanceStorageConfigKinesisFirehoseConfig {
+        firehoseArn: string;
+    }
+
+    export interface InstanceStorageConfigKinesisStreamConfig {
+        streamArn: string;
+    }
+
+    export interface InstanceStorageConfigKinesisVideoStreamConfig {
+        encryptionConfig?: outputs.connect.InstanceStorageConfigEncryptionConfig;
+        prefix: string;
+        retentionPeriodHours: number;
+    }
+
+    export interface InstanceStorageConfigS3Config {
+        bucketName: string;
+        bucketPrefix: string;
+        encryptionConfig?: outputs.connect.InstanceStorageConfigEncryptionConfig;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */

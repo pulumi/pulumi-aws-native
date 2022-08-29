@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetCustomerGatewayArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+        /// </summary>
+        [Input("customerGatewayId", required: true)]
+        public string CustomerGatewayId { get; set; } = null!;
 
         public GetCustomerGatewayArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetCustomerGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+        /// </summary>
+        [Input("customerGatewayId", required: true)]
+        public Input<string> CustomerGatewayId { get; set; } = null!;
 
         public GetCustomerGatewayInvokeArgs()
         {
@@ -51,16 +57,22 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetCustomerGatewayResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+        /// </summary>
+        public readonly string? CustomerGatewayId;
+        /// <summary>
+        /// One or more tags for the customer gateway.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CustomerGatewayTag> Tags;
 
         [OutputConstructor]
         private GetCustomerGatewayResult(
-            string? id,
+            string? customerGatewayId,
 
             ImmutableArray<Outputs.CustomerGatewayTag> tags)
         {
-            Id = id;
+            CustomerGatewayId = customerGatewayId;
             Tags = tags;
         }
     }

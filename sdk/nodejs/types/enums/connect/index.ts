@@ -86,6 +86,41 @@ export const InstanceStatus = {
  */
 export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
 
+export const InstanceStorageConfigEncryptionType = {
+    Kms: "KMS",
+} as const;
+
+/**
+ * Specifies default encryption using AWS KMS-Managed Keys
+ */
+export type InstanceStorageConfigEncryptionType = (typeof InstanceStorageConfigEncryptionType)[keyof typeof InstanceStorageConfigEncryptionType];
+
+export const InstanceStorageConfigInstanceStorageResourceType = {
+    ChatTranscripts: "CHAT_TRANSCRIPTS",
+    CallRecordings: "CALL_RECORDINGS",
+    ScheduledReports: "SCHEDULED_REPORTS",
+    MediaStreams: "MEDIA_STREAMS",
+    ContactTraceRecords: "CONTACT_TRACE_RECORDS",
+    AgentEvents: "AGENT_EVENTS",
+} as const;
+
+/**
+ * Specifies the type of storage resource available for the instance
+ */
+export type InstanceStorageConfigInstanceStorageResourceType = (typeof InstanceStorageConfigInstanceStorageResourceType)[keyof typeof InstanceStorageConfigInstanceStorageResourceType];
+
+export const InstanceStorageConfigStorageType = {
+    S3: "S3",
+    KinesisVideoStream: "KINESIS_VIDEO_STREAM",
+    KinesisStream: "KINESIS_STREAM",
+    KinesisFirehose: "KINESIS_FIREHOSE",
+} as const;
+
+/**
+ * Specifies the storage type to be associated with the instance
+ */
+export type InstanceStorageConfigStorageType = (typeof InstanceStorageConfigStorageType)[keyof typeof InstanceStorageConfigStorageType];
+
 export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",
