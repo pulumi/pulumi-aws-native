@@ -7602,6 +7602,69 @@
                 "instanceAlias"
             ]
         },
+        "aws-native:connect:InstanceStorageConfig": {
+            "cf": "AWS::Connect::InstanceStorageConfig",
+            "inputs": {
+                "instanceArn": {
+                    "type": "string",
+                    "description": "Connect Instance ID with which the storage config will be associated"
+                },
+                "kinesisFirehoseConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisFirehoseConfig"
+                },
+                "kinesisStreamConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisStreamConfig"
+                },
+                "kinesisVideoStreamConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisVideoStreamConfig"
+                },
+                "resourceType": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigInstanceStorageResourceType"
+                },
+                "s3Config": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigS3Config"
+                },
+                "storageType": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigStorageType"
+                }
+            },
+            "outputs": {
+                "associationId": {
+                    "type": "string"
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "Connect Instance ID with which the storage config will be associated"
+                },
+                "kinesisFirehoseConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisFirehoseConfig"
+                },
+                "kinesisStreamConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisStreamConfig"
+                },
+                "kinesisVideoStreamConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisVideoStreamConfig"
+                },
+                "resourceType": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigInstanceStorageResourceType"
+                },
+                "s3Config": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigS3Config"
+                },
+                "storageType": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigStorageType"
+                }
+            },
+            "required": [
+                "instanceArn",
+                "resourceType",
+                "storageType"
+            ],
+            "createOnly": [
+                "instanceArn",
+                "resourceType"
+            ]
+        },
         "aws-native:connect:PhoneNumber": {
             "cf": "AWS::Connect::PhoneNumber",
             "inputs": {
@@ -11016,6 +11079,65 @@
             ],
             "createOnly": [
                 "vpcId"
+            ]
+        },
+        "aws-native:ec2:CustomerGateway": {
+            "cf": "AWS::EC2::CustomerGateway",
+            "inputs": {
+                "bgpAsn": {
+                    "type": "integer",
+                    "description": "For devices that support BGP, the customer gateway's BGP ASN."
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The internet-routable IP address for the customer gateway's outside interface. The address must be static."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CustomerGatewayTag"
+                    },
+                    "description": "One or more tags for the customer gateway."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection that this customer gateway supports."
+                }
+            },
+            "outputs": {
+                "bgpAsn": {
+                    "type": "integer",
+                    "description": "For devices that support BGP, the customer gateway's BGP ASN."
+                },
+                "customerGatewayId": {
+                    "type": "string",
+                    "description": "CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID."
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The internet-routable IP address for the customer gateway's outside interface. The address must be static."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CustomerGatewayTag"
+                    },
+                    "description": "One or more tags for the customer gateway."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection that this customer gateway supports."
+                }
+            },
+            "required": [
+                "bgpAsn",
+                "ipAddress",
+                "type"
+            ],
+            "createOnly": [
+                "bgpAsn",
+                "ipAddress",
+                "type"
             ]
         },
         "aws-native:ec2:DHCPOptions": {
@@ -51021,6 +51143,70 @@
         "aws-native:connect:InstanceStatus": {
             "type": "string"
         },
+        "aws-native:connect:InstanceStorageConfigEncryptionConfig": {
+            "type": "object",
+            "properties": {
+                "encryptionType": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigEncryptionType"
+                },
+                "keyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:connect:InstanceStorageConfigEncryptionType": {
+            "type": "string"
+        },
+        "aws-native:connect:InstanceStorageConfigInstanceStorageResourceType": {
+            "type": "string"
+        },
+        "aws-native:connect:InstanceStorageConfigKinesisFirehoseConfig": {
+            "type": "object",
+            "properties": {
+                "firehoseArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:connect:InstanceStorageConfigKinesisStreamConfig": {
+            "type": "object",
+            "properties": {
+                "streamArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:connect:InstanceStorageConfigKinesisVideoStreamConfig": {
+            "type": "object",
+            "properties": {
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigEncryptionConfig"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "retentionPeriodHours": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:connect:InstanceStorageConfigS3Config": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "bucketPrefix": {
+                    "type": "string"
+                },
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:connect:InstanceStorageConfigEncryptionConfig"
+                }
+            }
+        },
+        "aws-native:connect:InstanceStorageConfigStorageType": {
+            "type": "string"
+        },
         "aws-native:connect:PhoneNumberTag": {
             "type": "object",
             "properties": {
@@ -53962,6 +54148,17 @@
             }
         },
         "aws-native:ec2:CarrierGatewayTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:CustomerGatewayTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -85564,6 +85761,14 @@
                 "arn"
             ]
         },
+        "aws-native:connect:getInstanceStorageConfig": {
+            "cf": "AWS::Connect::InstanceStorageConfig",
+            "ids": [
+                "instanceArn",
+                "associationId",
+                "resourceType"
+            ]
+        },
         "aws-native:connect:getPhoneNumber": {
             "cf": "AWS::Connect::PhoneNumber",
             "ids": [
@@ -85817,6 +86022,12 @@
             "cf": "AWS::EC2::CarrierGateway",
             "ids": [
                 "carrierGatewayId"
+            ]
+        },
+        "aws-native:ec2:getCustomerGateway": {
+            "cf": "AWS::EC2::CustomerGateway",
+            "ids": [
+                "customerGatewayId"
             ]
         },
         "aws-native:ec2:getDHCPOptions": {
