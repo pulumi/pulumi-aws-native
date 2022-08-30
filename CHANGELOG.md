@@ -1,5 +1,20 @@
 ## HEAD (Unreleased)
 
+## 0.23.0 (August 30, 2022)
+
+* Update to include the latest resource definitions
+
+#### New resources:
+
+- `aws-native:connect:InstanceStorageConfig`
+- `aws-native:ec2:CustomerGateway`
+
+#### New functions:
+
+- `aws-native:connect:getInstanceStorageConfig`
+- `aws-native:ec2:getCustomerGateway`
+
+
 ## 0.22.0 (August 26, 2022)
 
 * Update to include the latest resource definitions
