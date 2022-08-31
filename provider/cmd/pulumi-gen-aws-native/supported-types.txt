@@ -113,6 +113,7 @@ AWS::Connect::TaskTemplate
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
 AWS::ConnectCampaigns::Campaign
+AWS::ControlTower::EnabledControl
 AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
