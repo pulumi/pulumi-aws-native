@@ -1,5 +1,14 @@
 ## HEAD (Unreleased)
 
+## 0.24.0 (August 31, 2022)
+
+* Update to include the latest resource definitions
+
+#### New resources:
+
+- `aws-native:controltower:EnabledControl`
+
+
 ## 0.23.0 (August 30, 2022)
 
 * Update to include the latest resource definitions
