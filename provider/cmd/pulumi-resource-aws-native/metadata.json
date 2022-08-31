@@ -8144,6 +8144,37 @@
                 "connectInstanceArn"
             ]
         },
+        "aws-native:controltower:EnabledControl": {
+            "cf": "AWS::ControlTower::EnabledControl",
+            "inputs": {
+                "controlIdentifier": {
+                    "type": "string",
+                    "description": "Arn of the control."
+                },
+                "targetIdentifier": {
+                    "type": "string",
+                    "description": "Arn for Organizational unit to which the control needs to be applied"
+                }
+            },
+            "outputs": {
+                "controlIdentifier": {
+                    "type": "string",
+                    "description": "Arn of the control."
+                },
+                "targetIdentifier": {
+                    "type": "string",
+                    "description": "Arn for Organizational unit to which the control needs to be applied"
+                }
+            },
+            "required": [
+                "controlIdentifier",
+                "targetIdentifier"
+            ],
+            "createOnly": [
+                "controlIdentifier",
+                "targetIdentifier"
+            ]
+        },
         "aws-native:customerprofiles:Domain": {
             "cf": "AWS::CustomerProfiles::Domain",
             "inputs": {
@@ -12173,6 +12204,9 @@
                 "connectivityType": {
                     "type": "string"
                 },
+                "privateIpAddress": {
+                    "type": "string"
+                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12193,6 +12227,9 @@
                 "natGatewayId": {
                     "type": "string"
                 },
+                "privateIpAddress": {
+                    "type": "string"
+                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12209,6 +12246,7 @@
             "createOnly": [
                 "allocationId",
                 "connectivityType",
+                "privateIpAddress",
                 "subnetId"
             ]
         },

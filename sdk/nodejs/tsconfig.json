@@ -484,6 +484,8 @@
         "connectcampaigns/campaign.ts",
         "connectcampaigns/getCampaign.ts",
         "connectcampaigns/index.ts",
+        "controltower/enabledControl.ts",
+        "controltower/index.ts",
         "cur/getReportDefinition.ts",
         "cur/index.ts",
         "cur/reportDefinition.ts",

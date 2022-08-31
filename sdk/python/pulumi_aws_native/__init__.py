@@ -121,6 +121,8 @@ if typing.TYPE_CHECKING:
     connect = __connect
     import pulumi_aws_native.connectcampaigns as __connectcampaigns
     connectcampaigns = __connectcampaigns
+    import pulumi_aws_native.controltower as __controltower
+    controltower = __controltower
     import pulumi_aws_native.cur as __cur
     cur = __cur
     import pulumi_aws_native.customerprofiles as __customerprofiles
@@ -464,6 +466,7 @@ else:
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
     connectcampaigns = _utilities.lazy_import('pulumi_aws_native.connectcampaigns')
+    controltower = _utilities.lazy_import('pulumi_aws_native.controltower')
     cur = _utilities.lazy_import('pulumi_aws_native.cur')
     customerprofiles = _utilities.lazy_import('pulumi_aws_native.customerprofiles')
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
@@ -1167,6 +1170,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.connectcampaigns",
   "classes": {
    "aws-native:connectcampaigns:Campaign": "Campaign"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "controltower",
+  "fqn": "pulumi_aws_native.controltower",
+  "classes": {
+   "aws-native:controltower:EnabledControl": "EnabledControl"
   }
  },
  {

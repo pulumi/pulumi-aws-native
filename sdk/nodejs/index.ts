@@ -71,6 +71,7 @@ import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
 import * as connectcampaigns from "./connectcampaigns";
+import * as controltower from "./controltower";
 import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
@@ -270,6 +271,7 @@ export {
     configuration,
     connect,
     connectcampaigns,
+    controltower,
     cur,
     customerprofiles,
     databrew,

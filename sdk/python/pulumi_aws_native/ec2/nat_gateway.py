@@ -19,6 +19,7 @@ class NatGatewayArgs:
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
@@ -28,6 +29,8 @@ class NatGatewayArgs:
             pulumi.set(__self__, "allocation_id", allocation_id)
         if connectivity_type is not None:
             pulumi.set(__self__, "connectivity_type", connectivity_type)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -59,6 +62,15 @@ class NatGatewayArgs:
         pulumi.set(self, "connectivity_type", value)
 
     @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -75,6 +87,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NatGatewayTagArgs']]]]] = None,
                  __props__=None):
@@ -110,6 +123,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NatGatewayTagArgs']]]]] = None,
                  __props__=None):
@@ -123,6 +137,7 @@ class NatGateway(pulumi.CustomResource):
 
             __props__.__dict__["allocation_id"] = allocation_id
             __props__.__dict__["connectivity_type"] = connectivity_type
+            __props__.__dict__["private_ip_address"] = private_ip_address
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
@@ -153,6 +168,7 @@ class NatGateway(pulumi.CustomResource):
         __props__.__dict__["allocation_id"] = None
         __props__.__dict__["connectivity_type"] = None
         __props__.__dict__["nat_gateway_id"] = None
+        __props__.__dict__["private_ip_address"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         return NatGateway(resource_name, opts=opts, __props__=__props__)
@@ -171,6 +187,11 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "nat_gateway_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="subnetId")
