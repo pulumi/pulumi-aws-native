@@ -452,6 +452,7 @@ AWS::RDS::GlobalCluster
 AWS::RDS::OptionGroup
 AWS::RUM::AppMonitor
 AWS::Redshift::Cluster
+AWS::Redshift::ClusterParameterGroup
 AWS::Redshift::EndpointAccess
 AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription

@@ -67,12 +67,7 @@ class ClusterParameterGroupArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""ClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ClusterParameterGroup(pulumi.CustomResource):
-    warnings.warn("""ClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -117,7 +112,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ClusterParameterGroup is deprecated: ClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

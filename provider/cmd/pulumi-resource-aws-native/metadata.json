@@ -35468,6 +35468,57 @@
                 "snapshotIdentifier"
             ]
         },
+        "aws-native:redshift:ClusterParameterGroup": {
+            "cf": "AWS::Redshift::ClusterParameterGroup",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "parameterGroupFamily": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
+                    }
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string"
+                },
+                "parameterGroupFamily": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
+                    }
+                }
+            },
+            "required": [
+                "description",
+                "parameterGroupFamily"
+            ],
+            "createOnly": [
+                "description",
+                "parameterGroupFamily"
+            ]
+        },
         "aws-native:redshift:EndpointAccess": {
             "cf": "AWS::Redshift::EndpointAccess",
             "inputs": {
@@ -76267,6 +76318,28 @@
                 }
             }
         },
+        "aws-native:redshift:ClusterParameterGroupParameter": {
+            "type": "object",
+            "properties": {
+                "parameterName": {
+                    "type": "string"
+                },
+                "parameterValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:redshift:ClusterParameterGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:redshift:ClusterTag": {
             "type": "object",
             "properties": {
@@ -87868,6 +87941,12 @@
             "cf": "AWS::Redshift::Cluster",
             "ids": [
                 "clusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:getClusterParameterGroup": {
+            "cf": "AWS::Redshift::ClusterParameterGroup",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:redshift:getEndpointAccess": {
