@@ -15,17 +15,22 @@ export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:redshift:getClusterParameterGroup", {
-        "id": args.id,
+        "parameterGroupName": args.parameterGroupName,
     }, opts);
 }
 
 export interface GetClusterParameterGroupArgs {
-    id: string;
+    /**
+     * Cloudformation will generate a unique group name.
+     */
+    parameterGroupName: string;
 }
 
 export interface GetClusterParameterGroupResult {
-    readonly id?: string;
-    readonly parameters?: outputs.redshift.ClusterParameterGroupParameter[];
+    /**
+     * Cloudformation will generate a unique group name.
+     */
+    readonly parameterGroupName?: string;
     readonly tags?: outputs.redshift.ClusterParameterGroupTag[];
 }
 
@@ -34,5 +39,8 @@ export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOut
 }
 
 export interface GetClusterParameterGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * Cloudformation will generate a unique group name.
+     */
+    parameterGroupName: pulumi.Input<string>;
 }

@@ -17,6 +17,7 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,13 @@ class TopicArgs:
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
                
                (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        :param Any data_protection_policy: The body of the policy document you want to use for this topic.
+               
+               You can only add one policy per topic.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 30720
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -42,6 +50,8 @@ class TopicArgs:
         """
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+        if data_protection_policy is not None:
+            pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if fifo_topic is not None:
@@ -70,6 +80,24 @@ class TopicArgs:
     @content_based_deduplication.setter
     def content_based_deduplication(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "content_based_deduplication", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> Optional[Any]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
+
+    @data_protection_policy.setter
+    def data_protection_policy(self, value: Optional[Any]):
+        pulumi.set(self, "data_protection_policy", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -151,6 +179,7 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -168,6 +197,13 @@ class Topic(pulumi.CustomResource):
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
                
                (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        :param Any data_protection_policy: The body of the policy document you want to use for this topic.
+               
+               You can only add one policy per topic.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 30720
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -203,6 +239,7 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -219,6 +256,7 @@ class Topic(pulumi.CustomResource):
             __props__ = TopicArgs.__new__(TopicArgs)
 
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
+            __props__.__dict__["data_protection_policy"] = data_protection_policy
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
@@ -249,6 +287,7 @@ class Topic(pulumi.CustomResource):
         __props__ = TopicArgs.__new__(TopicArgs)
 
         __props__.__dict__["content_based_deduplication"] = None
+        __props__.__dict__["data_protection_policy"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["fifo_topic"] = None
         __props__.__dict__["kms_master_key_id"] = None
@@ -269,6 +308,20 @@ class Topic(pulumi.CustomResource):
         (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
         """
         return pulumi.get(self, "content_based_deduplication")
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
 
     @property
     @pulumi.getter(name="displayName")

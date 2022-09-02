@@ -2154,6 +2154,7 @@ _utilities.register(
   "mod": "macie",
   "fqn": "pulumi_aws_native.macie",
   "classes": {
+   "aws-native:macie:AllowList": "AllowList",
    "aws-native:macie:CustomDataIdentifier": "CustomDataIdentifier",
    "aws-native:macie:FindingsFilter": "FindingsFilter",
    "aws-native:macie:Session": "Session"

@@ -15,10 +15,12 @@ import (
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description          pulumi.StringOutput                       `pulumi:"description"`
-	ParameterGroupFamily pulumi.StringOutput                       `pulumi:"parameterGroupFamily"`
-	Parameters           ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	Tags                 ClusterParameterGroupTagArrayOutput       `pulumi:"tags"`
+	Description          pulumi.StringOutput `pulumi:"description"`
+	ParameterGroupFamily pulumi.StringOutput `pulumi:"parameterGroupFamily"`
+	// Cloudformation will generate a unique group name.
+	ParameterGroupName pulumi.StringOutput                       `pulumi:"parameterGroupName"`
+	Parameters         ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	Tags               ClusterParameterGroupTagArrayOutput       `pulumi:"tags"`
 }
 
 // NewClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +125,11 @@ func (o ClusterParameterGroupOutput) Description() pulumi.StringOutput {
 
 func (o ClusterParameterGroupOutput) ParameterGroupFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.ParameterGroupFamily }).(pulumi.StringOutput)
+}
+
+// Cloudformation will generate a unique group name.
+func (o ClusterParameterGroupOutput) ParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
 func (o ClusterParameterGroupOutput) Parameters() ClusterParameterGroupParameterArrayOutput {

@@ -164,7 +164,9 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["accelerator_arn"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["dual_stack_dns_name"] = None
             __props__.__dict__["ipv4_addresses"] = None
+            __props__.__dict__["ipv6_addresses"] = None
         super(Accelerator, __self__).__init__(
             'aws-native:globalaccelerator:Accelerator',
             resource_name,
@@ -189,10 +191,12 @@ class Accelerator(pulumi.CustomResource):
 
         __props__.__dict__["accelerator_arn"] = None
         __props__.__dict__["dns_name"] = None
+        __props__.__dict__["dual_stack_dns_name"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["ip_addresses"] = None
         __props__.__dict__["ipv4_addresses"] = None
+        __props__.__dict__["ipv6_addresses"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Accelerator(resource_name, opts=opts, __props__=__props__)
@@ -209,9 +213,17 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
-        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="dualStackDnsName")
+    def dual_stack_dns_name(self) -> pulumi.Output[str]:
+        """
+        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+        """
+        return pulumi.get(self, "dual_stack_dns_name")
 
     @property
     @pulumi.getter
@@ -244,6 +256,14 @@ class Accelerator(pulumi.CustomResource):
         The IPv4 addresses assigned to the accelerator.
         """
         return pulumi.get(self, "ipv4_addresses")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IPv6 addresses assigned if the accelerator is dualstack
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter

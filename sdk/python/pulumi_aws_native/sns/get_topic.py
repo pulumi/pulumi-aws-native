@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, content_based_deduplication=None, display_name=None, kms_master_key_id=None, subscription=None, tags=None, topic_arn=None):
+    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, subscription=None, tags=None, topic_arn=None):
         if content_based_deduplication and not isinstance(content_based_deduplication, bool):
             raise TypeError("Expected argument 'content_based_deduplication' to be a bool")
         pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+        if data_protection_policy and not isinstance(data_protection_policy, dict):
+            raise TypeError("Expected argument 'data_protection_policy' to be a dict")
+        pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -50,6 +53,20 @@ class GetTopicResult:
         (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
         """
         return pulumi.get(self, "content_based_deduplication")
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> Optional[Any]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
 
     @property
     @pulumi.getter(name="displayName")
@@ -95,6 +112,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             yield self
         return GetTopicResult(
             content_based_deduplication=self.content_based_deduplication,
+            data_protection_policy=self.data_protection_policy,
             display_name=self.display_name,
             kms_master_key_id=self.kms_master_key_id,
             subscription=self.subscription,
@@ -114,6 +132,7 @@ def get_topic(topic_arn: Optional[str] = None,
 
     return AwaitableGetTopicResult(
         content_based_deduplication=__ret__.content_based_deduplication,
+        data_protection_policy=__ret__.data_protection_policy,
         display_name=__ret__.display_name,
         kms_master_key_id=__ret__.kms_master_key_id,
         subscription=__ret__.subscription,

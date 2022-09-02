@@ -7,6 +7,43 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Macie
 {
+    /// <summary>
+    /// The status for the AllowList
+    /// </summary>
+    [EnumType]
+    public readonly struct AllowListStatus : IEquatable<AllowListStatus>
+    {
+        private readonly string _value;
+
+        private AllowListStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowListStatus Ok { get; } = new AllowListStatus("OK");
+        public static AllowListStatus S3ObjectNotFound { get; } = new AllowListStatus("S3_OBJECT_NOT_FOUND");
+        public static AllowListStatus S3UserAccessDenied { get; } = new AllowListStatus("S3_USER_ACCESS_DENIED");
+        public static AllowListStatus S3ObjectAccessDenied { get; } = new AllowListStatus("S3_OBJECT_ACCESS_DENIED");
+        public static AllowListStatus S3Throttled { get; } = new AllowListStatus("S3_THROTTLED");
+        public static AllowListStatus S3ObjectOversize { get; } = new AllowListStatus("S3_OBJECT_OVERSIZE");
+        public static AllowListStatus S3ObjectEmpty { get; } = new AllowListStatus("S3_OBJECT_EMPTY");
+        public static AllowListStatus UnknownError { get; } = new AllowListStatus("UNKNOWN_ERROR");
+
+        public static bool operator ==(AllowListStatus left, AllowListStatus right) => left.Equals(right);
+        public static bool operator !=(AllowListStatus left, AllowListStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AllowListStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowListStatus other && Equals(other);
+        public bool Equals(AllowListStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FindingsFilterFindingFilterAction : IEquatable<FindingsFilterFindingFilterAction>
     {

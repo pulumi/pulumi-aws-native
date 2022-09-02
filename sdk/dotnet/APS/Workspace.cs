@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.APS
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("loggingConfiguration")]
+        public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// AMP Workspace prometheus endpoint
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.APS
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
+
+        [Input("loggingConfiguration")]
+        public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.WorkspaceTagArgs>? _tags;

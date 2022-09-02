@@ -62,9 +62,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly string? AcceleratorArn;
         /// <summary>
-        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
         /// </summary>
         public readonly string? DnsName;
+        /// <summary>
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+        /// </summary>
+        public readonly string? DualStackDnsName;
         /// <summary>
         /// Indicates whether an accelerator is enabled. The value is true or false.
         /// </summary>
@@ -82,6 +86,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
+        /// The IPv6 addresses assigned if the accelerator is dualstack
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
         /// Name of accelerator.
         /// </summary>
         public readonly string? Name;
@@ -93,6 +101,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
             string? dnsName,
 
+            string? dualStackDnsName,
+
             bool? enabled,
 
             Pulumi.AwsNative.GlobalAccelerator.AcceleratorIpAddressType? ipAddressType,
@@ -101,16 +111,20 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
             ImmutableArray<string> ipv4Addresses,
 
+            ImmutableArray<string> ipv6Addresses,
+
             string? name,
 
             ImmutableArray<Outputs.AcceleratorTag> tags)
         {
             AcceleratorArn = acceleratorArn;
             DnsName = dnsName;
+            DualStackDnsName = dualStackDnsName;
             Enabled = enabled;
             IpAddressType = ipAddressType;
             IpAddresses = ipAddresses;
             Ipv4Addresses = ipv4Addresses;
+            Ipv6Addresses = ipv6Addresses;
             Name = name;
             Tags = tags;
         }

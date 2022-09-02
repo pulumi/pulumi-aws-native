@@ -31,6 +31,14 @@ type LookupTopicResult struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -85,6 +93,17 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 // (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 func (o LookupTopicResultOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *bool { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
+}
+
+// The body of the policy document you want to use for this topic.
+//
+// You can only add one policy per topic.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 30720
+func (o LookupTopicResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTopicResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
 // The display name to use for an Amazon SNS topic with SMS subscriptions.

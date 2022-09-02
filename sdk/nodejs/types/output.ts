@@ -3677,6 +3677,16 @@ export namespace aps {
     }
 
     /**
+     * Logging configuration
+     */
+    export interface WorkspaceLoggingConfiguration {
+        /**
+         * CloudWatch log group ARN
+         */
+        logGroupArn?: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface WorkspaceTag {
@@ -22597,6 +22607,26 @@ export namespace lookoutmetrics {
 }
 
 export namespace macie {
+    /**
+     * The regex or s3 object to use for the AllowList.
+     */
+    export interface AllowListCriteria {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AllowListTag {
+        /**
+         * The tag's key.
+         */
+        key: string;
+        /**
+         * The tag's value.
+         */
+        value: string;
+    }
+
     /**
      * Map of filter criteria.
      */

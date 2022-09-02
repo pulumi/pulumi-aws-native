@@ -17,7 +17,7 @@ class AcceleratorIpAddressType(str, Enum):
     IP Address type.
     """
     IPV4 = "IPV4"
-    IPV6 = "IPV6"
+    DUAL_STACK = "DUAL_STACK"
 
 
 class EndpointGroupHealthCheckProtocol(str, Enum):

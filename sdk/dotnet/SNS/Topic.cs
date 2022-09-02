@@ -26,6 +26,18 @@ namespace Pulumi.AwsNative.SNS
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
         /// <summary>
+        /// The body of the policy document you want to use for this topic.
+        /// 
+        /// You can only add one policy per topic.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 30720
+        /// </summary>
+        [Output("dataProtectionPolicy")]
+        public Output<object?> DataProtectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.
         /// </summary>
         [Output("displayName")]
@@ -119,6 +131,18 @@ namespace Pulumi.AwsNative.SNS
         /// </summary>
         [Input("contentBasedDeduplication")]
         public Input<bool>? ContentBasedDeduplication { get; set; }
+
+        /// <summary>
+        /// The body of the policy document you want to use for this topic.
+        /// 
+        /// You can only add one policy per topic.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 30720
+        /// </summary>
+        [Input("dataProtectionPolicy")]
+        public Input<object>? DataProtectionPolicy { get; set; }
 
         /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.

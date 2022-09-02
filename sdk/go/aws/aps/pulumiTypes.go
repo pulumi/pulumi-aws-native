@@ -119,6 +119,146 @@ func (o RuleGroupsNamespaceTagArrayOutput) Index(i pulumi.IntInput) RuleGroupsNa
 	}).(RuleGroupsNamespaceTagOutput)
 }
 
+// Logging configuration
+type WorkspaceLoggingConfiguration struct {
+	// CloudWatch log group ARN
+	LogGroupArn *string `pulumi:"logGroupArn"`
+}
+
+// WorkspaceLoggingConfigurationInput is an input type that accepts WorkspaceLoggingConfigurationArgs and WorkspaceLoggingConfigurationOutput values.
+// You can construct a concrete instance of `WorkspaceLoggingConfigurationInput` via:
+//
+//	WorkspaceLoggingConfigurationArgs{...}
+type WorkspaceLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkspaceLoggingConfigurationOutput() WorkspaceLoggingConfigurationOutput
+	ToWorkspaceLoggingConfigurationOutputWithContext(context.Context) WorkspaceLoggingConfigurationOutput
+}
+
+// Logging configuration
+type WorkspaceLoggingConfigurationArgs struct {
+	// CloudWatch log group ARN
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+}
+
+func (WorkspaceLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingConfiguration)(nil)).Elem()
+}
+
+func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationOutput() WorkspaceLoggingConfigurationOutput {
+	return i.ToWorkspaceLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationOutput)
+}
+
+func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
+	return i.ToWorkspaceLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationOutput).ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceLoggingConfigurationPtrInput is an input type that accepts WorkspaceLoggingConfigurationArgs, WorkspaceLoggingConfigurationPtr and WorkspaceLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceLoggingConfigurationPtrInput` via:
+//
+//	        WorkspaceLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput
+	ToWorkspaceLoggingConfigurationPtrOutputWithContext(context.Context) WorkspaceLoggingConfigurationPtrOutput
+}
+
+type workspaceLoggingConfigurationPtrType WorkspaceLoggingConfigurationArgs
+
+func WorkspaceLoggingConfigurationPtr(v *WorkspaceLoggingConfigurationArgs) WorkspaceLoggingConfigurationPtrInput {
+	return (*workspaceLoggingConfigurationPtrType)(v)
+}
+
+func (*workspaceLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *workspaceLoggingConfigurationPtrType) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
+	return i.ToWorkspaceLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceLoggingConfigurationPtrType) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationPtrOutput)
+}
+
+// Logging configuration
+type WorkspaceLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationOutput() WorkspaceLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
+	return o.ToWorkspaceLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceLoggingConfiguration) *WorkspaceLoggingConfiguration {
+		return &v
+	}).(WorkspaceLoggingConfigurationPtrOutput)
+}
+
+// CloudWatch log group ARN
+func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceLoggingConfiguration) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigurationOutput {
+	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) WorkspaceLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceLoggingConfiguration
+		return ret
+	}).(WorkspaceLoggingConfigurationOutput)
+}
+
+// CloudWatch log group ARN
+func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type WorkspaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -231,10 +371,14 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceTagInput)(nil)).Elem(), RuleGroupsNamespaceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceTagArrayInput)(nil)).Elem(), RuleGroupsNamespaceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagInput)(nil)).Elem(), WorkspaceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagArrayInput)(nil)).Elem(), WorkspaceTagArray{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceTagOutput{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagArrayOutput{})
 }

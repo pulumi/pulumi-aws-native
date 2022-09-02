@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./allowList";
 export * from "./customDataIdentifier";
 export * from "./findingsFilter";
+export * from "./getAllowList";
 export * from "./getCustomDataIdentifier";
 export * from "./getFindingsFilter";
 export * from "./getSession";
@@ -16,6 +18,7 @@ export * from "./session";
 export * from "../types/enums/macie";
 
 // Import resources to register:
+import { AllowList } from "./allowList";
 import { CustomDataIdentifier } from "./customDataIdentifier";
 import { FindingsFilter } from "./findingsFilter";
 import { Session } from "./session";
@@ -24,6 +27,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:macie:AllowList":
+                return new AllowList(name, <any>undefined, { urn })
             case "aws-native:macie:CustomDataIdentifier":
                 return new CustomDataIdentifier(name, <any>undefined, { urn })
             case "aws-native:macie:FindingsFilter":

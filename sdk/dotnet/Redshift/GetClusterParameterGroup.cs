@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterParameterGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// Cloudformation will generate a unique group name.
+        /// </summary>
+        [Input("parameterGroupName", required: true)]
+        public string ParameterGroupName { get; set; } = null!;
 
         public GetClusterParameterGroupArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class GetClusterParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// Cloudformation will generate a unique group name.
+        /// </summary>
+        [Input("parameterGroupName", required: true)]
+        public Input<string> ParameterGroupName { get; set; } = null!;
 
         public GetClusterParameterGroupInvokeArgs()
         {
@@ -51,20 +57,19 @@ namespace Pulumi.AwsNative.Redshift
     [OutputType]
     public sealed class GetClusterParameterGroupResult
     {
-        public readonly string? Id;
-        public readonly ImmutableArray<Outputs.ClusterParameterGroupParameter> Parameters;
+        /// <summary>
+        /// Cloudformation will generate a unique group name.
+        /// </summary>
+        public readonly string? ParameterGroupName;
         public readonly ImmutableArray<Outputs.ClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
         private GetClusterParameterGroupResult(
-            string? id,
-
-            ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters,
+            string? parameterGroupName,
 
             ImmutableArray<Outputs.ClusterParameterGroupTag> tags)
         {
-            Id = id;
-            Parameters = parameters;
+            ParameterGroupName = parameterGroupName;
             Tags = tags;
         }
     }

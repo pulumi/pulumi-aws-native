@@ -18,6 +18,7 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
@@ -29,6 +30,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -57,6 +60,15 @@ class WorkspaceArgs:
         pulumi.set(self, "alias", value)
 
     @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]]:
         """
@@ -76,6 +88,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -113,6 +126,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -125,6 +139,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["alert_manager_definition"] = alert_manager_definition
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
@@ -154,6 +169,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["alert_manager_definition"] = None
         __props__.__dict__["alias"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["prometheus_endpoint"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workspace_id"] = None
@@ -182,6 +198,11 @@ class Workspace(pulumi.CustomResource):
         Workspace arn.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceLoggingConfiguration']]:
+        return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="prometheusEndpoint")

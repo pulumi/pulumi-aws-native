@@ -383,6 +383,7 @@ AWS::MSK::Cluster
 AWS::MSK::Configuration
 AWS::MSK::ServerlessCluster
 AWS::MWAA::Environment
+AWS::Macie::AllowList
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
 AWS::Macie::Session

@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AllowListStatus = {
+    Ok: "OK",
+    S3ObjectNotFound: "S3_OBJECT_NOT_FOUND",
+    S3UserAccessDenied: "S3_USER_ACCESS_DENIED",
+    S3ObjectAccessDenied: "S3_OBJECT_ACCESS_DENIED",
+    S3Throttled: "S3_THROTTLED",
+    S3ObjectOversize: "S3_OBJECT_OVERSIZE",
+    S3ObjectEmpty: "S3_OBJECT_EMPTY",
+    UnknownError: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * The status for the AllowList
+ */
+export type AllowListStatus = (typeof AllowListStatus)[keyof typeof AllowListStatus];
+
 export const FindingsFilterFindingFilterAction = {
     Archive: "ARCHIVE",
     Noop: "NOOP",

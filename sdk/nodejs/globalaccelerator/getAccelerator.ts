@@ -32,9 +32,13 @@ export interface GetAcceleratorResult {
      */
     readonly acceleratorArn?: string;
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
      */
     readonly dnsName?: string;
+    /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+     */
+    readonly dualStackDnsName?: string;
     /**
      * Indicates whether an accelerator is enabled. The value is true or false.
      */
@@ -51,6 +55,10 @@ export interface GetAcceleratorResult {
      * The IPv4 addresses assigned to the accelerator.
      */
     readonly ipv4Addresses?: string[];
+    /**
+     * The IPv6 addresses assigned if the accelerator is dualstack
+     */
+    readonly ipv6Addresses?: string[];
     /**
      * Name of accelerator.
      */

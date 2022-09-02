@@ -60,6 +60,16 @@ namespace Pulumi.AwsNative.SNS
         /// </summary>
         public readonly bool? ContentBasedDeduplication;
         /// <summary>
+        /// The body of the policy document you want to use for this topic.
+        /// 
+        /// You can only add one policy per topic.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 30720
+        /// </summary>
+        public readonly object? DataProtectionPolicy;
+        /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.
         /// </summary>
         public readonly string? DisplayName;
@@ -80,6 +90,8 @@ namespace Pulumi.AwsNative.SNS
         private GetTopicResult(
             bool? contentBasedDeduplication,
 
+            object? dataProtectionPolicy,
+
             string? displayName,
 
             string? kmsMasterKeyId,
@@ -91,6 +103,7 @@ namespace Pulumi.AwsNative.SNS
             string? topicArn)
         {
             ContentBasedDeduplication = contentBasedDeduplication;
+            DataProtectionPolicy = dataProtectionPolicy;
             DisplayName = displayName;
             KmsMasterKeyId = kmsMasterKeyId;
             Subscription = subscription;

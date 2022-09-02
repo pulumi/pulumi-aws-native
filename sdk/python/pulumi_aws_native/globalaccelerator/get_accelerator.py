@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAcceleratorResult:
-    def __init__(__self__, accelerator_arn=None, dns_name=None, enabled=None, ip_address_type=None, ip_addresses=None, ipv4_addresses=None, name=None, tags=None):
+    def __init__(__self__, accelerator_arn=None, dns_name=None, dual_stack_dns_name=None, enabled=None, ip_address_type=None, ip_addresses=None, ipv4_addresses=None, ipv6_addresses=None, name=None, tags=None):
         if accelerator_arn and not isinstance(accelerator_arn, str):
             raise TypeError("Expected argument 'accelerator_arn' to be a str")
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
+        if dual_stack_dns_name and not isinstance(dual_stack_dns_name, str):
+            raise TypeError("Expected argument 'dual_stack_dns_name' to be a str")
+        pulumi.set(__self__, "dual_stack_dns_name", dual_stack_dns_name)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -39,6 +42,9 @@ class GetAcceleratorResult:
         if ipv4_addresses and not isinstance(ipv4_addresses, list):
             raise TypeError("Expected argument 'ipv4_addresses' to be a list")
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv6_addresses and not isinstance(ipv6_addresses, list):
+            raise TypeError("Expected argument 'ipv6_addresses' to be a list")
+        pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,9 +64,17 @@ class GetAcceleratorResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
         """
-        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="dualStackDnsName")
+    def dual_stack_dns_name(self) -> Optional[str]:
+        """
+        The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+        """
+        return pulumi.get(self, "dual_stack_dns_name")
 
     @property
     @pulumi.getter
@@ -95,6 +109,14 @@ class GetAcceleratorResult:
         return pulumi.get(self, "ipv4_addresses")
 
     @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The IPv6 addresses assigned if the accelerator is dualstack
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -116,10 +138,12 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
         return GetAcceleratorResult(
             accelerator_arn=self.accelerator_arn,
             dns_name=self.dns_name,
+            dual_stack_dns_name=self.dual_stack_dns_name,
             enabled=self.enabled,
             ip_address_type=self.ip_address_type,
             ip_addresses=self.ip_addresses,
             ipv4_addresses=self.ipv4_addresses,
+            ipv6_addresses=self.ipv6_addresses,
             name=self.name,
             tags=self.tags)
 
@@ -140,10 +164,12 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
     return AwaitableGetAcceleratorResult(
         accelerator_arn=__ret__.accelerator_arn,
         dns_name=__ret__.dns_name,
+        dual_stack_dns_name=__ret__.dual_stack_dns_name,
         enabled=__ret__.enabled,
         ip_address_type=__ret__.ip_address_type,
         ip_addresses=__ret__.ip_addresses,
         ipv4_addresses=__ret__.ipv4_addresses,
+        ipv6_addresses=__ret__.ipv6_addresses,
         name=__ret__.name,
         tags=__ret__.tags)
 

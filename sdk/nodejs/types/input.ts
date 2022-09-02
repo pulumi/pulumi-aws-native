@@ -4330,6 +4330,16 @@ export namespace aps {
     }
 
     /**
+     * Logging configuration
+     */
+    export interface WorkspaceLoggingConfigurationArgs {
+        /**
+         * CloudWatch log group ARN
+         */
+        logGroupArn?: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface WorkspaceTagArgs {
@@ -22197,6 +22207,26 @@ export namespace lookoutmetrics {
 }
 
 export namespace macie {
+    /**
+     * The regex or s3 object to use for the AllowList.
+     */
+    export interface AllowListCriteriaArgs {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AllowListTagArgs {
+        /**
+         * The tag's key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag's value.
+         */
+        value: pulumi.Input<string>;
+    }
+
     /**
      * Map of filter criteria.
      */

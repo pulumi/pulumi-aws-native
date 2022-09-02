@@ -14,8 +14,8 @@ import (
 type AcceleratorIpAddressType string
 
 const (
-	AcceleratorIpAddressTypeIpv4 = AcceleratorIpAddressType("IPV4")
-	AcceleratorIpAddressTypeIpv6 = AcceleratorIpAddressType("IPV6")
+	AcceleratorIpAddressTypeIpv4      = AcceleratorIpAddressType("IPV4")
+	AcceleratorIpAddressTypeDualStack = AcceleratorIpAddressType("DUAL_STACK")
 )
 
 func (AcceleratorIpAddressType) ElementType() reflect.Type {

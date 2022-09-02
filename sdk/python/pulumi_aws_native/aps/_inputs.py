@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'RuleGroupsNamespaceTagArgs',
+    'WorkspaceLoggingConfigurationArgs',
     'WorkspaceTagArgs',
 ]
 
@@ -50,6 +51,30 @@ class RuleGroupsNamespaceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WorkspaceLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Logging configuration
+        :param pulumi.Input[str] log_group_arn: CloudWatch log group ARN
+        """
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        CloudWatch log group ARN
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_arn", value)
 
 
 @pulumi.input_type

@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Redshift
         [Output("parameterGroupFamily")]
         public Output<string> ParameterGroupFamily { get; private set; } = null!;
 
+        /// <summary>
+        /// Cloudformation will generate a unique group name.
+        /// </summary>
+        [Output("parameterGroupName")]
+        public Output<string> ParameterGroupName { get; private set; } = null!;
+
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
 

@@ -33,6 +33,16 @@ export interface GetTopicResult {
      */
     readonly contentBasedDeduplication?: boolean;
     /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    readonly dataProtectionPolicy?: any;
+    /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */
     readonly displayName?: string;

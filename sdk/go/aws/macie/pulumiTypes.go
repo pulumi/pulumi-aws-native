@@ -10,6 +10,185 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The regex or s3 object to use for the AllowList.
+type AllowListCriteria struct {
+}
+
+// AllowListCriteriaInput is an input type that accepts AllowListCriteriaArgs and AllowListCriteriaOutput values.
+// You can construct a concrete instance of `AllowListCriteriaInput` via:
+//
+//	AllowListCriteriaArgs{...}
+type AllowListCriteriaInput interface {
+	pulumi.Input
+
+	ToAllowListCriteriaOutput() AllowListCriteriaOutput
+	ToAllowListCriteriaOutputWithContext(context.Context) AllowListCriteriaOutput
+}
+
+// The regex or s3 object to use for the AllowList.
+type AllowListCriteriaArgs struct {
+}
+
+func (AllowListCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListCriteria)(nil)).Elem()
+}
+
+func (i AllowListCriteriaArgs) ToAllowListCriteriaOutput() AllowListCriteriaOutput {
+	return i.ToAllowListCriteriaOutputWithContext(context.Background())
+}
+
+func (i AllowListCriteriaArgs) ToAllowListCriteriaOutputWithContext(ctx context.Context) AllowListCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListCriteriaOutput)
+}
+
+// The regex or s3 object to use for the AllowList.
+type AllowListCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AllowListCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListCriteria)(nil)).Elem()
+}
+
+func (o AllowListCriteriaOutput) ToAllowListCriteriaOutput() AllowListCriteriaOutput {
+	return o
+}
+
+func (o AllowListCriteriaOutput) ToAllowListCriteriaOutputWithContext(ctx context.Context) AllowListCriteriaOutput {
+	return o
+}
+
+type AllowListCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AllowListCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowListCriteria)(nil)).Elem()
+}
+
+func (o AllowListCriteriaPtrOutput) ToAllowListCriteriaPtrOutput() AllowListCriteriaPtrOutput {
+	return o
+}
+
+func (o AllowListCriteriaPtrOutput) ToAllowListCriteriaPtrOutputWithContext(ctx context.Context) AllowListCriteriaPtrOutput {
+	return o
+}
+
+func (o AllowListCriteriaPtrOutput) Elem() AllowListCriteriaOutput {
+	return o.ApplyT(func(v *AllowListCriteria) AllowListCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret AllowListCriteria
+		return ret
+	}).(AllowListCriteriaOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AllowListTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// AllowListTagInput is an input type that accepts AllowListTagArgs and AllowListTagOutput values.
+// You can construct a concrete instance of `AllowListTagInput` via:
+//
+//	AllowListTagArgs{...}
+type AllowListTagInput interface {
+	pulumi.Input
+
+	ToAllowListTagOutput() AllowListTagOutput
+	ToAllowListTagOutputWithContext(context.Context) AllowListTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AllowListTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AllowListTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListTag)(nil)).Elem()
+}
+
+func (i AllowListTagArgs) ToAllowListTagOutput() AllowListTagOutput {
+	return i.ToAllowListTagOutputWithContext(context.Background())
+}
+
+func (i AllowListTagArgs) ToAllowListTagOutputWithContext(ctx context.Context) AllowListTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListTagOutput)
+}
+
+// AllowListTagArrayInput is an input type that accepts AllowListTagArray and AllowListTagArrayOutput values.
+// You can construct a concrete instance of `AllowListTagArrayInput` via:
+//
+//	AllowListTagArray{ AllowListTagArgs{...} }
+type AllowListTagArrayInput interface {
+	pulumi.Input
+
+	ToAllowListTagArrayOutput() AllowListTagArrayOutput
+	ToAllowListTagArrayOutputWithContext(context.Context) AllowListTagArrayOutput
+}
+
+type AllowListTagArray []AllowListTagInput
+
+func (AllowListTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowListTag)(nil)).Elem()
+}
+
+func (i AllowListTagArray) ToAllowListTagArrayOutput() AllowListTagArrayOutput {
+	return i.ToAllowListTagArrayOutputWithContext(context.Background())
+}
+
+func (i AllowListTagArray) ToAllowListTagArrayOutputWithContext(ctx context.Context) AllowListTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AllowListTagOutput struct{ *pulumi.OutputState }
+
+func (AllowListTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListTag)(nil)).Elem()
+}
+
+func (o AllowListTagOutput) ToAllowListTagOutput() AllowListTagOutput {
+	return o
+}
+
+func (o AllowListTagOutput) ToAllowListTagOutputWithContext(ctx context.Context) AllowListTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o AllowListTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowListTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o AllowListTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowListTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AllowListTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AllowListTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowListTag)(nil)).Elem()
+}
+
+func (o AllowListTagArrayOutput) ToAllowListTagArrayOutput() AllowListTagArrayOutput {
+	return o
+}
+
+func (o AllowListTagArrayOutput) ToAllowListTagArrayOutputWithContext(ctx context.Context) AllowListTagArrayOutput {
+	return o
+}
+
+func (o AllowListTagArrayOutput) Index(i pulumi.IntInput) AllowListTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowListTag {
+		return vs[0].([]AllowListTag)[vs[1].(int)]
+	}).(AllowListTagOutput)
+}
+
 // Map of filter criteria.
 type FindingsFilterCriterion struct {
 }
@@ -263,9 +442,16 @@ func (o FindingsFilterListItemArrayOutput) Index(i pulumi.IntInput) FindingsFilt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagInput)(nil)).Elem(), AllowListTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagArrayInput)(nil)).Elem(), AllowListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterOutputType(AllowListCriteriaOutput{})
+	pulumi.RegisterOutputType(AllowListCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AllowListTagOutput{})
+	pulumi.RegisterOutputType(AllowListTagArrayOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})

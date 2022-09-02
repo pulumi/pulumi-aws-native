@@ -3291,6 +3291,9 @@
                     "type": "string",
                     "description": "AMP Workspace alias."
                 },
+                "loggingConfiguration": {
+                    "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -3311,6 +3314,9 @@
                 "arn": {
                     "type": "string",
                     "description": "Workspace arn."
+                },
+                "loggingConfiguration": {
+                    "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration"
                 },
                 "prometheusEndpoint": {
                     "type": "string",
@@ -18380,7 +18386,11 @@
                 },
                 "dnsName": {
                     "type": "string",
-                    "description": "The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses."
+                    "description": "The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses."
+                },
+                "dualStackDnsName": {
+                    "type": "string",
+                    "description": "The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses."
                 },
                 "enabled": {
                     "type": "boolean",
@@ -18403,6 +18413,13 @@
                         "type": "string"
                     },
                     "description": "The IPv4 addresses assigned to the accelerator."
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IPv6 addresses assigned if the accelerator is dualstack"
                 },
                 "name": {
                     "type": "string",
@@ -28111,6 +28128,65 @@
                 "projectName"
             ]
         },
+        "aws-native:macie:AllowList": {
+            "cf": "AWS::Macie::AllowList",
+            "inputs": {
+                "criteria": {
+                    "$ref": "#/types/aws-native:macie:AllowListCriteria",
+                    "description": "AllowList criteria."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of AllowList."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of AllowList."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:macie:AllowListTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "AllowList ARN."
+                },
+                "criteria": {
+                    "$ref": "#/types/aws-native:macie:AllowListCriteria",
+                    "description": "AllowList criteria."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of AllowList."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of AllowList."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:macie:AllowListStatus",
+                    "description": "AllowList status."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:macie:AllowListTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "criteria"
+            ]
+        },
         "aws-native:macie:CustomDataIdentifier": {
             "cf": "AWS::Macie::CustomDataIdentifier",
             "inputs": {
@@ -35497,6 +35573,10 @@
                 "parameterGroupFamily": {
                     "type": "string"
                 },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "Cloudformation will generate a unique group name."
+                },
                 "parameters": {
                     "type": "array",
                     "items": {
@@ -41833,6 +41913,10 @@
                     "type": "boolean",
                     "description": "Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.\n\nWhen you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).\n\n(Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.\n\n"
                 },
+                "dataProtectionPolicy": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The body of the policy document you want to use for this topic.\n\nYou can only add one policy per topic.\n\nThe policy must be in JSON string format.\n\nLength Constraints: Maximum length of 30720"
+                },
                 "displayName": {
                     "type": "string",
                     "description": "The display name to use for an Amazon SNS topic with SMS subscriptions."
@@ -41867,6 +41951,10 @@
                 "contentBasedDeduplication": {
                     "type": "boolean",
                     "description": "Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.\n\nWhen you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).\n\n(Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.\n\n"
+                },
+                "dataProtectionPolicy": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The body of the policy document you want to use for this topic.\n\nYou can only add one policy per topic.\n\nThe policy must be in JSON string format.\n\nLength Constraints: Maximum length of 30720"
                 },
                 "displayName": {
                     "type": "string",
@@ -48154,6 +48242,15 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:aps:WorkspaceLoggingConfiguration": {
+            "type": "object",
+            "properties": {
+                "logGroupArn": {
+                    "type": "string",
+                    "description": "CloudWatch log group ARN"
                 }
             }
         },
@@ -71081,6 +71178,25 @@
                 }
             }
         },
+        "aws-native:macie:AllowListCriteria": {
+            "type": "object"
+        },
+        "aws-native:macie:AllowListStatus": {
+            "type": "string"
+        },
+        "aws-native:macie:AllowListTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag's key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value."
+                }
+            }
+        },
         "aws-native:macie:FindingsFilterCriterion": {
             "type": "object"
         },
@@ -87513,6 +87629,12 @@
                 "projectName"
             ]
         },
+        "aws-native:macie:getAllowList": {
+            "cf": "AWS::Macie::AllowList",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:macie:getCustomDataIdentifier": {
             "cf": "AWS::Macie::CustomDataIdentifier",
             "ids": [
@@ -87946,7 +88068,7 @@
         "aws-native:redshift:getClusterParameterGroup": {
             "cf": "AWS::Redshift::ClusterParameterGroup",
             "ids": [
-                "id"
+                "parameterGroupName"
             ]
         },
         "aws-native:redshift:getEndpointAccess": {

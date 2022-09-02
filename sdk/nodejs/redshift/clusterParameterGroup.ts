@@ -37,6 +37,10 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string>;
     public readonly parameterGroupFamily!: pulumi.Output<string>;
+    /**
+     * Cloudformation will generate a unique group name.
+     */
+    public /*out*/ readonly parameterGroupName!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.redshift.ClusterParameterGroupParameter[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.redshift.ClusterParameterGroupTag[] | undefined>;
 
@@ -61,9 +65,11 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["parameterGroupFamily"] = args ? args.parameterGroupFamily : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["parameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["parameterGroupFamily"] = undefined /*out*/;
+            resourceInputs["parameterGroupName"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

@@ -20,6 +20,14 @@ type Topic struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
@@ -83,6 +91,14 @@ type topicArgs struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName *string `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
@@ -108,6 +124,14 @@ type TopicArgs struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 	ContentBasedDeduplication pulumi.BoolPtrInput
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy pulumi.Input
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
@@ -169,6 +193,17 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 // (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
 func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
+}
+
+// The body of the policy document you want to use for this topic.
+//
+// You can only add one policy per topic.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 30720
+func (o TopicOutput) DataProtectionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
 // The display name to use for an Amazon SNS topic with SMS subscriptions.

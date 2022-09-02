@@ -5,10 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'AllowListStatus',
     'FindingsFilterFindingFilterAction',
     'SessionFindingPublishingFrequency',
     'SessionStatus',
 ]
+
+
+class AllowListStatus(str, Enum):
+    """
+    The status for the AllowList
+    """
+    OK = "OK"
+    S3_OBJECT_NOT_FOUND = "S3_OBJECT_NOT_FOUND"
+    S3_USER_ACCESS_DENIED = "S3_USER_ACCESS_DENIED"
+    S3_OBJECT_ACCESS_DENIED = "S3_OBJECT_ACCESS_DENIED"
+    S3_THROTTLED = "S3_THROTTLED"
+    S3_OBJECT_OVERSIZE = "S3_OBJECT_OVERSIZE"
+    S3_OBJECT_EMPTY = "S3_OBJECT_EMPTY"
+    UNKNOWN_ERROR = "UNKNOWN_ERROR"
 
 
 class FindingsFilterFindingFilterAction(str, Enum):

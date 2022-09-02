@@ -22,6 +22,19 @@
       },
       "required" : [ "Key", "Value" ],
       "additionalProperties" : false
+    },
+    "LoggingConfiguration" : {
+      "description" : "Logging configuration",
+      "type" : "object",
+      "properties" : {
+        "LogGroupArn" : {
+          "description" : "CloudWatch log group ARN",
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 512
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -53,6 +66,9 @@
       "description" : "AMP Workspace prometheus endpoint",
       "type" : "string"
     },
+    "LoggingConfiguration" : {
+      "$ref" : "#/definitions/LoggingConfiguration"
+    },
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
       "type" : "array",
@@ -76,16 +92,16 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aps:CreateWorkspace", "aps:TagResource", "aps:CreateAlertManagerDefinition" ]
+      "permissions" : [ "aps:CreateWorkspace", "aps:TagResource", "aps:CreateAlertManagerDefinition", "aps:DescribeAlertManagerDefinition", "aps:CreateLoggingConfiguration" ]
     },
     "read" : {
-      "permissions" : [ "aps:DescribeWorkspace", "aps:ListTagsForResource", "aps:DescribeAlertManagerDefinition" ]
+      "permissions" : [ "aps:DescribeWorkspace", "aps:ListTagsForResource", "aps:DescribeAlertManagerDefinition", "aps:DescribeLoggingConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "aps:UpdateWorkspaceAlias", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource", "aps:PutAlertManagerDefinition" ]
+      "permissions" : [ "aps:UpdateWorkspaceAlias", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource", "aps:PutAlertManagerDefinition", "aps:UpdateLoggingConfiguration" ]
     },
     "delete" : {
-      "permissions" : [ "aps:DeleteWorkspace", "aps:DeleteAlertManagerDefinition" ]
+      "permissions" : [ "aps:DeleteWorkspace", "aps:DeleteAlertManagerDefinition", "aps:DeleteLoggingConfiguration" ]
     },
     "list" : {
       "permissions" : [ "aps:ListWorkspaces", "aps:ListTagsForResource" ]

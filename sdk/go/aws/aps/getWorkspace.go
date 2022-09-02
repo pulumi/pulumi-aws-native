@@ -31,7 +31,8 @@ type LookupWorkspaceResult struct {
 	// AMP Workspace alias.
 	Alias *string `pulumi:"alias"`
 	// Workspace arn.
-	Arn *string `pulumi:"arn"`
+	Arn                  *string                        `pulumi:"arn"`
+	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
@@ -89,6 +90,10 @@ func (o LookupWorkspaceResultOutput) Alias() pulumi.StringPtrOutput {
 // Workspace arn.
 func (o LookupWorkspaceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkspaceResultOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceLoggingConfiguration { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
 // AMP Workspace prometheus endpoint

@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.APS
         /// Workspace arn.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration;
         /// <summary>
         /// AMP Workspace prometheus endpoint
         /// </summary>
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.APS
 
             string? arn,
 
+            Outputs.WorkspaceLoggingConfiguration? loggingConfiguration,
+
             string? prometheusEndpoint,
 
             ImmutableArray<Outputs.WorkspaceTag> tags,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.APS
             AlertManagerDefinition = alertManagerDefinition;
             Alias = alias;
             Arn = arn;
+            LoggingConfiguration = loggingConfiguration;
             PrometheusEndpoint = prometheusEndpoint;
             Tags = tags;
             WorkspaceId = workspaceId;

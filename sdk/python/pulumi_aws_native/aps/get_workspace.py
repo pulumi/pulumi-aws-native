@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, alert_manager_definition=None, alias=None, arn=None, prometheus_endpoint=None, tags=None, workspace_id=None):
+    def __init__(__self__, alert_manager_definition=None, alias=None, arn=None, logging_configuration=None, prometheus_endpoint=None, tags=None, workspace_id=None):
         if alert_manager_definition and not isinstance(alert_manager_definition, str):
             raise TypeError("Expected argument 'alert_manager_definition' to be a str")
         pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
@@ -29,6 +29,9 @@ class GetWorkspaceResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if logging_configuration and not isinstance(logging_configuration, dict):
+            raise TypeError("Expected argument 'logging_configuration' to be a dict")
+        pulumi.set(__self__, "logging_configuration", logging_configuration)
         if prometheus_endpoint and not isinstance(prometheus_endpoint, str):
             raise TypeError("Expected argument 'prometheus_endpoint' to be a str")
         pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
@@ -64,6 +67,11 @@ class GetWorkspaceResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional['outputs.WorkspaceLoggingConfiguration']:
+        return pulumi.get(self, "logging_configuration")
+
+    @property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> Optional[str]:
         """
@@ -97,6 +105,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             alert_manager_definition=self.alert_manager_definition,
             alias=self.alias,
             arn=self.arn,
+            logging_configuration=self.logging_configuration,
             prometheus_endpoint=self.prometheus_endpoint,
             tags=self.tags,
             workspace_id=self.workspace_id)
@@ -119,6 +128,7 @@ def get_workspace(arn: Optional[str] = None,
         alert_manager_definition=__ret__.alert_manager_definition,
         alias=__ret__.alias,
         arn=__ret__.arn,
+        logging_configuration=__ret__.logging_configuration,
         prometheus_endpoint=__ret__.prometheus_endpoint,
         tags=__ret__.tags,
         workspace_id=__ret__.workspace_id)

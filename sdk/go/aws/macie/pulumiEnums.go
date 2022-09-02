@@ -10,6 +10,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status for the AllowList
+type AllowListStatus string
+
+const (
+	AllowListStatusOk                   = AllowListStatus("OK")
+	AllowListStatusS3ObjectNotFound     = AllowListStatus("S3_OBJECT_NOT_FOUND")
+	AllowListStatusS3UserAccessDenied   = AllowListStatus("S3_USER_ACCESS_DENIED")
+	AllowListStatusS3ObjectAccessDenied = AllowListStatus("S3_OBJECT_ACCESS_DENIED")
+	AllowListStatusS3Throttled          = AllowListStatus("S3_THROTTLED")
+	AllowListStatusS3ObjectOversize     = AllowListStatus("S3_OBJECT_OVERSIZE")
+	AllowListStatusS3ObjectEmpty        = AllowListStatus("S3_OBJECT_EMPTY")
+	AllowListStatusUnknownError         = AllowListStatus("UNKNOWN_ERROR")
+)
+
+type AllowListStatusOutput struct{ *pulumi.OutputState }
+
+func (AllowListStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListStatus)(nil)).Elem()
+}
+
+func (o AllowListStatusOutput) ToAllowListStatusOutput() AllowListStatusOutput {
+	return o
+}
+
+func (o AllowListStatusOutput) ToAllowListStatusOutputWithContext(ctx context.Context) AllowListStatusOutput {
+	return o
+}
+
+func (o AllowListStatusOutput) ToAllowListStatusPtrOutput() AllowListStatusPtrOutput {
+	return o.ToAllowListStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AllowListStatusOutput) ToAllowListStatusPtrOutputWithContext(ctx context.Context) AllowListStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowListStatus) *AllowListStatus {
+		return &v
+	}).(AllowListStatusPtrOutput)
+}
+
+func (o AllowListStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AllowListStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AllowListStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AllowListStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AllowListStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AllowListStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AllowListStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AllowListStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowListStatus)(nil)).Elem()
+}
+
+func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutput() AllowListStatusPtrOutput {
+	return o
+}
+
+func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutputWithContext(ctx context.Context) AllowListStatusPtrOutput {
+	return o
+}
+
+func (o AllowListStatusPtrOutput) Elem() AllowListStatusOutput {
+	return o.ApplyT(func(v *AllowListStatus) AllowListStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AllowListStatus
+		return ret
+	}).(AllowListStatusOutput)
+}
+
+func (o AllowListStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AllowListStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AllowListStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type FindingsFilterFindingFilterAction string
 
 const (
@@ -512,6 +609,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionFindingPublishingFrequencyPtrInput)(nil)).Elem(), SessionFindingPublishingFrequency("FIFTEEN_MINUTES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionStatusInput)(nil)).Elem(), SessionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionStatusPtrInput)(nil)).Elem(), SessionStatus("ENABLED"))
+	pulumi.RegisterOutputType(AllowListStatusOutput{})
+	pulumi.RegisterOutputType(AllowListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionPtrOutput{})
 	pulumi.RegisterOutputType(SessionFindingPublishingFrequencyOutput{})

@@ -44,6 +44,16 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
     /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -82,6 +92,7 @@ export class Topic extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
+            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
             resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
@@ -91,6 +102,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["topicArn"] = undefined /*out*/;
         } else {
             resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
+            resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["fifoTopic"] = undefined /*out*/;
             resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
@@ -116,6 +128,16 @@ export interface TopicArgs {
      * (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
      */
     contentBasedDeduplication?: pulumi.Input<boolean>;
+    /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    dataProtectionPolicy?: any;
     /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */

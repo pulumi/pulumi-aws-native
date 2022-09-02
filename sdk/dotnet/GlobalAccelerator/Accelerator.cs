@@ -22,10 +22,16 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+        /// </summary>
+        [Output("dualStackDnsName")]
+        public Output<string> DualStackDnsName { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether an accelerator is enabled. The value is true or false.
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         [Output("ipv4Addresses")]
         public Output<ImmutableArray<string>> Ipv4Addresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv6 addresses assigned if the accelerator is dualstack
+        /// </summary>
+        [Output("ipv6Addresses")]
+        public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
 
         /// <summary>
         /// Name of accelerator.

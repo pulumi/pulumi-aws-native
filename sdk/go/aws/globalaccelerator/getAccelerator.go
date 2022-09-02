@@ -28,8 +28,10 @@ type LookupAcceleratorArgs struct {
 type LookupAcceleratorResult struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn *string `pulumi:"acceleratorArn"`
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
 	DnsName *string `pulumi:"dnsName"`
+	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+	DualStackDnsName *string `pulumi:"dualStackDnsName"`
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled *bool `pulumi:"enabled"`
 	// IP Address type.
@@ -38,6 +40,8 @@ type LookupAcceleratorResult struct {
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The IPv4 addresses assigned to the accelerator.
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The IPv6 addresses assigned if the accelerator is dualstack
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Name of accelerator.
 	Name *string          `pulumi:"name"`
 	Tags []AcceleratorTag `pulumi:"tags"`
@@ -84,9 +88,14 @@ func (o LookupAcceleratorResultOutput) AcceleratorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.AcceleratorArn }).(pulumi.StringPtrOutput)
 }
 
-// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
 func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+func (o LookupAcceleratorResultOutput) DualStackDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.DualStackDnsName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether an accelerator is enabled. The value is true or false.
@@ -107,6 +116,11 @@ func (o LookupAcceleratorResultOutput) IpAddresses() pulumi.StringArrayOutput {
 // The IPv4 addresses assigned to the accelerator.
 func (o LookupAcceleratorResultOutput) Ipv4Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The IPv6 addresses assigned if the accelerator is dualstack
+func (o LookupAcceleratorResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Name of accelerator.

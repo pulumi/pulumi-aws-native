@@ -21,13 +21,14 @@ func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParamet
 }
 
 type LookupClusterParameterGroupArgs struct {
-	Id string `pulumi:"id"`
+	// Cloudformation will generate a unique group name.
+	ParameterGroupName string `pulumi:"parameterGroupName"`
 }
 
 type LookupClusterParameterGroupResult struct {
-	Id         *string                          `pulumi:"id"`
-	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
-	Tags       []ClusterParameterGroupTag       `pulumi:"tags"`
+	// Cloudformation will generate a unique group name.
+	ParameterGroupName *string                    `pulumi:"parameterGroupName"`
+	Tags               []ClusterParameterGroupTag `pulumi:"tags"`
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
@@ -44,7 +45,8 @@ func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterPa
 }
 
 type LookupClusterParameterGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// Cloudformation will generate a unique group name.
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 }
 
 func (LookupClusterParameterGroupOutputArgs) ElementType() reflect.Type {
@@ -65,12 +67,9 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 	return o
 }
 
-func (o LookupClusterParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupClusterParameterGroupResultOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
-	return o.ApplyT(func(v LookupClusterParameterGroupResult) []ClusterParameterGroupParameter { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
+// Cloudformation will generate a unique group name.
+func (o LookupClusterParameterGroupResultOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterParameterGroupResult) *string { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterParameterGroupResultOutput) Tags() ClusterParameterGroupTagArrayOutput {

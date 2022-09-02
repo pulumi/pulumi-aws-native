@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
 
         public static AcceleratorIpAddressType Ipv4 { get; } = new AcceleratorIpAddressType("IPV4");
-        public static AcceleratorIpAddressType Ipv6 { get; } = new AcceleratorIpAddressType("IPV6");
+        public static AcceleratorIpAddressType DualStack { get; } = new AcceleratorIpAddressType("DUAL_STACK");
 
         public static bool operator ==(AcceleratorIpAddressType left, AcceleratorIpAddressType right) => left.Equals(right);
         public static bool operator !=(AcceleratorIpAddressType left, AcceleratorIpAddressType right) => !left.Equals(right);

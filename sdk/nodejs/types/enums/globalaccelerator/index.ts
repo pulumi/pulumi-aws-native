@@ -4,7 +4,7 @@
 
 export const AcceleratorIpAddressType = {
     Ipv4: "IPV4",
-    Ipv6: "IPV6",
+    DualStack: "DUAL_STACK",
 } as const;
 
 /**

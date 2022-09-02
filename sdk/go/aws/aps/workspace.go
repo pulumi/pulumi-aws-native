@@ -19,7 +19,8 @@ type Workspace struct {
 	// AMP Workspace alias.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Workspace arn.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                  pulumi.StringOutput                    `pulumi:"arn"`
+	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
@@ -70,7 +71,8 @@ type workspaceArgs struct {
 	// The AMP Workspace alert manager definition data
 	AlertManagerDefinition *string `pulumi:"alertManagerDefinition"`
 	// AMP Workspace alias.
-	Alias *string `pulumi:"alias"`
+	Alias                *string                        `pulumi:"alias"`
+	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []WorkspaceTag `pulumi:"tags"`
 }
@@ -80,7 +82,8 @@ type WorkspaceArgs struct {
 	// The AMP Workspace alert manager definition data
 	AlertManagerDefinition pulumi.StringPtrInput
 	// AMP Workspace alias.
-	Alias pulumi.StringPtrInput
+	Alias                pulumi.StringPtrInput
+	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags WorkspaceTagArrayInput
 }
@@ -135,6 +138,10 @@ func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 // Workspace arn.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
 // AMP Workspace prometheus endpoint

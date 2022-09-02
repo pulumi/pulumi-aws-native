@@ -128,6 +128,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
             __props__.__dict__["parameter_group_family"] = parameter_group_family
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["parameter_group_name"] = None
         super(ClusterParameterGroup, __self__).__init__(
             'aws-native:redshift:ClusterParameterGroup',
             resource_name,
@@ -152,6 +153,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         __props__.__dict__["description"] = None
         __props__.__dict__["parameter_group_family"] = None
+        __props__.__dict__["parameter_group_name"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["tags"] = None
         return ClusterParameterGroup(resource_name, opts=opts, __props__=__props__)
@@ -165,6 +167,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter(name="parameterGroupFamily")
     def parameter_group_family(self) -> pulumi.Output[str]:
         return pulumi.get(self, "parameter_group_family")
+
+    @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> pulumi.Output[str]:
+        """
+        Cloudformation will generate a unique group name.
+        """
+        return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter

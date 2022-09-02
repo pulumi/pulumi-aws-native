@@ -40,9 +40,13 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public /*out*/ readonly acceleratorArn!: pulumi.Output<string>;
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
+     */
+    public /*out*/ readonly dualStackDnsName!: pulumi.Output<string>;
     /**
      * Indicates whether an accelerator is enabled. The value is true or false.
      */
@@ -59,6 +63,10 @@ export class Accelerator extends pulumi.CustomResource {
      * The IPv4 addresses assigned to the accelerator.
      */
     public /*out*/ readonly ipv4Addresses!: pulumi.Output<string[]>;
+    /**
+     * The IPv6 addresses assigned if the accelerator is dualstack
+     */
+    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
     /**
      * Name of accelerator.
      */
@@ -83,14 +91,18 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["acceleratorArn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["dualStackDnsName"] = undefined /*out*/;
             resourceInputs["ipv4Addresses"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
         } else {
             resourceInputs["acceleratorArn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["dualStackDnsName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["ipv4Addresses"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
