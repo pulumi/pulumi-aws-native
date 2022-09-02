@@ -1,5 +1,10 @@
 ## HEAD (Unreleased)
 
+## 0.26.0 (September 2, 2022)
+
+* Update to include the latest resource definitions
+
+
 ## 0.25.0 (September 1, 2022)
 
 * Update to include the latest resource definitions
