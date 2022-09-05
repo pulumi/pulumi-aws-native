@@ -42,7 +42,7 @@ type LookupWirelessGatewayResult struct {
 	Tags []WirelessGatewayTag `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn *string `pulumi:"thingArn"`
-	// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+	// Thing Name. If there is a Thing created, this can be returned with a Get call.
 	ThingName *string `pulumi:"thingName"`
 }
 
@@ -122,7 +122,7 @@ func (o LookupWirelessGatewayResultOutput) ThingArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWirelessGatewayResult) *string { return v.ThingArn }).(pulumi.StringPtrOutput)
 }
 
-// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+// Thing Name. If there is a Thing created, this can be returned with a Get call.
 func (o LookupWirelessGatewayResultOutput) ThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWirelessGatewayResult) *string { return v.ThingName }).(pulumi.StringPtrOutput)
 }

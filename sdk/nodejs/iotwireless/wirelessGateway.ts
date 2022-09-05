@@ -64,9 +64,9 @@ export class WirelessGateway extends pulumi.CustomResource {
      */
     public readonly thingArn!: pulumi.Output<string | undefined>;
     /**
-     * Thing Arn. If there is a Thing created, this can be returned with a Get call.
+     * Thing Name. If there is a Thing created, this can be returned with a Get call.
      */
-    public /*out*/ readonly thingName!: pulumi.Output<string>;
+    public readonly thingName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WirelessGateway resource with the given unique name, arguments, and options.
@@ -88,8 +88,8 @@ export class WirelessGateway extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
+            resourceInputs["thingName"] = args ? args.thingName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["thingName"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -133,4 +133,8 @@ export interface WirelessGatewayArgs {
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
     thingArn?: pulumi.Input<string>;
+    /**
+     * Thing Name. If there is a Thing created, this can be returned with a Get call.
+     */
+    thingName?: pulumi.Input<string>;
 }

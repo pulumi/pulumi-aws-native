@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Function{}
 	case "aws-native:cloudfront:KeyGroup":
 		r = &KeyGroup{}
+	case "aws-native:cloudfront:OriginAccessControl":
+		r = &OriginAccessControl{}
 	case "aws-native:cloudfront:OriginRequestPolicy":
 		r = &OriginRequestPolicy{}
 	case "aws-native:cloudfront:PublicKey":

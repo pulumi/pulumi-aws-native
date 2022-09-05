@@ -60,7 +60,7 @@ export interface GetWirelessGatewayResult {
      */
     readonly thingArn?: string;
     /**
-     * Thing Arn. If there is a Thing created, this can be returned with a Get call.
+     * Thing Name. If there is a Thing created, this can be returned with a Get call.
      */
     readonly thingName?: string;
 }

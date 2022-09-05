@@ -14,12 +14,14 @@ export * from "./getCloudFrontOriginAccessIdentity";
 export * from "./getDistribution";
 export * from "./getFunction";
 export * from "./getKeyGroup";
+export * from "./getOriginAccessControl";
 export * from "./getOriginRequestPolicy";
 export * from "./getPublicKey";
 export * from "./getRealtimeLogConfig";
 export * from "./getResponseHeadersPolicy";
 export * from "./getStreamingDistribution";
 export * from "./keyGroup";
+export * from "./originAccessControl";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
 export * from "./realtimeLogConfig";
@@ -32,6 +34,7 @@ import { CloudFrontOriginAccessIdentity } from "./cloudFrontOriginAccessIdentity
 import { Distribution } from "./distribution";
 import { Function } from "./function";
 import { KeyGroup } from "./keyGroup";
+import { OriginAccessControl } from "./originAccessControl";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
 import { RealtimeLogConfig } from "./realtimeLogConfig";
@@ -52,6 +55,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws-native:cloudfront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:OriginAccessControl":
+                return new OriginAccessControl(name, <any>undefined, { urn })
             case "aws-native:cloudfront:OriginRequestPolicy":
                 return new OriginRequestPolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:PublicKey":

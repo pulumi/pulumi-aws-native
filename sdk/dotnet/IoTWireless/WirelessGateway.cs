@@ -58,10 +58,10 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string?> ThingArn { get; private set; } = null!;
 
         /// <summary>
-        /// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        /// Thing Name. If there is a Thing created, this can be returned with a Get call.
         /// </summary>
         [Output("thingName")]
-        public Output<string> ThingName { get; private set; } = null!;
+        public Output<string?> ThingName { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,6 +149,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         [Input("thingArn")]
         public Input<string>? ThingArn { get; set; }
+
+        /// <summary>
+        /// Thing Name. If there is a Thing created, this can be returned with a Get call.
+        /// </summary>
+        [Input("thingName")]
+        public Input<string>? ThingName { get; set; }
 
         public WirelessGatewayArgs()
         {

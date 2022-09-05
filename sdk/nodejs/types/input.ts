@@ -5877,6 +5877,14 @@ export namespace cloudfront {
         name: pulumi.Input<string>;
     }
 
+    export interface OriginAccessControlConfigArgs {
+        description?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        originAccessControlOriginType: pulumi.Input<string>;
+        signingBehavior: pulumi.Input<string>;
+        signingProtocol: pulumi.Input<string>;
+    }
+
     export interface OriginRequestPolicyConfigArgs {
         comment?: pulumi.Input<string>;
         cookiesConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyCookiesConfigArgs>;

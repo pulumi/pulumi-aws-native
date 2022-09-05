@@ -21,7 +21,8 @@ class WirelessGatewayArgs:
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessGatewayTagArgs']]]] = None,
-                 thing_arn: Optional[pulumi.Input[str]] = None):
+                 thing_arn: Optional[pulumi.Input[str]] = None,
+                 thing_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WirelessGateway resource.
         :param pulumi.Input['WirelessGatewayLoRaWANGatewayArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
@@ -30,6 +31,7 @@ class WirelessGatewayArgs:
         :param pulumi.Input[str] name: Name of Wireless Gateway.
         :param pulumi.Input[Sequence[pulumi.Input['WirelessGatewayTagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         :param pulumi.Input[str] thing_arn: Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
+        :param pulumi.Input[str] thing_name: Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
         pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if description is not None:
@@ -42,6 +44,8 @@ class WirelessGatewayArgs:
             pulumi.set(__self__, "tags", tags)
         if thing_arn is not None:
             pulumi.set(__self__, "thing_arn", thing_arn)
+        if thing_name is not None:
+            pulumi.set(__self__, "thing_name", thing_name)
 
     @property
     @pulumi.getter(name="loRaWAN")
@@ -115,6 +119,18 @@ class WirelessGatewayArgs:
     def thing_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thing_arn", value)
 
+    @property
+    @pulumi.getter(name="thingName")
+    def thing_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Thing Name. If there is a Thing created, this can be returned with a Get call.
+        """
+        return pulumi.get(self, "thing_name")
+
+    @thing_name.setter
+    def thing_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_name", value)
+
 
 class WirelessGateway(pulumi.CustomResource):
     @overload
@@ -127,6 +143,7 @@ class WirelessGateway(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessGatewayTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
+                 thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create and manage wireless gateways, including LoRa gateways.
@@ -139,6 +156,7 @@ class WirelessGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of Wireless Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessGatewayTagArgs']]]] tags: A list of key-value pairs that contain metadata for the gateway.
         :param pulumi.Input[str] thing_arn: Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
+        :param pulumi.Input[str] thing_name: Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
         ...
     @overload
@@ -170,6 +188,7 @@ class WirelessGateway(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessGatewayTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
+                 thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,8 +206,8 @@ class WirelessGateway(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_arn"] = thing_arn
+            __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None
-            __props__.__dict__["thing_name"] = None
         super(WirelessGateway, __self__).__init__(
             'aws-native:iotwireless:WirelessGateway',
             resource_name,
@@ -279,9 +298,9 @@ class WirelessGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thingName")
-    def thing_name(self) -> pulumi.Output[str]:
+    def thing_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
         return pulumi.get(self, "thing_name")
 

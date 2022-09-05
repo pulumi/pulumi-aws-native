@@ -4967,6 +4967,148 @@ func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OriginAccessControlConfig struct {
+	Description                   *string `pulumi:"description"`
+	Name                          string  `pulumi:"name"`
+	OriginAccessControlOriginType string  `pulumi:"originAccessControlOriginType"`
+	SigningBehavior               string  `pulumi:"signingBehavior"`
+	SigningProtocol               string  `pulumi:"signingProtocol"`
+}
+
+// OriginAccessControlConfigInput is an input type that accepts OriginAccessControlConfigArgs and OriginAccessControlConfigOutput values.
+// You can construct a concrete instance of `OriginAccessControlConfigInput` via:
+//
+//	OriginAccessControlConfigArgs{...}
+type OriginAccessControlConfigInput interface {
+	pulumi.Input
+
+	ToOriginAccessControlConfigOutput() OriginAccessControlConfigOutput
+	ToOriginAccessControlConfigOutputWithContext(context.Context) OriginAccessControlConfigOutput
+}
+
+type OriginAccessControlConfigArgs struct {
+	Description                   pulumi.StringPtrInput `pulumi:"description"`
+	Name                          pulumi.StringInput    `pulumi:"name"`
+	OriginAccessControlOriginType pulumi.StringInput    `pulumi:"originAccessControlOriginType"`
+	SigningBehavior               pulumi.StringInput    `pulumi:"signingBehavior"`
+	SigningProtocol               pulumi.StringInput    `pulumi:"signingProtocol"`
+}
+
+func (OriginAccessControlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginAccessControlConfig)(nil)).Elem()
+}
+
+func (i OriginAccessControlConfigArgs) ToOriginAccessControlConfigOutput() OriginAccessControlConfigOutput {
+	return i.ToOriginAccessControlConfigOutputWithContext(context.Background())
+}
+
+func (i OriginAccessControlConfigArgs) ToOriginAccessControlConfigOutputWithContext(ctx context.Context) OriginAccessControlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessControlConfigOutput)
+}
+
+type OriginAccessControlConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginAccessControlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginAccessControlConfig)(nil)).Elem()
+}
+
+func (o OriginAccessControlConfigOutput) ToOriginAccessControlConfigOutput() OriginAccessControlConfigOutput {
+	return o
+}
+
+func (o OriginAccessControlConfigOutput) ToOriginAccessControlConfigOutputWithContext(ctx context.Context) OriginAccessControlConfigOutput {
+	return o
+}
+
+func (o OriginAccessControlConfigOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginAccessControlConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginAccessControlConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OriginAccessControlConfigOutput) OriginAccessControlOriginType() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
+}
+
+func (o OriginAccessControlConfigOutput) SigningBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.SigningBehavior }).(pulumi.StringOutput)
+}
+
+func (o OriginAccessControlConfigOutput) SigningProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.SigningProtocol }).(pulumi.StringOutput)
+}
+
+type OriginAccessControlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginAccessControlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginAccessControlConfig)(nil)).Elem()
+}
+
+func (o OriginAccessControlConfigPtrOutput) ToOriginAccessControlConfigPtrOutput() OriginAccessControlConfigPtrOutput {
+	return o
+}
+
+func (o OriginAccessControlConfigPtrOutput) ToOriginAccessControlConfigPtrOutputWithContext(ctx context.Context) OriginAccessControlConfigPtrOutput {
+	return o
+}
+
+func (o OriginAccessControlConfigPtrOutput) Elem() OriginAccessControlConfigOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) OriginAccessControlConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginAccessControlConfig
+		return ret
+	}).(OriginAccessControlConfigOutput)
+}
+
+func (o OriginAccessControlConfigPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginAccessControlConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginAccessControlConfigPtrOutput) OriginAccessControlOriginType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginAccessControlOriginType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginAccessControlConfigPtrOutput) SigningBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginAccessControlConfigPtrOutput) SigningProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
 type OriginRequestPolicyConfig struct {
 	Comment            *string                               `pulumi:"comment"`
 	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
@@ -8836,6 +8978,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataPtrInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupConfigInput)(nil)).Elem(), KeyGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessControlConfigInput)(nil)).Elem(), OriginAccessControlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyConfigInput)(nil)).Elem(), OriginRequestPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyHeadersConfigInput)(nil)).Elem(), OriginRequestPolicyHeadersConfigArgs{})
@@ -8949,6 +9092,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginAccessControlConfigOutput{})
+	pulumi.RegisterOutputType(OriginAccessControlConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyConfigOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})

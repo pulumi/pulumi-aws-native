@@ -45,6 +45,7 @@ __all__ = [
     'FunctionConfigArgs',
     'FunctionMetadataArgs',
     'KeyGroupConfigArgs',
+    'OriginAccessControlConfigArgs',
     'OriginRequestPolicyConfigArgs',
     'OriginRequestPolicyCookiesConfigArgs',
     'OriginRequestPolicyHeadersConfigArgs',
@@ -1985,6 +1986,67 @@ class KeyGroupConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class OriginAccessControlConfigArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 origin_access_control_origin_type: pulumi.Input[str],
+                 signing_behavior: pulumi.Input[str],
+                 signing_protocol: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
+        pulumi.set(__self__, "signing_behavior", signing_behavior)
+        pulumi.set(__self__, "signing_protocol", signing_protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="originAccessControlOriginType")
+    def origin_access_control_origin_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "origin_access_control_origin_type")
+
+    @origin_access_control_origin_type.setter
+    def origin_access_control_origin_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_access_control_origin_type", value)
+
+    @property
+    @pulumi.getter(name="signingBehavior")
+    def signing_behavior(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "signing_behavior")
+
+    @signing_behavior.setter
+    def signing_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signing_behavior", value)
+
+    @property
+    @pulumi.getter(name="signingProtocol")
+    def signing_protocol(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "signing_protocol")
+
+    @signing_protocol.setter
+    def signing_protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signing_protocol", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

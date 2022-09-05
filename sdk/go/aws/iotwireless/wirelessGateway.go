@@ -29,8 +29,8 @@ type WirelessGateway struct {
 	Tags WirelessGatewayTagArrayOutput `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn pulumi.StringPtrOutput `pulumi:"thingArn"`
-	// Thing Arn. If there is a Thing created, this can be returned with a Get call.
-	ThingName pulumi.StringOutput `pulumi:"thingName"`
+	// Thing Name. If there is a Thing created, this can be returned with a Get call.
+	ThingName pulumi.StringPtrOutput `pulumi:"thingName"`
 }
 
 // NewWirelessGateway registers a new resource with the given unique name, arguments, and options.
@@ -87,6 +87,8 @@ type wirelessGatewayArgs struct {
 	Tags []WirelessGatewayTag `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn *string `pulumi:"thingArn"`
+	// Thing Name. If there is a Thing created, this can be returned with a Get call.
+	ThingName *string `pulumi:"thingName"`
 }
 
 // The set of arguments for constructing a WirelessGateway resource.
@@ -103,6 +105,8 @@ type WirelessGatewayArgs struct {
 	Tags WirelessGatewayTagArrayInput
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn pulumi.StringPtrInput
+	// Thing Name. If there is a Thing created, this can be returned with a Get call.
+	ThingName pulumi.StringPtrInput
 }
 
 func (WirelessGatewayArgs) ElementType() reflect.Type {
@@ -177,9 +181,9 @@ func (o WirelessGatewayOutput) ThingArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.ThingArn }).(pulumi.StringPtrOutput)
 }
 
-// Thing Arn. If there is a Thing created, this can be returned with a Get call.
-func (o WirelessGatewayOutput) ThingName() pulumi.StringOutput {
-	return o.ApplyT(func(v *WirelessGateway) pulumi.StringOutput { return v.ThingName }).(pulumi.StringOutput)
+// Thing Name. If there is a Thing created, this can be returned with a Get call.
+func (o WirelessGatewayOutput) ThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringPtrOutput { return v.ThingName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

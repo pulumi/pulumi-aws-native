@@ -83,6 +83,7 @@ AWS::CloudFront::CloudFrontOriginAccessIdentity
 AWS::CloudFront::Distribution
 AWS::CloudFront::Function
 AWS::CloudFront::KeyGroup
+AWS::CloudFront::OriginAccessControl
 AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig

@@ -995,6 +995,7 @@ _utilities.register(
    "aws-native:cloudfront:Distribution": "Distribution",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",
+   "aws-native:cloudfront:OriginAccessControl": "OriginAccessControl",
    "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
    "aws-native:cloudfront:PublicKey": "PublicKey",
    "aws-native:cloudfront:RealtimeLogConfig": "RealtimeLogConfig",

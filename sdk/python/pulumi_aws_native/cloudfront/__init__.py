@@ -14,12 +14,14 @@ from .get_cloud_front_origin_access_identity import *
 from .get_distribution import *
 from .get_function import *
 from .get_key_group import *
+from .get_origin_access_control import *
 from .get_origin_request_policy import *
 from .get_public_key import *
 from .get_realtime_log_config import *
 from .get_response_headers_policy import *
 from .get_streaming_distribution import *
 from .key_group import *
+from .origin_access_control import *
 from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *

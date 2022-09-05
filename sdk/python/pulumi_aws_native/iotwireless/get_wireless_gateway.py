@@ -116,7 +116,7 @@ class GetWirelessGatewayResult:
     @pulumi.getter(name="thingName")
     def thing_name(self) -> Optional[str]:
         """
-        Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        Thing Name. If there is a Thing created, this can be returned with a Get call.
         """
         return pulumi.get(self, "thing_name")
 

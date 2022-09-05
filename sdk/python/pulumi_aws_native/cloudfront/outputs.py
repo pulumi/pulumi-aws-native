@@ -46,6 +46,7 @@ __all__ = [
     'FunctionConfig',
     'FunctionMetadata',
     'KeyGroupConfig',
+    'OriginAccessControlConfig',
     'OriginRequestPolicyConfig',
     'OriginRequestPolicyCookiesConfig',
     'OriginRequestPolicyHeadersConfig',
@@ -2036,6 +2037,68 @@ class KeyGroupConfig(dict):
     @pulumi.getter
     def comment(self) -> Optional[str]:
         return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class OriginAccessControlConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originAccessControlOriginType":
+            suggest = "origin_access_control_origin_type"
+        elif key == "signingBehavior":
+            suggest = "signing_behavior"
+        elif key == "signingProtocol":
+            suggest = "signing_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginAccessControlConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginAccessControlConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginAccessControlConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 origin_access_control_origin_type: str,
+                 signing_behavior: str,
+                 signing_protocol: str,
+                 description: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
+        pulumi.set(__self__, "signing_behavior", signing_behavior)
+        pulumi.set(__self__, "signing_protocol", signing_protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="originAccessControlOriginType")
+    def origin_access_control_origin_type(self) -> str:
+        return pulumi.get(self, "origin_access_control_origin_type")
+
+    @property
+    @pulumi.getter(name="signingBehavior")
+    def signing_behavior(self) -> str:
+        return pulumi.get(self, "signing_behavior")
+
+    @property
+    @pulumi.getter(name="signingProtocol")
+    def signing_protocol(self) -> str:
+        return pulumi.get(self, "signing_protocol")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

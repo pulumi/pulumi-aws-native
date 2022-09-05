@@ -5256,6 +5256,14 @@ export namespace cloudfront {
         name: string;
     }
 
+    export interface OriginAccessControlConfig {
+        description?: string;
+        name: string;
+        originAccessControlOriginType: string;
+        signingBehavior: string;
+        signingProtocol: string;
+    }
+
     export interface OriginRequestPolicyConfig {
         comment?: string;
         cookiesConfig: outputs.cloudfront.OriginRequestPolicyCookiesConfig;

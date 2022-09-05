@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public readonly string? ThingArn;
         /// <summary>
-        /// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        /// Thing Name. If there is a Thing created, this can be returned with a Get call.
         /// </summary>
         public readonly string? ThingName;
 

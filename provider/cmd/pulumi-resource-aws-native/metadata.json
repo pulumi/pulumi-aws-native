@@ -5881,6 +5881,22 @@
                 "keyGroupConfig"
             ]
         },
+        "aws-native:cloudfront:OriginAccessControl": {
+            "cf": "AWS::CloudFront::OriginAccessControl",
+            "inputs": {
+                "originAccessControlConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:OriginAccessControlConfig"
+                }
+            },
+            "outputs": {
+                "originAccessControlConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:OriginAccessControlConfig"
+                }
+            },
+            "required": [
+                "originAccessControlConfig"
+            ]
+        },
         "aws-native:cloudfront:OriginRequestPolicy": {
             "cf": "AWS::CloudFront::OriginRequestPolicy",
             "inputs": {
@@ -23829,6 +23845,10 @@
                 "thingArn": {
                     "type": "string",
                     "description": "Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway."
+                },
+                "thingName": {
+                    "type": "string",
+                    "description": "Thing Name. If there is a Thing created, this can be returned with a Get call."
                 }
             },
             "outputs": {
@@ -23865,7 +23885,7 @@
                 },
                 "thingName": {
                     "type": "string",
-                    "description": "Thing Arn. If there is a Thing created, this can be returned with a Get call."
+                    "description": "Thing Name. If there is a Thing created, this can be returned with a Get call."
                 }
             },
             "autoNamingSpec": {
@@ -50437,6 +50457,26 @@
                     }
                 },
                 "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:cloudfront:OriginAccessControlConfig": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "originAccessControlOriginType": {
+                    "type": "string"
+                },
+                "signingBehavior": {
+                    "type": "string"
+                },
+                "signingProtocol": {
                     "type": "string"
                 }
             }
@@ -85846,6 +85886,12 @@
         },
         "aws-native:cloudfront:getKeyGroup": {
             "cf": "AWS::CloudFront::KeyGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getOriginAccessControl": {
+            "cf": "AWS::CloudFront::OriginAccessControl",
             "ids": [
                 "id"
             ]
