@@ -1,9 +1,21 @@
 ## HEAD (Unreleased)
 
-## 0.26.0 (September 2, 2022)
+## 0.27.0 (September 5, 2022)
 
 * Update to include the latest resource definitions
 
+#### New resources:
+
+- `aws-native:cloudfront:OriginAccessControl`
+
+#### New functions:
+
+- `aws-native:cloudfront:getOriginAccessControl`
+
+
+## 0.26.0 (September 2, 2022)
+
+* Update to include the latest resource definitions
 
 ## 0.25.0 (September 1, 2022)
 
