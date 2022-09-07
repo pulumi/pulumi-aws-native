@@ -9,7 +9,6 @@ from ._enums import *
 from .destination import *
 from .get_destination import *
 from .get_log_group import *
-from .get_log_stream import *
 from .get_metric_filter import *
 from .get_query_definition import *
 from .get_resource_policy import *

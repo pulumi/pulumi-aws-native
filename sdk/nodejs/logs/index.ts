@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 export * from "./destination";
 export * from "./getDestination";
 export * from "./getLogGroup";
-export * from "./getLogStream";
 export * from "./getMetricFilter";
 export * from "./getQueryDefinition";
 export * from "./getResourcePolicy";

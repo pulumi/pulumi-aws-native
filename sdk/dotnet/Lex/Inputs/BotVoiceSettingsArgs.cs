@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Lex.Inputs
     public sealed class BotVoiceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        /// </summary>
+        [Input("engine")]
+        public Input<Pulumi.AwsNative.Lex.BotVoiceSettingsEngine>? Engine { get; set; }
+
+        /// <summary>
         /// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
         /// </summary>
         [Input("voiceId", required: true)]

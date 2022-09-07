@@ -21615,6 +21615,10 @@ export namespace lex {
      */
     export interface BotVoiceSettings {
         /**
+         * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+         */
+        engine?: enums.lex.BotVoiceSettingsEngine;
+        /**
          * The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
          */
         voiceId: string;

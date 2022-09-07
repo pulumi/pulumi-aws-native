@@ -18,6 +18,8 @@ class LogStreamArgs:
                  log_stream_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
+        :param pulumi.Input[str] log_group_name: The name of the log group where the log stream is created.
+        :param pulumi.Input[str] log_stream_name: The name of the log stream. The name must be unique wihtin the log group.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         if log_stream_name is not None:
@@ -26,6 +28,9 @@ class LogStreamArgs:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the log group where the log stream is created.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -35,6 +40,9 @@ class LogStreamArgs:
     @property
     @pulumi.getter(name="logStreamName")
     def log_stream_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log stream. The name must be unique wihtin the log group.
+        """
         return pulumi.get(self, "log_stream_name")
 
     @log_stream_name.setter
@@ -42,12 +50,7 @@ class LogStreamArgs:
         pulumi.set(self, "log_stream_name", value)
 
 
-warnings.warn("""LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class LogStream(pulumi.CustomResource):
-    warnings.warn("""LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -60,6 +63,8 @@ class LogStream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] log_group_name: The name of the log group where the log stream is created.
+        :param pulumi.Input[str] log_stream_name: The name of the log stream. The name must be unique wihtin the log group.
         """
         ...
     @overload
@@ -88,7 +93,6 @@ class LogStream(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  log_stream_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LogStream is deprecated: LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -130,10 +134,16 @@ class LogStream(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the log group where the log stream is created.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="logStreamName")
     def log_stream_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the log stream. The name must be unique wihtin the log group.
+        """
         return pulumi.get(self, "log_stream_name")
 

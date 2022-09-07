@@ -1391,7 +1391,6 @@
         "logs/destination.ts",
         "logs/getDestination.ts",
         "logs/getLogGroup.ts",
-        "logs/getLogStream.ts",
         "logs/getMetricFilter.ts",
         "logs/getQueryDefinition.ts",
         "logs/getResourcePolicy.ts",

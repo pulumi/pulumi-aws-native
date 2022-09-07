@@ -8456,6 +8456,8 @@ func (o BotVersionLocaleSpecificationArrayOutput) Index(i pulumi.IntInput) BotVe
 
 // Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettings struct {
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+	Engine *BotVoiceSettingsEngine `pulumi:"engine"`
 	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
 	VoiceId string `pulumi:"voiceId"`
 }
@@ -8473,6 +8475,8 @@ type BotVoiceSettingsInput interface {
 
 // Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettingsArgs struct {
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+	Engine BotVoiceSettingsEnginePtrInput `pulumi:"engine"`
 	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
 	VoiceId pulumi.StringInput `pulumi:"voiceId"`
 }
@@ -8555,6 +8559,11 @@ func (o BotVoiceSettingsOutput) ToBotVoiceSettingsPtrOutputWithContext(ctx conte
 	}).(BotVoiceSettingsPtrOutput)
 }
 
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+func (o BotVoiceSettingsOutput) Engine() BotVoiceSettingsEnginePtrOutput {
+	return o.ApplyT(func(v BotVoiceSettings) *BotVoiceSettingsEngine { return v.Engine }).(BotVoiceSettingsEnginePtrOutput)
+}
+
 // The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
 func (o BotVoiceSettingsOutput) VoiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotVoiceSettings) string { return v.VoiceId }).(pulumi.StringOutput)
@@ -8582,6 +8591,16 @@ func (o BotVoiceSettingsPtrOutput) Elem() BotVoiceSettingsOutput {
 		var ret BotVoiceSettings
 		return ret
 	}).(BotVoiceSettingsOutput)
+}
+
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+func (o BotVoiceSettingsPtrOutput) Engine() BotVoiceSettingsEnginePtrOutput {
+	return o.ApplyT(func(v *BotVoiceSettings) *BotVoiceSettingsEngine {
+		if v == nil {
+			return nil
+		}
+		return v.Engine
+	}).(BotVoiceSettingsEnginePtrOutput)
 }
 
 // The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.

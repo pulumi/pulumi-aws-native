@@ -53,3 +53,13 @@ export const BotSlotValueResolutionStrategy = {
 } as const;
 
 export type BotSlotValueResolutionStrategy = (typeof BotSlotValueResolutionStrategy)[keyof typeof BotSlotValueResolutionStrategy];
+
+export const BotVoiceSettingsEngine = {
+    Standard: "standard",
+    Neural: "neural",
+} as const;
+
+/**
+ * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+ */
+export type BotVoiceSettingsEngine = (typeof BotVoiceSettingsEngine)[keyof typeof BotVoiceSettingsEngine];

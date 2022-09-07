@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Logs::LogStream
- *
- * @deprecated LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class LogStream extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class LogStream extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LogStream {
-        pulumi.log.warn("LogStream is deprecated: LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new LogStream(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class LogStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogStream.__pulumiType;
     }
 
+    /**
+     * The name of the log group where the log stream is created.
+     */
     public readonly logGroupName!: pulumi.Output<string>;
+    /**
+     * The name of the log stream. The name must be unique wihtin the log group.
+     */
     public readonly logStreamName!: pulumi.Output<string | undefined>;
 
     /**
@@ -47,9 +50,7 @@ export class LogStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LogStream is deprecated: LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -71,6 +72,12 @@ export class LogStream extends pulumi.CustomResource {
  * The set of arguments for constructing a LogStream resource.
  */
 export interface LogStreamArgs {
+    /**
+     * The name of the log group where the log stream is created.
+     */
     logGroupName: pulumi.Input<string>;
+    /**
+     * The name of the log stream. The name must be unique wihtin the log group.
+     */
     logStreamName?: pulumi.Input<string>;
 }

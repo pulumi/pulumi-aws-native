@@ -12,13 +12,18 @@ namespace Pulumi.AwsNative.Logs
     /// <summary>
     /// Resource Type definition for AWS::Logs::LogStream
     /// </summary>
-    [Obsolete(@"LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:LogStream")]
     public partial class LogStream : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the log group where the log stream is created.
+        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the log stream. The name must be unique wihtin the log group.
+        /// </summary>
         [Output("logStreamName")]
         public Output<string?> LogStreamName { get; private set; } = null!;
 
@@ -67,9 +72,15 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the log group where the log stream is created.
+        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the log stream. The name must be unique wihtin the log group.
+        /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
 

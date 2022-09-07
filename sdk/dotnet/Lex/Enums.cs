@@ -184,4 +184,35 @@ namespace Pulumi.AwsNative.Lex
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotVoiceSettingsEngine : IEquatable<BotVoiceSettingsEngine>
+    {
+        private readonly string _value;
+
+        private BotVoiceSettingsEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotVoiceSettingsEngine Standard { get; } = new BotVoiceSettingsEngine("standard");
+        public static BotVoiceSettingsEngine Neural { get; } = new BotVoiceSettingsEngine("neural");
+
+        public static bool operator ==(BotVoiceSettingsEngine left, BotVoiceSettingsEngine right) => left.Equals(right);
+        public static bool operator !=(BotVoiceSettingsEngine left, BotVoiceSettingsEngine right) => !left.Equals(right);
+
+        public static explicit operator string(BotVoiceSettingsEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotVoiceSettingsEngine other && Equals(other);
+        public bool Equals(BotVoiceSettingsEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

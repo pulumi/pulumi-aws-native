@@ -12,12 +12,12 @@ import (
 )
 
 // Resource Type definition for AWS::Logs::LogStream
-//
-// Deprecated: LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LogStream struct {
 	pulumi.CustomResourceState
 
-	LogGroupName  pulumi.StringOutput    `pulumi:"logGroupName"`
+	// The name of the log group where the log stream is created.
+	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	// The name of the log stream. The name must be unique wihtin the log group.
 	LogStreamName pulumi.StringPtrOutput `pulumi:"logStreamName"`
 }
 
@@ -63,13 +63,17 @@ func (LogStreamState) ElementType() reflect.Type {
 }
 
 type logStreamArgs struct {
-	LogGroupName  string  `pulumi:"logGroupName"`
+	// The name of the log group where the log stream is created.
+	LogGroupName string `pulumi:"logGroupName"`
+	// The name of the log stream. The name must be unique wihtin the log group.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
 // The set of arguments for constructing a LogStream resource.
 type LogStreamArgs struct {
-	LogGroupName  pulumi.StringInput
+	// The name of the log group where the log stream is created.
+	LogGroupName pulumi.StringInput
+	// The name of the log stream. The name must be unique wihtin the log group.
 	LogStreamName pulumi.StringPtrInput
 }
 
@@ -110,10 +114,12 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
+// The name of the log group where the log stream is created.
 func (o LogStreamOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// The name of the log stream. The name must be unique wihtin the log group.
 func (o LogStreamOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringPtrOutput { return v.LogStreamName }).(pulumi.StringPtrOutput)
 }

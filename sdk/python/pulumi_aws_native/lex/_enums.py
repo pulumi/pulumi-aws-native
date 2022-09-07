@@ -11,6 +11,7 @@ __all__ = [
     'BotObfuscationSettingObfuscationSettingType',
     'BotSlotConstraint',
     'BotSlotValueResolutionStrategy',
+    'BotVoiceSettingsEngine',
 ]
 
 
@@ -52,3 +53,11 @@ class BotSlotConstraint(str, Enum):
 class BotSlotValueResolutionStrategy(str, Enum):
     ORIGINAL_VALUE = "ORIGINAL_VALUE"
     TOP_RESOLUTION = "TOP_RESOLUTION"
+
+
+class BotVoiceSettingsEngine(str, Enum):
+    """
+    Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+    """
+    STANDARD = "standard"
+    NEURAL = "neural"

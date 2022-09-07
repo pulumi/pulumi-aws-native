@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.Lex.Outputs
     public sealed class BotVoiceSettings
     {
         /// <summary>
+        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Lex.BotVoiceSettingsEngine? Engine;
+        /// <summary>
         /// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
         /// </summary>
         public readonly string VoiceId;
 
         [OutputConstructor]
-        private BotVoiceSettings(string voiceId)
+        private BotVoiceSettings(
+            Pulumi.AwsNative.Lex.BotVoiceSettingsEngine? engine,
+
+            string voiceId)
         {
+            Engine = engine;
             VoiceId = voiceId;
         }
     }

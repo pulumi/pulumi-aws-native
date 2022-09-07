@@ -3261,12 +3261,16 @@ class BotVoiceSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 voice_id: str):
+                 voice_id: str,
+                 engine: Optional['BotVoiceSettingsEngine'] = None):
         """
         Settings for using an Amazon Polly voice to communicate with a user.
         :param str voice_id: The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        :param 'BotVoiceSettingsEngine' engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
         """
         pulumi.set(__self__, "voice_id", voice_id)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
 
     @property
     @pulumi.getter(name="voiceId")
@@ -3275,6 +3279,14 @@ class BotVoiceSettings(dict):
         The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
         """
         return pulumi.get(self, "voice_id")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional['BotVoiceSettingsEngine']:
+        """
+        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        """
+        return pulumi.get(self, "engine")
 
 
 @pulumi.output_type
