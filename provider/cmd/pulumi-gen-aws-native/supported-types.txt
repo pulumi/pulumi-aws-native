@@ -372,6 +372,7 @@ AWS::Location::RouteCalculator
 AWS::Location::Tracker
 AWS::Location::TrackerConsumer
 AWS::Logs::LogGroup
+AWS::Logs::LogStream
 AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy

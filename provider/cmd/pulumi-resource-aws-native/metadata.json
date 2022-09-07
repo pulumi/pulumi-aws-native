@@ -27802,6 +27802,39 @@
                 "logGroupName"
             ]
         },
+        "aws-native:logs:LogStream": {
+            "cf": "AWS::Logs::LogStream",
+            "inputs": {
+                "logGroupName": {
+                    "type": "string",
+                    "description": "The name of the log group where the log stream is created."
+                },
+                "logStreamName": {
+                    "type": "string",
+                    "description": "The name of the log stream. The name must be unique wihtin the log group."
+                }
+            },
+            "outputs": {
+                "logGroupName": {
+                    "type": "string",
+                    "description": "The name of the log group where the log stream is created."
+                },
+                "logStreamName": {
+                    "type": "string",
+                    "description": "The name of the log stream. The name must be unique wihtin the log group."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "logStreamName"
+            },
+            "required": [
+                "logGroupName"
+            ],
+            "createOnly": [
+                "logGroupName",
+                "logStreamName"
+            ]
+        },
         "aws-native:logs:MetricFilter": {
             "cf": "AWS::Logs::MetricFilter",
             "inputs": {
@@ -70168,11 +70201,18 @@
         "aws-native:lex:BotVoiceSettings": {
             "type": "object",
             "properties": {
+                "engine": {
+                    "$ref": "#/types/aws-native:lex:BotVoiceSettingsEngine",
+                    "description": "Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide."
+                },
                 "voiceId": {
                     "type": "string",
                     "description": "The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user."
                 }
             }
+        },
+        "aws-native:lex:BotVoiceSettingsEngine": {
+            "type": "string"
         },
         "aws-native:lex:BotWaitAndContinueSpecification": {
             "type": "object",
