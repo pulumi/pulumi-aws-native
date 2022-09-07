@@ -1,5 +1,14 @@
 ## HEAD (Unreleased)
 
+## 0.28.0 (September 7, 2022)
+
+* Update to include the latest resource definitions
+
+#### New resources:
+
+- `aws-native:logs:LogStream`
+
+
 ## 0.27.0 (September 5, 2022)
 
 * Update to include the latest resource definitions
