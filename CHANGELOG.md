@@ -1,5 +1,21 @@
 ## HEAD (Unreleased)
 
+## 0.29.0 (September 8, 2022)
+
+* Update to Pulumi SDK v3.39.3
+* Update to include the latest resource definitions
+
+#### New resources:
+
+- `aws-native:m2:Environment`
+- `aws-native:redshift:ClusterSubnetGroup`
+
+#### New functions:
+
+- `aws-native:m2:getEnvironment`
+- `aws-native:redshift:getClusterSubnetGroup`
+
+
 ## 0.28.0 (September 7, 2022)
 
 * Update to include the latest resource definitions
