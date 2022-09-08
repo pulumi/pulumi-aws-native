@@ -28181,6 +28181,147 @@
                 "projectName"
             ]
         },
+        "aws-native:m2:Environment": {
+            "cf": "AWS::M2::Environment",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the environment."
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentEngineType"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The version of the runtime engine for the environment."
+                },
+                "highAvailabilityConfig": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentHighAvailabilityConfig"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "The type of instance underlying the environment."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the environment."
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned."
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies whether the environment is publicly accessible."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of security groups for the VPC associated with this environment."
+                },
+                "storageConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:m2:EnvironmentStorageConfiguration"
+                    },
+                    "description": "The storage configurations defined for the runtime environment."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The unique identifiers of the subnets assigned to this runtime environment."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentTagMap",
+                    "description": "Tags associated to this environment."
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the environment."
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentEngineType"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The version of the runtime engine for the environment."
+                },
+                "environmentArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the runtime environment."
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "The unique identifier of the environment."
+                },
+                "highAvailabilityConfig": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentHighAvailabilityConfig"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "The type of instance underlying the environment."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the environment."
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned."
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies whether the environment is publicly accessible."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of security groups for the VPC associated with this environment."
+                },
+                "storageConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:m2:EnvironmentStorageConfiguration"
+                    },
+                    "description": "The storage configurations defined for the runtime environment."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The unique identifiers of the subnets assigned to this runtime environment."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentTagMap",
+                    "description": "Tags associated to this environment."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "engineType",
+                "instanceType"
+            ],
+            "createOnly": [
+                "description",
+                "engineType",
+                "name",
+                "publiclyAccessible",
+                "securityGroupIds",
+                "storageConfigurations",
+                "subnetIds"
+            ]
+        },
         "aws-native:macie:AllowList": {
             "cf": "AWS::Macie::AllowList",
             "inputs": {
@@ -35650,6 +35791,47 @@
             "createOnly": [
                 "description",
                 "parameterGroupFamily"
+            ]
+        },
+        "aws-native:redshift:ClusterSubnetGroup": {
+            "cf": "AWS::Redshift::ClusterSubnetGroup",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
+                    }
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
+                    }
+                }
+            },
+            "required": [
+                "description",
+                "subnetIds"
             ]
         },
         "aws-native:redshift:EndpointAccess": {
@@ -71258,6 +71440,23 @@
                 }
             }
         },
+        "aws-native:m2:EnvironmentEngineType": {
+            "type": "string"
+        },
+        "aws-native:m2:EnvironmentHighAvailabilityConfig": {
+            "type": "object",
+            "properties": {
+                "desiredCapacity": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:m2:EnvironmentStorageConfiguration": {
+            "type": "object"
+        },
+        "aws-native:m2:EnvironmentTagMap": {
+            "type": "object"
+        },
         "aws-native:macie:AllowListCriteria": {
             "type": "object"
         },
@@ -76526,6 +76725,17 @@
             }
         },
         "aws-native:redshift:ClusterParameterGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:redshift:ClusterSubnetGroupTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -87715,6 +87925,12 @@
                 "projectName"
             ]
         },
+        "aws-native:m2:getEnvironment": {
+            "cf": "AWS::M2::Environment",
+            "ids": [
+                "environmentArn"
+            ]
+        },
         "aws-native:macie:getAllowList": {
             "cf": "AWS::Macie::AllowList",
             "ids": [
@@ -88155,6 +88371,12 @@
             "cf": "AWS::Redshift::ClusterParameterGroup",
             "ids": [
                 "parameterGroupName"
+            ]
+        },
+        "aws-native:redshift:getClusterSubnetGroup": {
+            "cf": "AWS::Redshift::ClusterSubnetGroup",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:redshift:getEndpointAccess": {
