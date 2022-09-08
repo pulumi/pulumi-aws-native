@@ -68,6 +68,7 @@ import * as location from "./location";
 import * as logs from "./logs";
 import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
+import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
@@ -178,6 +179,7 @@ export {
     logs,
     lookoutequipment,
     lookoutmetrics,
+    m2,
     macie,
     mediaconnect,
     mediapackage,

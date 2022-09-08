@@ -380,6 +380,8 @@ AWS::Logs::SubscriptionFilter
 AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
+AWS::M2::Application
+AWS::M2::Environment
 AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
 AWS::MSK::Configuration
@@ -456,6 +458,7 @@ AWS::RDS::OptionGroup
 AWS::RUM::AppMonitor
 AWS::Redshift::Cluster
 AWS::Redshift::ClusterParameterGroup
+AWS::Redshift::ClusterSubnetGroup
 AWS::Redshift::EndpointAccess
 AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription

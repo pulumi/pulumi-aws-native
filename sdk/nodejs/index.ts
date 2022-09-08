@@ -149,6 +149,7 @@ import * as logs from "./logs";
 import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as lookoutvision from "./lookoutvision";
+import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as managedblockchain from "./managedblockchain";
 import * as mediaconnect from "./mediaconnect";
@@ -349,6 +350,7 @@ export {
     lookoutequipment,
     lookoutmetrics,
     lookoutvision,
+    m2,
     macie,
     managedblockchain,
     mediaconnect,

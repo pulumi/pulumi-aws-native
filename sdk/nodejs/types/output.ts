@@ -22618,6 +22618,28 @@ export namespace lookoutmetrics {
 
 }
 
+export namespace m2 {
+    /**
+     * Defines the details of a high availability configuration.
+     */
+    export interface EnvironmentHighAvailabilityConfig {
+        desiredCapacity: number;
+    }
+
+    /**
+     * Defines the storage configuration for an environment.
+     */
+    export interface EnvironmentStorageConfiguration {
+    }
+
+    /**
+     * Defines tags associated to an environment.
+     */
+    export interface EnvironmentTagMap {
+    }
+
+}
+
 export namespace macie {
     /**
      * The regex or s3 object to use for the AllowList.

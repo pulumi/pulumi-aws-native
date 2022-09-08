@@ -22218,6 +22218,27 @@ export namespace lookoutmetrics {
     }
 }
 
+export namespace m2 {
+    /**
+     * Defines the details of a high availability configuration.
+     */
+    export interface EnvironmentHighAvailabilityConfigArgs {
+        desiredCapacity: pulumi.Input<number>;
+    }
+
+    /**
+     * Defines the storage configuration for an environment.
+     */
+    export interface EnvironmentStorageConfigurationArgs {
+    }
+
+    /**
+     * Defines tags associated to an environment.
+     */
+    export interface EnvironmentTagMapArgs {
+    }
+}
+
 export namespace macie {
     /**
      * The regex or s3 object to use for the AllowList.

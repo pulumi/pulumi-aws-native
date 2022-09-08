@@ -277,6 +277,8 @@ if typing.TYPE_CHECKING:
     lookoutmetrics = __lookoutmetrics
     import pulumi_aws_native.lookoutvision as __lookoutvision
     lookoutvision = __lookoutvision
+    import pulumi_aws_native.m2 as __m2
+    m2 = __m2
     import pulumi_aws_native.macie as __macie
     macie = __macie
     import pulumi_aws_native.managedblockchain as __managedblockchain
@@ -544,6 +546,7 @@ else:
     lookoutequipment = _utilities.lazy_import('pulumi_aws_native.lookoutequipment')
     lookoutmetrics = _utilities.lazy_import('pulumi_aws_native.lookoutmetrics')
     lookoutvision = _utilities.lazy_import('pulumi_aws_native.lookoutvision')
+    m2 = _utilities.lazy_import('pulumi_aws_native.m2')
     macie = _utilities.lazy_import('pulumi_aws_native.macie')
     managedblockchain = _utilities.lazy_import('pulumi_aws_native.managedblockchain')
     mediaconnect = _utilities.lazy_import('pulumi_aws_native.mediaconnect')
@@ -2148,6 +2151,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.lookoutvision",
   "classes": {
    "aws-native:lookoutvision:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "m2",
+  "fqn": "pulumi_aws_native.m2",
+  "classes": {
+   "aws-native:m2:Environment": "Environment"
   }
  },
  {
